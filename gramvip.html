@@ -211,6 +211,9 @@
   .icon-grid button { aspect-ratio: 1; border-radius: 13px; border: 1px solid var(--border); background: var(--bg-secondary); font-size: 1.3rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .13s; }
   .icon-grid button:hover { border-color: var(--accent); transform: translateY(-2px); }
   .icon-grid button.on { background: linear-gradient(135deg, var(--accent-solid), var(--accent-hover)); border-color: transparent; box-shadow: var(--glow); }
+  .icon-grid button { padding: 2px; overflow: hidden; }
+  .ic-img { display: inline-block; width: 1.35em; height: 1.35em; object-fit: cover; border-radius: .4em; vertical-align: -0.3em; }
+  .hc-icon .ic-img, .lr-icon .ic-img, .icon-grid .ic-img { width: 100%; height: 100%; border-radius: inherit; vertical-align: 0; }
   .btnrow { display: flex; gap: 0.55rem; margin-top: 0.9rem; flex-wrap: wrap; }
   .btn { border-radius: 14px; border: 1px solid var(--border); padding: 0.68rem 1.15rem; font-family: inherit; font-weight: 800; font-size: 0.9rem; cursor: pointer; transition: all .14s; }
   .btn-primary { background: linear-gradient(135deg, var(--accent-solid), var(--accent-hover)); color: #fff; border-color: transparent; flex: 1; }
@@ -298,6 +301,7 @@
 <footer><span data-t="footerTag">دروسك محفوظة على جهازك — صدّر نسخة احتياطية من القائمة ⋮</span> · <span>gramvip</span></footer>
 <div class="toast" id="toast"></div>
 <button class="fab hidden" id="fabBtn">➕</button>
+<input type="file" id="iconFileInput" accept="image/*" hidden>
 
 <!-- sheets -->
 <div class="overlay hidden" id="ovFolder">
@@ -323,6 +327,7 @@
       <label data-t="lessonTitle">عنوان الدرس</label>
       <input type="text" id="lessonTitle" data-t-ph="lessonTitlePh" placeholder="مثال: Verbe : ÊTRE — الفعل: يكون — TO BE">
     </div>
+    <div class="field"><label data-t="lessonIcon">أيقونة الدرس</label><div class="icon-grid" id="lessonIconGrid"></div></div>
     <div class="field">
       <label data-t="lessonText">نص الدرس (بالنموذج)</label>
       <textarea id="lessonText" spellcheck="false" data-t-ph="lessonTextPh" placeholder="🇫🇷 Verbe : AVOIR — يملك / عنده — To have
@@ -374,7 +379,7 @@
       folders: 'مجلدات', lessons: 'دروس', phrases: 'عبارة', sections: 'أقسام',
       searchPh: 'ابحث في العبارات…', noResults: 'لا توجد نتائج', stop: 'إيقاف', home: 'الرئيسية',
       newFolder: 'مجلد جديد', editFolder: 'تعديل المجلد', folderName: 'اسم المجلد', folderNamePh: 'مثال: الأفعال', folderIcon: 'أيقونة المجلد',
-      newLesson: 'درس جديد', editLesson: 'تعديل الدرس', lessonTitle: 'عنوان الدرس', lessonTitlePh: 'مثال: Verbe : ÊTRE — الفعل: يكون — TO BE', lessonText: 'نص الدرس (بالنموذج)', lessonTextPh: 'الصق نص الدرس هنا…',
+      newLesson: 'درس جديد', editLesson: 'تعديل الدرس', lessonTitle: 'عنوان الدرس', lessonTitlePh: 'مثال: Verbe : ÊTRE — الفعل: يكون — TO BE', lessonText: 'نص الدرس (بالنموذج)', lessonTextPh: 'الصق نص الدرس هنا…', lessonIcon: 'أيقونة الدرس',
       copyTemplate: 'نسخ النموذج', paste: 'لصق', save: 'حفظ', cancel: 'إلغاء', yes: 'نعم', no: 'لا',
       rename: 'تغيير الاسم', changeIcon: 'تغيير الأيقونة', del: 'حذف', open: 'فتح', edit: 'تعديل', moveTo: 'نقل إلى مجلد',
       addLesson: 'إضافة درس', addFolder: 'إضافة مجلد', export: 'تصدير نسخة احتياطية', import: 'استيراد نسخة',
@@ -395,7 +400,7 @@
       folders: 'folders', lessons: 'lessons', phrases: 'phrases', sections: 'sections',
       searchPh: 'Search phrases…', noResults: 'No results', stop: 'Stop', home: 'Home',
       newFolder: 'New folder', editFolder: 'Edit folder', folderName: 'Folder name', folderNamePh: 'e.g. Verbs', folderIcon: 'Folder icon',
-      newLesson: 'New lesson', editLesson: 'Edit lesson', lessonTitle: 'Lesson title', lessonTitlePh: 'e.g. Verbe : ÊTRE — الفعل — TO BE', lessonText: 'Lesson text (template)', lessonTextPh: 'Paste lesson text here…',
+      newLesson: 'New lesson', editLesson: 'Edit lesson', lessonTitle: 'Lesson title', lessonTitlePh: 'e.g. Verbe : ÊTRE — الفعل — TO BE', lessonText: 'Lesson text (template)', lessonTextPh: 'Paste lesson text here…', lessonIcon: 'Lesson icon',
       copyTemplate: 'Copy template', paste: 'Paste', save: 'Save', cancel: 'Cancel', yes: 'Yes', no: 'No',
       rename: 'Rename', changeIcon: 'Change icon', del: 'Delete', open: 'Open', edit: 'Edit', moveTo: 'Move to folder',
       addLesson: 'Add lesson', addFolder: 'Add folder', export: 'Export backup', import: 'Import backup',
@@ -416,7 +421,7 @@
       folders: 'dossiers', lessons: 'leçons', phrases: 'phrases', sections: 'sections',
       searchPh: 'Rechercher une phrase…', noResults: 'Aucun résultat', stop: 'Arrêter', home: 'Accueil',
       newFolder: 'Nouveau dossier', editFolder: 'Modifier le dossier', folderName: 'Nom du dossier', folderNamePh: 'ex. Verbes', folderIcon: 'Icône du dossier',
-      newLesson: 'Nouvelle leçon', editLesson: 'Modifier la leçon', lessonTitle: 'Titre de la leçon', lessonTitlePh: 'ex. Verbe : ÊTRE — الفعل — TO BE', lessonText: 'Texte de la leçon (modèle)', lessonTextPh: 'Collez le texte de la leçon ici…',
+      newLesson: 'Nouvelle leçon', editLesson: 'Modifier la leçon', lessonTitle: 'Titre de la leçon', lessonTitlePh: 'ex. Verbe : ÊTRE — الفعل — TO BE', lessonText: 'Texte de la leçon (modèle)', lessonTextPh: 'Collez le texte de la leçon ici…', lessonIcon: 'Icône de la leçon',
       copyTemplate: 'Copier le modèle', paste: 'Coller', save: 'Enregistrer', cancel: 'Annuler', yes: 'Oui', no: 'Non',
       rename: 'Renommer', changeIcon: 'Changer l\'icône', del: 'Supprimer', open: 'Ouvrir', edit: 'Modifier', moveTo: 'Déplacer vers',
       addLesson: 'Ajouter une leçon', addFolder: 'Ajouter un dossier', export: 'Exporter une sauvegarde', import: 'Importer une sauvegarde',
@@ -434,6 +439,50 @@
 
   var TTS_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
   var FOLDER_ICONS = ['📁','📚','📝','✏️','🔤','🗣️','💬','📖','🎓','⚖️','🏛️','🏥','🏦','✉️','💼','🏠','🚇','🛒','🍽️','⚽','🎵','🧮','📐','🔬','🌍','⏰','💡','❤️','⭐','🧠','📌'];
+
+  var pickedImg = null;
+  var imgGridTarget = null;
+  function buildIconGrid(grid, curIcon) {
+    pickedImg = (curIcon && curIcon.indexOf('data:image') === 0) ? curIcon : null;
+    grid.innerHTML = '<button data-ic="__img__" title="صورة من الجهاز">🖼️</button>' +
+      FOLDER_ICONS.map(function (ic) {
+        return '<button data-ic="' + ic + '"' + (ic === curIcon ? ' class="on"' : '') + '>' + ic + '</button>';
+      }).join('');
+    grid.querySelectorAll('button').forEach(function (b) {
+      b.onclick = function () {
+        if (b.dataset.ic === '__img__') { imgGridTarget = grid; document.getElementById('iconFileInput').click(); return; }
+        pickedImg = null;
+        grid.querySelectorAll('button').forEach(function (x) { x.classList.remove('on'); });
+        b.classList.add('on');
+      };
+    });
+    if (pickedImg) markImgBtn(pickedImg, grid);
+  }
+  function markImgBtn(url, grid) {
+    grid = grid || imgGridTarget;
+    if (!grid) return;
+    var b = grid.querySelector('button[data-ic="__img__"]');
+    if (!b) return;
+    b.innerHTML = '<img class="ic-img" src="' + url + '" alt="">';
+    grid.querySelectorAll('button').forEach(function (x) { x.classList.remove('on'); });
+    b.classList.add('on');
+  }
+  function resizeIconImage(file, cb) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      var img = new Image();
+      img.onload = function () {
+        var s = Math.min(1, 128 / Math.max(img.width || 1, img.height || 1));
+        var c = document.createElement('canvas');
+        c.width = Math.max(1, Math.round(img.width * s));
+        c.height = Math.max(1, Math.round(img.height * s));
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        cb(c.toDataURL('image/jpeg', 0.85));
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  }
 
   var TEMPLATE = "🇫🇷 Verbe : [INFINITIF] — 🇸🇾 الفعل: [المعنى بالعربي] — 🇺🇸 Verb: [English meaning]\n\n🇫🇷 1. Présent — 🇸🇾 المضارع — 🇺🇸 Present\n\n🇫🇷 Je [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Tu [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Il [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Elle [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Nous [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Vous [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Ils / Elles [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 2. Passé composé — 🇸🇾 الماضي المركّب — 🇺🇸 Compound past\n\n🇫🇷 [Phrase au passé composé]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 3. Futur proche — 🇸🇾 المستقبل القريب — 🇺🇸 Near future\n\n🇫🇷 [Phrase au futur proche]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 4. Vie quotidienne — 🇸🇾 الحياة اليومية — 🇺🇸 Daily life\n\n🇫🇷 [Phrase de la vie quotidienne]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 5. Au travail — 🇸🇾 بالشغل — 🇺🇸 At work\n\n🇫🇷 [Phrase au travail]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 6. À la pharmacie — 🇸🇾 بالصيدلية — 🇺🇸 At the pharmacy\n\n🇫🇷 [Phrase à la pharmacie]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 7. Chez le médecin — 🇸🇾 عند الدكتور — 🇺🇸 At the doctor's";
 
@@ -453,6 +502,10 @@
 
   function t(k) { return (UI[state.lang] && UI[state.lang][k]) || UI.ar[k] || k; }
   function esc(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : s; return d.innerHTML; }
+  function iconHtml(ic) {
+    if (ic && ic.indexOf('data:image') === 0) return '<img class="ic-img" src="' + ic + '" alt="">';
+    return esc(ic || '📁');
+  }
   function $(s) { return document.querySelector(s); }
   function uid() { return 'g' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
   function tri(obj) { return (obj && (obj[state.lang] || obj.fr || obj.ar || obj.en)) || ''; }
@@ -907,7 +960,7 @@
       var nPh = ls.reduce(function (n, l) { return n + lessonPhraseCount(l); }, 0);
       return '<div class="home-card" data-id="' + f.id + '">' +
         '<button class="card-menu-btn" data-menu="' + f.id + '">⋮</button>' +
-        '<span class="hc-icon">' + esc(f.icon || '📁') + '</span>' +
+        '<span class="hc-icon">' + iconHtml(f.icon || '📁') + '</span>' +
         '<span class="hc-name">' + esc(f.name) + '</span>' +
         '<span class="hc-meta">' + ls.length + ' ' + t('lessons') + ' · ' + nPh + ' ' + t('phrases') + '</span></div>';
     }).join('');
@@ -936,7 +989,7 @@
     if (!f) { state.view = 'home'; renderAll(); return; }
     var ls = lessonsIn(f.id);
     head.innerHTML = '<button class="icon-btn back-btn" id="backBtn">🏠 ' + t('home') + '</button>' +
-      '<h2>' + esc(f.icon || '📁') + ' ' + esc(f.name) + '</h2>' +
+      '<h2>' + iconHtml(f.icon || '📁') + ' ' + esc(f.name) + '</h2>' +
       '<button class="icon-btn" id="folderEditBtn">✏️</button>' +
       '<p>' + ls.length + ' ' + t('lessons') + '</p>';
     document.getElementById('backBtn').onclick = navBack;
@@ -945,7 +998,7 @@
     var html = ls.map(function (l) {
       var nPh = lessonPhraseCount(l);
       return '<div class="lesson-row" data-id="' + l.id + '">' +
-        '<span class="lr-icon">📚</span>' +
+        '<span class="lr-icon">' + iconHtml(l.icon || '📚') + '</span>' +
         '<div class="lr-body"><div class="lr-title">' + esc(lessonTitle(l)) + '</div>' +
         '<div class="lr-sub">' + esc(l.title.ar || l.title.en || '') + '</div></div>' +
         '<span class="lr-meta">' + l.sections.length + ' ' + t('sectionsCount') + ' · ' + nPh + ' ' + t('phrasesCount') + '</span>' +
@@ -978,8 +1031,8 @@
     var head = document.getElementById('viewHead');
     var wrap = document.getElementById('content');
     if (!l) { state.view = state.folderId ? 'folder' : 'home'; renderAll(); return; }
-    head.innerHTML = '<button class="icon-btn back-btn" id="backBtn">' + esc(f ? (f.icon + ' ' + f.name) : t('home')) + '</button>' +
-      '<h2>📚 ' + esc(lessonTitle(l)) + speakFlags(l.title) + '</h2>' +
+    head.innerHTML = '<button class="icon-btn back-btn" id="backBtn">' + (f ? (iconHtml(f.icon || '📁') + ' ' + esc(f.name)) : esc(t('home'))) + '</button>' +
+      '<h2>' + iconHtml(l.icon || '📚') + ' ' + esc(lessonTitle(l)) + speakFlags(l.title) + '</h2>' +
       '<button class="icon-btn" id="lessonEditBtn">✏️</button>' +
       '<p>' + esc(l.title.ar || '') + (l.title.en ? ' · ' + esc(l.title.en) : '') + '</p>';
     document.getElementById('backBtn').onclick = navBack;
@@ -1070,7 +1123,7 @@
           '<div class="section-body">' + phrases.map(phraseHtml).join('') + '</div></div>';
       });
       if (lessonHtml) {
-        html += '<div class="centre-group">' + esc((f ? f.icon + ' ' + f.name : '') + ' › ') +
+        html += '<div class="centre-group">' + (f ? iconHtml(f.icon || '📁') + ' ' + esc(f.name) : '') + ' › ' +
           '<span class="link" data-lesson="' + l.id + '">' + esc(lessonTitle(l)) + '</span></div>' + lessonHtml;
       }
     });
@@ -1147,16 +1200,7 @@
     document.querySelector('#folderSheetTitle span').textContent = f ? t('editFolder') : t('newFolder');
     document.getElementById('folderNameInput').value = f ? f.name : '';
     var grid = document.getElementById('folderIconGrid');
-    var curIcon = (f && f.icon) || '📁';
-    grid.innerHTML = FOLDER_ICONS.map(function (ic) {
-      return '<button data-ic="' + ic + '"' + (ic === curIcon ? ' class="on"' : '') + '>' + ic + '</button>';
-    }).join('');
-    grid.querySelectorAll('button').forEach(function (b) {
-      b.onclick = function () {
-        grid.querySelectorAll('button').forEach(function (x) { x.classList.remove('on'); });
-        b.classList.add('on');
-      };
-    });
+    buildIconGrid(grid, (f && f.icon) || '📁');
     document.getElementById('ovFolder').classList.remove('hidden');
     if (iconOnly) grid.scrollIntoView({ block: 'center' });
     else setTimeout(function () { document.getElementById('folderNameInput').focus(); }, 80);
@@ -1164,7 +1208,8 @@
   async function saveFolder() {
     var name = document.getElementById('folderNameInput').value.trim();
     var ic = document.querySelector('#folderIconGrid button.on');
-    var icon = ic ? ic.dataset.ic : '📁';
+    var icon = pickedImg || (ic ? ic.dataset.ic : '📁');
+    if (icon === '__img__') icon = '📁';
     if (!name) { document.getElementById('folderNameInput').focus(); return; }
     if (editingFolder) {
       editingFolder.name = name; editingFolder.icon = icon;
@@ -1186,6 +1231,7 @@
     document.querySelector('#lessonSheetTitle span').textContent = l ? t('editLesson') : t('newLesson');
     document.getElementById('lessonText').value = l ? (l.raw || '') : '';
     document.getElementById('lessonTitle').value = l ? [l.title.fr, l.title.ar, l.title.en].filter(Boolean).join(' — ') : '';
+    buildIconGrid(document.getElementById('lessonIconGrid'), (l && l.icon) || '📚');
     updateParseStats();
     document.getElementById('ovLesson').classList.remove('hidden');
   }
@@ -1243,16 +1289,19 @@
     if (!items.length) { document.getElementById('lessonText').focus(); return; }
     var target = editingLesson ? folderById(editingLesson.folderId) : lessonFolderTarget;
     var titleIn = document.getElementById('lessonTitle').value;
+    var icBtn = document.querySelector('#lessonIconGrid button.on');
+    var lessonIcon = pickedImg || (icBtn && icBtn.dataset.ic) || '📚';
+    if (lessonIcon === '__img__') lessonIcon = '📚';
     if (editingLesson) {
-      editingLesson.title = titleFromInput(titleIn, items[0].p.title); editingLesson.sections = items[0].p.sections; editingLesson.raw = items[0].raw;
+      editingLesson.title = titleFromInput(titleIn, items[0].p.title); editingLesson.sections = items[0].p.sections; editingLesson.raw = items[0].raw; editingLesson.icon = lessonIcon;
       await idbPut('lessons', editingLesson);
     } else {
-      var l = { id: uid(), folderId: target.id, title: titleFromInput(titleIn, items[0].p.title), sections: items[0].p.sections, raw: items[0].raw, createdAt: Date.now() };
+      var l = { id: uid(), folderId: target.id, title: titleFromInput(titleIn, items[0].p.title), sections: items[0].p.sections, raw: items[0].raw, icon: lessonIcon, createdAt: Date.now() };
       lessons.push(l);
       await idbPut('lessons', l);
     }
     for (var i = 1; i < items.length; i++) {
-      var li = { id: uid(), folderId: target.id, title: items[i].p.title, sections: items[i].p.sections, raw: items[i].raw, createdAt: Date.now() };
+      var li = { id: uid(), folderId: target.id, title: items[i].p.title, sections: items[i].p.sections, raw: items[i].raw, icon: lessonIcon, createdAt: Date.now() };
       lessons.push(li);
       await idbPut('lessons', li);
     }
@@ -1264,7 +1313,7 @@
   function openMoveSheet(l) {
     var list = document.getElementById('moveList');
     list.innerHTML = folders.map(function (f) {
-      return '<div class="lesson-row" data-fid="' + f.id + '"><span class="lr-icon">' + esc(f.icon || '📁') + '</span>' +
+      return '<div class="lesson-row" data-fid="' + f.id + '"><span class="lr-icon">' + iconHtml(f.icon || '📁') + '</span>' +
         '<div class="lr-body"><div class="lr-title">' + esc(f.name) + '</div></div></div>';
     }).join('');
     list.querySelectorAll('[data-fid]').forEach(function (row) {
@@ -1416,6 +1465,12 @@
   });
 
   /* ==================== wiring ==================== */
+  document.getElementById('iconFileInput').onchange = function (e) {
+    var file = e.target.files && e.target.files[0];
+    e.target.value = '';
+    if (!file) return;
+    resizeIconImage(file, function (url) { pickedImg = url; markImgBtn(url); });
+  };
   document.getElementById('langBtn').onclick = function () {
     var order = ['ar', 'en', 'fr'];
     state.lang = order[(order.indexOf(state.lang) + 1) % order.length];
