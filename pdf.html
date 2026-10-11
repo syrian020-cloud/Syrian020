@@ -2756,6 +2756,17 @@ function toggleEditMode(on) {
 
 function pageDiv(n) { return pagesEl.querySelector('.page[data-page="' + n + '"]'); }
 
+/* single selection across all pages — clears .sel everywhere, sets one */
+function setSel(n2, i2) {
+  sel = n2 === null ? null : { n: n2, i: i2 };
+  pagesEl.querySelectorAll('.eobj.sel').forEach(el => el.classList.remove('sel'));
+  if (sel) {
+    const d = pageDiv(sel.n);
+    const el = d && d.querySelector('.eobj[data-i="' + sel.i + '"]');
+    if (el) el.classList.add('sel');
+  }
+}
+
 function selTxt() {
   return sel && edits[sel.n] && edits[sel.n][sel.i] && edits[sel.n][sel.i].kind === 'txt'
     ? edits[sel.n][sel.i] : null;
@@ -2767,7 +2778,7 @@ function curTxt() {
   if (o) return o;
   const list = edits[currentPage] || [];
   for (let i = list.length - 1; i >= 0; i--)
-    if (list[i].kind === 'txt') { sel = { n: currentPage, i }; const d = pageDiv(currentPage); if (d) inflateOverlay(d); return list[i]; }
+    if (list[i].kind === 'txt') { setSel(currentPage, i); return list[i]; }
   return null;
 }
 
@@ -2931,14 +2942,12 @@ function wireOverlay(ov, div) {
     }
     if (obj) {
       const p = frac(e);
-      sel = { n, i };
-      ov.querySelectorAll('.eobj').forEach(el2 => el2.classList.toggle('sel', +el2.dataset.i === i));
-      state = { kind: 'mv', i, dx: p.x - edits[n][i].x, dy: p.y - edits[n][i].y };
+      setSel(n, i);
+      state = { kind: 'mv', i, dx: p.x - edits[n][i].x, dy: p.y - edits[n][i].y, sx: e.clientX, sy: e.clientY, moved: false };
       ov.setPointerCapture(e.pointerId); e.preventDefault(); return;
     }
     // empty area
-    sel = null;
-    ov.querySelectorAll('.eobj').forEach(el2 => el2.classList.remove('sel'));
+    setSel(null);
     if (editTool === 'cover') {
       const p = frac(e);
       const o = { kind: 'rect', x: p.x, y: p.y, w: 0.001, h: 0.001, color: '#ffffff' };
@@ -2970,7 +2979,7 @@ function wireOverlay(ov, div) {
       (edits[n] = edits[n] || []).push(o);
       pendingImg = null; pendingTxt = null;
       $('edTText').classList.remove('on');
-      sel = { n, i: edits[n].length - 1 };  // auto-select so A-/A+/font/color apply right away
+      setSel(n, edits[n].length - 1);  // auto-select so A-/A+/font/color apply right away
       inflateOverlay(div);
       e.preventDefault();
     }
@@ -2981,6 +2990,9 @@ function wireOverlay(ov, div) {
     const o = edits[n][state.i];
     if (!o) return;
     if (state.kind === 'mv') {
+      /* a tap selects without nudging — drag only starts past a small threshold */
+      if (!state.moved && Math.hypot(e.clientX - state.sx, e.clientY - state.sy) < 8) return;
+      state.moved = true;
       o.x = Math.min(Math.max(0, p.x - state.dx), 1 - o.w);
       o.y = Math.min(Math.max(0, p.y - state.dy), 1 - o.h);
     } else if (state.kind === 'rs') {
