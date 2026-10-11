@@ -251,9 +251,7 @@
     <button class="icon-btn" id="themeBtn" title="Theme">🌙</button>
     <button class="icon-btn" id="edgeBtn" title="صوت طبيعي (إنترنت)">🔊</button>
     <button class="icon-btn" id="edgeSetBtn" title="إعدادات النطق">⚙️</button>
-    <button class="icon-btn lang-btn" data-lang="ar">AR</button>
-    <button class="icon-btn lang-btn" data-lang="en">EN</button>
-    <button class="icon-btn lang-btn" data-lang="fr">FR</button>
+    <button class="icon-btn" id="langBtn" title="اللغة / Language / Langue">🌐 AR</button>
     <span class="menuwrap">
       <button class="icon-btn" id="menuBtn" title="القائمة">⋮</button>
       <div class="menu hidden" id="topMenu"></div>
@@ -842,10 +840,8 @@
     document.querySelectorAll('[data-t-ph]').forEach(function (el) { el.placeholder = t(el.getAttribute('data-t-ph')); });
     document.documentElement.lang = state.lang;
     document.documentElement.dir = (state.lang === 'ar') ? 'rtl' : 'ltr';
-    document.querySelectorAll('.lang-btn').forEach(function (b) {
-      b.style.background = (b.dataset.lang === state.lang) ? 'linear-gradient(135deg,var(--accent),var(--accent-hover))' : '';
-      b.style.color = (b.dataset.lang === state.lang) ? '#fff' : '';
-    });
+    var lb = document.getElementById('langBtn');
+    if (lb) lb.textContent = '🌐 ' + state.lang.toUpperCase();
   }
   function applyTheme() {
     document.documentElement.setAttribute('data-theme', state.theme === 'light' ? 'light' : 'dark');
@@ -1415,9 +1411,12 @@
   });
 
   /* ==================== wiring ==================== */
-  document.querySelectorAll('.lang-btn').forEach(function (b) {
-    b.onclick = function () { state.lang = b.dataset.lang; localStorage.setItem('gramvip_lang', state.lang); renderAll(); renderTopMenu(); };
-  });
+  document.getElementById('langBtn').onclick = function () {
+    var order = ['ar', 'en', 'fr'];
+    state.lang = order[(order.indexOf(state.lang) + 1) % order.length];
+    localStorage.setItem('gramvip_lang', state.lang);
+    renderAll(); renderTopMenu();
+  };
   document.getElementById('themeBtn').onclick = function () {
     state.theme = (state.theme === 'light') ? 'dark' : 'light';
     localStorage.setItem('gramvip_theme', state.theme);
