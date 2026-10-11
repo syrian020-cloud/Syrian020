@@ -1315,6 +1315,8 @@
     voiceAr: { ar: 'صوت العربية', en: 'Arabic voice', fr: 'Voix arabe' },
     voiceEn: { ar: 'صوت الإنجليزية', en: 'English voice', fr: 'Voix anglaise' },
     voicePreview: { ar: 'استمع', en: 'Listen', fr: 'Écouter' },
+    edgeTtsFailed: { ar: 'صوت الإنترنت فشل، تم التبديل لصوت الجهاز', en: 'Internet voice failed, switched to device voice', fr: 'Voix Internet en échec, voix de l’appareil utilisée' },
+    ttsFailed: { ar: 'فشل النطق', en: 'Speech failed', fr: 'Échec de la voix' },
     aspectRatioTitle: { ar: 'نسبة عرض الفيديو', en: 'Video aspect ratio', fr: 'Ratio d’aspect vidéo' },
     imageAspectTitle: { ar: 'مقياس الصورة', en: 'Image aspect ratio', fr: 'Format de l’image' },
     imageAspectOriginal: { ar: 'أصلي', en: 'Original', fr: 'Original' },
@@ -2832,18 +2834,38 @@
     return EdgeTTS.play(text, lang);
   }
 
+  let edgeErrShown = false, noTtsShown = false;
   function anySpeak(text, lang) {
-    const t = stripSpeechFlags(text);
-    if (!t) return Promise.reject('empty tts');
+    const txt = stripSpeechFlags(text);
+    if (!txt) return Promise.reject('empty tts');
     pauseAllMedia();
     const fallback = () => {
-      if (speakSupported()) return nativeSpeak(t, lang);
-      if (webTTS()) return webSpeak(t, lang);
-      return Promise.reject('no tts');
+      const steps = [];
+      if (speakSupported()) steps.push(() => nativeSpeak(txt, lang));
+      if (webTTS()) steps.push(() => webSpeak(txt, lang));
+      let r = Promise.reject('no tts');
+      for (const s of steps) r = r.catch(s);
+      return r;
     };
     let p;
-    if (edgeSupported()) p = edgeSpeak(t, lang).catch(() => fallback());
+    if (edgeSupported()) p = edgeSpeak(txt, lang).catch(e => {
+      if (e && e.stopped) throw e;
+      if (!edgeErrShown) {
+        edgeErrShown = true;
+        const reason = (window.EdgeTTS && EdgeTTS.lastError) || (e && (e.message || e)) || 'unknown';
+        showToast(t('edgeTtsFailed') + ' (' + reason + ')', 9000);
+      }
+      return fallback();
+    });
     else p = fallback();
+    p = p.catch(e => {
+      if (!(e && e.stopped) && !noTtsShown) {
+        noTtsShown = true;
+        const reason = (e && (e.message || e)) || 'unknown';
+        showToast(t('ttsFailed') + ' (' + reason + ')', 9000);
+      }
+      throw e;
+    });
     ttsActive++;
     const done = () => { ttsActive = Math.max(0, ttsActive - 1); };
     p.then(done, done);
