@@ -320,7 +320,7 @@
   <div class="sheet">
     <h2 id="lessonSheetTitle">📚 <span data-t="newLesson">درس جديد</span></h2>
     <div class="btnrow" style="margin:0 0 0.7rem">
-      <button class="btn btn-ghost" id="copyTplBtn">📋 <span data-t="copyTemplate">نسخ النموذج</span></button>
+      <button class="btn btn-ghost" id="copyTplBtn">📋 <span data-t="viewTemplate">النموذج</span></button>
       <button class="btn btn-ghost" id="pasteBtn">📥 <span data-t="paste">لصق</span></button>
     </div>
     <div class="field">
@@ -355,6 +355,17 @@
   </div>
 </div>
 
+<div class="overlay hidden" id="ovTemplate">
+  <div class="sheet">
+    <h2>📋 <span data-t="viewTemplate">النموذج</span></h2>
+    <div class="field"><textarea id="tplView" readonly spellcheck="false" style="min-height:320px"></textarea></div>
+    <div class="btnrow">
+      <button class="btn btn-ghost" id="tplCancel" data-t="cancel">إلغاء</button>
+      <button class="btn btn-primary" id="tplCopy">📋 <span data-t="copy">نسخ</span></button>
+    </div>
+  </div>
+</div>
+
 <div class="overlay center hidden" id="ovConfirm">
   <div class="dlg">
     <h2 id="confirmTitle"></h2>
@@ -380,7 +391,7 @@
       searchPh: 'ابحث في العبارات…', noResults: 'لا توجد نتائج', stop: 'إيقاف', home: 'الرئيسية',
       newFolder: 'مجلد جديد', editFolder: 'تعديل المجلد', folderName: 'اسم المجلد', folderNamePh: 'مثال: الأفعال', folderIcon: 'أيقونة المجلد',
       newLesson: 'درس جديد', editLesson: 'تعديل الدرس', lessonTitle: 'عنوان الدرس', lessonTitlePh: 'مثال: Verbe : ÊTRE — الفعل: يكون — TO BE', lessonText: 'نص الدرس (بالنموذج)', lessonTextPh: 'الصق نص الدرس هنا…', lessonIcon: 'أيقونة الدرس',
-      copyTemplate: 'نسخ النموذج', paste: 'لصق', save: 'حفظ', cancel: 'إلغاء', yes: 'نعم', no: 'لا',
+      copyTemplate: 'نسخ النموذج', viewTemplate: 'النموذج', copy: 'نسخ', paste: 'لصق', save: 'حفظ', cancel: 'إلغاء', yes: 'نعم', no: 'لا',
       rename: 'تغيير الاسم', changeIcon: 'تغيير الأيقونة', del: 'حذف', open: 'فتح', edit: 'تعديل', moveTo: 'نقل إلى مجلد',
       addLesson: 'إضافة درس', addFolder: 'إضافة مجلد', export: 'تصدير نسخة احتياطية', import: 'استيراد نسخة',
       delFolderT: 'حذف المجلد؟', delFolderD: 'سيتم حذف المجلد وكل دروسه — لا يمكن التراجع.',
@@ -401,7 +412,7 @@
       searchPh: 'Search phrases…', noResults: 'No results', stop: 'Stop', home: 'Home',
       newFolder: 'New folder', editFolder: 'Edit folder', folderName: 'Folder name', folderNamePh: 'e.g. Verbs', folderIcon: 'Folder icon',
       newLesson: 'New lesson', editLesson: 'Edit lesson', lessonTitle: 'Lesson title', lessonTitlePh: 'e.g. Verbe : ÊTRE — الفعل — TO BE', lessonText: 'Lesson text (template)', lessonTextPh: 'Paste lesson text here…', lessonIcon: 'Lesson icon',
-      copyTemplate: 'Copy template', paste: 'Paste', save: 'Save', cancel: 'Cancel', yes: 'Yes', no: 'No',
+      copyTemplate: 'Copy template', viewTemplate: 'Template', copy: 'Copy', paste: 'Paste', save: 'Save', cancel: 'Cancel', yes: 'Yes', no: 'No',
       rename: 'Rename', changeIcon: 'Change icon', del: 'Delete', open: 'Open', edit: 'Edit', moveTo: 'Move to folder',
       addLesson: 'Add lesson', addFolder: 'Add folder', export: 'Export backup', import: 'Import backup',
       delFolderT: 'Delete folder?', delFolderD: 'The folder and all its lessons will be deleted — this cannot be undone.',
@@ -422,7 +433,7 @@
       searchPh: 'Rechercher une phrase…', noResults: 'Aucun résultat', stop: 'Arrêter', home: 'Accueil',
       newFolder: 'Nouveau dossier', editFolder: 'Modifier le dossier', folderName: 'Nom du dossier', folderNamePh: 'ex. Verbes', folderIcon: 'Icône du dossier',
       newLesson: 'Nouvelle leçon', editLesson: 'Modifier la leçon', lessonTitle: 'Titre de la leçon', lessonTitlePh: 'ex. Verbe : ÊTRE — الفعل — TO BE', lessonText: 'Texte de la leçon (modèle)', lessonTextPh: 'Collez le texte de la leçon ici…', lessonIcon: 'Icône de la leçon',
-      copyTemplate: 'Copier le modèle', paste: 'Coller', save: 'Enregistrer', cancel: 'Annuler', yes: 'Oui', no: 'Non',
+      copyTemplate: 'Copier le modèle', viewTemplate: 'Modèle', copy: 'Copier', paste: 'Coller', save: 'Enregistrer', cancel: 'Annuler', yes: 'Oui', no: 'Non',
       rename: 'Renommer', changeIcon: 'Changer l\'icône', del: 'Supprimer', open: 'Ouvrir', edit: 'Modifier', moveTo: 'Déplacer vers',
       addLesson: 'Ajouter une leçon', addFolder: 'Ajouter un dossier', export: 'Exporter une sauvegarde', import: 'Importer une sauvegarde',
       delFolderT: 'Supprimer le dossier ?', delFolderD: 'Le dossier et toutes ses leçons seront supprimés — action irréversible.',
@@ -1531,15 +1542,19 @@
   document.getElementById('moveCancel').onclick = function () { document.getElementById('ovMove').classList.add('hidden'); };
   document.getElementById('lessonText').addEventListener('input', updateParseStats);
   document.getElementById('copyTplBtn').onclick = function () {
+    document.getElementById('tplView').value = TEMPLATE;
+    document.getElementById('ovTemplate').classList.remove('hidden');
+  };
+  document.getElementById('tplCancel').onclick = function () { document.getElementById('ovTemplate').classList.add('hidden'); };
+  document.getElementById('tplCopy').onclick = function () {
     var done = function () { toast('📋 ' + t('copied')); };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(TEMPLATE).then(done).catch(function () { fallbackCopy(); });
     } else fallbackCopy();
     function fallbackCopy() {
-      var ta = document.createElement('textarea');
-      ta.value = TEMPLATE; document.body.appendChild(ta); ta.select();
+      var ta = document.getElementById('tplView');
+      ta.focus(); ta.select();
       try { document.execCommand('copy'); done(); } catch (e) {}
-      ta.remove();
     }
   };
   document.getElementById('pasteBtn').onclick = async function () {
@@ -1554,7 +1569,7 @@
     } catch (e) { toast('⚠️'); }
   };
 
-  ['ovFolder', 'ovLesson', 'ovMove'].forEach(function (id) {
+  ['ovFolder', 'ovLesson', 'ovMove', 'ovTemplate'].forEach(function (id) {
     document.getElementById(id).addEventListener('click', function (e) {
       if (e.target.id === id) document.getElementById(id).classList.add('hidden');
     });
