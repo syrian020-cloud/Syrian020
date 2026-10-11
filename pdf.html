@@ -2749,7 +2749,12 @@ function matchBase(div, fx, fy) {
   const fs = parseFloat(cs.fontSize);
   if (!fs) return null;
   const color = /\(0\)|transparent/.test(cs.color) ? '#111111' : cs.color;
-  return { h: (fs / 0.85) / div.clientHeight, font: cs.fontFamily, color };
+  /* pdf.js spans use embedded subset font ids (e.g. g_d0_f1) that render
+     new glyphs blank — only generic families are safe to reuse */
+  const fam = cs.fontFamily.toLowerCase();
+  const font = fam.includes('mono') ? 'monospace'
+    : (fam.includes('serif') && !fam.includes('sans')) ? 'serif' : 'sans-serif';
+  return { h: (fs / 0.85) / div.clientHeight, font, color };
 }
 
 /* width fraction that fits the text at the given height on this page */
