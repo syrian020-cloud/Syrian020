@@ -1515,7 +1515,6 @@ function renderPlan(){
       <input class="f-in" id="p-org" value="${esc(chkPrefill?(chkPrefill.org||''):'')}" placeholder="${esc(t('cOrgPh'))}">
       <div class="btnrow"><button class="btn btn-pri" id="p-go">✅ ${t('chkGo')}</button></div>
       <div id="p-res"></div>
-    </div>
     </div>`;
   $('#p-back').onclick=closePlan;
   el.querySelectorAll('[data-sh]').forEach(b=>b.onclick=()=>setThisWeek(b.dataset.sh));
