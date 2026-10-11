@@ -50,9 +50,11 @@ if [ -f "$MANIFEST" ] && ! grep -q 'android:largeHeap' "$MANIFEST"; then
 fi
 
 # Inject the EdgeTTS native plugin (free Microsoft neural voices over WebSocket)
+# and the FilePick plugin (imports JSON exports from any content provider)
 PLUGIN_DIR="android/app/src/main/java/com/syrian020/tts"
 mkdir -p "$PLUGIN_DIR"
 cp native-plugins/EdgeTtsPlugin.java "$PLUGIN_DIR/"
+cp native-plugins/FilePickPlugin.java "$PLUGIN_DIR/"
 MAIN_ACTIVITY=$(find android/app/src/main/java -name MainActivity.java | head -1)
 if [ -f "$MAIN_ACTIVITY" ] && ! grep -q 'EdgeTtsPlugin' "$MAIN_ACTIVITY"; then
   python3 - "$MAIN_ACTIVITY" <<'PYEOF'
@@ -60,9 +62,9 @@ import sys, re
 p = sys.argv[1]
 s = open(p).read()
 s = s.replace('import com.getcapacitor.BridgeActivity;',
-              'import com.getcapacitor.BridgeActivity;\nimport com.syrian020.tts.EdgeTtsPlugin;')
+              'import com.getcapacitor.BridgeActivity;\nimport com.syrian020.tts.EdgeTtsPlugin;\nimport com.syrian020.tts.FilePickPlugin;')
 s = re.sub(r'(public class MainActivity extends BridgeActivity \{)',
-           r'\1\n    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n        registerPlugin(EdgeTtsPlugin.class);\n        super.onCreate(savedInstanceState);\n    }', s)
+           r'\1\n    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n        registerPlugin(EdgeTtsPlugin.class);\n        registerPlugin(FilePickPlugin.class);\n        super.onCreate(savedInstanceState);\n    }', s)
 open(p, 'w').write(s)
 PYEOF
 fi
