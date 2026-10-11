@@ -4440,6 +4440,8 @@
       <div class="ad-cats">${APPT_CATS.map(c => `<button class="cat-chip${curCat === c ? ' on' : ''}" data-cat="${c}">${CAT_ICONS[c]} ${t('cat_' + c)}</button>`).join('')}</div>
       <label class="chk-lbl">${t('afNotes')}</label>
       <textarea id="af-notes" class="ctl plan-in" rows="2" placeholder="${esc(t('afNotesPh'))}">${esc(a ? a.notes || '' : '')}</textarea>
+      <label class="chk-lbl">${t('afCaptions')}</label>
+      <textarea id="af-captions" class="ctl plan-in" rows="3" placeholder="${esc(t('afCaptions'))}">${esc(a ? a.captionText || '' : '')}</textarea>
       <div class="plan-row" style="margin-top:.3rem">
         <button class="btn" id="af-check">🔎 ${t('apptCheck')}</button>
         <button class="btn plan-save" id="af-save">💾 ${t('save')}</button>
@@ -4568,6 +4570,7 @@
       addr: document.getElementById('af-addr').value.trim(),
       cat: ((document.querySelector('.cat-chip.on') || {}).dataset || {}).cat || 'autre',
       notes: document.getElementById('af-notes').value.trim(),
+      captionText: document.getElementById('af-captions').value.trim(),
       status: base.status || 'upcoming',
       ts: base.ts || Date.now()
     });
@@ -4674,6 +4677,7 @@
       (a.org ? `<div class="ad-row">🏛️<span><span class="chk-lbl">${t('afOrg')}</span><br>${esc(a.org)}</span></div>` : '') +
       (addr ? `<div class="ad-row">🏠<span><span class="chk-lbl">${t('afAddr')}</span><br>${esc(addr)}</span></div>` : '') +
       (a.notes ? `<div class="ad-row">📝<span><span class="chk-lbl">${t('afNotes')}</span><br>${esc(a.notes)}</span></div>` : '') +
+      (a.captionText ? `<div class="ad-row">💬<span><span class="chk-lbl">${t('afCaptions')}</span><br>${esc(a.captionText)}</span></div>` : '') +
       (addr ? `<div class="ad-maps"><button class="btn" data-appt-act="chooser" data-id="${id}">🗺️ ${t('chooseMap')}</button><button class="btn" style="background:#0d9d6b;border:none" data-appt-act="maps" data-id="${id}">🔍 Google Maps</button></div>` : '') +
       `<button class="btn ghost ad-check" data-appt-act="check" data-id="${id}">✅ ${t('checkTitle')}</button>` +
       `<div id="ad-verdict" class="af-verdict"></div>` +
