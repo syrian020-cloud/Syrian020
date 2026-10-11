@@ -2779,18 +2779,63 @@ function matchBase(div, fx, fy) {
     if (d < bd) { bd = d; best = w; }
   });
   if (!best || bd > Math.pow(r.width * 0.45, 2)) return null;
-  /* only the size is borrowed from the base text — font and color always
-     come from the toolbar so placed text can never be invisible */
-  const fs = parseFloat(getComputedStyle(best).fontSize);
+  const cs = getComputedStyle(best);
+  const fs = parseFloat(cs.fontSize);
   if (!fs) return null;
-  return { h: (fs / 0.85) / div.clientHeight };
+  /* map the pdf font to a safe generic family — never copy embedded subset
+     ids (they render blank); 'sans' must be tested before 'serif' */
+  const fam = (cs.fontFamily || '').toLowerCase();
+  let font = 'sans-serif';
+  if (/mono|cour|consol|typewriter|fixed/.test(fam)) font = 'monospace';
+  else if (/sans|helvet|arial|roboto|noto sans/.test(fam)) font = 'sans-serif';
+  else if (/serif|times|roman|book|georg|palat|garamond|baskerville|amiri/.test(fam)) font = 'serif';
+  const ink = inkProbe(div, best);
+  return {
+    h: (fs / 0.85) / div.clientHeight,
+    font,
+    color: ink.color || '#111111',
+    weight: ink.bold ? '700' : '400',
+    italic: /italic|oblique/.test(cs.fontStyle) ? 'italic' : 'normal'
+  };
+}
+
+/* sample the rendered canvas under a word span: real ink color + boldness.
+   (the text layer itself is transparent, so its CSS color is useless) */
+function inkProbe(div, span) {
+  const cv = div.querySelector('canvas');
+  if (!cv || !cv.width) return {};
+  try {
+    const cr = cv.getBoundingClientRect(), wr = span.getBoundingClientRect();
+    if (!cr.width) return {};
+    /* pdf.js spans are often tiny (scaled via transform) — center the probe
+       box on the glyph using its font size instead of trusting the rect */
+    const fs = parseFloat(getComputedStyle(span).fontSize) || 12;
+    const bw = Math.max(wr.width, fs * 0.5), bh = Math.max(wr.height, fs * 1.1);
+    const cx = wr.left + wr.width / 2 - bw / 2, cy = wr.top + wr.height / 2 - bh / 2;
+    const sx = cv.width / cr.width, sy = cv.height / cr.height;
+    const x0 = Math.max(0, (cx - cr.left) * sx), y0 = Math.max(0, (cy - cr.top) * sy);
+    const w = Math.min(cv.width - x0, bw * sx), h = Math.min(cv.height - y0, bh * sy);
+    if (w < 2 || h < 2) return {};
+    const data = cv.getContext('2d').getImageData(x0, y0, w, h).data;
+    let n = 0, sr = 0, sg = 0, sb = 0, tot = 0;
+    for (let i = 0; i < data.length; i += 4 * 3) {
+      tot++;
+      const a = data[i + 3], rr = data[i], gg = data[i + 1], bb = data[i + 2];
+      if (a < 200) continue;
+      const lum = 0.3 * rr + 0.5 * gg + 0.2 * bb;
+      if (lum < 170) { n++; sr += rr; sg += gg; sb += bb; }
+    }
+    if (!n) return {};
+    const hex = '#' + [sr / n, sg / n, sb / n].map(v => Math.round(v).toString(16).padStart(2, '0')).join('');
+    return { color: hex, bold: n / tot > 0.10 };
+  } catch (e) { return {}; }
 }
 
 /* width fraction that fits the text at the given height on this page */
-function txtWidthFrac(text, font, hFrac, div) {
+function txtWidthFrac(text, font, hFrac, div, weight) {
   const fs = Math.max(8, hFrac * div.clientHeight * 0.85);
   const ctx = document.createElement('canvas').getContext('2d');
-  ctx.font = '700 ' + fs + 'px ' + font;
+  ctx.font = (weight || '700') + ' ' + fs + 'px ' + font;
   return Math.min(0.95, (ctx.measureText(text).width + fs * 0.4) / div.clientWidth);
 }
 
@@ -2826,6 +2871,8 @@ function objEl(div, o, i) {
     el.style.fontSize = Math.max(8, o.h * div.clientHeight * 0.85) + 'px';
     el.style.fontFamily = o.font || 'sans-serif';
     el.style.color = o.color || '#111';
+    el.style.fontWeight = o.weight || '700';
+    el.style.fontStyle = o.italic || 'normal';
   } else if (o.kind === 'img') {
     const im = document.createElement('img');
     im.src = o.src; im.draggable = false;
@@ -2881,14 +2928,18 @@ function wireOverlay(ov, div) {
       const p = frac(e);
       const o = pendingImg
         ? { kind: 'img', x: p.x - 0.15, y: p.y - 0.04, w: 0.3, h: 0.08 * (pendingImg.ratio || 0.5) / 0.5 * (div.clientWidth / div.clientHeight), src: pendingImg.src }
-        : { kind: 'txt', x: p.x, y: p.y, w: 0.3, h: txtStyle.size, text: pendingTxt, font: txtStyle.font, color: txtStyle.color };
+        : { kind: 'txt', x: p.x, y: p.y, w: 0.3, h: txtStyle.size, text: pendingTxt, font: txtStyle.font, color: txtStyle.color, weight: '700', italic: 'normal' };
       if (o.kind === 'img') { o.h = o.w * pendingImg.ratio * (div.clientWidth / div.clientHeight); o.x = Math.max(0, p.x - o.w / 2); o.y = Math.max(0, p.y - o.h / 2); }
       if (o.kind === 'txt') {
         if (txtStyle.auto) {
           const m = matchBase(div, p.x, p.y);
-          if (m) o.h = m.h;
+          if (m) {
+            o.h = m.h; o.font = m.font; o.color = m.color;
+            o.weight = m.weight; o.italic = m.italic;
+            $('edTxtFont').value = o.font;
+          }
         }
-        o.w = txtWidthFrac(o.text, o.font, o.h, div);
+        o.w = txtWidthFrac(o.text, o.font, o.h, div, o.weight);
         o.x = Math.max(0, Math.min(1 - o.w, o.x));
       }
       (edits[n] = edits[n] || []).push(o);
@@ -2983,11 +3034,12 @@ function textPng(o, v) {
   const c = document.createElement('canvas');
   const ctx = c.getContext('2d');
   const fs = Math.round(h * 0.85);
-  ctx.font = '700 ' + fs + 'px ' + (o.font || 'sans-serif');
+  const fspec = (o.italic === 'italic' ? 'italic ' : '') + (o.weight || '700') + ' ' + fs + 'px ' + (o.font || 'sans-serif');
+  ctx.font = fspec;
   const tw = Math.ceil(ctx.measureText(o.text).width) + 8;
   c.width = tw; c.height = h;
   const ctx2 = c.getContext('2d');
-  ctx2.font = '700 ' + fs + 'px ' + (o.font || 'sans-serif');
+  ctx2.font = fspec;
   ctx2.fillStyle = o.color || '#111';
   ctx2.textBaseline = 'middle';
   ctx2.fillText(o.text, 4, h / 2);
