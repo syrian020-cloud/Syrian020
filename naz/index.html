@@ -4738,7 +4738,7 @@
       (a.notes ? `<div class="ad-row">📝<span><span class="chk-lbl">${t('afNotes')}</span><br>${esc(a.notes)}</span></div>` : '') +
       (a.captionText ? `<div class="ad-row">💬<span style="flex:1"><span class="chk-lbl">${t('afCaptions')}</span>` +
           parseApptPhrases(a.captionText).map((p, i) =>
-            `<div class="appt-phrase"><button class="appt-loop-btn" data-appt-loop="${i}" type="button" title="Loop">🔁</button><span class="appt-phrase-txt">${esc([p.fr, p.ar, p.en].filter(Boolean).join('\n')).replace(/\n/g, '<br>')}</span></div>`).join('') +
+            `<div class="appt-phrase"><button class="appt-loop-btn" data-appt-speak="${i}" type="button" title="Speak">🔊</button><button class="appt-loop-btn" data-appt-loop="${i}" type="button" title="Loop">🔁</button><span class="appt-phrase-txt">${esc([p.fr ? '\u{1F1EB}\u{1F1F7} ' + p.fr : '', p.ar ? '\u{1F1F8}\u{1F1FE} ' + p.ar : '', p.en ? '\u{1F1FA}\u{1F1F8} ' + p.en : ''].filter(Boolean).join('\n')).replace(/\n/g, '<br>')}</span></div>`).join('') +
           `</span></div>` : '') +
       (addr ? `<div class="ad-maps"><button class="btn" data-appt-act="chooser" data-id="${id}">🗺️ ${t('chooseMap')}</button><button class="btn" style="background:#0d9d6b;border:none" data-appt-act="maps" data-id="${id}">🔍 Google Maps</button></div>` : '') +
       `<button class="btn ghost ad-check" data-appt-act="check" data-id="${id}">✅ ${t('checkTitle')}</button>` +
@@ -5853,6 +5853,15 @@ Output in French, Arabic and English.`;
     document.getElementById('sheet-cancel').onclick = closeActionSheet;
     sheet.addEventListener('click', e => {
       if (e.target === sheet) { closeActionSheet(); return; }
+      const apptSpeak = e.target.closest('[data-appt-speak]');
+      if (apptSpeak) {
+        const a = appts.find(x => x.id === sheetApptId);
+        if (a) {
+          const p = parseApptPhrases(a.captionText)[+apptSpeak.dataset.apptSpeak];
+          if (p) speakOnce(p, state.langs, 'appt:' + sheetApptId + ':' + apptSpeak.dataset.apptSpeak);
+        }
+        return;
+      }
       const apptLoop = e.target.closest('[data-appt-loop]');
       if (apptLoop) {
         const a = appts.find(x => x.id === sheetApptId);
