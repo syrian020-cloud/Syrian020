@@ -170,6 +170,7 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 .statusrow button.cur-up{background:var(--acc);color:#fff;border-color:var(--acc)}
 .statusrow button.cur-ok{background:var(--ok);color:#06281f;border-color:var(--ok)}
 .statusrow button.cur-off{background:var(--bad);color:#fff;border-color:var(--bad)}
+.statusrow button:disabled{opacity:.4;cursor:default}
 .maprow{display:flex;gap:9px}
 .maprow a{flex:1;text-decoration:none;text-align:center;border-radius:13px;padding:12px;font-size:13.5px;
   font-weight:800;border:1px solid var(--line);background:var(--card2);color:var(--txt)}
@@ -357,6 +358,7 @@ const I18N = {
     delConfirm:'حذف هذا الموعد نهائياً؟', yes:'نعم، احذف', no:'تراجع',
     exitTitle:'الخروج من Tempo؟', exitYes:'خروج', exitNo:'بقاء',
     stUp:'قادم', stOver:'فائت', stDone:'تم', stOff:'مُلغى',
+    doneEarly:'الموعد لسا ما انتهى — بيتحط «تم» بعد ما يخلص وقته',
     today:'اليوم', tomorrow:'غداً', now:'الآن',
     daysLeft:d=> d===1?'باقي يوم واحد': d===2?'باقي يومان': d<=10?`باقي ${d} أيام`:`باقي ${d} يوماً`,
     hoursLeft:h=> h<=1?'باقي أقل من ساعة': h===2?'باقي ساعتان':`باقي ${h} ساعة`,
@@ -423,6 +425,7 @@ const I18N = {
     delConfirm:'Supprimer ce rendez-vous ?', yes:'Oui, supprimer', no:'Retour',
     exitTitle:'Quitter Tempo ?', exitYes:'Quitter', exitNo:'Rester',
     stUp:'À venir', stOver:'Passé', stDone:'Fait', stOff:'Annulé',
+    doneEarly:'Le RDV n\'est pas encore passé — « Fait » possible après son heure',
     today:'Aujourd\'hui', tomorrow:'Demain', now:'Maintenant',
     daysLeft:d=> d<=1?'dans 1 jour':`dans ${d} jours`,
     hoursLeft:h=> h<=1?'dans moins d\'1 h':`dans ${h} h`,
@@ -489,6 +492,7 @@ const I18N = {
     delConfirm:'Delete this appointment?', yes:'Yes, delete', no:'Back',
     exitTitle:'Exit Tempo?', exitYes:'Exit', exitNo:'Stay',
     stUp:'Upcoming', stOver:'Overdue', stDone:'Done', stOff:'Cancelled',
+    doneEarly:'Appointment has not ended yet — mark it done after its time',
     today:'Today', tomorrow:'Tomorrow', now:'Now',
     daysLeft:d=> d<=1?'in 1 day':`in ${d} days`,
     hoursLeft:h=> h<=1?'in < 1 h':`in ${h} h`,
@@ -1059,7 +1063,7 @@ function renderList(){
 }
 function cardMenu(a){
   const items=[[ '✏️',t('edit'),'edit'],
-    a.status!=='done'?['✅',t('markDone'),'done']:['↩️',t('markUp'),'up'],
+    a.status==='done'?['↩️',t('markUp'),'up']:(apptTime(a)<=Date.now()?['✅',t('markDone'),'done']:null),
     a.status!=='cancelled'?['🚫',t('markOff'),'off']:null,
     ['🗑️',t('del'),'del','danger']].filter(Boolean);
   return items.map(([ic,lab,act,cl])=>`<button class="${cl||''}" data-act="${act}" data-id="${a.id}">${ic} ${lab}</button>`).join('');
@@ -1097,7 +1101,7 @@ async function renderDetail(){
         ${a.status==='upcoming'&&!isOverdue(a)?`<span class="badge b-cd">${countdown(a)}</span>`:''}</div>
       <div class="statusrow">
         <button data-st="upcoming" class="${a.status==='upcoming'?'cur-up':''}">${t('stUp')}</button>
-        <button data-st="done" class="${a.status==='done'?'cur-ok':''}">${t('stDone')}</button>
+        <button data-st="done" class="${a.status==='done'?'cur-ok':''}" ${apptTime(a)>Date.now()?'disabled':''}>${t('stDone')}</button>
         <button data-st="cancelled" class="${a.status==='cancelled'?'cur-off':''}">${t('stOff')}</button>
       </div>
       <div class="dline"><span class="ic">📅</span><div><b>${t('fDate')}</b>${fmtDate(a)}</div></div>
@@ -1173,8 +1177,9 @@ async function renderDetail(){
 }
 async function setStatus(id,st){
   const a=byId(id);if(!a)return;
-  a.status=st==='up'?'upcoming':st==='off'?'cancelled':st;
-  save();await scheduleReminders(a);
+  const ns=st==='up'?'upcoming':st==='off'?'cancelled':st;
+  if(ns==='done'&&apptTime(a)>Date.now()){toast('⏳ '+t('doneEarly'));return;}
+  a.status=ns;save();await scheduleReminders(a);
   if(view==='detail')renderDetail();else renderAll();
 }
 
