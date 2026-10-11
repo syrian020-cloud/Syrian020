@@ -599,6 +599,10 @@
   .af-ex { opacity: .75; font-style: italic; }
   .af-tpl { background: rgba(0,0,0,.25); border-radius: 8px; padding: .5rem .7rem; font-size: .85rem; line-height: 1.7; direction: ltr; text-align: left; position: relative; }
   .af-copy { position: absolute; top: .3rem; inset-inline-end: .4rem; font-size: .75rem !important; padding: .15rem .5rem !important; }
+  .appt-phrase { display: flex; align-items: flex-start; gap: .5rem; background: rgba(0,0,0,.18); border-radius: 8px; padding: .35rem .5rem; margin: .3rem 0; }
+  .appt-phrase-txt { font-size: .82rem; line-height: 1.6; }
+  .appt-loop-btn { flex: none; width: 1.9rem; height: 1.9rem; border-radius: 50%; border: 1px solid var(--border); background: rgba(0,0,0,.4); color: #fff; font-size: .9rem; cursor: pointer; }
+  .appt-loop-btn.active { background: var(--success); color: #081c15; border-color: var(--success); }
   .admin-spacer { flex: 1; }
 </style>
 </head>
@@ -4689,7 +4693,29 @@
     } catch (e) { showToast(t('importFailed')); }
   }
 
+  function parseApptPhrases(txt) {
+    const lines = (txt || '').split('\n').map(l => l.trim()).filter(Boolean);
+    const groups = [];
+    let cur = {};
+    const strip = l => l.replace(/^[\u{1F1E6}-\u{1F1FF}]{2}\s*/u, '').trim();
+    const langOf = l => /^\u{1F1EB}\u{1F1F7}/u.test(l) ? 'fr' : /^\u{1F1F8}\u{1F1FE}/u.test(l) ? 'ar' : /^\u{1F1FA}\u{1F1F8}|^\u{1F1EC}\u{1F1E7}/u.test(l) ? 'en' : null;
+    for (const l of lines) {
+      const lang = langOf(l);
+      if (lang === 'fr' && (cur.fr || Object.keys(cur).length)) { groups.push(cur); cur = {}; }
+      if (lang) { cur[lang] = strip(l); }
+      else if (!cur.fr) cur.fr = l;
+      else if (!cur.ar) cur.ar = l;
+      else if (!cur.en) cur.en = l;
+      else { groups.push(cur); cur = { fr: l }; }
+      if (cur.fr && cur.ar && cur.en) { groups.push(cur); cur = {}; }
+    }
+    if (Object.keys(cur).length) groups.push(cur);
+    return groups;
+  }
+
+  let sheetApptId = 0;
   function openApptSheet(id) {
+    sheetApptId = id;
     const a = appts.find(x => x.id === id);
     if (!a) return;
     const sheet = document.getElementById('action-sheet');
@@ -4710,7 +4736,10 @@
       (a.org ? `<div class="ad-row">🏛️<span><span class="chk-lbl">${t('afOrg')}</span><br>${esc(a.org)}</span></div>` : '') +
       (addr ? `<div class="ad-row">🏠<span><span class="chk-lbl">${t('afAddr')}</span><br>${esc(addr)}</span></div>` : '') +
       (a.notes ? `<div class="ad-row">📝<span><span class="chk-lbl">${t('afNotes')}</span><br>${esc(a.notes)}</span></div>` : '') +
-      (a.captionText ? `<div class="ad-row">💬<span><span class="chk-lbl">${t('afCaptions')}</span><br>${esc(a.captionText)}</span></div>` : '') +
+      (a.captionText ? `<div class="ad-row">💬<span style="flex:1"><span class="chk-lbl">${t('afCaptions')}</span>` +
+          parseApptPhrases(a.captionText).map((p, i) =>
+            `<div class="appt-phrase"><button class="appt-loop-btn" data-appt-loop="${i}" type="button" title="Loop">🔁</button><span class="appt-phrase-txt">${esc([p.fr, p.ar, p.en].filter(Boolean).join('\n')).replace(/\n/g, '<br>')}</span></div>`).join('') +
+          `</span></div>` : '') +
       (addr ? `<div class="ad-maps"><button class="btn" data-appt-act="chooser" data-id="${id}">🗺️ ${t('chooseMap')}</button><button class="btn" style="background:#0d9d6b;border:none" data-appt-act="maps" data-id="${id}">🔍 Google Maps</button></div>` : '') +
       `<button class="btn ghost ad-check" data-appt-act="check" data-id="${id}">✅ ${t('checkTitle')}</button>` +
       `<div id="ad-verdict" class="af-verdict"></div>` +
@@ -5824,6 +5853,20 @@ Output in French, Arabic and English.`;
     document.getElementById('sheet-cancel').onclick = closeActionSheet;
     sheet.addEventListener('click', e => {
       if (e.target === sheet) { closeActionSheet(); return; }
+      const apptLoop = e.target.closest('[data-appt-loop]');
+      if (apptLoop) {
+        const a = appts.find(x => x.id === sheetApptId);
+        if (a) {
+          const p = parseApptPhrases(a.captionText)[+apptLoop.dataset.apptLoop];
+          if (p) toggleTTSLoop(p, 'appt:' + sheetApptId + ':' + apptLoop.dataset.apptLoop).then(() => {
+            document.querySelectorAll('.appt-loop-btn').forEach(b => {
+              const on = !!(state.loop && state.loop.key === 'appt:' + sheetApptId + ':' + b.dataset.apptLoop);
+              b.classList.toggle('active', on); b.textContent = on ? '⏸' : '🔁';
+            });
+          });
+        }
+        return;
+      }
       const apptAct = e.target.closest('[data-appt-act]');
       if (apptAct) { const act = apptAct.dataset.apptAct; if (act === 'check' || act === 'upcoming' || act === 'done' || act === 'cancel') apptAction(act, +apptAct.dataset.id); else { closeActionSheet(); apptAction(act, +apptAct.dataset.id); } return; }
       const edit = e.target.closest('[data-edit]');
