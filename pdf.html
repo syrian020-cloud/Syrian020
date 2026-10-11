@@ -2695,7 +2695,7 @@ async function openIncoming() {
 let editMode = false, editTool = null;
 const edits = {};                 // pageNo -> [{kind,x,y,w,h,text,src,color}]
 let pendingImg = null, pendingTxt = null;  // payloads armed for tap-to-place
-const txtStyle = { font: 'sans-serif', size: 0.035, color: '#111111', auto: true };
+const txtStyle = { font: 'sans-serif', size: 0.022, color: '#111111', auto: true };
 let sel = null;  // {n, i} selected overlay object
 
 function toggleEditMode(on) {
@@ -2727,8 +2727,13 @@ function applyTxtStyle(patch) {
 
 function bumpTxtSize(f) {
   const o = selTxt();
-  if (o) { o.h = Math.min(0.2, Math.max(0.008, o.h * f)); const d = pageDiv(sel.n); if (d) inflateOverlay(d); }
-  else txtStyle.size = Math.min(0.2, Math.max(0.008, txtStyle.size * f));
+  const d = sel ? pageDiv(sel.n) : null;
+  if (o && d) {
+    o.h = Math.min(0.2, Math.max(0.008, o.h * f));
+    o.w = txtWidthFrac(o.text, o.font, o.h, d);
+    o.x = Math.max(0, Math.min(1 - o.w, o.x));
+    inflateOverlay(d);
+  } else txtStyle.size = Math.min(0.2, Math.max(0.008, txtStyle.size * f));
 }
 
 /* nearest word span -> {h, font, color} so inserted text matches the base text */
@@ -2867,6 +2872,7 @@ function wireOverlay(ov, div) {
       (edits[n] = edits[n] || []).push(o);
       pendingImg = null; pendingTxt = null;
       $('edTText').classList.remove('on');
+      sel = { n, i: edits[n].length - 1 };  // auto-select so A-/A+/font/color apply right away
       inflateOverlay(div);
       e.preventDefault();
     }
