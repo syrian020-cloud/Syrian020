@@ -244,6 +244,12 @@
   .edit-sub .ebtn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
   .edit-sub select { border: 1px solid var(--border); background: var(--card); color: var(--text); border-radius: 10px; padding: 6px 8px; font-size: 13px; max-width: 130px; }
   .edit-sub input[type=color] { width: 34px; height: 30px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); padding: 2px; }
+  .cdot { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--border); padding: 0; }
+  .cdot.on { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+  @font-face { font-family: 'AmiriX'; src: url('fonts/amiri.woff2') format('woff2'); font-weight: 700; unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; }
+  @font-face { font-family: 'AmiriX'; src: url('fonts/amiri-l.woff2') format('woff2'); font-weight: 700; }
+  @font-face { font-family: 'CairoX'; src: url('fonts/cairo.woff2') format('woff2'); font-weight: 700; unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; }
+  @font-face { font-family: 'CairoX'; src: url('fonts/cairo-l.woff2') format('woff2'); font-weight: 700; }
   .page .eov { position: absolute; inset: 0; z-index: 5; pointer-events: auto; touch-action: pan-x pan-y pinch-zoom; }
   .eobj { position: absolute; box-sizing: border-box; touch-action: none; }
   .eobj.rect { background: #fff; }
@@ -634,11 +640,20 @@
       <select id="edTxtFont" data-i18n-title="ed_font">
         <option value="sans-serif" data-i18n="f_sans">عادي</option>
         <option value="serif" data-i18n="f_serif">كلاسيكي</option>
+        <option value="AmiriX" data-i18n="f_amiri">أميري</option>
+        <option value="CairoX" data-i18n="f_cairo">القاهرة</option>
         <option value="monospace" data-i18n="f_mono">أحادي</option>
       </select>
       <button class="ebtn" id="edTxtMinus" data-i18n-title="ed_smaller">A−</button>
       <button class="ebtn" id="edTxtPlus" data-i18n-title="ed_bigger">A+</button>
-      <input type="color" id="edTxtColor" value="#111111" data-i18n-title="ed_color">
+      <span id="edTxtColors">
+        <button class="cdot on" data-c="#111111" style="background:#111111"></button>
+        <button class="cdot" data-c="#d21f3c" style="background:#d21f3c"></button>
+        <button class="cdot" data-c="#1d4ed8" style="background:#1d4ed8"></button>
+        <button class="cdot" data-c="#15803d" style="background:#15803d"></button>
+        <button class="cdot" data-c="#b45309" style="background:#b45309"></button>
+        <button class="cdot" data-c="#ffffff" style="background:#ffffff"></button>
+      </span>
       <button class="ebtn on" id="edTxtAuto" data-i18n="ed_fit">مطابق للنص</button>
     </div>
     <button class="ebtn" id="edTSign" data-i18n="ed_sign">توقيع</button>
@@ -885,7 +900,7 @@ const STR = {
     ed_sign: 'توقيع', ed_text: 'نص', ed_img: 'صورة', ed_cover: 'تغطية', ed_save: 'حفظ نسخة', ed_exit: 'إنهاء',
     ed_hint: 'اختر أداة: «تغطية» اسحب فوق ما تريد إخفاءه، والباقي اضغط على الصفحة لوضعه',
     ed_txt_q: 'اكتب النص الذي تريد وضعه', ed_saved: 'حُفظت النسخة المعدّلة في التنزيلات', ed_none: 'لا تعديلات بعد',
-    ed_font: 'شكل الخط', f_sans: 'عادي', f_serif: 'كلاسيكي', f_mono: 'أحادي',
+    ed_font: 'شكل الخط', f_sans: 'عادي', f_serif: 'كلاسيكي', f_amiri: 'أميري', f_cairo: 'القاهرة', f_mono: 'أحادي',
     ed_smaller: 'تصغير الخط', ed_bigger: 'تكبير الخط', ed_color: 'لون النص', ed_fit: 'مطابق للنص',
     edge_fail: 'تعذّر صوت الإنترنت — تحويل للبديل',
     m_tts: 'اختبار النطق', m_tts_s: 'يتكلم جملة تجريبية للتحقق من محرك الصوت',
@@ -978,7 +993,7 @@ const STR = {
     ed_sign: 'Signature', ed_text: 'Texte', ed_img: 'Image', ed_cover: 'Cacher', ed_save: 'Enregistrer', ed_exit: 'Quitter',
     ed_hint: 'Choisissez un outil : « Cacher » glissez sur la zone, sinon touchez la page',
     ed_txt_q: 'Texte à insérer', ed_saved: 'Copie modifiée enregistrée dans Téléchargements', ed_none: 'Aucune modification',
-    ed_font: 'Police', f_sans: 'Normal', f_serif: 'Classique', f_mono: 'Mono',
+    ed_font: 'Police', f_sans: 'Normal', f_serif: 'Classique', f_amiri: 'Amiri', f_cairo: 'Cairo', f_mono: 'Mono',
     ed_smaller: 'Réduire', ed_bigger: 'Agrandir', ed_color: 'Couleur', ed_fit: 'Identique',
     edge_fail: 'Voix en ligne indisponible — bascule',
     m_tts: 'Tester la voix', m_tts_s: 'Lit une phrase test du moteur vocal',
@@ -1071,7 +1086,7 @@ const STR = {
     ed_sign: 'Signature', ed_text: 'Text', ed_img: 'Image', ed_cover: 'Cover', ed_save: 'Save copy', ed_exit: 'Done',
     ed_hint: 'Pick a tool: « Cover » drag over an area, others tap the page to place',
     ed_txt_q: 'Text to insert', ed_saved: 'Edited copy saved to Downloads', ed_none: 'No edits yet',
-    ed_font: 'Font', f_sans: 'Normal', f_serif: 'Classic', f_mono: 'Mono',
+    ed_font: 'Font', f_sans: 'Normal', f_serif: 'Classic', f_amiri: 'Amiri', f_cairo: 'Cairo', f_mono: 'Mono',
     ed_smaller: 'Smaller', ed_bigger: 'Bigger', ed_color: 'Text color', ed_fit: 'Match text',
     edge_fail: 'Online voice unavailable — switching',
     m_tts: 'Test speech', m_tts_s: 'Speaks a test sentence to verify the engine',
@@ -2705,6 +2720,7 @@ function toggleEditMode(on) {
   sel = null;
   armTool(null);
   if (on) {
+    for (const f of ['AmiriX', 'CairoX']) document.fonts.load('700 20px ' + f).catch(() => {});
     for (const d of pagesEl.children) inflateOverlay(d);
     toast(t('ed_hint'), 2800);
   } else {
@@ -2913,7 +2929,12 @@ $('edTText').onclick = async () => {
 };
 
 $('edTxtFont').onchange = e => applyTxtStyle({ font: e.target.value });
-$('edTxtColor').oninput = e => applyTxtStyle({ color: e.target.value });
+$('edTxtColors').querySelectorAll('.cdot').forEach(b => {
+  b.onclick = () => {
+    $('edTxtColors').querySelectorAll('.cdot').forEach(x => x.classList.toggle('on', x === b));
+    applyTxtStyle({ color: b.dataset.c });
+  };
+});
 $('edTxtPlus').onclick = () => bumpTxtSize(1.25);
 $('edTxtMinus').onclick = () => bumpTxtSize(1 / 1.25);
 $('edTxtAuto').onclick = () => {

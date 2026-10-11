@@ -13,6 +13,7 @@ mkdir -p www/pdfjs
 cp pdf.html www/index.html
 cp pdfjs/pdf.min.mjs pdfjs/pdf.worker.min.mjs www/pdfjs/
 [ -d ocr ] && cp -r ocr www/
+[ -d fonts ] && cp -r fonts www/
 cp manifest-pdf.json www/manifest.json
 cp icon-192.png icon-512.png www/
 
