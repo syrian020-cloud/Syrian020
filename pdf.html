@@ -235,10 +235,9 @@
   .edit-bar .ebtn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
   .edit-bar .ebtn.save { background: var(--accent-2); border-color: var(--accent-2); color: #fff; }
   .edit-sub {
-    position: absolute; left: 0; right: 0; bottom: 58px; z-index: 12;
     display: none; align-items: center; gap: 8px; flex-wrap: wrap;
-    padding: 6px 14px; background: rgba(11,15,31,0.85); backdrop-filter: blur(16px);
-    border-top: 1px solid var(--border);
+    width: 100%; order: -1;
+    padding-bottom: 8px; margin-bottom: 2px; border-bottom: 1px solid var(--border);
   }
   .edit-sub.show { display: flex; }
   .edit-sub .ebtn { border: 1px solid var(--border); background: var(--card); color: var(--text); border-radius: 10px; padding: 6px 10px; font-size: 13px; font-weight: 700; }
@@ -631,6 +630,17 @@
   <div class="pages-wrap" id="pagesWrap"><div class="pages" id="pages"></div></div>
 
   <div class="edit-bar" id="editBar">
+    <div class="edit-sub" id="editSub">
+      <select id="edTxtFont" data-i18n-title="ed_font">
+        <option value="sans-serif" data-i18n="f_sans">عادي</option>
+        <option value="serif" data-i18n="f_serif">كلاسيكي</option>
+        <option value="monospace" data-i18n="f_mono">أحادي</option>
+      </select>
+      <button class="ebtn" id="edTxtMinus" data-i18n-title="ed_smaller">A−</button>
+      <button class="ebtn" id="edTxtPlus" data-i18n-title="ed_bigger">A+</button>
+      <input type="color" id="edTxtColor" value="#111111" data-i18n-title="ed_color">
+      <button class="ebtn on" id="edTxtAuto" data-i18n="ed_fit">مطابق للنص</button>
+    </div>
     <button class="ebtn" id="edTSign" data-i18n="ed_sign">توقيع</button>
     <button class="ebtn" id="edTText" data-i18n="ed_text">نص</button>
     <button class="ebtn" id="edTImg" data-i18n="ed_img">صورة</button>
@@ -638,17 +648,6 @@
     <span style="flex:1"></span>
     <button class="ebtn save" id="edTSave" data-i18n="ed_save">حفظ نسخة</button>
     <button class="ebtn" id="edTExit" data-i18n="ed_exit">إنهاء</button>
-  </div>
-  <div class="edit-sub" id="editSub">
-    <select id="edTxtFont" data-i18n-title="ed_font">
-      <option value="sans-serif" data-i18n="f_sans">عادي</option>
-      <option value="serif" data-i18n="f_serif">كلاسيكي</option>
-      <option value="monospace" data-i18n="f_mono">أحادي</option>
-    </select>
-    <button class="ebtn" id="edTxtMinus" data-i18n-title="ed_smaller">A−</button>
-    <button class="ebtn" id="edTxtPlus" data-i18n-title="ed_bigger">A+</button>
-    <input type="color" id="edTxtColor" value="#111111" data-i18n-title="ed_color">
-    <button class="ebtn on" id="edTxtAuto" data-i18n="ed_fit">مطابق للنص</button>
   </div>
   <input type="file" id="edImgInput" accept="image/*" hidden>
   <div class="bottombar" id="bottombar">
