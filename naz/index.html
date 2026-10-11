@@ -1923,7 +1923,7 @@
     afAddr: { ar: 'العنوان الكامل', en: 'Full address', fr: 'Adresse complète' },
     afNotes: { ar: 'ملاحظات', en: 'Notes', fr: 'Notes' },
     afAudio: { ar: 'مرفق صوتي', en: 'Audio attachment', fr: 'Pièce audio' },
-    afCaptions: { ar: 'نص مزامنة (00:05 نص)', en: 'Synced text (00:05 text)', fr: 'Texte synchronisé' },
+    afCaptions: { ar: 'نص العبارات', en: 'Phrases text', fr: 'Texte des phrases' },
     afHelpTitle: { ar: 'طريقة طلب العبارات وإضافتها إلى التطبيق', en: 'How to request phrases and add them to the app', fr: 'Comment demander des phrases et les ajouter à l\'app' },
     afHelpS1: { ar: 'الخطوة الأولى: انسخ النموذج التالي:', en: 'Step 1: copy this template:', fr: 'Étape 1 : copiez ce modèle :' },
     afHelpS2: { ar: 'الخطوة الثانية: أرسل النموذج إلى ChatGPT، واطلب منه عبارات عن الموضوع الذي تريده.', en: 'Step 2: send the template to ChatGPT and ask for phrases about the topic you want.', fr: 'Étape 2 : envoyez le modèle à ChatGPT et demandez des phrases sur le sujet voulu.' },
@@ -4466,7 +4466,7 @@
         <div class="af-step">${t('afHelpS5')}</div>
       </div>
       <label class="chk-lbl">${t('afCaptions')}</label>
-      <textarea id="af-captions" class="ctl plan-in" rows="3" placeholder="${esc(t('afCaptions'))}">${esc(a ? a.captionText || '' : '')}</textarea>
+      <textarea id="af-captions" class="ctl plan-in" rows="4" placeholder="🇫🇷 Maria, j'ai plus de cigarettes.&#10;🇸🇾 ماريا، ما عاد معي دخان.&#10;🇺🇸 Maria, I'm out of cigarettes.">${esc(a ? a.captionText || '' : '')}</textarea>
       <div class="plan-row" style="margin-top:.3rem">
         <button class="btn" id="af-check">🔎 ${t('apptCheck')}</button>
         <button class="btn plan-save" id="af-save">💾 ${t('save')}</button>
