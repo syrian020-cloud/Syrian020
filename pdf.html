@@ -250,6 +250,13 @@
   @font-face { font-family: 'AmiriX'; src: url('fonts/amiri-l.woff2') format('woff2'); font-weight: 700; }
   @font-face { font-family: 'CairoX'; src: url('fonts/cairo.woff2') format('woff2'); font-weight: 700; unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; }
   @font-face { font-family: 'CairoX'; src: url('fonts/cairo-l.woff2') format('woff2'); font-weight: 700; }
+  @font-face { font-family: 'TajawalX'; src: url('fonts/tajawal.woff2') format('woff2'); font-weight: 700; unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; }
+  @font-face { font-family: 'TajawalX'; src: url('fonts/tajawal-l.woff2') format('woff2'); font-weight: 700; }
+  @font-face { font-family: 'AlmaraiX'; src: url('fonts/almarai.woff2') format('woff2'); font-weight: 700; unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; }
+  @font-face { font-family: 'AlmaraiX'; src: url('fonts/almarai-l.woff2') format('woff2'); font-weight: 700; }
+  @font-face { font-family: 'ReemX'; src: url('fonts/reemkufi.woff2') format('woff2'); font-weight: 700; }
+  @font-face { font-family: 'PlayfairX'; src: url('fonts/playfair.woff2') format('woff2'); font-weight: 700; }
+  @font-face { font-family: 'DancingX'; src: url('fonts/dancing.woff2') format('woff2'); font-weight: 700; }
   .page .eov { position: absolute; inset: 0; z-index: 5; pointer-events: auto; touch-action: pan-x pan-y pinch-zoom; }
   .eobj { position: absolute; box-sizing: border-box; touch-action: none; }
   .eobj.rect { background: #fff; }
@@ -642,6 +649,11 @@
         <option value="serif" data-i18n="f_serif">كلاسيكي</option>
         <option value="AmiriX" data-i18n="f_amiri">أميري</option>
         <option value="CairoX" data-i18n="f_cairo">القاهرة</option>
+        <option value="TajawalX" data-i18n="f_tajawal">تجوّل</option>
+        <option value="AlmaraiX" data-i18n="f_almarai">المراعي</option>
+        <option value="ReemX" data-i18n="f_reem">ريم كوفي</option>
+        <option value="PlayfairX" data-i18n="f_playfair">Playfair</option>
+        <option value="DancingX" data-i18n="f_dancing">Dancing</option>
         <option value="monospace" data-i18n="f_mono">أحادي</option>
       </select>
       <button class="ebtn" id="edTxtMinus" data-i18n-title="ed_smaller">A−</button>
@@ -914,8 +926,8 @@ const STR = {
     ed_sign: 'توقيع', ed_text: 'نص', ed_img: 'صورة', ed_cover: 'تغطية', ed_save: 'حفظ نسخة', ed_exit: 'إنهاء',
     ed_hint: 'اختر أداة: «تغطية» اسحب فوق ما تريد إخفاءه، والباقي اضغط على الصفحة لوضعه',
     ed_txt_q: 'اكتب النص الذي تريد وضعه', ed_saved: 'حُفظت النسخة المعدّلة في التنزيلات', ed_none: 'لا تعديلات بعد',
-    ed_font: 'شكل الخط', f_sans: 'عادي', f_serif: 'كلاسيكي', f_amiri: 'أميري', f_cairo: 'القاهرة', f_mono: 'أحادي',
-    ed_smaller: 'تصغير الخط', ed_bigger: 'تكبير الخط', ed_color: 'لون النص', ed_fit: 'مطابق للنص',
+    ed_font: 'شكل الخط', f_sans: 'عادي', f_serif: 'كلاسيكي', f_amiri: 'أميري', f_cairo: 'القاهرة', f_tajawal: 'تجوّل', f_almarai: 'المراعي', f_reem: 'ريم كوفي', f_playfair: 'Playfair', f_dancing: 'Dancing', f_mono: 'أحادي',
+    ed_smaller: 'تصغير الخط', ed_bigger: 'تكبير الخط', ed_color: 'لون النص', ed_fit: 'مطابق للنص', ed_matched: 'الخط المطابق: ',
     edge_fail: 'تعذّر صوت الإنترنت — تحويل للبديل',
     m_tts: 'اختبار النطق', m_tts_s: 'يتكلم جملة تجريبية للتحقق من محرك الصوت',
     m_ocr: 'نطق الصفحة بالتعرّف الضوئي', m_ocr_s: 'يقرأ النص من صورة الصفحة — للملفات الممسوحة',
@@ -1007,8 +1019,8 @@ const STR = {
     ed_sign: 'Signature', ed_text: 'Texte', ed_img: 'Image', ed_cover: 'Cacher', ed_save: 'Enregistrer', ed_exit: 'Quitter',
     ed_hint: 'Choisissez un outil : « Cacher » glissez sur la zone, sinon touchez la page',
     ed_txt_q: 'Texte à insérer', ed_saved: 'Copie modifiée enregistrée dans Téléchargements', ed_none: 'Aucune modification',
-    ed_font: 'Police', f_sans: 'Normal', f_serif: 'Classique', f_amiri: 'Amiri', f_cairo: 'Cairo', f_mono: 'Mono',
-    ed_smaller: 'Réduire', ed_bigger: 'Agrandir', ed_color: 'Couleur', ed_fit: 'Identique',
+    ed_font: 'Police', f_sans: 'Normal', f_serif: 'Classique', f_amiri: 'Amiri', f_cairo: 'Cairo', f_tajawal: 'Tajawal', f_almarai: 'Almarai', f_reem: 'Reem Kufi', f_playfair: 'Playfair', f_dancing: 'Dancing', f_mono: 'Mono',
+    ed_smaller: 'Réduire', ed_bigger: 'Agrandir', ed_color: 'Couleur', ed_fit: 'Identique', ed_matched: 'Police identique : ',
     edge_fail: 'Voix en ligne indisponible — bascule',
     m_tts: 'Tester la voix', m_tts_s: 'Lit une phrase test du moteur vocal',
     m_ocr: 'Lire la page (OCR)', m_ocr_s: 'Lit le texte de l\u2019image — pour les scans',
@@ -1100,8 +1112,8 @@ const STR = {
     ed_sign: 'Signature', ed_text: 'Text', ed_img: 'Image', ed_cover: 'Cover', ed_save: 'Save copy', ed_exit: 'Done',
     ed_hint: 'Pick a tool: « Cover » drag over an area, others tap the page to place',
     ed_txt_q: 'Text to insert', ed_saved: 'Edited copy saved to Downloads', ed_none: 'No edits yet',
-    ed_font: 'Font', f_sans: 'Normal', f_serif: 'Classic', f_amiri: 'Amiri', f_cairo: 'Cairo', f_mono: 'Mono',
-    ed_smaller: 'Smaller', ed_bigger: 'Bigger', ed_color: 'Text color', ed_fit: 'Match text',
+    ed_font: 'Font', f_sans: 'Normal', f_serif: 'Classic', f_amiri: 'Amiri', f_cairo: 'Cairo', f_tajawal: 'Tajawal', f_almarai: 'Almarai', f_reem: 'Reem Kufi', f_playfair: 'Playfair', f_dancing: 'Dancing', f_mono: 'Mono',
+    ed_smaller: 'Smaller', ed_bigger: 'Bigger', ed_color: 'Text color', ed_fit: 'Match text', ed_matched: 'Matched font: ',
     edge_fail: 'Online voice unavailable — switching',
     m_tts: 'Test speech', m_tts_s: 'Speaks a test sentence to verify the engine',
     m_ocr: 'Read page via OCR', m_ocr_s: 'Reads text from the page image — for scans',
@@ -2734,7 +2746,7 @@ function toggleEditMode(on) {
   sel = null;
   armTool(null);
   if (on) {
-    for (const f of ['AmiriX', 'CairoX']) document.fonts.load('700 20px ' + f).catch(() => {});
+    for (const f of ['AmiriX', 'CairoX', 'TajawalX', 'AlmaraiX', 'ReemX', 'PlayfairX', 'DancingX']) document.fonts.load('700 20px ' + f).catch(() => {});
     for (const d of pagesEl.children) inflateOverlay(d);
     toast(t('ed_hint'), 2800);
   } else {
@@ -2793,6 +2805,7 @@ function matchBase(div, fx, fy) {
   return {
     h: (fs / 0.85) / div.clientHeight,
     font,
+    pdfFont: cs.fontFamily,
     color: ink.color || '#111111',
     weight: ink.bold ? '700' : '400',
     italic: /italic|oblique/.test(cs.fontStyle) ? 'italic' : 'normal'
@@ -2937,6 +2950,8 @@ function wireOverlay(ov, div) {
             o.h = m.h; o.font = m.font; o.color = m.color;
             o.weight = m.weight; o.italic = m.italic;
             $('edTxtFont').value = o.font;
+            const lbl = $('edTxtFont').selectedOptions[0].textContent;
+            toast(t('ed_matched') + lbl + (m.pdfFont && !/serif|sans|mono/i.test(m.pdfFont) ? ' (' + m.pdfFont + ')' : ''), 2600);
           }
         }
         o.w = txtWidthFrac(o.text, o.font, o.h, div, o.weight);
