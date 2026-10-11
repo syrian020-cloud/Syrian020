@@ -4449,39 +4449,9 @@
     </div>`;
   }
 
-  function weekRowHTML(monday, isThis) {
-    const kind = weekKindAt(monday);
-    const start = new Date(monday + 'T12:00:00');
-    const end = new Date(start); end.setDate(end.getDate() + 6);
-    const dayCells = [1, 2, 3, 4, 5, 6, 0].map(dow => {
-      const d = new Date(start); d.setDate(start.getDate() + (dow + 6) % 7);
-      const ds = dstr(d);
-      const works = !!shiftForDay(ds);
-      return `<button class="plan-day${works ? ' work' : ''}" data-day-tgl="${ds}" title="${ds}">${d.getDate()}</button>`;
-    }).join('');
-    return `<div class="plan-week${isThis ? ' cur' : ''}">
-      <div class="plan-week-top">
-        <span class="plan-week-label">${start.getDate()}/${start.getMonth() + 1} – ${end.getDate()}/${end.getMonth() + 1}${isThis ? ' · ' + t('thisWeek') : ''}</span>
-        <select class="ctl plan-ovr" data-week-ovr="${monday}">
-          <option value=""${planning.weekOverrides[monday] ? '' : ' selected'}>${t('auto')}</option>
-          <option value="matin"${planning.weekOverrides[monday] && planning.weekOverrides[monday].kind === 'matin' ? ' selected' : ''}>🟦 ${t('week_matin')}</option>
-          <option value="soir"${planning.weekOverrides[monday] && planning.weekOverrides[monday].kind === 'soir' ? ' selected' : ''}>🟧 ${t('week_soir')}</option>
-          <option value="repos"${planning.weekOverrides[monday] && planning.weekOverrides[monday].kind === 'repos' ? ' selected' : ''}>⚪ ${t('weekRepos')}</option>
-        </select>
-      </div>
-      <div class="plan-days">${dayCells}</div>
-    </div>`;
-  }
 
   function renderPlanning() {
     const kind = weekKindAt(mondayOf(todayStr()));
-    const weeks = [];
-    const thisMon = mondayOf(todayStr());
-    weeks.push(weekRowHTML(thisMon, true));
-    for (let i = 1; i <= 8; i++) {
-      const d = new Date(thisMon + 'T12:00:00'); d.setDate(d.getDate() + i * 7);
-      weeks.push(weekRowHTML(dstr(d), false));
-    }
     const dayBtns = [1, 2, 3, 4, 5, 6, 0].map(d =>
       `<button class="plan-wd-btn${planning.workDays.includes(d) ? ' on' : ''}" data-wd-btn="${d}">${new Intl.DateTimeFormat(VOICE_LANG[state.uiLang] || 'fr-FR', { weekday: 'short' }).format(new Date(2024, 0, d === 0 ? 7 : d))}</button>`).join('');
     const st_ = planning.shiftTimes || SHIFTS;
@@ -4519,8 +4489,6 @@
         <button class="chk-btn" id="chk-btn">✅ ${t('check')}</button>
         <div id="chk-verdict" class="af-verdict"></div>
       </div>
-      <div class="section-title" style="margin:.8rem 0 .4rem">${t('nextWeeks')}</div>
-      ${weeks.join('')}
       <button class="plan-card" data-route='${JSON.stringify({ name: 'appts' })}' style="margin-top:.8rem">
         <span>📋</span><span><span class="plan-card-title">${t('appts')}</span><br><span class="plan-card-sub">${appts.length} ${t('appt')}</span></span>
         <span class="chev">${chevron()}</span>
