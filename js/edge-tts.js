@@ -119,7 +119,8 @@
     var p = plugin();
     if (p) {
       return p.speak({ text: text, voice: voiceOf(lang), rate: rateOf(lang) })
-        .then(function (r) { return { url: fileUrl(r.path) }; });
+        .then(function (r) { return { url: fileUrl(r.path) }; })
+        .catch(function () { return { url: rvUrl(text, lang) }; }); // plugin failed → internet MP3
     }
     return Promise.resolve({ url: rvUrl(text, lang) });
   }

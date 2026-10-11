@@ -797,13 +797,13 @@
       var n = 0;
       (function once() {
         if ((times > 0 && n >= times) || seq !== speakSeq) { done(); return; }
-        EdgeTTS.playUrl(a.url).then(function () { n++; once(); }).catch(function () {
+        EdgeTTS.playUrl(a.url).then(function () { n++; once(); }).catch(function (e) {
           if (seq !== speakSeq) { done(); return; }
           EdgeTTS.down = true;
-          fail();
+          fail(e);
         });
       })();
-    }).catch(function () { fail(); });
+    }).catch(function (e) { fail(e); });
   }
 
   function speakFallback(text, lang, times, done) {
@@ -811,11 +811,13 @@
     else speakWeb(text, lang, times, done);
   }
 
+  var edgeErrShown = false;
   function speakAuto(text, lang, times, done) {
     if (window.EdgeTTS && EdgeTTS.supported()) {
       var seq0 = speakSeq;
-      speakEdge(text, lang, times, done, function () {
+      speakEdge(text, lang, times, done, function (err) {
         if (seq0 !== speakSeq) return;
+        if (!edgeErrShown) { edgeErrShown = true; toast('⚠️ ' + String((err && err.message) || err || 'edge tts')); }
         speakFallback(text, lang, times, done);
       });
     } else {
