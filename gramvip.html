@@ -77,6 +77,9 @@
   .fab:hover { transform: scale(1.08) rotate(90deg); box-shadow: 0 16px 40px rgba(139,92,246,0.6); }
   .fab:active { transform: scale(0.94); }
   .hint { font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.4rem; }
+  .tpl-tabs { display: flex; gap: 0.45rem; margin-bottom: 0.65rem; flex-wrap: wrap; }
+  .tpl-tabs button { flex: 1; min-width: 110px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-secondary); color: var(--text-secondary); font-family: inherit; font-weight: 800; font-size: 0.82rem; padding: 0.5rem 0.7rem; cursor: pointer; transition: all .15s; }
+  .tpl-tabs button.on { background: linear-gradient(135deg, var(--accent-solid), var(--accent-hover)); color: #fff; border-color: transparent; }
   .hflags { display: inline-flex; gap: 0.2rem; margin-inline-start: 0.5rem; vertical-align: middle; }
   .hflags .flag-btn { width: 30px; height: 30px; border-radius: 10px; font-size: 0.85rem; }
 
@@ -366,6 +369,7 @@
 <div class="overlay hidden" id="ovTemplate">
   <div class="sheet">
     <h2>📋 <span data-t="viewTemplate">النموذج</span></h2>
+    <div class="tpl-tabs" id="tplTabs"></div>
     <div class="field"><textarea id="tplView" readonly spellcheck="false" style="min-height:320px"></textarea></div>
     <div class="btnrow">
       <button class="btn btn-ghost" id="tplCancel" data-t="cancel">إلغاء</button>
@@ -504,6 +508,11 @@
   }
 
   var TEMPLATE = "🇫🇷 Verbe : [INFINITIF] — 🇸🇾 الفعل: [المعنى بالعربي] — 🇺🇸 Verb: [English meaning]\n\n🇫🇷 1. Présent — 🇸🇾 المضارع — 🇺🇸 Present\n\n🇫🇷 Je [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Tu [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Il [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Elle [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Nous [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Vous [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Ils / Elles [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 2. Passé composé — 🇸🇾 الماضي المركّب — 🇺🇸 Compound past\n\n🇫🇷 [Phrase au passé composé]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 3. Futur proche — 🇸🇾 المستقبل القريب — 🇺🇸 Near future\n\n🇫🇷 [Phrase au futur proche]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 4. Vie quotidienne — 🇸🇾 الحياة اليومية — 🇺🇸 Daily life\n\n🇫🇷 [Phrase de la vie quotidienne]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 5. Au travail — 🇸🇾 بالشغل — 🇺🇸 At work\n\n🇫🇷 [Phrase au travail]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 6. À la pharmacie — 🇸🇾 بالصيدلية — 🇺🇸 At the pharmacy\n\n🇫🇷 [Phrase à la pharmacie]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 7. Chez le médecin — 🇸🇾 عند الدكتور — 🇺🇸 At the doctor's";
+  var TEMPLATE2 = "🇫🇷 Mot : PASSER\n\n🇫🇷 Mot : Passer\n🇸🇾 المعنى بالعربي: يمرّ، يعبر، يقضي، يجتاز، يمرّر.\n🇺🇸 Meaning in English: To pass, to go through, to spend, to take, to hand over.\n\n1. المعاني المختلفة حسب السياق\n\n🇫🇷 1. Passer = يمرّ / يعبر\n\n🇫🇷 Je passe devant la maison.\n🇸🇾 أنا بمرّ من قدّام البيت.\n🇺🇸 I pass in front of the house.\n\n🇫🇷 2. Passer = يقضي وقتاً\n\n🇫🇷 Je passe du temps avec mes amis.\n🇸🇾 بقضي وقت مع رفقاتي.\n🇺🇸 I spend time with my friends.\n\n🇫🇷 3. Passer = يجتاز امتحاناً\n\n🇫🇷 Je passe un examen demain.\n🇸🇾 عندي امتحان بكرا.\n🇺🇸 I'm taking an exam tomorrow.\n\n🇫🇷 4. Passer = يمرّر / يناول\n\n🇫🇷 Passe-moi le sel, s'il te plaît.\n🇸🇾 ناولني الملح، لو سمحت.\n🇺🇸 Pass me the salt, please.\n\n🇫🇷 5. Passer = يزور زيارة قصيرة\n\n🇫🇷 Je passe chez toi ce soir.\n🇸🇾 رح مرّ لعندك هالمسا.\n🇺🇸 I'll stop by your place tonight.\n\n🇫🇷 6. Passer = يمرّ / ينقضي\n\n🇫🇷 Le temps passe vite.\n🇸🇾 الوقت عم يمرّ بسرعة.\n🇺🇸 Time passes quickly.\n\n🇫🇷 7. Passer = يشغّل\n\n🇫🇷 Tu peux passer la musique ?\n🇸🇾 فيك تشغّل الموسيقى؟\n🇺🇸 Can you play the music?\n\n🇫🇷 8. Passer = يمرّ على شخص أو مكان\n\n🇫🇷 Je passerai te voir demain.\n🇸🇾 رح مرّ لعندك بكرا وشوفك.\n🇺🇸 I'll stop by to see you tomorrow.\n\n---\n\n2. تصريف الفعل PASSER في المضارع\n\n🇫🇷 Français\t🇸🇾 العربية السورية\t🇺🇸 English\n\nJe passe.\tأنا بمرّ.\tI pass.\nTu passes.\tإنت بتمرّ.\tYou pass.\nIl passe.\tهو بيمرّ.\tHe passes.\nElle passe.\tهي بتمرّ.\tShe passes.\nNous passons.\tنحنا منمرّ.\tWe pass.\nVous passez.\tإنتو بتمرّوا.\tYou pass.\nIls passent.\tهنن بيمرّوا.\tThey pass.\nElles passent.\tهنن بيمرّوا.\tThey pass.\n\nملاحظة: نهايات الفعل في الكتابة بتختلف، لكن نطق passe وpasses وpassent متشابه بالفرنسية.\n\n---\n\n3. أهم العبارات اليومية باستخدام PASSER\n\n🇫🇷 Ça va passer.\n🇸🇾 رح يمرّ هالشي، ورح تتحسّن الأمور.\n🇺🇸 It'll pass.\n\n🇫🇷 Passe une bonne journée !\n🇸🇾 نهارك سعيد!\n🇺🇸 Have a nice day!\n\n🇫🇷 Je dois passer à la pharmacie.\n🇸🇾 لازم مرّ عالصيدلية.\n🇺🇸 I have to stop by the pharmacy.\n\n🇫🇷 Comment s'est passée ta journée ?\n🇸🇾 كيف كان نهارك؟\n🇺🇸 How was your day?\n\n🇫🇷 Je suis passé te voir.\n🇸🇾 مرّيت لعندك مشان شوفك.\n🇺🇸 I stopped by to see you.\n\n🇫🇷 Laisse passer, s'il te plaît.\n🇸🇾 خلّيني مرق، لو سمحت.\n🇺🇸 Let me through, please.\n\n🇫🇷 Passe à autre chose.\n🇸🇾 خلّص، انسى الموضوع وانتقل لشي تاني.\n🇺🇸 Move on to something else.\n\n---\n\n4. الفرق بين PASSER و SE PASSER\n\n🇫🇷 Français\t🇸🇾 العربية السورية\t🇺🇸 English\n\nÇa passe.\tبيمشي الحال.\tIt's okay.\nÇa se passe bien.\tالأمور ماشية منيح.\tIt's going well.\nQu'est-ce qui se passe ?\tشو عم يصير؟\tWhat's happening?\nComment ça s'est passé ?\tكيف صار الموضوع؟\tHow did it go?\nTout s'est bien passé.\tكل شي مشي منيح.\tEverything went well.\n\nالقاعدة:\n\n🇫🇷 PASSER = يمرّ، يقضي وقتاً، يجتاز أو يناول، حسب السياق.\n\n🇫🇷 SE PASSER = يحدث أو يجري.\n\n5. PASSER في الماضي والمستقبل\n\nالماضي المركّب — Passé composé\n\n🇫🇷 Je suis passé chez mon ami.\n🇸🇾 مرّيت لعند رفيقي.\n🇺🇸 I stopped by my friend's place.\n\n🇫🇷 J'ai passé deux heures au travail.\n🇸🇾 قضيت ساعتين بالشغل.\n🇺🇸 I spent two hours at work.\n\nالمستقبل — Futur simple\n\n🇫🇷 Je passerai demain.\n🇸🇾 رح مرّ بكرا.\n🇺🇸 I will stop by tomorrow.\n\nالماضي المستمر — Imparfait\n\n🇫🇷 Je passais devant l'usine tous les jours.\n🇸🇾 كنت مرّ من قدّام المصنع كل يوم.\n🇺🇸 I used to pass in front of the factory every day.";
+  var TEMPLATES = [
+    { name: { ar: 'نموذج فعل', en: 'Verb template', fr: 'Modèle verbe' }, text: TEMPLATE },
+    { name: { ar: 'نموذج كلمة', en: 'Word template', fr: 'Modèle mot' }, text: TEMPLATE2 }
+  ];
 
   var state = {
     lang: localStorage.getItem('gramvip_lang') || 'ar',
@@ -608,6 +617,7 @@
     var parts = line.split(/\s*[—–]\s*/);
     if (parts.length < 2) parts = line.split(/\s+-\s+/);
     if (parts.length < 2 && line.indexOf('|') >= 0) parts = line.split(/\s*\|\s*/);
+    if (parts.length < 2 && line.indexOf('\t') >= 0) parts = line.split(/\s*\t+\s*/);
     return parts.map(function (p) { return p.trim(); }).filter(Boolean);
   }
   function partsToTri(parts) {
@@ -671,7 +681,10 @@
         i++;
         break;
       }
-      if (flagOf(first) && splitParts(stripFlag(first)).length < 2) break;
+      if (flagOf(first) && splitParts(stripFlag(first)).length < 2) {
+        if (stripFlag(first).length < 30) { lesson.title = { fr: stripFlag(first), ar: '', en: '' }; i++; }
+        break;
+      }
       var tparts = splitParts(stripFlag(first));
       // a long single-language line is preamble prose, not a title — leave it as a note
       if (tparts.length < 2 && first.length > 60) break;
@@ -704,7 +717,11 @@
           continue;
         }
         var txt = stripFlag(line);
-        if (fl === 'fr') {
+        if (fl === 'fr' && HDR_NUM.test(txt)) {
+          // '🇫🇷 1. …' sub-headers open a group
+          flushPhrase();
+          newGrp({ fr: txt.replace(HDR_NUM, ''), ar: '', en: '' });
+        } else if (fl === 'fr') {
           flushPhrase();
           curPhrase = { fr: txt, ar: '', en: '' };
         } else {
@@ -714,6 +731,11 @@
         continue;
       }
       // non-flag line
+      if (/^[-—–*_=\s]{3,}$/.test(line)) continue; // decorative dividers
+      if (line.indexOf('\t') >= 0) {
+        var tp = splitParts(line);
+        if (tp.length >= 2) { flushPhrase(); ensureGrp().phrases.push(partsToTri(tp)); continue; }
+      }
       if (isHeaderLine(line)) {
         var numbered = HDR_NUM.test(line);
         var hparts = splitParts(line.replace(HDR_NUM, ''));
@@ -1554,15 +1576,26 @@
   };
   document.getElementById('moveCancel').onclick = function () { document.getElementById('ovMove').classList.add('hidden'); };
   document.getElementById('lessonText').addEventListener('input', updateParseStats);
-  document.getElementById('copyTplBtn').onclick = function () {
-    document.getElementById('tplView').value = TEMPLATE;
+  var tplIdx = 0;
+  function openTpl() {
+    var tabs = document.getElementById('tplTabs');
+    tabs.innerHTML = '';
+    TEMPLATES.forEach(function (tp, i) {
+      var b = document.createElement('button');
+      b.textContent = tp.name[state.lang] || tp.name.ar;
+      if (i === tplIdx) b.className = 'on';
+      b.onclick = function () { tplIdx = i; openTpl(); };
+      tabs.appendChild(b);
+    });
+    document.getElementById('tplView').value = TEMPLATES[tplIdx].text;
     document.getElementById('ovTemplate').classList.remove('hidden');
-  };
+  }
+  document.getElementById('copyTplBtn').onclick = openTpl;
   document.getElementById('tplCancel').onclick = function () { document.getElementById('ovTemplate').classList.add('hidden'); };
   document.getElementById('tplCopy').onclick = function () {
     var done = function () { toast('📋 ' + t('copied')); };
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(TEMPLATE).then(done).catch(function () { fallbackCopy(); });
+      navigator.clipboard.writeText(TEMPLATES[tplIdx].text).then(done).catch(function () { fallbackCopy(); });
     } else fallbackCopy();
     function fallbackCopy() {
       var ta = document.getElementById('tplView');
