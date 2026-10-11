@@ -1957,6 +1957,7 @@
     st_overdue: { ar: 'فائت', en: 'Overdue', fr: 'Passé' },
     st_done: { ar: 'تم', en: 'Done', fr: 'Fait' },
     st_cancelled: { ar: 'مُلغى', en: 'Cancelled', fr: 'Annulé' },
+    apptNotYet: { ar: 'لا يمكن إنهاء موعد لم يحن وقته بعد', en: 'Cannot mark done before the appointment ends', fr: 'Pas encore terminé — le rendez-vous est à venir' },
     vd_ok: { ar: '🟢 متوافق مع العمل', en: '🟢 Compatible with work', fr: '🟢 COMPATIBLE' },
     vd_check: { ar: '🟠 يحتاج تحقق', en: '🟠 To verify', fr: '🟠 À vérifier' },
     vd_conflict: { ar: '🔴 تعارض مع العمل', en: '🔴 Conflicts with work', fr: '🔴 CONFLIT AVEC LE TRAVAIL' },
@@ -4762,7 +4763,7 @@
       `<div class="ad-badges">${statusBadge(a)}<span class="appt-cat">${CAT_ICONS[a.cat] || '📌'} ${t('cat_' + (a.cat || 'autre'))}</span>${cd ? `<span class="appt-cd">⏳ ${cd}</span>` : ''}</div>` +
       `<div class="ad-status">` +
         `<button class="ad-st${st === 'upcoming' || st === 'overdue' ? ' on' : ''}" data-appt-act="upcoming" data-id="${id}">${t('st_upcoming')}</button>` +
-        `<button class="ad-st${st === 'done' ? ' on' : ''}" data-appt-act="done" data-id="${id}">${t('st_done')}</button>` +
+        `<button class="ad-st${st === 'done' ? ' on' : ''}"${st === 'upcoming' ? ' disabled style="opacity:.45"' : ''} data-appt-act="done" data-id="${id}">${t('st_done')}</button>` +
         `<button class="ad-st${st === 'cancelled' ? ' on' : ''}" data-appt-act="cancel" data-id="${id}">${t('st_cancelled')}</button>` +
       `</div>` +
       `<div class="ad-row">📅<span><span class="chk-lbl">${t('chkDate')}</span><br>${dateLong}</span></div>` +
@@ -4792,6 +4793,7 @@
     if (!a) return;
     if (act === 'edit') { planEditId = id; planApptAudio = null; go({ name: 'appts' }); return; }
     if (act === 'upcoming' || act === 'done' || act === 'cancel') {
+      if (act === 'done' && apptStatus(a) === 'upcoming') { showToast(t('apptNotYet')); return; }
       a.status = act === 'upcoming' ? 'upcoming' : act;
       saveAppts();
       await cancelApptNotifs(id);
