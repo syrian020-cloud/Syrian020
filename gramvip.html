@@ -191,6 +191,10 @@
   .pl.ar .txt { font-weight: 700; font-size: 0.98rem; }
   .pl.en .txt { color: var(--text-secondary); font-size: 0.92rem; }
   .flags { display: flex; flex-direction: column; gap: 0.34rem; flex: none; }
+  .ph-actions { display: flex; gap: 0.4rem; margin-top: 0.5rem; }
+  .ph-act { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg-secondary); font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .14s; }
+  .ph-act:hover { border-color: var(--accent); transform: scale(1.08); box-shadow: var(--glow); }
+  .ph-act:active { transform: scale(0.94); }
   .flag-btn, .sec-play { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg-secondary); font-size: 1.15rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .15s; line-height: 1; }
   .flag-btn:hover, .sec-play:hover { border-color: var(--accent); transform: scale(1.08); box-shadow: var(--glow); }
   .flag-btn:active, .sec-play:active { transform: scale(0.94); }
@@ -888,6 +892,19 @@
     speakAuto(text, lang || 'fr', 0, done);
   }
 
+  function openAiSearch(p) {
+    var fr = p.fr || '', ar = p.ar || '', en = p.en || '';
+    var prompt;
+    if (state.lang === 'ar') prompt = 'ترجم العبارة الفرنسية "' + fr + '" إلى العربية والإنجليزية واشرح معناها، ثم أعطني محادثات شائعة يومية تُستخدم فيها هذه العبارة في فرنسا.\nالترجمة العربية: "' + ar + '"\nالترجمة الإنجليزية: "' + en + '"';
+    else if (state.lang === 'fr') prompt = 'Traduis la phrase française "' + fr + '" en arabe et en anglais et explique son sens, puis donne des conversations quotidiennes courantes où elle est utilisée en France.\nArabe : "' + ar + '"\nAnglais : "' + en + '"';
+    else prompt = 'Translate the French phrase "' + fr + '" into Arabic and English and explain its meaning, then give common daily conversations where this phrase is used in France.\nArabic: "' + ar + '"\nEnglish: "' + en + '"';
+    var hl = state.lang === 'ar' ? 'ar' : (state.lang === 'fr' ? 'fr' : 'en');
+    var url = 'https://www.google.com/search?udm=50&hl=' + hl + '&q=' + encodeURIComponent(prompt);
+    var BR = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Browser;
+    if (BR && BR.open) { BR.open({ url: url }); return; }
+    window.open(url, '_blank');
+  }
+
   function searchImages(text) {
     var url = 'https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(text);
     var BR = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Browser;
@@ -1047,10 +1064,12 @@
     if (p.en) rows += '<div class="pl en"><span class="tag">EN</span><span class="txt">' + wordsHtml(p.en) + '</span></div>';
     var btns = '';
     if (p.fr) btns += '<button class="flag-btn" data-lang="fr" title="FR">🇫🇷</button>';
-    btns += '<button class="flag-btn nb-open" title="📝">📝</button>';
     if (p.ar) btns += '<button class="flag-btn" data-lang="ar" title="AR">🇸🇾</button>';
     if (p.en) btns += '<button class="flag-btn" data-lang="en" title="EN">🇺🇸</button>';
-    return '<div class="phrase"><div class="phrase-lines">' + rows + '</div><div class="flags">' + btns + '</div></div>';
+    var acts = '<div class="ph-actions">' +
+      '<button class="ph-act nb-open" title="notebook">📝</button>' +
+      '<button class="ph-act ai-open" title="Google AI">🤖</button></div>';
+    return '<div class="phrase"><div class="phrase-lines">' + rows + acts + '</div><div class="flags">' + btns + '</div></div>';
   }
 
   // small per-language TTS buttons for titles (lesson, section, group)
@@ -1243,11 +1262,17 @@
         speak(p[b.dataset.lang], b.dataset.lang, b);
       };
     });
-    wrap.querySelectorAll('.flags .nb-open').forEach(function (b) {
+    wrap.querySelectorAll('.nb-open').forEach(function (b) {
       b.onclick = function (ev) {
         ev.stopPropagation();
         var p = findPhrase(b);
         openNotebook(p.fr || p.ar || p.en);
+      };
+    });
+    wrap.querySelectorAll('.ai-open').forEach(function (b) {
+      b.onclick = function (ev) {
+        ev.stopPropagation();
+        openAiSearch(findPhrase(b));
       };
     });
   }
