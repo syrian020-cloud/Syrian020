@@ -1554,7 +1554,7 @@
       var pl = w.closest('.pl');
       var lang = pl.classList.contains('ar') ? 'ar' : (pl.classList.contains('en') ? 'en' : 'fr');
       var word = w.textContent;
-      wTapT = setTimeout(function () { wTaps = 0; speakOnce(word, w, lang); }, 380);
+      wTapT = setTimeout(function () { wTaps = 0; speakLoop(word, w, lang); }, 380);
     }
     else { clearTimeout(wTapT); wTaps = 0; searchImages(w.textContent); }
   });
