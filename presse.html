@@ -942,17 +942,54 @@ document.getElementById('docBody').addEventListener('click', function (e) {
 });
 
 /* ---------- phrase translate + Google AI search ---------- */
+// Free translation: try several no-key providers in order until one answers
 function gTranslate(text, tl) {
-  var q = encodeURIComponent(text.slice(0, 1500));
-  var u = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&dt=t&tl=' + tl + '&q=' + q;
-  function parse(raw) {
+  var q = encodeURIComponent(text.slice(0, 900));
+  var gu = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&dt=t&tl=' + tl + '&q=' + q;
+  function gtxParse(raw) {           // [[["translated","src",...],...],...]
     var j = JSON.parse(raw);
     return j[0].map(function (s) { return s[0]; }).join('');
   }
-  return httpGet(u, AbortSignal.timeout(12000)).then(parse).catch(function () {
-    return httpGet('https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(u),
-      AbortSignal.timeout(12000)).then(parse);
-  });
+  var tries = [
+    function () {                    // Google dict-chrome-ex endpoint
+      return httpGet('https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=auto&tl=' + tl + '&q=' + q)
+        .then(function (raw) {
+          var j = JSON.parse(raw);
+          var out = Array.isArray(j) ? j.join(' ') : '';
+          if (!out.trim()) throw new Error('empty');
+          return out;
+        });
+    },
+    function () {                    // Google gtx endpoint
+      return httpGet(gu).then(function (raw) {
+        var out = gtxParse(raw);
+        if (!out.trim()) throw new Error('empty');
+        return out;
+      });
+    },
+    function () {                    // MyMemory
+      return httpGet('https://api.mymemory.translated.net/get?q=' + q + '&langpair=auto|' + tl)
+        .then(function (raw) {
+          var j = JSON.parse(raw);
+          var out = j.responseData && j.responseData.translatedText || '';
+          if (!out.trim() || /MYMEMORY WARNING|QUOTA/i.test(out)) throw new Error('quota');
+          return out;
+        });
+    },
+    function () {                    // gtx through CORS proxy (web only)
+      return httpGet('https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(gu)).then(gtxParse);
+    }
+  ];
+  var i = 0;
+  function next() {
+    if (i >= tries.length) return Promise.reject(new Error('all providers failed'));
+    var p = tries[i++]();
+    // hard timeout — the CapacitorHttp path can't honor AbortSignal
+    return Promise.race([p, new Promise(function (ok, bad) {
+      setTimeout(function () { bad(new Error('timeout')); }, 12000);
+    })]).then(function (r) { return r; }, next);
+  }
+  return next();
 }
 function openPhrase(text) {
   if (!text) return;
