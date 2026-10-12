@@ -895,9 +895,9 @@
   function openAiSearch(p) {
     var fr = p.fr || '', ar = p.ar || '', en = p.en || '';
     var prompt;
-    if (state.lang === 'ar') prompt = 'ترجم العبارة الفرنسية "' + fr + '" إلى العربية والإنجليزية واشرح معناها، ثم أعطني محادثات شائعة يومية تُستخدم فيها هذه العبارة في فرنسا.\nالترجمة العربية: "' + ar + '"\nالترجمة الإنجليزية: "' + en + '"';
-    else if (state.lang === 'fr') prompt = 'Traduis la phrase française "' + fr + '" en arabe et en anglais et explique son sens, puis donne des conversations quotidiennes courantes où elle est utilisée en France.\nArabe : "' + ar + '"\nAnglais : "' + en + '"';
-    else prompt = 'Translate the French phrase "' + fr + '" into Arabic and English and explain its meaning, then give common daily conversations where this phrase is used in France.\nArabic: "' + ar + '"\nEnglish: "' + en + '"';
+    if (state.lang === 'ar') prompt = 'ترجم العبارة الفرنسية "' + fr + '" إلى العربية والإنجليزية واشرح معناها، ثم أعطني محادثات شائعة يومية تُستخدم فيها هذه العبارة في فرنسا، مع ترجمة كل محادثة إلى العربية والإنجليزية سطراً بسطر.\nالترجمة العربية: "' + ar + '"\nالترجمة الإنجليزية: "' + en + '"';
+    else if (state.lang === 'fr') prompt = 'Traduis la phrase française "' + fr + '" en arabe et en anglais et explique son sens, puis donne des conversations quotidiennes courantes où elle est utilisée en France, en traduisant chaque conversation en arabe et en anglais ligne par ligne.\nArabe : "' + ar + '"\nAnglais : "' + en + '"';
+    else prompt = 'Translate the French phrase "' + fr + '" into Arabic and English and explain its meaning, then give common daily conversations where this phrase is used in France, translating each conversation into Arabic and English line by line.\nArabic: "' + ar + '"\nEnglish: "' + en + '"';
     var hl = state.lang === 'ar' ? 'ar' : (state.lang === 'fr' ? 'fr' : 'en');
     var url = 'https://www.google.com/search?udm=50&hl=' + hl + '&q=' + encodeURIComponent(prompt);
     var BR = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Browser;
