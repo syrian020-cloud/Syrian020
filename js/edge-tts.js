@@ -303,9 +303,6 @@
       '.etts-src{display:flex;gap:.55rem;margin-bottom:.8rem}',
       '.etts-src button{flex:1;border-radius:12px;padding:.55rem .4rem;border:1px solid rgba(139,92,246,.3);background:rgba(139,92,246,.08);color:#c4b5fd;font-weight:800;font-size:.82rem;cursor:pointer;font-family:inherit}',
       '.etts-src button.on{background:linear-gradient(135deg,#8b5cf6,#6366f1);color:#fff;border-color:transparent;box-shadow:0 4px 16px rgba(139,92,246,.4)}',
-      '.etts-chips{display:flex;gap:.4rem;margin-top:.5rem}',
-      '.etts-chip{flex:1;border-radius:999px;padding:.32rem .2rem;border:1px solid rgba(139,92,246,.3);background:rgba(139,92,246,.08);color:#c4b5fd;font-weight:800;font-size:.72rem;cursor:pointer;font-family:inherit}',
-      '.etts-chip.on{background:linear-gradient(135deg,#8b5cf6,#6366f1);color:#fff;border-color:transparent}',
       '.etts-dim{opacity:.45;pointer-events:none}'
     ].join('\n');
 
@@ -362,23 +359,6 @@
         play(SAMPLE[lang], lang).catch(function () {}).then(function () { pv.disabled = false; });
       };
       row.appendChild(h('div', {}, [h('span', { 'class': 'etts-mini', text: T.speed }), rng, val, pv]));
-
-      // common speed presets
-      var presets = [[-50, '×0.5'], [-25, '×0.75'], [0, '×1'], [25, '×1.25'], [50, '×1.5']];
-      var chips = h('div', { 'class': 'etts-chips' });
-      presets.forEach(function (pr) {
-        var c = h('button', { 'class': 'etts-chip', text: pr[1] });
-        if (rateNum(lang) === pr[0]) c.classList.add('on');
-        c.onclick = function () {
-          rng.value = String(pr[0]);
-          lsSet('edge_rate_' + lang, rng.value);
-          val.textContent = rateOf(lang);
-          chips.querySelectorAll('.etts-chip').forEach(function (x) { x.classList.remove('on'); });
-          c.classList.add('on');
-        };
-        chips.appendChild(c);
-      });
-      row.appendChild(chips);
 
       langRows.appendChild(row);
     });
