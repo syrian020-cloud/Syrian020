@@ -80,8 +80,8 @@
   .icon-btn:active { transform: translateY(0) scale(0.96); }
   .icon-btn.on { background: linear-gradient(135deg, var(--accent-solid), var(--accent-2)); color: #fff; border-color: transparent; box-shadow: 0 6px 20px rgba(139,92,246,0.4); }
   .topbar { flex: none; max-width: 1040px; margin: 0 auto; width: 100%; padding: 0 1.1rem; background: var(--bg-primary); }
-  main { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; max-width: 1040px; margin: 0 auto; width: 100%; padding: 1.1rem 1.1rem 4.5rem; }
-  footer { flex: none; }
+  main { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; max-width: 1040px; margin: 0 auto; width: 100%; padding: 1.1rem 1.1rem 5.5rem; scrollbar-width: none; }
+  main::-webkit-scrollbar { display: none; width: 0; height: 0; }
   .fab { position: fixed; inset-inline-end: 20px; bottom: 24px; width: 60px; height: 60px; border-radius: 20px; border: none; font-size: 1.8rem; cursor: pointer; background: linear-gradient(135deg, var(--accent-solid), var(--accent-2)); color: #fff; box-shadow: 0 12px 32px rgba(139,92,246,0.5), inset 0 1px 0 rgba(255,255,255,0.25); z-index: 1050; display: flex; align-items: center; justify-content: center; transition: transform .16s, box-shadow .16s; font-family: inherit; }
   .fab:hover { transform: scale(1.08) rotate(90deg); box-shadow: 0 16px 40px rgba(139,92,246,0.6); }
   .fab:active { transform: scale(0.94); }
@@ -211,8 +211,6 @@
 
   .empty { text-align: center; color: var(--text-secondary); padding: 3rem 1rem; }
   .empty .big { font-size: 2.4rem; margin-bottom: 0.5rem; }
-  footer { text-align: center; color: var(--text-secondary); font-size: 0.8rem; padding: 1.2rem 5.5rem 5.5rem; line-height: 1.7; }
-  footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
 
   .toast { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%); background: #18122b; color: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 0.55rem 1.1rem; font-size: 0.85rem; font-weight: 700; box-shadow: var(--shadow); z-index: 2400; opacity: 0; pointer-events: none; transition: opacity .2s; max-width: 90vw; text-align: center; }
   .toast.show { opacity: 1; }
@@ -376,7 +374,6 @@
   <div id="content"></div>
   <div class="empty" id="empty" style="display:none"><div class="big">📭</div><span data-t="noResults">لا توجد نتائج</span></div>
 </main>
-<footer><span data-t="footerTag">دروسك محفوظة على جهازك — صدّر نسخة احتياطية من القائمة ⋮</span> · <span>gramvip</span></footer>
 <div class="toast" id="toast"></div>
 <button class="fab hidden" id="fabBtn">➕</button>
 <input type="file" id="iconFileInput" accept="image/*" hidden>
