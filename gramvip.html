@@ -80,7 +80,7 @@
   .icon-btn:active { transform: translateY(0) scale(0.96); }
   .icon-btn.on { background: linear-gradient(135deg, var(--accent-solid), var(--accent-2)); color: #fff; border-color: transparent; box-shadow: 0 6px 20px rgba(139,92,246,0.4); }
   .topbar { flex: none; max-width: 1040px; margin: 0 auto; width: 100%; padding: 0 1.1rem; background: var(--bg-primary); }
-  main { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; max-width: 1040px; margin: 0 auto; width: 100%; padding: 1.1rem 1.1rem 3rem; }
+  main { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; max-width: 1040px; margin: 0 auto; width: 100%; padding: 1.1rem 1.1rem 4.5rem; }
   footer { flex: none; }
   .fab { position: fixed; inset-inline-end: 20px; bottom: 24px; width: 60px; height: 60px; border-radius: 20px; border: none; font-size: 1.8rem; cursor: pointer; background: linear-gradient(135deg, var(--accent-solid), var(--accent-2)); color: #fff; box-shadow: 0 12px 32px rgba(139,92,246,0.5), inset 0 1px 0 rgba(255,255,255,0.25); z-index: 1050; display: flex; align-items: center; justify-content: center; transition: transform .16s, box-shadow .16s; font-family: inherit; }
   .fab:hover { transform: scale(1.08) rotate(90deg); box-shadow: 0 16px 40px rgba(139,92,246,0.6); }
@@ -103,7 +103,12 @@
   [data-theme="light"] .stat-pill { background: rgba(255,255,255,0.55); }
   .stat-pill b { color: var(--text-primary); font-weight: 900; }
 
-  .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; margin-bottom: 1.1rem; padding: 0.45rem 0; }
+  .toolbar { display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 1.1rem; }
+  .controls-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.75rem 0.8rem; display: flex; flex-direction: column; gap: 0.6rem; box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.06); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .ctl-row { display: flex; align-items: center; gap: 0.55rem; }
+  .ctl-ic { width: 36px; height: 36px; flex: none; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; color: var(--accent); background: rgba(139,92,246,0.13); border: 1px solid rgba(167,139,250,0.28); border-radius: 13px; }
+  .ctl-row .loop-group { flex: 1; min-width: 0; }
+  .ctl-row .loop-group button { flex: 1; padding-inline: 0.3rem; }
   .search-wrap { flex: 1; min-width: 200px; position: relative; }
   .search-wrap input { width: 100%; background: rgba(0,0,0,0.28); border: 1px solid var(--border); border-radius: 999px; padding: 0.78rem 1rem 0.78rem 2.7rem; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; transition: border-color .15s, box-shadow .15s; box-shadow: inset 0 2px 8px rgba(0,0,0,0.25); }
   [data-theme="light"] .search-wrap input { background: rgba(255,255,255,0.7); box-shadow: inset 0 2px 6px rgba(139,92,246,0.08); }
@@ -206,7 +211,7 @@
 
   .empty { text-align: center; color: var(--text-secondary); padding: 3rem 1rem; }
   .empty .big { font-size: 2.4rem; margin-bottom: 0.5rem; }
-  footer { text-align: center; color: var(--text-secondary); font-size: 0.8rem; padding: 1.5rem 1rem; }
+  footer { text-align: center; color: var(--text-secondary); font-size: 0.8rem; padding: 1.2rem 5.5rem 5.5rem; line-height: 1.7; }
   footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
 
   .toast { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%); background: #18122b; color: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 0.55rem 1.1rem; font-size: 0.85rem; font-weight: 700; box-shadow: var(--shadow); z-index: 2400; opacity: 0; pointer-events: none; transition: opacity .2s; max-width: 90vw; text-align: center; }
@@ -333,26 +338,37 @@
       <span class="search-ic">🔍</span>
       <input id="search" type="search" data-t-ph="searchPh" placeholder="ابحث في العبارات…">
     </div>
-    <div class="loop-group" id="loopGroup">
-      <button data-loop="1">×1</button>
-      <button data-loop="3" class="on">×3</button>
-      <button data-loop="5">×5</button>
-      <button data-loop="0">∞</button>
+    <div class="controls-card">
+      <div class="ctl-row">
+        <span class="ctl-ic" title="التكرار">🔁</span>
+        <div class="loop-group" id="loopGroup">
+          <button data-loop="1">×1</button>
+          <button data-loop="3" class="on">×3</button>
+          <button data-loop="5">×5</button>
+          <button data-loop="0">∞</button>
+        </div>
+      </div>
+      <div class="ctl-row">
+        <span class="ctl-ic" title="سرعة النطق">⚡</span>
+        <div class="loop-group" id="speedGroup" title="سرعة النطق">
+          <button data-speed="0.5">×0.5</button>
+          <button data-speed="0.75">×0.75</button>
+          <button data-speed="1" class="on">×1</button>
+          <button data-speed="1.25">×1.25</button>
+          <button data-speed="1.5">×1.5</button>
+        </div>
+      </div>
+      <div class="ctl-row">
+        <span class="ctl-ic" title="لغة تشغيل القسم">🔊</span>
+        <div class="loop-group" id="playLangGroup" title="لغة تشغيل القسم">
+          <button data-playlang="fr">🇫🇷</button>
+          <button data-playlang="ar">🇸🇾</button>
+          <button data-playlang="en">🇺🇸</button>
+          <button data-playlang="all" class="on">🌍</button>
+        </div>
+        <button class="stop-btn" id="stopBtn">🔇 <span data-t="stop">إيقاف</span></button>
+      </div>
     </div>
-    <div class="loop-group" id="speedGroup" title="سرعة النطق">
-      <button data-speed="0.5">×0.5</button>
-      <button data-speed="0.75">×0.75</button>
-      <button data-speed="1" class="on">×1</button>
-      <button data-speed="1.25">×1.25</button>
-      <button data-speed="1.5">×1.5</button>
-    </div>
-    <div class="loop-group" id="playLangGroup" title="لغة تشغيل القسم">
-      <button data-playlang="fr">🇫🇷</button>
-      <button data-playlang="ar">🇸🇾</button>
-      <button data-playlang="en">🇺🇸</button>
-      <button data-playlang="all" class="on">🌍</button>
-    </div>
-    <button class="stop-btn" id="stopBtn">🔇 <span data-t="stop">إيقاف</span></button>
   </div>
 
   <div class="view-head" id="viewHead"></div>
