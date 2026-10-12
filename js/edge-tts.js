@@ -29,29 +29,64 @@
     fr: [
       'fr-FR-DeniseNeural', 'fr-FR-EloiseNeural', 'fr-FR-VivienneMultilingualNeural',
       'fr-FR-HenriNeural', 'fr-FR-RemyMultilingualNeural',
-      'fr-CA-SylvieNeural', 'fr-CA-JeanNeural'
+      'fr-FR-CelesteMultilingualNeural', 'fr-FR-ClaudeMultilingualNeural',
+      'fr-FR-CoralieNeural', 'fr-FR-JacquelineNeural', 'fr-FR-JosephineNeural',
+      'fr-FR-MauriceNeural', 'fr-FR-YvesNeural', 'fr-FR-YvetteNeural',
+      'fr-CA-SylvieNeural', 'fr-CA-JeanNeural',
+      'fr-BE-CharlineNeural', 'fr-BE-GerardNeural',
+      'fr-CH-ArianeNeural', 'fr-CH-FabriceNeural'
     ],
     ar: [
       'ar-SY-AmanyNeural', 'ar-SY-LaithNeural',
       'ar-EG-SalmaNeural', 'ar-EG-ShakirNeural',
-      'ar-SA-ZariyahNeural', 'ar-SA-HamedNeural'
+      'ar-SA-ZariyahNeural', 'ar-SA-HamedNeural',
+      'ar-DZ-AminaNeural', 'ar-DZ-IsmaelNeural',
+      'ar-MA-MounaNeural', 'ar-MA-JamalNeural',
+      'ar-TN-HediNeural', 'ar-TN-ReemNeural',
+      'ar-JO-SanaNeural', 'ar-JO-TaimNeural',
+      'ar-LB-LaylaNeural', 'ar-LB-RamiNeural',
+      'ar-IQ-RanaNeural', 'ar-IQ-BasselNeural'
     ],
     en: [
       'en-US-JennyNeural', 'en-US-AriaNeural', 'en-US-GuyNeural',
-      'en-GB-SoniaNeural', 'en-GB-RyanNeural', 'en-AU-NatashaNeural'
+      'en-US-AvaNeural', 'en-US-EmmaNeural', 'en-US-ChristopherNeural',
+      'en-US-AndrewMultilingualNeural', 'en-US-BrianNeural', 'en-US-MichelleNeural',
+      'en-GB-SoniaNeural', 'en-GB-RyanNeural',
+      'en-GB-LibbyNeural', 'en-GB-MaisieNeural', 'en-GB-ThomasNeural',
+      'en-AU-NatashaNeural', 'en-AU-WilliamNeural',
+      'en-CA-ClaraNeural', 'en-CA-LiamNeural'
     ]
   };
   var VOICE_LABEL = {
     'fr-FR-DeniseNeural': 'Denise 🇫🇷', 'fr-FR-EloiseNeural': 'Eloise 🇫🇷',
     'fr-FR-VivienneMultilingualNeural': 'Vivienne 🇫🇷', 'fr-FR-HenriNeural': 'Henri 🇫🇷',
-    'fr-FR-RemyMultilingualNeural': 'Rémy 🇫🇷', 'fr-CA-SylvieNeural': 'Sylvie 🇨🇦',
-    'fr-CA-JeanNeural': 'Jean 🇨🇦',
+    'fr-FR-RemyMultilingualNeural': 'Rémy 🇫🇷',
+    'fr-FR-CelesteMultilingualNeural': 'Céleste 🇫🇷', 'fr-FR-ClaudeMultilingualNeural': 'Claude 🇫🇷',
+    'fr-FR-CoralieNeural': 'Coralie 🇫🇷', 'fr-FR-JacquelineNeural': 'Jacqueline 🇫🇷',
+    'fr-FR-JosephineNeural': 'Joséphine 🇫🇷', 'fr-FR-MauriceNeural': 'Maurice 🇫🇷',
+    'fr-FR-YvesNeural': 'Yves 🇫🇷', 'fr-FR-YvetteNeural': 'Yvette 🇫🇷',
+    'fr-CA-SylvieNeural': 'Sylvie 🇨🇦', 'fr-CA-JeanNeural': 'Jean 🇨🇦',
+    'fr-BE-CharlineNeural': 'Charline 🇧🇪', 'fr-BE-GerardNeural': 'Gérard 🇧🇪',
+    'fr-CH-ArianeNeural': 'Ariane 🇨🇭', 'fr-CH-FabriceNeural': 'Fabrice 🇨🇭',
     'ar-SY-AmanyNeural': 'أماني 🇸🇾', 'ar-SY-LaithNeural': 'ليث 🇸🇾',
     'ar-EG-SalmaNeural': 'سلمى 🇪🇬', 'ar-EG-ShakirNeural': 'شاكر 🇪🇬',
     'ar-SA-ZariyahNeural': 'زارية 🇸🇦', 'ar-SA-HamedNeural': 'حامد 🇸🇦',
+    'ar-DZ-AminaNeural': 'أمينة 🇩🇿', 'ar-DZ-IsmaelNeural': 'إسماعيل 🇩🇿',
+    'ar-MA-MounaNeural': 'منى 🇲🇦', 'ar-MA-JamalNeural': 'جمال 🇲🇦',
+    'ar-TN-HediNeural': 'هادي 🇹🇳', 'ar-TN-ReemNeural': 'ريم 🇹🇳',
+    'ar-JO-SanaNeural': 'سناء 🇯🇴', 'ar-JO-TaimNeural': 'تيم 🇯🇴',
+    'ar-LB-LaylaNeural': 'ليلى 🇱🇧', 'ar-LB-RamiNeural': 'رامي 🇱🇧',
+    'ar-IQ-RanaNeural': 'رنا 🇮🇶', 'ar-IQ-BasselNeural': 'باسل 🇮🇶',
     'en-US-JennyNeural': 'Jenny 🇺🇸', 'en-US-AriaNeural': 'Aria 🇺🇸',
-    'en-US-GuyNeural': 'Guy 🇺🇸', 'en-GB-SoniaNeural': 'Sonia 🇬🇧',
-    'en-GB-RyanNeural': 'Ryan 🇬🇧', 'en-AU-NatashaNeural': 'Natasha 🇦🇺'
+    'en-US-GuyNeural': 'Guy 🇺🇸', 'en-US-AvaNeural': 'Ava 🇺🇸',
+    'en-US-EmmaNeural': 'Emma 🇺🇸', 'en-US-ChristopherNeural': 'Christopher 🇺🇸',
+    'en-US-AndrewMultilingualNeural': 'Andrew 🇺🇸', 'en-US-BrianNeural': 'Brian 🇺🇸',
+    'en-US-MichelleNeural': 'Michelle 🇺🇸',
+    'en-GB-SoniaNeural': 'Sonia 🇬🇧', 'en-GB-RyanNeural': 'Ryan 🇬🇧',
+    'en-GB-LibbyNeural': 'Libby 🇬🇧', 'en-GB-MaisieNeural': 'Maisie 🇬🇧',
+    'en-GB-ThomasNeural': 'Thomas 🇬🇧',
+    'en-AU-NatashaNeural': 'Natasha 🇦🇺', 'en-AU-WilliamNeural': 'William 🇦🇺',
+    'en-CA-ClaraNeural': 'Clara 🇨🇦', 'en-CA-LiamNeural': 'Liam 🇨🇦'
   };
   var SAMPLE = {
     fr: 'Bonjour, comment allez-vous ?',
