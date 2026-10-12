@@ -1250,8 +1250,7 @@
     wrap.querySelectorAll('.section-head').forEach(function (h) {
       h.onclick = function () { h.parentElement.classList.toggle('open'); };
     });
-    // all sections open by default — every phrase is visible immediately
-    wrap.querySelectorAll('.section').forEach(function (s) { s.classList.add('open'); });
+    // sections start collapsed; tap a section head to expand it
     wrap.querySelectorAll('.sec-play').forEach(function (b) {
       b.onclick = function (ev) {
         ev.stopPropagation();
