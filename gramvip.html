@@ -339,6 +339,13 @@
       <button data-loop="5">×5</button>
       <button data-loop="0">∞</button>
     </div>
+    <div class="loop-group" id="speedGroup" title="سرعة النطق">
+      <button data-speed="0.5">×0.5</button>
+      <button data-speed="0.75">×0.75</button>
+      <button data-speed="1" class="on">×1</button>
+      <button data-speed="1.25">×1.25</button>
+      <button data-speed="1.5">×1.5</button>
+    </div>
     <div class="loop-group" id="playLangGroup" title="لغة تشغيل القسم">
       <button data-playlang="fr">🇫🇷</button>
       <button data-playlang="ar">🇸🇾</button>
@@ -604,6 +611,7 @@
     theme: localStorage.getItem('gramvip_theme') || 'dark',
     loop: parseInt(localStorage.getItem('gramvip_loop') || '3', 10),
     playlang: localStorage.getItem('gramvip_playlang') || 'all',
+    speed: parseFloat(localStorage.getItem('gramvip_speed') || '1') || 1,
     view: 'home',           // home | folder | lesson
     folderId: null,
     lessonId: null,
@@ -922,7 +930,7 @@
       if ((times > 0 && n >= times) || seq !== speakSeq) { done(); return; }
       var u = new SpeechSynthesisUtterance(text);
       u.lang = TTS_LANG[lang] || 'fr-FR';
-      u.rate = lang === 'fr' ? 0.92 : 0.95;
+      u.rate = (lang === 'fr' ? 0.92 : 0.95) * (state.speed || 1);
       var voices = window.speechSynthesis.getVoices() || [];
       for (var i = 0; i < voices.length; i++) {
         if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(TTS_LANG[lang].slice(0, 2).toLowerCase()) === 0) { u.voice = voices[i]; break; }
@@ -942,7 +950,7 @@
       window.Capacitor.Plugins.TextToSpeech.speak({
         text: text,
         lang: TTS_LANG[lang] || 'fr-FR',
-        rate: lang === 'fr' ? 0.92 : 0.95,
+        rate: (lang === 'fr' ? 0.92 : 0.95) * (state.speed || 1),
         pitch: 1.0,
         volume: 1.0,
         category: 'ambient'
@@ -1799,6 +1807,16 @@
       state.loop = parseInt(b.dataset.loop, 10);
       localStorage.setItem('gramvip_loop', String(state.loop));
       document.getElementById('loopGroup').querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    };
+  });
+  localStorage.setItem('gv_speed', String(state.speed)); // shared with EdgeTTS
+  document.querySelectorAll('#speedGroup [data-speed]').forEach(function (b) {
+    b.classList.toggle('on', parseFloat(b.dataset.speed) === state.speed);
+    b.onclick = function () {
+      state.speed = parseFloat(b.dataset.speed);
+      localStorage.setItem('gramvip_speed', String(state.speed));
+      localStorage.setItem('gv_speed', String(state.speed));
+      document.querySelectorAll('#speedGroup [data-speed]').forEach(function (x) { x.classList.toggle('on', x === b); });
     };
   });
   document.getElementById('stopBtn').onclick = stopSpeaking;

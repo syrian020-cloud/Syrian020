@@ -122,6 +122,16 @@
   api.voiceOf = voiceOf;
   api.rateOf = rateOf;
 
+  /* global speed multiplier set by the app's quick-speed pills (gv_speed):
+   * adds (mult-1)*100 to the per-language rate, clamped to the plugin range. */
+  function effRate(lang) {
+    var v = rateNum(lang);
+    var m = parseFloat(ls('gv_speed') || '1');
+    if (!isNaN(m) && m !== 1) v = Math.round(v + (m - 1) * 100);
+    v = Math.max(-90, Math.min(100, v));
+    return (v >= 0 ? '+' : '') + v + '%';
+  }
+
   function enabled() {
     try { return localStorage.getItem('edge_tts') !== '0'; } catch (e) { return true; }
   }
@@ -154,7 +164,7 @@
   function fetchAudio(text, lang) {
     var p = plugin();
     if (p) {
-      return p.speak({ text: text, voice: voiceOf(lang), rate: rateOf(lang) })
+      return p.speak({ text: text, voice: voiceOf(lang), rate: effRate(lang) })
         .then(function (r) { return { url: fileUrl(r.path) }; })
         .catch(function () { return { url: rvUrl(text, lang) }; }); // plugin failed → internet MP3
     }
@@ -168,7 +178,7 @@
 
   function audio(text, lang) {
     lang = lang || 'fr';
-    var key = lang + '|' + voiceOf(lang) + '|' + rateOf(lang) + '|' + text;
+    var key = lang + '|' + voiceOf(lang) + '|' + effRate(lang) + '|' + text;
     var hit = cache[key];
     if (hit) { touch(key); return Promise.resolve(hit); }
     if (pending[key]) return pending[key];
