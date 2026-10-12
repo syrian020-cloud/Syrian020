@@ -149,7 +149,7 @@
   .add-row { border-style: dashed; border-color: rgba(139,92,246,0.45); background: transparent; justify-content: center; color: var(--accent); font-weight: 800; gap: 0.4rem; }
   .add-row:hover { border-color: var(--accent); }
 
-  .centre-group { display: flex; align-items: center; gap: 0.5rem; font-weight: 850; font-size: 1.05rem; color: var(--accent); margin: 1.2rem 0 0.7rem; }
+  .centre-group { display: flex; align-items: center; gap: 0.5rem; font-weight: 850; font-size: 0.98rem; color: var(--accent); margin: 1.2rem 0 0.7rem; }
   .centre-group:first-child { margin-top: 0.2rem; }
   .centre-group .link { cursor: pointer; text-decoration: underline dotted; }
 
@@ -157,7 +157,7 @@
   .section:hover { border-color: rgba(167,139,250,0.35); }
   .section-head { display: flex; align-items: center; gap: 0.65rem; padding: 0.95rem 1.05rem; cursor: pointer; user-select: none; }
   .section-head .sec-icon { font-size: 1.2rem; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(139,92,246,0.26), rgba(244,114,182,0.13)); border: 1px solid rgba(255,255,255,0.11); border-radius: 15px; flex-shrink: 0; }
-  .section-head .sec-title { font-weight: 800; font-size: 1.08rem; flex: 1; min-width: 0; }
+  .section-head .sec-title { font-weight: 800; font-size: 1.02rem; flex: 1; min-width: 0; }
   .section-head .sec-count { color: var(--text-secondary); font-size: 0.74rem; font-weight: 700; white-space: nowrap; }
   .section-head .chev { transition: transform .25s; color: var(--text-secondary); font-size: 0.8rem; }
   .section.open .section-head .chev { transform: rotate(180deg); }
@@ -165,8 +165,8 @@
   .section-body { display: none; padding: 0 0.85rem 0.9rem; }
   .section.open .section-body { display: block; animation: fadeUp .28s ease; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-  .sec-note { color: var(--text-primary); font-size: 1.02rem; font-weight: 700; margin: 0.45rem 0 0.8rem; text-align: center; line-height: 1.6; }
-  .group-title { display: flex; align-items: center; gap: 0.45rem; color: var(--accent); font-size: 0.92rem; font-weight: 850; margin: 0.75rem 0 0.5rem; padding-inline-start: 0.3rem; }
+  .sec-note { color: var(--text-primary); font-size: 0.97rem; font-weight: 700; margin: 0.45rem 0 0.8rem; text-align: center; line-height: 1.6; }
+  .group-title { display: flex; align-items: center; gap: 0.45rem; color: var(--accent); font-size: 0.88rem; font-weight: 850; margin: 0.75rem 0 0.5rem; padding-inline-start: 0.3rem; }
   .group-title::before { content: ''; width: 14px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--accent-solid), var(--accent-2)); }
 
   .phrase { background: var(--card-2); border: 1px solid var(--border); border-inline-start: 3px solid rgba(139,92,246,0.55); border-radius: 16px; padding: 0.8rem 0.9rem; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.8rem; transition: transform .14s, border-color .14s, background .14s; }
@@ -186,10 +186,10 @@
   [data-theme="light"] .pl.ar .tag { color: #be123c; }
   [data-theme="light"] .pl.en .tag { color: #0e7490; }
   .pl { line-height: 1.55; }
-  .pl .txt { font-size: 1.02rem; }
-  .pl.fr .txt { font-weight: 800; font-size: 1.14rem; color: var(--text-primary); }
-  .pl.ar .txt { font-weight: 700; font-size: 1.06rem; }
-  .pl.en .txt { color: var(--text-secondary); font-size: 0.98rem; }
+  .pl .txt { font-size: 0.96rem; }
+  .pl.fr .txt { font-weight: 800; font-size: 1.05rem; color: var(--text-primary); }
+  .pl.ar .txt { font-weight: 700; font-size: 0.98rem; }
+  .pl.en .txt { color: var(--text-secondary); font-size: 0.92rem; }
   .flags { display: flex; flex-direction: column; gap: 0.34rem; flex: none; }
   .flag-btn, .sec-play { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg-secondary); font-size: 1.15rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .15s; line-height: 1; }
   .flag-btn:hover, .sec-play:hover { border-color: var(--accent); transform: scale(1.08); box-shadow: var(--glow); }
@@ -254,6 +254,33 @@
   .dlg h2 { margin: 0 0 0.4rem; font-size: 1.05rem; font-weight: 850; }
   .dlg p { margin: 0 0 0.4rem; color: var(--text-secondary); font-size: 0.88rem; }
   .overlay.center { align-items: center; }
+
+  /* notebook / drawing pad */
+  .nb-overlay { position: fixed; inset: 0; z-index: 5000; background: #fdfaf1; display: none; flex-direction: column; }
+  .nb-overlay.open { display: flex; }
+  .nb-head { display: flex; align-items: center; gap: 0.5rem; padding: 0.55rem 0.7rem; background: #fff; border-bottom: 1px solid #eee8d8; }
+  .nb-title { font-weight: 800; color: #444; font-size: 0.95rem; flex: 1; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .nb-tools { display: flex; align-items: center; gap: 0.3rem; }
+  .nb-tool { width: 40px; height: 40px; min-width: 40px; background: #fff; border: 1px solid #e8e2d2; border-radius: 50%; font-size: 1.15rem; color: #555; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .12s; }
+  .nb-tool.active { background: #e6f4ee; border-color: #2f9d78; color: #1f7a5a; transform: scale(1.06); }
+  .nb-bar2 { display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.4rem 0.7rem; background: #fff; border-bottom: 1px solid #eee8d8; flex-wrap: wrap; }
+  .nb-colors { display: flex; gap: 0.4rem; align-items: center; }
+  .nb-colors button { width: 26px; height: 26px; border-radius: 50%; border: 2px solid rgba(0,0,0,0.08); cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.15); transition: transform .12s; }
+  .nb-colors button.active { border-color: #333; transform: scale(1.18); }
+  .nb-sizes { display: flex; gap: 0.3rem; align-items: center; margin-inline-start: 0.4rem; }
+  .nb-sizes button { width: 36px; height: 32px; background: #fff; border: 1px solid #e8e2d2; border-radius: 9px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .nb-sizes button span { display: block; width: 20px; background: #333; border-radius: 2px; }
+  .nb-sizes button[data-s="0.7"] span { height: 2px; }
+  .nb-sizes button[data-s="1"] span { height: 3px; }
+  .nb-sizes button[data-s="1.4"] span { height: 5px; }
+  .nb-sizes button[data-s="2"] span { height: 8px; }
+  .nb-sizes button.active { border-color: #2f9d78; background: #e6f4ee; }
+  .nb-wrap { flex: 1; position: relative; overflow: hidden; }
+  .nb-lines { position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, transparent 0 46px, rgba(120,170,220,0.35) 46px 47px); }
+  .nb-lines::after { content: ''; position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(230,120,120,0.45); inset-inline-end: 12%; }
+  .nb-lines.hidden { display: none; }
+  .nb-phrase { position: absolute; inset: 0; display: flex; align-items: flex-start; justify-content: center; padding: 1.6rem 1.4rem; font-size: calc(1.4rem * var(--nbs, 1)); font-weight: 800; color: rgba(30,30,60,0.13); text-align: center; line-height: 1.75; pointer-events: none; user-select: none; z-index: 1; }
+  .nb-draw { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair; z-index: 2; }
 
   ::-webkit-scrollbar { width: 7px; height: 7px; }
   ::-webkit-scrollbar-thumb { background: rgba(139,92,246,0.35); border-radius: 99px; }
@@ -400,6 +427,44 @@
   </div>
 </div>
 
+<div class="nb-overlay" id="nbOverlay">
+  <div class="nb-head">
+    <button class="nb-tool" id="nbClose">✕</button>
+    <div class="nb-title" data-t="notebook">الدفتر</div>
+    <div class="nb-tools">
+      <button class="nb-tool active" data-nbtool="pencil" title="pencil">🖊️</button>
+      <button class="nb-tool" data-nbtool="brush" title="brush">🖌️</button>
+      <button class="nb-tool" data-nbtool="eraser" title="eraser">🧽</button>
+      <button class="nb-tool" id="nbUndo" title="undo">↩️</button>
+      <button class="nb-tool" id="nbLinesBtn" title="lines">📐</button>
+      <button class="nb-tool" id="nbClear" title="clear">🗑️</button>
+      <button class="nb-tool" id="nbSave" title="save">💾</button>
+    </div>
+  </div>
+  <div class="nb-bar2">
+    <div class="nb-colors" id="nbColors">
+      <button class="active" data-c="#111111" style="background:#111"></button>
+      <button data-c="#e74c3c" style="background:#e74c3c"></button>
+      <button data-c="#3498db" style="background:#3498db"></button>
+      <button data-c="#2ecc71" style="background:#2ecc71"></button>
+      <button data-c="#f1c40f" style="background:#f1c40f"></button>
+      <button data-c="#9b59b6" style="background:#9b59b6"></button>
+      <button data-c="#e67e22" style="background:#e67e22"></button>
+    </div>
+    <div class="nb-sizes" id="nbSizes">
+      <button data-s="0.7"><span></span></button>
+      <button data-s="1" class="active"><span></span></button>
+      <button data-s="1.4"><span></span></button>
+      <button data-s="2"><span></span></button>
+    </div>
+  </div>
+  <div class="nb-wrap" id="nbWrap">
+    <div class="nb-lines" id="nbLines"></div>
+    <div class="nb-phrase" id="nbPhrase"></div>
+    <canvas class="nb-draw" id="nbCanvas"></canvas>
+  </div>
+</div>
+
 <script src="js/edge-tts.js"></script>
 <script>
 (function () {
@@ -424,7 +489,7 @@
       emptyFolders: 'لا مجلدات بعد — أضف أول مجلد', emptyLessons: 'لا دروس بعد — أضف أول درس',
       sectionsCount: 'أقسام', phrasesCount: 'عبارة', unnamed: 'درس بدون اسم',
       edgeOn: 'الصوت الطبيعي مفعّل (إنترنت)', edgeOff: 'صوت الجهاز',
-      theme: 'الثيم', speechSet: 'إعدادات النطق',
+      theme: 'الثيم', speechSet: 'إعدادات النطق', notebook: 'الدفتر',
       footerTag: 'دروسك محفوظة على جهازك — صدّر نسخة احتياطية من القائمة ⋮',
       tplHint: 'النموذج: سطر عنوان ثلاثي، ثم أقسام مرقّمة، وكل عبارة 3 أسطر 🇫🇷🇸🇾🇺🇸'
     },
@@ -446,7 +511,7 @@
       emptyFolders: 'No folders yet — add your first folder', emptyLessons: 'No lessons yet — add your first lesson',
       sectionsCount: 'sections', phrasesCount: 'phrases', unnamed: 'Untitled lesson',
       edgeOn: 'Neural voice on (internet)', edgeOff: 'Device voice',
-      theme: 'Theme', speechSet: 'Speech settings',
+      theme: 'Theme', speechSet: 'Speech settings', notebook: 'Notebook',
       footerTag: 'Your lessons are stored on your device — export a backup from the ⋮ menu',
       tplHint: 'Template: a trilingual title line, numbered sections, each phrase = 3 lines 🇫🇷🇸🇾🇺🇸'
     },
@@ -468,7 +533,7 @@
       emptyFolders: 'Aucun dossier — ajoutez votre premier dossier', emptyLessons: 'Aucune leçon — ajoutez votre première leçon',
       sectionsCount: 'sections', phrasesCount: 'phrases', unnamed: 'Leçon sans titre',
       edgeOn: 'Voix neurale activée (internet)', edgeOff: 'Voix de l\'appareil',
-      theme: 'Thème', speechSet: 'Réglages de la voix',
+      theme: 'Thème', speechSet: 'Réglages de la voix', notebook: 'Cahier',
       footerTag: 'Vos leçons restent sur votre appareil — exportez une sauvegarde via le menu ⋮',
       tplHint: 'Modèle : titre trilingue, sections numérotées, chaque phrase = 3 lignes 🇫🇷🇸🇾🇺🇸'
     }
@@ -982,6 +1047,7 @@
     if (p.en) rows += '<div class="pl en"><span class="tag">EN</span><span class="txt">' + wordsHtml(p.en) + '</span></div>';
     var btns = '';
     if (p.fr) btns += '<button class="flag-btn" data-lang="fr" title="FR">🇫🇷</button>';
+    btns += '<button class="flag-btn nb-open" title="📝">📝</button>';
     if (p.ar) btns += '<button class="flag-btn" data-lang="ar" title="AR">🇸🇾</button>';
     if (p.en) btns += '<button class="flag-btn" data-lang="en" title="EN">🇺🇸</button>';
     return '<div class="phrase"><div class="phrase-lines">' + rows + '</div><div class="flags">' + btns + '</div></div>';
@@ -1171,10 +1237,17 @@
     return out;
   }
   function wireFlagButtons(wrap) {
-    wrap.querySelectorAll('.flags .flag-btn').forEach(function (b) {
+    wrap.querySelectorAll('.flags .flag-btn[data-lang]').forEach(function (b) {
       b.onclick = function () {
         var p = findPhrase(b);
         speak(p[b.dataset.lang], b.dataset.lang, b);
+      };
+    });
+    wrap.querySelectorAll('.flags .nb-open').forEach(function (b) {
+      b.onclick = function (ev) {
+        ev.stopPropagation();
+        var p = findPhrase(b);
+        openNotebook(p.fr || p.ar || p.en);
       };
     });
   }
@@ -1527,6 +1600,62 @@
     });
   }
 
+  /* ==================== notebook ==================== */
+  var nb = { tool: 'pencil', color: '#111111', scale: 1, hist: [], drawing: false, lx: 0, ly: 0 };
+
+  function nbCanvas() { return document.getElementById('nbCanvas'); }
+  function nbCtx() { return nbCanvas().getContext('2d'); }
+  function nbSaveHist() {
+    var c = nbCanvas();
+    nb.hist.push(nbCtx().getImageData(0, 0, c.width, c.height));
+    if (nb.hist.length > 15) nb.hist.shift();
+  }
+  function openNotebook(text) {
+    document.getElementById('nbPhrase').textContent = text || '';
+    document.getElementById('nbOverlay').classList.add('open');
+    nb.hist = [];
+    requestAnimationFrame(function () {
+      var c = nbCanvas();
+      var r = c.parentElement.getBoundingClientRect();
+      c.width = r.width; c.height = r.height;
+      nbCtx().clearRect(0, 0, c.width, c.height);
+      nbSaveHist();
+    });
+  }
+  function nbPoint(e) {
+    var r = nbCanvas().getBoundingClientRect();
+    return { x: e.clientX - r.left, y: e.clientY - r.top };
+  }
+  function nbStart(e) {
+    nb.drawing = true;
+    var p = nbPoint(e); nb.lx = p.x; nb.ly = p.y;
+    var ctx = nbCtx();
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.globalCompositeOperation = nb.tool === 'eraser' ? 'destination-out' : 'source-over';
+    ctx.strokeStyle = nb.color;
+    var f = { pencil: 1, brush: 2.6, eraser: 6 }[nb.tool] || 1;
+    ctx.lineWidth = Math.max(2, 4 * nb.scale * f);
+    ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y); ctx.stroke();
+    e.preventDefault();
+  }
+  function nbMove(e) {
+    if (!nb.drawing) return;
+    var p = nbPoint(e); var ctx = nbCtx();
+    ctx.beginPath(); ctx.moveTo(nb.lx, nb.ly); ctx.lineTo(p.x, p.y); ctx.stroke();
+    nb.lx = p.x; nb.ly = p.y;
+    e.preventDefault();
+  }
+  function nbStop(e) {
+    if (!nb.drawing) return;
+    nb.drawing = false;
+    nbSaveHist();
+    if (e && e.cancelable) e.preventDefault();
+  }
+  function nbSetTool(t) {
+    nb.tool = t;
+    document.querySelectorAll('[data-nbtool]').forEach(function (x) { x.classList.toggle('active', x.dataset.nbtool === t); });
+  }
+
   /* ==================== word taps ==================== */
   var wHoldT = null, wTaps = 0, wTapT = null, wHeld = false;
   function wordAt(e) {
@@ -1560,6 +1689,47 @@
   });
 
   /* ==================== wiring ==================== */
+  var nbEl = nbCanvas();
+  nbEl.addEventListener('pointerdown', nbStart);
+  nbEl.addEventListener('pointermove', nbMove);
+  window.addEventListener('pointerup', nbStop);
+  nbEl.addEventListener('pointercancel', nbStop);
+  document.getElementById('nbClose').onclick = function () { document.getElementById('nbOverlay').classList.remove('open'); };
+  document.getElementById('nbClear').onclick = function () { var c = nbCanvas(); nbCtx().clearRect(0, 0, c.width, c.height); nbSaveHist(); };
+  document.getElementById('nbUndo').onclick = function () {
+    if (nb.hist.length < 2) return;
+    nb.hist.pop();
+    nbCtx().putImageData(nb.hist[nb.hist.length - 1], 0, 0);
+  };
+  document.getElementById('nbLinesBtn').onclick = function () { document.getElementById('nbLines').classList.toggle('hidden'); };
+  document.getElementById('nbSave').onclick = function () {
+    var src = nbCanvas();
+    var out = document.createElement('canvas');
+    out.width = src.width; out.height = src.height;
+    var c2 = out.getContext('2d');
+    c2.fillStyle = '#fdfaf1'; c2.fillRect(0, 0, out.width, out.height);
+    c2.drawImage(src, 0, 0);
+    var a = document.createElement('a');
+    a.download = 'notebook.png'; a.href = out.toDataURL('image/png'); a.click();
+  };
+  document.querySelectorAll('#nbColors button').forEach(function (b) {
+    b.onclick = function () {
+      nb.color = b.dataset.c;
+      if (nb.tool === 'eraser') nbSetTool('pencil');
+      document.querySelectorAll('#nbColors button').forEach(function (x) { x.classList.toggle('active', x === b); });
+    };
+  });
+  document.querySelectorAll('[data-nbtool]').forEach(function (b) {
+    b.onclick = function () { nbSetTool(b.dataset.nbtool); };
+  });
+  document.querySelectorAll('#nbSizes button').forEach(function (b) {
+    b.onclick = function () {
+      nb.scale = parseFloat(b.dataset.s);
+      document.getElementById('nbPhrase').style.setProperty('--nbs', b.dataset.s);
+      document.querySelectorAll('#nbSizes button').forEach(function (x) { x.classList.toggle('active', x === b); });
+    };
+  });
+
   document.getElementById('iconFileInput').onchange = function (e) {
     var file = e.target.files && e.target.files[0];
     e.target.value = '';
