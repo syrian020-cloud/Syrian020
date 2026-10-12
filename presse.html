@@ -243,7 +243,7 @@ var I18N = {
     errLoad: 'تعذّر تحميل الصفحة. جرّب التحديث أو افتحها في المتصفح الخارجي.',
     errUrl: 'رابط غير صالح', copied: 'تم', favExported: 'تم تصدير المفضلة', favImported: 'تم استيراد المفضلة',
     noFavs: 'لا مفضلات بعد',
-    gesture: 'نقرة على الكلمة = نطقها · نقرتان = بحث صور Google · 🔁 = تكرار الكلمة · ضغطة مطوّلة على 🔍 بجانب العبارة = بحث سريع Google AI',
+    gesture: 'نقرة على الكلمة = نطقها · نقرتان = بحث صور Google · 🔁 = تكرار الكلمة · 🔍 بجانب العبارة = بحث سريع Google AI · ضغطة مطوّلة عليه = الترجمة',
     readAllStop: 'إيقاف القراءة', loopOn: 'وضع التكرار: انقر كلمة لتكرارها', loopOff: 'أُطفئ التكرار',
     favs: 'المفضلة', all: 'الكل', partialTag: 'أجزاء مجانية',
     phrase: 'العبارة', toAr: 'العربية', toEn: 'English', speakPh: 'نطق',
@@ -265,7 +265,7 @@ var I18N = {
     errLoad: 'Impossible de charger la page. Réessayez ou ouvrez-la dans le navigateur.',
     errUrl: 'Lien invalide', copied: 'OK', favExported: 'Favoris exportés', favImported: 'Favoris importés',
     noFavs: 'Pas encore de favoris',
-    gesture: '1 clic = prononcer · 2 clics = Google Images · 🔁 = répéter · appui long sur 🔍 = recherche Google AI rapide',
+    gesture: '1 clic = prononcer · 2 clics = Google Images · 🔁 = répéter · 🔍 = recherche Google AI rapide · appui long = traduction',
     readAllStop: 'Arrêter la lecture', loopOn: 'Mode boucle : touchez un mot pour le répéter', loopOff: 'Boucle arrêtée',
     favs: 'Favoris', all: 'Tous', partialTag: 'partiellement gratuit',
     phrase: 'Phrase', toAr: 'Arabe', toEn: 'Anglais', speakPh: 'Lire',
@@ -287,7 +287,7 @@ var I18N = {
     errLoad: 'Could not load the page. Retry or open it in the browser.',
     errUrl: 'Invalid link', copied: 'Done', favExported: 'Favorites exported', favImported: 'Favorites imported',
     noFavs: 'No favorites yet',
-    gesture: '1 tap = pronounce · 2 taps = Google Images · 🔁 = loop · long-press 🔍 = quick Google AI search',
+    gesture: '1 tap = pronounce · 2 taps = Google Images · 🔁 = loop · 🔍 = quick Google AI search · long-press = translation',
     readAllStop: 'Stop reading', loopOn: 'Loop mode: tap a word to repeat it', loopOff: 'Loop off',
     favs: 'Favorites', all: 'All', partialTag: 'partially free',
     phrase: 'Phrase', toAr: 'Arabic', toEn: 'English', speakPh: 'Speak',
@@ -911,8 +911,8 @@ document.getElementById('docBody').addEventListener('pointerdown', function (e) 
   var pb = e.target.closest('.phr-i');
   if (!pb) return;
   phrTimer = setTimeout(function () {
-    lastQuickAI = Date.now();                    // long-press 🔍 = quick Google AI search
-    openExternal(gaiUrl(pb.dataset.t || ''));
+    lastQuickAI = Date.now();                    // long-press 🔍 = translation sheet
+    openPhrase(pb.dataset.t || '');
   }, 550);
 });
 ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (ev) {
@@ -922,7 +922,8 @@ document.getElementById('docBody').addEventListener('click', function (e) {
   var pb = e.target.closest('.phr-i');
   if (pb) {
     if (Date.now() - lastQuickAI < 900) return;  // the click that follows a long-press
-    openPhrase(pb.dataset.t || ''); return;
+    openExternal(gaiUrl(pb.dataset.t || ''));    // tap 🔍 = quick Google AI search
+    return;
   }
   var a = e.target.closest('a[data-url]');
   if (a) {                             // link chip / headline -> open article
