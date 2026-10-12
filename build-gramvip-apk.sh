@@ -16,6 +16,7 @@ cp manifest-gramvip.json www/manifest.json
 cp gramvip.html manifest-gramvip.json www/ 2>/dev/null || true
 cp icon-gramvip-192.png icon-gramvip-512.png sw-gramvip.js www/
 cp js/edge-tts.js www/js/
+cp -r fonts www/ 2>/dev/null || true
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
 GRADLE_INIT=""
