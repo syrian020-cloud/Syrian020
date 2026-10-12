@@ -943,7 +943,7 @@ function openPhrase(text) {
   var sp = el('button', 'tool', '▶ ' + t.speakPh);
   sp.onclick = function () { if (window.EdgeTTS) EdgeTTS.play(text.slice(0, 900), 'fr'); };
   var g = el('button', 'tool', '🔍 ' + t.gsearch);
-  g.onclick = function () { openExternal('https://www.google.com/search?q=' + encodeURIComponent(text)); };
+  g.onclick = function () { openExternal('https://www.google.com/search?q=' + encodeURIComponent(text) + '&udm=50&hl=' + uiLang()); };
   row.appendChild(sp); row.appendChild(g);
   sh.appendChild(row);
 }
