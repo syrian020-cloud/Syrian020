@@ -20,18 +20,26 @@
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; background: var(--bg); color: var(--txt);
-    font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif; overflow-x: clip; }
   body { min-height: 100vh; padding-bottom: 3rem; }
 
   /* ---------- header ---------- */
-  header { position: sticky; top: 0; z-index: 100; background: rgba(7,11,24,.92);
-    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  header { position: sticky; top: 0; z-index: 100; background: var(--bg);
+    border-bottom: 1px solid var(--line);
     padding: .55rem .8rem; }
-  .topbar { display: flex; align-items: center; gap: .5rem; max-width: 860px; margin: 0 auto; }
-  .logo { display: flex; align-items: center; gap: .45rem; font-weight: 900; font-size: 1.05rem; flex: none; }
-  .logo img { width: 30px; height: 30px; border-radius: 8px; }
+  .topbar { display: flex; align-items: center; gap: .5rem; max-width: 860px; margin: 0 auto;
+    flex-wrap: wrap; }
+  .logo { display: flex; align-items: center; gap: .45rem; font-weight: 900; font-size: 1.05rem;
+    flex: none; min-width: 0; }
+  .logo span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .logo img { width: 30px; height: 30px; border-radius: 8px; flex: none; }
   .searchbox { flex: 1; display: flex; align-items: center; gap: .4rem;
     background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: .35rem .6rem; }
+  /* Narrow phones: row 1 = logo + buttons, row 2 = full-width search — every tool visible */
+  @media (max-width: 619px) {
+    .logo { flex: 1; }
+    .searchbox { order: 5; flex: 1 1 100%; }
+  }
   .searchbox input { flex: 1; background: none; border: none; outline: none;
     color: var(--txt); font-size: .9rem; font-family: inherit; min-width: 0; }
   .iconbtn { background: var(--card); border: 1px solid var(--line); color: var(--txt);
@@ -48,9 +56,10 @@
     border-radius: 999px; padding: .35rem .85rem; font-size: .82rem; cursor: pointer; font-family: inherit; }
   .chip.on { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; border-color: transparent; font-weight: 700; }
 
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: .6rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(155px, 100%), 1fr)); gap: .6rem; }
   .src { background: var(--card); border: 1px solid var(--line); border-radius: 16px;
     padding: .7rem .7rem .6rem; cursor: pointer; display: flex; flex-direction: column; gap: .45rem;
+    min-width: 0;
     transition: transform .12s ease, border-color .12s ease; }
   .src:active { transform: scale(.97); }
   .src-top { display: flex; align-items: center; gap: .5rem; }
@@ -58,7 +67,8 @@
     align-items: center; justify-content: center; font-weight: 900; font-size: .95rem;
     color: #fff; overflow: hidden; background: linear-gradient(135deg, #4338ca, #7c3aed); }
   .fav-ic img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
-  .src-name { font-weight: 800; font-size: .9rem; line-height: 1.2; flex: 1; }
+  .src-name { font-weight: 800; font-size: .9rem; line-height: 1.2; flex: 1; min-width: 0;
+    overflow-wrap: anywhere; }
   .star { background: none; border: none; font-size: 1.05rem; cursor: pointer; color: #48507a; padding: 0 .1rem; }
   .star.on { color: var(--gold); }
   .src-desc { font-size: .72rem; color: var(--dim); line-height: 1.35; min-height: 1.9em; }
@@ -76,13 +86,16 @@
 
   /* ---------- source / article view ---------- */
   .viewer-head { display: flex; align-items: center; gap: .5rem; margin-bottom: .6rem; flex-wrap: wrap; }
-  .viewer-title { flex: 1; font-weight: 800; font-size: .95rem; min-width: 40%; }
-  .tools { display: flex; gap: .4rem; flex-wrap: wrap; }
+  .viewer-title { flex: 1; font-weight: 800; font-size: .95rem; min-width: 0;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tools { display: flex; gap: .4rem; flex: 1 1 100%; }
+  .tools .tool { flex: 1 1 0; text-align: center; }
   .tool { background: var(--card); border: 1px solid var(--line); color: var(--txt);
     border-radius: 10px; padding: .35rem .6rem; font-size: .82rem; cursor: pointer; font-family: inherit; }
   .tool.on { border-color: var(--gold); color: var(--gold); }
 
   .doc { background: var(--card2); border: 1px solid var(--line); border-radius: 16px; padding: .9rem;
+    min-width: 0; overflow-wrap: break-word;
     direction: ltr; text-align: left; /* content is French regardless of UI language */ }
   .doc h1, .doc h2, .doc h3 { margin: .6rem 0 .35rem; line-height: 1.35; }
   .doc h1 { font-size: 1.15rem; } .doc h2 { font-size: 1.02rem; } .doc h3 { font-size: .92rem; color: #c4b5fd; }
@@ -221,7 +234,7 @@
 var I18N = {
   ar: {
     appname: 'Presse — الجرائد الفرنسية', searchPh: 'ابحث عن جريدة أو مجلة…',
-    urlPh: 'https://… الصق رابط أي مقال', openBtn: 'افتح',
+    urlPh: 'الصق رابط مقال — أو اكتب كلمة/عبارة للبحث السريع في Google AI…', openBtn: 'افتح',
     readAll: 'اقرأ المقال', loading: 'جاري التحميل…', cancel: 'إلغاء',
     back: 'رجوع', ext: 'افتح في المتصفح', reload: 'تحديث',
     menu: 'القائمة', ttsSettings: 'إعدادات النطق 🎙', langTitle: 'لغة الواجهة',
@@ -230,7 +243,7 @@ var I18N = {
     errLoad: 'تعذّر تحميل الصفحة. جرّب التحديث أو افتحها في المتصفح الخارجي.',
     errUrl: 'رابط غير صالح', copied: 'تم', favExported: 'تم تصدير المفضلة', favImported: 'تم استيراد المفضلة',
     noFavs: 'لا مفضلات بعد',
-    gesture: 'نقرة على الكلمة = نطقها · نقرتان = بحث صور Google · زر 🔁 = تكرار الكلمة حتى الإيقاف',
+    gesture: 'نقرة على الكلمة = نطقها · نقرتان = بحث صور Google · 🔁 = تكرار الكلمة · ضغطة مطوّلة على 🔍 بجانب العبارة = بحث سريع Google AI',
     readAllStop: 'إيقاف القراءة', loopOn: 'وضع التكرار: انقر كلمة لتكرارها', loopOff: 'أُطفئ التكرار',
     favs: 'المفضلة', all: 'الكل', partialTag: 'أجزاء مجانية',
     phrase: 'العبارة', toAr: 'العربية', toEn: 'English', speakPh: 'نطق',
@@ -243,7 +256,7 @@ var I18N = {
   },
   fr: {
     appname: 'Presse — Journaux français', searchPh: 'Chercher un journal ou magazine…',
-    urlPh: 'https://… collez le lien d’un article', openBtn: 'Ouvrir',
+    urlPh: 'Lien d’article — ou tapez une recherche Google AI rapide…', openBtn: 'Ouvrir',
     readAll: 'Lire l’article', loading: 'Chargement…', cancel: 'Annuler',
     back: 'Retour', ext: 'Ouvrir dans le navigateur', reload: 'Recharger',
     menu: 'Menu', ttsSettings: 'Réglages de la voix 🎙', langTitle: 'Langue de l’interface',
@@ -252,7 +265,7 @@ var I18N = {
     errLoad: 'Impossible de charger la page. Réessayez ou ouvrez-la dans le navigateur.',
     errUrl: 'Lien invalide', copied: 'OK', favExported: 'Favoris exportés', favImported: 'Favoris importés',
     noFavs: 'Pas encore de favoris',
-    gesture: '1 clic = prononcer le mot · 2 clics = recherche Google Images · 🔁 = répéter le mot',
+    gesture: '1 clic = prononcer · 2 clics = Google Images · 🔁 = répéter · appui long sur 🔍 = recherche Google AI rapide',
     readAllStop: 'Arrêter la lecture', loopOn: 'Mode boucle : touchez un mot pour le répéter', loopOff: 'Boucle arrêtée',
     favs: 'Favoris', all: 'Tous', partialTag: 'partiellement gratuit',
     phrase: 'Phrase', toAr: 'Arabe', toEn: 'Anglais', speakPh: 'Lire',
@@ -265,7 +278,7 @@ var I18N = {
   },
   en: {
     appname: 'Presse — French newspapers', searchPh: 'Search a newspaper or magazine…',
-    urlPh: 'https://… paste any article link', openBtn: 'Open',
+    urlPh: 'Paste an article link — or type for a quick Google AI search…', openBtn: 'Open',
     readAll: 'Read article', loading: 'Loading…', cancel: 'Cancel',
     back: 'Back', ext: 'Open in browser', reload: 'Reload',
     menu: 'Menu', ttsSettings: 'Speech settings 🎙', langTitle: 'Interface language',
@@ -274,7 +287,7 @@ var I18N = {
     errLoad: 'Could not load the page. Retry or open it in the browser.',
     errUrl: 'Invalid link', copied: 'Done', favExported: 'Favorites exported', favImported: 'Favorites imported',
     noFavs: 'No favorites yet',
-    gesture: '1 tap = pronounce the word · 2 taps = Google Images search · 🔁 = loop the word',
+    gesture: '1 tap = pronounce · 2 taps = Google Images · 🔁 = loop · long-press 🔍 = quick Google AI search',
     readAllStop: 'Stop reading', loopOn: 'Loop mode: tap a word to repeat it', loopOff: 'Loop off',
     favs: 'Favorites', all: 'All', partialTag: 'partially free',
     phrase: 'Phrase', toAr: 'Arabic', toEn: 'English', speakPh: 'Speak',
@@ -429,6 +442,10 @@ function openExternal(url) {
 }
 function openGoogleImages(word) {
   openExternal('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(word));
+}
+// Google AI Mode search (quick path used by long-press on 🔍 and the search box)
+function gaiUrl(q) {
+  return 'https://www.google.com/search?q=' + encodeURIComponent(q) + '&udm=50&hl=' + uiLang();
 }
 
 /* ================= fetch ================= */
@@ -888,9 +905,25 @@ function renderGrid() {
 
 /* ================= gestures on document ================= */
 var lastTap = { t: 0, el: null };
+var phrTimer = null;
+var lastQuickAI = 0;
+document.getElementById('docBody').addEventListener('pointerdown', function (e) {
+  var pb = e.target.closest('.phr-i');
+  if (!pb) return;
+  phrTimer = setTimeout(function () {
+    lastQuickAI = Date.now();                    // long-press 🔍 = quick Google AI search
+    openExternal(gaiUrl(pb.dataset.t || ''));
+  }, 550);
+});
+['pointerup', 'pointercancel', 'pointerleave'].forEach(function (ev) {
+  document.getElementById('docBody').addEventListener(ev, function () { clearTimeout(phrTimer); });
+});
 document.getElementById('docBody').addEventListener('click', function (e) {
   var pb = e.target.closest('.phr-i');
-  if (pb) { openPhrase(pb.dataset.t || ''); return; }
+  if (pb) {
+    if (Date.now() - lastQuickAI < 900) return;  // the click that follows a long-press
+    openPhrase(pb.dataset.t || ''); return;
+  }
   var a = e.target.closest('a[data-url]');
   if (a) {                             // link chip / headline -> open article
     openUrl(a.dataset.url, a.textContent.trim() || a.dataset.url);
@@ -943,7 +976,7 @@ function openPhrase(text) {
   var sp = el('button', 'tool', '▶ ' + t.speakPh);
   sp.onclick = function () { if (window.EdgeTTS) EdgeTTS.play(text.slice(0, 900), 'fr'); };
   var g = el('button', 'tool', '🔍 ' + t.gsearch);
-  g.onclick = function () { openExternal('https://www.google.com/search?q=' + encodeURIComponent(text) + '&udm=50&hl=' + uiLang()); };
+  g.onclick = function () { openExternal(gaiUrl(text)); };
   row.appendChild(sp); row.appendChild(g);
   sh.appendChild(row);
 }
@@ -1091,8 +1124,14 @@ document.getElementById('loopBtn').onclick = function () {
 document.getElementById('readAllBtn').onclick = toggleReadAll;
 document.getElementById('urlGo').onclick = function () {
   var v = document.getElementById('urlInput').value.trim();
-  if (v && !/^https?:\/\//i.test(v)) v = 'https://' + v;
-  openUrl(v, v, {});
+  if (!v) return;
+  var isUrl = /^https?:\/\//i.test(v) || /^[\w-]+(\.[\w-]+)+(\/\S*)?$/.test(v);
+  if (isUrl) {
+    if (!/^https?:\/\//i.test(v)) v = 'https://' + v;
+    openUrl(v, v, {});
+  } else {
+    openExternal(gaiUrl(v));                     // typed text -> quick Google AI search
+  }
 };
 document.getElementById('urlInput').addEventListener('keydown', function (e) {
   if (e.key === 'Enter') document.getElementById('urlGo').click();
