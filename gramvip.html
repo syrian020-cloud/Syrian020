@@ -142,9 +142,9 @@
   .lesson-row:active { transform: scale(0.99); }
   .lesson-row .lr-icon { font-size: 1.25rem; width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(139,92,246,0.26), rgba(244,114,182,0.13)); border: 1px solid rgba(255,255,255,0.11); border-radius: 16px; flex-shrink: 0; overflow: hidden; }
   .lesson-row .lr-body { flex: 1; min-width: 0; }
-  .lesson-row .lr-title { font-weight: 800; font-size: 0.98rem; }
-  .lesson-row .lr-sub { color: var(--text-secondary); font-size: 0.8rem; font-weight: 600; }
-  .lesson-row .lr-meta { color: var(--text-secondary); font-size: 0.72rem; font-weight: 700; white-space: nowrap; }
+  .lesson-row .lr-title { font-weight: 800; font-size: 0.98rem; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .lesson-row .lr-sub { color: var(--text-secondary); font-size: 0.8rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .lesson-row .lr-meta { color: var(--text-secondary); font-size: 0.72rem; font-weight: 700; margin-top: 0.2rem; white-space: nowrap; }
   .lesson-row .card-menu-btn { position: static; flex-shrink: 0; }
   .add-row { border-style: dashed; border-color: rgba(139,92,246,0.45); background: transparent; justify-content: center; color: var(--accent); font-weight: 800; gap: 0.4rem; }
   .add-row:hover { border-color: var(--accent); }
@@ -1040,7 +1040,22 @@
     lessons.forEach(function (l) { n += lessonPhraseCount(l); });
     return n;
   }
-  function lessonTitle(l) { return tri(l.title) || t('unnamed'); }
+  function dedupeSlashes(s) {
+    var seen = {}, out = [];
+    String(s).split(' / ').forEach(function (p) {
+      var k = p.trim(); if (k && !seen[k]) { seen[k] = 1; out.push(k); }
+    });
+    return out.join(' / ');
+  }
+  function lessonTitle(l) { return dedupeSlashes(tri(l.title)) || t('unnamed'); }
+  function lessonSub(l) {
+    // second title line only when it adds something the shown title doesn't
+    var main = lessonTitle(l);
+    var alt = [l.title.fr, l.title.ar, l.title.en].filter(function (s) {
+      return s && s !== main && main.indexOf(s) < 0 && s.indexOf(main) < 0;
+    });
+    return alt.length ? '<div class="lr-sub">' + esc(alt[0]) + '</div>' : '';
+  }
 
   function applyLang() {
     document.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = t(el.getAttribute('data-t')); });
@@ -1168,8 +1183,8 @@
       return '<div class="lesson-row" data-id="' + l.id + '">' +
         '<span class="lr-icon">' + iconHtml(l.icon || '📚') + '</span>' +
         '<div class="lr-body"><div class="lr-title">' + esc(lessonTitle(l)) + '</div>' +
-        '<div class="lr-sub">' + esc(l.title.ar || l.title.en || '') + '</div></div>' +
-        '<span class="lr-meta">' + l.sections.length + ' ' + t('sectionsCount') + ' · ' + nPh + ' ' + t('phrasesCount') + '</span>' +
+        lessonSub(l) +
+        '<div class="lr-meta">' + l.sections.length + ' ' + t('sectionsCount') + ' · ' + nPh + ' ' + t('phrasesCount') + '</div></div>' +
         '<button class="card-menu-btn" data-menu="' + l.id + '">⋮</button></div>';
     }).join('');
     wrap.innerHTML = html || '<div class="empty"><div class="big">📭</div>' + esc(t('emptyLessons')) + '</div>';
