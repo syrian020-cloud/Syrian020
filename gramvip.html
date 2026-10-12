@@ -178,6 +178,8 @@
   .pl .txt .w { cursor: pointer; border-radius: 5px; padding: 0 1px; transition: background .12s; }
   .pl .txt .w.looping { background: rgba(139,92,246,.32); color: var(--accent); }
   .pl { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.13rem 0; }
+  .pl .txt { flex: 1; min-width: 0; }
+  .pl .flag-btn { flex: none; align-self: center; width: 36px; height: 36px; font-size: 1rem; }
   .pl .tag { flex: none; font-size: 0.58rem; font-weight: 900; width: 1.65rem; height: 1.15rem; line-height: 1.15rem; text-align: center; border-radius: 999px; align-self: center; letter-spacing: .03em; }
   .pl.fr .tag { background: rgba(139,92,246,0.22); color: #c4b5fd; }
   .pl.ar .tag { background: rgba(244,63,94,0.18); color: #fda4af; }
@@ -186,10 +188,10 @@
   [data-theme="light"] .pl.ar .tag { color: #be123c; }
   [data-theme="light"] .pl.en .tag { color: #0e7490; }
   .pl { line-height: 1.55; }
-  .pl .txt { font-size: 0.96rem; }
-  .pl.fr .txt { font-weight: 800; font-size: 1.05rem; color: var(--text-primary); }
-  .pl.ar .txt { font-weight: 700; font-size: 0.98rem; }
-  .pl.en .txt { color: var(--text-secondary); font-size: 0.92rem; }
+  .pl .txt { font-size: 1.04rem; }
+  .pl.fr .txt { font-weight: 800; font-size: 1.16rem; color: var(--text-primary); }
+  .pl.ar .txt { font-weight: 700; font-size: 1.08rem; }
+  .pl.en .txt { color: var(--text-secondary); font-size: 1rem; }
   .flags { display: flex; flex-direction: column; gap: 0.34rem; flex: none; }
   .ph-actions { display: flex; gap: 0.4rem; margin-top: 0.5rem; }
   .ph-act { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg-secondary); font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .14s; }
@@ -1074,17 +1076,13 @@
   }
   function phraseHtml(p) {
     var rows = '';
-    if (p.fr) rows += '<div class="pl fr"><span class="tag">FR</span><span class="txt">' + wordsHtml(p.fr) + '</span></div>';
-    if (p.ar) rows += '<div class="pl ar"><span class="tag">ع</span><span class="txt">' + wordsHtml(p.ar) + '</span></div>';
-    if (p.en) rows += '<div class="pl en"><span class="tag">EN</span><span class="txt">' + wordsHtml(p.en) + '</span></div>';
-    var btns = '';
-    if (p.fr) btns += '<button class="flag-btn" data-lang="fr" title="FR">🇫🇷</button>';
-    if (p.ar) btns += '<button class="flag-btn" data-lang="ar" title="AR">🇸🇾</button>';
-    if (p.en) btns += '<button class="flag-btn" data-lang="en" title="EN">🇺🇸</button>';
+    if (p.fr) rows += '<div class="pl fr"><span class="tag">FR</span><span class="txt">' + wordsHtml(p.fr) + '</span><button class="flag-btn" data-lang="fr" title="FR">🇫🇷</button></div>';
+    if (p.ar) rows += '<div class="pl ar"><span class="tag">ع</span><span class="txt">' + wordsHtml(p.ar) + '</span><button class="flag-btn" data-lang="ar" title="AR">🇸🇾</button></div>';
+    if (p.en) rows += '<div class="pl en"><span class="tag">EN</span><span class="txt">' + wordsHtml(p.en) + '</span><button class="flag-btn" data-lang="en" title="EN">🇺🇸</button></div>';
     var acts = '<div class="ph-actions">' +
       '<button class="ph-act nb-open" title="notebook">📝</button>' +
       '<button class="ph-act ai-open" title="Google AI">🤖</button></div>';
-    return '<div class="phrase"><div class="phrase-lines">' + rows + acts + '</div><div class="flags">' + btns + '</div></div>';
+    return '<div class="phrase"><div class="phrase-lines">' + rows + acts + '</div></div>';
   }
 
   // small per-language TTS buttons for titles (lesson, section, group)
@@ -1271,7 +1269,7 @@
     return out;
   }
   function wireFlagButtons(wrap) {
-    wrap.querySelectorAll('.flags .flag-btn[data-lang]').forEach(function (b) {
+    wrap.querySelectorAll('.pl .flag-btn[data-lang]').forEach(function (b) {
       b.onclick = function () {
         var p = findPhrase(b);
         speak(p[b.dataset.lang], b.dataset.lang, b);
