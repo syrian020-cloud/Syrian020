@@ -1949,6 +1949,7 @@
       speakLoop(qz.pairs[parseInt(el.dataset.i, 10)].fr, el, 'fr');
       return;
     }
+    speakLoop(qz.pairs[parseInt(el.dataset.i, 10)][qz.lang], el, qz.lang);
     if (!qz.sel) return;
     var frI = parseInt(qz.sel.dataset.i, 10);
     var tgI = parseInt(el.dataset.i, 10);
@@ -1969,7 +1970,6 @@
       el.classList.add('bad');
       selEl.classList.remove('sel');
       qz.sel = null;
-      stopSpeaking();
       setTimeout(function () { el.classList.remove('bad'); }, 400);
     }
   }
