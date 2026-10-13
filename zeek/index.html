@@ -899,25 +899,113 @@
     if (!media || !idbMediaSupported()) return;
     const db = await openMediaDb();
     for (const id of Object.keys(media)) {
-      const m = media[id];
-      if (!m || typeof m.data !== 'string') continue;
-      const value = { data: await b64ToBuffer(m.data), type: m.type || 'application/octet-stream', name: m.name || '' };
-      await putMediaRecord(db, id, value);
+      try {
+        const m = media[id];
+        const dataStr = typeof m === 'string' ? m : (m && typeof m.data === 'string' ? m.data : '');
+        if (!dataStr) continue;
+        let type = (m && m.type) || '';
+        let buf;
+        if (dataStr.startsWith('data:')) {
+          const r = await fetch(dataStr);
+          buf = await r.arrayBuffer();
+          if (!type) {
+            const semi = dataStr.indexOf(';'), comma = dataStr.indexOf(',');
+            const end = semi > 4 ? semi : comma;
+            if (end > 5) type = dataStr.slice(5, end);
+          }
+        } else buf = await b64ToBuffer(dataStr);
+        await putMediaRecord(db, id, { data: buf, type: type || 'application/octet-stream', name: (m && m.name) || '' });
+      } catch (e) { console.error('import media entry', id, e); }
+    }
+  }
+
+  // A uniform read source over either a browser File/Blob or a file the
+  // native FilePick plugin copied into the app cache. shape:
+  // {size, read(off,len)->ArrayBuffer, text()->string, dispose()}
+  function fileSourceOf(file) {
+    if (file && typeof file.read === 'function') return file; // already a source
+    return {
+      size: file.size,
+      read: (off, len) => readFileArrayBuffer(file.slice(off, Math.min(off + len, file.size))),
+      text: () => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = e => resolve(e.target.result);
+        reader.onerror = () => reject(reader.error || 'read error');
+        reader.readAsText(file);
+      }),
+      dispose: () => {}
+    };
+  }
+
+  function nativeFilePick() {
+    return (window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.FilePick) || null;
+  }
+
+  // Android WebView file inputs can't stream from some providers (Drive,
+  // "Recent", WhatsApp) — reads fail with NotReadableError. The FilePick
+  // plugin opens the system picker, copies the file into the app cache,
+  // and we read it back in native chunks.
+  async function pickNativeSource() {
+    const fp = nativeFilePick();
+    const r = await fp.pick(); // rejects 'cancelled' when the user backs out
+    const path = r.path;
+    const rel = path.split('/').pop();
+    return {
+      size: r.size,
+      read: async (off, len) => {
+        const c = await fp.readChunk({ path: path, offset: off, length: len });
+        if (!c || typeof c.data !== 'string') throw new Error('readChunk failed');
+        return b64ChunkToBytes(c.data).buffer;
+      },
+      text: async () => {
+        const dec = new TextDecoder('utf-8');
+        let out = '', off = 0;
+        const CH = 4 * 1024 * 1024;
+        while (off < r.size) {
+          const c = await fp.readChunk({ path: path, offset: off, length: CH });
+          if (!c || typeof c.data !== 'string') throw new Error('readChunk failed');
+          const bytes = b64ChunkToBytes(c.data);
+          if (!bytes.length) break;
+          off += bytes.length;
+          out += dec.decode(bytes, { stream: true });
+        }
+        out += dec.decode();
+        return out;
+      },
+      dispose: async () => {
+        try {
+          const { Filesystem } = Capacitor.Plugins;
+          if (Filesystem) {
+            const dir = Filesystem.Directory && Filesystem.Directory.Cache ? Filesystem.Directory.Cache : 'CACHE';
+            await Filesystem.deleteFile({ path: rel, directory: dir });
+          }
+        } catch (e) {}
+      }
+    };
+  }
+
+  async function nativePickImport() {
+    try {
+      const src = await pickNativeSource();
+      importLessons(src);
+    } catch (e) {
+      if (e && String(e.message || e).indexOf('cancelled') === -1)
+        showToast(t('importError') + ': ' + (e.message || e), 8000);
     }
   }
 
   // Streams a "with media" export from disk without loading the whole file in memory.
-  async function importFullStream(file, onProgress) {
+  async function importFullStream(src, onProgress) {
     const db = idbMediaSupported() ? await openMediaDb() : null;
     const decoder = new TextDecoder('utf-8');
     const CHUNK = 4 * 1024 * 1024;
     let off = 0, buf = '', done = false;
     const more = async () => {
-      if (off >= file.size) { if (!done) { buf += decoder.decode(); done = true; } return false; }
-      const ab = await readFileArrayBuffer(file.slice(off, Math.min(off + CHUNK, file.size)));
+      if (off >= src.size) { if (!done) { buf += decoder.decode(); done = true; } return false; }
+      const ab = await src.read(off, Math.min(CHUNK, src.size - off));
       off += ab.byteLength;
       buf += decoder.decode(ab, { stream: true });
-      if (onProgress) onProgress(off / file.size);
+      if (onProgress) onProgress(off / src.size);
       return true;
     };
     const needIndex = async (marker, from) => {
@@ -948,37 +1036,107 @@
     }
 
     // Media entries: "id":{"type":"..","name":"..","data":"BASE64"}
+    // Tolerated variants: "data" may hold a data URL (data:mime;base64,…),
+    // may be the first key in the object, or the value may be a bare string
+    // "id":"B64|dataURL". Undecodable entries are skipped, not fatal.
+    let skipped = 0;
     for (;;) {
       await skipWs();
       if (buf[0] === '}') break;
       if (buf[0] === ',') { buf = buf.slice(1); continue; }
-      const di = await needIndex(',"data":"', 0);
-      if (di === -1) throw new Error('invalid');
-      const metaObj = JSON.parse('{' + buf.slice(0, di) + '}}');
-      const id = Object.keys(metaObj)[0];
-      const meta = metaObj[id] || {};
-      buf = buf.slice(di + ',"data":"'.length);
+      if (buf[0] !== '"') throw new Error('invalid');
+      let ke;
+      while ((ke = buf.indexOf('"', 1)) === -1) { if (!(await more())) throw new Error('invalid'); }
+      let id;
+      try { id = JSON.parse(buf.slice(0, ke + 1)); } catch (e) { throw new Error('invalid'); }
+      buf = buf.slice(ke + 1);
+      await skipWs();
+      if (buf[0] !== ':') throw new Error('invalid');
+      buf = buf.slice(1);
+      await skipWs();
+      let meta = {}, wasObj = false;
+      if (buf[0] === '{') {
+        wasObj = true;
+        const di = await needIndex('"data":"', 0);
+        if (di === -1) throw new Error('invalid');
+        const head = buf.slice(0, di);
+        const brace = head.indexOf('{'), comma = head.lastIndexOf(',');
+        if (brace !== -1 && comma > brace) {
+          try { meta = JSON.parse(head.slice(brace, comma) + '}') || {}; } catch (e) { meta = {}; }
+        }
+        buf = buf.slice(di + '"data":"'.length);
+      } else if (buf[0] === '"') {
+        buf = buf.slice(1);
+      } else throw new Error('invalid');
+      // buf now holds the raw value, terminated by a '"'
+      while (buf.length < 64) { if (!(await more())) break; }
+      if (buf.startsWith('data:')) {
+        const bi = buf.indexOf('base64,');
+        if (bi !== -1) buf = buf.slice(bi + 'base64,'.length);
+      }
       const parts = [];
+      let decFail = false;
       for (;;) {
         const q = buf.indexOf('"');
         if (q !== -1) {
-          if (q) parts.push(b64ChunkToBytes(buf.slice(0, q)));
+          if (q && !decFail) { try { parts.push(b64ChunkToBytes(buf.slice(0, q))); } catch (e) { decFail = true; parts.length = 0; } }
           buf = buf.slice(q + 1);
           break;
         }
         const take = buf.length - (buf.length % 4);
-        if (take) { parts.push(b64ChunkToBytes(buf.slice(0, take))); buf = buf.slice(take); }
+        if (take) {
+          try { if (!decFail) parts.push(b64ChunkToBytes(buf.slice(0, take))); } catch (e) { decFail = true; parts.length = 0; }
+          buf = buf.slice(take);
+        }
         if (!(await more())) throw new Error('invalid');
       }
       await skipWs();
-      if (buf[0] === '}') buf = buf.slice(1);
-      if (db) {
+      if (wasObj) {
+        // consume the rest of the entry ("k":v pairs) through its closing '}'
+        for (;;) {
+          await skipWs();
+          if (buf[0] === '}') { buf = buf.slice(1); break; }
+          if (buf[0] === ',') { buf = buf.slice(1); continue; }
+          if (buf[0] !== '"') throw new Error('invalid');
+          let k2;
+          while ((k2 = buf.indexOf('"', 1)) === -1) { if (!(await more())) throw new Error('invalid'); }
+          const kname = buf.slice(1, k2);
+          buf = buf.slice(k2 + 1);
+          await skipWs();
+          if (buf[0] !== ':') throw new Error('invalid');
+          buf = buf.slice(1);
+          await skipWs();
+          if (buf[0] === '"') {
+            let ve;
+            for (;;) {
+              ve = buf.indexOf('"', 1);
+              while (ve !== -1 && buf[ve - 1] === '\\') ve = buf.indexOf('"', ve + 1);
+              if (ve !== -1) break;
+              if (!(await more())) throw new Error('invalid');
+            }
+            try { meta[kname] = JSON.parse(buf.slice(0, ve + 1)); } catch (e) {}
+            buf = buf.slice(ve + 1);
+          } else {
+            let si = -1;
+            for (;;) {
+              const a = buf.indexOf(','), b = buf.indexOf('}');
+              si = a === -1 ? b : (b === -1 ? a : Math.min(a, b));
+              if (si !== -1) break;
+              if (!(await more())) throw new Error('invalid');
+            }
+            try { meta[kname] = JSON.parse(buf.slice(0, si)); } catch (e) {}
+            buf = buf.slice(si);
+          }
+        }
+        await skipWs();
+      }
+      if (db && parts.length) {
         const blob = new Blob(parts, { type: meta.type || 'application/octet-stream' });
         await putMediaRecord(db, id, { data: blob, type: blob.type, name: meta.name || '' });
-      }
+      } else skipped++;
       parts.length = 0;
     }
-    return lessons;
+    return { lessons: lessons, skipped: skipped };
   }
 
   async function exportLessons(list) {
@@ -1037,29 +1195,26 @@
       go({ name: 'home' }, false);
       showToast(t('importSuccess'));
     };
+    const src = fileSourceOf(file);
     try {
-      const headText = new TextDecoder('utf-8').decode(await readFileArrayBuffer(file.slice(0, 64)));
+      const headText = new TextDecoder('utf-8').decode(await src.read(0, 64));
       const isFull = /^\s*\{\s*"(?:Zeek|zeek)Export"/.test(headText);
       if (isFull) {
         if (!confirm(t('importConfirm'))) return;
         showToast(t('exportPreparing'), 600000);
         try {
-          const lessons = await importFullStream(file, p => showToast(t('exportPreparing') + ' ' + Math.round(p * 100) + '%', 600000));
-          applyLessons(lessons);
+          const res = await importFullStream(src, p => showToast(t('exportPreparing') + ' ' + Math.round(p * 100) + '%', 600000));
+          applyLessons(res.lessons);
+          if (res.skipped) showToast(t('importSuccess') + ' (' + res.skipped + ' media skipped)', 6000);
           return;
         } catch (err) {
           console.error('stream import failed, falling back', err);
-          if (file.size > 200 * 1024 * 1024) throw err;
+          if (src.size > 200 * 1024 * 1024) throw err;
         }
       }
-      const text = await new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = e => resolve(e.target.result);
-        reader.onerror = () => reject(reader.error || 'read error');
-        reader.readAsText(file);
-      });
+      const text = await src.text();
       const parsed = JSON.parse(text);
-      const full = parsed && !Array.isArray(parsed) && (parsed.zeekExport || parsed.zeekExport) && Array.isArray(parsed.lessons);
+      const full = parsed && !Array.isArray(parsed) && (parsed.zeekExport || parsed.viperExport) && Array.isArray(parsed.lessons);
       const data = full ? parsed.lessons : parsed;
       if (!Array.isArray(data)) throw new Error('invalid');
       if (!confirm(t('importConfirm'))) return;
@@ -1069,6 +1224,8 @@
       console.error('import failed', err);
       const where = err && err.stack ? String(err.stack).split('\n').slice(1, 2).join('').trim() : '';
       showToast(t('importError') + (err && err.message ? ': ' + err.message : '') + (where ? ' @ ' + where : ''), 8000);
+    } finally {
+      if (src && src.dispose) src.dispose();
     }
   }
 
@@ -1330,6 +1487,8 @@
     voiceAr: { ar: 'صوت العربية', en: 'Arabic voice', fr: 'Voix arabe' },
     voiceEn: { ar: 'صوت الإنجليزية', en: 'English voice', fr: 'Voix anglaise' },
     voicePreview: { ar: 'استمع', en: 'Listen', fr: 'Écouter' },
+    edgeTtsFailed: { ar: 'صوت الإنترنت فشل، تم التبديل لصوت الجهاز', en: 'Internet voice failed, switched to device voice', fr: 'Voix Internet en échec, voix de l’appareil utilisée' },
+    ttsFailed: { ar: 'فشل النطق', en: 'Speech failed', fr: 'Échec de la voix' },
     aspectRatioTitle: { ar: 'نسبة عرض الفيديو', en: 'Video aspect ratio', fr: 'Ratio d’aspect vidéo' },
     imageAspectTitle: { ar: 'مقياس الصورة', en: 'Image aspect ratio', fr: 'Format de l’image' },
     imageAspectOriginal: { ar: 'أصلي', en: 'Original', fr: 'Original' },
@@ -2854,18 +3013,38 @@
     return EdgeTTS.play(text, lang);
   }
 
+  let edgeErrShown = false, noTtsShown = false;
   function anySpeak(text, lang) {
-    const t = stripSpeechFlags(text);
-    if (!t) return Promise.reject('empty tts');
+    const txt = stripSpeechFlags(text);
+    if (!txt) return Promise.reject('empty tts');
     pauseAllMedia();
     const fallback = () => {
-      if (speakSupported()) return nativeSpeak(t, lang);
-      if (webTTS()) return webSpeak(t, lang);
-      return Promise.reject('no tts');
+      const steps = [];
+      if (speakSupported()) steps.push(() => nativeSpeak(txt, lang));
+      if (webTTS()) steps.push(() => webSpeak(txt, lang));
+      let r = Promise.reject('no tts');
+      for (const s of steps) r = r.catch(s);
+      return r;
     };
     let p;
-    if (edgeSupported()) p = edgeSpeak(t, lang).catch(() => fallback());
+    if (edgeSupported()) p = edgeSpeak(txt, lang).catch(e => {
+      if (e && e.stopped) throw e;
+      if (!edgeErrShown) {
+        edgeErrShown = true;
+        const reason = (window.EdgeTTS && EdgeTTS.lastError) || (e && (e.message || e)) || 'unknown';
+        showToast(t('edgeTtsFailed') + ' (' + reason + ')', 9000);
+      }
+      return fallback();
+    });
     else p = fallback();
+    p = p.catch(e => {
+      if (!(e && e.stopped) && !noTtsShown) {
+        noTtsShown = true;
+        const reason = (e && (e.message || e)) || 'unknown';
+        showToast(t('ttsFailed') + ' (' + reason + ')', 9000);
+      }
+      throw e;
+    });
     ttsActive++;
     const done = () => { ttsActive = Math.max(0, ttsActive - 1); };
     p.then(done, done);
@@ -4441,6 +4620,11 @@ EN: Maria, I’m out of cigarettes.`
 
   function bindViewEvents() {
     view.addEventListener('click', e => {
+      if (e.target.closest('label[for="import-file"]') && nativeFilePick()) {
+        e.preventDefault();
+        nativePickImport();
+        return;
+      }
       const delImgBtn = e.target.closest('.media-del');
       if (delImgBtn) { e.stopPropagation(); deletePhraseImage(delImgBtn.dataset.phraseKey); return; }
 

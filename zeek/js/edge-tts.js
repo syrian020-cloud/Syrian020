@@ -1,19 +1,23 @@
 /* EdgeTTS — better TTS over the internet, with graceful fallback.
  *
- * Two internet sources, picked automatically:
+ * Internet sources tried in order (per session):
  *  1. Native Capacitor plugin "EdgeTTS" (APK only): real Microsoft neural
  *     voices (e.g. fr-FR-DeniseNeural), synthesized to a cache file.
- *  2. ResponsiveVoice getvoice.php (web/PWA): playable MP3 URL, no key.
+ *  2. ResponsiveVoice getvoice.php: playable MP3 URL, no key needed.
+ * If every internet source fails, callers should fall back to device TTS.
+ * A failed source is skipped for REVIVE_MS before being retried, so a
+ * transient outage does not cost a slow timeout on every tap.
  *
  * API:
  *   EdgeTTS.enabled()        -> bool (persisted in localStorage 'edge_tts')
  *   EdgeTTS.setEnabled(v)
- *   EdgeTTS.supported()      -> enabled && !down && (plugin || Audio) && online
+ *   EdgeTTS.supported()      -> enabled && online && an alive source exists
  *   EdgeTTS.audio(text,lang) -> Promise<{url}> (cached, deduped)
  *   EdgeTTS.play(text,lang)  -> Promise resolving when playback ends
  *   EdgeTTS.playUrl(url)     -> same for a cached URL
  *   EdgeTTS.stop()           -> pause current audio
- *   EdgeTTS.down             -> true after a failure (session only)
+ *   EdgeTTS.down             -> true while every source is marked dead
+ *   EdgeTTS.lastError        -> aggregated reason of the last full failure
  *   EdgeTTS.voices/rates     -> {fr,ar,en}
  */
 (function () {
@@ -21,31 +25,55 @@
 
   var api = {
     down: false,
+    lastError: '',
     voices: { fr: 'fr-FR-DeniseNeural', ar: 'ar-SY-AmanyNeural', en: 'en-US-JennyNeural' },
     rates: { fr: '-8%', ar: '0%', en: '0%' }
   };
   var RV_TL = { fr: 'fr', ar: 'ar', en: 'en-US' };
   var RV_RATE = '0.47';
   var CACHE_MAX = 60;
+  var FETCH_TIMEOUT_MS = 25000;
+  var PLAY_START_TIMEOUT_MS = 15000;
+  var REVIVE_MS = 120000;
 
   var cache = {};
   var cacheOrder = [];
   var pending = {};
   var curAudio = null;
+  var curFin = null;
+  var deadSrc = {}; // source name -> timestamp of last failure
+
+  function stoppedErr() { var e = new Error('stopped'); e.stopped = true; return e; }
 
   function enabled() {
     try { return localStorage.getItem('edge_tts') !== '0'; } catch (e) { return true; }
   }
   function setEnabled(v) {
     try { localStorage.setItem('edge_tts', v ? '1' : '0'); } catch (e) {}
-    if (v) api.down = false;
+    if (v) { api.down = false; api.lastError = ''; deadSrc = {}; }
   }
   function plugin() {
     return (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.EdgeTTS) || null;
   }
+  function reviveDue() {
+    var newest = 0;
+    for (var k in deadSrc) { if (deadSrc[k] > newest) newest = deadSrc[k]; }
+    return !!newest && (Date.now() - newest) > REVIVE_MS;
+  }
+  function aliveSrcs() {
+    var now = Date.now();
+    var out = [];
+    if (plugin() && !(deadSrc.edge && now - deadSrc.edge < REVIVE_MS)) out.push('edge');
+    if (!(deadSrc.rv && now - deadSrc.rv < REVIVE_MS)) out.push('rv');
+    return out;
+  }
   function supported() {
-    if (!enabled() || api.down) return false;
+    if (!enabled()) return false;
     if (navigator.onLine === false) return false;
+    if (api.down) {
+      if (reviveDue()) { api.down = false; deadSrc = {}; }
+      else return false;
+    }
     return !!plugin() || typeof Audio !== 'undefined';
   }
 
@@ -61,40 +89,73 @@
     return 'file://' + path;
   }
 
-  function fetchAudio(text, lang) {
-    var p = plugin();
-    if (p) {
-      return p.speak({ text: text, voice: api.voices[lang] || api.voices.fr, rate: api.rates[lang] || '+0%' })
-        .then(function (r) { return { url: fileUrl(r.path) }; });
+  function errText(e) {
+    if (!e) return 'unknown';
+    var s = e.message || e.errorMessage || e;
+    return String(s).slice(0, 140);
+  }
+
+  function fetchSource(src, text, lang) {
+    if (src === 'edge') {
+      var p = plugin();
+      if (!p) return Promise.reject(new Error('no EdgeTTS plugin'));
+      var call;
+      try {
+        call = p.speak({ text: text, voice: api.voices[lang] || api.voices.fr, rate: api.rates[lang] || '+0%' });
+      } catch (e) {
+        return Promise.reject(e);
+      }
+      var timeout = new Promise(function (_, rej) {
+        setTimeout(function () { rej(new Error('plugin timeout')); }, FETCH_TIMEOUT_MS);
+      });
+      return Promise.race([call, timeout]).then(function (r) {
+        return { url: fileUrl(r.path), src: 'edge' };
+      });
     }
-    return Promise.resolve({ url: rvUrl(text, lang) });
+    return Promise.resolve({ url: rvUrl(text, lang), src: 'rv' });
   }
 
   function touch(key) {
     var i = cacheOrder.indexOf(key);
     if (i >= 0) { cacheOrder.splice(i, 1); cacheOrder.push(key); }
   }
+  function put(key, entry) {
+    cache[key] = entry;
+    cacheOrder.push(key);
+    while (cacheOrder.length > CACHE_MAX) {
+      var k = cacheOrder.shift();
+      delete cache[k];
+    }
+  }
+  function keyFor(text, lang) {
+    return lang + '|' + (api.voices[lang] || '') + '|' + (api.rates[lang] || '') + '|' + text;
+  }
 
+  // Fetch a playable URL: tries the remembered-good source first, then
+  // whatever is alive. Playback happens in play(); a cached URL is only a
+  // fetch cache — play() re-verifies it and falls through on error.
   function audio(text, lang) {
     lang = lang || 'fr';
-    var key = lang + '|' + (api.voices[lang] || '') + '|' + (api.rates[lang] || '') + '|' + text;
+    var key = keyFor(text, lang);
     var hit = cache[key];
     if (hit) { touch(key); return Promise.resolve(hit); }
     if (pending[key]) return pending[key];
-    var p = fetchAudio(text, lang).then(function (entry) {
-      cache[key] = entry;
-      cacheOrder.push(key);
-      while (cacheOrder.length > CACHE_MAX) {
-        var k = cacheOrder.shift();
-        delete cache[k];
-      }
-      delete pending[key];
-      return entry;
-    }, function (err) {
-      delete pending[key];
-      api.down = true;
-      throw err;
-    });
+    var srcs = aliveSrcs();
+    if (!srcs.length) return Promise.reject(new Error(api.lastError || 'edge tts unavailable'));
+    var i = 0;
+    function attempt() {
+      if (i >= srcs.length) return Promise.reject(new Error('no source produced audio'));
+      var src = srcs[i++];
+      return fetchSource(src, text, lang).then(function (entry) {
+        entry.src = src;
+        delete pending[key];
+        put(key, entry);
+        return entry;
+      }, function () {
+        return attempt();
+      });
+    }
+    var p = attempt();
     pending[key] = p;
     return p;
   }
@@ -102,27 +163,78 @@
   function playUrl(url) {
     return new Promise(function (resolve, reject) {
       var el;
-      try { el = new Audio(url); } catch (e) { reject(e); return; }
+      try { el = new Audio(); } catch (e) { reject(e); return; }
       curAudio = el;
-      var settled = false;
+      var settled = false, watchdog = null;
+      function arm(ms) {
+        if (watchdog) clearTimeout(watchdog);
+        watchdog = setTimeout(function () { fin(new Error('audio timeout')); }, ms);
+      }
       function fin(err) {
         if (settled) return;
         settled = true;
+        if (watchdog) clearTimeout(watchdog);
+        if (curFin === fin) curFin = null;
         if (curAudio === el) curAudio = null;
         if (err) reject(err); else resolve();
       }
+      curFin = fin;
+      arm(PLAY_START_TIMEOUT_MS);
+      el.onloadedmetadata = function () {
+        var d = (isFinite(el.duration) && el.duration > 0) ? el.duration * 1000 : 60000;
+        arm(d + 10000);
+      };
       el.onended = function () { fin(); };
       el.onerror = function () { fin(new Error('audio playback error')); };
+      el.src = url;
       var pr;
       try { pr = el.play(); } catch (e) { fin(e); return; }
       if (pr && pr.catch) pr.catch(function (e) { fin(e); });
     });
   }
 
+  // Full chain: for each source (remembered-good first, then the rest in
+  // order), fetch its URL and play it. First source that plays to the end
+  // wins and is cached for this text. If all fail, api.down + lastError.
   function play(text, lang) {
-    return audio(text, lang).then(function (a) {
-      return playUrl(a.url).catch(function (e) { api.down = true; throw e; });
-    });
+    lang = lang || 'fr';
+    var key = keyFor(text, lang);
+    var hit = cache[key];
+    var seq = [];
+    if (hit) seq.push(hit.src);
+    var rest = aliveSrcs();
+    for (var i = 0; i < rest.length; i++) { if (!hit || rest[i] !== hit.src) seq.push(rest[i]); }
+    if (!seq.length) {
+      api.down = true;
+      return Promise.reject(new Error(api.lastError || 'edge tts unavailable'));
+    }
+    var errors = [];
+    var idx = 0;
+    function attempt() {
+      if (idx >= seq.length) {
+        api.down = true;
+        api.lastError = errors.join(' | ') || 'edge tts failed';
+        if (hit) delete cache[key];
+        return Promise.reject(new Error(api.lastError));
+      }
+      var src = seq[idx++];
+      var fetch = (hit && hit.src === src) ? Promise.resolve(hit) : fetchSource(src, text, lang);
+      return fetch.then(function (entry) {
+        return playUrl(entry.url).then(function () {
+          api.down = false;
+          entry.src = src;
+          if (entry !== hit) put(key, entry);
+          return entry;
+        });
+      }).catch(function (e) {
+        if (e && e.stopped) throw e; // user stop: no deadSrc, no retry
+        deadSrc[src] = Date.now();
+        if (hit && hit.src === src) delete cache[key];
+        errors.push(src + ': ' + errText(e));
+        return attempt();
+      });
+    }
+    return attempt();
   }
 
   function stop() {
@@ -130,6 +242,7 @@
       try { curAudio.pause(); } catch (e) {}
       curAudio = null;
     }
+    if (curFin) curFin(stoppedErr());
   }
 
   api.enabled = enabled;
