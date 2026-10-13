@@ -1356,7 +1356,7 @@
       b.onclick = function (ev) {
         ev.stopPropagation();
         var p = findPhrase(b);
-        openNotebook(p);
+        openNotebook(p, findPhraseObj(b));
       };
     });
     wrap.querySelectorAll('.ai-open').forEach(function (b) {
@@ -1747,15 +1747,37 @@
     var c = nbCanvas();
     nb.hist.push(nbCtx().getImageData(0, 0, c.width, c.height));
     if (nb.hist.length > 15) nb.hist.shift();
+    nbPersist();
   }
   var nbPhr = { fr: '', ar: '', en: '' };
   var nbLang = 'fr';
+  var nbRef = null;
+  function nbFlushSave() {
+    if (!nbRef) return;
+    var c = nbCanvas();
+    if (!c.width) return;
+    var sc = Math.min(1, 900 / Math.max(c.width, c.height));
+    var out = document.createElement('canvas');
+    out.width = Math.max(1, Math.round(c.width * sc));
+    out.height = Math.max(1, Math.round(c.height * sc));
+    var oc = out.getContext('2d');
+    oc.fillStyle = '#fdfaf1'; oc.fillRect(0, 0, out.width, out.height);
+    oc.drawImage(c, 0, 0, out.width, out.height);
+    nbRef.phrase.nb = out.toDataURL('image/jpeg', 0.72);
+    idbPut('lessons', nbRef.lesson);
+  }
+  function nbPersist() {
+    if (!nbRef) return;
+    clearTimeout(nb._sv);
+    nb._sv = setTimeout(nbFlushSave, 700);
+  }
   function nbSetLang(l) {
     nbLang = l;
     document.getElementById('nbPhrase').textContent = nbPhr[l] || nbPhr.fr || '';
     document.querySelectorAll('#nbLangs button').forEach(function (x) { x.classList.toggle('active', x.dataset.nbl === l); });
   }
-  function openNotebook(p) {
+  function openNotebook(p, ref) {
+    nbRef = ref || null;
     nbPhr = { fr: p.fr || '', ar: p.ar || '', en: p.en || '' };
     nbSetLang(nbPhr.fr ? 'fr' : (nbPhr.ar ? 'ar' : 'en'));
     document.getElementById('nbOverlay').classList.add('open');
@@ -1765,7 +1787,17 @@
       var r = c.parentElement.getBoundingClientRect();
       c.width = r.width; c.height = r.height;
       nbCtx().clearRect(0, 0, c.width, c.height);
-      nbSaveHist();
+      if (nbRef && nbRef.phrase.nb) {
+        var im = new Image();
+        im.onload = function () {
+          nbCtx().drawImage(im, 0, 0, c.width, c.height);
+          nb.hist = [];
+          nbSaveHist();
+        };
+        im.src = nbRef.phrase.nb;
+      } else {
+        nbSaveHist();
+      }
     });
   }
   function nbPoint(e) {
@@ -1840,7 +1872,12 @@
   nbEl.addEventListener('pointermove', nbMove);
   window.addEventListener('pointerup', nbStop);
   nbEl.addEventListener('pointercancel', nbStop);
-  document.getElementById('nbClose').onclick = function () { document.getElementById('nbOverlay').classList.remove('open'); };
+  document.getElementById('nbClose').onclick = function () {
+    clearTimeout(nb._sv);
+    nbFlushSave();
+    nbRef = null;
+    document.getElementById('nbOverlay').classList.remove('open');
+  };
   document.getElementById('nbClear').onclick = function () { var c = nbCanvas(); nbCtx().clearRect(0, 0, c.width, c.height); nbSaveHist(); };
   document.getElementById('nbUndo').onclick = function () {
     if (nb.hist.length < 2) return;
