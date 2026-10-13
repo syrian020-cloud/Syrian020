@@ -288,6 +288,9 @@
   .nb-sizes button[data-s="1.4"] span { height: 5px; }
   .nb-sizes button[data-s="2"] span { height: 8px; }
   .nb-sizes button.active { border-color: #2f9d78; background: #e6f4ee; }
+  .nb-langs { display: flex; gap: 0.3rem; align-items: center; margin-inline-start: 0.4rem; }
+  .nb-langs button { min-width: 40px; height: 32px; background: #fff; border: 1px solid #e8e2d2; border-radius: 9px; cursor: pointer; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; }
+  .nb-langs button.active { border-color: #2f9d78; background: #e6f4ee; }
   .nb-wrap { flex: 1; position: relative; overflow: hidden; }
   .nb-lines { position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, transparent 0 46px, rgba(120,170,220,0.35) 46px 47px); }
   .nb-lines::after { content: ''; position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(230,120,120,0.45); inset-inline-end: 12%; }
@@ -487,6 +490,11 @@
       <button data-s="1" class="active"><span></span></button>
       <button data-s="1.4"><span></span></button>
       <button data-s="2"><span></span></button>
+    </div>
+    <div class="nb-langs" id="nbLangs">
+      <button data-nbl="fr" class="active" title="FR">🇫🇷</button>
+      <button data-nbl="ar" title="AR">🇸🇾</button>
+      <button data-nbl="en" title="EN">🇺🇸</button>
     </div>
   </div>
   <div class="nb-wrap" id="nbWrap">
@@ -1348,7 +1356,7 @@
       b.onclick = function (ev) {
         ev.stopPropagation();
         var p = findPhrase(b);
-        openNotebook(p.fr || p.ar || p.en);
+        openNotebook(p);
       };
     });
     wrap.querySelectorAll('.ai-open').forEach(function (b) {
@@ -1740,8 +1748,16 @@
     nb.hist.push(nbCtx().getImageData(0, 0, c.width, c.height));
     if (nb.hist.length > 15) nb.hist.shift();
   }
-  function openNotebook(text) {
-    document.getElementById('nbPhrase').textContent = text || '';
+  var nbPhr = { fr: '', ar: '', en: '' };
+  var nbLang = 'fr';
+  function nbSetLang(l) {
+    nbLang = l;
+    document.getElementById('nbPhrase').textContent = nbPhr[l] || nbPhr.fr || '';
+    document.querySelectorAll('#nbLangs button').forEach(function (x) { x.classList.toggle('active', x.dataset.nbl === l); });
+  }
+  function openNotebook(p) {
+    nbPhr = { fr: p.fr || '', ar: p.ar || '', en: p.en || '' };
+    nbSetLang(nbPhr.fr ? 'fr' : (nbPhr.ar ? 'ar' : 'en'));
     document.getElementById('nbOverlay').classList.add('open');
     nb.hist = [];
     requestAnimationFrame(function () {
@@ -1851,6 +1867,9 @@
   });
   document.querySelectorAll('[data-nbtool]').forEach(function (b) {
     b.onclick = function () { nbSetTool(b.dataset.nbtool); };
+  });
+  document.querySelectorAll('#nbLangs button').forEach(function (b) {
+    b.onclick = function () { nbSetLang(b.dataset.nbl); };
   });
   document.querySelectorAll('#nbSizes button').forEach(function (b) {
     b.onclick = function () {
