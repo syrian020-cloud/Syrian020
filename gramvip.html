@@ -1102,7 +1102,8 @@
     if (p.en) rows += '<div class="pl en"><span class="tag">EN</span><span class="txt">' + wordsHtml(p.en) + '</span><button class="flag-btn" data-lang="en" title="EN">🇺🇸</button></div>';
     var acts = '<div class="ph-actions">' +
       '<button class="ph-act nb-open" title="notebook">📝</button>' +
-      '<button class="ph-act ai-open" title="Google AI">🤖</button></div>';
+      '<button class="ph-act ai-open" title="Google AI">🤖</button>' +
+      '<button class="ph-act img-open" title="Google Images">🖼️</button></div>';
     return '<div class="phrase"><div class="phrase-lines">' + rows + acts + '</div></div>';
   }
 
@@ -1306,6 +1307,13 @@
       b.onclick = function (ev) {
         ev.stopPropagation();
         openAiSearch(findPhrase(b));
+      };
+    });
+    wrap.querySelectorAll('.img-open').forEach(function (b) {
+      b.onclick = function (ev) {
+        ev.stopPropagation();
+        var p = findPhrase(b);
+        searchImages(p.fr || p.ar || p.en);
       };
     });
   }
