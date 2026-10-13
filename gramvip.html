@@ -1372,7 +1372,7 @@
   function httpText(url, cb) {
     var CH = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.CapacitorHttp;
     if (CH && CH.get) {
-      CH.get({ url: url, headers: { 'User-Agent': 'Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Mobile Safari/537.36' } })
+      CH.get({ url: url, headers: { 'User-Agent': 'Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Mobile Safari/537.36', 'Cookie': 'CONSENT=YES+cb.20220419-08-p0.tr+FX+111' } })
         .then(function (r) { cb(typeof r.data === 'string' ? r.data : JSON.stringify(r.data)); })
         .catch(function () { cb(null); });
       return;
@@ -1406,15 +1406,35 @@
     }
     return out;
   }
+  function parseBingThumbs(html) {
+    var seen = {}, out = [], m;
+    function add(u) {
+      u = u.replace(/\\\//g, '/').replace(/&amp;/g, '&').replace(/&quot;/g, '"');
+      if (/^https?:/.test(u) && !seen[u]) { seen[u] = 1; out.push(u); }
+    }
+    var re1 = /&quot;murl&quot;:&quot;(.*?)&quot;/g;
+    while ((m = re1.exec(html)) && out.length < 45) add(m[1]);
+    var re2 = /"murl":"(.*?)"/g;
+    while ((m = re2.exec(html)) && out.length < 45) add(m[1]);
+    return out;
+  }
+  function fetchImgResults(q, cb) {
+    httpText('https://www.google.com/search?tbm=isch&hl=en&safe=off&q=' + encodeURIComponent(q), function (html) {
+      var items = html ? parseImgThumbs(html) : [];
+      if (items.length) { cb(items); return; }
+      httpText('https://www.bing.com/images/search?setlang=en&q=' + encodeURIComponent(q), function (h2) {
+        cb(h2 ? parseBingThumbs(h2) : []);
+      });
+    });
+  }
   function doImgSearch() {
     var q = document.getElementById('imgQ').value.trim();
     var grid = document.getElementById('imgsGrid');
     if (!q) { grid.innerHTML = ''; return; }
     var seq = ++imgSeq;
     grid.innerHTML = '<div class="imgs-load">⏳ …</div>';
-    httpText('https://www.google.com/search?tbm=isch&hl=en&q=' + encodeURIComponent(q), function (html) {
+    fetchImgResults(q, function (items) {
       if (seq !== imgSeq) return;
-      var items = html ? parseImgThumbs(html) : [];
       if (!items.length) { grid.innerHTML = '<div class="imgs-load">⚠️ ' + esc(t('imgErr')) + '</div>'; return; }
       grid.innerHTML = items.map(function (u, i) {
         return '<div class="ig-item" data-i="' + i + '"><img src="' + esc(u) + '" loading="lazy" alt=""></div>';
