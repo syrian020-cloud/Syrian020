@@ -206,6 +206,16 @@
   .ph-img img { display: block; max-width: 100%; max-height: 220px; border-radius: 14px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
   .ph-img-del { position: absolute; top: -9px; inset-inline-end: -9px; width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--border); background: #e11d48; color: #fff; font-size: 0.95rem; font-weight: 800; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.35); font-family: inherit; }
   .ph-img-del:hover { transform: scale(1.12); }
+  .img-searchrow { display: flex; gap: 0.5rem; margin-bottom: 0.45rem; }
+  .img-searchrow input { flex: 1; min-width: 0; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 14px; padding: 0.65rem 0.9rem; color: var(--text-primary); font-size: 0.94rem; font-family: inherit; outline: none; }
+  .img-searchrow input:focus { border-color: var(--accent); box-shadow: var(--glow); }
+  .img-searchrow .btn { flex: none; padding: 0.6rem 1rem; }
+  .imgs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.6rem; max-height: 52vh; overflow-y: auto; }
+  .ig-item { position: relative; aspect-ratio: 1; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: var(--bg-secondary); cursor: pointer; transition: transform .12s, border-color .12s; }
+  .ig-item img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+  .ig-item.press { transform: scale(0.93); border-color: var(--accent); }
+  .ig-item.pinning { border-color: var(--accent-solid); box-shadow: var(--glow); }
+  .imgs-load { grid-column: 1 / -1; text-align: center; padding: 1.6rem 0.5rem; color: var(--text-secondary); font-weight: 700; }
   .flag-btn, .sec-play { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg-secondary); font-size: 1.15rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .15s; line-height: 1; }
   .flag-btn:hover, .sec-play:hover { border-color: var(--accent); transform: scale(1.08); box-shadow: var(--glow); }
   .flag-btn:active, .sec-play:active { transform: scale(0.94); }
@@ -447,6 +457,19 @@
   </div>
 </div>
 
+<div class="overlay hidden" id="ovImgs">
+  <div class="sheet">
+    <h2>🖼️ <span data-t="imgSearch">بحث صور Google</span></h2>
+    <div class="img-searchrow">
+      <input type="text" id="imgQ" data-t-ph="imgSearchPh" placeholder="ابحث عن صورة…">
+      <button class="btn btn-primary" id="imgGo">🔍</button>
+    </div>
+    <div class="hint" data-t="imgPinHint">💡 اضغط مطوّلاً على صورة لتثبيتها على العبارة</div>
+    <div class="imgs-grid" id="imgsGrid"></div>
+    <div class="btnrow" style="margin-top:0.8rem"><button class="btn btn-ghost" id="imgsCancel" data-t="cancel">إلغاء</button></div>
+  </div>
+</div>
+
 <div class="overlay center hidden" id="ovConfirm">
   <div class="dlg">
     <h2 id="confirmTitle"></h2>
@@ -522,7 +545,8 @@
       edgeOn: 'الصوت الطبيعي مفعّل (إنترنت)', edgeOff: 'صوت الجهاز',
       theme: 'الثيم', speechSet: 'إعدادات النطق', notebook: 'الدفتر',
       footerTag: 'دروسك محفوظة على جهازك — صدّر نسخة احتياطية من القائمة ⋮',
-      tplHint: 'النموذج: سطر عنوان ثلاثي، ثم أقسام مرقّمة، وكل عبارة 3 أسطر 🇫🇷🇸🇾🇺🇸'
+      tplHint: 'النموذج: سطر عنوان ثلاثي، ثم أقسام مرقّمة، وكل عبارة 3 أسطر 🇫🇷🇸🇾🇺🇸',
+      imgSearch: 'بحث صور Google', imgSearchPh: 'ابحث عن صورة…', imgPinHint: '💡 اضغط مطوّلاً على صورة لتثبيتها على العبارة', imgErr: 'تعذّر تحميل الصور — تحقّق من الإنترنت', pinned: 'تم تثبيت الصورة'
     },
     en: {
       appName: 'gramvip',
@@ -544,7 +568,8 @@
       edgeOn: 'Neural voice on (internet)', edgeOff: 'Device voice',
       theme: 'Theme', speechSet: 'Speech settings', notebook: 'Notebook',
       footerTag: 'Your lessons are stored on your device — export a backup from the ⋮ menu',
-      tplHint: 'Template: a trilingual title line, numbered sections, each phrase = 3 lines 🇫🇷🇸🇾🇺🇸'
+      tplHint: 'Template: a trilingual title line, numbered sections, each phrase = 3 lines 🇫🇷🇸🇾🇺🇸',
+      imgSearch: 'Google image search', imgSearchPh: 'Search images…', imgPinHint: '💡 Long-press an image to pin it to the phrase', imgErr: "Couldn't load images — check internet", pinned: 'Image pinned'
     },
     fr: {
       appName: 'gramvip',
@@ -566,7 +591,8 @@
       edgeOn: 'Voix neurale activée (internet)', edgeOff: 'Voix de l\'appareil',
       theme: 'Thème', speechSet: 'Réglages de la voix', notebook: 'Cahier',
       footerTag: 'Vos leçons restent sur votre appareil — exportez une sauvegarde via le menu ⋮',
-      tplHint: 'Modèle : titre trilingue, sections numérotées, chaque phrase = 3 lignes 🇫🇷🇸🇾🇺🇸'
+      tplHint: 'Modèle : titre trilingue, sections numérotées, chaque phrase = 3 lignes 🇫🇷🇸🇾🇺🇸',
+      imgSearch: 'Recherche Google Images', imgSearchPh: 'Rechercher des images…', imgPinHint: '💡 Appui long sur une image pour l’épingler à la phrase', imgErr: 'Images introuvables — vérifiez Internet', pinned: 'Image épinglée'
     }
   };
 
@@ -1316,7 +1342,111 @@
     var im = f.el.querySelector('.ph-img');
     if (im) im.remove();
   }
+  function attachPhraseImg(f, url) {
+    f.phrase.img = url;
+    idbPut('lessons', f.lesson);
+    var old = f.el.querySelector('.ph-img');
+    if (old) old.remove();
+    var d = document.createElement('div');
+    d.className = 'ph-img';
+    d.innerHTML = '<img src="' + url + '" alt=""><button class="ph-img-del" title="حذف الصورة">×</button>';
+    d.querySelector('.ph-img-del').onclick = function (ev) { ev.stopPropagation(); delPhraseImg(f); };
+    f.el.querySelector('.phrase-lines').appendChild(d);
+  }
   var phImgBtn = null;
+
+  /* ---------- in-app Google Images picker ---------- */
+  var imgsPhrase = null;
+  var imgSeq = 0;
+  function openImgsSheet(btn) {
+    var f = findPhraseObj(btn);
+    if (!f) { var p0 = findPhrase(btn); searchImages(p0.fr || p0.ar || p0.en); return; }
+    imgsPhrase = f;
+    var p = findPhrase(btn);
+    document.getElementById('imgQ').value = p.fr || p.ar || p.en || '';
+    document.getElementById('imgsGrid').innerHTML = '';
+    document.getElementById('ovImgs').classList.remove('hidden');
+    if (document.getElementById('imgQ').value.trim()) doImgSearch();
+  }
+  function closeImgs() { document.getElementById('ovImgs').classList.add('hidden'); imgsPhrase = null; }
+  function httpText(url, cb) {
+    var CH = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.CapacitorHttp;
+    if (CH && CH.get) {
+      CH.get({ url: url, headers: { 'User-Agent': 'Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Mobile Safari/537.36' } })
+        .then(function (r) { cb(typeof r.data === 'string' ? r.data : JSON.stringify(r.data)); })
+        .catch(function () { cb(null); });
+      return;
+    }
+    fetch(url).then(function (r) { return r.text(); }).then(cb).catch(function () { cb(null); });
+  }
+  function httpDataUrl(url, cb) {
+    var CH = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.CapacitorHttp;
+    if (CH && CH.get) {
+      CH.get({ url: url, responseType: 'blob' })
+        .then(function (r) { cb('data:image/jpeg;base64,' + r.data); })
+        .catch(function () { cb(null); });
+      return;
+    }
+    fetch(url).then(function (r) { return r.blob(); }).then(function (b) {
+      var rd = new FileReader();
+      rd.onload = function () { cb(rd.result); };
+      rd.readAsDataURL(b);
+    }).catch(function () { cb(null); });
+  }
+  function parseImgThumbs(html) {
+    var seen = {}, out = [], m;
+    var re1 = /(https:\/\/encrypted-tbn[0-9]\.gstatic\.com\/images\?q=tbn:[^"'\\\s]+)/g;
+    while ((m = re1.exec(html)) && out.length < 45) {
+      var u = m[1].replace(/\\u003d/g, '=').replace(/\\u0026/g, '&');
+      if (!seen[u]) { seen[u] = 1; out.push(u); }
+    }
+    var re2 = /(data:image\/(?:jpeg|jpg|png|webp);base64,[A-Za-z0-9+\/=]{800,})/g;
+    while ((m = re2.exec(html)) && out.length < 45) {
+      if (!seen[m[1]]) { seen[m[1]] = 1; out.push(m[1]); }
+    }
+    return out;
+  }
+  function doImgSearch() {
+    var q = document.getElementById('imgQ').value.trim();
+    var grid = document.getElementById('imgsGrid');
+    if (!q) { grid.innerHTML = ''; return; }
+    var seq = ++imgSeq;
+    grid.innerHTML = '<div class="imgs-load">⏳ …</div>';
+    httpText('https://www.google.com/search?tbm=isch&hl=en&q=' + encodeURIComponent(q), function (html) {
+      if (seq !== imgSeq) return;
+      var items = html ? parseImgThumbs(html) : [];
+      if (!items.length) { grid.innerHTML = '<div class="imgs-load">⚠️ ' + esc(t('imgErr')) + '</div>'; return; }
+      grid.innerHTML = items.map(function (u, i) {
+        return '<div class="ig-item" data-i="' + i + '"><img src="' + esc(u) + '" loading="lazy" alt=""></div>';
+      }).join('');
+      grid.querySelectorAll('.ig-item').forEach(function (el) {
+        var u = items[parseInt(el.dataset.i, 10)];
+        var timer = null;
+        el.addEventListener('pointerdown', function () {
+          el.classList.add('press');
+          timer = setTimeout(function () { timer = null; pinSearchedImg(u, el); }, 420);
+        });
+        ['pointerup', 'pointerleave', 'pointercancel', 'pointermove'].forEach(function (evn) {
+          el.addEventListener(evn, function () { if (timer) { clearTimeout(timer); timer = null; el.classList.remove('press'); } });
+        });
+        el.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+      });
+    });
+  }
+  function pinSearchedImg(u, el) {
+    el.classList.remove('press');
+    el.classList.add('pinning');
+    var f = imgsPhrase;
+    if (!f) { closeImgs(); return; }
+    var done = function (dataUrl) {
+      if (!dataUrl) { el.classList.remove('pinning'); toast('⚠️'); return; }
+      attachPhraseImg(f, dataUrl);
+      closeImgs();
+      toast('📌 ' + t('pinned'));
+    };
+    if (u.indexOf('data:') === 0) { done(u); return; }
+    httpDataUrl(u, done);
+  }
   function wireFlagButtons(wrap) {
     wrap.querySelectorAll('.pl .flag-btn[data-lang]').forEach(function (b) {
       b.onclick = function () {
@@ -1340,8 +1470,7 @@
     wrap.querySelectorAll('.img-open').forEach(function (b) {
       b.onclick = function (ev) {
         ev.stopPropagation();
-        var p = findPhrase(b);
-        searchImages(p.fr || p.ar || p.en);
+        openImgsSheet(b);
       };
     });
     wrap.querySelectorAll('.ph-img-add').forEach(function (b) {
@@ -1847,17 +1976,7 @@
     if (!file || !btn) return;
     var f = findPhraseObj(btn);
     if (!f) return;
-    resizeImage(file, 1000, 0.82, function (url) {
-      f.phrase.img = url;
-      idbPut('lessons', f.lesson);
-      var old = f.el.querySelector('.ph-img');
-      if (old) old.remove();
-      var d = document.createElement('div');
-      d.className = 'ph-img';
-      d.innerHTML = '<img src="' + url + '" alt=""><button class="ph-img-del" title="حذف الصورة">×</button>';
-      d.querySelector('.ph-img-del').onclick = function (ev) { ev.stopPropagation(); delPhraseImg(f); };
-      f.el.querySelector('.phrase-lines').appendChild(d);
-    });
+    resizeImage(file, 1000, 0.82, function (url) { attachPhraseImg(f, url); });
   };
   document.getElementById('iconFileInput').onchange = function (e) {
     var file = e.target.files && e.target.files[0];
@@ -1969,7 +2088,10 @@
     } catch (e) { toast('⚠️'); }
   };
 
-  ['ovFolder', 'ovLesson', 'ovMove', 'ovTemplate'].forEach(function (id) {
+  document.getElementById('imgsCancel').onclick = closeImgs;
+  document.getElementById('imgGo').onclick = doImgSearch;
+  document.getElementById('imgQ').addEventListener('keydown', function (e) { if (e.key === 'Enter') doImgSearch(); });
+  ['ovFolder', 'ovLesson', 'ovMove', 'ovTemplate', 'ovImgs'].forEach(function (id) {
     document.getElementById(id).addEventListener('click', function (e) {
       if (e.target.id === id) document.getElementById(id).classList.add('hidden');
     });
@@ -2004,6 +2126,7 @@
       if (!document.getElementById('ovFolder').classList.contains('hidden')) { document.getElementById('ovFolder').classList.add('hidden'); return; }
       if (!document.getElementById('ovLesson').classList.contains('hidden')) { document.getElementById('ovLesson').classList.add('hidden'); return; }
       if (!document.getElementById('ovMove').classList.contains('hidden')) { document.getElementById('ovMove').classList.add('hidden'); return; }
+      if (!document.getElementById('ovImgs').classList.contains('hidden')) { closeImgs(); return; }
       if (state.query) { state.query = ''; document.getElementById('search').value = ''; renderAll(); return; }
       if (state.view === 'lesson') { state.view = 'folder'; state.lessonId = null; renderAll(); return; }
       if (state.view === 'folder') { state.view = 'home'; state.folderId = null; renderAll(); return; }
