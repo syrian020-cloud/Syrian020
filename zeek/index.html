@@ -765,15 +765,33 @@
   }
 
   function collectMediaRefs(list) {
-    const ids = new Set();
-    const add = r => { if (isIDBMedia(r)) ids.add(idbMediaId(r)); };
+    const refs = new Set();
+    const add = r => {
+      if (typeof r === 'string' && (isIDBMedia(r) || r.startsWith('file://') || r.startsWith('content://'))) refs.add(r);
+    };
     const walk = l => {
       add(l.media); add(l.image); add(l.audio);
       (l.phrases || []).forEach(p => { add(p.media); add(p.audio); add(p.image); });
       (l.lessons || []).forEach(walk);
     };
     (list || LESSONS).forEach(walk);
-    return [...ids];
+    return [...refs];
+  }
+
+  async function getRefBlob(ref) {
+    if (!ref || typeof ref !== 'string') return null;
+    if (isIDBMedia(ref)) {
+      try { return await getMediaBlob(idbMediaId(ref)); } catch (e) { return null; }
+    }
+    if (ref.startsWith('file://') || ref.startsWith('content://')) {
+      try {
+        const r = await fetch(toWebUrl(ref));
+        const b = await r.blob();
+        const t = b.type || mimeFromName(ref) || '';
+        return t && t !== b.type ? new Blob([b], { type: t }) : b;
+      } catch (e) { return null; }
+    }
+    return null;
   }
 
   function blobToB64(part) {
@@ -842,16 +860,16 @@
     try {
       const sink = createTextSink(filename, 'application/json');
       sink.write('{"zeekExport":1,"lessons":' + JSON.stringify(list) + ',"media":{');
-      const ids = collectMediaRefs(list);
+      const refs = collectMediaRefs(list);
       let first = true;
-      for (const id of ids) {
-        let blob = null;
-        try { blob = await getMediaBlob(id); } catch (e) {}
+      for (const ref of refs) {
+        const blob = await getRefBlob(ref);
         if (!blob) continue;
         const kind = mediaKind(blob);
         if (kinds && kind && kinds[kind] === false) continue;
-        const type = blob.type || mimeFromName(blob.name || '') || 'application/octet-stream';
-        sink.write((first ? '' : ',') + JSON.stringify(id) + ':{"type":' + JSON.stringify(type) + ',"name":' + JSON.stringify(blob.name || '') + ',"data":"');
+        const key = isIDBMedia(ref) ? idbMediaId(ref) : ref;
+        const type = blob.type || mimeFromName(blob.name || ref) || 'application/octet-stream';
+        sink.write((first ? '' : ',') + JSON.stringify(key) + ':{"type":' + JSON.stringify(type) + ',"name":' + JSON.stringify(blob.name || '') + ',"data":"');
         first = false;
         const STEP = 3 * 1024 * 1024;
         for (let off = 0; off < blob.size; off += STEP) {
@@ -897,9 +915,18 @@
     mediaUrlCache.delete(id);
   }
 
+  function mediaFileOf(data, name, type) {
+    try { return new File([data], name || 'media', { type: type || 'application/octet-stream' }); }
+    catch (e) {
+      const b = data instanceof Blob ? data : new Blob([data], { type: type || 'application/octet-stream' });
+      try { b.name = name || 'media'; } catch (e2) {}
+      return b;
+    }
+  }
+
   async function importMediaMap(media) {
-    if (!media || !idbMediaSupported()) return;
-    const db = await openMediaDb();
+    const remap = {};
+    if (!media) return remap;
     for (const id of Object.keys(media)) {
       try {
         const m = media[id];
@@ -916,9 +943,23 @@
             if (end > 5) type = dataStr.slice(5, end);
           }
         } else buf = await b64ToBuffer(dataStr);
-        await putMediaRecord(db, id, { data: buf, type: type || 'application/octet-stream', name: (m && m.name) || '' });
+        const ref = await storeMedia(mediaFileOf(buf, (m && m.name) || '', type));
+        if (ref) remap[id.includes('://') ? id : 'idb://' + id] = ref;
       } catch (e) { console.error('import media entry', id, e); }
     }
+    return remap;
+  }
+
+  function remapMediaRefs(list, map) {
+    if (!map || !Object.keys(map).length) return;
+    const fix = r => (typeof r === 'string' && map[r]) || r;
+    const walk = l => {
+      if (!l) return;
+      l.media = fix(l.media); l.image = fix(l.image); l.audio = fix(l.audio);
+      (l.phrases || []).forEach(p => { p.media = fix(p.media); p.audio = fix(p.audio); p.image = fix(p.image); });
+      (l.lessons || []).forEach(walk);
+    };
+    (list || []).forEach(walk);
   }
 
   // A uniform read source over either a browser File/Blob or a file the
@@ -1042,6 +1083,7 @@
     // may be the first key in the object, or the value may be a bare string
     // "id":"B64|dataURL". Undecodable entries are skipped, not fatal.
     let skipped = 0;
+    const remap = {};
     for (;;) {
       await skipWs();
       if (buf[0] === '}') break;
@@ -1132,13 +1174,13 @@
         }
         await skipWs();
       }
-      if (db && parts.length) {
-        const blob = new Blob(parts, { type: meta.type || 'application/octet-stream' });
-        await putMediaRecord(db, id, { data: blob, type: blob.type, name: meta.name || '' });
+      if (parts.length) {
+        const ref = await storeMedia(mediaFileOf(new Blob(parts, { type: meta.type || 'application/octet-stream' }), meta.name || '', meta.type));
+        if (ref) remap[id.includes('://') ? id : 'idb://' + id] = ref; else skipped++;
       } else skipped++;
       parts.length = 0;
     }
-    return { lessons: lessons, skipped: skipped };
+    return { lessons: lessons, skipped: skipped, remap: remap };
   }
 
   async function exportLessons(list) {
@@ -1206,6 +1248,7 @@
         showToast(t('exportPreparing'), 600000);
         try {
           const res = await importFullStream(src, p => showToast(t('exportPreparing') + ' ' + Math.round(p * 100) + '%', 600000));
+          remapMediaRefs(res.lessons, res.remap);
           applyLessons(res.lessons);
           if (res.skipped) showToast(t('importSuccess') + ' (' + res.skipped + ' media skipped)', 6000);
           return;
@@ -1220,7 +1263,7 @@
       const data = full ? parsed.lessons : parsed;
       if (!Array.isArray(data)) throw new Error('invalid');
       if (!confirm(t('importConfirm'))) return;
-      if (full) { try { await importMediaMap(parsed.media); } catch (err) { console.error('import media', err); } }
+      if (full) { try { remapMediaRefs(data, await importMediaMap(parsed.media)); } catch (err) { console.error('import media', err); } }
       applyLessons(data);
     } catch (err) {
       console.error('import failed', err);
@@ -1873,6 +1916,55 @@
   let mediaDb = null;
   const mediaUrlCache = new Map();
 
+  function nativeFilesystem() {
+    return !!(window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem);
+  }
+
+  function arrayBufferToBase64(buffer) {
+    const bytes = new Uint8Array(buffer);
+    let binary = '';
+    const chunk = 1024;
+    for (let i = 0; i < bytes.length; i += chunk) {
+      let slice = '';
+      for (let j = i; j < i + chunk && j < bytes.length; j++) slice += String.fromCharCode(bytes[j]);
+      binary += slice;
+    }
+    return window.btoa(binary);
+  }
+
+  async function readFileChunk(file, start, end) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = e => resolve(e.target.result);
+      reader.onerror = () => reject(reader.error || 'read error');
+      reader.readAsArrayBuffer(file.slice(start, end));
+    });
+  }
+
+  async function saveFileToAppStorage(file, subdir) {
+    if (!file || !nativeFilesystem()) return null;
+    const { Filesystem } = Capacitor.Plugins;
+    const ext = (file.name && file.name.split('.').pop()) || ((file.type || '').startsWith('video/') ? 'mp4' : (file.type || '').startsWith('audio/') ? 'mp3' : 'jpg');
+    const filename = Date.now() + '_' + Math.random().toString(36).slice(2, 10) + '.' + ext;
+    const fullPath = subdir + '/' + filename;
+    const chunkSize = 1024 * 1024;
+    const DATA_DIR = 'DATA';
+    try { await Filesystem.mkdir({ path: subdir, directory: DATA_DIR, recursive: true }); } catch (e) {}
+    let isFirst = true;
+    for (let offset = 0; offset < file.size; offset += chunkSize) {
+      const buffer = await readFileChunk(file, offset, Math.min(offset + chunkSize, file.size));
+      const base64 = arrayBufferToBase64(buffer);
+      if (isFirst) {
+        await Filesystem.writeFile({ path: fullPath, data: base64, directory: DATA_DIR, encoding: 'base64', recursive: true });
+        isFirst = false;
+      } else {
+        await Filesystem.appendFile({ path: fullPath, data: base64, directory: DATA_DIR, encoding: 'base64' });
+      }
+    }
+    const { uri } = await Filesystem.getUri({ path: fullPath, directory: DATA_DIR });
+    return uri;
+  }
+
   function isIDBMedia(url) {
     return typeof url === 'string' && url.startsWith('idb://');
   }
@@ -1941,7 +2033,14 @@
   }
 
   async function storeMedia(file) {
-    if (!file || !idbMediaSupported()) return null;
+    if (!file) return null;
+    if (nativeFilesystem()) {
+      try {
+        const uri = await saveFileToAppStorage(file, 'zeek-media');
+        if (uri) return uri;
+      } catch (e) { console.error('storeMedia filesystem', e); }
+    }
+    if (!idbMediaSupported()) return null;
     const db = await openMediaDb();
     const id = Date.now() + '_' + Math.random().toString(36).slice(2, 10);
     let value = file;
@@ -1988,7 +2087,7 @@
   }
 
   async function resolveMediaRef(ref) {
-    if (!isIDBMedia(ref)) return { url: toWebUrl(ref), type: '', blob: null };
+    if (!isIDBMedia(ref)) return { url: toWebUrl(ref), type: mimeFromName(ref || ''), blob: null };
     const id = idbMediaId(ref);
     const blob = await getMediaBlob(id);
     if (!blob) return { url: '', type: '', blob: null };
@@ -3501,7 +3600,7 @@
     const found = findLesson(lessonId);
     if (!found) return;
     if (found.lesson.image) {
-      if (isIDBMedia(found.lesson.image)) { try { await deleteMediaRef(found.lesson.image); } catch (e) {} }
+      if (found.lesson.image) { try { await deleteMediaRef(found.lesson.image); } catch (e) {} }
       delete found.lesson.image;
       saveLessons();
     }
@@ -4783,7 +4882,7 @@ Output in French, Arabic and English.`;
       if (!confirm(t('confirmRemoveImage'))) return;
       delete state.audioImages[ref];
       localStorage.setItem('zeek_audio_images', JSON.stringify(state.audioImages));
-      if (isIDBMedia(imgRef)) { try { await deleteMediaRef(imgRef); } catch (_) {} }
+      if (imgRef) { try { await deleteMediaRef(imgRef); } catch (_) {} }
       await applyAudioImage(holder, ref);
       showToast(t('deleted'));
     });
@@ -4798,7 +4897,7 @@ Output in French, Arabic and English.`;
       const uri = await storeMedia(inp.files[0]);
       if (!uri) { showToast(t('mediaSaveError')); return; }
       const prev = state.audioImages[ref];
-      if (prev && isIDBMedia(prev) && prev !== uri) { try { await deleteMediaRef(prev); } catch (_) {} }
+      if (prev && prev !== uri) { try { await deleteMediaRef(prev); } catch (_) {} }
       state.audioImages[ref] = uri;
       localStorage.setItem('zeek_audio_images', JSON.stringify(state.audioImages));
       await applyAudioImage(holder, ref);
