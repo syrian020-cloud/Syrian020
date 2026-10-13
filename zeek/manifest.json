@@ -1,6 +1,6 @@
 {
-  "name": "Zeek",
-  "short_name": "Zeek",
+  "name": "Zeelang",
+  "short_name": "Zeelang",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0a1620",

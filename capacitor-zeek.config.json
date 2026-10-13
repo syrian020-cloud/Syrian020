@@ -1,6 +1,6 @@
 {
-  "appId": "com.syrian020.zeek",
-  "appName": "zeek",
+  "appId": "com.syrian020.zeelang",
+  "appName": "zeelang",
   "webDir": "www",
   "server": {
     "androidScheme": "https"

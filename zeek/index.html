@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#2a0a2e">
 <meta name="description" content="تعلم الفرنسية مع ترجمة عربية وإنجليزية">
-<title>Zeek — Français / العربية / English</title>
+<title>Zeelang — Français / العربية / English</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
 <style>
@@ -465,7 +465,7 @@
 <body>
 <header>
   <div class="header-inner">
-    <span class="logo"><img src="icon-192.png" alt="" class="logo-icon"> <span data-t="appName">Zeek</span></span>
+    <span class="logo"><img src="icon-192.png" alt="" class="logo-icon"> <span data-t="appName">Zeelang</span></span>
     <span class="spacer"></span>
     <div class="lang-switch">
       <button class="lang-btn" data-lang="ar">AR</button>
@@ -820,7 +820,7 @@
         await queue;
         if (failed) throw failed;
         const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
-        if (Share && Share.share) await Share.share({ title: 'Zeek lessons', files: [uri], dialogTitle: 'Zeek export' });
+        if (Share && Share.share) await Share.share({ title: 'Zeelang lessons', files: [uri], dialogTitle: 'Zeelang export' });
       }
     };
   }
@@ -1151,7 +1151,7 @@
         await Filesystem.writeFile({ path: filename, data: data, directory: dir, encoding: encoding });
         const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
         if (Share && Share.share) {
-          await Share.share({ title: 'Zeek lessons', files: [uri], dialogTitle: 'Zeek JSON' });
+          await Share.share({ title: 'Zeelang lessons', files: [uri], dialogTitle: 'Zeelang JSON' });
         }
         showToast(t('exportSuccess'));
         return;
@@ -1198,7 +1198,7 @@
     const src = fileSourceOf(file);
     try {
       const headText = new TextDecoder('utf-8').decode(await src.read(0, 64));
-      const isFull = /^\s*\{\s*"(?:Zeek|zeek)Export"/.test(headText);
+      const isFull = /^\s*\{\s*"(?:Zeelang|zeelang|Zeek|zeek|viper)Export"/.test(headText);
       if (isFull) {
         if (!confirm(t('importConfirm'))) return;
         showToast(t('exportPreparing'), 600000);
@@ -1214,7 +1214,7 @@
       }
       const text = await src.text();
       const parsed = JSON.parse(text);
-      const full = parsed && !Array.isArray(parsed) && (parsed.zeekExport || parsed.viperExport) && Array.isArray(parsed.lessons);
+      const full = parsed && !Array.isArray(parsed) && (parsed.zeekExport || parsed.zeelangExport || parsed.viperExport) && Array.isArray(parsed.lessons);
       const data = full ? parsed.lessons : parsed;
       if (!Array.isArray(data)) throw new Error('invalid');
       if (!confirm(t('importConfirm'))) return;
@@ -1477,8 +1477,8 @@
   }
 
   const UI = {
-    appName: { ar: 'Zeek', en: 'Zeek', fr: 'Zeek' },
-    appTitle: { ar: 'Zeek — فرنسي / عربي / إنجليزي', en: 'Zeek — French / Arabic / English', fr: 'Zeek — Français / Arabe / Anglais' },
+    appName: { ar: 'Zeelang', en: 'Zeelang', fr: 'Zeelang' },
+    appTitle: { ar: 'Zeelang — فرنسي / عربي / إنجليزي', en: 'Zeelang — French / Arabic / English', fr: 'Zeelang — Français / Arabe / Anglais' },
     searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
     rateTitle: { ar: 'سرعة الصوت والفيديو', en: 'Audio & video speed', fr: 'Vitesse audio et vidéo' },
     voiceSettings: { ar: 'إعدادات الصوت', en: 'Voice settings', fr: 'Réglages de la voix' },
@@ -1644,7 +1644,7 @@
     lessonLabel: { ar: 'الدرس', en: 'Lesson', fr: 'Leçon' },
     folderLabel: { ar: 'المجلد', en: 'Folder', fr: 'Dossier' },
     emptyFolder: { ar: 'لا توجد دروس في هذا المجلد. أضف درساً جديداً.', en: 'No lessons in this folder. Add a new lesson.', fr: 'Aucune leçon dans ce dossier. Ajoutez-en une nouvelle.' },
-    footerText: { ar: 'Zeek · ', en: 'Zeek · ', fr: 'Zeek · ' },
+    footerText: { ar: 'Zeelang · ', en: 'Zeelang · ', fr: 'Zeelang · ' },
     footerLink: { ar: 'تطبيقاتي الأخرى', en: 'My other apps', fr: 'Mes autres applications' },
     heroTitle: { ar: 'تعلم الفرنسية', en: 'Learn French', fr: 'Apprenez le français' },
     heroSub: { ar: 'عبارات مترجمة إلى العربية والإنجليزية', en: 'Phrases translated into Arabic and English', fr: 'Phrases traduites en arabe et en anglais' },
@@ -2489,7 +2489,7 @@
         try {
           const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
           showToast(t('videoSaved'));
-          if (Share && Share.share) await Share.share({ title: 'Zeek video', files: [uri], dialogTitle: 'Zeek video' });
+          if (Share && Share.share) await Share.share({ title: 'Zeelang video', files: [uri], dialogTitle: 'Zeelang video' });
         } catch (e) { console.error('share video failed', e); showToast(e.message || 'Save failed'); }
       }
     };

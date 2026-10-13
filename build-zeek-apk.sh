@@ -43,6 +43,20 @@ fi
 
 npx cap sync android
 
+# Enforce the Zeelang package + label in the generated Android project
+GRADLE_FILE="android/app/build.gradle"
+if [ -f "$GRADLE_FILE" ]; then
+  sed -i 's/applicationId "com\.syrian020\.[a-z]*"/applicationId "com.syrian020.zeelang"/; s/namespace "com\.syrian020\.[a-z]*"/namespace "com.syrian020.zeelang"/' "$GRADLE_FILE"
+fi
+STRINGS="android/app/src/main/res/values/strings.xml"
+if [ -f "$STRINGS" ]; then
+  sed -i 's/>Zeek<\|>Zeelang<\|>Viper</>Zeelang</g; s/com\.syrian020\.zeek\|com\.syrian020\.zeelang\|com\.syrian020\.viper/com.syrian020.zeelang/g' "$STRINGS"
+fi
+LAUNCHER_BG="android/app/src/main/res/values/ic_launcher_background.xml"
+if [ -f "$LAUNCHER_BG" ]; then
+  sed -i 's/ic_launcher_background">#[0-9A-Fa-f]*/ic_launcher_background">#7C3AED/' "$LAUNCHER_BG"
+fi
+
 # Add largeHeap for handling image/video files in memory
 MANIFEST="$ROOT/android/app/src/main/AndroidManifest.xml"
 if [ -f "$MANIFEST" ] && ! grep -q 'android:largeHeap' "$MANIFEST"; then
