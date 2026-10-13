@@ -442,9 +442,11 @@
   .quiz-overlay { position: fixed; inset: 0; z-index: 200; background: var(--bg-primary); display: flex; flex-direction: column; overflow-y: auto; overflow-x: hidden; padding: 0.9rem 0.75rem; box-sizing: border-box; }
   .quiz-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; }
   .quiz-progress { font-weight: 800; font-size: 1.05rem; }
+  .quiz-flags { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.55rem; direction: ltr; margin-bottom: 0.4rem; }
+  .quiz-flag { text-align: center; font-size: 1.4rem; }
   .quiz-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.55rem; align-content: start; flex: 1; direction: ltr; }
   .quiz-col { display: flex; flex-direction: column; gap: 0.55rem; min-width: 0; }
-  .quiz-card { border: 2px solid var(--border); border-radius: 12px; padding: 0.65rem 0.7rem; background: var(--bg-secondary); color: var(--text-primary); cursor: pointer; font-size: 0.92rem; line-height: 1.5; user-select: none; -webkit-user-select: none; min-width: 0; overflow-wrap: anywhere; box-sizing: border-box; transition: transform 0.15s, border-color 0.15s, background 0.15s; }
+  .quiz-card { border: 2px solid var(--border); border-radius: 14px; padding: 0.85rem 0.7rem; background: var(--bg-secondary); color: var(--text-primary); cursor: pointer; font-size: 0.95rem; line-height: 1.5; text-align: center; user-select: none; -webkit-user-select: none; min-width: 0; overflow-wrap: anywhere; box-sizing: border-box; transition: transform 0.15s, border-color 0.15s, background 0.15s; }
   .quiz-card.sel { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent); }
   .quiz-card.speaking { outline: 3px solid #f59e0b; outline-offset: 1px; }
   .quiz-card.done { background: #1f9d55; border-color: #1f9d55; color: #fff; pointer-events: none; }
@@ -3980,7 +3982,8 @@
     const picks = quizShuffle(pool).slice(0, 8).map((p, i) => ({ p, id: i }));
     const body = document.getElementById('quiz-body');
     if (!body) return;
-    body.innerHTML = `<div class="quiz-cols"><div class="quiz-col" id="quiz-left"></div><div class="quiz-col" id="quiz-right"></div></div>`;
+    const LANG_FLAG = { fr: '🇫🇷', ar: '🇸🇾', en: '🇺🇸' };
+    body.innerHTML = `<div class="quiz-flags"><div class="quiz-flag">🇫🇷</div><div class="quiz-flag">${LANG_FLAG[target] || '🌐'}</div></div><div class="quiz-cols"><div class="quiz-col" id="quiz-left"></div><div class="quiz-col" id="quiz-right"></div></div>`;
     const left = document.getElementById('quiz-left');
     const right = document.getElementById('quiz-right');
     const prog = document.getElementById('quiz-progress');
@@ -4033,13 +4036,13 @@
       }
     };
     quizShuffle(picks).forEach(item => {
-      const c = mkCard(item, target);
-      c.onclick = () => onCard(c, item, target);
+      const c = mkCard(item, 'fr');
+      c.onclick = () => onCard(c, item, 'fr');
       left.appendChild(c);
     });
     quizShuffle(picks).forEach(item => {
-      const c = mkCard(item, 'fr');
-      c.onclick = () => onCard(c, item, 'fr');
+      const c = mkCard(item, target);
+      c.onclick = () => onCard(c, item, target);
       right.appendChild(c);
     });
   }
