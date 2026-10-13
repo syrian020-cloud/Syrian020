@@ -515,6 +515,7 @@
       addLesson: 'إضافة درس', addFolder: 'إضافة مجلد', export: 'تصدير نسخة احتياطية', import: 'استيراد نسخة',
       delFolderT: 'حذف المجلد؟', delFolderD: 'سيتم حذف المجلد وكل دروسه — لا يمكن التراجع.',
       delLessonT: 'حذف الدرس؟', delLessonD: 'سيتم حذف هذا الدرس نهائياً.',
+      delImgT: 'حذف الصورة؟', delImgD: 'ستُزال الصورة من هذه العبارة.',
       exitTitle: 'الخروج من التطبيق؟', exitYes: 'خروج', exitNo: 'بقاء',
       saved: 'تم الحفظ', savedN: 'تمت إضافة {n} دروس', multiHint: '💡 افصل الدروس بسطر === لإضافة عدة دروس معاً', deleted: 'تم الحذف', imported: 'تم الاستيراد', importBad: 'ملف غير صالح', copied: 'تم نسخ النموذج', pasted: 'تم اللصق',
       emptyFolders: 'لا مجلدات بعد — أضف أول مجلد', emptyLessons: 'لا دروس بعد — أضف أول درس',
@@ -538,6 +539,7 @@
       addLesson: 'Add lesson', addFolder: 'Add folder', export: 'Export backup', import: 'Import backup',
       delFolderT: 'Delete folder?', delFolderD: 'The folder and all its lessons will be deleted — this cannot be undone.',
       delLessonT: 'Delete lesson?', delLessonD: 'This lesson will be permanently deleted.',
+      delImgT: 'Delete image?', delImgD: 'The image will be removed from this phrase.',
       exitTitle: 'Exit the app?', exitYes: 'Exit', exitNo: 'Stay',
       saved: 'Saved', savedN: '{n} lessons added', multiHint: '💡 Separate lessons with a === line to add several at once', deleted: 'Deleted', imported: 'Imported', importBad: 'Invalid file', copied: 'Template copied', pasted: 'Pasted',
       emptyFolders: 'No folders yet — add your first folder', emptyLessons: 'No lessons yet — add your first lesson',
@@ -561,6 +563,7 @@
       addLesson: 'Ajouter une leçon', addFolder: 'Ajouter un dossier', export: 'Exporter une sauvegarde', import: 'Importer une sauvegarde',
       delFolderT: 'Supprimer le dossier ?', delFolderD: 'Le dossier et toutes ses leçons seront supprimés — action irréversible.',
       delLessonT: 'Supprimer la leçon ?', delLessonD: 'Cette leçon sera définitivement supprimée.',
+      delImgT: 'Supprimer l’image ?', delImgD: 'L’image sera retirée de cette phrase.',
       exitTitle: 'Quitter l\'application ?', exitYes: 'Quitter', exitNo: 'Rester',
       saved: 'Enregistré', savedN: '{n} leçons ajoutées', multiHint: '💡 Séparez les leçons par une ligne === pour en ajouter plusieurs', deleted: 'Supprimé', imported: 'Importé', importBad: 'Fichier invalide', copied: 'Modèle copié', pasted: 'Collé',
       emptyFolders: 'Aucun dossier — ajoutez votre premier dossier', emptyLessons: 'Aucune leçon — ajoutez votre première leçon',
@@ -1314,10 +1317,13 @@
     return p ? { lesson: l, phrase: p, el: el } : null;
   }
   function delPhraseImg(f) {
-    delete f.phrase.img;
-    idbPut('lessons', f.lesson);
-    var im = f.el.querySelector('.ph-img');
-    if (im) im.remove();
+    confirmBox(t('delImgT'), t('delImgD'), function () {
+      delete f.phrase.img;
+      idbPut('lessons', f.lesson);
+      var im = f.el.querySelector('.ph-img');
+      if (im) im.remove();
+      toast('✓ ' + t('deleted'));
+    });
   }
   function attachPhraseImg(f, url) {
     f.phrase.img = url;
