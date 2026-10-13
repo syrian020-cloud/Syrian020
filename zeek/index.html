@@ -1944,7 +1944,12 @@
   async function saveFileToAppStorage(file, subdir) {
     if (!file || !nativeFilesystem()) return null;
     const { Filesystem } = Capacitor.Plugins;
-    const ext = (file.name && file.name.split('.').pop()) || ((file.type || '').startsWith('video/') ? 'mp4' : (file.type || '').startsWith('audio/') ? 'mp3' : 'jpg');
+    const ext = (() => {
+      const n = file.name || '';
+      if (n.indexOf('.') !== -1) return n.split('.').pop();
+      const t = (file.type || '').split('/')[1] || '';
+      return t.replace(/[^a-z0-9]/gi, '').toLowerCase() || ((file.type || '').startsWith('video/') ? 'mp4' : (file.type || '').startsWith('audio/') ? 'mp3' : 'bin');
+    })();
     const filename = Date.now() + '_' + Math.random().toString(36).slice(2, 10) + '.' + ext;
     const fullPath = subdir + '/' + filename;
     const chunkSize = 1024 * 1024;
@@ -3837,7 +3842,7 @@
       <label class="action-item" for="import-file">
         <span class="action-icon">📥</span><span class="action-label">${t('import')}</span>
       </label>
-      <input type="file" id="import-file" accept=".json,application/json,application/octet-stream,text/plain" style="display:none">
+      <input type="file" id="import-file" accept=".json,application/json,application/octet-stream,text/plain,*/*" style="display:none">
     </div>`;
     let lessonIdx = 0;
     const html = `<div class="top-bar"><span class="section-title">${t('library')}</span></div>
