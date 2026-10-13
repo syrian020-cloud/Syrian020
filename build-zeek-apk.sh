@@ -69,7 +69,15 @@ PLUGIN_DIR="android/app/src/main/java/com/syrian020/tts"
 mkdir -p "$PLUGIN_DIR"
 cp native-plugins/EdgeTtsPlugin.java "$PLUGIN_DIR/"
 cp native-plugins/FilePickPlugin.java "$PLUGIN_DIR/"
+# Point the manifest at the real MainActivity package (applicationId may differ)
 MAIN_ACTIVITY=$(find android/app/src/main/java -name MainActivity.java | head -1)
+if [ -f "$MAIN_ACTIVITY" ]; then
+  ACTIVITY_PKG=$(grep -m1 '^package ' "$MAIN_ACTIVITY" | sed 's/package //; s/[; ]//g')
+  if [ -n "$ACTIVITY_PKG" ]; then
+    sed -i "s/android:name=\"\.MainActivity\"/android:name=\"$ACTIVITY_PKG.MainActivity\"/" "$MANIFEST"
+  fi
+fi
+
 if [ -f "$MAIN_ACTIVITY" ] && ! grep -q 'EdgeTtsPlugin' "$MAIN_ACTIVITY"; then
   python3 - "$MAIN_ACTIVITY" <<'PYEOF'
 import sys, re
