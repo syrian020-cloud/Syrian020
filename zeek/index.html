@@ -439,6 +439,21 @@
   [data-mode="light"] .note-phrase-card.en { color: #1f2937; }
   [data-mode="light"] .cap-handle { color: rgba(0,0,0,0.22); }
   [data-mode="light"] .cap-line.active { background: #ede9fe; border-color: #7c3aed; }
+  .quiz-overlay { position: fixed; inset: 0; z-index: 200; background: var(--bg-primary); display: flex; flex-direction: column; overflow-y: auto; padding: 1rem; }
+  .quiz-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; }
+  .quiz-progress { font-weight: 800; font-size: 1.05rem; }
+  .quiz-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; align-content: start; flex: 1; }
+  .quiz-col { display: flex; flex-direction: column; gap: 0.6rem; }
+  .quiz-card { border: 2px solid var(--border); border-radius: 12px; padding: 0.7rem 0.8rem; background: var(--bg-secondary); color: var(--text-primary); cursor: pointer; font-size: 0.98rem; line-height: 1.5; user-select: none; -webkit-user-select: none; transition: transform 0.15s, border-color 0.15s, background 0.15s; }
+  .quiz-card.sel { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent); }
+  .quiz-card.speaking { outline: 3px solid #f59e0b; outline-offset: 1px; }
+  .quiz-card.done { background: #1f9d55; border-color: #1f9d55; color: #fff; pointer-events: none; }
+  .quiz-card.wrong { animation: quizShake 0.45s; border-color: #e0245e; background: #e0245e; color: #fff; }
+  @keyframes quizShake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-7px); } 75% { transform: translateX(7px); } }
+  .quiz-lang-btns { display: flex; flex-direction: column; gap: 0.9rem; max-width: 340px; margin: auto; width: 100%; }
+  .quiz-lang-btns .btn { width: 100%; height: 3.2rem; font-size: 1.1rem; }
+  .quiz-end { margin: auto; text-align: center; }
+  .quiz-pct { font-size: 4.2rem; font-weight: 800; line-height: 1; }
   @media (max-width: 520px) {
     .header-inner { padding: 0.6rem 0.75rem; }
     .logo { font-size: 0.95rem; }
@@ -1398,6 +1413,13 @@
     captionZoomIn: { ar: 'تكبير الترجمة', en: 'Zoom in caption', fr: 'Agrandir les sous-titres' },
     captionFollow: { ar: 'متابعة الترجمة تلقائيًا', en: 'Follow captions automatically', fr: 'Suivre les sous-titres' },
     captionWordLang: { ar: 'لغة التظليل', en: 'Highlight language', fr: 'Langue du surlignage' },
+    quiz: { ar: 'لعبة التوصيل', en: 'Matching game', fr: 'Jeu d’association' },
+    quizChooseLang: { ar: 'اختر لغة المطابقة', en: 'Choose the match language', fr: 'Choisis la langue' },
+    quizFrAr: { ar: '🇫🇷 ⇄ 🇸🇾 فرنسي ⇄ عربي', en: '🇫🇷 ⇄ 🇸🇾 French ⇄ Arabic', fr: '🇫🇷 ⇄ 🇸🇾 Français ⇄ Arabe' },
+    quizFrEn: { ar: '🇫🇷 ⇄ 🇺🇸 فرنسي ⇄ إنجليزي', en: '🇫🇷 ⇄ 🇺🇸 French ⇄ English', fr: '🇫🇷 ⇄ 🇺🇸 Français ⇄ Anglais' },
+    quizReplay: { ar: 'إعادة اللعب', en: 'Play again', fr: 'Rejouer' },
+    quizExit: { ar: 'خروج', en: 'Exit', fr: 'Quitter' },
+    quizNoPhrases: { ar: 'لا توجد عبارات كافية للّعبة', en: 'Not enough phrases for the game', fr: 'Pas assez de phrases pour le jeu' },
     captionZoomOut: { ar: 'تصغير الترجمة', en: 'Zoom out caption', fr: 'Réduire les sous-titres' },
     moveToFolder: { ar: 'نقل إلى مجلد…', en: 'Move to folder…', fr: 'Déplacer vers un dossier…' },
     moveToRoot: { ar: '🏠 الرئيسية (خارج المجلدات)', en: '🏠 Home (no folder)', fr: '🏠 Accueil (sans dossier)' },
@@ -3628,6 +3650,7 @@
         <button class="btn ghost icon" id="cap-zoom-in" title="${t('captionZoomIn')}">A+</button>
         <button class="btn ghost icon" id="cap-follow" title="${t('captionFollow')}">📍</button>
         <button class="btn ghost icon" id="cap-word-lang" title="${t('captionWordLang')}">🔤</button>
+        <button class="btn ghost icon" id="lesson-quiz" title="${t('quiz')}">🧩</button>
         ${lesson.protected ? '' : `<button class="btn ghost icon menu-btn" data-menu="${lesson.id}" data-type="lesson" title="${t('actions')}">⋮</button>`}
         <span class="pill">${lesson.phrases.length} ${t('phrases')}</span>
         <input type="file" id="lesson-image-input" accept="image/*" style="display:none">
@@ -3636,6 +3659,8 @@
       lesson.phrases.map((p, i) => phraseHTML(p, phraseKey(lesson.id, i))).join('');
     view.innerHTML = html;
     document.getElementById('play-all').onclick = () => playLesson(lesson);
+    const quizBtnX = document.getElementById('lesson-quiz');
+    if (quizBtnX) quizBtnX.onclick = () => openQuiz(lesson);
     const imgSet = document.getElementById('lesson-image-set');
     const imgToggle = document.getElementById('lesson-image-toggle');
     const imgDel = document.getElementById('lesson-image-del');
@@ -3674,6 +3699,189 @@
         syncWordLangBtn();
       };
     }
+  }
+
+  const quizVoice = { card: null, run: 0 };
+
+  function quizStopSpeak() {
+    quizVoice.card = null;
+    quizVoice.run++;
+    anyStop();
+    document.querySelectorAll('.quiz-card.speaking').forEach(c => c.classList.remove('speaking'));
+  }
+
+  function quizSpeakCard(card) {
+    if (quizVoice.card === card) { quizStopSpeak(); return; }
+    const text = stripSpeechFlags(card.dataset.text || '');
+    if (!text) return;
+    quizStopSpeak();
+    quizVoice.card = card;
+    card.classList.add('speaking');
+    const run = ++quizVoice.run;
+    (function cyc() {
+      if (quizVoice.run !== run) return;
+      anySpeak(text, card.dataset.lang).then(() => {
+        if (quizVoice.run === run) setTimeout(cyc, 350);
+      }).catch(() => {
+        if (quizVoice.run === run) setTimeout(cyc, 900);
+      });
+    })();
+  }
+
+  function quizTone(ok) {
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      const ctx = quizTone.ctx || (quizTone.ctx = new Ctx());
+      if (ctx.state === 'suspended') ctx.resume();
+      const now = ctx.currentTime;
+      const freqs = ok ? [523, 784] : [170];
+      freqs.forEach((f, i) => {
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = 'sine';
+        o.frequency.value = f;
+        const st = now + i * 0.13;
+        g.gain.setValueAtTime(0.18, st);
+        g.gain.exponentialRampToValueAtTime(0.001, st + 0.22);
+        o.connect(g);
+        g.connect(ctx.destination);
+        o.start(st);
+        o.stop(st + 0.24);
+      });
+    } catch (e) {}
+  }
+
+  function quizShuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function openQuiz(lesson) {
+    closeQuiz();
+    const ov = document.createElement('div');
+    ov.id = 'quiz-overlay';
+    ov.className = 'quiz-overlay';
+    ov.innerHTML = `<div class="quiz-top">
+        <button class="btn ghost icon" id="quiz-exit" title="${t('quizExit')}">✕</button>
+        <div class="quiz-progress" id="quiz-progress"></div>
+      </div>
+      <div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>`;
+    document.body.appendChild(ov);
+    document.getElementById('quiz-exit').onclick = closeQuiz;
+    quizLangScreen(lesson);
+  }
+
+  function closeQuiz() {
+    quizStopSpeak();
+    const ov = document.getElementById('quiz-overlay');
+    if (ov) ov.remove();
+  }
+
+  function quizLangScreen(lesson) {
+    const body = document.getElementById('quiz-body');
+    if (!body) return;
+    document.getElementById('quiz-progress').textContent = '';
+    body.innerHTML = `<div class="quiz-lang-btns">
+      <h3 style="text-align:center;margin:0">${t('quizChooseLang')}</h3>
+      <button class="btn" data-lang="ar">${t('quizFrAr')}</button>
+      <button class="btn" data-lang="en">${t('quizFrEn')}</button>
+    </div>`;
+    body.querySelectorAll('button[data-lang]').forEach(b => {
+      b.onclick = () => startQuiz(lesson, b.dataset.lang);
+    });
+  }
+
+  function startQuiz(lesson, target) {
+    const pool = lesson.phrases.filter(p => stripSpeechFlags(p.fr || '') && stripSpeechFlags(p[target] || ''));
+    if (!pool.length) { showToast(t('quizNoPhrases')); return; }
+    const picks = quizShuffle(pool).slice(0, 8).map((p, i) => ({ p, id: i }));
+    const body = document.getElementById('quiz-body');
+    if (!body) return;
+    body.innerHTML = `<div class="quiz-cols"><div class="quiz-col" id="quiz-left"></div><div class="quiz-col" id="quiz-right"></div></div>`;
+    const left = document.getElementById('quiz-left');
+    const right = document.getElementById('quiz-right');
+    const prog = document.getElementById('quiz-progress');
+    let selFr = null, correct = 0, wrong = 0, solved = 0;
+    const setProg = () => { prog.textContent = solved + '/' + picks.length; };
+    setProg();
+    const mkCard = (item, lang) => {
+      const c = document.createElement('div');
+      c.className = 'quiz-card';
+      c.dataset.text = item.p[lang] || '';
+      c.dataset.lang = lang;
+      c.dataset.pid = item.id;
+      c.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      c.textContent = stripSpeechFlags(item.p[lang]);
+      return c;
+    };
+    const onCard = (card, item, lang) => {
+      if (card.classList.contains('done')) return;
+      const wasSpeaking = quizVoice.card === card;
+      quizSpeakCard(card);
+      if (wasSpeaking) return;
+      if (lang === 'fr') {
+        if (selFr) selFr.classList.remove('sel');
+        selFr = card;
+        card.classList.add('sel');
+        return;
+      }
+      if (!selFr) {
+        card.classList.add('sel');
+        setTimeout(() => card.classList.remove('sel'), 600);
+        return;
+      }
+      if (selFr.dataset.pid === card.dataset.pid) {
+        correct++;
+        quizTone(true);
+        selFr.classList.remove('sel');
+        selFr.classList.add('done');
+        card.classList.add('done');
+        selFr = null;
+        solved++;
+        quizStopSpeak();
+        setProg();
+        if (solved === picks.length) setTimeout(() => quizEnd(correct, wrong, lesson, target), 650);
+      } else {
+        wrong++;
+        quizTone(false);
+        card.classList.add('wrong');
+        setTimeout(() => card.classList.remove('wrong'), 520);
+        if (selFr) { selFr.classList.remove('sel'); selFr = null; }
+      }
+    };
+    quizShuffle(picks).forEach(item => {
+      const c = mkCard(item, target);
+      c.onclick = () => onCard(c, item, target);
+      left.appendChild(c);
+    });
+    quizShuffle(picks).forEach(item => {
+      const c = mkCard(item, 'fr');
+      c.onclick = () => onCard(c, item, 'fr');
+      right.appendChild(c);
+    });
+  }
+
+  function quizEnd(correct, wrong, lesson, target) {
+    quizStopSpeak();
+    const total = correct + wrong;
+    const pct = total ? Math.round(correct / total * 100) : 100;
+    const color = pct >= 70 ? '#1f9d55' : pct >= 40 ? '#f59e0b' : '#e0245e';
+    const body = document.getElementById('quiz-body');
+    if (!body) return;
+    body.innerHTML = `<div class="quiz-end">
+      <div class="quiz-pct" style="color:${color}">${pct}%</div>
+      <div style="font-size:1.25rem;margin:0.7rem 0 1.4rem">✅ ${correct} &nbsp; ❌ ${wrong}</div>
+      <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap">
+        <button class="btn" id="quiz-replay">🔁 ${t('quizReplay')}</button>
+        <button class="btn ghost" id="quiz-exit2">✕ ${t('quizExit')}</button>
+      </div>
+    </div>`;
+    document.getElementById('quiz-replay').onclick = () => startQuiz(lesson, target);
+    document.getElementById('quiz-exit2').onclick = closeQuiz;
   }
 
   async function playLesson(lesson) {
