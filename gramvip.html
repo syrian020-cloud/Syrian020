@@ -291,6 +291,25 @@
   .nb-langs { display: flex; gap: 0.3rem; align-items: center; margin-inline-start: 0.4rem; }
   .nb-langs button { min-width: 40px; height: 32px; background: #fff; border: 1px solid #e8e2d2; border-radius: 9px; cursor: pointer; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; }
   .nb-langs button.active { border-color: #2f9d78; background: #e6f4ee; }
+  /* quiz */
+  .quiz-overlay { position: fixed; inset: 0; z-index: 4500; background: var(--bg-primary); display: none; flex-direction: column; }
+  .quiz-overlay.open { display: flex; }
+  .qz-head { display: flex; align-items: center; gap: 0.6rem; padding: 0.8rem 1rem; border-bottom: 1px solid var(--border); }
+  .qz-title { flex: 1; font-weight: 850; font-size: 1rem; text-align: center; }
+  .qz-body { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
+  .qz-pick { display: flex; flex-direction: column; gap: 0.7rem; width: 100%; max-width: 380px; margin: auto; }
+  .qz-pick h3 { margin: 0; text-align: center; font-size: 1rem; }
+  .qz-pick .btn { padding: 1rem; font-size: 1rem; }
+  .qz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; width: 100%; max-width: 640px; }
+  .qz-tile { border: 1.5px solid var(--border); background: var(--bg-secondary); border-radius: 14px; padding: 0.7rem 0.6rem; font-size: 0.9rem; font-weight: 700; cursor: pointer; text-align: center; min-height: 52px; display: flex; align-items: center; justify-content: center; transition: all .15s; line-height: 1.4; }
+  .qz-tile.sel { border-color: var(--accent); box-shadow: var(--glow); transform: scale(1.02); }
+  .qz-tile.ok { border-color: #22c55e; background: rgba(34,197,94,0.13); color: var(--text-primary); opacity: 0.55; pointer-events: none; }
+  .qz-tile.bad { border-color: #ef4444; animation: qzShake .3s; }
+  @keyframes qzShake { 0%,100%{transform:none} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+  .qz-colhead { grid-column: span 1; text-align: center; font-size: 0.8rem; font-weight: 800; color: var(--text-secondary); padding-bottom: 0.1rem; }
+  .qz-result { margin: auto; text-align: center; display: flex; flex-direction: column; gap: 0.8rem; align-items: center; }
+  .qz-score { font-size: 2.6rem; font-weight: 900; background: linear-gradient(120deg, var(--accent-solid), #ec4899); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .qz-sub { color: var(--text-secondary); font-weight: 700; }
   .nb-wrap { flex: 1; position: relative; overflow: hidden; }
   .nb-lines { position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, transparent 0 46px, rgba(120,170,220,0.35) 46px 47px); }
   .nb-lines::after { content: ''; position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(230,120,120,0.45); inset-inline-end: 12%; }
@@ -450,6 +469,15 @@
   </div>
 </div>
 
+<div class="quiz-overlay" id="ovQuiz">
+  <div class="qz-head">
+    <button class="icon-btn" id="qzClose">✕</button>
+    <div class="qz-title">🧩 <span data-t="quiz">اختبار التوصيل</span></div>
+    <div class="qz-sub" id="qzProgress"></div>
+  </div>
+  <div class="qz-body" id="qzBody"></div>
+</div>
+
 <div class="overlay center hidden" id="ovConfirm">
   <div class="dlg">
     <h2 id="confirmTitle"></h2>
@@ -524,6 +552,7 @@
       delFolderT: 'حذف المجلد؟', delFolderD: 'سيتم حذف المجلد وكل دروسه — لا يمكن التراجع.',
       delLessonT: 'حذف الدرس؟', delLessonD: 'سيتم حذف هذا الدرس نهائياً.',
       delImgT: 'حذف الصورة؟', delImgD: 'ستُزال الصورة من هذه العبارة.',
+      quiz: 'اختبار التوصيل', quizPick: 'اختر اللغة المقابلة للفرنسية:', quizScore: 'النتيجة', quizAgain: 'إعادة اللعب', quizDone: 'انتهى', quizEmpty: 'الدرس يحتاج عبارات فيها فرنسي + اللغة المقابلة',
       exitTitle: 'الخروج من التطبيق؟', exitYes: 'خروج', exitNo: 'بقاء',
       saved: 'تم الحفظ', savedN: 'تمت إضافة {n} دروس', multiHint: '💡 افصل الدروس بسطر === لإضافة عدة دروس معاً', deleted: 'تم الحذف', imported: 'تم الاستيراد', importBad: 'ملف غير صالح', copied: 'تم نسخ النموذج', pasted: 'تم اللصق',
       emptyFolders: 'لا مجلدات بعد — أضف أول مجلد', emptyLessons: 'لا دروس بعد — أضف أول درس',
@@ -548,6 +577,7 @@
       delFolderT: 'Delete folder?', delFolderD: 'The folder and all its lessons will be deleted — this cannot be undone.',
       delLessonT: 'Delete lesson?', delLessonD: 'This lesson will be permanently deleted.',
       delImgT: 'Delete image?', delImgD: 'The image will be removed from this phrase.',
+      quiz: 'Matching quiz', quizPick: 'Pick the language to match with French:', quizScore: 'Score', quizAgain: 'Play again', quizDone: 'Done', quizEmpty: 'The lesson needs phrases with French + the other language',
       exitTitle: 'Exit the app?', exitYes: 'Exit', exitNo: 'Stay',
       saved: 'Saved', savedN: '{n} lessons added', multiHint: '💡 Separate lessons with a === line to add several at once', deleted: 'Deleted', imported: 'Imported', importBad: 'Invalid file', copied: 'Template copied', pasted: 'Pasted',
       emptyFolders: 'No folders yet — add your first folder', emptyLessons: 'No lessons yet — add your first lesson',
@@ -572,6 +602,7 @@
       delFolderT: 'Supprimer le dossier ?', delFolderD: 'Le dossier et toutes ses leçons seront supprimés — action irréversible.',
       delLessonT: 'Supprimer la leçon ?', delLessonD: 'Cette leçon sera définitivement supprimée.',
       delImgT: 'Supprimer l’image ?', delImgD: 'L’image sera retirée de cette phrase.',
+      quiz: 'Quiz d’association', quizPick: 'Choisissez la langue à associer au français :', quizScore: 'Score', quizAgain: 'Rejouer', quizDone: 'Terminé', quizEmpty: 'La leçon doit avoir des phrases français + autre langue',
       exitTitle: 'Quitter l\'application ?', exitYes: 'Quitter', exitNo: 'Rester',
       saved: 'Enregistré', savedN: '{n} leçons ajoutées', multiHint: '💡 Séparez les leçons par une ligne === pour en ajouter plusieurs', deleted: 'Supprimé', imported: 'Importé', importBad: 'Fichier invalide', copied: 'Modèle copié', pasted: 'Collé',
       emptyFolders: 'Aucun dossier — ajoutez votre premier dossier', emptyLessons: 'Aucune leçon — ajoutez votre première leçon',
@@ -1259,10 +1290,12 @@
     if (!l) { state.view = state.folderId ? 'folder' : 'home'; renderAll(); return; }
     head.innerHTML = '<button class="icon-btn back-btn" id="backBtn">' + (f ? (iconHtml(f.icon || '📁') + ' ' + esc(f.name)) : esc(t('home'))) + '</button>' +
       '<h2>' + iconHtml(l.icon || '📚') + ' ' + esc(lessonTitle(l)) + speakFlags(l.title) + '</h2>' +
+        '<button class="icon-btn" id="lessonQuizBtn" title="' + esc(t('quiz')) + '">🧩</button>' +
       '<button class="icon-btn" id="lessonEditBtn">✏️</button>' +
       '<p>' + esc(l.title.ar || '') + (l.title.en ? ' · ' + esc(l.title.en) : '') + '</p>';
     document.getElementById('backBtn').onclick = navBack;
     document.getElementById('lessonEditBtn').onclick = function () { openLessonSheet(f, l); };
+    document.getElementById('lessonQuizBtn').onclick = function () { openQuiz(l); };
 
     var playData = [];
     wrap.innerHTML = l.sections.map(function (sec, si) {
@@ -1833,6 +1866,128 @@
     document.querySelectorAll('[data-nbtool]').forEach(function (x) { x.classList.toggle('active', x.dataset.nbtool === t); });
   }
 
+  /* ==================== matching quiz ==================== */
+  var qz = { lesson: null, lang: 'ar', pairs: [], sel: null, solved: 0, wrong: 0, ac: null };
+  function qzTone(ok) {
+    try {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      if (!qz.ac) qz.ac = new AC();
+      var ac = qz.ac;
+      if (ac.state === 'suspended') ac.resume();
+      var freqs = ok ? [523.25, 659.25, 783.99] : [220, 174.61];
+      freqs.forEach(function (fr, i) {
+        var o = ac.createOscillator(), g = ac.createGain();
+        o.type = ok ? 'sine' : 'square';
+        o.frequency.value = fr;
+        g.gain.setValueAtTime(0.0001, ac.currentTime + i * 0.09);
+        g.gain.exponentialRampToValueAtTime(0.22, ac.currentTime + i * 0.09 + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + i * 0.09 + 0.22);
+        o.connect(g); g.connect(ac.destination);
+        o.start(ac.currentTime + i * 0.09);
+        o.stop(ac.currentTime + i * 0.09 + 0.25);
+      });
+    } catch (e) {}
+  }
+  function qzShuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a;
+  }
+  function closeQuiz() {
+    document.getElementById('ovQuiz').classList.remove('open');
+    stopSpeaking();
+  }
+  function openQuiz(l) {
+    qz.lesson = l;
+    document.getElementById('ovQuiz').classList.add('open');
+    document.getElementById('qzProgress').textContent = '';
+    document.getElementById('qzBody').innerHTML =
+      '<div class="qz-pick">' +
+        '<h3>' + esc(t('quizPick')) + '</h3>' +
+        '<button class="btn btn-primary" data-qzlang="ar">🇫🇷 ⇄ 🇸🇾 ' + 'العربية' + '</button>' +
+        '<button class="btn btn-primary" data-qzlang="en">🇫🇷 ⇄ 🇺🇸 ' + 'English' + '</button>' +
+      '</div>';
+    document.getElementById('qzBody').querySelectorAll('[data-qzlang]').forEach(function (b) {
+      b.onclick = function () { qz.lang = b.dataset.qzlang; qzStart(); };
+    });
+  }
+  function qzStart() {
+    var l = qz.lesson;
+    var pool = [];
+    l.sections.forEach(function (s) { secPhrases(s).forEach(function (p) { if ((p.fr || '').trim() && (p[qz.lang] || '').trim()) pool.push(p); }); });
+    if (!pool.length) {
+      document.getElementById('qzBody').innerHTML = '<div class="qz-result"><div class="qz-sub">' + esc(t('quizEmpty')) + '</div></div>';
+      return;
+    }
+    qzShuffle(pool);
+    qz.pairs = pool.slice(0, 8);
+    qz.sel = null; qz.solved = 0; qz.wrong = 0;
+    var left = qzShuffle(qz.pairs.map(function (p, i) { return { p: p, i: i }; }));
+    var right = qzShuffle(qz.pairs.map(function (p, i) { return { p: p, i: i }; }));
+    var rows = Math.max(left.length, right.length);
+    var html = '<div class="qz-grid">' +
+      '<div class="qz-colhead">🇫🇷</div><div class="qz-colhead">' + (qz.lang === 'ar' ? '🇸🇾' : '🇺🇸') + '</div>';
+    for (var r = 0; r < rows; r++) {
+      html += left[r] ? '<div class="qz-tile" data-side="fr" data-i="' + left[r].i + '">' + esc(left[r].p.fr) + '</div>' : '<div></div>';
+      html += right[r] ? '<div class="qz-tile" data-side="tg" data-i="' + right[r].i + '">' + esc(right[r].p[qz.lang]) + '</div>' : '<div></div>';
+    }
+    html += '</div>';
+    document.getElementById('qzBody').innerHTML = html;
+    document.getElementById('qzProgress').textContent = '0/' + qz.pairs.length;
+    document.getElementById('qzBody').querySelectorAll('.qz-tile').forEach(function (el) {
+      el.onclick = function () { qzTap(el); };
+    });
+  }
+  function qzTap(el) {
+    if (el.classList.contains('ok')) return;
+    var side = el.dataset.side;
+    if (side === 'fr') {
+      document.getElementById('qzBody').querySelectorAll('.qz-tile.sel').forEach(function (x) { x.classList.remove('sel'); });
+      if (qz.sel === el) { qz.sel = null; stopSpeaking(); return; }
+      qz.sel = el;
+      el.classList.add('sel');
+      speakLoop(qz.pairs[parseInt(el.dataset.i, 10)].fr, el, 'fr');
+      return;
+    }
+    if (!qz.sel) return;
+    var frI = parseInt(qz.sel.dataset.i, 10);
+    var tgI = parseInt(el.dataset.i, 10);
+    var selEl = qz.sel;
+    if (frI === tgI) {
+      qzTone(true);
+      qz.sel = null;
+      selEl.classList.remove('sel');
+      selEl.classList.add('ok');
+      el.classList.add('ok');
+      qz.solved++;
+      stopSpeaking();
+      document.getElementById('qzProgress').textContent = qz.solved + '/' + qz.pairs.length;
+      if (qz.solved === qz.pairs.length) qzFinish();
+    } else {
+      qzTone(false);
+      qz.wrong++;
+      el.classList.add('bad');
+      selEl.classList.remove('sel');
+      qz.sel = null;
+      stopSpeaking();
+      setTimeout(function () { el.classList.remove('bad'); }, 400);
+    }
+  }
+  function qzFinish() {
+    var n = qz.pairs.length;
+    var pct = Math.round((n / Math.max(1, n + qz.wrong)) * 100);
+    document.getElementById('qzBody').innerHTML =
+      '<div class="qz-result">' +
+        '<div class="qz-score">' + pct + '%</div>' +
+        '<div class="qz-sub">✅ ' + n + ' · ❌ ' + qz.wrong + '</div>' +
+        '<button class="btn btn-primary" id="qzAgain">🔄 ' + esc(t('quizAgain')) + '</button>' +
+        '<button class="btn btn-ghost" id="qzDone">✓ ' + esc(t('quizDone')) + '</button>' +
+      '</div>';
+    document.getElementById('qzProgress').textContent = t('quizScore') + ': ' + pct + '%';
+    document.getElementById('qzAgain').onclick = function () { openQuiz(qz.lesson); };
+    document.getElementById('qzDone').onclick = closeQuiz;
+  }
+
   /* ==================== word taps ==================== */
   var wHoldT = null, wTaps = 0, wTapT = null, wHeld = false;
   function wordAt(e) {
@@ -1866,6 +2021,7 @@
   });
 
   /* ==================== wiring ==================== */
+  document.getElementById('qzClose').onclick = closeQuiz;
   var nbEl = nbCanvas();
   nbEl.addEventListener('pointerdown', nbStart);
   nbEl.addEventListener('pointermove', nbMove);
@@ -2084,6 +2240,7 @@
   /* ---------- Android back ---------- */
   if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) {
     window.Capacitor.Plugins.App.addListener('backButton', function () {
+      if (document.getElementById('ovQuiz').classList.contains('open')) { closeQuiz(); return; }
       if (!document.getElementById('ovConfirm').classList.contains('hidden')) { document.getElementById('ovConfirm').classList.add('hidden'); return; }
       if (!document.getElementById('ovFolder').classList.contains('hidden')) { document.getElementById('ovFolder').classList.add('hidden'); return; }
       if (!document.getElementById('ovLesson').classList.contains('hidden')) { document.getElementById('ovLesson').classList.add('hidden'); return; }
