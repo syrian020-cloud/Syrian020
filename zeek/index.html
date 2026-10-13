@@ -1955,10 +1955,10 @@
       const buffer = await readFileChunk(file, offset, Math.min(offset + chunkSize, file.size));
       const base64 = arrayBufferToBase64(buffer);
       if (isFirst) {
-        await Filesystem.writeFile({ path: fullPath, data: base64, directory: DATA_DIR, encoding: 'base64', recursive: true });
+        await Filesystem.writeFile({ path: fullPath, data: base64, directory: DATA_DIR, recursive: true });
         isFirst = false;
       } else {
-        await Filesystem.appendFile({ path: fullPath, data: base64, directory: DATA_DIR, encoding: 'base64' });
+        await Filesystem.appendFile({ path: fullPath, data: base64, directory: DATA_DIR });
       }
     }
     const { uri } = await Filesystem.getUri({ path: fullPath, directory: DATA_DIR });
