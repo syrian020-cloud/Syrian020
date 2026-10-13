@@ -1761,9 +1761,8 @@
     out.width = Math.max(1, Math.round(c.width * sc));
     out.height = Math.max(1, Math.round(c.height * sc));
     var oc = out.getContext('2d');
-    oc.fillStyle = '#fdfaf1'; oc.fillRect(0, 0, out.width, out.height);
     oc.drawImage(c, 0, 0, out.width, out.height);
-    nbRef.phrase.nb = out.toDataURL('image/jpeg', 0.72);
+    nbRef.phrase.nb = out.toDataURL('image/png');
     idbPut('lessons', nbRef.lesson);
   }
   function nbPersist() {
