@@ -1855,8 +1855,27 @@
     var c2 = out.getContext('2d');
     c2.fillStyle = '#fdfaf1'; c2.fillRect(0, 0, out.width, out.height);
     c2.drawImage(src, 0, 0);
+    var url = out.toDataURL('image/png');
+    var name = 'notebook-' + Date.now() + '.png';
+    var P = window.Capacitor && window.Capacitor.Plugins;
+    if (P && P.Filesystem) {
+      (async function () {
+        try {
+          var b64 = url.split(',')[1];
+          var f;
+          try {
+            f = await P.Filesystem.writeFile({ path: 'gramvip/' + name, data: b64, directory: 'DOCUMENTS', recursive: true });
+            toast('💾 ' + name);
+          } catch (e1) {
+            f = await P.Filesystem.writeFile({ path: name, data: b64, directory: 'CACHE' });
+          }
+          if (P.Share) { try { await P.Share.share({ title: name, url: f.uri }); return; } catch (e2) {} }
+        } catch (e) { toast('⚠️ ' + String(e.message || e)); }
+      })();
+      return;
+    }
     var a = document.createElement('a');
-    a.download = 'notebook.png'; a.href = out.toDataURL('image/png'); a.click();
+    a.download = name; a.href = url; a.click();
   };
   document.querySelectorAll('#nbColors button').forEach(function (b) {
     b.onclick = function () {
