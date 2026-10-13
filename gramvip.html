@@ -202,6 +202,10 @@
   .ph-act { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg-secondary); font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .14s; }
   .ph-act:hover { border-color: var(--accent); transform: scale(1.08); box-shadow: var(--glow); }
   .ph-act:active { transform: scale(0.94); }
+  .ph-img { position: relative; display: inline-block; margin-top: 0.6rem; max-width: 100%; }
+  .ph-img img { display: block; max-width: 100%; max-height: 220px; border-radius: 14px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+  .ph-img-del { position: absolute; top: -9px; inset-inline-end: -9px; width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--border); background: #e11d48; color: #fff; font-size: 0.95rem; font-weight: 800; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.35); font-family: inherit; }
+  .ph-img-del:hover { transform: scale(1.12); }
   .flag-btn, .sec-play { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg-secondary); font-size: 1.15rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .15s; line-height: 1; }
   .flag-btn:hover, .sec-play:hover { border-color: var(--accent); transform: scale(1.08); box-shadow: var(--glow); }
   .flag-btn:active, .sec-play:active { transform: scale(0.94); }
@@ -377,6 +381,7 @@
 <div class="toast" id="toast"></div>
 <button class="fab hidden" id="fabBtn">➕</button>
 <input type="file" id="iconFileInput" accept="image/*" hidden>
+<input type="file" id="phImgInput" accept="image/*" hidden>
 
 <!-- sheets -->
 <div class="overlay hidden" id="ovFolder">
@@ -595,22 +600,23 @@
     grid.querySelectorAll('button').forEach(function (x) { x.classList.remove('on'); });
     b.classList.add('on');
   }
-  function resizeIconImage(file, cb) {
+  function resizeImage(file, maxDim, quality, cb) {
     var reader = new FileReader();
     reader.onload = function () {
       var img = new Image();
       img.onload = function () {
-        var s = Math.min(1, 128 / Math.max(img.width || 1, img.height || 1));
+        var s = Math.min(1, maxDim / Math.max(img.width || 1, img.height || 1));
         var c = document.createElement('canvas');
         c.width = Math.max(1, Math.round(img.width * s));
         c.height = Math.max(1, Math.round(img.height * s));
         c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
-        cb(c.toDataURL('image/jpeg', 0.85));
+        cb(c.toDataURL('image/jpeg', quality));
       };
       img.src = reader.result;
     };
     reader.readAsDataURL(file);
   }
+  function resizeIconImage(file, cb) { resizeImage(file, 128, 0.85, cb); }
 
   var TEMPLATE = "🇫🇷 Verbe : [INFINITIF] — 🇸🇾 الفعل: [المعنى بالعربي] — 🇺🇸 Verb: [English meaning]\n\n🇫🇷 1. Présent — 🇸🇾 المضارع — 🇺🇸 Present\n\n🇫🇷 Je [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Tu [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Il [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Elle [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Nous [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Vous [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Ils / Elles [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 2. Passé composé — 🇸🇾 الماضي المركّب — 🇺🇸 Compound past\n\n🇫🇷 [Phrase au passé composé]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 3. Futur proche — 🇸🇾 المستقبل القريب — 🇺🇸 Near future\n\n🇫🇷 [Phrase au futur proche]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 4. Vie quotidienne — 🇸🇾 الحياة اليومية — 🇺🇸 Daily life\n\n🇫🇷 [Phrase de la vie quotidienne]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 5. Au travail — 🇸🇾 بالشغل — 🇺🇸 At work\n\n🇫🇷 [Phrase au travail]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 6. À la pharmacie — 🇸🇾 بالصيدلية — 🇺🇸 At the pharmacy\n\n🇫🇷 [Phrase à la pharmacie]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 7. Chez le médecin — 🇸🇾 عند الدكتور — 🇺🇸 At the doctor's";
   var TEMPLATE2 = "🇫🇷 Mot : PASSER\n\n🇫🇷 Mot : Passer\n🇸🇾 المعنى بالعربي: يمرّ، يعبر، يقضي، يجتاز، يمرّر.\n🇺🇸 Meaning in English: To pass, to go through, to spend, to take, to hand over.\n\n1. المعاني المختلفة حسب السياق\n\n🇫🇷 1. Passer = يمرّ / يعبر\n\n🇫🇷 Je passe devant la maison.\n🇸🇾 أنا بمرّ من قدّام البيت.\n🇺🇸 I pass in front of the house.\n\n🇫🇷 2. Passer = يقضي وقتاً\n\n🇫🇷 Je passe du temps avec mes amis.\n🇸🇾 بقضي وقت مع رفقاتي.\n🇺🇸 I spend time with my friends.\n\n🇫🇷 3. Passer = يجتاز امتحاناً\n\n🇫🇷 Je passe un examen demain.\n🇸🇾 عندي امتحان بكرا.\n🇺🇸 I'm taking an exam tomorrow.\n\n🇫🇷 4. Passer = يمرّر / يناول\n\n🇫🇷 Passe-moi le sel, s'il te plaît.\n🇸🇾 ناولني الملح، لو سمحت.\n🇺🇸 Pass me the salt, please.\n\n🇫🇷 5. Passer = يزور زيارة قصيرة\n\n🇫🇷 Je passe chez toi ce soir.\n🇸🇾 رح مرّ لعندك هالمسا.\n🇺🇸 I'll stop by your place tonight.\n\n🇫🇷 6. Passer = يمرّ / ينقضي\n\n🇫🇷 Le temps passe vite.\n🇸🇾 الوقت عم يمرّ بسرعة.\n🇺🇸 Time passes quickly.\n\n🇫🇷 7. Passer = يشغّل\n\n🇫🇷 Tu peux passer la musique ?\n🇸🇾 فيك تشغّل الموسيقى؟\n🇺🇸 Can you play the music?\n\n🇫🇷 8. Passer = يمرّ على شخص أو مكان\n\n🇫🇷 Je passerai te voir demain.\n🇸🇾 رح مرّ لعندك بكرا وشوفك.\n🇺🇸 I'll stop by to see you tomorrow.\n\n---\n\n2. تصريف الفعل PASSER في المضارع\n\n🇫🇷 Français\t🇸🇾 العربية السورية\t🇺🇸 English\n\nJe passe.\tأنا بمرّ.\tI pass.\nTu passes.\tإنت بتمرّ.\tYou pass.\nIl passe.\tهو بيمرّ.\tHe passes.\nElle passe.\tهي بتمرّ.\tShe passes.\nNous passons.\tنحنا منمرّ.\tWe pass.\nVous passez.\tإنتو بتمرّوا.\tYou pass.\nIls passent.\tهنن بيمرّوا.\tThey pass.\nElles passent.\tهنن بيمرّوا.\tThey pass.\n\nملاحظة: نهايات الفعل في الكتابة بتختلف، لكن نطق passe وpasses وpassent متشابه بالفرنسية.\n\n---\n\n3. أهم العبارات اليومية باستخدام PASSER\n\n🇫🇷 Ça va passer.\n🇸🇾 رح يمرّ هالشي، ورح تتحسّن الأمور.\n🇺🇸 It'll pass.\n\n🇫🇷 Passe une bonne journée !\n🇸🇾 نهارك سعيد!\n🇺🇸 Have a nice day!\n\n🇫🇷 Je dois passer à la pharmacie.\n🇸🇾 لازم مرّ عالصيدلية.\n🇺🇸 I have to stop by the pharmacy.\n\n🇫🇷 Comment s'est passée ta journée ?\n🇸🇾 كيف كان نهارك؟\n🇺🇸 How was your day?\n\n🇫🇷 Je suis passé te voir.\n🇸🇾 مرّيت لعندك مشان شوفك.\n🇺🇸 I stopped by to see you.\n\n🇫🇷 Laisse passer, s'il te plaît.\n🇸🇾 خلّيني مرق، لو سمحت.\n🇺🇸 Let me through, please.\n\n🇫🇷 Passe à autre chose.\n🇸🇾 خلّص، انسى الموضوع وانتقل لشي تاني.\n🇺🇸 Move on to something else.\n\n---\n\n4. الفرق بين PASSER و SE PASSER\n\n🇫🇷 Français\t🇸🇾 العربية السورية\t🇺🇸 English\n\nÇa passe.\tبيمشي الحال.\tIt's okay.\nÇa se passe bien.\tالأمور ماشية منيح.\tIt's going well.\nQu'est-ce qui se passe ?\tشو عم يصير؟\tWhat's happening?\nComment ça s'est passé ?\tكيف صار الموضوع؟\tHow did it go?\nTout s'est bien passé.\tكل شي مشي منيح.\tEverything went well.\n\nالقاعدة:\n\n🇫🇷 PASSER = يمرّ، يقضي وقتاً، يجتاز أو يناول، حسب السياق.\n\n🇫🇷 SE PASSER = يحدث أو يجري.\n\n5. PASSER في الماضي والمستقبل\n\nالماضي المركّب — Passé composé\n\n🇫🇷 Je suis passé chez mon ami.\n🇸🇾 مرّيت لعند رفيقي.\n🇺🇸 I stopped by my friend's place.\n\n🇫🇷 J'ai passé deux heures au travail.\n🇸🇾 قضيت ساعتين بالشغل.\n🇺🇸 I spent two hours at work.\n\nالمستقبل — Futur simple\n\n🇫🇷 Je passerai demain.\n🇸🇾 رح مرّ بكرا.\n🇺🇸 I will stop by tomorrow.\n\nالماضي المستمر — Imparfait\n\n🇫🇷 Je passais devant l'usine tous les jours.\n🇸🇾 كنت مرّ من قدّام المصنع كل يوم.\n🇺🇸 I used to pass in front of the factory every day.";
@@ -1095,7 +1101,8 @@
   function wordsHtml(s) {
     return esc(s).split(' ').map(function (w) { return '<span class="w">' + w + '</span>'; }).join(' ');
   }
-  function phraseHtml(p) {
+  function phraseHtml(p, ref) {
+    var refAttr = ref ? ' data-l="' + esc(ref.l) + '" data-s="' + ref.s + '" data-g="' + ref.g + '" data-p="' + ref.p + '"' : '';
     var rows = '';
     if (p.fr) rows += '<div class="pl fr"><span class="tag">FR</span><span class="txt">' + wordsHtml(p.fr) + '</span><button class="flag-btn" data-lang="fr" title="FR">🇫🇷</button></div>';
     if (p.ar) rows += '<div class="pl ar"><span class="tag">ع</span><span class="txt">' + wordsHtml(p.ar) + '</span><button class="flag-btn" data-lang="ar" title="AR">🇸🇾</button></div>';
@@ -1103,8 +1110,10 @@
     var acts = '<div class="ph-actions">' +
       '<button class="ph-act nb-open" title="notebook">📝</button>' +
       '<button class="ph-act ai-open" title="Google AI">🤖</button>' +
-      '<button class="ph-act img-open" title="Google Images">🖼️</button></div>';
-    return '<div class="phrase"><div class="phrase-lines">' + rows + acts + '</div></div>';
+      '<button class="ph-act img-open" title="Google Images">🖼️</button>' +
+      '<button class="ph-act ph-img-add" title="رفع صورة">📷</button></div>';
+    var img = p.img ? '<div class="ph-img"><img src="' + esc(p.img) + '" alt=""><button class="ph-img-del" title="حذف الصورة">×</button></div>' : '';
+    return '<div class="phrase"' + refAttr + '><div class="phrase-lines">' + rows + acts + img + '</div></div>';
   }
 
   // small per-language TTS buttons for titles (lesson, section, group)
@@ -1252,11 +1261,11 @@
         '<span class="sec-title">' + esc(tri(sec.title) || t('sections')) + speakFlags(sec.title) + '</span>' +
         '<span class="sec-count">' + phrases.length + ' ' + t('phrasesCount') + ' · ' + wordsFr + ' FR</span><span class="chev">▼</span></div>' +
         '<div class="section-body">' +
-        secGroups(sec).map(function (g) {
+        secGroups(sec).map(function (g, gi) {
           var gh = '';
           if (g.title && tri(g.title)) gh += '<div class="group-title">' + esc(tri(g.title)) + speakFlags(g.title) + '</div>';
           gh += (g.notes || []).map(function (n) { return '<div class="sec-note">' + esc(n) + '</div>'; }).join('');
-          gh += g.phrases.map(phraseHtml).join('');
+          gh += g.phrases.map(function (p, pi) { return phraseHtml(p, { l: l.id, s: si, g: gi, p: pi }); }).join('');
           return gh;
         }).join('') + '</div></div>';
     }).join('');
@@ -1289,6 +1298,25 @@
     });
     return out;
   }
+  function findPhraseObj(btn) {
+    var el = btn.closest('.phrase');
+    if (!el || !el.dataset.l) return null;
+    var l = lessonById(el.dataset.l);
+    if (!l) return null;
+    var sec = l.sections[parseInt(el.dataset.s, 10)];
+    if (!sec) return null;
+    var g = secGroups(sec)[parseInt(el.dataset.g, 10)];
+    if (!g) return null;
+    var p = g.phrases[parseInt(el.dataset.p, 10)];
+    return p ? { lesson: l, phrase: p, el: el } : null;
+  }
+  function delPhraseImg(f) {
+    delete f.phrase.img;
+    idbPut('lessons', f.lesson);
+    var im = f.el.querySelector('.ph-img');
+    if (im) im.remove();
+  }
+  var phImgBtn = null;
   function wireFlagButtons(wrap) {
     wrap.querySelectorAll('.pl .flag-btn[data-lang]').forEach(function (b) {
       b.onclick = function () {
@@ -1316,6 +1344,20 @@
         searchImages(p.fr || p.ar || p.en);
       };
     });
+    wrap.querySelectorAll('.ph-img-add').forEach(function (b) {
+      b.onclick = function (ev) {
+        ev.stopPropagation();
+        phImgBtn = b;
+        document.getElementById('phImgInput').click();
+      };
+    });
+    wrap.querySelectorAll('.ph-img-del').forEach(function (b) {
+      b.onclick = function (ev) {
+        ev.stopPropagation();
+        var f = findPhraseObj(b);
+        if (f) delPhraseImg(f);
+      };
+    });
   }
 
   function renderSearch() {
@@ -1329,20 +1371,22 @@
       var f = folderById(l.folderId);
       var lessonHit = ((l.title.fr || '') + ' ' + (l.title.ar || '') + ' ' + (l.title.en || '')).toLowerCase().indexOf(q) >= 0;
       var lessonHtml = '';
-      l.sections.forEach(function (sec) {
+      l.sections.forEach(function (sec, si) {
         var secHit = ((sec.title.fr || '') + ' ' + (sec.title.ar || '') + ' ' + (sec.title.en || '')).toLowerCase().indexOf(q) >= 0;
-        var phrases = secPhrases(sec).filter(function (p) {
-          return lessonHit || secHit || ((p.fr + ' ' + p.ar + ' ' + p.en).toLowerCase().indexOf(q) >= 0);
+        var items = [];
+        secGroups(sec).forEach(function (g, gi) { g.phrases.forEach(function (p, pi) { items.push({ p: p, g: gi, i: pi }); }); });
+        var shown = items.filter(function (it) {
+          return lessonHit || secHit || ((it.p.fr + ' ' + it.p.ar + ' ' + it.p.en).toLowerCase().indexOf(q) >= 0);
         });
-        visible += phrases.length;
-        if (!phrases.length) return;
+        visible += shown.length;
+        if (!shown.length) return;
         if (rendered >= 250) { capped = true; return; }
-        if (rendered + phrases.length > 250) { phrases = phrases.slice(0, 250 - rendered); capped = true; }
-        rendered += phrases.length;
+        if (rendered + shown.length > 250) { shown = shown.slice(0, 250 - rendered); capped = true; }
+        rendered += shown.length;
         lessonHtml += '<div class="section open"><div class="section-head"><span class="sec-icon">📖</span>' +
           '<span class="sec-title">' + esc(tri(sec.title) || t('sections')) + speakFlags(sec.title) + '</span>' +
-          '<span class="sec-count">' + phrases.length + ' ' + t('phrasesCount') + '</span></div>' +
-          '<div class="section-body">' + phrases.map(phraseHtml).join('') + '</div></div>';
+          '<span class="sec-count">' + shown.length + ' ' + t('phrasesCount') + '</span></div>' +
+          '<div class="section-body">' + shown.map(function (it) { return phraseHtml(it.p, { l: l.id, s: si, g: it.g, p: it.i }); }).join('') + '</div></div>';
       });
       if (lessonHtml) {
         html += '<div class="centre-group">' + (f ? iconHtml(f.icon || '📁') + ' ' + esc(f.name) : '') + ' › ' +
@@ -1796,6 +1840,25 @@
     };
   });
 
+  document.getElementById('phImgInput').onchange = function (e) {
+    var file = e.target.files && e.target.files[0];
+    e.target.value = '';
+    var btn = phImgBtn; phImgBtn = null;
+    if (!file || !btn) return;
+    var f = findPhraseObj(btn);
+    if (!f) return;
+    resizeImage(file, 1000, 0.82, function (url) {
+      f.phrase.img = url;
+      idbPut('lessons', f.lesson);
+      var old = f.el.querySelector('.ph-img');
+      if (old) old.remove();
+      var d = document.createElement('div');
+      d.className = 'ph-img';
+      d.innerHTML = '<img src="' + url + '" alt=""><button class="ph-img-del" title="حذف الصورة">×</button>';
+      d.querySelector('.ph-img-del').onclick = function (ev) { ev.stopPropagation(); delPhraseImg(f); };
+      f.el.querySelector('.phrase-lines').appendChild(d);
+    });
+  };
   document.getElementById('iconFileInput').onchange = function (e) {
     var file = e.target.files && e.target.files[0];
     e.target.value = '';
