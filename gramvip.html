@@ -2032,11 +2032,11 @@
     document.getElementById('qzBody').innerHTML = html;
     document.getElementById('qzProgress').textContent = (lz.idx + 1) + '/' + lz.qs.length;
     var rp = document.getElementById('lzReplay');
-    rp.onclick = function () { speakOnce(p.fr, rp, 'fr'); };
+    rp.onclick = function () { speakLoop(p.fr, rp, 'fr'); };
     document.getElementById('qzBody').querySelectorAll('.qz-tile').forEach(function (el) {
       el.onclick = function () { lzAnswer(el, p); };
     });
-    setTimeout(function () { if (document.getElementById('ovQuiz').classList.contains('open')) speakOnce(p.fr, rp, 'fr'); }, 250);
+    setTimeout(function () { if (document.getElementById('ovQuiz').classList.contains('open')) speakLoop(p.fr, rp, 'fr'); }, 250);
   }
   function lzAnswer(el, p) {
     if (el.dataset.done) return;
