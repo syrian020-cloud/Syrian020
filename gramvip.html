@@ -310,6 +310,8 @@
   .qz-result { margin: auto; text-align: center; display: flex; flex-direction: column; gap: 0.8rem; align-items: center; }
   .qz-score { font-size: 2.6rem; font-weight: 900; background: linear-gradient(120deg, var(--accent-solid), #ec4899); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .qz-sub { color: var(--text-secondary); font-weight: 700; }
+  .lz-opts { display: flex; flex-direction: column; gap: 0.6rem; width: 100%; max-width: 480px; }
+  .lz-replay { font-size: 1.05rem; padding: 0.95rem 1.5rem; border-radius: 16px; width: 100%; max-width: 480px; }
   .nb-wrap { flex: 1; position: relative; overflow: hidden; }
   .nb-lines { position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, transparent 0 46px, rgba(120,170,220,0.35) 46px 47px); }
   .nb-lines::after { content: ''; position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(230,120,120,0.45); inset-inline-end: 12%; }
@@ -552,7 +554,7 @@
       delFolderT: 'حذف المجلد؟', delFolderD: 'سيتم حذف المجلد وكل دروسه — لا يمكن التراجع.',
       delLessonT: 'حذف الدرس؟', delLessonD: 'سيتم حذف هذا الدرس نهائياً.',
       delImgT: 'حذف الصورة؟', delImgD: 'ستُزال الصورة من هذه العبارة.',
-      quiz: 'اختبار التوصيل', quizPick: 'اختر اللغة المقابلة للفرنسية:', quizScore: 'النتيجة', quizAgain: 'إعادة اللعب', quizDone: 'انتهى', quizEmpty: 'الدرس يحتاج عبارات فيها فرنسي + اللغة المقابلة',
+      quiz: 'اختبار التوصيل', listenQuiz: 'اسمع واختر', replay: '🔊 إعادة الاستماع', quizPick: 'اختر اللغة المقابلة للفرنسية:', quizScore: 'النتيجة', quizAgain: 'إعادة اللعب', quizDone: 'انتهى', quizEmpty: 'الدرس يحتاج عبارات فيها فرنسي + اللغة المقابلة',
       exitTitle: 'الخروج من التطبيق؟', exitYes: 'خروج', exitNo: 'بقاء',
       saved: 'تم الحفظ', savedN: 'تمت إضافة {n} دروس', multiHint: '💡 افصل الدروس بسطر === لإضافة عدة دروس معاً', deleted: 'تم الحذف', imported: 'تم الاستيراد', importBad: 'ملف غير صالح', copied: 'تم نسخ النموذج', pasted: 'تم اللصق',
       emptyFolders: 'لا مجلدات بعد — أضف أول مجلد', emptyLessons: 'لا دروس بعد — أضف أول درس',
@@ -577,7 +579,7 @@
       delFolderT: 'Delete folder?', delFolderD: 'The folder and all its lessons will be deleted — this cannot be undone.',
       delLessonT: 'Delete lesson?', delLessonD: 'This lesson will be permanently deleted.',
       delImgT: 'Delete image?', delImgD: 'The image will be removed from this phrase.',
-      quiz: 'Matching quiz', quizPick: 'Pick the language to match with French:', quizScore: 'Score', quizAgain: 'Play again', quizDone: 'Done', quizEmpty: 'The lesson needs phrases with French + the other language',
+      quiz: 'Matching quiz', listenQuiz: 'Listen & choose', replay: '🔊 Listen again', quizPick: 'Pick the language to match with French:', quizScore: 'Score', quizAgain: 'Play again', quizDone: 'Done', quizEmpty: 'The lesson needs phrases with French + the other language',
       exitTitle: 'Exit the app?', exitYes: 'Exit', exitNo: 'Stay',
       saved: 'Saved', savedN: '{n} lessons added', multiHint: '💡 Separate lessons with a === line to add several at once', deleted: 'Deleted', imported: 'Imported', importBad: 'Invalid file', copied: 'Template copied', pasted: 'Pasted',
       emptyFolders: 'No folders yet — add your first folder', emptyLessons: 'No lessons yet — add your first lesson',
@@ -602,7 +604,7 @@
       delFolderT: 'Supprimer le dossier ?', delFolderD: 'Le dossier et toutes ses leçons seront supprimés — action irréversible.',
       delLessonT: 'Supprimer la leçon ?', delLessonD: 'Cette leçon sera définitivement supprimée.',
       delImgT: 'Supprimer l’image ?', delImgD: 'L’image sera retirée de cette phrase.',
-      quiz: 'Quiz d’association', quizPick: 'Choisissez la langue à associer au français :', quizScore: 'Score', quizAgain: 'Rejouer', quizDone: 'Terminé', quizEmpty: 'La leçon doit avoir des phrases français + autre langue',
+      quiz: 'Quiz d’association', listenQuiz: 'Écoute et choisis', replay: '🔊 Réécouter', quizPick: 'Choisissez la langue à associer au français :', quizScore: 'Score', quizAgain: 'Rejouer', quizDone: 'Terminé', quizEmpty: 'La leçon doit avoir des phrases français + autre langue',
       exitTitle: 'Quitter l\'application ?', exitYes: 'Quitter', exitNo: 'Rester',
       saved: 'Enregistré', savedN: '{n} leçons ajoutées', multiHint: '💡 Séparez les leçons par une ligne === pour en ajouter plusieurs', deleted: 'Supprimé', imported: 'Importé', importBad: 'Fichier invalide', copied: 'Modèle copié', pasted: 'Collé',
       emptyFolders: 'Aucun dossier — ajoutez votre premier dossier', emptyLessons: 'Aucune leçon — ajoutez votre première leçon',
@@ -1291,11 +1293,13 @@
     head.innerHTML = '<button class="icon-btn back-btn" id="backBtn">' + (f ? (iconHtml(f.icon || '📁') + ' ' + esc(f.name)) : esc(t('home'))) + '</button>' +
       '<h2>' + iconHtml(l.icon || '📚') + ' ' + esc(lessonTitle(l)) + speakFlags(l.title) + '</h2>' +
         '<button class="icon-btn" id="lessonQuizBtn" title="' + esc(t('quiz')) + '">🧩</button>' +
+        '<button class="icon-btn" id="lessonListenBtn" title="' + esc(t('listenQuiz')) + '">🎧</button>' +
       '<button class="icon-btn" id="lessonEditBtn">✏️</button>' +
       '<p>' + esc(l.title.ar || '') + (l.title.en ? ' · ' + esc(l.title.en) : '') + '</p>';
     document.getElementById('backBtn').onclick = navBack;
     document.getElementById('lessonEditBtn').onclick = function () { openLessonSheet(f, l); };
     document.getElementById('lessonQuizBtn').onclick = function () { openQuiz(l); };
+    document.getElementById('lessonListenBtn').onclick = function () { openListen(l); };
 
     var playData = [];
     wrap.innerHTML = l.sections.map(function (sec, si) {
@@ -1899,6 +1903,7 @@
   }
   function openQuiz(l) {
     qz.lesson = l;
+    document.querySelector('#ovQuiz .qz-title').innerHTML = '🧩 <span>' + esc(t('quiz')) + '</span>';
     document.getElementById('ovQuiz').classList.add('open');
     document.getElementById('qzProgress').textContent = '';
     document.getElementById('qzBody').innerHTML =
@@ -1973,6 +1978,90 @@
       setTimeout(function () { el.classList.remove('bad'); }, 400);
     }
   }
+  /* ---- listen & choose ---- */
+  var lz = { lesson: null, lang: 'ar', qs: [], pool: [], idx: 0, correct: 0, wrong: 0 };
+  function openListen(l) {
+    lz.lesson = l;
+    document.querySelector('#ovQuiz .qz-title').innerHTML = '🎧 <span>' + esc(t('listenQuiz')) + '</span>';
+    document.getElementById('ovQuiz').classList.add('open');
+    document.getElementById('qzProgress').textContent = '';
+    document.getElementById('qzBody').innerHTML =
+      '<div class="qz-pick">' +
+        '<h3>' + esc(t('quizPick')) + '</h3>' +
+        '<button class="btn btn-primary" data-qzlang="ar">🇫🇷 ⇄ 🇸🇾 العربية</button>' +
+        '<button class="btn btn-primary" data-qzlang="en">🇫🇷 ⇄ 🇺🇸 English</button>' +
+      '</div>';
+    document.getElementById('qzBody').querySelectorAll('[data-qzlang]').forEach(function (b) {
+      b.onclick = function () { lz.lang = b.dataset.qzlang; lzStart(); };
+    });
+  }
+  function lzStart() {
+    var pool = [];
+    lz.lesson.sections.forEach(function (s) { secPhrases(s).forEach(function (p) { if ((p.fr || '').trim() && (p[lz.lang] || '').trim()) pool.push(p); }); });
+    if (!pool.length) {
+      document.getElementById('qzBody').innerHTML = '<div class="qz-result"><div class="qz-sub">' + esc(t('quizEmpty')) + '</div></div>';
+      return;
+    }
+    lz.pool = qzShuffle(pool.slice());
+    lz.qs = lz.pool.slice(0, 8);
+    lz.idx = 0; lz.correct = 0; lz.wrong = 0;
+    lzQuestion();
+  }
+  function lzQuestion() {
+    if (!document.getElementById('ovQuiz').classList.contains('open')) return;
+    var p = lz.qs[lz.idx];
+    var others = lz.pool.filter(function (x) { return x !== p; });
+    var opts = qzShuffle(others.slice()).slice(0, 3);
+    opts.push(p);
+    opts = qzShuffle(opts);
+    var html = '<button class="btn btn-primary lz-replay" id="lzReplay">🔊 ' + esc(t('replay')) + '</button>' +
+      '<div class="lz-opts">' + opts.map(function (o, i) {
+        return '<div class="qz-tile" data-ok="' + (o === p ? '1' : '0') + '">' + esc(o[lz.lang]) + '</div>';
+      }).join('') + '</div>';
+    document.getElementById('qzBody').innerHTML = html;
+    document.getElementById('qzProgress').textContent = (lz.idx + 1) + '/' + lz.qs.length;
+    var rp = document.getElementById('lzReplay');
+    rp.onclick = function () { speakOnce(p.fr, rp, 'fr'); };
+    document.getElementById('qzBody').querySelectorAll('.qz-tile').forEach(function (el) {
+      el.onclick = function () { lzAnswer(el, p); };
+    });
+    setTimeout(function () { if (document.getElementById('ovQuiz').classList.contains('open')) speakOnce(p.fr, rp, 'fr'); }, 250);
+  }
+  function lzAnswer(el, p) {
+    if (el.dataset.done) return;
+    var body = document.getElementById('qzBody');
+    body.querySelectorAll('.qz-tile').forEach(function (x) { x.dataset.done = '1'; });
+    var ok = el.dataset.ok === '1';
+    if (ok) { qzTone(true); el.classList.add('ok'); lz.correct++; }
+    else {
+      qzTone(false); lz.wrong++;
+      el.classList.add('bad');
+      body.querySelectorAll('.qz-tile[data-ok="1"]').forEach(function (x) { x.classList.add('ok'); });
+    }
+    stopSpeaking();
+    setTimeout(lzNext, ok ? 800 : 1400);
+  }
+  function lzNext() {
+    if (!document.getElementById('ovQuiz').classList.contains('open')) return;
+    lz.idx++;
+    if (lz.idx >= lz.qs.length) { lzFinish(); return; }
+    lzQuestion();
+  }
+  function lzFinish() {
+    var n = lz.qs.length;
+    var pct = Math.round((lz.correct / Math.max(1, n)) * 100);
+    document.getElementById('qzBody').innerHTML =
+      '<div class="qz-result">' +
+        '<div class="qz-score">' + pct + '%</div>' +
+        '<div class="qz-sub">✅ ' + lz.correct + ' · ❌ ' + lz.wrong + '</div>' +
+        '<button class="btn btn-primary" id="qzAgain">🔄 ' + esc(t('quizAgain')) + '</button>' +
+        '<button class="btn btn-ghost" id="qzDone">✓ ' + esc(t('quizDone')) + '</button>' +
+      '</div>';
+    document.getElementById('qzProgress').textContent = t('quizScore') + ': ' + pct + '%';
+    document.getElementById('qzAgain').onclick = function () { openListen(lz.lesson); };
+    document.getElementById('qzDone').onclick = closeQuiz;
+  }
+
   function qzFinish() {
     var n = qz.pairs.length;
     var pct = Math.round((n / Math.max(1, n + qz.wrong)) * 100);
