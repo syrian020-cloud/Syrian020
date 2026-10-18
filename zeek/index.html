@@ -93,6 +93,7 @@
     box-shadow: 0 -8px 30px rgba(0,0,0,0.3); animation: sheetUp 0.2s ease;
   }
   @keyframes sheetUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
   .action-sheet .sheet-title { font-weight: 700; margin-bottom: 0.75rem; text-align: center; color: var(--text-secondary); }
   .action-sheet .sheet-actions { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.75rem; }
   .action-sheet .sheet-actions button { justify-content: center; }
@@ -233,6 +234,16 @@
     transition: border-color 0.2s, box-shadow 0.2s; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
   }
   .phrase.playing { border-color: var(--success); box-shadow: 0 0 0 1px var(--success), 0 0 14px rgba(52,211,153,0.18); }
+  .zsec { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 0.85rem; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); transition: border-color .2s, box-shadow .2s; }
+  .zsec.open { border-color: var(--accent); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+  .zsec-head { display: flex; align-items: center; gap: 0.65rem; padding: 0.85rem 1rem; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }
+  .zsec-icon { width: 2.4rem; height: 2.4rem; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-radius: 12px; flex-shrink: 0; color: #fff; box-shadow: 0 3px 8px rgba(0,0,0,0.18); }
+  .zsec-title { font-weight: 800; font-size: 1rem; flex: 1; min-width: 0; color: var(--text-primary); line-height: 1.4; }
+  .zsec-count { background: var(--bg-tertiary); color: var(--text-secondary); font-size: 0.72rem; font-weight: 700; border-radius: 999px; padding: 0.22rem 0.65rem; border: 1px solid var(--border); white-space: nowrap; }
+  .zsec-chev { color: var(--text-secondary); font-size: 0.85rem; transition: transform .25s; }
+  .zsec.open .zsec-chev { transform: rotate(180deg); }
+  .zsec-body { display: none; padding: 0 0.85rem 0.5rem; }
+  .zsec.open .zsec-body { display: block; animation: fadeUp .28s ease; }
   .phrase-top { display: flex; gap: 0.7rem; align-items: flex-start; }
   .lines { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.35rem; }
   .line { padding: 0.45rem 0.7rem; border-radius: 10px; transition: background 0.2s; position: relative; padding-inline-end: 2.2rem; background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.06); font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
@@ -1468,6 +1479,49 @@
     return phrases;
   }
 
+  const SEC_SEP_RE = /^\s*(?:-{3,}|—{3,}|_{3,}|\*{3,}|={3,})\s*$/;
+  function parsePhrasesWithSections(text, userOrder = 'auto') {
+    const lines = String(text || '').split('\n');
+    if (!lines.some(l => SEC_SEP_RE.test(l))) return { phrases: parsePhrases(text, userOrder), sections: null };
+    const phrases = [];
+    const sections = [];
+    const newSec = () => { const s = { title: null, start: phrases.length, buf: [] }; sections.push(s); return s; };
+    let cur = newSec();
+    const flushSec = () => {
+      if (!cur) return;
+      for (const p of parsePhrases(cur.buf.join('\n'), userOrder)) { p.sec = sections.indexOf(cur); phrases.push(p); }
+      cur.buf = [];
+    };
+    const FLAG = new RegExp(FLAG_RE.source, FLAG_RE.flags);
+    for (const raw of lines) {
+      if (SEC_SEP_RE.test(raw)) { flushSec(); cur = newSec(); continue; }
+      const s = raw.trim();
+      if (!s) { cur.buf.push(raw); continue; }
+      const rp = FLAG.test(s) ? null : extractRawParts(s);
+      const isPhraseLine = FLAG.test(s) || (rp && cleanPhrasePart(rp.ar) && cleanPhrasePart(rp.first) && cleanPhrasePart(rp.last));
+      const isTitleLine = cur.start === phrases.length && !cur.title && !cur.buf.some(b => b.trim()) &&
+        (s.startsWith('📌') || (!isPhraseLine && !/^\d{1,2}:\d{2}/.test(s) && !/^\d+$/.test(s)));
+      if (isTitleLine) { cur.title = parseTitle(s.replace(/^📌\s*/, '')); continue; }
+      cur.buf.push(raw);
+    }
+    flushSec();
+    sections.forEach((s, i) => {
+      s.end = i + 1 < sections.length ? sections[i + 1].start : phrases.length;
+    });
+    const real = sections.filter(s => s.end > s.start || s.title);
+    if (real.length < 2 || !real.some(s => s.end > s.start)) {
+      return { phrases: parsePhrases(text, userOrder), sections: null };
+    }
+    const keep = real.filter(s => s.end > s.start);
+    keep.forEach((s, i) => { s.index = i; });
+    phrases.forEach(p => { p.sec = keep.indexOf(sections[p.sec]); });
+    return { phrases, sections: keep };
+  }
+
+  function lessonSections(lesson) {
+    return (lesson && lesson.sections && lesson.sections.length) ? lesson.sections : null;
+  }
+
   let LESSONS = loadLessons();
 
   const BIENVENUE_LESSON = {
@@ -1587,6 +1641,7 @@
     library: { ar: 'المكتبة', en: 'Library', fr: 'Bibliothèque' },
     phrases: { ar: 'عبارة', en: 'phrases', fr: 'phrases' },
     lessonsCount: { ar: 'درس', en: 'lessons', fr: 'leçons' },
+    sectionLabel: { ar: 'الموقف', en: 'Section', fr: 'Section' },
     speakOnce: { ar: 'نطق مرة واحدة', en: 'Speak once', fr: 'Parler une fois' },
     loopTitle: { ar: 'تكرار فيديو العبارة', en: 'Loop phrase video', fr: 'Boucler la vidéo de la phrase' },
     videoAudioLoopTitle: { ar: 'تكرار صوت/فيديو العبارة', en: 'Loop phrase video audio', fr: 'Boucler l’audio/vidéo de la phrase' },
@@ -1614,7 +1669,7 @@
     titleHint: { ar: 'يمكن إدخال لغة واحدة أو أكثر (فرنسي | عربي | إنجليزي)', en: 'One or more languages (French | Arabic | English)', fr: 'Une ou plusieurs langues (Français | Arabe | Anglais)' },
     titlePlaceholder: { ar: 'مثال: الدرس الأول', en: 'Ex: First lesson', fr: 'Ex: Première leçon' },
     phrasesLabel: { ar: 'العبارات', en: 'Phrases', fr: 'Phrases' },
-    phrasesHint: { ar: 'كل سطر: فرنسي/إنجليزي ثم عربي ثم الآخر. يقبل | , = → : - ومسافات/Tab — أو 3 أسطر تبدأ بالأعلام 🇫🇷 🇸🇾 🇺🇸', en: 'One line: French/English then Arabic then the other. Supports | , = → : - and spaces/tabs — or 3 lines starting with flags 🇫🇷 🇸🇾 🇺🇸', fr: 'Une ligne : Français/Anglais puis Arabe puis l\'autre. Accepte | , = → : - et espaces/tab — ou 3 lignes commençant par des drapeaux 🇫🇷 🇸🇾 🇺🇸' },
+    phrasesHint: { ar: 'كل سطر: فرنسي/إنجليزي ثم عربي ثم الآخر. يقبل | , = → : - ومسافات/Tab — أو 3 أسطر تبدأ بالأعلام 🇫🇷 🇸🇾 🇺🇸 — وافصل المواقف بسطر --- بعد عنوان كل موقف', en: 'One line: French/English then Arabic then the other. Supports | , = → : - and spaces/tabs — or 3 lines starting with flags 🇫🇷 🇸🇾 🇺🇸 — separate sections with a --- line after each section title', fr: 'Une ligne : Français/Anglais puis Arabe puis l\'autre. Accepte | , = → : - et espaces/tab — ou 3 lignes commençant par des drapeaux 🇫🇷 🇸🇾 🇺🇸 — séparez les sections par une ligne --- après chaque titre de section' },
     inputExamples: { ar: 'نماذج الإدخال', en: 'Input examples', fr: 'Exemples de saisie' },
     copy: { ar: 'نسخ', en: 'Copy', fr: 'Copier' },
     copied: { ar: 'تم النسخ', en: 'Copied', fr: 'Copié' },
@@ -2370,6 +2425,7 @@
       const on = parts.length === 2 && parts[0] === lessonId && parts[1] === idx;
       el.classList.toggle('synced', on);
       el.querySelectorAll('.line').forEach(line => line.classList.toggle('synced', on));
+      if (on) { const sec = el.closest('.zsec'); if (sec) sec.classList.add('open'); }
     });
   }
 
@@ -3731,16 +3787,20 @@
     }
 
     let phrases = [];
+    let secData = null;
     if (captionText) {
       const captions = parseCaptions(captionText);
       if (!captions.length) { alert(t('captionParseError')); return; }
       phrases = captions.map(c => ({ fr: c.fr, ar: c.ar, en: c.en, start: c.start, end: c.end }));
     } else {
-      phrases = parsePhrases(form.elements.phrases.value, form.elements.order.value);
+      const parsed = parsePhrasesWithSections(form.elements.phrases.value, form.elements.order.value);
+      phrases = parsed.phrases;
+      secData = parsed.sections;
     }
     if (!phrases.length) { alert(t('noPhrasesError')); return; }
 
     const lesson = { id: nextId(), type: 'lesson', title: ttl, phrases };
+    if (secData) lesson.sections = secData.map(s => ({ title: s.title }));
     if (media) lesson.media = media;
     if (audio) lesson.audio = audio;
     if (captionText) lesson.captionText = captionText;
@@ -3855,6 +3915,46 @@
         </div>
       </div>
     </div>`;
+  }
+
+  function secEmoji(str) {
+    const m = String(str || '').match(/\p{Extended_Pictographic}/u);
+    return m ? m[0] : '📌';
+  }
+  function lessonPhrasesHTML(lesson) {
+    const secs = lessonSections(lesson);
+    if (!secs) {
+      return lesson.phrases.map((p, i) => phraseHTML(p, phraseKey(lesson.id, i))).join('');
+    }
+    return secs.map((sec, si) => {
+      const items = lesson.phrases.map((p, i) => ({ p, i })).filter(x => (x.p.sec || 0) === si);
+      if (!items.length) return '';
+      const ttl = sec.title ? title(sec.title) : `${t('sectionLabel')} ${si + 1}`;
+      const icon = secEmoji(sec.title ? (sec.title.ar || sec.title.fr || '') : '');
+      return `<div class="zsec" data-sec="${si}">
+        <div class="zsec-head">
+          <span class="zsec-icon">${esc(icon)}</span>
+          <span class="zsec-title">${esc(ttl)}</span>
+          <span class="zsec-count">${items.length} ${t('phrases')}</span>
+          <span class="zsec-chev">▼</span>
+        </div>
+        <div class="zsec-body">${items.map(x => phraseHTML(x.p, phraseKey(lesson.id, x.i))).join('')}</div>
+      </div>`;
+    }).join('');
+  }
+
+  function lessonPhrasesText(lesson) {
+    const secs = lessonSections(lesson);
+    if (!secs) return lesson.phrases.map(p => `${p.fr} | ${p.ar} | ${p.en}`).join('\n');
+    const parts = [];
+    secs.forEach((sec, si) => {
+      const items = lesson.phrases.filter(p => (p.sec || 0) === si);
+      if (!items.length) return;
+      if (parts.length) parts.push('\n---\n');
+      if (sec.title) parts.push('📌 ' + formatTitle(sec.title));
+      items.forEach(p => parts.push(`${p.fr} | ${p.ar} | ${p.en}`));
+    });
+    return parts.join('\n');
   }
 
   function renderHome() {
@@ -3972,7 +4072,7 @@
         <input type="file" id="lesson-image-input" accept="image/*" style="display:none">
       </div>
       ${lessonMediaHTML(lesson)}` +
-      lesson.phrases.map((p, i) => phraseHTML(p, phraseKey(lesson.id, i))).join('');
+      lessonPhrasesHTML(lesson);
     view.innerHTML = html;
     document.getElementById('play-all').onclick = () => playLesson(lesson);
     const quizBtnX = document.getElementById('lesson-quiz');
@@ -4552,7 +4652,7 @@
     if (parent) breadcrumb += `<span>›</span><button data-route='${JSON.stringify({ name: 'folder', folder: parent.id })}'>${esc(title(parent.title))}</button>`;
     breadcrumb += `<span>›</span><span>${t('edit')}</span>`;
     const cancelRoute = parent ? { name: 'folder', folder: parent.id } : { name: 'home' };
-    const phrasesText = lesson.phrases.map(p => `${p.fr} | ${p.ar} | ${p.en}`).join('\n');
+    const phrasesText = lessonPhrasesText(lesson);
     const titleText = formatTitle(lesson.title);
     const hasMedia = !!lesson.media;
     const mediaIsUrl = hasMedia && /^https?:\/\//.test(lesson.media);
@@ -4665,13 +4765,16 @@
       catch (e) { alert(t('captionParseError')); return; }
     }
     let phrases;
+    let secData = null;
     const phrasesRaw = form.elements.phrases.value.trim();
     if (captionText && captionText !== (lesson.captionText || '') && !phrasesRaw) {
       const captions = parseCaptions(captionText);
       if (!captions.length) { alert(t('captionParseError')); return; }
       phrases = captions.map(c => ({ fr: c.fr, ar: c.ar, en: c.en, start: c.start, end: c.end }));
     } else {
-      phrases = parsePhrases(phrasesRaw, 'auto');
+      const parsed = parsePhrasesWithSections(phrasesRaw, 'auto');
+      phrases = parsed.phrases;
+      secData = parsed.sections;
       if (captionText) {
         const captions = parseCaptions(captionText);
         if (captions.length === phrases.length) phrases.forEach((p, i) => { p.start = captions[i].start; p.end = captions[i].end; });
@@ -4682,6 +4785,7 @@
 
     lesson.title = ttl;
     lesson.phrases = phrases;
+    if (secData) lesson.sections = secData.map(s => ({ title: s.title })); else delete lesson.sections;
     saveLessons();
     showToast(t('saved'));
     go({ name: 'lesson', lesson: id });
@@ -4710,7 +4814,18 @@ Give me some money.`,
 🇺🇸 Maria, I’m out of cigarettes.`,
     `FR: Maria, j’ai plus de cigarettes.
 AR: ماريا، ما عاد معي دخان.
-EN: Maria, I’m out of cigarettes.`
+EN: Maria, I’m out of cigarettes.`,
+    `🦷 الموقف الأول: حجز موعد عند طبيب الأسنان
+🇫🇷 Bonjour, je voudrais prendre rendez-vous chez le dentiste.
+🇸🇾 مرحباً، بدي احجز موعد عند طبيب الأسنان.
+🇺🇸 Hello, I'd like to make a dentist appointment.
+
+---
+
+🦷 الموقف الثاني: شرح ألم الأسنان
+🇫🇷 Bonjour docteur, j'ai très mal aux dents.
+🇸🇾 مرحباً دكتور، سناني عم يوجعوني كتير.
+🇺🇸 Hello, doctor. My teeth hurt a lot.`
   ];
   const CAPTION_EXAMPLES = [
     `1
@@ -5036,6 +5151,9 @@ EN: Maria, I’m out of cigarettes.`
 
       const routeBtn = e.target.closest('[data-route]');
       if (routeBtn) { go(JSON.parse(routeBtn.dataset.route)); return; }
+
+      const secHead = e.target.closest('.zsec-head');
+      if (secHead) { secHead.closest('.zsec').classList.toggle('open'); return; }
 
       const phrase = e.target.closest('.phrase');
       if (!phrase) return;
