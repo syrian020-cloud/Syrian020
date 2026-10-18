@@ -202,11 +202,17 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 .cline.note{background:none;border:0;box-shadow:none;padding:8px 4px}
 .cline.note .tx{font-size:18px;font-weight:800;text-align:center;color:#6d5cff;white-space:normal;overflow:visible;flex-basis:100%}
 .cline.note .lacts{flex-basis:100%;justify-content:flex-end;margin-top:2px}
-.clenote{text-align:center;font-size:18px;font-weight:800;color:#6d5cff;
-  padding:14px 10px 4px;cursor:pointer;line-height:1.5;transition:color .15s}
-.clenote:active{color:#4f3ee0}
-.clenote .chev{display:inline-block;font-size:13px;transition:transform .2s;vertical-align:2px}
-.clenote.open .chev{transform:rotate(90deg)}
+.clenote{display:flex;align-items:center;gap:12px;text-align:start;direction:rtl;
+  font-size:16.5px;font-weight:800;color:#fff;line-height:1.5;cursor:pointer;
+  background:linear-gradient(135deg,#0ea5a0,#0284c7);border-radius:18px;
+  padding:14px 16px;margin:16px 0 10px;box-shadow:0 4px 14px rgba(2,132,199,.28);
+  transition:transform .12s,box-shadow .15s}
+.clenote:active{transform:scale(.985)}
+.clenote .chev{flex:none;width:30px;height:30px;border-radius:10px;display:inline-flex;
+  align-items:center;justify-content:center;font-size:13px;background:rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.35);transition:transform .2s,background .2s}
+.clenote.open .chev{transform:rotate(90deg);background:rgba(255,255,255,.34)}
+.clenote .secT{flex:1;min-width:0}
 .secbody[hidden]{display:none}
 .cue .ib{flex:none;width:38px;height:38px;border-radius:12px;background:#f4f1fb;border:1.5px solid #e2dcf3;
   font-size:16px;cursor:pointer;color:#7a6fc0;display:inline-flex;align-items:center;justify-content:center;
@@ -1234,7 +1240,7 @@ async function renderDetail(){
           </div>`;
           if(!anyTitled)return cues.map(cueHtml).join('');
           return secs.map((s,si)=>{
-            const head=s.titles.length?`<div class="clenote sec" data-sec="${si}" dir="auto"><span class="chev">◂</span> ${s.titles.map(ti=>esc(ti)).join(' · ')}</div>`:'';
+            const head=s.titles.length?`<div class="clenote sec" data-sec="${si}"><span class="chev">◂</span><span class="secT" dir="auto">${s.titles.map(ti=>esc(ti)).join(' · ')}</span></div>`:'';
             return head+`<div class="secbody" data-sec="${si}"${s.titles.length?' hidden':''}>${s.items.map(i=>cueHtml(cues[i],i)).join('')}</div>`;
           }).join('');
         })()}</div>`:''}
