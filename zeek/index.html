@@ -3074,13 +3074,20 @@
       .replace(/\s+/g, ' ').trim();
   }
 
+  function ttsClean(text) {
+    return stripSpeechFlags(text)
+      .replace(/[/\\#@=|*_~^+&<>«»•·…`€£$%]+/g, ' ')
+      .replace(/-{2,}/g, ' ')
+      .replace(/\s+/g, ' ').trim();
+  }
+
   function estimatedSpeechTimeout(text, rate) {
     const words = String(text).trim().split(/\s+/).filter(Boolean).length;
     return Math.max(8000, Math.ceil(words * 900 / (rate || 1)) + 3000);
   }
 
   function nativeSpeak(text, lang) {
-    text = stripSpeechFlags(text);
+    text = ttsClean(text);
     const tts = nativeTTS();
     if (!tts) return Promise.reject('no tts');
     const tag = (state.voiceLang && state.voiceLang[lang]);
@@ -3103,7 +3110,7 @@
   }
 
   function webSpeak(text, lang) {
-    text = stripSpeechFlags(text);
+    text = ttsClean(text);
     const synth = webTTS();
     if (!synth) return Promise.reject('no web tts');
     const u = new SpeechSynthesisUtterance(text);
@@ -3224,7 +3231,7 @@
 
   let edgeErrShown = false, noTtsShown = false;
   function anySpeak(text, lang) {
-    const txt = stripSpeechFlags(text);
+    const txt = ttsClean(text);
     if (!txt) return Promise.reject('empty tts');
     pauseAllMedia();
     const fallback = () => {
