@@ -1920,24 +1920,15 @@
     return !!(window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem);
   }
 
-  function arrayBufferToBase64(buffer) {
-    const bytes = new Uint8Array(buffer);
-    let binary = '';
-    const chunk = 1024;
-    for (let i = 0; i < bytes.length; i += chunk) {
-      let slice = '';
-      for (let j = i; j < i + chunk && j < bytes.length; j++) slice += String.fromCharCode(bytes[j]);
-      binary += slice;
-    }
-    return window.btoa(binary);
-  }
-
-  async function readFileChunk(file, start, end) {
+  function fileToBase64(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
-      reader.onload = e => resolve(e.target.result);
+      reader.onload = e => {
+        const res = String(e.target.result || '');
+        resolve(res.slice(res.indexOf(',') + 1));
+      };
       reader.onerror = () => reject(reader.error || 'read error');
-      reader.readAsArrayBuffer(file.slice(start, end));
+      reader.readAsDataURL(file);
     });
   }
 
@@ -1952,18 +1943,16 @@
     })();
     const filename = Date.now() + '_' + Math.random().toString(36).slice(2, 10) + '.' + ext;
     const fullPath = subdir + '/' + filename;
-    const chunkSize = 1024 * 1024;
     const DATA_DIR = 'DATA';
     try { await Filesystem.mkdir({ path: subdir, directory: DATA_DIR, recursive: true }); } catch (e) {}
-    let isFirst = true;
-    for (let offset = 0; offset < file.size; offset += chunkSize) {
-      const buffer = await readFileChunk(file, offset, Math.min(offset + chunkSize, file.size));
-      const base64 = arrayBufferToBase64(buffer);
-      if (isFirst) {
-        await Filesystem.writeFile({ path: fullPath, data: base64, directory: DATA_DIR, recursive: true });
-        isFirst = false;
-      } else {
-        await Filesystem.appendFile({ path: fullPath, data: base64, directory: DATA_DIR });
+    const base64 = await fileToBase64(file);
+    const chunkSize = 4 * 1024 * 1024;
+    if (base64.length <= chunkSize) {
+      await Filesystem.writeFile({ path: fullPath, data: base64, directory: DATA_DIR, recursive: true });
+    } else {
+      await Filesystem.writeFile({ path: fullPath, data: base64.slice(0, chunkSize), directory: DATA_DIR, recursive: true });
+      for (let offset = chunkSize; offset < base64.length; offset += chunkSize) {
+        await Filesystem.appendFile({ path: fullPath, data: base64.slice(offset, offset + chunkSize), directory: DATA_DIR });
       }
     }
     const { uri } = await Filesystem.getUri({ path: fullPath, directory: DATA_DIR });
