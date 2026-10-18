@@ -2273,6 +2273,14 @@
     let orderIdx = 0;
     for (const line of lines) {
       if (!line || line === 'الحوار' || /^\d+$/.test(line)) continue;
+      const flagParts = line.split(/(?=[\u{1F1E6}-\u{1F1FF}]{2})/u).map(s => s.trim()).filter(Boolean);
+      if (flagParts.length > 1 && flagParts.every(s => /^[\u{1F1E6}-\u{1F1FF}]{2}/u.test(s))) {
+        for (const s of flagParts) {
+          const p = parseFlagLine(s);
+          if (p) parts[p.lang] = p.text;
+        }
+        continue;
+      }
       if (line.includes('|')) {
         const split = line.split(/\s*\|\s*/).map(s => s.trim()).filter(Boolean);
         for (const s of split) {
@@ -4469,6 +4477,9 @@ Give me some money.`,
     `00:00 🇫🇷 Maria, j’ai plus de cigarettes.
 🇸🇾 ماريا، ما عاد معي دخان.
 🇺🇸 Maria, I’m out of cigarettes.`,
+
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇺🇸 Maria, I’m out of cigarettes.
+00:02 🇫🇷 Donne-moi de l’argent. 🇸🇾 أعطيني مصاري. 🇺🇸 Give me some money.`,
 
     `00:00 FR: Maria, j’ai plus de cigarettes.
 AR: ماريا، ما عاد معي دخان.
