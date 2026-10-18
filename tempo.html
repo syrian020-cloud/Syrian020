@@ -205,6 +205,9 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 .clenote{text-align:center;font-size:18px;font-weight:800;color:#6d5cff;
   padding:14px 10px 4px;cursor:pointer;line-height:1.5;transition:color .15s}
 .clenote:active{color:#4f3ee0}
+.clenote .chev{display:inline-block;font-size:13px;transition:transform .2s;vertical-align:2px}
+.clenote.open .chev{transform:rotate(90deg)}
+.secbody[hidden]{display:none}
 .cue .ib{flex:none;width:38px;height:38px;border-radius:12px;background:#f4f1fb;border:1.5px solid #e2dcf3;
   font-size:16px;cursor:pointer;color:#7a6fc0;display:inline-flex;align-items:center;justify-content:center;
   padding:0;transition:transform .12s,background .12s,opacity .12s;font-family:inherit}
@@ -1188,15 +1191,28 @@ async function renderDetail(){
       <div style="font-weight:800;margin-bottom:10px">🎙️ ${t('audioTitle')}</div>
       <div id="audio-zone">${hasAudio?'':`<div class="hint">${t('noAudio')}</div>`}</div>
       ${cues.length?`<div class="hint" style="margin-bottom:6px">${t('tapCue')} · ${t('tapWord')} · ${t('cuesCount')(cues.length)}</div>
-        <div id="cues">${cues.map((c,i)=>`${(c.titles||[]).map(ti=>`<div class="clenote" data-goto="${i}" dir="auto">${esc(ti)}</div>`).join('')}<div class="cue" data-i="${i}">
-          <div class="clines">${c.lines.map((ln,j)=>ln.guessed?`<div class="cline note">
-            <span class="tx" dir="auto">${wrapWords(ln.text,ln.lang)}</span>
-            <span class="lacts"><button class="ib spk" data-spk="${i}:${j}" title="🔁">🔊</button><button class="ib ai" data-ai="${i}:${j}" title="${esc(t('aiTitle'))}">✦</button></span></div>`:`<div class="cline l${ln.lang||''}">
-            <span class="tx" dir="auto">${LANG_FLAGS[ln.lang]?`<span class="lgb">${LANG_FLAGS[ln.lang]}</span>`:''}${wrapWords(ln.text,ln.lang)}</span>
-            <span class="lacts"><button class="ib spk" data-spk="${i}:${j}" title="🔁">🔊</button><button class="ib ai" data-ai="${i}:${j}" title="${esc(t('aiTitle'))}">✦</button></span></div>`).join('')}</div>
-          <div class="cueacts">${c.start!=null?`<span class="tm">${fmtT(c.start)}</span>`:''}
-            <button class="ib aloop${hasAudio&&c.start!=null?'':' dis'}" data-aloop="${i}" title="${esc(t('loopSeg'))}">🔁</button></div>
-        </div>`).join('')}</div>`:''}
+        <div id="cues">${(()=>{
+          const secs=[];let curSec=null;
+          cues.forEach((c,i)=>{
+            if((c.titles||[]).length||!curSec){curSec={titles:c.titles||[],items:[]};secs.push(curSec);}
+            curSec.items.push(i);
+          });
+          const anyTitled=secs.some(x=>x.titles.length);
+          const cueHtml=(c,i)=>`<div class="cue" data-i="${i}">
+            <div class="clines">${c.lines.map((ln,j)=>ln.guessed?`<div class="cline note">
+              <span class="tx" dir="auto">${wrapWords(ln.text,ln.lang)}</span>
+              <span class="lacts"><button class="ib spk" data-spk="${i}:${j}" title="🔁">🔊</button><button class="ib ai" data-ai="${i}:${j}" title="${esc(t('aiTitle'))}">✦</button></span></div>`:`<div class="cline l${ln.lang||''}">
+              <span class="tx" dir="auto">${LANG_FLAGS[ln.lang]?`<span class="lgb">${LANG_FLAGS[ln.lang]}</span>`:''}${wrapWords(ln.text,ln.lang)}</span>
+              <span class="lacts"><button class="ib spk" data-spk="${i}:${j}" title="🔁">🔊</button><button class="ib ai" data-ai="${i}:${j}" title="${esc(t('aiTitle'))}">✦</button></span></div>`).join('')}</div>
+            <div class="cueacts">${c.start!=null?`<span class="tm">${fmtT(c.start)}</span>`:''}
+              <button class="ib aloop${hasAudio&&c.start!=null?'':' dis'}" data-aloop="${i}" title="${esc(t('loopSeg'))}">🔁</button></div>
+          </div>`;
+          if(!anyTitled)return cues.map(cueHtml).join('');
+          return secs.map((s,si)=>{
+            const head=s.titles.length?`<div class="clenote sec" data-sec="${si}" dir="auto"><span class="chev">◂</span> ${s.titles.map(ti=>esc(ti)).join(' · ')}</div>`:'';
+            return head+`<div class="secbody" data-sec="${si}"${s.titles.length?' hidden':''}>${s.items.map(i=>cueHtml(cues[i],i)).join('')}</div>`;
+          }).join('');
+        })()}</div>`:''}
     </div>`;
   if(hasAudio){
     if(curAudioUrl){try{URL.revokeObjectURL(curAudioUrl);}catch(e){}curAudioUrl=null;}
@@ -1215,7 +1231,11 @@ async function renderDetail(){
         cEl.classList.toggle('act',i===act);
       });
       if(act>=0){const cEl=document.querySelector(`#cues .cue[data-i="${act}"]`);
-        if(cEl)cEl.scrollIntoView({block:'nearest',behavior:'smooth'});}
+        if(cEl){const sb=cEl.closest('.secbody');
+          if(sb&&sb.hasAttribute('hidden')){sb.removeAttribute('hidden');
+            const h=document.querySelector(`#cues .clenote.sec[data-sec="${sb.dataset.sec}"]`);
+            if(h)h.classList.add('open');}
+          cEl.scrollIntoView({block:'nearest',behavior:'smooth'});}}
     });
     $('#d-loop-all').onclick=(e)=>{ttsStop();audio.loop=!audio.loop;e.currentTarget.classList.toggle('on',audio.loop);};
   }
@@ -1228,13 +1248,13 @@ async function renderDetail(){
     if(b.dataset.map==='pick')openMapPick(a);else openGmapsSearch(a);});
   const chkB=el.querySelector('[data-chk]');
   if(chkB)chkB.onclick=e=>{e.preventDefault();openPlan({date:a.date,time:a.time,org:a.place||a.title});};
-  el.querySelectorAll('#cues .clenote').forEach(nEl=>{
+  el.querySelectorAll('#cues .clenote.sec').forEach(nEl=>{
     nEl.addEventListener('click',()=>{
-      const i=+nEl.dataset.goto;const c=cues[i];if(!c)return;
-      const audio=$('#appt-audio');if(audio&&c.start!=null){audio.currentTime=c.start;audio.play().catch(()=>{});}
-      document.querySelectorAll('#cues .cue').forEach(x=>x.classList.remove('act'));
-      const cEl=document.querySelector(`#cues .cue[data-i="${i}"]`);
-      if(cEl){cEl.classList.add('act');cEl.scrollIntoView({block:'center',behavior:'smooth'});}
+      const b=el.querySelector(`#cues .secbody[data-sec="${nEl.dataset.sec}"]`);if(!b)return;
+      const opening=b.hasAttribute('hidden');
+      if(opening){b.removeAttribute('hidden');nEl.classList.add('open');}
+      else{b.setAttribute('hidden','');nEl.classList.remove('open');}
+      if(opening)nEl.scrollIntoView({block:'start',behavior:'smooth'});
     });
   });
   el.querySelectorAll('#cues .cue').forEach(cEl=>{
