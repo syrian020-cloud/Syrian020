@@ -1323,7 +1323,7 @@
 
   function cleanPhrasePart(s) {
     let r = String(s).trim();
-    const trim = '*–—-:=;';
+    const trim = '*–—-:=;|';
     while (r && trim.includes(r[0])) r = r.slice(1).trim();
     while (r && trim.includes(r[r.length - 1])) r = r.slice(0, -1).trim();
     return r;
@@ -3071,6 +3071,7 @@
     return String(text || '')
       .replace(/[\u{1F1E6}-\u{1F1FF}]{2}/gu, '')
       .replace(/[\p{Extended_Pictographic}\p{Emoji_Modifier}\u{FE0F}\u{FE0E}\u{200D}\u{20E3}\u{2190}-\u{21FF}\u{2300}-\u{23FF}\u{2460}-\u{27BF}\u{2900}-\u{2BFF}\u{1F000}-\u{1FAFF}]/gu, '')
+      .replace(/\|/g, ' ')
       .replace(/\s+/g, ' ').trim();
   }
 
@@ -3559,7 +3560,7 @@
 
   function wordSpans(text, lang) {
     if (!text) return '';
-    return String(text).trim().split(/\s+/).map(w => {
+    return String(text).replace(/\|/g, ' ').trim().split(/\s+/).map(w => {
       const clean = w.replace(/^[\p{P}\p{S}]+|[\p{P}\p{S}]+$/gu, '');
       return `<span class="word" data-lang="${esc(lang)}" data-word="${esc(clean || w)}">${esc(w)}</span>`;
     }).join(' ');
