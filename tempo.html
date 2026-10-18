@@ -202,6 +202,9 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 .cline.note{background:none;border:0;box-shadow:none;padding:8px 4px}
 .cline.note .tx{font-size:18px;font-weight:800;text-align:center;color:#6d5cff;white-space:normal;overflow:visible;flex-basis:100%}
 .cline.note .lacts{flex-basis:100%;justify-content:flex-end;margin-top:2px}
+.clenote{text-align:center;font-size:18px;font-weight:800;color:#6d5cff;
+  padding:14px 10px 4px;cursor:pointer;line-height:1.5;transition:color .15s}
+.clenote:active{color:#4f3ee0}
 .cue .ib{flex:none;width:38px;height:38px;border-radius:12px;background:#f4f1fb;border:1.5px solid #e2dcf3;
   font-size:16px;cursor:pointer;color:#7a6fc0;display:inline-flex;align-items:center;justify-content:center;
   padding:0;transition:transform .12s,background .12s,opacity .12s;font-family:inherit}
@@ -775,8 +778,7 @@ function parseCues(raw){
     const m=line.match(TRX);
     if(m){
       push();
-      cur={start:secs(m[1],m[2],m[3]),end:m[5]!==undefined?secs(m[4],m[5],m[6]):null,lines:[]};
-      if(pendingHeader.length){pendingHeader.forEach(t=>addText(cur,t));pendingHeader.length=0;}
+      cur={start:secs(m[1],m[2],m[3]),end:m[5]!==undefined?secs(m[4],m[5],m[6]):null,lines:[],titles:pendingHeader.splice(0)};
       if((m[7]||'').trim())addText(cur,m[7]);
       continue;
     }
@@ -1186,7 +1188,7 @@ async function renderDetail(){
       <div style="font-weight:800;margin-bottom:10px">🎙️ ${t('audioTitle')}</div>
       <div id="audio-zone">${hasAudio?'':`<div class="hint">${t('noAudio')}</div>`}</div>
       ${cues.length?`<div class="hint" style="margin-bottom:6px">${t('tapCue')} · ${t('tapWord')} · ${t('cuesCount')(cues.length)}</div>
-        <div id="cues">${cues.map((c,i)=>`<div class="cue" data-i="${i}">
+        <div id="cues">${cues.map((c,i)=>`${(c.titles||[]).map(ti=>`<div class="clenote" data-goto="${i}" dir="auto">${esc(ti)}</div>`).join('')}<div class="cue" data-i="${i}">
           <div class="clines">${c.lines.map((ln,j)=>ln.guessed?`<div class="cline note">
             <span class="tx" dir="auto">${wrapWords(ln.text,ln.lang)}</span>
             <span class="lacts"><button class="ib spk" data-spk="${i}:${j}" title="🔁">🔊</button><button class="ib ai" data-ai="${i}:${j}" title="${esc(t('aiTitle'))}">✦</button></span></div>`:`<div class="cline l${ln.lang||''}">
@@ -1226,6 +1228,15 @@ async function renderDetail(){
     if(b.dataset.map==='pick')openMapPick(a);else openGmapsSearch(a);});
   const chkB=el.querySelector('[data-chk]');
   if(chkB)chkB.onclick=e=>{e.preventDefault();openPlan({date:a.date,time:a.time,org:a.place||a.title});};
+  el.querySelectorAll('#cues .clenote').forEach(nEl=>{
+    nEl.addEventListener('click',()=>{
+      const i=+nEl.dataset.goto;const c=cues[i];if(!c)return;
+      const audio=$('#appt-audio');if(audio&&c.start!=null){audio.currentTime=c.start;audio.play().catch(()=>{});}
+      document.querySelectorAll('#cues .cue').forEach(x=>x.classList.remove('act'));
+      const cEl=document.querySelector(`#cues .cue[data-i="${i}"]`);
+      if(cEl){cEl.classList.add('act');cEl.scrollIntoView({block:'center',behavior:'smooth'});}
+    });
+  });
   el.querySelectorAll('#cues .cue').forEach(cEl=>{
     cEl.addEventListener('click',e=>{
       const i=+cEl.dataset.i;const c=cues[i];
