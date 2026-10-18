@@ -146,6 +146,10 @@
   .view-head h2 { overflow: hidden; }
   .vh-t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; flex: 1; }
   .vh-actions { display: flex; gap: 0.5rem; width: 100%; }
+  .vh-act.vh-mini { flex: 0 0 52px; justify-content: center; padding: 0; font-size: 1.15rem; }
+  .pl .flag-btn.flagmode { background: #fff; border: 1px solid #e9e0f4; box-shadow: 0 2px 8px rgba(130,100,180,0.12); font-size: 1.05rem; }
+  .pl .flag-btn.flagmode:hover { border-color: #c9b3ea; box-shadow: 0 6px 14px rgba(130,100,180,0.2); }
+  .pl .flag-btn.flagmode.speaking { border-color: var(--accent); }
   .vh-act { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.35rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 14px; padding: 0.62rem 0.5rem; font-family: inherit; font-size: 0.85rem; font-weight: 700; color: var(--text-primary); cursor: pointer; transition: all .15s; white-space: nowrap; }
   .vh-act:hover { border-color: var(--accent); box-shadow: var(--glow); }
 
@@ -1187,12 +1191,25 @@
   function wordsHtml(s) {
     return esc(s).split(' ').map(function (w) { return '<span class="w">' + w + '</span>'; }).join(' ');
   }
+  var PL_FLAGS = { fr: '🇫🇷', ar: '🇸🇾', en: '🇺🇸' };
+  var plIconMode = (typeof localStorage !== 'undefined' && localStorage.getItem('plIconMode')) || 'loop';
+  function plBtnGlyph(lang) { return plIconMode === 'flag' ? PL_FLAGS[lang] : '⟳'; }
+  function togglePlIconMode() {
+    plIconMode = plIconMode === 'flag' ? 'loop' : 'flag';
+    try { localStorage.setItem('plIconMode', plIconMode); } catch (e) {}
+    document.querySelectorAll('.pl .flag-btn').forEach(function (b) {
+      b.textContent = plBtnGlyph(b.dataset.lang);
+      b.classList.toggle('flagmode', plIconMode === 'flag');
+    });
+    var t = document.getElementById('plIconModeBtn');
+    if (t) t.textContent = plIconMode === 'flag' ? '🚩' : '⟳';
+  }
   function phraseHtml(p, ref) {
     var refAttr = ref ? ' data-l="' + esc(ref.l) + '" data-s="' + ref.s + '" data-g="' + ref.g + '" data-p="' + ref.p + '"' : '';
     var rows = '';
-    if (p.fr) rows += '<div class="pl fr"><span class="txt">' + wordsHtml(p.fr) + '</span><button class="flag-btn" data-lang="fr" title="FR">⟳</button></div>';
-    if (p.ar) rows += '<div class="pl ar"><span class="txt">' + wordsHtml(p.ar) + '</span><button class="flag-btn" data-lang="ar" title="AR">⟳</button></div>';
-    if (p.en) rows += '<div class="pl en"><span class="txt">' + wordsHtml(p.en) + '</span><button class="flag-btn" data-lang="en" title="EN">⟳</button></div>';
+    if (p.fr) rows += '<div class="pl fr"><span class="txt">' + wordsHtml(p.fr) + '</span><button class="flag-btn' + (plIconMode === 'flag' ? ' flagmode' : '') + '" data-lang="fr" title="FR">' + plBtnGlyph('fr') + '</button></div>';
+    if (p.ar) rows += '<div class="pl ar"><span class="txt">' + wordsHtml(p.ar) + '</span><button class="flag-btn' + (plIconMode === 'flag' ? ' flagmode' : '') + '" data-lang="ar" title="AR">' + plBtnGlyph('ar') + '</button></div>';
+    if (p.en) rows += '<div class="pl en"><span class="txt">' + wordsHtml(p.en) + '</span><button class="flag-btn' + (plIconMode === 'flag' ? ' flagmode' : '') + '" data-lang="en" title="EN">' + plBtnGlyph('en') + '</button></div>';
     var acts = '<div class="ph-actions">' +
       '<button class="ph-act nb-open" title="notebook">📝</button>' +
       '<button class="ph-act ai-open" title="Google AI">🤖</button>' +
@@ -1337,12 +1354,14 @@
         '<button class="vh-act" id="lessonQuizBtn">🧩 ' + esc(t('quiz')) + '</button>' +
         '<button class="vh-act" id="lessonListenBtn">🎧 ' + esc(t('listenQuiz')) + '</button>' +
         '<button class="vh-act" id="lessonEditBtn">✏️ ' + esc(t('edit')) + '</button>' +
+        '<button class="vh-act vh-mini" id="plIconModeBtn" title="أيقونة الأسطر">' + (plIconMode === 'flag' ? '🚩' : '⟳') + '</button>' +
       '</div>' +
       '<p>' + esc(l.title.ar || '') + (l.title.en ? ' · ' + esc(l.title.en) : '') + '</p>';
     document.getElementById('backBtn').onclick = navBack;
     document.getElementById('lessonEditBtn').onclick = function () { openLessonSheet(f, l); };
     document.getElementById('lessonQuizBtn').onclick = function () { openQuiz(l); };
     document.getElementById('lessonListenBtn').onclick = function () { openListen(l); };
+    document.getElementById('plIconModeBtn').onclick = togglePlIconMode;
 
     var playData = [];
     wrap.innerHTML = l.sections.map(function (sec, si) {
