@@ -786,6 +786,12 @@ function parseCues(raw){
       continue;
     }
     if(cur)addText(cur,line);
+    else if(line.includes('|')){
+      // untimed phrase line "FR | AR | EN" -> its own cue; pending headers become its section titles
+      cur={start:null,end:null,lines:[],untimed:true,titles:pendingHeader.splice(0)};
+      addText(cur,line);
+      push();
+    }
     else pendingHeader.push(line); // section title between/before cues -> note lines
   }
   push();
