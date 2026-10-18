@@ -60,11 +60,12 @@ if [ -f "$STRINGS" ]; then
 fi
 
 # Inject native plugins: EdgeTTS (free Microsoft neural voices over WebSocket)
-# and GramScreenRecorder (MediaProjection screen recording via ScrCast)
+# and GramScreenRecorder + GramRecService (MediaProjection screen recording)
 PLUGIN_DIR="android/app/src/main/java/com/syrian020/tts"
 mkdir -p "$PLUGIN_DIR"
 cp native-plugins/EdgeTtsPlugin.java "$PLUGIN_DIR/"
 cp native-plugins/GramScreenRecorderPlugin.java "$PLUGIN_DIR/"
+cp native-plugins/GramRecService.java "$PLUGIN_DIR/"
 MAIN_ACTIVITY=$(find android/app/src/main/java -name MainActivity.java | head -1)
 if [ -f "$MAIN_ACTIVITY" ] && ! grep -q 'GramScreenRecorderPlugin' "$MAIN_ACTIVITY"; then
   python3 - "$MAIN_ACTIVITY" <<'PYEOF'
@@ -85,14 +86,23 @@ open(p, 'w').write(s)
 PYEOF
 fi
 
-# ScrCast requires minSdk 23
+# MediaProjection recording works on API 23+
 sed -i 's/minSdkVersion = 22/minSdkVersion = 23/' android/variables.gradle 2>/dev/null || true
 
 python3 - <<'PYEOF'
 p = 'android/app/build.gradle'
 s = open(p).read()
+# scrcast was used in an earlier build — remove it if present
+if 'dev.bmcreations:scrcast' in s:
+    s = '\n'.join(l for l in s.split('\n') if 'dev.bmcreations:scrcast' not in l)
+    open(p, 'w').write(s)
+PYEOF
+
+python3 - <<'PYEOF'
+p = 'android/app/build.gradle'
+s = open(p).read()
 changed = False
-for dep in ['com.squareup.okhttp3:okhttp:4.12.0', 'dev.bmcreations:scrcast:0.3.0']:
+for dep in ['com.squareup.okhttp3:okhttp:4.12.0']:
     art = dep.split(':')[1]
     if art not in s:
         lines = s.split('\n')
@@ -106,22 +116,32 @@ if changed:
     open(p, 'w').write(s)
 PYEOF
 
-# Screen recording on Android 14+ needs the media-projection foreground-service
-# permission; POST_NOTIFICATIONS lets the recording notification show.
+# Screen recording on Android 14+ needs media-projection FGS permissions and
+# the GramRecService declaration in <application>.
 MANIFEST="android/app/src/main/AndroidManifest.xml"
-if [ -f "$MANIFEST" ] && ! grep -q 'FOREGROUND_SERVICE_MEDIA_PROJECTION' "$MANIFEST"; then
+if [ -f "$MANIFEST" ]; then
   python3 - "$MANIFEST" <<'PYEOF'
 import sys
 p = sys.argv[1]
 s = open(p).read()
-extra = ('    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />\n'
-         '    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />\n')
+changed = False
 anchor = '    <uses-permission android:name="android.permission.INTERNET" />'
-if anchor in s:
-    s = s.replace(anchor, anchor + '\n' + extra)
-else:
-    s = s.replace('</manifest>', extra + '</manifest>')
-open(p, 'w').write(s)
+for perm in ['android.permission.FOREGROUND_SERVICE',
+             'android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION',
+             'android.permission.POST_NOTIFICATIONS']:
+    line = '    <uses-permission android:name="%s" />' % perm
+    if perm not in s:
+        if anchor in s:
+            s = s.replace(anchor, anchor + '\n' + line)
+        else:
+            s = s.replace('</manifest>', line + '\n</manifest>')
+        changed = True
+svc = '        <service android:name="com.syrian020.tts.GramRecService" android:exported="false" android:foregroundServiceType="mediaProjection" />'
+if 'GramRecService' not in s:
+    s = s.replace('    </application>', svc + '\n    </application>')
+    changed = True
+if changed:
+    open(p, 'w').write(s)
 PYEOF
 fi
 
