@@ -59,34 +59,69 @@ if [ -f "$STRINGS" ]; then
   sed -i 's|<string name="title_activity_main">.*</string>|<string name="title_activity_main">gramvip</string>|' "$STRINGS"
 fi
 
-# Inject the EdgeTTS native plugin (free Microsoft neural voices over WebSocket)
+# Inject native plugins: EdgeTTS (free Microsoft neural voices over WebSocket)
+# and GramScreenRecorder (MediaProjection screen recording via ScrCast)
 PLUGIN_DIR="android/app/src/main/java/com/syrian020/tts"
 mkdir -p "$PLUGIN_DIR"
 cp native-plugins/EdgeTtsPlugin.java "$PLUGIN_DIR/"
+cp native-plugins/GramScreenRecorderPlugin.java "$PLUGIN_DIR/"
 MAIN_ACTIVITY=$(find android/app/src/main/java -name MainActivity.java | head -1)
-if [ -f "$MAIN_ACTIVITY" ] && ! grep -q 'EdgeTtsPlugin' "$MAIN_ACTIVITY"; then
+if [ -f "$MAIN_ACTIVITY" ] && ! grep -q 'GramScreenRecorderPlugin' "$MAIN_ACTIVITY"; then
   python3 - "$MAIN_ACTIVITY" <<'PYEOF'
 import sys, re
 p = sys.argv[1]
 s = open(p).read()
-s = s.replace('import com.getcapacitor.BridgeActivity;',
-              'import com.getcapacitor.BridgeActivity;\nimport com.syrian020.tts.EdgeTtsPlugin;')
-s = re.sub(r'(public class MainActivity extends BridgeActivity \{)',
-           r'\1\n    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n        registerPlugin(EdgeTtsPlugin.class);\n        super.onCreate(savedInstanceState);\n    }', s)
+if 'EdgeTtsPlugin' in s:
+    s = s.replace('import com.syrian020.tts.EdgeTtsPlugin;',
+                  'import com.syrian020.tts.EdgeTtsPlugin;\nimport com.syrian020.tts.GramScreenRecorderPlugin;')
+    s = s.replace('registerPlugin(EdgeTtsPlugin.class);',
+                  'registerPlugin(EdgeTtsPlugin.class);\n        registerPlugin(GramScreenRecorderPlugin.class);')
+else:
+    s = s.replace('import com.getcapacitor.BridgeActivity;',
+                  'import com.getcapacitor.BridgeActivity;\nimport com.syrian020.tts.EdgeTtsPlugin;\nimport com.syrian020.tts.GramScreenRecorderPlugin;')
+    s = re.sub(r'(public class MainActivity extends BridgeActivity \{)',
+               r'\1\n    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n        registerPlugin(EdgeTtsPlugin.class);\n        registerPlugin(GramScreenRecorderPlugin.class);\n        super.onCreate(savedInstanceState);\n    }', s)
 open(p, 'w').write(s)
 PYEOF
 fi
 
-if ! grep -q 'squareup.okhttp3' android/app/build.gradle; then
-  python3 - <<'PYEOF'
+# ScrCast requires minSdk 23
+sed -i 's/minSdkVersion = 22/minSdkVersion = 23/' android/variables.gradle 2>/dev/null || true
+
+python3 - <<'PYEOF'
 p = 'android/app/build.gradle'
 s = open(p).read()
-lines = s.split('\n')
-for i in range(len(lines) - 1, -1, -1):
-    if 'implementation' in lines[i]:
-        lines.insert(i + 1, '    implementation "com.squareup.okhttp3:okhttp:4.12.0"')
-        break
-open(p, 'w').write('\n'.join(lines))
+changed = False
+for dep in ['com.squareup.okhttp3:okhttp:4.12.0', 'dev.bmcreations:scrcast:0.3.0']:
+    art = dep.split(':')[1]
+    if art not in s:
+        lines = s.split('\n')
+        for i in range(len(lines) - 1, -1, -1):
+            if 'implementation' in lines[i]:
+                lines.insert(i + 1, '    implementation "%s"' % dep)
+                changed = True
+                break
+        s = '\n'.join(lines)
+if changed:
+    open(p, 'w').write(s)
+PYEOF
+
+# Screen recording on Android 14+ needs the media-projection foreground-service
+# permission; POST_NOTIFICATIONS lets the recording notification show.
+MANIFEST="android/app/src/main/AndroidManifest.xml"
+if [ -f "$MANIFEST" ] && ! grep -q 'FOREGROUND_SERVICE_MEDIA_PROJECTION' "$MANIFEST"; then
+  python3 - "$MANIFEST" <<'PYEOF'
+import sys
+p = sys.argv[1]
+s = open(p).read()
+extra = ('    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION" />\n'
+         '    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />\n')
+anchor = '    <uses-permission android:name="android.permission.INTERNET" />'
+if anchor in s:
+    s = s.replace(anchor, anchor + '\n' + extra)
+else:
+    s = s.replace('</manifest>', extra + '</manifest>')
+open(p, 'w').write(s)
 PYEOF
 fi
 

@@ -318,7 +318,27 @@
   .qz-score { font-size: 2.6rem; font-weight: 900; background: linear-gradient(120deg, var(--accent-solid), #ec4899); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .qz-sub { color: var(--text-secondary); font-weight: 700; }
   .lz-opts { display: flex; flex-direction: column; gap: 0.6rem; width: 100%; max-width: 480px; }
-  .lz-replay { font-size: 1.05rem; padding: 0.95rem 1.5rem; border-radius: 16px; width: 100%; max-width: 480px; }
+  .lz-stage { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; width: 100%; max-width: 480px; }
+  .lz-hero { position: relative; width: 100%; border-radius: 18px; overflow: hidden; border: 1.5px solid var(--border); box-shadow: var(--shadow-sm); background: linear-gradient(135deg, #6366f1, #a855f7); transition: height .2s; }
+  .lz-hero.s1 { height: 96px; }
+  .lz-hero.s2 { height: 150px; }
+  .lz-hero.s3 { height: 210px; }
+  .lz-hero > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .lz-hero-tools { position: absolute; top: 8px; inset-inline-end: 8px; display: flex; gap: 6px; }
+  .lz-hero-btn { min-width: 34px; height: 34px; padding: 0 8px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.35); background: rgba(10,12,30,0.55); color: #fff; font-size: 0.9rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(6px); font-family: inherit; }
+  .lz-hero-btn.del { background: rgba(225,29,72,0.85); border-color: transparent; }
+  .lz-loop { width: 62px; height: 62px; border-radius: 50%; border: none; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--accent-solid), var(--accent-hover)); color: #fff; box-shadow: var(--glow); transition: transform .15s; }
+  .lz-loop:hover { transform: scale(1.06); }
+  .lz-loop.looping { animation: pulse 1s infinite; box-shadow: 0 0 0 6px rgba(139,92,246,0.25), var(--glow); }
+  .lz-verdict { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.25rem; padding: 0.6rem 0.8rem; text-align: center; background: var(--bg-secondary); }
+  .lz-verdict .lz-face { font-size: 2rem; line-height: 1; }
+  .lz-verdict .lz-v-fr { font-weight: 850; font-size: 1.05rem; color: var(--text-primary); }
+  .lz-verdict .lz-v-tr { font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); }
+  .lz-verdict.ok { border: none; }
+  .lz-verdict.ok .lz-v-fr { color: #16a34a; }
+  .lz-verdict.bad .lz-v-fr { color: #ef4444; }
+  .qz-rec { font-size: 1.05rem; }
+  .qz-rec.recording { background: #e11d48; color: #fff; border-color: transparent; animation: pulse 1s infinite; }
   .nb-wrap { flex: 1; position: relative; overflow: hidden; }
   .nb-lines { position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, transparent 0 46px, rgba(120,170,220,0.35) 46px 47px); }
   .nb-lines::after { content: ''; position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(230,120,120,0.45); inset-inline-end: 12%; }
@@ -482,6 +502,7 @@
   <div class="qz-head">
     <button class="icon-btn" id="qzClose">✕</button>
     <div class="qz-title">🧩 <span data-t="quiz">اختبار التوصيل</span></div>
+    <button class="icon-btn qz-rec" id="qzRec" title="تسجيل">⬇</button>
     <div class="qz-sub" id="qzProgress"></div>
   </div>
   <div class="qz-body" id="qzBody"></div>
@@ -561,6 +582,7 @@
       delFolderT: 'حذف المجلد؟', delFolderD: 'سيتم حذف المجلد وكل دروسه — لا يمكن التراجع.',
       delLessonT: 'حذف الدرس؟', delLessonD: 'سيتم حذف هذا الدرس نهائياً.',
       delImgT: 'حذف الصورة؟', delImgD: 'ستُزال الصورة من هذه العبارة.',
+      lzImgT: 'حذف صورة اللعبة؟', lzImgD: 'ستُزال صورتك المخصصة وترجع الصورة الافتراضية.',
       quiz: 'اختبار التوصيل', listenQuiz: 'اسمع واختر', replay: '🔊 إعادة الاستماع', quizPick: 'اختر اللغة المقابلة للفرنسية:', quizScore: 'النتيجة', quizAgain: 'إعادة اللعب', quizDone: 'انتهى', quizEmpty: 'الدرس يحتاج عبارات فيها فرنسي + اللغة المقابلة',
       exitTitle: 'الخروج من التطبيق؟', exitYes: 'خروج', exitNo: 'بقاء',
       saved: 'تم الحفظ', savedN: 'تمت إضافة {n} دروس', multiHint: '💡 افصل الدروس بسطر === لإضافة عدة دروس معاً', deleted: 'تم الحذف', imported: 'تم الاستيراد', importBad: 'ملف غير صالح', copied: 'تم نسخ النموذج', pasted: 'تم اللصق',
@@ -570,7 +592,8 @@
       theme: 'الثيم', speechSet: 'إعدادات النطق', notebook: 'الدفتر',
       footerTag: 'دروسك محفوظة على جهازك — صدّر نسخة احتياطية من القائمة ⋮',
       tplHint: 'النموذج: سطر عنوان ثلاثي، ثم أقسام مرقّمة، وكل عبارة 3 أسطر 🇫🇷🇸🇾🇺🇸',
-      pinned: 'تم تثبيت الصورة'
+      pinned: 'تم تثبيت الصورة',
+      recStarted: '⬇ بدأ تسجيل الشاشة — اضغط ⬇ ثانية للإيقاف', recPrep: 'جاري تجهيز الفيديو…', recFail: 'فشل التسجيل', recNoApp: 'التسجيل بيشتغل بس جوّا التطبيق', recSaved: 'جاهز للمشاركة'
     },
     en: {
       appName: 'gramvip',
@@ -586,6 +609,7 @@
       delFolderT: 'Delete folder?', delFolderD: 'The folder and all its lessons will be deleted — this cannot be undone.',
       delLessonT: 'Delete lesson?', delLessonD: 'This lesson will be permanently deleted.',
       delImgT: 'Delete image?', delImgD: 'The image will be removed from this phrase.',
+      lzImgT: 'Delete game image?', lzImgD: 'Your custom image will be removed and the default restored.',
       quiz: 'Matching quiz', listenQuiz: 'Listen & choose', replay: '🔊 Listen again', quizPick: 'Pick the language to match with French:', quizScore: 'Score', quizAgain: 'Play again', quizDone: 'Done', quizEmpty: 'The lesson needs phrases with French + the other language',
       exitTitle: 'Exit the app?', exitYes: 'Exit', exitNo: 'Stay',
       saved: 'Saved', savedN: '{n} lessons added', multiHint: '💡 Separate lessons with a === line to add several at once', deleted: 'Deleted', imported: 'Imported', importBad: 'Invalid file', copied: 'Template copied', pasted: 'Pasted',
@@ -595,7 +619,8 @@
       theme: 'Theme', speechSet: 'Speech settings', notebook: 'Notebook',
       footerTag: 'Your lessons are stored on your device — export a backup from the ⋮ menu',
       tplHint: 'Template: a trilingual title line, numbered sections, each phrase = 3 lines 🇫🇷🇸🇾🇺🇸',
-      pinned: 'Image pinned'
+      pinned: 'Image pinned',
+      recStarted: '⬇ Screen recording started — tap ⬇ again to stop', recPrep: 'Preparing the video…', recFail: 'Recording failed', recNoApp: 'Recording only works inside the app', recSaved: 'Ready to share'
     },
     fr: {
       appName: 'gramvip',
@@ -611,6 +636,7 @@
       delFolderT: 'Supprimer le dossier ?', delFolderD: 'Le dossier et toutes ses leçons seront supprimés — action irréversible.',
       delLessonT: 'Supprimer la leçon ?', delLessonD: 'Cette leçon sera définitivement supprimée.',
       delImgT: 'Supprimer l’image ?', delImgD: 'L’image sera retirée de cette phrase.',
+      lzImgT: 'Supprimer l’image du jeu ?', lzImgD: 'Votre image personnalisée sera remplacée par l’image par défaut.',
       quiz: 'Quiz d’association', listenQuiz: 'Écoute et choisis', replay: '🔊 Réécouter', quizPick: 'Choisissez la langue à associer au français :', quizScore: 'Score', quizAgain: 'Rejouer', quizDone: 'Terminé', quizEmpty: 'La leçon doit avoir des phrases français + autre langue',
       exitTitle: 'Quitter l\'application ?', exitYes: 'Quitter', exitNo: 'Rester',
       saved: 'Enregistré', savedN: '{n} leçons ajoutées', multiHint: '💡 Séparez les leçons par une ligne === pour en ajouter plusieurs', deleted: 'Supprimé', imported: 'Importé', importBad: 'Fichier invalide', copied: 'Modèle copié', pasted: 'Collé',
@@ -620,7 +646,8 @@
       theme: 'Thème', speechSet: 'Réglages de la voix', notebook: 'Cahier',
       footerTag: 'Vos leçons restent sur votre appareil — exportez une sauvegarde via le menu ⋮',
       tplHint: 'Modèle : titre trilingue, sections numérotées, chaque phrase = 3 lignes 🇫🇷🇸🇾🇺🇸',
-      pinned: 'Image épinglée'
+      pinned: 'Image épinglée',
+      recStarted: '⬇ Enregistrement démarré — appuyez sur ⬇ pour arrêter', recPrep: 'Préparation de la vidéo…', recFail: 'Échec de l’enregistrement', recNoApp: 'L’enregistrement ne fonctionne que dans l’application', recSaved: 'Prêt à partager'
     }
   };
 
@@ -708,11 +735,12 @@
   var idb = null;
   function idbOpen() {
     return new Promise(function (res, rej) {
-      var r = indexedDB.open('gramvip-db', 1);
+      var r = indexedDB.open('gramvip-db', 2);
       r.onupgradeneeded = function (e) {
         var d = e.target.result;
         if (!d.objectStoreNames.contains('folders')) d.createObjectStore('folders', { keyPath: 'id' });
         if (!d.objectStoreNames.contains('lessons')) d.createObjectStore('lessons', { keyPath: 'id' });
+        if (!d.objectStoreNames.contains('kv')) d.createObjectStore('kv', { keyPath: 'k' });
       };
       r.onsuccess = function (e) { idb = e.target.result; res(); };
       r.onerror = function () { rej(r.error); };
@@ -1912,6 +1940,40 @@
     document.getElementById('ovQuiz').classList.remove('open');
     stopSpeaking();
   }
+  /* ---- screen record (game moments) ---- */
+  var recActive = false;
+  function recPlugin() {
+    var P = window.Capacitor && window.Capacitor.Plugins;
+    return (P && P.GramScreenRecorder) || null;
+  }
+  function recToggle() {
+    var btn = document.getElementById('qzRec');
+    var SR = recPlugin();
+    if (!SR) { toast('⚠️ ' + t('recNoApp')); return; }
+    if (!recActive) {
+      SR.start().then(function () {
+        recActive = true;
+        if (btn) btn.classList.add('recording');
+        toast(t('recStarted'));
+      }).catch(function () { toast('⚠️ ' + t('recFail')); });
+      return;
+    }
+    if (btn) btn.classList.remove('recording');
+    recActive = false;
+    toast('⏳ ' + t('recPrep'));
+    SR.stop().then(function (res) {
+      var name = res && res.name;
+      if (!name) { toast('⚠️ ' + t('recFail')); return; }
+      var FS = window.Capacitor.Plugins.Filesystem;
+      var SH = window.Capacitor.Plugins.Share;
+      if (!FS || !SH) { toast('⚠️ ' + t('recFail')); return; }
+      FS.getUri({ directory: 'EXTERNAL', path: 'Movies/gramvip/' + name }).then(function (u) {
+        SH.share({ title: 'gramvip', url: u.uri }).then(function () {
+          toast('✓ ' + t('recSaved'));
+        }).catch(function () {});
+      }).catch(function () { toast('⚠️ ' + t('recFail')); });
+    }).catch(function () { toast('⚠️ ' + t('recFail')); });
+  }
   function openQuiz(l) {
     qz.lesson = l;
     document.querySelector('#ovQuiz .qz-title').innerHTML = '🧩 <span>' + esc(t('quiz')) + '</span>';
@@ -1991,6 +2053,63 @@
   }
   /* ---- listen & choose ---- */
   var lz = { lesson: null, lang: 'ar', qs: [], pool: [], idx: 0, correct: 0, wrong: 0 };
+  var LZ_DEFAULT_IMG = '<img src="data:image/svg+xml;utf8,' + encodeURIComponent(
+    "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 140'>" +
+    "<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#6366f1'/><stop offset='1' stop-color='#a855f7'/></linearGradient></defs>" +
+    "<rect width='240' height='140' fill='url(#g)'/>" +
+    "<circle cx='60' cy='40' r='26' fill='none' stroke='rgba(255,255,255,.25)' stroke-width='3'/><circle cx='180' cy='105' r='34' fill='none' stroke='rgba(255,255,255,.18)' stroke-width='3'/><circle cx='196' cy='34' r='14' fill='none' stroke='rgba(255,255,255,.3)' stroke-width='3'/>" +
+    "<path d='M92 88 v-14 a28 28 0 0 1 56 0 v14' fill='none' stroke='#fff' stroke-width='8' stroke-linecap='round'/>" +
+    "<rect x='84' y='84' width='18' height='30' rx='9' fill='#fff'/><rect x='138' y='84' width='18' height='30' rx='9' fill='#fff'/>" +
+    "<path d='M76 60 q44 -26 88 0' fill='none' stroke='rgba(255,255,255,.5)' stroke-width='4' stroke-linecap='round'/>" +
+    "<path d='M70 44 q50 -30 100 0' fill='none' stroke='rgba(255,255,255,.3)' stroke-width='4' stroke-linecap='round'/>" +
+    "</svg>"
+  ) + '" alt="">';
+  var lzHero = { img: null, size: 's2', _p: null };
+  function lzLoadHero() {
+    if (!lzHero._p) {
+      lzHero._p = (!idb ? Promise.resolve() : idbAll('kv').then(function (rows) {
+        (rows || []).forEach(function (r) {
+          if (r.k === 'lzImg') lzHero.img = r.v;
+          if (r.k === 'lzImgSize' && r.v) lzHero.size = r.v;
+        });
+      }).catch(function () {}));
+    }
+    return lzHero._p;
+  }
+  function lzSaveHero() {
+    if (!idb) return;
+    idbPut('kv', { k: 'lzImg', v: lzHero.img });
+    idbPut('kv', { k: 'lzImgSize', v: lzHero.size });
+  }
+  function lzHeroInner() {
+    var sz = { s1: 'S', s2: 'M', s3: 'L' }[lzHero.size] || 'M';
+    return (lzHero.img ? '<img src="' + lzHero.img + '" alt="">' : LZ_DEFAULT_IMG) +
+      '<div class="lz-hero-tools">' +
+        '<button class="lz-hero-btn" id="lzImgAdd" title="📷">📷</button>' +
+        '<button class="lz-hero-btn" id="lzImgSize" title="size">⤢ ' + sz + '</button>' +
+        (lzHero.img ? '<button class="lz-hero-btn del" id="lzImgDel" title="×">×</button>' : '') +
+      '</div>';
+  }
+  function lzWireHeroTools() {
+    var add = document.getElementById('lzImgAdd');
+    if (add) add.onclick = function () { phImgBtn = 'LZ'; document.getElementById('phImgInput').click(); };
+    var sz = document.getElementById('lzImgSize');
+    if (sz) sz.onclick = function () {
+      lzHero.size = lzHero.size === 's1' ? 's2' : (lzHero.size === 's2' ? 's3' : 's1');
+      lzSaveHero();
+      var h = document.getElementById('lzHero');
+      if (h) { h.className = 'lz-hero ' + lzHero.size; h.innerHTML = lzHeroInner(); lzWireHeroTools(); }
+    };
+    var del = document.getElementById('lzImgDel');
+    if (del) del.onclick = function () {
+      confirmBox(t('lzImgT'), t('lzImgD'), function () {
+        lzHero.img = null; lzSaveHero();
+        var h = document.getElementById('lzHero');
+        if (h) { h.innerHTML = lzHeroInner(); lzWireHeroTools(); }
+        toast('✓ ' + t('deleted'));
+      });
+    };
+  }
   function openListen(l) {
     lz.lesson = l;
     document.querySelector('#ovQuiz .qz-title').innerHTML = '🎧 <span>' + esc(t('listenQuiz')) + '</span>';
@@ -2016,7 +2135,7 @@
     lz.pool = qzShuffle(pool.slice());
     lz.qs = lz.pool.slice(0, 8);
     lz.idx = 0; lz.correct = 0; lz.wrong = 0;
-    lzQuestion();
+    lzLoadHero().then(lzQuestion);
   }
   function lzQuestion() {
     if (!document.getElementById('ovQuiz').classList.contains('open')) return;
@@ -2025,12 +2144,15 @@
     var opts = qzShuffle(others.slice()).slice(0, 3);
     opts.push(p);
     opts = qzShuffle(opts);
-    var html = '<button class="btn btn-primary lz-replay" id="lzReplay">🔊 ' + esc(t('replay')) + '</button>' +
+    var html = '<div class="lz-stage">' +
+      '<div class="lz-hero ' + lzHero.size + '" id="lzHero">' + lzHeroInner() + '</div>' +
+      '<button class="lz-loop" id="lzReplay" title="' + esc(t('replay')) + '">🔊</button>' +
       '<div class="lz-opts">' + opts.map(function (o, i) {
         return '<div class="qz-tile" data-ok="' + (o === p ? '1' : '0') + '">' + esc(o[lz.lang]) + '</div>';
-      }).join('') + '</div>';
+      }).join('') + '</div></div>';
     document.getElementById('qzBody').innerHTML = html;
     document.getElementById('qzProgress').textContent = (lz.idx + 1) + '/' + lz.qs.length;
+    lzWireHeroTools();
     var rp = document.getElementById('lzReplay');
     rp.onclick = function () { speakLoop(p.fr, rp, 'fr'); };
     document.getElementById('qzBody').querySelectorAll('.qz-tile').forEach(function (el) {
@@ -2050,7 +2172,16 @@
       body.querySelectorAll('.qz-tile[data-ok="1"]').forEach(function (x) { x.classList.add('ok'); });
     }
     stopSpeaking();
-    setTimeout(lzNext, ok ? 800 : 1400);
+    var hero = document.getElementById('lzHero');
+    if (hero) {
+      hero.innerHTML = '<div class="lz-verdict ' + (ok ? 'ok' : 'bad') + '">' +
+        '<div class="lz-face">' + (ok ? '😄' : '😢') + '</div>' +
+        '<div class="lz-v-fr">' + esc(p.fr || '') + '</div>' +
+        (p.ar ? '<div class="lz-v-tr">' + esc(p.ar) + '</div>' : '') +
+        (p.en ? '<div class="lz-v-tr">' + esc(p.en) + '</div>' : '') +
+      '</div>';
+    }
+    setTimeout(lzNext, ok ? 1400 : 2000);
   }
   function lzNext() {
     if (!document.getElementById('ovQuiz').classList.contains('open')) return;
@@ -2122,6 +2253,7 @@
 
   /* ==================== wiring ==================== */
   document.getElementById('qzClose').onclick = closeQuiz;
+  document.getElementById('qzRec').onclick = recToggle;
   var nbEl = nbCanvas();
   nbEl.addEventListener('pointerdown', nbStart);
   nbEl.addEventListener('pointermove', nbMove);
@@ -2195,6 +2327,14 @@
     e.target.value = '';
     var btn = phImgBtn; phImgBtn = null;
     if (!file || !btn) return;
+    if (btn === 'LZ') {
+      resizeImage(file, 1000, 0.82, function (url) {
+        lzHero.img = url; lzSaveHero();
+        var h = document.getElementById('lzHero');
+        if (h) { h.innerHTML = lzHeroInner(); lzWireHeroTools(); }
+      });
+      return;
+    }
     var f = findPhraseObj(btn);
     if (!f) return;
     resizeImage(file, 1000, 0.82, function (url) { attachPhraseImg(f, url); });
