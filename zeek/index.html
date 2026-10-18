@@ -1453,36 +1453,42 @@
         .replace(/-->.*/, '')
         .trim();
       if (!raw) return;
-      const m = raw.match(FLAG_RE);
-      if (m) {
-        const body = cleanPhrasePart(raw.trim().slice(m[0].length));
-        if (!body) return;
-        const lang = flagLang(m[1], body);
-        if (cur[lang]) flush();
-        cur[lang] = m[1] + ' ' + body;
-        return;
-      }
-      flush();
-      const parts = extractRawParts(raw);
-      if (!parts) return;
-      const ar = cleanPhrasePart(parts.ar);
-      const first = cleanPhrasePart(parts.first);
-      const last = cleanPhrasePart(parts.last);
-      if (!ar || !first || !last) return;
-      const lineOrder = getLineOrder(first, last, blockOrder);
-      let fr, en;
-      if (lineOrder === 'en-ar-fr') { en = first; fr = last; }
-      else { fr = first; en = last; }
-      phrases.push({ fr, ar, en });
+      const segs = (raw.match(/[\u{1F1E6}-\u{1F1FF}]{2}/gu) || []).length > 1
+        ? raw.split(/(?=[\u{1F1E6}-\u{1F1FF}]{2})/u).map(x => x.trim()).filter(Boolean)
+        : [raw];
+      segs.forEach(seg => {
+        const m = seg.match(FLAG_RE);
+        if (m) {
+          const body = cleanPhrasePart(seg.trim().slice(m[0].length));
+          if (!body) return;
+          const lang = flagLang(m[1], body);
+          if (cur[lang]) flush();
+          cur[lang] = m[1] + ' ' + body;
+          return;
+        }
+        flush();
+        const parts = extractRawParts(seg);
+        if (!parts) return;
+        const ar = cleanPhrasePart(parts.ar);
+        const first = cleanPhrasePart(parts.first);
+        const last = cleanPhrasePart(parts.last);
+        if (!ar || !first || !last) return;
+        const lineOrder = getLineOrder(first, last, blockOrder);
+        let fr, en;
+        if (lineOrder === 'en-ar-fr') { en = first; fr = last; }
+        else { fr = first; en = last; }
+        phrases.push({ fr, ar, en });
+      });
     });
     flush();
     return phrases;
   }
 
   const SEC_SEP_RE = /^\s*(?:-{3,}|—{3,}|_{3,}|\*{3,}|={3,})\s*$/;
+  const EMOJI_START_RE = /^[\p{Emoji_Presentation}\p{Extended_Pictographic}]/u;
+  const SEC_WORD_RE = /(موقف|مشهد|situation|sc[eè]ne|section|قسم)/i;
   function parsePhrasesWithSections(text, userOrder = 'auto') {
     const lines = String(text || '').split('\n');
-    if (!lines.some(l => SEC_SEP_RE.test(l))) return { phrases: parsePhrases(text, userOrder), sections: null };
     const phrases = [];
     const sections = [];
     const newSec = () => { const s = { title: null, start: phrases.length, buf: [] }; sections.push(s); return s; };
@@ -1493,15 +1499,26 @@
       cur.buf = [];
     };
     const FLAG = new RegExp(FLAG_RE.source, FLAG_RE.flags);
+    const isPhraseLine = s => {
+      if (FLAG.test(s)) return true;
+      const rp = extractRawParts(s);
+      return !!(rp && cleanPhrasePart(rp.ar) && cleanPhrasePart(rp.first) && cleanPhrasePart(rp.last));
+    };
+    const isTitleLine = s => {
+      if (/^\d{1,2}:\d{2}/.test(s) || /^\d+$/.test(s)) return false;
+      if (s.startsWith('📌')) return true;
+      if (isPhraseLine(s)) return false;
+      if (EMOJI_START_RE.test(s) || SEC_WORD_RE.test(s)) return true;
+      return !cur.title && !cur.buf.some(b => b.trim());
+    };
     for (const raw of lines) {
       if (SEC_SEP_RE.test(raw)) { flushSec(); cur = newSec(); continue; }
       const s = raw.trim();
       if (!s) { cur.buf.push(raw); continue; }
-      const rp = FLAG.test(s) ? null : extractRawParts(s);
-      const isPhraseLine = FLAG.test(s) || (rp && cleanPhrasePart(rp.ar) && cleanPhrasePart(rp.first) && cleanPhrasePart(rp.last));
-      const isTitleLine = cur.start === phrases.length && !cur.title && !cur.buf.some(b => b.trim()) &&
-        (s.startsWith('📌') || (!isPhraseLine && !/^\d{1,2}:\d{2}/.test(s) && !/^\d+$/.test(s)));
-      if (isTitleLine) { cur.title = parseTitle(s.replace(/^📌\s*/, '')); continue; }
+      if (isTitleLine(s)) {
+        if (cur.buf.some(b => b.trim())) { flushSec(); cur = newSec(); }
+        if (!cur.title) { cur.title = parseTitle(s.replace(/^📌\s*/, '')); continue; }
+      }
       cur.buf.push(raw);
     }
     flushSec();
@@ -1669,7 +1686,7 @@
     titleHint: { ar: 'يمكن إدخال لغة واحدة أو أكثر (فرنسي | عربي | إنجليزي)', en: 'One or more languages (French | Arabic | English)', fr: 'Une ou plusieurs langues (Français | Arabe | Anglais)' },
     titlePlaceholder: { ar: 'مثال: الدرس الأول', en: 'Ex: First lesson', fr: 'Ex: Première leçon' },
     phrasesLabel: { ar: 'العبارات', en: 'Phrases', fr: 'Phrases' },
-    phrasesHint: { ar: 'كل سطر: فرنسي/إنجليزي ثم عربي ثم الآخر. يقبل | , = → : - ومسافات/Tab — أو 3 أسطر تبدأ بالأعلام 🇫🇷 🇸🇾 🇺🇸 — وافصل المواقف بسطر --- بعد عنوان كل موقف', en: 'One line: French/English then Arabic then the other. Supports | , = → : - and spaces/tabs — or 3 lines starting with flags 🇫🇷 🇸🇾 🇺🇸 — separate sections with a --- line after each section title', fr: 'Une ligne : Français/Anglais puis Arabe puis l\'autre. Accepte | , = → : - et espaces/tab — ou 3 lignes commençant par des drapeaux 🇫🇷 🇸🇾 🇺🇸 — séparez les sections par une ligne --- après chaque titre de section' },
+    phrasesHint: { ar: 'كل سطر: فرنسي/إنجليزي ثم عربي ثم الآخر. يقبل | , = → : - ومسافات/Tab — أو أسطر تبدأ بالأعلام 🇫🇷 🇸🇾 🇺🇸 (على سطر واحد أو منفصلة) — وسطر عنوان يبدأ بإيموجي أو بكلمة "موقف" ينشئ قسمًا جديدًا تلقائيًا، أو افصل المواقف بسطر ---', en: 'One line: French/English then Arabic then the other. Supports | , = → : - and spaces/tabs — or lines starting with flags 🇫🇷 🇸🇾 🇺🇸 (on one line or separate) — a title line starting with an emoji or the word "situation" creates a new section automatically, or separate sections with a --- line', fr: 'Une ligne : Français/Anglais puis Arabe puis l\'autre. Accepte | , = → : - et espaces/tab — ou des lignes commençant par des drapeaux 🇫🇷 🇸🇾 🇺🇸 (sur une ligne ou séparées) — une ligne de titre commençant par un emoji ou le mot "situation" crée une nouvelle section automatiquement, ou séparez les sections par une ligne ---' },
     inputExamples: { ar: 'نماذج الإدخال', en: 'Input examples', fr: 'Exemples de saisie' },
     copy: { ar: 'نسخ', en: 'Copy', fr: 'Copier' },
     copied: { ar: 'تم النسخ', en: 'Copied', fr: 'Copié' },
@@ -4825,7 +4842,14 @@ EN: Maria, I’m out of cigarettes.`,
 🦷 الموقف الثاني: شرح ألم الأسنان
 🇫🇷 Bonjour docteur, j'ai très mal aux dents.
 🇸🇾 مرحباً دكتور، سناني عم يوجعوني كتير.
-🇺🇸 Hello, doctor. My teeth hurt a lot.`
+🇺🇸 Hello, doctor. My teeth hurt a lot.`,
+    `💈 الموقف الأول: حجز موعد عند الحلاق
+
+🇫🇷 Bonjour, je voudrais prendre rendez-vous pour une coupe de cheveux. 🇸🇾 مرحباً، بدي احجز موعد لقصّ الشعر. 🇺🇸 Hello, I'd like to make an appointment for a haircut.
+
+💈 الموقف الثاني: السؤال عن السعر
+
+🇫🇷 Combien coûte une coupe de cheveux ? 🇸🇾 قديش حق قصّ الشعر؟ 🇺🇸 How much does a haircut cost?`
   ];
   const CAPTION_EXAMPLES = [
     `1
