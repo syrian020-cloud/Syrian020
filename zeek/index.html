@@ -4339,6 +4339,7 @@
       <button class="lz-loop" id="lzReplay" title="${t('listenReplay')}">🔊</button>
       <div class="lz-opts">${opts.map(o => `<div class="lz-tile" data-ok="${o === p ? '1' : '0'}">${esc(o[lz.lang])}</div>`).join('')}</div>
       <div class="lz-nav">
+        <button id="lzNoteBtn" title="${t('noteTitle')}">📓</button>
         <button id="lzNextBtn">⏭ ${t('next')}</button>
         <button id="lzAutoBtn" class="${lz.auto ? 'on' : ''}">🔁 ${t('autoNext')}</button>
       </div>
@@ -4351,6 +4352,10 @@
     body.querySelectorAll('.lz-tile').forEach(el => {
       el.onclick = () => lzAnswer(el, p);
     });
+    document.getElementById('lzNoteBtn').onclick = () => {
+      const i = lz.lesson.phrases.indexOf(p);
+      if (i !== -1) openNote(phraseKey(lz.lesson.id, i));
+    };
     document.getElementById('lzNextBtn').onclick = lzNext;
     document.getElementById('lzAutoBtn').onclick = function () {
       lz.auto = !lz.auto;
