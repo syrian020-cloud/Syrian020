@@ -452,6 +452,33 @@
   .quiz-card.done { background: linear-gradient(135deg, #22c55e, #16a34a); border-color: transparent; color: #fff; pointer-events: none; box-shadow: 0 3px 10px rgba(34,197,94,0.35); }
   .quiz-card.wrong { animation: quizShake 0.45s; border-color: #e0245e; background: #e0245e; color: #fff; }
   @keyframes quizShake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-7px); } 75% { transform: translateX(7px); } }
+  .lz-stage { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; width: 100%; max-width: 480px; margin: 0 auto; }
+  .lz-hero { position: relative; width: 100%; border-radius: 18px; overflow: hidden; border: 1.5px solid var(--border); box-shadow: 0 2px 10px rgba(0,0,0,0.15); background: linear-gradient(135deg, #6366f1, #a855f7); transition: height 0.2s; }
+  .lz-hero.s1 { height: 96px; }
+  .lz-hero.s2 { height: 150px; }
+  .lz-hero.s3 { height: 210px; }
+  .lz-hero.v { height: 250px; }
+  .lz-hero > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .lz-hero-tools { position: absolute; top: 8px; inset-inline-end: 8px; display: flex; gap: 6px; }
+  .lz-hero-btn { min-width: 34px; height: 34px; padding: 0 8px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.35); background: rgba(10,12,30,0.55); color: #fff; font-size: 0.9rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(6px); font-family: inherit; }
+  .lz-hero-btn.del { background: rgba(225,29,72,0.85); border-color: transparent; }
+  .lz-loop { width: 62px; height: 62px; border-radius: 50%; border: none; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; box-shadow: 0 4px 14px rgba(124,58,237,0.4); transition: transform 0.15s; }
+  .lz-loop:hover { transform: scale(1.06); }
+  .lz-loop.looping { animation: lzPulse 1s infinite; }
+  @keyframes lzPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(139,92,246,0.55); } 50% { box-shadow: 0 0 0 9px rgba(139,92,246,0); } }
+  .lz-opts { display: flex; flex-direction: column; gap: 0.6rem; width: 100%; }
+  .lz-tile { border: 2px solid var(--border); background: var(--bg-secondary); border-radius: 16px; padding: 0.7rem 0.6rem; font-size: 0.95rem; font-weight: 700; cursor: pointer; text-align: center; min-height: 52px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; line-height: 1.4; color: var(--text-primary); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .lz-tile.ok { border-color: #22c55e; background: rgba(34,197,94,0.13); }
+  .lz-tile.bad { border-color: #ef4444; background: rgba(239,68,68,0.1); animation: quizShake 0.45s; }
+  .lz-nav { display: flex; gap: 0.6rem; align-items: center; }
+  .lz-nav button { min-width: 52px; height: 44px; padding: 0 14px; border-radius: 14px; border: 1.5px solid var(--border); background: var(--bg-secondary); color: var(--text-primary); font-size: 1rem; font-weight: 800; cursor: pointer; font-family: inherit; display: flex; align-items: center; gap: 6px; }
+  .lz-nav button.on { border-color: var(--accent); background: rgba(139,92,246,0.15); color: var(--accent); }
+  .lz-verdict { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.25rem; padding: 0.6rem 0.8rem; text-align: center; background: var(--bg-secondary); overflow-y: auto; }
+  .lz-verdict .lz-face { font-size: 2rem; line-height: 1; }
+  .lz-verdict .lz-v-fr { font-weight: 800; font-size: 1.05rem; color: var(--text-primary); }
+  .lz-verdict.ok .lz-v-fr { color: #16a34a; }
+  .lz-verdict.bad .lz-v-fr { color: #ef4444; }
+  .lz-verdict .lz-v-tr { font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); }
   .quiz-lang-btns { display: flex; flex-direction: column; gap: 0.9rem; max-width: 340px; margin: auto; width: 100%; }
   .quiz-lang-btns .btn { width: 100%; height: 3.2rem; font-size: 1.1rem; }
   .quiz-end { margin: auto; text-align: center; }
@@ -1624,6 +1651,12 @@
     quizReplay: { ar: 'إعادة اللعب', en: 'Play again', fr: 'Rejouer' },
     quizExit: { ar: 'خروج', en: 'Exit', fr: 'Quitter' },
     quizNoPhrases: { ar: 'لا توجد عبارات كافية للّعبة', en: 'Not enough phrases for the game', fr: 'Pas assez de phrases pour le jeu' },
+    listenQuiz: { ar: 'لعبة الاستماع', en: 'Listening game', fr: 'Jeu d’écoute' },
+    listenReplay: { ar: '🔊 إعادة الاستماع', en: '🔊 Listen again', fr: '🔊 Réécouter' },
+    next: { ar: 'التالي', en: 'Next', fr: 'Suivant' },
+    autoNext: { ar: 'تلقائي', en: 'Auto', fr: 'Auto' },
+    quizScore: { ar: 'النتيجة', en: 'Score', fr: 'Score' },
+    lzImgDel: { ar: 'حذف صورة اللعبة؟', en: 'Delete the game image?', fr: 'Supprimer l’image du jeu ?' },
     captionZoomOut: { ar: 'تصغير الترجمة', en: 'Zoom out caption', fr: 'Réduire les sous-titres' },
     moveToFolder: { ar: 'نقل إلى مجلد…', en: 'Move to folder…', fr: 'Déplacer vers un dossier…' },
     moveToRoot: { ar: '🏠 الرئيسية (خارج المجلدات)', en: '🏠 Home (no folder)', fr: '🏠 Accueil (sans dossier)' },
@@ -3933,6 +3966,7 @@
         <button class="btn ghost icon" id="cap-follow" title="${t('captionFollow')}">📍</button>
         <button class="btn ghost icon" id="cap-word-lang" title="${t('captionWordLang')}">🔤</button>
         <button class="btn ghost icon" id="lesson-quiz" title="${t('quiz')}">🧩</button>
+        <button class="btn ghost icon" id="lesson-listen" title="${t('listenQuiz')}">🎧</button>
         ${lesson.protected ? '' : `<button class="btn ghost icon menu-btn" data-menu="${lesson.id}" data-type="lesson" title="${t('actions')}">⋮</button>`}
         <span class="pill">${lesson.phrases.length} ${t('phrases')}</span>
         <input type="file" id="lesson-image-input" accept="image/*" style="display:none">
@@ -3943,6 +3977,8 @@
     document.getElementById('play-all').onclick = () => playLesson(lesson);
     const quizBtnX = document.getElementById('lesson-quiz');
     if (quizBtnX) quizBtnX.onclick = () => openQuiz(lesson);
+    const listenBtn = document.getElementById('lesson-listen');
+    if (listenBtn) listenBtn.onclick = () => openListen(lesson);
     const imgSet = document.getElementById('lesson-image-set');
     const imgToggle = document.getElementById('lesson-image-toggle');
     const imgDel = document.getElementById('lesson-image-del');
@@ -4059,6 +4095,8 @@
 
   function closeQuiz() {
     quizStopSpeak();
+    lzStopSpeak();
+    clearTimeout(lz.timer);
     const ov = document.getElementById('quiz-overlay');
     if (ov) ov.remove();
   }
@@ -4164,6 +4202,232 @@
     </div>`;
     document.getElementById('quiz-replay').onclick = () => startQuiz(lesson, target);
     document.getElementById('quiz-exit2').onclick = closeQuiz;
+  }
+
+  /* ---- listen & choose ---- */
+  const lz = { lesson: null, lang: 'ar', qs: [], pool: [], idx: 0, correct: 0, wrong: 0, auto: true, timer: null, answered: false, speakRun: 0 };
+  const LZ_DEFAULT_IMG = '<img src="data:image/svg+xml;utf8,' + encodeURIComponent(
+    "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 140'>" +
+    "<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#6366f1'/><stop offset='1' stop-color='#a855f7'/></linearGradient></defs>" +
+    "<rect width='240' height='140' fill='url(#g)'/>" +
+    "<circle cx='60' cy='40' r='26' fill='none' stroke='rgba(255,255,255,.25)' stroke-width='3'/><circle cx='180' cy='105' r='34' fill='none' stroke='rgba(255,255,255,.18)' stroke-width='3'/><circle cx='196' cy='34' r='14' fill='none' stroke='rgba(255,255,255,.3)' stroke-width='3'/>" +
+    "<path d='M92 88 v-14 a28 28 0 0 1 56 0 v14' fill='none' stroke='#fff' stroke-width='8' stroke-linecap='round'/>" +
+    "<rect x='84' y='84' width='18' height='30' rx='9' fill='#fff'/><rect x='138' y='84' width='18' height='30' rx='9' fill='#fff'/>" +
+    "<path d='M76 60 q44 -26 88 0' fill='none' stroke='rgba(255,255,255,.5)' stroke-width='4' stroke-linecap='round'/>" +
+    "<path d='M70 44 q50 -30 100 0' fill='none' stroke='rgba(255,255,255,.3)' stroke-width='4' stroke-linecap='round'/>" +
+    "</svg>"
+  ) + '" alt="">';
+  const lzHero = { img: null, size: 's2' };
+  function lzLoadHero() {
+    try {
+      lzHero.img = localStorage.getItem('zeek_lzimg') || null;
+      lzHero.size = localStorage.getItem('zeek_lzsize') || 's2';
+    } catch (e) {}
+  }
+  function lzSaveHero() {
+    try {
+      if (lzHero.img) localStorage.setItem('zeek_lzimg', lzHero.img); else localStorage.removeItem('zeek_lzimg');
+      localStorage.setItem('zeek_lzsize', lzHero.size);
+    } catch (e) {}
+  }
+  function lzHeroInner() {
+    const sz = { s1: 'S', s2: 'M', s3: 'L' }[lzHero.size] || 'M';
+    return (lzHero.img ? `<img src="${lzHero.img}" alt="">` : LZ_DEFAULT_IMG) +
+      `<div class="lz-hero-tools">` +
+        `<button class="lz-hero-btn" id="lzImgAdd" title="📷">📷</button>` +
+        `<button class="lz-hero-btn" id="lzImgSize" title="size">⤢ ${sz}</button>` +
+        (lzHero.img ? `<button class="lz-hero-btn del" id="lzImgDel" title="×">×</button>` : '') +
+      `</div>`;
+  }
+  function lzWireHeroTools() {
+    const add = document.getElementById('lzImgAdd');
+    if (add) add.onclick = () => document.getElementById('lzImgInput').click();
+    const inp = document.getElementById('lzImgInput');
+    if (inp) inp.onchange = e => {
+      const file = e.target.files && e.target.files[0];
+      e.target.value = '';
+      if (!file) return;
+      resizeImageToDataUrl(file, 1000, 0.82, url => {
+        lzHero.img = url; lzSaveHero();
+        const h = document.getElementById('lzHero');
+        if (h) { h.innerHTML = lzHeroInner(); lzWireHeroTools(); }
+      });
+    };
+    const sz = document.getElementById('lzImgSize');
+    if (sz) sz.onclick = () => {
+      lzHero.size = lzHero.size === 's1' ? 's2' : (lzHero.size === 's2' ? 's3' : 's1');
+      lzSaveHero();
+      const h = document.getElementById('lzHero');
+      if (h) { h.className = 'lz-hero ' + lzHero.size; h.innerHTML = lzHeroInner(); lzWireHeroTools(); }
+    };
+    const del = document.getElementById('lzImgDel');
+    if (del) del.onclick = () => {
+      if (confirm(t('lzImgDel'))) {
+        lzHero.img = null; lzSaveHero();
+        const h = document.getElementById('lzHero');
+        if (h) { h.innerHTML = lzHeroInner(); lzWireHeroTools(); }
+        showToast('✓ ' + t('deleted'));
+      }
+    };
+  }
+  function lzStopSpeak() {
+    lz.speakRun++;
+    anyStop();
+    document.querySelectorAll('.lz-loop.looping').forEach(b => b.classList.remove('looping'));
+  }
+  function lzSpeak(text, el, lang) {
+    if (el.classList.contains('looping')) { lzStopSpeak(); return; }
+    lzStopSpeak();
+    el.classList.add('looping');
+    const run = ++lz.speakRun;
+    const txt = stripSpeechFlags(text || '');
+    if (!txt) { el.classList.remove('looping'); return; }
+    (function cyc() {
+      if (lz.speakRun !== run) return;
+      anySpeak(txt, lang || 'fr').then(() => {
+        if (lz.speakRun === run) setTimeout(cyc, 350);
+      }).catch(() => {
+        if (lz.speakRun === run) setTimeout(cyc, 900);
+      });
+    })();
+  }
+  function openListen(lesson) {
+    closeQuiz();
+    lz.lesson = lesson;
+    const ov = document.createElement('div');
+    ov.id = 'quiz-overlay';
+    ov.className = 'quiz-overlay';
+    ov.innerHTML = `<div class="quiz-top">
+        <button class="btn ghost icon" id="quiz-exit" title="${t('quizExit')}">✕</button>
+        <div class="quiz-progress" id="quiz-progress"></div>
+      </div>
+      <div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>
+      <input type="file" id="lzImgInput" accept="image/*" style="display:none">`;
+    document.body.appendChild(ov);
+    document.getElementById('quiz-exit').onclick = closeQuiz;
+    const body = document.getElementById('quiz-body');
+    body.innerHTML = `<div class="quiz-lang-btns">
+      <h3 style="text-align:center;margin:0">${t('quizChooseLang')}</h3>
+      <button class="btn" data-lang="ar">${t('quizFrAr')}</button>
+      <button class="btn" data-lang="en">${t('quizFrEn')}</button>
+    </div>`;
+    body.querySelectorAll('button[data-lang]').forEach(b => {
+      b.onclick = () => { lz.lang = b.dataset.lang; lzStart(); };
+    });
+  }
+  function lzStart() {
+    const pool = lz.lesson.phrases.filter(p => stripSpeechFlags(p.fr || '') && stripSpeechFlags(p[lz.lang] || ''));
+    const body = document.getElementById('quiz-body');
+    if (!body) return;
+    if (!pool.length) { showToast(t('quizNoPhrases')); return; }
+    lz.pool = quizShuffle(pool);
+    lz.qs = lz.pool.slice(0, 8);
+    lz.idx = 0; lz.correct = 0; lz.wrong = 0;
+    lzLoadHero();
+    lzQuestion();
+  }
+  function lzQuestion() {
+    const body = document.getElementById('quiz-body');
+    if (!body || !document.getElementById('quiz-overlay')) return;
+    const p = lz.qs[lz.idx];
+    const others = lz.pool.filter(x => x !== p);
+    let opts = quizShuffle(others).slice(0, 3);
+    opts.push(p);
+    opts = quizShuffle(opts);
+    body.innerHTML = `<div class="lz-stage">
+      <div class="lz-hero ${lzHero.size}" id="lzHero">${lzHeroInner()}</div>
+      <button class="lz-loop" id="lzReplay" title="${t('listenReplay')}">🔊</button>
+      <div class="lz-opts">${opts.map(o => `<div class="lz-tile" data-ok="${o === p ? '1' : '0'}">${esc(o[lz.lang])}</div>`).join('')}</div>
+      <div class="lz-nav">
+        <button id="lzNextBtn">⏭ ${t('next')}</button>
+        <button id="lzAutoBtn" class="${lz.auto ? 'on' : ''}">🔁 ${t('autoNext')}</button>
+      </div>
+      <input type="file" id="lzImgInput" accept="image/*" style="display:none">
+    </div>`;
+    document.getElementById('quiz-progress').textContent = (lz.idx + 1) + '/' + lz.qs.length;
+    lzWireHeroTools();
+    const rp = document.getElementById('lzReplay');
+    rp.onclick = () => lzSpeak(p.fr, rp, 'fr');
+    body.querySelectorAll('.lz-tile').forEach(el => {
+      el.onclick = () => lzAnswer(el, p);
+    });
+    document.getElementById('lzNextBtn').onclick = lzNext;
+    document.getElementById('lzAutoBtn').onclick = function () {
+      lz.auto = !lz.auto;
+      this.classList.toggle('on', lz.auto);
+      if (lz.auto && lz.answered) lzNext();
+    };
+    setTimeout(() => { if (document.getElementById('quiz-overlay')) lzSpeak(p.fr, rp, 'fr'); }, 250);
+  }
+  function lzAnswer(el, p) {
+    if (el.dataset.done) return;
+    const body = document.getElementById('quiz-body');
+    body.querySelectorAll('.lz-tile').forEach(x => { x.dataset.done = '1'; });
+    const ok = el.dataset.ok === '1';
+    if (ok) { quizTone(true); el.classList.add('ok'); lz.correct++; }
+    else {
+      quizTone(false); lz.wrong++;
+      el.classList.add('bad');
+      body.querySelectorAll('.lz-tile[data-ok="1"]').forEach(x => x.classList.add('ok'));
+    }
+    lzStopSpeak();
+    const hero = document.getElementById('lzHero');
+    if (hero) {
+      hero.className = 'lz-hero v';
+      hero.innerHTML = `<div class="lz-verdict ${ok ? 'ok' : 'bad'}">
+        <div class="lz-face">${ok ? '😄' : '😢'}</div>
+        <div class="lz-v-fr">${esc(stripSpeechFlags(p.fr || ''))}</div>
+        ${stripSpeechFlags(p.ar || '') ? `<div class="lz-v-tr" dir="rtl">${esc(stripSpeechFlags(p.ar))}</div>` : ''}
+        ${stripSpeechFlags(p.en || '') ? `<div class="lz-v-tr">${esc(stripSpeechFlags(p.en))}</div>` : ''}
+      </div>`;
+    }
+    lz.answered = true;
+    clearTimeout(lz.timer);
+    if (lz.auto) lz.timer = setTimeout(lzNext, 5000);
+  }
+  function lzNext() {
+    if (!document.getElementById('quiz-overlay')) return;
+    clearTimeout(lz.timer);
+    lz.answered = false;
+    lzStopSpeak();
+    lz.idx++;
+    if (lz.idx >= lz.qs.length) { lzFinish(); return; }
+    lzQuestion();
+  }
+  function lzFinish() {
+    const total = lz.correct + lz.wrong;
+    const pct = total ? Math.round(lz.correct / total * 100) : 100;
+    const color = pct >= 70 ? '#1f9d55' : pct >= 40 ? '#f59e0b' : '#e0245e';
+    const body = document.getElementById('quiz-body');
+    if (!body) return;
+    body.innerHTML = `<div class="quiz-end">
+      <div class="quiz-pct" style="color:${color}">${pct}%</div>
+      <div style="font-size:1.25rem;margin:0.7rem 0 1.4rem">✅ ${lz.correct} &nbsp; ❌ ${lz.wrong}</div>
+      <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap">
+        <button class="btn" id="lz-again">🔁 ${t('quizReplay')}</button>
+        <button class="btn ghost" id="lz-exit">✕ ${t('quizExit')}</button>
+      </div>
+    </div>`;
+    document.getElementById('quiz-progress').textContent = t('quizScore') + ': ' + pct + '%';
+    document.getElementById('lz-again').onclick = () => openListen(lz.lesson);
+    document.getElementById('lz-exit').onclick = closeQuiz;
+  }
+
+  function resizeImageToDataUrl(file, maxDim, quality, cb) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        const s = Math.min(1, maxDim / Math.max(img.width || 1, img.height || 1));
+        const c = document.createElement('canvas');
+        c.width = Math.max(1, Math.round(img.width * s));
+        c.height = Math.max(1, Math.round(img.height * s));
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        cb(c.toDataURL('image/jpeg', quality));
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
   }
 
   async function playLesson(lesson) {
