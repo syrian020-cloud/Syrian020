@@ -746,7 +746,11 @@ function parseCues(raw){
   let cur=null;
   const push=()=>{if(cur){if(cur.lines.length)cues.push(cur);cur=null;}};
   const addText=(cue,txt)=>{
-    const parts=txt.split('|').map(s=>s.trim()).filter(Boolean);
+    const parts=[];
+    txt.split('|').map(s=>s.trim()).filter(Boolean).forEach(p=>{
+      // a segment may hold several languages separated by flag emojis -> split at each flag
+      p.split(/(?=\p{Regional_Indicator}{2})/u).forEach(s=>{s=s.trim();if(s)parts.push(s);});
+    });
     parts.forEach((p,idx)=>{
       const cl=cueLine(p);if(!cl)return;
       if(cl.guessed&&parts.length>1){
