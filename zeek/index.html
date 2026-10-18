@@ -490,6 +490,10 @@
   .lz-verdict.ok .lz-v-fr { color: #16a34a; }
   .lz-verdict.bad .lz-v-fr { color: #ef4444; }
   .lz-verdict .lz-v-tr { font-size: 0.9rem; font-weight: 700; color: var(--text-secondary); }
+  .lz-v-line { display: flex; align-items: center; justify-content: center; gap: 0.4rem; max-width: 100%; }
+  .lz-v-loop { flex: none; width: 30px; height: 30px; border-radius: 50%; border: none; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; box-shadow: 0 2px 8px rgba(124,58,237,0.35); transition: transform 0.15s; }
+  .lz-v-loop:hover { transform: scale(1.1); }
+  .lz-v-loop.looping { animation: lzPulse 1s infinite; }
   .quiz-lang-btns { display: flex; flex-direction: column; gap: 0.9rem; max-width: 340px; margin: auto; width: 100%; }
   .quiz-lang-btns .btn { width: 100%; height: 3.2rem; font-size: 1.1rem; }
   .quiz-end { margin: auto; text-align: center; }
@@ -4398,7 +4402,7 @@
   function lzStopSpeak() {
     lz.speakRun++;
     anyStop();
-    document.querySelectorAll('.lz-loop.looping').forEach(b => b.classList.remove('looping'));
+    document.querySelectorAll('.lz-loop.looping, .lz-v-loop.looping').forEach(b => b.classList.remove('looping'));
   }
   function lzSpeak(text, el, lang) {
     if (el.classList.contains('looping')) { lzStopSpeak(); return; }
@@ -4506,10 +4510,15 @@
       hero.className = 'lz-hero v';
       hero.innerHTML = `<div class="lz-verdict ${ok ? 'ok' : 'bad'}">
         <div class="lz-face">${ok ? '😄' : '😢'}</div>
-        <div class="lz-v-fr">${esc(stripSpeechFlags(p.fr || ''))}</div>
-        ${stripSpeechFlags(p.ar || '') ? `<div class="lz-v-tr" dir="rtl">${esc(stripSpeechFlags(p.ar))}</div>` : ''}
-        ${stripSpeechFlags(p.en || '') ? `<div class="lz-v-tr">${esc(stripSpeechFlags(p.en))}</div>` : ''}
+        <div class="lz-v-line"><span class="lz-v-fr">${esc(stripSpeechFlags(p.fr || ''))}</span><button class="lz-v-loop" data-lang="fr" title="🔁">🔁</button></div>
+        ${stripSpeechFlags(p.ar || '') ? `<div class="lz-v-line"><span class="lz-v-tr" dir="rtl">${esc(stripSpeechFlags(p.ar))}</span><button class="lz-v-loop" data-lang="ar" title="🔁">🔁</button></div>` : ''}
+        ${stripSpeechFlags(p.en || '') ? `<div class="lz-v-line"><span class="lz-v-tr">${esc(stripSpeechFlags(p.en))}</span><button class="lz-v-loop" data-lang="en" title="🔁">🔁</button></div>` : ''}
       </div>`;
+      hero.querySelectorAll('.lz-v-loop').forEach(b => {
+        b.onclick = () => lzSpeak(p[b.dataset.lang], b, b.dataset.lang);
+      });
+      const frLoopBtn = hero.querySelector('.lz-v-loop[data-lang="fr"]');
+      if (frLoopBtn) lzSpeak(p.fr, frLoopBtn, 'fr');
     }
     lz.answered = true;
     clearTimeout(lz.timer);
