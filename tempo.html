@@ -867,14 +867,29 @@ function toggleCueLoop(btn,text,lg){
   again();
 }
 function toggleAudioLoop(btn,i){
-  const audio=detailAudio();
-  if(!audio){toast(t('noAudio'));return;}
   const cues=cuesCache[detailId]||[];
+  const c=cues[i];if(!c)return;
+  const audio=detailAudio();
+  if(!(audio&&c.start!=null)){toggleCueLoopAll(btn,i);return;}
   if(cueLoopIdx===i){cueLoopIdx=-1;btn.classList.remove('on');audio.pause();return;}
   ttsStop();
   document.querySelectorAll('#cues .aloop').forEach(b=>b.classList.remove('on'));
   cueLoopIdx=i;btn.classList.add('on');
-  if(cues[i].start!=null)audio.currentTime=cues[i].start;audio.play().catch(()=>{});
+  audio.currentTime=c.start;audio.play().catch(()=>{});
+}
+function toggleCueLoopAll(btn,i){
+  const cues=cuesCache[detailId]||[];
+  const c=cues[i];if(!c||!c.lines.length)return;
+  if(loopBtn===btn){ttsStop();return;}
+  ttsStop();
+  loopBtn=btn;btn.classList.add('on');
+  const run=ttsRun;let li=0;
+  const step=()=>{
+    if(run!==ttsRun||loopBtn!==btn)return;
+    const ln=c.lines[li];li=(li+1)%c.lines.length;
+    ttsSpeak(ln.text,ln.lang||guessLang(ln.text),step);
+  };
+  step();
 }
 
 
@@ -1211,7 +1226,7 @@ async function renderDetail(){
               <span class="tx" dir="auto">${LANG_FLAGS[ln.lang]?`<span class="lgb">${LANG_FLAGS[ln.lang]}</span>`:''}${wrapWords(ln.text,ln.lang)}</span>
               <span class="lacts"><button class="ib spk" data-spk="${i}:${j}" title="🔁">🔊</button><button class="ib ai" data-ai="${i}:${j}" title="${esc(t('aiTitle'))}">✦</button></span></div>`).join('')}</div>
             <div class="cueacts">${c.start!=null?`<span class="tm">${fmtT(c.start)}</span>`:''}
-              <button class="ib aloop${hasAudio&&c.start!=null?'':' dis'}" data-aloop="${i}" title="${esc(t('loopSeg'))}">🔁</button></div>
+              <button class="ib aloop" data-aloop="${i}" title="${esc(t('loopSeg'))}">🔁</button></div>
           </div>`;
           if(!anyTitled)return cues.map(cueHtml).join('');
           return secs.map((s,si)=>{
