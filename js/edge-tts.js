@@ -29,29 +29,64 @@
     fr: [
       'fr-FR-DeniseNeural', 'fr-FR-EloiseNeural', 'fr-FR-VivienneMultilingualNeural',
       'fr-FR-HenriNeural', 'fr-FR-RemyMultilingualNeural',
-      'fr-CA-SylvieNeural', 'fr-CA-JeanNeural'
+      'fr-FR-CelesteMultilingualNeural', 'fr-FR-ClaudeMultilingualNeural',
+      'fr-FR-CoralieNeural', 'fr-FR-JacquelineNeural', 'fr-FR-JosephineNeural',
+      'fr-FR-MauriceNeural', 'fr-FR-YvesNeural', 'fr-FR-YvetteNeural',
+      'fr-CA-SylvieNeural', 'fr-CA-JeanNeural',
+      'fr-BE-CharlineNeural', 'fr-BE-GerardNeural',
+      'fr-CH-ArianeNeural', 'fr-CH-FabriceNeural'
     ],
     ar: [
       'ar-SY-AmanyNeural', 'ar-SY-LaithNeural',
       'ar-EG-SalmaNeural', 'ar-EG-ShakirNeural',
-      'ar-SA-ZariyahNeural', 'ar-SA-HamedNeural'
+      'ar-SA-ZariyahNeural', 'ar-SA-HamedNeural',
+      'ar-DZ-AminaNeural', 'ar-DZ-IsmaelNeural',
+      'ar-MA-MounaNeural', 'ar-MA-JamalNeural',
+      'ar-TN-HediNeural', 'ar-TN-ReemNeural',
+      'ar-JO-SanaNeural', 'ar-JO-TaimNeural',
+      'ar-LB-LaylaNeural', 'ar-LB-RamiNeural',
+      'ar-IQ-RanaNeural', 'ar-IQ-BasselNeural'
     ],
     en: [
       'en-US-JennyNeural', 'en-US-AriaNeural', 'en-US-GuyNeural',
-      'en-GB-SoniaNeural', 'en-GB-RyanNeural', 'en-AU-NatashaNeural'
+      'en-US-AvaNeural', 'en-US-EmmaNeural', 'en-US-ChristopherNeural',
+      'en-US-AndrewMultilingualNeural', 'en-US-BrianNeural', 'en-US-MichelleNeural',
+      'en-GB-SoniaNeural', 'en-GB-RyanNeural',
+      'en-GB-LibbyNeural', 'en-GB-MaisieNeural', 'en-GB-ThomasNeural',
+      'en-AU-NatashaNeural', 'en-AU-WilliamNeural',
+      'en-CA-ClaraNeural', 'en-CA-LiamNeural'
     ]
   };
   var VOICE_LABEL = {
     'fr-FR-DeniseNeural': 'Denise 🇫🇷', 'fr-FR-EloiseNeural': 'Eloise 🇫🇷',
     'fr-FR-VivienneMultilingualNeural': 'Vivienne 🇫🇷', 'fr-FR-HenriNeural': 'Henri 🇫🇷',
-    'fr-FR-RemyMultilingualNeural': 'Rémy 🇫🇷', 'fr-CA-SylvieNeural': 'Sylvie 🇨🇦',
-    'fr-CA-JeanNeural': 'Jean 🇨🇦',
+    'fr-FR-RemyMultilingualNeural': 'Rémy 🇫🇷',
+    'fr-FR-CelesteMultilingualNeural': 'Céleste 🇫🇷', 'fr-FR-ClaudeMultilingualNeural': 'Claude 🇫🇷',
+    'fr-FR-CoralieNeural': 'Coralie 🇫🇷', 'fr-FR-JacquelineNeural': 'Jacqueline 🇫🇷',
+    'fr-FR-JosephineNeural': 'Joséphine 🇫🇷', 'fr-FR-MauriceNeural': 'Maurice 🇫🇷',
+    'fr-FR-YvesNeural': 'Yves 🇫🇷', 'fr-FR-YvetteNeural': 'Yvette 🇫🇷',
+    'fr-CA-SylvieNeural': 'Sylvie 🇨🇦', 'fr-CA-JeanNeural': 'Jean 🇨🇦',
+    'fr-BE-CharlineNeural': 'Charline 🇧🇪', 'fr-BE-GerardNeural': 'Gérard 🇧🇪',
+    'fr-CH-ArianeNeural': 'Ariane 🇨🇭', 'fr-CH-FabriceNeural': 'Fabrice 🇨🇭',
     'ar-SY-AmanyNeural': 'أماني 🇸🇾', 'ar-SY-LaithNeural': 'ليث 🇸🇾',
     'ar-EG-SalmaNeural': 'سلمى 🇪🇬', 'ar-EG-ShakirNeural': 'شاكر 🇪🇬',
     'ar-SA-ZariyahNeural': 'زارية 🇸🇦', 'ar-SA-HamedNeural': 'حامد 🇸🇦',
+    'ar-DZ-AminaNeural': 'أمينة 🇩🇿', 'ar-DZ-IsmaelNeural': 'إسماعيل 🇩🇿',
+    'ar-MA-MounaNeural': 'منى 🇲🇦', 'ar-MA-JamalNeural': 'جمال 🇲🇦',
+    'ar-TN-HediNeural': 'هادي 🇹🇳', 'ar-TN-ReemNeural': 'ريم 🇹🇳',
+    'ar-JO-SanaNeural': 'سناء 🇯🇴', 'ar-JO-TaimNeural': 'تيم 🇯🇴',
+    'ar-LB-LaylaNeural': 'ليلى 🇱🇧', 'ar-LB-RamiNeural': 'رامي 🇱🇧',
+    'ar-IQ-RanaNeural': 'رنا 🇮🇶', 'ar-IQ-BasselNeural': 'باسل 🇮🇶',
     'en-US-JennyNeural': 'Jenny 🇺🇸', 'en-US-AriaNeural': 'Aria 🇺🇸',
-    'en-US-GuyNeural': 'Guy 🇺🇸', 'en-GB-SoniaNeural': 'Sonia 🇬🇧',
-    'en-GB-RyanNeural': 'Ryan 🇬🇧', 'en-AU-NatashaNeural': 'Natasha 🇦🇺'
+    'en-US-GuyNeural': 'Guy 🇺🇸', 'en-US-AvaNeural': 'Ava 🇺🇸',
+    'en-US-EmmaNeural': 'Emma 🇺🇸', 'en-US-ChristopherNeural': 'Christopher 🇺🇸',
+    'en-US-AndrewMultilingualNeural': 'Andrew 🇺🇸', 'en-US-BrianNeural': 'Brian 🇺🇸',
+    'en-US-MichelleNeural': 'Michelle 🇺🇸',
+    'en-GB-SoniaNeural': 'Sonia 🇬🇧', 'en-GB-RyanNeural': 'Ryan 🇬🇧',
+    'en-GB-LibbyNeural': 'Libby 🇬🇧', 'en-GB-MaisieNeural': 'Maisie 🇬🇧',
+    'en-GB-ThomasNeural': 'Thomas 🇬🇧',
+    'en-AU-NatashaNeural': 'Natasha 🇦🇺', 'en-AU-WilliamNeural': 'William 🇦🇺',
+    'en-CA-ClaraNeural': 'Clara 🇨🇦', 'en-CA-LiamNeural': 'Liam 🇨🇦'
   };
   var SAMPLE = {
     fr: 'Bonjour, comment allez-vous ?',
@@ -87,12 +122,23 @@
   api.voiceOf = voiceOf;
   api.rateOf = rateOf;
 
+  /* global speed multiplier set by the app's quick-speed pills (gv_speed):
+   * adds (mult-1)*100 to the per-language rate, clamped to the plugin range. */
+  function effRate(lang) {
+    var v = rateNum(lang);
+    var m = parseFloat(ls('gv_speed') || '1');
+    if (!isNaN(m) && m !== 1) v = Math.round(v + (m - 1) * 100);
+    v = Math.max(-90, Math.min(100, v));
+    return (v >= 0 ? '+' : '') + v + '%';
+  }
+
   function enabled() {
     try { return localStorage.getItem('edge_tts') !== '0'; } catch (e) { return true; }
   }
   function setEnabled(v) {
     try { localStorage.setItem('edge_tts', v ? '1' : '0'); } catch (e) {}
     if (v) api.down = false;
+    try { document.dispatchEvent(new CustomEvent('etts-change')); } catch (e) {}
   }
   function plugin() {
     return (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.EdgeTTS) || null;
@@ -118,8 +164,9 @@
   function fetchAudio(text, lang) {
     var p = plugin();
     if (p) {
-      return p.speak({ text: text, voice: voiceOf(lang), rate: rateOf(lang) })
-        .then(function (r) { return { url: fileUrl(r.path) }; });
+      return p.speak({ text: text, voice: voiceOf(lang), rate: effRate(lang) })
+        .then(function (r) { return { url: fileUrl(r.path) }; })
+        .catch(function () { return { url: rvUrl(text, lang) }; }); // plugin failed → internet MP3
     }
     return Promise.resolve({ url: rvUrl(text, lang) });
   }
@@ -131,7 +178,7 @@
 
   function audio(text, lang) {
     lang = lang || 'fr';
-    var key = lang + '|' + voiceOf(lang) + '|' + rateOf(lang) + '|' + text;
+    var key = lang + '|' + voiceOf(lang) + '|' + effRate(lang) + '|' + text;
     var hit = cache[key];
     if (hit) { touch(key); return Promise.resolve(hit); }
     if (pending[key]) return pending[key];
@@ -193,6 +240,7 @@
     ar: {
       title: 'إعدادات النطق',
       voice: 'الصوت', speed: 'السرعة', preview: 'تجربة',
+      srcEdge: '🌐 صوت الإنترنت (Edge TTS)', srcDevice: '📱 صوت الجهاز',
       reset: 'استعادة الافتراضي', close: 'إغلاق',
       langs: { fr: '🇫🇷 الفرنسية', ar: '🇸🇾 العربية', en: '🇺🇸 الإنكليزية' },
       note: 'الصوت الطبيعي يحتاج إنترنت — بدون إنترنت يُستخدم صوت الجهاز.'
@@ -200,6 +248,7 @@
     en: {
       title: 'Speech settings',
       voice: 'Voice', speed: 'Speed', preview: 'Preview',
+      srcEdge: '🌐 Internet voice (Edge TTS)', srcDevice: '📱 Device voice',
       reset: 'Reset to defaults', close: 'Close',
       langs: { fr: '🇫🇷 French', ar: '🇸🇾 Arabic', en: '🇺🇸 English' },
       note: 'The neural voice needs internet — offline, the device voice is used.'
@@ -207,6 +256,7 @@
     fr: {
       title: 'Réglages de la voix',
       voice: 'Voix', speed: 'Vitesse', preview: 'Écouter',
+      srcEdge: '🌐 Voix internet (Edge TTS)', srcDevice: '📱 Voix de l\'appareil',
       reset: 'Valeurs par défaut', close: 'Fermer',
       langs: { fr: '🇫🇷 Français', ar: '🇸🇾 Arabe', en: '🇺🇸 Anglais' },
       note: 'La voix neurale nécessite internet — hors ligne, la voix de l\'appareil est utilisée.'
@@ -249,7 +299,11 @@
       '.etts-pv:disabled{opacity:.5}',
       '.etts-note{font-size:.72rem;color:#9aa3c7;text-align:center;margin:.3rem 0 .8rem}',
       '.etts-foot{display:flex;gap:.6rem}',
-      '.etts-btn{flex:1;border:1px solid rgba(139,92,246,.3);background:rgba(139,92,246,.12);color:#e8eaf6;border-radius:12px;padding:.6rem;font-size:.88rem;font-weight:700;cursor:pointer;font-family:inherit}'
+      '.etts-btn{flex:1;border:1px solid rgba(139,92,246,.3);background:rgba(139,92,246,.12);color:#e8eaf6;border-radius:12px;padding:.6rem;font-size:.88rem;font-weight:700;cursor:pointer;font-family:inherit}',
+      '.etts-src{display:flex;gap:.55rem;margin-bottom:.8rem}',
+      '.etts-src button{flex:1;border-radius:12px;padding:.55rem .4rem;border:1px solid rgba(139,92,246,.3);background:rgba(139,92,246,.08);color:#c4b5fd;font-weight:800;font-size:.82rem;cursor:pointer;font-family:inherit}',
+      '.etts-src button.on{background:linear-gradient(135deg,#8b5cf6,#6366f1);color:#fff;border-color:transparent;box-shadow:0 4px 16px rgba(139,92,246,.4)}',
+      '.etts-dim{opacity:.45;pointer-events:none}'
     ].join('\n');
 
     var ov = h('div', { 'class': 'etts-ov' });
@@ -262,6 +316,21 @@
     card.appendChild(h('div', { 'class': 'etts-h' }, [
       h('b', { text: T.title }), closeBtn
     ]));
+
+    var langRows = h('div', {});
+    var edgeB = h('button', { text: T.srcEdge });
+    var devB = h('button', { text: T.srcDevice });
+    function paintSrc() {
+      var on = enabled();
+      try { document.dispatchEvent(new CustomEvent('etts-change')); } catch (e) {}
+      edgeB.className = on ? 'on' : '';
+      devB.className = on ? '' : 'on';
+      langRows.className = on ? '' : 'etts-dim';
+    }
+    edgeB.onclick = function () { api.setEnabled(true); paintSrc(); };
+    devB.onclick = function () { api.setEnabled(false); paintSrc(); };
+    card.appendChild(h('div', { 'class': 'etts-src' }, [edgeB, devB]));
+    card.appendChild(langRows);
 
     ['fr', 'ar', 'en'].forEach(function (lang) {
       var row = h('div', { 'class': 'etts-row' });
@@ -291,8 +360,9 @@
       };
       row.appendChild(h('div', {}, [h('span', { 'class': 'etts-mini', text: T.speed }), rng, val, pv]));
 
-      card.appendChild(row);
+      langRows.appendChild(row);
     });
+    paintSrc();
 
     card.appendChild(h('div', { 'class': 'etts-note', text: T.note }));
 
