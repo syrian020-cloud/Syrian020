@@ -33,6 +33,17 @@ restore_config() {
 }
 trap 'restore_config' EXIT
 
+# Ensure the Android project matches the desired Capacitor appId (it may be left over from another build)
+DESIRED_APP_ID=$(node -p "JSON.parse(require('fs').readFileSync('$ROOT/capacitor.config.json')).appId")
+CURRENT_APP_ID=""
+if [ -f "$ROOT/android/app/build.gradle" ]; then
+  CURRENT_APP_ID=$(sed -n 's/.*applicationId "\([^"]*\)".*/\1/p' "$ROOT/android/app/build.gradle" | head -1 || true)
+fi
+if [ -n "$DESIRED_APP_ID" ] && [ "$CURRENT_APP_ID" != "$DESIRED_APP_ID" ]; then
+  echo "Android applicationId mismatch ('$CURRENT_APP_ID' != '$DESIRED_APP_ID'); recreating android project..."
+  rm -rf android
+fi
+
 if [ ! -d android ]; then
   npx cap add android
 fi
