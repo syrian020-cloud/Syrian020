@@ -23,23 +23,40 @@
   html, body { margin: 0; padding: 0; background: var(--bg); color: var(--txt);
     font-family: 'Segoe UI', Tahoma, Arial, sans-serif; overflow-x: clip; }
   body { min-height: 100vh; padding-bottom: 3rem; }
+  body::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(620px 300px at 85% -4%, rgba(139,92,246,.18), transparent 62%),
+      radial-gradient(480px 260px at -8% 32%, rgba(99,102,241,.10), transparent 62%); }
+  body.light::before { background:
+    radial-gradient(620px 300px at 85% -4%, rgba(99,102,241,.10), transparent 62%),
+    radial-gradient(480px 260px at -8% 32%, rgba(139,92,246,.07), transparent 62%); }
 
   /* ---------- header ---------- */
-  header { position: sticky; top: 0; z-index: 100; background: var(--bg);
-    border-bottom: 1px solid var(--line); padding: .55rem .8rem; }
+  header { position: sticky; top: 0; z-index: 100; background: rgba(7,11,24,.72);
+    backdrop-filter: blur(16px) saturate(1.35); -webkit-backdrop-filter: blur(16px) saturate(1.35);
+    border-bottom: 1px solid var(--line); padding: .6rem .9rem; }
+  body.light header { background: rgba(242,244,251,.78); }
   .topbar { display: flex; align-items: center; gap: .5rem; max-width: 860px; margin: 0 auto;
     flex-wrap: wrap; }
-  .logo { display: flex; align-items: center; gap: .45rem; font-weight: 900; font-size: 1.05rem;
-    flex: none; min-width: 0; }
-  .logo span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .logo img { width: 30px; height: 30px; border-radius: 8px; flex: none; }
+  .logo { display: flex; align-items: center; gap: .5rem; font-weight: 900; font-size: 1.1rem;
+    flex: none; min-width: 0; letter-spacing: .2px; }
+  .logo span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    background: linear-gradient(90deg, #c4b5fd, #818cf8); -webkit-background-clip: text;
+    background-clip: text; -webkit-text-fill-color: transparent; }
+  body.light .logo span { background: linear-gradient(90deg, #4f46e5, #7c3aed);
+    -webkit-background-clip: text; background-clip: text; }
+  .logo img { width: 32px; height: 32px; border-radius: 10px; flex: none;
+    box-shadow: 0 4px 12px rgba(99,102,241,.35); }
   .searchbox { flex: 1; display: flex; align-items: center; gap: .4rem;
-    background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: .35rem .6rem; }
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: .42rem .7rem; transition: border-color .15s ease, box-shadow .15s ease; }
+  .searchbox:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(139,92,246,.15); }
   .searchbox input { flex: 1; background: none; border: none; outline: none;
     color: var(--txt); font-size: .9rem; font-family: inherit; min-width: 0; }
   .iconbtn { background: var(--card); border: 1px solid var(--line); color: var(--txt);
-    border-radius: 10px; padding: .35rem .6rem; font-size: 1rem; cursor: pointer; flex: none;
-    font-family: inherit; }
+    border-radius: 12px; padding: .4rem .65rem; font-size: 1rem; cursor: pointer; flex: none;
+    font-family: inherit; transition: transform .12s ease; }
+  .iconbtn:active { transform: scale(.92); }
   .iconbtn.on { border-color: var(--gold); color: var(--gold); }
   @media (max-width: 619px) {
     .logo { flex: 1; }
@@ -49,18 +66,22 @@
   main { max-width: 860px; margin: 0 auto; padding: .8rem; }
 
   /* ---------- sites grid ---------- */
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(110px, 100%), 1fr)); gap: .6rem; }
-  .site { background: var(--card); border: 1px solid var(--line); border-radius: 16px;
-    padding: .8rem .5rem .6rem; cursor: pointer; display: flex; flex-direction: column;
-    align-items: center; gap: .45rem; min-width: 0; position: relative;
-    transition: transform .12s ease, border-color .12s ease; }
-  .site:active { transform: scale(.96); }
-  .site-icon { width: 52px; height: 52px; border-radius: 14px; flex: none; display: flex;
-    align-items: center; justify-content: center; font-weight: 900; font-size: 1.4rem;
-    color: #fff; overflow: hidden; background: linear-gradient(135deg, #4338ca, #7c3aed); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(112px, 100%), 1fr)); gap: .7rem; }
+  .site { background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+    padding: .95rem .55rem .75rem; cursor: pointer; display: flex; flex-direction: column;
+    align-items: center; gap: .5rem; min-width: 0; position: relative;
+    box-shadow: 0 4px 14px rgba(3,6,18,.22);
+    transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease; }
+  body.light .site { box-shadow: 0 4px 14px rgba(90,99,144,.10); }
+  .site:active { transform: scale(.95) translateY(1px); border-color: var(--accent);
+    box-shadow: 0 6px 18px rgba(124,58,237,.25); }
+  .site-icon { width: 56px; height: 56px; border-radius: 18px; flex: none; display: flex;
+    align-items: center; justify-content: center; font-weight: 900; font-size: 1.45rem;
+    color: #fff; overflow: hidden; background: linear-gradient(135deg, #4338ca, #7c3aed);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.14), 0 5px 12px rgba(67,56,202,.4); }
   .site-icon img { width: 100%; height: 100%; object-fit: cover; background: #fff; }
   .site-name { font-weight: 800; font-size: .82rem; line-height: 1.25; text-align: center;
-    max-width: 100%; overflow-wrap: anywhere; }
+    max-width: 100%; overflow-wrap: anywhere; letter-spacing: .15px; }
   .site-dots { position: absolute; top: .3rem; inset-inline-end: .3rem; background: none;
     border: none; color: var(--dim); font-size: 1.05rem; cursor: pointer; padding: .1rem .3rem;
     font-family: inherit; }
@@ -73,15 +94,14 @@
     color: var(--gold); }
 
   .add-card { border: 1.5px dashed var(--line); background: transparent; color: var(--dim);
-    font-size: 1.6rem; }
+    font-size: 1.8rem; border-radius: 20px; }
   .add-card:active { border-color: var(--accent); color: var(--accent); }
-
-  .hint { font-size: .72rem; color: var(--dim); text-align: center; margin: .9rem 0 .4rem; line-height: 1.6; }
 
   /* ---------- toast ---------- */
   #toast { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
     background: #1a1f3d; border: 1px solid var(--line); color: #e8eaf6;
-    border-radius: 12px; padding: .55rem 1rem; font-size: .82rem; z-index: 5000;
+    border-radius: 14px; padding: .55rem 1rem; font-size: .82rem; z-index: 5000;
+    box-shadow: 0 8px 24px rgba(0,0,0,.4);
     opacity: 0; pointer-events: none; transition: opacity .25s; max-width: 90vw; text-align: center; }
   #toast.show { opacity: 1; }
 
@@ -89,48 +109,79 @@
   .overlay { position: fixed; inset: 0; background: rgba(3,6,18,.66); backdrop-filter: blur(4px);
     z-index: 4000; display: flex; align-items: flex-end; justify-content: center; }
   .sheet { width: 100%; max-width: 480px; background: var(--card2);
-    border: 1px solid var(--line); border-bottom: none; border-radius: 20px 20px 0 0;
-    padding: 1rem 1.1rem 1.5rem; max-height: 85vh; overflow-y: auto; }
+    border: 1px solid var(--line); border-bottom: none; border-radius: 26px 26px 0 0;
+    padding: .8rem 1.2rem 1.6rem; max-height: 85vh; overflow-y: auto;
+    box-shadow: 0 -14px 44px rgba(0,0,0,.45); }
+  .sheet::before { content: ''; display: block; width: 42px; height: 4px; border-radius: 4px;
+    background: var(--line); margin: 0 auto .8rem; }
   .sheet h3 { margin: 0 0 .8rem; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; }
   .sheet h3 button { background: none; border: none; color: var(--dim); font-size: 1.2rem; cursor: pointer; }
 
   .flabel { font-size: .72rem; color: var(--dim); margin: .55rem 0 .25rem; }
   .frow { display: flex; gap: .4rem; align-items: center; }
   .field { flex: 1; display: flex; align-items: center; gap: .4rem; min-width: 0;
-    background: var(--field); border: 1px solid var(--line); border-radius: 12px; padding: .5rem .6rem; }
+    background: var(--field); border: 1px solid var(--line); border-radius: 14px;
+    padding: .55rem .7rem; transition: border-color .15s ease, box-shadow .15s ease; }
+  .field:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(139,92,246,.14); }
   .field input { flex: 1; background: none; border: none; outline: none; color: var(--txt);
     font-size: .88rem; font-family: inherit; min-width: 0; }
   .field input[readonly] { color: var(--dim); }
   .field input[type=password] { letter-spacing: .1em; }
   .mini { flex: none; background: var(--card); border: 1px solid var(--line); color: var(--txt);
-    border-radius: 9px; padding: .3rem .55rem; font-size: .75rem; cursor: pointer; font-family: inherit; }
+    border-radius: 10px; padding: .35rem .6rem; font-size: .75rem; cursor: pointer; font-family: inherit; }
   .mini:active { background: var(--accent); color: #fff; }
 
   .actions { display: flex; gap: .5rem; margin-top: .9rem; }
-  .btn { flex: 1; border: 1px solid var(--line); border-radius: 12px; padding: .65rem;
-    font-size: .9rem; cursor: pointer; font-family: inherit; background: var(--card); color: var(--txt); }
+  .btn { flex: 1; border: 1px solid var(--line); border-radius: 14px; padding: .7rem;
+    font-size: .9rem; cursor: pointer; font-family: inherit; background: var(--card); color: var(--txt);
+    transition: transform .12s ease; }
+  .btn:active { transform: scale(.97); }
   .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none;
-    color: #fff; font-weight: 700; }
+    color: #fff; font-weight: 700; box-shadow: 0 6px 18px rgba(99,102,241,.35); }
   .btn.danger { color: var(--danger); border-color: rgba(248,113,113,.4); }
 
   .mrow { display: flex; align-items: center; gap: .7rem; width: 100%; background: rgba(139,92,246,.07);
-    border: 1px solid var(--line); border-radius: 14px; padding: .75rem .9rem; margin-bottom: .55rem;
+    border: 1px solid var(--line); border-radius: 16px; padding: .8rem 1rem; margin-bottom: .55rem;
     color: var(--txt); font-size: .9rem; cursor: pointer; font-family: inherit; text-align: start; }
   body.light .mrow { background: rgba(99,102,241,.06); }
   .mrow:active { background: rgba(139,92,246,.16); }
   .mrow .mi { font-size: 1.1rem; width: 1.6rem; text-align: center; flex: none; }
   .langs { display: flex; gap: .5rem; margin-bottom: .7rem; }
   .langb { flex: 1; background: var(--card); border: 1px solid var(--line); color: var(--txt);
-    border-radius: 12px; padding: .55rem; font-size: .85rem; cursor: pointer; font-family: inherit; }
+    border-radius: 14px; padding: .6rem; font-size: .85rem; cursor: pointer; font-family: inherit; }
   .langb.on { background: linear-gradient(135deg, var(--accent), var(--accent2)); border-color: transparent; font-weight: 700; }
 
   .dlg { width: 100%; max-width: 340px; background: var(--card2); border: 1px solid var(--line);
-    border-radius: 18px; padding: 1.2rem; text-align: center; margin: auto 1rem; }
+    border-radius: 22px; padding: 1.3rem; text-align: center; margin: auto 1rem; }
   .dlg p { font-size: .95rem; margin: 0 0 1rem; }
   .dlg .row { display: flex; gap: .6rem; }
   .dlg button { flex: 1; border: 1px solid var(--line); border-radius: 12px; padding: .6rem;
     font-size: .9rem; cursor: pointer; font-family: inherit; background: var(--card); color: var(--txt); }
   .dlg button.yes { background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none; color: #fff; font-weight: 700; }
+
+  /* ---------- passcode lock ---------- */
+  #lock { position: fixed; inset: 0; z-index: 6000; display: flex; align-items: center;
+    justify-content: center; background: var(--bg);
+    background-image: radial-gradient(520px 330px at 50% 16%, rgba(139,92,246,.22), transparent 65%); }
+  body.light #lock { background-image: radial-gradient(520px 330px at 50% 16%, rgba(99,102,241,.14), transparent 65%); }
+  #lock .lk { width: min(320px, 86vw); text-align: center; }
+  #lock .lk-ico { width: 74px; height: 74px; margin: 0 auto .9rem; border-radius: 24px;
+    display: flex; align-items: center; justify-content: center; font-size: 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    box-shadow: 0 10px 30px rgba(124,58,237,.35); }
+  #lock h2 { margin: 0 0 .2rem; font-size: 1.05rem; }
+  #lock .sub { color: var(--dim); font-size: .78rem; margin-bottom: 1.1rem; }
+  #lock .pinrow { display: flex; gap: .5rem; }
+  #lock .pinrow input { flex: 1; min-width: 0; background: var(--field);
+    border: 1px solid var(--line); border-radius: 14px; padding: .8rem; color: var(--txt);
+    font-size: 1.25rem; text-align: center; letter-spacing: .55em; font-family: inherit;
+    outline: none; transition: border-color .15s ease; }
+  #lock .pinrow input:focus { border-color: var(--accent); }
+  #lock .pinrow button { flex: none; border: none; border-radius: 14px; padding: 0 1.15rem;
+    font-size: 1.15rem; color: #fff; cursor: pointer; font-family: inherit;
+    background: linear-gradient(135deg, var(--accent), var(--accent2)); }
+  #lock .pinrow button:active { transform: scale(.94); }
+  #lock .lmsg { min-height: 1.2rem; margin-top: .7rem; font-size: .8rem; color: var(--danger); }
 
   .hidden { display: none !important; }
 </style>
@@ -150,11 +201,23 @@
 
 <main>
   <div class="grid" id="grid"></div>
-  <div class="hint" id="gestureHint"></div>
 </main>
 
 <div id="toast"></div>
 <div id="overlayRoot"></div>
+
+<div id="lock" class="hidden">
+  <div class="lk">
+    <div class="lk-ico">🔐</div>
+    <h2 data-i="lockTitle">رمز الدخول</h2>
+    <div class="sub" data-i="lockSub"></div>
+    <div class="pinrow">
+      <input id="lockPin" type="password" inputmode="numeric" maxlength="4" autocomplete="off">
+      <button id="lockGo">✓</button>
+    </div>
+    <div class="lmsg" id="lockMsg"></div>
+  </div>
+</div>
 
 <script src="./js/inappbrowser.js"></script>
 <script>
@@ -177,7 +240,11 @@ var I18N = {
     delTitle: 'حذف هذا الموقع؟', delYes: 'نعم، احذف',
     exported: 'تم تصدير البيانات', imported: 'تم استيراد البيانات', errUrl: 'أدخل الاسم ورابطاً أو عنواناً',
     userCopied: 'نُسخ اسم المستخدم', passCopied: 'نُسخت كلمة السر',
-    gesture: 'نقرة على الأيقونة = فتح الموقع · 🗺 = العنوان في خرائط Google · ⋮ = تعديل · ➕ = إضافة'
+    lockTitle: 'رمز الدخول', lockSub: 'أدخل 4 أرقام للمتابعة',
+    lockSet: 'تعيين رمز دخول (4 أرقام)', lockChange: 'تغيير رمز الدخول', lockDel: 'حذف رمز الدخول',
+    lockEnter: 'أدخل الرمز الحالي', lockNew: 'الرمز الجديد (4 أرقام)', lockConfirm: 'تأكيد الرمز',
+    lockWrong: 'الرمز غير صحيح', lockNoMatch: 'الرمزان غير متطابقين', lockNeedPin: 'الرمز يجب أن يكون 4 أرقام',
+    pinSaved: 'تم حفظ رمز الدخول', unlocked: 'تم حذف رمز الدخول'
   },
   fr: {
     appname: 'savePro', searchPh: 'Chercher un site…',
@@ -193,7 +260,11 @@ var I18N = {
     delTitle: 'Supprimer ce site ?', delYes: 'Oui, supprimer',
     exported: 'Données exportées', imported: 'Données importées', errUrl: 'Nom + URL ou adresse requis',
     userCopied: 'Identifiant copié', passCopied: 'Mot de passe copié',
-    gesture: 'Touchez l’icône = ouvrir le site · 🗺 = adresse dans Google Maps · ⋮ = modifier · ➕ = ajouter'
+    lockTitle: 'Code d’accès', lockSub: 'Entrez 4 chiffres pour continuer',
+    lockSet: 'Définir un code (4 chiffres)', lockChange: 'Changer le code', lockDel: 'Supprimer le code',
+    lockEnter: 'Code actuel', lockNew: 'Nouveau code (4 chiffres)', lockConfirm: 'Confirmer le code',
+    lockWrong: 'Code incorrect', lockNoMatch: 'Les codes ne correspondent pas', lockNeedPin: 'Le code doit avoir 4 chiffres',
+    pinSaved: 'Code enregistré', unlocked: 'Code supprimé'
   },
   en: {
     appname: 'savePro', searchPh: 'Search a site…',
@@ -209,7 +280,11 @@ var I18N = {
     delTitle: 'Delete this site?', delYes: 'Yes, delete',
     exported: 'Data exported', imported: 'Data imported', errUrl: 'Name + URL or address required',
     userCopied: 'Username copied', passCopied: 'Password copied',
-    gesture: 'Tap icon = open site · 🗺 = address in Google Maps · ⋮ = edit · ➕ = add a site'
+    lockTitle: 'Passcode', lockSub: 'Enter 4 digits to continue',
+    lockSet: 'Set passcode (4 digits)', lockChange: 'Change passcode', lockDel: 'Remove passcode',
+    lockEnter: 'Current passcode', lockNew: 'New passcode (4 digits)', lockConfirm: 'Confirm passcode',
+    lockWrong: 'Wrong passcode', lockNoMatch: 'Passcodes do not match', lockNeedPin: 'Passcode must be 4 digits',
+    pinSaved: 'Passcode saved', unlocked: 'Passcode removed'
   }
 };
 function T() { return I18N[uiLang()] || I18N.ar; }
@@ -229,7 +304,6 @@ function applyI18n() {
   document.querySelectorAll('[data-i-ph]').forEach(function (el) {
     var k = el.getAttribute('data-i-ph'); if (t[k]) el.placeholder = t[k];
   });
-  document.getElementById('gestureHint').textContent = '💡 ' + t.gesture;
   document.getElementById('themeBtn').textContent = isDark() ? '🌙' : '☀';
 }
 
@@ -421,6 +495,7 @@ function fieldRow(label, value, opts) {
   if (opts.type) inp.type = opts.type;
   if (opts.readonly) inp.readOnly = true;
   inp.autocapitalize = 'off'; inp.autocomplete = 'off'; inp.spellcheck = false;
+  if (opts.attrs) Object.keys(opts.attrs).forEach(function (k) { inp.setAttribute(k, opts.attrs[k]); });
   f.appendChild(inp);
   row.appendChild(f);
   (opts.buttons || []).forEach(function (b) {
@@ -532,8 +607,83 @@ function openMenu() {
     sh.appendChild(b);
   }
   row(isDark() ? '☀' : '🌙', isDark() ? t.themeLight : t.themeDark, function () { toggleTheme(); openMenu(); });
+  if (hasPin()) {
+    row('🔑', t.lockChange, function () { closeOv(); pinSetup(); });
+    row('🚫', t.lockDel, function () { closeOv(); pinRemove(); });
+  } else {
+    row('🔒', t.lockSet, function () { closeOv(); pinSetup(); });
+  }
   row('⬇', t.exportData, function () { closeOv(); exportData(); });
   row('⬆', t.importData, function () { closeOv(); importData(); });
+}
+
+/* ================= passcode ================= */
+function pinHash(p) {
+  var h = 5381, s = 'sp:' + p + ':v1';
+  for (var i = 0; i < s.length; i++) h = (((h << 5) + h) ^ s.charCodeAt(i)) >>> 0;
+  return 'h' + h.toString(36);
+}
+function hasPin() { return !!localStorage.getItem('savepro_pin'); }
+function showLock() {
+  if (!hasPin()) return;
+  document.getElementById('lock').classList.remove('hidden');
+  var inp = document.getElementById('lockPin');
+  inp.value = '';
+  document.getElementById('lockMsg').textContent = '';
+  setTimeout(function () { try { inp.focus(); } catch (e) {} }, 250);
+}
+function tryUnlock() {
+  var inp = document.getElementById('lockPin');
+  if (pinHash(inp.value) === localStorage.getItem('savepro_pin')) {
+    document.getElementById('lock').classList.add('hidden');
+  } else {
+    document.getElementById('lockMsg').textContent = T().lockWrong;
+    inp.value = ''; try { inp.focus(); } catch (e) {}
+  }
+}
+function pinField(label) {
+  return fieldRow(label, '', { ltr: true, type: 'password',
+    attrs: { inputmode: 'numeric', maxlength: '4', pattern: '[0-9]*' } });
+}
+function pinSheet(title, rows, btnTxt, fn) {
+  var sh = sheet();
+  var h = el('h3');
+  h.appendChild(el('span', null, title));
+  var x = el('button', null, '✕'); x.onclick = closeOv; h.appendChild(x);
+  sh.appendChild(h);
+  rows.forEach(function (r) { sh.appendChild(r); });
+  var act = el('div', 'actions');
+  var b = el('button', 'btn primary', btnTxt);
+  b.onclick = fn; act.appendChild(b); sh.appendChild(act);
+  setTimeout(function () { try { rows[0].input.focus(); } catch (e) {} }, 250);
+}
+function pinVerify(cb) {
+  var t = T();
+  var r = pinField(t.lockEnter);
+  pinSheet('🔒 ' + t.lockEnter, [r], '✓', function () {
+    if (pinHash(r.input.value) === localStorage.getItem('savepro_pin')) { closeOv(); cb(); }
+    else { toast(t.lockWrong); r.input.value = ''; }
+  });
+}
+function pinSetup() {
+  var t = T();
+  function next() {
+    var r1 = pinField(t.lockNew), r2 = pinField(t.lockConfirm);
+    pinSheet('🔐 ' + (hasPin() ? t.lockChange : t.lockSet), [r1, r2], '💾 ' + t.save, function () {
+      var v1 = r1.input.value.trim(), v2 = r2.input.value.trim();
+      if (!/^\d{4}$/.test(v1)) { toast(t.lockNeedPin); return; }
+      if (v1 !== v2) { toast(t.lockNoMatch); return; }
+      try { localStorage.setItem('savepro_pin', pinHash(v1)); } catch (e) {}
+      closeOv(); toast(t.pinSaved);
+    });
+  }
+  if (hasPin()) pinVerify(next); else next();
+}
+function pinRemove() {
+  pinVerify(function () {
+    try { localStorage.removeItem('savepro_pin'); } catch (e) {}
+    toast(T().unlocked);
+  });
 }
 
 /* ================= export / import ================= */
@@ -603,17 +753,30 @@ function confirmExit() {
 document.getElementById('themeBtn').onclick = toggleTheme;
 document.getElementById('menuBtn').onclick = openMenu;
 
+var lockInp = document.getElementById('lockPin');
+document.getElementById('lockGo').onclick = tryUnlock;
+lockInp.addEventListener('input', function () { if (this.value.length >= 4) tryUnlock(); });
+lockInp.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryUnlock(); });
+
 var CapApp = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App;
 if (CapApp && CapApp.addListener) {
   CapApp.addListener('backButton', function () {
+    if (!document.getElementById('lock').classList.contains('hidden')) {
+      if (CapApp.exitApp) CapApp.exitApp();
+      return;
+    }
     if (ovRoot.firstChild) { closeOv(); return; }
     confirmExit();
+  });
+  CapApp.addListener('appStateChange', function (st) {
+    if (st && st.isActive && hasPin()) showLock();
   });
 }
 
 applyTheme();
 applyI18n();
 renderGrid();
+if (hasPin()) showLock();
 
 // Service worker: PWA only, never inside Capacitor
 if (!inCap && 'serviceWorker' in navigator) {
