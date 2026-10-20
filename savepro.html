@@ -239,20 +239,16 @@ var sites = [];
 try { sites = JSON.parse(localStorage.getItem('savepro_sites') || '[]'); } catch (e) { sites = []; }
 if (!Array.isArray(sites)) sites = [];
 
-// First-run starter shortcuts — user edits or deletes any of them via ⋮
-if (!localStorage.getItem('savepro_seeded')) {
-  sites = [
-    { id: 'google',    name: 'Google',    url: 'https://www.google.com' },
-    { id: 'youtube',   name: 'YouTube',   url: 'https://m.youtube.com' },
-    { id: 'gmail',     name: 'Gmail',     url: 'https://mail.google.com' },
-    { id: 'facebook',  name: 'Facebook',  url: 'https://m.facebook.com' },
-    { id: 'instagram', name: 'Instagram', url: 'https://www.instagram.com' },
-    { id: 'x',         name: 'X',         url: 'https://x.com' },
-    { id: 'whatsapp',  name: 'WhatsApp',  url: 'https://web.whatsapp.com' },
-    { id: 'github',    name: 'GitHub',    url: 'https://github.com' }
-  ].concat(sites);
+// Built-in starter shortcuts removed — drop them on first run of this version,
+// but keep any seed entry the user already customized (credentials/icon/address)
+var SEED_IDS = { google: 1, youtube: 1, gmail: 1, facebook: 1, instagram: 1, x: 1, whatsapp: 1, github: 1 };
+if (!localStorage.getItem('savepro_seed_v2')) {
+  sites = sites.filter(function (s) {
+    if (!SEED_IDS[s.id]) return true;
+    return !!(s.user || s.pass || s.icon || s.addr);
+  });
   saveSites();
-  try { localStorage.setItem('savepro_seeded', '1'); } catch (e) {}
+  try { localStorage.setItem('savepro_seed_v2', '1'); } catch (e) {}
 }
 function saveSites() { try { localStorage.setItem('savepro_sites', JSON.stringify(sites)); } catch (e) {} }
 
@@ -353,8 +349,16 @@ function openInApp(url, title) {
 function openMap(addr, title) {
   var a = (addr || '').trim();
   if (!a) { toast(T().openNoAddr); return; }
-  openInApp('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(a),
-    title || 'Google Maps');
+  var web = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(a);
+  // geo: URI launches the Google Maps app directly; fall back to the web map
+  var AL = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.AppLauncher;
+  if (inCap && AL && AL.openUrl) {
+    AL.openUrl({ url: 'geo:0,0?q=' + encodeURIComponent(a) })
+      .then(function (r) { if (r && r.completed === false) openExternal(web); })
+      .catch(function () { openExternal(web); });
+    return;
+  }
+  openExternal(web);
 }
 function openSite(s) {
   var url = s.url ? (/^https?:\/\//i.test(s.url) ? s.url : 'https://' + s.url) : '';
