@@ -234,6 +234,7 @@ var I18N = {
     fName: 'الاسم', fUrl: 'رابط الموقع', fIcon: 'رابط صورة الأيقونة (اختياري)',
     fUser: 'اسم المستخدم', fPass: 'كلمة السر', pickImg: 'استوديو',
     fAddr: 'العنوان (adresse)', mapGo: 'خريطة', openNoAddr: 'أضف العنوان أولاً من ⋮',
+    fEmail: 'البريد الإلكتروني', fPhone: 'رقم الهاتف', fNotes: 'ملاحظات',
     save: 'حفظ', del: 'حذف', copy: 'نسخ', copied: 'نُسخ ✓', show: 'إظهار', hide: 'إخفاء',
     open: 'فتح الموقع', openNoUrl: 'أضف رابط الموقع أولاً من ⋮',
     exitTitle: 'هل تريد الخروج من التطبيق؟', yes: 'نعم، اخرج', no: 'إلغاء',
@@ -254,6 +255,7 @@ var I18N = {
     fName: 'Nom', fUrl: 'Adresse du site', fIcon: 'URL de l’icône (optionnel)',
     fUser: 'Nom d’utilisateur', fPass: 'Mot de passe', pickImg: 'Galerie',
     fAddr: 'Adresse (rue, ville)', mapGo: 'Carte', openNoAddr: 'Ajoutez d’abord l’adresse via ⋮',
+    fEmail: 'E-mail', fPhone: 'Téléphone', fNotes: 'Notes',
     save: 'Enregistrer', del: 'Supprimer', copy: 'Copier', copied: 'Copié ✓', show: 'Voir', hide: 'Cacher',
     open: 'Ouvrir le site', openNoUrl: 'Ajoutez d’abord l’adresse via ⋮',
     exitTitle: 'Quitter l’application ?', yes: 'Oui, quitter', no: 'Annuler',
@@ -274,6 +276,7 @@ var I18N = {
     fName: 'Name', fUrl: 'Site URL', fIcon: 'Icon image URL (optional)',
     fUser: 'Username', fPass: 'Password', pickImg: 'Gallery',
     fAddr: 'Address', mapGo: 'Map', openNoAddr: 'Add the address first via ⋮',
+    fEmail: 'Email', fPhone: 'Phone', fNotes: 'Notes',
     save: 'Save', del: 'Delete', copy: 'Copy', copied: 'Copied ✓', show: 'Show', hide: 'Hide',
     open: 'Open site', openNoUrl: 'Add the site URL first via ⋮',
     exitTitle: 'Exit the app?', yes: 'Yes, exit', no: 'Cancel',
@@ -380,7 +383,8 @@ function renderGrid() {
   var g = document.getElementById('grid');
   g.innerHTML = '';
   sites.forEach(function (s) {
-    if (q && (s.name + ' ' + (s.url || '') + ' ' + (s.user || '') + ' ' + (s.addr || '')).toLowerCase().indexOf(q) < 0) return;
+    if (q && (s.name + ' ' + (s.url || '') + ' ' + (s.user || '') + ' ' + (s.addr || '') + ' ' +
+      (s.email || '') + ' ' + (s.phone || '') + ' ' + (s.notes || '')).toLowerCase().indexOf(q) < 0) return;
     var card = el('div', 'site');
     var ic = el('div', 'site-icon', s.name ? s.name[0].toUpperCase() : '?');
     var iu = iconUrlFor(s);
@@ -511,7 +515,8 @@ function fieldRow(label, value, opts) {
 function openEditor(s) {
   var t = T();
   var isNew = !s;
-  s = s || { id: 's' + Date.now(), name: '', url: '', icon: '', user: '', pass: '', addr: '' };
+  s = s || { id: 's' + Date.now(), name: '', url: '', icon: '', user: '', pass: '', addr: '',
+    email: '', phone: '', notes: '' };
   var sh = sheet();
   var h = el('h3');
   h.appendChild(el('span', null, (isNew ? '➕ ' : '✏️ ') + (isNew ? t.addSite : t.editSite)));
@@ -533,7 +538,16 @@ function openEditor(s) {
   var rAddr = fieldRow(t.fAddr, s.addr, { buttons: [
     { label: '🗺 ' + t.mapGo, fn: function (inp) { openMap(inp.value, rName.input.value); } }
   ]});
-  [rName, rUrl, rIcon, rUser, rPass, rAddr].forEach(function (r) { sh.appendChild(r); });
+  var rEmail = fieldRow(t.fEmail, s.email, { ltr: true, buttons: [
+    { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value); } }
+  ]});
+  var rPhone = fieldRow(t.fPhone, s.phone, { ltr: true, buttons: [
+    { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value); } }
+  ]});
+  var rNotes = fieldRow(t.fNotes, s.notes, { buttons: [
+    { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value); } }
+  ]});
+  [rName, rUrl, rIcon, rUser, rPass, rAddr, rEmail, rPhone, rNotes].forEach(function (r) { sh.appendChild(r); });
 
   var act = el('div', 'actions');
   if (!isNew) {
@@ -552,6 +566,9 @@ function openEditor(s) {
     s.user = rUser.input.value.trim();
     s.pass = rPass.input.value;
     s.addr = addr;
+    s.email = rEmail.input.value.trim();
+    s.phone = rPhone.input.value.trim();
+    s.notes = rNotes.input.value.trim();
     if (isNew) sites.unshift(s);
     saveSites(); renderGrid(); closeOv();
   };
@@ -730,7 +747,8 @@ function importData() {
           if (seen[s.id]) s.id = s.id + '_i';
           seen[s.id] = 1;
           sites.push({ id: s.id, name: s.name || hostOf(s.url), url: s.url,
-            icon: s.icon || '', user: s.user || '', pass: s.pass || '', addr: s.addr || '' });
+            icon: s.icon || '', user: s.user || '', pass: s.pass || '', addr: s.addr || '',
+            email: s.email || '', phone: s.phone || '', notes: s.notes || '' });
         });
         saveSites(); renderGrid(); toast(T().imported);
       } catch (e) { toast('import ✗'); }
