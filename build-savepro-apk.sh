@@ -8,12 +8,13 @@ ROOT=$(pwd)
 
 # Build the Capacitor web assets for savePro
 rm -rf www
-mkdir -p www
+mkdir -p www/js
 
 cp savepro.html www/index.html
 cp manifest-savepro.json www/manifest.json
 cp icon-savepro-192.png icon-savepro-512.png www/
 cp sw-savepro.js www/
+cp node_modules/@capgo/inappbrowser/dist/plugin.js www/js/inappbrowser.js
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
 GRADLE_INIT=""

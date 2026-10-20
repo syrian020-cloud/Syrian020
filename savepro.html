@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>savePro — مواقعي وبياناتي</title>
+<title>savePro</title>
 <link rel="manifest" href="./manifest-savepro.json">
 <link rel="icon" type="image/png" href="./icon-savepro-192.png">
 <style>
@@ -152,6 +152,7 @@
 <div id="toast"></div>
 <div id="overlayRoot"></div>
 
+<script src="./js/inappbrowser.js"></script>
 <script>
 (function () {
 'use strict';
@@ -159,12 +160,12 @@
 /* ================= i18n ================= */
 var I18N = {
   ar: {
-    appname: 'savePro — مواقعي', searchPh: 'ابحث عن موقع…',
+    appname: 'savePro', searchPh: 'ابحث عن موقع…',
     menu: 'القائمة', langTitle: 'لغة الواجهة', themeDark: 'الوضع الداكن 🌙', themeLight: 'الوضع الفاتح ☀',
     exportData: 'تصدير البيانات', importData: 'استيراد البيانات',
     addSite: 'إضافة موقع', editSite: 'تعديل الموقع',
     fName: 'الاسم', fUrl: 'رابط الموقع', fIcon: 'رابط صورة الأيقونة (اختياري)',
-    fUser: 'اسم المستخدم', fPass: 'كلمة السر',
+    fUser: 'اسم المستخدم', fPass: 'كلمة السر', pickImg: 'استوديو',
     save: 'حفظ', del: 'حذف', copy: 'نسخ', copied: 'نُسخ ✓', show: 'إظهار', hide: 'إخفاء',
     open: 'فتح الموقع', openNoUrl: 'أضف رابط الموقع أولاً من ⋮',
     exitTitle: 'هل تريد الخروج من التطبيق؟', yes: 'نعم، اخرج', no: 'إلغاء',
@@ -174,12 +175,12 @@ var I18N = {
     gesture: 'نقرة على الأيقونة = فتح الموقع · ⋮ = تعديل الصورة والاسم وكلمة السر · ➕ = إضافة موقع'
   },
   fr: {
-    appname: 'savePro — Mes sites', searchPh: 'Chercher un site…',
+    appname: 'savePro', searchPh: 'Chercher un site…',
     menu: 'Menu', langTitle: 'Langue de l’interface', themeDark: 'Mode sombre 🌙', themeLight: 'Mode clair ☀',
     exportData: 'Exporter les données', importData: 'Importer les données',
     addSite: 'Ajouter un site', editSite: 'Modifier le site',
     fName: 'Nom', fUrl: 'Adresse du site', fIcon: 'URL de l’icône (optionnel)',
-    fUser: 'Nom d’utilisateur', fPass: 'Mot de passe',
+    fUser: 'Nom d’utilisateur', fPass: 'Mot de passe', pickImg: 'Galerie',
     save: 'Enregistrer', del: 'Supprimer', copy: 'Copier', copied: 'Copié ✓', show: 'Voir', hide: 'Cacher',
     open: 'Ouvrir le site', openNoUrl: 'Ajoutez d’abord l’adresse via ⋮',
     exitTitle: 'Quitter l’application ?', yes: 'Oui, quitter', no: 'Annuler',
@@ -189,12 +190,12 @@ var I18N = {
     gesture: 'Touchez l’icône = ouvrir le site · ⋮ = modifier image, identifiant, mot de passe · ➕ = ajouter'
   },
   en: {
-    appname: 'savePro — My sites', searchPh: 'Search a site…',
+    appname: 'savePro', searchPh: 'Search a site…',
     menu: 'Menu', langTitle: 'Interface language', themeDark: 'Dark mode 🌙', themeLight: 'Light mode ☀',
     exportData: 'Export data', importData: 'Import data',
     addSite: 'Add site', editSite: 'Edit site',
     fName: 'Name', fUrl: 'Site URL', fIcon: 'Icon image URL (optional)',
-    fUser: 'Username', fPass: 'Password',
+    fUser: 'Username', fPass: 'Password', pickImg: 'Gallery',
     save: 'Save', del: 'Delete', copy: 'Copy', copied: 'Copied ✓', show: 'Show', hide: 'Hide',
     open: 'Open site', openNoUrl: 'Add the site URL first via ⋮',
     exitTitle: 'Exit the app?', yes: 'Yes, exit', no: 'Cancel',
@@ -332,6 +333,13 @@ function openSite(s) {
   var url = /^https?:\/\//i.test(s.url) ? s.url : 'https://' + s.url;
   // Keep credentials one tap away: copy the username so it can be pasted at the site
   if (s.user) copyText(s.user, T().userCopied);
+  // In-app WebView: the site opens inside savePro, no external browser needed
+  var IAB = window.capacitorInAppBrowser && window.capacitorInAppBrowser.InAppBrowser;
+  if (inCap && IAB && IAB.openWebView) {
+    IAB.openWebView({ url: url, title: s.name || url })
+      .catch(function () { openExternal(url); });
+    return;
+  }
   openExternal(url);
 }
 
@@ -344,6 +352,31 @@ function sheet() {
   ov.onclick = function (e) { if (e.target === ov) closeOv(); };
   ovRoot.innerHTML = ''; ovRoot.appendChild(ov);
   return sh;
+}
+
+// Pick an icon image from the device gallery -> square 128px data URL
+function pickIconImage(inp) {
+  var fi = document.createElement('input');
+  fi.type = 'file'; fi.accept = 'image/*';
+  fi.onchange = function () {
+    var f = fi.files[0]; if (!f) return;
+    var rd = new FileReader();
+    rd.onload = function () {
+      var img = new Image();
+      img.onload = function () {
+        var S = 128;
+        var c = document.createElement('canvas');
+        c.width = c.height = S;
+        var g = c.getContext('2d');
+        var m = Math.min(img.width, img.height);
+        g.drawImage(img, (img.width - m) / 2, (img.height - m) / 2, m, m, 0, 0, S, S);
+        try { inp.value = c.toDataURL('image/png'); } catch (e) { inp.value = rd.result; }
+      };
+      img.src = rd.result;
+    };
+    rd.readAsDataURL(f);
+  };
+  fi.click();
 }
 
 function fieldRow(label, value, opts) {
@@ -383,7 +416,9 @@ function openEditor(s) {
 
   var rName = fieldRow(t.fName, s.name);
   var rUrl  = fieldRow(t.fUrl, s.url, { ltr: true });
-  var rIcon = fieldRow(t.fIcon, s.icon, { ltr: true });
+  var rIcon = fieldRow(t.fIcon, s.icon, { ltr: true, buttons: [
+    { label: '📷 ' + t.pickImg, fn: function (inp) { pickIconImage(inp); } }
+  ]});
   var rUser = fieldRow(t.fUser, s.user, { ltr: true, buttons: [
     { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value, t.userCopied); } }
   ]});
