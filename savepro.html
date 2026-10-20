@@ -65,6 +65,10 @@
     border: none; color: var(--dim); font-size: 1.05rem; cursor: pointer; padding: .1rem .3rem;
     font-family: inherit; }
   .site-dots:active { color: var(--accent); }
+  .site-map { position: absolute; top: .3rem; inset-inline-start: .3rem; background: none;
+    border: none; font-size: .95rem; cursor: pointer; padding: .1rem .25rem;
+    font-family: inherit; filter: grayscale(.15); }
+  .site-map:active { transform: scale(1.15); }
   .has-cred { position: absolute; bottom: .35rem; inset-inline-start: .4rem; font-size: .6rem;
     color: var(--gold); }
 
@@ -166,13 +170,14 @@ var I18N = {
     addSite: 'إضافة موقع', editSite: 'تعديل الموقع',
     fName: 'الاسم', fUrl: 'رابط الموقع', fIcon: 'رابط صورة الأيقونة (اختياري)',
     fUser: 'اسم المستخدم', fPass: 'كلمة السر', pickImg: 'استوديو',
+    fAddr: 'العنوان (adresse)', mapGo: 'خريطة', openNoAddr: 'أضف العنوان أولاً من ⋮',
     save: 'حفظ', del: 'حذف', copy: 'نسخ', copied: 'نُسخ ✓', show: 'إظهار', hide: 'إخفاء',
     open: 'فتح الموقع', openNoUrl: 'أضف رابط الموقع أولاً من ⋮',
     exitTitle: 'هل تريد الخروج من التطبيق؟', yes: 'نعم، اخرج', no: 'إلغاء',
     delTitle: 'حذف هذا الموقع؟', delYes: 'نعم، احذف',
-    exported: 'تم تصدير البيانات', imported: 'تم استيراد البيانات', errUrl: 'أدخل اسماً ورابطاً على الأقل',
+    exported: 'تم تصدير البيانات', imported: 'تم استيراد البيانات', errUrl: 'أدخل الاسم ورابطاً أو عنواناً',
     userCopied: 'نُسخ اسم المستخدم', passCopied: 'نُسخت كلمة السر',
-    gesture: 'نقرة على الأيقونة = فتح الموقع · ⋮ = تعديل الصورة والاسم وكلمة السر · ➕ = إضافة موقع'
+    gesture: 'نقرة على الأيقونة = فتح الموقع · 🗺 = العنوان في خرائط Google · ⋮ = تعديل · ➕ = إضافة'
   },
   fr: {
     appname: 'savePro', searchPh: 'Chercher un site…',
@@ -181,13 +186,14 @@ var I18N = {
     addSite: 'Ajouter un site', editSite: 'Modifier le site',
     fName: 'Nom', fUrl: 'Adresse du site', fIcon: 'URL de l’icône (optionnel)',
     fUser: 'Nom d’utilisateur', fPass: 'Mot de passe', pickImg: 'Galerie',
+    fAddr: 'Adresse (rue, ville)', mapGo: 'Carte', openNoAddr: 'Ajoutez d’abord l’adresse via ⋮',
     save: 'Enregistrer', del: 'Supprimer', copy: 'Copier', copied: 'Copié ✓', show: 'Voir', hide: 'Cacher',
     open: 'Ouvrir le site', openNoUrl: 'Ajoutez d’abord l’adresse via ⋮',
     exitTitle: 'Quitter l’application ?', yes: 'Oui, quitter', no: 'Annuler',
     delTitle: 'Supprimer ce site ?', delYes: 'Oui, supprimer',
-    exported: 'Données exportées', imported: 'Données importées', errUrl: 'Nom et adresse requis',
+    exported: 'Données exportées', imported: 'Données importées', errUrl: 'Nom + URL ou adresse requis',
     userCopied: 'Identifiant copié', passCopied: 'Mot de passe copié',
-    gesture: 'Touchez l’icône = ouvrir le site · ⋮ = modifier image, identifiant, mot de passe · ➕ = ajouter'
+    gesture: 'Touchez l’icône = ouvrir le site · 🗺 = adresse dans Google Maps · ⋮ = modifier · ➕ = ajouter'
   },
   en: {
     appname: 'savePro', searchPh: 'Search a site…',
@@ -196,13 +202,14 @@ var I18N = {
     addSite: 'Add site', editSite: 'Edit site',
     fName: 'Name', fUrl: 'Site URL', fIcon: 'Icon image URL (optional)',
     fUser: 'Username', fPass: 'Password', pickImg: 'Gallery',
+    fAddr: 'Address', mapGo: 'Map', openNoAddr: 'Add the address first via ⋮',
     save: 'Save', del: 'Delete', copy: 'Copy', copied: 'Copied ✓', show: 'Show', hide: 'Hide',
     open: 'Open site', openNoUrl: 'Add the site URL first via ⋮',
     exitTitle: 'Exit the app?', yes: 'Yes, exit', no: 'Cancel',
     delTitle: 'Delete this site?', delYes: 'Yes, delete',
-    exported: 'Data exported', imported: 'Data imported', errUrl: 'Name and URL required',
+    exported: 'Data exported', imported: 'Data imported', errUrl: 'Name + URL or address required',
     userCopied: 'Username copied', passCopied: 'Password copied',
-    gesture: 'Tap the icon = open the site · ⋮ = edit image, username, password · ➕ = add a site'
+    gesture: 'Tap icon = open site · 🗺 = address in Google Maps · ⋮ = edit · ➕ = add a site'
   }
 };
 function T() { return I18N[uiLang()] || I18N.ar; }
@@ -303,7 +310,7 @@ function renderGrid() {
   var g = document.getElementById('grid');
   g.innerHTML = '';
   sites.forEach(function (s) {
-    if (q && (s.name + ' ' + s.url + ' ' + (s.user || '')).toLowerCase().indexOf(q) < 0) return;
+    if (q && (s.name + ' ' + (s.url || '') + ' ' + (s.user || '') + ' ' + (s.addr || '')).toLowerCase().indexOf(q) < 0) return;
     var card = el('div', 'site');
     var ic = el('div', 'site-icon', s.name ? s.name[0].toUpperCase() : '?');
     var iu = iconUrlFor(s);
@@ -316,6 +323,11 @@ function renderGrid() {
     card.appendChild(ic);
     card.appendChild(el('div', 'site-name', s.name || hostOf(s.url) || '—'));
     if (s.user || s.pass) card.appendChild(el('span', 'has-cred', '🔑'));
+    if (s.addr) {
+      var mb = el('button', 'site-map', '🗺');
+      mb.onclick = function (e) { e.stopPropagation(); openMap(s.addr, s.name); };
+      card.appendChild(mb);
+    }
     var dots = el('button', 'site-dots', '⋮');
     dots.onclick = function (e) { e.stopPropagation(); openEditor(s); };
     card.appendChild(dots);
@@ -328,19 +340,32 @@ function renderGrid() {
 }
 
 /* ================= open / edit ================= */
-function openSite(s) {
-  if (!s.url) { toast(T().openNoUrl); return; }
-  var url = /^https?:\/\//i.test(s.url) ? s.url : 'https://' + s.url;
-  // Keep credentials one tap away: copy the username so it can be pasted at the site
-  if (s.user) copyText(s.user, T().userCopied);
-  // In-app WebView: the site opens inside savePro, no external browser needed
+// In-app WebView: pages open inside savePro, no external browser needed
+function openInApp(url, title) {
   var IAB = window.capacitorInAppBrowser && window.capacitorInAppBrowser.InAppBrowser;
   if (inCap && IAB && IAB.openWebView) {
-    IAB.openWebView({ url: url, title: s.name || url })
+    IAB.openWebView({ url: url, title: title || url })
       .catch(function () { openExternal(url); });
     return;
   }
   openExternal(url);
+}
+function openMap(addr, title) {
+  var a = (addr || '').trim();
+  if (!a) { toast(T().openNoAddr); return; }
+  openInApp('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(a),
+    title || 'Google Maps');
+}
+function openSite(s) {
+  var url = s.url ? (/^https?:\/\//i.test(s.url) ? s.url : 'https://' + s.url) : '';
+  if (url) {
+    // Keep credentials one tap away: copy the username so it can be pasted at the site
+    if (s.user) copyText(s.user, T().userCopied);
+    openInApp(url, s.name || url);
+    return;
+  }
+  if (s.addr) { openMap(s.addr, s.name); return; }
+  toast(T().openNoUrl);
 }
 
 var ovRoot = document.getElementById('overlayRoot');
@@ -407,7 +432,7 @@ function fieldRow(label, value, opts) {
 function openEditor(s) {
   var t = T();
   var isNew = !s;
-  s = s || { id: 's' + Date.now(), name: '', url: '', icon: '', user: '', pass: '' };
+  s = s || { id: 's' + Date.now(), name: '', url: '', icon: '', user: '', pass: '', addr: '' };
   var sh = sheet();
   var h = el('h3');
   h.appendChild(el('span', null, (isNew ? '➕ ' : '✏️ ') + (isNew ? t.addSite : t.editSite)));
@@ -426,7 +451,10 @@ function openEditor(s) {
     { label: '👁', fn: function (inp) { inp.type = inp.type === 'password' ? 'text' : 'password'; } },
     { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value, t.passCopied); } }
   ]});
-  [rName, rUrl, rIcon, rUser, rPass].forEach(function (r) { sh.appendChild(r); });
+  var rAddr = fieldRow(t.fAddr, s.addr, { buttons: [
+    { label: '🗺 ' + t.mapGo, fn: function (inp) { openMap(inp.value, rName.input.value); } }
+  ]});
+  [rName, rUrl, rIcon, rUser, rPass, rAddr].forEach(function (r) { sh.appendChild(r); });
 
   var act = el('div', 'actions');
   if (!isNew) {
@@ -438,11 +466,13 @@ function openEditor(s) {
   save.onclick = function () {
     var name = rName.input.value.trim();
     var url = rUrl.input.value.trim();
-    if (!name || !url) { toast(t.errUrl); return; }
+    var addr = rAddr.input.value.trim();
+    if (!name || (!url && !addr)) { toast(t.errUrl); return; }
     s.name = name; s.url = url;
     s.icon = rIcon.input.value.trim();
     s.user = rUser.input.value.trim();
     s.pass = rPass.input.value;
+    s.addr = addr;
     if (isNew) sites.unshift(s);
     saveSites(); renderGrid(); closeOv();
   };
@@ -503,22 +533,29 @@ function openMenu() {
 }
 
 /* ================= export / import ================= */
-function exportData() {
-  var data = JSON.stringify({ app: 'savepro', sites: sites }, null, 2);
+// Same flow as gramvip: write to CACHE as base64, then open the native share sheet
+async function exportData() {
+  var t = T();
+  var out = { app: 'savepro', version: 1, exportedAt: new Date().toISOString(), sites: sites };
+  var blob = new Blob([JSON.stringify(out, null, 1)], { type: 'application/json' });
+  var name = 'savepro-backup-' + new Date().toISOString().slice(0, 10) + '.json';
   var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
   var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
   if (inCap && FS && SH) {
-    FS.writeFile({ path: 'savepro-data.json', data: data, directory: 'CACHE' })
-      .then(function (r) { return SH.share({ title: 'savePro', url: r.uri }); })
-      .then(function () { toast(T().exported); })
-      .catch(function () { toast('export ✗'); });
-    return;
+    try {
+      var text = await new Promise(function (res) {
+        var rd = new FileReader(); rd.onload = function () { res(rd.result); }; rd.readAsDataURL(blob);
+      });
+      var w = await FS.writeFile({ path: name, data: text.split(',')[1], directory: 'CACHE', recursive: true });
+      await SH.share({ title: name, url: w.uri });
+      toast(t.exported);
+      return;
+    } catch (e) { console.error(e); }
   }
-  var blob = new Blob([data], { type: 'application/json' });
-  var a = document.createElement('a');
-  a.href = URL.createObjectURL(blob); a.download = 'savepro-data.json';
-  a.click(); URL.revokeObjectURL(a.href);
-  toast(T().exported);
+  var u = URL.createObjectURL(blob);
+  var a = document.createElement('a'); a.href = u; a.download = name; a.click();
+  setTimeout(function () { URL.revokeObjectURL(u); }, 4000);
+  toast(t.exported);
 }
 function importData() {
   var inp = document.createElement('input');
@@ -534,12 +571,12 @@ function importData() {
         var seen = {};
         sites.forEach(function (s) { seen[s.id] = 1; });
         list.forEach(function (s) {
-          if (!s || !s.url) return;
+          if (!s || (!s.url && !s.addr)) return;
           if (!s.id) s.id = 's' + Date.now() + Math.random().toString(36).slice(2, 6);
           if (seen[s.id]) s.id = s.id + '_i';
           seen[s.id] = 1;
           sites.push({ id: s.id, name: s.name || hostOf(s.url), url: s.url,
-            icon: s.icon || '', user: s.user || '', pass: s.pass || '' });
+            icon: s.icon || '', user: s.user || '', pass: s.pass || '', addr: s.addr || '' });
         });
         saveSites(); renderGrid(); toast(T().imported);
       } catch (e) { toast('import ✗'); }
