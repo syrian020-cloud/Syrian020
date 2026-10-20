@@ -1,0 +1,15 @@
+{
+  "name": "savePro — Sites & logins",
+  "short_name": "savePro",
+  "description": "Save site shortcuts with usernames and passwords, open them in one tap",
+  "start_url": "./savepro.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#070b18",
+  "theme_color": "#0b0f1f",
+  "icons": [
+    { "src": "icon-savepro-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-savepro-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

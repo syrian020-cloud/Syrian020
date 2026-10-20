@@ -249,7 +249,7 @@ var I18N = {
     phrase: 'العبارة', toAr: 'العربية', toEn: 'English', speakPh: 'نطق',
     gsearch: 'بحث Google AI', trFail: 'تعذّرت الترجمة',
     cats: {
-      daily: 'جرائد يومية', regions: 'جرائد جهوية', tv: 'أخبار تلفزيون وإذاعة',
+      daily: 'جرائد يومية', regions: 'جرائد جهوية',
       mags: 'مجلات', women: 'نسائية ومشاهير', sport: 'رياضة',
       tech: 'تكنولوجيا', eco: 'اقتصاد', life: 'طبخ وصحة'
     }
@@ -271,7 +271,7 @@ var I18N = {
     phrase: 'Phrase', toAr: 'Arabe', toEn: 'Anglais', speakPh: 'Lire',
     gsearch: 'Recherche Google AI', trFail: 'Traduction impossible',
     cats: {
-      daily: 'Quotidiens', regions: 'Presse régionale', tv: 'TV & radio',
+      daily: 'Quotidiens', regions: 'Presse régionale',
       mags: 'Magazines', women: 'Féminin & people', sport: 'Sport',
       tech: 'Tech', eco: 'Économie', life: 'Cuisine & santé'
     }
@@ -293,7 +293,7 @@ var I18N = {
     phrase: 'Phrase', toAr: 'Arabic', toEn: 'English', speakPh: 'Speak',
     gsearch: 'Google AI search', trFail: 'Translation failed',
     cats: {
-      daily: 'Daily papers', regions: 'Regional press', tv: 'TV & radio news',
+      daily: 'Daily papers', regions: 'Regional press',
       mags: 'Magazines', women: 'Women & celebs', sport: 'Sport',
       tech: 'Tech', eco: 'Business', life: 'Cooking & health'
     }
@@ -320,7 +320,7 @@ function applyI18n() {
 }
 
 /* ================= catalog ================= */
-var CATS = ['daily', 'regions', 'tv', 'mags', 'women', 'sport', 'tech', 'eco', 'life'];
+var CATS = ['daily', 'regions', 'mags', 'women', 'sport', 'tech', 'eco', 'life'];
 var SOURCES = [
   { id: '20min',      name: '20 Minutes',            cat: 'daily',   url: 'https://www.20minutes.fr',      rss: 'https://www.20minutes.fr/feeds/rss-une.xml', d: { fr: 'Quotidien national 100% gratuit', ar: 'جريدة وطنية مجانية بالكامل', en: 'Free national daily' } },
   { id: 'ouest',      name: 'Ouest-France',          cat: 'regions', url: 'https://www.ouest-france.fr',   rss: 'https://www.ouest-france.fr/rss/une', d: { fr: 'Grand quotidien régional', ar: 'أكبر جريدة جهوية', en: 'Major regional daily' } },
@@ -336,13 +336,6 @@ var SOURCES = [
   { id: 'figaro',     name: 'Le Figaro',             cat: 'daily',   url: 'https://www.lefigaro.fr',       rss: 'https://www.lefigaro.fr/rss/figaro_actualites.xml', d: { fr: 'Quotidien national', ar: 'جريدة وطنية', en: 'National daily' }, partial: true },
   { id: 'humanite',   name: 'L’Humanité',            cat: 'daily',   url: 'https://www.humanite.fr',       rss: 'https://www.humanite.fr/feed', d: { fr: 'Quotidien national', ar: 'جريدة وطنية', en: 'National daily' }, partial: true },
   { id: 'jdd',        name: 'Le JDD',                cat: 'daily',   url: 'https://www.lejdd.fr',          d: { fr: 'Journal du dimanche', ar: 'جريدة الأحد', en: 'Sunday paper' }, partial: true },
-  { id: 'ftvinfo',    name: 'France Info',           cat: 'tv',      url: 'https://www.francetvinfo.fr',   rss: 'https://www.francetvinfo.fr/titres.rss', d: { fr: 'Actualités TV publique', ar: 'أخبار التلفزيون العام', en: 'Public TV news' } },
-  { id: 'f24',        name: 'France 24',             cat: 'tv',      url: 'https://www.france24.com/fr',   rss: 'https://www.france24.com/fr/rss', d: { fr: 'Chaîne info internationale', ar: 'قناة أخبار دولية', en: 'International news channel' } },
-  { id: 'bfmtv',      name: 'BFM TV',                cat: 'tv',      url: 'https://www.bfmtv.com',         rss: 'https://www.bfmtv.com/rss/news-24-7/', d: { fr: 'Info en continu', ar: 'أخبار مستمرة', en: 'Rolling news' } },
-  { id: 'cnews',      name: 'CNews',                 cat: 'tv',      url: 'https://www.cnews.fr',          rss: 'https://www.cnews.fr/rss.xml', d: { fr: 'Info en continu', ar: 'أخبار مستمرة', en: 'Rolling news' } },
-  { id: 'tf1info',    name: 'TF1 Info',              cat: 'tv',      url: 'https://www.tf1info.fr',        d: { fr: 'Info TF1 & LCI', ar: 'أخبار TF1 وLCI', en: 'TF1 & LCI news' } },
-  { id: 'rfi',        name: 'RFI',                   cat: 'tv',      url: 'https://www.rfi.fr/fr',         rss: 'https://www.rfi.fr/fr/rss', d: { fr: 'Radio France Internationale', ar: 'إذاعة فرنسا الدولية', en: 'Radio France Internationale' } },
-  { id: 'euronews',   name: 'Euronews',              cat: 'tv',      url: 'https://fr.euronews.com',       rss: 'https://fr.euronews.com/rss?level=theme&name=news', d: { fr: 'Info européenne', ar: 'أخبار أوروبية', en: 'European news' } },
   { id: 'parismatch', name: 'Paris Match',           cat: 'mags',    url: 'https://www.parismatch.com',    rss: 'https://www.parismatch.com/rss.xml', d: { fr: 'Magazine d’actualité & people', ar: 'مجلة أخبار ومشاهير', en: 'News & celebrity magazine' } },
   { id: 'point',      name: 'Le Point',              cat: 'mags',    url: 'https://www.lepoint.fr',        d: { fr: 'Hebdomadaire d’actualité', ar: 'مجلة أسبوعية', en: 'Weekly newsmagazine' }, partial: true },
   { id: 'express',    name: 'L’Express',             cat: 'mags',    url: 'https://www.lexpress.fr',       rss: 'https://www.lexpress.fr/rss/alaune.xml', d: { fr: 'Hebdomadaire d’actualité', ar: 'مجلة أسبوعية', en: 'Weekly newsmagazine' }, partial: true },

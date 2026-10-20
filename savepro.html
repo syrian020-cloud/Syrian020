@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>savePro — مواقعي وبياناتي</title>
+<link rel="manifest" href="./manifest-savepro.json">
+<link rel="icon" type="image/png" href="./icon-savepro-192.png">
+<style>
+  :root {
+    --bg: #070b18; --card: #0e1330; --card2: #101427; --field: #0b102a;
+    --line: rgba(139, 92, 246, .18); --accent: #8b5cf6; --accent2: #6366f1;
+    --txt: #e8eaf6; --dim: #9aa3c7; --gold: #f5c451;
+    --danger: #f87171;
+  }
+  body.light {
+    --bg: #f2f4fb; --card: #ffffff; --card2: #eef0fa; --field: #f6f7fd;
+    --line: rgba(99, 102, 241, .22); --accent: #6366f1; --accent2: #8b5cf6;
+    --txt: #1a1e3d; --dim: #5a6390; --gold: #b8860b;
+    --danger: #dc2626;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--txt);
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif; overflow-x: clip; }
+  body { min-height: 100vh; padding-bottom: 3rem; }
+
+  /* ---------- header ---------- */
+  header { position: sticky; top: 0; z-index: 100; background: var(--bg);
+    border-bottom: 1px solid var(--line); padding: .55rem .8rem; }
+  .topbar { display: flex; align-items: center; gap: .5rem; max-width: 860px; margin: 0 auto;
+    flex-wrap: wrap; }
+  .logo { display: flex; align-items: center; gap: .45rem; font-weight: 900; font-size: 1.05rem;
+    flex: none; min-width: 0; }
+  .logo span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .logo img { width: 30px; height: 30px; border-radius: 8px; flex: none; }
+  .searchbox { flex: 1; display: flex; align-items: center; gap: .4rem;
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: .35rem .6rem; }
+  .searchbox input { flex: 1; background: none; border: none; outline: none;
+    color: var(--txt); font-size: .9rem; font-family: inherit; min-width: 0; }
+  .iconbtn { background: var(--card); border: 1px solid var(--line); color: var(--txt);
+    border-radius: 10px; padding: .35rem .6rem; font-size: 1rem; cursor: pointer; flex: none;
+    font-family: inherit; }
+  .iconbtn.on { border-color: var(--gold); color: var(--gold); }
+  @media (max-width: 619px) {
+    .logo { flex: 1; }
+    .searchbox { order: 5; flex: 1 1 100%; }
+  }
+
+  main { max-width: 860px; margin: 0 auto; padding: .8rem; }
+
+  /* ---------- sites grid ---------- */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(110px, 100%), 1fr)); gap: .6rem; }
+  .site { background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: .8rem .5rem .6rem; cursor: pointer; display: flex; flex-direction: column;
+    align-items: center; gap: .45rem; min-width: 0; position: relative;
+    transition: transform .12s ease, border-color .12s ease; }
+  .site:active { transform: scale(.96); }
+  .site-icon { width: 52px; height: 52px; border-radius: 14px; flex: none; display: flex;
+    align-items: center; justify-content: center; font-weight: 900; font-size: 1.4rem;
+    color: #fff; overflow: hidden; background: linear-gradient(135deg, #4338ca, #7c3aed); }
+  .site-icon img { width: 100%; height: 100%; object-fit: cover; background: #fff; }
+  .site-name { font-weight: 800; font-size: .82rem; line-height: 1.25; text-align: center;
+    max-width: 100%; overflow-wrap: anywhere; }
+  .site-dots { position: absolute; top: .3rem; inset-inline-end: .3rem; background: none;
+    border: none; color: var(--dim); font-size: 1.05rem; cursor: pointer; padding: .1rem .3rem;
+    font-family: inherit; }
+  .site-dots:active { color: var(--accent); }
+  .has-cred { position: absolute; bottom: .35rem; inset-inline-start: .4rem; font-size: .6rem;
+    color: var(--gold); }
+
+  .add-card { border: 1.5px dashed var(--line); background: transparent; color: var(--dim);
+    font-size: 1.6rem; }
+  .add-card:active { border-color: var(--accent); color: var(--accent); }
+
+  .hint { font-size: .72rem; color: var(--dim); text-align: center; margin: .9rem 0 .4rem; line-height: 1.6; }
+
+  /* ---------- toast ---------- */
+  #toast { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+    background: #1a1f3d; border: 1px solid var(--line); color: #e8eaf6;
+    border-radius: 12px; padding: .55rem 1rem; font-size: .82rem; z-index: 5000;
+    opacity: 0; pointer-events: none; transition: opacity .25s; max-width: 90vw; text-align: center; }
+  #toast.show { opacity: 1; }
+
+  /* ---------- sheets & dialogs ---------- */
+  .overlay { position: fixed; inset: 0; background: rgba(3,6,18,.66); backdrop-filter: blur(4px);
+    z-index: 4000; display: flex; align-items: flex-end; justify-content: center; }
+  .sheet { width: 100%; max-width: 480px; background: var(--card2);
+    border: 1px solid var(--line); border-bottom: none; border-radius: 20px 20px 0 0;
+    padding: 1rem 1.1rem 1.5rem; max-height: 85vh; overflow-y: auto; }
+  .sheet h3 { margin: 0 0 .8rem; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; }
+  .sheet h3 button { background: none; border: none; color: var(--dim); font-size: 1.2rem; cursor: pointer; }
+
+  .flabel { font-size: .72rem; color: var(--dim); margin: .55rem 0 .25rem; }
+  .frow { display: flex; gap: .4rem; align-items: center; }
+  .field { flex: 1; display: flex; align-items: center; gap: .4rem; min-width: 0;
+    background: var(--field); border: 1px solid var(--line); border-radius: 12px; padding: .5rem .6rem; }
+  .field input { flex: 1; background: none; border: none; outline: none; color: var(--txt);
+    font-size: .88rem; font-family: inherit; min-width: 0; }
+  .field input[readonly] { color: var(--dim); }
+  .field input[type=password] { letter-spacing: .1em; }
+  .mini { flex: none; background: var(--card); border: 1px solid var(--line); color: var(--txt);
+    border-radius: 9px; padding: .3rem .55rem; font-size: .75rem; cursor: pointer; font-family: inherit; }
+  .mini:active { background: var(--accent); color: #fff; }
+
+  .actions { display: flex; gap: .5rem; margin-top: .9rem; }
+  .btn { flex: 1; border: 1px solid var(--line); border-radius: 12px; padding: .65rem;
+    font-size: .9rem; cursor: pointer; font-family: inherit; background: var(--card); color: var(--txt); }
+  .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none;
+    color: #fff; font-weight: 700; }
+  .btn.danger { color: var(--danger); border-color: rgba(248,113,113,.4); }
+
+  .mrow { display: flex; align-items: center; gap: .7rem; width: 100%; background: rgba(139,92,246,.07);
+    border: 1px solid var(--line); border-radius: 14px; padding: .75rem .9rem; margin-bottom: .55rem;
+    color: var(--txt); font-size: .9rem; cursor: pointer; font-family: inherit; text-align: start; }
+  body.light .mrow { background: rgba(99,102,241,.06); }
+  .mrow:active { background: rgba(139,92,246,.16); }
+  .mrow .mi { font-size: 1.1rem; width: 1.6rem; text-align: center; flex: none; }
+  .langs { display: flex; gap: .5rem; margin-bottom: .7rem; }
+  .langb { flex: 1; background: var(--card); border: 1px solid var(--line); color: var(--txt);
+    border-radius: 12px; padding: .55rem; font-size: .85rem; cursor: pointer; font-family: inherit; }
+  .langb.on { background: linear-gradient(135deg, var(--accent), var(--accent2)); border-color: transparent; font-weight: 700; }
+
+  .dlg { width: 100%; max-width: 340px; background: var(--card2); border: 1px solid var(--line);
+    border-radius: 18px; padding: 1.2rem; text-align: center; margin: auto 1rem; }
+  .dlg p { font-size: .95rem; margin: 0 0 1rem; }
+  .dlg .row { display: flex; gap: .6rem; }
+  .dlg button { flex: 1; border: 1px solid var(--line); border-radius: 12px; padding: .6rem;
+    font-size: .9rem; cursor: pointer; font-family: inherit; background: var(--card); color: var(--txt); }
+  .dlg button.yes { background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none; color: #fff; font-weight: 700; }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<header>
+  <div class="topbar">
+    <div class="logo"><img src="./icon-savepro-192.png" alt="" onerror="this.style.display='none'"><span data-i="appname">savePro</span></div>
+    <div class="searchbox">
+      <span>🔍</span>
+      <input id="search" data-i-ph="searchPh" placeholder="ابحث عن موقع…" autocomplete="off">
+    </div>
+    <button class="iconbtn" id="themeBtn" title="🌙">🌙</button>
+    <button class="iconbtn" id="menuBtn" title="⋮">⋮</button>
+  </div>
+</header>
+
+<main>
+  <div class="grid" id="grid"></div>
+  <div class="hint" id="gestureHint"></div>
+</main>
+
+<div id="toast"></div>
+<div id="overlayRoot"></div>
+
+<script>
+(function () {
+'use strict';
+
+/* ================= i18n ================= */
+var I18N = {
+  ar: {
+    appname: 'savePro — مواقعي', searchPh: 'ابحث عن موقع…',
+    menu: 'القائمة', langTitle: 'لغة الواجهة', themeDark: 'الوضع الداكن 🌙', themeLight: 'الوضع الفاتح ☀',
+    exportData: 'تصدير البيانات', importData: 'استيراد البيانات',
+    addSite: 'إضافة موقع', editSite: 'تعديل الموقع',
+    fName: 'الاسم', fUrl: 'رابط الموقع', fIcon: 'رابط صورة الأيقونة (اختياري)',
+    fUser: 'اسم المستخدم', fPass: 'كلمة السر',
+    save: 'حفظ', del: 'حذف', copy: 'نسخ', copied: 'نُسخ ✓', show: 'إظهار', hide: 'إخفاء',
+    open: 'فتح الموقع', openNoUrl: 'أضف رابط الموقع أولاً من ⋮',
+    exitTitle: 'هل تريد الخروج من التطبيق؟', yes: 'نعم، اخرج', no: 'إلغاء',
+    delTitle: 'حذف هذا الموقع؟', delYes: 'نعم، احذف',
+    exported: 'تم تصدير البيانات', imported: 'تم استيراد البيانات', errUrl: 'أدخل اسماً ورابطاً على الأقل',
+    userCopied: 'نُسخ اسم المستخدم', passCopied: 'نُسخت كلمة السر',
+    gesture: 'نقرة على الأيقونة = فتح الموقع · ⋮ = تعديل الصورة والاسم وكلمة السر · ➕ = إضافة موقع'
+  },
+  fr: {
+    appname: 'savePro — Mes sites', searchPh: 'Chercher un site…',
+    menu: 'Menu', langTitle: 'Langue de l’interface', themeDark: 'Mode sombre 🌙', themeLight: 'Mode clair ☀',
+    exportData: 'Exporter les données', importData: 'Importer les données',
+    addSite: 'Ajouter un site', editSite: 'Modifier le site',
+    fName: 'Nom', fUrl: 'Adresse du site', fIcon: 'URL de l’icône (optionnel)',
+    fUser: 'Nom d’utilisateur', fPass: 'Mot de passe',
+    save: 'Enregistrer', del: 'Supprimer', copy: 'Copier', copied: 'Copié ✓', show: 'Voir', hide: 'Cacher',
+    open: 'Ouvrir le site', openNoUrl: 'Ajoutez d’abord l’adresse via ⋮',
+    exitTitle: 'Quitter l’application ?', yes: 'Oui, quitter', no: 'Annuler',
+    delTitle: 'Supprimer ce site ?', delYes: 'Oui, supprimer',
+    exported: 'Données exportées', imported: 'Données importées', errUrl: 'Nom et adresse requis',
+    userCopied: 'Identifiant copié', passCopied: 'Mot de passe copié',
+    gesture: 'Touchez l’icône = ouvrir le site · ⋮ = modifier image, identifiant, mot de passe · ➕ = ajouter'
+  },
+  en: {
+    appname: 'savePro — My sites', searchPh: 'Search a site…',
+    menu: 'Menu', langTitle: 'Interface language', themeDark: 'Dark mode 🌙', themeLight: 'Light mode ☀',
+    exportData: 'Export data', importData: 'Import data',
+    addSite: 'Add site', editSite: 'Edit site',
+    fName: 'Name', fUrl: 'Site URL', fIcon: 'Icon image URL (optional)',
+    fUser: 'Username', fPass: 'Password',
+    save: 'Save', del: 'Delete', copy: 'Copy', copied: 'Copied ✓', show: 'Show', hide: 'Hide',
+    open: 'Open site', openNoUrl: 'Add the site URL first via ⋮',
+    exitTitle: 'Exit the app?', yes: 'Yes, exit', no: 'Cancel',
+    delTitle: 'Delete this site?', delYes: 'Yes, delete',
+    exported: 'Data exported', imported: 'Data imported', errUrl: 'Name and URL required',
+    userCopied: 'Username copied', passCopied: 'Password copied',
+    gesture: 'Tap the icon = open the site · ⋮ = edit image, username, password · ➕ = add a site'
+  }
+};
+function T() { return I18N[uiLang()] || I18N.ar; }
+function uiLang() { return localStorage.getItem('savepro_lang') || 'ar'; }
+function setUiLang(l) {
+  try { localStorage.setItem('savepro_lang', l); } catch (e) {}
+  document.documentElement.lang = l;
+  document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+  applyI18n(); renderGrid();
+}
+function applyI18n() {
+  var t = T();
+  document.title = t.appname;
+  document.querySelectorAll('[data-i]').forEach(function (el) {
+    var k = el.getAttribute('data-i'); if (t[k]) el.textContent = t[k];
+  });
+  document.querySelectorAll('[data-i-ph]').forEach(function (el) {
+    var k = el.getAttribute('data-i-ph'); if (t[k]) el.placeholder = t[k];
+  });
+  document.getElementById('gestureHint').textContent = '💡 ' + t.gesture;
+  document.getElementById('themeBtn').textContent = isDark() ? '🌙' : '☀';
+}
+
+/* ================= data ================= */
+var inCap = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+var sites = [];
+try { sites = JSON.parse(localStorage.getItem('savepro_sites') || '[]'); } catch (e) { sites = []; }
+if (!Array.isArray(sites)) sites = [];
+
+// First-run starter shortcuts — user edits or deletes any of them via ⋮
+if (!localStorage.getItem('savepro_seeded')) {
+  sites = [
+    { id: 'google',    name: 'Google',    url: 'https://www.google.com' },
+    { id: 'youtube',   name: 'YouTube',   url: 'https://m.youtube.com' },
+    { id: 'gmail',     name: 'Gmail',     url: 'https://mail.google.com' },
+    { id: 'facebook',  name: 'Facebook',  url: 'https://m.facebook.com' },
+    { id: 'instagram', name: 'Instagram', url: 'https://www.instagram.com' },
+    { id: 'x',         name: 'X',         url: 'https://x.com' },
+    { id: 'whatsapp',  name: 'WhatsApp',  url: 'https://web.whatsapp.com' },
+    { id: 'github',    name: 'GitHub',    url: 'https://github.com' }
+  ].concat(sites);
+  saveSites();
+  try { localStorage.setItem('savepro_seeded', '1'); } catch (e) {}
+}
+function saveSites() { try { localStorage.setItem('savepro_sites', JSON.stringify(sites)); } catch (e) {} }
+
+function isDark() { return localStorage.getItem('savepro_theme') !== 'light'; }
+function applyTheme() { document.body.classList.toggle('light', !isDark()); }
+function toggleTheme() {
+  try { localStorage.setItem('savepro_theme', isDark() ? 'light' : 'dark'); } catch (e) {}
+  applyTheme(); applyI18n();
+}
+
+/* ================= helpers ================= */
+function el(tag, cls, txt) {
+  var e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (txt != null) e.textContent = txt;
+  return e;
+}
+function toast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tm); t._tm = setTimeout(function () { t.classList.remove('show'); }, 2200);
+}
+function hostOf(url) {
+  try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return ''; }
+}
+function iconUrlFor(s) {
+  if (s.icon) return s.icon;
+  var h = hostOf(s.url);
+  return h ? 'https://www.google.com/s2/favicons?domain=' + h + '&sz=128' : '';
+}
+function openExternal(url) {
+  var B = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Browser;
+  if (B && B.open) { B.open({ url: url }); return; }
+  window.open(url, '_blank');
+}
+function copyText(txt, msg) {
+  function done() { toast(msg || T().copied); }
+  var CB = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Clipboard;
+  if (CB && CB.write) { CB.write({ string: txt }).then(done, done); return; }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(txt).then(done, done); return;
+  }
+  var ta = document.createElement('textarea');
+  ta.value = txt; document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  ta.remove(); done();
+}
+
+/* ================= grid ================= */
+var q = '';
+document.getElementById('search').addEventListener('input', function () {
+  q = (this.value || '').toLowerCase().trim(); renderGrid();
+});
+function renderGrid() {
+  var g = document.getElementById('grid');
+  g.innerHTML = '';
+  sites.forEach(function (s) {
+    if (q && (s.name + ' ' + s.url + ' ' + (s.user || '')).toLowerCase().indexOf(q) < 0) return;
+    var card = el('div', 'site');
+    var ic = el('div', 'site-icon', s.name ? s.name[0].toUpperCase() : '?');
+    var iu = iconUrlFor(s);
+    if (iu) {
+      var img = new Image();
+      img.src = iu; img.alt = '';
+      img.onerror = function () { img.remove(); };
+      ic.innerHTML = ''; ic.appendChild(img);
+    }
+    card.appendChild(ic);
+    card.appendChild(el('div', 'site-name', s.name || hostOf(s.url) || '—'));
+    if (s.user || s.pass) card.appendChild(el('span', 'has-cred', '🔑'));
+    var dots = el('button', 'site-dots', '⋮');
+    dots.onclick = function (e) { e.stopPropagation(); openEditor(s); };
+    card.appendChild(dots);
+    card.onclick = function () { openSite(s); };
+    g.appendChild(card);
+  });
+  var add = el('button', 'site add-card', '➕');
+  add.onclick = function () { openEditor(null); };
+  g.appendChild(add);
+}
+
+/* ================= open / edit ================= */
+function openSite(s) {
+  if (!s.url) { toast(T().openNoUrl); return; }
+  var url = /^https?:\/\//i.test(s.url) ? s.url : 'https://' + s.url;
+  // Keep credentials one tap away: copy the username so it can be pasted at the site
+  if (s.user) copyText(s.user, T().userCopied);
+  openExternal(url);
+}
+
+var ovRoot = document.getElementById('overlayRoot');
+function closeOv() { ovRoot.innerHTML = ''; }
+function sheet() {
+  var ov = el('div', 'overlay');
+  var sh = el('div', 'sheet');
+  ov.appendChild(sh);
+  ov.onclick = function (e) { if (e.target === ov) closeOv(); };
+  ovRoot.innerHTML = ''; ovRoot.appendChild(ov);
+  return sh;
+}
+
+function fieldRow(label, value, opts) {
+  opts = opts || {};
+  var wrap = el('div');
+  wrap.appendChild(el('div', 'flabel', label));
+  var row = el('div', 'frow');
+  var f = el('div', 'field');
+  var inp = document.createElement('input');
+  inp.value = value || '';
+  inp.dir = opts.ltr ? 'ltr' : 'auto';
+  if (opts.ltr) inp.style.textAlign = 'left';
+  if (opts.type) inp.type = opts.type;
+  if (opts.readonly) inp.readOnly = true;
+  inp.autocapitalize = 'off'; inp.autocomplete = 'off'; inp.spellcheck = false;
+  f.appendChild(inp);
+  row.appendChild(f);
+  (opts.buttons || []).forEach(function (b) {
+    var btn = el('button', 'mini', b.label);
+    btn.onclick = function () { b.fn(inp, btn); };
+    row.appendChild(btn);
+  });
+  wrap.appendChild(row);
+  wrap.input = inp;
+  return wrap;
+}
+
+function openEditor(s) {
+  var t = T();
+  var isNew = !s;
+  s = s || { id: 's' + Date.now(), name: '', url: '', icon: '', user: '', pass: '' };
+  var sh = sheet();
+  var h = el('h3');
+  h.appendChild(el('span', null, (isNew ? '➕ ' : '✏️ ') + (isNew ? t.addSite : t.editSite)));
+  var x = el('button', null, '✕'); x.onclick = closeOv; h.appendChild(x);
+  sh.appendChild(h);
+
+  var rName = fieldRow(t.fName, s.name);
+  var rUrl  = fieldRow(t.fUrl, s.url, { ltr: true });
+  var rIcon = fieldRow(t.fIcon, s.icon, { ltr: true });
+  var rUser = fieldRow(t.fUser, s.user, { ltr: true, buttons: [
+    { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value, t.userCopied); } }
+  ]});
+  var rPass = fieldRow(t.fPass, s.pass, { ltr: true, type: 'password', buttons: [
+    { label: '👁', fn: function (inp) { inp.type = inp.type === 'password' ? 'text' : 'password'; } },
+    { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value, t.passCopied); } }
+  ]});
+  [rName, rUrl, rIcon, rUser, rPass].forEach(function (r) { sh.appendChild(r); });
+
+  var act = el('div', 'actions');
+  if (!isNew) {
+    var del = el('button', 'btn danger', '🗑 ' + t.del);
+    del.onclick = function () { confirmDelete(s); };
+    act.appendChild(del);
+  }
+  var save = el('button', 'btn primary', '💾 ' + t.save);
+  save.onclick = function () {
+    var name = rName.input.value.trim();
+    var url = rUrl.input.value.trim();
+    if (!name || !url) { toast(t.errUrl); return; }
+    s.name = name; s.url = url;
+    s.icon = rIcon.input.value.trim();
+    s.user = rUser.input.value.trim();
+    s.pass = rPass.input.value;
+    if (isNew) sites.unshift(s);
+    saveSites(); renderGrid(); closeOv();
+  };
+  act.appendChild(save);
+  sh.appendChild(act);
+}
+
+function confirmDialog(text, yesLabel, onYes) {
+  var t = T();
+  var ov = el('div', 'overlay');
+  var d = el('div', 'dlg');
+  d.appendChild(el('p', null, text));
+  var r = el('div', 'row');
+  var no = el('button', null, t.no); no.onclick = closeOv;
+  var yes = el('button', 'yes', yesLabel);
+  yes.onclick = function () { closeOv(); onYes(); };
+  r.appendChild(no); r.appendChild(yes);
+  d.appendChild(r); ov.appendChild(d);
+  ov.onclick = function (e) { if (e.target === ov) closeOv(); };
+  ovRoot.innerHTML = ''; ovRoot.appendChild(ov);
+}
+function confirmDelete(s) {
+  confirmDialog(T().delTitle, T().delYes, function () {
+    sites = sites.filter(function (x) { return x !== s && x.id !== s.id; });
+    saveSites(); renderGrid();
+  });
+}
+
+/* ================= menu ================= */
+function openMenu() {
+  var t = T();
+  var sh = sheet();
+  var h = el('h3');
+  h.appendChild(el('span', null, t.menu));
+  var x = el('button', null, '✕'); x.onclick = closeOv; h.appendChild(x);
+  sh.appendChild(h);
+
+  var lt = el('div', 'flabel', t.langTitle);
+  sh.appendChild(lt);
+  var langs = el('div', 'langs');
+  [['ar', '🇸🇾 عربي'], ['fr', '🇫🇷 Français'], ['en', '🇺🇸 English']].forEach(function (o) {
+    var b = el('button', 'langb' + (uiLang() === o[0] ? ' on' : ''), o[1]);
+    b.onclick = function () { setUiLang(o[0]); openMenu(); };
+    langs.appendChild(b);
+  });
+  sh.appendChild(langs);
+
+  function row(icon, label, fn) {
+    var b = el('button', 'mrow');
+    b.appendChild(el('span', 'mi', icon));
+    b.appendChild(el('span', null, label));
+    b.onclick = fn;
+    sh.appendChild(b);
+  }
+  row(isDark() ? '☀' : '🌙', isDark() ? t.themeLight : t.themeDark, function () { toggleTheme(); openMenu(); });
+  row('⬇', t.exportData, function () { closeOv(); exportData(); });
+  row('⬆', t.importData, function () { closeOv(); importData(); });
+}
+
+/* ================= export / import ================= */
+function exportData() {
+  var data = JSON.stringify({ app: 'savepro', sites: sites }, null, 2);
+  var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+  var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
+  if (inCap && FS && SH) {
+    FS.writeFile({ path: 'savepro-data.json', data: data, directory: 'CACHE' })
+      .then(function (r) { return SH.share({ title: 'savePro', url: r.uri }); })
+      .then(function () { toast(T().exported); })
+      .catch(function () { toast('export ✗'); });
+    return;
+  }
+  var blob = new Blob([data], { type: 'application/json' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'savepro-data.json';
+  a.click(); URL.revokeObjectURL(a.href);
+  toast(T().exported);
+}
+function importData() {
+  var inp = document.createElement('input');
+  inp.type = 'file'; inp.accept = 'application/json,.json';
+  inp.onchange = function () {
+    var f = inp.files[0]; if (!f) return;
+    var rd = new FileReader();
+    rd.onload = function () {
+      try {
+        var j = JSON.parse(rd.result);
+        var list = j.sites || j;
+        if (!Array.isArray(list)) throw new Error('bad');
+        var seen = {};
+        sites.forEach(function (s) { seen[s.id] = 1; });
+        list.forEach(function (s) {
+          if (!s || !s.url) return;
+          if (!s.id) s.id = 's' + Date.now() + Math.random().toString(36).slice(2, 6);
+          if (seen[s.id]) s.id = s.id + '_i';
+          seen[s.id] = 1;
+          sites.push({ id: s.id, name: s.name || hostOf(s.url), url: s.url,
+            icon: s.icon || '', user: s.user || '', pass: s.pass || '' });
+        });
+        saveSites(); renderGrid(); toast(T().imported);
+      } catch (e) { toast('import ✗'); }
+    };
+    rd.readAsText(f);
+  };
+  inp.click();
+}
+
+/* ================= exit confirm ================= */
+function confirmExit() {
+  var t = T();
+  confirmDialog(t.exitTitle, t.yes, function () {
+    var A = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App;
+    if (A && A.exitApp) A.exitApp(); else window.close();
+  });
+}
+
+/* ================= wire up ================= */
+document.getElementById('themeBtn').onclick = toggleTheme;
+document.getElementById('menuBtn').onclick = openMenu;
+
+var CapApp = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App;
+if (CapApp && CapApp.addListener) {
+  CapApp.addListener('backButton', function () {
+    if (ovRoot.firstChild) { closeOv(); return; }
+    confirmExit();
+  });
+}
+
+applyTheme();
+applyI18n();
+renderGrid();
+
+// Service worker: PWA only, never inside Capacitor
+if (!inCap && 'serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw-savepro.js').catch(function () {});
+  });
+}
+})();
+</script>
+</body>
+</html>
