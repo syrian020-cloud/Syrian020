@@ -918,6 +918,11 @@ function phraseEditor(f, l, p) {
   var rMean = fieldRow(t.fMeaning, p.meaning);
   [rText, rLatin, rArp, rMean].forEach(function (r) { sh.appendChild(r); });
   var act = el('div', 'actions');
+  if (isNew) {
+    var tpl = el('button', 'btn ghost', '📋 ' + t.pasteTpl);
+    tpl.onclick = function () { closeOv(); pasteSheet(f, l); };
+    act.appendChild(tpl);
+  }
   var save = el('button', 'btn primary', '💾 ' + t.save);
   save.onclick = function () {
     var tx = rText.input.value.trim();
