@@ -1443,10 +1443,10 @@
   }
 
   const FLAG_RE = /^\s*([\u{1F1E6}-\u{1F1FF}]{2})\s*/u;
-  const EXTRA_LANGS = ['es', 'de', 'pt', 'ru', 'fa', 'tr', 'it'];
-  const RTL_LANGS = { ar: 1, fa: 1 };
-  const LANG_FLAG = { fr: '🇫🇷', ar: '🇸🇾', en: '🇬🇧', es: '🇪🇸', de: '🇩🇪', pt: '🇵🇹', ru: '🇷🇺', fa: '🇮🇷', tr: '🇹🇷', it: '🇮🇹' };
-  const FLAG_LANG_MAP = { '🇪🇸': 'es', '🇩🇪': 'de', '🇵🇹': 'pt', '🇧🇷': 'pt', '🇷🇺': 'ru', '🇮🇷': 'fa', '🇹🇷': 'tr', '🇮🇹': 'it' };
+  const EXTRA_LANGS = ['es', 'de', 'pt', 'ru', 'fa', 'tr', 'it', 'nl', 'zh', 'ja', 'ko', 'el', 'ur'];
+  const RTL_LANGS = { ar: 1, fa: 1, ur: 1 };
+  const LANG_FLAG = { fr: '🇫🇷', ar: '🇸🇾', en: '🇬🇧', es: '🇪🇸', de: '🇩🇪', pt: '🇵🇹', ru: '🇷🇺', fa: '🇮🇷', tr: '🇹🇷', it: '🇮🇹', nl: '🇳🇱', zh: '🇨🇳', ja: '🇯🇵', ko: '🇰🇷', el: '🇬🇷', ur: '🇵🇰' };
+  const FLAG_LANG_MAP = { '🇪🇸': 'es', '🇩🇪': 'de', '🇵🇹': 'pt', '🇧🇷': 'pt', '🇷🇺': 'ru', '🇮🇷': 'fa', '🇹🇷': 'tr', '🇮🇹': 'it', '🇳🇱': 'nl', '🇨🇳': 'zh', '🇹🇼': 'zh', '🇯🇵': 'ja', '🇰🇷': 'ko', '🇬🇷': 'el', '🇵🇰': 'ur' };
   function flagLang(flag, txt) {
     if (FLAG_LANG_MAP[flag]) return FLAG_LANG_MAP[flag];
     if (/[\u0600-\u06FF]/.test(txt)) return 'ar';
@@ -1818,7 +1818,7 @@
     ttsInstallMessage: { ar: 'التطبيق يحتاج إلى محرك نطق مثبت.\n1) تأكد من تثبيت Google Text-to-speech.\n2) افتح إعدادات الجهاز > النطق > اختر Google TTS.\n3) حمّل بيانات الصوت الفرنسي (fr-FR).\n4) أعد تشغيل التطبيق.', en: 'The app needs an installed TTS engine.\n1) Install Google Text-to-speech.\n2) Open device Settings > Speech > choose Google TTS.\n3) Download French (fr-FR) voice data.\n4) Restart the app.', fr: 'L\'application a besoin d\'un moteur TTS installé.\n1) Installez Google Text-to-speech.\n2) Paramètres > Synthèse vocale > choisissez Google TTS.\n3) Téléchargez les données vocales française (fr-FR).\n4) Redémarrez l\'application.' }
   };
 
-  const VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US', es: 'es-ES', de: 'de-DE', pt: 'pt-PT', ru: 'ru-RU', fa: 'fa-IR', tr: 'tr-TR', it: 'it-IT' };
+  const VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US', es: 'es-ES', de: 'de-DE', pt: 'pt-PT', ru: 'ru-RU', fa: 'fa-IR', tr: 'tr-TR', it: 'it-IT', nl: 'nl-NL', zh: 'zh-CN', ja: 'ja-JP', ko: 'ko-KR', el: 'el-GR', ur: 'ur-PK' };
 
   const view = document.getElementById('view');
   const searchInput = document.getElementById('search');
@@ -1842,7 +1842,7 @@
     langs: ['fr', 'ar', 'en'],
     uiLang: localStorage.getItem('zeek_ui_lang') || 'ar',
     theme: localStorage.getItem('zeek_theme') || 'dark',
-    voiceLang: { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US', es: 'es-ES', de: 'de-DE', pt: 'pt-PT', ru: 'ru-RU', fa: 'fa-IR', tr: 'tr-TR', it: 'it-IT' },
+    voiceLang: { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US', es: 'es-ES', de: 'de-DE', pt: 'pt-PT', ru: 'ru-RU', fa: 'fa-IR', tr: 'tr-TR', it: 'it-IT', nl: 'nl-NL', zh: 'zh-CN', ja: 'ja-JP', ko: 'ko-KR', el: 'el-GR', ur: 'ur-PK' },
     ttsAvailable: false
   };
 
@@ -2354,6 +2354,12 @@
     if (['IR','AF'].includes(code)) return 'fa';
     if (['TR'].includes(code)) return 'tr';
     if (['IT','SM','VA'].includes(code)) return 'it';
+    if (['NL'].includes(code)) return 'nl';
+    if (['CN','TW','MO'].includes(code)) return 'zh';
+    if (['JP'].includes(code)) return 'ja';
+    if (['KR'].includes(code)) return 'ko';
+    if (['GR','CY'].includes(code)) return 'el';
+    if (['PK'].includes(code)) return 'ur';
     return null;
   }
 
@@ -2372,6 +2378,12 @@
       if (low === 'fa' || low === 'pe' || low === 'ir') return 'fa';
       if (low === 'tr' || low === 'tu') return 'tr';
       if (low === 'it') return 'it';
+      if (low === 'nl' || low === 'du') return 'nl';
+      if (low === 'zh' || low === 'cn') return 'zh';
+      if (low === 'ja' || low === 'jp') return 'ja';
+      if (low === 'ko' || low === 'kr') return 'ko';
+      if (low === 'el' || low === 'gr') return 'el';
+      if (low === 'ur' || low === 'pk') return 'ur';
     }
     const cc = countryCodeFromFlag(marker);
     if (cc) return langFromCountryCode(cc);
@@ -3088,7 +3100,13 @@
         ru: await supportsLangTag(tts, ['ru-RU','ru','rus']),
         fa: await supportsLangTag(tts, ['fa-IR','fa','fas','per']),
         tr: await supportsLangTag(tts, ['tr-TR','tr','tur']),
-        it: await supportsLangTag(tts, ['it-IT','it','ita'])
+        it: await supportsLangTag(tts, ['it-IT','it','ita']),
+        nl: await supportsLangTag(tts, ['nl-NL','nl','nld','nl-BE']),
+        zh: await supportsLangTag(tts, ['zh-CN','zh','zho','zh-TW','cmn']),
+        ja: await supportsLangTag(tts, ['ja-JP','ja','jpn']),
+        ko: await supportsLangTag(tts, ['ko-KR','ko','kor']),
+        el: await supportsLangTag(tts, ['el-GR','el','ell']),
+        ur: await supportsLangTag(tts, ['ur-PK','ur','urd','ur-IN'])
       };
       state.ttsAvailable = true;
       hideTTSBanner();
@@ -3242,14 +3260,42 @@
     it: [
       ['it-IT-ElsaNeural', 'Elsa · IT · F'],
       ['it-IT-DiegoNeural', 'Diego · IT · M']
+    ],
+    nl: [
+      ['nl-NL-ColetteNeural', 'Colette · NL · F'],
+      ['nl-NL-MaartenNeural', 'Maarten · NL · M'],
+      ['nl-BE-DenaNeural', 'Dena · BE · F']
+    ],
+    zh: [
+      ['zh-CN-XiaoxiaoNeural', 'Xiaoxiao · CN · F'],
+      ['zh-CN-YunxiNeural', 'Yunxi · CN · M'],
+      ['zh-TW-HsiaoChenNeural', 'HsiaoChen · TW · F']
+    ],
+    ja: [
+      ['ja-JP-NanamiNeural', 'Nanami · JP · F'],
+      ['ja-JP-KeitaNeural', 'Keita · JP · M']
+    ],
+    ko: [
+      ['ko-KR-SunHiNeural', 'SunHi · KR · F'],
+      ['ko-KR-InJoonNeural', 'InJoon · KR · M']
+    ],
+    el: [
+      ['el-GR-AthinaNeural', 'Athina · GR · F'],
+      ['el-GR-NestorasNeural', 'Nestoras · GR · M']
+    ],
+    ur: [
+      ['ur-PK-UzmaNeural', 'Uzma · PK · F'],
+      ['ur-PK-AsadNeural', 'Asad · PK · M']
     ]
   };
   const EDGE_VOICE_SAMPLE = {
     fr: 'Bonjour, comment allez-vous ?', ar: 'مرحباً، كيف حالك؟', en: 'Hello, how are you?',
     es: 'Hola, ¿cómo estás?', de: 'Hallo, wie geht es dir?', pt: 'Olá, como estás?',
-    ru: 'Привет, как дела?', fa: 'سلام، حالت چطوره؟', tr: 'Merhaba, nasılsın?', it: 'Ciao, come stai?'
+    ru: 'Привет, как дела?', fa: 'سلام، حالت چطوره؟', tr: 'Merhaba, nasılsın?', it: 'Ciao, come stai?',
+    nl: 'Hallo, hoe gaat het?', zh: '你好，你好吗？', ja: 'こんにちは、お元気ですか？',
+    ko: '안녕하세요, 어떻게 지내세요?', el: 'Γεια σου, πώς είσαι;', ur: 'ہیلو، آپ کیسے ہیں؟'
   };
-  const EXTRA_LANG_LABEL = { es: '🇪🇸 Spanish voice', de: '🇩🇪 German voice', pt: '🇵🇹 Portuguese voice', ru: '🇷🇺 Russian voice', fa: '🇮🇷 Persian voice', tr: '🇹🇷 Turkish voice', it: '🇮🇹 Italian voice' };
+  const EXTRA_LANG_LABEL = { es: '🇪🇸 Spanish voice', de: '🇩🇪 German voice', pt: '🇵🇹 Portuguese voice', ru: '🇷🇺 Russian voice', fa: '🇮🇷 Persian voice', tr: '🇹🇷 Turkish voice', it: '🇮🇹 Italian voice', nl: '🇳🇱 Dutch voice', zh: '🇨🇳 Chinese voice', ja: '🇯🇵 Japanese voice', ko: '🇰🇷 Korean voice', el: '🇬🇷 Greek voice', ur: '🇵🇰 Urdu voice' };
 
   function edgeSupported() { return !!(window.EdgeTTS && EdgeTTS.supported()); }
 
@@ -4964,7 +5010,13 @@ EN: Maria, I’m out of cigarettes.`,
     `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇷🇺 Мария, у меня больше нет сигарет.`,
     `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇮🇷 ماریا، دیگر سیگار ندارم.`,
     `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇹🇷 Maria, artık sigaram kalmadı.`,
-    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇮🇹 Maria, non ho più sigarette.`
+    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇮🇹 Maria, non ho più sigarette.`,
+    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇳🇱 Maria, ik heb geen sigaretten meer.`,
+    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇨🇳 玛丽亚，我没有香烟了。`,
+    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇯🇵 マリア、もうタバコがない。`,
+    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇰🇷 마리아, 담배가 다 떨어졌어.`,
+    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇬🇷 Μαρία, δεν έχω άλλα τσιγάρα.`,
+    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇵🇰 ماریا، میرے پاس سگریٹ ختم ہو گئے ہیں۔`
   ];
   const CAPTION_EXAMPLES = [
     `1
@@ -5003,7 +5055,20 @@ EN: Maria, I’m out of cigarettes.`,
     `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇷🇺 Мария, у меня больше нет сигарет.`,
     `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇮🇷 ماریا، دیگر سیگار ندارم.`,
     `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇹🇷 Maria, artık sigaram kalmadı.`,
-    `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇮🇹 Maria, non ho più sigarette.`
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇮🇹 Maria, non ho più sigarette.`,
+
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇳🇱 Maria, ik heb geen sigaretten meer.`,
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇨🇳 玛丽亚，我没有香烟了。`,
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇯🇵 マリア、もうタバコがない。`,
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇰🇷 마리아, 담배가 다 떨어졌어.`,
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes.
+🇸🇾 ماريا، ما عاد معي دخان.
+🇬🇧 Maria, I’m out of cigarettes.
+🇬🇷 Μαρία, δεν έχω άλλα τσιγάρα.`,
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes.
+🇸🇾 ماريا، ما عاد معي دخان.
+🇬🇧 Maria, I’m out of cigarettes.
+🇵🇰 ماریا، میرے پاس سگریٹ ختم ہو گئے ہیں۔`
   ];
 
   function showPhraseExamples() {
