@@ -105,6 +105,8 @@
   .ph-flag:active { transform: scale(.88); }
   .ph-flag.speaking { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(20,184,166,.2); }
   .ph-body { flex: 1; min-width: 0; }
+  .ph-row { display: flex; gap: .6rem; align-items: flex-start; margin-top: .65rem; }
+  .ph-row .ph-text { flex: 1; }
   .ph-text { font-size: 1.12rem; font-weight: 800; line-height: 1.4; overflow-wrap: anywhere; }
   .ph-text .w { cursor: pointer; border-radius: 6px; padding: 0 1px; }
   .ph-text .w.speak { background: var(--accent); color: #fff; }
@@ -586,7 +588,16 @@ function stopReadAll() {
 function readAll(lesson) {
   var t = T();
   if (readAllJob) { stopReadAll(); return; }
-  var items = (lesson.phrases || []).filter(function (p) { return p.type !== 'note'; });
+  var items = [];
+  (lesson.phrases || []).forEach(function (p) {
+    if (p.type === 'note') return;
+    items.push({ t: p.text, lang: p.lang || langOfFlag(p.flag), el: 'phflag-' + p.id });
+    (p.rows || []).forEach(function (r, i) {
+      items.push({ t: r.text, lang: r.lang || langOfFlag(r.flag), el: 'phflag-' + p.id + '-' + i });
+    });
+    if (p.meaning) items.push({ t: p.meaning, lang: 'ar', el: 'phflag-' + p.id + '-m' });
+    if (p.en) items.push({ t: p.en, lang: 'en', el: 'phflag-' + p.id + '-e' });
+  });
   if (!items.length) return;
   var btn = document.getElementById('readAllBtn');
   btn.textContent = t.stop;
@@ -599,11 +610,11 @@ function readAll(lesson) {
       return;
     }
     if (job.i >= items.length) job.i = 0;   // loop the whole lesson until ⏹
-    var p = items[job.i++];
-    var flagEl = document.getElementById('phflag-' + p.id);
+    var it = items[job.i++];
+    var flagEl = document.getElementById(it.el);
     document.querySelectorAll('.ph-flag.speaking').forEach(function (x) { x.classList.remove('speaking'); });
     if (flagEl) flagEl.classList.add('speaking');
-    EdgeTTS.play((p.text || '').slice(0, 400), p.lang || langOfFlag(p.flag))
+    EdgeTTS.play((it.t || '').slice(0, 400), it.lang)
       .catch(function () {})
       .then(function () {
         if (flagEl) flagEl.classList.remove('speaking');
@@ -728,43 +739,55 @@ function phraseCard(p, f, l) {
   };
   c.appendChild(fb);
   var body = el('div', 'ph-body');
-  var tx = el('div', 'ph-text');
   // words are individually tappable: tap = speak, double-tap = Google Images
-  (p.text || '').split(/\s+/).forEach(function (w) {
-    var ws = el('span', 'w', w);
-    var last = 0;
-    ws.onclick = function () {
-      var now = Date.now();
-      if (now - last < 330) {
-        openExternal('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(w));
-      } else {
-        speak(w, p.lang || langOfFlag(p.flag));
-        ws.classList.add('speak');
-        setTimeout(function () { ws.classList.remove('speak'); }, 1400);
-      }
-      last = now;
-    };
-    tx.appendChild(ws);
-    tx.appendChild(document.createTextNode(' '));
+  function wordRow(text, lang) {
+    var tx = el('div', 'ph-text');
+    (text || '').split(/\s+/).forEach(function (w) {
+      if (!w) return;
+      var ws = el('span', 'w', w);
+      var last = 0;
+      ws.onclick = function () {
+        var now = Date.now();
+        if (now - last < 330) {
+          openExternal('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(w));
+        } else {
+          speak(w, lang);
+          ws.classList.add('speak');
+          setTimeout(function () { ws.classList.remove('speak'); }, 1400);
+        }
+        last = now;
+      };
+      tx.appendChild(ws);
+      tx.appendChild(document.createTextNode(' '));
+    });
+    return tx;
+  }
+  function subLines(latin, arp, lang) {
+    if (latin) {
+      var ll = el('button', 'ph-line ph-speak', '🔤 ' + latin);
+      ll.onclick = function (e) { e.stopPropagation(); speakLetters(latin, lang, ll); };
+      body.appendChild(ll);
+    }
+    if (arp) body.appendChild(el('div', 'ph-line')).innerHTML = '🗣️ ' + esc(arp);
+  }
+  // every flag row is equal: same flag button + same text size, tap speaks its language
+  function flagRow(flag, lang, text, latin, arp, rid) {
+    var row = el('div', 'ph-row');
+    var rf = el('button', 'ph-flag', flag);
+    if (rid) rf.id = rid;
+    rf.onclick = function (e) { e.stopPropagation(); speak(text, lang || langOfFlag(flag), rf); };
+    row.appendChild(rf);
+    row.appendChild(wordRow(text, lang || langOfFlag(flag)));
+    body.appendChild(row);
+    subLines(latin, arp, lang || langOfFlag(flag));
+  }
+  body.appendChild(wordRow(p.text, p.lang || langOfFlag(p.flag)));
+  subLines(p.latin, p.arp, p.lang || langOfFlag(p.flag));
+  (p.rows || []).forEach(function (r, i) {
+    flagRow(r.flag, r.lang, r.text, r.latin, r.arp, 'phflag-' + p.id + '-' + i);
   });
-  body.appendChild(tx);
-  if (p.latin) {
-    var ll = el('button', 'ph-line ph-speak', '🔤 ' + p.latin);
-    ll.onclick = function (e) { e.stopPropagation(); speakLetters(p.latin, p.lang || langOfFlag(p.flag), ll); };
-    body.appendChild(ll);
-  }
-  if (p.arp)    body.appendChild(el('div', 'ph-line')).innerHTML = '🗣️ ' + esc(p.arp);
-  // tappable meaning lines: 🇸🇾 speaks Arabic, 🇺🇸 speaks English
-  if (p.meaning) {
-    var ml = el('button', 'ph-line ph-speak', '🇸🇾 ' + p.meaning);
-    ml.onclick = function (e) { e.stopPropagation(); speak(p.meaning, 'ar', ml); };
-    body.appendChild(ml);
-  }
-  if (p.en) {
-    var el2 = el('button', 'ph-line ph-speak', '🇺🇸 ' + p.en);
-    el2.onclick = function (e) { e.stopPropagation(); speak(p.en, 'en', el2); };
-    body.appendChild(el2);
-  }
+  if (p.meaning) flagRow('🇸🇾', 'ar', p.meaning, '', '', 'phflag-' + p.id + '-m');
+  if (p.en) flagRow('🇺🇸', 'en', p.en, '', '', 'phflag-' + p.id + '-e');
   if (p.note)   body.appendChild(el('div', 'ph-line')).innerHTML = '📝 ' + esc(p.note);
   c.appendChild(body);
   var d = el('button', 'ph-dots', '⋮');
@@ -795,7 +818,8 @@ function renderSearch(v) {
   folders.forEach(function (f) {
     (f.lessons || []).forEach(function (l) {
       (l.phrases || []).forEach(function (p) {
-        var hay = [p.text, p.latin, p.arp, p.meaning, p.en, p.note, p.lang, p.flag, LANG_KEY[p.lang] || '', l.title, f.name].join(' ').toLowerCase();
+        var rowHay = (p.rows || []).map(function (r) { return [r.text, r.flag, r.lang, LANG_KEY[r.lang] || ''].join(' '); }).join(' ');
+        var hay = [p.text, p.latin, p.arp, p.meaning, p.en, p.note, p.lang, p.flag, rowHay, LANG_KEY[p.lang] || '', l.title, f.name].join(' ').toLowerCase();
         if (hay.indexOf(q) < 0) return;
         n++;
         var c = phraseCard(p, f, l);
@@ -1108,30 +1132,26 @@ function parseLessons(text) {
   var lessons = [];
   var cur = null, ph = null;
   // pending flag entries of one group: {flag, text, latin, arp, note}.
-  // On flush, non-translation flags become phrase cards; 🇸🇾 attaches as
-  // Arabic meaning and 🇺🇸/🇬🇧 as English gloss to the nearest card.
+  // On flush, every flag becomes an equal row inside ONE phrase card —
+  // the flag button speaks the phrase in that country's language.
   var grp = [];
-  var GLOSS = { '🇸🇾': 'meaning', '🇺🇸': 'en' };
+  var LABEL_RE = /^(?:الأصلية|الأصلي|النص|الكتابة(?:\s+(?:الأصلية|اللاتينية|العربية))?|المعنى(?:\s+(?:بالعربي|بالعربية|بالإنجليزية|بالإنكليزية|إنجليزي|عربي))?|الترجمة(?:\s+\S+)?|الإنجليزية|الانجليزية|English|Meaning|النطق(?:\s+\S+)?|اللفظ|تقريب(?:\s+\S+)?)\s*[:：]\s*/u;
+  function deLabel(s) { var m = LABEL_RE.exec(s); return m ? s.slice(m[0].length).trim() : s.trim(); }
   function lastEntry() { return grp.length ? grp[grp.length - 1] : ph; }
   function flushGroup() {
     if (!grp.length) return;
     if (cur) {
-      var cards = grp.filter(function (e) { return !GLOSS[e.flag]; });
-      if (!cards.length) cards = grp.filter(function (e) { return e.flag !== '🇸🇾'; });
-      if (!cards.length) cards = grp;
-      cards.forEach(function (e) {
-        e.obj = { id: uid(), flag: e.flag, lang: langOfFlag(e.flag), text: e.text,
-          latin: e.latin || '', arp: e.arp || '', meaning: '', en: '', note: e.note || '' };
+      grp.forEach(function (e, i) {
+        if (i === 0) {
+          ph = { id: uid(), flag: e.flag, lang: langOfFlag(e.flag), text: e.text,
+            latin: e.latin || '', arp: e.arp || '', meaning: '', en: '',
+            note: e.note || '', rows: [] };
+          cur.phrases.push(ph);
+        } else {
+          ph.rows.push({ flag: e.flag, lang: langOfFlag(e.flag), text: e.text,
+            latin: e.latin || '', arp: e.arp || '' });
+        }
       });
-      grp.forEach(function (e) {
-        var field = GLOSS[e.flag];
-        if (!field || e.obj) return;
-        var i = grp.indexOf(e), j;
-        for (j = i - 1; j >= 0; j--) if (grp[j].obj) { grp[j].obj[field] = e.text; return; }
-        for (j = i + 1; j < grp.length; j++) if (grp[j].obj) { grp[j].obj[field] = e.text; return; }
-      });
-      cards.forEach(function (e) { cur.phrases.push(e.obj); });
-      ph = cards[cards.length - 1].obj;
     }
     grp = [];
   }
@@ -1166,7 +1186,7 @@ function parseLessons(text) {
       // split() output: [pre-text, marker1, text1, marker2, text2, ...]
       for (var si = 1; si < sparts.length; si += 2) {
         var sm = (sparts[si] || '').trim();
-        var st = stripLabel((sparts[si + 1] || '').trim());
+        var st = deLabel((sparts[si + 1] || '').trim());
         if (!sm) continue;
         if (FLAG_RE.test(sm)) {
           grp.push({ flag: sm, text: st, latin: '', arp: '', note: '' });
@@ -1207,7 +1227,7 @@ function parseLessons(text) {
       // label, not a phrase — skip it; the real phrase follows on the next line.
       // 🇸🇾 is exempt since its text is always Arabic (the meaning).
       else if (fm[0] !== '🇸🇾' && rest && rest.length < 40 && !/[^\u0600-\u06FF\s\d(),.\/؟?\-]/.test(rest)) return;
-      grp.push({ flag: fm[0], text: GLOSS[fm[0]] ? stripLabel(rest) : rest, latin: '', arp: '', note: '' });
+      grp.push({ flag: fm[0], text: deLabel(rest), latin: '', arp: '', note: '' });
       return;
     }
     // flagless line: note attached to previous phrase, or standalone note
