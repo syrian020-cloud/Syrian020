@@ -21,7 +21,8 @@
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; background: var(--bg); color: var(--txt);
-    font-family: 'Segoe UI', Tahoma, Arial, sans-serif; overflow-x: clip; }
+    font-family: 'Noto Kufi Arabic', 'Noto Naskh Arabic', 'Segoe UI', Roboto, Tahoma, Arial, sans-serif;
+    overflow-x: clip; }
   body { min-height: 100vh; padding-bottom: 5.5rem; }
   body::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
     background:
@@ -108,6 +109,10 @@
   .ph-row { display: flex; gap: .6rem; align-items: flex-start; margin-top: .65rem; }
   .ph-row .ph-text { flex: 1; }
   .ph-text { font-size: 1.12rem; font-weight: 800; line-height: 1.4; overflow-wrap: anywhere; }
+  .ph-text.wlg-ar { font-family: 'Noto Kufi Arabic', 'Noto Naskh Arabic', 'Segoe UI', Tahoma, sans-serif;
+    font-size: 1.18rem; }
+  .ph-text.wlg-fr { font-family: Georgia, 'Times New Roman', 'Segoe UI', serif; }
+  .ph-text.wlg-en { font-family: 'Segoe UI', 'Noto Sans', Roboto, 'Helvetica Neue', sans-serif; }
   .ph-text .w { cursor: pointer; border-radius: 6px; padding: 0 1px; }
   .ph-text .w.speak { background: var(--accent); color: #fff; }
   .ph-line { font-size: .8rem; color: var(--dim); margin-top: .2rem; line-height: 1.5; }
@@ -784,6 +789,7 @@ function renderLessons(v, f) {
 // words are individually tappable: tap = speak, double-tap = Google Images
 function wordRow(text, lang) {
   var tx = el('div', 'ph-text');
+  tx.classList.add('wlg-' + (lang === 'ar' || lang === 'en' || lang === 'fr' ? lang : 'x'));
   (text || '').split(/\s+/).forEach(function (w) {
     if (!w) return;
     var ws = el('span', 'w', w);
@@ -1498,7 +1504,7 @@ function mediaDel(key) {
 function mediaKey(l) { return 'plm_' + l.id; }
 
 var mediaEl = null;   // the <video>/<audio> in the open lesson
-var segLoop = false;  // 🔂 repeat the current cue
+var loopSeg = null;   // {start, end} — loops that media segment continuously
 function renderMedia(v, f, l) {
   var cues = l.cues || [];
   var box = el('div', 'media-box');
@@ -1526,9 +1532,8 @@ function renderMedia(v, f, l) {
     showCaption(i);
     var nodes = list.querySelectorAll('.cue');
     for (var j = 0; j < nodes.length; j++) nodes[j].classList.toggle('on', j === i);
-    if (segLoop && i >= 0 && mediaEl && mediaEl.currentTime >= cues[i].end - 0.08) {
-      mediaEl.currentTime = cues[i].start;
-      mediaEl.play();
+    if (loopSeg && mediaEl && mediaEl.currentTime >= loopSeg.end - 0.08) {
+      mediaEl.currentTime = loopSeg.start;   // continuous segment loop
     }
   }
   var me = null;
@@ -1547,7 +1552,12 @@ function renderMedia(v, f, l) {
   var tools = el('div', 'cue-tools');
   var lp = el('button', 'mini', '🔂');
   lp.title = 'repeat cue';
-  lp.onclick = function () { segLoop = !segLoop; lp.classList.toggle('on', segLoop); };
+  lp.onclick = function () {
+    if (loopSeg) { loopSeg = null; lp.classList.remove('on'); return; }
+    var i = me ? activeIdx(me.currentTime) : -1;
+    loopSeg = cues[i >= 0 ? i : 0] ? { start: cues[i >= 0 ? i : 0].start, end: cues[i >= 0 ? i : 0].end } : null;
+    lp.classList.toggle('on', !!loopSeg);
+  };
   tools.appendChild(lp);
   if (l.media && l.media.kind !== 'audio') {
     // video size: fit → cover → fill → tall (cycle)
@@ -1579,8 +1589,9 @@ function renderMedia(v, f, l) {
         document.querySelectorAll('.cue-t.speaking').forEach(function (x) {
           x.classList.remove('speaking');
         });
-        if (was) { segLoop = false; me.pause(); return; }
-        segLoop = true;
+        if (was) { loopSeg = null; me.pause(); if (lp) lp.classList.remove('on'); return; }
+        loopSeg = { start: c.start, end: c.end };
+        if (lp) lp.classList.add('on');
         me.currentTime = c.start;
         me.play();
         tb.classList.add('speaking');
