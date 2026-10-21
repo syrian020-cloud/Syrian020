@@ -26,10 +26,18 @@
   var api = {
     down: false,
     lastError: '',
-    voices: { fr: 'fr-FR-DeniseNeural', ar: 'ar-SY-AmanyNeural', en: 'en-US-JennyNeural' },
-    rates: { fr: '-8%', ar: '0%', en: '0%' }
+    voices: {
+      fr: 'fr-FR-DeniseNeural', ar: 'ar-SY-AmanyNeural', en: 'en-US-JennyNeural',
+      es: 'es-ES-ElviraNeural', de: 'de-DE-KatjaNeural', pt: 'pt-PT-RaquelNeural',
+      ru: 'ru-RU-SvetlanaNeural', fa: 'fa-IR-DilaraNeural', tr: 'tr-TR-EmelNeural',
+      it: 'it-IT-ElsaNeural'
+    },
+    rates: {
+      fr: '-8%', ar: '0%', en: '0%', es: '0%', de: '0%', pt: '0%',
+      ru: '0%', fa: '0%', tr: '0%', it: '0%'
+    }
   };
-  var RV_TL = { fr: 'fr', ar: 'ar', en: 'en-US' };
+  var RV_TL = { fr: 'fr', ar: 'ar', en: 'en-US', es: 'es', de: 'de', pt: 'pt', ru: 'ru', fa: 'fa', tr: 'tr', it: 'it' };
   var RV_RATE = '0.47';
   var CACHE_MAX = 60;
   var FETCH_TIMEOUT_MS = 25000;

@@ -269,6 +269,10 @@
   .line.en {
     direction: ltr; text-align: left; color: var(--text-primary); font-size: 0.98rem;
   }
+  .line.x {
+    direction: ltr; text-align: left; color: var(--text-primary); font-size: 0.95rem;
+  }
+  .line.x[dir="rtl"] { direction: rtl; text-align: right; }
   .word { cursor: pointer; border-radius: 4px; padding: 0.05rem 0.12rem; margin: -0.05rem -0.12rem; transition: background 0.15s; -webkit-tap-highlight-color: transparent; }
   .word:hover { background: rgba(139,92,246,0.12); }
   .word.active { background: rgba(52,211,153,0.18); }
@@ -704,6 +708,7 @@
         <button type="button" class="btn" data-voice-preview="en" data-t-title="voicePreview" title="Listen">▶</button>
       </div>
     </div>
+    <div id="edge-voices-extra"></div>
     <div class="form-actions" style="margin-top:0.75rem">
       <button type="button" class="btn ghost" id="btn-close-voices" data-t="cancel">إلغاء</button>
     </div>
@@ -1438,7 +1443,12 @@
   }
 
   const FLAG_RE = /^\s*([\u{1F1E6}-\u{1F1FF}]{2})\s*/u;
+  const EXTRA_LANGS = ['es', 'de', 'pt', 'ru', 'fa', 'tr', 'it'];
+  const RTL_LANGS = { ar: 1, fa: 1 };
+  const LANG_FLAG = { fr: '🇫🇷', ar: '🇸🇾', en: '🇬🇧', es: '🇪🇸', de: '🇩🇪', pt: '🇵🇹', ru: '🇷🇺', fa: '🇮🇷', tr: '🇹🇷', it: '🇮🇹' };
+  const FLAG_LANG_MAP = { '🇪🇸': 'es', '🇩🇪': 'de', '🇵🇹': 'pt', '🇧🇷': 'pt', '🇷🇺': 'ru', '🇮🇷': 'fa', '🇹🇷': 'tr', '🇮🇹': 'it' };
   function flagLang(flag, txt) {
+    if (FLAG_LANG_MAP[flag]) return FLAG_LANG_MAP[flag];
     if (/[\u0600-\u06FF]/.test(txt)) return 'ar';
     if (flag === '🇫🇷' || flag === '🇧🇪' || flag === '🇨🇭' || flag === '🇨🇦') return 'fr';
     if (flag === '🇺🇸' || flag === '🇬🇧' || flag === '🇦🇺') return 'en';
@@ -1808,7 +1818,7 @@
     ttsInstallMessage: { ar: 'التطبيق يحتاج إلى محرك نطق مثبت.\n1) تأكد من تثبيت Google Text-to-speech.\n2) افتح إعدادات الجهاز > النطق > اختر Google TTS.\n3) حمّل بيانات الصوت الفرنسي (fr-FR).\n4) أعد تشغيل التطبيق.', en: 'The app needs an installed TTS engine.\n1) Install Google Text-to-speech.\n2) Open device Settings > Speech > choose Google TTS.\n3) Download French (fr-FR) voice data.\n4) Restart the app.', fr: 'L\'application a besoin d\'un moteur TTS installé.\n1) Installez Google Text-to-speech.\n2) Paramètres > Synthèse vocale > choisissez Google TTS.\n3) Téléchargez les données vocales française (fr-FR).\n4) Redémarrez l\'application.' }
   };
 
-  const VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
+  const VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US', es: 'es-ES', de: 'de-DE', pt: 'pt-PT', ru: 'ru-RU', fa: 'fa-IR', tr: 'tr-TR', it: 'it-IT' };
 
   const view = document.getElementById('view');
   const searchInput = document.getElementById('search');
@@ -1832,7 +1842,7 @@
     langs: ['fr', 'ar', 'en'],
     uiLang: localStorage.getItem('zeek_ui_lang') || 'ar',
     theme: localStorage.getItem('zeek_theme') || 'dark',
-    voiceLang: { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' },
+    voiceLang: { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US', es: 'es-ES', de: 'de-DE', pt: 'pt-PT', ru: 'ru-RU', fa: 'fa-IR', tr: 'tr-TR', it: 'it-IT' },
     ttsAvailable: false
   };
 
@@ -2337,6 +2347,13 @@
     if (['FR','BE','CA','CH','LU','MC'].includes(code)) return 'fr';
     if (['SY','SA','AE','EG','IQ','JO','LB','LY','MA','OM','PS','QA','TN','YE','KW','BH','DZ','SD','MR','KM','TD','DJ','ER','SO'].includes(code)) return 'ar';
     if (['US','GB','CA','AU','NZ','IE','ZA','IN','NG','KE','GH','JM','TT','BZ','BS','BB','SG','MY','PH','HK'].includes(code)) return 'en';
+    if (['ES','MX','AR','CO','CL','PE','VE','UY','PY','BO','EC','GT','CU','DO','HN','SV','NI','CR','PA','GQ'].includes(code)) return 'es';
+    if (['DE','AT','LI'].includes(code)) return 'de';
+    if (['PT','BR'].includes(code)) return 'pt';
+    if (['RU'].includes(code)) return 'ru';
+    if (['IR','AF'].includes(code)) return 'fa';
+    if (['TR'].includes(code)) return 'tr';
+    if (['IT','SM','VA'].includes(code)) return 'it';
     return null;
   }
 
@@ -2348,6 +2365,13 @@
       if (low === 'fr') return 'fr';
       if (low === 'ar' || low === 'sy' || low === 'sa' || low === 'ae' || low === 'eg') return 'ar';
       if (low === 'en' || low === 'us' || low === 'uk' || low === 'gb') return 'en';
+      if (low === 'es' || low === 'sp') return 'es';
+      if (low === 'de' || low === 'ge') return 'de';
+      if (low === 'pt') return 'pt';
+      if (low === 'ru') return 'ru';
+      if (low === 'fa' || low === 'pe' || low === 'ir') return 'fa';
+      if (low === 'tr' || low === 'tu') return 'tr';
+      if (low === 'it') return 'it';
     }
     const cc = countryCodeFromFlag(marker);
     if (cc) return langFromCountryCode(cc);
@@ -2827,7 +2851,7 @@
       const theme = CAPTION_THEMES[state.captionTheme] || CAPTION_THEMES[0];
       const badge = `<span class="cap-badge">${lang.toUpperCase()}</span>`;
       const loop = `<button type="button" class="cap-lang-loop" data-lang="${lang}" title="${t('loopLang_' + lang)}">🔊</button>`;
-      return `<span class="cap-line cap-${lang}${theme.badges ? ' has-badge' : ''}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">${badge}${loop}${flagHtml}${html}</span>`;
+      return `<span class="cap-line cap-${lang}${theme.badges ? ' has-badge' : ''}" dir="${RTL_LANGS[lang] ? 'rtl' : 'ltr'}">${badge}${loop}${flagHtml}${html}</span>`;
     };
     let lastIdx = -1;
     const update = () => {
@@ -2843,7 +2867,7 @@
         return;
       }
       if (activeIdx !== lastIdx) {
-        const parts = [makeCap(c.fr, 'fr'), makeCap(c.ar, 'ar'), makeCap(c.en, 'en')].filter(Boolean);
+        const parts = [makeCap(c.fr, 'fr'), makeCap(c.ar, 'ar'), makeCap(c.en, 'en'), ...EXTRA_LANGS.map(l => makeCap(c[l], l))].filter(Boolean);
         textDiv.innerHTML = parts.join('');
         lastIdx = activeIdx;
         if (lessonId != null) {
@@ -2873,7 +2897,7 @@
         words.forEach((w, i) => w.classList.toggle('cur', i === cur));
       };
       if (syncPhraseEl) syncPhraseEl.querySelectorAll('.line').forEach(line => hlLine(line, line.dataset.lang));
-      textDiv.querySelectorAll('.cap-line').forEach(line => hlLine(line, (line.className.match(/cap-(fr|ar|en)/) || [])[1] || ''));
+      textDiv.querySelectorAll('.cap-line').forEach(line => hlLine(line, (line.className.match(/cap-(\w+)/) || [])[1] || ''));
       if (lessonId != null) highlightVideoPhrase(lessonId, activeIdx);
       let phraseKey = '';
       if (lessonId != null) phraseKey = lessonId + '.' + activeIdx;
@@ -3057,7 +3081,14 @@
       state.voiceLang = {
         fr: frTag,
         ar: await supportsLangTag(tts, ['ar-SA','ar','ara','ar-EG']),
-        en: await supportsLangTag(tts, ['en-US','en','eng','en-GB','en-CA'])
+        en: await supportsLangTag(tts, ['en-US','en','eng','en-GB','en-CA']),
+        es: await supportsLangTag(tts, ['es-ES','es','spa','es-MX','es-US']),
+        de: await supportsLangTag(tts, ['de-DE','de','deu']),
+        pt: await supportsLangTag(tts, ['pt-PT','pt','por','pt-BR']),
+        ru: await supportsLangTag(tts, ['ru-RU','ru','rus']),
+        fa: await supportsLangTag(tts, ['fa-IR','fa','fas','per']),
+        tr: await supportsLangTag(tts, ['tr-TR','tr','tur']),
+        it: await supportsLangTag(tts, ['it-IT','it','ita'])
       };
       state.ttsAvailable = true;
       hideTTSBanner();
@@ -3177,9 +3208,48 @@
       ['en-CA-LiamNeural', 'Liam · CA · M'],
       ['en-IN-NeerjaNeural', 'Neerja · IN · F'],
       ['en-IN-PrabhatNeural', 'Prabhat · IN · M']
+    ],
+    es: [
+      ['es-ES-ElviraNeural', 'Elvira · ES · F'],
+      ['es-ES-AlvaroNeural', 'Alvaro · ES · M'],
+      ['es-MX-DaliaNeural', 'Dalia · MX · F'],
+      ['es-MX-JorgeNeural', 'Jorge · MX · M']
+    ],
+    de: [
+      ['de-DE-KatjaNeural', 'Katja · DE · F'],
+      ['de-DE-ConradNeural', 'Conrad · DE · M'],
+      ['de-AT-IngridNeural', 'Ingrid · AT · F'],
+      ['de-CH-JanNeural', 'Jan · CH · M']
+    ],
+    pt: [
+      ['pt-PT-RaquelNeural', 'Raquel · PT · F'],
+      ['pt-PT-DuarteNeural', 'Duarte · PT · M'],
+      ['pt-BR-FranciscaNeural', 'Francisca · BR · F'],
+      ['pt-BR-AntonioNeural', 'Antonio · BR · M']
+    ],
+    ru: [
+      ['ru-RU-SvetlanaNeural', 'Svetlana · RU · F'],
+      ['ru-RU-DmitryNeural', 'Dmitry · RU · M']
+    ],
+    fa: [
+      ['fa-IR-DilaraNeural', 'Dilara · IR · F'],
+      ['fa-IR-FaridNeural', 'Farid · IR · M']
+    ],
+    tr: [
+      ['tr-TR-EmelNeural', 'Emel · TR · F'],
+      ['tr-TR-AhmetNeural', 'Ahmet · TR · M']
+    ],
+    it: [
+      ['it-IT-ElsaNeural', 'Elsa · IT · F'],
+      ['it-IT-DiegoNeural', 'Diego · IT · M']
     ]
   };
-  const EDGE_VOICE_SAMPLE = { fr: 'Bonjour, comment allez-vous ?', ar: 'مرحباً، كيف حالك؟', en: 'Hello, how are you?' };
+  const EDGE_VOICE_SAMPLE = {
+    fr: 'Bonjour, comment allez-vous ?', ar: 'مرحباً، كيف حالك؟', en: 'Hello, how are you?',
+    es: 'Hola, ¿cómo estás?', de: 'Hallo, wie geht es dir?', pt: 'Olá, como estás?',
+    ru: 'Привет, как дела?', fa: 'سلام، حالت چطوره؟', tr: 'Merhaba, nasılsın?', it: 'Ciao, come stai?'
+  };
+  const EXTRA_LANG_LABEL = { es: '🇪🇸 Spanish voice', de: '🇩🇪 German voice', pt: '🇵🇹 Portuguese voice', ru: '🇷🇺 Russian voice', fa: '🇮🇷 Persian voice', tr: '🇹🇷 Turkish voice', it: '🇮🇹 Italian voice' };
 
   function edgeSupported() { return !!(window.EdgeTTS && EdgeTTS.supported()); }
 
@@ -3187,7 +3257,7 @@
     if (!window.EdgeTTS) return;
     try {
       const saved = JSON.parse(localStorage.getItem('zeek_edge_voices') || '{}');
-      ['fr', 'ar', 'en'].forEach(l => { if (saved[l]) EdgeTTS.voices[l] = saved[l]; });
+      Object.keys(EdgeTTS.voices).forEach(l => { if (saved[l]) EdgeTTS.voices[l] = saved[l]; });
     } catch (e) {}
   }
 
@@ -3196,7 +3266,12 @@
   }
 
   function fillVoiceSelects() {
-    ['fr', 'ar', 'en'].forEach(l => {
+    const extra = document.getElementById('edge-voices-extra');
+    if (extra && !extra.dataset.done) {
+      extra.dataset.done = '1';
+      extra.innerHTML = EXTRA_LANGS.map(l => `<div class="form-group"><label for="edge-voice-${l}">${EXTRA_LANG_LABEL[l]}</label><div style="display:flex;gap:0.4rem"><select class="ctl" id="edge-voice-${l}" style="flex:1;min-width:0"></select><button type="button" class="btn" data-voice-preview="${l}" title="${t('voicePreview')}">▶</button></div></div>`).join('');
+    }
+    Object.keys(EDGE_VOICE_OPTIONS).forEach(l => {
       const sel = document.getElementById('edge-voice-' + l);
       if (!sel) return;
       sel.innerHTML = (EDGE_VOICE_OPTIONS[l] || []).map(v => `<option value="${v[0]}">${esc(v[1])}</option>`).join('');
@@ -3337,7 +3412,7 @@
     const ready = await prepareTTS();
     if (run !== speechRun) return;
     if (!ready) { highlight(null); return; }
-    const seq = langs.filter(l => phrase[l] && (edgeSupported() || state.voiceLang[l]));
+    const seq = [...langs, ...EXTRA_LANGS].filter(l => phrase[l] && (edgeSupported() || state.voiceLang[l]));
     let i = 0;
     (function next() {
       if (run !== speechRun) return;
@@ -3820,7 +3895,11 @@
     if (captionText) {
       const captions = parseCaptions(captionText);
       if (!captions.length) { alert(t('captionParseError')); return; }
-      phrases = captions.map(c => ({ fr: c.fr, ar: c.ar, en: c.en, start: c.start, end: c.end }));
+      phrases = captions.map(c => {
+        const p = { fr: c.fr, ar: c.ar, en: c.en, start: c.start, end: c.end };
+        EXTRA_LANGS.forEach(l => { if (c[l]) p[l] = c[l]; });
+        return p;
+      });
     } else {
       const parsed = parsePhrasesWithSections(form.elements.phrases.value, form.elements.order.value);
       phrases = parsed.phrases;
@@ -3932,6 +4011,7 @@
           <div class="line fr" data-lang="fr" dir="ltr">${wordSpans(p.fr, 'fr')}<button class="loop-lang" data-lang="fr" title="🔁 FR">🔁</button></div>
           <div class="line ar" data-lang="ar" dir="rtl">${wordSpans(p.ar, 'ar')}<button class="loop-lang" data-lang="ar" title="🔁 AR">🔁</button></div>
           <div class="line en" data-lang="en" dir="ltr">${wordSpans(p.en, 'en')}<button class="loop-lang" data-lang="en" title="🔁 EN">🔁</button></div>
+          ${EXTRA_LANGS.filter(l => p[l]).map(l => `<div class="line x" data-lang="${l}" dir="${RTL_LANGS[l] ? 'rtl' : 'ltr'}">${wordSpans(p[l], l)}<button class="loop-lang" data-lang="${l}" title="🔁 ${l.toUpperCase()}">🔁</button></div>`).join('')}
         </div>
         <div class="btns">
           <button class="loop-btn" title="${t('loopTitle')}">🔁</button>
@@ -3974,14 +4054,20 @@
 
   function lessonPhrasesText(lesson) {
     const secs = lessonSections(lesson);
-    if (!secs) return lesson.phrases.map(p => `${p.fr} | ${p.ar} | ${p.en}`).join('\n');
+    const lineOf = p => {
+      if (!EXTRA_LANGS.some(l => p[l])) return `${p.fr} | ${p.ar} | ${p.en}`;
+      const withFlag = (t, l) => /^[\u{1F1E6}-\u{1F1FF}]{2}/u.test(t || '') ? t : (t ? LANG_FLAG[l] + ' ' + t : '');
+      return [['fr', p.fr], ['ar', p.ar], ['en', p.en], ...EXTRA_LANGS.map(l => [l, p[l]])]
+        .filter(x => x[1]).map(x => withFlag(x[1], x[0])).join(' ');
+    };
+    if (!secs) return lesson.phrases.map(lineOf).join('\n');
     const parts = [];
     secs.forEach((sec, si) => {
       const items = lesson.phrases.filter(p => (p.sec || 0) === si);
       if (!items.length) return;
       if (parts.length) parts.push('\n---\n');
       if (sec.title) parts.push('📌 ' + formatTitle(sec.title));
-      items.forEach(p => parts.push(`${p.fr} | ${p.ar} | ${p.en}`));
+      items.forEach(p => parts.push(lineOf(p)));
     });
     return parts.join('\n');
   }
@@ -4513,6 +4599,7 @@
         <div class="lz-v-line"><span class="lz-v-fr">${esc(stripSpeechFlags(p.fr || ''))}</span><button class="lz-v-loop" data-lang="fr" title="🔁">🔁</button></div>
         ${stripSpeechFlags(p.ar || '') ? `<div class="lz-v-line"><span class="lz-v-tr" dir="rtl">${esc(stripSpeechFlags(p.ar))}</span><button class="lz-v-loop" data-lang="ar" title="🔁">🔁</button></div>` : ''}
         ${stripSpeechFlags(p.en || '') ? `<div class="lz-v-line"><span class="lz-v-tr">${esc(stripSpeechFlags(p.en))}</span><button class="lz-v-loop" data-lang="en" title="🔁">🔁</button></div>` : ''}
+        ${EXTRA_LANGS.filter(l => p[l]).map(l => `<div class="lz-v-line"><span class="lz-v-tr" dir="${RTL_LANGS[l] ? 'rtl' : 'ltr'}">${esc(stripSpeechFlags(p[l]))}</span><button class="lz-v-loop" data-lang="${l}" title="🔁">🔁</button></div>`).join('')}
       </div>`;
       hero.querySelectorAll('.lz-v-loop').forEach(b => {
         b.onclick = () => lzSpeak(p[b.dataset.lang], b, b.dataset.lang);
@@ -4804,7 +4891,11 @@
     if (captionText && captionText !== (lesson.captionText || '') && !phrasesRaw) {
       const captions = parseCaptions(captionText);
       if (!captions.length) { alert(t('captionParseError')); return; }
-      phrases = captions.map(c => ({ fr: c.fr, ar: c.ar, en: c.en, start: c.start, end: c.end }));
+      phrases = captions.map(c => {
+        const p = { fr: c.fr, ar: c.ar, en: c.en, start: c.start, end: c.end };
+        EXTRA_LANGS.forEach(l => { if (c[l]) p[l] = c[l]; });
+        return p;
+      });
     } else {
       const parsed = parsePhrasesWithSections(phrasesRaw, 'auto');
       phrases = parsed.phrases;
@@ -4866,7 +4957,14 @@ EN: Maria, I’m out of cigarettes.`,
 
 💈 الموقف الثاني: السؤال عن السعر
 
-🇫🇷 Combien coûte une coupe de cheveux ? 🇸🇾 قديش حق قصّ الشعر؟ 🇺🇸 How much does a haircut cost?`
+🇫🇷 Combien coûte une coupe de cheveux ? 🇸🇾 قديش حق قصّ الشعر؟ 🇺🇸 How much does a haircut cost?`,
+    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇪🇸 María, ya no me quedan cigarrillos.`,
+    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇩🇪 Maria, ich habe keine Zigaretten mehr.`,
+    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇵🇹 Maria, já não tenho cigarros.`,
+    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇷🇺 Мария, у меня больше нет сигарет.`,
+    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇮🇷 ماریا، دیگر سیگار ندارم.`,
+    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇹🇷 Maria, artık sigaram kalmadı.`,
+    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇮🇹 Maria, non ho più sigarette.`
   ];
   const CAPTION_EXAMPLES = [
     `1
@@ -4897,7 +4995,15 @@ Give me some money.`,
 
     `00:00 FR: Maria, j’ai plus de cigarettes.
 AR: ماريا، ما عاد معي دخان.
-EN: Maria, I’m out of cigarettes.`
+EN: Maria, I’m out of cigarettes.`,
+
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇪🇸 María, ya no me quedan cigarrillos.`,
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇩🇪 Maria, ich habe keine Zigaretten mehr.`,
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇵🇹 Maria, já não tenho cigarros.`,
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇷🇺 Мария, у меня больше нет сигарет.`,
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇮🇷 ماریا، دیگر سیگار ندارم.`,
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇹🇷 Maria, artık sigaram kalmadı.`,
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇮🇹 Maria, non ho più sigarette.`
   ];
 
   function showPhraseExamples() {
