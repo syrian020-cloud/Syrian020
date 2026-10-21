@@ -206,6 +206,31 @@
     font-size: .9rem; cursor: pointer; font-family: inherit; background: var(--card); color: var(--txt); }
   .dlg button.yes { background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none; color: #fff; font-weight: 700; }
 
+  /* ---------- timed media (zeek-style) ---------- */
+  .media-box { background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+    padding: .6rem; margin-bottom: .7rem; box-shadow: 0 4px 14px rgba(3,8,12,.18); }
+  .media-box video { width: 100%; border-radius: 12px; background: #000; max-height: 240px; }
+  .media-box audio { width: 100%; height: 42px; }
+  .media-name { font-size: .7rem; color: var(--dim); text-align: center; margin-top: .3rem;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .cue-now { text-align: center; font-size: 1.05rem; font-weight: 800; line-height: 1.45;
+    padding: .55rem .3rem .2rem; min-height: 1.5rem; overflow-wrap: anywhere; }
+  .cue-tools { display: flex; gap: .4rem; justify-content: center; margin-top: .35rem; }
+  .cue-tools .mini.on { background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff; border-color: transparent; }
+  .cue { display: flex; gap: .55rem; align-items: flex-start; background: var(--card);
+    border: 1px solid var(--line); border-radius: 16px; padding: .55rem .6rem;
+    margin-bottom: .55rem; box-shadow: 0 4px 14px rgba(3,8,12,.14);
+    border-inline-start: 3px solid transparent; }
+  .cue.on { border-inline-start-color: var(--accent); background: rgba(20,184,166,.08); }
+  .cue-t { flex: none; min-width: 46px; text-align: center; background: var(--field);
+    border: 1px solid var(--line); border-radius: 12px; padding: .55rem .3rem;
+    font-size: .72rem; font-weight: 800; color: var(--accent); cursor: pointer;
+    font-family: inherit; direction: ltr; }
+  .cue-t:active { background: var(--accent); color: #fff; }
+  .cue-body { flex: 1; min-width: 0; }
+  .cue-body .ph-row:first-child { margin-top: 0; }
+
   .hidden { display: none !important; }
 </style>
 </head>
@@ -259,6 +284,10 @@ var I18N = {
     delYes: 'نعم، احذف',
     exported: 'تم تصدير البيانات', imported: 'تمت الإضافة', errEmpty: 'أدخل الاسم على الأقل',
     errPh: 'أدخل العبارة على الأقل', errPaste: 'لم يتم العثور على عبارات في النص',
+    media: '🎬 وسائط مؤقّتة', mediaTitle: 'إرفاق فيديو / صوت + ترجمة مؤقّتة',
+    pickMedia: 'اختر ملف فيديو أو صوت', mediaNow: 'الملف الحالي',
+    timedL: 'النص المؤقّت — كل سطر: 00:01 العبارة أو 00:01 --> 00:04 العبارة',
+    mediaDel: 'حذف الملف المرفق', errTimed: 'لم يتم العثور على أسطر مؤقّتة',
     emptyF: 'لا مجلدات بعد — أنشئ أول مجلد بزر ➕', emptyL: 'لا دروس هنا — أضف درساً بـ➕ أو الصق نماذج',
     emptyP: 'لا عبارات بعد — أضفها بـ➕'
   },
@@ -282,6 +311,10 @@ var I18N = {
     delYes: 'Oui, supprimer',
     exported: 'Données exportées', imported: 'Ajouté', errEmpty: 'Nom requis',
     errPh: 'Phrase requise', errPaste: 'Aucune phrase trouvée dans le texte',
+    media: '🎬 Média synchronisé', mediaTitle: 'Joindre vidéo / audio + sous-titres',
+    pickMedia: 'Choisir un fichier vidéo ou audio', mediaNow: 'Fichier actuel',
+    timedL: 'Texte synchronisé — chaque ligne : 00:01 phrase ou 00:01 --> 00:04 phrase',
+    mediaDel: 'Supprimer le fichier joint', errTimed: 'Aucune ligne synchronisée trouvée',
     emptyF: 'Aucun dossier — créez-en un avec ➕', emptyL: 'Aucune leçon — ajoutez avec ➕ ou collez des modèles',
     emptyP: 'Aucune phrase — ajoutez avec ➕'
   },
@@ -305,6 +338,10 @@ var I18N = {
     delYes: 'Yes, delete',
     exported: 'Data exported', imported: 'Added', errEmpty: 'Name required',
     errPh: 'Phrase required', errPaste: 'No phrases found in the text',
+    media: '🎬 Timed media', mediaTitle: 'Attach video / audio + timed captions',
+    pickMedia: 'Pick a video or audio file', mediaNow: 'Current file',
+    timedL: 'Timed text — each line: 00:01 phrase or 00:01 --> 00:04 phrase',
+    mediaDel: 'Remove attached file', errTimed: 'No timed lines found',
     emptyF: 'No folders yet — create one with ➕', emptyL: 'No lessons — add with ➕ or paste templates',
     emptyP: 'No phrases yet — add with ➕'
   }
@@ -581,6 +618,7 @@ function stopReadAll() {
   if (readAllJob) readAllJob.cancelled = true;
   speakTok++;
   if (window.EdgeTTS) EdgeTTS.stop();
+  if (mediaEl) { try { mediaEl.pause(); } catch (e) {} }
   readAllJob = null;
   var b = document.getElementById('readAllBtn');
   if (b) b.textContent = T().readAll;
@@ -728,6 +766,49 @@ function renderLessons(v, f) {
   }
 }
 
+// words are individually tappable: tap = speak, double-tap = Google Images
+function wordRow(text, lang) {
+  var tx = el('div', 'ph-text');
+  (text || '').split(/\s+/).forEach(function (w) {
+    if (!w) return;
+    var ws = el('span', 'w', w);
+    var last = 0;
+    ws.onclick = function () {
+      var now = Date.now();
+      if (now - last < 330) {
+        openExternal('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(w));
+      } else {
+        speak(w, lang);
+        ws.classList.add('speak');
+        setTimeout(function () { ws.classList.remove('speak'); }, 1400);
+      }
+      last = now;
+    };
+    tx.appendChild(ws);
+    tx.appendChild(document.createTextNode(' '));
+  });
+  return tx;
+}
+function subLines(body, latin, arp, lang) {
+  if (latin) {
+    var ll = el('button', 'ph-line ph-speak', '🔤 ' + latin);
+    ll.onclick = function (e) { e.stopPropagation(); speakLetters(latin, lang, ll); };
+    body.appendChild(ll);
+  }
+  if (arp) body.appendChild(el('div', 'ph-line')).innerHTML = '🗣️ ' + esc(arp);
+}
+// every flag row is equal: same flag button + same text size, tap speaks its language
+function flagRow(body, flag, lang, text, latin, arp, rid) {
+  var row = el('div', 'ph-row');
+  var rf = el('button', 'ph-flag', flag);
+  if (rid) rf.id = rid;
+  rf.onclick = function (e) { e.stopPropagation(); speak(text, lang || langOfFlag(flag), rf); };
+  row.appendChild(rf);
+  row.appendChild(wordRow(text, lang || langOfFlag(flag)));
+  body.appendChild(row);
+  subLines(body, latin, arp, lang || langOfFlag(flag));
+}
+
 function phraseCard(p, f, l) {
   if (p.type === 'note') { return el('div', 'note', p.text); }
   var c = el('div', 'ph');
@@ -739,55 +820,13 @@ function phraseCard(p, f, l) {
   };
   c.appendChild(fb);
   var body = el('div', 'ph-body');
-  // words are individually tappable: tap = speak, double-tap = Google Images
-  function wordRow(text, lang) {
-    var tx = el('div', 'ph-text');
-    (text || '').split(/\s+/).forEach(function (w) {
-      if (!w) return;
-      var ws = el('span', 'w', w);
-      var last = 0;
-      ws.onclick = function () {
-        var now = Date.now();
-        if (now - last < 330) {
-          openExternal('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(w));
-        } else {
-          speak(w, lang);
-          ws.classList.add('speak');
-          setTimeout(function () { ws.classList.remove('speak'); }, 1400);
-        }
-        last = now;
-      };
-      tx.appendChild(ws);
-      tx.appendChild(document.createTextNode(' '));
-    });
-    return tx;
-  }
-  function subLines(latin, arp, lang) {
-    if (latin) {
-      var ll = el('button', 'ph-line ph-speak', '🔤 ' + latin);
-      ll.onclick = function (e) { e.stopPropagation(); speakLetters(latin, lang, ll); };
-      body.appendChild(ll);
-    }
-    if (arp) body.appendChild(el('div', 'ph-line')).innerHTML = '🗣️ ' + esc(arp);
-  }
-  // every flag row is equal: same flag button + same text size, tap speaks its language
-  function flagRow(flag, lang, text, latin, arp, rid) {
-    var row = el('div', 'ph-row');
-    var rf = el('button', 'ph-flag', flag);
-    if (rid) rf.id = rid;
-    rf.onclick = function (e) { e.stopPropagation(); speak(text, lang || langOfFlag(flag), rf); };
-    row.appendChild(rf);
-    row.appendChild(wordRow(text, lang || langOfFlag(flag)));
-    body.appendChild(row);
-    subLines(latin, arp, lang || langOfFlag(flag));
-  }
   body.appendChild(wordRow(p.text, p.lang || langOfFlag(p.flag)));
-  subLines(p.latin, p.arp, p.lang || langOfFlag(p.flag));
+  subLines(body, p.latin, p.arp, p.lang || langOfFlag(p.flag));
   (p.rows || []).forEach(function (r, i) {
-    flagRow(r.flag, r.lang, r.text, r.latin, r.arp, 'phflag-' + p.id + '-' + i);
+    flagRow(body, r.flag, r.lang, r.text, r.latin, r.arp, 'phflag-' + p.id + '-' + i);
   });
-  if (p.meaning) flagRow('🇸🇾', 'ar', p.meaning, '', '', 'phflag-' + p.id + '-m');
-  if (p.en) flagRow('🇺🇸', 'en', p.en, '', '', 'phflag-' + p.id + '-e');
+  if (p.meaning) flagRow(body, '🇸🇾', 'ar', p.meaning, '', '', 'phflag-' + p.id + '-m');
+  if (p.en) flagRow(body, '🇺🇸', 'en', p.en, '', '', 'phflag-' + p.id + '-e');
   if (p.note)   body.appendChild(el('div', 'ph-line')).innerHTML = '📝 ' + esc(p.note);
   c.appendChild(body);
   var d = el('button', 'ph-dots', '⋮');
@@ -800,13 +839,21 @@ function renderLesson(v, f, l) {
   var t = T();
   var bar = el('div');
   bar.style.marginBottom = '.7rem';
+  bar.style.display = 'flex';
+  bar.style.gap = '.5rem';
   var rb = el('button', 'btn primary', t.readAll);
   rb.id = 'readAllBtn';
   rb.onclick = function () { readAll(l); };
   bar.appendChild(rb);
+  var mb = el('button', 'btn', '🎬');
+  mb.style.flex = 'none';
+  mb.title = t.media;
+  mb.onclick = function () { mediaSheet(f, l); };
+  bar.appendChild(mb);
   v.appendChild(bar);
+  if (l.media || (l.cues || []).length) renderMedia(v, f, l);
   (l.phrases || []).forEach(function (p) { v.appendChild(phraseCard(p, f, l)); });
-  if (!(l.phrases || []).length) {
+  if (!(l.phrases || []).length && !(l.cues || []).length) {
     var e = el('div', 'empty');
     e.innerHTML = '<span class="big">💬</span>' + esc(t.emptyP);
     v.appendChild(e);
@@ -969,10 +1016,12 @@ function lessonMenu(f, l) {
   }
   row('✏️', t.editLesson, function () { closeOv(); lessonEditor(f, l); });
   row('➕', t.addPhrase, function () { closeOv(); phraseEditor(f, l, null); });
+  row('🎬', t.media, function () { closeOv(); mediaSheet(f, l); });
   row('📥', t.pasteTpl, function () { closeOv(); pasteSheet(f, l); });
   row('🗑', t.del, function () {
     closeOv();
     confirmDialog(t.delLessonQ, t.delYes, function () {
+      mediaDel(mediaKey(l));
       f.lessons = (f.lessons || []).filter(function (x) { return x.id !== l.id; });
       saveData(); render();
     });
@@ -1124,9 +1173,22 @@ var TEMPLATES = [
 '===\n' +
 '### 🔊 مع اللفظ بالعربي\n' +
 '🇺🇸 Good morning. | 🇪🇸 Buenos días. | 🔊 بوينوس دياس | 🇸🇾 صباح الخير.'
+  },
+  {
+    name: 'نموذج مؤقت — فيديو / صوت 🎬',
+    text:
+'### 🎬 درس مؤقت\n' +
+'00:00 🇫🇷 Bonjour !\n' +
+'00:03 🇸🇾 مرحبا!\n' +
+'00:05 🇺🇸 Hello!\n' +
+'00:08 --> 00:11 🇫🇷 Comment ça va ?\n' +
+'00:11 --> 00:14 🇸🇾 كيفك؟'
   }
 ];
 var TEMPLATE = TEMPLATES[0].text;
+
+var LABEL_RE = /^(?:الأصلية|الأصلي|النص|الكتابة(?:\s+(?:الأصلية|اللاتينية|العربية))?|المعنى(?:\s+(?:بالعربي|بالعربية|بالإنجليزية|بالإنكليزية|إنجليزي|عربي))?|الترجمة(?:\s+\S+)?|الإنجليزية|الانجليزية|English|Meaning|النطق(?:\s+\S+)?|اللفظ|تقريب(?:\s+\S+)?)\s*[:：]\s*/u;
+function deLabel(s) { var m = LABEL_RE.exec(s); return m ? s.slice(m[0].length).trim() : s.trim(); }
 
 function parseLessons(text) {
   var lessons = [];
@@ -1135,8 +1197,6 @@ function parseLessons(text) {
   // On flush, every flag becomes an equal row inside ONE phrase card —
   // the flag button speaks the phrase in that country's language.
   var grp = [];
-  var LABEL_RE = /^(?:الأصلية|الأصلي|النص|الكتابة(?:\s+(?:الأصلية|اللاتينية|العربية))?|المعنى(?:\s+(?:بالعربي|بالعربية|بالإنجليزية|بالإنكليزية|إنجليزي|عربي))?|الترجمة(?:\s+\S+)?|الإنجليزية|الانجليزية|English|Meaning|النطق(?:\s+\S+)?|اللفظ|تقريب(?:\s+\S+)?)\s*[:：]\s*/u;
-  function deLabel(s) { var m = LABEL_RE.exec(s); return m ? s.slice(m[0].length).trim() : s.trim(); }
   function lastEntry() { return grp.length ? grp[grp.length - 1] : ph; }
   function flushGroup() {
     if (!grp.length) return;
@@ -1259,17 +1319,292 @@ function pasteSheet(f, l) {
   var act = el('div', 'actions');
   var go = el('button', 'btn primary', '➕ ' + t.doImport);
   go.onclick = function () {
-    var arr = parseLessons(rTxt.input.value);
+    var txt = rTxt.input.value;
+    var arr = parseTimedLessons(txt);        // timed captions first
+    if (!arr.length) arr = parseLessons(txt);
     if (!arr.length) { toast(t.errPaste); return; }
     var defName = rName.input.value.trim();
     arr.forEach(function (ls, i) {
       if (!ls.title) ls.title = defName || ('Lesson ' + (i + 1));
-      if (l) { l.phrases = (l.phrases || []).concat(ls.phrases); return; }
+      if (l) {
+        l.phrases = (l.phrases || []).concat(ls.phrases);
+        l.cues = (l.cues || []).concat(ls.cues || []);
+        return;
+      }
       f.lessons = f.lessons || []; f.lessons.push(ls);
     });
     saveData(); render(); closeOv(); toast('✓ ' + t.imported);
   };
   act.appendChild(go);
+  sh.appendChild(act);
+}
+
+/* ================= timed media (zeek-style captions) ================= */
+// A lesson may carry l.cues = [{start, end, text}] and l.media = {kind, name};
+// the media blob lives in IndexedDB keyed by the lesson id.
+function tParseTime(t) {
+  t = (t || '').trim().replace(',', '.');
+  var p = t.split(':'), sec = NaN;
+  if (p.length === 3) sec = (+p[0]) * 3600 + (+p[1]) * 60 + parseFloat(p[2]);
+  else if (p.length === 2) sec = (+p[0]) * 60 + parseFloat(p[1]);
+  else sec = parseFloat(t);
+  return isNaN(sec) ? null : sec;
+}
+// [mm:ss.xxx] text | mm:ss text | mm:ss --> mm:ss text | hh:mm:ss,mmm variants
+var TIMED_LINE_RE = /^\s*(?:\[((?:\d{1,2}:)?\d{1,2}:\d{1,2}(?:[.,]\d{1,3})?)\]|((?:\d{1,2}:)?\d{1,2}:\d{1,2}(?:[.,]\d{1,3})?)(?:\s*-+>\s*((?:\d{1,2}:)?\d{1,2}:\d{1,2}(?:[.,]\d{1,3})?))?)\s*(.*)$/;
+function parseTimedText(text) {
+  var cues = [], cur = null;
+  (text || '').replace(/\r\n?/g, '\n').split('\n').forEach(function (raw) {
+    var line = raw.trim();
+    if (!line) return;
+    var m = TIMED_LINE_RE.exec(line);
+    if (m) {
+      var start = tParseTime(m[1] || m[2]);
+      var end = m[3] ? tParseTime(m[3]) : null;
+      if (start == null) { if (cur) cur.text += '\n' + line; return; }
+      if (cur) cues.push(cur);
+      cur = { start: start, end: end, text: m[4] || '' };
+    } else if (cur && !/^\d+$/.test(line)) {
+      cur.text += (cur.text ? '\n' : '') + line;   // continuation = translation/sub-line
+    }
+  });
+  if (cur) cues.push(cur);
+  cues.forEach(function (c, i) {
+    if (c.end == null || c.end <= c.start)
+      c.end = (cues[i + 1] && cues[i + 1].start > c.start) ? cues[i + 1].start : c.start + 4;
+  });
+  return cues.filter(function (c) { return c.text.trim(); });
+}
+// whole paste split into lessons by ### / === — each holding timed cues
+function parseTimedLessons(text) {
+  var out = [], cur = null, buf = [];
+  function flush() {
+    if (!cur) return;
+    cur.cues = parseTimedText(buf.join('\n'));
+    buf = [];
+    if (cur.cues.length) out.push(cur);
+  }
+  (text || '').split(/\r?\n/).forEach(function (raw) {
+    var line = raw.trim();
+    var head = /^#{1,6}\s*\d*\.?\s*(.+)$/.exec(line);
+    if (head || line === '===' || line === '—') {
+      flush();
+      cur = { id: uid(), title: head ? head[1].replace(/^\.?\s*/, '').trim() : '', icon: '🎬', img: '', phrases: [], cues: [] };
+      return;
+    }
+    if (!cur) cur = { id: uid(), title: '', icon: '🎬', img: '', phrases: [], cues: [] };
+    buf.push(raw);
+  });
+  flush();
+  return out;
+}
+function fmtT(s) {
+  var m = Math.floor(s / 60), sec = s - m * 60;
+  return (m < 10 ? '0' : '') + m + ':' + (sec < 10 ? '0' : '') + sec.toFixed(1);
+}
+function cuesToText(cues) {
+  return (cues || []).map(function (c) { return fmtT(c.start) + ' ' + c.text; }).join('\n');
+}
+var TIMED_TEMPLATES = [
+  { name: 'نموذج مؤقت بسيط — MM:SS', text:
+'00:00 🇫🇷 Bonjour !\n' +
+'00:03 🇸🇾 مرحبا!\n' +
+'00:05 🇺🇸 Hello!\n' +
+'00:08 🇫🇷 Comment ça va ?\n' +
+'00:11 🇸🇾 كيفك؟' },
+  { name: 'نموذج مؤقت بداية ← نهاية', text:
+'00:00 --> 00:03 🇫🇷 Bonjour !\n' +
+'00:03 --> 00:06 🇸🇾 مرحبا!\n' +
+'00:06 --> 00:09 🇫🇷 Au revoir !\n' +
+'00:09 --> 00:12 🇸🇾 مع السلامة' }
+];
+// cue text → flag rows (same grammar as phrase lines: flag = speak icon)
+function cueRows(text) {
+  var rows = [];
+  (text || '').split('\n').forEach(function (raw) {
+    var line = raw.trim();
+    if (!line) return;
+    var flat = line.replace(/\|/g, ' ');
+    var parts = flat.split(SEG_RE), hit = false;
+    for (var i = 1; i < parts.length; i += 2) {
+      var mk = (parts[i] || '').trim(), tx = deLabel((parts[i + 1] || '').trim());
+      if (!mk) continue;
+      if (FLAG_RE.test(mk)) {
+        rows.push({ flag: mk, lang: langOfFlag(mk), text: tx, latin: '', arp: '' });
+        hit = true;
+      } else if (rows.length) {
+        var r = rows[rows.length - 1];
+        if (mk.indexOf('🔤') === 0) r.latin = tx;
+        else r.arp = tx;
+      }
+    }
+    if (!hit) {
+      if (rows.length) {
+        var lr = rows[rows.length - 1];
+        lr.arp = lr.arp || line;              // flagless line = sub-line of last row
+      } else {
+        rows.push({ flag: '🏳', lang: 'auto', text: line, latin: '', arp: '' });
+      }
+    }
+  });
+  return rows;
+}
+/* media blob store */
+var _mdb = null;
+function mdb(cb) {
+  if (_mdb) return cb(_mdb);
+  try {
+    var r = indexedDB.open('prolang_media', 1);
+    r.onupgradeneeded = function () { r.result.createObjectStore('m'); };
+    r.onsuccess = function () { _mdb = r.result; cb(_mdb); };
+    r.onerror = function () { cb(null); };
+  } catch (e) { cb(null); }
+}
+function mediaPut(key, blob, cb) {
+  mdb(function (d) {
+    if (!d) { if (cb) cb(false); return; }
+    var tx = d.transaction('m', 'readwrite');
+    tx.objectStore('m').put(blob, key);
+    tx.oncomplete = function () { if (cb) cb(true); };
+    tx.onerror = function () { if (cb) cb(false); };
+  });
+}
+function mediaGet(key, cb) {
+  mdb(function (d) {
+    if (!d) return cb(null);
+    var g = d.transaction('m').objectStore('m').get(key);
+    g.onsuccess = function () { cb(g.result || null); };
+    g.onerror = function () { cb(null); };
+  });
+}
+function mediaDel(key) {
+  mdb(function (d) { if (d) d.transaction('m', 'readwrite').objectStore('m').delete(key); });
+}
+function mediaKey(l) { return 'plm_' + l.id; }
+
+var mediaEl = null;   // the <video>/<audio> in the open lesson
+var segLoop = false;  // 🔂 repeat the current cue
+function renderMedia(v, f, l) {
+  var cues = l.cues || [];
+  var box = el('div', 'media-box');
+  var now = el('div', 'cue-now');
+  var list = el('div');
+  function activeIdx(t) {
+    for (var i = 0; i < cues.length; i++)
+      if (t >= cues[i].start && t < cues[i].end) return i;
+    return -1;
+  }
+  function sync(t) {
+    var i = activeIdx(t);
+    now.textContent = i >= 0 ? cues[i].text.split('\n')[0].replace(SEG_RE, '').trim() : '';
+    var nodes = list.querySelectorAll('.cue');
+    for (var j = 0; j < nodes.length; j++) nodes[j].classList.toggle('on', j === i);
+    if (segLoop && i >= 0 && mediaEl && mediaEl.currentTime >= cues[i].end - 0.08) {
+      mediaEl.currentTime = cues[i].start;
+      mediaEl.play();
+    }
+  }
+  if (l.media) {
+    var me = document.createElement(l.media.kind === 'audio' ? 'audio' : 'video');
+    me.controls = true;
+    mediaEl = me;
+    me.ontimeupdate = function () { sync(me.currentTime); };
+    me.onseeked = function () { sync(me.currentTime); };
+    mediaGet(mediaKey(l), function (blob) {
+      if (blob) { me.src = URL.createObjectURL(blob); }
+      else { me.remove(); now.textContent = '⚠️ ' + (l.media.name || ''); }
+    });
+    box.appendChild(me);
+  }
+  var tools = el('div', 'cue-tools');
+  var lp = el('button', 'mini', '🔂');
+  lp.title = 'repeat cue';
+  lp.onclick = function () { segLoop = !segLoop; lp.classList.toggle('on', segLoop); };
+  tools.appendChild(lp);
+  var eb = el('button', 'mini', '🎬');
+  eb.title = 'media';
+  eb.onclick = function () { mediaSheet(f, l); };
+  tools.appendChild(eb);
+  box.appendChild(tools);
+  box.appendChild(now);
+  if (l.media && l.media.name) box.appendChild(el('div', 'media-name', l.media.name));
+  v.appendChild(box);
+  cues.forEach(function (c, i) {
+    var cd = el('div', 'cue');
+    var tb = el('button', 'cue-t', fmtT(c.start));
+    tb.onclick = function () {
+      if (mediaEl && mediaEl.src) { mediaEl.currentTime = c.start; mediaEl.play(); }
+      else speak(c.text.split('\n')[0].replace(SEG_RE, '').trim() || c.text, 'auto', tb);
+    };
+    cd.appendChild(tb);
+    var cb = el('div', 'cue-body');
+    cueRows(c.text).forEach(function (r, ri) {
+      flagRow(cb, r.flag, r.lang === 'auto' ? null : r.lang, r.text, r.latin, r.arp,
+        'cueflag-' + l.id + '-' + i + '-' + ri);
+    });
+    cd.appendChild(cb);
+    list.appendChild(cd);
+  });
+  v.appendChild(list);
+}
+function mediaSheet(f, l) {
+  var t = T();
+  var sh = sheetHead('🎬 ' + t.mediaTitle);
+  sh.appendChild(el('div', 'flabel', t.mediaNow + ': ' + ((l.media && l.media.name) || '—')));
+  var pick = el('button', 'mrow');
+  pick.appendChild(el('span', 'mi', '📁'));
+  pick.appendChild(el('span', null, t.pickMedia));
+  var chosen = null;
+  pick.onclick = function () {
+    var fi = document.createElement('input');
+    fi.type = 'file'; fi.accept = 'video/*,audio/*';
+    fi.onchange = function () {
+      var file = fi.files[0];
+      if (!file) return;
+      chosen = file;
+      pick.lastChild.textContent = file.name;
+    };
+    fi.click();
+  };
+  sh.appendChild(pick);
+  // pinned timed templates — each individually copyable
+  TIMED_TEMPLATES.forEach(function (tp) {
+    var head = el('div', 'tplhead');
+    head.appendChild(el('span', 'tplname', tp.name));
+    var cp = el('button', 'mini', '📋 ' + t.copyTpl);
+    cp.onclick = function () { copyText(tp.text); };
+    head.appendChild(cp);
+    sh.appendChild(head);
+    sh.appendChild(el('div', 'tplbox', tp.text));
+  });
+  var rTxt = fieldRow(t.timedL, cuesToText(l.cues), { textarea: true, rows: 6, ltr: true });
+  sh.appendChild(rTxt);
+  var act = el('div', 'actions');
+  if (l.media) {
+    var del = el('button', 'btn danger', '🗑 ' + t.mediaDel);
+    del.onclick = function () {
+      mediaDel(mediaKey(l));
+      l.media = null;
+      saveData(); render(); closeOv();
+    };
+    act.appendChild(del);
+  }
+  var save = el('button', 'btn primary', '💾 ' + t.save);
+  save.onclick = function () {
+    var raw = rTxt.input.value;
+    var cues = parseTimedText(raw);
+    if (raw.trim() && !cues.length) { toast(t.errTimed); return; }
+    l.cues = cues;
+    function fin() { saveData(); render(); closeOv(); toast('✓'); }
+    if (chosen) {
+      var kind = (chosen.type || '').indexOf('audio') === 0 ? 'audio' : 'video';
+      mediaPut(mediaKey(l), chosen, function () {
+        l.media = { kind: kind, name: chosen.name };
+        fin();
+      });
+    } else fin();
+  };
+  act.appendChild(save);
   sh.appendChild(act);
 }
 
@@ -1360,7 +1695,7 @@ function importData() {
           (fd.lessons || []).forEach(function (ls) {
             if (!ls || typeof ls !== 'object') return;
             var nl = { id: ls.id || uid(), title: ls.title || '', icon: ls.icon || '📝',
-              img: ls.img || '', phrases: [] };
+              img: ls.img || '', phrases: [], cues: Array.isArray(ls.cues) ? ls.cues : [] };
             (ls.phrases || []).forEach(function (p) {
               var np = normPhrase(p); if (np) nl.phrases.push(np);
             });
