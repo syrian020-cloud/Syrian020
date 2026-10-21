@@ -209,10 +209,19 @@
   /* ---------- timed media (zeek-style) ---------- */
   .media-box { background: var(--card); border: 1px solid var(--line); border-radius: 18px;
     padding: .6rem; margin-bottom: .7rem; box-shadow: 0 4px 14px rgba(3,8,12,.18); }
-  .media-box video { width: 100%; border-radius: 12px; background: #000; max-height: 240px; }
+  .media-box video { width: 100%; border-radius: 12px; background: #000; max-height: 300px; }
+  .media-box video.fit-cover { object-fit: cover; }
+  .media-box video.fit-fill { object-fit: fill; }
+  .media-box video.fit-tall { max-height: 62vh; }
   .media-box audio { width: 100%; height: 42px; }
-  .media-name { font-size: .7rem; color: var(--dim); text-align: center; margin-top: .3rem;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .cue-now .cue-line { display: flex; align-items: center; justify-content: center; gap: .45rem;
+    border-radius: 12px; padding: .32rem .7rem; margin: .18rem auto; font-weight: 800;
+    font-size: 1.02rem; color: #fff; max-width: fit-content; overflow-wrap: anywhere;
+    box-shadow: 0 3px 10px rgba(0,0,0,.25); }
+  .cue-line.lg-ar { background: linear-gradient(135deg, #2dd4bf, #14b8a6); }
+  .cue-line.lg-en { background: linear-gradient(135deg, #60a5fa, #3b82f6); }
+  .cue-line.lg-fr { background: linear-gradient(135deg, #ff9f43, #ff7f50); }
+  .cue-line.lg-x { background: linear-gradient(135deg, var(--accent), var(--accent2)); }
   .cue-now { text-align: center; font-size: 1.05rem; font-weight: 800; line-height: 1.45;
     padding: .55rem .3rem .2rem; min-height: 1.5rem; overflow-wrap: anywhere; }
   .cue-tools { display: flex; gap: .4rem; justify-content: center; margin-top: .35rem; }
@@ -228,6 +237,8 @@
     font-size: .72rem; font-weight: 800; color: var(--accent); cursor: pointer;
     font-family: inherit; direction: ltr; }
   .cue-t:active { background: var(--accent); color: #fff; }
+  .cue-t.speaking { background: var(--accent); color: #fff; border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(20,184,166,.2); }
   .cue-body { flex: 1; min-width: 0; }
   .cue-body .ph-row:first-child { margin-top: 0; }
 
@@ -1494,9 +1505,21 @@ function renderMedia(v, f, l) {
       if (t >= cues[i].start && t < cues[i].end) return i;
     return -1;
   }
+  // elegant caption: one colored line per language row, like zeek
+  function lgClass(lang) {
+    return 'cue-line lg-' + (lang === 'ar' ? 'ar' : lang === 'en' ? 'en' : lang === 'fr' ? 'fr' : 'x');
+  }
+  function showCaption(i) {
+    now.innerHTML = '';
+    if (i < 0) return;
+    cueRows(cues[i].text).forEach(function (r) {
+      var ln = el('div', lgClass(r.lang), (r.flag !== '🏳' ? r.flag + ' ' : '') + r.text);
+      now.appendChild(ln);
+    });
+  }
   function sync(t) {
     var i = activeIdx(t);
-    now.textContent = i >= 0 ? cues[i].text.split('\n')[0].replace(SEG_RE, '').trim() : '';
+    showCaption(i);
     var nodes = list.querySelectorAll('.cue');
     for (var j = 0; j < nodes.length; j++) nodes[j].classList.toggle('on', j === i);
     if (segLoop && i >= 0 && mediaEl && mediaEl.currentTime >= cues[i].end - 0.08) {
@@ -1504,15 +1527,16 @@ function renderMedia(v, f, l) {
       mediaEl.play();
     }
   }
+  var me = null;
   if (l.media) {
-    var me = document.createElement(l.media.kind === 'audio' ? 'audio' : 'video');
+    me = document.createElement(l.media.kind === 'audio' ? 'audio' : 'video');
     me.controls = true;
     mediaEl = me;
     me.ontimeupdate = function () { sync(me.currentTime); };
     me.onseeked = function () { sync(me.currentTime); };
     mediaGet(mediaKey(l), function (blob) {
       if (blob) { me.src = URL.createObjectURL(blob); }
-      else { me.remove(); now.textContent = '⚠️ ' + (l.media.name || ''); }
+      else { me.remove(); me = null; now.textContent = '⚠️ ' + (l.media.name || ''); }
     });
     box.appendChild(me);
   }
@@ -1521,20 +1545,49 @@ function renderMedia(v, f, l) {
   lp.title = 'repeat cue';
   lp.onclick = function () { segLoop = !segLoop; lp.classList.toggle('on', segLoop); };
   tools.appendChild(lp);
+  if (l.media && l.media.kind !== 'audio') {
+    // video size: fit → cover → fill → tall (cycle)
+    var FITS = ['', 'fit-cover', 'fit-fill', 'fit-tall'];
+    var sz = el('button', 'mini', '⛶');
+    sz.title = 'video size';
+    sz.onclick = function () {
+      l.vfit = ((l.vfit || 0) + 1) % FITS.length;
+      if (me) me.className = FITS[l.vfit];
+      saveData();
+    };
+    tools.appendChild(sz);
+    if (me && l.vfit) me.className = FITS[l.vfit];
+  }
   var eb = el('button', 'mini', '🎬');
   eb.title = 'media';
   eb.onclick = function () { mediaSheet(f, l); };
   tools.appendChild(eb);
   box.appendChild(tools);
   box.appendChild(now);
-  if (l.media && l.media.name) box.appendChild(el('div', 'media-name', l.media.name));
   v.appendChild(box);
   cues.forEach(function (c, i) {
     var cd = el('div', 'cue');
     var tb = el('button', 'cue-t', fmtT(c.start));
     tb.onclick = function () {
-      if (mediaEl && mediaEl.src) { mediaEl.currentTime = c.start; mediaEl.play(); }
-      else speak(c.text.split('\n')[0].replace(SEG_RE, '').trim() || c.text, 'auto', tb);
+      // tap the timestamp = loop-speak this cue's lines, each in its language
+      var rows = cueRows(c.text).filter(function (r) { return r.text; });
+      if (!rows.length || !window.EdgeTTS) return;
+      if (tb.classList.contains('speaking')) {
+        tb.classList.remove('speaking');
+        speakTok++;
+        EdgeTTS.stop();
+        return;
+      }
+      if (me && me.src) me.currentTime = c.start;
+      tb.classList.add('speaking');
+      (function step(k) {
+        if (!tb.classList.contains('speaking')) return;
+        var r = rows[k % rows.length], lang = r.lang === 'auto' ? 'fr' : r.lang;
+        var tok = ++speakTok;
+        EdgeTTS.play(r.text, lang).then(function () {
+          if (tok === speakTok && tb.classList.contains('speaking')) step(k + 1);
+        }, function () { tb.classList.remove('speaking'); });
+      })(0);
     };
     cd.appendChild(tb);
     var cb = el('div', 'cue-body');
