@@ -191,7 +191,11 @@
 
   .tplbox { background: var(--field); border: 1px solid var(--line); border-radius: 14px;
     padding: .7rem .8rem; font-size: .78rem; line-height: 1.8; color: var(--dim);
-    white-space: pre-wrap; direction: rtl; margin-bottom: .5rem; }
+    white-space: pre-wrap; direction: rtl; margin-bottom: .5rem;
+    max-height: 130px; overflow-y: auto; }
+  .tplhead { display: flex; align-items: center; justify-content: space-between;
+    gap: .5rem; margin: .35rem 0 .15rem; }
+  .tplname { font-size: .8rem; font-weight: 800; color: var(--txt); }
   .dlg { width: 100%; max-width: 340px; background: var(--card2); border: 1px solid var(--line);
     border-radius: 22px; padding: 1.3rem; text-align: center; margin: auto 1rem; }
   .dlg p { font-size: .95rem; margin: 0 0 1rem; }
@@ -523,18 +527,37 @@ function openMail() {
 }
 
 /* ================= speech ================= */
+var speakTok = 0;
 function speak(text, lang, flagEl) {
   if (!window.EdgeTTS) return;
-  document.querySelectorAll('.ph-flag.speaking, .w.speak').forEach(function (x) {
+  stopReadAll();
+  speakTok++;
+  var was = flagEl && flagEl.classList.contains('speaking');
+  document.querySelectorAll('.speaking, .w.speak').forEach(function (x) {
     x.classList.remove('speaking'); x.classList.remove('speak');
   });
+  if (was) { EdgeTTS.stop(); return; }   // tap again = stop the loop
   if (flagEl) flagEl.classList.add('speaking');
-  EdgeTTS.play(text, lang || 'fr').catch(function () { toast('TTS ✗'); })
-    .then(function () { if (flagEl) flagEl.classList.remove('speaking'); });
+  var tok = speakTok;
+  (function play() {
+    if (tok !== speakTok) return;
+    EdgeTTS.play(text, lang || 'fr').then(function () {
+      if (tok === speakTok) play();       // loop until stopped
+    }, function () {
+      toast('TTS ✗');
+      if (flagEl) flagEl.classList.remove('speaking');
+    });
+  })();
+}
+// letters spelled out one by one in the phrase's own language, e.g. H-e-l-l-o
+function speakLetters(text, lang, flagEl) {
+  var s = (text || '').replace(/[^\p{L}\p{N}]/gu, ' ').split('').join(' ');
+  speak(s || text, lang, flagEl);
 }
 var readAllJob = null;
 function stopReadAll() {
   if (readAllJob) readAllJob.cancelled = true;
+  speakTok++;
   if (window.EdgeTTS) EdgeTTS.stop();
   readAllJob = null;
   var b = document.getElementById('readAllBtn');
@@ -549,12 +572,13 @@ function readAll(lesson) {
   btn.textContent = t.stop;
   var job = { cancelled: false, i: 0 };
   readAllJob = job;
+  speakTok++;   // stop any single-phrase loop
   function next() {
-    if (job.cancelled || job.i >= items.length) {
-      if (btn && !job.cancelled) btn.textContent = t.readAll;
+    if (job.cancelled) {
       if (readAllJob === job) readAllJob = null;
       return;
     }
+    if (job.i >= items.length) job.i = 0;   // loop the whole lesson until ⏹
     var p = items[job.i++];
     var flagEl = document.getElementById('phflag-' + p.id);
     document.querySelectorAll('.ph-flag.speaking').forEach(function (x) { x.classList.remove('speaking'); });
@@ -704,7 +728,11 @@ function phraseCard(p, f, l) {
     tx.appendChild(document.createTextNode(' '));
   });
   body.appendChild(tx);
-  if (p.latin)  body.appendChild(el('div', 'ph-line')).innerHTML = '🔤 ' + esc(p.latin);
+  if (p.latin) {
+    var ll = el('button', 'ph-line ph-speak', '🔤 ' + p.latin);
+    ll.onclick = function (e) { e.stopPropagation(); speakLetters(p.latin, p.lang || langOfFlag(p.flag), ll); };
+    body.appendChild(ll);
+  }
   if (p.arp)    body.appendChild(el('div', 'ph-line')).innerHTML = '🗣️ ' + esc(p.arp);
   // tappable meaning lines: 🇸🇾 speaks Arabic, 🇺🇸 speaks English
   if (p.meaning) {
@@ -996,7 +1024,10 @@ function phraseEditor(f, l, p) {
 }
 
 /* ================= paste templates ================= */
-var TEMPLATE =
+var TEMPLATES = [
+  {
+    name: 'نموذج بسيط — Simple',
+    text:
 '### 1. 🇨🇳 الصينية — Chinese\n' +
 '🇨🇳 你好\n' +
 '🔤 النطق اللاتيني: Nǐ hǎo\n' +
@@ -1007,7 +1038,27 @@ var TEMPLATE =
 '🇫🇷 Bonjour\n' +
 '🔤 Bonjour\n' +
 '🗣️ بونجور\n' +
-'🇸🇾 المعنى: مرحبًا';
+'🇸🇾 المعنى: مرحبًا'
+  },
+  {
+    name: 'نموذج بأربع خانات — عربي + إنجليزي',
+    text:
+'### 🇬🇧 الإنجليزية (English)\n' +
+'* 🇬🇧 الأصلية: Hello\n' +
+'* 🔤 النطق اللاتيني: Hello\n' +
+'* 🗣️ بالعربي: هَلّو\n' +
+'* 🇸🇾 المعنى بالعربي: مرحباً\n' +
+'* 🇺🇸 English: Hello\n' +
+'===\n' +
+'### 🇫🇷 الفرنسية (French)\n' +
+'* 🇫🇷 الأصلية: Bonjour\n' +
+'* 🔤 النطق اللاتيني: Bonjour\n' +
+'* 🗣️ بالعربي: بونجور\n' +
+'* 🇸🇾 المعنى بالعربي: مرحباً\n' +
+'* 🇺🇸 English: Hello'
+  }
+];
+var TEMPLATE = TEMPLATES[0].text;
 
 function parseLessons(text) {
   var lessons = [];
@@ -1089,11 +1140,16 @@ function parseLessons(text) {
 function pasteSheet(f, l) {
   var t = T();
   var sh = sheetHead('📥 ' + t.pasteTitle);
-  var tb = el('div', 'tplbox', TEMPLATE);
-  sh.appendChild(tb);
-  var cp = el('button', 'mini', '📋 ' + t.copyTpl);
-  cp.onclick = function () { copyText(TEMPLATE); };
-  sh.appendChild(cp);
+  // pinned templates section — each template individually copyable
+  TEMPLATES.forEach(function (tp) {
+    var head = el('div', 'tplhead');
+    head.appendChild(el('span', 'tplname', tp.name));
+    var cp = el('button', 'mini', '📋 ' + t.copyTpl);
+    cp.onclick = function () { copyText(tp.text); };
+    head.appendChild(cp);
+    sh.appendChild(head);
+    sh.appendChild(el('div', 'tplbox', tp.text));
+  });
   var rName = fieldRow(t.lessonName, '', { ph: 'التحيات — Greetings' });
   var rTxt = fieldRow(t.pasteTitle, '', { textarea: true, rows: 8, ph: t.pastePh });
   sh.appendChild(rName); sh.appendChild(rTxt);
