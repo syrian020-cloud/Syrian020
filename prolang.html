@@ -1107,17 +1107,37 @@ var TEMPLATE = TEMPLATES[0].text;
 function parseLessons(text) {
   var lessons = [];
   var cur = null, ph = null;
-  // flag-group state: consecutive flag lines/segments form one group;
-  // 🇸🇾 = group Arabic meaning, 🇺🇸/🇬🇧 = group English text
-  var grp = [], gMeaning = '', gEn = '';
-  function resetGroup() { grp = []; gMeaning = ''; gEn = ''; }
-  function pushPh() {
-    if (ph && cur) cur.phrases.push(ph);
-    ph = null;
+  // pending flag entries of one group: {flag, text, latin, arp, note}.
+  // On flush, non-translation flags become phrase cards; 🇸🇾 attaches as
+  // Arabic meaning and 🇺🇸/🇬🇧 as English gloss to the nearest card.
+  var grp = [];
+  var GLOSS = { '🇸🇾': 'meaning', '🇺🇸': 'en' };
+  function lastEntry() { return grp.length ? grp[grp.length - 1] : ph; }
+  function flushGroup() {
+    if (!grp.length) return;
+    if (cur) {
+      var cards = grp.filter(function (e) { return !GLOSS[e.flag]; });
+      if (!cards.length) cards = grp.filter(function (e) { return e.flag !== '🇸🇾'; });
+      if (!cards.length) cards = grp;
+      cards.forEach(function (e) {
+        e.obj = { id: uid(), flag: e.flag, lang: langOfFlag(e.flag), text: e.text,
+          latin: e.latin || '', arp: e.arp || '', meaning: '', en: '', note: e.note || '' };
+      });
+      grp.forEach(function (e) {
+        var field = GLOSS[e.flag];
+        if (!field || e.obj) return;
+        var i = grp.indexOf(e), j;
+        for (j = i - 1; j >= 0; j--) if (grp[j].obj) { grp[j].obj[field] = e.text; return; }
+        for (j = i + 1; j < grp.length; j++) if (grp[j].obj) { grp[j].obj[field] = e.text; return; }
+      });
+      cards.forEach(function (e) { cur.phrases.push(e.obj); });
+      ph = cards[cards.length - 1].obj;
+    }
+    grp = [];
   }
   function pushLesson(title) {
-    pushPh();
-    resetGroup();
+    flushGroup();
+    ph = null;
     cur = { id: uid(), title: title || '', icon: '📝', img: '', phrases: [] };
     lessons.push(cur);
   }
@@ -1128,7 +1148,7 @@ function parseLessons(text) {
   }
   text.split(/\r?\n/).forEach(function (raw) {
     var line = raw.trim();
-    if (!line) { resetGroup(); return; }
+    if (!line) { flushGroup(); return; }
     var head = /^#{1,6}\s*\d*\.?\s*(.+)$/.exec(line) ||
                /^النموذج\s*\d*[:\-]?\s*(.*)$/.exec(line);
     if (line === '===' || line === '—' || head) {
@@ -1139,94 +1159,63 @@ function parseLessons(text) {
     var body = line.replace(/^[-*•]\s*/, '');
     // multi-segment line: several flags in one line (with or without |)
     // e.g. "🇺🇸 en 🇪🇸 es 🇸🇾 ar" or "🇷🇺 text | 🇸🇾 ar | 🇺🇸 en | 🔊 pron"
-    // → one speakable phrase per country flag; 🇸🇾 = Arabic meaning,
-    //   🇺🇸/🇬🇧 = English text, 🔤/🔊/🗣️ = pronunciation of the preceding phrase
+    // → buffered as one flag group and flushed into card(s)
     if (FLAG_RE.test(body) && (body.indexOf('|') >= 0 || (body.match(SEG_RE) || []).length >= 2)) {
       var flat = body.replace(/\|/g, ' ');
       var sparts = flat.split(SEG_RE);
-      var segs = [];
       // split() output: [pre-text, marker1, text1, marker2, text2, ...]
       for (var si = 1; si < sparts.length; si += 2) {
         var sm = (sparts[si] || '').trim();
-        var st = (sparts[si + 1] || '').trim();
-        if (sm || st) segs.push({ m: sm, t: st });
-      }
-      var aMeaning = '', aEn = '';
-      segs.forEach(function (s) {
-        if (s.m === '🇸🇾') aMeaning = stripLabel(s.t);
-        else if (s.m === '🇺🇸' || s.m === '🇬🇧') aEn = stripLabel(s.t);
-      });
-      var preLen = cur.phrases.length;
-      pushPh();
-      segs.forEach(function (s) {
-        if (s.m === '🇸🇾') return;
-        if (!FLAG_RE.test(s.m)) {
-          if (ph) {
-            if (s.m.indexOf('🔤') === 0) ph.latin = stripLabel(s.t);
-            else if (s.m.indexOf('🔊') === 0 || s.m.indexOf('🗣') === 0) ph.arp = stripLabel(s.t);
-            else if (s.t) ph.note = (ph.note ? ph.note + ' · ' : '') + s.t;
+        var st = stripLabel((sparts[si + 1] || '').trim());
+        if (!sm) continue;
+        if (FLAG_RE.test(sm)) {
+          grp.push({ flag: sm, text: st, latin: '', arp: '', note: '' });
+        } else {
+          var le = lastEntry();
+          if (le) {
+            if (sm.indexOf('🔤') === 0) le.latin = st;
+            else if (sm.indexOf('🔊') === 0 || sm.indexOf('🗣') === 0) le.arp = st;
+            else if (st) le.note = (le.note ? le.note + ' · ' : '') + st;
           }
-          return;
         }
-        pushPh();
-        ph = { id: uid(), flag: s.m, lang: langOfFlag(s.m), text: stripLabel(s.t),
-          latin: '', arp: '', meaning: aMeaning,
-          en: (s.m === '🇺🇸' || s.m === '🇬🇧') ? '' : aEn, note: '' };
-      });
-      grp = cur.phrases.slice(preLen);
-      if (ph) grp = grp.concat([ph]);
-      gMeaning = aMeaning; gEn = aEn;
+      }
+      flushGroup();
       return;
     }
     if (body.indexOf('🔤') === 0) {
-      if (ph) ph.latin = stripLabel(body.slice(2));
+      var e1 = lastEntry(); if (e1) e1.latin = stripLabel(body.slice(2));
       return;
     }
     if (body.indexOf('🗣') === 0 || body.indexOf('🔊') === 0) {
       var mk = body.indexOf('🔊') === 0 ? '🔊' : body.slice(0, 3);
-      if (ph) ph.arp = stripLabel(body.slice(body.indexOf(mk) + mk.length).replace(/^\uFE0F\s*/, ''));
+      var e2 = lastEntry(); if (e2) e2.arp = stripLabel(body.slice(body.indexOf(mk) + mk.length).replace(/^\uFE0F\s*/, ''));
       return;
     }
     if (body.indexOf('📝') === 0) {
-      resetGroup();
+      flushGroup();
       if (ph) ph.note = (ph.note ? ph.note + ' · ' : '') + stripLabel(body.slice(2));
       else cur.phrases.push({ id: uid(), type: 'note', text: stripLabel(body.slice(2)) });
       return;
     }
     var fm = FLAG_RE.exec(body);
     if (fm) {
-      var fl = fm[0];
-      var rest = body.slice(fl.length).trim();
-      // 🇸🇾 line = Arabic meaning for the whole flag-group
-      if (fl === '🇸🇾') {
-        gMeaning = stripLabel(rest);
-        grp.forEach(function (p) { p.meaning = gMeaning; });
-        if (ph && grp.indexOf(ph) < 0) ph.meaning = gMeaning;
-        return;
-      }
-      pushPh();
+      var rest = body.slice(fm[0].length).trim();
       // drop a leading label like "الأصلية:" / "الكتابة اللاتينية:" if present
-      var lm = /^(?:الأصلية|الأصلي|الكتابة(?:\s+الأصلية|\s+اللاتينية)?|النص|المعنى|English|الإنجليزية)\s*[:：]\s*/.exec(rest);
+      var lm = /^(?:الأصلية|الأصلي|الكتابة(?:\s+الأصلية|\s+اللاتينية)?|النص|المعنى|English|الإنجليزية|الترجمة)\s*[:：]\s*/.exec(rest);
       if (lm) { rest = rest.slice(lm[0].length).trim(); }
       // flag + pure-Arabic line (e.g. "* 🇮🇩 الإندونيسية") is a language-name
       // label, not a phrase — skip it; the real phrase follows on the next line.
-      else if (rest && rest.length < 40 && !/[^\u0600-\u06FF\s\d(),.\/؟?\-]/.test(rest)) return;
-      ph = { id: uid(), flag: fl, lang: langOfFlag(fl), text: rest,
-        latin: '', arp: '', meaning: gMeaning,
-        en: (fl === '🇺🇸' || fl === '🇬🇧') ? '' : gEn, note: '' };
-      if (fl === '🇺🇸' || fl === '🇬🇧') {
-        gEn = ph.text;
-        grp.forEach(function (p) { if (!p.en) p.en = gEn; });
-      }
-      grp.push(ph);
+      // 🇸🇾 is exempt since its text is always Arabic (the meaning).
+      else if (fm[0] !== '🇸🇾' && rest && rest.length < 40 && !/[^\u0600-\u06FF\s\d(),.\/؟?\-]/.test(rest)) return;
+      grp.push({ flag: fm[0], text: GLOSS[fm[0]] ? stripLabel(rest) : rest, latin: '', arp: '', note: '' });
       return;
     }
     // flagless line: note attached to previous phrase, or standalone note
-    resetGroup();
+    flushGroup();
     if (ph) ph.note = (ph.note ? ph.note + ' · ' : '') + body;
     else cur.phrases.push({ id: uid(), type: 'note', text: body });
   });
-  pushPh();
+  flushGroup();
   // keep only lessons that hold content
   return lessons.filter(function (l) { return (l.phrases || []).length; });
 }
