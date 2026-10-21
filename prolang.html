@@ -1107,12 +1107,17 @@ var TEMPLATE = TEMPLATES[0].text;
 function parseLessons(text) {
   var lessons = [];
   var cur = null, ph = null;
+  // flag-group state: consecutive flag lines/segments form one group;
+  // 🇸🇾 = group Arabic meaning, 🇺🇸/🇬🇧 = group English text
+  var grp = [], gMeaning = '', gEn = '';
+  function resetGroup() { grp = []; gMeaning = ''; gEn = ''; }
   function pushPh() {
     if (ph && cur) cur.phrases.push(ph);
     ph = null;
   }
   function pushLesson(title) {
     pushPh();
+    resetGroup();
     cur = { id: uid(), title: title || '', icon: '📝', img: '', phrases: [] };
     lessons.push(cur);
   }
@@ -1123,7 +1128,7 @@ function parseLessons(text) {
   }
   text.split(/\r?\n/).forEach(function (raw) {
     var line = raw.trim();
-    if (!line) { return; }
+    if (!line) { resetGroup(); return; }
     var head = /^#{1,6}\s*\d*\.?\s*(.+)$/.exec(line) ||
                /^النموذج\s*\d*[:\-]?\s*(.*)$/.exec(line);
     if (line === '===' || line === '—' || head) {
@@ -1151,6 +1156,7 @@ function parseLessons(text) {
         if (s.m === '🇸🇾') aMeaning = stripLabel(s.t);
         else if (s.m === '🇺🇸' || s.m === '🇬🇧') aEn = stripLabel(s.t);
       });
+      var preLen = cur.phrases.length;
       pushPh();
       segs.forEach(function (s) {
         if (s.m === '🇸🇾') return;
@@ -1167,6 +1173,9 @@ function parseLessons(text) {
           latin: '', arp: '', meaning: aMeaning,
           en: (s.m === '🇺🇸' || s.m === '🇬🇧') ? '' : aEn, note: '' };
       });
+      grp = cur.phrases.slice(preLen);
+      if (ph) grp = grp.concat([ph]);
+      gMeaning = aMeaning; gEn = aEn;
       return;
     }
     if (body.indexOf('🔤') === 0) {
@@ -1178,39 +1187,42 @@ function parseLessons(text) {
       if (ph) ph.arp = stripLabel(body.slice(body.indexOf(mk) + mk.length).replace(/^\uFE0F\s*/, ''));
       return;
     }
-    if (body.indexOf('🇸🇾') === 0) {
-      if (ph) ph.meaning = stripLabel(body.slice(4));
-      return;
-    }
-    if (body.indexOf('🇺🇸') === 0 || body.indexOf('🇬🇧') === 0) {
-      if (ph) ph.en = stripLabel(body.slice(4));
-      return;
-    }
-    if (body.indexOf('🇫🇷') === 0) {
-      if (ph) ph.note = (ph.note ? ph.note + ' · ' : '') + body.slice(0, 4) + ' ' + stripLabel(body.slice(4));
-      return;
-    }
     if (body.indexOf('📝') === 0) {
+      resetGroup();
       if (ph) ph.note = (ph.note ? ph.note + ' · ' : '') + stripLabel(body.slice(2));
       else cur.phrases.push({ id: uid(), type: 'note', text: stripLabel(body.slice(2)) });
       return;
     }
     var fm = FLAG_RE.exec(body);
     if (fm) {
+      var fl = fm[0];
+      var rest = body.slice(fl.length).trim();
+      // 🇸🇾 line = Arabic meaning for the whole flag-group
+      if (fl === '🇸🇾') {
+        gMeaning = stripLabel(rest);
+        grp.forEach(function (p) { p.meaning = gMeaning; });
+        if (ph && grp.indexOf(ph) < 0) ph.meaning = gMeaning;
+        return;
+      }
       pushPh();
-      var rest = body.slice(fm[0].length).trim();
       // drop a leading label like "الأصلية:" / "الكتابة اللاتينية:" if present
-      var lm = /^(?:الأصلية|الأصلي|الكتابة(?:\s+الأصلية|\s+اللاتينية)?|النص|المعنى)\s*[:：]\s*/.exec(rest);
+      var lm = /^(?:الأصلية|الأصلي|الكتابة(?:\s+الأصلية|\s+اللاتينية)?|النص|المعنى|English|الإنجليزية)\s*[:：]\s*/.exec(rest);
       if (lm) { rest = rest.slice(lm[0].length).trim(); }
       // flag + pure-Arabic line (e.g. "* 🇮🇩 الإندونيسية") is a language-name
       // label, not a phrase — skip it; the real phrase follows on the next line.
-      // Only when there was no explicit "الأصلية:" label, since Arabic-script
-      // phrases (Urdu, Persian) are also pure-Arabic.
       else if (rest && rest.length < 40 && !/[^\u0600-\u06FF\s\d(),.\/؟?\-]/.test(rest)) return;
-      ph = { id: uid(), flag: fm[0], lang: langOfFlag(fm[0]), text: rest, latin: '', arp: '', meaning: '', en: '', note: '' };
+      ph = { id: uid(), flag: fl, lang: langOfFlag(fl), text: rest,
+        latin: '', arp: '', meaning: gMeaning,
+        en: (fl === '🇺🇸' || fl === '🇬🇧') ? '' : gEn, note: '' };
+      if (fl === '🇺🇸' || fl === '🇬🇧') {
+        gEn = ph.text;
+        grp.forEach(function (p) { if (!p.en) p.en = gEn; });
+      }
+      grp.push(ph);
       return;
     }
     // flagless line: note attached to previous phrase, or standalone note
+    resetGroup();
     if (ph) ph.note = (ph.note ? ph.note + ' · ' : '') + body;
     else cur.phrases.push({ id: uid(), type: 'note', text: body });
   });
