@@ -8,6 +8,8 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,11 +35,18 @@ import okio.ByteString;
 public class EdgeTtsPlugin extends Plugin {
 
     private static final String TOKEN = "6A5AA1D4EAFF4E9FB37E23D68491D6F4";
-    private static final String GEC_VERSION = "1-143.0.3650.75";
+    private static final String GEC_VERSION = "2-143.0.3650.75";
     private static final String UA =
-            "Mozilla/5.0 (Linux; Android 10; ONEPLUS A6003) AppleWebKit/537.36"
-                    + " (KHTML, like Gecko) Chrome/143.0.0.0 Mobile Safari/537.36 EdgA/143.0.0.0";
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+                    + " (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0";
     private static final long WIN_EPOCH = 11644473600L;
+    // "Copyright (C) Microsoft Corporation. All rights reserved." as LE u32 words,
+    // the constant prefix Edge feeds into the v2 Sec-MS-GEC hash.
+    private static final int[] GEC_PREFIX_WORDS = {
+            0x79706f43, 0x68676972, 0x43282074, 0x694d2029, 0x736f7263, 0x2074666f,
+            0x70726f43, 0x7461726f, 0x2e6e6f69, 0x6c6c4120, 0x67697220, 0x20737468,
+            0x65736572, 0x64657672, 0x0000002e };
+    private static final int GEC_PREFIX_LENGTH = 57;
 
     private final OkHttpClient client = new OkHttpClient();
 
@@ -65,14 +74,73 @@ public class EdgeTtsPlugin extends Plugin {
         }).start();
     }
 
+    private static int rol16(int x) { return (x << 16) | (x >>> 16); }
+
+    private static int[] cs64WordSwap(int[] w, int a, int b) {
+        int acc = 0, last = 0;
+        for (int i = 0; i < w.length; i += 2) {
+            int x = w[i], y = w[i + 1];
+            int t = rol16(rol16(x) * 0xef0569fb + x * a);
+            int q = t * 0x76f50f34;
+            acc = acc + rol16(q) * 0xc3efea97 + q;
+            t = rol16(rol16(y) * 0xc31713db + y * b);
+            q = t * 0x1881ce3c;
+            last = rol16(q) * 0x35bd1ec9 + q;
+            acc = acc + last;
+        }
+        return new int[] { last, acc };
+    }
+
+    private static int[] cs64Reversible(int[] w, int a, int b) {
+        int state = 0, acc = 0;
+        for (int i = 0; i < w.length; i += 2) {
+            state = (state + w[i]) * a;
+            state = rol16(state) * 0xcf98b111;
+            state = rol16(state) * 0x87085b9f;
+            state = rol16(state) * 0x12ceb96d;
+            state = rol16(state) * 0x257e1d83;
+            int t = (w[i + 1] + state) * b;
+            t = rol16(t) * 0xa27416f5;
+            t = rol16(rol16(t) * 0xd38396ff);
+            acc = acc + state;
+            state = rol16(t * 0x7c932b89) * 0xbfa49f69;
+            acc = acc + state;
+        }
+        return new int[] { state, acc };
+    }
+
+    private static int leWord(byte[] b, int off) {
+        return (b[off] & 0xff) | ((b[off + 1] & 0xff) << 8)
+                | ((b[off + 2] & 0xff) << 16) | ((b[off + 3] & 0xff) << 24);
+    }
+
+    // v2 Sec-MS-GEC: "<CS64 hex>-<SHA256 hex>" over the prefix words followed by
+    // the Windows file time (rounded down to 5 minutes) and the client token.
     private static String secMsGec() throws Exception {
         long ticks = System.currentTimeMillis() / 1000 + WIN_EPOCH;
         ticks -= ticks % 300;
         ticks *= 10_000_000L;
+        byte[] suffix = (ticks + TOKEN).getBytes("US-ASCII");
+        byte[] data = new byte[GEC_PREFIX_LENGTH + suffix.length];
+        ByteBuffer bb = ByteBuffer.wrap(data).order(ByteOrder.LITTLE_ENDIAN);
+        for (int w : GEC_PREFIX_WORDS) bb.putInt(w);
+        System.arraycopy(suffix, 0, data, GEC_PREFIX_LENGTH, suffix.length);
         MessageDigest md = MessageDigest.getInstance("SHA-256");
-        byte[] d = md.digest((ticks + TOKEN).getBytes("US-ASCII"));
-        StringBuilder sb = new StringBuilder(d.length * 2);
-        for (byte b : d) sb.append(String.format(Locale.US, "%02X", b));
+        byte[] digest = md.digest(data);
+        byte[] paddedData = new byte[(data.length + 7) / 8 * 8];
+        System.arraycopy(data, 0, paddedData, 0, data.length);
+        int[] words = new int[paddedData.length / 4];
+        for (int i = 0; i < words.length; i++) words[i] = leWord(paddedData, i * 4);
+        int a = leWord(digest, 0) | 1;
+        int b = leWord(digest, 4) | 1;
+        int[] s = cs64WordSwap(words, a, b);
+        int[] r = cs64Reversible(words, a, b);
+        StringBuilder sb = new StringBuilder(16 + 1 + digest.length * 2);
+        for (int v : new int[] { s[0] ^ r[0], s[1] ^ r[1] }) {
+            for (int i = 0; i < 4; i++) sb.append(String.format(Locale.US, "%02X", (v >>> (8 * i)) & 0xff));
+        }
+        sb.append('-');
+        for (byte d : digest) sb.append(String.format(Locale.US, "%02X", d));
         return sb.toString();
     }
 
@@ -89,8 +157,8 @@ public class EdgeTtsPlugin extends Plugin {
     }
 
     private File synth(String text, String voice, String rate) throws Exception {
-        String url = "wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1"
-                + "?TrustedClientToken=" + TOKEN
+        String url = "wss://api.msedgeservices.com/tts/cognitiveservices/websocket/v1"
+                + "?Ocp-Apim-Subscription-Key=" + TOKEN
                 + "&ConnectionId=" + UUID.randomUUID().toString().replace("-", "")
                 + "&Sec-MS-GEC=" + secMsGec()
                 + "&Sec-MS-GEC-Version=" + GEC_VERSION;
@@ -110,7 +178,7 @@ public class EdgeTtsPlugin extends Plugin {
                         + "\r\nContent-Type:application/json; charset=utf-8"
                         + "\r\nPath:speech.config\r\n\r\n"
                         + "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{"
-                        + "\"sentenceBoundaryEnabled\":\"true\",\"wordBoundaryEnabled\":\"false\"},"
+                        + "\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"true\"},"
                         + "\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}\r\n");
                 String ssml = "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'"
                         + " xml:lang='en-US'><voice name='" + voice
@@ -163,8 +231,14 @@ public class EdgeTtsPlugin extends Plugin {
             }
         };
 
-        WebSocket ws = client.newWebSocket(
-                new Request.Builder().url(url).header("User-Agent", UA).build(), listener);
+        WebSocket ws = client.newWebSocket(new Request.Builder().url(url)
+                .header("User-Agent", UA)
+                .header("Origin", "chrome-extension://jdiccldimpdaibmpdkjnbmckianbfold")
+                .header("Cookie", "muid=" + UUID.randomUUID().toString().replace("-", "").toUpperCase(Locale.US) + ";")
+                .header("Accept-Language", "en-US,en;q=0.9")
+                .header("Pragma", "no-cache")
+                .header("Cache-Control", "no-cache")
+                .build(), listener);
         latch.await(25, TimeUnit.SECONDS);
         try { ws.close(1000, "done"); } catch (Exception ignored) {}
         fos.close();
