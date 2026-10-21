@@ -218,10 +218,14 @@
     border-radius: 12px; padding: .32rem .7rem; margin: .18rem auto; font-weight: 800;
     font-size: 1.02rem; color: #fff; max-width: fit-content; overflow-wrap: anywhere;
     box-shadow: 0 3px 10px rgba(0,0,0,.25); }
-  .cue-line.lg-ar { background: linear-gradient(135deg, #2dd4bf, #14b8a6); }
+  .cue-line { font-family: 'Segoe UI', 'Noto Sans', Roboto, 'Helvetica Neue', sans-serif;
+    letter-spacing: .01em; }
+  .cue-line.lg-ar { background: linear-gradient(135deg, #2dd4bf, #14b8a6);
+    font-family: 'Noto Kufi Arabic', 'Noto Naskh Arabic', 'Segoe UI', Tahoma, sans-serif;
+    font-size: 1.1rem; }
   .cue-line.lg-en { background: linear-gradient(135deg, #60a5fa, #3b82f6); }
-  .cue-line.lg-fr { background: linear-gradient(135deg, #ff9f43, #ff7f50); }
-  .cue-line.lg-x { background: linear-gradient(135deg, var(--accent), var(--accent2)); }
+  .cue-line.lg-fr { background: linear-gradient(135deg, #ff9f43, #ff7f50);
+    font-family: Georgia, 'Segoe UI', 'Times New Roman', serif; font-style: italic; }
   .cue-now { text-align: center; font-size: 1.05rem; font-weight: 800; line-height: 1.45;
     padding: .55rem .3rem .2rem; min-height: 1.5rem; overflow-wrap: anywhere; }
   .cue-tools { display: flex; gap: .4rem; justify-content: center; margin-top: .35rem; }
@@ -1569,7 +1573,20 @@ function renderMedia(v, f, l) {
     var cd = el('div', 'cue');
     var tb = el('button', 'cue-t', fmtT(c.start));
     tb.onclick = function () {
-      // tap the timestamp = loop-speak this cue's lines, each in its language
+      // tap the timestamp = loop THIS cue's segment of the video/audio itself
+      if (me && me.src) {
+        var was = tb.classList.contains('speaking');
+        document.querySelectorAll('.cue-t.speaking').forEach(function (x) {
+          x.classList.remove('speaking');
+        });
+        if (was) { segLoop = false; me.pause(); return; }
+        segLoop = true;
+        me.currentTime = c.start;
+        me.play();
+        tb.classList.add('speaking');
+        return;
+      }
+      // no media attached → TTS fallback, loop the cue's rows
       var rows = cueRows(c.text).filter(function (r) { return r.text; });
       if (!rows.length || !window.EdgeTTS) return;
       if (tb.classList.contains('speaking')) {
@@ -1578,7 +1595,6 @@ function renderMedia(v, f, l) {
         EdgeTTS.stop();
         return;
       }
-      if (me && me.src) me.currentTime = c.start;
       tb.classList.add('speaking');
       (function step(k) {
         if (!tb.classList.contains('speaking')) return;
