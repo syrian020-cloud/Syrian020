@@ -110,6 +110,10 @@
   .ph-text .w.speak { background: var(--accent); color: #fff; }
   .ph-line { font-size: .8rem; color: var(--dim); margin-top: .2rem; line-height: 1.5; }
   .ph-line b { color: var(--txt); font-weight: 700; }
+  button.ph-line.ph-speak { display: block; width: 100%; text-align: start; background: none;
+    border: none; padding: .15rem .3rem; border-radius: 8px; cursor: pointer; font-family: inherit; }
+  button.ph-line.ph-speak:active { background: var(--accent2); color: var(--accent); }
+  button.ph-line.ph-speak.speaking { color: var(--accent); }
   .ph-dots { position: absolute; top: .4rem; inset-inline-end: .4rem; background: none;
     border: none; color: var(--dim); font-size: 1rem; cursor: pointer; padding: .1rem .3rem;
     font-family: inherit; }
@@ -235,6 +239,7 @@ var I18N = {
     exportData: 'تصدير البيانات', importData: 'استيراد البيانات', voiceSet: 'إعدادات الصوت 🎙',
     folders: 'المجلدات', addFolder: 'إضافة مجلد', editFolder: 'تعديل المجلد',
     addLesson: 'إضافة درس', editLesson: 'تعديل الدرس', addPhrase: 'إضافة عبارة', editPhrase: 'تعديل العبارة',
+    fEn: 'المعنى بالإنجليزية',
     pasteTpl: '📥 لصق نماذج', pasteTitle: 'لصق دروس بالنموذج', pastePh: 'الصق النص هنا…',
     copyTpl: 'نسخ النموذج', doImport: 'إضافة الدروس', lessonName: 'اسم الدرس',
     fName: 'الاسم', fTitle: 'العنوان', fIcon: 'أيقونة (إيموجي)', fImg: 'صورة من الاستوديو',
@@ -257,6 +262,7 @@ var I18N = {
     exportData: 'Exporter les données', importData: 'Importer les données', voiceSet: 'Réglages voix 🎙',
     folders: 'Dossiers', addFolder: 'Ajouter un dossier', editFolder: 'Modifier le dossier',
     addLesson: 'Ajouter une leçon', editLesson: 'Modifier la leçon', addPhrase: 'Ajouter une phrase', editPhrase: 'Modifier la phrase',
+    fEn: 'Signification anglaise',
     pasteTpl: '📥 Coller des modèles', pasteTitle: 'Coller des leçons', pastePh: 'Collez le texte ici…',
     copyTpl: 'Copier le modèle', doImport: 'Ajouter les leçons', lessonName: 'Nom de la leçon',
     fName: 'Nom', fTitle: 'Titre', fIcon: 'Icône (emoji)', fImg: 'Image de la galerie',
@@ -279,6 +285,7 @@ var I18N = {
     exportData: 'Export data', importData: 'Import data', voiceSet: 'Voice settings 🎙',
     folders: 'Folders', addFolder: 'Add folder', editFolder: 'Edit folder',
     addLesson: 'Add lesson', editLesson: 'Edit lesson', addPhrase: 'Add phrase', editPhrase: 'Edit phrase',
+    fEn: 'English meaning',
     pasteTpl: '📥 Paste templates', pasteTitle: 'Paste lessons', pastePh: 'Paste the text here…',
     copyTpl: 'Copy template', doImport: 'Add lessons', lessonName: 'Lesson name',
     fName: 'Name', fTitle: 'Title', fIcon: 'Icon (emoji)', fImg: 'Image from gallery',
@@ -324,7 +331,7 @@ var FLAG_LANG = {
   ID: 'id', MY: 'ms', PH: 'tl', RO: 'ro', HU: 'hu', CZ: 'cs', BG: 'bg',
   HR: 'hr', RS: 'sr', DK: 'da', NO: 'nb', FI: 'fi', MN: 'mn', KE: 'sw',
   ZA: 'zu', NG: 'yo', ET: 'am', IS: 'is', AL: 'sq', LT: 'lt', LV: 'lv',
-  EE: 'et',
+  EE: 'et', TZ: 'sw',
   SY: 'ar', SA: 'ar', EG: 'ar', JO: 'ar', LB: 'ar', MA: 'ar', DZ: 'ar',
   TN: 'ar', AE: 'ar', IQ: 'ar', KW: 'ar', QA: 'ar', BH: 'ar', OM: 'ar', YE: 'ar', LY: 'ar'
 };
@@ -417,6 +424,43 @@ if (!localStorage.getItem('prolang_seed_v2')) {
   }].concat(folders);
   saveData();
   try { localStorage.setItem('prolang_seed_v2', '1'); } catch (e) {}
+}
+
+/* Seed v3: top-20 world languages with English meaning too */
+if (!localStorage.getItem('prolang_seed_v3')) {
+  var lTop = {
+    id: 'l_top', title: '🌐 الأكثر انتشاراً', icon: '🌐', img: '',
+    phrases: [
+      { id: uid(), flag: '🇬🇧', lang: 'en', text: 'Hello', latin: 'Hello', arp: 'هَلّو', meaning: 'مرحباً', en: 'Hello' },
+      { id: uid(), flag: '🇨🇳', lang: 'zh', text: '你好', latin: 'Nǐ hǎo', arp: 'ني هاو', meaning: 'مرحباً', en: 'Hello' },
+      { id: uid(), flag: '🇮🇳', lang: 'hi', text: 'नमस्ते', latin: 'Namaste', arp: 'ناماستي', meaning: 'مرحباً', en: 'Hello' },
+      { id: uid(), flag: '🇪🇸', lang: 'es', text: 'Hola', latin: 'Hola', arp: 'أولا', meaning: 'مرحباً', en: 'Hello' },
+      { id: uid(), flag: '🇫🇷', lang: 'fr', text: 'Bonjour', latin: 'Bonjour', arp: 'بونجور', meaning: 'مرحباً / صباح الخير', en: 'Hello / Good morning' },
+      { id: uid(), flag: '🇸🇦', lang: 'ar', text: 'مرحباً', latin: 'Marhaban', arp: 'مَرْحَباً', meaning: 'أهلاً', en: 'Hello / Welcome' },
+      { id: uid(), flag: '🇧🇷', lang: 'pt', text: 'Olá', latin: 'Olá', arp: 'أولا', meaning: 'مرحباً', en: 'Hello' },
+      { id: uid(), flag: '🇷🇺', lang: 'ru', text: 'Привет', latin: 'Privet', arp: 'بريفيت', meaning: 'مرحباً', en: 'Hi' },
+      { id: uid(), flag: '🇩🇪', lang: 'de', text: 'Hallo', latin: 'Hallo', arp: 'هالو', meaning: 'مرحباً', en: 'Hello' },
+      { id: uid(), flag: '🇯🇵', lang: 'ja', text: 'こんにちは', latin: 'Konnichiwa', arp: 'كونّيتشيوا', meaning: 'مرحباً / نهارك سعيد', en: 'Hello / Good afternoon' },
+      { id: uid(), flag: '🇰🇷', lang: 'ko', text: '안녕하세요', latin: 'Annyeonghaseyo', arp: 'أنيونغ هاسيو', meaning: 'مرحباً', en: 'Hello' },
+      { id: uid(), flag: '🇮🇹', lang: 'it', text: 'Ciao', latin: 'Ciao', arp: 'تشاو', meaning: 'مرحباً / باي', en: 'Hi / Bye' },
+      { id: uid(), flag: '🇹🇷', lang: 'tr', text: 'Merhaba', latin: 'Merhaba', arp: 'مرحبا', meaning: 'مرحباً', en: 'Hello' },
+      { id: uid(), flag: '🇮🇷', lang: 'fa', text: 'سلام', latin: 'Salâm', arp: 'سلام', meaning: 'مرحباً', en: 'Hello' },
+      { id: uid(), flag: '🇵🇰', lang: 'ur', text: 'السلام علیکم', latin: 'Assalamu alaikum', arp: 'السلام عليكم', meaning: 'السلام عليكم', en: 'Peace be upon you' },
+      { id: uid(), flag: '🇮🇩', lang: 'id', text: 'Halo', latin: 'Halo', arp: 'هالو', meaning: 'مرحباً', en: 'Hello' },
+      { id: uid(), flag: '🇳🇱', lang: 'nl', text: 'Hallo', latin: 'Hallo', arp: 'هالو', meaning: 'مرحباً', en: 'Hello' },
+      { id: uid(), flag: '🇹🇿', lang: 'sw', text: 'Hujambo', latin: 'Hujambo', arp: 'هوجامبو', meaning: 'مرحباً', en: 'Hello' },
+      { id: uid(), flag: '🇬🇷', lang: 'el', text: 'Γεια σου', latin: 'Ya su', arp: 'يا سو', meaning: 'مرحباً', en: 'Hello' },
+      { id: uid(), flag: '🇻🇳', lang: 'vi', text: 'Xin chào', latin: 'Xin chào', arp: 'سِين تشاو', meaning: 'مرحباً', en: 'Hello' }
+    ]
+  };
+  var wf = null;
+  folders.forEach(function (f) { if (f.id === 'f_world') wf = f; });
+  if (!wf) { wf = { id: 'f_world', name: 'لغات العالم', icon: '🌍', img: '', lessons: [] }; folders.unshift(wf); }
+  wf.lessons = wf.lessons || [];
+  var hasTop = false;
+  wf.lessons.forEach(function (l) { if (l.id === 'l_top') hasTop = true; });
+  if (!hasTop) { wf.lessons.push(lTop); saveData(); }
+  try { localStorage.setItem('prolang_seed_v3', '1'); } catch (e) {}
 }
 
 function isDark() { return localStorage.getItem('prolang_theme') !== 'light'; }
@@ -662,7 +706,17 @@ function phraseCard(p, f, l) {
   body.appendChild(tx);
   if (p.latin)  body.appendChild(el('div', 'ph-line')).innerHTML = '🔤 ' + esc(p.latin);
   if (p.arp)    body.appendChild(el('div', 'ph-line')).innerHTML = '🗣️ ' + esc(p.arp);
-  if (p.meaning) body.appendChild(el('div', 'ph-line')).innerHTML = '🇸🇾 ' + esc(p.meaning);
+  // tappable meaning lines: 🇸🇾 speaks Arabic, 🇺🇸 speaks English
+  if (p.meaning) {
+    var ml = el('button', 'ph-line ph-speak', '🇸🇾 ' + p.meaning);
+    ml.onclick = function (e) { e.stopPropagation(); speak(p.meaning, 'ar', ml); };
+    body.appendChild(ml);
+  }
+  if (p.en) {
+    var el2 = el('button', 'ph-line ph-speak', '🇺🇸 ' + p.en);
+    el2.onclick = function (e) { e.stopPropagation(); speak(p.en, 'en', el2); };
+    body.appendChild(el2);
+  }
   if (p.note)   body.appendChild(el('div', 'ph-line')).innerHTML = '📝 ' + esc(p.note);
   c.appendChild(body);
   var d = el('button', 'ph-dots', '⋮');
@@ -693,7 +747,7 @@ function renderSearch(v) {
   folders.forEach(function (f) {
     (f.lessons || []).forEach(function (l) {
       (l.phrases || []).forEach(function (p) {
-        var hay = [p.text, p.latin, p.arp, p.meaning, p.note, l.title, f.name].join(' ').toLowerCase();
+        var hay = [p.text, p.latin, p.arp, p.meaning, p.en, p.note, l.title, f.name].join(' ').toLowerCase();
         if (hay.indexOf(q) < 0) return;
         n++;
         var c = phraseCard(p, f, l);
@@ -916,7 +970,8 @@ function phraseEditor(f, l, p) {
   var rLatin = fieldRow(t.fLatin, p.latin, { ltr: true });
   var rArp = fieldRow(t.fArp, p.arp);
   var rMean = fieldRow(t.fMeaning, p.meaning);
-  [rText, rLatin, rArp, rMean].forEach(function (r) { sh.appendChild(r); });
+  var rEn = fieldRow(t.fEn, p.en, { ltr: true });
+  [rText, rLatin, rArp, rMean, rEn].forEach(function (r) { sh.appendChild(r); });
   var act = el('div', 'actions');
   if (isNew) {
     var tpl = el('button', 'btn ghost', '📋 ' + t.pasteTpl);
@@ -932,6 +987,7 @@ function phraseEditor(f, l, p) {
     p.latin = rLatin.input.value.trim();
     p.arp = rArp.input.value.trim();
     p.meaning = rMean.input.value.trim();
+    p.en = rEn.input.value.trim();
     if (isNew) { l.phrases = l.phrases || []; l.phrases.push(p); }
     saveData(); render(); closeOv();
   };
@@ -993,7 +1049,11 @@ function parseLessons(text) {
       if (ph) ph.meaning = stripLabel(body.slice(4));
       return;
     }
-    if (body.indexOf('🇫🇷') === 0 || body.indexOf('🇺🇸') === 0) {
+    if (body.indexOf('🇺🇸') === 0 || body.indexOf('🇬🇧') === 0) {
+      if (ph) ph.en = stripLabel(body.slice(4));
+      return;
+    }
+    if (body.indexOf('🇫🇷') === 0) {
       if (ph) ph.note = (ph.note ? ph.note + ' · ' : '') + body.slice(0, 4) + ' ' + stripLabel(body.slice(4));
       return;
     }
@@ -1014,7 +1074,7 @@ function parseLessons(text) {
       // Only when there was no explicit "الأصلية:" label, since Arabic-script
       // phrases (Urdu, Persian) are also pure-Arabic.
       else if (rest && rest.length < 40 && !/[^\u0600-\u06FF\s\d(),.\/؟?\-]/.test(rest)) return;
-      ph = { id: uid(), flag: fm[0], lang: langOfFlag(fm[0]), text: rest, latin: '', arp: '', meaning: '', note: '' };
+      ph = { id: uid(), flag: fm[0], lang: langOfFlag(fm[0]), text: rest, latin: '', arp: '', meaning: '', en: '', note: '' };
       return;
     }
     // flagless line: note attached to previous phrase, or standalone note
