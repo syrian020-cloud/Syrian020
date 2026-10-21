@@ -225,12 +225,13 @@
     box-shadow: 0 3px 10px rgba(0,0,0,.25); }
   .cue-line { font-family: 'Segoe UI', 'Noto Sans', Roboto, 'Helvetica Neue', sans-serif;
     letter-spacing: .01em; }
-  .cue-line.lg-ar { background: linear-gradient(135deg, #2dd4bf, #14b8a6);
+  .cue-line.lg-ar { background: linear-gradient(135deg, #34d399, #059669);
     font-family: 'Noto Kufi Arabic', 'Noto Naskh Arabic', 'Segoe UI', Tahoma, sans-serif;
     font-size: 1.1rem; }
-  .cue-line.lg-en { background: linear-gradient(135deg, #60a5fa, #3b82f6); }
-  .cue-line.lg-fr { background: linear-gradient(135deg, #ff9f43, #ff7f50);
+  .cue-line.lg-en { background: linear-gradient(135deg, #60a5fa, #2563eb); }
+  .cue-line.lg-fr { background: linear-gradient(135deg, #fb7185, #e11d48);
     font-family: Georgia, 'Segoe UI', 'Times New Roman', serif; font-style: italic; }
+  .cue-line.lg-x { background: linear-gradient(135deg, #a78bfa, #7c3aed); }
   .cue-now { text-align: center; font-size: 1.05rem; font-weight: 800; line-height: 1.45;
     padding: .55rem .3rem .2rem; min-height: 1.5rem; overflow-wrap: anywhere; }
   .cue-tools { display: flex; gap: .4rem; justify-content: center; margin-top: .35rem; }
@@ -770,7 +771,8 @@ function renderLessons(v, f) {
     var ic = el('div', 'cicon'); ic.innerHTML = iconHtml(ls, '📝');
     c.appendChild(ic);
     c.appendChild(el('div', 'cname', ls.title || '—'));
-    var n = (ls.phrases || []).filter(function (p) { return p.type !== 'note'; }).length;
+    var n = (ls.phrases || []).filter(function (p) { return p.type !== 'note'; }).length
+      + (ls.cues || []).length;
     c.appendChild(el('div', 'cmeta', n + ' ' + t.phrasesC));
     var d = el('button', 'dots', '⋮');
     d.onclick = function (e) { e.stopPropagation(); lessonMenu(f, ls); };
@@ -1543,6 +1545,17 @@ function renderMedia(v, f, l) {
     mediaEl = me;
     me.ontimeupdate = function () { sync(me.currentTime); };
     me.onseeked = function () { sync(me.currentTime); };
+    // playing media always mutes TTS (and vice-versa via stopReadAll)
+    me.onplay = function () {
+      if (readAllJob) { readAllJob.cancelled = true; readAllJob = null; }
+      speakTok++;
+      if (window.EdgeTTS) EdgeTTS.stop();
+      document.querySelectorAll('.speaking, .w.speak').forEach(function (x) {
+        x.classList.remove('speaking'); x.classList.remove('speak');
+      });
+      var b = document.getElementById('readAllBtn');
+      if (b) b.textContent = T().readAll;
+    };
     mediaGet(mediaKey(l), function (blob) {
       if (blob) { me.src = URL.createObjectURL(blob); }
       else { me.remove(); me = null; now.textContent = '⚠️ ' + (l.media.name || ''); }
