@@ -114,7 +114,7 @@
   .ph-text.wlg-fr { font-family: Georgia, 'Times New Roman', 'Segoe UI', serif; }
   .ph-text.wlg-en { font-family: 'Segoe UI', 'Noto Sans', Roboto, 'Helvetica Neue', sans-serif; }
   .ph-text .w { cursor: pointer; border-radius: 6px; padding: 0 1px; }
-  .ph-text .w.speak { background: var(--accent); color: #fff; }
+  .ph-text .w.speak, .ph-text .w.speaking { background: var(--accent); color: #fff; }
   .ph-line { font-size: .8rem; color: var(--dim); margin-top: .2rem; line-height: 1.5; }
   .ph-line b { color: var(--txt); font-weight: 700; }
   button.ph-line.ph-speak { display: block; width: 100%; text-align: start; background: none;
@@ -224,7 +224,11 @@
     font-size: 1.02rem; color: #fff; max-width: fit-content; overflow-wrap: anywhere;
     box-shadow: 0 3px 10px rgba(0,0,0,.25); }
   .cue-line { font-family: 'Segoe UI', 'Noto Sans', Roboto, 'Helvetica Neue', sans-serif;
-    letter-spacing: .01em; }
+    letter-spacing: .01em; cursor: pointer; }
+  .cue-line.speaking { outline: 3px solid rgba(255,255,255,.65); }
+  .cue-line .cue-flag { font-size: 1.15em; flex: none; }
+  .cue-line .w { cursor: pointer; border-radius: 6px; padding: 0 2px; }
+  .cue-line .w.speaking { background: rgba(255,255,255,.45); }
   .cue-line.lg-ar { background: linear-gradient(135deg, #34d399, #059669);
     font-family: 'Noto Kufi Arabic', 'Noto Naskh Arabic', 'Segoe UI', Tahoma, sans-serif;
     font-size: 1.1rem; }
@@ -801,9 +805,7 @@ function wordRow(text, lang) {
       if (now - last < 330) {
         openExternal('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(w));
       } else {
-        speak(w, lang);
-        ws.classList.add('speak');
-        setTimeout(function () { ws.classList.remove('speak'); }, 1400);
+        speak(w, lang, ws);   // tap = speak the word in a loop, tap again = stop
       }
       last = now;
     };
@@ -1525,7 +1527,19 @@ function renderMedia(v, f, l) {
     now.innerHTML = '';
     if (i < 0) return;
     cueRows(cues[i].text).forEach(function (r) {
-      var ln = el('div', lgClass(r.lang), (r.flag !== '🏳' ? r.flag + ' ' : '') + r.text);
+      var lang = r.lang === 'auto' ? 'fr' : (r.lang || langOfFlag(r.flag));
+      var ln = el('div', lgClass(r.lang));
+      var fs = el('span', 'cue-flag', r.flag !== '🏳' ? r.flag : '🔊');
+      fs.onclick = function (e) { e.stopPropagation(); speak(r.text, lang, ln); };
+      ln.appendChild(fs);
+      (r.text || '').split(/\s+/).forEach(function (w) {
+        if (!w) return;
+        var ws = el('span', 'w', w);
+        ws.onclick = function (e) { e.stopPropagation(); speak(w, lang, ws); };
+        ln.appendChild(ws);
+        ln.appendChild(document.createTextNode(' '));
+      });
+      ln.onclick = function () { speak(r.text, lang, ln); };   // tap line = loop it
       now.appendChild(ln);
     });
   }
