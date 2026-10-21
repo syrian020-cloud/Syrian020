@@ -1,0 +1,15 @@
+{
+  "name": "ProLang — Phrases & pronunciation",
+  "short_name": "ProLang",
+  "description": "Phrase lessons in folders: original text, Latin transliteration, Arabic pronunciation and meaning — tap a flag to hear it",
+  "start_url": "./prolang.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#07131a",
+  "theme_color": "#0b1a22",
+  "icons": [
+    { "src": "icon-prolang-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-prolang-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
