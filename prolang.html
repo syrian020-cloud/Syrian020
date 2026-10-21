@@ -1075,6 +1075,15 @@ var TEMPLATES = [
 '* 🗣️ بالعربي: بونجور\n' +
 '* 🇸🇾 المعنى بالعربي: مرحباً\n' +
 '* 🇺🇸 English: Hello'
+  },
+  {
+    name: 'نموذج سطر واحد — أنبوب |',
+    text:
+'### 🇷🇺 الروسية\n' +
+'🇷🇺 Привет! | 🇸🇾 مرحبا! | 🇺🇸 Hi!\n' +
+'🇷🇺 Здравствуйте! | 🇸🇾 مرحباً! (بأسلوب رسمي) | 🇺🇸 Hello!\n' +
+'🇷🇺 Как дела? | 🇸🇾 كيفك؟ | 🇺🇸 How are you?\n' +
+'🇷🇺 Хорошо, спасибо. | 🇸🇾 منيح، شكراً. | 🇺🇸 Good, thank you.'
   }
 ];
 var TEMPLATE = TEMPLATES[0].text;
@@ -1107,6 +1116,23 @@ function parseLessons(text) {
     }
     if (!cur) pushLesson('');
     var body = line.replace(/^[-*•]\s*/, '');
+    // pipe template: "🇷🇺 Привет! | 🇸🇾 مرحبا! | 🇺🇸 Hi!" on one line
+    if (body.indexOf('|') >= 0 && FLAG_RE.test(body)) {
+      pushPh();
+      var parts = body.split('|').map(function (s) { return s.trim(); });
+      var first = FLAG_RE.exec(parts[0]);
+      ph = { id: uid(), flag: first[0], lang: langOfFlag(first[0]),
+        text: parts[0].slice(first[0].length).trim(), latin: '', arp: '', meaning: '', en: '', note: '' };
+      parts.slice(1).forEach(function (seg) {
+        if (seg.indexOf('🇸🇾') === 0) ph.meaning = stripLabel(seg.slice(4));
+        else if (seg.indexOf('🇺🇸') === 0 || seg.indexOf('🇬🇧') === 0) ph.en = stripLabel(seg.slice(4));
+        else if (seg.indexOf('🇫🇷') === 0) ph.note = stripLabel(seg.slice(4));
+        else if (seg.indexOf('🔤') === 0) ph.latin = stripLabel(seg.slice(2));
+        else if (seg.indexOf('🗣') === 0) ph.arp = stripLabel(seg.slice(seg.indexOf('🗣') + 2).replace(/^\uFE0F\s*/, ''));
+        else if (seg) ph.note = (ph.note ? ph.note + ' · ' : '') + seg;
+      });
+      return;
+    }
     if (body.indexOf('🔤') === 0) {
       if (ph) ph.latin = stripLabel(body.slice(2));
       return;
