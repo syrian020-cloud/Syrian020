@@ -224,6 +224,7 @@
   }
   api.voiceOf = voiceOf;
   api.rateOf = rateOf;
+  api.langNames = function () { return LANG_NAMES; };
 
   function engine() {
     return ls('tts_engine') === 'device' ? 'device' : 'edge';
@@ -383,6 +384,7 @@
       voice: 'الصوت', speed: 'السرعة', preview: 'تجربة',
       reset: 'استعادة الافتراضي', close: 'إغلاق',
       langs: { fr: '🇫🇷 الفرنسية', ar: '🇸🇾 العربية', en: '🇺🇸 الإنكليزية' },
+      search: '🔍 ابحث عن لغة…',
       engine: 'المحرك', engineEdge: 'Edge TTS 🌐', engineDevice: 'صوت الجهاز',
       engine: 'المحرك', engineEdge: 'Edge TTS 🌐', engineDevice: 'صوت الجهاز',
       note: 'الصوت الطبيعي يحتاج إنترنت — بدون إنترنت يُستخدم صوت الجهاز.'
@@ -392,6 +394,7 @@
       voice: 'Voice', speed: 'Speed', preview: 'Preview',
       reset: 'Reset to defaults', close: 'Close',
       langs: { fr: '🇫🇷 French', ar: '🇸🇾 Arabic', en: '🇺🇸 English' },
+      search: '🔍 Search a language…',
       engine: 'Engine', engineEdge: 'Edge TTS 🌐', engineDevice: 'Device voice',
       note: 'The neural voice needs internet — offline, the device voice is used.'
     },
@@ -400,6 +403,7 @@
       voice: 'Voix', speed: 'Vitesse', preview: 'Écouter',
       reset: 'Valeurs par défaut', close: 'Fermer',
       langs: { fr: '🇫🇷 Français', ar: '🇸🇾 Arabe', en: '🇺🇸 Anglais' },
+      search: '🔍 Chercher une langue…',
       engine: 'Moteur', engineEdge: 'Edge TTS 🌐', engineDevice: 'Voix de l\'appareil',
       note: 'La voix neurale nécessite internet — hors ligne, la voix de l\'appareil est utilisée.'
     }
@@ -476,8 +480,23 @@
       Object.keys(DEFAULT_VOICES).filter(function (k) {
         return ['fr', 'ar', 'en'].indexOf(k) < 0;
       }).sort());
+
+    // search box to filter the (long) language list
+    var langRows = [];
+    var lq = h('input', { 'class': 'etts-sel', type: 'search',
+      placeholder: T.search || '🔍', style: 'margin-bottom:.7rem' });
+    lq.oninput = function () {
+      var v = (lq.value || '').toLowerCase().trim();
+      langRows.forEach(function (r) {
+        r.style.display = (!v || r.dataset.key.indexOf(v) >= 0) ? '' : 'none';
+      });
+    };
+    card.appendChild(lq);
+
     allLangs.forEach(function (lang) {
       var row = h('div', { 'class': 'etts-row' });
+      row.dataset.key = (flagOf(DEFAULT_VOICES[lang]) + ' ' + (LANG_NAMES[lang] || '') + ' ' + lang).toLowerCase();
+      langRows.push(row);
       row.appendChild(h('div', {}, [h('span', { 'class': 'etts-lab', text: flagOf(DEFAULT_VOICES[lang]) + ' ' + (LANG_NAMES[lang] || lang) })]));
 
       var sel = h('select', { 'class': 'etts-sel' });

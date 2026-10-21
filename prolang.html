@@ -351,6 +351,25 @@ function flagCC(flag) {
   return s;
 }
 function langOfFlag(flag) { return FLAG_LANG[flagCC(flag)] || 'fr'; }
+var LANG_KEY = {
+  zh: 'chinese الصينية 中文 mandarin مندرين', ja: 'japanese اليابانية 日本語',
+  ko: 'korean الكورية 한국어', th: 'thai التايلاندية', vi: 'vietnamese الفيتنامية',
+  hi: 'hindi الهندية', el: 'greek اليونانية', ka: 'georgian الجورجية',
+  hy: 'armenian الأرمنية', he: 'hebrew العبرية عبرية', fr: 'french الفرنسية',
+  en: 'english الإنجليزية الانجليزية', de: 'german الألمانية', es: 'spanish الإسبانية الاسبانية',
+  it: 'italian الإيطالية الايطالية', ru: 'russian الروسية', tr: 'turkish التركية',
+  pt: 'portuguese البرتغالية', nl: 'dutch الهولندية', pl: 'polish البولندية',
+  uk: 'ukrainian الأوكرانية', sv: 'swedish السويدية', fa: 'persian الفارسية فارسي',
+  ur: 'urdu الأوردية الاوردية', bn: 'bengali البنغالية', id: 'indonesian الإندونيسية الاندونيسية',
+  ms: 'malay الماليزية', tl: 'tagalog filipino الفلبينية تاغالوغ', ro: 'romanian الرومانية',
+  hu: 'hungarian الهنغارية المجرية', cs: 'czech التشيكية', bg: 'bulgarian البلغارية',
+  hr: 'croatian الكرواتية', sr: 'serbian الصربية', da: 'danish الدنماركية',
+  nb: 'norwegian النرويجية', fi: 'finnish الفنلندية', mn: 'mongolian المنغولية',
+  sw: 'swahili السواحيلية', zu: 'zulu الزولو', yo: 'yoruba اليوروبا',
+  am: 'amharic الأمهرية', is: 'icelandic الآيسلندية الايسلندية', sq: 'albanian الألبانية',
+  lt: 'lithuanian الليتوانية', lv: 'latvian اللاتفية', et: 'estonian الإستونية الاستونية',
+  ar: 'arabic العربية عربي'
+};
 
 /* ================= data ================= */
 var inCap = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
@@ -775,7 +794,7 @@ function renderSearch(v) {
   folders.forEach(function (f) {
     (f.lessons || []).forEach(function (l) {
       (l.phrases || []).forEach(function (p) {
-        var hay = [p.text, p.latin, p.arp, p.meaning, p.en, p.note, l.title, f.name].join(' ').toLowerCase();
+        var hay = [p.text, p.latin, p.arp, p.meaning, p.en, p.note, p.lang, p.flag, LANG_KEY[p.lang] || '', l.title, f.name].join(' ').toLowerCase();
         if (hay.indexOf(q) < 0) return;
         n++;
         var c = phraseCard(p, f, l);
