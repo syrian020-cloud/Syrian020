@@ -20,7 +20,24 @@
 (function () {
   'use strict';
 
-  var DEFAULT_VOICES = { fr: 'fr-FR-DeniseNeural', ar: 'ar-SY-AmanyNeural', en: 'en-US-JennyNeural' };
+  var DEFAULT_VOICES = { fr: 'fr-FR-DeniseNeural', ar: 'ar-SY-AmanyNeural', en: 'en-US-JennyNeural',
+    zh: 'zh-CN-XiaoxiaoNeural', ja: 'ja-JP-NanamiNeural', ko: 'ko-KR-SunHiNeural',
+    th: 'th-TH-PremwadeeNeural', vi: 'vi-VN-HoaiMyNeural', hi: 'hi-IN-SwaraNeural',
+    el: 'el-GR-AthinaNeural', ka: 'ka-GE-EkaNeural', hy: 'hy-AM-AnahitNeural',
+    he: 'he-IL-AvriNeural', de: 'de-DE-KatjaNeural', es: 'es-ES-ElviraNeural',
+    it: 'it-IT-ElsaNeural', ru: 'ru-RU-SvetlanaNeural', tr: 'tr-TR-EmelNeural',
+    pt: 'pt-PT-RaquelNeural', nl: 'nl-NL-ColetteNeural', pl: 'pl-PL-ZofiaNeural',
+    uk: 'uk-UA-PolinaNeural', sv: 'sv-SE-SofieNeural', fa: 'fa-IR-DilaraNeural',
+    ur: 'ur-PK-UzmaNeural', bn: 'bn-BD-NabanitaNeural', id: 'id-ID-GadisNeural',
+    ms: 'ms-MY-YasminNeural', tl: 'fil-PH-BlessicaNeural', ro: 'ro-RO-AlinaNeural',
+    hu: 'hu-HU-NoemiNeural', cs: 'cs-CZ-VlastaNeural', bg: 'bg-BG-KalinaNeural',
+    hr: 'hr-HR-GabrijelaNeural', sr: 'sr-RS-SophieNeural', da: 'da-DK-ChristelNeural',
+    nb: 'nb-NO-PernilleNeural', fi: 'fi-FI-NooraNeural', mn: 'mn-MN-YesuiNeural',
+    sw: 'sw-KE-ZuriNeural', zu: 'zu-ZA-ThandoNeural', am: 'am-ET-MekdesNeural',
+    is: 'is-IS-GudrunNeural', sq: 'sq-AL-AnilaNeural', lt: 'lt-LT-OnaNeural',
+    lv: 'lv-LV-EveritaNeural', et: 'et-EE-AnuNeural',
+    // Edge TTS has no Yoruba voice — use Nigerian English as the closest accent.
+    yo: 'en-NG-EzinneNeural' };
   var DEFAULT_RATES = { fr: -8, ar: 0, en: 0 };
 
   /* Neural voices per UI language — Edge names also used by the web
@@ -103,7 +120,12 @@
 
   var api = { down: false };
   var pluginDown = false;   // native EdgeTTS plugin failed -> skip it for the session
-  var RV_TL = { fr: 'fr', ar: 'ar', en: 'en-US' };
+  var RV_TL = { fr: 'fr', ar: 'ar', en: 'en-US', zh: 'zh-CN', ja: 'ja', ko: 'ko',
+    th: 'th', vi: 'vi', hi: 'hi', el: 'el', he: 'he', de: 'de', es: 'es', it: 'it',
+    ru: 'ru', tr: 'tr', pt: 'pt', nl: 'nl', pl: 'pl', sv: 'sv', fa: 'fa', id: 'id',
+    ur: 'ur', bn: 'bn', ms: 'ms', tl: 'fil', ro: 'ro', hu: 'hu', cs: 'cs', da: 'da',
+    nb: 'no', fi: 'fi', is: 'is', sq: 'sq', lt: 'lt', lv: 'lv', et: 'et', sw: 'sw',
+    am: 'am', mn: 'mn', yo: 'en-NG', zu: 'zu' };
   var RV_RATE = '0.47';
   var CACHE_MAX = 60;
 

@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ProLang</title>
+<link rel="manifest" href="./manifest-prolang.json">
+<link rel="icon" type="image/png" href="./icon-prolang-192.png">
+<style>
+  :root {
+    --bg: #07131a; --card: #0d1b26; --card2: #0f2030; --field: #0a1620;
+    --line: rgba(45, 212, 191, .18); --accent: #14b8a6; --accent2: #0ea5e9;
+    --txt: #e6f4f3; --dim: #8fb0b6; --gold: #f5c451;
+    --danger: #f87171;
+  }
+  body.light {
+    --bg: #f0f6f7; --card: #ffffff; --card2: #e9f2f4; --field: #f4f9fa;
+    --line: rgba(14, 165, 233, .22); --accent: #0d9488; --accent2: #0284c7;
+    --txt: #10242c; --dim: #4b6b74; --gold: #b8860b;
+    --danger: #dc2626;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--txt);
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif; overflow-x: clip; }
+  body { min-height: 100vh; padding-bottom: 5.5rem; }
+  body::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(620px 300px at 85% -4%, rgba(20,184,166,.20), transparent 62%),
+      radial-gradient(480px 260px at -8% 32%, rgba(14,165,233,.12), transparent 62%); }
+  body.light::before { background:
+    radial-gradient(620px 300px at 85% -4%, rgba(20,184,166,.10), transparent 62%),
+    radial-gradient(480px 260px at -8% 32%, rgba(14,165,233,.07), transparent 62%); }
+
+  /* ---------- header ---------- */
+  header { position: sticky; top: 0; z-index: 100; background: rgba(7,19,26,.74);
+    backdrop-filter: blur(16px) saturate(1.35); -webkit-backdrop-filter: blur(16px) saturate(1.35);
+    border-bottom: 1px solid var(--line); padding: .6rem .9rem; }
+  body.light header { background: rgba(240,246,247,.80); }
+  .topbar { display: flex; align-items: center; gap: .5rem; max-width: 860px; margin: 0 auto;
+    flex-wrap: wrap; }
+  .backb { background: var(--card); border: 1px solid var(--line); color: var(--txt);
+    border-radius: 12px; padding: .4rem .7rem; font-size: 1rem; cursor: pointer; flex: none;
+    font-family: inherit; }
+  .backb:active { transform: scale(.92); }
+  .logo { display: flex; align-items: center; gap: .5rem; font-weight: 900; font-size: 1.1rem;
+    flex: none; min-width: 0; letter-spacing: .2px; }
+  .logo span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    background: linear-gradient(90deg, #5eead4, #38bdf8); -webkit-background-clip: text;
+    background-clip: text; -webkit-text-fill-color: transparent; }
+  body.light .logo span { background: linear-gradient(90deg, #0d9488, #0284c7);
+    -webkit-background-clip: text; background-clip: text; }
+  .logo img { width: 32px; height: 32px; border-radius: 10px; flex: none;
+    box-shadow: 0 4px 12px rgba(14,165,233,.35); }
+  .crumb { flex: 1; min-width: 0; font-weight: 700; font-size: .9rem; color: var(--dim);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .searchbox { flex: 1; display: flex; align-items: center; gap: .4rem;
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: .42rem .7rem; transition: border-color .15s ease, box-shadow .15s ease; }
+  .searchbox:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(20,184,166,.15); }
+  .searchbox input { flex: 1; background: none; border: none; outline: none;
+    color: var(--txt); font-size: .9rem; font-family: inherit; min-width: 0; }
+  .iconbtn { background: var(--card); border: 1px solid var(--line); color: var(--txt);
+    border-radius: 12px; padding: .4rem .55rem; font-size: 1rem; cursor: pointer; flex: none;
+    font-family: inherit; transition: transform .12s ease; }
+  .iconbtn:active { transform: scale(.92); }
+  @media (max-width: 619px) {
+    .logo { flex: 1; }
+    .searchbox { order: 5; flex: 1 1 100%; }
+  }
+
+  main { max-width: 860px; margin: 0 auto; padding: .9rem .8rem; }
+
+  /* ---------- cards / lists ---------- */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); gap: .7rem; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+    padding: 1rem .7rem .8rem; cursor: pointer; display: flex; flex-direction: column;
+    align-items: center; gap: .5rem; min-width: 0; position: relative;
+    box-shadow: 0 4px 14px rgba(3,8,12,.22);
+    transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease; }
+  body.light .card { box-shadow: 0 4px 14px rgba(75,107,116,.10); }
+  .card:active { transform: scale(.96) translateY(1px); border-color: var(--accent);
+    box-shadow: 0 6px 18px rgba(20,184,166,.25); }
+  .cicon { width: 56px; height: 56px; border-radius: 18px; flex: none; display: flex;
+    align-items: center; justify-content: center; font-weight: 900; font-size: 1.6rem;
+    color: #fff; overflow: hidden; background: linear-gradient(135deg, #0f766e, #0284c7);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.14), 0 5px 12px rgba(2,132,199,.4); }
+  .cicon img { width: 100%; height: 100%; object-fit: cover; background: #fff; }
+  .cname { font-weight: 800; font-size: .85rem; line-height: 1.25; text-align: center;
+    max-width: 100%; overflow-wrap: anywhere; }
+  .cmeta { font-size: .68rem; color: var(--dim); }
+  .dots { position: absolute; top: .3rem; inset-inline-end: .3rem; background: none;
+    border: none; color: var(--dim); font-size: 1.05rem; cursor: pointer; padding: .1rem .3rem;
+    font-family: inherit; }
+  .dots:active { color: var(--accent); }
+
+  /* ---------- phrase cards ---------- */
+  .ph { display: flex; gap: .6rem; align-items: flex-start; background: var(--card);
+    border: 1px solid var(--line); border-radius: 18px; padding: .8rem .75rem;
+    margin-bottom: .65rem; position: relative; box-shadow: 0 4px 14px rgba(3,8,12,.18); }
+  body.light .ph { box-shadow: 0 4px 14px rgba(75,107,116,.09); }
+  .ph-flag { flex: none; width: 44px; height: 44px; border-radius: 14px; font-size: 1.5rem;
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+    background: linear-gradient(135deg, var(--field), var(--card2)); border: 1px solid var(--line);
+    font-family: inherit; transition: transform .12s ease; }
+  .ph-flag:active { transform: scale(.88); }
+  .ph-flag.speaking { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(20,184,166,.2); }
+  .ph-body { flex: 1; min-width: 0; }
+  .ph-text { font-size: 1.12rem; font-weight: 800; line-height: 1.4; overflow-wrap: anywhere; }
+  .ph-text .w { cursor: pointer; border-radius: 6px; padding: 0 1px; }
+  .ph-text .w.speak { background: var(--accent); color: #fff; }
+  .ph-line { font-size: .8rem; color: var(--dim); margin-top: .2rem; line-height: 1.5; }
+  .ph-line b { color: var(--txt); font-weight: 700; }
+  .ph-dots { position: absolute; top: .4rem; inset-inline-end: .4rem; background: none;
+    border: none; color: var(--dim); font-size: 1rem; cursor: pointer; padding: .1rem .3rem;
+    font-family: inherit; }
+  .note { text-align: center; font-size: .98rem; font-weight: 700; color: var(--txt);
+    padding: .7rem .4rem; }
+
+  .empty { text-align: center; color: var(--dim); padding: 3rem 1rem; font-size: .9rem; }
+  .empty .big { font-size: 2.6rem; display: block; margin-bottom: .6rem; }
+
+  /* ---------- FAB ---------- */
+  .fab { position: fixed; bottom: 1.3rem; inset-inline-end: 1.1rem; z-index: 300;
+    width: 58px; height: 58px; border-radius: 19px; border: none; cursor: pointer;
+    font-size: 1.55rem; color: #fff; font-family: inherit;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    box-shadow: 0 10px 26px rgba(20,184,166,.45); transition: transform .12s ease; }
+  .fab:active { transform: scale(.9); }
+
+  /* ---------- toast ---------- */
+  #toast { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+    background: #12242f; border: 1px solid var(--line); color: #e6f4f3;
+    border-radius: 14px; padding: .55rem 1rem; font-size: .82rem; z-index: 5000;
+    box-shadow: 0 8px 24px rgba(0,0,0,.4);
+    opacity: 0; pointer-events: none; transition: opacity .25s; max-width: 90vw; text-align: center; }
+  #toast.show { opacity: 1; }
+
+  /* ---------- sheets & dialogs ---------- */
+  .overlay { position: fixed; inset: 0; background: rgba(2,7,11,.66); backdrop-filter: blur(4px);
+    z-index: 4000; display: flex; align-items: flex-end; justify-content: center; }
+  .sheet { width: 100%; max-width: 480px; background: var(--card2);
+    border: 1px solid var(--line); border-bottom: none; border-radius: 26px 26px 0 0;
+    padding: .8rem 1.2rem 1.6rem; max-height: 85vh; overflow-y: auto;
+    box-shadow: 0 -14px 44px rgba(0,0,0,.45); }
+  .sheet::before { content: ''; display: block; width: 42px; height: 4px; border-radius: 4px;
+    background: var(--line); margin: 0 auto .8rem; }
+  .sheet h3 { margin: 0 0 .8rem; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; }
+  .sheet h3 button { background: none; border: none; color: var(--dim); font-size: 1.2rem; cursor: pointer; }
+
+  .flabel { font-size: .72rem; color: var(--dim); margin: .55rem 0 .25rem; }
+  .frow { display: flex; gap: .4rem; align-items: center; }
+  .field { flex: 1; display: flex; align-items: center; gap: .4rem; min-width: 0;
+    background: var(--field); border: 1px solid var(--line); border-radius: 14px;
+    padding: .55rem .7rem; transition: border-color .15s ease, box-shadow .15s ease; }
+  .field:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(20,184,166,.14); }
+  .field input, .field textarea { flex: 1; background: none; border: none; outline: none;
+    color: var(--txt); font-size: .88rem; font-family: inherit; min-width: 0; resize: vertical; }
+  .mini { flex: none; background: var(--card); border: 1px solid var(--line); color: var(--txt);
+    border-radius: 10px; padding: .35rem .6rem; font-size: .75rem; cursor: pointer; font-family: inherit; }
+  .mini:active { background: var(--accent); color: #fff; }
+
+  .flagpick { display: flex; gap: .35rem; overflow-x: auto; padding: .15rem 0 .35rem; }
+  .flagpick button { flex: none; width: 42px; height: 42px; border-radius: 12px; font-size: 1.35rem;
+    background: var(--field); border: 1.5px solid var(--line); cursor: pointer; font-family: inherit; }
+  .flagpick button.on { border-color: var(--accent); background: var(--card);
+    box-shadow: 0 0 0 3px rgba(20,184,166,.18); }
+
+  .actions { display: flex; gap: .5rem; margin-top: .9rem; }
+  .btn { flex: 1; border: 1px solid var(--line); border-radius: 14px; padding: .7rem;
+    font-size: .9rem; cursor: pointer; font-family: inherit; background: var(--card); color: var(--txt);
+    transition: transform .12s ease; }
+  .btn:active { transform: scale(.97); }
+  .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none;
+    color: #fff; font-weight: 700; box-shadow: 0 6px 18px rgba(14,165,233,.35); }
+  .btn.danger { color: var(--danger); border-color: rgba(248,113,113,.4); }
+
+  .mrow { display: flex; align-items: center; gap: .7rem; width: 100%; background: rgba(20,184,166,.07);
+    border: 1px solid var(--line); border-radius: 16px; padding: .8rem 1rem; margin-bottom: .55rem;
+    color: var(--txt); font-size: .9rem; cursor: pointer; font-family: inherit; text-align: start; }
+  body.light .mrow { background: rgba(14,165,233,.06); }
+  .mrow:active { background: rgba(20,184,166,.16); }
+  .mrow .mi { font-size: 1.1rem; width: 1.6rem; text-align: center; flex: none; }
+  .langs { display: flex; gap: .5rem; margin-bottom: .7rem; }
+  .langb { flex: 1; background: var(--card); border: 1px solid var(--line); color: var(--txt);
+    border-radius: 14px; padding: .6rem; font-size: .85rem; cursor: pointer; font-family: inherit; }
+  .langb.on { background: linear-gradient(135deg, var(--accent), var(--accent2)); border-color: transparent; font-weight: 700; }
+
+  .tplbox { background: var(--field); border: 1px solid var(--line); border-radius: 14px;
+    padding: .7rem .8rem; font-size: .78rem; line-height: 1.8; color: var(--dim);
+    white-space: pre-wrap; direction: rtl; margin-bottom: .5rem; }
+  .dlg { width: 100%; max-width: 340px; background: var(--card2); border: 1px solid var(--line);
+    border-radius: 22px; padding: 1.3rem; text-align: center; margin: auto 1rem; }
+  .dlg p { font-size: .95rem; margin: 0 0 1rem; }
+  .dlg .row { display: flex; gap: .6rem; }
+  .dlg button { flex: 1; border: 1px solid var(--line); border-radius: 12px; padding: .6rem;
+    font-size: .9rem; cursor: pointer; font-family: inherit; background: var(--card); color: var(--txt); }
+  .dlg button.yes { background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none; color: #fff; font-weight: 700; }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<header>
+  <div class="topbar">
+    <button class="backb hidden" id="backBtn" title="‹">‹</button>
+    <div class="logo"><img src="./icon-prolang-192.png" alt="" onerror="this.style.display='none'"><span>ProLang</span></div>
+    <div class="crumb hidden" id="crumb"></div>
+    <div class="searchbox">
+      <span>🔍</span>
+      <input id="search" data-i-ph="searchPh" placeholder="ابحث…" autocomplete="off">
+    </div>
+    <button class="iconbtn" id="waBtn" title="WhatsApp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" style="width:20px;height:20px;display:block"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#fff" transform="translate(4.15,4.15) scale(0.654)" d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35M12.04 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.82 9.82 0 0 1 9.88 9.89c0 5.44-4.44 9.88-9.89 9.88m8.42-18.3A11.82 11.82 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.58 0 11.94-5.36 11.94-11.93 0-3.18-1.24-6.18-3.53-8.38"/></svg></button>
+    <button class="iconbtn" id="mailBtn" title="Gmail" aria-label="Gmail"><svg viewBox="0 0 256 192" style="width:20px;height:20px;display:block"><path fill="#4285F4" d="M58.182 192.05V93.14L27.507 65.077L0 49.504v125.091c0 9.658 7.825 17.455 17.455 17.455h40.727z"/><path fill="#34A853" d="M197.818 192.05h40.727c9.659 0 17.455-7.826 17.455-17.455V49.504l-27.328 15.564-30.854 28.072v98.91z"/><path fill="#EA4335" d="m58.182 93.14-4.174-38.647 4.174-48.989L128 69.868l69.818-64.364 4.173 48.97-4.173 38.666L128 157.482l-69.818-64.342z"/><path fill="#FBBC04" d="M197.818 5.504v87.636L256 49.504V24.585c0-21.58-24.646-33.858-41.697-20.783L197.818 5.504z"/><path fill="#C5221F" d="m0 49.504 26.759 20.07L58.182 93.14V5.504L41.695 3.802C24.646-9.274 0 3.005 0 24.585v24.919z"/></svg></button>
+    <button class="iconbtn" id="themeBtn" title="🌙">🌙</button>
+    <button class="iconbtn" id="menuBtn" title="⋮">⋮</button>
+  </div>
+</header>
+
+<main id="view"></main>
+<button class="fab" id="fab">➕</button>
+
+<div id="toast"></div>
+<div id="overlayRoot"></div>
+
+<script src="./js/edge-tts.js"></script>
+<script>
+(function () {
+'use strict';
+
+/* ================= i18n ================= */
+var I18N = {
+  ar: {
+    searchPh: 'ابحث في العبارات…', menu: 'القائمة', langTitle: 'لغة الواجهة',
+    themeDark: 'الوضع الداكن 🌙', themeLight: 'الوضع الفاتح ☀',
+    exportData: 'تصدير البيانات', importData: 'استيراد البيانات', voiceSet: 'إعدادات الصوت 🎙',
+    folders: 'المجلدات', addFolder: 'إضافة مجلد', editFolder: 'تعديل المجلد',
+    addLesson: 'إضافة درس', editLesson: 'تعديل الدرس', addPhrase: 'إضافة عبارة', editPhrase: 'تعديل العبارة',
+    pasteTpl: '📥 لصق نماذج', pasteTitle: 'لصق دروس بالنموذج', pastePh: 'الصق النص هنا…',
+    copyTpl: 'نسخ النموذج', doImport: 'إضافة الدروس', lessonName: 'اسم الدرس',
+    fName: 'الاسم', fTitle: 'العنوان', fIcon: 'أيقونة (إيموجي)', fImg: 'صورة من الاستوديو',
+    fFlag: 'العلم / اللغة', fText: 'العبارة الأصلية', fLatin: 'النطق بالحروف اللاتينية',
+    fArp: 'تقريب النطق بالعربية', fMeaning: 'المعنى بالعربية',
+    save: 'حفظ', del: 'حذف', copy: 'نسخ', copied: 'نُسخ ✓',
+    readAll: '▶ قراءة الكل', stop: '⏹ إيقاف',
+    lessonsC: 'درس', phrasesC: 'عبارة',
+    exitTitle: 'هل تريد الخروج من التطبيق؟', yes: 'نعم، اخرج', no: 'إلغاء',
+    delFolderQ: 'حذف هذا المجلد وكل دروسه؟', delLessonQ: 'حذف هذا الدرس؟', delPhraseQ: 'حذف هذه العبارة؟',
+    delYes: 'نعم، احذف',
+    exported: 'تم تصدير البيانات', imported: 'تمت الإضافة', errEmpty: 'أدخل الاسم على الأقل',
+    errPh: 'أدخل العبارة على الأقل', errPaste: 'لم يتم العثور على عبارات في النص',
+    emptyF: 'لا مجلدات بعد — أنشئ أول مجلد بزر ➕', emptyL: 'لا دروس هنا — أضف درساً بـ➕ أو الصق نماذج',
+    emptyP: 'لا عبارات بعد — أضفها بـ➕'
+  },
+  fr: {
+    searchPh: 'Chercher une phrase…', menu: 'Menu', langTitle: 'Langue de l’interface',
+    themeDark: 'Mode sombre 🌙', themeLight: 'Mode clair ☀',
+    exportData: 'Exporter les données', importData: 'Importer les données', voiceSet: 'Réglages voix 🎙',
+    folders: 'Dossiers', addFolder: 'Ajouter un dossier', editFolder: 'Modifier le dossier',
+    addLesson: 'Ajouter une leçon', editLesson: 'Modifier la leçon', addPhrase: 'Ajouter une phrase', editPhrase: 'Modifier la phrase',
+    pasteTpl: '📥 Coller des modèles', pasteTitle: 'Coller des leçons', pastePh: 'Collez le texte ici…',
+    copyTpl: 'Copier le modèle', doImport: 'Ajouter les leçons', lessonName: 'Nom de la leçon',
+    fName: 'Nom', fTitle: 'Titre', fIcon: 'Icône (emoji)', fImg: 'Image de la galerie',
+    fFlag: 'Drapeau / langue', fText: 'Phrase originale', fLatin: 'Prononciation latine',
+    fArp: 'Prononciation en arabe', fMeaning: 'Sens en arabe',
+    save: 'Enregistrer', del: 'Supprimer', copy: 'Copier', copied: 'Copié ✓',
+    readAll: '▶ Tout lire', stop: '⏹ Stop',
+    lessonsC: 'leçons', phrasesC: 'phrases',
+    exitTitle: 'Quitter l’application ?', yes: 'Oui, quitter', no: 'Annuler',
+    delFolderQ: 'Supprimer ce dossier et ses leçons ?', delLessonQ: 'Supprimer cette leçon ?', delPhraseQ: 'Supprimer cette phrase ?',
+    delYes: 'Oui, supprimer',
+    exported: 'Données exportées', imported: 'Ajouté', errEmpty: 'Nom requis',
+    errPh: 'Phrase requise', errPaste: 'Aucune phrase trouvée dans le texte',
+    emptyF: 'Aucun dossier — créez-en un avec ➕', emptyL: 'Aucune leçon — ajoutez avec ➕ ou collez des modèles',
+    emptyP: 'Aucune phrase — ajoutez avec ➕'
+  },
+  en: {
+    searchPh: 'Search phrases…', menu: 'Menu', langTitle: 'Interface language',
+    themeDark: 'Dark mode 🌙', themeLight: 'Light mode ☀',
+    exportData: 'Export data', importData: 'Import data', voiceSet: 'Voice settings 🎙',
+    folders: 'Folders', addFolder: 'Add folder', editFolder: 'Edit folder',
+    addLesson: 'Add lesson', editLesson: 'Edit lesson', addPhrase: 'Add phrase', editPhrase: 'Edit phrase',
+    pasteTpl: '📥 Paste templates', pasteTitle: 'Paste lessons', pastePh: 'Paste the text here…',
+    copyTpl: 'Copy template', doImport: 'Add lessons', lessonName: 'Lesson name',
+    fName: 'Name', fTitle: 'Title', fIcon: 'Icon (emoji)', fImg: 'Image from gallery',
+    fFlag: 'Flag / language', fText: 'Original phrase', fLatin: 'Latin pronunciation',
+    fArp: 'Arabic pronunciation', fMeaning: 'Arabic meaning',
+    save: 'Save', del: 'Delete', copy: 'Copy', copied: 'Copied ✓',
+    readAll: '▶ Read all', stop: '⏹ Stop',
+    lessonsC: 'lessons', phrasesC: 'phrases',
+    exitTitle: 'Exit the app?', yes: 'Yes, exit', no: 'Cancel',
+    delFolderQ: 'Delete this folder and its lessons?', delLessonQ: 'Delete this lesson?', delPhraseQ: 'Delete this phrase?',
+    delYes: 'Yes, delete',
+    exported: 'Data exported', imported: 'Added', errEmpty: 'Name required',
+    errPh: 'Phrase required', errPaste: 'No phrases found in the text',
+    emptyF: 'No folders yet — create one with ➕', emptyL: 'No lessons — add with ➕ or paste templates',
+    emptyP: 'No phrases yet — add with ➕'
+  }
+};
+function T() { return I18N[uiLang()] || I18N.ar; }
+function uiLang() { return localStorage.getItem('prolang_lang') || 'ar'; }
+function setUiLang(l) {
+  try { localStorage.setItem('prolang_lang', l); } catch (e) {}
+  document.documentElement.lang = l;
+  document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+  applyI18n(); render();
+}
+function applyI18n() {
+  var t = T();
+  document.querySelectorAll('[data-i]').forEach(function (el) {
+    var k = el.getAttribute('data-i'); if (t[k]) el.textContent = t[k];
+  });
+  document.querySelectorAll('[data-i-ph]').forEach(function (el) {
+    var k = el.getAttribute('data-i-ph'); if (t[k]) el.placeholder = t[k];
+  });
+  document.getElementById('themeBtn').textContent = isDark() ? '🌙' : '☀';
+}
+
+/* ================= flags → languages ================= */
+var FLAG_LANG = {
+  CN: 'zh', JP: 'ja', KR: 'ko', TH: 'th', VN: 'vi', IN: 'hi', GR: 'el',
+  GE: 'ka', AM: 'hy', IL: 'he', FR: 'fr', US: 'en', GB: 'en', AU: 'en',
+  DE: 'de', ES: 'es', IT: 'it', RU: 'ru', TR: 'tr', PT: 'pt', BR: 'pt',
+  NL: 'nl', PL: 'pl', UA: 'uk', SE: 'sv', IR: 'fa', PK: 'ur', BD: 'bn',
+  ID: 'id', MY: 'ms', PH: 'tl', RO: 'ro', HU: 'hu', CZ: 'cs', BG: 'bg',
+  HR: 'hr', RS: 'sr', DK: 'da', NO: 'nb', FI: 'fi', MN: 'mn', KE: 'sw',
+  ZA: 'zu', NG: 'yo', ET: 'am', IS: 'is', AL: 'sq', LT: 'lt', LV: 'lv',
+  EE: 'et',
+  SY: 'ar', SA: 'ar', EG: 'ar', JO: 'ar', LB: 'ar', MA: 'ar', DZ: 'ar',
+  TN: 'ar', AE: 'ar', IQ: 'ar', KW: 'ar', QA: 'ar', BH: 'ar', OM: 'ar', YE: 'ar', LY: 'ar'
+};
+var FLAG_CHOICES = ['🇫🇷', '🇸🇾', '🇺🇸', '🇬🇧', '🇨🇳', '🇯🇵', '🇰🇷', '🇹🇭', '🇻🇳', '🇮🇳',
+  '🇬🇷', '🇬🇪', '🇦🇲', '🇮🇱', '🇩🇪', '🇪🇸', '🇮🇹', '🇷🇺', '🇹🇷', '🇵🇹', '🇳🇱', '🇪🇬', '🇸🇦',
+  '🇮🇩', '🇲🇾', '🇵🇭', '🇧🇩', '🇵🇰', '🇲🇳', '🇵🇱', '🇨🇿', '🇭🇺', '🇷🇴', '🇫🇮', '🇸🇪',
+  '🇳🇴', '🇩🇰', '🇰🇪', '🇿🇦', '🇳🇬', '🇪🇹', '🇮🇸', '🇦🇱', '🇱🇹', '🇱🇻', '🇪🇪'];
+var FLAG_RE = /^[\u{1F1E6}-\u{1F1FF}]{2}/u;
+function flagCC(flag) {
+  if (!FLAG_RE.test(flag || '')) return '';
+  var s = '';
+  for (var i = 0; i < 2; i++) s += String.fromCharCode(flag.codePointAt(i * 2) - 0x1F1E6 + 65);
+  return s;
+}
+function langOfFlag(flag) { return FLAG_LANG[flagCC(flag)] || 'fr'; }
+
+/* ================= data ================= */
+var inCap = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+var folders = [];
+try { folders = JSON.parse(localStorage.getItem('prolang_data') || '[]'); } catch (e) { folders = []; }
+if (!Array.isArray(folders)) folders = [];
+
+function uid() { return 'x' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+function saveData() { try { localStorage.setItem('prolang_data', JSON.stringify(folders)); } catch (e) {} }
+
+/* Seed: the greetings template — 33 languages grouped by region */
+if (!localStorage.getItem('prolang_seed_v2')) {
+  folders = [{
+    id: 'f_world', name: 'لغات العالم', icon: '🌍', img: '',
+    lessons: [
+      {
+        id: 'l_hello', title: '👋 التحيات بـ10 لغات', icon: '👋', img: '',
+        phrases: [
+          { id: uid(), flag: '🇨🇳', lang: 'zh', text: '你好', latin: 'Nǐ hǎo', arp: 'ني هاو', meaning: 'مرحبًا' },
+          { id: uid(), flag: '🇯🇵', lang: 'ja', text: 'こんにちは', latin: 'Konnichiwa', arp: 'كونّيتشيوا', meaning: 'مرحبًا' },
+          { id: uid(), flag: '🇰🇷', lang: 'ko', text: '안녕하세요', latin: 'Annyeonghaseyo', arp: 'أنْيونغ هاسِيو', meaning: 'مرحبًا، بصيغة مهذبة' },
+          { id: uid(), flag: '🇹🇭', lang: 'th', text: 'สวัสดี', latin: 'Sawatdi', arp: 'ساواتدي', meaning: 'مرحبًا' },
+          { id: uid(), flag: '🇻🇳', lang: 'vi', text: 'Xin chào', latin: 'Xin chào', arp: 'سِين تشاو', meaning: 'مرحبًا' },
+          { id: uid(), flag: '🇮🇳', lang: 'hi', text: 'नमस्ते', latin: 'Namaste', arp: 'نامَستِه', meaning: 'مرحبًا' },
+          { id: uid(), flag: '🇬🇷', lang: 'el', text: 'Γεια σου', latin: 'Geia sou', arp: 'يا سو', meaning: 'مرحبًا، لشخص واحد' },
+          { id: uid(), flag: '🇬🇪', lang: 'ka', text: 'გამარჯობა', latin: 'Gamarjoba', arp: 'غامارجوبا', meaning: 'مرحبًا' },
+          { id: uid(), flag: '🇦🇲', lang: 'hy', text: 'Բարև', latin: 'Barev', arp: 'باريف', meaning: 'مرحبًا' },
+          { id: uid(), flag: '🇮🇱', lang: 'he', text: 'שלום', latin: 'Shalom', arp: 'شالوم', meaning: 'مرحبًا / سلام' }
+        ]
+      },
+      {
+        id: 'l_asia', title: '🌏 آسيا', icon: '🌏', img: '',
+        phrases: [
+          { id: uid(), flag: '🇮🇩', lang: 'id', text: 'Halo', latin: 'Ha-lo', arp: 'هالو', meaning: 'مرحباً' },
+          { id: uid(), flag: '🇲🇾', lang: 'ms', text: 'Apa khabar?', latin: 'Apa khabar', arp: 'أَپا خابَر', meaning: 'كيفك؟' },
+          { id: uid(), flag: '🇵🇭', lang: 'tl', text: 'Kumusta ka?', latin: 'Koo-moos-ta ka', arp: 'كوموستا كا', meaning: 'كيفك؟' },
+          { id: uid(), flag: '🇧🇩', lang: 'bn', text: 'নমস্কার', latin: 'Nomoshkar', arp: 'نوموشكار', meaning: 'مرحباً' },
+          { id: uid(), flag: '🇵🇰', lang: 'ur', text: 'آپ کیسے ہیں؟', latin: 'Aap kaise hain?', arp: 'آب كَيْسِه هَيْن؟', meaning: 'كيفك؟ (بصيغة محترمة)' },
+          { id: uid(), flag: '🇲🇳', lang: 'mn', text: 'Сайн байна уу?', latin: 'Sain baina uu?', arp: 'ساين باينا أو؟', meaning: 'كيف حالك؟' }
+        ]
+      },
+      {
+        id: 'l_europe', title: '🏰 أوروبا', icon: '🏰', img: '',
+        phrases: [
+          { id: uid(), flag: '🇵🇱', lang: 'pl', text: 'Cześć', latin: 'Cheshch', arp: 'تشِشتش', meaning: 'مرحباً / أهلاً' },
+          { id: uid(), flag: '🇨🇿', lang: 'cs', text: 'Ahoj', latin: 'Ahoy', arp: 'أهوي', meaning: 'مرحباً' },
+          { id: uid(), flag: '🇭🇺', lang: 'hu', text: 'Szia', latin: 'See-ya', arp: 'سِيَا', meaning: 'مرحباً' },
+          { id: uid(), flag: '🇷🇴', lang: 'ro', text: 'Bună', latin: 'Boo-nuh', arp: 'بونا', meaning: 'مرحباً' },
+          { id: uid(), flag: '🇫🇮', lang: 'fi', text: 'Hei', latin: 'Hey', arp: 'هَيْ', meaning: 'مرحباً' },
+          { id: uid(), flag: '🇸🇪', lang: 'sv', text: 'Hej', latin: 'Hey', arp: 'هَيْ', meaning: 'مرحباً' },
+          { id: uid(), flag: '🇳🇴', lang: 'nb', text: 'Hei', latin: 'Hey', arp: 'هَيْ', meaning: 'مرحباً' },
+          { id: uid(), flag: '🇩🇰', lang: 'da', text: 'Hej', latin: 'Hai', arp: 'هاي', meaning: 'مرحباً' }
+        ]
+      },
+      {
+        id: 'l_africa', title: '🌍 أفريقيا', icon: '🌍', img: '',
+        phrases: [
+          { id: uid(), flag: '🇰🇪', lang: 'sw', text: 'Habari?', latin: 'Ha-ba-ri', arp: 'هاباري؟', meaning: 'كيفك؟ / شو الأخبار؟' },
+          { id: uid(), flag: '🇿🇦', lang: 'zu', text: 'Sawubona', latin: 'Sa-wu-bo-na', arp: 'ساووبونا', meaning: 'مرحباً' },
+          { id: uid(), flag: '🇳🇬', lang: 'yo', text: 'Báwo ni?', latin: 'Bawo ni', arp: 'باوو ني؟', meaning: 'كيف حالك؟' },
+          { id: uid(), flag: '🇪🇹', lang: 'am', text: 'ሰላም', latin: 'Selam', arp: 'سَلام', meaning: 'مرحباً / سلام' }
+        ]
+      },
+      {
+        id: 'l_extra', title: '✨ لغات مميزة', icon: '✨', img: '',
+        phrases: [
+          { id: uid(), flag: '🇮🇸', lang: 'is', text: 'Halló', latin: 'Ha-lo', arp: 'هالّو', meaning: 'مرحباً' },
+          { id: uid(), flag: '🇦🇱', lang: 'sq', text: 'Përshëndetje', latin: 'Per-shen-det-ye', arp: 'پِرْشِندِتيِه', meaning: 'مرحباً' },
+          { id: uid(), flag: '🇱🇹', lang: 'lt', text: 'Labas', latin: 'La-bas', arp: 'لاباس', meaning: 'مرحباً' },
+          { id: uid(), flag: '🇱🇻', lang: 'lv', text: 'Sveiki', latin: 'Svay-ki', arp: 'سْفَيْكي', meaning: 'مرحباً' },
+          { id: uid(), flag: '🇪🇪', lang: 'et', text: 'Tere', latin: 'Te-re', arp: 'تِرِه', meaning: 'مرحباً' }
+        ]
+      }
+    ]
+  }].concat(folders);
+  saveData();
+  try { localStorage.setItem('prolang_seed_v2', '1'); } catch (e) {}
+}
+
+function isDark() { return localStorage.getItem('prolang_theme') !== 'light'; }
+function applyTheme() { document.body.classList.toggle('light', !isDark()); }
+function toggleTheme() {
+  try { localStorage.setItem('prolang_theme', isDark() ? 'light' : 'dark'); } catch (e) {}
+  applyTheme(); applyI18n();
+}
+
+/* ================= helpers ================= */
+function el(tag, cls, txt) {
+  var e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (txt != null) e.textContent = txt;
+  return e;
+}
+function toast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tm); t._tm = setTimeout(function () { t.classList.remove('show'); }, 2200);
+}
+function openExternal(url) {
+  var B = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Browser;
+  if (B && B.open) { B.open({ url: url }); return; }
+  window.open(url, '_blank');
+}
+function copyText(txt, msg) {
+  function done() { toast(msg || T().copied); }
+  var CB = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Clipboard;
+  if (CB && CB.write) { CB.write({ string: txt }).then(done, done); return; }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(txt).then(done, done); return;
+  }
+  var ta = document.createElement('textarea');
+  ta.value = txt; document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  ta.remove(); done();
+}
+var CONTACT_WA = '33775813643';
+var CONTACT_MAIL = 'syrian020@gmail.com';
+function openWhatsApp() {
+  var AL = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.AppLauncher;
+  var web = 'https://wa.me/' + CONTACT_WA;
+  if (inCap && AL && AL.openUrl) {
+    AL.openUrl({ url: 'whatsapp://send?phone=' + CONTACT_WA })
+      .then(function (r) { if (r && r.completed === false) openExternal(web); })
+      .catch(function () { openExternal(web); });
+    return;
+  }
+  openExternal(web);
+}
+function openMail() {
+  var to = 'mailto:' + CONTACT_MAIL;
+  var AL = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.AppLauncher;
+  if (inCap && AL && AL.openUrl) {
+    AL.openUrl({ url: to }).catch(function () { window.location.href = to; });
+    return;
+  }
+  window.location.href = to;
+}
+
+/* ================= speech ================= */
+function speak(text, lang, flagEl) {
+  if (!window.EdgeTTS) return;
+  document.querySelectorAll('.ph-flag.speaking, .w.speak').forEach(function (x) {
+    x.classList.remove('speaking'); x.classList.remove('speak');
+  });
+  if (flagEl) flagEl.classList.add('speaking');
+  EdgeTTS.play(text, lang || 'fr').catch(function () { toast('TTS ✗'); })
+    .then(function () { if (flagEl) flagEl.classList.remove('speaking'); });
+}
+var readAllJob = null;
+function stopReadAll() {
+  if (readAllJob) readAllJob.cancelled = true;
+  if (window.EdgeTTS) EdgeTTS.stop();
+  readAllJob = null;
+  var b = document.getElementById('readAllBtn');
+  if (b) b.textContent = T().readAll;
+}
+function readAll(lesson) {
+  var t = T();
+  if (readAllJob) { stopReadAll(); return; }
+  var items = (lesson.phrases || []).filter(function (p) { return p.type !== 'note'; });
+  if (!items.length) return;
+  var btn = document.getElementById('readAllBtn');
+  btn.textContent = t.stop;
+  var job = { cancelled: false, i: 0 };
+  readAllJob = job;
+  function next() {
+    if (job.cancelled || job.i >= items.length) {
+      if (btn && !job.cancelled) btn.textContent = t.readAll;
+      if (readAllJob === job) readAllJob = null;
+      return;
+    }
+    var p = items[job.i++];
+    var flagEl = document.getElementById('phflag-' + p.id);
+    document.querySelectorAll('.ph-flag.speaking').forEach(function (x) { x.classList.remove('speaking'); });
+    if (flagEl) flagEl.classList.add('speaking');
+    EdgeTTS.play((p.text || '').slice(0, 400), p.lang || langOfFlag(p.flag))
+      .catch(function () {})
+      .then(function () {
+        if (flagEl) flagEl.classList.remove('speaking');
+        if (!job.cancelled) setTimeout(next, 260);
+      });
+  }
+  next();
+}
+
+/* ================= nav state ================= */
+var nav = { f: null, l: null };   // current folder id / lesson id
+var q = '';
+document.getElementById('search').addEventListener('input', function () {
+  q = (this.value || '').toLowerCase().trim(); render();
+});
+function findF(id) { return folders.filter(function (f) { return f.id === id; })[0] || null; }
+function findL(f, id) {
+  return f ? (f.lessons || []).filter(function (l) { return l.id === id; })[0] || null : null;
+}
+
+/* ================= rendering ================= */
+function iconHtml(item, fallback) {
+  if (item.img) return '<img src="' + item.img + '" alt="">';
+  if (item.icon) return esc(item.icon);
+  return esc((item.name || item.title || '?')[0] || '?');
+}
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function cardShell(inner) {
+  var g = el('div', 'grid');
+  g.innerHTML = inner;
+  return g;
+}
+
+function render() {
+  var t = T();
+  var v = document.getElementById('view');
+  var back = document.getElementById('backBtn');
+  var crumb = document.getElementById('crumb');
+  v.innerHTML = '';
+  var f = findF(nav.f);
+  var l = findL(f, nav.l);
+
+  if (q) { renderSearch(v); back.classList.add('hidden'); crumb.classList.add('hidden'); return; }
+
+  if (!f) {
+    back.classList.add('hidden'); crumb.classList.add('hidden');
+    renderFolders(v);
+  } else if (!l) {
+    back.classList.remove('hidden');
+    crumb.classList.remove('hidden'); crumb.textContent = f.icon ? f.icon + ' ' : '';
+    crumb.textContent += f.name;
+    renderLessons(v, f);
+  } else {
+    back.classList.remove('hidden');
+    crumb.classList.remove('hidden');
+    crumb.textContent = (f.icon ? f.icon + ' ' : '') + f.name + ' › ' + (l.title || '');
+    renderLesson(v, f, l);
+  }
+}
+
+function renderFolders(v) {
+  var t = T();
+  var g = el('div', 'grid');
+  if (!folders.length) {
+    v.appendChild(el('div', 'empty')).innerHTML =
+      '<span class="big">📂</span>' + esc(t.emptyF);
+    v.firstChild.className = 'empty';
+    return;
+  }
+  folders.forEach(function (fd) {
+    var c = el('div', 'card');
+    var ic = el('div', 'cicon'); ic.innerHTML = iconHtml(fd, '📂');
+    c.appendChild(ic);
+    c.appendChild(el('div', 'cname', fd.name || '—'));
+    var n = (fd.lessons || []).length;
+    c.appendChild(el('div', 'cmeta', n + ' ' + t.lessonsC));
+    var d = el('button', 'dots', '⋮');
+    d.onclick = function (e) { e.stopPropagation(); folderMenu(fd); };
+    c.appendChild(d);
+    c.onclick = function () { nav.f = fd.id; nav.l = null; render(); };
+    g.appendChild(c);
+  });
+  v.appendChild(g);
+}
+
+function renderLessons(v, f) {
+  var t = T();
+  var g = el('div', 'grid');
+  (f.lessons || []).forEach(function (ls) {
+    var c = el('div', 'card');
+    var ic = el('div', 'cicon'); ic.innerHTML = iconHtml(ls, '📝');
+    c.appendChild(ic);
+    c.appendChild(el('div', 'cname', ls.title || '—'));
+    var n = (ls.phrases || []).filter(function (p) { return p.type !== 'note'; }).length;
+    c.appendChild(el('div', 'cmeta', n + ' ' + t.phrasesC));
+    var d = el('button', 'dots', '⋮');
+    d.onclick = function (e) { e.stopPropagation(); lessonMenu(f, ls); };
+    c.appendChild(d);
+    c.onclick = function () { nav.l = ls.id; render(); };
+    g.appendChild(c);
+  });
+  v.appendChild(g);
+  if (!(f.lessons || []).length) {
+    v.appendChild(el('div', 'empty')).innerHTML =
+      '<span class="big">📝</span>' + esc(t.emptyL);
+    v.lastChild.className = 'empty';
+  }
+}
+
+function phraseCard(p, f, l) {
+  if (p.type === 'note') { return el('div', 'note', p.text); }
+  var c = el('div', 'ph');
+  var fb = el('button', 'ph-flag', p.flag || '🏳');
+  fb.id = 'phflag-' + p.id;
+  fb.onclick = function (e) {
+    e.stopPropagation();
+    speak(p.text, p.lang || langOfFlag(p.flag), fb);
+  };
+  c.appendChild(fb);
+  var body = el('div', 'ph-body');
+  var tx = el('div', 'ph-text');
+  // words are individually tappable: tap = speak, double-tap = Google Images
+  (p.text || '').split(/\s+/).forEach(function (w) {
+    var ws = el('span', 'w', w);
+    var last = 0;
+    ws.onclick = function () {
+      var now = Date.now();
+      if (now - last < 330) {
+        openExternal('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(w));
+      } else {
+        speak(w, p.lang || langOfFlag(p.flag));
+        ws.classList.add('speak');
+        setTimeout(function () { ws.classList.remove('speak'); }, 1400);
+      }
+      last = now;
+    };
+    tx.appendChild(ws);
+    tx.appendChild(document.createTextNode(' '));
+  });
+  body.appendChild(tx);
+  if (p.latin)  body.appendChild(el('div', 'ph-line')).innerHTML = '🔤 ' + esc(p.latin);
+  if (p.arp)    body.appendChild(el('div', 'ph-line')).innerHTML = '🗣️ ' + esc(p.arp);
+  if (p.meaning) body.appendChild(el('div', 'ph-line')).innerHTML = '🇸🇾 ' + esc(p.meaning);
+  if (p.note)   body.appendChild(el('div', 'ph-line')).innerHTML = '📝 ' + esc(p.note);
+  c.appendChild(body);
+  var d = el('button', 'ph-dots', '⋮');
+  d.onclick = function (e) { e.stopPropagation(); phraseMenu(f, l, p); };
+  c.appendChild(d);
+  return c;
+}
+
+function renderLesson(v, f, l) {
+  var t = T();
+  var bar = el('div');
+  bar.style.marginBottom = '.7rem';
+  var rb = el('button', 'btn primary', t.readAll);
+  rb.id = 'readAllBtn';
+  rb.onclick = function () { readAll(l); };
+  bar.appendChild(rb);
+  v.appendChild(bar);
+  (l.phrases || []).forEach(function (p) { v.appendChild(phraseCard(p, f, l)); });
+  if (!(l.phrases || []).length) {
+    var e = el('div', 'empty');
+    e.innerHTML = '<span class="big">💬</span>' + esc(t.emptyP);
+    v.appendChild(e);
+  }
+}
+
+function renderSearch(v) {
+  var n = 0;
+  folders.forEach(function (f) {
+    (f.lessons || []).forEach(function (l) {
+      (l.phrases || []).forEach(function (p) {
+        var hay = [p.text, p.latin, p.arp, p.meaning, p.note, l.title, f.name].join(' ').toLowerCase();
+        if (hay.indexOf(q) < 0) return;
+        n++;
+        var c = phraseCard(p, f, l);
+        v.appendChild(c);
+      });
+    });
+  });
+  if (!n) {
+    var e = el('div', 'empty');
+    e.innerHTML = '<span class="big">🔍</span>' + esc(q);
+    v.appendChild(e);
+  }
+}
+
+/* ================= sheets ================= */
+var ovRoot = document.getElementById('overlayRoot');
+function closeOv() { ovRoot.innerHTML = ''; }
+function sheet() {
+  var ov = el('div', 'overlay');
+  var sh = el('div', 'sheet');
+  ov.appendChild(sh);
+  ov.onclick = function (e) { if (e.target === ov) closeOv(); };
+  ovRoot.innerHTML = ''; ovRoot.appendChild(ov);
+  return sh;
+}
+function fieldRow(label, value, opts) {
+  opts = opts || {};
+  var wrap = el('div');
+  wrap.appendChild(el('div', 'flabel', label));
+  var row = el('div', 'frow');
+  var f = el('div', 'field');
+  var inp = opts.textarea ? document.createElement('textarea') : document.createElement('input');
+  inp.value = value || '';
+  if (opts.textarea) inp.rows = opts.rows || 3;
+  inp.dir = opts.ltr ? 'ltr' : 'auto';
+  if (opts.ltr) inp.style.textAlign = 'left';
+  if (opts.type) inp.type = opts.type;
+  inp.autocapitalize = 'off'; inp.autocomplete = 'off'; inp.spellcheck = false;
+  if (opts.attrs) Object.keys(opts.attrs).forEach(function (k) { inp.setAttribute(k, opts.attrs[k]); });
+  if (opts.ph) inp.placeholder = opts.ph;
+  f.appendChild(inp);
+  row.appendChild(f);
+  (opts.buttons || []).forEach(function (b) {
+    var btn = el('button', 'mini', b.label);
+    btn.onclick = function () { b.fn(inp, btn); };
+    row.appendChild(btn);
+  });
+  wrap.appendChild(row);
+  wrap.input = inp;
+  return wrap;
+}
+function pickImage(cb) {
+  var fi = document.createElement('input');
+  fi.type = 'file'; fi.accept = 'image/*';
+  fi.onchange = function () {
+    var f = fi.files[0]; if (!f) return;
+    var rd = new FileReader();
+    rd.onload = function () {
+      var img = new Image();
+      img.onload = function () {
+        var S = 128, c = document.createElement('canvas');
+        c.width = c.height = S;
+        var g = c.getContext('2d');
+        var m = Math.min(img.width, img.height);
+        g.drawImage(img, (img.width - m) / 2, (img.height - m) / 2, m, m, 0, 0, S, S);
+        try { cb(c.toDataURL('image/png')); } catch (e) { cb(rd.result); }
+      };
+      img.src = rd.result;
+    };
+    rd.readAsDataURL(f);
+  };
+  fi.click();
+}
+function sheetHead(title) {
+  var sh = sheet();
+  var h = el('h3');
+  h.appendChild(el('span', null, title));
+  var x = el('button', null, '✕'); x.onclick = closeOv; h.appendChild(x);
+  sh.appendChild(h);
+  return sh;
+}
+function confirmDialog(text, yesLabel, onYes) {
+  var t = T();
+  var ov = el('div', 'overlay');
+  var d = el('div', 'dlg');
+  d.appendChild(el('p', null, text));
+  var r = el('div', 'row');
+  var no = el('button', null, t.no); no.onclick = closeOv;
+  var yes = el('button', 'yes', yesLabel);
+  yes.onclick = function () { closeOv(); onYes(); };
+  r.appendChild(no); r.appendChild(yes);
+  d.appendChild(r); ov.appendChild(d);
+  ov.onclick = function (e) { if (e.target === ov) closeOv(); };
+  ovRoot.innerHTML = ''; ovRoot.appendChild(ov);
+}
+
+/* ================= editors ================= */
+function folderMenu(f) {
+  var t = T();
+  var sh = sheetHead('📂 ' + (f.name || ''));
+  function row(icon, label, fn) {
+    var b = el('button', 'mrow');
+    b.appendChild(el('span', 'mi', icon));
+    b.appendChild(el('span', null, label));
+    b.onclick = fn; sh.appendChild(b);
+  }
+  row('✏️', t.editFolder, function () { closeOv(); folderEditor(f); });
+  row('📥', t.pasteTpl, function () { closeOv(); pasteSheet(f); });
+  row('🗑', t.del, function () {
+    closeOv();
+    confirmDialog(t.delFolderQ, t.delYes, function () {
+      folders = folders.filter(function (x) { return x.id !== f.id; });
+      saveData(); render();
+    });
+  });
+}
+function folderEditor(f) {
+  var t = T();
+  var isNew = !f;
+  f = f || { id: uid(), name: '', icon: '📂', img: '', lessons: [] };
+  var sh = sheetHead((isNew ? '➕ ' : '✏️ ') + (isNew ? t.addFolder : t.editFolder));
+  var rName = fieldRow(t.fName, f.name);
+  var rIcon = fieldRow(t.fIcon, f.icon, { buttons: [
+    { label: '📷', fn: function () { pickImage(function (d) { f.img = d; toast('✓'); }); } }
+  ]});
+  [rName, rIcon].forEach(function (r) { sh.appendChild(r); });
+  var act = el('div', 'actions');
+  var save = el('button', 'btn primary', '💾 ' + t.save);
+  save.onclick = function () {
+    var name = rName.input.value.trim();
+    if (!name) { toast(t.errEmpty); return; }
+    f.name = name; f.icon = rIcon.input.value.trim() || '📂';
+    if (isNew) folders.unshift(f);
+    saveData(); render(); closeOv();
+  };
+  act.appendChild(save);
+  sh.appendChild(act);
+}
+function lessonMenu(f, l) {
+  var t = T();
+  var sh = sheetHead('📝 ' + (l.title || ''));
+  function row(icon, label, fn) {
+    var b = el('button', 'mrow');
+    b.appendChild(el('span', 'mi', icon));
+    b.appendChild(el('span', null, label));
+    b.onclick = fn; sh.appendChild(b);
+  }
+  row('✏️', t.editLesson, function () { closeOv(); lessonEditor(f, l); });
+  row('➕', t.addPhrase, function () { closeOv(); phraseEditor(f, l, null); });
+  row('📥', t.pasteTpl, function () { closeOv(); pasteSheet(f, l); });
+  row('🗑', t.del, function () {
+    closeOv();
+    confirmDialog(t.delLessonQ, t.delYes, function () {
+      f.lessons = (f.lessons || []).filter(function (x) { return x.id !== l.id; });
+      saveData(); render();
+    });
+  });
+}
+function lessonEditor(f, l) {
+  var t = T();
+  var isNew = !l;
+  l = l || { id: uid(), title: '', icon: '📝', img: '', phrases: [] };
+  var sh = sheetHead((isNew ? '➕ ' : '✏️ ') + (isNew ? t.addLesson : t.editLesson));
+  var rTitle = fieldRow(t.fTitle, l.title);
+  var rIcon = fieldRow(t.fIcon, l.icon, { buttons: [
+    { label: '📷', fn: function () { pickImage(function (d) { l.img = d; toast('✓'); }); } }
+  ]});
+  [rTitle, rIcon].forEach(function (r) { sh.appendChild(r); });
+  var act = el('div', 'actions');
+  var save = el('button', 'btn primary', '💾 ' + t.save);
+  save.onclick = function () {
+    var ti = rTitle.input.value.trim();
+    if (!ti) { toast(t.errEmpty); return; }
+    l.title = ti; l.icon = rIcon.input.value.trim() || '📝';
+    if (isNew) { f.lessons = f.lessons || []; f.lessons.push(l); }
+    saveData(); render(); closeOv();
+  };
+  act.appendChild(save);
+  sh.appendChild(act);
+}
+function phraseMenu(f, l, p) {
+  var t = T();
+  var sh = sheetHead('💬 ' + (p.text || '').slice(0, 40));
+  function row(icon, label, fn) {
+    var b = el('button', 'mrow');
+    b.appendChild(el('span', 'mi', icon));
+    b.appendChild(el('span', null, label));
+    b.onclick = fn; sh.appendChild(b);
+  }
+  row('🔊', t.readAll.slice(2) || 'Speak', function () { closeOv(); speak(p.text, p.lang || langOfFlag(p.flag)); });
+  row('✏️', t.editPhrase, function () { closeOv(); phraseEditor(f, l, p); });
+  row('📋', t.copy, function () { closeOv(); copyText(p.text || ''); });
+  row('🗑', t.del, function () {
+    closeOv();
+    confirmDialog(t.delPhraseQ, t.delYes, function () {
+      l.phrases = (l.phrases || []).filter(function (x) { return x.id !== p.id; });
+      saveData(); render();
+    });
+  });
+}
+function phraseEditor(f, l, p) {
+  var t = T();
+  var isNew = !p;
+  p = p || { id: uid(), flag: '🇫🇷', lang: 'fr', text: '', latin: '', arp: '', meaning: '' };
+  var sh = sheetHead((isNew ? '➕ ' : '✏️ ') + (isNew ? t.addPhrase : t.editPhrase));
+  sh.appendChild(el('div', 'flabel', t.fFlag));
+  var flag = p.flag || '🇫🇷';
+  var fp = el('div', 'flagpick');
+  FLAG_CHOICES.forEach(function (fl) {
+    var b = el('button', fl === flag ? 'on' : '', fl);
+    b.onclick = function () {
+      flag = fl;
+      fp.querySelectorAll('button').forEach(function (x) { x.classList.remove('on'); });
+      b.classList.add('on');
+    };
+    fp.appendChild(b);
+  });
+  sh.appendChild(fp);
+  var rText = fieldRow(t.fText, p.text);
+  var rLatin = fieldRow(t.fLatin, p.latin, { ltr: true });
+  var rArp = fieldRow(t.fArp, p.arp);
+  var rMean = fieldRow(t.fMeaning, p.meaning);
+  [rText, rLatin, rArp, rMean].forEach(function (r) { sh.appendChild(r); });
+  var act = el('div', 'actions');
+  var save = el('button', 'btn primary', '💾 ' + t.save);
+  save.onclick = function () {
+    var tx = rText.input.value.trim();
+    if (!tx) { toast(t.errPh); return; }
+    p.flag = flag; p.lang = langOfFlag(flag);
+    p.text = tx;
+    p.latin = rLatin.input.value.trim();
+    p.arp = rArp.input.value.trim();
+    p.meaning = rMean.input.value.trim();
+    if (isNew) { l.phrases = l.phrases || []; l.phrases.push(p); }
+    saveData(); render(); closeOv();
+  };
+  act.appendChild(save);
+  sh.appendChild(act);
+}
+
+/* ================= paste templates ================= */
+var TEMPLATE =
+'### 1. 🇨🇳 الصينية — Chinese\n' +
+'🇨🇳 你好\n' +
+'🔤 النطق اللاتيني: Nǐ hǎo\n' +
+'🗣️ تقريب النطق بالعربية: ني هاو\n' +
+'🇸🇾 المعنى: مرحبًا\n' +
+'===\n' +
+'### 2. 🇫🇷 الفرنسية\n' +
+'🇫🇷 Bonjour\n' +
+'🔤 Bonjour\n' +
+'🗣️ بونجور\n' +
+'🇸🇾 المعنى: مرحبًا';
+
+function parseLessons(text) {
+  var lessons = [];
+  var cur = null, ph = null;
+  function pushPh() {
+    if (ph && cur) cur.phrases.push(ph);
+    ph = null;
+  }
+  function pushLesson(title) {
+    pushPh();
+    cur = { id: uid(), title: title || '', icon: '📝', img: '', phrases: [] };
+    lessons.push(cur);
+  }
+  function stripLabel(s) {
+    var i = s.indexOf(':');
+    if (i < 0) i = s.indexOf('：');
+    return i >= 0 ? s.slice(i + 1).trim() : s.trim();
+  }
+  text.split(/\r?\n/).forEach(function (raw) {
+    var line = raw.trim();
+    if (!line) { return; }
+    var head = /^#{1,6}\s*\d*\.?\s*(.+)$/.exec(line) ||
+               /^النموذج\s*\d*[:\-]?\s*(.*)$/.exec(line);
+    if (line === '===' || line === '—' || head) {
+      pushLesson(head ? head[1].replace(/^\.?\s*/, '').trim() : '');
+      return;
+    }
+    if (!cur) pushLesson('');
+    var body = line.replace(/^[-*•]\s*/, '');
+    if (body.indexOf('🔤') === 0) {
+      if (ph) ph.latin = stripLabel(body.slice(2));
+      return;
+    }
+    if (body.indexOf('🗣') === 0) {
+      if (ph) ph.arp = stripLabel(body.slice(body.indexOf('🗣') + 2).replace(/^\uFE0F\s*/, ''));
+      return;
+    }
+    if (body.indexOf('🇸🇾') === 0) {
+      if (ph) ph.meaning = stripLabel(body.slice(4));
+      return;
+    }
+    if (body.indexOf('🇫🇷') === 0 || body.indexOf('🇺🇸') === 0) {
+      if (ph) ph.note = (ph.note ? ph.note + ' · ' : '') + body.slice(0, 4) + ' ' + stripLabel(body.slice(4));
+      return;
+    }
+    if (body.indexOf('📝') === 0) {
+      if (ph) ph.note = (ph.note ? ph.note + ' · ' : '') + stripLabel(body.slice(2));
+      else cur.phrases.push({ id: uid(), type: 'note', text: stripLabel(body.slice(2)) });
+      return;
+    }
+    var fm = FLAG_RE.exec(body);
+    if (fm) {
+      pushPh();
+      var rest = body.slice(fm[0].length).trim();
+      // drop a leading label like "الأصلية:" / "الكتابة اللاتينية:" if present
+      var lm = /^(?:الأصلية|الأصلي|الكتابة(?:\s+الأصلية|\s+اللاتينية)?|النص|المعنى)\s*[:：]\s*/.exec(rest);
+      if (lm) { rest = rest.slice(lm[0].length).trim(); }
+      // flag + pure-Arabic line (e.g. "* 🇮🇩 الإندونيسية") is a language-name
+      // label, not a phrase — skip it; the real phrase follows on the next line.
+      // Only when there was no explicit "الأصلية:" label, since Arabic-script
+      // phrases (Urdu, Persian) are also pure-Arabic.
+      else if (rest && rest.length < 40 && !/[^\u0600-\u06FF\s\d(),.\/؟?\-]/.test(rest)) return;
+      ph = { id: uid(), flag: fm[0], lang: langOfFlag(fm[0]), text: rest, latin: '', arp: '', meaning: '', note: '' };
+      return;
+    }
+    // flagless line: note attached to previous phrase, or standalone note
+    if (ph) ph.note = (ph.note ? ph.note + ' · ' : '') + body;
+    else cur.phrases.push({ id: uid(), type: 'note', text: body });
+  });
+  pushPh();
+  // keep only lessons that hold content
+  return lessons.filter(function (l) { return (l.phrases || []).length; });
+}
+
+function pasteSheet(f, l) {
+  var t = T();
+  var sh = sheetHead('📥 ' + t.pasteTitle);
+  var tb = el('div', 'tplbox', TEMPLATE);
+  sh.appendChild(tb);
+  var cp = el('button', 'mini', '📋 ' + t.copyTpl);
+  cp.onclick = function () { copyText(TEMPLATE); };
+  sh.appendChild(cp);
+  var rName = fieldRow(t.lessonName, '', { ph: 'التحيات — Greetings' });
+  var rTxt = fieldRow(t.pasteTitle, '', { textarea: true, rows: 8, ph: t.pastePh });
+  sh.appendChild(rName); sh.appendChild(rTxt);
+  var act = el('div', 'actions');
+  var go = el('button', 'btn primary', '➕ ' + t.doImport);
+  go.onclick = function () {
+    var arr = parseLessons(rTxt.input.value);
+    if (!arr.length) { toast(t.errPaste); return; }
+    var defName = rName.input.value.trim();
+    arr.forEach(function (ls, i) {
+      if (!ls.title) ls.title = defName || ('Lesson ' + (i + 1));
+      if (l) { l.phrases = (l.phrases || []).concat(ls.phrases); return; }
+      f.lessons = f.lessons || []; f.lessons.push(ls);
+    });
+    saveData(); render(); closeOv(); toast('✓ ' + t.imported);
+  };
+  act.appendChild(go);
+  sh.appendChild(act);
+}
+
+/* ================= top menu ================= */
+function openMenu() {
+  var t = T();
+  var sh = sheetHead(t.menu);
+  sh.appendChild(el('div', 'flabel', t.langTitle));
+  var langs = el('div', 'langs');
+  [['ar', '🇸🇾 عربي'], ['fr', '🇫🇷 Français'], ['en', '🇺🇸 English']].forEach(function (o) {
+    var b = el('button', 'langb' + (uiLang() === o[0] ? ' on' : ''), o[1]);
+    b.onclick = function () { setUiLang(o[0]); openMenu(); };
+    langs.appendChild(b);
+  });
+  sh.appendChild(langs);
+  function row(icon, label, fn) {
+    var b = el('button', 'mrow');
+    b.appendChild(el('span', 'mi', icon));
+    b.appendChild(el('span', null, label));
+    b.onclick = fn; sh.appendChild(b);
+  }
+  row(isDark() ? '☀' : '🌙', isDark() ? t.themeLight : t.themeDark, function () { toggleTheme(); openMenu(); });
+  row('🎙', t.voiceSet, function () { closeOv(); if (window.EdgeTTS) EdgeTTS.openSettings(); });
+  row('📥', t.pasteTpl, function () {
+    closeOv();
+    var f = findF(nav.f);
+    if (!f) {
+      f = { id: uid(), name: '📂 ' + t.folders, icon: '📂', img: '', lessons: [] };
+      folders.push(f); saveData();
+    }
+    pasteSheet(f, findL(f, nav.l));
+  });
+  row('⬇', t.exportData, function () { closeOv(); exportData(); });
+  row('⬆', t.importData, function () { closeOv(); importData(); });
+}
+
+/* ================= export / import (gramvip style) ================= */
+async function exportData() {
+  var t = T();
+  var out = { app: 'prolang', version: 1, exportedAt: new Date().toISOString(), folders: folders };
+  var blob = new Blob([JSON.stringify(out, null, 1)], { type: 'application/json' });
+  var name = 'prolang-backup-' + new Date().toISOString().slice(0, 10) + '.json';
+  var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+  var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
+  if (inCap && FS && SH) {
+    try {
+      var text = await new Promise(function (res) {
+        var rd = new FileReader(); rd.onload = function () { res(rd.result); }; rd.readAsDataURL(blob);
+      });
+      var w = await FS.writeFile({ path: name, data: text.split(',')[1], directory: 'CACHE', recursive: true });
+      await SH.share({ title: name, url: w.uri });
+      toast(t.exported);
+      return;
+    } catch (e) { console.error(e); }
+  }
+  var u = URL.createObjectURL(blob);
+  var a = document.createElement('a'); a.href = u; a.download = name; a.click();
+  setTimeout(function () { URL.revokeObjectURL(u); }, 4000);
+  toast(t.exported);
+}
+function normPhrase(p) {
+  if (!p || typeof p !== 'object') return null;
+  if (p.type === 'note') return { id: p.id || uid(), type: 'note', text: p.text || '' };
+  if (!p.text) return null;
+  return { id: p.id || uid(), flag: p.flag || '', lang: p.lang || langOfFlag(p.flag),
+    text: p.text || '', latin: p.latin || '', arp: p.arp || '', meaning: p.meaning || '', note: p.note || '' };
+}
+function importData() {
+  var inp = document.createElement('input');
+  inp.type = 'file'; inp.accept = 'application/json,.json';
+  inp.onchange = function () {
+    var f = inp.files[0]; if (!f) return;
+    var rd = new FileReader();
+    rd.onload = function () {
+      try {
+        var j = JSON.parse(rd.result);
+        var list = j.folders || j;
+        if (!Array.isArray(list)) throw 0;
+        var have = {};
+        folders.forEach(function (x) { have[x.id] = 1; });
+        var added = 0;
+        list.forEach(function (fd) {
+          if (!fd || typeof fd !== 'object') return;
+          var nf = { id: fd.id || uid(), name: fd.name || '📂', icon: fd.icon || '📂',
+            img: fd.img || '', lessons: [] };
+          if (have[nf.id]) nf.id = nf.id + '_i';
+          have[nf.id] = 1;
+          (fd.lessons || []).forEach(function (ls) {
+            if (!ls || typeof ls !== 'object') return;
+            var nl = { id: ls.id || uid(), title: ls.title || '', icon: ls.icon || '📝',
+              img: ls.img || '', phrases: [] };
+            (ls.phrases || []).forEach(function (p) {
+              var np = normPhrase(p); if (np) nl.phrases.push(np);
+            });
+            if (nl.phrases.length || nl.title) nf.lessons.push(nl);
+          });
+          folders.push(nf); added++;
+        });
+        saveData(); render(); toast('✓ ' + T().imported + ' (' + added + ')');
+      } catch (e) { toast('import ✗'); }
+    };
+    rd.readAsText(f);
+  };
+  inp.click();
+}
+
+/* ================= exit / nav ================= */
+function confirmExit() {
+  var t = T();
+  confirmDialog(t.exitTitle, t.yes, function () {
+    var A = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App;
+    if (A && A.exitApp) A.exitApp(); else window.close();
+  });
+}
+function goBack() {
+  stopReadAll();
+  if (nav.l) { nav.l = null; render(); return; }
+  if (nav.f) { nav.f = null; render(); return; }
+  confirmExit();
+}
+document.getElementById('backBtn').onclick = goBack;
+
+var fab = document.getElementById('fab');
+fab.onclick = function () {
+  var f = findF(nav.f), l = findL(f, nav.l);
+  if (l) phraseEditor(f, l, null);
+  else if (f) lessonEditor(f, null);
+  else folderEditor(null);
+};
+
+document.getElementById('themeBtn').onclick = toggleTheme;
+document.getElementById('menuBtn').onclick = openMenu;
+document.getElementById('waBtn').onclick = openWhatsApp;
+document.getElementById('mailBtn').onclick = openMail;
+
+var CapApp = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App;
+if (CapApp && CapApp.addListener) {
+  CapApp.addListener('backButton', function () {
+    if (ovRoot.firstChild) { closeOv(); return; }
+    goBack();
+  });
+}
+
+applyTheme();
+applyI18n();
+render();
+
+// Service worker: PWA only, never inside Capacitor
+if (!inCap && 'serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw-prolang.js').catch(function () {});
+  });
+}
+})();
+</script>
+</body>
+</html>
