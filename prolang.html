@@ -344,6 +344,7 @@ var FLAG_CHOICES = ['🇫🇷', '🇸🇾', '🇺🇸', '🇬🇧', '🇨🇳', 
   '🇮🇩', '🇲🇾', '🇵🇭', '🇧🇩', '🇵🇰', '🇲🇳', '🇵🇱', '🇨🇿', '🇭🇺', '🇷🇴', '🇫🇮', '🇸🇪',
   '🇳🇴', '🇩🇰', '🇰🇪', '🇿🇦', '🇳🇬', '🇪🇹', '🇮🇸', '🇦🇱', '🇱🇹', '🇱🇻', '🇪🇪'];
 var FLAG_RE = /^[\u{1F1E6}-\u{1F1FF}]{2}/u;
+var SEG_RE = /([\u{1F1E6}-\u{1F1FF}]{2}|🔊|🔤|🗣️?)/gu;
 function flagCC(flag) {
   if (!FLAG_RE.test(flag || '')) return '';
   var s = '';
@@ -1084,6 +1085,21 @@ var TEMPLATES = [
 '🇷🇺 Здравствуйте! | 🇸🇾 مرحباً! (بأسلوب رسمي) | 🇺🇸 Hello!\n' +
 '🇷🇺 Как дела? | 🇸🇾 كيفك؟ | 🇺🇸 How are you?\n' +
 '🇷🇺 Хорошо, спасибо. | 🇸🇾 منيح، شكراً. | 🇺🇸 Good, thank you.'
+  },
+  {
+    name: 'نموذج مواقف — أعلام بسطر واحد',
+    text:
+'### 👋 الموقف الأول: التحية والتعارف\n' +
+'🇺🇸 Hello! How are you? 🇪🇸 ¡Hola! ¿Cómo estás? 🇸🇾 مرحبا! كيفك؟\n' +
+'🇺🇸 My name is Ahmad. 🇪🇸 Me llamo Ahmad. 🇸🇾 اسمي أحمد.\n' +
+'🇺🇸 Nice to meet you. 🇪🇸 Mucho gusto. 🇸🇾 تشرفنا.\n' +
+'===\n' +
+'### ☕ الموقف الثاني: في المقهى\n' +
+'🇺🇸 I would like a coffee, please. 🇪🇸 Quisiera un café, por favor. 🇸🇾 بدي قهوة، لو سمحت.\n' +
+'🇺🇸 The bill, please. 🇪🇸 La cuenta, por favor. 🇸🇾 الحساب، لو سمحت.\n' +
+'===\n' +
+'### 🔊 مع اللفظ بالعربي\n' +
+'🇺🇸 Good morning. | 🇪🇸 Buenos días. | 🔊 بوينوس دياس | 🇸🇾 صباح الخير.'
   }
 ];
 var TEMPLATE = TEMPLATES[0].text;
@@ -1116,20 +1132,40 @@ function parseLessons(text) {
     }
     if (!cur) pushLesson('');
     var body = line.replace(/^[-*•]\s*/, '');
-    // pipe template: "🇷🇺 Привет! | 🇸🇾 مرحبا! | 🇺🇸 Hi!" on one line
-    if (body.indexOf('|') >= 0 && FLAG_RE.test(body)) {
+    // multi-segment line: several flags in one line (with or without |)
+    // e.g. "🇺🇸 en 🇪🇸 es 🇸🇾 ar" or "🇷🇺 text | 🇸🇾 ar | 🇺🇸 en | 🔊 pron"
+    // → one speakable phrase per country flag; 🇸🇾 = Arabic meaning,
+    //   🇺🇸/🇬🇧 = English text, 🔤/🔊/🗣️ = pronunciation of the preceding phrase
+    if (FLAG_RE.test(body) && (body.indexOf('|') >= 0 || (body.match(SEG_RE) || []).length >= 2)) {
+      var flat = body.replace(/\|/g, ' ');
+      var sparts = flat.split(SEG_RE);
+      var segs = [];
+      // split() output: [pre-text, marker1, text1, marker2, text2, ...]
+      for (var si = 1; si < sparts.length; si += 2) {
+        var sm = (sparts[si] || '').trim();
+        var st = (sparts[si + 1] || '').trim();
+        if (sm || st) segs.push({ m: sm, t: st });
+      }
+      var aMeaning = '', aEn = '';
+      segs.forEach(function (s) {
+        if (s.m === '🇸🇾') aMeaning = stripLabel(s.t);
+        else if (s.m === '🇺🇸' || s.m === '🇬🇧') aEn = stripLabel(s.t);
+      });
       pushPh();
-      var parts = body.split('|').map(function (s) { return s.trim(); });
-      var first = FLAG_RE.exec(parts[0]);
-      ph = { id: uid(), flag: first[0], lang: langOfFlag(first[0]),
-        text: parts[0].slice(first[0].length).trim(), latin: '', arp: '', meaning: '', en: '', note: '' };
-      parts.slice(1).forEach(function (seg) {
-        if (seg.indexOf('🇸🇾') === 0) ph.meaning = stripLabel(seg.slice(4));
-        else if (seg.indexOf('🇺🇸') === 0 || seg.indexOf('🇬🇧') === 0) ph.en = stripLabel(seg.slice(4));
-        else if (seg.indexOf('🇫🇷') === 0) ph.note = stripLabel(seg.slice(4));
-        else if (seg.indexOf('🔤') === 0) ph.latin = stripLabel(seg.slice(2));
-        else if (seg.indexOf('🗣') === 0) ph.arp = stripLabel(seg.slice(seg.indexOf('🗣') + 2).replace(/^\uFE0F\s*/, ''));
-        else if (seg) ph.note = (ph.note ? ph.note + ' · ' : '') + seg;
+      segs.forEach(function (s) {
+        if (s.m === '🇸🇾') return;
+        if (!FLAG_RE.test(s.m)) {
+          if (ph) {
+            if (s.m.indexOf('🔤') === 0) ph.latin = stripLabel(s.t);
+            else if (s.m.indexOf('🔊') === 0 || s.m.indexOf('🗣') === 0) ph.arp = stripLabel(s.t);
+            else if (s.t) ph.note = (ph.note ? ph.note + ' · ' : '') + s.t;
+          }
+          return;
+        }
+        pushPh();
+        ph = { id: uid(), flag: s.m, lang: langOfFlag(s.m), text: stripLabel(s.t),
+          latin: '', arp: '', meaning: aMeaning,
+          en: (s.m === '🇺🇸' || s.m === '🇬🇧') ? '' : aEn, note: '' };
       });
       return;
     }
@@ -1137,8 +1173,9 @@ function parseLessons(text) {
       if (ph) ph.latin = stripLabel(body.slice(2));
       return;
     }
-    if (body.indexOf('🗣') === 0) {
-      if (ph) ph.arp = stripLabel(body.slice(body.indexOf('🗣') + 2).replace(/^\uFE0F\s*/, ''));
+    if (body.indexOf('🗣') === 0 || body.indexOf('🔊') === 0) {
+      var mk = body.indexOf('🔊') === 0 ? '🔊' : body.slice(0, 3);
+      if (ph) ph.arp = stripLabel(body.slice(body.indexOf(mk) + mk.length).replace(/^\uFE0F\s*/, ''));
       return;
     }
     if (body.indexOf('🇸🇾') === 0) {
