@@ -227,8 +227,6 @@
     letter-spacing: .01em; cursor: pointer; }
   .cue-line.speaking { outline: 3px solid rgba(255,255,255,.65); }
   .cue-line .cue-flag { font-size: 1.15em; flex: none; }
-  .cue-line .w { cursor: pointer; border-radius: 6px; padding: 0 2px; }
-  .cue-line .w.speaking { background: rgba(255,255,255,.45); }
   .cue-line.lg-ar { background: linear-gradient(135deg, #34d399, #059669);
     font-family: 'Noto Kufi Arabic', 'Noto Naskh Arabic', 'Segoe UI', Tahoma, sans-serif;
     font-size: 1.1rem; }
@@ -1529,17 +1527,9 @@ function renderMedia(v, f, l) {
     cueRows(cues[i].text).forEach(function (r) {
       var lang = r.lang === 'auto' ? 'fr' : (r.lang || langOfFlag(r.flag));
       var ln = el('div', lgClass(r.lang));
-      var fs = el('span', 'cue-flag', r.flag !== '🏳' ? r.flag : '🔊');
-      fs.onclick = function (e) { e.stopPropagation(); speak(r.text, lang, ln); };
-      ln.appendChild(fs);
-      (r.text || '').split(/\s+/).forEach(function (w) {
-        if (!w) return;
-        var ws = el('span', 'w', w);
-        ws.onclick = function (e) { e.stopPropagation(); speak(w, lang, ws); };
-        ln.appendChild(ws);
-        ln.appendChild(document.createTextNode(' '));
-      });
-      ln.onclick = function () { speak(r.text, lang, ln); };   // tap line = loop it
+      ln.appendChild(el('span', 'cue-flag', r.flag !== '🏳' ? r.flag : '🔊'));
+      ln.appendChild(el('span', null, r.text));
+      ln.onclick = function () { speak(r.text, lang, ln); };   // tap flag/line = loop it
       now.appendChild(ln);
     });
   }
