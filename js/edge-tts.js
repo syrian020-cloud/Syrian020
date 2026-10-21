@@ -92,6 +92,56 @@
       'en-SG-LunaNeural', 'en-SG-WayneNeural'
     ]
   };
+  var VOICE_EXTRA = {
+    "fr": ["fr-FR-DeniseNeural", "fr-FR-EloiseNeural", "fr-FR-HenriNeural", "fr-FR-RemyMultilingualNeural", "fr-FR-VivienneMultilingualNeural"],
+    "ar": ["ar-SY-AmanyNeural", "ar-SY-LaithNeural"],
+    "en": ["en-US-AnaNeural", "en-US-AndrewMultilingualNeural", "en-US-AndrewNeural", "en-US-AriaNeural", "en-US-AvaMultilingualNeural", "en-US-AvaNeural", "en-US-BrianMultilingualNeural", "en-US-BrianNeural", "en-US-ChristopherNeural", "en-US-EmmaMultilingualNeural", "en-US-EmmaNeural", "en-US-EricNeural", "en-US-GuyNeural", "en-US-JennyNeural", "en-US-MichelleNeural", "en-US-RogerNeural", "en-US-SteffanNeural"],
+    "zh": ["zh-CN-XiaoxiaoNeural", "zh-CN-XiaoyiNeural", "zh-CN-YunjianNeural", "zh-CN-YunxiNeural", "zh-CN-YunxiaNeural", "zh-CN-YunyangNeural", "zh-CN-liaoning-XiaobeiNeural", "zh-CN-shaanxi-XiaoniNeural", "zh-HK-HiuGaaiNeural", "zh-HK-HiuMaanNeural", "zh-HK-WanLungNeural", "zh-TW-HsiaoChenNeural", "zh-TW-HsiaoYuNeural", "zh-TW-YunJheNeural"],
+    "ja": ["ja-JP-KeitaNeural", "ja-JP-NanamiNeural"],
+    "ko": ["ko-KR-HyunsuMultilingualNeural", "ko-KR-InJoonNeural", "ko-KR-SunHiNeural"],
+    "th": ["th-TH-NiwatNeural", "th-TH-PremwadeeNeural"],
+    "vi": ["vi-VN-HoaiMyNeural", "vi-VN-NamMinhNeural"],
+    "hi": ["hi-IN-MadhurNeural", "hi-IN-SwaraNeural"],
+    "el": ["el-GR-AthinaNeural", "el-GR-NestorasNeural"],
+    "ka": ["ka-GE-EkaNeural", "ka-GE-GiorgiNeural"],
+    "hy": ["hy-AM-AnahitNeural"],
+    "he": ["he-IL-AvriNeural", "he-IL-HilaNeural"],
+    "de": ["de-DE-AmalaNeural", "de-DE-ConradNeural", "de-DE-FlorianMultilingualNeural", "de-DE-KatjaNeural", "de-DE-KillianNeural", "de-DE-SeraphinaMultilingualNeural"],
+    "es": ["es-ES-AlvaroNeural", "es-ES-ElviraNeural", "es-ES-XimenaNeural"],
+    "it": ["it-IT-DiegoNeural", "it-IT-ElsaNeural", "it-IT-GiuseppeMultilingualNeural", "it-IT-IsabellaNeural"],
+    "ru": ["ru-RU-DmitryNeural", "ru-RU-SvetlanaNeural"],
+    "tr": ["tr-TR-AhmetNeural", "tr-TR-EmelNeural"],
+    "pt": ["pt-PT-DuarteNeural", "pt-PT-RaquelNeural"],
+    "nl": ["nl-NL-ColetteNeural", "nl-NL-FennaNeural", "nl-NL-MaartenNeural"],
+    "pl": ["pl-PL-MarekNeural", "pl-PL-ZofiaNeural"],
+    "uk": ["uk-UA-OstapNeural", "uk-UA-PolinaNeural"],
+    "sv": ["sv-SE-MattiasNeural", "sv-SE-SofieNeural"],
+    "fa": ["fa-IR-DilaraNeural", "fa-IR-FaridNeural"],
+    "ur": ["ur-PK-AsadNeural", "ur-PK-UzmaNeural"],
+    "bn": ["bn-BD-NabanitaNeural", "bn-BD-PradeepNeural"],
+    "id": ["id-ID-ArdiNeural", "id-ID-GadisNeural"],
+    "ms": ["ms-MY-OsmanNeural", "ms-MY-YasminNeural"],
+    "tl": ["fil-PH-AngeloNeural", "fil-PH-BlessicaNeural"],
+    "ro": ["ro-RO-AlinaNeural", "ro-RO-EmilNeural"],
+    "hu": ["hu-HU-NoemiNeural", "hu-HU-TamasNeural"],
+    "cs": ["cs-CZ-AntoninNeural", "cs-CZ-VlastaNeural"],
+    "bg": ["bg-BG-BorislavNeural", "bg-BG-KalinaNeural"],
+    "hr": ["hr-HR-GabrijelaNeural", "hr-HR-SreckoNeural"],
+    "sr": ["sr-RS-NicholasNeural", "sr-RS-SophieNeural"],
+    "da": ["da-DK-ChristelNeural", "da-DK-JeppeNeural"],
+    "nb": ["nb-NO-FinnNeural", "nb-NO-PernilleNeural"],
+    "fi": ["fi-FI-HarriNeural", "fi-FI-NooraNeural"],
+    "mn": ["mn-MN-BataaNeural", "mn-MN-YesuiNeural"],
+    "sw": ["sw-KE-RafikiNeural", "sw-KE-ZuriNeural"],
+    "zu": ["zu-ZA-ThandoNeural", "zu-ZA-ThembaNeural"],
+    "am": ["am-ET-AmehaNeural", "am-ET-MekdesNeural"],
+    "is": ["is-IS-GudrunNeural", "is-IS-GunnarNeural"],
+    "sq": ["sq-AL-AnilaNeural", "sq-AL-IlirNeural"],
+    "lt": ["lt-LT-LeonasNeural", "lt-LT-OnaNeural"],
+    "lv": ["lv-LV-EveritaNeural", "lv-LV-NilsNeural"],
+    "et": ["et-EE-AnuNeural", "et-EE-KertNeural"],
+    "yo": ["en-NG-AbeoNeural", "en-NG-EzinneNeural"]
+  };
   var AR_NAME = {
     Amany: 'أماني', Laith: 'ليث', Salma: 'سلمى', Shakir: 'شاكر',
     Zariyah: 'زارية', Hamed: 'حامد', Fatima: 'فاطمة', Hamdan: 'حمدان',
@@ -115,7 +165,29 @@
   var SAMPLE = {
     fr: 'Bonjour, comment allez-vous ?',
     ar: 'مرحبا، كيف حالك؟',
-    en: 'Hello, how are you?'
+    en: 'Hello, how are you?',
+    zh: '你好', ja: 'こんにちは', ko: '안녕하세요', th: 'สวัสดี', vi: 'Xin chào',
+    hi: 'नमस्ते', el: 'Γεια σου', ka: 'გამარჯობა', hy: 'Բարև', he: 'שלום',
+    de: 'Hallo', es: 'Hola', it: 'Ciao', ru: 'Привет', tr: 'Merhaba',
+    pt: 'Olá', nl: 'Hallo', pl: 'Cześć', uk: 'Привіт', sv: 'Hej', fa: 'سلام',
+    ur: 'السلام علیکم', bn: 'নমস্কার', id: 'Halo', ms: 'Apa khabar?',
+    tl: 'Kumusta ka?', ro: 'Bună', hu: 'Szia', cs: 'Ahoj', bg: 'Здравей',
+    hr: 'Bok', sr: 'Здраво', da: 'Hej', nb: 'Hei', fi: 'Hei',
+    mn: 'Сайн байна уу?', sw: 'Hujambo', zu: 'Sawubona', am: 'ሰላም',
+    is: 'Halló', sq: 'Përshëndetje', lt: 'Labas', lv: 'Sveiki', et: 'Tere',
+    yo: 'Báwo ni?'
+  };
+  var LANG_NAMES = {
+    fr: 'Français', ar: 'العربية', en: 'English', zh: '中文', ja: '日本語',
+    ko: '한국어', th: 'ไทย', vi: 'Tiếng Việt', hi: 'हिन्दी', el: 'Ελληνικά',
+    ka: 'ქართული', hy: 'Հայերեն', he: 'עברית', de: 'Deutsch', es: 'Español',
+    it: 'Italiano', ru: 'Русский', tr: 'Türkçe', pt: 'Português', nl: 'Nederlands',
+    pl: 'Polski', uk: 'Українська', sv: 'Svenska', fa: 'فارسی', ur: 'اردو',
+    bn: 'বাংলা', id: 'Indonesia', ms: 'Melayu', tl: 'Tagalog', ro: 'Română',
+    hu: 'Magyar', cs: 'Čeština', bg: 'Български', hr: 'Hrvatski', sr: 'Српски',
+    da: 'Dansk', nb: 'Norsk', fi: 'Suomi', mn: 'Монгол', sw: 'Kiswahili',
+    zu: 'isiZulu', am: 'አማርኛ', is: 'Íslenska', sq: 'Shqip', lt: 'Lietuvių',
+    lv: 'Latviešu', et: 'Eesti', yo: 'Yorùbá'
   };
 
   var api = { down: false };
@@ -400,12 +472,16 @@
     card.appendChild(engRow);
 
     var devMode = engine() === 'device';
-    ['fr', 'ar', 'en'].forEach(function (lang) {
+    var allLangs = ['fr', 'ar', 'en'].concat(
+      Object.keys(DEFAULT_VOICES).filter(function (k) {
+        return ['fr', 'ar', 'en'].indexOf(k) < 0;
+      }).sort());
+    allLangs.forEach(function (lang) {
       var row = h('div', { 'class': 'etts-row' });
-      row.appendChild(h('div', {}, [h('span', { 'class': 'etts-lab', text: T.langs[lang] })]));
+      row.appendChild(h('div', {}, [h('span', { 'class': 'etts-lab', text: flagOf(DEFAULT_VOICES[lang]) + ' ' + (LANG_NAMES[lang] || lang) })]));
 
       var sel = h('select', { 'class': 'etts-sel' });
-      VOICE_OPTIONS[lang].forEach(function (v) {
+      (VOICE_OPTIONS[lang] || VOICE_EXTRA[lang] || [DEFAULT_VOICES[lang]]).forEach(function (v) {
         var o = h('option', { value: v, text: voiceLabel(v) });
         if (v === voiceOf(lang)) o.selected = true;
         sel.appendChild(o);
@@ -426,7 +502,7 @@
       if (devMode) { rng.disabled = true; pv.disabled = true; }
       pv.onclick = function () {
         pv.disabled = true;
-        play(SAMPLE[lang], lang).catch(function () {}).then(function () { pv.disabled = false; });
+        play(SAMPLE[lang] || SAMPLE.en, lang).catch(function () {}).then(function () { pv.disabled = false; });
       };
       row.appendChild(h('div', {}, [h('span', { 'class': 'etts-mini', text: T.speed }), rng, val, pv]));
 
@@ -437,7 +513,7 @@
 
     var reset = h('button', { 'class': 'etts-btn', text: '↺ ' + T.reset });
     reset.onclick = function () {
-      ['fr', 'ar', 'en'].forEach(function (l) {
+      Object.keys(DEFAULT_VOICES).forEach(function (l) {
         try { localStorage.removeItem('edge_voice_' + l); localStorage.removeItem('edge_rate_' + l); } catch (e) {}
       });
       ov.remove();
