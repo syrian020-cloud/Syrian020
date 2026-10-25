@@ -254,6 +254,7 @@
   .cue-now { text-align: center; font-size: 1.05rem; font-weight: 800; line-height: 1.45;
     padding: .55rem .3rem .2rem; min-height: 1.5rem; overflow-wrap: anywhere; }
   .cue-tools { display: flex; gap: .4rem; justify-content: center; margin-top: .35rem; }
+  .cue-tools .mini { font-size: 1.05rem; padding: .5rem .85rem; border-radius: 14px; }
   .cue-tools .mini.on { background: linear-gradient(135deg, var(--accent), var(--accent2));
     color: #fff; border-color: transparent; }
   .cue { display: block; margin-bottom: .8rem; border-inline-start: 3px solid transparent; }
@@ -2659,14 +2660,6 @@ function renderMedia(v, f, l) {
     tools.appendChild(sz);
     if (me && l.vfit) me.className = FITS[l.vfit];
   }
-  var eb = el('button', 'mini', '🎧');
-  eb.title = T().listenQuiz;
-  eb.onclick = function () { openListen(l); };
-  tools.appendChild(eb);
-  var qb = el('button', 'mini', '🧩');
-  qb.title = T().quiz;
-  qb.onclick = function () { openQuiz(l); };
-  tools.appendChild(qb);
   box.appendChild(tools);
   box.appendChild(now);
   v.appendChild(box);
