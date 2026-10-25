@@ -218,6 +218,15 @@
   .media-box video.fit-cover { object-fit: cover; }
   .media-box video.fit-fill { object-fit: fill; }
   .media-box video.fit-tall { max-height: 62vh; }
+  .media-box .vcrop { position: relative; }
+  .media-box .vcrop.crop-on { overflow: hidden; border-radius: 12px; }
+  .media-box .vcrop.crop-on video { object-fit: cover; object-position: top; }
+  .vc-loop { position: absolute; top: .5rem; inset-inline-end: .5rem; z-index: 5;
+    width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 2px solid rgba(255,255,255,.35);
+    background: rgba(10,16,22,.55); font-size: 1.15rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; padding: 0; }
+  .vc-loop.on { background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-color: transparent; box-shadow: 0 0 10px rgba(20,184,166,.6); }
   .media-box audio { width: 100%; height: 42px; }
   /* caption pills — zeelang style: solid colored box per language, flag at the edge */
   .cue-now .cue-line { position: relative; display: flex; align-items: center; gap: .8rem;
@@ -2633,7 +2642,38 @@ function renderMedia(v, f, l) {
       if (blob) { me.src = URL.createObjectURL(blob); }
       else { me.remove(); me = null; now.textContent = '⚠️ ' + (l.media.name || ''); }
     });
-    box.appendChild(me);
+    // wrap the video so a fit mode can crop its bottom strip (baked-in subs)
+    var vc = el('div', 'vcrop');
+    vc.appendChild(me);
+    me._vcrop = vc;
+    me.onloadedmetadata = function () { applyVfit(); };
+    // 🔂 corner icon — loops the whole video
+    var vlp = el('button', 'vc-loop', '🔂');
+    vlp.title = 'loop video';
+    vlp.onclick = function () {
+      me.loop = !me.loop;
+      vlp.classList.toggle('on', me.loop);
+    };
+    vc.appendChild(vlp);
+    box.appendChild(vc);
+  }
+  var CROP_FRAC = { 'fit-crop1': 0.15, 'fit-crop2': 0.30, 'fit-crop3': 0.45 };
+  function applyVfit() {
+    if (!me || !me._vcrop) return;
+    var cls = FITS[l.vfit || 0] || '';
+    me.className = cls;
+    var frac = CROP_FRAC[cls] || 0;
+    if (frac && me.videoWidth) {
+      var w = me._vcrop.clientWidth || 300;
+      var h = w * me.videoHeight / me.videoWidth;
+      me.style.height = h + 'px';
+      me._vcrop.style.height = Math.round(h * (1 - frac)) + 'px';
+      me._vcrop.classList.add('crop-on');
+    } else {
+      me.style.height = '';
+      me._vcrop.style.height = '';
+      me._vcrop.classList.remove('crop-on');
+    }
   }
   var tools = el('div', 'cue-tools');
   // 🎨 caption theme switcher — 10 palettes (colors + fonts per language)
@@ -2697,12 +2737,12 @@ function renderMedia(v, f, l) {
   }
   if (l.media && l.media.kind !== 'audio') {
     // video size: fit → cover → fill → tall (cycle)
-    var FITS = ['', 'fit-cover', 'fit-fill', 'fit-tall'];
+    var FITS = ['', 'fit-cover', 'fit-fill', 'fit-tall', 'fit-crop1', 'fit-crop2', 'fit-crop3'];
     var sz = el('button', 'mini', '⛶');
-    sz.title = 'video size';
+    sz.title = 'video size / crop subtitles';
     sz.onclick = function () {
       l.vfit = ((l.vfit || 0) + 1) % FITS.length;
-      if (me) me.className = FITS[l.vfit];
+      applyVfit();
       saveData();
     };
     tools.appendChild(sz);
