@@ -2264,6 +2264,8 @@ function drawCuePills(cx, rows, W, H, hi) {
       rrPath(cx, x, y - lh * 0.6, pw, lh * 0.76, fs * 0.45); cx.stroke();
     }
     cx.fillStyle = st.fg; cx.textAlign = 'center'; cx.textBaseline = 'middle';
+    cx.strokeStyle = st.fg; cx.lineWidth = Math.max(0.5, fs * 0.02);
+    cx.strokeText(r.text, W / 2 - flagW / 2, y - lh * 0.21, pw - padX * 2 - flagW);
     cx.fillText(r.text, W / 2 - flagW / 2, y - lh * 0.21, pw - padX * 2 - flagW);
     if (r.flag && r.flag !== '🏳') {
       cx.font = fs + 'px sans-serif'; cx.textAlign = 'right';
@@ -2365,7 +2367,7 @@ function pickRecMime() {
 function newRec(stream, W, H) {
   var mime = pickRecMime();
   var opts = {
-    videoBitsPerSecond: Math.min(6000000, Math.max(2500000, Math.round((W || 1280) * (H || 720) * 4))),
+    videoBitsPerSecond: Math.min(8000000, Math.max(2500000, Math.round((W || 1280) * (H || 720) * 4))),
     audioBitsPerSecond: 128000
   };
   if (mime) opts.mimeType = mime;
@@ -2424,6 +2426,13 @@ function recToggle(btn, me, cues, activeIdx, segEnd) {
   if (Math.max(W, H) > maxSide) {
     var k0 = maxSide / Math.max(W, H);
     W = Math.round(W * k0 / 2) * 2; H = Math.round(H * k0 / 2) * 2;
+  }
+  // upscale small sources to 1080 on the long side — caption text renders at
+  // video resolution, so a small video = blurry text after WhatsApp recompression
+  var minSide = 1080;
+  if (Math.max(W, H) < minSide) {
+    var k1 = minSide / Math.max(W, H);
+    W = Math.round(W * k1 / 2) * 2; H = Math.round(H * k1 / 2) * 2;
   }
   var cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   var cx = cv.getContext('2d');
