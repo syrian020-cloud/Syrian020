@@ -2579,6 +2579,7 @@ function renderMedia(v, f, l) {
   var cues = l.cues || [];
   var box = el('div', 'media-box');
   var now = el('div', 'cue-now');
+  now.style.display = 'none';   // live caption over the video — hidden by request
   var list = el('div');
   function activeIdx(t) {
     for (var i = 0; i < cues.length; i++)
@@ -2618,9 +2619,7 @@ function renderMedia(v, f, l) {
     me.ontimeupdate = function () { sync(me.currentTime); };
     me.onseeked = function () { sync(me.currentTime); };
     try { me.playbackRate = playSpeed; } catch (e2) {}
-    // hide the live caption while playing — it reappears when paused
     me.onplay = function () {
-      now.style.display = 'none';
       if (readAllJob) { readAllJob.cancelled = true; readAllJob = null; }
       speakTok++;
       if (window.EdgeTTS) EdgeTTS.stop();
@@ -2630,7 +2629,7 @@ function renderMedia(v, f, l) {
       var b = document.getElementById('readAllBtn');
       if (b) b.textContent = T().readAll;
     };
-    me.onpause = function () { now.style.display = ''; sync(me.currentTime); };
+    me.onpause = function () { sync(me.currentTime); };
     mediaGet(mediaKey(l), function (blob) {
       if (blob) { me.src = URL.createObjectURL(blob); }
       else { me.remove(); me = null; now.textContent = '⚠️ ' + (l.media.name || ''); }
