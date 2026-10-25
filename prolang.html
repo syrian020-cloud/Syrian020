@@ -275,6 +275,130 @@
   .ctime-rec.rec-on { color: #fff; background: #e11d48;
     animation: recPulse 1s infinite alternate; }
 
+  /* ---------- games (zeelang quiz + listen) ---------- */
+  .qz-ov { position: fixed; inset: 0; z-index: 4000; background: var(--bg);
+    display: flex; flex-direction: column; overflow-y: auto; overflow-x: hidden;
+    padding: .9rem .75rem; box-sizing: border-box; }
+  .qz-top { display: flex; align-items: center; gap: .6rem; margin-bottom: .8rem; }
+  .qz-prog { font-weight: 800; font-size: 1.05rem; }
+  .qz-flags { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+    gap: .55rem; direction: ltr; margin-bottom: .5rem; }
+  .qz-flag { text-align: center; font-size: 1.4rem; }
+  .qz-cols { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+    gap: .65rem .55rem; align-content: start; flex: 1; direction: ltr; }
+  .qz-card { border: 2px solid var(--line); border-radius: 18px; padding: .85rem .7rem;
+    background: var(--card); color: var(--txt); cursor: pointer; font-size: 1rem;
+    line-height: 1.5; text-align: center; user-select: none; overflow-wrap: anywhere;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.12); transition: transform .15s; }
+  .qz-card:active { transform: scale(.97); }
+  .qz-card.sel { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent);
+    transform: scale(1.02); }
+  .qz-card.speaking { outline: 3px solid #f59e0b; outline-offset: 1px; }
+  .qz-card.done { background: linear-gradient(135deg,#22c55e,#16a34a);
+    border-color: transparent; color: #fff; pointer-events: none; }
+  .qz-card.wrong { animation: qzShake .45s; border-color: #e0245e; background: #e0245e;
+    color: #fff; }
+  @keyframes qzShake { 0%,100% { transform: translateX(0); }
+    25% { transform: translateX(-7px); } 75% { transform: translateX(7px); } }
+  .qz-langs { display: flex; flex-direction: column; gap: .9rem; max-width: 340px;
+    margin: auto; width: 100%; }
+  .qz-langs .btn { width: 100%; height: 3.2rem; font-size: 1.1rem; }
+  .qz-end { margin: auto; text-align: center; }
+  .qz-pct { font-size: 4.2rem; font-weight: 800; line-height: 1; }
+  .lz-stage { display: flex; flex-direction: column; align-items: center;
+    gap: .8rem; width: 100%; max-width: 480px; margin: 0 auto; }
+  .lz-hero { position: relative; width: 100%; border-radius: 18px; overflow: hidden;
+    border: 1.5px solid var(--line); box-shadow: 0 2px 10px rgba(0,0,0,.15);
+    background: linear-gradient(135deg, #14b8a6, #0ea5e9); transition: height .2s; }
+  .lz-hero.s1 { height: 96px; } .lz-hero.s2 { height: 150px; }
+  .lz-hero.s3 { height: 210px; } .lz-hero.v { height: 250px; }
+  .lz-hero > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .lz-hero-tools { position: absolute; top: 8px; inset-inline-end: 8px; display: flex; gap: 6px; }
+  .lz-hero-btn { min-width: 34px; height: 34px; padding: 0 8px; border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.35); background: rgba(10,12,30,.55);
+    color: #fff; font-size: .9rem; font-weight: 800; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; font-family: inherit; }
+  .lz-hero-btn.del { background: rgba(225,29,72,.85); border-color: transparent; }
+  .lz-loop { width: 62px; height: 62px; border-radius: 50%; border: none; cursor: pointer;
+    font-size: 1.5rem; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff;
+    box-shadow: 0 4px 14px rgba(20,184,166,.4); }
+  .lz-loop.speaking { animation: lzPulse 1s infinite; }
+  @keyframes lzPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(20,184,166,.55); }
+    50% { box-shadow: 0 0 0 9px rgba(20,184,166,0); } }
+  .lz-opts { display: flex; flex-direction: column; gap: .6rem; width: 100%; }
+  .lz-tile { border: 2px solid var(--line); background: var(--card); border-radius: 16px;
+    padding: .7rem .6rem; font-size: 1rem; font-weight: 700; cursor: pointer;
+    text-align: center; min-height: 52px; display: flex; align-items: center;
+    justify-content: center; color: var(--txt); line-height: 1.4; transition: all .15s; }
+  .lz-tile.ok { border-color: #22c55e; background: rgba(34,197,94,.13); }
+  .lz-tile.bad { border-color: #ef4444; background: rgba(239,68,68,.1);
+    animation: qzShake .45s; }
+  .lz-nav { display: flex; gap: .6rem; align-items: center; }
+  .lz-nav button { min-width: 52px; height: 44px; padding: 0 14px; border-radius: 14px;
+    border: 1.5px solid var(--line); background: var(--card); color: var(--txt);
+    font-size: 1rem; font-weight: 800; cursor: pointer; font-family: inherit;
+    display: flex; align-items: center; gap: 6px; }
+  .lz-nav button.on { border-color: var(--accent); background: rgba(20,184,166,.15);
+    color: var(--accent); }
+  .lz-verdict { width: 100%; height: 100%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: .25rem; padding: .6rem .8rem;
+    text-align: center; background: var(--card); overflow-y: auto; }
+  .lz-face { font-size: 2rem; line-height: 1; }
+  .lz-v-fr { font-weight: 800; font-size: 1.05rem; color: var(--txt); }
+  .lz-verdict.ok .lz-v-fr { color: #16a34a; }
+  .lz-verdict.bad .lz-v-fr { color: #ef4444; }
+  .lz-v-tr { font-size: .9rem; font-weight: 700; color: var(--dim); }
+  .lz-v-line { display: flex; align-items: center; justify-content: center;
+    gap: .4rem; max-width: 100%; }
+  .lz-v-loop { flex: none; width: 30px; height: 30px; border-radius: 50%; border: none;
+    cursor: pointer; font-size: .85rem; display: flex; align-items: center;
+    justify-content: center; background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff; }
+  .lz-v-loop.speaking { animation: lzPulse 1s infinite; }
+
+  /* ---------- notebook (zeelang) ---------- */
+  #noteModal { position: fixed; inset: 0; z-index: 4500; display: none;
+    flex-direction: column; background: #f3f4f6; }
+  #noteModal.show { display: flex; }
+  .note-topbar { display: flex; align-items: center; gap: .3rem; padding: .45rem .4rem;
+    background: #fff; border-bottom: 1px solid #e5e7eb; flex-wrap: wrap; }
+  .note-title { font-weight: 800; font-size: 1rem; color: #111827; white-space: nowrap; }
+  .note-icon { width: 2.15rem; height: 2.15rem; flex: 0 0 auto; border-radius: 50%;
+    border: 1px solid #e5e7eb; background: #fff; color: #0f766e; font-size: 1.05rem;
+    display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+  .note-icon.active { background: #0f766e; color: #fff; border-color: #0f766e; }
+  .note-icon:disabled { opacity: .35; }
+  .note-icon.danger { color: #e53935; }
+  .note-palette { display: none; gap: .5rem; flex-wrap: wrap; padding: .5rem .6rem;
+    background: #fff; border-bottom: 1px solid #e5e7eb; }
+  .note-palette.show { display: flex; }
+  .note-palette .note-tool { width: 2rem; height: 2rem; border-radius: 50%;
+    border: 3px solid #fff; box-shadow: 0 0 0 1px #d1d5db; cursor: pointer; }
+  .note-palette .note-tool.active { box-shadow: 0 0 0 3px #0f766e; }
+  #notePhraseBar { display: flex; gap: .45rem; padding: .55rem .5rem; background: #f3f4f6; }
+  .note-phrase-card { flex: 1; min-width: 0; background: #fff; border: 1px solid #e5e7eb;
+    border-radius: 14px; padding: .55rem .5rem; text-align: center; font-weight: 600;
+    font-size: .95rem; line-height: 1.35; color: #111827; overflow-wrap: anywhere; }
+  .note-phrase-card.fr { font-family: Georgia, 'Times New Roman', serif; }
+  .note-phrase-card.ar { font-family: 'Noto Kufi Arabic', 'Noto Naskh Arabic', Tahoma, sans-serif;
+    direction: rtl; }
+  .note-canvas-wrap { flex: 1; min-height: 0; position: relative; background: #fff; }
+  .note-canvas-wrap.lined { background-color: #fffdf5;
+    background-image: linear-gradient(to right, transparent 0, transparent 2.6rem, #f4a3a3 2.6rem, #f4a3a3 calc(2.6rem + 2px), transparent calc(2.6rem + 2px)),
+      repeating-linear-gradient(to bottom, transparent 0, transparent calc(2.2rem - 1px), #9fc5e8 calc(2.2rem - 1px), #9fc5e8 2.2rem); }
+  html[dir="rtl"] .note-canvas-wrap.lined { background-image: linear-gradient(to left, transparent 0, transparent 2.6rem, #f4a3a3 2.6rem, #f4a3a3 calc(2.6rem + 2px), transparent calc(2.6rem + 2px)),
+      repeating-linear-gradient(to bottom, transparent 0, transparent calc(2.2rem - 1px), #9fc5e8 calc(2.2rem - 1px), #9fc5e8 2.2rem); }
+  #noteCanvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
+  .ph-note { position: absolute; top: .4rem; inset-inline-end: 2.35rem; background: none;
+    border: none; color: var(--dim); font-size: 1rem; cursor: pointer; padding: .1rem .3rem;
+    font-family: inherit; }
+  .ph-note:active { color: var(--accent); }
+  .ph-note.note-on { color: var(--gold); }
+  .fzoom { display: flex; align-items: center; gap: .45rem; margin-inline-start: auto; }
+  .fzoom-val { min-width: 3.2rem; text-align: center; font-weight: 800; }
+
   .hidden { display: none !important; }
 </style>
 </head>
@@ -300,6 +424,44 @@
 
 <div id="toast"></div>
 <div id="overlayRoot"></div>
+
+<div id="noteModal">
+  <div class="note-topbar">
+    <button type="button" class="note-icon" id="noteClose" title="Back">←</button>
+    <span class="note-title" data-i="noteTitle">دفتر الملاحظات</span>
+    <span style="flex:1"></span>
+    <button type="button" class="note-icon" id="notePaper" title="Paper">📓</button>
+    <button type="button" class="note-icon active" id="notePen" title="Pen">✏️</button>
+    <button type="button" class="note-icon" id="noteHl" title="Highlighter">🖍️</button>
+    <button type="button" class="note-icon" id="noteErase" title="Eraser">✕</button>
+    <button type="button" class="note-icon" id="noteSwatch" title="Colors"><span id="noteSwatchDot" style="display:block;width:1.3rem;height:1.3rem;border-radius:6px;background:#111827"></span></button>
+    <button type="button" class="note-icon" id="noteSizeDec" title="Thinner">−</button>
+    <input type="range" id="noteSize" min="1" max="16" value="3" style="width:4rem">
+    <button type="button" class="note-icon" id="noteSizeInc" title="Thicker">+</button>
+    <button type="button" class="note-icon" id="noteUndo" title="Undo">↶</button>
+    <button type="button" class="note-icon" id="noteRedo" title="Redo">↷</button>
+    <button type="button" class="note-icon danger" id="noteClear" title="Clear">🗑</button>
+    <button type="button" class="note-icon" id="noteSave" title="Save">⬇</button>
+  </div>
+  <div id="notePalette" class="note-palette">
+    <button type="button" class="note-tool active" data-color="#111827" style="background:#111827"></button>
+    <button type="button" class="note-tool" data-color="#e53935" style="background:#e53935"></button>
+    <button type="button" class="note-tool" data-color="#fb8c00" style="background:#fb8c00"></button>
+    <button type="button" class="note-tool" data-color="#fdd835" style="background:#fdd835"></button>
+    <button type="button" class="note-tool" data-color="#43a047" style="background:#43a047"></button>
+    <button type="button" class="note-tool" data-color="#00acc1" style="background:#00acc1"></button>
+    <button type="button" class="note-tool" data-color="#1e88e5" style="background:#1e88e5"></button>
+    <button type="button" class="note-tool" data-color="#3949ab" style="background:#3949ab"></button>
+    <button type="button" class="note-tool" data-color="#8e24aa" style="background:#8e24aa"></button>
+    <button type="button" class="note-tool" data-color="#d81b60" style="background:#d81b60"></button>
+    <button type="button" class="note-tool" data-color="#6d4c41" style="background:#6d4c41"></button>
+    <button type="button" class="note-tool" data-color="#9e9e9e" style="background:#9e9e9e"></button>
+  </div>
+  <div id="notePhraseBar"></div>
+  <div id="noteWrap" class="note-canvas-wrap plain">
+    <canvas id="noteCanvas"></canvas>
+  </div>
+</div>
 
 <script src="./js/edge-tts.js"></script>
 <script>
@@ -335,7 +497,14 @@ var I18N = {
     recClip: 'تسجيل مقطع', recNo: 'التسجيل غير مدعوم هنا',
     templates: '📋 النماذج', tplPhrases: 'نماذج العبارات', tplTimed: 'النماذج المؤقّتة — فيديو / صوت 🎬',
     emptyF: 'لا مجلدات بعد — أنشئ أول مجلد بزر ➕', emptyL: 'لا دروس هنا — أضف درساً بـ➕ أو الصق نماذج',
-    emptyP: 'لا عبارات بعد — أضفها بـ➕'
+    emptyP: 'لا عبارات بعد — أضفها بـ➕',
+    fontSize: 'حجم الخط',
+    quiz: 'لعبة التوصيل 🧩', quizChooseLang: 'اختر لغة المطابقة',
+    quizFrAr: '🇫🇷 ⇄ 🇸🇾 فرنسي ⇄ عربي', quizFrEn: '🇫🇷 ⇄ 🇺🇸 فرنسي ⇄ إنجليزي',
+    quizReplay: 'إعادة اللعب', quizExit: 'خروج', quizNoPhrases: 'لا توجد عبارات كافية للّعبة',
+    listenQuiz: 'لعبة الاستماع 🎧', listenReplay: '🔊 إعادة الاستماع', quizScore: 'النتيجة',
+    next: 'التالي', autoNext: 'تلقائي', noteTitle: 'دفتر الملاحظات', saved: 'تم الحفظ ✓',
+    deleted: 'تم الحذف', lzImgDel: 'حذف الصورة؟'
   },
   fr: {
     searchPh: 'Chercher une phrase…', menu: 'Menu', langTitle: 'Langue de l’interface',
@@ -364,7 +533,14 @@ var I18N = {
     recClip: 'Enregistrer un clip', recNo: 'Enregistrement non pris en charge',
     templates: '📋 Modèles', tplPhrases: 'Modèles de phrases', tplTimed: 'Modèles synchronisés — vidéo / audio 🎬',
     emptyF: 'Aucun dossier — créez-en un avec ➕', emptyL: 'Aucune leçon — ajoutez avec ➕ ou collez des modèles',
-    emptyP: 'Aucune phrase — ajoutez avec ➕'
+    emptyP: 'Aucune phrase — ajoutez avec ➕',
+    fontSize: 'Taille du texte',
+    quiz: 'Jeu d’association 🧩', quizChooseLang: 'Choisis la langue',
+    quizFrAr: '🇫🇷 ⇄ 🇸🇾 Français ⇌ Arabe', quizFrEn: '🇫🇷 ⇄ 🇺🇸 Français ⇌ Anglais',
+    quizReplay: 'Rejouer', quizExit: 'Quitter', quizNoPhrases: 'Pas assez de phrases',
+    listenQuiz: 'Jeu d’écoute 🎧', listenReplay: '🔊 Réécouter', quizScore: 'Score',
+    next: 'Suivant', autoNext: 'Auto', noteTitle: 'Carnet', saved: 'Enregistré ✓',
+    deleted: 'Supprimé', lzImgDel: 'Supprimer l’image ?'
   },
   en: {
     searchPh: 'Search phrases…', menu: 'Menu', langTitle: 'Interface language',
@@ -393,7 +569,14 @@ var I18N = {
     recClip: 'Record clip', recNo: 'Recording not supported here',
     templates: '📋 Templates', tplPhrases: 'Phrase templates', tplTimed: 'Timed templates — video / audio 🎬',
     emptyF: 'No folders yet — create one with ➕', emptyL: 'No lessons — add with ➕ or paste templates',
-    emptyP: 'No phrases yet — add with ➕'
+    emptyP: 'No phrases yet — add with ➕',
+    fontSize: 'Text size',
+    quiz: 'Matching game 🧩', quizChooseLang: 'Choose the match language',
+    quizFrAr: '🇫🇷 ⇄ 🇸🇾 French ⇄ Arabic', quizFrEn: '🇫🇷 ⇄ 🇺🇸 French ⇄ English',
+    quizReplay: 'Play again', quizExit: 'Exit', quizNoPhrases: 'Not enough phrases for the game',
+    listenQuiz: 'Listening game 🎧', listenReplay: '🔊 Listen again', quizScore: 'Score',
+    next: 'Next', autoNext: 'Auto', noteTitle: 'Notebook', saved: 'Saved ✓',
+    deleted: 'Deleted', lzImgDel: 'Delete image?'
   }
 };
 function T() { return I18N[uiLang()] || I18N.ar; }
@@ -880,6 +1063,11 @@ function phraseCard(p, f, l) {
   if (p.en) flagRow(body, '🇺🇸', 'en', p.en, '', '', 'phflag-' + p.id + '-e');
   if (p.note)   body.appendChild(el('div', 'ph-line')).innerHTML = '📝 ' + esc(p.note);
   c.appendChild(body);
+  var nb = el('button', 'ph-note' + (notesMap[p.id] ? ' note-on' : ''), notesMap[p.id] ? '📔' : '📓');
+  nb.dataset.pk = p.id;
+  nb.title = T().noteTitle || 'notebook';
+  nb.onclick = function (e) { e.stopPropagation(); openNote(p.id); };
+  c.appendChild(nb);
   var d = el('button', 'ph-dots', '⋮');
   d.onclick = function (e) { e.stopPropagation(); phraseMenu(f, l, p); };
   c.appendChild(d);
@@ -901,6 +1089,16 @@ function renderLesson(v, f, l) {
   mb.title = t.media;
   mb.onclick = function () { mediaSheet(f, l); };
   bar.appendChild(mb);
+  var lzb = el('button', 'btn', '🎧');
+  lzb.style.flex = 'none';
+  lzb.title = t.listenQuiz;
+  lzb.onclick = function () { openListen(l); };
+  bar.appendChild(lzb);
+  var qzb = el('button', 'btn', '🧩');
+  qzb.style.flex = 'none';
+  qzb.title = t.quiz;
+  qzb.onclick = function () { openQuiz(l); };
+  bar.appendChild(qzb);
   v.appendChild(bar);
   if (l.media || (l.cues || []).length) renderMedia(v, f, l);
   (l.phrases || []).forEach(function (p) { v.appendChild(phraseCard(p, f, l)); });
@@ -2269,10 +2467,14 @@ function renderMedia(v, f, l) {
     tools.appendChild(sz);
     if (me && l.vfit) me.className = FITS[l.vfit];
   }
-  var eb = el('button', 'mini', '🎬');
-  eb.title = 'media';
-  eb.onclick = function () { mediaSheet(f, l); };
+  var eb = el('button', 'mini', '🎧');
+  eb.title = T().listenQuiz;
+  eb.onclick = function () { openListen(l); };
   tools.appendChild(eb);
+  var qb = el('button', 'mini', '🧩');
+  qb.title = T().quiz;
+  qb.onclick = function () { openQuiz(l); };
+  tools.appendChild(qb);
   box.appendChild(tools);
   box.appendChild(now);
   v.appendChild(box);
@@ -2456,7 +2658,21 @@ function openMenu() {
   }
   row(isDark() ? '☀' : '🌙', isDark() ? t.themeLight : t.themeDark, function () { toggleTheme(); openMenu(); });
   row('🎙', t.voiceSet, function () { closeOv(); if (window.EdgeTTS) EdgeTTS.openSettings(); });
-  row('📋', t.templates, function () { closeOv(); templatesSheet(); });
+  var fz = el('button', 'mrow');
+  fz.appendChild(el('span', 'mi', '🔠'));
+  var fzl = el('span', null, t.fontSize);
+  fzl.style.flex = '1';
+  fz.appendChild(fzl);
+  var fzc = el('span', 'fzoom');
+  var fdec = el('button', 'mini', '−');
+  var fval = el('span', 'fzoom-val', fontPct() + '%');
+  var finc = el('button', 'mini', '＋');
+  fdec.onclick = function (e) { e.stopPropagation(); setFontPct(fontPct() - 10); fval.textContent = fontPct() + '%'; };
+  finc.onclick = function (e) { e.stopPropagation(); setFontPct(fontPct() + 10); fval.textContent = fontPct() + '%'; };
+  fzc.appendChild(fdec); fzc.appendChild(fval); fzc.appendChild(finc);
+  fz.appendChild(fzc);
+  fz.onclick = function (e) { e.stopPropagation(); };
+  sh.appendChild(fz);
   row('📥', t.pasteTpl, function () {
     closeOv();
     var f = findF(nav.f);
@@ -2563,6 +2779,615 @@ fab.onclick = function () {
   else if (f) lessonEditor(f, null);
   else folderEditor(null);
 };
+
+/* ================= font size (app-wide) ================= */
+function fontPct() { var p = parseInt(localStorage.getItem('prolang_fs') || '100', 10); return (p >= 60 && p <= 220) ? p : 100; }
+function applyFont() { document.documentElement.style.fontSize = (16 * fontPct() / 100) + 'px'; }
+function setFontPct(p) {
+  p = Math.max(60, Math.min(220, Math.round(p / 10) * 10));
+  try { localStorage.setItem('prolang_fs', String(p)); } catch (e) {}
+  applyFont();
+}
+
+/* ================= phrase → language map ================= */
+// phrase has {text,lang,flag,rows[{flag,lang,text}],meaning,en} — build {lang:text}
+function phMap(p) {
+  var m = {};
+  if (!p || p.type === 'note') return m;
+  var ml = p.lang || langOfFlag(p.flag);
+  if (ml) m[ml] = p.text;
+  (p.rows || []).forEach(function (r) {
+    var rl = r.lang || langOfFlag(r.flag);
+    if (rl && !m[rl]) m[rl] = r.text;
+  });
+  if (p.meaning && !m.ar) m.ar = p.meaning;
+  if (p.en && !m.en) m.en = p.en;
+  return m;
+}
+function phText(p, lang) { return phMap(p)[lang] || ''; }
+// dominant phrase language of a lesson — the game's question column (zeelang uses fr)
+function lessonMainLang(lesson) {
+  var cnt = {};
+  (lesson.phrases || []).forEach(function (p) {
+    var l = p.lang || langOfFlag(p.flag);
+    cnt[l] = (cnt[l] || 0) + 1;
+  });
+  var best = 'fr', n = 0;
+  for (var k in cnt) if (cnt[k] > n) { n = cnt[k]; best = k; }
+  return best;
+}
+function flagOfLessonLang(lesson, lang) {
+  var p = (lesson.phrases || []).filter(function (x) {
+    return (x.lang || langOfFlag(x.flag)) === lang;
+  })[0];
+  return p ? p.flag : '🏳';
+}
+function findPhraseById(id) {
+  for (var i = 0; i < folders.length; i++) {
+    var ls = folders[i].lessons || [];
+    for (var j = 0; j < ls.length; j++) {
+      var ps = ls[j].phrases || [];
+      for (var k = 0; k < ps.length; k++) if (ps[k].id === id) return ps[k];
+    }
+  }
+  return null;
+}
+
+/* ================= matching game (zeelang) ================= */
+function quizTone(ok) {
+  try {
+    var Ctx = window.AudioContext || window.webkitAudioContext;
+    var ctx = quizTone.ctx || (quizTone.ctx = new Ctx());
+    var t0 = ctx.currentTime;
+    [0, .12].forEach(function (d, i) {
+      var o = ctx.createOscillator(), g = ctx.createGain();
+      o.frequency.value = ok ? [523.25, 659.25][i] : (i ? 196 : 220);
+      o.type = 'sine';
+      g.gain.setValueAtTime(.001, t0 + d);
+      g.gain.exponentialRampToValueAtTime(ok ? .14 : .11, t0 + d + .02);
+      g.gain.exponentialRampToValueAtTime(.001, t0 + d + (ok ? .22 : .18));
+      o.connect(g); g.connect(ctx.destination);
+      o.start(t0 + d); o.stop(t0 + d + .3);
+    });
+  } catch (e) {}
+}
+function quizShuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+function quizStopSpeak() {
+  speakTok++;
+  if (window.EdgeTTS) EdgeTTS.stop();
+  document.querySelectorAll('.qz-card.speaking, .lz-loop.speaking, .lz-v-loop.speaking').forEach(function (x) { x.classList.remove('speaking'); });
+}
+function openQuiz(lesson) {
+  closeQuiz();
+  var t = T();
+  var pf = flagOfLessonLang(lesson, lessonMainLang(lesson));
+  var ov = document.createElement('div');
+  ov.id = 'quiz-overlay';
+  ov.className = 'qz-ov';
+  ov.innerHTML = '<div class="qz-top"><button class="mini" id="quiz-exit" title="' + esc(t.quizExit) + '">✕</button>' +
+    '<div class="qz-prog" id="quiz-progress"></div></div>' +
+    '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>';
+  document.body.appendChild(ov);
+  document.getElementById('quiz-exit').onclick = closeQuiz;
+  var body = document.getElementById('quiz-body');
+  body.innerHTML = '<div class="qz-langs"><h3 style="text-align:center;margin:0">' + esc(t.quizChooseLang) + '</h3>' +
+    '<button class="btn" data-lang="ar">' + esc(t.quizFrAr.replace('🇫🇷', pf)) + '</button>' +
+    '<button class="btn" data-lang="en">' + esc(t.quizFrEn.replace('🇫🇷', pf)) + '</button></div>';
+  body.querySelectorAll('button[data-lang]').forEach(function (b) {
+    b.onclick = function () { startQuiz(lesson, b.dataset.lang); };
+  });
+}
+function closeQuiz() {
+  quizStopSpeak();
+  clearTimeout(lz.timer);
+  var ov = document.getElementById('quiz-overlay');
+  if (ov) ov.remove();
+}
+function startQuiz(lesson, target) {
+  var t = T();
+  var qLang = lessonMainLang(lesson);
+  var pool = (lesson.phrases || []).filter(function (p) { return p.type !== 'note' && phText(p, target); });
+  if (!pool.length) { toast(t.quizNoPhrases); return; }
+  var picks = quizShuffle(pool).slice(0, 8).map(function (p, i) {
+    return { p: p, id: i, q: p.lang || langOfFlag(p.flag) };
+  });
+  var body = document.getElementById('quiz-body');
+  if (!body) return;
+  var LANG_FLAG = { fr: '🇫🇷', ar: '🇸🇾', en: '🇺🇸' };
+  body.innerHTML = '<div class="qz-flags"><div class="qz-flag">' + flagOfLessonLang(lesson, qLang) + '</div><div class="qz-flag">' + (LANG_FLAG[target] || '🌐') + '</div></div>' +
+    '<div class="qz-cols" id="quiz-cols"></div>';
+  var cols = document.getElementById('quiz-cols');
+  var prog = document.getElementById('quiz-progress');
+  var selFr = null, correct = 0, wrong = 0, solved = 0;
+  function setProg() { prog.textContent = solved + '/' + picks.length; }
+  setProg();
+  function mkCard(item, lang) {
+    var c = document.createElement('div');
+    c.className = 'qz-card';
+    c.dataset.text = phText(item.p, lang);
+    c.dataset.lang = lang;
+    c.dataset.pid = item.id;
+    c.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    c.textContent = c.dataset.text;
+    return c;
+  }
+  function onCard(card, item, lang, isQ) {
+    if (card.classList.contains('done')) return;
+    var wasSpeaking = card.classList.contains('speaking');
+    speak(card.dataset.text, lang, card);
+    if (wasSpeaking) return;
+    if (isQ) {
+      if (selFr) selFr.classList.remove('sel');
+      selFr = card;
+      card.classList.add('sel');
+      return;
+    }
+    if (!selFr) {
+      card.classList.add('sel');
+      setTimeout(function () { card.classList.remove('sel'); }, 600);
+      return;
+    }
+    if (selFr.dataset.pid === card.dataset.pid) {
+      correct++;
+      quizTone(true);
+      selFr.classList.remove('sel');
+      selFr.classList.add('done');
+      card.classList.add('done');
+      selFr = null;
+      solved++;
+      quizStopSpeak();
+      setProg();
+      if (solved === picks.length) setTimeout(function () { quizEnd(correct, wrong, lesson, target); }, 650);
+    } else {
+      wrong++;
+      quizTone(false);
+      card.classList.add('wrong');
+      setTimeout(function () { card.classList.remove('wrong'); }, 520);
+      if (selFr) { selFr.classList.remove('sel'); selFr = null; }
+    }
+  }
+  var frOrder = quizShuffle(picks);
+  var tgOrder = quizShuffle(picks);
+  for (var i = 0; i < picks.length; i++) {
+    (function (i2) {
+      var f = mkCard(frOrder[i2], frOrder[i2].q);
+      f.onclick = function () { onCard(f, frOrder[i2], f.dataset.lang, true); };
+      cols.appendChild(f);
+      var g = mkCard(tgOrder[i2], target);
+      g.onclick = function () { onCard(g, tgOrder[i2], target, false); };
+      cols.appendChild(g);
+    })(i);
+  }
+}
+function quizEnd(correct, wrong, lesson, target) {
+  quizStopSpeak();
+  var t = T();
+  var total = correct + wrong;
+  var pct = total ? Math.round(correct / total * 100) : 100;
+  var color = pct >= 70 ? '#1f9d55' : pct >= 40 ? '#f59e0b' : '#e0245e';
+  var body = document.getElementById('quiz-body');
+  if (!body) return;
+  body.innerHTML = '<div class="qz-end"><div class="qz-pct" style="color:' + color + '">' + pct + '%</div>' +
+    '<div style="font-size:1.25rem;margin:.7rem 0 1.4rem">✅ ' + correct + ' &nbsp; ❌ ' + wrong + '</div>' +
+    '<div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap">' +
+    '<button class="btn" id="quiz-replay">🔁 ' + esc(t.quizReplay) + '</button>' +
+    '<button class="btn" id="quiz-exit2">✕ ' + esc(t.quizExit) + '</button></div></div>';
+  document.getElementById('quiz-replay').onclick = function () { startQuiz(lesson, target); };
+  document.getElementById('quiz-exit2').onclick = closeQuiz;
+}
+
+/* ================= listening game (zeelang) ================= */
+var lz = { lesson: null, lang: 'ar', qs: [], pool: [], idx: 0, correct: 0, wrong: 0, auto: true, timer: null, answered: false };
+var LZ_DEFAULT_IMG = '<img src="data:image/svg+xml;utf8,' + encodeURIComponent(
+  "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 140'>" +
+  "<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#14b8a6'/><stop offset='1' stop-color='#0ea5e9'/></linearGradient></defs>" +
+  "<rect width='240' height='140' fill='url(#g)'/>" +
+  "<circle cx='60' cy='40' r='26' fill='none' stroke='rgba(255,255,255,.25)' stroke-width='3'/><circle cx='180' cy='105' r='34' fill='none' stroke='rgba(255,255,255,.18)' stroke-width='3'/><circle cx='196' cy='34' r='14' fill='none' stroke='rgba(255,255,255,.3)' stroke-width='3'/>" +
+  "<path d='M92 88 v-14 a28 28 0 0 1 56 0 v14' fill='none' stroke='#fff' stroke-width='8' stroke-linecap='round'/>" +
+  "<rect x='84' y='84' width='18' height='30' rx='9' fill='#fff'/><rect x='138' y='84' width='18' height='30' rx='9' fill='#fff'/>" +
+  "</svg>") + '" alt="">';
+var lzHero = { img: null, size: 's2' };
+try { lzHero.img = localStorage.getItem('prolang_lzimg') || null; lzHero.size = localStorage.getItem('prolang_lzsize') || 's2'; } catch (e) {}
+function lzSaveHero() {
+  try {
+    if (lzHero.img) localStorage.setItem('prolang_lzimg', lzHero.img); else localStorage.removeItem('prolang_lzimg');
+    localStorage.setItem('prolang_lzsize', lzHero.size);
+  } catch (e) {}
+}
+function lzHeroInner() {
+  var sz = { s1: 'S', s2: 'M', s3: 'L' }[lzHero.size] || 'M';
+  return (lzHero.img ? '<img src="' + lzHero.img + '" alt="">' : LZ_DEFAULT_IMG) +
+    '<div class="lz-hero-tools">' +
+    '<button class="lz-hero-btn" id="lzImgAdd" title="📷">📷</button>' +
+    '<button class="lz-hero-btn" id="lzImgSize" title="size">⤢ ' + sz + '</button>' +
+    (lzHero.img ? '<button class="lz-hero-btn del" id="lzImgDel" title="×">×</button>' : '') + '</div>';
+}
+function resizeImageToDataUrl(file, maxDim, quality, cb) {
+  var reader = new FileReader();
+  reader.onload = function () {
+    var img = new Image();
+    img.onload = function () {
+      var s = Math.min(1, maxDim / Math.max(img.width || 1, img.height || 1));
+      var c = document.createElement('canvas');
+      c.width = Math.max(1, Math.round(img.width * s));
+      c.height = Math.max(1, Math.round(img.height * s));
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      cb(c.toDataURL('image/jpeg', quality));
+    };
+    img.src = reader.result;
+  };
+  reader.readAsDataURL(file);
+}
+function lzWireHeroTools() {
+  var add = document.getElementById('lzImgAdd');
+  if (add) add.onclick = function () { document.getElementById('lzImgInput').click(); };
+  var inp = document.getElementById('lzImgInput');
+  if (inp) inp.onchange = function (e) {
+    var file = e.target.files && e.target.files[0];
+    e.target.value = '';
+    if (!file) return;
+    resizeImageToDataUrl(file, 1000, 0.82, function (url) {
+      lzHero.img = url; lzSaveHero();
+      var h = document.getElementById('lzHero');
+      if (h) { h.innerHTML = lzHeroInner(); lzWireHeroTools(); }
+    });
+  };
+  var szb = document.getElementById('lzImgSize');
+  if (szb) szb.onclick = function () {
+    lzHero.size = lzHero.size === 's1' ? 's2' : (lzHero.size === 's2' ? 's3' : 's1');
+    lzSaveHero();
+    var h = document.getElementById('lzHero');
+    if (h) { h.className = 'lz-hero ' + lzHero.size; h.innerHTML = lzHeroInner(); lzWireHeroTools(); }
+  };
+  var del = document.getElementById('lzImgDel');
+  if (del) del.onclick = function () {
+    lzHero.img = null; lzSaveHero();
+    var h = document.getElementById('lzHero');
+    if (h) { h.innerHTML = lzHeroInner(); lzWireHeroTools(); }
+    toast('✓ ' + T().deleted);
+  };
+}
+function openListen(lesson) {
+  closeQuiz();
+  var t = T();
+  var pf = flagOfLessonLang(lesson, lessonMainLang(lesson));
+  lz.lesson = lesson;
+  lz.qlang = lessonMainLang(lesson);
+  var ov = document.createElement('div');
+  ov.id = 'quiz-overlay';
+  ov.className = 'qz-ov';
+  ov.innerHTML = '<div class="qz-top"><button class="mini" id="quiz-exit" title="' + esc(t.quizExit) + '">✕</button>' +
+    '<div class="qz-prog" id="quiz-progress"></div></div>' +
+    '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>' +
+    '<input type="file" id="lzImgInput" accept="image/*" style="display:none">';
+  document.body.appendChild(ov);
+  document.getElementById('quiz-exit').onclick = closeQuiz;
+  var body = document.getElementById('quiz-body');
+  body.innerHTML = '<div class="qz-langs"><h3 style="text-align:center;margin:0">' + esc(t.quizChooseLang) + '</h3>' +
+    '<button class="btn" data-lang="ar">' + esc(t.quizFrAr.replace('🇫🇷', pf)) + '</button>' +
+    '<button class="btn" data-lang="en">' + esc(t.quizFrEn.replace('🇫🇷', pf)) + '</button></div>';
+  body.querySelectorAll('button[data-lang]').forEach(function (b) {
+    b.onclick = function () { lz.lang = b.dataset.lang; lzStart(); };
+  });
+}
+function lzStart() {
+  var t = T();
+  var pool = (lz.lesson.phrases || []).filter(function (p) { return p.type !== 'note' && phText(p, lz.lang); });
+  var body = document.getElementById('quiz-body');
+  if (!body) return;
+  if (!pool.length) { toast(t.quizNoPhrases); return; }
+  lz.pool = quizShuffle(pool);
+  lz.qs = lz.pool.slice(0, 8);
+  lz.idx = 0; lz.correct = 0; lz.wrong = 0;
+  lzQuestion();
+}
+function lzQuestion() {
+  var t = T();
+  var body = document.getElementById('quiz-body');
+  if (!body || !document.getElementById('quiz-overlay')) return;
+  var p = lz.qs[lz.idx];
+  var others = lz.pool.filter(function (x) { return x !== p; });
+  var opts = quizShuffle(others).slice(0, 3);
+  opts.push(p);
+  opts = quizShuffle(opts);
+  body.innerHTML = '<div class="lz-stage">' +
+    '<div class="lz-hero ' + lzHero.size + '" id="lzHero">' + lzHeroInner() + '</div>' +
+    '<button class="lz-loop" id="lzReplay" title="' + esc(t.listenReplay) + '">🔊</button>' +
+    '<div class="lz-opts">' + opts.map(function (o) {
+      return '<div class="lz-tile" data-ok="' + (o === p ? '1' : '0') + '">' + esc(phText(o, lz.lang)) + '</div>';
+    }).join('') + '</div>' +
+    '<div class="lz-nav">' +
+    '<button id="lzNoteBtn" title="' + esc(t.noteTitle) + '">📓</button>' +
+    '<button id="lzNextBtn">⏭ ' + esc(t.next) + '</button>' +
+    '<button id="lzAutoBtn" class="' + (lz.auto ? 'on' : '') + '">🔁 ' + esc(t.autoNext) + '</button></div>' +
+    '<input type="file" id="lzImgInput" accept="image/*" style="display:none"></div>';
+  document.getElementById('quiz-progress').textContent = (lz.idx + 1) + '/' + lz.qs.length;
+  lzWireHeroTools();
+  var rp = document.getElementById('lzReplay');
+  var pLang = p.lang || langOfFlag(p.flag);
+  rp.onclick = function () { speak(phText(p, pLang), pLang, rp); };
+  body.querySelectorAll('.lz-tile').forEach(function (tile) {
+    tile.onclick = function () { lzAnswer(tile, p); };
+  });
+  document.getElementById('lzNoteBtn').onclick = function () { openNote(p.id); };
+  document.getElementById('lzNextBtn').onclick = lzNext;
+  document.getElementById('lzAutoBtn').onclick = function () {
+    lz.auto = !lz.auto;
+    this.classList.toggle('on', lz.auto);
+    if (lz.auto && lz.answered) lzNext();
+  };
+  setTimeout(function () { if (document.getElementById('quiz-overlay')) speak(phText(p, pLang), pLang, rp); }, 250);
+}
+function lzAnswer(tile, p) {
+  if (tile.dataset.done) return;
+  var body = document.getElementById('quiz-body');
+  body.querySelectorAll('.lz-tile').forEach(function (x) { x.dataset.done = '1'; });
+  var ok = tile.dataset.ok === '1';
+  if (ok) { quizTone(true); tile.classList.add('ok'); lz.correct++; }
+  else {
+    quizTone(false); lz.wrong++;
+    tile.classList.add('bad');
+    body.querySelectorAll('.lz-tile[data-ok="1"]').forEach(function (x) { x.classList.add('ok'); });
+  }
+  quizStopSpeak();
+  var hero = document.getElementById('lzHero');
+  if (hero) {
+    hero.className = 'lz-hero v';
+    var map = phMap(p);
+    var html = '<div class="lz-verdict ' + (ok ? 'ok' : 'bad') + '"><div class="lz-face">' + (ok ? '😄' : '😢') + '</div>';
+    var pmLang = p.lang || langOfFlag(p.flag);
+    Object.keys(map).forEach(function (li) {
+      var txt = map[li];
+      if (txt) html += '<div class="lz-v-line"><span class="' + (li === pmLang ? 'lz-v-fr' : 'lz-v-tr') + '" dir="' + (li === 'ar' ? 'rtl' : 'ltr') + '">' + esc(txt) + '</span>' +
+        '<button class="lz-v-loop" data-lang="' + li + '" title="🔁">🔁</button></div>';
+    });
+    html += '</div>';
+    hero.innerHTML = html;
+    hero.querySelectorAll('.lz-v-loop').forEach(function (b) {
+      var span = b.parentNode.querySelector('span');
+      b.onclick = function () { speak(span.textContent, b.dataset.lang, b); };
+    });
+    var qLoopBtn = hero.querySelector('.lz-v-loop[data-lang="' + pmLang + '"]');
+    if (qLoopBtn) speak(phText(p, pmLang), pmLang, qLoopBtn);
+  }
+  lz.answered = true;
+  clearTimeout(lz.timer);
+  if (lz.auto) lz.timer = setTimeout(lzNext, 5000);
+}
+function lzNext() {
+  if (!document.getElementById('quiz-overlay')) return;
+  clearTimeout(lz.timer);
+  lz.answered = false;
+  quizStopSpeak();
+  lz.idx++;
+  if (lz.idx >= lz.qs.length) { lzFinish(); return; }
+  lzQuestion();
+}
+function lzFinish() {
+  var t = T();
+  var total = lz.correct + lz.wrong;
+  var pct = total ? Math.round(lz.correct / total * 100) : 100;
+  var color = pct >= 70 ? '#1f9d55' : pct >= 40 ? '#f59e0b' : '#e0245e';
+  var body = document.getElementById('quiz-body');
+  if (!body) return;
+  body.innerHTML = '<div class="qz-end"><div class="qz-pct" style="color:' + color + '">' + pct + '%</div>' +
+    '<div style="font-size:1.25rem;margin:.7rem 0 1.4rem">✅ ' + lz.correct + ' &nbsp; ❌ ' + lz.wrong + '</div>' +
+    '<div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap">' +
+    '<button class="btn" id="lz-again">🔁 ' + esc(t.quizReplay) + '</button>' +
+    '<button class="btn" id="lz-exit">✕ ' + esc(t.quizExit) + '</button></div></div>';
+  document.getElementById('quiz-progress').textContent = t.quizScore + ': ' + pct + '%';
+  document.getElementById('lz-again').onclick = function () { openListen(lz.lesson); };
+  document.getElementById('lz-exit').onclick = closeQuiz;
+}
+
+/* ================= notebook (zeelang) ================= */
+var notesMap = {};
+try { notesMap = JSON.parse(localStorage.getItem('prolang_notes') || '{}'); } catch (e) { notesMap = {}; }
+function saveNotes() { try { localStorage.setItem('prolang_notes', JSON.stringify(notesMap)); } catch (e) {} }
+var noteKey = null, noteCtx = null, noteDrawing = false, noteErasing = false,
+  noteHighlight = false, noteColor = '#111827', noteSize = 3, noteUndo = [], noteRedo = [];
+
+function noteSnapshot() {
+  if (!noteCtx) return;
+  var canvas = document.getElementById('noteCanvas');
+  noteUndo.push(noteCtx.getImageData(0, 0, canvas.width, canvas.height));
+  if (noteUndo.length > 30) noteUndo.shift();
+  noteRedo = [];
+  updateNoteHistoryButtons();
+}
+function noteRestore(img) {
+  noteCtx.save();
+  noteCtx.setTransform(1, 0, 0, 1, 0, 0);
+  noteCtx.globalCompositeOperation = 'source-over';
+  noteCtx.globalAlpha = 1;
+  noteCtx.clearRect(0, 0, img.width, img.height);
+  noteCtx.putImageData(img, 0, 0);
+  noteCtx.restore();
+}
+function undoNote() {
+  if (!noteCtx || !noteUndo.length) return;
+  var canvas = document.getElementById('noteCanvas');
+  noteRedo.push(noteCtx.getImageData(0, 0, canvas.width, canvas.height));
+  noteRestore(noteUndo.pop());
+  updateNoteHistoryButtons();
+}
+function redoNote() {
+  if (!noteCtx || !noteRedo.length) return;
+  var canvas = document.getElementById('noteCanvas');
+  noteUndo.push(noteCtx.getImageData(0, 0, canvas.width, canvas.height));
+  noteRestore(noteRedo.pop());
+  updateNoteHistoryButtons();
+}
+function updateNoteHistoryButtons() {
+  var u = document.getElementById('noteUndo');
+  var r = document.getElementById('noteRedo');
+  if (u) u.disabled = !noteUndo.length;
+  if (r) r.disabled = !noteRedo.length;
+}
+function setNoteSize(n) {
+  noteSize = Math.min(16, Math.max(1, n));
+  var s = document.getElementById('noteSize');
+  if (s) s.value = noteSize;
+}
+function setupNoteCanvas() {
+  var canvas = document.getElementById('noteCanvas');
+  noteCtx = canvas.getContext('2d');
+  var dpr = window.devicePixelRatio || 1;
+  var cssWidth = canvas.clientWidth || 600;
+  var cssHeight = canvas.clientHeight || 400;
+  canvas.width = Math.max(1, cssWidth * dpr);
+  canvas.height = Math.max(1, cssHeight * dpr);
+  noteCtx.setTransform(1, 0, 0, 1, 0, 0);
+  noteCtx.scale(dpr, dpr);
+  noteCtx.lineCap = 'round';
+  noteCtx.lineJoin = 'round';
+}
+function openNote(key) {
+  noteKey = key;
+  document.getElementById('noteModal').classList.add('show');
+  var phrase = findPhraseById(key);
+  var bar = document.getElementById('notePhraseBar');
+  if (bar) {
+    bar.innerHTML = ['fr', 'ar', 'en'].map(function (l) {
+      return '<div class="note-phrase-card ' + l + '" dir="' + (l === 'ar' ? 'rtl' : 'ltr') + '">' +
+        (phrase ? esc(phText(phrase, l)) : '') + '</div>';
+    }).join('');
+  }
+  var canvas = document.getElementById('noteCanvas');
+  noteUndo = [];
+  noteRedo = [];
+  updateNoteHistoryButtons();
+  setTimeout(function () {
+    setupNoteCanvas();
+    var dpr = window.devicePixelRatio || 1;
+    var w = canvas.width / dpr;
+    var h = canvas.height / dpr;
+    noteCtx.clearRect(0, 0, w, h);
+    if (notesMap[key]) {
+      var img = new Image();
+      img.onload = function () { noteCtx.drawImage(img, 0, 0, w, h); };
+      img.src = notesMap[key];
+    }
+  }, 50);
+  setNoteTool('pen');
+  document.getElementById('noteSize').value = noteSize;
+  document.querySelectorAll('.note-tool').forEach(function (b) {
+    b.classList.toggle('active', b.dataset.color === noteColor);
+  });
+  document.getElementById('noteSwatchDot').style.background = noteColor;
+  document.getElementById('notePalette').classList.remove('show');
+  applyNotePaper();
+}
+function applyNotePaper() {
+  var wrap = document.getElementById('noteWrap');
+  var lined = localStorage.getItem('prolang_note_paper') === 'lined';
+  wrap.classList.toggle('lined', lined);
+  wrap.classList.toggle('plain', !lined);
+  var pb = document.getElementById('notePaper');
+  pb.textContent = lined ? '📄' : '📓';
+  pb.classList.toggle('active', lined);
+}
+function setNoteTool(tool) {
+  noteErasing = tool === 'erase';
+  noteHighlight = tool === 'hl';
+  document.getElementById('notePen').classList.toggle('active', tool === 'pen');
+  document.getElementById('noteHl').classList.toggle('active', tool === 'hl');
+  document.getElementById('noteErase').classList.toggle('active', tool === 'erase');
+}
+function closeNote() {
+  document.getElementById('noteModal').classList.remove('show');
+  noteKey = null;
+  noteCtx = null;
+}
+function saveNote() {
+  if (!noteKey || !noteCtx) return;
+  var canvas = document.getElementById('noteCanvas');
+  notesMap[noteKey] = canvas.toDataURL('image/png');
+  saveNotes();
+  var btn = document.querySelector('.ph-note[data-pk="' + noteKey + '"]');
+  if (btn) { btn.classList.add('note-on'); btn.textContent = '📔'; }
+  closeNote();
+  toast('✓ ' + T().saved);
+}
+function clearNote() {
+  if (!noteCtx) return;
+  noteSnapshot();
+  var canvas = document.getElementById('noteCanvas');
+  noteCtx.clearRect(0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
+}
+function getNotePos(e) {
+  var canvas = document.getElementById('noteCanvas');
+  var rect = canvas.getBoundingClientRect();
+  var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  var clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  return { x: clientX - rect.left, y: clientY - rect.top };
+}
+function noteStart(e) {
+  if (!noteCtx) return;
+  e.preventDefault();
+  noteSnapshot();
+  noteDrawing = true;
+  var p = getNotePos(e);
+  noteCtx.beginPath();
+  noteCtx.moveTo(p.x, p.y);
+  noteCtx.globalCompositeOperation = noteErasing ? 'destination-out' : 'source-over';
+  noteCtx.globalAlpha = noteHighlight ? 0.35 : 1;
+  noteCtx.lineCap = noteHighlight ? 'square' : 'round';
+  noteCtx.strokeStyle = noteColor;
+  noteCtx.lineWidth = noteErasing ? noteSize * 4 : (noteHighlight ? noteSize * 3 : noteSize);
+}
+function noteMove(e) {
+  if (!noteDrawing || !noteCtx) return;
+  e.preventDefault();
+  var p = getNotePos(e);
+  noteCtx.lineTo(p.x, p.y);
+  noteCtx.stroke();
+}
+function noteEnd() {
+  if (!noteCtx) return;
+  noteDrawing = false;
+  noteCtx.closePath();
+}
+function bindNoteUI() {
+  var canvas = document.getElementById('noteCanvas');
+  canvas.addEventListener('mousedown', noteStart);
+  canvas.addEventListener('mousemove', noteMove);
+  window.addEventListener('mouseup', noteEnd);
+  canvas.addEventListener('touchstart', noteStart, { passive: false });
+  canvas.addEventListener('touchmove', noteMove, { passive: false });
+  canvas.addEventListener('touchend', noteEnd);
+  document.getElementById('noteClose').onclick = closeNote;
+  document.getElementById('noteSave').onclick = saveNote;
+  document.getElementById('noteClear').onclick = clearNote;
+  document.getElementById('noteUndo').onclick = undoNote;
+  document.getElementById('noteRedo').onclick = redoNote;
+  document.getElementById('notePen').onclick = function () { setNoteTool('pen'); };
+  document.getElementById('noteHl').onclick = function () { setNoteTool('hl'); };
+  document.getElementById('noteErase').onclick = function () { setNoteTool('erase'); };
+  document.getElementById('notePaper').onclick = function () {
+    var lined = localStorage.getItem('prolang_note_paper') === 'lined';
+    try { localStorage.setItem('prolang_note_paper', lined ? 'plain' : 'lined'); } catch (e) {}
+    applyNotePaper();
+  };
+  document.getElementById('noteSwatch').onclick = function () {
+    document.getElementById('notePalette').classList.toggle('show');
+  };
+  document.getElementById('noteSizeDec').onclick = function () { setNoteSize(noteSize - 1); };
+  document.getElementById('noteSizeInc').onclick = function () { setNoteSize(noteSize + 1); };
+  document.getElementById('noteSize').oninput = function () { setNoteSize(parseInt(this.value, 10) || 3); };
+  document.querySelectorAll('.note-tool').forEach(function (b) {
+    b.onclick = function () {
+      noteColor = b.dataset.color;
+      document.getElementById('noteSwatchDot').style.background = noteColor;
+      document.querySelectorAll('.note-tool').forEach(function (x) {
+        x.classList.toggle('active', x === b);
+      });
+      document.getElementById('notePalette').classList.remove('show');
+    };
+  });
+}
+bindNoteUI();
+applyFont();
 
 document.getElementById('themeBtn').onclick = toggleTheme;
 document.getElementById('menuBtn').onclick = openMenu;
