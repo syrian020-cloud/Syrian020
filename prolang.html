@@ -221,7 +221,7 @@
   .media-box .vcrop { position: relative; }
   .media-box .vcrop.crop-on { overflow: hidden; border-radius: 12px; }
   .media-box .vcrop.crop-on video { object-fit: cover; object-position: top; }
-  .vc-loop { position: absolute; top: .5rem; inset-inline-end: .5rem; z-index: 5;
+  .vc-loop { position: absolute; top: .5rem; inset-inline-start: .5rem; z-index: 5;
     width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 2px solid rgba(255,255,255,.35);
     background: rgba(10,16,22,.55); font-size: 1.15rem; cursor: pointer;
     display: flex; align-items: center; justify-content: center; padding: 0; }
@@ -990,6 +990,13 @@ function readAll(lesson) {
     });
     if (p.meaning) items.push({ t: p.meaning, lang: 'ar', el: 'phflag-' + p.id + '-m' });
     if (p.en) items.push({ t: p.en, lang: 'en', el: 'phflag-' + p.id + '-e' });
+  });
+  // timed caption cues are read too — every language row in order
+  (lesson.cues || []).forEach(function (c) {
+    cueRows(c.text).forEach(function (r) {
+      var lang = r.lang === 'auto' ? 'fr' : (r.lang || langOfFlag(r.flag));
+      items.push({ t: r.text, lang: lang, el: null });
+    });
   });
   if (set.langs) items = items.filter(function (it) { return set.langs.indexOf(it.lang) >= 0; });
   if (!items.length) return;
@@ -2672,7 +2679,12 @@ function renderMedia(v, f, l) {
       cov.appendChild(im);
       var dx = el('button', 'vcover-x', '✕');
       dx.title = 'remove cover';
-      dx.onclick = function (e) { e.stopPropagation(); mediaDel(coverKey); cov.remove(); };
+      dx.onclick = function (e) {
+        e.stopPropagation();
+        if (!confirm(T().del + '؟')) return;
+        mediaDel(coverKey);
+        cov.remove();
+      };
       cov.appendChild(dx);
       vc.appendChild(cov);
     });
