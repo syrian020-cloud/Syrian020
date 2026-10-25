@@ -1732,16 +1732,28 @@ function mediaSheet(f, l) {
     fi.click();
   };
   sh.appendChild(pick);
-  // pinned timed templates — each individually copyable
+  // timed templates collapsed under the file picker — tap 📋 to expand
+  var tplBtn = el('button', 'mrow');
+  tplBtn.appendChild(el('span', 'mi', '📋'));
+  tplBtn.appendChild(el('span', null, t.templates + ' ▾'));
+  var tplBox = el('div');
+  tplBox.style.display = 'none';
   TIMED_TEMPLATES.forEach(function (tp) {
     var head = el('div', 'tplhead');
     head.appendChild(el('span', 'tplname', tp.name));
     var cp = el('button', 'mini', '📋 ' + t.copyTpl);
     cp.onclick = function () { copyText(tp.text); };
     head.appendChild(cp);
-    sh.appendChild(head);
-    sh.appendChild(el('div', 'tplbox', tp.text));
+    tplBox.appendChild(head);
+    tplBox.appendChild(el('div', 'tplbox', tp.text));
   });
+  tplBtn.onclick = function () {
+    var open = tplBox.style.display === 'none';
+    tplBox.style.display = open ? '' : 'none';
+    tplBtn.lastChild.textContent = t.templates + (open ? ' ▴' : ' ▾');
+  };
+  sh.appendChild(tplBtn);
+  sh.appendChild(tplBox);
   var rTxt = fieldRow(t.timedL, cuesToText(l.cues), { textarea: true, rows: 6, ltr: true });
   sh.appendChild(rTxt);
   var act = el('div', 'actions');
