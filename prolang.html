@@ -1990,10 +1990,10 @@ var mediaEl = null;   // the <video>/<audio> in the open lesson
 var loopSeg = null;   // {start, end} — loops that media segment continuously
 // caption pill palette — mirrors .cue-line.lg-* above so canvas recording matches
 var CUE_PILL = {
-  fr: { bg: '#3d3d3d', fg: '#ffffff', font: "Georgia,'Times New Roman',serif", it: true },
-  ar: { bg: '#d9a21b', fg: '#33260a', font: "'Noto Kufi Arabic','Noto Naskh Arabic',Tahoma,sans-serif" },
-  en: { bg: '#f3ecd9', fg: '#2b2b2b', font: "'Segoe UI',Roboto,sans-serif" },
-  x:  { bg: '#7c3aed', fg: '#ffffff', font: "'Segoe UI',sans-serif" }
+  fr: { bg: '#3d3d3d', fg: '#ffffff', font: "'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" },
+  ar: { bg: '#d9a21b', fg: '#33260a', font: "'Noto Kufi Arabic','Noto Naskh Arabic',Tahoma,Arial,sans-serif" },
+  en: { bg: '#f3ecd9', fg: '#2b2b2b', font: "'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" },
+  x:  { bg: '#7c3aed', fg: '#ffffff', font: "'Segoe UI',Roboto,Arial,sans-serif" }
 };
 function cuePill(lang) {
   return CUE_PILL[lang === 'ar' ? 'ar' : lang === 'en' ? 'en' : lang === 'fr' ? 'fr' : 'x'];
@@ -2011,7 +2011,7 @@ function drawCuePills(cx, rows, W, H, hi) {
   if (!rows.length) return;
   // shrink the font until every pill fits inside the frame — a cue with many
   // rows used to stack past the top edge
-  var fs = Math.max(13, Math.round(H * 0.048));
+  var fs = Math.max(14, Math.round(H * 0.055));
   var lh = Math.round(fs * 1.9);
   while (fs > 13 && lh * rows.length + Math.round(H * 0.06) > H) {
     fs -= 2; lh = Math.round(fs * 1.9);
@@ -2934,13 +2934,40 @@ function closeQuiz() {
   var ov = document.getElementById('quiz-overlay');
   if (ov) ov.remove();
 }
+// everything the lesson holds that has ≥2 language texts — phrase cards AND timed cue rows
+function gamePool(lesson) {
+  var items = [];
+  (lesson.phrases || []).forEach(function (p) {
+    if (p.type === 'note') return;
+    if (Object.keys(phMap(p)).length >= 2) items.push(p);
+  });
+  (lesson.cues || []).forEach(function (c, i) {
+    var crows = cueRows(c.text).filter(function (r) { return r.text; });
+    var cp = { id: 'cue-' + lesson.id + '-' + i, text: '', lang: '', rows: crows };
+    if (Object.keys(phMap(cp)).length >= 2) items.push(cp);
+  });
+  return items;
+}
+// question lang of an item = its own main lang, else first lang it has
+function gameQLang(p) {
+  var m = phMap(p);
+  var q = p.lang || langOfFlag(p.flag);
+  return (q && m[q]) ? q : Object.keys(m)[0];
+}
+// answer lang = requested target if present, else any other lang — accepts every phrase
+function gameALang(p, target) {
+  var m = phMap(p), q = gameQLang(p);
+  if (m[target] && target !== q) return target;
+  var ks = Object.keys(m).filter(function (k) { return k !== q; });
+  return ks[0] || q;
+}
 function startQuiz(lesson, target) {
   var t = T();
   var qLang = lessonMainLang(lesson);
-  var pool = (lesson.phrases || []).filter(function (p) { return p.type !== 'note' && phText(p, target); });
+  var pool = gamePool(lesson);
   if (!pool.length) { toast(t.quizNoPhrases); return; }
   var picks = quizShuffle(pool).slice(0, 8).map(function (p, i) {
-    return { p: p, id: i, q: p.lang || langOfFlag(p.flag) };
+    return { p: p, id: i, q: gameQLang(p), a: gameALang(p, target) };
   });
   var body = document.getElementById('quiz-body');
   if (!body) return;
@@ -3004,8 +3031,8 @@ function startQuiz(lesson, target) {
       var f = mkCard(frOrder[i2], frOrder[i2].q);
       f.onclick = function () { onCard(f, frOrder[i2], f.dataset.lang, true); };
       cols.appendChild(f);
-      var g = mkCard(tgOrder[i2], target);
-      g.onclick = function () { onCard(g, tgOrder[i2], target, false); };
+      var g = mkCard(tgOrder[i2], tgOrder[i2].a);
+      g.onclick = function () { onCard(g, tgOrder[i2], g.dataset.lang, false); };
       cols.appendChild(g);
     })(i);
   }
@@ -3123,7 +3150,7 @@ function openListen(lesson) {
 }
 function lzStart() {
   var t = T();
-  var pool = (lz.lesson.phrases || []).filter(function (p) { return p.type !== 'note' && phText(p, lz.lang); });
+  var pool = gamePool(lz.lesson);
   var body = document.getElementById('quiz-body');
   if (!body) return;
   if (!pool.length) { toast(t.quizNoPhrases); return; }
@@ -3145,7 +3172,7 @@ function lzQuestion() {
     '<div class="lz-hero ' + lzHero.size + '" id="lzHero">' + lzHeroInner() + '</div>' +
     '<button class="lz-loop" id="lzReplay" title="' + esc(t.listenReplay) + '">🔊</button>' +
     '<div class="lz-opts">' + opts.map(function (o) {
-      return '<div class="lz-tile" data-ok="' + (o === p ? '1' : '0') + '">' + esc(phText(o, lz.lang)) + '</div>';
+      return '<div class="lz-tile" data-ok="' + (o === p ? '1' : '0') + '">' + esc(phText(o, gameALang(o, lz.lang))) + '</div>';
     }).join('') + '</div>' +
     '<div class="lz-nav">' +
     '<button id="lzNoteBtn" title="' + esc(t.noteTitle) + '">📓</button>' +
@@ -3155,12 +3182,12 @@ function lzQuestion() {
   document.getElementById('quiz-progress').textContent = (lz.idx + 1) + '/' + lz.qs.length;
   lzWireHeroTools();
   var rp = document.getElementById('lzReplay');
-  var pLang = p.lang || langOfFlag(p.flag);
+  var pLang = gameQLang(p);
   rp.onclick = function () { speak(phText(p, pLang), pLang, rp); };
   body.querySelectorAll('.lz-tile').forEach(function (tile) {
     tile.onclick = function () { lzAnswer(tile, p); };
   });
-  document.getElementById('lzNoteBtn').onclick = function () { openNote(p.id); };
+  document.getElementById('lzNoteBtn').onclick = function () { openNote(p.id, p.id && String(p.id).indexOf('cue-') === 0 ? p : undefined); };
   document.getElementById('lzNextBtn').onclick = lzNext;
   document.getElementById('lzAutoBtn').onclick = function () {
     lz.auto = !lz.auto;
@@ -3186,7 +3213,7 @@ function lzAnswer(tile, p) {
     hero.className = 'lz-hero v';
     var map = phMap(p);
     var html = '<div class="lz-verdict ' + (ok ? 'ok' : 'bad') + '"><div class="lz-face">' + (ok ? '😄' : '😢') + '</div>';
-    var pmLang = p.lang || langOfFlag(p.flag);
+    var pmLang = gameQLang(p);
     Object.keys(map).forEach(function (li) {
       var txt = map[li];
       if (txt) html += '<div class="lz-v-line"><span class="' + (li === pmLang ? 'lz-v-fr' : 'lz-v-tr') + '" dir="' + (li === 'ar' ? 'rtl' : 'ltr') + '">' + esc(txt) + '</span>' +
@@ -3448,6 +3475,9 @@ document.getElementById('mailBtn').onclick = openMail;
 var CapApp = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App;
 if (CapApp && CapApp.addListener) {
   CapApp.addListener('backButton', function () {
+    var nm = document.getElementById('noteModal');
+    if (nm && nm.classList.contains('show')) { closeNote(); return; }
+    if (document.getElementById('quiz-overlay')) { closeQuiz(); return; }
     if (ovRoot.firstChild) { closeOv(); return; }
     goBack();
   });
