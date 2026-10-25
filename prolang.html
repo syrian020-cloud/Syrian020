@@ -936,6 +936,10 @@ function readSetShort() {
   var s = READ_LANG_SETS.filter(function (x) { return x.id === readLangSet; })[0];
   return s ? s.short : READ_LANG_SETS[0].short;
 }
+function readSetLabel() {
+  var s = READ_LANG_SETS.filter(function (x) { return x.id === readLangSet; })[0];
+  return s ? s.label : READ_LANG_SETS[0].label;
+}
 function stopReadAll() {
   if (readAllJob) readAllJob.cancelled = true;
   speakTok++;
