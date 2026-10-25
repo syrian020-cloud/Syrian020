@@ -1789,8 +1789,14 @@ var recState = null;   // {rec, raf, cv}
 // draw caption pills (same colors as .cue-line.lg-*) — hi = index to outline
 function drawCuePills(cx, rows, W, H, hi) {
   if (!rows.length) return;
-  var fs = Math.max(16, Math.round(H * 0.048));
-  var lh = Math.round(fs * 1.9), padX = fs * 0.85, flagW = fs * 1.5;
+  // shrink the font until every pill fits inside the frame — a cue with many
+  // rows used to stack past the top edge
+  var fs = Math.max(13, Math.round(H * 0.048));
+  var lh = Math.round(fs * 1.9);
+  while (fs > 13 && lh * rows.length + Math.round(H * 0.06) > H) {
+    fs -= 2; lh = Math.round(fs * 1.9);
+  }
+  var padX = fs * 0.85, flagW = fs * 1.5;
   var y = H - Math.round(H * 0.03) - lh * rows.length + Math.round(lh / 2);
   rows.forEach(function (r, ri) {
     var lang = r.lang === 'auto' ? 'fr' : (r.lang || langOfFlag(r.flag));
@@ -2039,7 +2045,7 @@ function recordPhrase(btn, ph) {
       return { flag: r.flag, lang: r.lang || langOfFlag(r.flag), text: r.text };
     })).filter(function (r) { return r.text; });
   if (!rows.length) return;
-  var W = 720, H = Math.max(400, rows.length * 108 + 60);
+  var W = 1080, H = Math.max(700, rows.length * 160 + 90);
   var cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   var cx = cv.getContext('2d');
   var stream = cv.captureStream(30);
