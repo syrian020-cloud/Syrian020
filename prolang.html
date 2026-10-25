@@ -2618,8 +2618,9 @@ function renderMedia(v, f, l) {
     me.ontimeupdate = function () { sync(me.currentTime); };
     me.onseeked = function () { sync(me.currentTime); };
     try { me.playbackRate = playSpeed; } catch (e2) {}
-    // playing media always mutes TTS (and vice-versa via stopReadAll)
+    // hide the live caption while playing — it reappears when paused
     me.onplay = function () {
+      now.style.display = 'none';
       if (readAllJob) { readAllJob.cancelled = true; readAllJob = null; }
       speakTok++;
       if (window.EdgeTTS) EdgeTTS.stop();
@@ -2629,6 +2630,7 @@ function renderMedia(v, f, l) {
       var b = document.getElementById('readAllBtn');
       if (b) b.textContent = T().readAll;
     };
+    me.onpause = function () { now.style.display = ''; sync(me.currentTime); };
     mediaGet(mediaKey(l), function (blob) {
       if (blob) { me.src = URL.createObjectURL(blob); }
       else { me.remove(); me = null; now.textContent = '⚠️ ' + (l.media.name || ''); }
