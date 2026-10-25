@@ -2578,8 +2578,7 @@ function recDone(btn) {
 function renderMedia(v, f, l) {
   var cues = l.cues || [];
   var box = el('div', 'media-box');
-  var now = el('div', 'cue-now');
-  now.style.display = 'none';   // live caption over the video — hidden by request
+  var now = el('div', 'cue-now');   // live caption sits directly under the video
   var list = el('div');
   function activeIdx(t) {
     for (var i = 0; i < cues.length; i++)
@@ -2632,7 +2631,7 @@ function renderMedia(v, f, l) {
     me.onpause = function () { sync(me.currentTime); };
     mediaGet(mediaKey(l), function (blob) {
       if (blob) { me.src = URL.createObjectURL(blob); }
-      else { me.remove(); me = null; now.style.display = ''; now.textContent = '⚠️ ' + (l.media.name || ''); }
+      else { me.remove(); me = null; now.textContent = '⚠️ ' + (l.media.name || ''); }
     });
     box.appendChild(me);
   }
@@ -2709,8 +2708,8 @@ function renderMedia(v, f, l) {
     tools.appendChild(sz);
     if (me && l.vfit) me.className = FITS[l.vfit];
   }
-  box.appendChild(tools);
   box.appendChild(now);
+  box.appendChild(tools);
   v.appendChild(box);
   cues.forEach(function (c, i) {
     var cd = el('div', 'cue');
