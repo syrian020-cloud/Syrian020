@@ -230,13 +230,21 @@
   .cue-line.speaking { outline: 3px solid rgba(255,255,255,.7); }
   .cue-line .cue-flag { position: absolute; right: .6rem; top: 50%; transform: translateY(-50%);
     font-size: 1.35em; }
-  .cue-line.lg-fr { background: #3d3d3d; color: #fff;
-    font-family: Georgia, 'Times New Roman', 'Segoe UI', serif; font-style: italic; }
-  .cue-line.lg-ar { background: #d9a21b; color: #33260a;
-    font-family: 'Noto Kufi Arabic', 'Noto Naskh Arabic', 'Segoe UI', Tahoma, sans-serif;
-    font-size: 1.14rem; }
-  .cue-line.lg-en { background: #f3ecd9; color: #2b2b2b; }
-  .cue-line.lg-x { background: linear-gradient(135deg, #a78bfa, #7c3aed); color: #fff; }
+  .cue-line.lg-fr { background: var(--cap-fr-bg, #3d3d3d); color: var(--cap-fr-fg, #fff);
+    border: 2px solid var(--cap-fr-bd, transparent);
+    font-family: var(--cap-fr-font, Georgia, 'Times New Roman', 'Segoe UI', serif);
+    font-style: var(--cap-fr-style, italic); }
+  .cue-line.lg-ar { background: var(--cap-ar-bg, #d9a21b); color: var(--cap-ar-fg, #33260a);
+    border: 2px solid var(--cap-ar-bd, transparent);
+    font-family: var(--cap-ar-font, 'Noto Kufi Arabic', 'Noto Naskh Arabic', 'Segoe UI', Tahoma, sans-serif);
+    font-style: var(--cap-ar-style, normal); font-size: 1.14rem; }
+  .cue-line.lg-en { background: var(--cap-en-bg, #f3ecd9); color: var(--cap-en-fg, #2b2b2b);
+    border: 2px solid var(--cap-en-bd, transparent);
+    font-family: var(--cap-en-font, 'Segoe UI', 'Noto Sans', Roboto, sans-serif);
+    font-style: var(--cap-en-style, normal); }
+  .cue-line.lg-x { background: var(--cap-x-bg, linear-gradient(135deg, #a78bfa, #7c3aed));
+    color: var(--cap-x-fg, #fff); border: 2px solid var(--cap-x-bd, transparent);
+    font-family: var(--cap-x-font, 'Segoe UI', sans-serif); font-style: var(--cap-x-style, normal); }
   .cue-tools .mini.rec-on { background: #e11d48; color: #fff; border-color: transparent;
     animation: recPulse 1s infinite alternate; }
   @keyframes recPulse { from { box-shadow: 0 0 0 0 rgba(225,29,72,.5); }
@@ -260,10 +268,14 @@
   .crow .ph-text { flex: 1; min-width: 0; font-size: 1.42rem; font-weight: 800;
     color: #1d1d1d; text-align: center; line-height: 1.45; }
   .crow .ph-text.wlg-ar { font-size: 1.5rem; }
-  .crow.lg-fr { background: #cfe3fb; border-color: #8fa9d4; }
-  .crow.lg-ar { background: #ffd9ae; border-color: #dda763; }
-  .crow.lg-en { background: #cceed5; border-color: #7fbd90; }
-  .crow.lg-x { background: #e6dcfb; border-color: #a78bfa; }
+  .crow.lg-fr { background: var(--cap-fr-bg, #cfe3fb); border-color: var(--cap-fr-bd, #8fa9d4); }
+  .crow.lg-ar { background: var(--cap-ar-bg, #ffd9ae); border-color: var(--cap-ar-bd, #dda763); }
+  .crow.lg-en { background: var(--cap-en-bg, #cceed5); border-color: var(--cap-en-bd, #7fbd90); }
+  .crow.lg-x { background: var(--cap-x-bg, #e6dcfb); border-color: var(--cap-x-bd, #a78bfa); }
+  .crow.lg-fr .ph-text { color: var(--cap-fr-fg, #0b0f14); font-family: var(--cap-fr-font, inherit); font-style: var(--cap-fr-style, normal); }
+  .crow.lg-ar .ph-text { color: var(--cap-ar-fg, #1c1204); font-family: var(--cap-ar-font, inherit); font-style: var(--cap-ar-style, normal); }
+  .crow.lg-en .ph-text { color: var(--cap-en-fg, #10240f); font-family: var(--cap-en-font, inherit); font-style: var(--cap-en-style, normal); }
+  .crow.lg-x .ph-text { color: var(--cap-x-fg, #1f1145); font-family: var(--cap-x-font, inherit); font-style: var(--cap-x-style, normal); }
   .crow.ctime { background: #fff1a8; border-color: #d9be5a; }
   .ctime-t { flex: 1; text-align: center; background: none; border: none; cursor: pointer;
     font-family: inherit; direction: ltr; padding: .15rem 0; }
@@ -516,6 +528,7 @@ var I18N = {
     listenQuiz: 'لعبة الاستماع 🎧', listenReplay: '🔊 إعادة الاستماع', quizScore: 'النتيجة',
     next: 'التالي', autoNext: 'تلقائي', noteTitle: 'دفتر الملاحظات', saved: 'تم الحفظ ✓',
     aiTitle: 'شرح العبارة بالذكاء الاصطناعي من Google', clipartTitle: 'بحث Google Clipart عن العبارة',
+    captionTheme: 'نماذج الكابشن 🎨',
     deleted: 'تم الحذف', lzImgDel: 'حذف الصورة؟'
   },
   fr: {
@@ -553,6 +566,7 @@ var I18N = {
     listenQuiz: 'Jeu d’écoute 🎧', listenReplay: '🔊 Réécouter', quizScore: 'Score',
     next: 'Suivant', autoNext: 'Auto', noteTitle: 'Carnet', saved: 'Enregistré ✓',
     aiTitle: 'Expliquer la phrase avec Google AI', clipartTitle: 'Recherche Google Clipart de la phrase',
+    captionTheme: 'Thème des sous-titres 🎨',
     deleted: 'Supprimé', lzImgDel: 'Supprimer l’image ?'
   },
   en: {
@@ -590,6 +604,7 @@ var I18N = {
     listenQuiz: 'Listening game 🎧', listenReplay: '🔊 Listen again', quizScore: 'Score',
     next: 'Next', autoNext: 'Auto', noteTitle: 'Notebook', saved: 'Saved ✓',
     aiTitle: 'Explain phrase with Google AI', clipartTitle: 'Google Clipart search for the phrase',
+    captionTheme: 'Caption theme 🎨',
     deleted: 'Deleted', lzImgDel: 'Delete image?'
   }
 };
@@ -1988,15 +2003,81 @@ function mediaKey(l) { return 'plm_' + l.id; }
 
 var mediaEl = null;   // the <video>/<audio> in the open lesson
 var loopSeg = null;   // {start, end} — loops that media segment continuously
-// caption pill palette — mirrors .cue-line.lg-* above so canvas recording matches
-var CUE_PILL = {
-  fr: { bg: '#3d3d3d', fg: '#ffffff', font: "'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" },
-  ar: { bg: '#d9a21b', fg: '#33260a', font: "'Noto Kufi Arabic','Noto Naskh Arabic',Tahoma,Arial,sans-serif" },
-  en: { bg: '#f3ecd9', fg: '#2b2b2b', font: "'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif" },
-  x:  { bg: '#7c3aed', fg: '#ffffff', font: "'Segoe UI',Roboto,Arial,sans-serif" }
-};
+// caption themes (zeelang-style): 🎨 cycles 10 palettes — colors + fonts per language,
+// applied to live rows, in-player caption AND burned-in recording pills
+var CAP_THEMES = [
+  { name: 'Pastel',
+    fr: { bg: '#cfe3fb', bd: '#8fa9d4', fg: '#0b0f14', font: "Georgia,'Times New Roman',serif", it: 0 },
+    ar: { bg: '#ffd9ae', bd: '#dda763', fg: '#2b1c05', font: "'Noto Kufi Arabic','Noto Naskh Arabic',Tahoma,sans-serif", it: 0 },
+    en: { bg: '#cceed5', bd: '#7fbd90', fg: '#0e2a18', font: "'Segoe UI',Roboto,sans-serif", it: 0 },
+    x:  { bg: '#e6dcfb', bd: '#a78bfa', fg: '#1f1145', font: "'Segoe UI',sans-serif", it: 0 } },
+  { name: 'Cinema',
+    fr: { bg: '#3d3d3d', bd: '#6b6b6b', fg: '#ffffff', font: "Georgia,'Times New Roman',serif", it: 1 },
+    ar: { bg: '#d9a21b', bd: '#b8891a', fg: '#33260a', font: "'Noto Kufi Arabic',Tahoma,sans-serif", it: 0 },
+    en: { bg: '#f3ecd9', bd: '#d8cba8', fg: '#2b2b2b', font: "'Segoe UI',Roboto,sans-serif", it: 0 },
+    x:  { bg: '#7c3aed', bd: '#6d28d9', fg: '#ffffff', font: "'Segoe UI',sans-serif", it: 0 } },
+  { name: 'Netflix',
+    fr: { bg: '#141414', bd: '#e50914', fg: '#ffffff', font: "'Arial Narrow','Segoe UI',Arial,sans-serif", it: 0 },
+    ar: { bg: '#141414', bd: '#e50914', fg: '#ffd166', font: "'Noto Kufi Arabic',Tahoma,sans-serif", it: 0 },
+    en: { bg: '#141414', bd: '#e50914', fg: '#e8e8e8', font: "'Arial Narrow','Segoe UI',Arial,sans-serif", it: 0 },
+    x:  { bg: '#141414', bd: '#e50914', fg: '#ffffff', font: "'Segoe UI',sans-serif", it: 0 } },
+  { name: 'Ocean',
+    fr: { bg: '#0b3b6f', bd: '#3b82f6', fg: '#dbeafe', font: "'Segoe UI',Roboto,sans-serif", it: 0 },
+    ar: { bg: '#38bdf8', bd: '#0284c7', fg: '#083344', font: "'Noto Kufi Arabic',Tahoma,sans-serif", it: 0 },
+    en: { bg: '#e0f2fe', bd: '#7dd3fc', fg: '#0c4a6e', font: "'Segoe UI',Roboto,sans-serif", it: 0 },
+    x:  { bg: '#1e40af', bd: '#60a5fa', fg: '#dbeafe', font: "'Segoe UI',sans-serif", it: 0 } },
+  { name: 'Forest',
+    fr: { bg: '#14532d', bd: '#4ade80', fg: '#dcfce7', font: "Georgia,'Times New Roman',serif", it: 0 },
+    ar: { bg: '#a3e635', bd: '#65a30d', fg: '#1a2e05', font: "'Noto Kufi Arabic',Tahoma,sans-serif", it: 0 },
+    en: { bg: '#ecfccb', bd: '#a3e635', fg: '#3f6212', font: "'Segoe UI',Roboto,sans-serif", it: 0 },
+    x:  { bg: '#166534', bd: '#4ade80', fg: '#dcfce7', font: "'Segoe UI',sans-serif", it: 0 } },
+  { name: 'Sunset',
+    fr: { bg: '#7c2d12', bd: '#fb923c', fg: '#ffedd5', font: "Georgia,'Times New Roman',serif", it: 1 },
+    ar: { bg: '#fb923c', bd: '#ea580c', fg: '#431407', font: "'Noto Kufi Arabic',Tahoma,sans-serif", it: 0 },
+    en: { bg: '#fed7aa', bd: '#fdba74', fg: '#7c2d12', font: "'Segoe UI',Roboto,sans-serif", it: 0 },
+    x:  { bg: '#9a3412', bd: '#fdba74', fg: '#ffedd5', font: "'Segoe UI',sans-serif", it: 0 } },
+  { name: 'Berry',
+    fr: { bg: '#4c1d95', bd: '#a78bfa', fg: '#ede9fe', font: "Georgia,'Times New Roman',serif", it: 0 },
+    ar: { bg: '#e9d5ff', bd: '#c084fc', fg: '#3b0764', font: "'Noto Kufi Arabic',Tahoma,sans-serif", it: 0 },
+    en: { bg: '#fae8ff', bd: '#e879f9', fg: '#701a75', font: "'Segoe UI',Roboto,sans-serif", it: 0 },
+    x:  { bg: '#86198f', bd: '#e879f9', fg: '#fdf4ff', font: "'Segoe UI',sans-serif", it: 0 } },
+  { name: 'Paper',
+    fr: { bg: '#fdf6e3', bd: '#b08968', fg: '#5b4636', font: "Georgia,'Times New Roman',serif", it: 0 },
+    ar: { bg: '#f5e6c8', bd: '#b08968', fg: '#4a3728', font: "'Noto Naskh Arabic','Noto Kufi Arabic',Tahoma,serif", it: 0 },
+    en: { bg: '#fff8e7', bd: '#b08968', fg: '#5b4636', font: "Georgia,'Times New Roman',serif", it: 0 },
+    x:  { bg: '#efe6d8', bd: '#b08968', fg: '#4a3728', font: "Georgia,serif", it: 0 } },
+  { name: 'Neon',
+    fr: { bg: '#0a0a0a', bd: '#22d3ee', fg: '#22d3ee', font: "'Courier New','Segoe UI',monospace", it: 0 },
+    ar: { bg: '#0a0a0a', bd: '#a3e635', fg: '#a3e635', font: "'Noto Kufi Arabic',Tahoma,sans-serif", it: 0 },
+    en: { bg: '#0a0a0a', bd: '#facc15', fg: '#facc15', font: "'Courier New','Segoe UI',monospace", it: 0 },
+    x:  { bg: '#0a0a0a', bd: '#f472b6', fg: '#f472b6', font: "'Courier New',monospace", it: 0 } },
+  { name: 'Snow',
+    fr: { bg: '#ffffff', bd: '#93c5fd', fg: '#1e3a8a', font: "'Segoe UI',Roboto,sans-serif", it: 0 },
+    ar: { bg: '#ffffff', bd: '#fdba74', fg: '#7c2d12', font: "'Noto Kufi Arabic',Tahoma,sans-serif", it: 0 },
+    en: { bg: '#ffffff', bd: '#86efac', fg: '#14532d', font: "'Segoe UI',Roboto,sans-serif", it: 0 },
+    x:  { bg: '#ffffff', bd: '#c4b5fd', fg: '#4c1d95', font: "'Segoe UI',sans-serif", it: 0 } }
+];
+var capThemeIdx = Math.max(0, Math.min(9, parseInt(localStorage.getItem('prolang_captheme') || '0', 10) || 0));
 function cuePill(lang) {
-  return CUE_PILL[lang === 'ar' ? 'ar' : lang === 'en' ? 'en' : lang === 'fr' ? 'fr' : 'x'];
+  var th = CAP_THEMES[capThemeIdx];
+  return th[lang === 'ar' ? 'ar' : lang === 'en' ? 'en' : lang === 'fr' ? 'fr' : 'x'];
+}
+function applyCapTheme() {
+  var th = CAP_THEMES[capThemeIdx], r = document.documentElement.style;
+  ['fr', 'ar', 'en', 'x'].forEach(function (k) {
+    var s = th[k];
+    r.setProperty('--cap-' + k + '-bg', s.bg);
+    r.setProperty('--cap-' + k + '-bd', s.bd);
+    r.setProperty('--cap-' + k + '-fg', s.fg);
+    r.setProperty('--cap-' + k + '-font', s.font);
+    r.setProperty('--cap-' + k + '-style', s.it ? 'italic' : 'normal');
+  });
+}
+function cycleCapTheme() {
+  capThemeIdx = (capThemeIdx + 1) % CAP_THEMES.length;
+  try { localStorage.setItem('prolang_captheme', String(capThemeIdx)); } catch (e) {}
+  applyCapTheme();
+  toast('🎨 ' + CAP_THEMES[capThemeIdx].name + ' ' + (capThemeIdx + 1) + '/' + CAP_THEMES.length);
 }
 function rrPath(c, x, y, w, h, r) {
   c.beginPath();
@@ -2425,6 +2506,11 @@ function renderMedia(v, f, l) {
     box.appendChild(me);
   }
   var tools = el('div', 'cue-tools');
+  // 🎨 caption theme switcher — 10 palettes (colors + fonts per language)
+  var ct = el('button', 'mini', '🎨');
+  ct.title = T().captionTheme || 'caption theme';
+  ct.onclick = function () { cycleCapTheme(); };
+  tools.appendChild(ct);
   var lp = el('button', 'mini', '🔂');
   lp.title = 'repeat cue';
   lp.onclick = function () {
@@ -3466,6 +3552,7 @@ function bindNoteUI() {
 }
 bindNoteUI();
 applyFont();
+applyCapTheme();
 
 document.getElementById('themeBtn').onclick = toggleTheme;
 document.getElementById('menuBtn').onclick = openMenu;
