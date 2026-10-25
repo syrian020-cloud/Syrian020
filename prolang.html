@@ -2437,7 +2437,14 @@ function recToggle(btn, me, cues, activeIdx, segEnd) {
       try { recState.rec.stop(); } catch (e) { recDone(btn); }
       return;
     }
-    if (isVideo) {
+    var ci = me._vcrop ? me._vcrop.querySelector('.vcover img') : null;
+    if (isVideo && ci && ci.complete && ci.naturalWidth) {
+      // cover image set → the clip shows the image, not the video (zeelang)
+      var s = Math.max(W / ci.naturalWidth, H / ci.naturalHeight);
+      var dw = ci.naturalWidth * s, dh = ci.naturalHeight * s;
+      try { cx.drawImage(ci, (W - dw) / 2, (H - dh) / 2, dw, dh); }
+      catch (e) { cx.fillStyle = '#000'; cx.fillRect(0, 0, W, H); }
+    } else if (isVideo) {
       try { cx.drawImage(me, 0, 0, W, H); } catch (e) {
         cx.fillStyle = '#000'; cx.fillRect(0, 0, W, H);
       }
