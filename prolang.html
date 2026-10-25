@@ -1960,6 +1960,19 @@ function recordPhrase(btn, ph) {
   var cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   var cx = cv.getContext('2d');
   var stream = cv.captureStream(30);
+  // attach ONE stable audio track BEFORE the recorder starts — a track added
+  // mid-recording is dropped by some WebView MediaRecorders (clip had no
+  // audio stream at all). Every row's TTS is then routed through this node.
+  var actx = null, recDst = null;
+  try {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (AC) {
+      actx = window._plACtx || (window._plACtx = new AC());
+      if (actx.state === 'suspended') actx.resume();
+      recDst = actx.createMediaStreamDestination();
+      recDst.stream.getAudioTracks().forEach(function (tr) { stream.addTrack(tr); });
+    }
+  } catch (e) {}
   var rec = newRec(stream); if (!rec) return;
   var chunks = [], hi = -1;
   function draw() {
@@ -1999,7 +2012,14 @@ function recordPhrase(btn, ph) {
         // sound we pipe into the clip with addMediaAudio.
         var playUrl = function (url, revoke) {
           var au = new Audio(url);
-          addMediaAudio(au, stream);
+          if (recDst && actx) {
+            try {
+              var s = actx.createMediaElementSource(au);
+              s.connect(recDst); s.connect(actx.destination);
+            } catch (e) {}
+          } else {
+            addMediaAudio(au, stream);
+          }
           var done = function () { if (revoke) URL.revokeObjectURL(url); };
           au.onended = function () { done(); next(350); };
           au.onerror = function () { done(); next(300); };
