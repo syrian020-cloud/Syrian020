@@ -2782,7 +2782,10 @@ fab.onclick = function () {
 
 /* ================= font size (app-wide) ================= */
 function fontPct() { var p = parseInt(localStorage.getItem('prolang_fs') || '100', 10); return (p >= 60 && p <= 220) ? p : 100; }
-function applyFont() { document.documentElement.style.fontSize = (16 * fontPct() / 100) + 'px'; }
+function applyFont() {
+  // zoom scales EVERYTHING (rem + px + icons) — some WebViews don't relayout rem on root font-size change
+  document.body.style.zoom = fontPct() + '%';
+}
 function setFontPct(p) {
   p = Math.max(60, Math.min(220, Math.round(p / 10) * 10));
   try { localStorage.setItem('prolang_fs', String(p)); } catch (e) {}
