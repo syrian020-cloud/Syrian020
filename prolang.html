@@ -1867,6 +1867,30 @@ function newRec(stream) {
     return r;
   } catch (e) { toast('⚠️ ' + (T().recNo || 'recording not supported')); return null; }
 }
+// attach a media element's audio to a recording stream:
+// captureStream() first, WebAudio fallback (WebViews often return no audio track)
+function addMediaAudio(me, stream) {
+  try {
+    var ms = me.captureStream ? me.captureStream()
+      : (me.mozCaptureStream ? me.mozCaptureStream() : null);
+    var trs = ms ? ms.getAudioTracks() : [];
+    if (trs.length) {
+      trs.forEach(function (tr) { stream.addTrack(tr); });
+      return true;
+    }
+  } catch (e) {}
+  try {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return false;
+    var actx = window._plACtx || (window._plACtx = new AC());
+    if (actx.state === 'suspended') actx.resume();
+    var src = me._plWaSrc || (me._plWaSrc = actx.createMediaElementSource(me));
+    var dst = me._plWaDst || (me._plWaDst = actx.createMediaStreamDestination());
+    try { src.connect(dst); src.connect(actx.destination); } catch (e) {}
+    dst.stream.getAudioTracks().forEach(function (tr) { stream.addTrack(tr); });
+    return true;
+  } catch (e) { return false; }
+}
 // ⏺ record media playback with its caption pills; segEnd auto-stops at a cue end
 function recToggle(btn, me, cues, activeIdx, segEnd) {
   if (recState) {
@@ -1879,11 +1903,7 @@ function recToggle(btn, me, cues, activeIdx, segEnd) {
   var cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   var cx = cv.getContext('2d');
   var stream = cv.captureStream(30);
-  try {
-    var ms = me.captureStream ? me.captureStream()
-      : (me.mozCaptureStream ? me.mozCaptureStream() : null);
-    if (ms) ms.getAudioTracks().forEach(function (tr) { stream.addTrack(tr); });
-  } catch (e) {}
+  addMediaAudio(me, stream);
   var rec = newRec(stream); if (!rec) return;
   var chunks = [];
   function draw() {
@@ -1963,11 +1983,7 @@ function recordPhrase(btn, ph) {
         if (!recState) return;
         if (!a || !a.url) { next(1400); return; }
         var au = new Audio(a.url);
-        try {
-          var as = au.captureStream ? au.captureStream()
-            : (au.mozCaptureStream ? au.mozCaptureStream() : null);
-          if (as) as.getAudioTracks().forEach(function (tr) { stream.addTrack(tr); });
-        } catch (e) {}
+        addMediaAudio(au, stream);
         au.onended = function () { next(350); };
         au.onerror = function () { next(300); };
         var pr = au.play();
