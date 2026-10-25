@@ -246,26 +246,34 @@
   .cue-tools { display: flex; gap: .4rem; justify-content: center; margin-top: .35rem; }
   .cue-tools .mini.on { background: linear-gradient(135deg, var(--accent), var(--accent2));
     color: #fff; border-color: transparent; }
-  .cue { display: flex; gap: .55rem; align-items: flex-start; background: var(--card);
-    border: 1px solid var(--line); border-radius: 16px; padding: .55rem .6rem;
-    margin-bottom: .55rem; box-shadow: 0 4px 14px rgba(3,8,12,.14);
-    border-inline-start: 3px solid transparent; }
-  .cue.on { border-inline-start-color: var(--accent); background: rgba(20,184,166,.08); }
-  .cue-t { flex: none; min-width: 46px; text-align: center; background: var(--field);
-    border: 1px solid var(--line); border-radius: 12px; padding: .55rem .3rem;
-    font-size: .72rem; font-weight: 800; color: var(--accent); cursor: pointer;
-    font-family: inherit; direction: ltr; }
-  .cue-t:active { background: var(--accent); color: #fff; }
-  .cue-t.speaking { background: var(--accent); color: #fff; border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(20,184,166,.2); }
-  .cue-side { flex: none; display: flex; flex-direction: column; gap: .3rem; }
-  .cue-rec { background: var(--field); border: 1px solid var(--line); border-radius: 12px;
-    padding: .3rem .4rem; font-size: .82rem; color: #e11d48; cursor: pointer;
-    font-family: inherit; line-height: 1; }
-  .cue-rec.rec-on { background: #e11d48; color: #fff; border-color: transparent;
+  .cue { display: block; margin-bottom: .8rem; border-inline-start: 3px solid transparent; }
+  .cue.on { border-inline-start-color: var(--accent); }
+  /* cue rows — big pastel pills, flag inside at the left edge (grok style) */
+  .crow { display: flex; align-items: center; gap: 1rem; direction: ltr;
+    border-radius: 26px; border: 2px solid; padding: .85rem 1.3rem;
+    margin-bottom: .7rem; box-shadow: 0 4px 12px rgba(3,8,12,.16); }
+  .crow .crow-flag { flex: none; font-size: 2rem; line-height: 1; background: none;
+    border: none; cursor: pointer; padding: 0; font-family: inherit;
+    transition: transform .12s ease; }
+  .crow .crow-flag:active { transform: scale(.88); }
+  .crow .crow-flag.speaking { outline: 3px solid rgba(20,184,166,.55); border-radius: 10px; }
+  .crow .ph-text { flex: 1; min-width: 0; font-size: 1.42rem; font-weight: 800;
+    color: #1d1d1d; text-align: center; line-height: 1.45; }
+  .crow .ph-text.wlg-ar { font-size: 1.5rem; }
+  .crow.lg-fr { background: #cfe3fb; border-color: #8fa9d4; }
+  .crow.lg-ar { background: #ffd9ae; border-color: #dda763; }
+  .crow.lg-en { background: #cceed5; border-color: #7fbd90; }
+  .crow.lg-x { background: #e6dcfb; border-color: #a78bfa; }
+  .crow.ctime { background: #fff1a8; border-color: #d9be5a; }
+  .ctime-t { flex: 1; text-align: start; font-size: 1.35rem; font-weight: 800;
+    color: #1d1d1d; background: none; border: none; cursor: pointer;
+    font-family: inherit; direction: ltr; padding: .15rem 0; }
+  .ctime-t.speaking { color: #b33939; }
+  .ctime-rec { flex: none; background: none; border: none; cursor: pointer;
+    font-size: 1.35rem; color: #c02626; font-family: inherit; padding: .15rem .2rem;
+    border-radius: 10px; }
+  .ctime-rec.rec-on { color: #fff; background: #e11d48;
     animation: recPulse 1s infinite alternate; }
-  .cue-body { flex: 1; min-width: 0; }
-  .cue-body .ph-row:first-child { margin-top: 0; }
 
   .hidden { display: none !important; }
 </style>
@@ -2270,8 +2278,20 @@ function renderMedia(v, f, l) {
   v.appendChild(box);
   cues.forEach(function (c, i) {
     var cd = el('div', 'cue');
-    var side = el('div', 'cue-side');
-    var tb = el('button', 'cue-t', fmtT(c.start));
+    var cb = el('div', 'cue-body');
+    cueRows(c.text).forEach(function (r, ri) {
+      var lang = r.lang === 'auto' ? 'fr' : (r.lang || langOfFlag(r.flag));
+      var row = el('div', 'crow lg-' + (lang === 'ar' ? 'ar' : lang === 'en' ? 'en' : lang === 'fr' ? 'fr' : 'x'));
+      var rf = el('button', 'crow-flag', r.flag !== '🏳' ? r.flag : '🔊');
+      rf.id = 'cueflag-' + l.id + '-' + i + '-' + ri;
+      rf.onclick = function (e) { e.stopPropagation(); speak(r.text, lang, rf); };
+      row.appendChild(rf);
+      row.appendChild(wordRow(r.text, lang));
+      cb.appendChild(row);
+    });
+    // yellow time pill — tap loops this cue's segment; ⬇ at the edge records it
+    var tr = el('div', 'crow ctime');
+    var tb = el('button', 'ctime-t', fmtT(c.start));
     tb.onclick = function () {
       // tap the timestamp = loop THIS cue's segment of the video/audio itself
       if (me && me.src) {
@@ -2306,24 +2326,19 @@ function renderMedia(v, f, l) {
         }, function () { tb.classList.remove('speaking'); });
       })(0);
     };
-    side.appendChild(tb);
+    tr.appendChild(tb);
     if (me) {
-      // ⏺ record THIS caption's segment of the media → share/download clip
-      var cr = el('button', 'cue-rec', '⬇');
+      // ⬇ record THIS caption's segment of the media → share clip
+      var cr = el('button', 'ctime-rec', '⬇');
       cr.title = T().recClip || 'record clip';
       cr.onclick = function () {
         if (recState) { try { recState.rec.stop(); } catch (e) { recDone(cr); } return; }
         me.currentTime = c.start;
         recToggle(cr, me, cues, activeIdx, c.end);
       };
-      side.appendChild(cr);
+      tr.appendChild(cr);
     }
-    cd.appendChild(side);
-    var cb = el('div', 'cue-body');
-    cueRows(c.text).forEach(function (r, ri) {
-      flagRow(cb, r.flag, r.lang === 'auto' ? null : r.lang, r.text, r.latin, r.arp,
-        'cueflag-' + l.id + '-' + i + '-' + ri);
-    });
+    cb.appendChild(tr);
     cd.appendChild(cb);
     list.appendChild(cd);
   });
