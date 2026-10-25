@@ -1993,22 +1993,38 @@ function recordPhrase(btn, ph) {
       EdgeTTS.audio(r.text, lang).then(function (a) {
         if (!recState) return;
         if (!a || !a.url) { next(1400); return; }
-        var playUrl = function (url) {
-          var au = new Audio(url);
+        // a remote/file url can't be captured into the clip (CORS muting):
+        // fetch the bytes and play them through WebAudio -> both the speaker
+        // and a MediaStreamDestination whose track is added to the clip.
+        var playBuf = function (buf) {
+          try {
+            var AC = window.AudioContext || window.webkitAudioContext;
+            var actx = window._plACtx || (window._plACtx = new AC());
+            if (actx.state === 'suspended') actx.resume();
+            var src = actx.createBufferSource();
+            src.buffer = buf;
+            var dst = actx.createMediaStreamDestination();
+            src.connect(dst); src.connect(actx.destination);
+            dst.stream.getAudioTracks().forEach(function (tr) { stream.addTrack(tr); });
+            src.onended = function () { next(350); };
+            src.start();
+          } catch (e) { next(1200); }
+        };
+        fetch(a.url).then(function (rsp) {
+          if (!rsp.ok) throw new Error('http');
+          return rsp.arrayBuffer();
+        }).then(function (ab) {
+          var AC = window.AudioContext || window.webkitAudioContext;
+          var actx = window._plACtx || (window._plACtx = new AC());
+          return actx.decodeAudioData(ab);
+        }).then(playBuf).catch(function () {
+          var au = new Audio(a.url);
           addMediaAudio(au, stream);
           au.onended = function () { next(350); };
           au.onerror = function () { next(300); };
           var pr = au.play();
           if (pr && pr.catch) pr.catch(function () { next(300); });
-        };
-        // a remote/file url can't be captured into the clip (CORS muting) —
-        // pull it into a same-origin blob first, fall back to the raw url
-        fetch(a.url).then(function (rsp) {
-          if (!rsp.ok) throw new Error('http');
-          return rsp.blob();
-        }).then(function (b) {
-          playUrl(URL.createObjectURL(b));
-        }).catch(function () { playUrl(a.url); });
+        });
       }, function () { next(1400); });
     } catch (e) { next(1400); }
   })(0);
