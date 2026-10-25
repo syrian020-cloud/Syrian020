@@ -265,9 +265,20 @@
   .crow.lg-en { background: #cceed5; border-color: #7fbd90; }
   .crow.lg-x { background: #e6dcfb; border-color: #a78bfa; }
   .crow.ctime { background: #fff1a8; border-color: #d9be5a; }
-  .ctime-t { flex: 1; text-align: start; font-size: 1.35rem; font-weight: 800;
-    color: #1d1d1d; background: none; border: none; cursor: pointer;
+  .ctime-t { flex: 1; text-align: center; background: none; border: none; cursor: pointer;
     font-family: inherit; direction: ltr; padding: .15rem 0; }
+  .ctime-num { display: inline-block; font-size: 1.35rem; font-weight: 800; color: #1d1d1d;
+    font-variant-numeric: tabular-nums; background: linear-gradient(#fffdf0, #ffedb0);
+    border: 2px solid #b98f1e; border-radius: 14px; padding: .12rem .8rem;
+    box-shadow: 0 2px 0 #b98f1e, inset 0 0 0 2px rgba(255,255,255,.6); }
+  .ctime-t.speaking .ctime-num { color: #b33939; border-color: #b33939; }
+  .ctime-ic { flex: none; width: 2.3rem; height: 2.3rem; border-radius: 50%; border: 2px solid rgba(0,0,0,.18);
+    font-size: 1.15rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    padding: 0; box-shadow: 0 2px 4px rgba(0,0,0,.15); }
+  .ctime-ic:active { transform: scale(.88); }
+  .ctime-ic.ic-note { background: #fbbf24; }
+  .ctime-ic.ic-ai { background: #7dd3fc; }
+  .ctime-ic.ic-clip { background: #c4b5fd; }
   .ctime-t.speaking { color: #b33939; }
   .ctime-rec { flex: none; background: none; border: none; cursor: pointer;
     font-size: 1.35rem; color: #c02626; font-family: inherit; padding: .15rem .2rem;
@@ -504,6 +515,7 @@ var I18N = {
     quizReplay: 'إعادة اللعب', quizExit: 'خروج', quizNoPhrases: 'لا توجد عبارات كافية للّعبة',
     listenQuiz: 'لعبة الاستماع 🎧', listenReplay: '🔊 إعادة الاستماع', quizScore: 'النتيجة',
     next: 'التالي', autoNext: 'تلقائي', noteTitle: 'دفتر الملاحظات', saved: 'تم الحفظ ✓',
+    aiTitle: 'شرح العبارة بالذكاء الاصطناعي من Google', clipartTitle: 'بحث Google Clipart عن العبارة',
     deleted: 'تم الحذف', lzImgDel: 'حذف الصورة؟'
   },
   fr: {
@@ -540,6 +552,7 @@ var I18N = {
     quizReplay: 'Rejouer', quizExit: 'Quitter', quizNoPhrases: 'Pas assez de phrases',
     listenQuiz: 'Jeu d’écoute 🎧', listenReplay: '🔊 Réécouter', quizScore: 'Score',
     next: 'Suivant', autoNext: 'Auto', noteTitle: 'Carnet', saved: 'Enregistré ✓',
+    aiTitle: 'Expliquer la phrase avec Google AI', clipartTitle: 'Recherche Google Clipart de la phrase',
     deleted: 'Supprimé', lzImgDel: 'Supprimer l’image ?'
   },
   en: {
@@ -576,6 +589,7 @@ var I18N = {
     quizReplay: 'Play again', quizExit: 'Exit', quizNoPhrases: 'Not enough phrases for the game',
     listenQuiz: 'Listening game 🎧', listenReplay: '🔊 Listen again', quizScore: 'Score',
     next: 'Next', autoNext: 'Auto', noteTitle: 'Notebook', saved: 'Saved ✓',
+    aiTitle: 'Explain phrase with Google AI', clipartTitle: 'Google Clipart search for the phrase',
     deleted: 'Deleted', lzImgDel: 'Delete image?'
   }
 };
@@ -2493,12 +2507,43 @@ function renderMedia(v, f, l) {
     });
     // yellow time pill — tap loops this cue's segment; ⬇ at the edge records it
     var tr = el('div', 'crow ctime');
-    var tb = el('button', 'ctime-t', fmtT(c.start));
+    var crows = cueRows(c.text).filter(function (r) { return r.text; });
+    var cp = { id: 'cue-' + l.id + '-' + i, text: '', lang: '', rows: crows };
+    var nb = el('button', 'ctime-ic ic-note', notesMap[cp.id] ? '📔' : '📓');
+    nb.title = T().noteTitle || 'note';
+    nb.onclick = function (e) { e.stopPropagation(); openNote(cp.id, cp); };
+    var ai = el('button', 'ctime-ic ic-ai', '✨');
+    ai.title = T().aiTitle || 'Google AI';
+    ai.onclick = function (e) {
+      e.stopPropagation();
+      var m = phMap(cp), fr = m.fr || '', ar = m.ar || '', en = m.en || '';
+      var extra = Object.keys(m).filter(function (k) { return k !== 'fr' && k !== 'ar' && k !== 'en'; })
+        .map(function (k) { return m[k]; }).join('\n');
+      var query = 'French phrase: "' + (fr || Object.values(m)[0] || '') + '"\n' +
+        (ar ? 'Arabic translation: "' + ar + '"\n' : '') +
+        (en ? 'English translation: "' + en + '"\n' : '') +
+        (extra ? extra + '\n' : '') +
+        '1) Translate each individual word (French → Arabic → English).\n' +
+        '2) Explain the French grammar rule (verb conjugation, structure, or expression) used in this phrase.\n' +
+        '3) Provide a short practical conversation in French, Arabic and English using this phrase so it can be memorized as a conversation.\n' +
+        'Output in French, Arabic and English.';
+      openExternal('https://www.google.com/search?q=' + encodeURIComponent(query) + '&udm=50&hl=' + uiLang());
+    };
+    var ci = el('button', 'ctime-ic ic-clip', '🔍');
+    ci.title = T().clipartTitle || 'Google Clipart';
+    ci.onclick = function (e) {
+      e.stopPropagation();
+      var m = phMap(cp);
+      var q = (m.fr || Object.values(m)[0] || '') + ' clipart';
+      openExternal('https://www.google.com/search?q=' + encodeURIComponent(q) + '&udm=2&hl=' + uiLang());
+    };
+    var tb = el('button', 'ctime-t');
+    tb.innerHTML = '<span class="ctime-num">' + fmtT(c.start) + '</span>';
     tb.onclick = function () {
       // tap the timestamp = loop THIS cue's segment of the video/audio itself
       if (me && me.src) {
         var was = tb.classList.contains('speaking');
-        document.querySelectorAll('.ctime-t.speaking').forEach(function (x) {
+        document.querySelectorAll('.ctime-t.speaking, .ctime-num.speaking').forEach(function (x) {
           x.classList.remove('speaking');
         });
         if (was) { loopSeg = null; me.pause(); if (lp) lp.classList.remove('on'); return; }
@@ -2529,6 +2574,9 @@ function renderMedia(v, f, l) {
       })(0);
     };
     tr.appendChild(tb);
+    tr.appendChild(nb);
+    tr.appendChild(ai);
+    tr.appendChild(ci);
     if (me) {
       // ⬇ record THIS caption's segment of the media → share clip
       var cr = el('button', 'ctime-rec', '⬇');
@@ -3245,10 +3293,10 @@ function setupNoteCanvas() {
   noteCtx.lineCap = 'round';
   noteCtx.lineJoin = 'round';
 }
-function openNote(key) {
+function openNote(key, phraseOverride) {
   noteKey = key;
   document.getElementById('noteModal').classList.add('show');
-  var phrase = findPhraseById(key);
+  var phrase = phraseOverride || findPhraseById(key);
   var bar = document.getElementById('notePhraseBar');
   if (bar) {
     bar.innerHTML = ['fr', 'ar', 'en'].map(function (l) {
