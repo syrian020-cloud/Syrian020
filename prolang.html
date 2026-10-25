@@ -254,7 +254,7 @@
   .cue-now { text-align: center; font-size: 1.05rem; font-weight: 800; line-height: 1.45;
     padding: .55rem .3rem .2rem; min-height: 1.5rem; overflow-wrap: anywhere; }
   .cue-tools { display: flex; gap: .4rem; justify-content: center; margin-top: .35rem; }
-  .cue-tools .mini { font-size: 1.05rem; padding: .5rem .85rem; border-radius: 14px; }
+  .cue-tools .mini { font-size: .78rem; padding: .3rem .55rem; border-radius: 10px; }
   .cue-tools .mini.on { background: linear-gradient(135deg, var(--accent), var(--accent2));
     color: #fff; border-color: transparent; }
   .cue { display: block; margin-bottom: .8rem; border-inline-start: 3px solid transparent; }
@@ -1148,8 +1148,9 @@ function renderLesson(v, f, l) {
   bar.appendChild(rb);
   var lw = el('div');
   lw.style.cssText = 'position:relative;flex:none';
-  var lb = el('button', 'btn', '🔁 ' + readSetShort() + ' ▾');
-  lb.style.cssText = 'flex:none;white-space:nowrap;font-size:.85rem;padding:.55rem .7rem';
+  var lb = el('button', 'btn', '🔁');
+  lb.title = readSetLabel();
+  lb.style.cssText = 'flex:none;white-space:nowrap;font-size:1rem;padding:.55rem .6rem';
   var pop = el('div');
   pop.style.cssText = 'position:absolute;top:105%;inset-inline-start:0;z-index:6000;display:none;' +
     'flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:14px;' +
@@ -1161,7 +1162,7 @@ function renderLesson(v, f, l) {
       e.stopPropagation();
       readLangSet = s.id;
       try { localStorage.setItem('prolang_readlangs', s.id); } catch (e2) {}
-      lb.textContent = '🔁 ' + s.short + ' ▾';
+      lb.title = s.label;
       pop.style.display = 'none';
     };
     pop.appendChild(o);
