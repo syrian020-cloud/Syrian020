@@ -1262,7 +1262,8 @@ function parseLessons(text) {
       return;
     }
     if (!cur) pushLesson('');
-    var body = line.replace(/^[-*•]\s*/, '');
+    var numbered = /^\d+\s*[\\.)]/.test(line);
+    var body = line.replace(/^[-*•]\s*/, '').replace(/^\d+\s*[\\.)\s]+/, '');
     // multi-segment line: several flags in one line (with or without |)
     // e.g. "🇺🇸 en 🇪🇸 es 🇸🇾 ar" or "🇷🇺 text | 🇸🇾 ar | 🇺🇸 en | 🔊 pron"
     // → buffered as one flag group and flushed into card(s)
@@ -1305,6 +1306,7 @@ function parseLessons(text) {
     }
     var fm = FLAG_RE.exec(body);
     if (fm) {
+      if (numbered) flushGroup();   // "1. 🇫🇷 …" starts a new card
       var rest = body.slice(fm[0].length).trim();
       // drop a leading label like "الأصلية:" / "الكتابة اللاتينية:" if present
       var lm = /^(?:الأصلية|الأصلي|الكتابة(?:\s+الأصلية|\s+اللاتينية)?|النص|المعنى|English|الإنجليزية|الترجمة)\s*[:：]\s*/.exec(rest);
@@ -1316,10 +1318,13 @@ function parseLessons(text) {
       grp.push({ flag: fm[0], text: deLabel(rest), latin: '', arp: '', note: '' });
       return;
     }
-    // flagless line: note attached to previous phrase, or standalone note
+    // flagless line: numbered item = standalone note; else attached to previous phrase
+    if (!body) { flushGroup(); return; }
     flushGroup();
-    if (ph) ph.note = (ph.note ? ph.note + ' · ' : '') + body;
-    else cur.phrases.push({ id: uid(), type: 'note', text: body });
+    if (numbered || !ph) {
+      cur.phrases.push({ id: uid(), type: 'note', text: body });
+      if (numbered) ph = null;
+    } else ph.note = (ph.note ? ph.note + ' · ' : '') + body;
   });
   flushGroup();
   // keep only lessons that hold content
@@ -1407,8 +1412,22 @@ function parseTimedLessons(text) {
   function flush() {
     if (!cur) return;
     cur.cues = parseTimedText(buf.join('\n'));
+    // keep everything else too: flag lines → speakable phrases, other text → notes
+    var prevTimed = false, rest = [];
+    buf.forEach(function (raw) {
+      var s = raw.trim();
+      if (!s) { prevTimed = false; return; }
+      if (TIMED_LINE_RE.test(s) || /^\d+$/.test(s)) { prevTimed = true; return; }
+      if (prevTimed) return;              // continuation line belongs to the cue
+      rest.push(raw);
+    });
+    if (rest.length) {
+      parseLessons(rest.join('\n')).forEach(function (pl) {
+        cur.phrases = cur.phrases.concat(pl.phrases || []);
+      });
+    }
     buf = [];
-    if (cur.cues.length) out.push(cur);
+    if (cur.cues.length || cur.phrases.length) out.push(cur);
   }
   (text || '').split(/\r?\n/).forEach(function (raw) {
     var line = raw.trim();
@@ -1502,7 +1521,127 @@ var TIMED_TEMPLATES = [
   { name: 'MM:SS بأنبوب | — إنجليزي أولاً', text:
 '00:00 Give me some money. | أعطيني مصاري. | Donne-moi de l’argent.\n' +
 '\n' +
-'00:02 Maria, I’m out of cigarettes. | ماريا، ما عاد معي دخان. | Maria, j’ai plus de cigarettes.' }
+'00:02 Maria, I’m out of cigarettes. | ماريا، ما عاد معي دخان. | Maria, j’ai plus de cigarettes.' },
+  { name: 'درس كامل — حوار مؤقّت + شرح + ملخص', text:
+'00:00 🇫🇷 Ça fait cinq minutes que je pisse et ça s’arrête pas. 🇸🇾 صارلي خمس دقايق عم بول وما عم يوقف. 🇺🇸 I’ve been peeing for five minutes, and it won’t stop.\n' +
+'\n' +
+'00:05 🇫🇷 Ah Maxime, c’est quoi ce bazar ? 🇸🇾 ولك يا ماكسيم، شو هالفوضى؟ 🇺🇸 Hey, Maxime, what’s going on here?\n' +
+'\n' +
+'00:09 🇫🇷 Dix minutes, ça fait du bien. 🇸🇾 عشر دقايق، يا سلام، هالشي بيريّح! 🇺🇸 Ten minutes, that feels good.\n' +
+'\n' +
+'00:11 🇫🇷 Cinq mille balles, Spark, il a été posé lundi. 🇸🇾 خمسة آلاف يورو يا سبارك، تركّب يوم الاثنين. 🇺🇸 Five thousand euros, Spark. It was installed on Monday.\n' +
+'\n' +
+'00:14 🇫🇷 Je te jure, c’est pas moi qui décide. 🇸🇾 والله مو أنا اللي بقرّر. 🇺🇸 I swear, I’m not the one who decides.\n' +
+'\n' +
+'00:15 🇫🇷 Bonsoir, il pleut dans ma cuisine. 🇸🇾 مسا الخير، عم تمطر بمطبخي! 🇺🇸 Good evening, it’s raining in my kitchen.\n' +
+'\n' +
+'00:18 🇫🇷 Une fuite, sûrement une fuite qui sent l’urine, toi. 🇸🇾 أكيد في تسرّب، تسرّب ريحتو بول، إنت! 🇺🇸 A leak, probably a leak that smells like urine. You!\n' +
+'\n' +
+'00:23 🇫🇷 Ah, cinq mille balles ! 🇸🇾 آه، خمسة آلاف يورو! 🇺🇸 Oh, five thousand euros!\n' +
+'\n' +
+'00:25 🇫🇷 Pile le prix du parquet. 🇸🇾 بالضبط قدّ سعر الباركيه. 🇺🇸 Exactly the price of the parquet flooring.\n' +
+'\n' +
+'00:27 🇫🇷 Règle numéro un : on s’arrête pas. 🇸🇾 القاعدة الأولى: ما منوقّف. 🇺🇸 Rule number one: we don’t stop.\n' +
+'\n' +
+'00:28 🇫🇷 Règle numéro deux : on triche pas. 🇸🇾 القاعدة الثانية: ما منغشّ. 🇺🇸 Rule number two: no cheating.\n' +
+'\n' +
+'00:30 🇫🇷 Et la trois, y a pas de trois. 🇸🇾 والتالتة؟ ما في قاعدة تالتة! 🇺🇸 And number three? There is no number three.\n' +
+'\n' +
+'00:32 🇫🇷 Y a juste le chrono. 🇸🇾 في بس عدّاد الوقت. 🇺🇸 There’s only the timer.\n' +
+'\n' +
+'00:35 🇫🇷 Offert par la mairie. 🇸🇾 مقدّم من البلدية. 🇺🇸 Provided by the town hall.\n' +
+'\n' +
+'00:36 🇫🇷 Bois, t’en auras besoin. 🇸🇾 اشرب، رح تحتاج. 🇺🇸 Drink, you’ll need it.\n' +
+'\n' +
+'00:39 🇫🇷 Cinq candidats, un seul gagnant. 🇸🇾 خمسة متسابقين، وفائز واحد بس. 🇺🇸 Five contestants, only one winner.\n' +
+'\n' +
+'00:42 🇫🇷 Tu tiens combien, mon grand ? 🇸🇾 قديش بتقدر تتحمّل يا بطل؟ 🇺🇸 How long can you hold out, big guy?\n' +
+'\n' +
+'00:44 🇫🇷 Assez. 🇸🇾 كفاية. 🇺🇸 Long enough.\n' +
+'\n' +
+'00:47 🇫🇷 Putain, j’ai plus de force. 🇸🇾 تبّاً، ما عاد عندي قوّة! 🇺🇸 Damn, I’ve got no strength left.\n' +
+'\n' +
+'00:49 🇫🇷 Oh non, non, non, ça sort plus ! 🇸🇾 لا، لا، لا، ما عاد عم يطلع شي! 🇺🇸 Oh no, no, no! Nothing’s coming out anymore!\n' +
+'\n' +
+'00:51 🇫🇷 Titouan, Éric, éliminés. 🇸🇾 تيتوان وإيريك، تم استبعادكن. 🇺🇸 Titouan and Éric, eliminated.\n' +
+'\n' +
+'00:53 🇫🇷 Il en reste trois. 🇸🇾 ضلّوا تلاتة. 🇺🇸 Three contestants remain.\n' +
+'\n' +
+'00:55 🇫🇷 J’ai un point de côté. 🇸🇾 عندي وجع بجنبي. 🇺🇸 I’ve got a stitch in my side.\n' +
+'\n' +
+'00:56 🇫🇷 Un vrai cours ! 🇸🇾 يا له من درس حقيقي! 🇺🇸 What a real lesson!\n' +
+'\n' +
+'00:56 🇫🇷 On s’assoit pas, Kevin ! 🇸🇾 ممنوع تقعد يا كيفن! 🇺🇸 No sitting down, Kevin!\n' +
+'\n' +
+'00:56 🇫🇷 Dites à ma femme que j’ai tenu. 🇸🇾 قولوا لمرتي إني صمدت. 🇺🇸 Tell my wife I held on.\n' +
+'\n' +
+'01:00 🇫🇷 Tiens, bois, c’est pour ton bien. 🇸🇾 تفضّل، اشرب، هاد لمصلحتك. 🇺🇸 Here, drink. It’s for your own good.\n' +
+'\n' +
+'01:02 🇫🇷 Dernière chance de rentrer chez toi, mon grand. 🇸🇾 هاي آخر فرصة ترجع عالبيت يا بطل. 🇺🇸 Last chance to go home, big guy.\n' +
+'\n' +
+'01:04 🇫🇷 Je peux pas, y a plus de parquet. 🇸🇾 ما فيني، ما عاد ضلّ باركيه! 🇺🇸 I can’t. There’s no flooring left!\n' +
+'\n' +
+'01:06 🇫🇷 Quinze minutes vingt, personne n’a jamais dépassé ça. 🇸🇾 خمسطعش دقيقة وعشرين ثانية، ولا حدا سبق وتجاوز هالوقت. 🇺🇸 Fifteen minutes and twenty seconds. Nobody has ever beaten that.\n' +
+'\n' +
+'01:10 🇫🇷 92 % d’eau et j’suis à sec. 🇸🇾 جسمي 92 بالمية مي، وهلّق نشفت! 🇺🇸 I’m 92% water, and I’m all dried up!\n' +
+'\n' +
+'01:13 🇫🇷 C’est pas un homme, c’est une nappe phréatique ! 🇸🇾 هاد مو بني آدم، هاد خزان مي جوفي! 🇺🇸 He’s not a man, he’s an underground water reservoir!\n' +
+'\n' +
+'01:16 🇫🇷 C’est bon Maxime, t’as gagné, tu peux t’arrêter. 🇸🇾 خلص يا ماكسيم، ربحت، فيك توقّف. 🇺🇸 All right, Maxime, you’ve won. You can stop now.\n' +
+'\n' +
+'01:18 🇫🇷 Ouais, j’essaie. 🇸🇾 إي، عم جرّب. 🇺🇸 Yeah, I’m trying.\n' +
+'\n' +
+'01:20 🇫🇷 Bernard, j’y arrive pas. 🇸🇾 برنار، مو عم أقدر! 🇺🇸 Bernard, I can’t do it!\n' +
+'\n' +
+'01:23 🇫🇷 Allô, le 15 ? Meuf, c’est mon fils, il s’arrête plus ! 🇸🇾 ألو، الإسعاف؟ يا مرتي، هاد ابني، مو عم يوقف! 🇺🇸 Hello, emergency services? Honey, it’s my son. He can’t stop!\n' +
+'\n' +
+'### ثانياً: شرح الكلمات والتعابير الفرنسية الصعبة\n' +
+'\n' +
+'### 1. كلمات عامية وتعبيرات شائعة\n' +
+'\n' +
+'1. Pisser — يبول\n' +
+'\n' +
+'* 🇫🇷 Je vais pisser.\n' +
+'* 🇸🇾 رح روح بول.\n' +
+'* 🇺🇸 I’m going to pee.\n' +
+'\n' +
+'2. Ça s’arrête pas — ما عم يوقف\n' +
+'\n' +
+'العبارة الصحيحة في الفرنسية الرسمية: Ça ne s’arrête pas. بالمحادثة اليومية غالباً بيحذفوا كلمة ne.\n' +
+'\n' +
+'* 🇫🇷 Ça s’arrête pas !\n' +
+'* 🇸🇾 ما عم يوقف!\n' +
+'* 🇺🇸 It won’t stop!\n' +
+'\n' +
+'3. C’est quoi ce bazar ? — شو هالفوضى؟\n' +
+'\n' +
+'كلمة bazar تعني الفوضى أو اللخبطة، وأحياناً تعني الوضع الغريب أو المزعج.\n' +
+'\n' +
+'* 🇫🇷 C’est quoi ce bazar dans la cuisine ?\n' +
+'* 🇸🇾 شو هالفوضى بالمطبخ؟\n' +
+'* 🇺🇸 What’s this mess in the kitchen?\n' +
+'\n' +
+'### ثالثاً: احفظ أهم 5 تعابير\n' +
+'\n' +
+'1. 🇫🇷 C’est quoi ce bazar ?\n' +
+'🇸🇾 شو هالفوضى؟\n' +
+'🇺🇸 What’s this mess?\n' +
+'\n' +
+'2. 🇫🇷 Je te jure.\n' +
+'🇸🇾 والله / بقسملك.\n' +
+'🇺🇸 I swear.\n' +
+'\n' +
+'3. 🇫🇷 Ça fait du bien.\n' +
+'🇸🇾 هالشي بيريّح.\n' +
+'🇺🇸 It feels good.\n' +
+'\n' +
+'4. 🇫🇷 J’y arrive pas.\n' +
+'🇸🇾 مو عم أقدر.\n' +
+'🇺🇸 I can’t do it.\n' +
+'\n' +
+'5. 🇫🇷 T’en auras besoin.\n' +
+'🇸🇾 رح تحتاجه.\n' +
+'🇺🇸 You’ll need it.' }
 ];
 // two-letter language codes used as line labels: FR: / AR: / EN: …
 var LANG_CODE = { FR:['🇫🇷','fr'], AR:['🇸🇾','ar'], EN:['🇺🇸','en'], ES:['🇪🇸','es'],
