@@ -1994,37 +1994,36 @@ function recordPhrase(btn, ph) {
         if (!recState) return;
         if (!a || !a.url) { next(1400); return; }
         // a remote/file url can't be captured into the clip (CORS muting):
-        // fetch the bytes and play them through WebAudio -> both the speaker
-        // and a MediaStreamDestination whose track is added to the clip.
-        var playBuf = function (buf) {
-          try {
-            var AC = window.AudioContext || window.webkitAudioContext;
-            var actx = window._plACtx || (window._plACtx = new AC());
-            if (actx.state === 'suspended') actx.resume();
-            var src = actx.createBufferSource();
-            src.buffer = buf;
-            var dst = actx.createMediaStreamDestination();
-            src.connect(dst); src.connect(actx.destination);
-            dst.stream.getAudioTracks().forEach(function (tr) { stream.addTrack(tr); });
-            src.onended = function () { next(350); };
-            src.start();
-          } catch (e) { next(1200); }
-        };
-        fetch(a.url).then(function (rsp) {
-          if (!rsp.ok) throw new Error('http');
-          return rsp.arrayBuffer();
-        }).then(function (ab) {
-          var AC = window.AudioContext || window.webkitAudioContext;
-          var actx = window._plACtx || (window._plACtx = new AC());
-          return actx.decodeAudioData(ab);
-        }).then(playBuf).catch(function () {
-          var au = new Audio(a.url);
+        // pull the bytes (CapacitorHttp bypasses WebView CORS in the app) into
+        // a same-origin blob URL, then play it via an <audio> element whose
+        // sound we pipe into the clip with addMediaAudio.
+        var playUrl = function (url, revoke) {
+          var au = new Audio(url);
           addMediaAudio(au, stream);
-          au.onended = function () { next(350); };
-          au.onerror = function () { next(300); };
+          var done = function () { if (revoke) URL.revokeObjectURL(url); };
+          au.onended = function () { done(); next(350); };
+          au.onerror = function () { done(); next(300); };
           var pr = au.play();
-          if (pr && pr.catch) pr.catch(function () { next(300); });
-        });
+          if (pr && pr.catch) pr.catch(function () { done(); next(300); });
+        };
+        // a remote url plays but can't be captured into the clip (CORS mutes
+        // both captureStream and WebAudio): pull the bytes via CapacitorHttp
+        // (bypasses WebView CORS), write them to the cache dir, and play the
+        // local file via convertFileSrc — same-origin, fully capturable.
+        var CH = inCap && window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.CapacitorHttp;
+        var FS2 = inCap && window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+        if (CH && FS2 && /^https?:/.test(a.url)) {
+          CH.get({ url: a.url, responseType: 'blob' }).then(function (rsp) {
+            return FS2.writeFile({
+              path: 'plrec-' + k + '.mp3',
+              data: String(rsp.data).replace(/[^A-Za-z0-9+\/=]/g, ''),
+              directory: 'CACHE', recursive: true });
+          }).then(function (w) {
+            playUrl(Capacitor.convertFileSrc(w.uri));
+          }).catch(function () { playUrl(a.url); });
+        } else {
+          playUrl(a.url);
+        }
       }, function () { next(1400); });
     } catch (e) { next(1400); }
   })(0);
@@ -2106,7 +2105,34 @@ function renderMedia(v, f, l) {
     lp.classList.toggle('on', !!loopSeg);
   };
   tools.appendChild(lp);
-  if (me) {
+  if (me && cues.length) {
+    // ⏮ previous cue / ⏭ next cue (zeek-style segment navigation)
+    function cueStep(dir) {
+      var i = activeIdx(me.currentTime);
+      var j;
+      if (dir < 0) j = i < 0 ? prevCueIdx(me.currentTime) : i - 1;
+      else j = i < 0 ? nextCueIdx(me.currentTime) : i + 1;
+      j = Math.max(0, Math.min(cues.length - 1, j));
+      me.currentTime = cues[j].start + 0.001;
+      me.play();
+    }
+    function prevCueIdx(t) {
+      var k = 0;
+      for (var i = 0; i < cues.length; i++) if (cues[i].start < t - 0.05) k = i;
+      return k;
+    }
+    function nextCueIdx(t) {
+      for (var i = 0; i < cues.length; i++) if (cues[i].start > t + 0.05) return i;
+      return cues.length - 1;
+    }
+    var pv = el('button', 'mini', '⏮');
+    pv.title = 'previous phrase';
+    pv.onclick = function () { cueStep(-1); };
+    tools.appendChild(pv);
+    var nx = el('button', 'mini', '⏭');
+    nx.title = 'next phrase';
+    nx.onclick = function () { cueStep(1); };
+    tools.appendChild(nx);
     // ⏺ record the video/audio WITH its caption pills → .webm clip
     var rc = el('button', 'mini', '⏺');
     rc.title = T().recClip || 'record clip';
