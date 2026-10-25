@@ -258,6 +258,12 @@
   .cue-t:active { background: var(--accent); color: #fff; }
   .cue-t.speaking { background: var(--accent); color: #fff; border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(20,184,166,.2); }
+  .cue-side { flex: none; display: flex; flex-direction: column; gap: .3rem; }
+  .cue-rec { background: var(--field); border: 1px solid var(--line); border-radius: 12px;
+    padding: .3rem .4rem; font-size: .82rem; color: #e11d48; cursor: pointer;
+    font-family: inherit; line-height: 1; }
+  .cue-rec.rec-on { background: #e11d48; color: #fff; border-color: transparent;
+    animation: recPulse 1s infinite alternate; }
   .cue-body { flex: 1; min-width: 0; }
   .cue-body .ph-row:first-child { margin-top: 0; }
 
@@ -1096,6 +1102,10 @@ function phraseMenu(f, l, p) {
     b.onclick = fn; sh.appendChild(b);
   }
   row('🔊', t.readAll.slice(2) || 'Speak', function () { closeOv(); speak(p.text, p.lang || langOfFlag(p.flag)); });
+  row('⏺', t.recClip || 'Record clip', function () {
+    closeOv();
+    recordPhrase(el('span'), p);   // detached button — state shows via toast
+  });
   row('✏️', t.editPhrase, function () { closeOv(); phraseEditor(f, l, p); });
   row('📋', t.copy, function () { closeOv(); copyText(p.text || ''); });
   row('🗑', t.del, function () {
@@ -1774,17 +1784,70 @@ function rrPath(c, x, y, w, h, r) {
   c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r); c.arcTo(x + w, y + h, x, y + h, r);
   c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath();
 }
-// record the playing media with captions burned in → downloads a .webm clip
+// record the playing media / a phrase with caption pills burned in → share/download .webm
 var recState = null;   // {rec, raf, cv}
-function recToggle(btn, me, cues, activeIdx) {
+// draw caption pills (same colors as .cue-line.lg-*) — hi = index to outline
+function drawCuePills(cx, rows, W, H, hi) {
+  if (!rows.length) return;
+  var fs = Math.max(16, Math.round(H * 0.048));
+  var lh = Math.round(fs * 1.9), padX = fs * 0.85, flagW = fs * 1.5;
+  var y = H - Math.round(H * 0.03) - lh * rows.length + Math.round(lh / 2);
+  rows.forEach(function (r, ri) {
+    var lang = r.lang === 'auto' ? 'fr' : (r.lang || langOfFlag(r.flag));
+    var st = cuePill(lang);
+    cx.font = (st.it ? 'italic ' : '') + 'bold ' + fs + 'px ' + st.font;
+    var tw = Math.min(cx.measureText(r.text).width, W * 0.88);
+    var pw = Math.min(tw + padX * 2 + flagW, W * 0.94);
+    var x = (W - pw) / 2;
+    cx.fillStyle = st.bg; rrPath(cx, x, y - lh * 0.6, pw, lh * 0.76, fs * 0.45); cx.fill();
+    if (ri === hi) {
+      cx.strokeStyle = 'rgba(255,255,255,.85)'; cx.lineWidth = Math.max(2, fs * 0.09);
+      rrPath(cx, x, y - lh * 0.6, pw, lh * 0.76, fs * 0.45); cx.stroke();
+    }
+    cx.fillStyle = st.fg; cx.textAlign = 'center'; cx.textBaseline = 'middle';
+    cx.fillText(r.text, W / 2 - flagW / 2, y - lh * 0.21, pw - padX * 2 - flagW);
+    if (r.flag && r.flag !== '🏳') {
+      cx.font = fs + 'px sans-serif'; cx.textAlign = 'right';
+      cx.fillText(r.flag, x + pw - padX * 0.6, y - lh * 0.21);
+    }
+    y += lh;
+  });
+}
+// share the clip (WhatsApp & co.) — download as fallback
+function shareOrDownloadClip(blob, name) {
+  try {
+    var file = new File([blob], name, { type: 'video/webm' });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      navigator.share({ files: [file], title: 'ProLang' }).catch(function () {});
+      return;
+    }
+  } catch (e) {}
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function () { URL.revokeObjectURL(a.href); }, 5000);
+}
+function recSupported() {
+  if (typeof MediaRecorder === 'undefined' || !HTMLCanvasElement.prototype.captureStream) {
+    toast('⚠️ ' + (T().recNo || 'recording not supported'));
+    return false;
+  }
+  return true;
+}
+function newRec(stream) {
+  var mime = MediaRecorder.isTypeSupported('video/webm;codecs=vp9,opus')
+    ? 'video/webm;codecs=vp9,opus' : 'video/webm';
+  try { return new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 3000000 }); }
+  catch (e) { toast('⚠️ ' + (T().recNo || 'recording not supported')); return null; }
+}
+// ⏺ record media playback with its caption pills; segEnd auto-stops at a cue end
+function recToggle(btn, me, cues, activeIdx, segEnd) {
   if (recState) {
     try { recState.rec.stop(); } catch (e) { recDone(btn); }
     return;
   }
-  if (typeof MediaRecorder === 'undefined' || !HTMLCanvasElement.prototype.captureStream) {
-    toast('⚠️ ' + (T().recNo || 'recording not supported'));
-    return;
-  }
+  if (!recSupported()) return;
   var isVideo = me.tagName === 'VIDEO' && me.videoWidth;
   var W = isVideo ? me.videoWidth : 640, H = isVideo ? me.videoHeight : 360;
   var cv = document.createElement('canvas'); cv.width = W; cv.height = H;
@@ -1795,51 +1858,26 @@ function recToggle(btn, me, cues, activeIdx) {
       : (me.mozCaptureStream ? me.mozCaptureStream() : null);
     if (ms) ms.getAudioTracks().forEach(function (tr) { stream.addTrack(tr); });
   } catch (e) {}
-  var mime = MediaRecorder.isTypeSupported('video/webm;codecs=vp9,opus')
-    ? 'video/webm;codecs=vp9,opus' : 'video/webm';
-  var rec, chunks = [];
-  try { rec = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 3000000 }); }
-  catch (e) { toast('⚠️ ' + (T().recNo || 'recording not supported')); return; }
+  var rec = newRec(stream); if (!rec) return;
+  var chunks = [];
   function draw() {
     if (!recState) return;
+    if (segEnd != null && me.currentTime >= segEnd) {
+      try { recState.rec.stop(); } catch (e) { recDone(btn); }
+      return;
+    }
     if (isVideo) {
       try { cx.drawImage(me, 0, 0, W, H); } catch (e) {
         cx.fillStyle = '#000'; cx.fillRect(0, 0, W, H);
       }
     } else { cx.fillStyle = '#141a20'; cx.fillRect(0, 0, W, H); }
     var i = activeIdx(me.currentTime);
-    if (i >= 0) {
-      var rows = cueRows(cues[i].text).filter(function (r) { return r.text; });
-      var fs = Math.max(16, Math.round(H * 0.048));
-      var lh = Math.round(fs * 1.9), padX = fs * 0.85, flagW = fs * 1.5;
-      var y = H - Math.round(H * 0.03) - lh * rows.length + Math.round(lh / 2);
-      rows.forEach(function (r) {
-        var lang = r.lang === 'auto' ? 'fr' : (r.lang || langOfFlag(r.flag));
-        var st = cuePill(lang);
-        cx.font = (st.it ? 'italic ' : '') + 'bold ' + fs + 'px ' + st.font;
-        var tw = Math.min(cx.measureText(r.text).width, W * 0.88);
-        var pw = Math.min(tw + padX * 2 + flagW, W * 0.94);
-        var x = (W - pw) / 2;
-        cx.fillStyle = st.bg; rrPath(cx, x, y - lh * 0.6, pw, lh * 0.76, fs * 0.45); cx.fill();
-        cx.fillStyle = st.fg; cx.textAlign = 'center'; cx.textBaseline = 'middle';
-        cx.fillText(r.text, W / 2 - flagW / 2, y - lh * 0.21, pw - padX * 2 - flagW);
-        if (r.flag && r.flag !== '🏳') {
-          cx.font = fs + 'px sans-serif'; cx.textAlign = 'right';
-          cx.fillText(r.flag, x + pw - padX * 0.6, y - lh * 0.21);
-        }
-        y += lh;
-      });
-    }
+    if (i >= 0) drawCuePills(cx, cueRows(cues[i].text).filter(function (r) { return r.text; }), W, H, -1);
     recState.raf = requestAnimationFrame(draw);
   }
   rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
   rec.onstop = function () {
-    var blob = new Blob(chunks, { type: 'video/webm' });
-    var a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'prolang-clip.webm';
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(function () { URL.revokeObjectURL(a.href); }, 5000);
+    shareOrDownloadClip(new Blob(chunks, { type: 'video/webm' }), 'prolang-clip.webm');
     recDone(btn);
   };
   recState = { rec: rec, raf: 0, cv: cv };
@@ -1847,6 +1885,68 @@ function recToggle(btn, me, cues, activeIdx) {
   rec.start(300);
   btn.classList.add('rec-on'); btn.textContent = '⏹';
   if (me.paused) me.play();
+}
+// ⏺ record a phrase card: pills on dark bg, each row highlighted while its TTS plays
+function recordPhrase(btn, ph) {
+  if (recState) {
+    try { recState.rec.stop(); } catch (e) { recDone(btn); }
+    return;
+  }
+  if (!recSupported()) return;
+  var rows = [{ flag: ph.flag, lang: ph.lang || langOfFlag(ph.flag), text: ph.text }]
+    .concat((ph.rows || []).map(function (r) {
+      return { flag: r.flag, lang: r.lang || langOfFlag(r.flag), text: r.text };
+    })).filter(function (r) { return r.text; });
+  if (!rows.length) return;
+  var W = 720, H = Math.max(400, rows.length * 108 + 60);
+  var cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+  var cx = cv.getContext('2d');
+  var stream = cv.captureStream(30);
+  var rec = newRec(stream); if (!rec) return;
+  var chunks = [], hi = -1;
+  function draw() {
+    if (!recState) return;
+    cx.fillStyle = '#141a20'; cx.fillRect(0, 0, W, H);
+    drawCuePills(cx, rows, W, H, hi);
+    recState.raf = requestAnimationFrame(draw);
+  }
+  rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
+  rec.onstop = function () {
+    shareOrDownloadClip(new Blob(chunks, { type: 'video/webm' }), 'prolang-phrase.webm');
+    recDone(btn);
+  };
+  recState = { rec: rec, raf: 0, cv: cv };
+  draw();
+  rec.start(300);
+  btn.classList.add('rec-on'); btn.textContent = '⏹';
+  toast('⏺ ' + (T().recClip || 'recording'));
+  // speak each row in turn — capture its audio into the clip when possible
+  (function step(k) {
+    if (!recState) return;
+    if (k >= rows.length) {
+      setTimeout(function () { if (recState) try { recState.rec.stop(); } catch (e) {} }, 700);
+      return;
+    }
+    hi = k;
+    var r = rows[k], lang = r.lang === 'auto' ? 'fr' : r.lang;
+    var next = function (ms) { setTimeout(function () { step(k + 1); }, ms || 350); };
+    try {
+      EdgeTTS.audio(r.text, lang).then(function (a) {
+        if (!recState) return;
+        if (!a || !a.url) { next(1400); return; }
+        var au = new Audio(a.url);
+        try {
+          var as = au.captureStream ? au.captureStream()
+            : (au.mozCaptureStream ? au.mozCaptureStream() : null);
+          if (as) as.getAudioTracks().forEach(function (tr) { stream.addTrack(tr); });
+        } catch (e) {}
+        au.onended = function () { next(350); };
+        au.onerror = function () { next(300); };
+        var pr = au.play();
+        if (pr && pr.catch) pr.catch(function () { next(300); });
+      }, function () { next(1400); });
+    } catch (e) { next(1400); }
+  })(0);
 }
 function recDone(btn) {
   if (recState) {
@@ -1954,6 +2054,7 @@ function renderMedia(v, f, l) {
   v.appendChild(box);
   cues.forEach(function (c, i) {
     var cd = el('div', 'cue');
+    var side = el('div', 'cue-side');
     var tb = el('button', 'cue-t', fmtT(c.start));
     tb.onclick = function () {
       // tap the timestamp = loop THIS cue's segment of the video/audio itself
@@ -1989,7 +2090,19 @@ function renderMedia(v, f, l) {
         }, function () { tb.classList.remove('speaking'); });
       })(0);
     };
-    cd.appendChild(tb);
+    side.appendChild(tb);
+    if (me) {
+      // ⏺ record THIS caption's segment of the media → share/download clip
+      var cr = el('button', 'cue-rec', '⏺');
+      cr.title = T().recClip || 'record clip';
+      cr.onclick = function () {
+        if (recState) { try { recState.rec.stop(); } catch (e) { recDone(cr); } return; }
+        me.currentTime = c.start;
+        recToggle(cr, me, cues, activeIdx, c.end);
+      };
+      side.appendChild(cr);
+    }
+    cd.appendChild(side);
     var cb = el('div', 'cue-body');
     cueRows(c.text).forEach(function (r, ri) {
       flagRow(cb, r.flag, r.lang === 'auto' ? null : r.lang, r.text, r.latin, r.arp,
