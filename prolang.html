@@ -683,7 +683,46 @@ try { folders = JSON.parse(localStorage.getItem('prolang_data') || '[]'); } catc
 if (!Array.isArray(folders)) folders = [];
 
 function uid() { return 'x' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
-function saveData() { try { localStorage.setItem('prolang_data', JSON.stringify(folders)); } catch (e) {} }
+// every save also writes a backup file to device storage — survives a
+// WebView localStorage wipe; the app restores it automatically on start.
+var backupTimer = null;
+function writeBackup(json) {
+  try {
+    var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+    if (!FS) return;
+    if (backupTimer) clearTimeout(backupTimer);
+    backupTimer = setTimeout(function () {
+      FS.writeFile({ path: 'prolang-backup.json', data: json, directory: 'DATA', recursive: true }).catch(function () {});
+    }, 400);
+  } catch (e) {}
+}
+function saveData() {
+  var j = '[]';
+  try { j = JSON.stringify(folders); } catch (e) {}
+  try { localStorage.setItem('prolang_data', j); } catch (e) {}
+  writeBackup(j);
+}
+// restore from the device backup when localStorage was wiped but the file survived
+(function restoreBackup() {
+  try {
+    var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+    if (!FS) return;
+    var raw = localStorage.getItem('prolang_data');
+    if (raw && raw !== '[]') return;   // localStorage intact — nothing to restore
+    FS.readFile({ path: 'prolang-backup.json', directory: 'DATA' }).then(function (r) {
+      try {
+        var txt = typeof r.data === 'string' ? r.data : '';
+        var d = JSON.parse(txt);
+        if (Array.isArray(d) && d.length) {
+          folders.length = 0;
+          d.forEach(function (f2) { folders.push(f2); });
+          try { localStorage.setItem('prolang_data', txt); } catch (e) {}
+          if (typeof render === 'function') render();
+        }
+      } catch (e) {}
+    }).catch(function () {});
+  } catch (e) {}
+})();
 
 /* Seed: the greetings template — 33 languages grouped by region */
 if (!localStorage.getItem('prolang_seed_v2')) {
