@@ -2296,7 +2296,7 @@ function renderMedia(v, f, l) {
       // tap the timestamp = loop THIS cue's segment of the video/audio itself
       if (me && me.src) {
         var was = tb.classList.contains('speaking');
-        document.querySelectorAll('.cue-t.speaking').forEach(function (x) {
+        document.querySelectorAll('.ctime-t.speaking').forEach(function (x) {
           x.classList.remove('speaking');
         });
         if (was) { loopSeg = null; me.pause(); if (lp) lp.classList.remove('on'); return; }
