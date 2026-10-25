@@ -878,6 +878,19 @@ function speakLetters(text, lang, flagEl) {
   speak(s || text, lang, flagEl);
 }
 var readAllJob = null;
+// which languages read-all speaks — zeelang's 🔁 selector
+var READ_LANG_SETS = [
+  { id: 'all', label: 'French + Arabic + English', langs: null },
+  { id: 'fr_ar', label: 'French + Arabic', langs: ['fr', 'ar'] },
+  { id: 'fr', label: 'French only', langs: ['fr'] },
+  { id: 'ar', label: 'Arabic only', langs: ['ar'] },
+  { id: 'en', label: 'English only', langs: ['en'] }
+];
+var readLangSet = localStorage.getItem('prolang_readlangs') || 'all';
+function readSetLabel() {
+  var s = READ_LANG_SETS.filter(function (x) { return x.id === readLangSet; })[0];
+  return s ? s.label : READ_LANG_SETS[0].label;
+}
 function stopReadAll() {
   if (readAllJob) readAllJob.cancelled = true;
   speakTok++;
@@ -885,11 +898,24 @@ function stopReadAll() {
   if (mediaEl) { try { mediaEl.pause(); } catch (e) {} }
   readAllJob = null;
   var b = document.getElementById('readAllBtn');
-  if (b) b.textContent = T().readAll;
+  if (b) b.textContent = '🔂';
+}
+// ⏹ stop EVERYTHING that can make sound: read-all, TTS loops, media
+function stopAllSound() {
+  stopReadAll();
+  speakTok++;
+  if (window.EdgeTTS) EdgeTTS.stop();
+  if (mediaEl) { try { mediaEl.pause(); } catch (e) {} }
+  loopSeg = null;
+  document.querySelectorAll('.speaking').forEach(function (x) { x.classList.remove('speaking'); });
+  document.querySelectorAll('.loop-btn.on, .mini.on').forEach(function (x) {
+    if (x.textContent.trim() === '🔂') x.classList.remove('on');
+  });
 }
 function readAll(lesson) {
   var t = T();
   if (readAllJob) { stopReadAll(); return; }
+  var set = READ_LANG_SETS.filter(function (x) { return x.id === readLangSet; })[0] || READ_LANG_SETS[0];
   var items = [];
   (lesson.phrases || []).forEach(function (p) {
     if (p.type === 'note') return;
@@ -900,9 +926,10 @@ function readAll(lesson) {
     if (p.meaning) items.push({ t: p.meaning, lang: 'ar', el: 'phflag-' + p.id + '-m' });
     if (p.en) items.push({ t: p.en, lang: 'en', el: 'phflag-' + p.id + '-e' });
   });
+  if (set.langs) items = items.filter(function (it) { return set.langs.indexOf(it.lang) >= 0; });
   if (!items.length) return;
   var btn = document.getElementById('readAllBtn');
-  btn.textContent = t.stop;
+  btn.textContent = '⏹';
   var job = { cancelled: false, i: 0 };
   readAllJob = job;
   speakTok++;   // stop any single-phrase loop
@@ -1111,10 +1138,50 @@ function renderLesson(v, f, l) {
   bar.style.marginBottom = '.7rem';
   bar.style.display = 'flex';
   bar.style.gap = '.5rem';
-  var rb = el('button', 'btn primary', t.readAll);
+  // 🔂 read-all icon (no label, loops forever), 🔁 language picker, ⏹ stop-all
+  var rb = el('button', 'btn primary', readAllJob ? '⏹' : '🔂');
   rb.id = 'readAllBtn';
+  rb.title = t.readAll;
+  rb.style.flex = 'none';
   rb.onclick = function () { readAll(l); };
   bar.appendChild(rb);
+  var lw = el('div');
+  lw.style.cssText = 'position:relative;flex:none';
+  var lb = el('button', 'btn', '🔁 ' + readSetLabel() + ' ▾');
+  lb.style.cssText = 'flex:none;white-space:nowrap;font-size:.85rem;padding:.55rem .7rem';
+  var pop = el('div');
+  pop.style.cssText = 'position:absolute;top:105%;inset-inline-start:0;z-index:6000;display:none;' +
+    'flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:14px;' +
+    'overflow:hidden;min-width:210px;box-shadow:0 8px 24px rgba(0,0,0,.35)';
+  READ_LANG_SETS.forEach(function (s) {
+    var o = el('button', 'btn', '🔁 ' + s.label + (s.id === readLangSet ? ' ✓' : ''));
+    o.style.cssText = 'border:none;border-radius:0;background:transparent;justify-content:flex-start;text-align:start';
+    o.onclick = function (e) {
+      e.stopPropagation();
+      readLangSet = s.id;
+      try { localStorage.setItem('prolang_readlangs', s.id); } catch (e2) {}
+      lb.textContent = '🔁 ' + s.label + ' ▾';
+      pop.style.display = 'none';
+    };
+    pop.appendChild(o);
+  });
+  lb.onclick = function (e) {
+    e.stopPropagation();
+    var show = pop.style.display !== 'flex';
+    pop.style.display = show ? 'flex' : 'none';
+    if (show) setTimeout(function () {
+      document.addEventListener('click', function h2() {
+        pop.style.display = 'none';
+        document.removeEventListener('click', h2);
+      });
+    }, 0);
+  };
+  lw.appendChild(lb); lw.appendChild(pop); bar.appendChild(lw);
+  var sb = el('button', 'btn', '⏹');
+  sb.title = t.stop;
+  sb.style.flex = 'none';
+  sb.onclick = function () { stopAllSound(); };
+  bar.appendChild(sb);
   var mb = el('button', 'btn', '🎬');
   mb.style.flex = 'none';
   mb.title = t.media;
@@ -2005,6 +2072,13 @@ function mediaKey(l) { return 'plm_' + l.id; }
 
 var mediaEl = null;   // the <video>/<audio> in the open lesson
 var loopSeg = null;   // {start, end} — loops that media segment continuously
+// playback speed — common rates, drives video/audio AND TTS (EdgeTTS.speed)
+var SPEEDS = [1, 1.25, 1.5, 2, 0.5, 0.75];
+var playSpeed = parseFloat(localStorage.getItem('prolang_speed') || '1') || 1;
+function applySpeed() {
+  if (window.EdgeTTS) EdgeTTS.speed = playSpeed;
+  if (mediaEl) { try { mediaEl.playbackRate = playSpeed; } catch (e) {} }
+}
 // caption themes (zeelang-style): 🎨 cycles 10 palettes — colors + fonts per language,
 // applied to live rows, in-player caption AND burned-in recording pills
 var CAP_THEMES = [
@@ -2490,6 +2564,7 @@ function renderMedia(v, f, l) {
     mediaEl = me;
     me.ontimeupdate = function () { sync(me.currentTime); };
     me.onseeked = function () { sync(me.currentTime); };
+    try { me.playbackRate = playSpeed; } catch (e2) {}
     // playing media always mutes TTS (and vice-versa via stopReadAll)
     me.onplay = function () {
       if (readAllJob) { readAllJob.cancelled = true; readAllJob = null; }
@@ -2513,6 +2588,17 @@ function renderMedia(v, f, l) {
   ct.title = T().captionTheme || 'caption theme';
   ct.onclick = function () { cycleCapTheme(); };
   tools.appendChild(ct);
+  // speed cycler — common rates, drives the media AND TTS playback speed
+  var sp = el('button', 'mini', playSpeed + '×');
+  sp.title = 'speed';
+  sp.onclick = function () {
+    var i = SPEEDS.indexOf(playSpeed);
+    playSpeed = SPEEDS[(i + 1) % SPEEDS.length];
+    try { localStorage.setItem('prolang_speed', String(playSpeed)); } catch (e) {}
+    sp.textContent = playSpeed + '×';
+    applySpeed();
+  };
+  tools.appendChild(sp);
   var lp = el('button', 'mini', '🔂');
   lp.title = 'repeat cue';
   lp.onclick = function () {

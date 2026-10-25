@@ -316,6 +316,7 @@
     return new Promise(function (resolve, reject) {
       var el;
       try { el = new Audio(url); } catch (e) { reject(e); return; }
+      try { el.playbackRate = api.speed || 1; } catch (e) {}
       curAudio = el;
       var settled = false;
       function fin(err) {
