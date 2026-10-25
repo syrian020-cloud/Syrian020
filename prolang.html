@@ -220,16 +220,18 @@
   .media-box video.fit-tall { max-height: 62vh; }
   .media-box audio { width: 100%; height: 42px; }
   /* caption pills — zeelang style: solid colored box per language, flag at the edge */
-  .cue-now .cue-line { position: relative; display: flex; align-items: center; justify-content: center;
-    direction: ltr; border-radius: 14px; padding: .42rem 2.7rem .42rem 1rem; margin: .2rem auto;
-    font-weight: 800; font-size: 1.08rem; max-width: 100%; min-width: min(78%, 340px);
+  .cue-now .cue-line { position: relative; display: flex; align-items: center; gap: .8rem;
+    direction: ltr; border-radius: 26px; border-width: 2px; border-style: solid;
+    padding: .55rem 1.1rem; margin: .35rem auto;
+    font-weight: 800; font-size: 1.35rem; width: 100%; box-sizing: border-box;
     overflow-wrap: anywhere; text-align: center; line-height: 1.45;
     box-shadow: 0 4px 12px rgba(0,0,0,.3); }
+  .cue-now .cue-line > span:last-child { flex: 1; min-width: 0; }
   .cue-line { font-family: 'Segoe UI', 'Noto Sans', Roboto, 'Helvetica Neue', sans-serif;
     letter-spacing: .01em; cursor: pointer; }
   .cue-line.speaking { outline: 3px solid rgba(255,255,255,.7); }
-  .cue-line .cue-flag { position: absolute; right: .6rem; top: 50%; transform: translateY(-50%);
-    font-size: 1.35em; }
+  .cue-line .cue-flag { position: static; transform: none; font-size: 2rem;
+    line-height: 1; flex: none; }
   .cue-line.lg-fr { background: var(--cap-fr-bg, #3d3d3d); color: var(--cap-fr-fg, #fff);
     border: 2px solid var(--cap-fr-bd, transparent);
     font-family: var(--cap-fr-font, Georgia, 'Times New Roman', 'Segoe UI', serif);
@@ -237,7 +239,7 @@
   .cue-line.lg-ar { background: var(--cap-ar-bg, #d9a21b); color: var(--cap-ar-fg, #33260a);
     border: 2px solid var(--cap-ar-bd, transparent);
     font-family: var(--cap-ar-font, 'Noto Kufi Arabic', 'Noto Naskh Arabic', 'Segoe UI', Tahoma, sans-serif);
-    font-style: var(--cap-ar-style, normal); font-size: 1.14rem; }
+    font-style: var(--cap-ar-style, normal); font-size: 1.45rem; }
   .cue-line.lg-en { background: var(--cap-en-bg, #f3ecd9); color: var(--cap-en-fg, #2b2b2b);
     border: 2px solid var(--cap-en-bd, transparent);
     font-family: var(--cap-en-font, 'Segoe UI', 'Noto Sans', Roboto, sans-serif);
