@@ -1813,8 +1813,21 @@ function drawCuePills(cx, rows, W, H, hi) {
     y += lh;
   });
 }
-// share the clip (WhatsApp & co.) — download as fallback
+// share the clip (WhatsApp & co.) — Capacitor share first, download as fallback
 function shareOrDownloadClip(blob, name) {
+  var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+  var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
+  if (inCap && FS && SH) {
+    var rd = new FileReader();
+    rd.onload = function () {
+      FS.writeFile({ path: name, data: (rd.result || '').split(',')[1],
+          directory: 'CACHE', recursive: true })
+        .then(function (w) { return SH.share({ title: name, url: w.uri }); })
+        .catch(function (e) { console.error(e); });
+    };
+    rd.readAsDataURL(blob);
+    return;
+  }
   try {
     var file = new File([blob], name, { type: 'video/webm' });
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
