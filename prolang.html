@@ -227,6 +227,13 @@
     display: flex; align-items: center; justify-content: center; padding: 0; }
   .vc-loop.on { background: linear-gradient(135deg, var(--accent), var(--accent2));
     border-color: transparent; box-shadow: 0 0 10px rgba(20,184,166,.6); }
+  .media-box .vcover { position: absolute; inset: 0; z-index: 4; border-radius: 12px;
+    overflow: hidden; background: #000; }
+  .media-box .vcover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .media-box .vcover-x { position: absolute; top: .5rem; inset-inline-end: .5rem; z-index: 6;
+    width: 2.2rem; height: 2.2rem; border-radius: 50%; border: 2px solid rgba(255,255,255,.4);
+    background: rgba(10,16,22,.65); color: #fff; font-size: 1rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; padding: 0; }
   .media-box audio { width: 100%; height: 42px; }
   /* caption pills — zeelang style: solid colored box per language, flag at the edge */
   .cue-now .cue-line { position: relative; display: flex; align-items: center; gap: .8rem;
@@ -2655,6 +2662,20 @@ function renderMedia(v, f, l) {
       vlp.classList.toggle('on', me.loop);
     };
     vc.appendChild(vlp);
+    // 🖼 cover image over the video (zeelang) — stored per lesson, ✕ removes it
+    var coverKey = 'plc_' + l.id;
+    mediaGet(coverKey, function (cb) {
+      if (!cb || !document.body.contains(vc)) return;
+      var cov = el('div', 'vcover');
+      var im = document.createElement('img');
+      im.src = URL.createObjectURL(cb);
+      cov.appendChild(im);
+      var dx = el('button', 'vcover-x', '✕');
+      dx.title = 'remove cover';
+      dx.onclick = function (e) { e.stopPropagation(); mediaDel(coverKey); cov.remove(); };
+      cov.appendChild(dx);
+      vc.appendChild(cov);
+    });
     box.appendChild(vc);
   }
   var CROP_FRAC = { 'fit-crop1': 0.15, 'fit-crop2': 0.30, 'fit-crop3': 0.45 };
@@ -2747,6 +2768,20 @@ function renderMedia(v, f, l) {
     };
     tools.appendChild(sz);
     if (me && l.vfit) me.className = FITS[l.vfit];
+    // 🖼 pick a cover image that sits over the video
+    var cvr = el('button', 'mini', '🖼');
+    cvr.title = 'cover image';
+    cvr.onclick = function () {
+      var inp = document.createElement('input');
+      inp.type = 'file'; inp.accept = 'image/*';
+      inp.onchange = function () {
+        var f2 = inp.files && inp.files[0];
+        if (!f2) return;
+        mediaPut('plc_' + l.id, f2, function () { render(); });
+      };
+      inp.click();
+    };
+    tools.appendChild(cvr);
   }
   box.appendChild(now);
   box.appendChild(tools);
