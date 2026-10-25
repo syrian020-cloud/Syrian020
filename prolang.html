@@ -880,16 +880,16 @@ function speakLetters(text, lang, flagEl) {
 var readAllJob = null;
 // which languages read-all speaks — zeelang's 🔁 selector
 var READ_LANG_SETS = [
-  { id: 'all', label: 'French + Arabic + English', langs: null },
-  { id: 'fr_ar', label: 'French + Arabic', langs: ['fr', 'ar'] },
-  { id: 'fr', label: 'French only', langs: ['fr'] },
-  { id: 'ar', label: 'Arabic only', langs: ['ar'] },
-  { id: 'en', label: 'English only', langs: ['en'] }
+  { id: 'all', label: 'French + Arabic + English', short: 'FR+AR+EN', langs: null },
+  { id: 'fr_ar', label: 'French + Arabic', short: 'FR+AR', langs: ['fr', 'ar'] },
+  { id: 'fr', label: 'French only', short: 'FR', langs: ['fr'] },
+  { id: 'ar', label: 'Arabic only', short: 'AR', langs: ['ar'] },
+  { id: 'en', label: 'English only', short: 'EN', langs: ['en'] }
 ];
 var readLangSet = localStorage.getItem('prolang_readlangs') || 'all';
-function readSetLabel() {
+function readSetShort() {
   var s = READ_LANG_SETS.filter(function (x) { return x.id === readLangSet; })[0];
-  return s ? s.label : READ_LANG_SETS[0].label;
+  return s ? s.short : READ_LANG_SETS[0].short;
 }
 function stopReadAll() {
   if (readAllJob) readAllJob.cancelled = true;
@@ -1147,7 +1147,7 @@ function renderLesson(v, f, l) {
   bar.appendChild(rb);
   var lw = el('div');
   lw.style.cssText = 'position:relative;flex:none';
-  var lb = el('button', 'btn', '🔁 ' + readSetLabel() + ' ▾');
+  var lb = el('button', 'btn', '🔁 ' + readSetShort() + ' ▾');
   lb.style.cssText = 'flex:none;white-space:nowrap;font-size:.85rem;padding:.55rem .7rem';
   var pop = el('div');
   pop.style.cssText = 'position:absolute;top:105%;inset-inline-start:0;z-index:6000;display:none;' +
@@ -1160,7 +1160,7 @@ function renderLesson(v, f, l) {
       e.stopPropagation();
       readLangSet = s.id;
       try { localStorage.setItem('prolang_readlangs', s.id); } catch (e2) {}
-      lb.textContent = '🔁 ' + s.label + ' ▾';
+      lb.textContent = '🔁 ' + s.short + ' ▾';
       pop.style.display = 'none';
     };
     pop.appendChild(o);
@@ -1182,22 +1182,26 @@ function renderLesson(v, f, l) {
   sb.style.flex = 'none';
   sb.onclick = function () { stopAllSound(); };
   bar.appendChild(sb);
+  // second row holds the rest of the icons so nothing gets pushed off
+  var bar2 = el('div');
+  bar2.style.cssText = 'margin-bottom:.7rem;display:flex;gap:.5rem;flex-wrap:wrap';
   var mb = el('button', 'btn', '🎬');
   mb.style.flex = 'none';
   mb.title = t.media;
   mb.onclick = function () { mediaSheet(f, l); };
-  bar.appendChild(mb);
+  bar2.appendChild(mb);
   var lzb = el('button', 'btn', '🎧');
   lzb.style.flex = 'none';
   lzb.title = t.listenQuiz;
   lzb.onclick = function () { openListen(l); };
-  bar.appendChild(lzb);
+  bar2.appendChild(lzb);
   var qzb = el('button', 'btn', '🧩');
   qzb.style.flex = 'none';
   qzb.title = t.quiz;
   qzb.onclick = function () { openQuiz(l); };
-  bar.appendChild(qzb);
+  bar2.appendChild(qzb);
   v.appendChild(bar);
+  v.appendChild(bar2);
   if (l.media || (l.cues || []).length) renderMedia(v, f, l);
   (l.phrases || []).forEach(function (p) { v.appendChild(phraseCard(p, f, l)); });
   if (!(l.phrases || []).length && !(l.cues || []).length) {
