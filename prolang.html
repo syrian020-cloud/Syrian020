@@ -1814,32 +1814,77 @@ function drawCuePills(cx, rows, W, H, hi) {
   });
 }
 // share the clip (WhatsApp & co.) — Capacitor share first, download as fallback
-function shareOrDownloadClip(blob, name) {
+// clip sink — zeek's exact approach: stream chunks to a CACHE file
+// (writeFile first, then appendFile), then share its uri via Share files[]
+function createRecSink(ext, mimeType, prefix) {
+  var filename = prefix + '-' + new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-') + '.' + ext;
   var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
   var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
-  if (inCap && FS && SH) {
-    var rd = new FileReader();
-    rd.onload = function () {
-      FS.writeFile({ path: name, data: (rd.result || '').split(',')[1],
-          directory: 'CACHE', recursive: true })
-        .then(function (w) { return SH.share({ title: name, url: w.uri }); })
-        .catch(function (e) { console.error(e); });
+  var toB64 = function (part) {
+    return new Promise(function (res, rej) {
+      var fr = new FileReader();
+      fr.onload = function () { res(String(fr.result).split(',')[1]); };
+      fr.onerror = rej;
+      fr.readAsDataURL(part);
+    });
+  };
+  if (!(inCap && FS)) {
+    var chunks = [];
+    return {
+      push: function (b) { chunks.push(b); },
+      finish: function () {
+        var blob = new Blob(chunks, { type: mimeType });
+        try {
+          var file = new File([blob], filename, { type: mimeType || 'video/webm' });
+          if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            navigator.share({ files: [file], title: 'ProLang' }).catch(function () {});
+            return Promise.resolve();
+          }
+        } catch (e) {}
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = filename;
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 5000);
+        return Promise.resolve();
+      }
     };
-    rd.readAsDataURL(blob);
-    return;
   }
-  try {
-    var file = new File([blob], name, { type: blob.type || 'video/mp4' });
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      navigator.share({ files: [file], title: 'ProLang' }).catch(function () {});
-      return;
+  var queue = Promise.resolve();
+  var started = false, failed = null, pending = [], pendingSize = 0;
+  var FLUSH = 512 * 1024;
+  var writePart = function (part) {
+    queue = queue.then(function () {
+      if (failed) return;
+      return toB64(part).then(function (b64) {
+        if (!started) {
+          started = true;
+          return FS.writeFile({ path: filename, data: b64, directory: 'CACHE', recursive: true });
+        }
+        return FS.appendFile({ path: filename, data: b64, directory: 'CACHE' });
+      });
+    }).catch(function (e) { failed = e; console.error('write chunk failed', e); });
+  };
+  var flush = function () {
+    if (!pending.length) return;
+    writePart(new Blob(pending, { type: mimeType }));
+    pending = []; pendingSize = 0;
+  };
+  return {
+    push: function (b) { pending.push(b); pendingSize += b.size; if (pendingSize >= FLUSH) flush(); },
+    finish: function () {
+      flush();
+      toast('💾…');
+      return queue.then(function () {
+        if (failed) { toast('⚠️ ' + (failed.message || 'save failed')); return; }
+        if (!started) { toast('⚠️ save failed'); return; }
+        return FS.getUri({ path: filename, directory: 'CACHE' }).then(function (r) {
+          toast('✅');
+          if (SH && SH.share) return SH.share({ title: filename, files: [r.uri], dialogTitle: 'ProLang clip' });
+        }).catch(function (e) { console.error('share video failed', e); toast('⚠️ ' + (e.message || 'save failed')); });
+      });
     }
-  } catch (e) {}
-  var a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = name;
-  document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(function () { URL.revokeObjectURL(a.href); }, 5000);
+  };
 }
 function recSupported() {
   if (typeof MediaRecorder === 'undefined' || !HTMLCanvasElement.prototype.captureStream) {
@@ -1848,30 +1893,44 @@ function recSupported() {
   }
   return true;
 }
-// prefer mp4 (share-friendly); fall back to webm when unsupported
+// prefer mp4 (share-friendly); fall back to webm when unsupported —
+// same candidate list and bitrate budget as zeelang
 function pickRecMime() {
-  var list = ['video/mp4;codecs=avc1,mp4a', 'video/mp4',
-    'video/webm;codecs=vp9,opus', 'video/webm'];
+  var list = ['video/mp4;codecs=avc1.42E01E,mp4a.40.2', 'video/mp4;codecs=h264,aac',
+    'video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm'];
   for (var i = 0; i < list.length; i++) {
     try { if (MediaRecorder.isTypeSupported(list[i])) return list[i]; } catch (e) {}
   }
   return '';
 }
-function newRec(stream) {
-  var mime = pickRecMime(), opts = { videoBitsPerSecond: 3000000 };
+function newRec(stream, W, H) {
+  var mime = pickRecMime();
+  var opts = {
+    videoBitsPerSecond: Math.min(6000000, Math.max(2500000, Math.round((W || 1280) * (H || 720) * 4))),
+    audioBitsPerSecond: 128000
+  };
   if (mime) opts.mimeType = mime;
-  try {
-    var r = new MediaRecorder(stream, opts);
-    r._clipType = (mime || 'video/webm').split(';')[0];
-    r._clipExt = r._clipType.indexOf('mp4') >= 0 ? 'mp4' : 'webm';
-    return r;
-  } catch (e) { toast('⚠️ ' + (T().recNo || 'recording not supported')); return null; }
+  var r;
+  try { r = new MediaRecorder(stream, opts); }
+  catch (e) { try { r = new MediaRecorder(stream); } catch (e2) { toast('⚠️ ' + (T().recNo || 'recording not supported')); return null; } }
+  var outMime = (r.mimeType || mime || 'video/webm').split(';')[0];
+  r._clipType = outMime;
+  r._clipExt = outMime.indexOf('mp4') >= 0 ? 'mp4' : 'webm';
+  return r;
 }
-// attach a media element's audio to a recording stream.
-// WebAudio first: on some WebViews captureStream() returns a live-but-SILENT
-// track, which would wrongly pass the "has tracks" check. WebAudio output
-// always carries real samples. captureStream stays as fallback.
+// attach a media element's audio to a recording stream — zeek's way:
+// captureStream first (proven to carry real audio on-device); WebAudio
+// destination as fallback when it yields no audio track at all
 function addMediaAudio(me, stream) {
+  try {
+    var ms = me.captureStream ? me.captureStream()
+      : (me.mozCaptureStream ? me.mozCaptureStream() : null);
+    var trs = ms ? ms.getAudioTracks() : [];
+    if (trs.length) {
+      trs.forEach(function (tr) { stream.addTrack(tr); });
+      return true;
+    }
+  } catch (e) {}
   try {
     var AC = window.AudioContext || window.webkitAudioContext;
     if (AC) {
@@ -1884,20 +1943,11 @@ function addMediaAudio(me, stream) {
         src.connect(actx.destination);
         me._plWaConnected = true;
       }
-      var trs = dst.stream.getAudioTracks();
-      if (trs.length) {
-        trs.forEach(function (tr) { stream.addTrack(tr); });
+      var trs2 = dst.stream.getAudioTracks();
+      if (trs2.length) {
+        trs2.forEach(function (tr) { stream.addTrack(tr); });
         return true;
       }
-    }
-  } catch (e) {}
-  try {
-    var ms = me.captureStream ? me.captureStream()
-      : (me.mozCaptureStream ? me.mozCaptureStream() : null);
-    var trs2 = ms ? ms.getAudioTracks() : [];
-    if (trs2.length) {
-      trs2.forEach(function (tr) { stream.addTrack(tr); });
-      return true;
     }
   } catch (e) {}
   return false;
@@ -1911,12 +1961,17 @@ function recToggle(btn, me, cues, activeIdx, segEnd) {
   if (!recSupported()) return;
   var isVideo = me.tagName === 'VIDEO' && me.videoWidth;
   var W = isVideo ? me.videoWidth : 640, H = isVideo ? me.videoHeight : 360;
+  var maxSide = 1920;
+  if (Math.max(W, H) > maxSide) {
+    var k0 = maxSide / Math.max(W, H);
+    W = Math.round(W * k0 / 2) * 2; H = Math.round(H * k0 / 2) * 2;
+  }
   var cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   var cx = cv.getContext('2d');
   var stream = cv.captureStream(30);
   addMediaAudio(me, stream);
-  var rec = newRec(stream); if (!rec) return;
-  var chunks = [];
+  var rec = newRec(stream, W, H); if (!rec) return;
+  var sink = createRecSink(rec._clipExt, rec._clipType, 'prolang-clip');
   function draw() {
     if (!recState) return;
     if (segEnd != null && me.currentTime >= segEnd) {
@@ -1932,17 +1987,45 @@ function recToggle(btn, me, cues, activeIdx, segEnd) {
     if (i >= 0) drawCuePills(cx, cueRows(cues[i].text).filter(function (r) { return r.text; }), W, H, -1);
     recState.raf = requestAnimationFrame(draw);
   }
-  rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
+  rec.ondataavailable = function (e) { if (e.data && e.data.size) sink.push(e.data); };
   rec.onstop = function () {
-    shareOrDownloadClip(new Blob(chunks, { type: rec._clipType }),
-      'prolang-clip.' + rec._clipExt);
+    me.removeEventListener('ended', onEnded);
+    sink.finish();
     recDone(btn);
   };
-  recState = { rec: rec, raf: 0, cv: cv };
-  draw();
-  rec.start(300);
-  btn.classList.add('rec-on'); btn.textContent = '⏹';
-  if (me.paused) me.play();
+  var onEnded = function () { if (recState) try { recState.rec.stop(); } catch (e) {} };
+  me.addEventListener('ended', onEnded, { once: true });
+  // zeek behavior: stop loop mode, seek back to the current cue's start,
+  // then record from there
+  if (loopSeg) { loopSeg = null; var lp0 = document.querySelector('.cue-tools .mini.on'); if (lp0) lp0.classList.remove('on'); }
+  try { me.loop = false; } catch (e) {}
+  var startAt = me.currentTime || 0;
+  if (segEnd != null) {
+    for (var ci = cues.length - 1; ci >= 0; ci--) {
+      if (cues[ci].end <= segEnd + 0.01) { startAt = cues[ci].start; break; }
+    }
+  } else {
+    var cur = activeIdx(startAt);
+    if (cur >= 0) startAt = cues[cur].start;
+    else for (var ni = 0; ni < cues.length; ni++) if (cues[ni].start >= startAt) { startAt = cues[ni].start; break; }
+  }
+  var begin = function () {
+    recState = { rec: rec, raf: 0, cv: cv };
+    draw();
+    rec.start(250);
+    btn._recIcon = '⬇';
+    btn.classList.add('rec-on'); btn.textContent = '⏹';
+    toast('⏺ ' + (T().recClip || 'recording'));
+    try { var pr = me.play(); if (pr && pr.catch) pr.catch(function () {}); } catch (e) {}
+  };
+  try { me.pause(); } catch (e) {}
+  if (Math.abs((me.currentTime || 0) - startAt) > 0.05) {
+    try { me.currentTime = startAt; } catch (e) {}
+    var seeked = false;
+    var go = function () { if (seeked) return; seeked = true; begin(); };
+    me.addEventListener('seeked', go, { once: true });
+    setTimeout(go, 800);
+  } else begin();
 }
 // ⏺ record a phrase card: pills on dark bg, each row highlighted while its TTS plays
 function recordPhrase(btn, ph) {
@@ -1973,18 +2056,18 @@ function recordPhrase(btn, ph) {
       recDst.stream.getAudioTracks().forEach(function (tr) { stream.addTrack(tr); });
     }
   } catch (e) {}
-  var rec = newRec(stream); if (!rec) return;
-  var chunks = [], hi = -1;
+  var rec = newRec(stream, W, H); if (!rec) return;
+  var sink = createRecSink(rec._clipExt, rec._clipType, 'prolang-phrase');
+  var hi = -1;
   function draw() {
     if (!recState) return;
     cx.fillStyle = '#141a20'; cx.fillRect(0, 0, W, H);
     drawCuePills(cx, rows, W, H, hi);
     recState.raf = requestAnimationFrame(draw);
   }
-  rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
+  rec.ondataavailable = function (e) { if (e.data && e.data.size) sink.push(e.data); };
   rec.onstop = function () {
-    shareOrDownloadClip(new Blob(chunks, { type: rec._clipType }),
-      'prolang-phrase.' + rec._clipExt);
+    sink.finish();
     recDone(btn);
   };
   recState = { rec: rec, raf: 0, cv: cv };
@@ -2054,7 +2137,7 @@ function recDone(btn) {
     try { if (recState.rec.state !== 'inactive') recState.rec.stop(); } catch (e) {}
   }
   recState = null;
-  if (btn) { btn.classList.remove('rec-on'); btn.textContent = '⏺'; }
+  if (btn) { btn.classList.remove('rec-on'); btn.textContent = btn._recIcon || '⏺'; }
 }
 function renderMedia(v, f, l) {
   var cues = l.cues || [];
@@ -2153,8 +2236,8 @@ function renderMedia(v, f, l) {
     nx.title = 'next phrase';
     nx.onclick = function () { cueStep(1); };
     tools.appendChild(nx);
-    // ⏺ record the video/audio WITH its caption pills → .webm clip
-    var rc = el('button', 'mini', '⏺');
+    // ⬇ record the video/audio WITH its caption pills → share clip (zeelang icon)
+    var rc = el('button', 'mini', '⬇');
     rc.title = T().recClip || 'record clip';
     rc.onclick = function () { recToggle(rc, me, cues, activeIdx); };
     tools.appendChild(rc);
@@ -2220,7 +2303,7 @@ function renderMedia(v, f, l) {
     side.appendChild(tb);
     if (me) {
       // ⏺ record THIS caption's segment of the media → share/download clip
-      var cr = el('button', 'cue-rec', '⏺');
+      var cr = el('button', 'cue-rec', '⬇');
       cr.title = T().recClip || 'record clip';
       cr.onclick = function () {
         if (recState) { try { recState.rec.stop(); } catch (e) { recDone(cr); } return; }
