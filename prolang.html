@@ -1867,29 +1867,40 @@ function newRec(stream) {
     return r;
   } catch (e) { toast('⚠️ ' + (T().recNo || 'recording not supported')); return null; }
 }
-// attach a media element's audio to a recording stream:
-// captureStream() first, WebAudio fallback (WebViews often return no audio track)
+// attach a media element's audio to a recording stream.
+// WebAudio first: on some WebViews captureStream() returns a live-but-SILENT
+// track, which would wrongly pass the "has tracks" check. WebAudio output
+// always carries real samples. captureStream stays as fallback.
 function addMediaAudio(me, stream) {
   try {
-    var ms = me.captureStream ? me.captureStream()
-      : (me.mozCaptureStream ? me.mozCaptureStream() : null);
-    var trs = ms ? ms.getAudioTracks() : [];
-    if (trs.length) {
-      trs.forEach(function (tr) { stream.addTrack(tr); });
-      return true;
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (AC) {
+      var actx = window._plACtx || (window._plACtx = new AC());
+      if (actx.state === 'suspended') actx.resume();
+      var src = me._plWaSrc || (me._plWaSrc = actx.createMediaElementSource(me));
+      var dst = me._plWaDst || (me._plWaDst = actx.createMediaStreamDestination());
+      if (!me._plWaConnected) {
+        src.connect(dst);
+        src.connect(actx.destination);
+        me._plWaConnected = true;
+      }
+      var trs = dst.stream.getAudioTracks();
+      if (trs.length) {
+        trs.forEach(function (tr) { stream.addTrack(tr); });
+        return true;
+      }
     }
   } catch (e) {}
   try {
-    var AC = window.AudioContext || window.webkitAudioContext;
-    if (!AC) return false;
-    var actx = window._plACtx || (window._plACtx = new AC());
-    if (actx.state === 'suspended') actx.resume();
-    var src = me._plWaSrc || (me._plWaSrc = actx.createMediaElementSource(me));
-    var dst = me._plWaDst || (me._plWaDst = actx.createMediaStreamDestination());
-    try { src.connect(dst); src.connect(actx.destination); } catch (e) {}
-    dst.stream.getAudioTracks().forEach(function (tr) { stream.addTrack(tr); });
-    return true;
-  } catch (e) { return false; }
+    var ms = me.captureStream ? me.captureStream()
+      : (me.mozCaptureStream ? me.mozCaptureStream() : null);
+    var trs2 = ms ? ms.getAudioTracks() : [];
+    if (trs2.length) {
+      trs2.forEach(function (tr) { stream.addTrack(tr); });
+      return true;
+    }
+  } catch (e) {}
+  return false;
 }
 // ⏺ record media playback with its caption pills; segEnd auto-stops at a cue end
 function recToggle(btn, me, cues, activeIdx, segEnd) {
