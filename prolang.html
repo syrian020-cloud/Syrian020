@@ -219,21 +219,28 @@
   .media-box video.fit-fill { object-fit: fill; }
   .media-box video.fit-tall { max-height: 62vh; }
   .media-box audio { width: 100%; height: 42px; }
-  .cue-now .cue-line { display: flex; align-items: center; justify-content: center; gap: .45rem;
-    border-radius: 12px; padding: .32rem .7rem; margin: .18rem auto; font-weight: 800;
-    font-size: 1.02rem; color: #fff; max-width: fit-content; overflow-wrap: anywhere;
-    box-shadow: 0 3px 10px rgba(0,0,0,.25); }
+  /* caption pills — zeelang style: solid colored box per language, flag at the edge */
+  .cue-now .cue-line { position: relative; display: flex; align-items: center; justify-content: center;
+    direction: ltr; border-radius: 14px; padding: .42rem 2.7rem .42rem 1rem; margin: .2rem auto;
+    font-weight: 800; font-size: 1.08rem; max-width: 100%; min-width: min(78%, 340px);
+    overflow-wrap: anywhere; text-align: center; line-height: 1.45;
+    box-shadow: 0 4px 12px rgba(0,0,0,.3); }
   .cue-line { font-family: 'Segoe UI', 'Noto Sans', Roboto, 'Helvetica Neue', sans-serif;
     letter-spacing: .01em; cursor: pointer; }
-  .cue-line.speaking { outline: 3px solid rgba(255,255,255,.65); }
-  .cue-line .cue-flag { font-size: 1.15em; flex: none; }
-  .cue-line.lg-ar { background: linear-gradient(135deg, #34d399, #059669);
+  .cue-line.speaking { outline: 3px solid rgba(255,255,255,.7); }
+  .cue-line .cue-flag { position: absolute; right: .6rem; top: 50%; transform: translateY(-50%);
+    font-size: 1.35em; }
+  .cue-line.lg-fr { background: #3d3d3d; color: #fff;
+    font-family: Georgia, 'Times New Roman', 'Segoe UI', serif; font-style: italic; }
+  .cue-line.lg-ar { background: #d9a21b; color: #33260a;
     font-family: 'Noto Kufi Arabic', 'Noto Naskh Arabic', 'Segoe UI', Tahoma, sans-serif;
-    font-size: 1.1rem; }
-  .cue-line.lg-en { background: linear-gradient(135deg, #60a5fa, #2563eb); }
-  .cue-line.lg-fr { background: linear-gradient(135deg, #fb7185, #e11d48);
-    font-family: Georgia, 'Segoe UI', 'Times New Roman', serif; font-style: italic; }
-  .cue-line.lg-x { background: linear-gradient(135deg, #a78bfa, #7c3aed); }
+    font-size: 1.14rem; }
+  .cue-line.lg-en { background: #f3ecd9; color: #2b2b2b; }
+  .cue-line.lg-x { background: linear-gradient(135deg, #a78bfa, #7c3aed); color: #fff; }
+  .cue-tools .mini.rec-on { background: #e11d48; color: #fff; border-color: transparent;
+    animation: recPulse 1s infinite alternate; }
+  @keyframes recPulse { from { box-shadow: 0 0 0 0 rgba(225,29,72,.5); }
+    to { box-shadow: 0 0 0 6px rgba(225,29,72,.15); } }
   .cue-now { text-align: center; font-size: 1.05rem; font-weight: 800; line-height: 1.45;
     padding: .55rem .3rem .2rem; min-height: 1.5rem; overflow-wrap: anywhere; }
   .cue-tools { display: flex; gap: .4rem; justify-content: center; margin-top: .35rem; }
@@ -311,6 +318,7 @@ var I18N = {
     pickMedia: 'اختر ملف فيديو أو صوت', mediaNow: 'الملف الحالي',
     timedL: 'النص المؤقّت — كل سطر: 00:01 العبارة أو 00:01 --> 00:04 العبارة',
     mediaDel: 'حذف الملف المرفق', errTimed: 'لم يتم العثور على أسطر مؤقّتة',
+    recClip: 'تسجيل مقطع', recNo: 'التسجيل غير مدعوم هنا',
     templates: '📋 النماذج', tplPhrases: 'نماذج العبارات', tplTimed: 'النماذج المؤقّتة — فيديو / صوت 🎬',
     emptyF: 'لا مجلدات بعد — أنشئ أول مجلد بزر ➕', emptyL: 'لا دروس هنا — أضف درساً بـ➕ أو الصق نماذج',
     emptyP: 'لا عبارات بعد — أضفها بـ➕'
@@ -339,6 +347,7 @@ var I18N = {
     pickMedia: 'Choisir un fichier vidéo ou audio', mediaNow: 'Fichier actuel',
     timedL: 'Texte synchronisé — chaque ligne : 00:01 phrase ou 00:01 --> 00:04 phrase',
     mediaDel: 'Supprimer le fichier joint', errTimed: 'Aucune ligne synchronisée trouvée',
+    recClip: 'Enregistrer un clip', recNo: 'Enregistrement non pris en charge',
     templates: '📋 Modèles', tplPhrases: 'Modèles de phrases', tplTimed: 'Modèles synchronisés — vidéo / audio 🎬',
     emptyF: 'Aucun dossier — créez-en un avec ➕', emptyL: 'Aucune leçon — ajoutez avec ➕ ou collez des modèles',
     emptyP: 'Aucune phrase — ajoutez avec ➕'
@@ -367,6 +376,7 @@ var I18N = {
     pickMedia: 'Pick a video or audio file', mediaNow: 'Current file',
     timedL: 'Timed text — each line: 00:01 phrase or 00:01 --> 00:04 phrase',
     mediaDel: 'Remove attached file', errTimed: 'No timed lines found',
+    recClip: 'Record clip', recNo: 'Recording not supported here',
     templates: '📋 Templates', tplPhrases: 'Phrase templates', tplTimed: 'Timed templates — video / audio 🎬',
     emptyF: 'No folders yet — create one with ➕', emptyL: 'No lessons — add with ➕ or paste templates',
     emptyP: 'No phrases yet — add with ➕'
@@ -717,6 +727,7 @@ function cardShell(inner) {
 }
 
 function render() {
+  if (recState) recDone();   // leaving/refreshing the view stops any clip recording
   var t = T();
   var v = document.getElementById('view');
   var back = document.getElementById('backBtn');
@@ -1747,6 +1758,104 @@ function mediaKey(l) { return 'plm_' + l.id; }
 
 var mediaEl = null;   // the <video>/<audio> in the open lesson
 var loopSeg = null;   // {start, end} — loops that media segment continuously
+// caption pill palette — mirrors .cue-line.lg-* above so canvas recording matches
+var CUE_PILL = {
+  fr: { bg: '#3d3d3d', fg: '#ffffff', font: "Georgia,'Times New Roman',serif", it: true },
+  ar: { bg: '#d9a21b', fg: '#33260a', font: "'Noto Kufi Arabic','Noto Naskh Arabic',Tahoma,sans-serif" },
+  en: { bg: '#f3ecd9', fg: '#2b2b2b', font: "'Segoe UI',Roboto,sans-serif" },
+  x:  { bg: '#7c3aed', fg: '#ffffff', font: "'Segoe UI',sans-serif" }
+};
+function cuePill(lang) {
+  return CUE_PILL[lang === 'ar' ? 'ar' : lang === 'en' ? 'en' : lang === 'fr' ? 'fr' : 'x'];
+}
+function rrPath(c, x, y, w, h, r) {
+  c.beginPath();
+  if (c.roundRect) { c.roundRect(x, y, w, h, r); return; }
+  c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r); c.arcTo(x + w, y + h, x, y + h, r);
+  c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath();
+}
+// record the playing media with captions burned in → downloads a .webm clip
+var recState = null;   // {rec, raf, cv}
+function recToggle(btn, me, cues, activeIdx) {
+  if (recState) {
+    try { recState.rec.stop(); } catch (e) { recDone(btn); }
+    return;
+  }
+  if (typeof MediaRecorder === 'undefined' || !HTMLCanvasElement.prototype.captureStream) {
+    toast('⚠️ ' + (T().recNo || 'recording not supported'));
+    return;
+  }
+  var isVideo = me.tagName === 'VIDEO' && me.videoWidth;
+  var W = isVideo ? me.videoWidth : 640, H = isVideo ? me.videoHeight : 360;
+  var cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+  var cx = cv.getContext('2d');
+  var stream = cv.captureStream(30);
+  try {
+    var ms = me.captureStream ? me.captureStream()
+      : (me.mozCaptureStream ? me.mozCaptureStream() : null);
+    if (ms) ms.getAudioTracks().forEach(function (tr) { stream.addTrack(tr); });
+  } catch (e) {}
+  var mime = MediaRecorder.isTypeSupported('video/webm;codecs=vp9,opus')
+    ? 'video/webm;codecs=vp9,opus' : 'video/webm';
+  var rec, chunks = [];
+  try { rec = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 3000000 }); }
+  catch (e) { toast('⚠️ ' + (T().recNo || 'recording not supported')); return; }
+  function draw() {
+    if (!recState) return;
+    if (isVideo) {
+      try { cx.drawImage(me, 0, 0, W, H); } catch (e) {
+        cx.fillStyle = '#000'; cx.fillRect(0, 0, W, H);
+      }
+    } else { cx.fillStyle = '#141a20'; cx.fillRect(0, 0, W, H); }
+    var i = activeIdx(me.currentTime);
+    if (i >= 0) {
+      var rows = cueRows(cues[i].text).filter(function (r) { return r.text; });
+      var fs = Math.max(16, Math.round(H * 0.048));
+      var lh = Math.round(fs * 1.9), padX = fs * 0.85, flagW = fs * 1.5;
+      var y = H - Math.round(H * 0.03) - lh * rows.length + Math.round(lh / 2);
+      rows.forEach(function (r) {
+        var lang = r.lang === 'auto' ? 'fr' : (r.lang || langOfFlag(r.flag));
+        var st = cuePill(lang);
+        cx.font = (st.it ? 'italic ' : '') + 'bold ' + fs + 'px ' + st.font;
+        var tw = Math.min(cx.measureText(r.text).width, W * 0.88);
+        var pw = Math.min(tw + padX * 2 + flagW, W * 0.94);
+        var x = (W - pw) / 2;
+        cx.fillStyle = st.bg; rrPath(cx, x, y - lh * 0.6, pw, lh * 0.76, fs * 0.45); cx.fill();
+        cx.fillStyle = st.fg; cx.textAlign = 'center'; cx.textBaseline = 'middle';
+        cx.fillText(r.text, W / 2 - flagW / 2, y - lh * 0.21, pw - padX * 2 - flagW);
+        if (r.flag && r.flag !== '🏳') {
+          cx.font = fs + 'px sans-serif'; cx.textAlign = 'right';
+          cx.fillText(r.flag, x + pw - padX * 0.6, y - lh * 0.21);
+        }
+        y += lh;
+      });
+    }
+    recState.raf = requestAnimationFrame(draw);
+  }
+  rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
+  rec.onstop = function () {
+    var blob = new Blob(chunks, { type: 'video/webm' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'prolang-clip.webm';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 5000);
+    recDone(btn);
+  };
+  recState = { rec: rec, raf: 0, cv: cv };
+  draw();
+  rec.start(300);
+  btn.classList.add('rec-on'); btn.textContent = '⏹';
+  if (me.paused) me.play();
+}
+function recDone(btn) {
+  if (recState) {
+    cancelAnimationFrame(recState.raf);
+    try { if (recState.rec.state !== 'inactive') recState.rec.stop(); } catch (e) {}
+  }
+  recState = null;
+  if (btn) { btn.classList.remove('rec-on'); btn.textContent = '⏺'; }
+}
 function renderMedia(v, f, l) {
   var cues = l.cues || [];
   var box = el('div', 'media-box');
@@ -1816,6 +1925,13 @@ function renderMedia(v, f, l) {
     lp.classList.toggle('on', !!loopSeg);
   };
   tools.appendChild(lp);
+  if (me) {
+    // ⏺ record the video/audio WITH its caption pills → .webm clip
+    var rc = el('button', 'mini', '⏺');
+    rc.title = T().recClip || 'record clip';
+    rc.onclick = function () { recToggle(rc, me, cues, activeIdx); };
+    tools.appendChild(rc);
+  }
   if (l.media && l.media.kind !== 'audio') {
     // video size: fit → cover → fill → tall (cycle)
     var FITS = ['', 'fit-cover', 'fit-fill', 'fit-tall'];
