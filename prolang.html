@@ -2632,7 +2632,7 @@ function renderMedia(v, f, l) {
     me.onpause = function () { sync(me.currentTime); };
     mediaGet(mediaKey(l), function (blob) {
       if (blob) { me.src = URL.createObjectURL(blob); }
-      else { me.remove(); me = null; now.textContent = '⚠️ ' + (l.media.name || ''); }
+      else { me.remove(); me = null; now.style.display = ''; now.textContent = '⚠️ ' + (l.media.name || ''); }
     });
     box.appendChild(me);
   }
