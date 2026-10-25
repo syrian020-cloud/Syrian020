@@ -311,6 +311,7 @@ var I18N = {
     pickMedia: 'اختر ملف فيديو أو صوت', mediaNow: 'الملف الحالي',
     timedL: 'النص المؤقّت — كل سطر: 00:01 العبارة أو 00:01 --> 00:04 العبارة',
     mediaDel: 'حذف الملف المرفق', errTimed: 'لم يتم العثور على أسطر مؤقّتة',
+    templates: '📋 النماذج', tplPhrases: 'نماذج العبارات', tplTimed: 'النماذج المؤقّتة — فيديو / صوت 🎬',
     emptyF: 'لا مجلدات بعد — أنشئ أول مجلد بزر ➕', emptyL: 'لا دروس هنا — أضف درساً بـ➕ أو الصق نماذج',
     emptyP: 'لا عبارات بعد — أضفها بـ➕'
   },
@@ -338,6 +339,7 @@ var I18N = {
     pickMedia: 'Choisir un fichier vidéo ou audio', mediaNow: 'Fichier actuel',
     timedL: 'Texte synchronisé — chaque ligne : 00:01 phrase ou 00:01 --> 00:04 phrase',
     mediaDel: 'Supprimer le fichier joint', errTimed: 'Aucune ligne synchronisée trouvée',
+    templates: '📋 Modèles', tplPhrases: 'Modèles de phrases', tplTimed: 'Modèles synchronisés — vidéo / audio 🎬',
     emptyF: 'Aucun dossier — créez-en un avec ➕', emptyL: 'Aucune leçon — ajoutez avec ➕ ou collez des modèles',
     emptyP: 'Aucune phrase — ajoutez avec ➕'
   },
@@ -365,6 +367,7 @@ var I18N = {
     pickMedia: 'Pick a video or audio file', mediaNow: 'Current file',
     timedL: 'Timed text — each line: 00:01 phrase or 00:01 --> 00:04 phrase',
     mediaDel: 'Remove attached file', errTimed: 'No timed lines found',
+    templates: '📋 Templates', tplPhrases: 'Phrase templates', tplTimed: 'Timed templates — video / audio 🎬',
     emptyF: 'No folders yet — create one with ➕', emptyL: 'No lessons — add with ➕ or paste templates',
     emptyP: 'No phrases yet — add with ➕'
   }
@@ -1439,36 +1442,101 @@ var TIMED_TEMPLATES = [
 '00:00 --> 00:03 🇫🇷 Bonjour !\n' +
 '00:03 --> 00:06 🇸🇾 مرحبا!\n' +
 '00:06 --> 00:09 🇫🇷 Au revoir !\n' +
-'00:09 --> 00:12 🇸🇾 مع السلامة' }
+'00:09 --> 00:12 🇸🇾 مع السلامة' },
+  { name: 'أعلام — وقت بسطر والترجمات أسفله', text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes.\n' +
+'🇸🇾 ماريا، ما عاد معي دخان.\n' +
+'🇺🇸 Maria, I’m out of cigarettes.\n' +
+'00:02 🇫🇷 Donne-moi de l’argent.\n' +
+'🇸🇾 أعطيني مصاري.\n' +
+'🇺🇸 Give me some money.\n' +
+'00:04 🇫🇷 Pourquoi ? Tu as tout dépensé ?\n' +
+'🇸🇾 ليش؟ صرفت كل المصاري؟\n' +
+'🇺🇸 Why? Did you spend it all?' },
+  { name: 'SRT — ترجمة احترافية بأنابيب |', text:
+'1\n' +
+'00:00:00,000 --> 00:00:03,000\n' +
+'Maria, j’ai plus de cigarettes. | ماريا، ما عاد معي دخان. | Maria, I’m out of cigarettes.\n' +
+'\n' +
+'2\n' +
+'00:00:03,000 --> 00:00:05,000\n' +
+'Donne-moi de l’argent. | أعطيني مصاري. | Give me some money.' },
+  { name: 'MM:SS بأنبوب | — بلا أعلام', text:
+'00:00 Maria, j’ai plus de cigarettes. | ماريا، ما عاد معي دخان. | Maria, I’m out of cigarettes.\n' +
+'00:02 Donne-moi de l’argent. | أعطيني مصاري. | Give me some money.' },
+  { name: 'MM:SS — أسطر بلا أعلام', text:
+'00:00 Maria, j’ai plus de cigarettes.\n' +
+'ماريا، ما عاد معي دخان.\n' +
+'Maria, I’m out of cigarettes.\n' +
+'\n' +
+'00:02 Donne-moi de l’argent.\n' +
+'أعطيني مصاري.\n' +
+'Give me some money.' },
+  { name: 'أعلام بسطر واحد — وقت', text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇺🇸 Maria, I’m out of cigarettes.\n' +
+'00:02 🇫🇷 Donne-moi de l’argent. 🇸🇾 أعطيني مصاري. 🇺🇸 Give me some money.' },
+  { name: 'رموز اللغة — FR: / AR: / EN:', text:
+'00:00 FR: Maria, j’ai plus de cigarettes.\n' +
+'AR: ماريا، ما عاد معي دخان.\n' +
+'EN: Maria, I’m out of cigarettes.\n' +
+'00:02 FR: Donne-moi de l’argent.\n' +
+'AR: أعطيني مصاري.\n' +
+'EN: Give me some money.' }
 ];
+// two-letter language codes used as line labels: FR: / AR: / EN: …
+var LANG_CODE = { FR:['🇫🇷','fr'], AR:['🇸🇾','ar'], EN:['🇺🇸','en'], ES:['🇪🇸','es'],
+  TR:['🇹🇷','tr'], DE:['🇩🇪','de'], IT:['🇮🇹','it'], RU:['🇷🇺','ru'], PT:['🇧🇷','pt'],
+  NL:['🇳🇱','nl'], ZH:['🇨🇳','zh'], JA:['🇯🇵','ja'], KO:['🇰🇷','ko'], HI:['🇮🇳','hi'],
+  UR:['🇵🇰','ur'], FA:['🇮🇷','fa'], EL:['🇬🇷','el'], VI:['🇻🇳','vi'], ID:['🇮🇩','id'],
+  SW:['🇹🇿','sw'], YO:['🇳🇬','yo'], PL:['🇵🇱','pl'], UK:['🇺🇦','uk'], SV:['🇸🇪','sv'] };
+var LANG_CODE_RE = /^([A-Za-z]{2})\s*[:：]\s*(.+)$/;
 // cue text → flag rows (same grammar as phrase lines: flag = speak icon)
+// flagless segments become rows too: Arabic script → 🇸🇾, 1st latin → 🏳 (original), next latin → 🇺🇸
 function cueRows(text) {
-  var rows = [];
+  var rows = [], freeLatin = 0;
+  function addFree(tx) {
+    tx = (tx || '').trim();
+    if (!tx) return;
+    var code = LANG_CODE_RE.exec(tx);
+    if (code && LANG_CODE[code[1].toUpperCase()]) {
+      var lc = LANG_CODE[code[1].toUpperCase()];
+      rows.push({ flag: lc[0], lang: lc[1], text: code[2].trim(), latin: '', arp: '' });
+      return;
+    }
+    if (/^🔤/u.test(tx)) { if (rows.length) rows[rows.length - 1].latin = deLabel(tx.replace(/^🔤\s*/u, '')); return; }
+    if (/^[🗣️🔊]/u.test(tx)) { if (rows.length) rows[rows.length - 1].arp = deLabel(tx.replace(/^[🗣️🔊]\s*/u, '')); return; }
+    if (/[\u0600-\u06FF]/.test(tx)) { rows.push({ flag: '🇸🇾', lang: 'ar', text: tx, latin: '', arp: '' }); return; }
+    freeLatin++;
+    rows.push(freeLatin === 1
+      ? { flag: '🏳', lang: 'auto', text: tx, latin: '', arp: '' }
+      : { flag: '🇺🇸', lang: 'en', text: tx, latin: '', arp: '' });
+  }
   (text || '').split('\n').forEach(function (raw) {
-    var line = raw.trim();
-    if (!line) return;
-    var flat = line.replace(/\|/g, ' ');
-    var parts = flat.split(SEG_RE), hit = false;
-    for (var i = 1; i < parts.length; i += 2) {
-      var mk = (parts[i] || '').trim(), tx = deLabel((parts[i + 1] || '').trim());
-      if (!mk) continue;
-      if (FLAG_RE.test(mk)) {
-        rows.push({ flag: mk, lang: langOfFlag(mk), text: tx, latin: '', arp: '' });
-        hit = true;
-      } else if (rows.length) {
-        var r = rows[rows.length - 1];
-        if (mk.indexOf('🔤') === 0) r.latin = tx;
-        else r.arp = tx;
+    raw.trim().split('|').forEach(function (piece) {
+      var line = piece.trim();
+      if (!line) return;
+      var c = LANG_CODE_RE.exec(line);
+      if (c && LANG_CODE[c[1].toUpperCase()]) { addFree(line); return; }
+      var parts = line.split(SEG_RE), hit = false;
+      for (var i = 1; i < parts.length; i += 2) {
+        var mk = (parts[i] || '').trim(), tx = deLabel((parts[i + 1] || '').trim());
+        if (!mk) continue;
+        if (FLAG_RE.test(mk)) {
+          rows.push({ flag: mk, lang: langOfFlag(mk), text: tx, latin: '', arp: '' });
+          hit = true;
+        } else if (rows.length) {
+          var r = rows[rows.length - 1];
+          if (mk.indexOf('🔤') === 0) r.latin = tx;
+          else r.arp = tx;
+        }
       }
-    }
-    if (!hit) {
-      if (rows.length) {
-        var lr = rows[rows.length - 1];
-        lr.arp = lr.arp || line;              // flagless line = sub-line of last row
-      } else {
-        rows.push({ flag: '🏳', lang: 'auto', text: line, latin: '', arp: '' });
+      if (!hit) {
+        // a leading segment may precede the first marker on a mixed line
+        var lead = (parts[0] || '').trim();
+        if (lead && parts.length > 1) addFree(lead);
+        else if (parts.length === 1) addFree(line);
       }
-    }
+    });
   });
   return rows;
 }
@@ -1705,6 +1773,25 @@ function mediaSheet(f, l) {
   sh.appendChild(act);
 }
 
+/* ================= templates section — every template with its own copy icon ================= */
+function templatesSheet() {
+  var t = T();
+  var sh = sheetHead('📋 ' + t.templates);
+  function tpl(tp) {
+    var head = el('div', 'tplhead');
+    head.appendChild(el('span', 'tplname', tp.name));
+    var cp = el('button', 'mini', '📋 ' + t.copyTpl);
+    cp.onclick = function () { copyText(tp.text); };
+    head.appendChild(cp);
+    sh.appendChild(head);
+    sh.appendChild(el('div', 'tplbox', tp.text));
+  }
+  sh.appendChild(el('div', 'flabel', t.tplPhrases));
+  TEMPLATES.forEach(tpl);
+  sh.appendChild(el('div', 'flabel', t.tplTimed));
+  TIMED_TEMPLATES.forEach(tpl);
+}
+
 /* ================= top menu ================= */
 function openMenu() {
   var t = T();
@@ -1725,6 +1812,7 @@ function openMenu() {
   }
   row(isDark() ? '☀' : '🌙', isDark() ? t.themeLight : t.themeDark, function () { toggleTheme(); openMenu(); });
   row('🎙', t.voiceSet, function () { closeOv(); if (window.EdgeTTS) EdgeTTS.openSettings(); });
+  row('📋', t.templates, function () { closeOv(); templatesSheet(); });
   row('📥', t.pasteTpl, function () {
     closeOv();
     var f = findF(nav.f);
