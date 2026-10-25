@@ -679,7 +679,11 @@ var LANG_KEY = {
 /* ================= data ================= */
 var inCap = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
 var folders = [];
-try { folders = JSON.parse(localStorage.getItem('prolang_data') || '[]'); } catch (e) { folders = []; }
+try {
+  var _pd = JSON.parse(localStorage.getItem('prolang_data') || '[]');
+  // accept every stored shape: plain array (current) or legacy {folders:[...]}
+  folders = Array.isArray(_pd) ? _pd : (_pd && Array.isArray(_pd.folders) ? _pd.folders : []);
+} catch (e) { folders = []; }
 if (!Array.isArray(folders)) folders = [];
 
 function uid() { return 'x' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
@@ -724,8 +728,9 @@ function saveData() {
   } catch (e) {}
 })();
 
-/* Seed: the greetings template — 33 languages grouped by region */
-if (!localStorage.getItem('prolang_seed_v2')) {
+/* Seed: the greetings template — 33 languages grouped by region
+   (re-seeds too when storage was wiped but the marker survived) */
+if (!localStorage.getItem('prolang_seed_v2') || !folders.length) {
   folders = [{
     id: 'f_world', name: 'لغات العالم', icon: '🌍', img: '',
     lessons: [
@@ -794,7 +799,7 @@ if (!localStorage.getItem('prolang_seed_v2')) {
 }
 
 /* Seed v3: top-20 world languages with English meaning too */
-if (!localStorage.getItem('prolang_seed_v3')) {
+if (!localStorage.getItem('prolang_seed_v3') || !folders.length) {
   var lTop = {
     id: 'l_top', title: '🌐 الأكثر انتشاراً', icon: '🌐', img: '',
     phrases: [
