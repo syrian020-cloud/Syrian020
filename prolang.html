@@ -1829,7 +1829,7 @@ function shareOrDownloadClip(blob, name) {
     return;
   }
   try {
-    var file = new File([blob], name, { type: 'video/webm' });
+    var file = new File([blob], name, { type: blob.type || 'video/mp4' });
     if (navigator.canShare && navigator.canShare({ files: [file] })) {
       navigator.share({ files: [file], title: 'ProLang' }).catch(function () {});
       return;
@@ -1848,11 +1848,24 @@ function recSupported() {
   }
   return true;
 }
+// prefer mp4 (share-friendly); fall back to webm when unsupported
+function pickRecMime() {
+  var list = ['video/mp4;codecs=avc1,mp4a', 'video/mp4',
+    'video/webm;codecs=vp9,opus', 'video/webm'];
+  for (var i = 0; i < list.length; i++) {
+    try { if (MediaRecorder.isTypeSupported(list[i])) return list[i]; } catch (e) {}
+  }
+  return '';
+}
 function newRec(stream) {
-  var mime = MediaRecorder.isTypeSupported('video/webm;codecs=vp9,opus')
-    ? 'video/webm;codecs=vp9,opus' : 'video/webm';
-  try { return new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 3000000 }); }
-  catch (e) { toast('⚠️ ' + (T().recNo || 'recording not supported')); return null; }
+  var mime = pickRecMime(), opts = { videoBitsPerSecond: 3000000 };
+  if (mime) opts.mimeType = mime;
+  try {
+    var r = new MediaRecorder(stream, opts);
+    r._clipType = (mime || 'video/webm').split(';')[0];
+    r._clipExt = r._clipType.indexOf('mp4') >= 0 ? 'mp4' : 'webm';
+    return r;
+  } catch (e) { toast('⚠️ ' + (T().recNo || 'recording not supported')); return null; }
 }
 // ⏺ record media playback with its caption pills; segEnd auto-stops at a cue end
 function recToggle(btn, me, cues, activeIdx, segEnd) {
@@ -1890,7 +1903,8 @@ function recToggle(btn, me, cues, activeIdx, segEnd) {
   }
   rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
   rec.onstop = function () {
-    shareOrDownloadClip(new Blob(chunks, { type: 'video/webm' }), 'prolang-clip.webm');
+    shareOrDownloadClip(new Blob(chunks, { type: rec._clipType }),
+      'prolang-clip.' + rec._clipExt);
     recDone(btn);
   };
   recState = { rec: rec, raf: 0, cv: cv };
@@ -1925,7 +1939,8 @@ function recordPhrase(btn, ph) {
   }
   rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
   rec.onstop = function () {
-    shareOrDownloadClip(new Blob(chunks, { type: 'video/webm' }), 'prolang-phrase.webm');
+    shareOrDownloadClip(new Blob(chunks, { type: rec._clipType }),
+      'prolang-phrase.' + rec._clipExt);
     recDone(btn);
   };
   recState = { rec: rec, raf: 0, cv: cv };
