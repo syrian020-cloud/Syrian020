@@ -1183,26 +1183,25 @@ function renderLesson(v, f, l) {
   sb.style.flex = 'none';
   sb.onclick = function () { stopAllSound(); };
   bar.appendChild(sb);
-  // second row holds the rest of the icons so nothing gets pushed off
-  var bar2 = el('div');
-  bar2.style.cssText = 'margin-bottom:.7rem;display:flex;gap:.5rem;flex-wrap:wrap';
+  // one bar — all icons on a single row
   var mb = el('button', 'btn', '🎬');
   mb.style.flex = 'none';
   mb.title = t.media;
   mb.onclick = function () { mediaSheet(f, l); };
-  bar2.appendChild(mb);
+  bar.appendChild(mb);
   var lzb = el('button', 'btn', '🎧');
   lzb.style.flex = 'none';
   lzb.title = t.listenQuiz;
   lzb.onclick = function () { openListen(l); };
-  bar2.appendChild(lzb);
+  bar.appendChild(lzb);
   var qzb = el('button', 'btn', '🧩');
   qzb.style.flex = 'none';
   qzb.title = t.quiz;
   qzb.onclick = function () { openQuiz(l); };
-  bar2.appendChild(qzb);
+  bar.appendChild(qzb);
+  bar.style.flexWrap = 'nowrap';
+  bar.querySelectorAll('.btn').forEach(function (b) { b.style.padding = '.55rem .55rem'; });
   v.appendChild(bar);
-  v.appendChild(bar2);
   if (l.media || (l.cues || []).length) renderMedia(v, f, l);
   (l.phrases || []).forEach(function (p) { v.appendChild(phraseCard(p, f, l)); });
   if (!(l.phrases || []).length && !(l.cues || []).length) {
