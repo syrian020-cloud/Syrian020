@@ -1321,10 +1321,22 @@ function parseLessons(text) {
     // flagless line: numbered item = standalone note; else attached to previous phrase
     if (!body) { flushGroup(); return; }
     flushGroup();
-    if (numbered || !ph) {
+    // "7. Une fuite — تسرّب" → two rows (latin + arabic) so each speaks its own
+    // language instead of one mixed-language line
+    if (numbered) {
+      var dm = /^(.+?)\s+[—–\-]\s+(.+)$/.exec(body);
+      if (dm && /[؀-ۿ]/.test(dm[2]) && !/[؀-ۿ]/.test(dm[1])) {
+        grp.push({ flag: '🇫🇷', text: dm[1].trim(), latin: '', arp: '', note: '' });
+        grp.push({ flag: '🇸🇾', text: dm[2].replace(/\s*\/\s*/g, '، ').trim(), latin: '', arp: '', note: '' });
+        flushGroup();
+        return;
+      }
       cur.phrases.push({ id: uid(), type: 'note', text: body });
-      if (numbered) ph = null;
-    } else ph.note = (ph.note ? ph.note + ' · ' : '') + body;
+      ph = null;
+      return;
+    }
+    if (!ph) cur.phrases.push({ id: uid(), type: 'note', text: body });
+    else ph.note = (ph.note ? ph.note + ' · ' : '') + body;
   });
   flushGroup();
   // keep only lessons that hold content
