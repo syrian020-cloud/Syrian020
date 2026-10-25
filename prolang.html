@@ -1993,12 +1993,22 @@ function recordPhrase(btn, ph) {
       EdgeTTS.audio(r.text, lang).then(function (a) {
         if (!recState) return;
         if (!a || !a.url) { next(1400); return; }
-        var au = new Audio(a.url);
-        addMediaAudio(au, stream);
-        au.onended = function () { next(350); };
-        au.onerror = function () { next(300); };
-        var pr = au.play();
-        if (pr && pr.catch) pr.catch(function () { next(300); });
+        var playUrl = function (url) {
+          var au = new Audio(url);
+          addMediaAudio(au, stream);
+          au.onended = function () { next(350); };
+          au.onerror = function () { next(300); };
+          var pr = au.play();
+          if (pr && pr.catch) pr.catch(function () { next(300); });
+        };
+        // a remote/file url can't be captured into the clip (CORS muting) —
+        // pull it into a same-origin blob first, fall back to the raw url
+        fetch(a.url).then(function (rsp) {
+          if (!rsp.ok) throw new Error('http');
+          return rsp.blob();
+        }).then(function (b) {
+          playUrl(URL.createObjectURL(b));
+        }).catch(function () { playUrl(a.url); });
       }, function () { next(1400); });
     } catch (e) { next(1400); }
   })(0);
