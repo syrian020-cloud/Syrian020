@@ -323,10 +323,13 @@
   .ctime-ic.ic-ai { background: #7dd3fc; }
   .ctime-ic.ic-clip { background: #c4b5fd; }
   .ctime-t.speaking { color: #b33939; }
-  .ctime-rec { flex: none; background: none; border: none; cursor: pointer;
-    font-size: 1.35rem; color: #c02626; font-family: inherit; padding: .15rem .2rem;
-    border-radius: 10px; }
-  .ctime-rec.rec-on { color: #fff; background: #e11d48;
+  .ctime-rec { flex: none; width: 2.3rem; height: 2.3rem; border-radius: 50%;
+    border: 2px solid rgba(0,0,0,.18); background: linear-gradient(145deg,#fda4af,#f43f5e);
+    color: #fff; font-size: 1.05rem; cursor: pointer; display: flex;
+    align-items: center; justify-content: center; padding: 0; font-family: inherit;
+    box-shadow: 0 2px 4px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.5); }
+  .ctime-rec:active { transform: scale(.88); }
+  .ctime-rec.rec-on { color: #fff; background: #e11d48; border-color: #fff;
     animation: recPulse 1s infinite alternate; }
 
   /* ---------- games (zeelang quiz + listen) ---------- */
@@ -674,7 +677,9 @@ var FLAG_LANG = {
 var FLAG_CHOICES = ['🇫🇷', '🇸🇾', '🇺🇸', '🇬🇧', '🇨🇳', '🇯🇵', '🇰🇷', '🇹🇭', '🇻🇳', '🇮🇳',
   '🇬🇷', '🇬🇪', '🇦🇲', '🇮🇱', '🇩🇪', '🇪🇸', '🇮🇹', '🇷🇺', '🇹🇷', '🇵🇹', '🇳🇱', '🇪🇬', '🇸🇦',
   '🇮🇩', '🇲🇾', '🇵🇭', '🇧🇩', '🇵🇰', '🇲🇳', '🇵🇱', '🇨🇿', '🇭🇺', '🇷🇴', '🇫🇮', '🇸🇪',
-  '🇳🇴', '🇩🇰', '🇰🇪', '🇿🇦', '🇳🇬', '🇪🇹', '🇮🇸', '🇦🇱', '🇱🇹', '🇱🇻', '🇪🇪'];
+  '🇳🇴', '🇩🇰', '🇰🇪', '🇿🇦', '🇳🇬', '🇪🇹', '🇮🇸', '🇦🇱', '🇱🇹', '🇱🇻', '🇪🇪',
+  '🇺🇦', '🇮🇷', '🇧🇷', '🇦🇺', '🇧🇬', '🇭🇷', '🇷🇸', '🇹🇿',
+  '🇯🇴', '🇱🇧', '🇲🇦', '🇩🇿', '🇹🇳', '🇦🇪', '🇮🇶', '🇰🇼', '🇶🇦', '🇧🇭', '🇴🇲', '🇾🇪', '🇱🇾'];
 var FLAG_RE = /^[\u{1F1E6}-\u{1F1FF}]{2}/u;
 var SEG_RE = /([\u{1F1E6}-\u{1F1FF}]{2}|🔊|🔤|🗣️?)/gu;
 function flagCC(flag) {
