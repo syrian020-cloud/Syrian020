@@ -975,7 +975,7 @@ function stopReadAll() {
   if (mediaEl) { try { mediaEl.pause(); } catch (e) {} }
   readAllJob = null;
   var b = document.getElementById('readAllBtn');
-  if (b) b.textContent = '🔂';
+  if (b) b.textContent = '📝';
 }
 // ⏹ stop EVERYTHING that can make sound: read-all, TTS loops, media
 function stopAllSound() {
@@ -1257,13 +1257,28 @@ function renderLesson(v, f, l) {
   bar.style.marginBottom = '.7rem';
   bar.style.display = 'flex';
   bar.style.gap = '.5rem';
-  // 🔂 read-all icon (no label, loops forever), 🔁 language picker, ⏹ stop-all
-  var rb = el('button', 'btn primary', readAllJob ? '⏹' : '🔂');
+  // 📝 browses the whole lesson text — edit / add / delete lines and save
+  var rb = el('button', 'btn primary', '📝');
   rb.id = 'readAllBtn';
-  rb.title = t.readAll;
+  rb.title = 'lesson text';
   rb.style.flex = 'none';
-  rb.onclick = function () { readAll(l); };
+  rb.onclick = function () {
+    if (readAllJob) { stopReadAll(); rb.textContent = '📝'; return; }
+    lessonTextSheet(f, l);
+  };
   bar.appendChild(rb);
+  // TTS speed cycler — common rates
+  var spb = el('button', 'btn', playSpeed + '×');
+  spb.title = 'TTS speed';
+  spb.style.flex = 'none';
+  spb.onclick = function () {
+    var i = SPEEDS.indexOf(playSpeed);
+    playSpeed = SPEEDS[(i + 1) % SPEEDS.length];
+    try { localStorage.setItem('prolang_speed', String(playSpeed)); } catch (e) {}
+    spb.textContent = playSpeed + '×';
+    applySpeed();
+  };
+  bar.appendChild(spb);
   var lw = el('div');
   lw.style.cssText = 'position:relative;flex:none';
   var lb = el('button', 'btn', '🔁');
@@ -1332,6 +1347,55 @@ function renderLesson(v, f, l) {
     e.appendChild(mb2);
     v.appendChild(e);
   }
+}
+
+// serialize the whole lesson to the editable text format (flag lines + meta)
+function lessonToText(l) {
+  var out = [];
+  (l.phrases || []).forEach(function (p) {
+    if (p.type === 'note') { out.push('📝 ' + p.text, ''); return; }
+    out.push((p.flag || '🏳') + ' ' + (p.text || ''));
+    if (p.latin) out.push('🔤 ' + p.latin);
+    if (p.arp) out.push('🔊 ' + p.arp);
+    (p.rows || []).forEach(function (r) {
+      out.push((r.flag || '🏳') + ' ' + (r.text || ''));
+      if (r.latin) out.push('🔤 ' + r.latin);
+      if (r.arp) out.push('🔊 ' + r.arp);
+    });
+    if (p.meaning) out.push('🇸🇾 ' + p.meaning);
+    if (p.en) out.push('🇺🇸 ' + p.en);
+    if (p.note) out.push('📝 ' + p.note);
+    out.push('');
+  });
+  (l.cues || []).forEach(function (c) {
+    out.push(fmtT(c.start) + ' --> ' + fmtT(c.end) + ' ' + (c.text || ''));
+  });
+  return out.join('\n');
+}
+// 📝 lesson-text browser: shows the whole lesson as editable text —
+// the user can change lines, add phrases or delete anything, then save
+function lessonTextSheet(f, l) {
+  var t = T();
+  var sh = sheetHead('📝 ' + (l.title || ''));
+  var rTxt = fieldRow(t.pasteTitle || 'Lesson text', lessonToText(l), { textarea: true, rows: 16 });
+  sh.appendChild(rTxt);
+  var act = el('div', 'actions');
+  var go = el('button', 'btn primary', '💾 ' + t.save);
+  go.onclick = function () {
+    var txt = rTxt.input.value;
+    var arr = parseLessons(txt);
+    var phs = [];
+    arr.forEach(function (ls) { phs = phs.concat(ls.phrases || []); });
+    if (!phs.length && (l.phrases || []).length && !confirm(T().del + '?')) return;
+    l.phrases = phs;
+    saveData(); render(); closeOv(); toast('✓');
+  };
+  act.appendChild(go);
+  var ra = el('button', 'btn', '🔂');
+  ra.title = t.readAll;
+  ra.onclick = function () { closeOv(); readAll(l); };
+  act.appendChild(ra);
+  sh.appendChild(act);
 }
 
 function renderSearch(v) {
@@ -2716,7 +2780,7 @@ function renderMedia(v, f, l) {
         x.classList.remove('speaking'); x.classList.remove('speak');
       });
       var b = document.getElementById('readAllBtn');
-      if (b) b.textContent = T().readAll;
+      if (b) b.textContent = '📝';
     };
     me.onpause = function () { sync(me.currentTime); };
     mediaGet(mediaKey(l), function (blob) {
