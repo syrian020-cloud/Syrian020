@@ -291,6 +291,18 @@
   .crow.lg-ar { background: var(--cap-ar-bg, #ffd9ae); border-color: var(--cap-ar-bd, #dda763); }
   .crow.lg-en { background: var(--cap-en-bg, #cceed5); border-color: var(--cap-en-bd, #7fbd90); }
   .crow.lg-x { background: var(--cap-x-bg, #e6dcfb); border-color: var(--cap-x-bd, #a78bfa); }
+  /* caption themes apply to phrase-card language rows too */
+  .ph-mrow { border-radius: 14px; padding: .35rem .6rem; }
+  .ph-row { border-radius: 14px; padding: .3rem .55rem; }
+  .ph-mrow.lg-fr, .ph-row.lg-fr { background: var(--cap-fr-bg, transparent); color: var(--cap-fr-fg, var(--txt));
+    border: 1.5px solid var(--cap-fr-bd, transparent); font-family: var(--cap-fr-font, inherit); font-style: var(--cap-fr-style, normal); }
+  .ph-mrow.lg-ar, .ph-row.lg-ar { background: var(--cap-ar-bg, transparent); color: var(--cap-ar-fg, var(--txt));
+    border: 1.5px solid var(--cap-ar-bd, transparent); font-family: var(--cap-ar-font, inherit); font-style: var(--cap-ar-style, normal); }
+  .ph-mrow.lg-en, .ph-row.lg-en { background: var(--cap-en-bg, transparent); color: var(--cap-en-fg, var(--txt));
+    border: 1.5px solid var(--cap-en-bd, transparent); font-family: var(--cap-en-font, inherit); font-style: var(--cap-en-style, normal); }
+  .ph-mrow.lg-x, .ph-row.lg-x { background: var(--cap-x-bg, transparent); color: var(--cap-x-fg, var(--txt));
+    border: 1.5px solid var(--cap-x-bd, transparent); font-family: var(--cap-x-font, inherit); font-style: var(--cap-x-style, normal); }
+  .ph-tools { display: flex; gap: .4rem; margin-top: .6rem; }
   .crow.lg-fr .ph-text { color: var(--cap-fr-fg, #0b0f14); font-family: var(--cap-fr-font, inherit); font-style: var(--cap-fr-style, normal); }
   .crow.lg-ar .ph-text { color: var(--cap-ar-fg, #1c1204); font-family: var(--cap-ar-font, inherit); font-style: var(--cap-ar-style, normal); }
   .crow.lg-en .ph-text { color: var(--cap-en-fg, #10240f); font-family: var(--cap-en-font, inherit); font-style: var(--cap-en-style, normal); }
@@ -1164,6 +1176,8 @@ function subLines(body, latin, arp, lang) {
 // every flag row is equal: same flag button + same text size, tap speaks its language
 function flagRow(body, flag, lang, text, latin, arp, rid) {
   var row = el('div', 'ph-row');
+  var rl = lang || langOfFlag(flag);
+  row.classList.add('lg-' + (['fr','ar','en'].indexOf(rl) >= 0 ? rl : 'x'));
   var rf = el('button', 'ph-flag', flag);
   if (rid) rf.id = rid;
   rf.onclick = function (e) { e.stopPropagation(); speak(text, lang || langOfFlag(flag), rf); };
@@ -1184,20 +1198,53 @@ function phraseCard(p, f, l) {
   };
   c.appendChild(fb);
   var body = el('div', 'ph-body');
-  body.appendChild(wordRow(p.text, p.lang || langOfFlag(p.flag)));
-  subLines(body, p.latin, p.arp, p.lang || langOfFlag(p.flag));
+  var mainLang = p.lang || langOfFlag(p.flag) || 'x';
+  var mrow = el('div', 'ph-mrow lg-' + (['fr','ar','en'].indexOf(mainLang) >= 0 ? mainLang : 'x'));
+  mrow.appendChild(wordRow(p.text, mainLang));
+  body.appendChild(mrow);
+  subLines(body, p.latin, p.arp, mainLang);
   (p.rows || []).forEach(function (r, i) {
     flagRow(body, r.flag, r.lang, r.text, r.latin, r.arp, 'phflag-' + p.id + '-' + i);
   });
   if (p.meaning) flagRow(body, '🇸🇾', 'ar', p.meaning, '', '', 'phflag-' + p.id + '-m');
   if (p.en) flagRow(body, '🇺🇸', 'en', p.en, '', '', 'phflag-' + p.id + '-e');
   if (p.note)   body.appendChild(el('div', 'ph-line')).innerHTML = '📝 ' + esc(p.note);
+  // the three icons: 📓 notebook · ✨ Google AI · 🔍 Google Clipart (same as cue row)
+  var ptl = el('div', 'ph-tools');
+  var nb2 = el('button', 'ctime-ic ic-note', notesMap[p.id] ? '📔' : '📓');
+  nb2.dataset.pk = p.id;
+  nb2.title = T().noteTitle || 'notebook';
+  nb2.onclick = function (e) { e.stopPropagation(); openNote(p.id); };
+  ptl.appendChild(nb2);
+  var ai = el('button', 'ctime-ic ic-ai', '✨');
+  ai.title = T().aiTitle || 'Google AI';
+  ai.onclick = function (e) {
+    e.stopPropagation();
+    var m = phMap(p), fr = m.fr || '', ar = m.ar || '', en = m.en || '';
+    var extra = Object.keys(m).filter(function (k) { return k !== 'fr' && k !== 'ar' && k !== 'en'; })
+      .map(function (k) { return m[k]; }).join('\n');
+    var query = 'French phrase: "' + (fr || Object.values(m)[0] || '') + '"\n' +
+      (ar ? 'Arabic translation: "' + ar + '"\n' : '') +
+      (en ? 'English translation: "' + en + '"\n' : '') +
+      (extra ? extra + '\n' : '') +
+      '1) Translate each individual word (French → Arabic → English).\n' +
+      '2) Explain the French grammar rule (verb conjugation, structure, or expression) used in this phrase.\n' +
+      '3) Provide a short practical conversation in French, Arabic and English using this phrase so it can be memorized as a conversation.\n' +
+      'Output in French, Arabic and English.';
+    openExternal('https://www.google.com/search?q=' + encodeURIComponent(query) + '&udm=50&hl=' + uiLang());
+  };
+  ptl.appendChild(ai);
+  var ci = el('button', 'ctime-ic ic-clip', '🔍');
+  ci.title = T().clipartTitle || 'Google Clipart';
+  ci.onclick = function (e) {
+    e.stopPropagation();
+    var m = phMap(p);
+    var q = (m.fr || Object.values(m)[0] || '') + ' clipart';
+    openExternal('https://www.google.com/search?q=' + encodeURIComponent(q) + '&udm=2&hl=' + uiLang());
+  };
+  ptl.appendChild(ci);
+  body.appendChild(ptl);
   c.appendChild(body);
-  var nb = el('button', 'ph-note' + (notesMap[p.id] ? ' note-on' : ''), notesMap[p.id] ? '📔' : '📓');
-  nb.dataset.pk = p.id;
-  nb.title = T().noteTitle || 'notebook';
-  nb.onclick = function (e) { e.stopPropagation(); openNote(p.id); };
-  c.appendChild(nb);
   var d = el('button', 'ph-dots', '⋮');
   d.onclick = function (e) { e.stopPropagation(); phraseMenu(f, l, p); };
   c.appendChild(d);
@@ -1279,6 +1326,10 @@ function renderLesson(v, f, l) {
   if (!(l.phrases || []).length && !(l.cues || []).length) {
     var e = el('div', 'empty');
     e.innerHTML = '<span class="big">💬</span>' + esc(t.emptyP);
+    var mb2 = el('button', 'btn primary', '🎬 ' + t.mediaTitle);
+    mb2.style.cssText = 'display:block;margin:1.2rem auto 0;padding:.8rem 1.4rem;font-size:1.05rem';
+    mb2.onclick = function () { mediaSheet(f, l); };
+    e.appendChild(mb2);
     v.appendChild(e);
   }
 }
@@ -3704,7 +3755,7 @@ function saveNote() {
   var canvas = document.getElementById('noteCanvas');
   notesMap[noteKey] = canvas.toDataURL('image/png');
   saveNotes();
-  var btn = document.querySelector('.ph-note[data-pk="' + noteKey + '"]');
+  var btn = document.querySelector('[data-pk="' + noteKey + '"]');
   if (btn) { btn.classList.add('note-on'); btn.textContent = '📔'; }
   closeNote();
   toast('✓ ' + T().saved);
