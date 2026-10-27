@@ -2362,36 +2362,64 @@ var recState = null;   // {rec, raf, cv}
 // draw caption pills (same colors as .cue-line.lg-*) — hi = index to outline
 function drawCuePills(cx, rows, W, H, hi) {
   if (!rows.length) return;
-  // shrink the font until every pill fits inside the frame — a cue with many
-  // rows used to stack past the top edge
-  var fs = Math.max(14, Math.round(H * 0.055));
-  var lh = Math.round(fs * 1.9);
-  while (fs > 13 && lh * rows.length + Math.round(H * 0.06) > H) {
-    fs -= 2; lh = Math.round(fs * 1.9);
+  // long phrases wrap onto extra lines inside their pill instead of being
+  // squeezed horizontally (fillText maxWidth made the letters look narrow);
+  // the font still shrinks until every pill fits inside the frame
+  function wrapLines(text, maxW) {
+    var words = String(text).split(/\s+/).filter(Boolean), lines = [], cur = '';
+    words.forEach(function (w) {
+      var t = cur ? cur + ' ' + w : w;
+      if (cur && cx.measureText(t).width > maxW) { lines.push(cur); cur = w; } else cur = t;
+    });
+    if (cur) lines.push(cur);
+    return lines.length ? lines : [''];
   }
-  var padX = fs * 0.85, flagW = fs * 1.5;
-  var y = H - Math.round(H * 0.03) - lh * rows.length + Math.round(lh / 2);
-  rows.forEach(function (r, ri) {
-    var lang = r.lang === 'auto' ? 'fr' : (r.lang || langOfFlag(r.flag));
-    var st = cuePill(lang);
+  var fs = Math.max(14, Math.round(H * 0.055)), lh, lineH, padX, flagW, maxTW, items, totalH;
+  function layout() {
+    lh = Math.round(fs * 1.9); lineH = Math.round(fs * 1.3);
+    padX = fs * 0.85; flagW = fs * 1.5;
+    maxTW = W * 0.94 - padX * 2 - flagW;
+    totalH = 0;
+    items = rows.map(function (r) {
+      var lang = r.lang === 'auto' ? 'fr' : (r.lang || langOfFlag(r.flag));
+      var st = cuePill(lang);
+      cx.font = (st.it ? 'italic ' : '') + 'bold ' + fs + 'px ' + st.font;
+      var lines = wrapLines(r.text, maxTW), tw = 0;
+      lines.forEach(function (l) { tw = Math.max(tw, Math.min(cx.measureText(l).width, maxTW)); });
+      var ph = lh * 0.76 + (lines.length - 1) * lineH;
+      totalH += ph;
+      return { r: r, st: st, lines: lines, tw: tw, ph: ph };
+    });
+    totalH += lh * 0.24 * (rows.length - 1);
+  }
+  layout();
+  var minFs = Math.max(13, Math.round(H * 0.03));
+  function tooMany() { return items.some(function (it) { return it.lines.length > 2; }); }
+  while (fs > minFs && tooMany()) { fs -= 2; layout(); }
+  while (fs > 13 && totalH + Math.round(H * 0.06) > H) { fs -= 2; layout(); }
+  var top = H - Math.round(H * 0.03) - lh * 0.34 - totalH;
+  items.forEach(function (it, ri) {
+    var st = it.st, r = it.r;
     cx.font = (st.it ? 'italic ' : '') + 'bold ' + fs + 'px ' + st.font;
-    var tw = Math.min(cx.measureText(r.text).width, W * 0.88);
-    var pw = Math.min(tw + padX * 2 + flagW, W * 0.94);
+    var pw = it.tw + padX * 2 + flagW;
     var x = (W - pw) / 2;
-    cx.fillStyle = st.bg; rrPath(cx, x, y - lh * 0.6, pw, lh * 0.76, fs * 0.45); cx.fill();
+    cx.fillStyle = st.bg; rrPath(cx, x, top, pw, it.ph, fs * 0.45); cx.fill();
     if (ri === hi) {
       cx.strokeStyle = 'rgba(255,255,255,.85)'; cx.lineWidth = Math.max(2, fs * 0.09);
-      rrPath(cx, x, y - lh * 0.6, pw, lh * 0.76, fs * 0.45); cx.stroke();
+      rrPath(cx, x, top, pw, it.ph, fs * 0.45); cx.stroke();
     }
     cx.fillStyle = st.fg; cx.textAlign = 'center'; cx.textBaseline = 'middle';
     cx.strokeStyle = st.fg; cx.lineWidth = Math.max(0.5, fs * 0.02);
-    cx.strokeText(r.text, W / 2 - flagW / 2, y - lh * 0.21, pw - padX * 2 - flagW);
-    cx.fillText(r.text, W / 2 - flagW / 2, y - lh * 0.21, pw - padX * 2 - flagW);
+    it.lines.forEach(function (l, li) {
+      var ly = top + lh * 0.39 + li * lineH;
+      cx.strokeText(l, W / 2 - flagW / 2, ly, maxTW);
+      cx.fillText(l, W / 2 - flagW / 2, ly, maxTW);
+    });
     if (r.flag && r.flag !== '🏳') {
       cx.font = fs + 'px sans-serif'; cx.textAlign = 'right';
-      cx.fillText(r.flag, x + pw - padX * 0.6, y - lh * 0.21);
+      cx.fillText(r.flag, x + pw - padX * 0.6, top + it.ph / 2 + lh * 0.01);
     }
-    y += lh;
+    top += it.ph + lh * 0.24;
   });
 }
 // share the clip (WhatsApp & co.) — Capacitor share first, download as fallback
