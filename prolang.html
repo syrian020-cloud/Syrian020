@@ -422,8 +422,9 @@
   .rr-plus.dim { opacity: .35; }
   .rr-sub { min-height: 1.5rem; opacity: .85; text-align: center; }
   .rr-skip { text-decoration: underline; cursor: pointer; color: var(--accent); }
-  .rr-stt.rec-on { outline: 2px solid #e11d48; }
   .rr-wrap > .btn { flex: none; width: auto; min-width: 12rem; }
+  .rr-w { cursor: pointer; }
+  .rr-w.speaking { color: var(--accent); text-decoration: underline; }
   .rr-score { font-size: 1.6rem; font-weight: 800; text-align: center; margin: .4rem 0 .2rem; }
   .lz-nav { display: flex; gap: .6rem; align-items: center; }
   .lz-nav button { min-width: 52px; height: 44px; padding: 0 14px; border-radius: 14px;
@@ -608,7 +609,7 @@ var I18N = {
     rrModeT: 'طريقة التدريب', rrModeL: '👂 استمع 5× ثم انطق', rrModeR: '📖 اقرأ وانطق مباشرة',
     rrListenN: '👂 استمع', rrYourTurn: '🎤 دورك — انطق الآن', rrHear: '🔊 استمع',
     rrSkip: 'تخطي الاستماع', rrWell: 'أحسنت! 🎉', rrResume: '↩ متابعة التدريب',
-    rrNew: '🔄 بدء من جديد', rrStt: '🎤 تحقق من نطقي', rrNoStt: 'التعرف الصوتي غير متاح على هذا الجهاز'
+    rrNew: '🔄 بدء من جديد', rrSlow: '🐢 انطق العبارة ببطء'
   },
   fr: {
     searchPh: 'Chercher une phrase…', menu: 'Menu', langTitle: 'Langue de l’interface',
@@ -658,7 +659,7 @@ var I18N = {
     rrModeT: 'Mode d’entraînement', rrModeL: '👂 Écoute 5× puis répète', rrModeR: '📖 Lis et répète directement',
     rrListenN: '👂 Écoute', rrYourTurn: '🎤 À toi — répète', rrHear: '🔊 Écouter',
     rrSkip: 'Passer l’écoute', rrWell: 'Bravo ! 🎉', rrResume: '↩ Continuer l’entraînement',
-    rrNew: '🔄 Recommencer', rrStt: '🎤 Vérifier ma prononciation', rrNoStt: 'Reconnaissance vocale indisponible'
+    rrNew: '🔄 Recommencer', rrSlow: '🐢 Lecture lente de la phrase'
   },
   en: {
     searchPh: 'Search phrases…', menu: 'Menu', langTitle: 'Interface language',
@@ -708,7 +709,7 @@ var I18N = {
     rrModeT: 'Training mode', rrModeL: '👂 Listen 5× then repeat', rrModeR: '📖 Read & repeat directly',
     rrListenN: '👂 Listen', rrYourTurn: '🎤 Your turn — speak now', rrHear: '🔊 Listen',
     rrSkip: 'Skip listening', rrWell: 'Well done! 🎉', rrResume: '↩ Resume training',
-    rrNew: '🔄 Start over', rrStt: '🎤 Check my pronunciation', rrNoStt: 'Speech recognition unavailable on this device'
+    rrNew: '🔄 Start over', rrSlow: '🐢 Speak the phrase slowly'
   }
 };
 function T() { return I18N[uiLang()] || I18N.ar; }
@@ -1023,6 +1024,31 @@ function speak(text, lang, flagEl) {
 function speakLetters(text, lang, flagEl) {
   var s = (text || '').replace(/[^\p{L}\p{N}]/gu, ' ').split('').join(' ');
   speak(s || text, lang, flagEl);
+}
+// 🐢 slow loop — half-speed speak() variant for the Read & Repeat game
+function speakSlow(text, lang, flagEl) {
+  if (!window.EdgeTTS) return;
+  stopReadAll();
+  speakTok++;
+  var was = flagEl && flagEl.classList.contains('speaking');
+  document.querySelectorAll('.speaking, .w.speak').forEach(function (x) {
+    x.classList.remove('speaking'); x.classList.remove('speak');
+  });
+  var prev = EdgeTTS.speed;
+  if (was) { EdgeTTS.stop(); EdgeTTS.speed = playSpeed; return; }
+  if (flagEl) flagEl.classList.add('speaking');
+  var tok = speakTok;
+  EdgeTTS.speed = 0.5;
+  (function play() {
+    if (tok !== speakTok) { EdgeTTS.speed = prev; return; }
+    EdgeTTS.play(text, lang || 'fr').then(function () {
+      if (tok === speakTok) play(); else EdgeTTS.speed = prev;
+    }, function () {
+      EdgeTTS.speed = prev;
+      toast('TTS ✗');
+      if (flagEl) flagEl.classList.remove('speaking');
+    });
+  })();
 }
 var readAllJob = null;
 // which languages read-all speaks — zeelang's 🔁 selector
@@ -3830,16 +3856,19 @@ function rrShow() {
     .map(function (k) {
       return '<div class="rr-tr" dir="' + rrDir(k) + '">' + esc(flagForLang(rr.l, k) + ' ' + m[k]) + '</div>';
     }).join('');
+  var wordsHtml = (text || '').split(/\s+/).filter(Boolean).map(function (w) {
+    return '<span class="rr-w">' + esc(w) + '</span>';
+  }).join(' ');
   document.getElementById('rr-prog').textContent = (rr.i + 1) + '/' + rr.items.length + ' · ' + t.rrTitle;
   body.innerHTML = '<div class="rr-wrap">' +
-    '<div class="rr-text" dir="' + rrDir(rr.lang) + '">' + esc(text) + '</div>' + trans +
+    '<div class="rr-text" dir="' + rrDir(rr.lang) + '">' + wordsHtml + '</div>' + trans +
     '<div class="rr-ctrl">' +
       '<button class="btn" id="rr-hear" title="' + esc(t.rrHear) + '">🔊</button>' +
       '<div class="rr-count" id="rr-count">' + rr.count + '/5</div>' +
       '<button class="rr-plus" id="rr-plus">+</button>' +
     '</div>' +
     '<div class="rr-sub" id="rr-sub"></div>' +
-    '<button class="btn rr-stt" id="rr-stt">' + esc(t.rrStt) + '</button>' +
+    '<button class="btn" id="rr-slow" title="' + esc(t.rrSlow) + '">🐢</button>' +
     '<button class="btn primary hidden" id="rr-next">⏭ ' + esc(t.next) + '</button>' +
     '</div>';
   var plus = document.getElementById('rr-plus');
@@ -3867,8 +3896,11 @@ function rrShow() {
       setTimeout(function () { if (rr && rr.count >= 5) rrAdvance(); }, 1400);
     }
   };
-  var sttB = document.getElementById('rr-stt');
-  sttB.onclick = function () { rrSttOnce(text, sttB, sub); };
+  body.querySelectorAll('.rr-w').forEach(function (ws) {
+    ws.onclick = function () { speak(ws.textContent, rr.lang, ws); };   // tap a word = loop it
+  });
+  var slowB = document.getElementById('rr-slow');
+  slowB.onclick = function () { speakSlow(text, rr.lang, slowB); };
 }
 // mode «listen»: app speaks the phrase 5 times before the + counter unlocks
 function rrListen5(text, plus, sub) {
@@ -3919,66 +3951,6 @@ function rrEnd() {
   };
   document.getElementById('rr-out').onclick = closeRR;
 }
-function rrSttLang(lang) {
-  var LM = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US', es: 'es-ES', de: 'de-DE', it: 'it-IT',
-    pt: 'pt-PT', ru: 'ru-RU', tr: 'tr-TR', zh: 'zh-CN', ja: 'ja-JP', ko: 'ko-KR',
-    hi: 'hi-IN', uk: 'uk-UA', fa: 'fa-IR', nl: 'nl-NL', sv: 'sv-SE', pl: 'pl-PL', id: 'id-ID' };
-  return LM[lang] || lang;
-}
-// optional speech-to-text check — never required for the + counter
-function rrSttOnce(text, btn, sub) {
-  var t = T();
-  if (!rr) return;
-  var lang = rrSttLang(rr.lang);
-  // native Capacitor speech recognition — WebView has no SpeechRecognition
-  var plug = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.SpeechRecognition;
-  if (plug && plug.start) {
-    btn.classList.add('rec-on');
-    (plug.requestPermissions ? plug.requestPermissions() : Promise.resolve(null))
-      .then(function (perms) {
-        if (perms && perms.speechRecognition === 'denied') { btn.classList.remove('rec-on'); sub.textContent = t.rrNoStt; return null; }
-        return plug.start({ language: lang, maxResults: 1, partialResults: false, popup: false });
-      })
-      .then(function (res) {
-        btn.classList.remove('rec-on');
-        if (!res) return;
-        var said = res.matches && res.matches[0] ? res.matches[0] : '';
-        sub.innerHTML = '🎤 «' + esc(said) + '» — ' + rrMatch(text, said) + '%';
-      })
-      .catch(function () { btn.classList.remove('rec-on'); sub.textContent = t.rrNoStt; });
-    return;
-  }
-  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR) { toast(t.rrNoStt); return; }
-  try {
-    var rec = new SR();
-    rec.lang = lang;
-    rec.interimResults = false;
-    rec.maxAlternatives = 1;
-    btn.classList.add('rec-on');
-    rec.onresult = function (e) {
-      var said = e.results && e.results[0] && e.results[0][0] ? e.results[0][0].transcript : '';
-      sub.innerHTML = '🎤 «' + esc(said) + '» — ' + rrMatch(text, said) + '%';
-    };
-    rec.onerror = function () { sub.textContent = t.rrNoStt; };
-    rec.onend = function () { btn.classList.remove('rec-on'); };
-    rec.start();
-  } catch (e) { toast(t.rrNoStt); }
-}
-function rrMatch(a, b) {
-  function norm(s) {
-    return (s || '').toLowerCase()
-      .replace(/[\u064B-\u0652\u0670]/g, '')
-      .replace(/[^\p{L}\p{N} ]/gu, ' ')
-      .split(/\s+/).filter(Boolean);
-  }
-  var wa = norm(a), wb = norm(b);
-  if (!wa.length || !wb.length) return 0;
-  var hit = 0;
-  wa.forEach(function (w) { if (wb.indexOf(w) >= 0) hit++; });
-  return Math.round(100 * hit / wa.length);
-}
-
 /* ================= matching game (zeelang) ================= */
 function quizTone(ok) {
   try {
