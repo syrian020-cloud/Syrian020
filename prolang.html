@@ -576,6 +576,7 @@ var I18N = {
     exImages: '🖼 الصور', exVideos: '🎬 الفيديو', exAudio: '🎧 الصوت',
     exMedia: '📦 تصدير مع الوسائط', exNoMedia: '📄 تصدير بدون وسائط',
     cancelB: 'إلغاء', selOne: 'اختر درساً واحداً على الأقل',
+    mediaMiss: 'الملف غير مخزّن — أرفقه من 🎬 أو صدّر «مع الوسائط»',
     quiz: 'لعبة التوصيل 🧩', quizChooseLang: 'اختر لغة المطابقة',
     quizFrAr: '🇫🇷 ⇄ 🇸🇾 فرنسي ⇄ عربي', quizFrEn: '🇫🇷 ⇄ 🇺🇸 فرنسي ⇄ إنجليزي',
     quizReplay: 'إعادة اللعب', quizExit: 'خروج', quizNoPhrases: 'لا توجد عبارات كافية للّعبة',
@@ -620,6 +621,7 @@ var I18N = {
     exImages: '🖼 Images', exVideos: '🎬 Vidéos', exAudio: '🎧 Audio',
     exMedia: '📦 Exporter avec médias', exNoMedia: '📄 Exporter sans médias',
     cancelB: 'Annuler', selOne: 'Sélectionnez au moins une leçon',
+    mediaMiss: 'fichier absent — rattachez-le via 🎬 ou exportez «avec médias»',
     quiz: 'Jeu d’association 🧩', quizChooseLang: 'Choisis la langue',
     quizFrAr: '🇫🇷 ⇄ 🇸🇾 Français ⇌ Arabe', quizFrEn: '🇫🇷 ⇄ 🇺🇸 Français ⇌ Anglais',
     quizReplay: 'Rejouer', quizExit: 'Quitter', quizNoPhrases: 'Pas assez de phrases',
@@ -664,6 +666,7 @@ var I18N = {
     exImages: '🖼 Images', exVideos: '🎬 Videos', exAudio: '🎧 Audio',
     exMedia: '📦 Export with media', exNoMedia: '📄 Export without media',
     cancelB: 'Cancel', selOne: 'Select at least one lesson',
+    mediaMiss: 'file missing — re-attach via 🎬 or export «with media»',
     quiz: 'Matching game 🧩', quizChooseLang: 'Choose the match language',
     quizFrAr: '🇫🇷 ⇄ 🇸🇾 French ⇄ Arabic', quizFrEn: '🇫🇷 ⇄ 🇺🇸 French ⇄ English',
     quizReplay: 'Play again', quizExit: 'Exit', quizNoPhrases: 'Not enough phrases for the game',
@@ -2980,7 +2983,7 @@ function renderMedia(v, f, l) {
     me.onpause = function () { sync(me.currentTime); };
     mediaGet(mediaKey(l), function (blob) {
       if (blob) { me.src = URL.createObjectURL(blob); }
-      else { me.remove(); me = null; now.textContent = '⚠️ ' + (l.media.name || ''); }
+      else { me.remove(); me = null; now.textContent = '⚠️ ' + (l.media.name || '') + ' — ' + (t.mediaMiss || 'missing'); }
     });
     // wrap the video so a fit mode can crop its bottom strip (baked-in subs)
     var vc = el('div', 'vcrop');
@@ -3476,17 +3479,21 @@ function exportSheet() {
       if (cbI.checked) wanted.push('plc_' + s.l.id);
     });
     toast('⏳…');
-    var med = [];
+    var med = [], miss = 0;
     (function next(i) {
       if (i >= wanted.length) {
         out.media = med;
         writeExportFile(out, 'prolang-media-' + new Date().toISOString().slice(0, 10) + '.json');
+        setTimeout(function () {
+          toast('📦 ' + med.length + ' / ' + wanted.length + (miss ? ' ⚠️' + miss : ''));
+        }, 1200);
         return;
       }
       mediaGet(wanted[i], function (b) {
-        if (!b) { next(i + 1); return; }
+        if (!b) { miss++; next(i + 1); return; }
         blobDataURL(b).then(function (d) {
           if (d) med.push({ key: wanted[i], data: d });
+          else miss++;
           next(i + 1);
         });
       });
@@ -3520,7 +3527,9 @@ function importData() {
         var j = JSON.parse(rd.result);
         var list = j.folders || j;
         if (!Array.isArray(list)) throw 0;
-        var have = {}, idMap = {};
+        var have = {}, idMap = {}, mediaKeys = {};
+        (j.media || []).forEach(function (m) { if (m && m.key) mediaKeys[m.key] = 1; });
+        var restored = 0, noPayload = 0;
         folders.forEach(function (x) { have[x.id] = 1; });
         var added = 0;
         list.forEach(function (fd) {
@@ -3540,6 +3549,7 @@ function importData() {
             if (nl.phrases.length || nl.title) {
               nf.lessons.push(nl);
               if (ls.id) idMap[ls.id] = nl.id;
+              if (nl.media && !mediaKeys['plm_' + ls.id]) noPayload++;
             }
           });
           folders.push(nf); added++;
@@ -3548,9 +3558,11 @@ function importData() {
           var mm = (m.key || '').match(/^(plm_|plc_)(.+)$/);
           if (!mm || !idMap[mm[2]] || !m.data) return;
           var b = dataURLtoBlob(m.data);
-          if (b) mediaPut(mm[1] + idMap[mm[2]], b);
+          if (b) { mediaPut(mm[1] + idMap[mm[2]], b); restored++; }
         });
-        saveData(); render(); toast('✓ ' + T().imported + ' (' + added + ')');
+        saveData(); render();
+        toast('✓ ' + T().imported + ' (' + added + ')' +
+          (restored ? ' 📦' + restored : '') + (noPayload ? ' ⚠️🎬' + noPayload : ''));
       } catch (e) { toast('import ✗'); }
     };
     rd.readAsText(f);
