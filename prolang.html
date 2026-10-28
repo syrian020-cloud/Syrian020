@@ -3402,11 +3402,17 @@ function blobDataURL(blob) {
 function dataURLtoBlob(durl) {
   var p = (durl || '').split(',');
   var mime = (p[0].match(/:(.*?);/) || [0, 'application/octet-stream'])[1];
+  var b64 = p[1] || '';
+  var CH = 4 * 1024 * 1024;          // decode in 4 MB chunks — safe for big videos
+  var parts = [];
   try {
-    var bin = atob(p[1] || '');
-    var u8 = new Uint8Array(bin.length);
-    for (var i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
-    return new Blob([u8], { type: mime });
+    for (var i = 0; i < b64.length; i += CH) {
+      var bin = atob(b64.slice(i, i + CH));
+      var u8 = new Uint8Array(bin.length);
+      for (var j = 0; j < bin.length; j++) u8[j] = bin.charCodeAt(j);
+      parts.push(u8);
+    }
+    return new Blob(parts, { type: mime });
   } catch (e) { return null; }
 }
 function exportSheet() {
@@ -3529,7 +3535,7 @@ function importData() {
         if (!Array.isArray(list)) throw 0;
         var have = {}, idMap = {}, mediaKeys = {};
         (j.media || []).forEach(function (m) { if (m && m.key) mediaKeys[m.key] = 1; });
-        var restored = 0, noPayload = 0;
+        var restored = 0, restFail = 0, noPayload = 0;
         folders.forEach(function (x) { have[x.id] = 1; });
         var added = 0;
         list.forEach(function (fd) {
@@ -3559,10 +3565,12 @@ function importData() {
           if (!mm || !idMap[mm[2]] || !m.data) return;
           var b = dataURLtoBlob(m.data);
           if (b) { mediaPut(mm[1] + idMap[mm[2]], b); restored++; }
+          else restFail++;
         });
         saveData(); render();
         toast('✓ ' + T().imported + ' (' + added + ')' +
-          (restored ? ' 📦' + restored : '') + (noPayload ? ' ⚠️🎬' + noPayload : ''));
+          (restored ? ' 📦' + restored : '') + (restFail ? ' ⚠️📦' + restFail : '') +
+          (noPayload ? ' ⚠️🎬' + noPayload : ''));
       } catch (e) { toast('import ✗'); }
     };
     rd.readAsText(f);
