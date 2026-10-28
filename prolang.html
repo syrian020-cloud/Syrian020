@@ -184,6 +184,20 @@
   .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none;
     color: #fff; font-weight: 700; box-shadow: 0 6px 18px rgba(14,165,233,.35); }
   .btn.danger { color: var(--danger); border-color: rgba(248,113,113,.4); }
+  .xhead { display: flex; align-items: center; justify-content: space-between; margin-top: .3rem; }
+  .xbox { border: 1.5px solid var(--line); border-radius: 14px; max-height: 36vh;
+    overflow-y: auto; margin: .35rem 0 .6rem; }
+  .xrow { display: flex; align-items: center; gap: .6rem; width: 100%; padding: .55rem .7rem;
+    background: none; border: none; border-bottom: 1px solid var(--line); cursor: pointer;
+    font-family: inherit; font-size: 1rem; color: var(--txt); text-align: start; }
+  .xrow:last-child { border-bottom: none; }
+  .xrow input, .xtypes input { width: 1.2rem; height: 1.2rem; accent-color: #7c3aed;
+    flex: none; cursor: pointer; }
+  .xtypes { display: flex; gap: 1.1rem; flex-wrap: wrap; justify-content: center;
+    margin: .4rem 0 .7rem; }
+  .xtypes label { display: flex; align-items: center; gap: .35rem; font-weight: 700; cursor: pointer; }
+  .xact { display: flex; flex-direction: column; gap: .45rem; }
+  .xw { width: 100%; flex: none; padding: .85rem; font-size: 1rem; border-radius: 999px; }
 
   .mrow { display: flex; align-items: center; gap: .7rem; width: 100%; background: rgba(20,184,166,.07);
     border: 1px solid var(--line); border-radius: 16px; padding: .8rem 1rem; margin-bottom: .55rem;
@@ -557,6 +571,11 @@ var I18N = {
     emptyP: 'لا عبارات بعد — أضفها بـ➕',
     fontSize: 'حجم الخط',
     gemBtn: 'نسخ جميع العبارات ومتابعة مع Gemini', gemCopied: '📋 تم نسخ الدرس كاملاً — إذا لم يظهر Gemini، افتحه والصق النص', gemShare: 'مشاركة مع Gemini', gemCopy: 'نسخ النص كاملاً', gemFile: 'مشاركة كملف نصي', gemOpen: 'فتح Gemini', gemHint: 'تم نسخ النص كاملاً. اختر Gemini من قائمة المشاركة، أو افتح Gemini والصق النص يدوياً. إذا كان الدرس طويلاً جداً استخدم «مشاركة كملف نصي» — لا تُحذف أي عبارة.', gemNoPh: 'لا توجد عبارات في هذا الدرس',
+    exportLessons: 'تصدير الدروس', lessonsTo: 'الدروس للتصدير',
+    clearAll: 'إلغاء الكل', pickAll: 'تحديد الكل',
+    exImages: '🖼 الصور', exVideos: '🎬 الفيديو', exAudio: '🎧 الصوت',
+    exMedia: '📦 تصدير مع الوسائط', exNoMedia: '📄 تصدير بدون وسائط',
+    cancelB: 'إلغاء', selOne: 'اختر درساً واحداً على الأقل',
     quiz: 'لعبة التوصيل 🧩', quizChooseLang: 'اختر لغة المطابقة',
     quizFrAr: '🇫🇷 ⇄ 🇸🇾 فرنسي ⇄ عربي', quizFrEn: '🇫🇷 ⇄ 🇺🇸 فرنسي ⇄ إنجليزي',
     quizReplay: 'إعادة اللعب', quizExit: 'خروج', quizNoPhrases: 'لا توجد عبارات كافية للّعبة',
@@ -596,6 +615,11 @@ var I18N = {
     emptyP: 'Aucune phrase — ajoutez avec ➕',
     fontSize: 'Taille du texte',
     gemBtn: 'Copier toutes les phrases et continuer avec Gemini', gemCopied: '📋 Leçon entière copiée — si Gemini n’apparaît pas, ouvre-le et colle le texte', gemShare: 'Partager avec Gemini', gemCopy: 'Copier tout le texte', gemFile: 'Partager en fichier texte', gemOpen: 'Ouvrir Gemini', gemHint: 'Le texte complet est copié. Choisis Gemini dans le menu de partage, ou ouvre Gemini et colle le texte. Si la leçon est très longue, utilise « Partager en fichier texte » — aucune phrase n’est supprimée.', gemNoPh: 'Aucune phrase dans cette leçon',
+    exportLessons: 'Exporter les leçons', lessonsTo: 'Leçons à exporter',
+    clearAll: 'Tout effacer', pickAll: 'Tout sélectionner',
+    exImages: '🖼 Images', exVideos: '🎬 Vidéos', exAudio: '🎧 Audio',
+    exMedia: '📦 Exporter avec médias', exNoMedia: '📄 Exporter sans médias',
+    cancelB: 'Annuler', selOne: 'Sélectionnez au moins une leçon',
     quiz: 'Jeu d’association 🧩', quizChooseLang: 'Choisis la langue',
     quizFrAr: '🇫🇷 ⇄ 🇸🇾 Français ⇌ Arabe', quizFrEn: '🇫🇷 ⇄ 🇺🇸 Français ⇌ Anglais',
     quizReplay: 'Rejouer', quizExit: 'Quitter', quizNoPhrases: 'Pas assez de phrases',
@@ -635,6 +659,11 @@ var I18N = {
     emptyP: 'No phrases yet — add with ➕',
     fontSize: 'Text size',
     gemBtn: 'Copy all phrases & continue with Gemini', gemCopied: '📋 Whole lesson copied — if Gemini doesn’t show up, open it and paste', gemShare: 'Share with Gemini', gemCopy: 'Copy full text', gemFile: 'Share as text file', gemOpen: 'Open Gemini', gemHint: 'The full text is copied. Pick Gemini in the share menu, or open Gemini and paste it. For a very long lesson use “Share as text file” — no phrase is dropped.', gemNoPh: 'No phrases in this lesson',
+    exportLessons: 'Export lessons', lessonsTo: 'Lessons to export',
+    clearAll: 'Clear all', pickAll: 'Select all',
+    exImages: '🖼 Images', exVideos: '🎬 Videos', exAudio: '🎧 Audio',
+    exMedia: '📦 Export with media', exNoMedia: '📄 Export without media',
+    cancelB: 'Cancel', selOne: 'Select at least one lesson',
     quiz: 'Matching game 🧩', quizChooseLang: 'Choose the match language',
     quizFrAr: '🇫🇷 ⇄ 🇸🇾 French ⇄ Arabic', quizFrEn: '🇫🇷 ⇄ 🇺🇸 French ⇄ English',
     quizReplay: 'Play again', quizExit: 'Exit', quizNoPhrases: 'Not enough phrases for the game',
@@ -3333,16 +3362,14 @@ function openMenu() {
     }
     pasteSheet(f, findL(f, nav.l));
   });
-  row('⬇', t.exportData, function () { closeOv(); exportData(); });
+  row('⬇', t.exportData, function () { exportSheet(); });
   row('⬆', t.importData, function () { closeOv(); importData(); });
 }
 
-/* ================= export / import (gramvip style) ================= */
-async function exportData() {
+/* ================= export / import (zeelang style) ================= */
+async function writeExportFile(out, name) {
   var t = T();
-  var out = { app: 'prolang', version: 1, exportedAt: new Date().toISOString(), folders: folders };
   var blob = new Blob([JSON.stringify(out, null, 1)], { type: 'application/json' });
-  var name = 'prolang-backup-' + new Date().toISOString().slice(0, 10) + '.json';
   var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
   var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
   if (inCap && FS && SH) {
@@ -3360,6 +3387,120 @@ async function exportData() {
   var a = document.createElement('a'); a.href = u; a.download = name; a.click();
   setTimeout(function () { URL.revokeObjectURL(u); }, 4000);
   toast(t.exported);
+}
+function blobDataURL(blob) {
+  return new Promise(function (res) {
+    var rd = new FileReader();
+    rd.onload = function () { res(rd.result); };
+    rd.onerror = function () { res(null); };
+    rd.readAsDataURL(blob);
+  });
+}
+function dataURLtoBlob(durl) {
+  var p = (durl || '').split(',');
+  var mime = (p[0].match(/:(.*?);/) || [0, 'application/octet-stream'])[1];
+  try {
+    var bin = atob(p[1] || '');
+    var u8 = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+    return new Blob([u8], { type: mime });
+  } catch (e) { return null; }
+}
+function exportSheet() {
+  var t = T();
+  var sh = sheetHead('📦 ' + t.exportLessons);
+  var items = [];
+  folders.forEach(function (fd) {
+    (fd.lessons || []).forEach(function (l) { items.push({ f: fd, l: l }); });
+  });
+  var head = el('div', 'xhead');
+  head.appendChild(el('span', 'flabel', t.lessonsTo));
+  var clr = el('button', 'mini', t.clearAll);
+  head.appendChild(clr);
+  sh.appendChild(head);
+  var box = el('div', 'xbox');
+  var cbs = [];
+  items.forEach(function (it) {
+    var r = el('button', 'xrow');
+    var cb = document.createElement('input');
+    cb.type = 'checkbox'; cb.checked = true;
+    cb.onclick = function (e) { e.stopPropagation(); };
+    r.appendChild(cb);
+    r.appendChild(el('span', null, '📝 ' + (it.l.title || it.f.name)));
+    r.onclick = function () { cb.checked = !cb.checked; };
+    box.appendChild(r);
+    cbs.push({ cb: cb, it: it });
+  });
+  sh.appendChild(box);
+  clr.onclick = function () {
+    var anyOn = cbs.some(function (c) { return c.cb.checked; });
+    cbs.forEach(function (c) { c.cb.checked = !anyOn; });
+    clr.textContent = anyOn ? t.pickAll : t.clearAll;
+  };
+  var ty = el('div', 'xtypes');
+  function tcb(lbl) {
+    var la = document.createElement('label');
+    var cb = document.createElement('input');
+    cb.type = 'checkbox'; cb.checked = true;
+    la.appendChild(cb);
+    la.appendChild(document.createTextNode(' ' + lbl));
+    ty.appendChild(la);
+    return cb;
+  }
+  var cbI = tcb(t.exImages), cbV = tcb(t.exVideos), cbA = tcb(t.exAudio);
+  sh.appendChild(ty);
+  function gather(withMedia) {
+    var sel = [];
+    cbs.forEach(function (c) { if (c.cb.checked) sel.push(c.it); });
+    if (!sel.length) { toast(t.selOne); return; }
+    var outF = [];
+    folders.forEach(function (fd) {
+      var ls = (fd.lessons || []).filter(function (l) {
+        return sel.some(function (s) { return s.l === l; });
+      });
+      if (!ls.length) return;
+      var nf = {}; for (var k in fd) nf[k] = fd[k];
+      nf.lessons = ls;
+      outF.push(nf);
+    });
+    var out = { app: 'prolang', version: 2, exportedAt: new Date().toISOString(), folders: outF };
+    closeOv();
+    if (!withMedia) {
+      writeExportFile(out, 'prolang-backup-' + new Date().toISOString().slice(0, 10) + '.json');
+      return;
+    }
+    var wanted = [];
+    sel.forEach(function (s) {
+      if (s.l.media && ((s.l.media.kind === 'audio' && cbA.checked) ||
+          (s.l.media.kind !== 'audio' && cbV.checked))) wanted.push('plm_' + s.l.id);
+      if (cbI.checked) wanted.push('plc_' + s.l.id);
+    });
+    toast('⏳…');
+    var med = [];
+    (function next(i) {
+      if (i >= wanted.length) {
+        out.media = med;
+        writeExportFile(out, 'prolang-media-' + new Date().toISOString().slice(0, 10) + '.json');
+        return;
+      }
+      mediaGet(wanted[i], function (b) {
+        if (!b) { next(i + 1); return; }
+        blobDataURL(b).then(function (d) {
+          if (d) med.push({ key: wanted[i], data: d });
+          next(i + 1);
+        });
+      });
+    })(0);
+  }
+  var act = el('div', 'xact');
+  var bw = el('button', 'btn primary xw', t.exMedia);
+  bw.onclick = function () { gather(true); };
+  var bn = el('button', 'btn xw', t.exNoMedia);
+  bn.onclick = function () { gather(false); };
+  var bc = el('button', 'btn xw', t.cancelB);
+  bc.onclick = closeOv;
+  act.appendChild(bw); act.appendChild(bn); act.appendChild(bc);
+  sh.appendChild(act);
 }
 function normPhrase(p) {
   if (!p || typeof p !== 'object') return null;
@@ -3379,7 +3520,7 @@ function importData() {
         var j = JSON.parse(rd.result);
         var list = j.folders || j;
         if (!Array.isArray(list)) throw 0;
-        var have = {};
+        var have = {}, idMap = {};
         folders.forEach(function (x) { have[x.id] = 1; });
         var added = 0;
         list.forEach(function (fd) {
@@ -3391,13 +3532,23 @@ function importData() {
           (fd.lessons || []).forEach(function (ls) {
             if (!ls || typeof ls !== 'object') return;
             var nl = { id: ls.id || uid(), title: ls.title || '', icon: ls.icon || '📝',
-              img: ls.img || '', phrases: [], cues: Array.isArray(ls.cues) ? ls.cues : [] };
+              img: ls.img || '', phrases: [], cues: Array.isArray(ls.cues) ? ls.cues : [],
+              media: (ls.media && ls.media.kind) ? { kind: ls.media.kind, name: ls.media.name || '' } : null };
             (ls.phrases || []).forEach(function (p) {
               var np = normPhrase(p); if (np) nl.phrases.push(np);
             });
-            if (nl.phrases.length || nl.title) nf.lessons.push(nl);
+            if (nl.phrases.length || nl.title) {
+              nf.lessons.push(nl);
+              if (ls.id) idMap[ls.id] = nl.id;
+            }
           });
           folders.push(nf); added++;
+        });
+        (j.media || []).forEach(function (m) {
+          var mm = (m.key || '').match(/^(plm_|plc_)(.+)$/);
+          if (!mm || !idMap[mm[2]] || !m.data) return;
+          var b = dataURLtoBlob(m.data);
+          if (b) mediaPut(mm[1] + idMap[mm[2]], b);
         });
         saveData(); render(); toast('✓ ' + T().imported + ' (' + added + ')');
       } catch (e) { toast('import ✗'); }
