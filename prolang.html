@@ -406,6 +406,24 @@
   .lz-tile.ok { border-color: #22c55e; background: rgba(34,197,94,.13); }
   .lz-tile.bad { border-color: #ef4444; background: rgba(239,68,68,.1);
     animation: qzShake .45s; }
+  .rr-wrap { display: flex; flex-direction: column; align-items: center; gap: .9rem;
+    padding: 1rem .5rem; flex: 1; justify-content: center; width: 100%; max-width: 520px;
+    margin: 0 auto; }
+  .rr-text { font-size: 1.65rem; font-weight: 800; text-align: center; line-height: 1.45;
+    overflow-wrap: anywhere; }
+  .rr-tr { opacity: .75; font-size: 1.05rem; text-align: center; overflow-wrap: anywhere; }
+  .rr-ctrl { display: flex; align-items: center; gap: .9rem; }
+  .rr-ctrl .btn { flex: none; padding: .7rem .9rem; }
+  .rr-count { font-size: 1.5rem; font-weight: 900; min-width: 4.2rem; text-align: center; }
+  .rr-plus { width: 4.4rem; height: 4.4rem; border-radius: 50%; border: none; cursor: pointer;
+    background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff;
+    font-size: 2.1rem; font-weight: 900; font-family: inherit;
+    box-shadow: 0 4px 14px rgba(20,184,166,.4); }
+  .rr-plus.dim { opacity: .35; }
+  .rr-sub { min-height: 1.5rem; opacity: .85; text-align: center; }
+  .rr-skip { text-decoration: underline; cursor: pointer; color: var(--accent); }
+  .rr-stt.rec-on { outline: 2px solid #e11d48; }
+  .rr-score { font-size: 1.6rem; font-weight: 800; text-align: center; margin: .4rem 0 .2rem; }
   .lz-nav { display: flex; gap: .6rem; align-items: center; }
   .lz-nav button { min-width: 52px; height: 44px; padding: 0 14px; border-radius: 14px;
     border: 1.5px solid var(--line); background: var(--card); color: var(--txt);
@@ -584,7 +602,12 @@ var I18N = {
     next: 'التالي', autoNext: 'تلقائي', noteTitle: 'دفتر الملاحظات', saved: 'تم الحفظ ✓',
     aiTitle: 'شرح العبارة بالذكاء الاصطناعي من Google', clipartTitle: 'بحث Google Clipart عن العبارة',
     captionTheme: 'نماذج الكابشن 🎨',
-    deleted: 'تم الحذف', lzImgDel: 'حذف الصورة؟'
+    deleted: 'تم الحذف', lzImgDel: 'حذف الصورة؟',
+    rrTitle: 'لعبة اقرأ وانطق 🗣', rrPickLang: 'اختر لغة التدريب',
+    rrModeT: 'طريقة التدريب', rrModeL: '👂 استمع 5× ثم انطق', rrModeR: '📖 اقرأ وانطق مباشرة',
+    rrListenN: '👂 استمع', rrYourTurn: '🎤 دورك — انطق الآن', rrHear: '🔊 استمع',
+    rrSkip: 'تخطي الاستماع', rrWell: 'أحسنت! 🎉', rrResume: '↩ متابعة التدريب',
+    rrNew: '🔄 بدء من جديد', rrStt: '🎤 تحقق من نطقي', rrNoStt: 'التعرف الصوتي غير متاح على هذا الجهاز'
   },
   fr: {
     searchPh: 'Chercher une phrase…', menu: 'Menu', langTitle: 'Langue de l’interface',
@@ -629,7 +652,12 @@ var I18N = {
     next: 'Suivant', autoNext: 'Auto', noteTitle: 'Carnet', saved: 'Enregistré ✓',
     aiTitle: 'Expliquer la phrase avec Google AI', clipartTitle: 'Recherche Google Clipart de la phrase',
     captionTheme: 'Thème des sous-titres 🎨',
-    deleted: 'Supprimé', lzImgDel: 'Supprimer l’image ?'
+    deleted: 'Supprimé', lzImgDel: 'Supprimer l’image ?',
+    rrTitle: 'Jeu Lis et répète 🗣', rrPickLang: 'Choisis la langue d’entraînement',
+    rrModeT: 'Mode d’entraînement', rrModeL: '👂 Écoute 5× puis répète', rrModeR: '📖 Lis et répète directement',
+    rrListenN: '👂 Écoute', rrYourTurn: '🎤 À toi — répète', rrHear: '🔊 Écouter',
+    rrSkip: 'Passer l’écoute', rrWell: 'Bravo ! 🎉', rrResume: '↩ Continuer l’entraînement',
+    rrNew: '🔄 Recommencer', rrStt: '🎤 Vérifier ma prononciation', rrNoStt: 'Reconnaissance vocale indisponible'
   },
   en: {
     searchPh: 'Search phrases…', menu: 'Menu', langTitle: 'Interface language',
@@ -674,7 +702,12 @@ var I18N = {
     next: 'Next', autoNext: 'Auto', noteTitle: 'Notebook', saved: 'Saved ✓',
     aiTitle: 'Explain phrase with Google AI', clipartTitle: 'Google Clipart search for the phrase',
     captionTheme: 'Caption theme 🎨',
-    deleted: 'Deleted', lzImgDel: 'Delete image?'
+    deleted: 'Deleted', lzImgDel: 'Delete image?',
+    rrTitle: 'Read & Repeat game 🗣', rrPickLang: 'Choose the training language',
+    rrModeT: 'Training mode', rrModeL: '👂 Listen 5× then repeat', rrModeR: '📖 Read & repeat directly',
+    rrListenN: '👂 Listen', rrYourTurn: '🎤 Your turn — speak now', rrHear: '🔊 Listen',
+    rrSkip: 'Skip listening', rrWell: 'Well done! 🎉', rrResume: '↩ Resume training',
+    rrNew: '🔄 Start over', rrStt: '🎤 Check my pronunciation', rrNoStt: 'Speech recognition unavailable on this device'
   }
 };
 function T() { return I18N[uiLang()] || I18N.ar; }
@@ -1357,32 +1390,41 @@ function renderLesson(v, f, l) {
   sb.style.flex = 'none';
   sb.onclick = function () { stopAllSound(); };
   bar.appendChild(sb);
-  // one bar — all icons on a single row
+  v.appendChild(bar);
+  // second row — games & media tools
+  var bar2 = el('div');
+  bar2.style.cssText = 'margin-bottom:.7rem;display:flex;gap:.5rem;flex-wrap:nowrap';
+  var rrb = el('button', 'btn', '🗣️');
+  rrb.style.flex = 'none';
+  rrb.title = t.rrTitle;
+  rrb.onclick = function () { openReadRepeat(f, l); };
+  bar2.appendChild(rrb);
   var mb = el('button', 'btn', '🎬');
   mb.style.flex = 'none';
   mb.title = t.media;
   mb.onclick = function () { mediaSheet(f, l); };
-  bar.appendChild(mb);
+  bar2.appendChild(mb);
   var lzb = el('button', 'btn', '🎧');
   lzb.style.flex = 'none';
   lzb.title = t.listenQuiz;
   lzb.onclick = function () { openListen(l); };
-  bar.appendChild(lzb);
+  bar2.appendChild(lzb);
   var qzb = el('button', 'btn', '🧩');
   qzb.style.flex = 'none';
   qzb.title = t.quiz;
   qzb.onclick = function () { openQuiz(l); };
-  bar.appendChild(qzb);
+  bar2.appendChild(qzb);
   var gmb = el('button', 'btn');
   gmb.style.flex = 'none';
   gmb.title = t.gemBtn;
   gmb.setAttribute('aria-label', t.gemBtn);
   gmb.innerHTML = GEMINI_SVG;
   gmb.onclick = function () { geminiLesson(f, l); };
-  bar.appendChild(gmb);
-  bar.style.flexWrap = 'nowrap';
-  bar.querySelectorAll('.btn').forEach(function (b) { b.style.padding = '.55rem .55rem'; });
-  v.appendChild(bar);
+  bar2.appendChild(gmb);
+  [bar, bar2].forEach(function (bx) {
+    bx.querySelectorAll('.btn').forEach(function (b) { b.style.padding = '.55rem .55rem'; });
+  });
+  v.appendChild(bar2);
   if (l.media || (l.cues || []).length) renderMedia(v, f, l);
   (l.phrases || []).forEach(function (p) { v.appendChild(phraseCard(p, f, l)); });
   if (!(l.phrases || []).length && !(l.cues || []).length) {
@@ -3656,6 +3698,261 @@ function findPhraseById(id) {
     }
   }
   return null;
+}
+
+/* ================= Read & Repeat (5×) ================= */
+var rr = null;
+// phrases in lesson order (phrase cards then timed cue rows) as {lang:text} maps
+function rrItemsFor(l) {
+  var items = [];
+  (l.phrases || []).forEach(function (p) {
+    if (p.type === 'note') return;
+    var m = phMap(p);
+    if (Object.keys(m).length) items.push(m);
+  });
+  (l.cues || []).forEach(function (c) {
+    var m = {};
+    cueRows(c.text).forEach(function (r) {
+      if (!r.text) return;
+      var rl = r.lang === 'auto' ? 'fr' : (r.lang || langOfFlag(r.flag));
+      if (rl && !m[rl]) m[rl] = r.text;
+    });
+    if (Object.keys(m).length) items.push(m);
+  });
+  return items;
+}
+function rrLangs(items, l) {
+  var langs = [];
+  var main = lessonMainLang(l);
+  items.forEach(function (m) {
+    Object.keys(m).forEach(function (k) {
+      if (m[k] && langs.indexOf(k) < 0) langs.push(k);
+    });
+  });
+  langs.sort(function (a, b) { return (a === main ? -1 : 0) - (b === main ? -1 : 0); });
+  return langs;
+}
+function flagForLang(l, lang) {
+  var fl = '';
+  (l.phrases || []).forEach(function (p) {
+    if (fl) return;
+    if ((p.lang || langOfFlag(p.flag)) === lang && p.flag) fl = p.flag;
+    (p.rows || []).forEach(function (r) {
+      if (!fl && (r.lang || langOfFlag(r.flag)) === lang && r.flag) fl = r.flag;
+    });
+  });
+  if (fl) return fl;
+  for (var i = 0; i < FLAG_CHOICES.length; i++) {
+    if (langOfFlag(FLAG_CHOICES[i]) === lang) return FLAG_CHOICES[i];
+  }
+  return '🏳';
+}
+function rrDir(lang) {
+  return (lang === 'ar' || lang === 'he' || lang === 'fa' || lang === 'ur') ? 'rtl' : 'ltr';
+}
+function rrKey(l) { return 'pl_rr_' + l.id; }
+function rrSavedGet(l) { try { return JSON.parse(localStorage.getItem(rrKey(l)) || 'null'); } catch (e) { return null; } }
+function rrSave() {
+  if (!rr) return;
+  try { localStorage.setItem(rrKey(rr.l), JSON.stringify({ l: rr.lang, m: rr.mode, i: rr.i, c: rr.count })); } catch (e) {}
+}
+function rrClearSave(l) { try { localStorage.removeItem(rrKey(l)); } catch (e) {} }
+function rrStopVoice() {
+  if (rr) rr.listenTok++;
+  speakTok++;
+  if (window.EdgeTTS) EdgeTTS.stop();
+  document.querySelectorAll('#rr-overlay .speaking').forEach(function (x) { x.classList.remove('speaking'); });
+}
+function closeRR() {
+  rrSave();
+  rrStopVoice();
+  var ov = document.getElementById('rr-overlay');
+  if (ov) ov.remove();
+  rr = null;
+}
+function openReadRepeat(f, l) {
+  closeRR();
+  var t = T();
+  var items = rrItemsFor(l);
+  if (!items.length) { toast(t.quizNoPhrases); return; }
+  var ov = el('div', 'qz-ov');
+  ov.id = 'rr-overlay';
+  ov.innerHTML = '<div class="qz-top"><button class="mini" id="rr-exit" title="' + esc(t.quizExit) + '">✕</button>' +
+    '<div class="qz-prog" id="rr-prog">' + esc(t.rrTitle) + '</div></div>' +
+    '<div id="rr-body" style="display:flex;flex:1;flex-direction:column;overflow:auto"></div>';
+  document.body.appendChild(ov);
+  document.getElementById('rr-exit').onclick = closeRR;
+  var body = document.getElementById('rr-body');
+  var langs = rrLangs(items, l);
+  function start(lang, mode, idx, cnt) {
+    rr = { f: f, l: l, items: items, lang: lang, mode: mode, i: idx, count: cnt || 0, listenTok: 0 };
+    rrSave();
+    rrShow();
+  }
+  function modePick(lang) {
+    body.innerHTML = '<div class="qz-langs"><h3 style="text-align:center;margin:0">' + esc(t.rrModeT) + '</h3>' +
+      '<button class="btn primary" id="rr-mL">' + esc(t.rrModeL) + '</button>' +
+      '<button class="btn" id="rr-mR">' + esc(t.rrModeR) + '</button></div>';
+    document.getElementById('rr-mL').onclick = function () { start(lang, 'l', 0, 0); };
+    document.getElementById('rr-mR').onclick = function () { start(lang, 'r', 0, 0); };
+  }
+  function pickers() {
+    var saved = rrSavedGet(l);
+    if (saved && saved.i > 0 && saved.i < items.length && langs.indexOf(saved.l) >= 0) {
+      body.innerHTML = '<div class="qz-langs"><h3 style="text-align:center;margin:0">' + esc(t.rrTitle) + '</h3>' +
+        '<button class="btn primary" id="rr-resume">' + esc(t.rrResume) + ' (' + saved.i + '/' + items.length + ')</button>' +
+        '<button class="btn" id="rr-restart">' + esc(t.rrNew) + '</button></div>';
+      document.getElementById('rr-resume').onclick = function () { start(saved.l, saved.m || 'l', saved.i, saved.c || 0); };
+      document.getElementById('rr-restart').onclick = function () { rrClearSave(l); pickers(); };
+      return;
+    }
+    body.innerHTML = '<div class="qz-langs"><h3 style="text-align:center;margin:0">' + esc(t.rrPickLang) + '</h3>' +
+      langs.map(function (g) {
+        var n = items.filter(function (m) { return m[g]; }).length;
+        return '<button class="btn" data-lang="' + g + '">' + flagForLang(l, g) + ' ' + g.toUpperCase() + ' — ' + n + '</button>';
+      }).join('') + '</div>';
+    body.querySelectorAll('button[data-lang]').forEach(function (b) {
+      b.onclick = function () { modePick(b.dataset.lang); };
+    });
+  }
+  pickers();
+}
+function rrShow() {
+  var t = T();
+  var body = document.getElementById('rr-body');
+  if (!rr || !body) return;
+  rrStopVoice();
+  if (rr.i >= rr.items.length) { rrEnd(); return; }
+  var m = rr.items[rr.i];
+  var text = m[rr.lang] || '';
+  var trans = Object.keys(m).filter(function (k) { return k !== rr.lang && m[k]; })
+    .map(function (k) {
+      return '<div class="rr-tr" dir="' + rrDir(k) + '">' + esc(flagForLang(rr.l, k) + ' ' + m[k]) + '</div>';
+    }).join('');
+  document.getElementById('rr-prog').textContent = (rr.i + 1) + '/' + rr.items.length + ' · ' + t.rrTitle;
+  body.innerHTML = '<div class="rr-wrap">' +
+    '<div class="rr-text" dir="' + rrDir(rr.lang) + '">' + esc(text) + '</div>' + trans +
+    '<div class="rr-ctrl">' +
+      '<button class="btn" id="rr-hear" title="' + esc(t.rrHear) + '">🔊</button>' +
+      '<div class="rr-count" id="rr-count">' + rr.count + '/5</div>' +
+      '<button class="rr-plus" id="rr-plus">+</button>' +
+    '</div>' +
+    '<div class="rr-sub" id="rr-sub"></div>' +
+    '<button class="btn rr-stt" id="rr-stt">' + esc(t.rrStt) + '</button>' +
+    '<button class="btn primary hidden" id="rr-next">⏭ ' + esc(t.next) + '</button>' +
+    '</div>';
+  var plus = document.getElementById('rr-plus');
+  var hear = document.getElementById('rr-hear');
+  var nextB = document.getElementById('rr-next');
+  var sub = document.getElementById('rr-sub');
+  var cnt = document.getElementById('rr-count');
+  hear.onclick = function () { speak(text, rr.lang, hear); };
+  nextB.onclick = function () { rrAdvance(); };
+  if (rr.count >= 5) { sub.textContent = t.rrWell; nextB.classList.remove('hidden'); }
+  else if (rr.mode === 'l') {
+    plus.disabled = true;
+    plus.classList.add('dim');
+    rrListen5(text, plus, sub);
+  }
+  plus.onclick = function () {
+    if (!rr || rr.count >= 5) return;
+    rr.count++;
+    cnt.textContent = rr.count + '/5';
+    rrSave();
+    if (rr.count >= 5) {
+      quizTone(true);
+      sub.textContent = t.rrWell;
+      nextB.classList.remove('hidden');
+      setTimeout(function () { if (rr && rr.count >= 5) rrAdvance(); }, 1400);
+    }
+  };
+  var sttB = document.getElementById('rr-stt');
+  sttB.onclick = function () { rrSttOnce(text, sttB, sub); };
+}
+// mode «listen»: app speaks the phrase 5 times before the + counter unlocks
+function rrListen5(text, plus, sub) {
+  var tok = ++rr.listenTok;
+  var k = 0;
+  function unlock() {
+    plus.disabled = false;
+    plus.classList.remove('dim');
+    sub.textContent = T().rrYourTurn;
+  }
+  function one() {
+    if (!rr || tok !== rr.listenTok) return;
+    if (k >= 5) { unlock(); return; }
+    k++;
+    sub.innerHTML = esc(T().rrListenN) + ' ' + k + '/5 · <span class="rr-skip" id="rr-skip">' + esc(T().rrSkip) + '</span>';
+    var sk = document.getElementById('rr-skip');
+    if (sk) sk.onclick = function () {
+      if (!rr) return;
+      rr.listenTok++;
+      if (window.EdgeTTS) EdgeTTS.stop();
+      unlock();
+    };
+    EdgeTTS.play((text || '').slice(0, 400), rr.lang)
+      .catch(function () {})
+      .then(function () { if (rr && tok === rr.listenTok) setTimeout(one, 350); });
+  }
+  one();
+}
+function rrAdvance() {
+  if (!rr) return;
+  rr.i++;
+  rr.count = 0;
+  rrSave();
+  rrShow();
+}
+function rrEnd() {
+  var t = T();
+  var body = document.getElementById('rr-body');
+  if (!rr || !body) return;
+  rrStopVoice();
+  rrClearSave(rr.l);
+  body.innerHTML = '<div class="qz-langs"><h3 style="text-align:center;margin:0">' + esc(t.quizScore) + '</h3>' +
+    '<div class="rr-score">' + rr.i + '/' + rr.items.length + ' · ' + Math.round(100 * rr.i / rr.items.length) + '%</div>' +
+    '<button class="btn primary" id="rr-again">🔁 ' + esc(t.quizReplay) + '</button>' +
+    '<button class="btn" id="rr-out">✕ ' + esc(t.quizExit) + '</button></div>';
+  document.getElementById('rr-again').onclick = function () {
+    rr.i = 0; rr.count = 0; rrSave(); rrShow();
+  };
+  document.getElementById('rr-out').onclick = closeRR;
+}
+// optional speech-to-text check — never required for the + counter
+function rrSttOnce(text, btn, sub) {
+  var t = T();
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR || !rr) { toast(t.rrNoStt); return; }
+  try {
+    var rec = new SR();
+    var LM = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US', es: 'es-ES', de: 'de-DE', it: 'it-IT',
+      pt: 'pt-PT', ru: 'ru-RU', tr: 'tr-TR', zh: 'zh-CN', ja: 'ja-JP', ko: 'ko-KR',
+      hi: 'hi-IN', uk: 'uk-UA', fa: 'fa-IR', nl: 'nl-NL', sv: 'sv-SE', pl: 'pl-PL', id: 'id-ID' };
+    rec.lang = LM[rr.lang] || rr.lang;
+    rec.interimResults = false;
+    rec.maxAlternatives = 1;
+    btn.classList.add('rec-on');
+    rec.onresult = function (e) {
+      var said = e.results && e.results[0] && e.results[0][0] ? e.results[0][0].transcript : '';
+      sub.innerHTML = '🎤 «' + esc(said) + '» — ' + rrMatch(text, said) + '%';
+    };
+    rec.onerror = function () { sub.textContent = t.rrNoStt; };
+    rec.onend = function () { btn.classList.remove('rec-on'); };
+    rec.start();
+  } catch (e) { toast(t.rrNoStt); }
+}
+function rrMatch(a, b) {
+  function norm(s) {
+    return (s || '').toLowerCase()
+      .replace(/[\u064B-\u0652\u0670]/g, '')
+      .replace(/[^\p{L}\p{N} ]/gu, ' ')
+      .split(/\s+/).filter(Boolean);
+  }
+  var wa = norm(a), wb = norm(b);
+  if (!wa.length || !wb.length) return 0;
+  var hit = 0;
+  wa.forEach(function (w) { if (wb.indexOf(w) >= 0) hit++; });
+  return Math.round(100 * hit / wa.length);
 }
 
 /* ================= matching game (zeelang) ================= */
