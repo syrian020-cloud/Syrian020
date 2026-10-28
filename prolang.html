@@ -423,6 +423,7 @@
   .rr-sub { min-height: 1.5rem; opacity: .85; text-align: center; }
   .rr-skip { text-decoration: underline; cursor: pointer; color: var(--accent); }
   .rr-stt.rec-on { outline: 2px solid #e11d48; }
+  .rr-wrap > .btn { flex: none; width: auto; min-width: 12rem; }
   .rr-score { font-size: 1.6rem; font-weight: 800; text-align: center; margin: .4rem 0 .2rem; }
   .lz-nav { display: flex; gap: .6rem; align-items: center; }
   .lz-nav button { min-width: 52px; height: 44px; padding: 0 14px; border-radius: 14px;
@@ -3918,17 +3919,40 @@ function rrEnd() {
   };
   document.getElementById('rr-out').onclick = closeRR;
 }
+function rrSttLang(lang) {
+  var LM = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US', es: 'es-ES', de: 'de-DE', it: 'it-IT',
+    pt: 'pt-PT', ru: 'ru-RU', tr: 'tr-TR', zh: 'zh-CN', ja: 'ja-JP', ko: 'ko-KR',
+    hi: 'hi-IN', uk: 'uk-UA', fa: 'fa-IR', nl: 'nl-NL', sv: 'sv-SE', pl: 'pl-PL', id: 'id-ID' };
+  return LM[lang] || lang;
+}
 // optional speech-to-text check — never required for the + counter
 function rrSttOnce(text, btn, sub) {
   var t = T();
+  if (!rr) return;
+  var lang = rrSttLang(rr.lang);
+  // native Capacitor speech recognition — WebView has no SpeechRecognition
+  var plug = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.SpeechRecognition;
+  if (plug && plug.start) {
+    btn.classList.add('rec-on');
+    (plug.requestPermissions ? plug.requestPermissions() : Promise.resolve(null))
+      .then(function (perms) {
+        if (perms && perms.speechRecognition === 'denied') { btn.classList.remove('rec-on'); sub.textContent = t.rrNoStt; return null; }
+        return plug.start({ language: lang, maxResults: 1, partialResults: false, popup: false });
+      })
+      .then(function (res) {
+        btn.classList.remove('rec-on');
+        if (!res) return;
+        var said = res.matches && res.matches[0] ? res.matches[0] : '';
+        sub.innerHTML = '🎤 «' + esc(said) + '» — ' + rrMatch(text, said) + '%';
+      })
+      .catch(function () { btn.classList.remove('rec-on'); sub.textContent = t.rrNoStt; });
+    return;
+  }
   var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR || !rr) { toast(t.rrNoStt); return; }
+  if (!SR) { toast(t.rrNoStt); return; }
   try {
     var rec = new SR();
-    var LM = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US', es: 'es-ES', de: 'de-DE', it: 'it-IT',
-      pt: 'pt-PT', ru: 'ru-RU', tr: 'tr-TR', zh: 'zh-CN', ja: 'ja-JP', ko: 'ko-KR',
-      hi: 'hi-IN', uk: 'uk-UA', fa: 'fa-IR', nl: 'nl-NL', sv: 'sv-SE', pl: 'pl-PL', id: 'id-ID' };
-    rec.lang = LM[rr.lang] || rr.lang;
+    rec.lang = lang;
     rec.interimResults = false;
     rec.maxAlternatives = 1;
     btn.classList.add('rec-on');
