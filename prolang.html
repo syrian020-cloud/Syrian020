@@ -1622,11 +1622,17 @@ function lessonTextSheet(f, l) {
   var go = el('button', 'btn primary', '💾 ' + t.save);
   go.onclick = function () {
     var txt = rTxt.input.value;
-    var arr = parseLessons(txt);
-    var phs = [];
-    arr.forEach(function (ls) { phs = phs.concat(ls.phrases || []); });
-    if (!phs.length && (l.phrases || []).length && !confirm(T().del + '?')) return;
+    // timed lines "00:01 --> 00:04 text" must land back in l.cues, not become notes
+    var arr = parseTimedLessons(txt);
+    var phs = [], cues = [];
+    arr.forEach(function (ls) {
+      phs = phs.concat(ls.phrases || []);
+      cues = cues.concat(ls.cues || []);
+    });
+    if (!phs.length && !cues.length &&
+        ((l.phrases || []).length || (l.cues || []).length) && !confirm(T().del + '?')) return;
     l.phrases = phs;
+    l.cues = cues;
     saveData(); render(); closeOv(); toast('✓');
   };
   act.appendChild(go);
