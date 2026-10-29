@@ -324,30 +324,30 @@
   .crow.ctime { background: #fff1a8; border-color: #d9be5a; }
   .ctime-t { flex: 1; text-align: center; background: none; border: none; cursor: pointer;
     font-family: inherit; direction: ltr; padding: .15rem 0; }
-  .ctime-num { display: inline-block; font-size: 1.35rem; font-weight: 800; color: #1d1d1d;
+  .ctime-num { display: inline-block; font-size: 1rem; font-weight: 800; color: #1d1d1d;
     font-variant-numeric: tabular-nums; background: linear-gradient(#fffdf0, #ffedb0);
-    border: 2px solid #b98f1e; border-radius: 14px; padding: .12rem .8rem;
+    border: 2px solid #b98f1e; border-radius: 12px; padding: .08rem .4rem;
     box-shadow: 0 2px 0 #b98f1e, inset 0 0 0 2px rgba(255,255,255,.6); }
   .ctime-t.speaking .ctime-num { color: #b33939; border-color: #b33939; }
-  .ctime-ic { flex: none; width: 2.3rem; height: 2.3rem; border-radius: 50%; border: 2px solid rgba(0,0,0,.18);
-    font-size: 1.15rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  .ctime-ic { flex: none; width: 2rem; height: 2rem; border-radius: 50%; border: 2px solid rgba(0,0,0,.18);
+    font-size: .95rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
     padding: 0; box-shadow: 0 2px 4px rgba(0,0,0,.15); }
   .ctime-ic:active { transform: scale(.88); }
   .ctime-ic.ic-note { background: #fbbf24; }
   .ctime-ic.ic-ai { background: #7dd3fc; }
   .ctime-ic.ic-clip { background: #c4b5fd; }
   .ctime-t.speaking { color: #b33939; }
-  .ctime-rec { flex: none; width: 2.3rem; height: 2.3rem; border-radius: 50%;
+  .ctime-rec { flex: none; width: 2rem; height: 2rem; border-radius: 50%;
     border: 2px solid rgba(0,0,0,.18); background: linear-gradient(145deg,#fda4af,#f43f5e);
-    color: #fff; font-size: 1.05rem; cursor: pointer; display: flex;
+    color: #fff; font-size: .9rem; cursor: pointer; display: flex;
     align-items: center; justify-content: center; padding: 0; font-family: inherit;
     box-shadow: 0 2px 4px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.5); }
   .ctime-rec:active { transform: scale(.88); }
   .ctime-rec.rec-on { color: #fff; background: #e11d48; border-color: #fff;
     animation: recPulse 1s infinite alternate; }
-  .ctime-say { flex: none; width: 2.3rem; height: 2.3rem; border-radius: 50%;
+  .ctime-say { flex: none; width: 2rem; height: 2rem; border-radius: 50%;
     border: 2px solid rgba(0,0,0,.18); background: linear-gradient(145deg,#6ee7b7,#10b981);
-    color: #fff; font-size: 1.05rem; cursor: pointer; display: flex;
+    color: #fff; font-size: .9rem; cursor: pointer; display: flex;
     align-items: center; justify-content: center; padding: 0; font-family: inherit;
     box-shadow: 0 2px 4px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.5); }
   .ctime-say:active { transform: scale(.88); }
@@ -1351,6 +1351,34 @@ function phraseCard(p, f, l) {
     openExternal('https://www.google.com/search?q=' + encodeURIComponent(q) + '&udm=2&hl=' + uiLang());
   };
   ptl.appendChild(ci);
+  // 🔁 speak every row of this card in a loop — tap again to stop
+  var sl2 = el('button', 'ctime-say', '🔁');
+  sl2.title = 'speak phrase loop';
+  sl2.onclick = function (e) {
+    e.stopPropagation();
+    var rows = [{ text: p.text, lang: p.lang || langOfFlag(p.flag) }];
+    (p.rows || []).forEach(function (r) { rows.push({ text: r.text, lang: r.lang || langOfFlag(r.flag) }); });
+    if (p.meaning) rows.push({ text: p.meaning, lang: 'ar' });
+    if (p.en) rows.push({ text: p.en, lang: 'en' });
+    rows = rows.filter(function (r) { return r.text; });
+    if (!rows.length || !window.EdgeTTS) return;
+    if (sl2.classList.contains('speaking')) {
+      sl2.classList.remove('speaking'); speakTok++; EdgeTTS.stop(); return;
+    }
+    document.querySelectorAll('.speaking, .w.speak').forEach(function (x) {
+      x.classList.remove('speaking'); x.classList.remove('speak');
+    });
+    speakTok++; EdgeTTS.stop();
+    sl2.classList.add('speaking');
+    (function step(k) {
+      if (!sl2.classList.contains('speaking')) return;
+      var r = rows[k % rows.length], tok = ++speakTok;
+      EdgeTTS.play(r.text, r.lang || 'fr').then(function () {
+        if (tok === speakTok && sl2.classList.contains('speaking')) step(k + 1);
+      }, function () { sl2.classList.remove('speaking'); });
+    })(0);
+  };
+  ptl.appendChild(sl2);
   body.appendChild(ptl);
   c.appendChild(body);
   var d = el('button', 'ph-dots', '⋮');
