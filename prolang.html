@@ -345,6 +345,14 @@
   .ctime-rec:active { transform: scale(.88); }
   .ctime-rec.rec-on { color: #fff; background: #e11d48; border-color: #fff;
     animation: recPulse 1s infinite alternate; }
+  .ctime-say { flex: none; width: 2.3rem; height: 2.3rem; border-radius: 50%;
+    border: 2px solid rgba(0,0,0,.18); background: linear-gradient(145deg,#6ee7b7,#10b981);
+    color: #fff; font-size: 1.05rem; cursor: pointer; display: flex;
+    align-items: center; justify-content: center; padding: 0; font-family: inherit;
+    box-shadow: 0 2px 4px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.5); }
+  .ctime-say:active { transform: scale(.88); }
+  .ctime-say.speaking { background: #059669; border-color: #fff;
+    animation: recPulse 1s infinite alternate; }
 
   /* ---------- games (zeelang quiz + listen) ---------- */
   .qz-ov { position: fixed; inset: 0; z-index: 4000; background: var(--bg);
@@ -3298,6 +3306,35 @@ function renderMedia(v, f, l) {
       };
       tr.appendChild(cr);
     }
+    // 🔁 speak every row of this cue in a loop — tap again to stop
+    var sl = el('button', 'ctime-say', '🔁');
+    sl.title = 'speak phrase loop';
+    sl.onclick = function (e) {
+      e.stopPropagation();
+      var rows = cueRows(c.text).filter(function (r) { return r.text; });
+      if (!rows.length || !window.EdgeTTS) return;
+      if (sl.classList.contains('speaking')) {
+        sl.classList.remove('speaking');
+        speakTok++;
+        EdgeTTS.stop();
+        return;
+      }
+      document.querySelectorAll('.speaking, .w.speak').forEach(function (x) {
+        x.classList.remove('speaking'); x.classList.remove('speak');
+      });
+      speakTok++;
+      EdgeTTS.stop();
+      sl.classList.add('speaking');
+      (function step(k) {
+        if (!sl.classList.contains('speaking')) return;
+        var r = rows[k % rows.length], lang = r.lang === 'auto' ? 'fr' : r.lang;
+        var tok = ++speakTok;
+        EdgeTTS.play(r.text, lang).then(function () {
+          if (tok === speakTok && sl.classList.contains('speaking')) step(k + 1);
+        }, function () { sl.classList.remove('speaking'); });
+      })(0);
+    };
+    tr.appendChild(sl);
     cb.appendChild(tr);
     cd.appendChild(cb);
     list.appendChild(cd);
