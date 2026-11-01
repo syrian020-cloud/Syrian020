@@ -4087,7 +4087,7 @@
 
     let captionText = form.elements.captions.value.trim();
     const captionFile = document.getElementById('lesson-captions-file').files[0];
-    if (captionFile) {
+    if (captionFile && !captionText) {
       try { captionText = await readFileText(captionFile); }
       catch (e) { alert(t('captionParseError')); return; }
     }
@@ -5054,6 +5054,7 @@
   }
 
   async function updateLesson() {
+    try {
     const form = document.getElementById('edit-lesson-form');
     const ttl = parseTitle(form.elements.title.value);
     if (!ttl) { alert(t('fillTitleError')); return; }
@@ -5096,7 +5097,7 @@
 
     let captionText = form.elements.captions.value.trim();
     const captionFile = document.getElementById('lesson-captions-file').files[0];
-    if (captionFile) {
+    if (captionFile && !captionText) {
       try { captionText = await readFileText(captionFile); }
       catch (e) { alert(t('captionParseError')); return; }
     }
@@ -5106,7 +5107,8 @@
     const phrasesChanged = phrasesRaw !== form.elements.phrases.defaultValue.trim();
     const captionsChanged = captionText !== (lesson.captionText || '').trim();
     if (captionText && ((captionsChanged && !phrasesChanged) || !phrasesRaw)) {
-      const captions = parseCaptions(captionText);
+      let captions = [];
+      try { captions = parseCaptions(captionText); } catch (e) { console.error('caption parse failed', e); }
       if (!captions.length) { alert(t('captionParseError')); return; }
       const oldPhrases = lesson.phrases || [];
       phrases = captions.map((c, i) => {
@@ -5115,16 +5117,18 @@
         if (c._subs) p._subs = c._subs;
         if (c._order) p._order = c._order;
         const old = oldPhrases[i];
-        if (old) ['media', 'mediaType', 'image', 'audio'].forEach(k => { if (old[k]) p[k] = old[k]; });
+        if (old) ['media', 'mediaType', 'image', 'audio', 'captionText'].forEach(k => { if (old[k]) p[k] = old[k]; });
         return p;
       });
     } else {
-      const parsed = parsePhrasesWithSections(phrasesRaw, 'auto');
+      let parsed = { phrases: [], sections: null };
+      try { parsed = parsePhrasesWithSections(phrasesRaw, 'auto'); } catch (e) { console.error('phrases parse failed', e); }
       phrases = parsed.phrases;
       secData = parsed.sections;
       if (phrasesRaw && !phrases.length) { alert(t('noPhrasesError')); return; }
       if (captionText) {
-        const captions = parseCaptions(captionText);
+        let captions = [];
+        try { captions = parseCaptions(captionText); } catch (e) { console.error('caption parse failed', e); }
         if (captions.length === phrases.length) phrases.forEach((p, i) => { p.start = captions[i].start; p.end = captions[i].end; });
       }
     }
@@ -5137,6 +5141,10 @@
     saveLessons();
     showToast(t('saved'));
     go({ name: 'lesson', lesson: id });
+    } catch (err) {
+      console.error('updateLesson failed', err);
+      alert(t('mediaSaveError'));
+    }
   }
 
   const PHRASE_EXAMPLES = [
