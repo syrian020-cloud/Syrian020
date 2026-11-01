@@ -32,7 +32,18 @@
       ru: 'ru-RU-SvetlanaNeural', fa: 'fa-IR-DilaraNeural', tr: 'tr-TR-EmelNeural',
       it: 'it-IT-ElsaNeural', nl: 'nl-NL-ColetteNeural', zh: 'zh-CN-XiaoxiaoNeural',
       ja: 'ja-JP-NanamiNeural', ko: 'ko-KR-SunHiNeural', el: 'el-GR-AthinaNeural',
-      ur: 'ur-PK-UzmaNeural'
+      ur: 'ur-PK-UzmaNeural',
+      th: 'th-TH-PremwadeeNeural', vi: 'vi-VN-HoaiMyNeural', hi: 'hi-IN-SwaraNeural',
+      ka: 'ka-GE-EkaNeural', hy: 'hy-AM-AnahitNeural', he: 'he-IL-AvriNeural',
+      pl: 'pl-PL-ZofiaNeural', uk: 'uk-UA-PolinaNeural', sv: 'sv-SE-SofieNeural',
+      bn: 'bn-BD-NabanitaNeural', id: 'id-ID-GadisNeural', ms: 'ms-MY-YasminNeural',
+      tl: 'fil-PH-BlessicaNeural', ro: 'ro-RO-AlinaNeural', hu: 'hu-HU-NoemiNeural',
+      cs: 'cs-CZ-VlastaNeural', bg: 'bg-BG-KalinaNeural', hr: 'hr-HR-GabrijelaNeural',
+      sr: 'sr-RS-SophieNeural', da: 'da-DK-ChristelNeural', nb: 'nb-NO-PernilleNeural',
+      fi: 'fi-FI-NooraNeural', mn: 'mn-MN-YesuiNeural', sw: 'sw-KE-ZuriNeural',
+      zu: 'zu-ZA-ThandoNeural', am: 'am-ET-MekdesNeural', is: 'is-IS-GudrunNeural',
+      sq: 'sq-AL-AnilaNeural', lt: 'lt-LT-OnaNeural', lv: 'lv-LV-EveritaNeural',
+      et: 'et-EE-AnuNeural', yo: 'en-NG-EzinneNeural'
     },
     rates: {
       fr: '-8%', ar: '0%', en: '0%', es: '0%', de: '0%', pt: '0%',
@@ -40,7 +51,11 @@
       ja: '0%', ko: '0%', el: '0%', ur: '0%'
     }
   };
-  var RV_TL = { fr: 'fr', ar: 'ar', en: 'en-US', es: 'es', de: 'de', pt: 'pt', ru: 'ru', fa: 'fa', tr: 'tr', it: 'it', nl: 'nl', zh: 'zh-CN', ja: 'ja', ko: 'ko', el: 'el', ur: 'ur' };
+  var RV_TL = { fr: 'fr', ar: 'ar', en: 'en-US', es: 'es', de: 'de', pt: 'pt', ru: 'ru', fa: 'fa', tr: 'tr', it: 'it', nl: 'nl', zh: 'zh-CN', ja: 'ja', ko: 'ko', el: 'el', ur: 'ur',
+    th: 'th', vi: 'vi', hi: 'hi', he: 'he', pl: 'pl', sv: 'sv', id: 'id', bn: 'bn',
+    ms: 'ms', tl: 'fil', ro: 'ro', hu: 'hu', cs: 'cs', da: 'da', nb: 'no', fi: 'fi',
+    is: 'is', sq: 'sq', lt: 'lt', lv: 'lv', et: 'et', sw: 'sw', am: 'am', mn: 'mn',
+    yo: 'en-NG', zu: 'zu', ka: 'ka', hy: 'hy', uk: 'uk', bg: 'bg', hr: 'hr', sr: 'sr' };
   var RV_RATE = '0.47';
   var CACHE_MAX = 60;
   var FETCH_TIMEOUT_MS = 25000;

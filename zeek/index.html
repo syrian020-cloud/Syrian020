@@ -1443,38 +1443,80 @@
   }
 
   const FLAG_RE = /^\s*([\u{1F1E6}-\u{1F1FF}]{2})\s*/u;
-  const EXTRA_LANGS = ['es', 'de', 'pt', 'ru', 'fa', 'tr', 'it', 'nl', 'zh', 'ja', 'ko', 'el', 'ur'];
-  const RTL_LANGS = { ar: 1, fa: 1, ur: 1 };
-  const LANG_FLAG = { fr: '🇫🇷', ar: '🇸🇾', en: '🇬🇧', es: '🇪🇸', de: '🇩🇪', pt: '🇵🇹', ru: '🇷🇺', fa: '🇮🇷', tr: '🇹🇷', it: '🇮🇹', nl: '🇳🇱', zh: '🇨🇳', ja: '🇯🇵', ko: '🇰🇷', el: '🇬🇷', ur: '🇵🇰' };
+  const EXTRA_LANGS = ['es', 'de', 'pt', 'ru', 'fa', 'tr', 'it', 'nl', 'zh', 'ja', 'ko', 'el', 'ur',
+    'th', 'vi', 'hi', 'ka', 'hy', 'he', 'pl', 'uk', 'sv', 'bn', 'id', 'ms', 'tl', 'ro', 'hu',
+    'cs', 'bg', 'hr', 'sr', 'da', 'nb', 'fi', 'mn', 'sw', 'zu', 'yo', 'am', 'is', 'sq', 'lt', 'lv', 'et'];
+  const RTL_LANGS = { ar: 1, fa: 1, ur: 1, he: 1 };
+  const LANG_FLAG = { fr: '🇫🇷', ar: '🇸🇾', en: '🇬🇧', es: '🇪🇸', de: '🇩🇪', pt: '🇵🇹', ru: '🇷🇺', fa: '🇮🇷', tr: '🇹🇷', it: '🇮🇹', nl: '🇳🇱', zh: '🇨🇳', ja: '🇯🇵', ko: '🇰🇷', el: '🇬🇷', ur: '🇵🇰',
+    th: '🇹🇭', vi: '🇻🇳', hi: '🇮🇳', ka: '🇬🇪', hy: '🇦🇲', he: '🇮🇱', pl: '🇵🇱', uk: '🇺🇦', sv: '🇸🇪', bn: '🇧🇩', id: '🇮🇩', ms: '🇲🇾', tl: '🇵🇭', ro: '🇷🇴', hu: '🇭🇺',
+    cs: '🇨🇿', bg: '🇧🇬', hr: '🇭🇷', sr: '🇷🇸', da: '🇩🇰', nb: '🇳🇴', fi: '🇫🇮', mn: '🇲🇳', sw: '🇰🇪', zu: '🇿🇦', yo: '🇳🇬', am: '🇪🇹', is: '🇮🇸', sq: '🇦🇱', lt: '🇱🇹', lv: '🇱🇻', et: '🇪🇪' };
+  const CC_LANG = { CN: 'zh', JP: 'ja', KR: 'ko', TH: 'th', VN: 'vi', IN: 'hi', GR: 'el',
+    GE: 'ka', AM: 'hy', IL: 'he', FR: 'fr', US: 'en', GB: 'en', AU: 'en',
+    DE: 'de', ES: 'es', IT: 'it', RU: 'ru', TR: 'tr', PT: 'pt', BR: 'pt',
+    NL: 'nl', PL: 'pl', UA: 'uk', SE: 'sv', IR: 'fa', PK: 'ur', BD: 'bn',
+    ID: 'id', MY: 'ms', PH: 'tl', RO: 'ro', HU: 'hu', CZ: 'cs', BG: 'bg',
+    HR: 'hr', RS: 'sr', DK: 'da', NO: 'nb', FI: 'fi', MN: 'mn', KE: 'sw',
+    ZA: 'zu', NG: 'yo', ET: 'am', IS: 'is', AL: 'sq', LT: 'lt', LV: 'lv',
+    EE: 'et', TZ: 'sw',
+    SY: 'ar', SA: 'ar', EG: 'ar', JO: 'ar', LB: 'ar', MA: 'ar', DZ: 'ar',
+    TN: 'ar', AE: 'ar', IQ: 'ar', KW: 'ar', QA: 'ar', BH: 'ar', OM: 'ar', YE: 'ar', LY: 'ar' };
   const FLAG_LANG_MAP = { '🇪🇸': 'es', '🇩🇪': 'de', '🇵🇹': 'pt', '🇧🇷': 'pt', '🇷🇺': 'ru', '🇮🇷': 'fa', '🇹🇷': 'tr', '🇮🇹': 'it', '🇳🇱': 'nl', '🇨🇳': 'zh', '🇹🇼': 'zh', '🇯🇵': 'ja', '🇰🇷': 'ko', '🇬🇷': 'el', '🇵🇰': 'ur' };
   function flagLang(flag, txt) {
     if (FLAG_LANG_MAP[flag]) return FLAG_LANG_MAP[flag];
+    const cc = countryCodeFromFlag(flag);
+    if (cc && CC_LANG[cc]) return CC_LANG[cc];
+    const mapped = cc && langFromCountryCode(cc);
+    if (mapped) return mapped;
     if (/[\u0600-\u06FF]/.test(txt)) return 'ar';
     if (flag === '🇫🇷' || flag === '🇧🇪' || flag === '🇨🇭' || flag === '🇨🇦') return 'fr';
     if (flag === '🇺🇸' || flag === '🇬🇧' || flag === '🇦🇺') return 'en';
     return classifyLatinLang(txt) || 'fr';
   }
+  const PHRASE_LABEL_RE = /^(?:الأصلية|الأصلي|النص|الكتابة(?:\s+(?:الأصلية|اللاتينية|العربية))?|المعنى(?:\s+(?:بالعربي|بالعربية|بالإنجليزية|بالإنكليزية|إنجليزي|عربي))?|الترجمة(?:\s+\S+)?|الإنجليزية|الانجليزية|English|Meaning|النطق(?:\s+\S+)?|اللفظ|تقريب(?:\s+\S+)?)\s*[:：]\s*/u;
+  function deLabel(s) { const m = PHRASE_LABEL_RE.exec(String(s || '')); return m ? s.slice(m[0].length).trim() : String(s || '').trim(); }
+  const MARKER_RE = /^\s*(🔤|🗣️?|🔊|📝|📌)\s*/u;
   function parsePhrases(text, userOrder = 'auto') {
     const phrases = [];
     const plain = text.split('\n').filter(l => !FLAG_RE.test(l)).join('\n');
     const blockOrder = (userOrder === 'auto') ? detectBlockOrder(plain) : userOrder;
     let cur = {};
-    const flush = () => { if (cur.fr && cur.ar && cur.en) phrases.push(cur); cur = {}; };
+    const hasLang = () => Object.keys(cur).some(k => k !== '_subs');
+    const flush = () => { if (hasLang()) phrases.push(cur); cur = {}; };
+    const addSub = (marker, text) => {
+      const body = deLabel(cleanPhrasePart(text));
+      if (!body) return;
+      if (!cur._subs) cur._subs = [];
+      cur._subs.push((marker === '📝' ? '📝' : marker) + ' ' + body);
+    };
     text.split('\n').forEach(raw0 => {
+      let numbered = /^\s*\d+\s*[.)]\s+/.test(raw0);
       let raw = raw0.trim()
         .replace(/^\d+\s*$/, '')
         .replace(/^\d{1,2}:\d{2}(?::\d{2})?(?:[,.]\d{1,3})?(?:\s*-->\s*\d{1,2}:\d{2}(?::\d{2})?(?:[,.]\d{1,3})?)?\s*/, '')
         .replace(/-->.*/, '')
+        .replace(/^[-*•]\s*/, '')
+        .replace(/^\d+\s*[.)]\s+/, '')
         .trim();
       if (!raw) return;
-      const segs = (raw.match(/[\u{1F1E6}-\u{1F1FF}]{2}/gu) || []).length > 1
-        ? raw.split(/(?=[\u{1F1E6}-\u{1F1FF}]{2})/u).map(x => x.trim()).filter(Boolean)
+      const mkWhole = raw.match(MARKER_RE);
+      if (mkWhole && !(raw.match(/[\u{1F1E6}-\u{1F1FF}]{2}/gu) || []).length) {
+        if (mkWhole[1] === '📝' || mkWhole[1] === '📌') { flush(); phrases.push({ note: deLabel(cleanPhrasePart(raw.slice(mkWhole[0].length))), _subs: null }); return; }
+        addSub(mkWhole[1], raw.slice(mkWhole[0].length));
+        return;
+      }
+      const segs = (raw.match(/[\u{1F1E6}-\u{1F1FF}]{2}|🔤|🗣️?|🔊|📝/gu) || []).length > 1
+        ? raw.split(/(?=[\u{1F1E6}-\u{1F1FF}]{2}|🔤|🗣️?|🔊|📝)/u).map(x => x.trim()).filter(Boolean)
         : [raw];
       segs.forEach(seg => {
+        const mk = seg.match(MARKER_RE);
+        if (mk) { addSub(mk[1], seg.slice(mk[0].length)); return; }
         const m = seg.match(FLAG_RE);
         if (m) {
-          const body = cleanPhrasePart(seg.trim().slice(m[0].length));
+          if (numbered) { flush(); numbered = false; }
+          let body = deLabel(cleanPhrasePart(seg.trim().slice(m[0].length)));
           if (!body) return;
+          // flag + pure-Arabic short line = language-name label (e.g. "* 🇮🇩 الإندونيسية"), skip
+          if (m[1] !== '🇸🇾' && body.length < 40 && !/[^\u0600-\u06FF\s\d(),.\/؟?\-]/.test(body)) return;
           const lang = flagLang(m[1], body);
           if (cur[lang]) flush();
           cur[lang] = m[1] + ' ' + body;
@@ -1495,10 +1537,11 @@
       });
     });
     flush();
-    return phrases;
+    return phrases.filter(p => p.note || Object.keys(p).some(k => k !== '_subs'));
   }
 
-  const SEC_SEP_RE = /^\s*(?:-{3,}|—{3,}|_{3,}|\*{3,}|={3,})\s*$/;
+  const SEC_SEP_RE = /^\s*(?:-{3,}|—+|_{3,}|\*{3,}|={3,})\s*$/;
+  const SEC_HEAD_RE = /^#{1,6}\s*\d*\.?\s*(.+)$|^النموذج\s*\d*[:\-]?\s*(.*)$/;
   const EMOJI_START_RE = /^[\p{Emoji_Presentation}\p{Extended_Pictographic}]/u;
   const SEC_WORD_RE = /(موقف|مشهد|situation|sc[eè]ne|section|قسم)/i;
   function parsePhrasesWithSections(text, userOrder = 'auto') {
@@ -1521,6 +1564,7 @@
     const isTitleLine = s => {
       if (/^\d{1,2}:\d{2}/.test(s) || /^\d+$/.test(s)) return false;
       if (s.startsWith('📌')) return true;
+      if (SEC_HEAD_RE.test(s)) return true;
       if (isPhraseLine(s)) return false;
       if (EMOJI_START_RE.test(s) || SEC_WORD_RE.test(s)) return true;
       return !cur.title && !cur.buf.some(b => b.trim());
@@ -1531,7 +1575,7 @@
       if (!s) { cur.buf.push(raw); continue; }
       if (isTitleLine(s)) {
         if (cur.buf.some(b => b.trim())) { flushSec(); cur = newSec(); }
-        if (!cur.title) { cur.title = parseTitle(s.replace(/^📌\s*/, '')); continue; }
+        if (!cur.title) { cur.title = parseTitle(s.replace(/^📌\s*/, '').replace(/^#{1,6}\s*\d*\.?\s*/, '').replace(/^النموذج\s*\d*[:\-]?\s*/, '')); continue; }
       }
       cur.buf.push(raw);
     }
@@ -1818,7 +1862,9 @@
     ttsInstallMessage: { ar: 'التطبيق يحتاج إلى محرك نطق مثبت.\n1) تأكد من تثبيت Google Text-to-speech.\n2) افتح إعدادات الجهاز > النطق > اختر Google TTS.\n3) حمّل بيانات الصوت الفرنسي (fr-FR).\n4) أعد تشغيل التطبيق.', en: 'The app needs an installed TTS engine.\n1) Install Google Text-to-speech.\n2) Open device Settings > Speech > choose Google TTS.\n3) Download French (fr-FR) voice data.\n4) Restart the app.', fr: 'L\'application a besoin d\'un moteur TTS installé.\n1) Installez Google Text-to-speech.\n2) Paramètres > Synthèse vocale > choisissez Google TTS.\n3) Téléchargez les données vocales française (fr-FR).\n4) Redémarrez l\'application.' }
   };
 
-  const VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US', es: 'es-ES', de: 'de-DE', pt: 'pt-PT', ru: 'ru-RU', fa: 'fa-IR', tr: 'tr-TR', it: 'it-IT', nl: 'nl-NL', zh: 'zh-CN', ja: 'ja-JP', ko: 'ko-KR', el: 'el-GR', ur: 'ur-PK' };
+  const VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US', es: 'es-ES', de: 'de-DE', pt: 'pt-PT', ru: 'ru-RU', fa: 'fa-IR', tr: 'tr-TR', it: 'it-IT', nl: 'nl-NL', zh: 'zh-CN', ja: 'ja-JP', ko: 'ko-KR', el: 'el-GR', ur: 'ur-PK',
+    th: 'th-TH', vi: 'vi-VN', hi: 'hi-IN', ka: 'ka-GE', hy: 'hy-AM', he: 'he-IL', pl: 'pl-PL', uk: 'uk-UA', sv: 'sv-SE', bn: 'bn-BD', id: 'id-ID', ms: 'ms-MY', tl: 'fil-PH', ro: 'ro-RO', hu: 'hu-HU',
+    cs: 'cs-CZ', bg: 'bg-BG', hr: 'hr-HR', sr: 'sr-RS', da: 'da-DK', nb: 'nb-NO', fi: 'fi-FI', mn: 'mn-MN', sw: 'sw-KE', zu: 'zu-ZA', yo: 'yo-NG', am: 'am-ET', is: 'is-IS', sq: 'sq-AL', lt: 'lt-LT', lv: 'lv-LV', et: 'et-EE' };
 
   const view = document.getElementById('view');
   const searchInput = document.getElementById('search');
@@ -1842,7 +1888,7 @@
     langs: ['fr', 'ar', 'en'],
     uiLang: localStorage.getItem('zeek_ui_lang') || 'ar',
     theme: localStorage.getItem('zeek_theme') || 'dark',
-    voiceLang: { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US', es: 'es-ES', de: 'de-DE', pt: 'pt-PT', ru: 'ru-RU', fa: 'fa-IR', tr: 'tr-TR', it: 'it-IT', nl: 'nl-NL', zh: 'zh-CN', ja: 'ja-JP', ko: 'ko-KR', el: 'el-GR', ur: 'ur-PK' },
+    voiceLang: { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' },
     ttsAvailable: false
   };
 
@@ -2344,20 +2390,15 @@
 
   function langFromCountryCode(code) {
     if (!code) return null;
-    if (['FR','BE','CA','CH','LU','MC'].includes(code)) return 'fr';
-    if (['SY','SA','AE','EG','IQ','JO','LB','LY','MA','OM','PS','QA','TN','YE','KW','BH','DZ','SD','MR','KM','TD','DJ','ER','SO'].includes(code)) return 'ar';
-    if (['US','GB','CA','AU','NZ','IE','ZA','IN','NG','KE','GH','JM','TT','BZ','BS','BB','SG','MY','PH','HK'].includes(code)) return 'en';
-    if (['ES','MX','AR','CO','CL','PE','VE','UY','PY','BO','EC','GT','CU','DO','HN','SV','NI','CR','PA','GQ'].includes(code)) return 'es';
-    if (['DE','AT','LI'].includes(code)) return 'de';
-    if (['PT','BR'].includes(code)) return 'pt';
-    if (['RU'].includes(code)) return 'ru';
-    if (['IR','AF'].includes(code)) return 'fa';
-    if (['TR'].includes(code)) return 'tr';
-    if (['IT','SM','VA'].includes(code)) return 'it';
-    if (['NL'].includes(code)) return 'nl';
-    if (['CN','TW','MO'].includes(code)) return 'zh';
-    if (['JP'].includes(code)) return 'ja';
-    if (['KR'].includes(code)) return 'ko';
+    if (CC_LANG[code]) return CC_LANG[code];
+    if (['BE','CH','LU','MC','CA'].includes(code)) return 'fr';
+    if (['PS','SD','MR','KM','TD','DJ','ER','SO'].includes(code)) return 'ar';
+    if (['NZ','IE','GH','JM','TT','BZ','BS','BB','SG','HK'].includes(code)) return 'en';
+    if (['MX','AR','CO','CL','PE','VE','UY','PY','BO','EC','GT','CU','DO','HN','SV','NI','CR','PA','GQ'].includes(code)) return 'es';
+    if (['AT','LI'].includes(code)) return 'de';
+    if (['AF'].includes(code)) return 'fa';
+    if (['SM','VA'].includes(code)) return 'it';
+    if (['TW','MO'].includes(code)) return 'zh';
     if (['GR','CY'].includes(code)) return 'el';
     if (['PK'].includes(code)) return 'ur';
     return null;
@@ -2368,6 +2409,7 @@
     marker = marker.trim();
     if (/^[A-Za-z]{2}$/.test(marker)) {
       const low = marker.toLowerCase();
+      if (CC_LANG[marker.toUpperCase()]) return CC_LANG[marker.toUpperCase()];
       if (low === 'fr') return 'fr';
       if (low === 'ar' || low === 'sy' || low === 'sa' || low === 'ae' || low === 'eg') return 'ar';
       if (low === 'en' || low === 'us' || low === 'uk' || low === 'gb') return 'en';
@@ -3090,24 +3132,35 @@
         if (!webTTS() && !edgeSupported()) showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
         return;
       }
-      state.voiceLang = {
-        fr: frTag,
-        ar: await supportsLangTag(tts, ['ar-SA','ar','ara','ar-EG']),
-        en: await supportsLangTag(tts, ['en-US','en','eng','en-GB','en-CA']),
-        es: await supportsLangTag(tts, ['es-ES','es','spa','es-MX','es-US']),
-        de: await supportsLangTag(tts, ['de-DE','de','deu']),
-        pt: await supportsLangTag(tts, ['pt-PT','pt','por','pt-BR']),
-        ru: await supportsLangTag(tts, ['ru-RU','ru','rus']),
-        fa: await supportsLangTag(tts, ['fa-IR','fa','fas','per']),
-        tr: await supportsLangTag(tts, ['tr-TR','tr','tur']),
-        it: await supportsLangTag(tts, ['it-IT','it','ita']),
-        nl: await supportsLangTag(tts, ['nl-NL','nl','nld','nl-BE']),
-        zh: await supportsLangTag(tts, ['zh-CN','zh','zho','zh-TW','cmn']),
-        ja: await supportsLangTag(tts, ['ja-JP','ja','jpn']),
-        ko: await supportsLangTag(tts, ['ko-KR','ko','kor']),
-        el: await supportsLangTag(tts, ['el-GR','el','ell']),
-        ur: await supportsLangTag(tts, ['ur-PK','ur','urd','ur-IN'])
+      const TTS_TAG_CAND = {
+        ar: ['ar-SA','ar','ara','ar-EG'], en: ['en-US','en','eng','en-GB','en-CA'],
+        es: ['es-ES','es','spa','es-MX','es-US'], de: ['de-DE','de','deu'],
+        pt: ['pt-PT','pt','por','pt-BR'], ru: ['ru-RU','ru','rus'],
+        fa: ['fa-IR','fa','fas','per'], tr: ['tr-TR','tr','tur'],
+        it: ['it-IT','it','ita'], nl: ['nl-NL','nl','nld','nl-BE'],
+        zh: ['zh-CN','zh','zho','zh-TW','cmn'], ja: ['ja-JP','ja','jpn'],
+        ko: ['ko-KR','ko','kor'], el: ['el-GR','el','ell'],
+        ur: ['ur-PK','ur','urd','ur-IN'], th: ['th-TH','th','tha'],
+        vi: ['vi-VN','vi','vie'], hi: ['hi-IN','hi','hin'],
+        ka: ['ka-GE','ka','kat'], hy: ['hy-AM','hy','hye'],
+        he: ['he-IL','he','heb','iw-IL','iw'], pl: ['pl-PL','pl','pol'],
+        uk: ['uk-UA','uk','ukr'], sv: ['sv-SE','sv','swe'],
+        bn: ['bn-BD','bn','ben','bn-IN'], id: ['id-ID','id','ind'],
+        ms: ['ms-MY','ms','msa'], tl: ['fil-PH','fil','tl','tgl'],
+        ro: ['ro-RO','ro','ron'], hu: ['hu-HU','hu','hun'],
+        cs: ['cs-CZ','cs','ces'], bg: ['bg-BG','bg','bul'],
+        hr: ['hr-HR','hr','hrv'], sr: ['sr-RS','sr','srp'],
+        da: ['da-DK','da','dan'], nb: ['nb-NO','nb','no','nob','nn-NO','nn'],
+        fi: ['fi-FI','fi','fin'], mn: ['mn-MN','mn','mon'],
+        sw: ['sw-KE','sw','swa','sw-TZ'], zu: ['zu-ZA','zu','zul'],
+        yo: ['yo-NG','yo','yor'], am: ['am-ET','am','amh'],
+        is: ['is-IS','is','isl'], sq: ['sq-AL','sq','sqi'],
+        lt: ['lt-LT','lt','lit'], lv: ['lv-LV','lv','lav'], et: ['et-EE','et','est']
       };
+      state.voiceLang = { fr: frTag };
+      for (const l of Object.keys(TTS_TAG_CAND)) {
+        state.voiceLang[l] = await supportsLangTag(tts, TTS_TAG_CAND[l]);
+      }
       state.ttsAvailable = true;
       hideTTSBanner();
     } catch (e) {
@@ -3286,16 +3339,60 @@
     ur: [
       ['ur-PK-UzmaNeural', 'Uzma · PK · F'],
       ['ur-PK-AsadNeural', 'Asad · PK · M']
-    ]
+    ],
+    th: [['th-TH-PremwadeeNeural', 'Premwadee · TH · F'], ['th-TH-NiwatNeural', 'Niwat · TH · M']],
+    vi: [['vi-VN-HoaiMyNeural', 'HoaiMy · VN · F'], ['vi-VN-NamMinhNeural', 'NamMinh · VN · M']],
+    hi: [['hi-IN-SwaraNeural', 'Swara · IN · F'], ['hi-IN-MadhurNeural', 'Madhur · IN · M']],
+    ka: [['ka-GE-EkaNeural', 'Eka · GE · F'], ['ka-GE-GiorgiNeural', 'Giorgi · GE · M']],
+    hy: [['hy-AM-AnahitNeural', 'Anahit · AM · F']],
+    he: [['he-IL-AvriNeural', 'Avri · IL · M'], ['he-IL-HilaNeural', 'Hila · IL · F']],
+    pl: [['pl-PL-ZofiaNeural', 'Zofia · PL · F'], ['pl-PL-MarekNeural', 'Marek · PL · M']],
+    uk: [['uk-UA-PolinaNeural', 'Polina · UA · F'], ['uk-UA-OstapNeural', 'Ostap · UA · M']],
+    sv: [['sv-SE-SofieNeural', 'Sofie · SE · F'], ['sv-SE-MattiasNeural', 'Mattias · SE · M']],
+    bn: [['bn-BD-NabanitaNeural', 'Nabanita · BD · F'], ['bn-BD-PradeepNeural', 'Pradeep · BD · M']],
+    id: [['id-ID-GadisNeural', 'Gadis · ID · F'], ['id-ID-ArdiNeural', 'Ardi · ID · M']],
+    ms: [['ms-MY-YasminNeural', 'Yasmin · MY · F'], ['ms-MY-OsmanNeural', 'Osman · MY · M']],
+    tl: [['fil-PH-BlessicaNeural', 'Blessica · PH · F'], ['fil-PH-AngeloNeural', 'Angelo · PH · M']],
+    ro: [['ro-RO-AlinaNeural', 'Alina · RO · F'], ['ro-RO-EmilNeural', 'Emil · RO · M']],
+    hu: [['hu-HU-NoemiNeural', 'Noemi · HU · F'], ['hu-HU-TamasNeural', 'Tamas · HU · M']],
+    cs: [['cs-CZ-VlastaNeural', 'Vlasta · CZ · F'], ['cs-CZ-AntoninNeural', 'Antonin · CZ · M']],
+    bg: [['bg-BG-KalinaNeural', 'Kalina · BG · F'], ['bg-BG-BorislavNeural', 'Borislav · BG · M']],
+    hr: [['hr-HR-GabrijelaNeural', 'Gabrijela · HR · F'], ['hr-HR-SreckoNeural', 'Srecko · HR · M']],
+    sr: [['sr-RS-SophieNeural', 'Sophie · RS · F'], ['sr-RS-NicholasNeural', 'Nicholas · RS · M']],
+    da: [['da-DK-ChristelNeural', 'Christel · DK · F'], ['da-DK-JeppeNeural', 'Jeppe · DK · M']],
+    nb: [['nb-NO-PernilleNeural', 'Pernille · NO · F'], ['nb-NO-FinnNeural', 'Finn · NO · M']],
+    fi: [['fi-FI-NooraNeural', 'Noora · FI · F'], ['fi-FI-HarriNeural', 'Harri · FI · M']],
+    mn: [['mn-MN-YesuiNeural', 'Yesui · MN · F'], ['mn-MN-BataaNeural', 'Bataa · MN · M']],
+    sw: [['sw-KE-ZuriNeural', 'Zuri · KE · F'], ['sw-KE-RafikiNeural', 'Rafiki · KE · M']],
+    zu: [['zu-ZA-ThandoNeural', 'Thando · ZA · F'], ['zu-ZA-ThembaNeural', 'Themba · ZA · M']],
+    am: [['am-ET-MekdesNeural', 'Mekdes · ET · F'], ['am-ET-AmehaNeural', 'Ameha · ET · M']],
+    is: [['is-IS-GudrunNeural', 'Gudrun · IS · F'], ['is-IS-GunnarNeural', 'Gunnar · IS · M']],
+    sq: [['sq-AL-AnilaNeural', 'Anila · AL · F'], ['sq-AL-IlirNeural', 'Ilir · AL · M']],
+    lt: [['lt-LT-OnaNeural', 'Ona · LT · F'], ['lt-LT-LeonasNeural', 'Leonas · LT · M']],
+    lv: [['lv-LV-EveritaNeural', 'Everita · LV · F'], ['lv-LV-NilsNeural', 'Nils · LV · M']],
+    et: [['et-EE-AnuNeural', 'Anu · EE · F'], ['et-EE-KertNeural', 'Kert · EE · M']],
+    yo: [['en-NG-EzinneNeural', 'Ezinne · NG · F'], ['en-NG-AbeoNeural', 'Abeo · NG · M']]
   };
   const EDGE_VOICE_SAMPLE = {
     fr: 'Bonjour, comment allez-vous ?', ar: 'مرحباً، كيف حالك؟', en: 'Hello, how are you?',
     es: 'Hola, ¿cómo estás?', de: 'Hallo, wie geht es dir?', pt: 'Olá, como estás?',
     ru: 'Привет, как дела?', fa: 'سلام، حالت چطوره؟', tr: 'Merhaba, nasılsın?', it: 'Ciao, come stai?',
     nl: 'Hallo, hoe gaat het?', zh: '你好，你好吗？', ja: 'こんにちは、お元気ですか？',
-    ko: '안녕하세요, 어떻게 지내세요?', el: 'Γεια σου, πώς είσαι;', ur: 'ہیلو، آپ کیسے ہیں؟'
+    ko: '안녕하세요, 어떻게 지내세요?', el: 'Γεια σου, πώς είσαι;', ur: 'ہیلو، آپ کیسے ہیں؟',
+    th: 'สวัสดี', vi: 'Xin chào', hi: 'नमस्ते', ka: 'გამარჯობა', hy: 'Բարև', he: 'שלום',
+    pl: 'Cześć', uk: 'Привіт', sv: 'Hej', bn: 'নমস্কার', id: 'Halo', ms: 'Apa khabar?',
+    tl: 'Kumusta ka?', ro: 'Bună', hu: 'Szia', cs: 'Ahoj', bg: 'Здравей', hr: 'Bok',
+    sr: 'Здраво', da: 'Hej', nb: 'Hei', fi: 'Hei', mn: 'Сайн байна уу?', sw: 'Hujambo',
+    zu: 'Sawubona', am: 'ሰላም', is: 'Halló', sq: 'Përshëndetje', lt: 'Labas', lv: 'Sveiki',
+    et: 'Tere', yo: 'Báwo ni?'
   };
-  const EXTRA_LANG_LABEL = { es: '🇪🇸 Spanish voice', de: '🇩🇪 German voice', pt: '🇵🇹 Portuguese voice', ru: '🇷🇺 Russian voice', fa: '🇮🇷 Persian voice', tr: '🇹🇷 Turkish voice', it: '🇮🇹 Italian voice', nl: '🇳🇱 Dutch voice', zh: '🇨🇳 Chinese voice', ja: '🇯🇵 Japanese voice', ko: '🇰🇷 Korean voice', el: '🇬🇷 Greek voice', ur: '🇵🇰 Urdu voice' };
+  const EXTRA_LANG_LABEL = { es: '🇪🇸 Spanish voice', de: '🇩🇪 German voice', pt: '🇵🇹 Portuguese voice', ru: '🇷🇺 Russian voice', fa: '🇮🇷 Persian voice', tr: '🇹🇷 Turkish voice', it: '🇮🇹 Italian voice', nl: '🇳🇱 Dutch voice', zh: '🇨🇳 Chinese voice', ja: '🇯🇵 Japanese voice', ko: '🇰🇷 Korean voice', el: '🇬🇷 Greek voice', ur: '🇵🇰 Urdu voice',
+    th: '🇹🇭 Thai voice', vi: '🇻🇳 Vietnamese voice', hi: '🇮🇳 Hindi voice', ka: '🇬🇪 Georgian voice', hy: '🇦🇲 Armenian voice', he: '🇮🇱 Hebrew voice',
+    pl: '🇵🇱 Polish voice', uk: '🇺🇦 Ukrainian voice', sv: '🇸🇪 Swedish voice', bn: '🇧🇩 Bengali voice', id: '🇮🇩 Indonesian voice', ms: '🇲🇾 Malay voice',
+    tl: '🇵🇭 Filipino voice', ro: '🇷🇴 Romanian voice', hu: '🇭🇺 Hungarian voice', cs: '🇨🇿 Czech voice', bg: '🇧🇬 Bulgarian voice', hr: '🇭🇷 Croatian voice',
+    sr: '🇷🇸 Serbian voice', da: '🇩🇰 Danish voice', nb: '🇳🇴 Norwegian voice', fi: '🇫🇮 Finnish voice', mn: '🇲🇳 Mongolian voice', sw: '🇰🇪 Swahili voice',
+    zu: '🇿🇦 Zulu voice', yo: '🇳🇬 Yoruba voice', am: '🇪🇹 Amharic voice', is: '🇮🇸 Icelandic voice', sq: '🇦🇱 Albanian voice', lt: '🇱🇹 Lithuanian voice',
+    lv: '🇱🇻 Latvian voice', et: '🇪🇪 Estonian voice' };
 
   function edgeSupported() { return !!(window.EdgeTTS && EdgeTTS.supported()); }
 
@@ -4054,10 +4151,12 @@
       ${p.audio ? (isIDBMedia(p.audio) ? `<div class="phrase-media audio-holder media-placeholder" data-media-ref="${esc(p.audio)}" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}"></div>` : `<div class="phrase-media audio-holder ${aspectClassFor(getVideoAspect(p.audio))}" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}" data-media-ref="${esc(p.audio)}">${audioHTML(toWebUrl(p.audio), p.audio)}</div>`) : ''}
       <div class="phrase-top">
         <div class="lines">
-          <div class="line fr" data-lang="fr" dir="ltr">${wordSpans(p.fr, 'fr')}<button class="loop-lang" data-lang="fr" title="🔁 FR">🔁</button></div>
-          <div class="line ar" data-lang="ar" dir="rtl">${wordSpans(p.ar, 'ar')}<button class="loop-lang" data-lang="ar" title="🔁 AR">🔁</button></div>
-          <div class="line en" data-lang="en" dir="ltr">${wordSpans(p.en, 'en')}<button class="loop-lang" data-lang="en" title="🔁 EN">🔁</button></div>
+          ${p.note ? `<div class="line x" style="opacity:.8">${esc(p.note)}</div>` : ''}
+          ${p.fr ? `<div class="line fr" data-lang="fr" dir="ltr">${wordSpans(p.fr, 'fr')}<button class="loop-lang" data-lang="fr" title="🔁 FR">🔁</button></div>` : ''}
+          ${p.ar ? `<div class="line ar" data-lang="ar" dir="rtl">${wordSpans(p.ar, 'ar')}<button class="loop-lang" data-lang="ar" title="🔁 AR">🔁</button></div>` : ''}
+          ${p.en ? `<div class="line en" data-lang="en" dir="ltr">${wordSpans(p.en, 'en')}<button class="loop-lang" data-lang="en" title="🔁 EN">🔁</button></div>` : ''}
           ${EXTRA_LANGS.filter(l => p[l]).map(l => `<div class="line x" data-lang="${l}" dir="${RTL_LANGS[l] ? 'rtl' : 'ltr'}">${wordSpans(p[l], l)}<button class="loop-lang" data-lang="${l}" title="🔁 ${l.toUpperCase()}">🔁</button></div>`).join('')}
+          ${(p._subs || []).map(s => `<div class="line x" style="opacity:.65;font-size:.85em">${esc(s)}</div>`).join('')}
         </div>
         <div class="btns">
           <button class="loop-btn" title="${t('loopTitle')}">🔁</button>
@@ -4101,10 +4200,13 @@
   function lessonPhrasesText(lesson) {
     const secs = lessonSections(lesson);
     const lineOf = p => {
-      if (!EXTRA_LANGS.some(l => p[l])) return `${p.fr} | ${p.ar} | ${p.en}`;
+      if (p.note) return '📝 ' + p.note;
+      const full = p.fr && p.ar && p.en;
+      if (full && !EXTRA_LANGS.some(l => p[l])) return `${p.fr} | ${p.ar} | ${p.en}`;
       const withFlag = (t, l) => /^[\u{1F1E6}-\u{1F1FF}]{2}/u.test(t || '') ? t : (t ? LANG_FLAG[l] + ' ' + t : '');
-      return [['fr', p.fr], ['ar', p.ar], ['en', p.en], ...EXTRA_LANGS.map(l => [l, p[l]])]
-        .filter(x => x[1]).map(x => withFlag(x[1], x[0])).join(' ');
+      const rows = [['fr', p.fr], ['ar', p.ar], ['en', p.en], ...EXTRA_LANGS.map(l => [l, p[l]])]
+        .filter(x => x[1]).map(x => withFlag(x[1], x[0]));
+      return rows.join(' ') + (p._subs && p._subs.length ? '\n' + p._subs.join('\n') : '');
     };
     if (!secs) return lesson.phrases.map(lineOf).join('\n');
     const parts = [];
@@ -4740,7 +4842,7 @@
     const results = [];
     getAllLessons().forEach(({ lesson }) => {
       lesson.phrases.forEach((p, i) => {
-        const hay = (p.fr + ' ' + p.ar + ' ' + p.en).toLowerCase();
+        const hay = ([p.fr, p.ar, p.en, p.note, ...EXTRA_LANGS.map(l => p[l])].filter(Boolean).join(' ') || '').toLowerCase();
         if (hay.includes(needle)) results.push({ p, key: phraseKey(lesson.id, i), lesson });
       });
     });
@@ -5027,7 +5129,85 @@ EN: Maria, I’m out of cigarettes.`,
     `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇯🇵 マリア、もうタバコがない。`,
     `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇰🇷 마리아, 담배가 다 떨어졌어.`,
     `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇬🇷 Μαρία, δεν έχω άλλα τσιγάρα.`,
-    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇵🇰 ماریا، میرے پاس سگریٹ ختم ہو گئے ہیں۔`
+    `🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇵🇰 ماریا، میرے پاس سگریٹ ختم ہو گئے ہیں۔`,
+    `### 1. 🇨🇳 الصينية — Chinese
+🇨🇳 你好
+🔤 النطق اللاتيني: Nǐ hǎo
+🗣️ تقريب النطق بالعربية: ني هاو
+🇸🇾 المعنى: مرحبًا
+===
+### 2. 🇫🇷 الفرنسية
+🇫🇷 Bonjour
+🔤 Bonjour
+🗣️ بونجور
+🇸🇾 المعنى: مرحبًا`,
+    `### 🇬🇧 الإنجليزية (English)
+* 🇬🇧 الأصلية: Hello
+* 🔤 النطق اللاتيني: Hello
+* 🗣️ بالعربي: هَلّو
+* 🇸🇾 المعنى بالعربي: مرحباً
+* 🇺🇸 English: Hello
+===
+### 🇫🇷 الفرنسية (French)
+* 🇫🇷 الأصلية: Bonjour
+* 🔤 النطق اللاتيني: Bonjour
+* 🗣️ بالعربي: بونجور
+* 🇸🇾 المعنى بالعربي: مرحباً
+* 🇺🇸 English: Hello`,
+    `### 🇷🇺 الروسية
+🇷🇺 Привет! | 🇸🇾 مرحبا! | 🇺🇸 Hi!
+🇷🇺 Здравствуйте! | 🇸🇾 مرحباً! (بأسلوب رسمي) | 🇺🇸 Hello!
+🇷🇺 Как дела? | 🇸🇾 كيفك؟ | 🇺🇸 How are you?
+🇷🇺 Хорошо, спасибо. | 🇸🇾 منيح، شكراً. | 🇺🇸 Good, thank you.`,
+    `### 👋 الموقف الأول: التحية والتعارف
+🇺🇸 Hello! How are you? 🇪🇸 ¡Hola! ¿Cómo estás? 🇸🇾 مرحبا! كيفك؟
+🇺🇸 My name is Ahmad. 🇪🇸 Me llamo Ahmad. 🇸🇾 اسمي أحمد.
+🇺🇸 Nice to meet you. 🇪🇸 Mucho gusto. 🇸🇾 تشرفنا.
+===
+### ☕ الموقف الثاني: في المقهى
+🇺🇸 I would like a coffee, please. 🇪🇸 Quisiera un café, por favor. 🇸🇾 بدي قهوة، لو سمحت.
+🇺🇸 The bill, please. 🇪🇸 La cuenta, por favor. 🇸🇾 الحساب، لو سمحت.
+===
+### 🔊 مع اللفظ بالعربي
+🇺🇸 Good morning. | 🇪🇸 Buenos días. | 🔊 بوينوس دياس | 🇸🇾 صباح الخير.`,
+    `### 🎬 درس مؤقت
+00:00 🇫🇷 Bonjour !
+00:03 🇸🇾 مرحبا!
+00:05 🇺🇸 Hello!
+00:08 --> 00:11 🇫🇷 Comment ça va ?
+00:11 --> 00:14 🇸🇾 كيفك؟`,
+    `### 🇹🇭 التايلاندية
+🇹🇭 สวัสดี | 🇸🇾 مرحبا | 🇺🇸 Hello
+===
+### 🇻🇳 الفيتنامية
+🇻🇳 Xin chào | 🇸🇾 مرحبا | 🇺🇸 Hello
+===
+### 🇮🇱 العبرية
+🇮🇱 שלום | 🇸🇾 مرحبا | 🇺🇸 Hello`,
+    `### 🇵🇱 البولندية
+🇵🇱 Cześć | 🇸🇾 مرحبا | 🇺🇸 Hello
+===
+### 🇺🇦 الأوكرانية
+🇺🇦 Привіт | 🇸🇾 مرحبا | 🇺🇸 Hello
+===
+### 🇸🇪 السويدية
+🇸🇪 Hej | 🇸🇾 مرحبا | 🇺🇸 Hello`,
+    `### 🇮🇩 الإندونيسية
+🇮🇩 Halo | 🇸🇾 مرحبا | 🇺🇸 Hello
+===
+### 🇧🇩 البنغالية
+🇧🇩 নমস্কার | 🇸🇾 مرحبا | 🇺🇸 Hello
+===
+### 🇮🇳 الهندية
+🇮🇳 नमस्ते | 🇸🇾 مرحبا | 🇺🇸 Hello`,
+    `### 🇰🇪 السواحيلية
+🇰🇪 Hujambo | 🇸🇾 مرحبا | 🇺🇸 Hello
+===
+### 🇪🇹 الأمهرية
+🇪🇹 ሰላም | 🇸🇾 مرحبا | 🇺🇸 Hello
+===
+### 🇫🇮 الفنلندية
+🇫🇮 Hei | 🇸🇾 مرحبا | 🇺🇸 Hello`
   ];
   const CAPTION_EXAMPLES = [
     `1
