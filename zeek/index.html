@@ -1492,6 +1492,21 @@
     return out;
   }
 
+  // phrase → {lang: text} map of every language line, flags/symbols stripped
+  function phraseLangMap(p) {
+    const m = {};
+    if (!p) return m;
+    phraseLangs(p).forEach(l => { if (p[l]) m[l] = stripSpeechFlags(p[l]); });
+    return m;
+  }
+
+  // open a URL in a real browser (Capacitor Browser plugin on Android)
+  function openExternal(url) {
+    const B = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Browser;
+    if (B && B.open) { B.open({ url }); return; }
+    window.open(url, '_blank');
+  }
+
   function parsePhrases(text, userOrder = 'auto') {
     const phrases = [];
     const plain = text.split('\n').filter(l => !FLAG_RE.test(l)).join('\n');
@@ -5697,14 +5712,19 @@ EN: Maria, I’m out of cigarettes.`,
       } else if (e.target.closest('.tts-loop-btn')) {
         toggleTTSLoop(p, key);
       } else if (e.target.closest('.ai-btn')) {
-        const query = `French phrase: "${p.fr}"
-Arabic translation: "${p.ar}"
-English translation: "${p.en}"
-1) Translate each individual word (French → Arabic → English).
-2) Explain the French grammar rule (verb conjugation, structure, or expression) used in this phrase.
-3) Provide a short practical conversation in French, Arabic and English using this phrase so it can be memorized as a conversation.
-Output in French, Arabic and English.`;
-        window.open('https://www.google.com/search?q=' + encodeURIComponent(query) + '&udm=50&hl=' + state.uiLang, '_blank');
+        const m = phraseLangMap(p);
+        const fr = m.fr || '', ar = m.ar || '', en = m.en || '';
+        const extra = Object.keys(m).filter(k => k !== 'fr' && k !== 'ar' && k !== 'en')
+          .map(k => m[k]).join('\n');
+        const query = 'French phrase: "' + (fr || Object.values(m)[0] || '') + '"\n' +
+          (ar ? 'Arabic translation: "' + ar + '"\n' : '') +
+          (en ? 'English translation: "' + en + '"\n' : '') +
+          (extra ? extra + '\n' : '') +
+          '1) Translate each individual word (French → Arabic → English).\n' +
+          '2) Explain the French grammar rule (verb conjugation, structure, or expression) used in this phrase.\n' +
+          '3) Provide a short practical conversation in French, Arabic and English using this phrase so it can be memorized as a conversation.\n' +
+          'Output in French, Arabic and English.';
+        openExternal('https://www.google.com/search?q=' + encodeURIComponent(query) + '&udm=50&hl=' + state.uiLang);
       } else if (e.target.closest('.image-btn')) {
         e.stopPropagation();
         openImageForPhrase(key);
@@ -5713,8 +5733,8 @@ Output in French, Arabic and English.`;
       } else if (e.target.closest('.note-btn')) {
         openNote(key);
       } else if (e.target.closest('.clipart-btn')) {
-        const q = stripSpeechFlags(p.fr) + ' clipart';
-        window.open('https://www.google.com/search?q=' + encodeURIComponent(q) + '&udm=2&hl=' + state.uiLang, '_blank');
+        const q = stripSpeechFlags(p.fr || Object.values(phraseLangMap(p))[0] || '') + ' clipart';
+        openExternal('https://www.google.com/search?q=' + encodeURIComponent(q) + '&udm=2&hl=' + state.uiLang);
       }
     });
 
@@ -5808,7 +5828,7 @@ Output in French, Arabic and English.`;
       e.preventDefault();
       e.stopPropagation();
       try { stopSpeech(); } catch (_) {}
-      window.open('https://www.google.com/search?q=' + encodeURIComponent(word) + '&udm=2&hl=' + state.uiLang, '_blank');
+      openExternal('https://www.google.com/search?q=' + encodeURIComponent(word) + '&udm=2&hl=' + state.uiLang);
     });
   }
 
