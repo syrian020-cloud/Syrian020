@@ -241,9 +241,33 @@
   }
   function supported() {
     if (!enabled() || api.down) return false;
+    if (ttsPlugin()) return true;              // device voice works offline
     if (navigator.onLine === false) return false;
     return !!plugin() || typeof Audio !== 'undefined';
   }
+
+  // ---- offline device TTS (Android built-in) ----------------------------------
+  function ttsPlugin() {
+    return (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) || null;
+  }
+  var TTS_LOCALE = { ar: 'ar-SA', en: 'en-US', fr: 'fr-FR', zh: 'zh-CN', pt: 'pt-BR',
+    he: 'he-IL', fa: 'fa-IR', ur: 'ur-PK', sw: 'sw-TZ', id: 'id-ID', hi: 'hi-IN' };
+  var curTts = false;
+  function nativeSpeak(text, lang) {
+    var tp = ttsPlugin();
+    if (!tp) return Promise.reject(new Error('no device TTS'));
+    var loc = TTS_LOCALE[lang] || (lang || 'fr');
+    var rate = Math.max(0.5, Math.min(2, api.speed || 1));
+    curTts = true;
+    function done() { curTts = false; }
+    return tp.speak({ text: String(text || '').slice(0, 400), lang: loc, rate: rate, pitch: 1, volume: 1 })
+      .catch(function (e) {
+        if (loc === (lang || 'fr')) throw e;
+        return tp.speak({ text: String(text || '').slice(0, 400), lang: lang || 'fr', rate: rate, pitch: 1, volume: 1 });
+      })
+      .then(done, function (e) { done(); throw e; });
+  }
+  // ----------------------------------------------------------------------------
 
   function rvUrl(text, lang) {
     return 'https://responsivevoice.org/responsivevoice/getvoice.php?text=' + encodeURIComponent(text) +
@@ -359,12 +383,20 @@
   }
 
   function play(text, lang) {
+    // offline → straight to the device voice, no network timeouts
+    if (navigator.onLine === false && ttsPlugin()) return nativeSpeak(text, lang);
     return audio(text, lang).then(function (a) {
-      return playEntry(a).catch(function (e) { api.down = true; throw e; });
+      return playEntry(a);
+    }).catch(function (e) {
+      // every online engine failed → fall back to the device voice
+      return nativeSpeak(text, lang).catch(function () { api.down = true; throw e; });
     });
   }
 
   function stop() {
+    var tp = ttsPlugin();
+    if (tp) { try { tp.stop(); } catch (e) {} }
+    curTts = false;
     var p = plugin();
     if (curNative && p && typeof p.stop === 'function') {
       try { p.stop({}); } catch (e) {}

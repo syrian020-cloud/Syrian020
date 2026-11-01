@@ -4046,10 +4046,21 @@ function quizStopSpeak() {
   if (window.EdgeTTS) EdgeTTS.stop();
   document.querySelectorAll('.qz-card.speaking, .lz-loop.speaking, .lz-v-loop.speaking').forEach(function (x) { x.classList.remove('speaking'); });
 }
+// the Read & Repeat language picker — same big flag + LANG — count buttons
+// for every game that asks for a language first
+function gameLangPicker(l, title) {
+  var items = rrItemsFor(l);
+  var langs = rrLangs(items, l);
+  return '<div class="qz-langs"><h3 style="text-align:center;margin:0">' + esc(title) + '</h3>' +
+    langs.map(function (g) {
+      var n = items.filter(function (m) { return m[g]; }).length;
+      return '<button class="btn" data-lang="' + g + '">' + flagForLang(l, g) + ' ' +
+        g.toUpperCase() + ' — ' + n + '</button>';
+    }).join('') + '</div>';
+}
 function openQuiz(lesson) {
   closeQuiz();
   var t = T();
-  var pf = flagOfLessonLang(lesson, lessonMainLang(lesson));
   var ov = document.createElement('div');
   ov.id = 'quiz-overlay';
   ov.className = 'qz-ov';
@@ -4059,9 +4070,7 @@ function openQuiz(lesson) {
   document.body.appendChild(ov);
   document.getElementById('quiz-exit').onclick = closeQuiz;
   var body = document.getElementById('quiz-body');
-  body.innerHTML = '<div class="qz-langs"><h3 style="text-align:center;margin:0">' + esc(t.quizChooseLang) + '</h3>' +
-    '<button class="btn" data-lang="ar">' + esc(t.quizFrAr.replace('🇫🇷', pf)) + '</button>' +
-    '<button class="btn" data-lang="en">' + esc(t.quizFrEn.replace('🇫🇷', pf)) + '</button></div>';
+  body.innerHTML = gameLangPicker(lesson, t.quizChooseLang);
   body.querySelectorAll('button[data-lang]').forEach(function (b) {
     b.onclick = function () { startQuiz(lesson, b.dataset.lang); };
   });
@@ -4109,8 +4118,7 @@ function startQuiz(lesson, target) {
   });
   var body = document.getElementById('quiz-body');
   if (!body) return;
-  var LANG_FLAG = { fr: '🇫🇷', ar: '🇸🇾', en: '🇺🇸' };
-  body.innerHTML = '<div class="qz-flags"><div class="qz-flag">' + flagOfLessonLang(lesson, qLang) + '</div><div class="qz-flag">' + (LANG_FLAG[target] || '🌐') + '</div></div>' +
+  body.innerHTML = '<div class="qz-flags"><div class="qz-flag">' + flagOfLessonLang(lesson, qLang) + '</div><div class="qz-flag">' + flagForLang(lesson, target) + '</div></div>' +
     '<div class="qz-cols" id="quiz-cols"></div>';
   var cols = document.getElementById('quiz-cols');
   var prog = document.getElementById('quiz-progress');
@@ -4266,7 +4274,6 @@ function lzWireHeroTools() {
 function openListen(lesson) {
   closeQuiz();
   var t = T();
-  var pf = flagOfLessonLang(lesson, lessonMainLang(lesson));
   lz.lesson = lesson;
   lz.qlang = lessonMainLang(lesson);
   var ov = document.createElement('div');
@@ -4279,9 +4286,7 @@ function openListen(lesson) {
   document.body.appendChild(ov);
   document.getElementById('quiz-exit').onclick = closeQuiz;
   var body = document.getElementById('quiz-body');
-  body.innerHTML = '<div class="qz-langs"><h3 style="text-align:center;margin:0">' + esc(t.quizChooseLang) + '</h3>' +
-    '<button class="btn" data-lang="ar">' + esc(t.quizFrAr.replace('🇫🇷', pf)) + '</button>' +
-    '<button class="btn" data-lang="en">' + esc(t.quizFrEn.replace('🇫🇷', pf)) + '</button></div>';
+  body.innerHTML = gameLangPicker(lesson, t.quizChooseLang);
   body.querySelectorAll('button[data-lang]').forEach(function (b) {
     b.onclick = function () { lz.lang = b.dataset.lang; lzStart(); };
   });
