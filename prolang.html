@@ -476,10 +476,14 @@
   .note-palette .note-tool { width: 2rem; height: 2rem; border-radius: 50%;
     border: 3px solid #fff; box-shadow: 0 0 0 1px #d1d5db; cursor: pointer; }
   .note-palette .note-tool.active { box-shadow: 0 0 0 3px #0f766e; }
-  #notePhraseBar { display: flex; gap: .45rem; padding: .55rem .5rem; background: #f3f4f6; }
-  .note-phrase-card { flex: 1; min-width: 0; background: #fff; border: 1px solid #e5e7eb;
+  #notePhraseBar { display: flex; gap: .45rem; padding: .55rem .5rem; background: #f3f4f6;
+    overflow-x: auto; }
+  .note-phrase-card { flex: 1 0 auto; min-width: 0; background: #fff; border: 1px solid #e5e7eb;
     border-radius: 14px; padding: .55rem .5rem; text-align: center; font-weight: 600;
     font-size: .95rem; line-height: 1.35; color: #111827; overflow-wrap: anywhere; }
+  .note-loop { border: none; background: #e8f8f1; color: #059669; border-radius: 10px;
+    font-size: .85rem; margin-top: .3rem; padding: .15rem .7rem; cursor: pointer; }
+  .note-loop.speaking { background: #059669; color: #fff; animation: recPulse 1.2s infinite; }
   .note-phrase-card.fr { font-family: Georgia, 'Times New Roman', serif; }
   .note-phrase-card.ar { font-family: 'Noto Kufi Arabic', 'Noto Naskh Arabic', Tahoma, sans-serif;
     direction: rtl; }
@@ -4485,10 +4489,24 @@ function openNote(key, phraseOverride) {
   var phrase = phraseOverride || findPhraseById(key);
   var bar = document.getElementById('notePhraseBar');
   if (bar) {
-    bar.innerHTML = ['fr', 'ar', 'en'].map(function (l) {
-      return '<div class="note-phrase-card ' + l + '" dir="' + (l === 'ar' ? 'rtl' : 'ltr') + '">' +
-        (phrase ? esc(phText(phrase, l)) : '') + '</div>';
-    }).join('');
+    bar.innerHTML = '';
+    if (phrase) {
+      var m = phMap(phrase);
+      Object.keys(m).forEach(function (l) {
+        if (!m[l]) return;
+        var card = document.createElement('div');
+        card.className = 'note-phrase-card ' + l;
+        card.dir = l === 'ar' ? 'rtl' : 'ltr';
+        card.appendChild(wordRow(m[l], l));
+        var lo = document.createElement('button');
+        lo.className = 'note-loop';
+        lo.textContent = '🔁';
+        lo.title = l;
+        lo.onclick = function () { speak(m[l], l, lo); };
+        card.appendChild(lo);
+        bar.appendChild(card);
+      });
+    }
   }
   var canvas = document.getElementById('noteCanvas');
   noteUndo = [];
