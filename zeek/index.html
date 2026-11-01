@@ -296,7 +296,8 @@
   .btns .note-btn.note-on { color: var(--success); border-color: var(--success); }
   .btns .media-btn.on { color: var(--accent); border-color: var(--accent); }
   .note-phrase-bar { display: flex; gap: 0.45rem; margin-bottom: 0.55rem; }
-  .note-phrase-card { flex: 1; min-width: 0; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 14px; padding: 0.55rem 0.5rem; text-align: center; font-weight: 600; font-size: 0.82rem; line-height: 1.35; box-shadow: 0 1px 4px rgba(0,0,0,0.08); color: var(--text-primary); }
+  .note-phrase-card { flex: 1; min-width: 0; position: relative; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 14px; padding: 0.55rem 0.5rem; padding-inline-end: 1.9rem; text-align: center; font-weight: 600; font-size: 0.82rem; line-height: 1.35; box-shadow: 0 1px 4px rgba(0,0,0,0.08); color: var(--text-primary); }
+  .note-phrase-card .loop-lang { width: 1.5rem; height: 1.5rem; top: 50%; transform: translateY(-50%); }
   .note-phrase-card.fr { color: #c4b5fd; font-family: 'Poppins','Segoe UI','Noto Sans','Helvetica Neue',Arial,sans-serif; }
   .note-phrase-card.ar { color: #6ee7b7; direction: rtl; font-family: 'Noto Naskh Arabic','Amiri','Droid Arabic Naskh','Tahoma',Arial,sans-serif; }
   .note-phrase-card.en { color: #e5e7eb; font-family: 'Inter','Segoe UI','Noto Sans','Helvetica Neue',Arial,sans-serif; }
@@ -3857,6 +3858,17 @@
         });
       }
     }
+    const noteBar = document.getElementById('note-phrase-bar');
+    if (noteBar && state.loop && state.loop.phraseKey === noteBar.dataset.key) {
+      noteBar.querySelectorAll('.loop-lang').forEach(b => {
+        b.classList.toggle('active', !state.loop.word && b.dataset.lang === state.loop.lang);
+      });
+      if (state.loop.word) {
+        noteBar.querySelectorAll('.word').forEach(w => {
+          if (w.dataset.lang === state.loop.lang && w.dataset.word === state.loop.word) w.classList.add('active');
+        });
+      }
+    }
   }
 
   function isFav(key) { return state.favs.includes(key); }
@@ -5521,7 +5533,8 @@ EN: Maria, I’m out of cigarettes.`,
     const phrase = findPhraseByKey(key);
     const bar = document.getElementById('note-phrase-bar');
     if (bar) {
-      bar.innerHTML = (phrase ? phraseLangs(phrase) : ['fr','ar','en']).map(l => `<div class="note-phrase-card ${['fr','ar','en'].includes(l) ? l : 'x'}" dir="${(l === 'ar' || RTL_LANGS[l]) ? 'rtl' : 'ltr'}">${phrase ? esc(phrase[l] || '') : ''}</div>`).join('');
+      bar.dataset.key = key || '';
+      bar.innerHTML = (phrase ? phraseLangs(phrase) : ['fr','ar','en']).map(l => `<div class="note-phrase-card ${['fr','ar','en'].includes(l) ? l : 'x'}" data-lang="${l}" dir="${(l === 'ar' || RTL_LANGS[l]) ? 'rtl' : 'ltr'}">${phrase ? wordSpans(phrase[l] || '', l) : ''}<button class="loop-lang" data-lang="${l}" title="🔁 ${l.toUpperCase()}">🔁</button></div>`).join('');
     }
     const canvas = document.getElementById('note-canvas');
     noteUndo = [];
@@ -6314,6 +6327,12 @@ EN: Maria, I’m out of cigarettes.`,
       applyNotePaper();
     };
     document.getElementById('note-size').oninput = e => { noteSize = +e.target.value; };
+    document.getElementById('note-phrase-bar').addEventListener('click', e => {
+      const ll = e.target.closest('.loop-lang');
+      if (ll) { e.stopPropagation(); toggleLangLoop(ll.dataset.lang, noteKey); return; }
+      const w = e.target.closest('.word');
+      if (w) { e.stopPropagation(); toggleWordLoop(w.dataset.word, w.dataset.lang, noteKey); }
+    });
     document.getElementById('note-palette').addEventListener('click', e => {
       const tool = e.target.closest('.note-tool');
       if (tool) {
