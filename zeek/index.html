@@ -4362,28 +4362,43 @@
     if (ov) ov.remove();
   }
 
+  const GAME_LANGS = ['fr', 'ar', 'en', ...EXTRA_LANGS];
+
+  // Every question→answer language pair the lesson actually contains, like
+  // ProLang's game picker: "🇫🇷 FR – 🇸🇾 AR — 12" for each usable direction.
+  function gamePairPicker(lesson, title) {
+    const phrases = lesson.phrases || [];
+    const pairs = [];
+    GAME_LANGS.forEach(q => {
+      GAME_LANGS.forEach(a => {
+        if (a === q) return;
+        const n = phrases.filter(p => stripSpeechFlags(p[q] || '') && stripSpeechFlags(p[a] || '')).length;
+        if (n) pairs.push({ q, a, n });
+      });
+    });
+    return `<div class="quiz-lang-btns">
+      <h3 style="text-align:center;margin:0">${esc(title)}</h3>
+      ${pairs.map(p => `<button class="btn" data-q="${p.q}" data-a="${p.a}">${LANG_FLAG[p.q] || '🌐'} ${p.q.toUpperCase()} – ${LANG_FLAG[p.a] || '🌐'} ${p.a.toUpperCase()} — ${p.n}</button>`).join('')}
+    </div>`;
+  }
+
   function quizLangScreen(lesson) {
     const body = document.getElementById('quiz-body');
     if (!body) return;
     document.getElementById('quiz-progress').textContent = '';
-    body.innerHTML = `<div class="quiz-lang-btns">
-      <h3 style="text-align:center;margin:0">${t('quizChooseLang')}</h3>
-      <button class="btn" data-lang="ar">${t('quizFrAr')}</button>
-      <button class="btn" data-lang="en">${t('quizFrEn')}</button>
-    </div>`;
-    body.querySelectorAll('button[data-lang]').forEach(b => {
-      b.onclick = () => startQuiz(lesson, b.dataset.lang);
+    body.innerHTML = gamePairPicker(lesson, t('quizChooseLang'));
+    body.querySelectorAll('button[data-q]').forEach(b => {
+      b.onclick = () => startQuiz(lesson, b.dataset.q, b.dataset.a);
     });
   }
 
-  function startQuiz(lesson, target) {
-    const pool = lesson.phrases.filter(p => stripSpeechFlags(p.fr || '') && stripSpeechFlags(p[target] || ''));
+  function startQuiz(lesson, qlang, alang) {
+    const pool = lesson.phrases.filter(p => stripSpeechFlags(p[qlang] || '') && stripSpeechFlags(p[alang] || ''));
     if (!pool.length) { showToast(t('quizNoPhrases')); return; }
-    const picks = quizShuffle(pool).slice(0, 8).map((p, i) => ({ p, id: i }));
+    const picks = quizShuffle(pool).slice(0, 8).map((p, i) => ({ p, id: i, q: qlang, a: alang }));
     const body = document.getElementById('quiz-body');
     if (!body) return;
-    const LANG_FLAG = { fr: '🇫🇷', ar: '🇸🇾', en: '🇺🇸' };
-    body.innerHTML = `<div class="quiz-flags"><div class="quiz-flag">🇫🇷</div><div class="quiz-flag">${LANG_FLAG[target] || '🌐'}</div></div><div class="quiz-cols" id="quiz-cols"></div>`;
+    body.innerHTML = `<div class="quiz-flags"><div class="quiz-flag">${LANG_FLAG[qlang] || '🌐'}</div><div class="quiz-flag">${LANG_FLAG[alang] || '🌐'}</div></div><div class="quiz-cols" id="quiz-cols"></div>`;
     const cols = document.getElementById('quiz-cols');
     const prog = document.getElementById('quiz-progress');
     let selFr = null, correct = 0, wrong = 0, solved = 0;
@@ -4395,7 +4410,7 @@
       c.dataset.text = item.p[lang] || '';
       c.dataset.lang = lang;
       c.dataset.pid = item.id;
-      c.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      c.dir = RTL_LANGS[lang] ? 'rtl' : 'ltr';
       c.textContent = stripSpeechFlags(item.p[lang]);
       return c;
     };
@@ -4404,7 +4419,7 @@
       const wasSpeaking = quizVoice.card === card;
       quizSpeakCard(card);
       if (wasSpeaking) return;
-      if (lang === 'fr') {
+      if (lang === qlang) {
         if (selFr) selFr.classList.remove('sel');
         selFr = card;
         card.classList.add('sel');
@@ -4425,7 +4440,7 @@
         solved++;
         quizStopSpeak();
         setProg();
-        if (solved === picks.length) setTimeout(() => quizEnd(correct, wrong, lesson, target), 650);
+        if (solved === picks.length) setTimeout(() => quizEnd(correct, wrong, lesson, qlang, alang), 650);
       } else {
         wrong++;
         quizTone(false);
@@ -4437,16 +4452,16 @@
     const frOrder = quizShuffle(picks);
     const tgOrder = quizShuffle(picks);
     for (let i = 0; i < picks.length; i++) {
-      const f = mkCard(frOrder[i], 'fr');
-      f.onclick = () => onCard(f, frOrder[i], 'fr');
+      const f = mkCard(frOrder[i], qlang);
+      f.onclick = () => onCard(f, frOrder[i], qlang);
       cols.appendChild(f);
-      const g = mkCard(tgOrder[i], target);
-      g.onclick = () => onCard(g, tgOrder[i], target);
+      const g = mkCard(tgOrder[i], alang);
+      g.onclick = () => onCard(g, tgOrder[i], alang);
       cols.appendChild(g);
     }
   }
 
-  function quizEnd(correct, wrong, lesson, target) {
+  function quizEnd(correct, wrong, lesson, qlang, alang) {
     quizStopSpeak();
     const total = correct + wrong;
     const pct = total ? Math.round(correct / total * 100) : 100;
@@ -4461,12 +4476,12 @@
         <button class="btn ghost" id="quiz-exit2">✕ ${t('quizExit')}</button>
       </div>
     </div>`;
-    document.getElementById('quiz-replay').onclick = () => startQuiz(lesson, target);
+    document.getElementById('quiz-replay').onclick = () => startQuiz(lesson, qlang, alang);
     document.getElementById('quiz-exit2').onclick = closeQuiz;
   }
 
   /* ---- listen & choose ---- */
-  const lz = { lesson: null, lang: 'ar', qs: [], pool: [], idx: 0, correct: 0, wrong: 0, auto: true, timer: null, answered: false, speakRun: 0 };
+  const lz = { lesson: null, qlang: 'fr', lang: 'ar', qs: [], pool: [], idx: 0, correct: 0, wrong: 0, auto: true, timer: null, answered: false, speakRun: 0 };
   const LZ_DEFAULT_IMG = '<img src="data:image/svg+xml;utf8,' + encodeURIComponent(
     "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 140'>" +
     "<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#6366f1'/><stop offset='1' stop-color='#a855f7'/></linearGradient></defs>" +
@@ -4567,17 +4582,13 @@
     document.body.appendChild(ov);
     document.getElementById('quiz-exit').onclick = closeQuiz;
     const body = document.getElementById('quiz-body');
-    body.innerHTML = `<div class="quiz-lang-btns">
-      <h3 style="text-align:center;margin:0">${t('quizChooseLang')}</h3>
-      <button class="btn" data-lang="ar">${t('quizFrAr')}</button>
-      <button class="btn" data-lang="en">${t('quizFrEn')}</button>
-    </div>`;
-    body.querySelectorAll('button[data-lang]').forEach(b => {
-      b.onclick = () => { lz.lang = b.dataset.lang; lzStart(); };
+    body.innerHTML = gamePairPicker(lesson, t('quizChooseLang'));
+    body.querySelectorAll('button[data-q]').forEach(b => {
+      b.onclick = () => { lz.qlang = b.dataset.q; lz.lang = b.dataset.a; lzStart(); };
     });
   }
   function lzStart() {
-    const pool = lz.lesson.phrases.filter(p => stripSpeechFlags(p.fr || '') && stripSpeechFlags(p[lz.lang] || ''));
+    const pool = lz.lesson.phrases.filter(p => stripSpeechFlags(p[lz.qlang] || '') && stripSpeechFlags(p[lz.lang] || ''));
     const body = document.getElementById('quiz-body');
     if (!body) return;
     if (!pool.length) { showToast(t('quizNoPhrases')); return; }
@@ -4598,7 +4609,7 @@
     body.innerHTML = `<div class="lz-stage">
       <div class="lz-hero ${lzHero.size}" id="lzHero">${lzHeroInner()}</div>
       <button class="lz-loop" id="lzReplay" title="${t('listenReplay')}">🔊</button>
-      <div class="lz-opts">${opts.map(o => `<div class="lz-tile" data-ok="${o === p ? '1' : '0'}">${esc(o[lz.lang])}</div>`).join('')}</div>
+      <div class="lz-opts">${opts.map(o => `<div class="lz-tile" dir="${RTL_LANGS[lz.lang] ? 'rtl' : 'ltr'}" data-ok="${o === p ? '1' : '0'}">${esc(o[lz.lang])}</div>`).join('')}</div>
       <div class="lz-nav">
         <button id="lzNoteBtn" title="${t('noteTitle')}">📓</button>
         <button id="lzNextBtn">⏭ ${t('next')}</button>
@@ -4609,7 +4620,7 @@
     document.getElementById('quiz-progress').textContent = (lz.idx + 1) + '/' + lz.qs.length;
     lzWireHeroTools();
     const rp = document.getElementById('lzReplay');
-    rp.onclick = () => lzSpeak(p.fr, rp, 'fr');
+    rp.onclick = () => lzSpeak(p[lz.qlang], rp, lz.qlang);
     body.querySelectorAll('.lz-tile').forEach(el => {
       el.onclick = () => lzAnswer(el, p);
     });
@@ -4623,7 +4634,7 @@
       this.classList.toggle('on', lz.auto);
       if (lz.auto && lz.answered) lzNext();
     };
-    setTimeout(() => { if (document.getElementById('quiz-overlay')) lzSpeak(p.fr, rp, 'fr'); }, 250);
+    setTimeout(() => { if (document.getElementById('quiz-overlay')) lzSpeak(p[lz.qlang], rp, lz.qlang); }, 250);
   }
   function lzAnswer(el, p) {
     if (el.dataset.done) return;
@@ -4650,8 +4661,8 @@
       hero.querySelectorAll('.lz-v-loop').forEach(b => {
         b.onclick = () => lzSpeak(p[b.dataset.lang], b, b.dataset.lang);
       });
-      const frLoopBtn = hero.querySelector('.lz-v-loop[data-lang="fr"]');
-      if (frLoopBtn) lzSpeak(p.fr, frLoopBtn, 'fr');
+      const qLoopBtn = hero.querySelector('.lz-v-loop[data-lang="' + lz.qlang + '"]');
+      if (qLoopBtn) lzSpeak(p[lz.qlang], qLoopBtn, lz.qlang);
     }
     lz.answered = true;
     clearTimeout(lz.timer);
