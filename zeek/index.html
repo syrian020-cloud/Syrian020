@@ -3480,6 +3480,13 @@
     zu: '🇿🇦 Zulu voice', yo: '🇳🇬 Yoruba voice', am: '🇪🇹 Amharic voice', is: '🇮🇸 Icelandic voice', sq: '🇦🇱 Albanian voice', lt: '🇱🇹 Lithuanian voice',
     lv: '🇱🇻 Latvian voice', et: '🇪🇪 Estonian voice' };
 
+  const LANG_EN = { fr: 'French', ar: 'Arabic', en: 'English' };
+  EXTRA_LANGS.forEach(l => {
+    const lbl = EXTRA_LANG_LABEL[l] || '';
+    const m = lbl.match(/\p{Extended_Pictographic}\s*(.+?)\s+voice/u);
+    LANG_EN[l] = m ? m[1] : l;
+  });
+
   function edgeSupported() { return !!(window.EdgeTTS && EdgeTTS.supported()); }
 
   function loadEdgeVoicePrefs() {
@@ -5713,17 +5720,19 @@ EN: Maria, I’m out of cigarettes.`,
         toggleTTSLoop(p, key);
       } else if (e.target.closest('.ai-btn')) {
         const m = phraseLangMap(p);
-        const fr = m.fr || '', ar = m.ar || '', en = m.en || '';
-        const extra = Object.keys(m).filter(k => k !== 'fr' && k !== 'ar' && k !== 'en')
-          .map(k => m[k]).join('\n');
-        const query = 'French phrase: "' + (fr || Object.values(m)[0] || '') + '"\n' +
-          (ar ? 'Arabic translation: "' + ar + '"\n' : '') +
-          (en ? 'English translation: "' + en + '"\n' : '') +
-          (extra ? extra + '\n' : '') +
-          '1) Translate each individual word (French → Arabic → English).\n' +
-          '2) Explain the French grammar rule (verb conjugation, structure, or expression) used in this phrase.\n' +
-          '3) Provide a short practical conversation in French, Arabic and English using this phrase so it can be memorized as a conversation.\n' +
-          'Output in French, Arabic and English.';
+        const langs = Object.keys(m);
+        const main = langs[0] || 'fr';
+        const mainName = LANG_EN[main] || main.toUpperCase();
+        const names = langs.map(l => LANG_EN[l] || l.toUpperCase());
+        const arrows = names.join(' → ');
+        const list = names.join(', ').replace(/, ([^,]*)$/, ' and $1');
+        const trans = langs.slice(1).map(l => (LANG_EN[l] || l.toUpperCase()) + ' translation: "' + m[l] + '"').join('\n');
+        const query = mainName + ' phrase: "' + (m[main] || '') + '"\n' +
+          (trans ? trans + '\n' : '') +
+          '1) Translate each individual word (' + arrows + ').\n' +
+          '2) Explain the ' + mainName + ' grammar rule (verb conjugation, structure, or expression) used in this phrase.\n' +
+          '3) Provide a short practical conversation in ' + list + ' using this phrase so it can be memorized as a conversation.\n' +
+          'Output in ' + list + '.';
         openExternal('https://www.google.com/search?q=' + encodeURIComponent(query) + '&udm=50&hl=' + state.uiLang);
       } else if (e.target.closest('.image-btn')) {
         e.stopPropagation();
