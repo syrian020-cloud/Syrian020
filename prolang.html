@@ -476,13 +476,17 @@
   .note-palette .note-tool { width: 2rem; height: 2rem; border-radius: 50%;
     border: 3px solid #fff; box-shadow: 0 0 0 1px #d1d5db; cursor: pointer; }
   .note-palette .note-tool.active { box-shadow: 0 0 0 3px #0f766e; }
-  #notePhraseBar { display: flex; gap: .45rem; padding: .55rem .5rem; background: #f3f4f6;
+  #notePhraseBar { display: flex; gap: .55rem; padding: .6rem .55rem; background: #f3f4f6;
     overflow-x: auto; }
-  .note-phrase-card { flex: 1 0 auto; min-width: 0; background: #fff; border: 1px solid #e5e7eb;
-    border-radius: 14px; padding: .55rem .5rem; text-align: center; font-weight: 600;
-    font-size: .95rem; line-height: 1.35; color: #111827; overflow-wrap: anywhere; }
-  .note-loop { border: none; background: #e8f8f1; color: #059669; border-radius: 10px;
-    font-size: .85rem; margin-top: .3rem; padding: .15rem .7rem; cursor: pointer; }
+  .note-phrase-card { flex: 0 0 auto; width: 8.2rem; min-height: 6.5rem; position: relative;
+    background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: .55rem .55rem 1.9rem;
+    text-align: center; font-weight: 600; font-size: .98rem; line-height: 1.35;
+    color: #111827; overflow-wrap: anywhere; }
+  .note-phrase-card .ph-text { font-size: inherit; }
+  .note-loop { position: absolute; bottom: .35rem; inset-inline-end: .35rem; border: none;
+    background: #1e2a4a; color: #fff; width: 1.7rem; height: 1.7rem; border-radius: 9px;
+    font-size: .8rem; padding: 0; cursor: pointer; display: flex; align-items: center;
+    justify-content: center; }
   .note-loop.speaking { background: #059669; color: #fff; animation: recPulse 1.2s infinite; }
   .note-phrase-card.fr { font-family: Georgia, 'Times New Roman', serif; }
   .note-phrase-card.ar { font-family: 'Noto Kufi Arabic', 'Noto Naskh Arabic', Tahoma, sans-serif;
@@ -3541,6 +3545,65 @@ function dataURLtoBlob(durl) {
     return new Blob(parts, { type: mime });
   } catch (e) { return null; }
 }
+// stream a blob to a JSON file as base64 — 3 MB slices (multiple of 3 bytes so
+// base64 quads line up) appended straight to disk; big videos never sit in RAM
+function streamBlobB64(path, blob, directory) {
+  var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+  var CH = 3 * 1024 * 1024;
+  var off = 0;
+  function pump() {
+    if (off >= blob.size) return Promise.resolve();
+    return new Promise(function (res, rej) {
+      var rd = new FileReader();
+      rd.onload = function () { res(rd.result); };
+      rd.onerror = rej;
+      rd.readAsDataURL(blob.slice(off, Math.min(blob.size, off + CH)));
+    }).then(function (r) {
+      off += CH;
+      var b64 = String(r).split(',')[1] || '';
+      return FS.appendFile({ path: path, data: b64, directory: directory, encoding: 'utf8' });
+    }).then(pump);
+  }
+  return pump();
+}
+// export-with-media that writes the JSON file piece by piece — one media item
+// at a time, appended to disk, so the app never holds every file in memory
+function exportMediaStream(out, wanted, name, done) {
+  var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+  var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
+  var ap = function (s) {
+    return FS.appendFile({ path: name, data: s, directory: 'CACHE', encoding: 'utf8' });
+  };
+  var head = JSON.stringify(out).slice(0, -1) + ',"media":[';
+  var got = 0, miss = 0;
+  FS.writeFile({ path: name, data: head, directory: 'CACHE', recursive: true, encoding: 'utf8' })
+    .then(function () {
+      (function next(i) {
+        if (i >= wanted.length) {
+          ap(']}').then(function () {
+            return FS.getUri({ path: name, directory: 'CACHE' });
+          }).then(function (w) {
+            return SH.share({ title: name, url: w.uri });
+          }).then(function () { done(got, miss); })
+            .catch(function (e) { console.error(e); done(got, miss, e); });
+          return;
+        }
+        mediaGet(wanted[i], function (b) {
+          if (!b) { miss++; next(i + 1); return; }
+          var seq = got ? ap(',') : Promise.resolve();
+          seq.then(function () {
+            return ap('{"key":"' + wanted[i] + '","data":"data:' +
+              (b.type || 'application/octet-stream') + ';base64,');
+          }).then(function () {
+            return streamBlobB64(name, b, 'CACHE');
+          }).then(function () { return ap('"}'); })
+            .then(function () { got++; next(i + 1); })
+            .catch(function (e) { console.error(e); miss++; next(i + 1); });
+        });
+      })(0);
+    })
+    .catch(function (e) { console.error(e); done(got, miss, e); });
+}
 function exportSheet() {
   var t = T();
   var sh = sheetHead('📦 ' + t.exportLessons);
@@ -3611,6 +3674,20 @@ function exportSheet() {
       if (cbI.checked) wanted.push('plc_' + s.l.id);
     });
     toast('⏳…');
+    var FSS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+    var SHS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
+    if (inCap && FSS && FSS.appendFile && SHS) {
+      // streamed write — one media item at a time, straight to disk
+      exportMediaStream(out, wanted,
+        'prolang-media-' + new Date().toISOString().slice(0, 10) + '.json',
+        function (got, miss2, err) {
+          toast(err ? '✗ export' : t.exported);
+          setTimeout(function () {
+            toast('📦 ' + got + ' / ' + wanted.length + (miss2 ? ' ⚠️' + miss2 : ''));
+          }, 1200);
+        });
+      return;
+    }
     var med = [], miss = 0;
     (function next(i) {
       if (i >= wanted.length) {
