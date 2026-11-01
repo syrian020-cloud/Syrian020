@@ -908,21 +908,25 @@
       const sink = createTextSink(filename, 'application/json');
       sink.write('{"zeekExport":1,"lessons":' + JSON.stringify(list) + ',"media":{');
       const refs = collectMediaRefs(list);
-      let first = true;
+      let first = true, done = 0;
       for (const ref of refs) {
+        showToast(t('exportPreparing') + ' ' + done + '/' + refs.length, 60000);
         const blob = await getRefBlob(ref);
-        if (!blob) continue;
+        if (!blob) { done++; continue; }
         const kind = mediaKind(blob);
-        if (kinds && kind && kinds[kind] === false) continue;
+        if (kinds && kind && kinds[kind] === false) { done++; continue; }
         const key = isIDBMedia(ref) ? idbMediaId(ref) : ref;
         const type = blob.type || mimeFromName(blob.name || ref) || 'application/octet-stream';
         sink.write((first ? '' : ',') + JSON.stringify(key) + ':{"type":' + JSON.stringify(type) + ',"name":' + JSON.stringify(blob.name || '') + ',"data":"');
         first = false;
-        const STEP = 3 * 1024 * 1024;
+        const STEP = 8 * 1024 * 1024;
         for (let off = 0; off < blob.size; off += STEP) {
-          sink.write(await blobToB64(blob.slice(off, Math.min(off + STEP, blob.size))));
+          const end = Math.min(off + STEP, blob.size);
+          sink.write(await blobToB64(blob.slice(off, end)));
+          showToast(t('exportPreparing') + ' ' + done + '/' + refs.length + ' — ' + Math.round(end / blob.size * 100) + '%', 60000);
         }
         sink.write('"}');
+        done++;
       }
       sink.write('}}');
       await sink.finish();
@@ -1477,7 +1481,9 @@
   const MARKER_RE = /^\s*(🔤|🗣️?|🔊|📝|📌)\s*/u;
   function phraseLangs(p) {
     const all = ['fr', 'ar', 'en', ...EXTRA_LANGS];
-    const have = all.filter(l => p[l]);
+    const allSet = new Set(all);
+    const inObj = Object.keys(p).filter(k => allSet.has(k) && p[k]);
+    const have = inObj.length ? inObj : all.filter(l => p[l]);
     if (!p._order || !p._order.length) return have;
     const seen = new Set();
     const out = [];
