@@ -4046,16 +4046,24 @@ function quizStopSpeak() {
   if (window.EdgeTTS) EdgeTTS.stop();
   document.querySelectorAll('.qz-card.speaking, .lz-loop.speaking, .lz-v-loop.speaking').forEach(function (x) { x.classList.remove('speaking'); });
 }
-// the Read & Repeat language picker — same big flag + LANG — count buttons
-// for every game that asks for a language first
-function gameLangPicker(l, title) {
-  var items = rrItemsFor(l);
-  var langs = rrLangs(items, l);
+// language-PAIR picker — one button per ordered (question → answer) language
+// pair the lesson's texts actually cover: "🇫🇷 FR – 🇸🇾 AR — 12"
+function gamePairPicker(l, title) {
+  var maps = gamePool(l).map(function (p) { return phMap(p); });
+  var langs = rrLangs(rrItemsFor(l), l);
+  var pairs = [];
+  langs.forEach(function (q) {
+    langs.forEach(function (a) {
+      if (a === q) return;
+      var n = maps.filter(function (m) { return m[q] && m[a]; }).length;
+      if (n) pairs.push({ q: q, a: a, n: n });
+    });
+  });
   return '<div class="qz-langs"><h3 style="text-align:center;margin:0">' + esc(title) + '</h3>' +
-    langs.map(function (g) {
-      var n = items.filter(function (m) { return m[g]; }).length;
-      return '<button class="btn" data-lang="' + g + '">' + flagForLang(l, g) + ' ' +
-        g.toUpperCase() + ' — ' + n + '</button>';
+    pairs.map(function (p) {
+      return '<button class="btn" data-q="' + p.q + '" data-a="' + p.a + '">' +
+        flagForLang(l, p.q) + ' ' + p.q.toUpperCase() + ' – ' +
+        flagForLang(l, p.a) + ' ' + p.a.toUpperCase() + ' — ' + p.n + '</button>';
     }).join('') + '</div>';
 }
 function openQuiz(lesson) {
@@ -4070,9 +4078,9 @@ function openQuiz(lesson) {
   document.body.appendChild(ov);
   document.getElementById('quiz-exit').onclick = closeQuiz;
   var body = document.getElementById('quiz-body');
-  body.innerHTML = gameLangPicker(lesson, t.quizChooseLang);
-  body.querySelectorAll('button[data-lang]').forEach(function (b) {
-    b.onclick = function () { startQuiz(lesson, b.dataset.lang); };
+  body.innerHTML = gamePairPicker(lesson, t.quizChooseLang);
+  body.querySelectorAll('button[data-q]').forEach(function (b) {
+    b.onclick = function () { startQuiz(lesson, b.dataset.q, b.dataset.a); };
   });
 }
 function closeQuiz() {
@@ -4108,17 +4116,20 @@ function gameALang(p, target) {
   var ks = Object.keys(m).filter(function (k) { return k !== q; });
   return ks[0] || q;
 }
-function startQuiz(lesson, target) {
+function startQuiz(lesson, qlang, alang) {
   var t = T();
-  var qLang = lessonMainLang(lesson);
-  var pool = gamePool(lesson);
+  // only items whose text exists in BOTH chosen languages
+  var pool = gamePool(lesson).filter(function (p) {
+    var m = phMap(p);
+    return m[qlang] && m[alang];
+  });
   if (!pool.length) { toast(t.quizNoPhrases); return; }
   var picks = quizShuffle(pool).slice(0, 8).map(function (p, i) {
-    return { p: p, id: i, q: gameQLang(p), a: gameALang(p, target) };
+    return { p: p, id: i, q: qlang, a: alang };
   });
   var body = document.getElementById('quiz-body');
   if (!body) return;
-  body.innerHTML = '<div class="qz-flags"><div class="qz-flag">' + flagOfLessonLang(lesson, qLang) + '</div><div class="qz-flag">' + flagForLang(lesson, target) + '</div></div>' +
+  body.innerHTML = '<div class="qz-flags"><div class="qz-flag">' + flagForLang(lesson, qlang) + '</div><div class="qz-flag">' + flagForLang(lesson, alang) + '</div></div>' +
     '<div class="qz-cols" id="quiz-cols"></div>';
   var cols = document.getElementById('quiz-cols');
   var prog = document.getElementById('quiz-progress');
@@ -4275,7 +4286,6 @@ function openListen(lesson) {
   closeQuiz();
   var t = T();
   lz.lesson = lesson;
-  lz.qlang = lessonMainLang(lesson);
   var ov = document.createElement('div');
   ov.id = 'quiz-overlay';
   ov.className = 'qz-ov';
@@ -4286,14 +4296,18 @@ function openListen(lesson) {
   document.body.appendChild(ov);
   document.getElementById('quiz-exit').onclick = closeQuiz;
   var body = document.getElementById('quiz-body');
-  body.innerHTML = gameLangPicker(lesson, t.quizChooseLang);
-  body.querySelectorAll('button[data-lang]').forEach(function (b) {
-    b.onclick = function () { lz.lang = b.dataset.lang; lzStart(); };
+  body.innerHTML = gamePairPicker(lesson, t.quizChooseLang);
+  body.querySelectorAll('button[data-q]').forEach(function (b) {
+    b.onclick = function () { lz.qlang = b.dataset.q; lz.lang = b.dataset.a; lzStart(); };
   });
 }
 function lzStart() {
   var t = T();
-  var pool = gamePool(lz.lesson);
+  // only items whose text exists in BOTH chosen languages
+  var pool = gamePool(lz.lesson).filter(function (p) {
+    var m = phMap(p);
+    return m[lz.qlang] && m[lz.lang];
+  });
   var body = document.getElementById('quiz-body');
   if (!body) return;
   if (!pool.length) { toast(t.quizNoPhrases); return; }
@@ -4325,7 +4339,7 @@ function lzQuestion() {
   document.getElementById('quiz-progress').textContent = (lz.idx + 1) + '/' + lz.qs.length;
   lzWireHeroTools();
   var rp = document.getElementById('lzReplay');
-  var pLang = gameQLang(p);
+  var pLang = phMap(p)[lz.qlang] ? lz.qlang : gameQLang(p);
   rp.onclick = function () { speak(phText(p, pLang), pLang, rp); };
   body.querySelectorAll('.lz-tile').forEach(function (tile) {
     tile.onclick = function () { lzAnswer(tile, p); };
