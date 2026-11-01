@@ -1475,12 +1475,23 @@
   const PHRASE_LABEL_RE = /^(?:الأصلية|الأصلي|النص|الكتابة(?:\s+(?:الأصلية|اللاتينية|العربية))?|المعنى(?:\s+(?:بالعربي|بالعربية|بالإنجليزية|بالإنكليزية|إنجليزي|عربي))?|الترجمة(?:\s+\S+)?|الإنجليزية|الانجليزية|English|Meaning|النطق(?:\s+\S+)?|اللفظ|تقريب(?:\s+\S+)?)\s*[:：]\s*/u;
   function deLabel(s) { const m = PHRASE_LABEL_RE.exec(String(s || '')); return m ? s.slice(m[0].length).trim() : String(s || '').trim(); }
   const MARKER_RE = /^\s*(🔤|🗣️?|🔊|📝|📌)\s*/u;
+  function phraseLangs(p) {
+    const all = ['fr', 'ar', 'en', ...EXTRA_LANGS];
+    const have = all.filter(l => p[l]);
+    if (!p._order || !p._order.length) return have;
+    const seen = new Set();
+    const out = [];
+    for (const l of p._order) { if (p[l] && !seen.has(l)) { seen.add(l); out.push(l); } }
+    for (const l of have) { if (!seen.has(l)) out.push(l); }
+    return out;
+  }
+
   function parsePhrases(text, userOrder = 'auto') {
     const phrases = [];
     const plain = text.split('\n').filter(l => !FLAG_RE.test(l)).join('\n');
     const blockOrder = (userOrder === 'auto') ? detectBlockOrder(plain) : userOrder;
     let cur = {};
-    const hasLang = () => Object.keys(cur).some(k => k !== '_subs');
+    const hasLang = () => Object.keys(cur).some(k => k !== '_subs' && k !== '_order');
     const flush = () => { if (hasLang()) phrases.push(cur); cur = {}; };
     const addSub = (marker, text) => {
       const body = deLabel(cleanPhrasePart(text));
@@ -1519,6 +1530,8 @@
           if (m[1] !== '🇸🇾' && body.length < 40 && !/[^\u0600-\u06FF\s\d(),.\/؟?\-]/.test(body)) return;
           const lang = flagLang(m[1], body);
           if (cur[lang]) flush();
+          if (!cur._order) cur._order = [];
+          if (!cur._order.includes(lang)) cur._order.push(lang);
           cur[lang] = m[1] + ' ' + body;
           return;
         }
@@ -1533,11 +1546,11 @@
         let fr, en;
         if (lineOrder === 'en-ar-fr') { en = first; fr = last; }
         else { fr = first; en = last; }
-        phrases.push({ fr, ar, en });
+        phrases.push({ fr, ar, en, _order: lineOrder === 'en-ar-fr' ? ['en', 'ar', 'fr'] : ['fr', 'ar', 'en'] });
       });
     });
     flush();
-    return phrases.filter(p => p.note || Object.keys(p).some(k => k !== '_subs'));
+    return phrases.filter(p => p.note || Object.keys(p).some(k => k !== '_subs' && k !== '_order'));
   }
 
   const SEC_SEP_RE = /^\s*(?:-{3,}|—+|_{3,}|\*{3,}|={3,})\s*$/;
@@ -2450,6 +2463,11 @@
     const parts = { fr: '', ar: '', en: '' };
     const ordered = ['fr', 'ar', 'en'];
     let orderIdx = 0;
+    const pushLang = (lang, text) => {
+      if (!parts._order) parts._order = [];
+      if (!parts._order.includes(lang)) parts._order.push(lang);
+      parts[lang] = text;
+    };
     const pushSub = s => {
       const mk = s.match(MARKER_RE);
       const body = deLabel(cleanPhrasePart(mk ? s.slice(mk[0].length) : s));
@@ -2470,7 +2488,7 @@
         for (const s of flagParts) {
           if (MARKER_RE.test(s)) { pushSub(s); continue; }
           const p = parseFlagLine(s);
-          if (p) parts[p.lang] = p.text;
+          if (p) pushLang(p.lang, p.text);
         }
         continue;
       }
@@ -2479,14 +2497,14 @@
         for (const s of split) {
           if (MARKER_RE.test(s)) { pushSub(s); continue; }
           const p = parseFlagLine(s);
-          if (p) { parts[p.lang] = p.text; }
-          else if (orderIdx < ordered.length) { parts[ordered[orderIdx++]] = s; }
+          if (p) { pushLang(p.lang, p.text); }
+          else if (orderIdx < ordered.length) { pushLang(ordered[orderIdx++], s); }
         }
         continue;
       }
       const p = parseFlagLine(line);
-      if (p) { parts[p.lang] = p.text; continue; }
-      if (orderIdx < ordered.length) { parts[ordered[orderIdx++]] = line; }
+      if (p) { pushLang(p.lang, p.text); continue; }
+      if (orderIdx < ordered.length) { pushLang(ordered[orderIdx++], line); }
     }
     return parts;
   }
@@ -2581,11 +2599,9 @@
     const lineRadiusFactor = lineRadiusRaw.endsWith('em') ? parseFloat(lineRadiusRaw) || 0 : (parseFloat(lineRadiusRaw) ? 0.35 : 0);
     const fs = Math.round(H * 0.048 * (state.captionZoom || 1));
     const padY = fs * 0.55, padX = fs * 0.9, gap = fs * 0.35;
+    const fontFor = l => l === 'fr' ? frFont : l === 'ar' ? arFont : enFont;
     const lines = [
-      { txt: c.fr, font: frFont, dir: 'ltr', lang: 'fr' },
-      { txt: c.ar, font: arFont, dir: 'rtl', lang: 'ar' },
-      { txt: c.en, font: enFont, dir: 'ltr', lang: 'en' },
-      ...EXTRA_LANGS.map(l => ({ txt: c[l], font: enFont, dir: RTL_LANGS[l] ? 'rtl' : 'ltr', lang: l })),
+      ...phraseLangs(c).map(l => ({ txt: c[l], font: fontFor(l), dir: (l === 'ar' || RTL_LANGS[l]) ? 'rtl' : 'ltr', lang: l })),
       ...(c._subs || []).map(s => ({ txt: s, font: enFont, dir: 'ltr', lang: 'en' }))
     ].filter(l => l.txt && l.txt.trim());
     const bgFor = lang => {
@@ -2952,7 +2968,7 @@
         return;
       }
       if (activeIdx !== lastIdx) {
-        const parts = [makeCap(c.fr, 'fr'), makeCap(c.ar, 'ar'), makeCap(c.en, 'en'), ...EXTRA_LANGS.map(l => makeCap(c[l], l))].filter(Boolean);
+        const parts = phraseLangs(c).map(l => makeCap(c[l], l)).filter(Boolean);
         (c._subs || []).forEach(s => parts.push(`<span class="cap-line cap-sub" style="opacity:.75;font-size:.8em">${esc(s)}</span>`));
         textDiv.innerHTML = parts.join('');
         lastIdx = activeIdx;
@@ -3587,7 +3603,7 @@
     const ready = await prepareTTS();
     if (run !== speechRun) return;
     if (!ready) { highlight(null); return; }
-    const seq = [...langs, ...EXTRA_LANGS].filter(l => phrase[l] && (edgeSupported() || state.voiceLang[l]));
+    const seq = phraseLangs(phrase).filter(l => (langs.includes(l) || EXTRA_LANGS.includes(l)) && phrase[l] && (edgeSupported() || state.voiceLang[l]));
     let i = 0;
     (function next() {
       if (run !== speechRun) return;
@@ -4024,7 +4040,7 @@
     if (!captions.length) { alert(t('captionParseError')); return; }
     form.elements.phrases.value = captions.map(c => {
       const wf = (t, l) => t ? (/^[\u{1F1E6}-\u{1F1FF}]{2}/u.test(t) ? t : LANG_FLAG[l] + ' ' + t) : '';
-      const rows = [['fr', c.fr], ['ar', c.ar], ['en', c.en], ...EXTRA_LANGS.map(l => [l, c[l]])]
+      const rows = phraseLangs(c).map(l => [l, c[l]])
         .filter(x => x[1]).map(x => wf(x[1], x[0]));
       return rows.join(' ') + (c._subs && c._subs.length ? '\n' + c._subs.join('\n') : '');
     }).join('\n');
@@ -4079,6 +4095,7 @@
         const p = { fr: c.fr, ar: c.ar, en: c.en, start: c.start, end: c.end };
         EXTRA_LANGS.forEach(l => { if (c[l]) p[l] = c[l]; });
         if (c._subs) p._subs = c._subs;
+        if (c._order) p._order = c._order;
         return p;
       });
     } else {
@@ -4190,10 +4207,7 @@
       <div class="phrase-top">
         <div class="lines">
           ${p.note ? `<div class="line x" style="opacity:.8">${esc(p.note)}</div>` : ''}
-          ${p.fr ? `<div class="line fr" data-lang="fr" dir="ltr">${wordSpans(p.fr, 'fr')}<button class="loop-lang" data-lang="fr" title="🔁 FR">🔁</button></div>` : ''}
-          ${p.ar ? `<div class="line ar" data-lang="ar" dir="rtl">${wordSpans(p.ar, 'ar')}<button class="loop-lang" data-lang="ar" title="🔁 AR">🔁</button></div>` : ''}
-          ${p.en ? `<div class="line en" data-lang="en" dir="ltr">${wordSpans(p.en, 'en')}<button class="loop-lang" data-lang="en" title="🔁 EN">🔁</button></div>` : ''}
-          ${EXTRA_LANGS.filter(l => p[l]).map(l => `<div class="line x" data-lang="${l}" dir="${RTL_LANGS[l] ? 'rtl' : 'ltr'}">${wordSpans(p[l], l)}<button class="loop-lang" data-lang="${l}" title="🔁 ${l.toUpperCase()}">🔁</button></div>`).join('')}
+          ${phraseLangs(p).map(l => `<div class="line ${['fr','ar','en'].includes(l) ? l : 'x'}" data-lang="${l}" dir="${(l === 'ar' || RTL_LANGS[l]) ? 'rtl' : 'ltr'}">${wordSpans(p[l], l)}<button class="loop-lang" data-lang="${l}" title="🔁 ${l.toUpperCase()}">🔁</button></div>`).join('')}
           ${(p._subs || []).map(s => `<div class="line x" style="opacity:.65;font-size:.85em">${esc(s)}</div>`).join('')}
         </div>
         <div class="btns">
@@ -4240,9 +4254,10 @@
     const lineOf = p => {
       if (p.note) return '📝 ' + p.note;
       const full = p.fr && p.ar && p.en;
-      if (full && !EXTRA_LANGS.some(l => p[l])) return `${p.fr} | ${p.ar} | ${p.en}`;
+      const defaultOrder = !p._order || p._order.join(',') === 'fr,ar,en';
+      if (full && !EXTRA_LANGS.some(l => p[l]) && defaultOrder) return `${p.fr} | ${p.ar} | ${p.en}`;
       const withFlag = (t, l) => /^[\u{1F1E6}-\u{1F1FF}]{2}/u.test(t || '') ? t : (t ? LANG_FLAG[l] + ' ' + t : '');
-      const rows = [['fr', p.fr], ['ar', p.ar], ['en', p.en], ...EXTRA_LANGS.map(l => [l, p[l]])]
+      const rows = phraseLangs(p).map(l => [l, p[l]])
         .filter(x => x[1]).map(x => withFlag(x[1], x[0]));
       return rows.join(' ') + (p._subs && p._subs.length ? '\n' + p._subs.join('\n') : '');
     };
@@ -4793,10 +4808,7 @@
       hero.className = 'lz-hero v';
       hero.innerHTML = `<div class="lz-verdict ${ok ? 'ok' : 'bad'}">
         <div class="lz-face">${ok ? '😄' : '😢'}</div>
-        <div class="lz-v-line"><span class="lz-v-fr">${esc(stripSpeechFlags(p.fr || ''))}</span><button class="lz-v-loop" data-lang="fr" title="🔁">🔁</button></div>
-        ${stripSpeechFlags(p.ar || '') ? `<div class="lz-v-line"><span class="lz-v-tr" dir="rtl">${esc(stripSpeechFlags(p.ar))}</span><button class="lz-v-loop" data-lang="ar" title="🔁">🔁</button></div>` : ''}
-        ${stripSpeechFlags(p.en || '') ? `<div class="lz-v-line"><span class="lz-v-tr">${esc(stripSpeechFlags(p.en))}</span><button class="lz-v-loop" data-lang="en" title="🔁">🔁</button></div>` : ''}
-        ${EXTRA_LANGS.filter(l => p[l]).map(l => `<div class="lz-v-line"><span class="lz-v-tr" dir="${RTL_LANGS[l] ? 'rtl' : 'ltr'}">${esc(stripSpeechFlags(p[l]))}</span><button class="lz-v-loop" data-lang="${l}" title="🔁">🔁</button></div>`).join('')}
+        ${phraseLangs(p).map(l => `<div class="lz-v-line"><span class="${l === 'fr' ? 'lz-v-fr' : 'lz-v-tr'}" dir="${(l === 'ar' || RTL_LANGS[l]) ? 'rtl' : 'ltr'}">${esc(stripSpeechFlags(p[l]))}</span><button class="lz-v-loop" data-lang="${l}" title="🔁">🔁</button></div>`).join('')}
       </div>`;
       hero.querySelectorAll('.lz-v-loop').forEach(b => {
         b.onclick = () => lzSpeak(p[b.dataset.lang], b, b.dataset.lang);
@@ -5095,6 +5107,7 @@
         const p = { fr: c.fr, ar: c.ar, en: c.en, start: c.start, end: c.end };
         EXTRA_LANGS.forEach(l => { if (c[l]) p[l] = c[l]; });
         if (c._subs) p._subs = c._subs;
+        if (c._order) p._order = c._order;
         const old = oldPhrases[i];
         if (old) ['media', 'mediaType', 'image', 'audio'].forEach(k => { if (old[k]) p[k] = old[k]; });
         return p;
@@ -5455,7 +5468,7 @@ EN: Maria, I’m out of cigarettes.`,
     const phrase = findPhraseByKey(key);
     const bar = document.getElementById('note-phrase-bar');
     if (bar) {
-      bar.innerHTML = ['fr','ar','en'].map(l => `<div class="note-phrase-card ${l}" dir="${l === 'ar' ? 'rtl' : 'ltr'}">${phrase ? esc(phrase[l] || '') : ''}</div>`).join('');
+      bar.innerHTML = (phrase ? phraseLangs(phrase) : ['fr','ar','en']).map(l => `<div class="note-phrase-card ${['fr','ar','en'].includes(l) ? l : 'x'}" dir="${(l === 'ar' || RTL_LANGS[l]) ? 'rtl' : 'ltr'}">${phrase ? esc(phrase[l] || '') : ''}</div>`).join('');
     }
     const canvas = document.getElementById('note-canvas');
     noteUndo = [];
