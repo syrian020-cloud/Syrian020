@@ -1328,18 +1328,9 @@ function phraseCard(p, f, l) {
   ai.title = T().aiTitle || 'Google AI';
   ai.onclick = function (e) {
     e.stopPropagation();
-    var m = phMap(p), fr = m.fr || '', ar = m.ar || '', en = m.en || '';
-    var extra = Object.keys(m).filter(function (k) { return k !== 'fr' && k !== 'ar' && k !== 'en'; })
-      .map(function (k) { return m[k]; }).join('\n');
-    var query = 'French phrase: "' + (fr || Object.values(m)[0] || '') + '"\n' +
-      (ar ? 'Arabic translation: "' + ar + '"\n' : '') +
-      (en ? 'English translation: "' + en + '"\n' : '') +
-      (extra ? extra + '\n' : '') +
-      '1) Translate each individual word (French → Arabic → English).\n' +
-      '2) Explain the French grammar rule (verb conjugation, structure, or expression) used in this phrase.\n' +
-      '3) Provide a short practical conversation in French, Arabic and English using this phrase so it can be memorized as a conversation.\n' +
-      'Output in French, Arabic and English.';
-    openExternal('https://www.google.com/search?q=' + encodeURIComponent(query) + '&udm=50&hl=' + uiLang());
+    var m = phMap(p);
+    var query = aiSearchQuery(m, p.lang || langOfFlag(p.flag));
+    if (query) openExternal('https://www.google.com/search?q=' + encodeURIComponent(query) + '&udm=50&hl=' + uiLang());
   };
   ptl.appendChild(ai);
   var ci = el('button', 'ctime-ic ic-clip', '🔍');
@@ -1347,7 +1338,7 @@ function phraseCard(p, f, l) {
   ci.onclick = function (e) {
     e.stopPropagation();
     var m = phMap(p);
-    var q = (m.fr || Object.values(m)[0] || '') + ' clipart';
+    var q = firstMapText(m) + ' clipart';
     openExternal('https://www.google.com/search?q=' + encodeURIComponent(q) + '&udm=2&hl=' + uiLang());
   };
   ptl.appendChild(ci);
@@ -3262,25 +3253,16 @@ function renderMedia(v, f, l) {
     ai.title = T().aiTitle || 'Google AI';
     ai.onclick = function (e) {
       e.stopPropagation();
-      var m = phMap(cp), fr = m.fr || '', ar = m.ar || '', en = m.en || '';
-      var extra = Object.keys(m).filter(function (k) { return k !== 'fr' && k !== 'ar' && k !== 'en'; })
-        .map(function (k) { return m[k]; }).join('\n');
-      var query = 'French phrase: "' + (fr || Object.values(m)[0] || '') + '"\n' +
-        (ar ? 'Arabic translation: "' + ar + '"\n' : '') +
-        (en ? 'English translation: "' + en + '"\n' : '') +
-        (extra ? extra + '\n' : '') +
-        '1) Translate each individual word (French → Arabic → English).\n' +
-        '2) Explain the French grammar rule (verb conjugation, structure, or expression) used in this phrase.\n' +
-        '3) Provide a short practical conversation in French, Arabic and English using this phrase so it can be memorized as a conversation.\n' +
-        'Output in French, Arabic and English.';
-      openExternal('https://www.google.com/search?q=' + encodeURIComponent(query) + '&udm=50&hl=' + uiLang());
+      var m = phMap(cp);
+      var query = aiSearchQuery(m, '');
+      if (query) openExternal('https://www.google.com/search?q=' + encodeURIComponent(query) + '&udm=50&hl=' + uiLang());
     };
     var ci = el('button', 'ctime-ic ic-clip', '🔍');
     ci.title = T().clipartTitle || 'Google Clipart';
     ci.onclick = function (e) {
       e.stopPropagation();
       var m = phMap(cp);
-      var q = (m.fr || Object.values(m)[0] || '') + ' clipart';
+      var q = firstMapText(m) + ' clipart';
       openExternal('https://www.google.com/search?q=' + encodeURIComponent(q) + '&udm=2&hl=' + uiLang());
     };
     var tb = el('button', 'ctime-t');
@@ -3770,6 +3752,33 @@ function phMap(p) {
   return m;
 }
 function phText(p, lang) { return phMap(p)[lang] || ''; }
+// English name of a language code for prompts (falls back to the code itself)
+function langNameEn(l) {
+  var k = (LANG_KEY[l] || '').split(' ')[0];
+  return k ? k.charAt(0).toUpperCase() + k.slice(1) : (l || '').toUpperCase();
+}
+// first non-empty text of a lang map
+function firstMapText(m) {
+  var ks = Object.keys(m);
+  for (var i = 0; i < ks.length; i++) if (m[ks[i]]) return m[ks[i]];
+  return '';
+}
+// Google-AI explain prompt built from the card's OWN main language — not fixed to French
+function aiSearchQuery(m, mainLang) {
+  var ml = (mainLang && m[mainLang]) ? mainLang : '';
+  if (!ml) { var ks = Object.keys(m); for (var i = 0; i < ks.length; i++) if (m[ks[i]]) { ml = ks[i]; break; } }
+  if (!ml) return '';
+  var mlName = langNameEn(ml);
+  var others = Object.keys(m).filter(function (k) { return k !== ml && m[k]; });
+  var names = [mlName].concat(others.map(langNameEn));
+  var q = mlName + ' phrase: "' + m[ml] + '"\n';
+  others.forEach(function (k) { q += langNameEn(k) + ' translation: "' + m[k] + '"\n'; });
+  q += '1) Translate each individual word (' + names.join(' → ') + ').\n' +
+    '2) Explain the ' + mlName + ' grammar rule (verb conjugation, structure, or expression) used in this phrase.\n' +
+    '3) Provide a short practical conversation in ' + names.join(', ') + ' using this phrase so it can be memorized as a conversation.\n' +
+    'Output in ' + names.join(', ') + '.';
+  return q;
+}
 // dominant phrase language of a lesson — the game's question column (zeelang uses fr)
 function lessonMainLang(lesson) {
   var cnt = {};
