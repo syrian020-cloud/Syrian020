@@ -5085,19 +5085,25 @@
     let phrases;
     let secData = null;
     const phrasesRaw = form.elements.phrases.value.trim();
-    if (captionText && captionText !== (lesson.captionText || '') && !phrasesRaw) {
+    const phrasesChanged = phrasesRaw !== form.elements.phrases.defaultValue.trim();
+    const captionsChanged = captionText !== (lesson.captionText || '').trim();
+    if (captionText && ((captionsChanged && !phrasesChanged) || !phrasesRaw)) {
       const captions = parseCaptions(captionText);
       if (!captions.length) { alert(t('captionParseError')); return; }
-      phrases = captions.map(c => {
+      const oldPhrases = lesson.phrases || [];
+      phrases = captions.map((c, i) => {
         const p = { fr: c.fr, ar: c.ar, en: c.en, start: c.start, end: c.end };
         EXTRA_LANGS.forEach(l => { if (c[l]) p[l] = c[l]; });
         if (c._subs) p._subs = c._subs;
+        const old = oldPhrases[i];
+        if (old) ['media', 'mediaType', 'image', 'audio'].forEach(k => { if (old[k]) p[k] = old[k]; });
         return p;
       });
     } else {
       const parsed = parsePhrasesWithSections(phrasesRaw, 'auto');
       phrases = parsed.phrases;
       secData = parsed.sections;
+      if (phrasesRaw && !phrases.length) { alert(t('noPhrasesError')); return; }
       if (captionText) {
         const captions = parseCaptions(captionText);
         if (captions.length === phrases.length) phrases.forEach((p, i) => { p.start = captions[i].start; p.end = captions[i].end; });
