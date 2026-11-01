@@ -4109,13 +4109,6 @@ function gameQLang(p) {
   var q = p.lang || langOfFlag(p.flag);
   return (q && m[q]) ? q : Object.keys(m)[0];
 }
-// answer lang = requested target if present, else any other lang — accepts every phrase
-function gameALang(p, target) {
-  var m = phMap(p), q = gameQLang(p);
-  if (m[target] && target !== q) return target;
-  var ks = Object.keys(m).filter(function (k) { return k !== q; });
-  return ks[0] || q;
-}
 function startQuiz(lesson, qlang, alang) {
   var t = T();
   // only items whose text exists in BOTH chosen languages
@@ -4172,7 +4165,7 @@ function startQuiz(lesson, qlang, alang) {
       solved++;
       quizStopSpeak();
       setProg();
-      if (solved === picks.length) setTimeout(function () { quizEnd(correct, wrong, lesson, target); }, 650);
+      if (solved === picks.length) setTimeout(function () { quizEnd(correct, wrong, lesson, qlang, alang); }, 650);
     } else {
       wrong++;
       quizTone(false);
@@ -4194,7 +4187,7 @@ function startQuiz(lesson, qlang, alang) {
     })(i);
   }
 }
-function quizEnd(correct, wrong, lesson, target) {
+function quizEnd(correct, wrong, lesson, qlang, alang) {
   quizStopSpeak();
   var t = T();
   var total = correct + wrong;
@@ -4207,7 +4200,7 @@ function quizEnd(correct, wrong, lesson, target) {
     '<div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap">' +
     '<button class="btn" id="quiz-replay">🔁 ' + esc(t.quizReplay) + '</button>' +
     '<button class="btn" id="quiz-exit2">✕ ' + esc(t.quizExit) + '</button></div></div>';
-  document.getElementById('quiz-replay').onclick = function () { startQuiz(lesson, target); };
+  document.getElementById('quiz-replay').onclick = function () { startQuiz(lesson, qlang, alang); };
   document.getElementById('quiz-exit2').onclick = closeQuiz;
 }
 
@@ -4329,7 +4322,7 @@ function lzQuestion() {
     '<div class="lz-hero ' + lzHero.size + '" id="lzHero">' + lzHeroInner() + '</div>' +
     '<button class="lz-loop" id="lzReplay" title="' + esc(t.listenReplay) + '">🔊</button>' +
     '<div class="lz-opts">' + opts.map(function (o) {
-      return '<div class="lz-tile" data-ok="' + (o === p ? '1' : '0') + '">' + esc(phText(o, gameALang(o, lz.lang))) + '</div>';
+      return '<div class="lz-tile" data-ok="' + (o === p ? '1' : '0') + '">' + esc(phText(o, lz.lang)) + '</div>';
     }).join('') + '</div>' +
     '<div class="lz-nav">' +
     '<button id="lzNoteBtn" title="' + esc(t.noteTitle) + '">📓</button>' +
