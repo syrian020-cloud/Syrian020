@@ -3335,7 +3335,7 @@
     ar: [
       ['ar-SY-AmanyNeural', 'Amany · SY · F'],
       ['ar-SY-LaithNeural', 'Laith · SY · M'],
-      ['ar-EG-HodaNeural', 'Hoda · EG · F'],
+      ['ar-EG-SalmaNeural', 'Salma · EG · F'],
       ['ar-EG-ShakirNeural', 'Shakir · EG · M'],
       ['ar-SA-ZariyahNeural', 'Zariyah · SA · F'],
       ['ar-SA-HamedNeural', 'Hamed · SA · M'],
@@ -3356,7 +3356,7 @@
       ['en-US-JennyNeural', 'Jenny · US · F'],
       ['en-US-GuyNeural', 'Guy · US · M'],
       ['en-US-AriaNeural', 'Aria · US · F'],
-      ['en-US-DavisNeural', 'Davis · US · M'],
+      ['en-US-ChristopherNeural', 'Christopher · US · M'],
       ['en-GB-SoniaNeural', 'Sonia · GB · F'],
       ['en-GB-RyanNeural', 'Ryan · GB · M'],
       ['en-GB-LibbyNeural', 'Libby · GB · F'],
@@ -3386,8 +3386,7 @@
       ['pt-BR-AntonioNeural', 'Antonio · BR · M']
     ],
     ru: [
-      ['ru-RU-SvetlanaNeural', 'Svetlana · RU · F'],
-      ['ru-RU-DmitryNeural', 'Dmitry · RU · M']
+      ['ru-RU-SvetlanaNeural', 'Svetlana · RU · F']
     ],
     fa: [
       ['fa-IR-DilaraNeural', 'Dilara · IR · F'],
@@ -3420,7 +3419,6 @@
       ['ko-KR-InJoonNeural', 'InJoon · KR · M']
     ],
     el: [
-      ['el-GR-AthinaNeural', 'Athina · GR · F'],
       ['el-GR-NestorasNeural', 'Nestoras · GR · M']
     ],
     ur: [
@@ -3431,7 +3429,6 @@
     vi: [['vi-VN-HoaiMyNeural', 'HoaiMy · VN · F'], ['vi-VN-NamMinhNeural', 'NamMinh · VN · M']],
     hi: [['hi-IN-SwaraNeural', 'Swara · IN · F'], ['hi-IN-MadhurNeural', 'Madhur · IN · M']],
     ka: [['ka-GE-EkaNeural', 'Eka · GE · F'], ['ka-GE-GiorgiNeural', 'Giorgi · GE · M']],
-    hy: [['hy-AM-AnahitNeural', 'Anahit · AM · F']],
     he: [['he-IL-AvriNeural', 'Avri · IL · M'], ['he-IL-HilaNeural', 'Hila · IL · F']],
     pl: [['pl-PL-ZofiaNeural', 'Zofia · PL · F'], ['pl-PL-MarekNeural', 'Marek · PL · M']],
     uk: [['uk-UA-PolinaNeural', 'Polina · UA · F'], ['uk-UA-OstapNeural', 'Ostap · UA · M']],
@@ -3446,7 +3443,7 @@
     bg: [['bg-BG-KalinaNeural', 'Kalina · BG · F'], ['bg-BG-BorislavNeural', 'Borislav · BG · M']],
     hr: [['hr-HR-GabrijelaNeural', 'Gabrijela · HR · F'], ['hr-HR-SreckoNeural', 'Srecko · HR · M']],
     sr: [['sr-RS-SophieNeural', 'Sophie · RS · F'], ['sr-RS-NicholasNeural', 'Nicholas · RS · M']],
-    da: [['da-DK-ChristelNeural', 'Christel · DK · F'], ['da-DK-JeppeNeural', 'Jeppe · DK · M']],
+    da: [['da-DK-JeppeNeural', 'Jeppe · DK · M']],
     nb: [['nb-NO-PernilleNeural', 'Pernille · NO · F'], ['nb-NO-FinnNeural', 'Finn · NO · M']],
     fi: [['fi-FI-NooraNeural', 'Noora · FI · F'], ['fi-FI-HarriNeural', 'Harri · FI · M']],
     mn: [['mn-MN-YesuiNeural', 'Yesui · MN · F'], ['mn-MN-BataaNeural', 'Bataa · MN · M']],
@@ -3456,8 +3453,8 @@
     is: [['is-IS-GudrunNeural', 'Gudrun · IS · F'], ['is-IS-GunnarNeural', 'Gunnar · IS · M']],
     sq: [['sq-AL-AnilaNeural', 'Anila · AL · F'], ['sq-AL-IlirNeural', 'Ilir · AL · M']],
     lt: [['lt-LT-OnaNeural', 'Ona · LT · F'], ['lt-LT-LeonasNeural', 'Leonas · LT · M']],
-    lv: [['lv-LV-EveritaNeural', 'Everita · LV · F'], ['lv-LV-NilsNeural', 'Nils · LV · M']],
-    et: [['et-EE-AnuNeural', 'Anu · EE · F'], ['et-EE-KertNeural', 'Kert · EE · M']],
+    lv: [['lv-LV-NilsNeural', 'Nils · LV · M']],
+    et: [['et-EE-AnuNeural', 'Anu · EE · F']],
     yo: [['en-NG-EzinneNeural', 'Ezinne · NG · F'], ['en-NG-AbeoNeural', 'Abeo · NG · M']]
   };
   const EDGE_VOICE_SAMPLE = {
@@ -3494,7 +3491,11 @@
     if (!window.EdgeTTS) return;
     try {
       const saved = JSON.parse(localStorage.getItem('zeek_edge_voices') || '{}');
-      Object.keys(EdgeTTS.voices).forEach(l => { if (saved[l]) EdgeTTS.voices[l] = saved[l]; });
+      Object.keys(EdgeTTS.voices).forEach(l => {
+        const opts = EDGE_VOICE_OPTIONS[l] || [];
+        // ignore saved names that are no longer offered (retired voices)
+        if (saved[l] && opts.some(v => v[0] === saved[l])) EdgeTTS.voices[l] = saved[l];
+      });
     } catch (e) {}
   }
 
@@ -3506,7 +3507,7 @@
     const extra = document.getElementById('edge-voices-extra');
     if (extra && !extra.dataset.done) {
       extra.dataset.done = '1';
-      extra.innerHTML = EXTRA_LANGS.map(l => `<div class="form-group"><label for="edge-voice-${l}">${EXTRA_LANG_LABEL[l]}</label><div style="display:flex;gap:0.4rem"><select class="ctl" id="edge-voice-${l}" style="flex:1;min-width:0"></select><button type="button" class="btn" data-voice-preview="${l}" title="${t('voicePreview')}">▶</button></div></div>`).join('');
+      extra.innerHTML = EXTRA_LANGS.filter(l => (EDGE_VOICE_OPTIONS[l] || []).length).map(l => `<div class="form-group"><label for="edge-voice-${l}">${EXTRA_LANG_LABEL[l]}</label><div style="display:flex;gap:0.4rem"><select class="ctl" id="edge-voice-${l}" style="flex:1;min-width:0"></select><button type="button" class="btn" data-voice-preview="${l}" title="${t('voicePreview')}">▶</button></div></div>`).join('');
     }
     Object.keys(EDGE_VOICE_OPTIONS).forEach(l => {
       const sel = document.getElementById('edge-voice-' + l);
@@ -6298,6 +6299,8 @@ EN: Maria, I’m out of cigarettes.`,
         if (pv) {
           const l = pv.dataset.voicePreview;
           const t2 = EDGE_VOICE_SAMPLE[l];
+          // give Edge a fresh attempt on every preview tap
+          if (window.EdgeTTS && EdgeTTS.revive) EdgeTTS.revive();
           if (t2) { stopSpeech(); anySpeak(t2, l).catch(() => {}); }
         }
       });

@@ -31,18 +31,18 @@
       es: 'es-ES-ElviraNeural', de: 'de-DE-KatjaNeural', pt: 'pt-PT-RaquelNeural',
       ru: 'ru-RU-SvetlanaNeural', fa: 'fa-IR-DilaraNeural', tr: 'tr-TR-EmelNeural',
       it: 'it-IT-ElsaNeural', nl: 'nl-NL-ColetteNeural', zh: 'zh-CN-XiaoxiaoNeural',
-      ja: 'ja-JP-NanamiNeural', ko: 'ko-KR-SunHiNeural', el: 'el-GR-AthinaNeural',
+      ja: 'ja-JP-NanamiNeural', ko: 'ko-KR-SunHiNeural', el: 'el-GR-NestorasNeural',
       ur: 'ur-PK-UzmaNeural',
       th: 'th-TH-PremwadeeNeural', vi: 'vi-VN-HoaiMyNeural', hi: 'hi-IN-SwaraNeural',
-      ka: 'ka-GE-EkaNeural', hy: 'hy-AM-AnahitNeural', he: 'he-IL-AvriNeural',
+      ka: 'ka-GE-EkaNeural', he: 'he-IL-AvriNeural',
       pl: 'pl-PL-ZofiaNeural', uk: 'uk-UA-PolinaNeural', sv: 'sv-SE-SofieNeural',
       bn: 'bn-BD-NabanitaNeural', id: 'id-ID-GadisNeural', ms: 'ms-MY-YasminNeural',
       tl: 'fil-PH-BlessicaNeural', ro: 'ro-RO-AlinaNeural', hu: 'hu-HU-NoemiNeural',
       cs: 'cs-CZ-VlastaNeural', bg: 'bg-BG-KalinaNeural', hr: 'hr-HR-GabrijelaNeural',
-      sr: 'sr-RS-SophieNeural', da: 'da-DK-ChristelNeural', nb: 'nb-NO-PernilleNeural',
+      sr: 'sr-RS-SophieNeural', da: 'da-DK-JeppeNeural', nb: 'nb-NO-PernilleNeural',
       fi: 'fi-FI-NooraNeural', mn: 'mn-MN-YesuiNeural', sw: 'sw-KE-ZuriNeural',
       zu: 'zu-ZA-ThandoNeural', am: 'am-ET-MekdesNeural', is: 'is-IS-GudrunNeural',
-      sq: 'sq-AL-AnilaNeural', lt: 'lt-LT-OnaNeural', lv: 'lv-LV-EveritaNeural',
+      sq: 'sq-AL-AnilaNeural', lt: 'lt-LT-OnaNeural', lv: 'lv-LV-NilsNeural',
       et: 'et-EE-AnuNeural', yo: 'en-NG-EzinneNeural'
     },
     rates: {
@@ -271,6 +271,8 @@
     if (curFin) curFin(stoppedErr());
   }
 
+  // clear 'dead source' marks so the next call retries every source fresh
+  api.revive = function () { api.down = false; api.lastError = ''; deadSrc = {}; };
   api.enabled = enabled;
   api.setEnabled = setEnabled;
   api.supported = supported;

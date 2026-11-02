@@ -144,6 +144,19 @@ public class EdgeTtsPlugin extends Plugin {
         return sb.toString();
     }
 
+    // "fr-FR-DeniseNeural" -> "Microsoft Server Speech Text to Speech Voice (fr-FR, DeniseNeural)"
+    // (the full form the real Edge browser sends)
+    private static String fullVoiceName(String v) {
+        if (v.startsWith("Microsoft Server Speech")) return v;
+        java.util.regex.Matcher m = java.util.regex.Pattern
+                .compile("^([a-z]{2,3})-([A-Z]{2})-(.+Neural)$").matcher(v);
+        if (m.matches()) {
+            return "Microsoft Server Speech Text to Speech Voice ("
+                    + m.group(1) + "-" + m.group(2) + ", " + m.group(3) + ")";
+        }
+        return v;
+    }
+
     private static String escXml(String s) {
         return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
                 .replace("\"", "&quot;").replace("'", "&apos;");
@@ -181,7 +194,7 @@ public class EdgeTtsPlugin extends Plugin {
                         + "\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"true\"},"
                         + "\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}\r\n");
                 String ssml = "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'"
-                        + " xml:lang='en-US'><voice name='" + voice
+                        + " xml:lang='en-US'><voice name='" + fullVoiceName(voice)
                         + "'><prosody pitch='+0Hz' rate='" + rate + "' volume='+0%'>"
                         + escXml(text) + "</prosody></voice></speak>";
                 ws.send("X-RequestId:" + UUID.randomUUID().toString().replace("-", "")
