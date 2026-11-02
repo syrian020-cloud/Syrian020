@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Presse — جرائد ومجلات فرنسية</title>
+<link rel="manifest" href="./manifest-presse.json">
+<link rel="icon" type="image/png" href="./icon-presse-192.png">
+<style>
+  :root {
+    --bg: #070b18;
+    --card: #0e1330;
+    --card2: #101427;
+    --line: rgba(139, 92, 246, .18);
+    --accent: #8b5cf6;
+    --accent2: #6366f1;
+    --txt: #e8eaf6;
+    --dim: #9aa3c7;
+    --gold: #f5c451;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--txt);
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif; overflow-x: clip; }
+  body { min-height: 100vh; padding-bottom: 3rem; }
+
+  /* ---------- header ---------- */
+  header { position: sticky; top: 0; z-index: 100; background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: .55rem .8rem; }
+  .topbar { display: flex; align-items: center; gap: .5rem; max-width: 860px; margin: 0 auto;
+    flex-wrap: wrap; }
+  .logo { display: flex; align-items: center; gap: .45rem; font-weight: 900; font-size: 1.05rem;
+    flex: none; min-width: 0; }
+  .logo span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .logo img { width: 30px; height: 30px; border-radius: 8px; flex: none; }
+  .searchbox { flex: 1; display: flex; align-items: center; gap: .4rem;
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: .35rem .6rem; }
+  /* Narrow phones: row 1 = logo + buttons, row 2 = full-width search — every tool visible */
+  @media (max-width: 619px) {
+    .logo { flex: 1; }
+    .searchbox { order: 5; flex: 1 1 100%; }
+  }
+  .searchbox input { flex: 1; background: none; border: none; outline: none;
+    color: var(--txt); font-size: .9rem; font-family: inherit; min-width: 0; }
+  .iconbtn { background: var(--card); border: 1px solid var(--line); color: var(--txt);
+    border-radius: 10px; padding: .35rem .6rem; font-size: 1rem; cursor: pointer; flex: none; }
+  .iconbtn.on { border-color: var(--gold); color: var(--gold); }
+  .iconbtn:disabled { opacity: .45; }
+
+  main { max-width: 860px; margin: 0 auto; padding: .8rem; }
+
+  /* ---------- home ---------- */
+  .chips { display: flex; gap: .45rem; overflow-x: auto; padding: .2rem 0 .8rem; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: none; background: var(--card); border: 1px solid var(--line); color: var(--dim);
+    border-radius: 999px; padding: .35rem .85rem; font-size: .82rem; cursor: pointer; font-family: inherit; }
+  .chip.on { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; border-color: transparent; font-weight: 700; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(155px, 100%), 1fr)); gap: .6rem; }
+  .src { background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: .7rem .7rem .6rem; cursor: pointer; display: flex; flex-direction: column; gap: .45rem;
+    min-width: 0;
+    transition: transform .12s ease, border-color .12s ease; }
+  .src:active { transform: scale(.97); }
+  .src-top { display: flex; align-items: center; gap: .5rem; }
+  .fav-ic { width: 34px; height: 34px; border-radius: 9px; flex: none; display: flex;
+    align-items: center; justify-content: center; font-weight: 900; font-size: .95rem;
+    color: #fff; overflow: hidden; background: linear-gradient(135deg, #4338ca, #7c3aed); }
+  .fav-ic img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
+  .src-name { font-weight: 800; font-size: .9rem; line-height: 1.2; flex: 1; min-width: 0;
+    overflow-wrap: anywhere; }
+  .star { background: none; border: none; font-size: 1.05rem; cursor: pointer; color: #48507a; padding: 0 .1rem; }
+  .star.on { color: var(--gold); }
+  .src-desc { font-size: .72rem; color: var(--dim); line-height: 1.35; min-height: 1.9em; }
+  .src-foot { display: flex; align-items: center; justify-content: space-between; gap: .4rem; }
+  .badge { font-size: .62rem; background: rgba(245,196,81,.12); color: var(--gold);
+    border: 1px solid rgba(245,196,81,.3); border-radius: 999px; padding: .1rem .45rem; }
+  .openlink { background: none; border: none; color: var(--dim); font-size: .85rem; cursor: pointer; padding: .1rem; }
+
+  .urlpaste { display: flex; gap: .45rem; margin-bottom: .8rem; }
+  .urlpaste input { flex: 1; background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: .5rem .7rem; color: var(--txt); font-size: .82rem;
+    outline: none; font-family: inherit; min-width: 0; direction: ltr; text-align: left; }
+  .urlpaste button { flex: none; }
+  .hint { font-size: .72rem; color: var(--dim); text-align: center; margin: .9rem 0 .4rem; line-height: 1.6; }
+
+  /* ---------- source / article view ---------- */
+  .viewer-head { display: flex; align-items: center; gap: .5rem; margin-bottom: .6rem; flex-wrap: wrap; }
+  .viewer-title { flex: 1; font-weight: 800; font-size: .95rem; min-width: 0;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tools { display: flex; gap: .4rem; flex: 1 1 100%; }
+  .tools .tool { flex: 1 1 0; text-align: center; }
+  .tool { background: var(--card); border: 1px solid var(--line); color: var(--txt);
+    border-radius: 10px; padding: .35rem .6rem; font-size: .82rem; cursor: pointer; font-family: inherit; }
+  .tool.on { border-color: var(--gold); color: var(--gold); }
+
+  .doc { background: var(--card2); border: 1px solid var(--line); border-radius: 16px; padding: .9rem;
+    min-width: 0; overflow-wrap: break-word;
+    direction: ltr; text-align: left; /* content is French regardless of UI language */ }
+  .doc h1, .doc h2, .doc h3 { margin: .6rem 0 .35rem; line-height: 1.35; }
+  .doc h1 { font-size: 1.15rem; } .doc h2 { font-size: 1.02rem; } .doc h3 { font-size: .92rem; color: #c4b5fd; }
+  .doc p { margin: .45rem 0; font-size: .95rem; line-height: 1.8; }
+  .doc .lead-list { display: flex; flex-direction: column; gap: .4rem; }
+  .alink { display: block; background: rgba(139,92,246,.08); border: 1px solid var(--line);
+    border-radius: 12px; padding: .5rem .65rem; color: var(--txt); font-size: .88rem;
+    line-height: 1.5; cursor: pointer; text-decoration: none; }
+  .alink:hover { border-color: var(--accent); }
+  .alink small { display: block; color: var(--dim); font-size: .68rem; direction: ltr; text-align: left;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .alink .a-desc { color: #b9c0e0; font-size: .76rem; white-space: normal; line-height: 1.5; margin: .15rem 0; }
+  .phr { display: flex; align-items: flex-start; gap: .3rem; }
+  .phr .phr-t { flex: 1; }
+  .phr-i { flex: none; background: var(--card); border: 1px solid var(--line); color: var(--accent2);
+    border-radius: 8px; font-size: .7rem; padding: .15rem .45rem; cursor: pointer; margin-top: .25rem;
+    font-family: inherit; line-height: 1.4; }
+  .phr-i:active { background: var(--accent); color: #fff; }
+  .tr-fr { direction: ltr; text-align: left; font-size: .92rem; line-height: 1.7; margin-bottom: .7rem;
+    background: rgba(139,92,246,.08); border: 1px solid var(--line); border-radius: 12px; padding: .6rem .8rem; }
+  .tr-box { border: 1px solid var(--line); border-radius: 12px; padding: .55rem .8rem; font-size: .9rem;
+    line-height: 1.8; margin-bottom: .7rem; background: var(--card); min-height: 1.6rem; }
+  .tr-box.ar { direction: rtl; text-align: right; }
+  .tr-box.en { direction: ltr; text-align: left; }
+  .doc img.art { max-width: 100%; border-radius: 12px; margin: .4rem 0; }
+  .doc .meta { font-size: .72rem; color: var(--dim); }
+
+  .w { cursor: pointer; border-radius: 4px; padding: 0 .5px; }
+  .w:hover { background: rgba(139,92,246,.28); }
+  .w.speak { background: var(--accent); color: #fff; }
+  .w.looping { background: var(--gold); color: #1a1405; }
+
+  .para.reading { background: rgba(139,92,246,.10); border-radius: 10px; }
+
+  /* ---------- loader / states ---------- */
+  .loader { text-align: center; padding: 3rem 1rem; color: var(--dim); }
+  .spinner { width: 42px; height: 42px; margin: 0 auto .8rem; border: 4px solid rgba(139,92,246,.2);
+    border-top-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .err { background: rgba(248,113,113,.1); border: 1px solid rgba(248,113,113,.35); color: #fca5a5;
+    border-radius: 14px; padding: .8rem; margin: .8rem 0; font-size: .85rem; text-align: center; }
+
+  /* ---------- toast ---------- */
+  #toast { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+    background: #1a1f3d; border: 1px solid var(--line); color: var(--txt);
+    border-radius: 12px; padding: .55rem 1rem; font-size: .82rem; z-index: 5000;
+    opacity: 0; pointer-events: none; transition: opacity .25s; max-width: 90vw; text-align: center; }
+  #toast.show { opacity: 1; }
+
+  /* ---------- menu & dialogs ---------- */
+  .overlay { position: fixed; inset: 0; background: rgba(3,6,18,.66); backdrop-filter: blur(4px);
+    z-index: 4000; display: flex; align-items: flex-end; justify-content: center; }
+  .sheet { width: 100%; max-width: 480px; background: var(--card2);
+    border: 1px solid var(--line); border-bottom: none; border-radius: 20px 20px 0 0;
+    padding: 1rem 1.1rem 1.5rem; max-height: 80vh; overflow-y: auto; }
+  .sheet h3 { margin: 0 0 .8rem; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; }
+  .sheet h3 button { background: none; border: none; color: var(--dim); font-size: 1.2rem; cursor: pointer; }
+  .mrow { display: flex; align-items: center; gap: .7rem; width: 100%; background: rgba(139,92,246,.07);
+    border: 1px solid var(--line); border-radius: 14px; padding: .75rem .9rem; margin-bottom: .55rem;
+    color: var(--txt); font-size: .9rem; cursor: pointer; font-family: inherit; text-align: start; }
+  .mrow:active { background: rgba(139,92,246,.16); }
+  .mrow .mi { font-size: 1.1rem; width: 1.6rem; text-align: center; flex: none; }
+  .langs { display: flex; gap: .5rem; margin-bottom: .7rem; }
+  .langb { flex: 1; background: var(--card); border: 1px solid var(--line); color: var(--txt);
+    border-radius: 12px; padding: .55rem; font-size: .85rem; cursor: pointer; font-family: inherit; }
+  .langb.on { background: linear-gradient(135deg, var(--accent), var(--accent2)); border-color: transparent; font-weight: 700; }
+
+  .dlg { width: 100%; max-width: 340px; background: var(--card2); border: 1px solid var(--line);
+    border-radius: 18px; padding: 1.2rem; text-align: center; margin: auto 1rem; }
+  .dlg p { font-size: .95rem; margin: 0 0 1rem; }
+  .dlg .row { display: flex; gap: .6rem; }
+  .dlg button { flex: 1; border: 1px solid var(--line); border-radius: 12px; padding: .6rem;
+    font-size: .9rem; cursor: pointer; font-family: inherit; background: var(--card); color: var(--txt); }
+  .dlg button.yes { background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none; color: #fff; font-weight: 700; }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<header>
+  <div class="topbar">
+    <div class="logo"><img src="./icon-presse-192.png" alt="" onerror="this.style.display='none'"><span data-i="appname">Presse</span></div>
+    <div class="searchbox">
+      <span>🔍</span>
+      <input id="search" data-i-ph="searchPh" placeholder="ابحث عن جريدة…" autocomplete="off">
+    </div>
+    <button class="iconbtn" id="stopBtn" title="⏹">⏹</button>
+    <button class="iconbtn" id="menuBtn" title="⋮">⋮</button>
+  </div>
+</header>
+
+<main>
+  <!-- HOME -->
+  <section id="view-home">
+    <div class="urlpaste">
+      <input id="urlInput" data-i-ph="urlPh" placeholder="https://… الصق رابط مقال" inputmode="url">
+      <button class="iconbtn" id="urlGo" data-i="openBtn">افتح</button>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="grid" id="grid"></div>
+    <div class="hint" id="gestureHint"></div>
+  </section>
+
+  <!-- SOURCE / ARTICLE -->
+  <section id="view-doc" class="hidden">
+    <div class="viewer-head">
+      <button class="tool" id="backBtn">‹</button>
+      <div class="viewer-title" id="docTitle"></div>
+      <div class="tools">
+        <button class="tool hidden" id="readAllBtn">▶ <span data-i="readAll">اقرأ</span></button>
+        <button class="tool" id="loopBtn" title="loop">🔁</button>
+        <button class="tool" id="reloadBtn">↻</button>
+        <button class="tool" id="extBtn">🌐</button>
+      </div>
+    </div>
+    <div id="docErr" class="err hidden"></div>
+    <div id="docBody" class="doc"></div>
+  </section>
+
+  <div id="loading" class="loader hidden">
+    <div class="spinner"></div>
+    <div data-i="loading">جاري التحميل…</div>
+    <div style="margin-top:.8rem"><button class="tool" id="cancelLoad" data-i="cancel">إلغاء</button></div>
+  </div>
+</main>
+
+<div id="toast"></div>
+<div id="overlayRoot"></div>
+
+<script src="./js/edge-tts.js"></script>
+<script>
+(function () {
+'use strict';
+
+/* ================= i18n ================= */
+var I18N = {
+  ar: {
+    appname: 'Presse — الجرائد الفرنسية', searchPh: 'ابحث عن جريدة أو مجلة…',
+    urlPh: 'الصق رابط مقال — أو اكتب كلمة/عبارة للبحث السريع في Google AI…', openBtn: 'افتح',
+    readAll: 'اقرأ المقال', loading: 'جاري التحميل…', cancel: 'إلغاء',
+    back: 'رجوع', ext: 'افتح في المتصفح', reload: 'تحديث',
+    menu: 'القائمة', ttsSettings: 'إعدادات النطق 🎙', langTitle: 'لغة الواجهة',
+    exportFav: 'تصدير المفضلة', importFav: 'استيراد المفضلة',
+    exitTitle: 'هل تريد الخروج من التطبيق؟', yes: 'نعم، اخرج', no: 'إلغاء',
+    errLoad: 'تعذّر تحميل الصفحة. جرّب التحديث أو افتحها في المتصفح الخارجي.',
+    errUrl: 'رابط غير صالح', copied: 'تم', favExported: 'تم تصدير المفضلة', favImported: 'تم استيراد المفضلة',
+    noFavs: 'لا مفضلات بعد',
+    gesture: 'نقرة على الكلمة = نطقها · نقرتان = بحث صور Google · 🔁 = تكرار الكلمة · 🔍 بجانب العبارة = الترجمة · ضغطة مطوّلة عليه = بحث سريع Google AI',
+    readAllStop: 'إيقاف القراءة', loopOn: 'وضع التكرار: انقر كلمة لتكرارها', loopOff: 'أُطفئ التكرار',
+    favs: 'المفضلة', all: 'الكل', partialTag: 'أجزاء مجانية',
+    phrase: 'العبارة', toAr: 'العربية', toEn: 'English', speakPh: 'نطق',
+    gsearch: 'بحث Google AI', trFail: 'تعذّرت الترجمة',
+    cats: {
+      daily: 'جرائد يومية', regions: 'جرائد جهوية',
+      mags: 'مجلات', women: 'نسائية ومشاهير', sport: 'رياضة',
+      tech: 'تكنولوجيا', eco: 'اقتصاد', life: 'طبخ وصحة'
+    }
+  },
+  fr: {
+    appname: 'Presse — Journaux français', searchPh: 'Chercher un journal ou magazine…',
+    urlPh: 'Lien d’article — ou tapez une recherche Google AI rapide…', openBtn: 'Ouvrir',
+    readAll: 'Lire l’article', loading: 'Chargement…', cancel: 'Annuler',
+    back: 'Retour', ext: 'Ouvrir dans le navigateur', reload: 'Recharger',
+    menu: 'Menu', ttsSettings: 'Réglages de la voix 🎙', langTitle: 'Langue de l’interface',
+    exportFav: 'Exporter les favoris', importFav: 'Importer les favoris',
+    exitTitle: 'Quitter l’application ?', yes: 'Oui, quitter', no: 'Annuler',
+    errLoad: 'Impossible de charger la page. Réessayez ou ouvrez-la dans le navigateur.',
+    errUrl: 'Lien invalide', copied: 'OK', favExported: 'Favoris exportés', favImported: 'Favoris importés',
+    noFavs: 'Pas encore de favoris',
+    gesture: '1 clic = prononcer · 2 clics = Google Images · 🔁 = répéter · 🔍 = traduction · appui long = recherche Google AI rapide',
+    readAllStop: 'Arrêter la lecture', loopOn: 'Mode boucle : touchez un mot pour le répéter', loopOff: 'Boucle arrêtée',
+    favs: 'Favoris', all: 'Tous', partialTag: 'partiellement gratuit',
+    phrase: 'Phrase', toAr: 'Arabe', toEn: 'Anglais', speakPh: 'Lire',
+    gsearch: 'Recherche Google AI', trFail: 'Traduction impossible',
+    cats: {
+      daily: 'Quotidiens', regions: 'Presse régionale',
+      mags: 'Magazines', women: 'Féminin & people', sport: 'Sport',
+      tech: 'Tech', eco: 'Économie', life: 'Cuisine & santé'
+    }
+  },
+  en: {
+    appname: 'Presse — French newspapers', searchPh: 'Search a newspaper or magazine…',
+    urlPh: 'Paste an article link — or type for a quick Google AI search…', openBtn: 'Open',
+    readAll: 'Read article', loading: 'Loading…', cancel: 'Cancel',
+    back: 'Back', ext: 'Open in browser', reload: 'Reload',
+    menu: 'Menu', ttsSettings: 'Speech settings 🎙', langTitle: 'Interface language',
+    exportFav: 'Export favorites', importFav: 'Import favorites',
+    exitTitle: 'Exit the app?', yes: 'Yes, exit', no: 'Cancel',
+    errLoad: 'Could not load the page. Retry or open it in the browser.',
+    errUrl: 'Invalid link', copied: 'Done', favExported: 'Favorites exported', favImported: 'Favorites imported',
+    noFavs: 'No favorites yet',
+    gesture: '1 tap = pronounce · 2 taps = Google Images · 🔁 = loop · 🔍 = translation · long-press = quick Google AI search',
+    readAllStop: 'Stop reading', loopOn: 'Loop mode: tap a word to repeat it', loopOff: 'Loop off',
+    favs: 'Favorites', all: 'All', partialTag: 'partially free',
+    phrase: 'Phrase', toAr: 'Arabic', toEn: 'English', speakPh: 'Speak',
+    gsearch: 'Google AI search', trFail: 'Translation failed',
+    cats: {
+      daily: 'Daily papers', regions: 'Regional press',
+      mags: 'Magazines', women: 'Women & celebs', sport: 'Sport',
+      tech: 'Tech', eco: 'Business', life: 'Cooking & health'
+    }
+  }
+};
+function T() { return I18N[uiLang()] || I18N.ar; }
+function uiLang() { return localStorage.getItem('presse_lang') || 'ar'; }
+function setUiLang(l) {
+  try { localStorage.setItem('presse_lang', l); } catch (e) {}
+  document.documentElement.lang = l;
+  document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+  applyI18n(); renderChips(); renderGrid();
+}
+function applyI18n() {
+  var t = T();
+  document.title = t.appname;
+  document.querySelectorAll('[data-i]').forEach(function (el) {
+    var k = el.getAttribute('data-i'); if (t[k]) el.textContent = t[k];
+  });
+  document.querySelectorAll('[data-i-ph]').forEach(function (el) {
+    var k = el.getAttribute('data-i-ph'); if (t[k]) el.placeholder = t[k];
+  });
+  document.getElementById('gestureHint').textContent = '💡 ' + t.gesture;
+}
+
+/* ================= catalog ================= */
+var CATS = ['daily', 'regions', 'mags', 'women', 'sport', 'tech', 'eco', 'life'];
+var SOURCES = [
+  { id: '20min',      name: '20 Minutes',            cat: 'daily',   url: 'https://www.20minutes.fr',      rss: 'https://www.20minutes.fr/feeds/rss-une.xml', d: { fr: 'Quotidien national 100% gratuit', ar: 'جريدة وطنية مجانية بالكامل', en: 'Free national daily' } },
+  { id: 'ouest',      name: 'Ouest-France',          cat: 'regions', url: 'https://www.ouest-france.fr',   rss: 'https://www.ouest-france.fr/rss/une', d: { fr: 'Grand quotidien régional', ar: 'أكبر جريدة جهوية', en: 'Major regional daily' } },
+  { id: 'parisien',   name: 'Le Parisien',           cat: 'daily',   url: 'https://www.leparisien.fr',     rss: 'https://feeds.leparisien.fr/leparisien/rss', d: { fr: 'Actualités Paris & national', ar: 'أخبار باريس وفرنسا', en: 'Paris & national news' }, partial: true },
+  { id: 'vdn',        name: 'La Voix du Nord',       cat: 'regions', url: 'https://www.lavoixdunord.fr',   d: { fr: 'Nord / Pas-de-Calais', ar: 'شمال فرنسا', en: 'Northern France' }, partial: true },
+  { id: 'sudouest',   name: 'Sud Ouest',             cat: 'regions', url: 'https://www.sudouest.fr',       d: { fr: 'Bordeaux & sud-ouest', ar: 'بوردو والجنوب الغربي', en: 'Southwest France' }, partial: true },
+  { id: 'midilibre',  name: 'Midi Libre',            cat: 'regions', url: 'https://www.midilibre.fr',      d: { fr: 'Montpellier & Occitanie', ar: 'مونبلييه وأوكسيتاني', en: 'Occitanie region' }, partial: true },
+  { id: 'montagne',   name: 'La Montagne',           cat: 'regions', url: 'https://www.lamontagne.fr',     d: { fr: 'Clermont-Ferrand & Auvergne', ar: 'أوفيرني', en: 'Auvergne' }, partial: true },
+  { id: 'dna',        name: 'DNA',                   cat: 'regions', url: 'https://www.dna.fr',            rss: 'https://www.dna.fr/rss', d: { fr: 'Alsace', ar: 'الألزاس', en: 'Alsace' }, partial: true },
+  { id: 'nicematin',  name: 'Nice-Matin',            cat: 'regions', url: 'https://www.nicematin.com',     rss: 'https://www.nicematin.com/rss', d: { fr: 'Côte d’Azur', ar: 'الريفييرا', en: 'French Riviera' }, partial: true },
+  { id: 'provence',   name: 'La Provence',           cat: 'regions', url: 'https://www.laprovence.com',    d: { fr: 'Marseille & Provence', ar: 'مارسيليا وبروفانس', en: 'Provence' }, partial: true },
+  { id: 'libe',       name: 'Libération',            cat: 'daily',   url: 'https://www.liberation.fr',     rss: 'https://www.liberation.fr/arc/outboundfeeds/rss-all/', d: { fr: 'Quotidien national', ar: 'جريدة وطنية', en: 'National daily' }, partial: true },
+  { id: 'figaro',     name: 'Le Figaro',             cat: 'daily',   url: 'https://www.lefigaro.fr',       rss: 'https://www.lefigaro.fr/rss/figaro_actualites.xml', d: { fr: 'Quotidien national', ar: 'جريدة وطنية', en: 'National daily' }, partial: true },
+  { id: 'humanite',   name: 'L’Humanité',            cat: 'daily',   url: 'https://www.humanite.fr',       rss: 'https://www.humanite.fr/feed', d: { fr: 'Quotidien national', ar: 'جريدة وطنية', en: 'National daily' }, partial: true },
+  { id: 'jdd',        name: 'Le JDD',                cat: 'daily',   url: 'https://www.lejdd.fr',          d: { fr: 'Journal du dimanche', ar: 'جريدة الأحد', en: 'Sunday paper' }, partial: true },
+  { id: 'parismatch', name: 'Paris Match',           cat: 'mags',    url: 'https://www.parismatch.com',    rss: 'https://www.parismatch.com/rss.xml', d: { fr: 'Magazine d’actualité & people', ar: 'مجلة أخبار ومشاهير', en: 'News & celebrity magazine' } },
+  { id: 'point',      name: 'Le Point',              cat: 'mags',    url: 'https://www.lepoint.fr',        d: { fr: 'Hebdomadaire d’actualité', ar: 'مجلة أسبوعية', en: 'Weekly newsmagazine' }, partial: true },
+  { id: 'express',    name: 'L’Express',             cat: 'mags',    url: 'https://www.lexpress.fr',       rss: 'https://www.lexpress.fr/rss/alaune.xml', d: { fr: 'Hebdomadaire d’actualité', ar: 'مجلة أسبوعية', en: 'Weekly newsmagazine' }, partial: true },
+  { id: 'obs',        name: 'L’Obs',                 cat: 'mags',    url: 'https://www.nouvelobs.com',     rss: 'https://www.nouvelobs.com/rss.xml', d: { fr: 'Hebdomadaire d’actualité', ar: 'مجلة أسبوعية', en: 'Weekly newsmagazine' }, partial: true },
+  { id: 'marianne',   name: 'Marianne',              cat: 'mags',    url: 'https://www.marianne.net',      d: { fr: 'Hebdomadaire politique', ar: 'مجلة سياسية أسبوعية', en: 'Political weekly' }, partial: true },
+  { id: 'courrier',   name: 'Courrier international',cat: 'mags',    url: 'https://www.courrierinternational.com', rss: 'https://www.courrierinternational.com/feed/all/rss.xml', d: { fr: 'Presse mondiale traduite', ar: 'صحافة عالمية مترجمة', en: 'World press in French' }, partial: true },
+  { id: 'elle',       name: 'Elle',                  cat: 'women',   url: 'https://www.elle.fr',           d: { fr: 'Mode, beauté, société', ar: 'موضة وجمال ومجتمع', en: 'Fashion, beauty, society' } },
+  { id: 'marieclaire',name: 'Marie Claire',          cat: 'women',   url: 'https://www.marieclaire.fr',    d: { fr: 'Mode & société', ar: 'موضة ومجتمع', en: 'Fashion & society' } },
+  { id: 'femmeact',   name: 'Femme Actuelle',        cat: 'women',   url: 'https://www.femmeactuelle.fr',  d: { fr: 'Magazine féminin', ar: 'مجلة نسائية', en: 'Women’s magazine' } },
+  { id: 'jdf',        name: 'Journal des Femmes',    cat: 'women',   url: 'https://www.journaldesfemmes.fr', d: { fr: 'Santé, mode, cuisine', ar: 'صحة وموضة وطبخ', en: 'Health, fashion, cooking' } },
+  { id: 'cosmo',      name: 'Cosmopolitan',          cat: 'women',   url: 'https://www.cosmopolitan.fr',   d: { fr: 'Magazine jeunesse', ar: 'مجلة شبابية', en: 'Youth magazine' } },
+  { id: 'voici',      name: 'Voici',                 cat: 'women',   url: 'https://www.voici.fr',          d: { fr: 'People & célébrités', ar: 'أخبار المشاهير', en: 'Celebrity news' } },
+  { id: 'closer',     name: 'Closer',                cat: 'women',   url: 'https://www.closermag.fr',      rss: 'https://www.closermag.fr/feed/', d: { fr: 'People & royauté', ar: 'مشاهير وعائلات ملكية', en: 'Celebs & royalty' } },
+  { id: 'gala',       name: 'Gala',                  cat: 'women',   url: 'https://www.gala.fr',           d: { fr: 'People & style', ar: 'مشاهير وأناقة', en: 'Celebs & style' } },
+  { id: 'equipe',     name: 'L’Équipe',              cat: 'sport',   url: 'https://www.lequipe.fr',        rss: 'https://dwh.lequipe.fr/api/edito/rss?path=/', d: { fr: 'Quotidien du sport', ar: 'جريدة الرياضة', en: 'Sports daily' }, partial: true },
+  { id: 'footmerc',   name: 'Foot Mercato',          cat: 'sport',   url: 'https://www.footmercato.net',   d: { fr: 'Football & transferts', ar: 'كرة القدم والانتقالات', en: 'Football & transfers' } },
+  { id: 'maxifoot',   name: 'Maxifoot',              cat: 'sport',   url: 'https://www.maxifoot.fr',       d: { fr: 'Football en direct', ar: 'كرة القدم مباشرة', en: 'Live football' } },
+  { id: 'rmcsport',   name: 'RMC Sport',             cat: 'sport',   url: 'https://rmcsport.bfmtv.com',    d: { fr: 'Sport & radio', ar: 'رياضة وإذاعة', en: 'Sport & radio' }, partial: true },
+  { id: 'numerama',   name: 'Numerama',              cat: 'tech',    url: 'https://www.numerama.com',      rss: 'https://www.numerama.com/feed/', d: { fr: 'Tech & société numérique', ar: 'تقنية ومجتمع رقمي', en: 'Tech & digital society' } },
+  { id: '01net',      name: '01net',                 cat: 'tech',    url: 'https://www.01net.com',         d: { fr: 'High-tech & tests', ar: 'تقنية واختبارات', en: 'High-tech & reviews' } },
+  { id: 'pcitron',    name: 'Presse-citron',         cat: 'tech',    url: 'https://www.presse-citron.net', rss: 'https://www.presse-citron.net/feed/', d: { fr: 'Tech & startups', ar: 'تقنية وشركات ناشئة', en: 'Tech & startups' } },
+  { id: 'jdg',        name: 'Journal du Geek',       cat: 'tech',    url: 'https://www.journaldugeek.com', rss: 'https://www.journaldugeek.com/feed/', d: { fr: 'Geek & pop culture', ar: 'ثقافة الجيك', en: 'Geek culture' } },
+  { id: 'frandroid',  name: 'Frandroid',             cat: 'tech',    url: 'https://www.frandroid.com',     rss: 'https://www.frandroid.com/feed', d: { fr: 'Android & smartphones', ar: 'أندرويد وهواتف', en: 'Android & phones' } },
+  { id: 'lesnum',     name: 'Les Numériques',        cat: 'tech',    url: 'https://www.lesnumeriques.com', rss: 'https://www.lesnumeriques.com/rss.xml', d: { fr: 'Tests produits', ar: 'اختبارات المنتجات', en: 'Product reviews' }, partial: true },
+  { id: 'echos',      name: 'Les Échos',             cat: 'eco',     url: 'https://www.lesechos.fr',       d: { fr: 'Économie & finance', ar: 'اقتصاد ومال', en: 'Business & finance' }, partial: true },
+  { id: 'capital',    name: 'Capital',               cat: 'eco',     url: 'https://www.capital.fr',        d: { fr: 'Économie & management', ar: 'اقتصاد وإدارة', en: 'Economy & management' } },
+  { id: 'tribune',    name: 'La Tribune',            cat: 'eco',     url: 'https://www.latribune.fr',      d: { fr: 'Économie & entreprises', ar: 'اقتصاد وشركات', en: 'Economy & companies' }, partial: true },
+  { id: 'boursorama', name: 'Boursorama',            cat: 'eco',     url: 'https://www.boursorama.com',    d: { fr: 'Bourse & économie', ar: 'بورصة واقتصاد', en: 'Markets & economy' } },
+  { id: 'challenges', name: 'Challenges',            cat: 'eco',     url: 'https://www.challenges.fr',     rss: 'https://www.challenges.fr/rss.xml', d: { fr: 'Magazine économique', ar: 'مجلة اقتصادية', en: 'Business magazine' }, partial: true },
+  { id: 'marmiton',   name: 'Marmiton',              cat: 'life',    url: 'https://www.marmiton.org',      d: { fr: 'Recettes de cuisine', ar: 'وصفات طبخ', en: 'Recipes' } },
+  { id: '750g',       name: '750g',                  cat: 'life',    url: 'https://www.750g.com',          d: { fr: 'Recettes & cuisine', ar: 'وصفات وطبخ', en: 'Recipes & cooking' } },
+  { id: 'cuisineact', name: 'Cuisine Actuelle',      cat: 'life',    url: 'https://www.cuisineactuelle.fr',d: { fr: 'Cuisine & gastronomie', ar: 'طبخ ومذاق', en: 'Cooking & gastronomy' } },
+  { id: 'psante',     name: 'Passeport Santé',       cat: 'life',    url: 'https://www.passeportsante.net',d: { fr: 'Santé & bien-être', ar: 'صحة وعافية', en: 'Health & wellbeing' } },
+  { id: 'doctissimo', name: 'Doctissimo',            cat: 'life',    url: 'https://www.doctissimo.fr',     rss: 'https://www.doctissimo.fr/rss', d: { fr: 'Santé & médecine', ar: 'صحة وطب', en: 'Health & medicine' } }
+];
+
+/* ================= state ================= */
+var state = { view: 'home', source: null, url: null, pageTitle: '', list: false, loading: null };
+var favs = {};
+try { favs = JSON.parse(localStorage.getItem('presse_favs') || '{}'); } catch (e) { favs = {}; }
+function saveFavs() { try { localStorage.setItem('presse_favs', JSON.stringify(favs)); } catch (e) {} }
+
+var inCap = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+var loopMode = false;      // 🔁 word-loop mode
+var loopJob = null;        // {word, el, cancelled}
+var readAllJob = null;     // {cancelled}
+
+/* ================= helpers ================= */
+function el(tag, cls, txt) {
+  var e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (txt != null) e.textContent = txt;
+  return e;
+}
+function toast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tm); t._tm = setTimeout(function () { t.classList.remove('show'); }, 2600);
+}
+function stopAllSpeech() {
+  if (window.EdgeTTS) EdgeTTS.stop();
+  if (loopJob) loopJob.cancelled = true;
+  loopJob = null;
+  if (readAllJob) readAllJob.cancelled = true;
+  readAllJob = null;
+  document.querySelectorAll('.w.speak,.w.looping').forEach(function (w) { w.classList.remove('speak','looping'); });
+  document.querySelectorAll('.para.reading').forEach(function (p) { p.classList.remove('reading'); });
+  var b = document.getElementById('readAllBtn');
+  if (b) b.innerHTML = '▶ <span data-i="readAll">' + T().readAll + '</span>';
+}
+function speakOnce(word, wEl) {
+  if (!window.EdgeTTS) return;
+  document.querySelectorAll('.w.speak').forEach(function (w) { w.classList.remove('speak'); });
+  wEl.classList.add('speak');
+  EdgeTTS.play(word, 'fr').catch(function () { toast('TTS ✗'); })
+    .then(function () { wEl.classList.remove('speak'); });
+}
+function loopWord(word, wEl) {
+  if (loopJob && loopJob.el === wEl) {           // tapped the looping word again -> stop
+    loopJob.cancelled = true; loopJob = null;
+    wEl.classList.remove('looping'); return;
+  }
+  if (loopJob) { loopJob.cancelled = true; }
+  document.querySelectorAll('.w.looping').forEach(function (w) { w.classList.remove('looping'); });
+  var job = { word: word, el: wEl, cancelled: false };
+  loopJob = job;
+  wEl.classList.add('looping');
+  (function spin() {
+    if (job.cancelled) { wEl.classList.remove('looping'); return; }
+    EdgeTTS.play(word, 'fr').catch(function () {}).then(function () { spin(); });
+  })();
+}
+function openExternal(url) {
+  var B = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Browser;
+  if (B && B.open) { B.open({ url: url }); return; }
+  window.open(url, '_blank');
+}
+function openGoogleImages(word) {
+  openExternal('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(word));
+}
+// Google AI Mode search (quick path used by long-press on 🔍 and the search box)
+function gaiUrl(q) {
+  return 'https://www.google.com/search?q=' + encodeURIComponent(q) + '&udm=50&hl=' + uiLang();
+}
+
+/* ================= fetch ================= */
+function httpGet(url, signal) {
+  var CH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.CapacitorHttp;
+  if (inCap && CH && CH.get) {
+    return CH.get({ url: url, responseType: 'text', connectTimeout: 20000, readTimeout: 30000 })
+      .then(function (r) {
+        if (r.status >= 400) throw new Error('HTTP ' + r.status);
+        return typeof r.data === 'string' ? r.data : JSON.stringify(r.data);
+      });
+  }
+  return fetch(url, { signal: signal }).then(function (r) {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.text();
+  });
+}
+function jinaUrl(target) { return 'https://r.jina.ai/' + target; }
+function fetchReader(target, signal) {
+  // 1) Jina AI reader -> clean markdown text of the page
+  return httpGet(jinaUrl(target), signal).then(function (txt) {
+    if (!txt || txt.length < 40) throw new Error('empty');
+    return { text: txt, via: 'reader' };
+  });
+}
+
+/* ---------- RSS feeds ---------- */
+var FEED_UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36';
+function fetchFeed(url, signal) {
+  var CH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.CapacitorHttp;
+  if (inCap && CH && CH.get) {
+    return CH.get({
+      url: url, responseType: 'text',
+      headers: { 'user-agent': FEED_UA, 'accept': 'application/rss+xml, application/xml, text/xml, */*' },
+      connectTimeout: 15000, readTimeout: 20000
+    }).then(function (r) {
+      if (r.status >= 400) throw new Error('HTTP ' + r.status);
+      return typeof r.data === 'string' ? r.data : String(r.data);
+    });
+  }
+  // Web/PWA: feeds don't send CORS headers — try direct, then a public proxy
+  function sig(ms) {
+    var t = AbortSignal.timeout(ms);
+    return (signal && AbortSignal.any) ? AbortSignal.any([signal, t]) : t;
+  }
+  function gx(u) {
+    return fetch(u, { signal: sig(9000) }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.text();
+    });
+  }
+  return gx(url).catch(function () {
+    // CORS proxies, best effort (web/PWA only — Capacitor uses native HTTP)
+    return gx('https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(url)).catch(function () {
+      return gx('https://api.allorigins.win/raw?url=' + encodeURIComponent(url));
+    });
+  });
+}
+function stripHtml(s) {
+  if (!s) return '';
+  var d = new DOMParser().parseFromString(s, 'text/html');
+  return ((d.body && d.body.textContent) || '').replace(/\s+/g, ' ').trim();
+}
+function pickTag(elm, names) {
+  for (var i = 0; i < names.length; i++) {
+    var t = elm.getElementsByTagName(names[i])[0];
+    if (t && t.textContent.trim()) return t.textContent.trim();
+  }
+  var all = elm.getElementsByTagName('*');
+  for (i = 0; i < all.length; i++) {
+    if (names.indexOf(all[i].localName) >= 0 && all[i].textContent.trim()) return all[i].textContent.trim();
+  }
+  return '';
+}
+function parseFeed(xml) {
+  var d = new DOMParser().parseFromString(xml, 'text/xml');
+  if (d.getElementsByTagName('parsererror').length) throw new Error('bad feed');
+  var items = [];
+  var nodes = d.getElementsByTagName('item');
+  if (!nodes.length) nodes = d.getElementsByTagName('entry');
+  for (var i = 0; i < nodes.length && items.length < 60; i++) {
+    var it = nodes[i];
+    var title = stripHtml(pickTag(it, ['title']));
+    var link = '';
+    var links = it.getElementsByTagName('link');
+    for (var j = 0; j < links.length; j++) {
+      var cand = (links[j].getAttribute('href') || links[j].textContent || '').trim();
+      if (/^https?:\/\//.test(cand)) { link = cand; break; }
+    }
+    var desc = stripHtml(pickTag(it, ['description', 'summary', 'encoded', 'content'])).slice(0, 220);
+    var when = pickTag(it, ['pubDate', 'published', 'updated', 'date']);
+    if (title && link) items.push({ t: title, u: link, d: desc, when: when });
+  }
+  return items;
+}
+function relTime(s) {
+  var t = Date.parse(s);
+  if (isNaN(t)) return '';
+  var mins = Math.round((Date.now() - t) / 60000);
+  var l = uiLang();
+  if (mins < 1) return l === 'ar' ? 'الآن' : l === 'fr' ? 'à l’instant' : 'now';
+  if (mins < 60) return mins + (l === 'ar' ? ' د' : ' min');
+  var h = Math.round(mins / 60);
+  if (h < 24) return h + (l === 'ar' ? ' س' : ' h');
+  return new Date(t).toLocaleDateString(l === 'ar' ? 'ar' : l === 'fr' ? 'fr-FR' : 'en-GB', { day: 'numeric', month: 'short' });
+}
+function renderFeed(container, items) {
+  container.innerHTML = '';
+  var list = el('div', 'lead-list');
+  items.forEach(function (it) {
+    var a = el('a', 'alink');
+    a.dataset.url = it.u;
+    a.appendChild(el('div', null, it.t));
+    if (it.d) a.appendChild(el('small', 'a-desc', it.d));
+    a.appendChild(el('small', null, (it.when ? relTime(it.when) + ' · ' : '') + it.u));
+    list.appendChild(a);
+  });
+  container.appendChild(list);
+}
+
+/* ================= markdown-ish rendering ================= */
+var LINK_RE = /\[([^\]]*)\]\((https?:\/\/[^)\s]+)\)/g;
+
+function wordsHTML(text) {
+  // Wrap words (letters/digits incl. accents & apostrophes) in tappable spans.
+  var esc = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return esc.replace(/([\p{L}\p{N}][\p{L}\p{N}'’ʼ-]*[\p{L}\p{N}]|[\p{L}\p{N}])/gu, '<span class="w">$1</span>');
+}
+function renderInline(container, text) {
+  // text may contain [label](url) links; everything else becomes word spans.
+  var last = 0, m, frag = document.createDocumentFragment();
+  LINK_RE.lastIndex = 0;
+  while ((m = LINK_RE.exec(text))) {
+    if (m.index > last) {
+      var sp = el('span');
+      sp.innerHTML = wordsHTML(text.slice(last, m.index));
+      frag.appendChild(sp);
+    }
+    if (/^image\b/i.test((m[1] || '').trim().replace(/^[\s![]+/, ''))) {
+      // [Image N: caption](img-url) -> real image, not a noisy link
+      var im2 = el('img', 'art');
+      im2.src = m[2]; im2.loading = 'lazy';
+      im2.onerror = function () { im2.remove(); };
+      frag.appendChild(im2);
+    } else {
+      var a = el('a', 'w', m[1] || m[2]);
+      a.href = m[2];
+      a.classList.add('inlink');
+      a.style.color = '#c4b5fd'; a.style.textDecoration = 'underline';
+      a.dataset.url = m[2];
+      frag.appendChild(a);
+    }
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) {
+    var sp2 = el('span');
+    sp2.innerHTML = wordsHTML(text.slice(last));
+    frag.appendChild(sp2);
+  }
+  container.appendChild(frag);
+}
+/* ---------- phrase organization: sentences as rows, each with a 🔍 action icon ---------- */
+var PHRASE_RE = /[^.!?…]+[.!?…]+["'’»)\u0002\]]*\s*|[^.!?…]+\s*/g;
+function splitPhrases(txt) {
+  // Shield [label](url) links from the sentence splitter (URLs contain dots)
+  var links = [];
+  var safe = txt.replace(LINK_RE, function (m) { links.push(m); return '\u0001' + (links.length - 1) + '\u0002'; });
+  var parts = safe.match(PHRASE_RE) || [safe];
+  return parts.map(function (s) {
+    return s.replace(/\u0001(\d+)\u0002/g, function (m, i) { return links[+i]; }).trim();
+  }).filter(function (s) { return s.length > 1; });
+}
+function plainText(md) {
+  return md.replace(LINK_RE, '$1').replace(/\*\*|__|`/g, '').replace(/\s+/g, ' ').trim();
+}
+function phraseRow(phRaw) {
+  var row = el('div', 'para phr');
+  var tx = el('span', 'phr-t');
+  renderInline(tx, phRaw);
+  row.appendChild(tx);
+  var b = el('button', 'phr-i', '🔍');
+  b.dataset.t = plainText(phRaw);
+  row.appendChild(b);
+  return row;
+}
+
+function renderDoc(container, md, forArticle) {
+  container.innerHTML = '';
+  var lines = md.split('\n');
+  var buf = [];
+  function flushPara() {
+    if (!buf.length) return;
+    var txt = buf.join(' ').replace(/\s+/g, ' ').replace(/\*\*|__|`/g, '').trim();
+    buf = [];
+    if (!txt) return;
+    splitPhrases(txt).forEach(function (ph) { container.appendChild(phraseRow(ph)); });
+  }
+  var listEl = null;
+  var cardsArr = [];               // headline cards collected for the top of a source page
+  function flushList() { listEl = null; }
+
+  lines.forEach(function (raw) {
+    var line = raw.trim();
+    if (!line || /^[-=*_]{3,}$/.test(line)) { flushPara(); flushList(); return; }
+
+    var img = /^!\[[^\]]*\]\((https?:\/\/[^)\s]+)\)/.exec(line);
+    if (img) {
+      flushPara(); flushList();
+      var im = el('img', 'art');
+      im.src = img[1]; im.loading = 'lazy';
+      im.onerror = function () { im.remove(); };
+      container.appendChild(im); return;
+    }
+    var h = /^(#{1,4})\s+(.*)/.exec(line);
+    if (h) {
+      flushPara(); flushList();
+      // `### [headline](url)` on a source page is a real headline -> card
+      var hsingle = /^\[([^\]]{4,})\]\((https?:\/\/[^)\s]+)\)$/.exec(h[2].trim());
+      if (hsingle && !forArticle && hsingle[1].trim().length >= 22) {
+        var dup2 = cardsArr.some(function (x) { return x.u === hsingle[2]; });
+        if (!dup2) cardsArr.push({ t: hsingle[1], u: hsingle[2] });
+        return;
+      }
+      var lvl = Math.min(h[1].length, 3);
+      var he = el('h' + lvl);
+      renderInline(he, h[2]);
+      container.appendChild(he); return;
+    }
+    // Skip site boilerplate: save/comment widgets and comment-count links
+    if (/sauvegarder\s+l['’]article/i.test(line) || /#.*comments/i.test(line) ||
+        /^\*?\s*commenter\s*$/i.test(line) || /\[.*\]\([^)]*#comments[^)]*\)/i.test(line)) {
+      flushPara(); flushList(); return;
+    }
+    // A line that is mostly a single link -> headline card (long labels only,
+    // short ones like nav/section names fall through to paragraph text)
+    var lm = /^\s*[-*•]?\s*\[([^\]]{4,})\]\((https?:\/\/[^)\s]+)\)\s*$/.exec(line);
+    if (lm && !forArticle && lm[1].trim().length >= 22) {
+      // Collect headline cards — they are pinned to the top of the page after
+      // parsing so nav text doesn't bury them mid-document.
+      var dup = cardsArr.some(function (x) { return x.u === lm[2]; });
+      if (!dup) cardsArr.push({ t: lm[1], u: lm[2] });
+      return;
+    }
+    var bullet = /^[-*•]\s+(.*)/.exec(line);
+    if (bullet) {
+      flushPara();
+      splitPhrases(bullet[1].replace(/\*\*|__|`/g, '')).forEach(function (ph, i) {
+        var row = phraseRow((i === 0 ? '• ' : '') + ph);
+        row.style.paddingInlineStart = '1rem';
+        container.appendChild(row);
+      });
+      return;
+    }
+    // Jina header/meta lines
+    if (/^(Title|URL Source|Published Time|Markdown Content)\s*:/i.test(line)) {
+      flushPara(); flushList();
+      var meta = el('div', 'meta', line);
+      container.appendChild(meta); return;
+    }
+    buf.push(line);
+  });
+  flushPara(); flushList();
+  if (cardsArr.length) {
+    var top = el('div', 'lead-list');
+    cardsArr.forEach(function (c) {
+      var a = el('a', 'alink', c.t);
+      a.dataset.url = c.u;
+      a.appendChild(el('small', null, c.u));
+      top.appendChild(a);
+    });
+    // Pin the headlines right after the leading meta lines
+    var ref = container.firstChild;
+    while (ref && ref.className === 'meta') ref = ref.nextSibling;
+    container.insertBefore(top, ref);
+  }
+}
+
+/* ================= navigation ================= */
+var home = document.getElementById('view-home');
+var docv = document.getElementById('view-doc');
+var loadv = document.getElementById('loading');
+var abortCtl = null;
+var navStack = [];
+var feedTimer = null;
+function clearFeedSync() { if (feedTimer) { clearInterval(feedTimer); feedTimer = null; } }
+function startFeedSync(s) {
+  // Keep headlines fresh: silently re-pull the feed every 5 min while it's open
+  feedTimer = setInterval(function () {
+    if (state.view !== 'doc' || state.source !== s) { clearFeedSync(); return; }
+    fetchFeed(s.rss).then(function (xml) {
+      if (state.source !== s || state.view !== 'doc') return;
+      var items = parseFeed(xml);
+      if (items.length) renderFeed(document.getElementById('docBody'), items);
+    }).catch(function () {});
+  }, 300000);
+}
+
+function showDoc(title) {
+  clearFeedSync();
+  home.classList.add('hidden');
+  docv.classList.remove('hidden');
+  document.getElementById('docTitle').textContent = title;
+  document.getElementById('docErr').classList.add('hidden');
+  document.getElementById('readAllBtn').classList.add('hidden');
+  document.getElementById('docBody').innerHTML = '';
+  if (abortCtl) abortCtl.abort();
+  abortCtl = new AbortController();
+  showLoading(true);
+}
+function docError(e) {
+  showLoading(false);
+  var err = document.getElementById('docErr');
+  err.textContent = T().errLoad + ' (' + (e && e.message ? e.message : 'error') + ')';
+  err.classList.remove('hidden');
+}
+function titleFromMeta(text, fallback) {
+  var tm = /^Title:\s*(.+)$/im.exec(text);
+  var t = (tm ? tm[1].trim().slice(0, 90) : null) || fallback;
+  state.pageTitle = t;
+  document.getElementById('docTitle').textContent = t;
+}
+
+function showLoading(on) {
+  loadv.classList.toggle('hidden', !on);
+  home.classList.toggle('hidden', state.view !== 'home' || on);
+  docv.classList.toggle('hidden', state.view === 'home' || on);
+}
+function goHome() {
+  clearFeedSync();
+  stopAllSpeech();
+  state.view = 'home'; navStack = [];
+  docv.classList.add('hidden'); home.classList.remove('hidden'); loadv.classList.add('hidden');
+}
+// Article / arbitrary URL -> reader mode
+function openUrl(url, title, opts) {
+  opts = opts || {};
+  if (!/^https?:\/\//i.test(url)) { toast(T().errUrl); return; }
+  stopAllSpeech();
+  if (opts.pushNav !== false && state.view !== 'home') {
+    navStack.push({ url: state.url, title: state.pageTitle, list: state.list, source: state.source });
+  }
+  state.view = 'doc'; state.url = url; state.pageTitle = title || url;
+  state.list = false; state.source = null;
+  showDoc(state.pageTitle);
+  fetchReader(url, abortCtl.signal).then(function (res) {
+    showLoading(false);
+    titleFromMeta(res.text, state.pageTitle);
+    renderDoc(document.getElementById('docBody'), res.text, true);
+    document.getElementById('readAllBtn').classList.remove('hidden');
+  }).catch(docError);
+}
+
+// Source -> RSS headlines if available, else the reader view of its homepage
+function openSource(s, opts) {
+  opts = opts || {};
+  stopAllSpeech();
+  if (opts.pushNav !== false && state.view !== 'home') {
+    navStack.push({ url: state.url, title: state.pageTitle, list: state.list, source: state.source });
+  }
+  state.view = 'doc'; state.url = s.url; state.pageTitle = s.name;
+  state.list = true; state.source = s;
+  showDoc(s.name);
+  var done = false;
+  var fallback = function () {
+    fetchReader(s.url, abortCtl.signal).then(function (res) {
+      showLoading(false);
+      titleFromMeta(res.text, s.name);
+      renderDoc(document.getElementById('docBody'), res.text, false);
+      document.getElementById('readAllBtn').classList.remove('hidden');
+    }).catch(docError);
+  };
+  if (!s.rss) { fallback(); return; }
+  fetchFeed(s.rss, abortCtl.signal).then(function (xml) {
+    if (done) return;
+    var items = parseFeed(xml);
+    if (!items.length) throw new Error('empty feed');
+    done = true;
+    showLoading(false);
+    renderFeed(document.getElementById('docBody'), items);
+    startFeedSync(s);
+  }).catch(function () { if (!done) { done = true; fallback(); } });
+}
+function goBack() {
+  stopAllSpeech();
+  if (navStack.length) {
+    var prev = navStack.pop();
+    var keep = navStack.slice();
+    navStack = [];
+    if (prev.source) openSource(prev.source, { pushNav: false });
+    else openUrl(prev.url, prev.title, { pushNav: false, list: prev.list });
+    navStack = keep;
+    return;
+  }
+  goHome();
+}
+
+/* ================= home rendering ================= */
+var curCat = 'all';
+function renderChips() {
+  var t = T();
+  var c = document.getElementById('chips');
+  c.innerHTML = '';
+  [{ id: 'all', l: t.all }, { id: 'fav', l: '⭐ ' + t.favs }].concat(
+    CATS.map(function (k) { return { id: k, l: t.cats[k] }; })
+  ).forEach(function (o) {
+    var b = el('button', 'chip' + (curCat === o.id ? ' on' : ''), o.l);
+    b.onclick = function () { curCat = o.id; renderChips(); renderGrid(); };
+    c.appendChild(b);
+  });
+}
+function renderGrid() {
+  var g = document.getElementById('grid');
+  var t = T();
+  var q = (document.getElementById('search').value || '').toLowerCase().trim();
+  g.innerHTML = '';
+  SOURCES.forEach(function (s) {
+    if (curCat === 'fav' && !favs[s.id]) return;
+    if (curCat !== 'all' && curCat !== 'fav' && s.cat !== curCat) return;
+    var desc = s.d[uiLang()] || s.d.fr;
+    if (q && (s.name + ' ' + desc + ' ' + s.d.fr).toLowerCase().indexOf(q) < 0) return;
+
+    var card = el('div', 'src');
+    var top = el('div', 'src-top');
+    var ic = el('div', 'fav-ic', s.name[0]);
+    var host = s.url.replace(/^https?:\/\//, '').split('/')[0];
+    var img = new Image();
+    img.src = 'https://www.google.com/s2/favicons?domain=' + host + '&sz=64';
+    img.onerror = function () { img.remove(); };
+    ic.innerHTML = ''; ic.appendChild(img);
+    ic.onerror = null;
+    top.appendChild(ic);
+    top.appendChild(el('div', 'src-name', s.name));
+    var st = el('button', 'star' + (favs[s.id] ? ' on' : ''), '★');
+    st.onclick = function (e) {
+      e.stopPropagation();
+      if (favs[s.id]) delete favs[s.id]; else favs[s.id] = 1;
+      saveFavs(); renderGrid();
+    };
+    top.appendChild(st);
+    card.appendChild(top);
+    card.appendChild(el('div', 'src-desc', desc));
+    var foot = el('div', 'src-foot');
+    if (s.partial) foot.appendChild(el('span', 'badge', '🔓 ' + t.partialTag));
+    else foot.appendChild(el('span'));
+    var ext = el('button', 'openlink', '🌐');
+    ext.title = t.ext;
+    ext.onclick = function (e) { e.stopPropagation(); openExternal(s.url); };
+    foot.appendChild(ext);
+    card.appendChild(foot);
+    card.onclick = function () { openSource(s); };
+    g.appendChild(card);
+  });
+  if (!g.children.length) {
+    g.appendChild(el('div', 'hint', curCat === 'fav' ? T().noFavs : '—'));
+  }
+}
+
+/* ================= gestures on document ================= */
+var lastTap = { t: 0, el: null };
+var phrTimer = null;
+var lastQuickAI = 0;
+document.getElementById('docBody').addEventListener('pointerdown', function (e) {
+  var pb = e.target.closest('.phr-i');
+  if (!pb) return;
+  phrTimer = setTimeout(function () {
+    lastQuickAI = Date.now();                    // long-press 🔍 = quick Google AI search
+    openExternal(gaiUrl(pb.dataset.t || ''));
+  }, 550);
+});
+['pointerup', 'pointercancel', 'pointerleave'].forEach(function (ev) {
+  document.getElementById('docBody').addEventListener(ev, function () { clearTimeout(phrTimer); });
+});
+document.getElementById('docBody').addEventListener('click', function (e) {
+  var pb = e.target.closest('.phr-i');
+  if (pb) {
+    if (Date.now() - lastQuickAI < 900) return;  // the click that follows a long-press
+    openPhrase(pb.dataset.t || ''); return;      // tap 🔍 = translation sheet
+  }
+  var a = e.target.closest('a[data-url]');
+  if (a) {                             // link chip / headline -> open article
+    openUrl(a.dataset.url, a.textContent.trim() || a.dataset.url);
+    return;
+  }
+  var w = e.target.closest('.w');
+  if (!w) return;
+  var word = w.textContent.trim();
+  if (!word) return;
+  var now = Date.now();
+  var isDouble = lastTap.el === w && (now - lastTap.t) < 400;
+  lastTap = { t: now, el: w };
+  if (isDouble) { lastTap.t = 0; openGoogleImages(word); return; }
+  if (loopMode) { loopWord(word, w); return; }
+  speakOnce(word, w);
+});
+
+/* ---------- phrase translate + Google AI search ---------- */
+// Free translation: try several no-key providers in order until one answers
+function gTranslate(text, tl) {
+  var q = encodeURIComponent(text.slice(0, 900));
+  var gu = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&dt=t&tl=' + tl + '&q=' + q;
+  function gtxParse(raw) {           // [[["translated","src",...],...],...]
+    var j = JSON.parse(raw);
+    return j[0].map(function (s) { return s[0]; }).join('');
+  }
+  var tries = [
+    function () {                    // Google dict-chrome-ex endpoint
+      return httpGet('https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=auto&tl=' + tl + '&q=' + q)
+        .then(function (raw) {
+          var j = JSON.parse(raw);
+          var out = Array.isArray(j) ? j.join(' ') : '';
+          if (!out.trim()) throw new Error('empty');
+          return out;
+        });
+    },
+    function () {                    // Google gtx endpoint
+      return httpGet(gu).then(function (raw) {
+        var out = gtxParse(raw);
+        if (!out.trim()) throw new Error('empty');
+        return out;
+      });
+    },
+    function () {                    // MyMemory
+      return httpGet('https://api.mymemory.translated.net/get?q=' + q + '&langpair=auto|' + tl)
+        .then(function (raw) {
+          var j = JSON.parse(raw);
+          var out = j.responseData && j.responseData.translatedText || '';
+          if (!out.trim() || /MYMEMORY WARNING|QUOTA/i.test(out)) throw new Error('quota');
+          return out;
+        });
+    },
+    function () {                    // gtx through CORS proxy (web only)
+      return httpGet('https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(gu)).then(gtxParse);
+    }
+  ];
+  var i = 0;
+  function next() {
+    if (i >= tries.length) return Promise.reject(new Error('all providers failed'));
+    var p = tries[i++]();
+    // hard timeout — the CapacitorHttp path can't honor AbortSignal
+    return Promise.race([p, new Promise(function (ok, bad) {
+      setTimeout(function () { bad(new Error('timeout')); }, 12000);
+    })]).then(function (r) { return r; }, next);
+  }
+  return next();
+}
+function openPhrase(text) {
+  if (!text) return;
+  var t = T();
+  var sh = sheet();
+  var h = el('h3');
+  h.appendChild(el('span', null, '🔍 ' + t.phrase));
+  var x = el('button', null, '✕'); x.onclick = closeOv; h.appendChild(x);
+  sh.appendChild(h);
+  sh.appendChild(el('div', 'tr-fr', text));
+  var arBox = el('div', 'tr-box ar', '…');
+  var enBox = el('div', 'tr-box en', '…');
+  sh.appendChild(el('div', 'meta', t.toAr)); sh.appendChild(arBox);
+  sh.appendChild(el('div', 'meta', t.toEn)); sh.appendChild(enBox);
+  gTranslate(text, 'ar').then(function (r) { arBox.textContent = r; })
+    .catch(function () { arBox.textContent = t.trFail; });
+  gTranslate(text, 'en').then(function (r) { enBox.textContent = r; })
+    .catch(function () { enBox.textContent = t.trFail; });
+  var row = el('div', 'row');
+  row.style.cssText = 'display:flex;gap:.5rem;margin-top:.3rem';
+  var sp = el('button', 'tool', '▶ ' + t.speakPh);
+  sp.onclick = function () { if (window.EdgeTTS) EdgeTTS.play(text.slice(0, 900), 'fr'); };
+  var g = el('button', 'tool', '🔍 ' + t.gsearch);
+  g.onclick = function () { openExternal(gaiUrl(text)); };
+  row.appendChild(sp); row.appendChild(g);
+  sh.appendChild(row);
+}
+
+/* ================= read-all ================= */
+function toggleReadAll() {
+  var btn = document.getElementById('readAllBtn');
+  if (readAllJob) { readAllJob.cancelled = true; readAllJob = null; stopAllSpeech(); return; }
+  var paras = Array.prototype.slice.call(document.querySelectorAll('#docBody .para'));
+  if (!paras.length) return;
+  var job = { cancelled: false };
+  readAllJob = job;
+  btn.innerHTML = '⏹ <span>' + T().readAllStop + '</span>';
+  var i = 0;
+  (function next() {
+    if (job.cancelled || i >= paras.length) {
+      readAllJob = null;
+      paras.forEach(function (p) { p.classList.remove('reading'); });
+      btn.innerHTML = '▶ <span>' + T().readAll + '</span>';
+      return;
+    }
+    var p = paras[i++];
+    var txt = p.textContent.trim();
+    if (txt.length < 3) { next(); return; }
+    paras.forEach(function (x) { x.classList.remove('reading'); });
+    p.classList.add('reading');
+    p.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    EdgeTTS.play(txt.slice(0, 900), 'fr').catch(function () { job.cancelled = true; })
+      .then(function () { p.classList.remove('reading'); next(); });
+  })();
+}
+
+/* ================= menu / dialogs ================= */
+var ovRoot = document.getElementById('overlayRoot');
+function closeOv() { ovRoot.innerHTML = ''; }
+function sheet(html) {
+  var ov = el('div', 'overlay');
+  var sh = el('div', 'sheet');
+  ov.appendChild(sh);
+  ov.onclick = function (e) { if (e.target === ov) closeOv(); };
+  ovRoot.innerHTML = ''; ovRoot.appendChild(ov);
+  return sh;
+}
+function openMenu() {
+  var t = T();
+  var sh = sheet();
+  sh.appendChild(el('h3', null, ''));
+  var h = sh.querySelector('h3');
+  h.appendChild(el('span', null, t.menu));
+  var x = el('button', null, '✕'); x.onclick = closeOv; h.appendChild(x);
+
+  sh.appendChild(el('div', 'meta', t.langTitle)).style.cssText = 'font-size:.75rem;color:var(--dim);margin-bottom:.35rem';
+  var langs = el('div', 'langs');
+  [['ar', '🇸🇾 عربي'], ['fr', '🇫🇷 Français'], ['en', '🇺🇸 English']].forEach(function (o) {
+    var b = el('button', 'langb' + (uiLang() === o[0] ? ' on' : ''), o[1]);
+    b.onclick = function () { setUiLang(o[0]); openMenu(); };
+    langs.appendChild(b);
+  });
+  sh.appendChild(langs);
+
+  function row(icon, label, fn) {
+    var b = el('button', 'mrow');
+    b.appendChild(el('span', 'mi', icon));
+    b.appendChild(el('span', null, label));
+    b.onclick = fn;
+    sh.appendChild(b);
+  }
+  row('🎙', t.ttsSettings, function () { closeOv(); EdgeTTS.openSettings(); });
+  row('⬇', t.exportFav, function () { closeOv(); exportFavs(); });
+  row('⬆', t.importFav, function () { closeOv(); importFavs(); });
+}
+function confirmExit() {
+  var t = T();
+  var ov = el('div', 'overlay');
+  var d = el('div', 'dlg');
+  d.appendChild(el('p', null, t.exitTitle));
+  var r = el('div', 'row');
+  var no = el('button', null, t.no); no.onclick = closeOv;
+  var yes = el('button', 'yes', t.yes);
+  yes.onclick = function () {
+    var A = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App;
+    if (A && A.exitApp) A.exitApp(); else window.close();
+  };
+  r.appendChild(no); r.appendChild(yes);
+  d.appendChild(r); ov.appendChild(d);
+  ov.onclick = function (e) { if (e.target === ov) closeOv(); };
+  ovRoot.innerHTML = ''; ovRoot.appendChild(ov);
+}
+
+/* ================= export / import favorites ================= */
+function exportFavs() {
+  var data = JSON.stringify({ app: 'presse', favs: Object.keys(favs) }, null, 2);
+  var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+  var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
+  if (inCap && FS && SH) {
+    FS.writeFile({ path: 'presse-favoris.json', data: data, directory: 'CACHE' })
+      .then(function (r) { return SH.share({ title: 'presse', url: r.uri }); })
+      .then(function () { toast(T().favExported); })
+      .catch(function () { toast('export ✗'); });
+    return;
+  }
+  var blob = new Blob([data], { type: 'application/json' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'presse-favoris.json';
+  a.click(); URL.revokeObjectURL(a.href);
+  toast(T().favExported);
+}
+function importFavs() {
+  var inp = document.createElement('input');
+  inp.type = 'file'; inp.accept = 'application/json,.json';
+  inp.onchange = function () {
+    var f = inp.files[0]; if (!f) return;
+    var rd = new FileReader();
+    rd.onload = function () {
+      try {
+        var j = JSON.parse(rd.result);
+        var list = j.favs || j;
+        (Array.isArray(list) ? list : []).forEach(function (id) { favs[id] = 1; });
+        saveFavs(); renderGrid(); toast(T().favImported);
+      } catch (e) { toast('import ✗'); }
+    };
+    rd.readAsText(f);
+  };
+  inp.click();
+}
+
+/* ================= wire up ================= */
+document.getElementById('search').addEventListener('input', renderGrid);
+document.getElementById('stopBtn').onclick = function () { stopAllSpeech(); toast('⏹'); };
+document.getElementById('menuBtn').onclick = openMenu;
+document.getElementById('backBtn').onclick = goBack;
+document.getElementById('reloadBtn').onclick = function () { if (state.url) openUrl(state.url, state.pageTitle, { pushNav: false, list: state.list }); };
+document.getElementById('extBtn').onclick = function () { if (state.url) openExternal(state.url); };
+document.getElementById('cancelLoad').onclick = function () {
+  if (abortCtl) abortCtl.abort();
+  goBack();
+};
+document.getElementById('loopBtn').onclick = function () {
+  loopMode = !loopMode;
+  this.classList.toggle('on', loopMode);
+  if (!loopMode && loopJob) { loopJob.cancelled = true; loopJob = null; }
+  document.querySelectorAll('.w.looping').forEach(function (w) { w.classList.remove('looping'); });
+  toast(loopMode ? T().loopOn : T().loopOff);
+};
+document.getElementById('readAllBtn').onclick = toggleReadAll;
+document.getElementById('urlGo').onclick = function () {
+  var v = document.getElementById('urlInput').value.trim();
+  if (!v) return;
+  var isUrl = /^https?:\/\//i.test(v) || /^[\w-]+(\.[\w-]+)+(\/\S*)?$/.test(v);
+  if (isUrl) {
+    if (!/^https?:\/\//i.test(v)) v = 'https://' + v;
+    openUrl(v, v, {});
+  } else {
+    openExternal(gaiUrl(v));                     // typed text -> quick Google AI search
+  }
+};
+document.getElementById('urlInput').addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') document.getElementById('urlGo').click();
+});
+
+// Android back button: navigate in-app, confirm at home
+var CapApp = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App;
+if (CapApp && CapApp.addListener) {
+  CapApp.addListener('backButton', function () {
+    if (ovRoot.firstChild) { closeOv(); return; }
+    if (state.view === 'doc') { goBack(); return; }
+    confirmExit();
+  });
+}
+
+// Service worker: PWA only, never inside Capacitor
+if (!inCap && 'serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw-presse.js').catch(function () {});
+  });
+}
+
+applyI18n();
+renderChips();
+renderGrid();
+})();
+</script>
+</body>
+</html>
