@@ -4519,6 +4519,29 @@
     })();
   }
 
+  // loop a matched pair: first phrase fully, then second, repeat
+  function quizSpeakPair(cardA, cardB) {
+    quizStopSpeak();
+    const texts = [cardA, cardB]
+      .map(c => ({ t: stripSpeechFlags(c.dataset.text || ''), lang: c.dataset.lang }))
+      .filter(x => x.t);
+    if (!texts.length) return;
+    cardA.classList.add('speaking');
+    cardB.classList.add('speaking');
+    const run = ++quizVoice.run;
+    (function cyc() {
+      if (quizVoice.run !== run) return;
+      (async () => {
+        for (const it of texts) {
+          if (quizVoice.run !== run) return;
+          try { await anySpeak(it.t, it.lang); } catch (e) {}
+        }
+      })().then(() => {
+        if (quizVoice.run === run) setTimeout(cyc, 350);
+      });
+    })();
+  }
+
   function quizTone(ok) {
     try {
       const Ctx = window.AudioContext || window.webkitAudioContext;
@@ -4645,12 +4668,13 @@
       if (selFr.dataset.pid === card.dataset.pid) {
         correct++;
         quizTone(true);
-        selFr.classList.remove('sel');
-        selFr.classList.add('done');
+        const qCard = selFr;
+        qCard.classList.remove('sel');
+        qCard.classList.add('done');
         card.classList.add('done');
         selFr = null;
         solved++;
-        quizStopSpeak();
+        quizSpeakPair(qCard, card);
         setProg();
         if (solved === picks.length) setTimeout(() => quizEnd(correct, wrong, lesson, qlang, alang), 650);
       } else {
@@ -4870,8 +4894,9 @@
       hero.querySelectorAll('.lz-v-loop').forEach(b => {
         b.onclick = () => lzSpeak(p[b.dataset.lang], b, b.dataset.lang);
       });
-      const qLoopBtn = hero.querySelector('.lz-v-loop[data-lang="' + lz.qlang + '"]');
-      if (qLoopBtn) lzSpeak(p[lz.qlang], qLoopBtn, lz.qlang);
+      // loop the tapped option in the answer language
+      const qLoopBtn = hero.querySelector('.lz-v-loop[data-lang="' + lz.lang + '"]');
+      if (qLoopBtn) lzSpeak(el.textContent, qLoopBtn, lz.lang);
     }
     lz.answered = true;
     clearTimeout(lz.timer);
