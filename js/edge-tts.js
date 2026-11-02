@@ -46,7 +46,6 @@
     fr: [
       'fr-FR-DeniseNeural', 'fr-FR-EloiseNeural', 'fr-FR-HenriNeural',
       'fr-FR-VivienneMultilingualNeural', 'fr-FR-RemyMultilingualNeural',
-      'fr-FR-LucienMultilingualNeural',
       'fr-CA-SylvieNeural', 'fr-CA-JeanNeural', 'fr-CA-AntoineNeural', 'fr-CA-ThierryNeural',
       'fr-BE-CharlineNeural', 'fr-BE-GerardNeural',
       'fr-CH-ArianeNeural', 'fr-CH-FabriceNeural'
@@ -78,7 +77,7 @@
       'en-US-BrianMultilingualNeural', 'en-US-EmmaMultilingualNeural',
       'en-GB-SoniaNeural', 'en-GB-RyanNeural', 'en-GB-LibbyNeural',
       'en-GB-MaisieNeural', 'en-GB-ThomasNeural',
-      'en-AU-NatashaNeural', 'en-AU-WilliamNeural',
+      'en-AU-NatashaNeural',
       'en-CA-ClaraNeural', 'en-CA-LiamNeural',
       'en-IN-NeerjaNeural', 'en-IN-PrabhatNeural',
       'en-IE-EmilyNeural', 'en-IE-ConnorNeural',
