@@ -4136,6 +4136,29 @@ function quizStopSpeak() {
   if (window.EdgeTTS) EdgeTTS.stop();
   document.querySelectorAll('.qz-card.speaking, .lz-loop.speaking, .lz-v-loop.speaking').forEach(function (x) { x.classList.remove('speaking'); });
 }
+// speak two phrases back to back — first fully, then the second — and keep
+// alternating them as one loop until something else speaks or is stopped
+function speakPair(t1, l1, t2, l2, el1, el2) {
+  if (!window.EdgeTTS) return;
+  stopReadAll();
+  speakTok++;
+  document.querySelectorAll('.speaking, .w.speak').forEach(function (x) {
+    x.classList.remove('speaking'); x.classList.remove('speak');
+  });
+  if (el1) el1.classList.add('speaking');
+  if (el2) el2.classList.add('speaking');
+  var tok = speakTok;
+  (function play(i) {
+    if (tok !== speakTok) return;
+    EdgeTTS.play(i ? t2 : t1, (i ? l2 : l1) || 'fr').then(function () {
+      if (tok === speakTok) play(1 - i);
+    }, function () {
+      toast('TTS ✗');
+      if (el1) el1.classList.remove('speaking');
+      if (el2) el2.classList.remove('speaking');
+    });
+  })(0);
+}
 // language-PAIR picker — one button per ordered (question → answer) language
 // pair the lesson's texts actually cover: "🇫🇷 FR – 🇸🇾 AR — 12"
 function gamePairPicker(l, title) {
@@ -4251,9 +4274,10 @@ function startQuiz(lesson, qlang, alang) {
       selFr.classList.remove('sel');
       selFr.classList.add('done');
       card.classList.add('done');
-      selFr = null;
       solved++;
-      quizStopSpeak();
+      // correct match: speak the pair — question fully, then answer — on loop
+      speakPair(selFr.dataset.text, selFr.dataset.lang, card.dataset.text, card.dataset.lang, selFr, card);
+      selFr = null;
       setProg();
       if (solved === picks.length) setTimeout(function () { quizEnd(correct, wrong, lesson, qlang, alang); }, 650);
     } else {
@@ -4465,8 +4489,9 @@ function lzAnswer(tile, p) {
       var span = b.parentNode.querySelector('span');
       b.onclick = function () { speak(span.textContent, b.dataset.lang, b); };
     });
-    var qLoopBtn = hero.querySelector('.lz-v-loop[data-lang="' + pmLang + '"]');
-    if (qLoopBtn) speak(phText(p, pmLang), pmLang, qLoopBtn);
+    // after answering, loop-speak the correct answer (the green tile = lz.lang)
+    var aLoopBtn = hero.querySelector('.lz-v-loop[data-lang="' + lz.lang + '"]');
+    if (aLoopBtn) speak(phText(p, lz.lang), lz.lang, aLoopBtn);
   }
   lz.answered = true;
   clearTimeout(lz.timer);
