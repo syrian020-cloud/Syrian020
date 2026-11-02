@@ -23,7 +23,7 @@
   var DEFAULT_VOICES = { fr: 'fr-FR-DeniseNeural', ar: 'ar-SY-AmanyNeural', en: 'en-US-JennyNeural',
     zh: 'zh-CN-XiaoxiaoNeural', ja: 'ja-JP-NanamiNeural', ko: 'ko-KR-SunHiNeural',
     th: 'th-TH-PremwadeeNeural', vi: 'vi-VN-HoaiMyNeural', hi: 'hi-IN-SwaraNeural',
-    el: 'el-GR-AthinaNeural', ka: 'ka-GE-EkaNeural', hy: 'hy-AM-AnahitNeural',
+    el: 'el-GR-NestorasNeural', ka: 'ka-GE-EkaNeural',
     he: 'he-IL-AvriNeural', de: 'de-DE-KatjaNeural', es: 'es-ES-ElviraNeural',
     it: 'it-IT-ElsaNeural', ru: 'ru-RU-SvetlanaNeural', tr: 'tr-TR-EmelNeural',
     pt: 'pt-PT-RaquelNeural', nl: 'nl-NL-ColetteNeural', pl: 'pl-PL-ZofiaNeural',
@@ -31,11 +31,11 @@
     ur: 'ur-PK-UzmaNeural', bn: 'bn-BD-NabanitaNeural', id: 'id-ID-GadisNeural',
     ms: 'ms-MY-YasminNeural', tl: 'fil-PH-BlessicaNeural', ro: 'ro-RO-AlinaNeural',
     hu: 'hu-HU-NoemiNeural', cs: 'cs-CZ-VlastaNeural', bg: 'bg-BG-KalinaNeural',
-    hr: 'hr-HR-GabrijelaNeural', sr: 'sr-RS-SophieNeural', da: 'da-DK-ChristelNeural',
+    hr: 'hr-HR-GabrijelaNeural', sr: 'sr-RS-SophieNeural', da: 'da-DK-JeppeNeural',
     nb: 'nb-NO-PernilleNeural', fi: 'fi-FI-NooraNeural', mn: 'mn-MN-YesuiNeural',
     sw: 'sw-KE-ZuriNeural', zu: 'zu-ZA-ThandoNeural', am: 'am-ET-MekdesNeural',
     is: 'is-IS-GudrunNeural', sq: 'sq-AL-AnilaNeural', lt: 'lt-LT-OnaNeural',
-    lv: 'lv-LV-EveritaNeural', et: 'et-EE-AnuNeural',
+    lv: 'lv-LV-NilsNeural', et: 'et-EE-AnuNeural',
     // Edge TTS has no Yoruba voice — use Nigerian English as the closest accent.
     yo: 'en-NG-EzinneNeural' };
   var DEFAULT_RATES = { fr: -8, ar: 0, en: 0 };
@@ -102,14 +102,13 @@
     "th": ["th-TH-NiwatNeural", "th-TH-PremwadeeNeural"],
     "vi": ["vi-VN-HoaiMyNeural", "vi-VN-NamMinhNeural"],
     "hi": ["hi-IN-MadhurNeural", "hi-IN-SwaraNeural"],
-    "el": ["el-GR-AthinaNeural", "el-GR-NestorasNeural"],
+    "el": ["el-GR-NestorasNeural"],
     "ka": ["ka-GE-EkaNeural", "ka-GE-GiorgiNeural"],
-    "hy": ["hy-AM-AnahitNeural"],
     "he": ["he-IL-AvriNeural", "he-IL-HilaNeural"],
     "de": ["de-DE-AmalaNeural", "de-DE-ConradNeural", "de-DE-FlorianMultilingualNeural", "de-DE-KatjaNeural", "de-DE-KillianNeural", "de-DE-SeraphinaMultilingualNeural"],
     "es": ["es-ES-AlvaroNeural", "es-ES-ElviraNeural", "es-ES-XimenaNeural"],
     "it": ["it-IT-DiegoNeural", "it-IT-ElsaNeural", "it-IT-GiuseppeMultilingualNeural", "it-IT-IsabellaNeural"],
-    "ru": ["ru-RU-DmitryNeural", "ru-RU-SvetlanaNeural"],
+    "ru": ["ru-RU-SvetlanaNeural"],
     "tr": ["tr-TR-AhmetNeural", "tr-TR-EmelNeural"],
     "pt": ["pt-PT-DuarteNeural", "pt-PT-RaquelNeural"],
     "nl": ["nl-NL-ColetteNeural", "nl-NL-FennaNeural", "nl-NL-MaartenNeural"],
@@ -128,7 +127,7 @@
     "bg": ["bg-BG-BorislavNeural", "bg-BG-KalinaNeural"],
     "hr": ["hr-HR-GabrijelaNeural", "hr-HR-SreckoNeural"],
     "sr": ["sr-RS-NicholasNeural", "sr-RS-SophieNeural"],
-    "da": ["da-DK-ChristelNeural", "da-DK-JeppeNeural"],
+    "da": ["da-DK-JeppeNeural"],
     "nb": ["nb-NO-FinnNeural", "nb-NO-PernilleNeural"],
     "fi": ["fi-FI-HarriNeural", "fi-FI-NooraNeural"],
     "mn": ["mn-MN-BataaNeural", "mn-MN-YesuiNeural"],
@@ -138,8 +137,8 @@
     "is": ["is-IS-GudrunNeural", "is-IS-GunnarNeural"],
     "sq": ["sq-AL-AnilaNeural", "sq-AL-IlirNeural"],
     "lt": ["lt-LT-LeonasNeural", "lt-LT-OnaNeural"],
-    "lv": ["lv-LV-EveritaNeural", "lv-LV-NilsNeural"],
-    "et": ["et-EE-AnuNeural", "et-EE-KertNeural"],
+    "lv": ["lv-LV-NilsNeural"],
+    "et": ["et-EE-AnuNeural"],
     "yo": ["en-NG-AbeoNeural", "en-NG-EzinneNeural"]
   };
   var AR_NAME = {
@@ -211,7 +210,11 @@
   function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 
   function voiceOf(lang) {
-    return ls('edge_voice_' + lang) || DEFAULT_VOICES[lang] || DEFAULT_VOICES.fr;
+    var v = ls('edge_voice_' + lang);
+    var opts = VOICE_OPTIONS[lang] || VOICE_EXTRA[lang] || [];
+    // ignore saved names that are no longer offered (retired voices)
+    if (v && (opts.indexOf(v) >= 0 || v === DEFAULT_VOICES[lang])) return v;
+    return DEFAULT_VOICES[lang] || DEFAULT_VOICES.fr;
   }
   function rateOf(lang) {
     var v = parseInt(ls('edge_rate_' + lang) || '', 10);
@@ -554,6 +557,7 @@
       if (devMode) { rng.disabled = true; pv.disabled = true; }
       pv.onclick = function () {
         pv.disabled = true;
+        api.revive();
         play(SAMPLE[lang] || SAMPLE.en, lang).catch(function () {}).then(function () { pv.disabled = false; });
       };
       row.appendChild(h('div', {}, [h('span', { 'class': 'etts-mini', text: T.speed }), rng, val, pv]));
@@ -585,6 +589,8 @@
     document.body.appendChild(sheetEl);
   }
 
+  // clear 'down' marks so the next call retries every source fresh
+  api.revive = function () { api.down = false; pluginDown = false; };
   api.engine = engine;
   api.enabled = enabled;
   api.setEnabled = setEnabled;
