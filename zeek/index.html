@@ -4894,9 +4894,9 @@
       hero.querySelectorAll('.lz-v-loop').forEach(b => {
         b.onclick = () => lzSpeak(p[b.dataset.lang], b, b.dataset.lang);
       });
-      // loop the tapped option in the answer language
+      // loop the correct (green) answer in the answer language
       const qLoopBtn = hero.querySelector('.lz-v-loop[data-lang="' + lz.lang + '"]');
-      if (qLoopBtn) lzSpeak(el.textContent, qLoopBtn, lz.lang);
+      if (qLoopBtn) lzSpeak(p[lz.lang], qLoopBtn, lz.lang);
     }
     lz.answered = true;
     clearTimeout(lz.timer);
