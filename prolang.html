@@ -1015,6 +1015,14 @@ function openMail() {
 
 /* ================= speech ================= */
 var speakTok = 0;
+// never mix voices: any TTS start pauses the lesson video/audio
+if (window.EdgeTTS) {
+  var _edgePlay = EdgeTTS.play;
+  EdgeTTS.play = function () {
+    if (mediaEl) { try { mediaEl.pause(); } catch (e) {} }
+    return _edgePlay.apply(EdgeTTS, arguments);
+  };
+}
 function speak(text, lang, flagEl) {
   if (!window.EdgeTTS) return;
   stopReadAll();
@@ -1092,6 +1100,8 @@ function stopReadAll() {
   readAllJob = null;
   var b = document.getElementById('readAllBtn');
   if (b) b.textContent = '📝';
+  var b2 = document.getElementById('readAllBar');
+  if (b2) b2.textContent = '▶';
 }
 // ⏹ stop EVERYTHING that can make sound: read-all, TTS loops, media
 function stopAllSound() {
@@ -1130,6 +1140,8 @@ function readAll(lesson) {
   if (!items.length) return;
   var btn = document.getElementById('readAllBtn');
   btn.textContent = '⏹';
+  var btn2 = document.getElementById('readAllBar');
+  if (btn2) btn2.textContent = '⏹';
   var job = { cancelled: false, i: 0 };
   readAllJob = job;
   speakTok++;   // stop any single-phrase loop
@@ -1452,6 +1464,13 @@ function renderLesson(v, f, l) {
   sb.style.flex = 'none';
   sb.onclick = function () { stopAllSound(); };
   bar.appendChild(sb);
+  // ▶ reads EVERYTHING — lesson phrases + video captions — in a loop
+  var rab = el('button', 'btn', '▶');
+  rab.id = 'readAllBar';
+  rab.title = t.readAll;
+  rab.style.flex = 'none';
+  rab.onclick = function () { readAll(l); };
+  bar.appendChild(rab);
   v.appendChild(bar);
   // second row — games & media tools
   var bar2 = el('div');
@@ -3089,6 +3108,8 @@ function renderMedia(v, f, l) {
       });
       var b = document.getElementById('readAllBtn');
       if (b) b.textContent = '📝';
+      var b2 = document.getElementById('readAllBar');
+      if (b2) b2.textContent = '▶';
     };
     me.onpause = function () { sync(me.currentTime); };
     mediaGet(mediaKey(l), function (blob) {
