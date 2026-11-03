@@ -240,7 +240,8 @@
   .flags { display: flex; flex-direction: column; gap: 0.34rem; flex: none; }
   /* Zeelang-style square action buttons under the card */
   .ph-actions { display: flex; gap: 0.55rem; margin-top: 0.7rem; justify-content: space-between; }
-  .ph-act { flex: none; width: 52px; height: 52px; border-radius: 15px; border: 1px solid #e3d9f0; background: #f4eefb; font-size: 1.3rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .14s; }
+  .ph-act { flex: 1; min-width: 0; max-width: 56px; height: 46px; border-radius: 14px; border: 1px solid #e3d9f0; background: #f4eefb; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .14s; }
+  .ph-act.segloop { background: linear-gradient(135deg, #f6b93b, #f0932b); border-color: transparent; }
   .ph-act:hover { border-color: #c9b3ea; transform: translateY(-2px); box-shadow: 0 6px 14px rgba(130,100,180,0.18); }
   .ph-act:active { transform: scale(0.94); }
   .ph-img { position: relative; display: inline-block; margin-top: 0.6rem; max-width: 100%; }
@@ -1589,7 +1590,8 @@
       '<button class="ph-act nb-open" title="notebook">📝</button>' +
       '<button class="ph-act ai-open" title="Google AI">✨</button>' +
       '<button class="ph-act img-open" title="Google Images">🖼️</button>' +
-      '<button class="ph-act ph-img-add" title="رفع صورة">📷</button></div>';
+      '<button class="ph-act ph-img-add" title="رفع صورة">📷</button>' +
+      (p && p.start != null ? '<button class="ph-act ph-medloop" title="تكرار مقطع الفيديو">🔁</button>' : '') + '</div>';
     var img = p.img ? '<div class="ph-img"><img src="' + esc(p.img) + '" alt=""><button class="ph-img-del" title="حذف الصورة">×</button></div>' : '';
     return '<div class="phrase"' + refAttr + '><div class="phrase-lines">' + rows + acts + img + '</div></div>';
   }
@@ -1805,7 +1807,7 @@
   async function loadLessonMedia(l) {
     var box = document.getElementById('mediaBox');
     if (!box) return;
-    pauseMedia(); mediaEl = null; curCueEl = null;
+    pauseMedia(); mediaEl = null; curCueEl = null; segLoop.on = false; segLoop.el = null;
     if (mediaUrl) { URL.revokeObjectURL(mediaUrl); mediaUrl = null; }
     timedEls = Array.prototype.slice.call(document.querySelectorAll('.phrase[data-ts]'));
     if (!l.media) { box.innerHTML = ''; return; }
@@ -1824,6 +1826,8 @@
       '<div class="mb-cap" id="mbCap"></div></div>';
     mediaEl = box.querySelector(isV ? 'video' : 'audio');
     mediaEl.addEventListener('timeupdate', syncCues);
+    mediaEl.addEventListener('play', function () { stopSpeaking(); });
+    mediaEl.addEventListener('ended', segLoopReset);
     timedEls.forEach(function (el) {
       el.classList.add('cueable');
       el.addEventListener('click', cueSeek);
@@ -1834,6 +1838,33 @@
     var el = ev.currentTarget;
     mediaEl.currentTime = parseFloat(el.dataset.ts) || 0;
     mediaEl.play();
+  }
+  // segment loop: repeat a phrase's video/audio cue until toggled off
+  var segLoop = { on: false, start: 0, end: Infinity };
+  function cueEnd(el) {
+    if (!el) return Infinity;
+    var e = parseFloat(el.dataset.te || 'NaN');
+    if (!isNaN(e)) return e;
+    var ix = timedEls.indexOf(el);
+    return (ix >= 0 && timedEls[ix + 1]) ? parseFloat(timedEls[ix + 1].dataset.ts) : (mediaEl && mediaEl.duration || Infinity);
+  }
+  function setSegLoop(el, btn) {
+    if (!mediaEl || !el) { toast('🎬 ' + t('media')); return; }
+    stopSpeaking();
+    var s = parseFloat(el.dataset.ts) || 0;
+    if (segLoop.on && segLoop.el === el) { segLoop.on = false; markSegBtns(); return; } // toggle off
+    segLoop.on = true; segLoop.el = el; segLoop.start = s; segLoop.end = cueEnd(el);
+    mediaEl.currentTime = s;
+    mediaEl.play();
+    markSegBtns();
+  }
+  function segLoopReset() { if (segLoop.on) { segLoop.on = false; markSegBtns(); } }
+  function markSegBtns() {
+    document.querySelectorAll('.ph-medloop').forEach(function (b) {
+      b.classList.toggle('segloop', segLoop.on && b.closest('[data-ts]') === segLoop.el);
+    });
+    var rb = document.querySelector('[data-cap="replay"]');
+    if (rb) rb.classList.toggle('segloop', segLoop.on);
   }
   var curCueEl = null;
   function renderCueCap(el) {
@@ -1882,8 +1913,8 @@
         var act = b.dataset.cap, now = mediaEl.currentTime;
         var s = el && el.dataset.ts ? parseFloat(el.dataset.ts) : 0;
         var ix = timedEls.indexOf(el);
-        if (act === 'stop') mediaEl.pause();
-        else if (act === 'replay') { mediaEl.currentTime = s; mediaEl.play(); }
+        if (act === 'stop') { segLoop.on = false; markSegBtns(); mediaEl.pause(); }
+        else if (act === 'replay') { setSegLoop(el, b); }
         else if (act === 'back') mediaEl.currentTime = (now - s > 1.5 || ix <= 0) ? s : parseFloat(timedEls[ix - 1].dataset.ts);
         else if (act === 'fwd') mediaEl.currentTime = (ix >= 0 && timedEls[ix + 1]) ? parseFloat(timedEls[ix + 1].dataset.ts) : (mediaEl.duration || now);
       };
@@ -1903,13 +1934,14 @@
       el.classList.toggle('cue-on', on);
       if (on) active = el;
     });
+    if (segLoop.on && mediaEl.currentTime >= segLoop.end - 0.05) mediaEl.currentTime = segLoop.start;
     renderCueCap(active);
   }
   async function removeLessonMedia(l) {
     delete l.media;
     await idbPut('lessons', l);
     await idbDel('media', l.id);
-    pauseMedia(); mediaEl = null;
+    pauseMedia(); mediaEl = null; segLoop.on = false; segLoop.el = null;
     toast('✓ ' + t('deleted'));
     renderLesson();
   }
@@ -1988,6 +2020,15 @@
         ev.stopPropagation();
         phImgBtn = b;
         document.getElementById('phImgInput').click();
+      };
+    });
+    wrap.querySelectorAll('.ph-medloop').forEach(function (b) {
+      b.onclick = function (ev) {
+        ev.stopPropagation();
+        var el = b.closest('[data-ts]');
+        if (!el) return;
+        // untimed lesson phrases also get seg loop via their own data-ts; find the card element
+        setSegLoop(el, b);
       };
     });
     wrap.querySelectorAll('.ph-img-del').forEach(function (b) {
