@@ -2835,8 +2835,8 @@
     var hero = document.getElementById('lzHero');
     if (hero) {
       hero.className = 'lz-hero v';
-      var vLine = function (ln, i) {
-        var cls = i === 0 ? 'lz-v-fr' : 'lz-v-tr';
+      var vLine = function (ln) {
+        var cls = ln.lang === lz.lang ? 'lz-v-fr' : 'lz-v-tr';
         var spk = HAS_VOICE[ln.lang] ? '<button class="lz-v-spk" data-lang="' + ln.lang + '" data-txt="' + esc(ln.text) + '" title="⟳">⟳</button>' : '';
         return '<div class="lz-v-row"><div class="' + cls + '">' + esc(ln.text) + '</div>' + spk + '</div>';
       };
