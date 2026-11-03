@@ -1106,6 +1106,19 @@
     }
     return segs;
   }
+  /* multi-flag segments are a title/group header only when they carry an explicit
+     title signal (a colon or a title keyword) and no sentence punctuation —
+     everything else is a phrase so every flagged line format is accepted */
+  var TITLE_WORD = /[:：]|leçon|lesson|درس|unité|وحدة|partie|جزء|chapitre|فصل|verbe|فعل|mot|كلمة|jour|يوم|situation|موقف|thème|موضوع|section|قسم|groupe|مجموعة|salutation|تحيات/i;
+  function segsLookTitleish(segs) {
+    var hasSignal = false;
+    var ok = segs.every(function (sg) {
+      var x = sg.text;
+      if (TITLE_WORD.test(x)) hasSignal = true;
+      return x.length < 55 && !/[.!؟?。…]$/.test(x);
+    });
+    return ok && hasSignal;
+  }
   function segsToTri(segs) {
     var tri = { fr: '', ar: '', en: '', lines: [] };
     segs.forEach(function (sg) {
@@ -1219,7 +1232,9 @@
       if (!first || HDR_NUM.test(first) || /^#{1,6}\s/.test(first) || /^\d+$/.test(first)) break;
       var fsegs = flaggedSegs(first);
       if (fsegs) {
-        if (first.indexOf('|') >= 0 || HDR_NUM.test(fsegs[0].text)) break;
+        // only a title-ish multi-flag line becomes the lesson title; phrase-looking
+        // lines (with sentences/questions) fall through to the body
+        if (first.indexOf('|') >= 0 || HDR_NUM.test(fsegs[0].text) || !segsLookTitleish(fsegs)) break;
         lesson.title = segsToTri(fsegs); // e.g. 🇫🇷 Verbe : ÊTRE — 🇸🇾 الفعل: يكون — 🇺🇸 Verb: TO BE
         i++;
         break;
@@ -1264,22 +1279,24 @@
       if (fl) {
         var fsegs = flaggedSegs(line);
         if (fsegs) {
-          // multi-flag line: '|' = phrase, numbered = section, otherwise group header
+          // multi-flag line: numbered = section, title-ish = title/group, otherwise a phrase
           flushPhrase();
           var ftri = segsToTri(fsegs);
-          if (line.indexOf('|') >= 0) {
-            var fp2 = { lines: ftri.lines };
-            if (tStart != null) { fp2.start = tStart; if (tEnd != null) fp2.end = tEnd; }
-            ensureGrp().phrases.push(fp2);
-          } else if (HDR_NUM.test(fsegs[0].text)) {
+          if (HDR_NUM.test(fsegs[0].text)) {
             ftri.lines[0].text = ftri.lines[0].text.replace(HDR_NUM, '');
             if (ftri.fr) ftri.fr = ftri.fr.replace(HDR_NUM, '');
             newSec(ftri);
-          } else if (!lesson.sections.length && !hasTriText(lesson.title)) {
-            // a flagged trilingual line before any section beats a guessed prose title
-            lesson.title = ftri;
+          } else if (line.indexOf('|') < 0 && segsLookTitleish(fsegs)) {
+            if (!lesson.sections.length && !hasTriText(lesson.title)) {
+              // a flagged trilingual line before any section beats a guessed prose title
+              lesson.title = ftri;
+            } else {
+              newGrp(ftri);
+            }
           } else {
-            newGrp(ftri);
+            var fp2 = { lines: ftri.lines };
+            if (tStart != null) { fp2.start = tStart; if (tEnd != null) fp2.end = tEnd; }
+            ensureGrp().phrases.push(fp2);
           }
           continue;
         }
