@@ -86,9 +86,17 @@
   .fab:hover { transform: scale(1.08) rotate(90deg); box-shadow: 0 16px 40px rgba(139,92,246,0.6); }
   .fab:active { transform: scale(0.94); }
   .hint { font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.4rem; }
-  .tpl-tabs { display: flex; gap: 0.45rem; margin-bottom: 0.65rem; flex-wrap: wrap; }
-  .tpl-tabs button { flex: 1; min-width: 110px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-secondary); color: var(--text-secondary); font-family: inherit; font-weight: 800; font-size: 0.82rem; padding: 0.5rem 0.7rem; cursor: pointer; transition: all .15s; }
-  .tpl-tabs button.on { background: linear-gradient(135deg, var(--accent-solid), var(--accent-hover)); color: #fff; border-color: transparent; }
+  .tpllist { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 0.7rem; }
+  .tplgrp-name { font-weight: 900; font-size: 0.95rem; color: var(--accent); margin: 0.6rem 0 0.1rem; }
+  .tplgrp-name:first-child { margin-top: 0; }
+  .tplcard { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 18px; padding: 0.7rem 0.85rem; }
+  .tplcard-h { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; margin-bottom: 0.45rem; }
+  .tplcard-h span { font-weight: 800; font-size: 0.85rem; color: var(--text-primary); }
+  .tplcard-copy { flex: none; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-primary); font-family: inherit; font-weight: 800; font-size: 0.78rem; padding: 0.35rem 0.7rem; cursor: pointer; transition: all .15s; }
+  .tplcard-copy:hover { border-color: var(--accent); }
+  .tplcard-txt { font-family: inherit; font-size: 0.82rem; line-height: 1.7; color: var(--text-secondary); white-space: pre-wrap; word-break: break-word; max-height: 130px; overflow-y: auto; }
+  .contact-btn { min-width: 36px !important; height: 36px !important; padding: 0 0.45rem !important; border-radius: 12px !important; text-decoration: none; }
+  .contact-btn svg { width: 17px; height: 17px; display: block; }
   .hflags { display: inline-flex; gap: 0.2rem; margin-inline-start: 0.5rem; vertical-align: middle; }
   .hflags .flag-btn { width: 30px; height: 30px; border-radius: 10px; font-size: 0.85rem; }
 
@@ -382,6 +390,8 @@
   <div class="header-inner">
     <span class="logo"><span class="lg-mark">g</span><span class="lg-name" data-t="appName">gramvip</span></span>
     <div class="spacer"></div>
+    <a class="icon-btn contact-btn" href="https://wa.me/33775813643" target="_blank" rel="noopener" title="WhatsApp +337 75 81 36 43"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+    <a class="icon-btn contact-btn" href="mailto:syrian020@gmail.com" title="syrian020@gmail.com"><svg viewBox="0 0 24 24" fill="#EA4335"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg></a>
     <button class="icon-btn" id="langBtn" title="اللغة / Language / Langue">🌐 AR</button>
     <span class="menuwrap">
       <button class="icon-btn" id="menuBtn" title="القائمة">⋮</button>
@@ -465,7 +475,7 @@
   <div class="sheet">
     <h2 id="lessonSheetTitle">📚 <span data-t="newLesson">درس جديد</span></h2>
     <div class="btnrow" style="margin:0 0 0.7rem">
-      <button class="btn btn-ghost" id="copyTplBtn">📋 <span data-t="viewTemplate">النموذج</span></button>
+      <button class="btn btn-ghost" id="copyTplBtn">📋 <span data-t="templates">النماذج</span></button>
       <button class="btn btn-ghost" id="pasteBtn">📥 <span data-t="paste">لصق</span></button>
     </div>
     <div class="field">
@@ -502,12 +512,10 @@
 
 <div class="overlay hidden" id="ovTemplate">
   <div class="sheet">
-    <h2>📋 <span data-t="viewTemplate">النموذج</span></h2>
-    <div class="tpl-tabs" id="tplTabs"></div>
-    <div class="field"><textarea id="tplView" readonly spellcheck="false" style="min-height:320px"></textarea></div>
+    <h2>📋 <span data-t="templates">نماذج الإدخال</span></h2>
+    <div class="tpllist" id="tplList"></div>
     <div class="btnrow">
       <button class="btn btn-ghost" id="tplCancel" data-t="cancel">إلغاء</button>
-      <button class="btn btn-primary" id="tplCopy">📋 <span data-t="copy">نسخ</span></button>
     </div>
   </div>
 </div>
@@ -590,7 +598,7 @@
       searchPh: 'ابحث في العبارات…', noResults: 'لا توجد نتائج', stop: 'إيقاف', home: 'الرئيسية',
       newFolder: 'مجلد جديد', editFolder: 'تعديل المجلد', folderName: 'اسم المجلد', folderNamePh: 'مثال: الأفعال', folderIcon: 'أيقونة المجلد',
       newLesson: 'درس جديد', editLesson: 'تعديل الدرس', lessonTitle: 'عنوان الدرس', lessonTitlePh: 'مثال: Verbe : ÊTRE — الفعل: يكون — TO BE', lessonText: 'نص الدرس (بالنموذج)', lessonTextPh: 'الصق نص الدرس هنا…', lessonIcon: 'أيقونة الدرس',
-      copyTemplate: 'نسخ النموذج', viewTemplate: 'النموذج', copy: 'نسخ', paste: 'لصق', save: 'حفظ', cancel: 'إلغاء', yes: 'نعم', no: 'لا',
+      copyTemplate: 'نسخ النموذج', viewTemplate: 'النموذج', templates: 'نماذج الإدخال', tplMine: 'نماذجي الأساسية', tplZeelang: 'نماذج Zeelang — صيغ مقبولة', tplProlang: 'نماذج ProLang', tplTimed: 'نماذج مؤقّتة — فيديو / صوت 🎬', copy: 'نسخ', paste: 'لصق', save: 'حفظ', cancel: 'إلغاء', yes: 'نعم', no: 'لا',
       rename: 'تغيير الاسم', changeIcon: 'تغيير الأيقونة', del: 'حذف', open: 'فتح', edit: 'تعديل', moveTo: 'نقل إلى مجلد',
       addLesson: 'إضافة درس', addFolder: 'إضافة مجلد', export: 'تصدير نسخة احتياطية', import: 'استيراد نسخة',
       delFolderT: 'حذف المجلد؟', delFolderD: 'سيتم حذف المجلد وكل دروسه — لا يمكن التراجع.',
@@ -617,7 +625,7 @@
       searchPh: 'Search phrases…', noResults: 'No results', stop: 'Stop', home: 'Home',
       newFolder: 'New folder', editFolder: 'Edit folder', folderName: 'Folder name', folderNamePh: 'e.g. Verbs', folderIcon: 'Folder icon',
       newLesson: 'New lesson', editLesson: 'Edit lesson', lessonTitle: 'Lesson title', lessonTitlePh: 'e.g. Verbe : ÊTRE — الفعل — TO BE', lessonText: 'Lesson text (template)', lessonTextPh: 'Paste lesson text here…', lessonIcon: 'Lesson icon',
-      copyTemplate: 'Copy template', viewTemplate: 'Template', copy: 'Copy', paste: 'Paste', save: 'Save', cancel: 'Cancel', yes: 'Yes', no: 'No',
+      copyTemplate: 'Copy template', viewTemplate: 'Template', templates: 'Input templates', tplMine: 'My main templates', tplZeelang: 'Zeelang templates — accepted formats', tplProlang: 'ProLang templates', tplTimed: 'Timed templates — video / audio 🎬', copy: 'Copy', paste: 'Paste', save: 'Save', cancel: 'Cancel', yes: 'Yes', no: 'No',
       rename: 'Rename', changeIcon: 'Change icon', del: 'Delete', open: 'Open', edit: 'Edit', moveTo: 'Move to folder',
       addLesson: 'Add lesson', addFolder: 'Add folder', export: 'Export backup', import: 'Import backup',
       delFolderT: 'Delete folder?', delFolderD: 'The folder and all its lessons will be deleted — this cannot be undone.',
@@ -644,7 +652,7 @@
       searchPh: 'Rechercher une phrase…', noResults: 'Aucun résultat', stop: 'Arrêter', home: 'Accueil',
       newFolder: 'Nouveau dossier', editFolder: 'Modifier le dossier', folderName: 'Nom du dossier', folderNamePh: 'ex. Verbes', folderIcon: 'Icône du dossier',
       newLesson: 'Nouvelle leçon', editLesson: 'Modifier la leçon', lessonTitle: 'Titre de la leçon', lessonTitlePh: 'ex. Verbe : ÊTRE — الفعل — TO BE', lessonText: 'Texte de la leçon (modèle)', lessonTextPh: 'Collez le texte de la leçon ici…', lessonIcon: 'Icône de la leçon',
-      copyTemplate: 'Copier le modèle', viewTemplate: 'Modèle', copy: 'Copier', paste: 'Coller', save: 'Enregistrer', cancel: 'Annuler', yes: 'Oui', no: 'Non',
+      copyTemplate: 'Copier le modèle', viewTemplate: 'Modèle', templates: 'Modèles d’entrée', tplMine: 'Mes modèles', tplZeelang: 'Modèles Zeelang — formats acceptés', tplProlang: 'Modèles ProLang', tplTimed: 'Modèles synchronisés — vidéo / audio 🎬', copy: 'Copier', paste: 'Coller', save: 'Enregistrer', cancel: 'Annuler', yes: 'Oui', no: 'Non',
       rename: 'Renommer', changeIcon: 'Changer l\'icône', del: 'Supprimer', open: 'Ouvrir', edit: 'Modifier', moveTo: 'Déplacer vers',
       addLesson: 'Ajouter une leçon', addFolder: 'Ajouter un dossier', export: 'Exporter une sauvegarde', import: 'Importer une sauvegarde',
       delFolderT: 'Supprimer le dossier ?', delFolderD: 'Le dossier et toutes ses leçons seront supprimés — action irréversible.',
@@ -773,6 +781,134 @@
     { name: { ar: 'نموذج فعل', en: 'Verb template', fr: 'Modèle verbe' }, text: TEMPLATE },
     { name: { ar: 'نموذج كلمة', en: 'Word template', fr: 'Modèle mot' }, text: TEMPLATE2 },
     { name: { ar: 'نموذج لغات', en: 'Any-language template', fr: 'Modèle toutes langues' }, text: TEMPLATE3 }
+  ];
+
+  // Zeelang input formats — every separator style it accepts
+  var TPL_ZEELANG = [
+    { name: { ar: 'أنبوب |', en: 'Pipe |', fr: 'Barre |' }, text: 'Hello | مرحبا | Bonjour' },
+    { name: { ar: 'أسهم →', en: 'Arrows →', fr: 'Flèches →' }, text: 'Comment allez-vous → كيف حالك → How are you' },
+    { name: { ar: 'مساواة =', en: 'Equals =', fr: 'Égale =' }, text: 'I would like = أريد = Je voudrais' },
+    { name: { ar: 'فاصلة،', en: 'Comma ،', fr: 'Virgule ،' }, text: 'Thank you شكرا, Merci' },
+    { name: { ar: 'نقطتان :', en: 'Colon :', fr: 'Deux-points :' }, text: 'Goodbye مع السلامة: Au revoir' },
+    { name: { ar: 'شرطة -', en: 'Dash -', fr: 'Tiret -' }, text: 'Apple - تفاحة - Pomme' },
+    { name: { ar: 'كلمات متداخلة', en: 'Interleaved', fr: 'Entrelacé' }, text: 'Where Où sont les toilettes أين الحمام is the bathroom' },
+    { name: { ar: 'أسماء اللغات', en: 'Language names', fr: 'Noms des langues' }, text: 'English | Arabic | French' }
+  ];
+
+  // ProLang phrase templates
+  var TPL_PROLANG = [
+    { name: { ar: 'نموذج بسيط — Simple', en: 'Simple', fr: 'Simple' }, text:
+'### 1. 🇨🇳 الصينية — Chinese\n' +
+'🇨🇳 你好\n' +
+'🔤 النطق اللاتيني: Nǐ hǎo\n' +
+'🗣️ تقريب النطق بالعربية: ني هاو\n' +
+'🇸🇾 المعنى: مرحبًا\n' +
+'===\n' +
+'### 2. 🇫🇷 الفرنسية\n' +
+'🇫🇷 Bonjour\n' +
+'🔤 Bonjour\n' +
+'🗣️ بونجور\n' +
+'🇸🇾 المعنى: مرحبًا' },
+    { name: { ar: 'نموذج بأربع خانات — عربي + إنجليزي', en: '4-field — Arabic + English', fr: '4 champs — arabe + anglais' }, text:
+'### 🇬🇧 الإنجليزية (English)\n' +
+'* 🇬🇧 الأصلية: Hello\n' +
+'* 🔤 النطق اللاتيني: Hello\n' +
+'* 🗣️ بالعربي: هَلّو\n' +
+'* 🇸🇾 المعنى بالعربي: مرحباً\n' +
+'* 🇺🇸 English: Hello\n' +
+'===\n' +
+'### 🇫🇷 الفرنسية (French)\n' +
+'* 🇫🇷 الأصلية: Bonjour\n' +
+'* 🔤 النطق اللاتيني: Bonjour\n' +
+'* 🗣️ بالعربي: بونجور\n' +
+'* 🇸🇾 المعنى بالعربي: مرحباً\n' +
+'* 🇺🇸 English: Hello' },
+    { name: { ar: 'نموذج سطر واحد — أنبوب |', en: 'One-line — pipe |', fr: 'Une ligne — barre |' }, text:
+'### 🇷🇺 الروسية\n' +
+'🇷🇺 Привет! | 🇸🇾 مرحبا! | 🇺🇸 Hi!\n' +
+'🇷🇺 Здравствуйте! | 🇸🇾 مرحباً! (بأسلوب رسمي) | 🇺🇸 Hello!\n' +
+'🇷🇺 Как дела? | 🇸🇾 كيفك؟ | 🇺🇸 How are you?\n' +
+'🇷🇺 Хорошо, спасибо. | 🇸🇾 منيح، شكراً. | 🇺🇸 Good, thank you.' },
+    { name: { ar: 'نموذج مواقف — أعلام بسطر واحد', en: 'Situations — flags per line', fr: 'Situations — drapeaux par ligne' }, text:
+'### 👋 الموقف الأول: التحية والتعارف\n' +
+'🇺🇸 Hello! How are you? 🇪🇸 ¡Hola! ¿Cómo estás? 🇸🇾 مرحبا! كيفك؟\n' +
+'🇺🇸 My name is Ahmad. 🇪🇸 Me llamo Ahmad. 🇸🇾 اسمي أحمد.\n' +
+'🇺🇸 Nice to meet you. 🇪🇸 Mucho gusto. 🇸🇾 تشرفنا.\n' +
+'===\n' +
+'### ☕ الموقف الثاني: في المقهى\n' +
+'🇺🇸 I would like a coffee, please. 🇪🇸 Quisiera un café, por favor. 🇸🇾 بدي قهوة، لو سمحت.\n' +
+'🇺🇸 The bill, please. 🇪🇸 La cuenta, por favor. 🇸🇾 الحساب، لو سمحت.\n' +
+'===\n' +
+'### 🔊 مع اللفظ بالعربي\n' +
+'🇺🇸 Good morning. | 🇪🇸 Buenos días. | 🔊 بوينوس دياس | 🇸🇾 صباح الخير.' },
+    { name: { ar: 'نموذج مؤقت — فيديو / صوت 🎬', en: 'Timed — video / audio 🎬', fr: 'Synchronisé — vidéo / audio 🎬' }, text:
+'### 🎬 درس مؤقت\n' +
+'00:00 🇫🇷 Bonjour !\n' +
+'00:03 🇸🇾 مرحبا!\n' +
+'00:05 🇺🇸 Hello!\n' +
+'00:08 --> 00:11 🇫🇷 Comment ça va ?\n' +
+'00:11 --> 00:14 🇸🇾 كيفك؟' }
+  ];
+
+  // ProLang timed templates (timestamps are ignored when parsing — kept for reference)
+  var TPL_TIMED = [
+    { name: { ar: 'نموذج مؤقت بسيط — MM:SS', en: 'Simple timed — MM:SS', fr: 'Simple synchronisé — MM:SS' }, text:
+'00:00 🇫🇷 Bonjour !\n' +
+'00:03 🇸🇾 مرحبا!\n' +
+'00:05 🇺🇸 Hello!\n' +
+'00:08 🇫🇷 Comment ça va ?\n' +
+'00:11 🇸🇾 كيفك؟' },
+    { name: { ar: 'نموذج مؤقت بداية ← نهاية', en: 'Start → end timed', fr: 'Début → fin' }, text:
+'00:00 --> 00:03 🇫🇷 Bonjour !\n' +
+'00:03 --> 00:06 🇸🇾 مرحبا!\n' +
+'00:06 --> 00:09 🇫🇷 Au revoir !\n' +
+'00:09 --> 00:12 🇸🇾 مع السلامة' },
+    { name: { ar: 'أعلام — وقت بسطر والترجمات أسفله', en: 'Flags — time line then translations', fr: 'Drapeaux — temps puis traductions' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes.\n' +
+'🇸🇾 ماريا، ما عاد معي دخان.\n' +
+'🇺🇸 Maria, I’m out of cigarettes.\n' +
+'00:02 🇫🇷 Donne-moi de l’argent.\n' +
+'🇸🇾 أعطيني مصاري.\n' +
+'🇺🇸 Give me some money.\n' +
+'00:04 🇫🇷 Pourquoi ? Tu as tout dépensé ?\n' +
+'🇸🇾 ليش؟ صرفت كل المصاري؟\n' +
+'🇺🇸 Why? Did you spend it all?' },
+    { name: { ar: 'SRT — ترجمة احترافية بأنابيب |', en: 'SRT subtitles with pipes |', fr: 'SRT avec barres |' }, text:
+'1\n' +
+'00:00:00,000 --> 00:00:03,000\n' +
+'Maria, j’ai plus de cigarettes. | ماريا، ما عاد معي دخان. | Maria, I’m out of cigarettes.\n' +
+'\n' +
+'2\n' +
+'00:00:03,000 --> 00:00:05,000\n' +
+'Donne-moi de l’argent. | أعطيني مصاري. | Give me some money.' },
+    { name: { ar: 'MM:SS بأنبوب | — بلا أعلام', en: 'MM:SS with pipes — no flags', fr: 'MM:SS avec barres — sans drapeaux' }, text:
+'00:00 Maria, j’ai plus de cigarettes. | ماريا، ما عاد معي دخان. | Maria, I’m out of cigarettes.\n' +
+'00:02 Donne-moi de l’argent. | أعطيني مصاري. | Give me some money.' },
+    { name: { ar: 'MM:SS — أسطر بلا أعلام', en: 'MM:SS — plain lines', fr: 'MM:SS — lignes simples' }, text:
+'00:00 Maria, j’ai plus de cigarettes.\n' +
+'ماريا، ما عاد معي دخان.\n' +
+'Maria, I’m out of cigarettes.\n' +
+'\n' +
+'00:02 Donne-moi de l’argent.\n' +
+'أعطيني مصاري.\n' +
+'Give me some money.' },
+    { name: { ar: 'أعلام بسطر واحد — وقت', en: 'Flags per line — timed', fr: 'Drapeaux par ligne — synchronisé' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇺🇸 Maria, I’m out of cigarettes.\n' +
+'00:02 🇫🇷 Donne-moi de l’argent. 🇸🇾 أعطيني مصاري. 🇺🇸 Give me some money.' },
+    { name: { ar: 'رموز اللغة — FR: / AR: / EN:', en: 'Lang codes — FR: / AR: / EN:', fr: 'Codes langue — FR: / AR: / EN:' }, text:
+'00:00 FR: Maria, j’ai plus de cigarettes.\n' +
+'AR: ماريا، ما عاد معي دخان.\n' +
+'EN: Maria, I’m out of cigarettes.\n' +
+'00:02 FR: Donne-moi de l’argent.\n' +
+'AR: أعطيني مصاري.\n' +
+'EN: Give me some money.' }
+  ];
+
+  var TPL_GROUPS = [
+    { key: 'tplMine', items: TEMPLATES },
+    { key: 'tplZeelang', items: TPL_ZEELANG },
+    { key: 'tplProlang', items: TPL_PROLANG },
+    { key: 'tplTimed', items: TPL_TIMED }
   ];
 
   var state = {
@@ -937,12 +1073,16 @@
   function hasTriText(tri) { return triToLines(tri).length > 0; }
   function isAr(s) { return /[\u0600-\u06FF]/.test(s); }
   function splitParts(line) {
-    var parts = line.split(/\s*[—–]\s*/);
+    var parts = line.split(/\s*[—–→]\s*/);
     if (parts.length < 2) parts = line.split(/\s+-\s+/);
     if (parts.length < 2 && line.indexOf('|') >= 0) parts = line.split(/\s*\|\s*/);
+    if (parts.length < 2 && /\s=\s/.test(line)) parts = line.split(/\s*=\s*/);
     if (parts.length < 2 && line.indexOf('\t') >= 0) parts = line.split(/\s*\t+\s*/);
     return parts.map(function (p) { return p.trim(); }).filter(Boolean);
   }
+  // ProLang-style labels: 'الأصلية:', 'المعنى بالعربي:', 'النطق اللاتيني:' — stripped from text
+  var LABEL_RE = /^(?:الأصلية|الأصلي|النص|الكتابة(?:\s+(?:الأصلية|اللاتينية|العربية))?|المعنى(?:\s+(?:بالعربي|بالعربية|بالإنجليزية|بالإنكليزية|إنجليزي|عربي))?|بالعربي(?:ة)?|الترجمة(?:\s+\S+)?|الإنجليزية|الانجليزية|English|Meaning|النطق(?:\s+\S+){0,3}|تقريب(?:\s+\S+){0,3})\s*[:：]\s*/u;
+  function deLabel(s) { var m = LABEL_RE.exec(s); return m ? s.slice(m[0].length).trim() : s.trim(); }
   function partsToTri(parts) {
     var out = { fr: '', ar: '', en: '' };
     var pre = [], post = [], seenAr = false;
@@ -1002,8 +1142,9 @@
 
     // first non-empty line = title (unless it is a numbered header or a phrase line)
     while (i < lines.length) {
-      var first = lines[i].t;
-      if (HDR_NUM.test(first)) break;
+      var first = lines[i].t.replace(/^[*•]\s+/, '').trim()
+        .replace(/^\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d+)?\s*(?:-+>\s*\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d+)?\s*)?\s*/, '');
+      if (!first || HDR_NUM.test(first) || /^#{1,6}\s/.test(first) || /^\d+$/.test(first)) break;
       var fsegs = flaggedSegs(first);
       if (fsegs) {
         if (first.indexOf('|') >= 0 || HDR_NUM.test(fsegs[0].text)) break;
@@ -1034,8 +1175,15 @@
     if (!hasTriText(lesson.title) && i === 0) i = 0;
 
     for (; i < lines.length; i++) {
-      var line = lines[i].t;
+      var line = lines[i].t.replace(/^[*•]\s+/, '').trim();
+      // strip leading timestamps: '00:00 ' / '00:00 --> 00:03 ' (timed templates)
+      line = line.replace(/^\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d+)?\s*(?:-+>\s*\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d+)?\s*)?\s*/, '');
       var bb = lines[i].bb;
+      if (!line || /^\d+$/.test(line)) continue;
+      if (/^#{1,6}\s+/.test(line)) {   // '### section title' (ProLang style)
+        newSec(partsToTri(splitParts(line.replace(/^#{1,6}\s*/, '').replace(/^\d+\s*[.)]\s*/, ''))));
+        continue;
+      }
       var fl = flagOf(line);
       if (fl) {
         var fsegs = flaggedSegs(line);
@@ -1057,7 +1205,7 @@
           }
           continue;
         }
-        var txt = stripFlag(line);
+        var txt = deLabel(stripFlag(line));
         var fm2 = line.trim().match(ANY_FLAG_RE);
         var leadFlag = fm2 ? fm2[0] : '🏳️';
         if (HDR_NUM.test(txt)) {
@@ -1071,14 +1219,22 @@
         } else {
           if (bb && curPhrase) flushPhrase();
           var np = pushFlagLine(curPhrase, fl, LANG_FLAG[fl] || leadFlag, txt);
-          if (np._new) { flushPhrase(); }
+          if (np._new) { flushPhrase(); delete np._new; }
           curPhrase = np;
         }
         continue;
       }
       // non-flag line
       if (/^[-—–*_=\s]{3,}$/.test(line)) continue; // decorative dividers
-      if (line.indexOf('\t') >= 0) {
+      if (/^[\u{1F524}🗣🔊]/u.test(line)) {
+        // pronunciation/latin guide line — stays inside the current phrase, unspeakable
+        var mt = deLabel(line.replace(/^[\u{1F524}🗣🔊]\uFE0F?\s*/u, ''));
+        var mmark = line.match(/^[\u{1F524}🗣🔊]\uFE0F?/u);
+        if (curPhrase && mt) { curPhrase.lines.push({ lang: '', flag: '', text: (mmark ? mmark[0] + ' ' : '') + mt }); }
+        else if (mt) { ensureGrp().notes.push(line); }
+        continue;
+      }
+      if (line.indexOf('\t') >= 0 || /[|→=]/.test(line) || line.indexOf(' - ') >= 0) {
         var tp = splitParts(line);
         if (tp.length >= 2) { flushPhrase(); ensureGrp().phrases.push(partsToTri(tp)); continue; }
       }
@@ -2604,33 +2760,55 @@
   };
   document.getElementById('moveCancel').onclick = function () { document.getElementById('ovMove').classList.add('hidden'); };
   document.getElementById('lessonText').addEventListener('input', updateParseStats);
-  var tplIdx = 0;
+  function copyTplText(tp, done) {
+    done = done || function () { toast('📋 ' + t('copied')); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(tp.text).then(done).catch(function () { fallbackCopy(); });
+    } else fallbackCopy();
+    function fallbackCopy() {
+      var ta = document.createElement('textarea');
+      ta.value = tp.text;
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  }
   function openTpl() {
-    var tabs = document.getElementById('tplTabs');
-    tabs.innerHTML = '';
-    TEMPLATES.forEach(function (tp, i) {
-      var b = document.createElement('button');
-      b.textContent = tp.name[state.lang] || tp.name.ar;
-      if (i === tplIdx) b.className = 'on';
-      b.onclick = function () { tplIdx = i; openTpl(); };
-      tabs.appendChild(b);
+    var list = document.getElementById('tplList');
+    list.innerHTML = '';
+    TPL_GROUPS.forEach(function (g) {
+      var gh = document.createElement('div');
+      gh.className = 'tplgrp-name';
+      gh.textContent = t(g.key) || g.key;
+      list.appendChild(gh);
+      g.items.forEach(function (tp) {
+        var card = document.createElement('div');
+        card.className = 'tplcard';
+        var head = document.createElement('div');
+        head.className = 'tplcard-h';
+        var nm = document.createElement('span');
+        nm.textContent = tp.name[state.lang] || tp.name.ar || tp.name;
+        head.appendChild(nm);
+        var cp = document.createElement('button');
+        cp.className = 'tplcard-copy';
+        cp.textContent = '📋 ' + t('copy');
+        cp.onclick = function () {
+          copyTplText(tp, function () { cp.textContent = '✓'; setTimeout(function () { cp.textContent = '📋 ' + t('copy'); }, 1200); toast('📋 ' + t('copied')); });
+        };
+        head.appendChild(cp);
+        card.appendChild(head);
+        var body = document.createElement('div');
+        body.className = 'tplcard-txt';
+        body.textContent = tp.text;
+        card.appendChild(body);
+        list.appendChild(card);
+      });
     });
-    document.getElementById('tplView').value = TEMPLATES[tplIdx].text;
     document.getElementById('ovTemplate').classList.remove('hidden');
   }
   document.getElementById('copyTplBtn').onclick = openTpl;
   document.getElementById('tplCancel').onclick = function () { document.getElementById('ovTemplate').classList.add('hidden'); };
-  document.getElementById('tplCopy').onclick = function () {
-    var done = function () { toast('📋 ' + t('copied')); };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(TEMPLATES[tplIdx].text).then(done).catch(function () { fallbackCopy(); });
-    } else fallbackCopy();
-    function fallbackCopy() {
-      var ta = document.getElementById('tplView');
-      ta.focus(); ta.select();
-      try { document.execCommand('copy'); done(); } catch (e) {}
-    }
-  };
   document.getElementById('pasteBtn').onclick = async function () {
     try {
       var txt = await navigator.clipboard.readText();
