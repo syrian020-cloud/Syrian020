@@ -1343,6 +1343,7 @@
   function speakOnce(text, el, lang) {
     if (el.classList.contains('looping')) { stopSpeaking(); return; }
     stopSpeaking();
+    pauseMedia();
     el.classList.add('looping');
     var seq = speakSeq;
     var done = function () { if (seq === speakSeq) el.classList.remove('looping'); };
@@ -1354,6 +1355,7 @@
   function speakLoop(text, el, lang) {
     if (el.classList.contains('looping')) { stopSpeaking(); return; }
     stopSpeaking();
+    pauseMedia();
     el.classList.add('looping');
     var seq = speakSeq;
     var done = function () { if (seq === speakSeq) el.classList.remove('looping'); };
