@@ -115,6 +115,9 @@
   .controls-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.75rem 0.8rem; display: flex; flex-direction: column; gap: 0.6rem; box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.06); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
   .ctl-row { display: flex; align-items: center; gap: 0.55rem; }
   .ctl-ic { width: 36px; height: 36px; flex: none; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; color: var(--accent); background: rgba(139,92,246,0.13); border: 1px solid rgba(167,139,250,0.28); border-radius: 13px; }
+  .ctl-btn { cursor: pointer; font-family: inherit; transition: transform .12s; }
+  .ctl-btn:hover { transform: scale(1.12); }
+  .ctl-btn.speaking { animation: pulse 1s infinite; }
   .ctl-row .loop-group { flex: 1; min-width: 0; }
   .ctl-row .loop-group button { flex: 1; padding-inline: 0.3rem; }
   .search-wrap { flex: 1; min-width: 200px; position: relative; }
@@ -467,7 +470,7 @@
         </div>
       </div>
       <div class="ctl-row">
-        <span class="ctl-ic" title="لغة تشغيل القسم">🔊</span>
+        <button class="ctl-ic ctl-btn" id="playLangBtn" title="لغة تشغيل القسم">🔊</button>
         <div class="loop-group" id="playLangGroup" title="لغة تشغيل القسم">
           <button data-playlang="fr">🇫🇷</button>
           <button data-playlang="ar">🇸🇾</button>
@@ -3058,6 +3061,11 @@
     };
   });
   document.getElementById('stopBtn').onclick = stopSpeaking;
+  document.getElementById('playLangBtn').onclick = function () {
+    var sec = document.querySelector('#content .section.open') || document.querySelector('#content .section');
+    var pb = sec && sec.querySelector('.sec-play');
+    if (pb) pb.click(); else toast(t('noResults'));
+  };
   function toggleEdge() {
     var v = !(window.EdgeTTS && EdgeTTS.enabled());
     if (window.EdgeTTS) EdgeTTS.setEnabled(v);
