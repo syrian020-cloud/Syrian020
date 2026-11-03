@@ -200,10 +200,19 @@
   .mb-miss { font-size: .85rem; opacity: .75; padding: .3rem; }
   .phrase.cueable { cursor: pointer; }
   .phrase.cue-on { outline: 2px solid var(--accent, #7c3aed); outline-offset: 2px; border-radius: 14px; }
-  .mb-cap { margin-top: .5rem; text-align: center; line-height: 1.5; }
-  .mb-cap .cl { font-weight: 800; font-size: 1.02rem; color: var(--text-primary, #fff); }
-  .mb-cap .cl:first-child { font-size: 1.14rem; color: var(--accent, #a78bfa); }
+  .mb-cap { margin-top: .55rem; }
   .mb-cap:empty { display: none; }
+  .cap-card { background: rgba(250,246,255,0.94); border-radius: 20px; padding: .6rem .65rem; }
+  .cap-pl { display: flex; align-items: center; gap: .55rem; background: #fff; border: 1px solid #e9e0f4; border-radius: 14px; padding: .55rem .7rem; margin-bottom: .45rem; }
+  .cap-pl:last-child { margin-bottom: 0; }
+  .cap-txt { flex: 1; min-width: 0; color: #2d1b4e; font-weight: 700; font-size: 1rem; line-height: 1.55; }
+  .cap-pl:first-child .cap-txt { font-size: 1.12rem; font-weight: 800; }
+  .cap-txt .w { cursor: pointer; border-radius: 5px; padding: 0 1px; }
+  .cap-txt .w.looping { background: rgba(245,158,11,.25); color: #b45309; }
+  .cap-loop { flex: none; width: 38px; height: 38px; border-radius: 12px; border: none; background: linear-gradient(135deg, #f6b93b, #f0932b); color: #fff; font-size: 1.1rem; font-weight: 900; box-shadow: 0 4px 10px rgba(240,147,43,.35); cursor: pointer; }
+  .cap-loop.speaking { background: linear-gradient(135deg, #f0932b, #e07b1f); animation: pulse 1s infinite; }
+  .cap-ctrl { display: flex; justify-content: center; gap: .55rem; margin-top: .55rem; }
+  .cap-ctrl button { flex: 1; max-width: 90px; height: 40px; border-radius: 12px; border: 1px solid var(--line, rgba(255,255,255,.15)); background: var(--card, #171224); color: var(--text-primary, #fff); font-size: 1.05rem; cursor: pointer; }
   .group-title { display: flex; align-items: center; gap: 0.45rem; color: var(--accent); font-size: 0.88rem; font-weight: 850; margin: 0.75rem 0 0.5rem; padding-inline-start: 0.3rem; }
   .group-title::before { content: ''; width: 14px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--accent-solid), var(--accent-2)); }
 
@@ -1812,14 +1821,9 @@
     var isV = (l.media.kind || rec.kind) === 'video';
     box.innerHTML = '<div class="media-box">' +
       (isV ? '<video controls playsinline src="' + mediaUrl + '"></video>' : '<audio controls src="' + mediaUrl + '"></audio>') +
-      '<div class="mb-cap" id="mbCap"></div>' +
-      '<div class="mb-tools"><span class="mb-name">' + esc(rec.name || l.media.name || '') + '</span>' +
-      '<button class="mb-btn" id="mbReplace">' + esc(t('mediaReplace')) + '</button>' +
-      '<button class="mb-x" title="' + esc(t('remove')) + '">×</button></div></div>';
+      '<div class="mb-cap" id="mbCap"></div></div>';
     mediaEl = box.querySelector(isV ? 'video' : 'audio');
     mediaEl.addEventListener('timeupdate', syncCues);
-    box.querySelector('.mb-x').onclick = function () { removeLessonMedia(l); };
-    box.querySelector('#mbReplace').onclick = function () { pickLessonMedia(l); };
     timedEls.forEach(function (el) {
       el.classList.add('cueable');
       el.addEventListener('click', cueSeek);
@@ -1837,9 +1841,53 @@
     if (!cap || el === curCueEl) return;
     curCueEl = el;
     if (!el) { cap.innerHTML = ''; return; }
-    cap.innerHTML = Array.prototype.map.call(el.querySelectorAll('.pl .txt'), function (x) {
-      return '<div class="cl">' + esc(x.textContent) + '</div>';
-    }).join('');
+    // Zeelang-style caption card: one white row per language + orange loop button
+    var rows = '';
+    el.querySelectorAll('.pl').forEach(function (pl) {
+      var lang = pl.dataset.lang || '';
+      var txt = (pl.querySelector('.txt') || {}).textContent || '';
+      rows += '<div class="cap-pl"><span class="cap-txt" data-lang="' + esc(lang) + '">' +
+        esc(txt).split(' ').filter(Boolean).map(function (w) { return '<span class="w">' + w + '</span>'; }).join(' ') +
+        '</span>' + (HAS_VOICE[lang] ? '<button class="cap-loop" data-lang="' + esc(lang) + '">⟳</button>' : '') + '</div>';
+    });
+    cap.innerHTML = '<div class="cap-card">' + rows + '</div>' +
+      '<div class="cap-ctrl">' +
+      '<button data-cap="stop" title="⏹">⏹</button><button data-cap="back" title="⏪">⏪</button>' +
+      '<button data-cap="replay" title="🔁">🔁</button><button data-cap="fwd" title="⏩">⏩</button></div>';
+    wireCaption(cap, el);
+  }
+  function wireCaption(cap, el) {
+    cap.querySelectorAll('.cap-loop').forEach(function (b) {
+      b.onclick = function (ev) {
+        ev.stopPropagation();
+        if (b.classList.contains('speaking')) { stopSpeaking(); b.classList.remove('speaking'); return; }
+        cap.querySelectorAll('.cap-loop').forEach(function (x) { x.classList.remove('speaking'); });
+        b.classList.add('speaking');
+        speakAuto(cleanSpoken(b.parentElement.querySelector('.cap-txt').textContent), b.dataset.lang, 0, function () { b.classList.remove('speaking'); });
+      };
+    });
+    cap.querySelectorAll('.cap-txt .w').forEach(function (w) {
+      var tm = null;
+      w.onclick = function (ev) {
+        ev.stopPropagation();
+        var lang = (w.closest('.cap-txt') || {}).dataset ? w.closest('.cap-txt').dataset.lang : '';
+        if (tm) { clearTimeout(tm); tm = null; searchImages(w.textContent); return; }   // double-tap → image search
+        tm = setTimeout(function () { tm = null; speakLoop(w.textContent, w, lang || 'fr'); }, 270); // tap → word loop
+      };
+    });
+    cap.querySelectorAll('[data-cap]').forEach(function (b) {
+      b.onclick = function (ev) {
+        ev.stopPropagation();
+        if (!mediaEl) return;
+        var act = b.dataset.cap, now = mediaEl.currentTime;
+        var s = el && el.dataset.ts ? parseFloat(el.dataset.ts) : 0;
+        var ix = timedEls.indexOf(el);
+        if (act === 'stop') mediaEl.pause();
+        else if (act === 'replay') { mediaEl.currentTime = s; mediaEl.play(); }
+        else if (act === 'back') mediaEl.currentTime = (now - s > 1.5 || ix <= 0) ? s : parseFloat(timedEls[ix - 1].dataset.ts);
+        else if (act === 'fwd') mediaEl.currentTime = (ix >= 0 && timedEls[ix + 1]) ? parseFloat(timedEls[ix + 1].dataset.ts) : (mediaEl.duration || now);
+      };
+    });
   }
   function syncCues() {
     if (!mediaEl || !timedEls.length) return;
