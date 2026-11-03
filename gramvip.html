@@ -1838,6 +1838,8 @@
   }
   function cueSeek(ev) {
     if (!mediaEl) return;
+    // taps meant for TTS/buttons must not seek+play the video (which would kill the TTS)
+    if (ev.target && ev.target.closest && ev.target.closest('button, .w, .ph-img, .cap-card, a')) return;
     var el = ev.currentTarget;
     mediaEl.currentTime = parseFloat(el.dataset.ts) || 0;
     mediaEl.play();
