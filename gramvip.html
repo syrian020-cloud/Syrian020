@@ -1373,14 +1373,15 @@
     var mlName = langEn(ml);
     var others = ks.filter(function (k) { return k !== ml; });
     var names = [mlName].concat(others.map(langEn));
-    var q = mlName + ' phrase: "' + m[ml] + '"\n';
-    others.forEach(function (k) { q += langEn(k) + ' translation: "' + m[k] + '"\n'; });
+    // single-line query: multi-line prompt text trips Google's "harmful request?" screen
+    var parts = [mlName + ' phrase: "' + m[ml] + '"'];
+    others.forEach(function (k) { parts.push(langEn(k) + ' translation: "' + m[k] + '"'); });
     var nat = names.length > 1 ? names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1] : names[0];
-    q += '1) Translate each individual word (' + names.join(' → ') + ').\n' +
-      '2) Explain the ' + mlName + ' grammar rule (verb conjugation, structure, or expression) used in this phrase.\n' +
-      '3) Provide a short practical conversation in ' + nat + ' using this phrase so it can be memorized as a conversation.\n' +
-      'Output in ' + nat + '.';
-    return q;
+    parts.push('1) Translate each individual word (' + names.join(' → ') + ').');
+    parts.push('2) Explain the ' + mlName + ' grammar rule (verb conjugation, structure, or expression) used in this phrase.');
+    parts.push('3) Provide a short practical conversation in ' + nat + ' using this phrase so it can be memorized as a conversation.');
+    parts.push('Output in ' + nat + '.');
+    return parts.join(' ');
   }
   function openAiSearch(p) {
     var prompt = aiSearchQuery(pLines(p));
