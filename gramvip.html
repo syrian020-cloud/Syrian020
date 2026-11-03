@@ -343,6 +343,10 @@
   .qz-pick { display: flex; flex-direction: column; gap: 0.7rem; width: 100%; max-width: 380px; margin: auto; }
   .qz-pick h3 { margin: 0; text-align: center; font-size: 1rem; }
   .qz-pick .btn { padding: 1rem; font-size: 1rem; }
+  /* ProLang-style language picker */
+  .qz-langs { display: flex; flex-direction: column; gap: 0.9rem; max-width: 340px; margin: auto; width: 100%; }
+  .qz-langs h3 { margin: 0; text-align: center; font-size: 1rem; }
+  .qz-langs .btn { width: 100%; height: 3.2rem; font-size: 1.05rem; border-radius: 14px; background: var(--card); border: 1px solid var(--border); font-weight: 700; }
   .qz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; width: 100%; max-width: 640px; }
   .qz-tile { border: 1.5px solid var(--border); background: var(--bg-secondary); border-radius: 14px; padding: 0.7rem 0.6rem; font-size: 0.9rem; font-weight: 700; cursor: pointer; text-align: center; min-height: 52px; display: flex; align-items: center; justify-content: center; transition: all .15s; line-height: 1.4; }
   .qz-tile.sel { border-color: var(--accent); box-shadow: var(--glow); transform: scale(1.02); }
@@ -1922,8 +1926,16 @@
         var ix = timedEls.indexOf(el);
         if (act === 'stop') { segLoop.on = false; markSegBtns(); mediaEl.pause(); }
         else if (act === 'replay') { setSegLoop(el, b); }
-        else if (act === 'back') mediaEl.currentTime = (now - s > 1.5 || ix <= 0) ? s : parseFloat(timedEls[ix - 1].dataset.ts);
-        else if (act === 'fwd') mediaEl.currentTime = (ix >= 0 && timedEls[ix + 1]) ? parseFloat(timedEls[ix + 1].dataset.ts) : (mediaEl.duration || now);
+        else if (act === 'back' || act === 'fwd') {
+          var tgt = (act === 'back')
+            ? ((now - s > 1.5 || ix <= 0) ? el : timedEls[ix - 1])
+            : (ix >= 0 && timedEls[ix + 1] ? timedEls[ix + 1] : null);
+          if (tgt) {
+            mediaEl.currentTime = parseFloat(tgt.dataset.ts) || 0;
+            if (segLoop.on) { segLoop.el = tgt; segLoop.start = parseFloat(tgt.dataset.ts) || 0; segLoop.end = cueEnd(tgt); markSegBtns(); }
+            else mediaEl.play();
+          } else if (act === 'back') mediaEl.currentTime = s;
+        }
       };
     });
   }
@@ -2578,34 +2590,44 @@
     document.getElementById('ovQuiz').classList.remove('open');
     stopSpeaking();
   }
-  /* language-pair picker for both games: user picks the "answer" language; the
-     question side is the lesson's primary language. Only voiced languages are offered. */
+  /* ProLang-style pair picker for both games: every question→answer direction
+     between voiced lesson languages, with the usable-phrase count on each row. */
   function gameLangPick(l, cb) {
-    var langs = lessonLangs(l);
-    var prim = primaryLang(l);
-    var others = langs.filter(function (x) { return x !== prim; });
-    if (others.length < 1) {
+    var langs = lessonLangs(l).filter(function (x) { return HAS_VOICE[x]; });
+    var maps = [];
+    l.sections.forEach(function (s) { secPhrases(s).forEach(function (p) {
+      var m = {}; pLines(p).forEach(function (ln) { if (ln.lang && ln.text) m[ln.lang] = ln.text; });
+      maps.push(m);
+    }); });
+    var pairs = [];
+    langs.forEach(function (q) {
+      langs.forEach(function (a) {
+        if (a === q) return;
+        var n = maps.filter(function (m) { return m[q] && m[a]; }).length;
+        if (n) pairs.push({ q: q, a: a, n: n });
+      });
+    });
+    if (!pairs.length) {
       document.getElementById('qzBody').innerHTML = '<div class="qz-result"><div class="qz-sub">' + esc(t('quizEmpty')) + '</div></div>';
       return;
     }
-    if (others.length === 1) { cb(others[0]); return; }
     document.getElementById('qzBody').innerHTML =
-      '<div class="qz-pick"><h3>' + esc(t('quizPick').replace('{lang}', LANG_NAMES[primaryLang(l)] || primaryLang(l).toUpperCase())) + '</h3>' +
-      others.map(function (lg) {
-        return '<button class="btn btn-primary" data-qzlang="' + lg + '">' + (LANG_FLAG[prim] || '🏳️') + ' ⇄ ' + (LANG_FLAG[lg] || '🏳️') + ' ' + esc(LANG_NAMES[lg] || lg.toUpperCase()) + '</button>';
-      }).join('') +
-      '</div>';
-    document.getElementById('qzBody').querySelectorAll('[data-qzlang]').forEach(function (b) {
-      b.onclick = function () { cb(b.dataset.qzlang); };
+      '<div class="qz-langs"><h3>' + esc(t('quizPick').replace('{lang}', '').replace(/\s*لـ\s*:\s*|\s*:\s*$/, '')) + '</h3>' +
+      pairs.map(function (p) {
+        return '<button class="btn" data-qq="' + p.q + '" data-qa="' + p.a + '">' +
+          (LANG_FLAG[p.q] || '🏳️') + ' ' + p.q.toUpperCase() + ' – ' +
+          (LANG_FLAG[p.a] || '🏳️') + ' ' + p.a.toUpperCase() + ' — ' + p.n + '</button>';
+      }).join('') + '</div>';
+    document.getElementById('qzBody').querySelectorAll('[data-qq]').forEach(function (b) {
+      b.onclick = function () { cb(b.dataset.qq, b.dataset.qa); };
     });
   }
   function openQuiz(l) {
     qz.lesson = l;
-    qz.langA = primaryLang(l);
     document.querySelector('#ovQuiz .qz-title').innerHTML = '🧩 <span>' + esc(t('quiz')) + '</span>';
     document.getElementById('ovQuiz').classList.add('open');
     document.getElementById('qzProgress').textContent = '';
-    gameLangPick(l, function (lg) { qz.lang = lg; qzStart(); });
+    gameLangPick(l, function (q, a) { qz.langA = q; qz.lang = a; qzStart(); });
   }
   function qzStart() {
     var l = qz.lesson;
@@ -2730,11 +2752,10 @@
   }
   function openListen(l) {
     lz.lesson = l;
-    lz.langA = primaryLang(l);
     document.querySelector('#ovQuiz .qz-title').innerHTML = '🎧 <span>' + esc(t('listenQuiz')) + '</span>';
     document.getElementById('ovQuiz').classList.add('open');
     document.getElementById('qzProgress').textContent = '';
-    gameLangPick(l, function (lg) { lz.lang = lg; lzStart(); });
+    gameLangPick(l, function (q, a) { lz.langA = q; lz.lang = a; lzStart(); });
   }
   function lzStart() {
     var pool = [];
