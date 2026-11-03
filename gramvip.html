@@ -161,7 +161,7 @@
   .pl .flag-btn.flagmode { background: #fff; border: 1px solid #e9e0f4; box-shadow: 0 2px 8px rgba(130,100,180,0.12); font-size: 1.05rem; }
   .pl .flag-btn.flagmode:hover { border-color: #c9b3ea; box-shadow: 0 6px 14px rgba(130,100,180,0.2); }
   .pl .flag-btn.flagmode.speaking { border-color: var(--accent); }
-  .vh-act { flex: 1; min-width: 0; height: 52px; display: flex; align-items: center; justify-content: center; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 14px; font-family: inherit; font-size: 1.35rem; color: var(--text-primary); cursor: pointer; transition: all .15s; }
+  .vh-act { flex: 1; min-width: 0; height: 44px; display: flex; align-items: center; justify-content: center; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 13px; font-family: inherit; font-size: 1.12rem; color: var(--text-primary); cursor: pointer; transition: all .15s; }
   .vh-act:hover { border-color: var(--accent); box-shadow: var(--glow); }
 
   .lesson-row { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 0.75rem; padding: 0.9rem 1rem; display: flex; align-items: center; gap: 0.85rem; cursor: pointer; box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.06); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); transition: border-color .18s, transform .16s; }
@@ -395,6 +395,22 @@
   .lz-v-row > div { min-width: 0; }
   .lz-v-spk { flex: none; width: 30px; height: 30px; border-radius: 10px; border: none; background: linear-gradient(135deg, #f6b93b, #f0932b); color: #fff; font-size: 0.9rem; cursor: pointer; box-shadow: 0 3px 8px rgba(240,147,43,0.35); }
   .lz-v-spk.looping { animation: pulse 1s infinite; }
+  /* Read & Repeat game */
+  .rr-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; width: 100%; max-width: 480px; margin: auto; padding: 0.6rem; }
+  .rr-text { font-size: 1.5rem; font-weight: 800; text-align: center; line-height: 1.45; }
+  .rr-tr { opacity: 0.75; font-size: 1rem; text-align: center; overflow-wrap: anywhere; }
+  .rr-ctrl { display: flex; align-items: center; gap: 0.9rem; }
+  .rr-ctrl .btn { flex: none; padding: 0.7rem 0.9rem; }
+  .rr-count { font-size: 1.5rem; font-weight: 900; min-width: 4.2rem; text-align: center; }
+  .rr-plus { width: 4.4rem; height: 4.4rem; border-radius: 50%; border: none; cursor: pointer; font-size: 2rem; font-weight: 900; color: #fff; background: linear-gradient(135deg, var(--accent-solid), var(--accent-hover)); box-shadow: var(--glow); }
+  .rr-plus.dim { opacity: 0.35; }
+  .rr-sub { min-height: 1.5rem; opacity: 0.85; text-align: center; }
+  .rr-skip { text-decoration: underline; cursor: pointer; color: var(--accent); }
+  .rr-wrap > .btn { flex: none; width: auto; min-width: 12rem; }
+  .rr-w { cursor: pointer; }
+  .rr-w.speaking { color: var(--accent); text-decoration: underline; }
+  .rr-score { font-size: 1.6rem; font-weight: 800; text-align: center; margin: 0.4rem 0 0.2rem; }
+  .hidden { display: none !important; }
   .nb-wrap { flex: 1; position: relative; overflow: hidden; }
   .nb-lines { position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, transparent 0 46px, rgba(120,170,220,0.35) 46px 47px); }
   .nb-lines::after { content: ''; position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(230,120,120,0.45); inset-inline-end: 12%; }
@@ -644,6 +660,8 @@
       delImgT: 'حذف الصورة؟', delImgD: 'ستُزال الصورة من هذه العبارة.',
       lzImgT: 'حذف صورة اللعبة؟', lzImgD: 'ستُزال صورتك المخصصة وترجع الصورة الافتراضية.',
       quiz: 'اختبار التوصيل', listenQuiz: 'اسمع واختر', replay: '🔊 إعادة الاستماع', quizPick: 'اختر اللغة المقابلة لـ{lang}:', quizScore: 'النتيجة', quizAgain: 'إعادة اللعب', quizDone: 'انتهى', quizEmpty: 'الدرس يحتاج عبارات بلغتين على الأقل',
+      rrTitle: 'لعبة اقرأ وكرّر 🗣', rrPickLang: 'اختر لغة التدريب', rrModeT: 'طريقة التدريب', rrModeL: '👂 استمع 5× ثم انطق', rrModeR: '📖 اقرأ وانطق مباشرة',
+      rrListenN: '👂 استمع', rrYourTurn: '🎤 دورك — انطق الآن', rrHear: '🔊 استمع', rrSkip: 'تخطي الاستماع', rrWell: 'أحسنت! 🎉', rrResume: '↩ متابعة التدريب', rrNew: '🔄 بدء من جديد', rrSlow: '🐢 انطق العبارة ببطء',
       exitTitle: 'الخروج من التطبيق؟', exitYes: 'خروج', exitNo: 'بقاء',
       saved: 'تم الحفظ', savedN: 'تمت إضافة {n} دروس', multiHint: '💡 افصل الدروس بسطر === لإضافة عدة دروس معاً', deleted: 'تم الحذف', imported: 'تم الاستيراد', importBad: 'ملف غير صالح', copied: 'تم نسخ النموذج', pasted: 'تم اللصق',
       media: 'وسائط', mediaAdded: 'أُرفقت الوسائط', mediaReplace: 'استبدال', mediaMiss: 'الملف غير مخزّن — أرفقه من 🎬', remove: 'إزالة',
@@ -672,6 +690,8 @@
       delImgT: 'Delete image?', delImgD: 'The image will be removed from this phrase.',
       lzImgT: 'Delete game image?', lzImgD: 'Your custom image will be removed and the default restored.',
       quiz: 'Matching quiz', listenQuiz: 'Listen & choose', replay: '🔊 Listen again', quizPick: 'Pick the language to match with {lang}:', quizScore: 'Score', quizAgain: 'Play again', quizDone: 'Done', quizEmpty: 'The lesson needs phrases in at least two languages',
+      rrTitle: 'Read & Repeat game 🗣', rrPickLang: 'Choose the training language', rrModeT: 'Training mode', rrModeL: '👂 Listen 5× then repeat', rrModeR: '📖 Read & repeat directly',
+      rrListenN: '👂 Listen', rrYourTurn: '🎤 Your turn — speak now', rrHear: '🔊 Listen', rrSkip: 'Skip listening', rrWell: 'Well done! 🎉', rrResume: '↩ Resume training', rrNew: '🔄 Start over', rrSlow: '🐢 Speak the phrase slowly',
       exitTitle: 'Exit the app?', exitYes: 'Exit', exitNo: 'Stay',
       saved: 'Saved', savedN: '{n} lessons added', multiHint: '💡 Separate lessons with a === line to add several at once', deleted: 'Deleted', imported: 'Imported', importBad: 'Invalid file', copied: 'Template copied', pasted: 'Pasted',
       media: 'Media', mediaAdded: 'Media attached', mediaReplace: 'Replace', mediaMiss: 'File not stored — attach it via 🎬', remove: 'Remove',
@@ -700,6 +720,8 @@
       delImgT: 'Supprimer l’image ?', delImgD: 'L’image sera retirée de cette phrase.',
       lzImgT: 'Supprimer l’image du jeu ?', lzImgD: 'Votre image personnalisée sera remplacée par l’image par défaut.',
       quiz: 'Quiz d’association', listenQuiz: 'Écoute et choisis', replay: '🔊 Réécouter', quizPick: 'Choisissez la langue à associer à {lang} :', quizScore: 'Score', quizAgain: 'Rejouer', quizDone: 'Terminé', quizEmpty: 'La leçon doit avoir des phrases dans au moins deux langues',
+      rrTitle: 'Jeu Lis & Répète 🗣', rrPickLang: 'Choisis la langue d’entraînement', rrModeT: 'Mode d’entraînement', rrModeL: '👂 Écoute 5× puis répète', rrModeR: '📖 Lis et répète directement',
+      rrListenN: '👂 Écoute', rrYourTurn: '🎤 À toi — répète', rrHear: '🔊 Écouter', rrSkip: 'Passer l’écoute', rrWell: 'Bravo ! 🎉', rrResume: '↩ Continuer l’entraînement', rrNew: '🔄 Recommencer', rrSlow: '🐢 Lecture lente de la phrase',
       exitTitle: 'Quitter l\'application ?', exitYes: 'Quitter', exitNo: 'Rester',
       saved: 'Enregistré', savedN: '{n} leçons ajoutées', multiHint: '💡 Séparez les leçons par une ligne === pour en ajouter plusieurs', deleted: 'Supprimé', imported: 'Importé', importBad: 'Fichier invalide', copied: 'Modèle copié', pasted: 'Collé',
       media: 'Média', mediaAdded: 'Média joint', mediaReplace: 'Remplacer', mediaMiss: 'Fichier absent — joignez-le via 🎬', remove: 'Retirer',
@@ -1749,6 +1771,7 @@
       '<div class="vh-actions">' +
         '<button class="vh-act" id="lessonQuizBtn" title="' + esc(t('quiz')) + '">🧩</button>' +
         '<button class="vh-act" id="lessonListenBtn" title="' + esc(t('listenQuiz')) + '">🎧</button>' +
+        '<button class="vh-act" id="lessonRrBtn" title="' + esc(t('rrTitle')) + '">🗣️</button>' +
         '<button class="vh-act" id="lessonMediaBtn" title="' + esc(t('media')) + '">🎬</button>' +
         '<button class="vh-act" id="lessonEditBtn" title="' + esc(t('edit')) + '">✏️</button>' +
         '<button class="vh-act" id="plIconModeBtn" title="أيقونة الأسطر">' + (plIconMode === 'flag' ? '🚩' : '⟳') + '</button>' +
@@ -1764,6 +1787,7 @@
     document.getElementById('lessonMediaBtn').onclick = function () { pickLessonMedia(l); };
     document.getElementById('lessonQuizBtn').onclick = function () { openQuiz(l); };
     document.getElementById('lessonListenBtn').onclick = function () { openListen(l); };
+    document.getElementById('lessonRrBtn').onclick = function () { openReadRepeat(l); };
     document.getElementById('plIconModeBtn').onclick = togglePlIconMode;
 
     var mediaWrap = '<div id="mediaBox"></div>';
@@ -2603,6 +2627,7 @@
   }
   function closeQuiz() {
     document.getElementById('ovQuiz').classList.remove('open');
+    rr = null;
     stopSpeaking();
   }
   /* ProLang-style pair picker for both games: every question→answer direction
@@ -2875,6 +2900,186 @@
     document.getElementById('qzDone').onclick = closeQuiz;
   }
 
+  /* ==================== Read & Repeat game (ProLang) ==================== */
+  var rr = null;
+  function rrItemsFor(l) {
+    var items = [];
+    (l.sections || []).forEach(function (s) {
+      secPhrases(s).forEach(function (p) {
+        var m = {};
+        pLines(p).forEach(function (ln) { if (ln.lang && ln.text && !m[ln.lang]) m[ln.lang] = ln.text; });
+        if (Object.keys(m).length) items.push(m);
+      });
+    });
+    return items;
+  }
+  function rrDir(lang) { return (lang === 'ar' || lang === 'he' || lang === 'fa' || lang === 'ur') ? 'rtl' : 'ltr'; }
+  function rrKey(l) { return 'gv_rr_' + l.id; }
+  function rrSavedGet(l) { try { return JSON.parse(localStorage.getItem(rrKey(l)) || 'null'); } catch (e) { return null; } }
+  function rrSave() {
+    if (!rr) return;
+    try { localStorage.setItem(rrKey(rr.l), JSON.stringify({ l: rr.lang, m: rr.mode, i: rr.i, c: rr.count })); } catch (e) {}
+  }
+  function rrClearSave(l) { try { localStorage.removeItem(rrKey(l)); } catch (e) {} }
+  function speakSlow(text, lang, btn) {
+    if (btn.classList.contains('speaking')) { stopSpeaking(); return; }
+    stopSpeaking(); pauseMedia();
+    btn.classList.add('speaking');
+    var prev = (window.EdgeTTS && EdgeTTS.speed) || 1;
+    if (window.EdgeTTS) EdgeTTS.speed = 0.5;
+    var seq = speakSeq;
+    speakAuto(text, lang, state.loop, function () {
+      if (window.EdgeTTS) EdgeTTS.speed = prev;
+      if (seq === speakSeq) btn.classList.remove('speaking');
+    });
+  }
+  function openReadRepeat(l) {
+    document.querySelector('#ovQuiz .qz-title').innerHTML = '🗣 <span>' + esc(t('rrTitle')) + '</span>';
+    document.getElementById('ovQuiz').classList.add('open');
+    document.getElementById('qzProgress').textContent = '';
+    var body = document.getElementById('qzBody');
+    var items = rrItemsFor(l);
+    if (!items.length) { body.innerHTML = '<div class="qz-result"><div class="qz-sub">' + esc(t('quizEmpty')) + '</div></div>'; return; }
+    var langs = [], main = primaryLang(l);
+    items.forEach(function (m) { Object.keys(m).forEach(function (k) { if (m[k] && langs.indexOf(k) < 0) langs.push(k); }); });
+    langs.sort(function (a, b) { return (a === main ? -1 : 0) - (b === main ? -1 : 0); });
+    function start(lang, mode, idx, cnt) {
+      rr = { l: l, items: items, lang: lang, mode: mode, i: idx, count: cnt || 0, listenTok: 0 };
+      rrSave(); rrShow();
+    }
+    function modePick(lang) {
+      body.innerHTML = '<div class="qz-langs"><h3>' + esc(t('rrModeT')) + '</h3>' +
+        '<button class="btn btn-primary" id="rr-mL">' + esc(t('rrModeL')) + '</button>' +
+        '<button class="btn" id="rr-mR">' + esc(t('rrModeR')) + '</button></div>';
+      document.getElementById('rr-mL').onclick = function () { start(lang, 'l', 0, 0); };
+      document.getElementById('rr-mR').onclick = function () { start(lang, 'r', 0, 0); };
+    }
+    function pickLangs() {
+      body.innerHTML = '<div class="qz-langs"><h3>' + esc(t('rrPickLang')) + '</h3>' +
+        langs.map(function (g) {
+          var n = items.filter(function (m) { return m[g]; }).length;
+          return '<button class="btn" data-lang="' + g + '">' + (LANG_FLAG[g] || '🏳️') + ' ' + g.toUpperCase() + ' — ' + n + '</button>';
+        }).join('') + '</div>';
+      body.querySelectorAll('button[data-lang]').forEach(function (b) {
+        b.onclick = function () { modePick(b.dataset.lang); };
+      });
+    }
+    var saved = rrSavedGet(l);
+    if (saved && saved.i > 0 && saved.i < items.length && langs.indexOf(saved.l) >= 0) {
+      body.innerHTML = '<div class="qz-langs"><h3>' + esc(t('rrTitle')) + '</h3>' +
+        '<button class="btn btn-primary" id="rr-resume">' + esc(t('rrResume')) + ' (' + saved.i + '/' + items.length + ')</button>' +
+        '<button class="btn" id="rr-restart">' + esc(t('rrNew')) + '</button></div>';
+      document.getElementById('rr-resume').onclick = function () { start(saved.l, saved.m || 'l', saved.i, saved.c || 0); };
+      document.getElementById('rr-restart').onclick = function () { rrClearSave(l); pickLangs(); };
+      return;
+    }
+    pickLangs();
+  }
+  function rrShow() {
+    var body = document.getElementById('qzBody');
+    if (!rr || !body) return;
+    stopSpeaking();
+    if (rr.i >= rr.items.length) { rrEnd(); return; }
+    var m = rr.items[rr.i];
+    var text = m[rr.lang] || '';
+    var trans = Object.keys(m).filter(function (k) { return k !== rr.lang && m[k]; })
+      .map(function (k) { return '<div class="rr-tr" dir="' + rrDir(k) + '">' + esc((LANG_FLAG[k] || '🏳️') + ' ' + m[k]) + '</div>'; }).join('');
+    var wordsHtml = (text || '').split(/\s+/).filter(Boolean).map(function (w) {
+      return '<span class="rr-w">' + esc(w) + '</span>';
+    }).join(' ');
+    document.getElementById('qzProgress').textContent = (rr.i + 1) + '/' + rr.items.length;
+    body.innerHTML = '<div class="rr-wrap">' +
+      '<div class="rr-text" dir="' + rrDir(rr.lang) + '">' + wordsHtml + '</div>' + trans +
+      '<div class="rr-ctrl">' +
+        '<button class="btn" id="rr-hear" title="' + esc(t('rrHear')) + '">🔊</button>' +
+        '<div class="rr-count" id="rr-count">' + rr.count + '/5</div>' +
+        '<button class="rr-plus" id="rr-plus">+</button>' +
+      '</div>' +
+      '<div class="rr-sub" id="rr-sub"></div>' +
+      '<button class="btn" id="rr-slow" title="' + esc(t('rrSlow')) + '">🐢</button>' +
+      '<button class="btn btn-primary hidden" id="rr-next">⏭ ' + esc(t('next')) + '</button>' +
+    '</div>';
+    var plus = document.getElementById('rr-plus');
+    var hear = document.getElementById('rr-hear');
+    var nextB = document.getElementById('rr-next');
+    var sub = document.getElementById('rr-sub');
+    var cnt = document.getElementById('rr-count');
+    hear.onclick = function () { speak(text, rr.lang, hear); };
+    nextB.onclick = function () { rrAdvance(); };
+    if (rr.count >= 5) { sub.textContent = t('rrWell'); nextB.classList.remove('hidden'); }
+    else if (rr.mode === 'l') {
+      plus.disabled = true;
+      plus.classList.add('dim');
+      rrListen5(text, plus, sub);
+    }
+    plus.onclick = function () {
+      if (!rr || rr.count >= 5) return;
+      rr.count++;
+      cnt.textContent = rr.count + '/5';
+      rrSave();
+      if (rr.count >= 5) {
+        qzTone(true);
+        sub.textContent = t('rrWell');
+        nextB.classList.remove('hidden');
+        setTimeout(function () { if (rr && rr.count >= 5) rrAdvance(); }, 1400);
+      }
+    };
+    body.querySelectorAll('.rr-w').forEach(function (ws) {
+      ws.onclick = function () { speak(ws.textContent, rr.lang, ws); };
+    });
+    var slowB = document.getElementById('rr-slow');
+    slowB.onclick = function () { speakSlow(text, rr.lang, slowB); };
+  }
+  // listen mode: the app speaks the phrase 5 times, then the + counter unlocks
+  function rrListen5(text, plus, sub) {
+    var tok = ++rr.listenTok;
+    var k = 0;
+    function unlock() {
+      plus.disabled = false;
+      plus.classList.remove('dim');
+      sub.textContent = t('rrYourTurn');
+    }
+    function one() {
+      if (!rr || tok !== rr.listenTok || !document.getElementById('ovQuiz').classList.contains('open')) return;
+      if (k >= 5) { unlock(); return; }
+      k++;
+      sub.innerHTML = esc(t('rrListenN')) + ' ' + k + '/5 · <span class="rr-skip" id="rr-skip">' + esc(t('rrSkip')) + '</span>';
+      var sk = document.getElementById('rr-skip');
+      if (sk) sk.onclick = function () {
+        if (!rr) return;
+        rr.listenTok++;
+        if (window.EdgeTTS) EdgeTTS.stop();
+        unlock();
+      };
+      EdgeTTS.play(cleanSpoken(text || '').slice(0, 400), rr.lang)
+        .catch(function () {})
+        .then(function () { if (rr && tok === rr.listenTok) setTimeout(one, 350); });
+    }
+    one();
+  }
+  function rrAdvance() {
+    if (!rr) return;
+    rr.i++;
+    rr.count = 0;
+    rrSave();
+    rrShow();
+  }
+  function rrEnd() {
+    var body = document.getElementById('qzBody');
+    if (!rr || !body) return;
+    stopSpeaking();
+    rrClearSave(rr.l);
+    var done = rr.i, total = rr.items.length;
+    body.innerHTML = '<div class="qz-result"><div class="qz-score">' + Math.round(100 * done / Math.max(1, total)) + '%</div>' +
+      '<div class="qz-sub">' + done + '/' + total + '</div>' +
+      '<button class="btn btn-primary" id="rr-again">🔄 ' + esc(t('quizAgain')) + '</button>' +
+      '<button class="btn btn-ghost" id="rr-out">✓ ' + esc(t('quizDone')) + '</button></div>';
+    document.getElementById('rr-again').onclick = function () {
+      rr.i = 0; rr.count = 0; rrSave(); rrShow();
+    };
+    document.getElementById('rr-out').onclick = closeQuiz;
+  }
+
   function qzFinish() {
     var n = qz.pairs.length;
     var pct = Math.round((n / Math.max(1, n + qz.wrong)) * 100);
@@ -3054,12 +3259,14 @@
     };
   });
   localStorage.setItem('gv_speed', String(state.speed)); // shared with EdgeTTS
+  if (window.EdgeTTS) EdgeTTS.speed = state.speed;
   document.querySelectorAll('#speedGroup [data-speed]').forEach(function (b) {
     b.classList.toggle('on', parseFloat(b.dataset.speed) === state.speed);
     b.onclick = function () {
       state.speed = parseFloat(b.dataset.speed);
       localStorage.setItem('gramvip_speed', String(state.speed));
       localStorage.setItem('gv_speed', String(state.speed));
+      if (window.EdgeTTS) EdgeTTS.speed = state.speed;
       document.querySelectorAll('#speedGroup [data-speed]').forEach(function (x) { x.classList.toggle('on', x === b); });
     };
   });
