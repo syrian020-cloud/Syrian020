@@ -200,6 +200,10 @@
   .mb-miss { font-size: .85rem; opacity: .75; padding: .3rem; }
   .phrase.cueable { cursor: pointer; }
   .phrase.cue-on { outline: 2px solid var(--accent, #7c3aed); outline-offset: 2px; border-radius: 14px; }
+  .mb-cap { margin-top: .5rem; text-align: center; line-height: 1.5; }
+  .mb-cap .cl { font-weight: 800; font-size: 1.02rem; color: var(--text-primary, #fff); }
+  .mb-cap .cl:first-child { font-size: 1.14rem; color: var(--accent, #a78bfa); }
+  .mb-cap:empty { display: none; }
   .group-title { display: flex; align-items: center; gap: 0.45rem; color: var(--accent); font-size: 0.88rem; font-weight: 850; margin: 0.75rem 0 0.5rem; padding-inline-start: 0.3rem; }
   .group-title::before { content: ''; width: 14px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--accent-solid), var(--accent-2)); }
 
@@ -1361,10 +1365,11 @@
     var names = [mlName].concat(others.map(langEn));
     var q = mlName + ' phrase: "' + m[ml] + '"\n';
     others.forEach(function (k) { q += langEn(k) + ' translation: "' + m[k] + '"\n'; });
+    var nat = names.length > 1 ? names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1] : names[0];
     q += '1) Translate each individual word (' + names.join(' → ') + ').\n' +
       '2) Explain the ' + mlName + ' grammar rule (verb conjugation, structure, or expression) used in this phrase.\n' +
-      '3) Provide a short practical conversation in ' + names.join(', ') + ' using this phrase so it can be memorized as a conversation.\n' +
-      'Output in ' + names.join(', ') + '.';
+      '3) Provide a short practical conversation in ' + nat + ' using this phrase so it can be memorized as a conversation.\n' +
+      'Output in ' + nat + '.';
     return q;
   }
   function openAiSearch(p) {
@@ -1573,7 +1578,7 @@
     });
     var acts = '<div class="ph-actions">' +
       '<button class="ph-act nb-open" title="notebook">📝</button>' +
-      '<button class="ph-act ai-open" title="Google AI">🤖</button>' +
+      '<button class="ph-act ai-open" title="Google AI">✨</button>' +
       '<button class="ph-act img-open" title="Google Images">🖼️</button>' +
       '<button class="ph-act ph-img-add" title="رفع صورة">📷</button></div>';
     var img = p.img ? '<div class="ph-img"><img src="' + esc(p.img) + '" alt=""><button class="ph-img-del" title="حذف الصورة">×</button></div>' : '';
@@ -1791,7 +1796,7 @@
   async function loadLessonMedia(l) {
     var box = document.getElementById('mediaBox');
     if (!box) return;
-    pauseMedia(); mediaEl = null;
+    pauseMedia(); mediaEl = null; curCueEl = null;
     if (mediaUrl) { URL.revokeObjectURL(mediaUrl); mediaUrl = null; }
     timedEls = Array.prototype.slice.call(document.querySelectorAll('.phrase[data-ts]'));
     if (!l.media) { box.innerHTML = ''; return; }
@@ -1807,6 +1812,7 @@
     var isV = (l.media.kind || rec.kind) === 'video';
     box.innerHTML = '<div class="media-box">' +
       (isV ? '<video controls playsinline src="' + mediaUrl + '"></video>' : '<audio controls src="' + mediaUrl + '"></audio>') +
+      '<div class="mb-cap" id="mbCap"></div>' +
       '<div class="mb-tools"><span class="mb-name">' + esc(rec.name || l.media.name || '') + '</span>' +
       '<button class="mb-btn" id="mbReplace">' + esc(t('mediaReplace')) + '</button>' +
       '<button class="mb-x" title="' + esc(t('remove')) + '">×</button></div></div>';
@@ -1825,20 +1831,31 @@
     mediaEl.currentTime = parseFloat(el.dataset.ts) || 0;
     mediaEl.play();
   }
+  var curCueEl = null;
+  function renderCueCap(el) {
+    var cap = document.getElementById('mbCap');
+    if (!cap || el === curCueEl) return;
+    curCueEl = el;
+    if (!el) { cap.innerHTML = ''; return; }
+    cap.innerHTML = Array.prototype.map.call(el.querySelectorAll('.pl .txt'), function (x) {
+      return '<div class="cl">' + esc(x.textContent) + '</div>';
+    }).join('');
+  }
   function syncCues() {
     if (!mediaEl || !timedEls.length) return;
-    var now = mediaEl.currentTime;
+    var now = mediaEl.currentTime, active = null;
     timedEls.forEach(function (el) {
       var s = parseFloat(el.dataset.ts), e = parseFloat(el.dataset.te || 'NaN');
-      var next = null;
       if (isNaN(e)) {
-        // cue runs until the next timed phrase starts
-        var sib = el.parentElement.querySelectorAll('.phrase[data-ts]');
-        for (var i = 0; i < sib.length; i++) { if (sib[i] === el && sib[i + 1]) { next = parseFloat(sib[i + 1].dataset.t); break; } }
-        e = next != null ? next : Infinity;
+        // cue runs until the next timed phrase starts (scan all timed phrases in order)
+        var ix = timedEls.indexOf(el);
+        e = (ix >= 0 && timedEls[ix + 1]) ? parseFloat(timedEls[ix + 1].dataset.ts) : Infinity;
       }
-      el.classList.toggle('cue-on', now >= s && now < e);
+      var on = now >= s && now < e;
+      el.classList.toggle('cue-on', on);
+      if (on) active = el;
     });
+    renderCueCap(active);
   }
   async function removeLessonMedia(l) {
     delete l.media;
