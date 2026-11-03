@@ -244,8 +244,8 @@
   .ph-act.segloop { background: linear-gradient(135deg, #f6b93b, #f0932b); border-color: transparent; }
   .ph-act:hover { border-color: #c9b3ea; transform: translateY(-2px); box-shadow: 0 6px 14px rgba(130,100,180,0.18); }
   .ph-act:active { transform: scale(0.94); }
-  .ph-img { position: relative; display: inline-block; margin-top: 0.6rem; max-width: 100%; }
-  .ph-img img { display: block; max-width: 100%; max-height: 220px; border-radius: 14px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+  .ph-img { position: relative; display: block; margin-top: 0.6rem; width: 100%; }
+  .ph-img img { display: block; width: 100%; max-height: 360px; object-fit: contain; border-radius: 14px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
   .ph-img-del { position: absolute; top: -9px; inset-inline-end: -9px; width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--border); background: #e11d48; color: #fff; font-size: 0.95rem; font-weight: 800; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.35); font-family: inherit; }
   .ph-img-del:hover { transform: scale(1.12); }
   .flag-btn, .sec-play { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg-secondary); font-size: 1.15rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .15s; line-height: 1; }
@@ -2990,7 +2990,7 @@
     }
     var f = findPhraseObj(btn);
     if (!f) return;
-    resizeImage(file, 1000, 0.82, function (url) { attachPhraseImg(f, url); });
+    resizeImage(file, 1600, 0.9, function (url) { attachPhraseImg(f, url); });
   };
   document.getElementById('iconFileInput').onchange = function (e) {
     var file = e.target.files && e.target.files[0];
