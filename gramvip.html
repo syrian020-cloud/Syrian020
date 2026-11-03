@@ -504,6 +504,10 @@
 🇺🇸 I have a book."></textarea>
       <div class="parse-stats" id="parseStats"></div>
       <div class="hint" data-t="multiHint">💡 افصل الدروس بسطر === لإضافة عدة دروس معاً</div>
+      <div class="btnrow" style="margin-top:.5rem; align-items:center">
+        <button type="button" class="btn btn-ghost" id="lessonMediaPick">🎬 <span data-t="media">وسائط</span></button>
+        <div class="hint" id="lessonMediaName" style="flex:1; min-width:0"></div>
+      </div>
     </div>
     <div class="btnrow">
       <button class="btn btn-ghost" id="lessonCancel" data-t="cancel">إلغاء</button>
@@ -1344,24 +1348,37 @@
     speakAuto(text, lang || 'fr', 0, done);
   }
 
+  // ProLang-style Google AI query: every phrase line labelled in English,
+  // then a 3-step task (word-by-word, grammar rule, practice conversation)
+  var LANG_EN = { fr:'French', ar:'Arabic', en:'English', de:'German', es:'Spanish', it:'Italian', zh:'Chinese', ja:'Japanese', ko:'Korean', th:'Thai', vi:'Vietnamese', hi:'Hindi', el:'Greek', ka:'Georgian', hy:'Armenian', he:'Hebrew', ru:'Russian', tr:'Turkish', pt:'Portuguese', nl:'Dutch', pl:'Polish', uk:'Ukrainian', sv:'Swedish', fa:'Persian', ur:'Urdu', bn:'Bengali', id:'Indonesian', ms:'Malay', tl:'Filipino', ro:'Romanian', hu:'Hungarian', cs:'Czech', bg:'Bulgarian', hr:'Croatian', sr:'Serbian', da:'Danish', nb:'Norwegian', fi:'Finnish', mn:'Mongolian', sw:'Swahili', zu:'Zulu', yo:'Yoruba', am:'Amharic', is:'Icelandic', sq:'Albanian', lt:'Lithuanian', lv:'Latvian', et:'Estonian' };
+  function langEn(l) { return LANG_EN[l] || l; }
+  function aiSearchQuery(ls) {
+    var m = {}; ls.forEach(function (x) { if (x.lang && x.text) m[x.lang] = x.text; });
+    var ks = Object.keys(m); if (!ks.length) return '';
+    var ml = ls[0] && m[ls[0].lang] ? ls[0].lang : ks[0];
+    var mlName = langEn(ml);
+    var others = ks.filter(function (k) { return k !== ml; });
+    var names = [mlName].concat(others.map(langEn));
+    var q = mlName + ' phrase: "' + m[ml] + '"\n';
+    others.forEach(function (k) { q += langEn(k) + ' translation: "' + m[k] + '"\n'; });
+    q += '1) Translate each individual word (' + names.join(' → ') + ').\n' +
+      '2) Explain the ' + mlName + ' grammar rule (verb conjugation, structure, or expression) used in this phrase.\n' +
+      '3) Provide a short practical conversation in ' + names.join(', ') + ' using this phrase so it can be memorized as a conversation.\n' +
+      'Output in ' + names.join(', ') + '.';
+    return q;
+  }
   function openAiSearch(p) {
-    var ls = pLines(p);
-    var first = ls[0] || { text: '', lang: 'fr' };
-    var lname = LANG_NAMES[first.lang] || first.lang;
-    var trs = ls.slice(1).map(function (x) { return (LANG_NAMES[x.lang] || x.lang) + ': "' + x.text + '"'; }).join('\n');
-    var prompt;
-    if (state.lang === 'ar') prompt = 'ترجم عبارة "' + first.text + '" (' + lname + ') إلى العربية والإنجليزية واشرح معناها، ثم أعطني محادثات شائعة يومية تُستخدم فيها هذه العبارة، مع ترجمة كل محادثة إلى العربية والإنجليزية سطراً بسطر.' + (trs ? '\n' + trs : '');
-    else if (state.lang === 'fr') prompt = 'Traduis la phrase "' + first.text + '" (' + lname + ') en arabe et en anglais et explique son sens, puis donne des conversations quotidiennes courantes où elle est utilisée, en traduisant chaque conversation en arabe et en anglais ligne par ligne.' + (trs ? '\n' + trs : '');
-    else prompt = 'Translate the phrase "' + first.text + '" (' + lname + ') into Arabic and English and explain its meaning, then give common daily conversations where this phrase is used, translating each conversation into Arabic and English line by line.' + (trs ? '\n' + trs : '');
+    var prompt = aiSearchQuery(pLines(p));
+    if (!prompt) return;
     var hl = state.lang === 'ar' ? 'ar' : (state.lang === 'fr' ? 'fr' : 'en');
-    var url = 'https://www.google.com/search?udm=50&hl=' + hl + '&q=' + encodeURIComponent(prompt);
+    var url = 'https://www.google.com/search?q=' + encodeURIComponent(prompt) + '&udm=50&hl=' + hl;
     var BR = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Browser;
     if (BR && BR.open) { BR.open({ url: url }); return; }
     window.open(url, '_blank');
   }
 
   function searchImages(text) {
-    var url = 'https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(text);
+    var url = 'https://www.google.com/search?q=' + encodeURIComponent(text + ' clipart') + '&udm=2&hl=' + (state.lang === 'ar' ? 'ar' : (state.lang === 'fr' ? 'fr' : 'en'));
     var BR = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Browser;
     if (BR && BR.open) { BR.open({ url: url }); return; }
     window.open(url, '_blank');
@@ -2048,15 +2065,28 @@
   }
 
   var editingLesson = null, lessonFolderTarget = null;
+  var pendingMedia = null; // {file, kind, name} picked in the lesson sheet
   function openLessonSheet(f, l) {
     editingLesson = l || null;
     lessonFolderTarget = f;
+    pendingMedia = null;
     document.querySelector('#lessonSheetTitle span').textContent = l ? t('editLesson') : t('newLesson');
     document.getElementById('lessonText').value = l ? (l.raw || '') : '';
     document.getElementById('lessonTitle').value = l ? tLines(l.title).map(function (x) { return x.text; }).filter(Boolean).join(' — ') : '';
+    document.getElementById('lessonMediaName').textContent = (l && l.media) ? '🎬 ' + (l.media.name || '') : '';
     buildIconGrid(document.getElementById('lessonIconGrid'), (l && l.icon) || '📚');
     updateParseStats();
     document.getElementById('ovLesson').classList.remove('hidden');
+  }
+  function pickSheetMedia() {
+    var inp = document.createElement('input');
+    inp.type = 'file'; inp.accept = 'video/*,audio/*';
+    inp.onchange = function (e) {
+      var file = e.target.files[0]; if (!file) return;
+      pendingMedia = { file: file, kind: /^video\//.test(file.type) ? 'video' : 'audio', name: file.name };
+      document.getElementById('lessonMediaName').textContent = '🎬 ' + file.name;
+    };
+    inp.click();
   }
   function updateParseStats() {
     var raw = document.getElementById('lessonText').value;
@@ -2115,13 +2145,22 @@
     var icBtn = document.querySelector('#lessonIconGrid button.on');
     var lessonIcon = pickedImg || (icBtn && icBtn.dataset.ic) || '📚';
     if (lessonIcon === '__img__') lessonIcon = '📚';
+    var savedL = null;
     if (editingLesson) {
       editingLesson.title = titleFromInput(titleIn, items[0].p.title); editingLesson.sections = items[0].p.sections; editingLesson.raw = items[0].raw; editingLesson.icon = lessonIcon;
       await idbPut('lessons', editingLesson);
+      savedL = editingLesson;
     } else {
       var l = { id: uid(), folderId: target.id, title: titleFromInput(titleIn, items[0].p.title), sections: items[0].p.sections, raw: items[0].raw, icon: lessonIcon, createdAt: Date.now() };
       lessons.push(l);
       await idbPut('lessons', l);
+      savedL = l;
+    }
+    if (pendingMedia && savedL) {
+      savedL.media = { kind: pendingMedia.kind, name: pendingMedia.name };
+      await idbPut('lessons', savedL);
+      await idbPut('media', { id: savedL.id, blob: pendingMedia.file, kind: pendingMedia.kind, name: pendingMedia.name });
+      pendingMedia = null;
     }
     for (var i = 1; i < items.length; i++) {
       var li = { id: uid(), folderId: target.id, title: items[i].p.title, sections: items[i].p.sections, raw: items[i].raw, icon: lessonIcon, createdAt: Date.now() };
@@ -2894,6 +2933,7 @@
   document.getElementById('folderSave').onclick = saveFolder;
   document.getElementById('lessonCancel').onclick = function () { document.getElementById('ovLesson').classList.add('hidden'); };
   document.getElementById('lessonSave').onclick = saveLesson;
+  document.getElementById('lessonMediaPick').onclick = pickSheetMedia;
   document.getElementById('fabBtn').onclick = function () {
     if (state.view === 'home') { openFolderSheet(null); return; }
     if (state.view === 'folder') { var ff = folderById(state.folderId); if (ff) openLessonSheet(ff, null); }
