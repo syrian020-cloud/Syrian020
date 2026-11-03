@@ -2829,6 +2829,9 @@
       body.querySelectorAll('.qz-tile[data-ok="1"]').forEach(function (x) { x.classList.add('ok'); });
     }
     stopSpeaking();
+    pauseMedia();
+    var ansTxt = lineText(p, lz.lang).trim();
+    if (ansTxt && HAS_VOICE[lz.lang]) speakAuto(ansTxt, lz.lang, 1, function () {});
     var hero = document.getElementById('lzHero');
     if (hero) {
       hero.className = 'lz-hero v';
