@@ -2831,7 +2831,7 @@
     stopSpeaking();
     pauseMedia();
     var ansTxt = lineText(p, lz.lang).trim();
-    if (ansTxt && HAS_VOICE[lz.lang]) speakAuto(ansTxt, lz.lang, 1, function () {});
+    if (ansTxt && HAS_VOICE[lz.lang]) speakAuto(ansTxt, lz.lang, state.loop, function () {});
     var hero = document.getElementById('lzHero');
     if (hero) {
       hero.className = 'lz-hero v';
