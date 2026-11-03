@@ -205,7 +205,7 @@
   [data-theme="dark"] .pl .flag-btn.flagmode { background: #f0eafb; border-color: #dcd0f2; }
   .pl.fr .txt { font-weight: 800; font-size: 1.18rem; }
   .pl.ar .txt { font-weight: 700; font-size: 1.1rem; }
-  .pl.en .txt { font-weight: 600; font-size: 1.02rem; color: #4a3672; }
+  .pl.en .txt, .pl.other .txt { font-weight: 600; font-size: 1.02rem; color: #4a3672; }
   .flags { display: flex; flex-direction: column; gap: 0.34rem; flex: none; }
   /* Zeelang-style square action buttons under the card */
   .ph-actions { display: flex; gap: 0.55rem; margin-top: 0.7rem; justify-content: space-between; }
@@ -597,7 +597,7 @@
       delLessonT: 'حذف الدرس؟', delLessonD: 'سيتم حذف هذا الدرس نهائياً.',
       delImgT: 'حذف الصورة؟', delImgD: 'ستُزال الصورة من هذه العبارة.',
       lzImgT: 'حذف صورة اللعبة؟', lzImgD: 'ستُزال صورتك المخصصة وترجع الصورة الافتراضية.',
-      quiz: 'اختبار التوصيل', listenQuiz: 'اسمع واختر', replay: '🔊 إعادة الاستماع', quizPick: 'اختر اللغة المقابلة للفرنسية:', quizScore: 'النتيجة', quizAgain: 'إعادة اللعب', quizDone: 'انتهى', quizEmpty: 'الدرس يحتاج عبارات فيها فرنسي + اللغة المقابلة',
+      quiz: 'اختبار التوصيل', listenQuiz: 'اسمع واختر', replay: '🔊 إعادة الاستماع', quizPick: 'اختر اللغة المقابلة لـ{lang}:', quizScore: 'النتيجة', quizAgain: 'إعادة اللعب', quizDone: 'انتهى', quizEmpty: 'الدرس يحتاج عبارات بلغتين على الأقل',
       exitTitle: 'الخروج من التطبيق؟', exitYes: 'خروج', exitNo: 'بقاء',
       saved: 'تم الحفظ', savedN: 'تمت إضافة {n} دروس', multiHint: '💡 افصل الدروس بسطر === لإضافة عدة دروس معاً', deleted: 'تم الحذف', imported: 'تم الاستيراد', importBad: 'ملف غير صالح', copied: 'تم نسخ النموذج', pasted: 'تم اللصق',
       emptyFolders: 'لا مجلدات بعد — أضف أول مجلد', emptyLessons: 'لا دروس بعد — أضف أول درس',
@@ -624,7 +624,7 @@
       delLessonT: 'Delete lesson?', delLessonD: 'This lesson will be permanently deleted.',
       delImgT: 'Delete image?', delImgD: 'The image will be removed from this phrase.',
       lzImgT: 'Delete game image?', lzImgD: 'Your custom image will be removed and the default restored.',
-      quiz: 'Matching quiz', listenQuiz: 'Listen & choose', replay: '🔊 Listen again', quizPick: 'Pick the language to match with French:', quizScore: 'Score', quizAgain: 'Play again', quizDone: 'Done', quizEmpty: 'The lesson needs phrases with French + the other language',
+      quiz: 'Matching quiz', listenQuiz: 'Listen & choose', replay: '🔊 Listen again', quizPick: 'Pick the language to match with {lang}:', quizScore: 'Score', quizAgain: 'Play again', quizDone: 'Done', quizEmpty: 'The lesson needs phrases in at least two languages',
       exitTitle: 'Exit the app?', exitYes: 'Exit', exitNo: 'Stay',
       saved: 'Saved', savedN: '{n} lessons added', multiHint: '💡 Separate lessons with a === line to add several at once', deleted: 'Deleted', imported: 'Imported', importBad: 'Invalid file', copied: 'Template copied', pasted: 'Pasted',
       emptyFolders: 'No folders yet — add your first folder', emptyLessons: 'No lessons yet — add your first lesson',
@@ -651,7 +651,7 @@
       delLessonT: 'Supprimer la leçon ?', delLessonD: 'Cette leçon sera définitivement supprimée.',
       delImgT: 'Supprimer l’image ?', delImgD: 'L’image sera retirée de cette phrase.',
       lzImgT: 'Supprimer l’image du jeu ?', lzImgD: 'Votre image personnalisée sera remplacée par l’image par défaut.',
-      quiz: 'Quiz d’association', listenQuiz: 'Écoute et choisis', replay: '🔊 Réécouter', quizPick: 'Choisissez la langue à associer au français :', quizScore: 'Score', quizAgain: 'Rejouer', quizDone: 'Terminé', quizEmpty: 'La leçon doit avoir des phrases français + autre langue',
+      quiz: 'Quiz d’association', listenQuiz: 'Écoute et choisis', replay: '🔊 Réécouter', quizPick: 'Choisissez la langue à associer à {lang} :', quizScore: 'Score', quizAgain: 'Rejouer', quizDone: 'Terminé', quizEmpty: 'La leçon doit avoir des phrases dans au moins deux langues',
       exitTitle: 'Quitter l\'application ?', exitYes: 'Quitter', exitNo: 'Rester',
       saved: 'Enregistré', savedN: '{n} leçons ajoutées', multiHint: '💡 Séparez les leçons par une ligne === pour en ajouter plusieurs', deleted: 'Supprimé', imported: 'Importé', importBad: 'Fichier invalide', copied: 'Modèle copié', pasted: 'Collé',
       emptyFolders: 'Aucun dossier — ajoutez votre premier dossier', emptyLessons: 'Aucune leçon — ajoutez votre première leçon',
@@ -665,7 +665,60 @@
     }
   };
 
-  var TTS_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
+  /* ============ languages (ProLang model: any flag → its language) ============ */
+  var FLAG_LANG = {
+    CN:'zh',JP:'ja',KR:'ko',TH:'th',VN:'vi',IN:'hi',GR:'el',GE:'ka',AM:'hy',IL:'he',
+    FR:'fr',US:'en',GB:'en',AU:'en',DE:'de',ES:'es',IT:'it',RU:'ru',TR:'tr',PT:'pt',
+    BR:'pt',NL:'nl',PL:'pl',UA:'uk',SE:'sv',IR:'fa',PK:'ur',BD:'bn',ID:'id',MY:'ms',
+    PH:'tl',RO:'ro',HU:'hu',CZ:'cs',BG:'bg',HR:'hr',RS:'sr',DK:'da',NO:'nb',FI:'fi',
+    MN:'mn',KE:'sw',TZ:'sw',ZA:'zu',NG:'yo',ET:'am',IS:'is',AL:'sq',LT:'lt',LV:'lv',
+    EE:'et',SY:'ar',SA:'ar',EG:'ar',JO:'ar',LB:'ar',MA:'ar',DZ:'ar',TN:'ar',AE:'ar',
+    IQ:'ar',KW:'ar',QA:'ar',BH:'ar',OM:'ar',YE:'ar',LY:'ar',MX:'es',AR:'es',CO:'es',
+    CL:'es',PE:'es',VE:'es',CA:'en',IE:'en',NZ:'en',CH:'de',AT:'de',BE:'fr',LU:'fr',
+    AF:'ps',KZ:'kk',UZ:'uz',AZ:'az',NP:'ne',LK:'si',MM:'my',KH:'km',LA:'lo'
+  };
+  var LANG_FLAG = {
+    fr:'🇫🇷',ar:'🇸🇾',en:'🇺🇸',zh:'🇨🇳',ja:'🇯🇵',ko:'🇰🇷',th:'🇹🇭',vi:'🇻🇳',
+    hi:'🇮🇳',el:'🇬🇷',ka:'🇬🇪',hy:'🇦🇲',he:'🇮🇱',de:'🇩🇪',es:'🇪🇸',it:'🇮🇹',
+    ru:'🇷🇺',tr:'🇹🇷',pt:'🇵🇹',nl:'🇳🇱',pl:'🇵🇱',uk:'🇺🇦',sv:'🇸🇪',fa:'🇮🇷',
+    ur:'🇵🇰',bn:'🇧🇩',id:'🇮🇩',ms:'🇲🇾',tl:'🇵🇭',ro:'🇷🇴',hu:'🇭🇺',cs:'🇨🇿',
+    bg:'🇧🇬',hr:'🇭🇷',sr:'🇷🇸',da:'🇩🇰',nb:'🇳🇴',fi:'🇫🇮',mn:'🇲🇳',sw:'🇰🇪',
+    zu:'🇿🇦',yo:'🇳🇬',am:'🇪🇹',is:'🇮🇸',sq:'🇦🇱',lt:'🇱🇹',lv:'🇱🇻',et:'🇪🇪',
+    ps:'🇦🇫',kk:'🇰🇿',uz:'🇺🇿',az:'🇦🇿',ne:'🇳🇵',si:'🇱🇰',my:'🇲🇲',km:'🇰🇭',
+    lo:'🇱🇦'
+  };
+  var LANG_NAMES = {
+    fr:'الفرنسية',ar:'العربية',en:'الإنجليزية',de:'الألمانية',es:'الإسبانية',it:'الإيطالية',
+    zh:'الصينية',ja:'اليابانية',ko:'الكورية',th:'التايلاندية',vi:'الفيتنامية',hi:'الهندية',
+    el:'اليونانية',ka:'الجورجية',hy:'الأرمنية',he:'العبرية',ru:'الروسية',tr:'التركية',
+    pt:'البرتغالية',nl:'الهولندية',pl:'البولندية',uk:'الأوكرانية',sv:'السويدية',fa:'الفارسية',
+    ur:'الأوردية',bn:'البنغالية',id:'الإندونيسية',ms:'الماليزية',tl:'الفلبينية',ro:'الرومانية',
+    hu:'الهنغارية',cs:'التشيكية',bg:'البلغارية',hr:'الكرواتية',sr:'الصربية',da:'الدنماركية',
+    nb:'النرويجية',fi:'الفنلندية',mn:'المنغولية',sw:'السواحيلية',zu:'الزولو',yo:'اليوروبا',
+    am:'الأمهرية',is:'الآيسلندية',sq:'الألبانية',lt:'الليتوانية',lv:'اللاتفية',et:'الإستونية',
+    ps:'الباشتو',kk:'الكازاخية',uz:'الأوزبكية',az:'الأذرية',ne:'النيبالية',si:'السنهالية',
+    my:'البورمية',km:'الخميرية',lo:'اللاوية'
+  };
+  /* languages with a confirmed Edge neural voice — speak buttons only for these */
+  var HAS_VOICE = {
+    fr:1,ar:1,en:1,zh:1,ja:1,ko:1,th:1,vi:1,hi:1,el:1,ka:1,he:1,de:1,es:1,it:1,ru:1,
+    tr:1,pt:1,nl:1,pl:1,uk:1,sv:1,fa:1,ur:1,bn:1,id:1,ms:1,tl:1,ro:1,hu:1,cs:1,bg:1,
+    hr:1,sr:1,da:1,nb:1,fi:1,mn:1,sw:1,zu:1,am:1,is:1,sq:1,lt:1,lv:1,et:1,yo:1
+  };
+  function flagCC(flag) {
+    if (!flag || flag.length < 2) return '';
+    var s = '';
+    for (var i = 0; i < 2; i++) {
+      var cp = flag.codePointAt(i * 2);
+      if (cp < 0x1F1E6 || cp > 0x1F1FF) return '';
+      s += String.fromCharCode(cp - 0x1F1E6 + 65);
+    }
+    return s;
+  }
+  function langOfFlag(flag) { return FLAG_LANG[flagCC(flag)] || ''; }
+  var ANY_FLAG_RE = /^[\u{1F1E6}-\u{1F1FF}]{2}/u;
+  /* device-TTS language tags (fallback when Edge is off/unavailable) */
+  var TTS_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US', zh: 'zh-CN', ja: 'ja-JP', ko: 'ko-KR', nb: 'nb-NO', tl: 'fil-PH', yo: 'en-NG' };
   var FOLDER_ICONS = ['📁','📚','📝','✏️','🔤','🗣️','💬','📖','🎓','⚖️','🏛️','🏥','🏦','✉️','💼','🏠','🚇','🛒','🍽️','⚽','🎵','🧮','📐','🔬','🌍','⏰','💡','❤️','⭐','🧠','📌'];
 
   var pickedImg = null;
@@ -743,7 +796,45 @@
   }
   function $(s) { return document.querySelector(s); }
   function uid() { return 'g' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
-  function tri(obj) { return (obj && (obj[state.lang] || obj.fr || obj.ar || obj.en)) || ''; }
+  function tri(obj) { return (obj && (obj[state.lang] || obj.fr || obj.ar || obj.en || (obj.lines && obj.lines[0] && obj.lines[0].text))) || ''; }
+  /* phrase/title lines — the general model: [{lang, flag, text}]; legacy {fr,ar,en} synthesizes */
+  function pLines(p) {
+    if (!p) return [];
+    if (p.lines && p.lines.length) return p.lines;
+    var L = [];
+    if (p.fr) L.push({ lang: 'fr', flag: LANG_FLAG.fr, text: p.fr });
+    if (p.ar) L.push({ lang: 'ar', flag: LANG_FLAG.ar, text: p.ar });
+    if (p.en) L.push({ lang: 'en', flag: LANG_FLAG.en, text: p.en });
+    return L;
+  }
+  var tLines = pLines;
+  function lineText(p, lang) {
+    var ls = pLines(p);
+    for (var i = 0; i < ls.length; i++) if (ls[i].lang === lang) return ls[i].text;
+    return '';
+  }
+  function allText(p) { return pLines(p).map(function (l) { return l.text; }).join(' '); }
+  /* ordered unique langs across a lesson's phrases */
+  function lessonLangs(l) {
+    var seen = {}, out = [];
+    (l.sections || []).forEach(function (s) {
+      secPhrases(s).forEach(function (p) {
+        pLines(p).forEach(function (ln) { if (!seen[ln.lang]) { seen[ln.lang] = 1; out.push(ln.lang); } });
+      });
+    });
+    return out;
+  }
+  /* the lesson's primary language = the most common first-line lang */
+  function primaryLang(l) {
+    var cnt = {}, best = '', bestN = 0;
+    (l.sections || []).forEach(function (s) {
+      secPhrases(s).forEach(function (p) {
+        var ls = pLines(p);
+        if (ls.length) { cnt[ls[0].lang] = (cnt[ls[0].lang] || 0) + 1; if (cnt[ls[0].lang] > bestN) { bestN = cnt[ls[0].lang]; best = ls[0].lang; } }
+      });
+    });
+    return best || 'fr';
+  }
 
   /* ==================== storage (IndexedDB) ==================== */
   var idb = null;
@@ -785,9 +876,8 @@
   /* ==================== template parser ==================== */
   function flagOf(line) {
     var s = line.trim();
-    if (s.indexOf('🇫🇷') === 0) return 'fr';
-    if (s.indexOf('🇸🇾') === 0 || s.indexOf('🇹🇳') === 0 || s.indexOf('🇩🇿') === 0 || s.indexOf('🇲🇦') === 0 || s.indexOf('🇪🇬') === 0 || s.indexOf('🇸🇦') === 0) return 'ar';
-    if (s.indexOf('🇺🇸') === 0 || s.indexOf('🇬🇧') === 0) return 'en';
+    var fm = s.match(ANY_FLAG_RE);
+    if (fm) { var lg = langOfFlag(fm[0]); if (lg) return lg; return 'und'; }
     if (/^FR\s*[:：.\-]/i.test(s)) return 'fr';
     if (/^AR\s*[:：.\-]/i.test(s)) return 'ar';
     if (/^EN\s*[:：.\-]/i.test(s)) return 'en';
@@ -797,8 +887,8 @@
     return line.replace(/^((?:[\u{1F1E6}-\u{1F1FF}]{2}|[🇫🇷🇸🇾🇺🇸])\uFE0F?\s*)+/u, '').replace(/^(FR|AR|EN)\s*[:：.\-]\s*/i, '').trim();
   }
   // extract flag-prefixed segments from a line like '🇫🇷 text — 🇸🇾 text — 🇺🇸 text'
-  // or '🇫🇷 text | 🇸🇾 text | 🇺🇸 text' (new template style)
-  var FLAG_RE = /(🇫🇷|🇸🇾|🇹🇳|🇩🇿|🇲🇦|🇪🇬|🇸🇦|🇺🇸|🇬🇧)/g;
+  // or '🇫🇷 text | 🇸🇾 text | 🇺🇸 text' (new template style) — ANY flag pairs allowed
+  var FLAG_RE = /[\u{1F1E6}-\u{1F1FF}]{2}/gu;
   function flaggedSegs(line) {
     var matches = [], m;
     FLAG_RE.lastIndex = 0;
@@ -809,17 +899,40 @@
       var end = (i + 1 < matches.length) ? matches[i + 1].start : line.length;
       var text = line.slice(matches[i].start + matches[i].flag.length, end)
         .replace(/^[\s|—–\-]+|[\s|—–\-]+$/g, '').trim();
-      segs.push({ lang: flagOf(matches[i].flag), text: text });
+      segs.push({ lang: langOfFlag(matches[i].flag) || flagOf(matches[i].flag), flag: matches[i].flag, text: text });
     }
     return segs;
   }
   function segsToTri(segs) {
-    var tri = { fr: '', ar: '', en: '' };
+    var tri = { fr: '', ar: '', en: '', lines: [] };
     segs.forEach(function (sg) {
-      if (sg.lang && sg.text) tri[sg.lang] = tri[sg.lang] ? tri[sg.lang] + ' / ' + sg.text : sg.text;
+      if (!sg.text) return;
+      tri.lines.push({ lang: sg.lang || 'fr', flag: sg.flag || LANG_FLAG[sg.lang] || '🏳️', text: sg.text });
+      if (sg.lang === 'fr' || sg.lang === 'ar' || sg.lang === 'en') tri[sg.lang] = tri[sg.lang] ? tri[sg.lang] + ' / ' + sg.text : sg.text;
     });
     return tri;
   }
+  /* single-flag line accumulation: line whose lang equals the phrase's first-line lang
+     starts a NEW phrase; other langs append/merge into the current phrase */
+  function pushFlagLine(curPhrase, lang, flag, text) {
+    if (!curPhrase) return { lines: [{ lang: lang, flag: flag, text: text }] };
+    if (curPhrase.lines.length && curPhrase.lines[0].lang === lang) return { lines: [{ lang: lang, flag: flag, text: text }], _new: true };
+    for (var i = 0; i < curPhrase.lines.length; i++) {
+      if (curPhrase.lines[i].lang === lang) { curPhrase.lines[i].text += ' ' + text; return curPhrase; }
+    }
+    curPhrase.lines.push({ lang: lang, flag: flag, text: text });
+    return curPhrase;
+  }
+  function triToLines(tri) {
+    if (tri.lines && tri.lines.length) return tri.lines;
+    var L = [];
+    if (tri.fr) L.push({ lang: 'fr', flag: LANG_FLAG.fr, text: tri.fr });
+    if (tri.ar) L.push({ lang: 'ar', flag: LANG_FLAG.ar, text: tri.ar });
+    if (tri.en) L.push({ lang: 'en', flag: LANG_FLAG.en, text: tri.en });
+    tri.lines = L;
+    return L;
+  }
+  function hasTriText(tri) { return triToLines(tri).length > 0; }
   function isAr(s) { return /[\u0600-\u06FF]/.test(s); }
   function splitParts(line) {
     var parts = line.split(/\s*[—–]\s*/);
@@ -849,8 +962,15 @@
     return parts.length >= 2;
   }
   function parseLesson(raw) {
-    var lines = raw.split(/\r?\n/).map(function (l) { return l.trim(); })
-      .filter(function (l) { return l && !/^[-–—*_=]{3,}$/.test(l); });
+    // keep blank lines as soft phrase boundaries: a flagged line right after a
+    // blank line always starts a new phrase, whatever its language
+    var lines = [], blank = true;
+    raw.split(/\r?\n/).forEach(function (l0) {
+      var l = l0.trim();
+      if (!l || /^[-–—*_=\s]{3,}$/.test(l)) { blank = true; return; }
+      lines.push({ t: l, bb: blank });
+      blank = false;
+    });
     var lesson = { title: { fr: '', ar: '', en: '' }, sections: [] };
     var cur = null, curGrp = null, curPhrase = null, i = 0;
 
@@ -860,7 +980,7 @@
       return curGrp;
     }
     function flushPhrase() {
-      if (curPhrase && (curPhrase.fr || curPhrase.ar || curPhrase.en)) {
+      if (curPhrase && curPhrase.lines && curPhrase.lines.length) {
         ensureGrp().phrases.push(curPhrase);
       }
       curPhrase = null;
@@ -880,7 +1000,7 @@
 
     // first non-empty line = title (unless it is a numbered header or a phrase line)
     while (i < lines.length) {
-      var first = lines[i];
+      var first = lines[i].t;
       if (HDR_NUM.test(first)) break;
       var fsegs = flaggedSegs(first);
       if (fsegs) {
@@ -900,10 +1020,11 @@
       i++;
       break;
     }
-    if (!lesson.title.fr && !lesson.title.ar && !lesson.title.en && i === 0) i = 0;
+    if (!hasTriText(lesson.title) && i === 0) i = 0;
 
     for (; i < lines.length; i++) {
-      var line = lines[i];
+      var line = lines[i].t;
+      var bb = lines[i].bb;
       var fl = flagOf(line);
       if (fl) {
         var fsegs = flaggedSegs(line);
@@ -912,11 +1033,12 @@
           flushPhrase();
           var ftri = segsToTri(fsegs);
           if (line.indexOf('|') >= 0) {
-            ensureGrp().phrases.push(ftri);
+            ensureGrp().phrases.push({ lines: ftri.lines });
           } else if (HDR_NUM.test(fsegs[0].text)) {
-            ftri.fr = (ftri.fr || '').replace(HDR_NUM, '');
+            ftri.lines[0].text = ftri.lines[0].text.replace(HDR_NUM, '');
+            if (ftri.fr) ftri.fr = ftri.fr.replace(HDR_NUM, '');
             newSec(ftri);
-          } else if (!lesson.sections.length && !lesson.title.fr) {
+          } else if (!lesson.sections.length && !hasTriText(lesson.title)) {
             // a flagged trilingual line before any section beats a guessed prose title
             lesson.title = ftri;
           } else {
@@ -925,16 +1047,21 @@
           continue;
         }
         var txt = stripFlag(line);
-        if (fl === 'fr' && HDR_NUM.test(txt)) {
-          // '🇫🇷 1. …' sub-headers open a group
+        var fm2 = line.trim().match(ANY_FLAG_RE);
+        var leadFlag = fm2 ? fm2[0] : '🏳️';
+        if (HDR_NUM.test(txt)) {
+          // '🇫🇷 1. …' single-flag numbered lines open a group
           flushPhrase();
-          newGrp({ fr: txt.replace(HDR_NUM, ''), ar: '', en: '' });
-        } else if (fl === 'fr') {
-          flushPhrase();
-          curPhrase = { fr: txt, ar: '', en: '' };
+          var gt = { fr: '', ar: '', en: '', lines: [{ lang: fl, flag: LANG_FLAG[fl] || leadFlag, text: txt.replace(HDR_NUM, '') }] };
+          if (fl === 'fr') gt.fr = txt.replace(HDR_NUM, '');
+          else if (fl === 'ar') gt.ar = txt.replace(HDR_NUM, '');
+          else if (fl === 'en') gt.en = txt.replace(HDR_NUM, '');
+          newGrp(gt);
         } else {
-          if (!curPhrase) curPhrase = { fr: '', ar: '', en: '' };
-          curPhrase[fl] = curPhrase[fl] ? curPhrase[fl] + ' ' + txt : txt;
+          if (bb && curPhrase) flushPhrase();
+          var np = pushFlagLine(curPhrase, fl, LANG_FLAG[fl] || leadFlag, txt);
+          if (np._new) { flushPhrase(); }
+          curPhrase = np;
         }
         continue;
       }
@@ -1018,11 +1145,14 @@
   }
 
   function openAiSearch(p) {
-    var fr = p.fr || '', ar = p.ar || '', en = p.en || '';
+    var ls = pLines(p);
+    var first = ls[0] || { text: '', lang: 'fr' };
+    var lname = LANG_NAMES[first.lang] || first.lang;
+    var trs = ls.slice(1).map(function (x) { return (LANG_NAMES[x.lang] || x.lang) + ': "' + x.text + '"'; }).join('\n');
     var prompt;
-    if (state.lang === 'ar') prompt = 'ترجم العبارة الفرنسية "' + fr + '" إلى العربية والإنجليزية واشرح معناها، ثم أعطني محادثات شائعة يومية تُستخدم فيها هذه العبارة في فرنسا، مع ترجمة كل محادثة إلى العربية والإنجليزية سطراً بسطر.\nالترجمة العربية: "' + ar + '"\nالترجمة الإنجليزية: "' + en + '"';
-    else if (state.lang === 'fr') prompt = 'Traduis la phrase française "' + fr + '" en arabe et en anglais et explique son sens, puis donne des conversations quotidiennes courantes où elle est utilisée en France, en traduisant chaque conversation en arabe et en anglais ligne par ligne.\nArabe : "' + ar + '"\nAnglais : "' + en + '"';
-    else prompt = 'Translate the French phrase "' + fr + '" into Arabic and English and explain its meaning, then give common daily conversations where this phrase is used in France, translating each conversation into Arabic and English line by line.\nArabic: "' + ar + '"\nEnglish: "' + en + '"';
+    if (state.lang === 'ar') prompt = 'ترجم عبارة "' + first.text + '" (' + lname + ') إلى العربية والإنجليزية واشرح معناها، ثم أعطني محادثات شائعة يومية تُستخدم فيها هذه العبارة، مع ترجمة كل محادثة إلى العربية والإنجليزية سطراً بسطر.' + (trs ? '\n' + trs : '');
+    else if (state.lang === 'fr') prompt = 'Traduis la phrase "' + first.text + '" (' + lname + ') en arabe et en anglais et explique son sens, puis donne des conversations quotidiennes courantes où elle est utilisée, en traduisant chaque conversation en arabe et en anglais ligne par ligne.' + (trs ? '\n' + trs : '');
+    else prompt = 'Translate the phrase "' + first.text + '" (' + lname + ') into Arabic and English and explain its meaning, then give common daily conversations where this phrase is used, translating each conversation into Arabic and English line by line.' + (trs ? '\n' + trs : '');
     var hl = state.lang === 'ar' ? 'ar' : (state.lang === 'fr' ? 'fr' : 'en');
     var url = 'https://www.google.com/search?udm=50&hl=' + hl + '&q=' + encodeURIComponent(prompt);
     var BR = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Browser;
@@ -1044,11 +1174,11 @@
     function once() {
       if ((times > 0 && n >= times) || seq !== speakSeq) { done(); return; }
       var u = new SpeechSynthesisUtterance(text);
-      u.lang = TTS_LANG[lang] || 'fr-FR';
+      u.lang = TTS_LANG[lang] || lang || 'fr-FR';
       u.rate = (lang === 'fr' ? 0.92 : 0.95) * (state.speed || 1);
       var voices = window.speechSynthesis.getVoices() || [];
       for (var i = 0; i < voices.length; i++) {
-        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(TTS_LANG[lang].slice(0, 2).toLowerCase()) === 0) { u.voice = voices[i]; break; }
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(u.lang.slice(0, 2).toLowerCase()) === 0) { u.voice = voices[i]; break; }
       }
       u.onend = function () { n++; once(); };
       u.onerror = function () { done(); };
@@ -1064,7 +1194,7 @@
       if ((times > 0 && n >= times) || seq !== speakSeq) { done(); return; }
       window.Capacitor.Plugins.TextToSpeech.speak({
         text: text,
-        lang: TTS_LANG[lang] || 'fr-FR',
+        lang: TTS_LANG[lang] || lang || 'fr-FR',
         rate: (lang === 'fr' ? 0.92 : 0.95) * (state.speed || 1),
         pitch: 1.0,
         volume: 1.0,
@@ -1091,15 +1221,19 @@
         if (round >= rounds) { done(); return; }
         idx = 0; li = 0;
       }
-      var langs = state.playlang === 'all' ? ['fr', 'ar', 'en'] : [state.playlang];
-      var text = cleanSpoken(items[idx][langs[li]] || '');
+      var speakList = pLines(items[idx]).filter(function (x) {
+        return state.playlang === 'all' || x.lang === state.playlang;
+      });
+      var cur = speakList[li] || { lang: 'fr', text: '' };
+      var text = cleanSpoken(cur.text || '');
+      var spLang = cur.lang;
       if (li === 0 && phraseEls && phraseEls.length) {
         for (var pi = 0; pi < phraseEls.length; pi++) phraseEls[pi].classList.toggle('playing', pi === idx);
         if (phraseEls[idx]) phraseEls[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
-      var step = function () { li++; if (li >= langs.length) { li = 0; idx++; } play(); };
-      if (!text) { step(); return; }
-      speakAuto(text, langs[li], 1, step);
+      var step = function () { li++; if (li >= speakList.length) { li = 0; idx++; } play(); };
+      if (!text || !HAS_VOICE[spLang]) { step(); return; }
+      speakAuto(text, spLang, 1, step);
     }
     play();
   }
@@ -1176,7 +1310,7 @@
   function lessonSub(l) {
     // second title line only when it adds something the shown title doesn't
     var main = lessonTitle(l);
-    var alt = [l.title.fr, l.title.ar, l.title.en].filter(function (s) {
+    var alt = tLines(l.title).map(function (x) { return x.text; }).filter(function (s) {
       return s && s !== main && main.indexOf(s) < 0 && s.indexOf(main) < 0;
     });
     return alt.length ? '<div class="lr-sub">' + esc(alt[0]) + '</div>' : '';
@@ -1197,14 +1331,13 @@
   function wordsHtml(s) {
     return esc(s).split(' ').map(function (w) { return '<span class="w">' + w + '</span>'; }).join(' ');
   }
-  var PL_FLAGS = { fr: '🇫🇷', ar: '🇸🇾', en: '🇺🇸' };
   var plIconMode = (typeof localStorage !== 'undefined' && localStorage.getItem('plIconMode')) || 'loop';
-  function plBtnGlyph(lang) { return plIconMode === 'flag' ? PL_FLAGS[lang] : '⟳'; }
+  function plBtnGlyph(lang, flag) { return plIconMode === 'flag' ? (flag || LANG_FLAG[lang] || '🏳️') : '⟳'; }
   function togglePlIconMode() {
     plIconMode = plIconMode === 'flag' ? 'loop' : 'flag';
     try { localStorage.setItem('plIconMode', plIconMode); } catch (e) {}
     document.querySelectorAll('.pl .flag-btn').forEach(function (b) {
-      b.textContent = plBtnGlyph(b.dataset.lang);
+      b.textContent = plBtnGlyph(b.dataset.lang, b.dataset.flag);
       b.classList.toggle('flagmode', plIconMode === 'flag');
     });
     var t = document.getElementById('plIconModeBtn');
@@ -1213,9 +1346,12 @@
   function phraseHtml(p, ref) {
     var refAttr = ref ? ' data-l="' + esc(ref.l) + '" data-s="' + ref.s + '" data-g="' + ref.g + '" data-p="' + ref.p + '"' : '';
     var rows = '';
-    if (p.fr) rows += '<div class="pl fr"><span class="txt">' + wordsHtml(p.fr) + '</span><button class="flag-btn' + (plIconMode === 'flag' ? ' flagmode' : '') + '" data-lang="fr" title="FR">' + plBtnGlyph('fr') + '</button></div>';
-    if (p.ar) rows += '<div class="pl ar"><span class="txt">' + wordsHtml(p.ar) + '</span><button class="flag-btn' + (plIconMode === 'flag' ? ' flagmode' : '') + '" data-lang="ar" title="AR">' + plBtnGlyph('ar') + '</button></div>';
-    if (p.en) rows += '<div class="pl en"><span class="txt">' + wordsHtml(p.en) + '</span><button class="flag-btn' + (plIconMode === 'flag' ? ' flagmode' : '') + '" data-lang="en" title="EN">' + plBtnGlyph('en') + '</button></div>';
+    var styleCls = ['fr', 'ar', 'en'];
+    pLines(p).forEach(function (ln, i) {
+      var cls = styleCls[i] || 'other';
+      var spk = HAS_VOICE[ln.lang] ? '<button class="flag-btn' + (plIconMode === 'flag' ? ' flagmode' : '') + '" data-lang="' + ln.lang + '" data-flag="' + esc(ln.flag || '') + '" title="' + esc(LANG_NAMES[ln.lang] || ln.lang.toUpperCase()) + '">' + plBtnGlyph(ln.lang, ln.flag) + '</button>' : '';
+      rows += '<div class="pl ' + cls + '" data-lang="' + ln.lang + '"><span class="txt">' + wordsHtml(ln.text) + '</span>' + spk + '</div>';
+    });
     var acts = '<div class="ph-actions">' +
       '<button class="ph-act nb-open" title="notebook">📝</button>' +
       '<button class="ph-act ai-open" title="Google AI">🤖</button>' +
@@ -1228,9 +1364,10 @@
   // small per-language TTS buttons for titles (lesson, section, group)
   function speakFlags(tr) {
     var h = '<span class="hflags">';
-    if (tr && tr.fr) h += '<button class="flag-btn" data-sp="' + esc(tr.fr) + '" data-lang="fr" title="FR">🇫🇷</button>';
-    if (tr && tr.ar) h += '<button class="flag-btn" data-sp="' + esc(tr.ar) + '" data-lang="ar" title="AR">🇸🇾</button>';
-    if (tr && tr.en) h += '<button class="flag-btn" data-sp="' + esc(tr.en) + '" data-lang="en" title="EN">🇺🇸</button>';
+    tLines(tr).forEach(function (ln) {
+      if (!HAS_VOICE[ln.lang]) return;
+      h += '<button class="flag-btn" data-sp="' + esc(ln.text) + '" data-lang="' + ln.lang + '" title="' + esc(LANG_NAMES[ln.lang] || ln.lang.toUpperCase()) + '">' + (ln.flag || LANG_FLAG[ln.lang] || '🏳️') + '</button>';
+    });
     return h + '</span>';
   }
   function wireSpeakButtons(scope) {
@@ -1362,7 +1499,12 @@
         '<button class="vh-act" id="lessonEditBtn" title="' + esc(t('edit')) + '">✏️</button>' +
         '<button class="vh-act" id="plIconModeBtn" title="أيقونة الأسطر">' + (plIconMode === 'flag' ? '🚩' : '⟳') + '</button>' +
       '</div>' +
-      '<p>' + esc(l.title.ar || '') + (l.title.en ? ' · ' + esc(l.title.en) : '') + '</p>';
+      '<p>' + esc(tLines(l.title).slice(1).map(function (x) { return x.text; }).join(' · ')) + '</p>';
+    var plg = document.getElementById('playLangGroup');
+    plg.innerHTML = lessonLangs(l).filter(function (lg) { return HAS_VOICE[lg]; }).map(function (lg) {
+      return '<button data-playlang="' + lg + '">' + (LANG_FLAG[lg] || '🏳️') + '</button>';
+    }).join('') + '<button data-playlang="all">🌍</button>';
+    wirePlayLangGroup();
     document.getElementById('backBtn').onclick = navBack;
     document.getElementById('lessonEditBtn').onclick = function () { openLessonSheet(f, l); };
     document.getElementById('lessonQuizBtn').onclick = function () { openQuiz(l); };
@@ -1372,13 +1514,13 @@
     var playData = [];
     wrap.innerHTML = l.sections.map(function (sec, si) {
       var phrases = secPhrases(sec);
-      var wordsFr = phrases.reduce(function (n, p) { return n + (p.fr || '').trim().split(/\s+/).filter(Boolean).length; }, 0);
+      var wordsFr = phrases.reduce(function (n, p) { var ls = pLines(p); return n + (ls[0] ? ls[0].text.trim().split(/\s+/).filter(Boolean).length : 0); }, 0);
       playData.push(phrases);
       return '<div class="section" data-sec="' + si + '">' +
         '<div class="section-head"><button class="sec-play" data-play="' + (playData.length - 1) + '" title="Play all">▶️</button>' +
         '<span class="sec-icon">📖</span>' +
         '<span class="sec-title">' + esc(tri(sec.title) || t('sections')) + speakFlags(sec.title) + '</span>' +
-        '<span class="sec-count">' + phrases.length + ' ' + t('phrasesCount') + ' · ' + wordsFr + ' FR</span><span class="chev">▼</span></div>' +
+        '<span class="sec-count">' + phrases.length + ' ' + t('phrasesCount') + ' · ' + wordsFr + ' ' + esc((primaryLang(l) || '').toUpperCase()) + '</span><span class="chev">▼</span></div>' +
         '<div class="section-body">' +
         secGroups(sec).map(function (g, gi) {
           var gh = '';
@@ -1408,14 +1550,12 @@
 
   function findPhrase(btn) {
     var phraseEl = btn.closest('.phrase');
-    var lines = phraseEl.querySelectorAll('.pl');
-    var out = { fr: '', ar: '', en: '' };
-    lines.forEach(function (pl) {
-      if (pl.classList.contains('fr')) out.fr = pl.querySelector('.txt').textContent;
-      else if (pl.classList.contains('ar')) out.ar = pl.querySelector('.txt').textContent;
-      else out.en = pl.querySelector('.txt').textContent;
+    var lines = [];
+    phraseEl.querySelectorAll('.pl').forEach(function (pl) {
+      var lang = pl.dataset.lang || 'fr';
+      lines.push({ lang: lang, flag: LANG_FLAG[lang] || '🏳️', text: pl.querySelector('.txt').textContent });
     });
-    return out;
+    return { lines: lines };
   }
   function findPhraseObj(btn) {
     var el = btn.closest('.phrase');
@@ -1454,7 +1594,7 @@
     wrap.querySelectorAll('.pl .flag-btn[data-lang]').forEach(function (b) {
       b.onclick = function () {
         var p = findPhrase(b);
-        speak(p[b.dataset.lang], b.dataset.lang, b);
+        speak(lineText(p, b.dataset.lang), b.dataset.lang, b);
       };
     });
     wrap.querySelectorAll('.nb-open').forEach(function (b) {
@@ -1474,7 +1614,7 @@
       b.onclick = function (ev) {
         ev.stopPropagation();
         var p = findPhrase(b);
-        searchImages(p.fr || p.ar || p.en);
+        searchImages(lineText(p, 'fr') || allText(p));
       };
     });
     wrap.querySelectorAll('.ph-img-add').forEach(function (b) {
@@ -1502,14 +1642,14 @@
     var html = '';
     lessons.forEach(function (l) {
       var f = folderById(l.folderId);
-      var lessonHit = ((l.title.fr || '') + ' ' + (l.title.ar || '') + ' ' + (l.title.en || '')).toLowerCase().indexOf(q) >= 0;
+      var lessonHit = allText(l.title).toLowerCase().indexOf(q) >= 0;
       var lessonHtml = '';
       l.sections.forEach(function (sec, si) {
-        var secHit = ((sec.title.fr || '') + ' ' + (sec.title.ar || '') + ' ' + (sec.title.en || '')).toLowerCase().indexOf(q) >= 0;
+        var secHit = allText(sec.title).toLowerCase().indexOf(q) >= 0;
         var items = [];
         secGroups(sec).forEach(function (g, gi) { g.phrases.forEach(function (p, pi) { items.push({ p: p, g: gi, i: pi }); }); });
         var shown = items.filter(function (it) {
-          return lessonHit || secHit || ((it.p.fr + ' ' + it.p.ar + ' ' + it.p.en).toLowerCase().indexOf(q) >= 0);
+          return lessonHit || secHit || allText(it.p).toLowerCase().indexOf(q) >= 0;
         });
         visible += shown.length;
         if (!shown.length) return;
@@ -1629,7 +1769,7 @@
     lessonFolderTarget = f;
     document.querySelector('#lessonSheetTitle span').textContent = l ? t('editLesson') : t('newLesson');
     document.getElementById('lessonText').value = l ? (l.raw || '') : '';
-    document.getElementById('lessonTitle').value = l ? [l.title.fr, l.title.ar, l.title.en].filter(Boolean).join(' — ') : '';
+    document.getElementById('lessonTitle').value = l ? tLines(l.title).map(function (x) { return x.text; }).filter(Boolean).join(' — ') : '';
     buildIconGrid(document.getElementById('lessonIconGrid'), (l && l.icon) || '📚');
     updateParseStats();
     document.getElementById('ovLesson').classList.remove('hidden');
@@ -1680,7 +1820,7 @@
     var items = parts.map(function (pt) {
       var p = parseLesson(pt);
       var nPh = p.sections.reduce(function (n, s) { return n + secPhrases(s).length; }, 0);
-      return { raw: pt, p: p, nPh: nPh, hasTitle: !!(p.title.fr || p.title.ar || p.title.en) };
+      return { raw: pt, p: p, nPh: nPh, hasTitle: hasTriText(p.title) };
     }).filter(function (it) {
       // drop preamble chunks that produced no title and no phrases (e.g. pasted intro text)
       return it.nPh > 0 || it.hasTitle || parts.length === 1;
@@ -1854,7 +1994,7 @@
     if (nb.hist.length > 15) nb.hist.shift();
     nbPersist();
   }
-  var nbPhr = { fr: '', ar: '', en: '' };
+  var nbPhr = [];
   var nbLang = 'fr';
   var nbRef = null;
   function nbFlushSave() {
@@ -1877,13 +2017,23 @@
   }
   function nbSetLang(l) {
     nbLang = l;
-    document.getElementById('nbPhrase').textContent = nbPhr[l] || nbPhr.fr || '';
+    var tx = '';
+    nbPhr.forEach(function (ln) { if (ln.lang === l && !tx) tx = ln.text; });
+    if (!tx && nbPhr.length) tx = nbPhr[0].text;
+    document.getElementById('nbPhrase').textContent = tx;
     document.querySelectorAll('#nbLangs button').forEach(function (x) { x.classList.toggle('active', x.dataset.nbl === l); });
   }
   function openNotebook(p, ref) {
     nbRef = ref || null;
-    nbPhr = { fr: p.fr || '', ar: p.ar || '', en: p.en || '' };
-    nbSetLang(nbPhr.fr ? 'fr' : (nbPhr.ar ? 'ar' : 'en'));
+    nbPhr = pLines(p);
+    var langsEl = document.getElementById('nbLangs');
+    langsEl.innerHTML = nbPhr.map(function (ln) {
+      return '<button data-nbl="' + ln.lang + '" class="nb-lang">' + (ln.flag || LANG_FLAG[ln.lang] || '🏳️') + '</button>';
+    }).join('');
+    langsEl.querySelectorAll('button').forEach(function (b) {
+      b.onclick = function () { nbSetLang(b.dataset.nbl); };
+    });
+    nbSetLang(nbPhr.length ? nbPhr[0].lang : 'fr');
     document.getElementById('nbOverlay').classList.add('open');
     nb.hist = [];
     requestAnimationFrame(function () {
@@ -1969,25 +2119,39 @@
     document.getElementById('ovQuiz').classList.remove('open');
     stopSpeaking();
   }
+  /* language-pair picker for both games: user picks the "answer" language; the
+     question side is the lesson's primary language. Only voiced languages are offered. */
+  function gameLangPick(l, cb) {
+    var langs = lessonLangs(l);
+    var prim = primaryLang(l);
+    var others = langs.filter(function (x) { return x !== prim; });
+    if (others.length < 1) {
+      document.getElementById('qzBody').innerHTML = '<div class="qz-result"><div class="qz-sub">' + esc(t('quizEmpty')) + '</div></div>';
+      return;
+    }
+    if (others.length === 1) { cb(others[0]); return; }
+    document.getElementById('qzBody').innerHTML =
+      '<div class="qz-pick"><h3>' + esc(t('quizPick').replace('{lang}', LANG_NAMES[primaryLang(l)] || primaryLang(l).toUpperCase())) + '</h3>' +
+      others.map(function (lg) {
+        return '<button class="btn btn-primary" data-qzlang="' + lg + '">' + (LANG_FLAG[prim] || '🏳️') + ' ⇄ ' + (LANG_FLAG[lg] || '🏳️') + ' ' + esc(LANG_NAMES[lg] || lg.toUpperCase()) + '</button>';
+      }).join('') +
+      '</div>';
+    document.getElementById('qzBody').querySelectorAll('[data-qzlang]').forEach(function (b) {
+      b.onclick = function () { cb(b.dataset.qzlang); };
+    });
+  }
   function openQuiz(l) {
     qz.lesson = l;
+    qz.langA = primaryLang(l);
     document.querySelector('#ovQuiz .qz-title').innerHTML = '🧩 <span>' + esc(t('quiz')) + '</span>';
     document.getElementById('ovQuiz').classList.add('open');
     document.getElementById('qzProgress').textContent = '';
-    document.getElementById('qzBody').innerHTML =
-      '<div class="qz-pick">' +
-        '<h3>' + esc(t('quizPick')) + '</h3>' +
-        '<button class="btn btn-primary" data-qzlang="ar">🇫🇷 ⇄ 🇸🇾 ' + 'العربية' + '</button>' +
-        '<button class="btn btn-primary" data-qzlang="en">🇫🇷 ⇄ 🇺🇸 ' + 'English' + '</button>' +
-      '</div>';
-    document.getElementById('qzBody').querySelectorAll('[data-qzlang]').forEach(function (b) {
-      b.onclick = function () { qz.lang = b.dataset.qzlang; qzStart(); };
-    });
+    gameLangPick(l, function (lg) { qz.lang = lg; qzStart(); });
   }
   function qzStart() {
     var l = qz.lesson;
     var pool = [];
-    l.sections.forEach(function (s) { secPhrases(s).forEach(function (p) { if ((p.fr || '').trim() && (p[qz.lang] || '').trim()) pool.push(p); }); });
+    l.sections.forEach(function (s) { secPhrases(s).forEach(function (p) { if (lineText(p, qz.langA).trim() && lineText(p, qz.lang).trim()) pool.push(p); }); });
     if (!pool.length) {
       document.getElementById('qzBody').innerHTML = '<div class="qz-result"><div class="qz-sub">' + esc(t('quizEmpty')) + '</div></div>';
       return;
@@ -1999,10 +2163,10 @@
     var right = qzShuffle(qz.pairs.map(function (p, i) { return { p: p, i: i }; }));
     var rows = Math.max(left.length, right.length);
     var html = '<div class="qz-grid">' +
-      '<div class="qz-colhead">🇫🇷</div><div class="qz-colhead">' + (qz.lang === 'ar' ? '🇸🇾' : '🇺🇸') + '</div>';
+      '<div class="qz-colhead">' + (LANG_FLAG[qz.langA] || '🏳️') + '</div><div class="qz-colhead">' + (LANG_FLAG[qz.lang] || '🏳️') + '</div>';
     for (var r = 0; r < rows; r++) {
-      html += left[r] ? '<div class="qz-tile" data-side="fr" data-i="' + left[r].i + '">' + esc(left[r].p.fr) + '</div>' : '<div></div>';
-      html += right[r] ? '<div class="qz-tile" data-side="tg" data-i="' + right[r].i + '">' + esc(right[r].p[qz.lang]) + '</div>' : '<div></div>';
+      html += left[r] ? '<div class="qz-tile" data-side="fr" data-i="' + left[r].i + '">' + esc(lineText(left[r].p, qz.langA)) + '</div>' : '<div></div>';
+      html += right[r] ? '<div class="qz-tile" data-side="tg" data-i="' + right[r].i + '">' + esc(lineText(right[r].p, qz.lang)) + '</div>' : '<div></div>';
     }
     html += '</div>';
     document.getElementById('qzBody').innerHTML = html;
@@ -2019,10 +2183,10 @@
       if (qz.sel === el) { qz.sel = null; stopSpeaking(); return; }
       qz.sel = el;
       el.classList.add('sel');
-      speakLoop(qz.pairs[parseInt(el.dataset.i, 10)].fr, el, 'fr');
+      speakLoop(lineText(qz.pairs[parseInt(el.dataset.i, 10)], qz.langA), el, qz.langA);
       return;
     }
-    speakLoop(qz.pairs[parseInt(el.dataset.i, 10)][qz.lang], el, qz.lang);
+    speakLoop(lineText(qz.pairs[parseInt(el.dataset.i, 10)], qz.lang), el, qz.lang);
     if (!qz.sel) return;
     var frI = parseInt(qz.sel.dataset.i, 10);
     var tgI = parseInt(el.dataset.i, 10);
@@ -2107,22 +2271,15 @@
   }
   function openListen(l) {
     lz.lesson = l;
+    lz.langA = primaryLang(l);
     document.querySelector('#ovQuiz .qz-title').innerHTML = '🎧 <span>' + esc(t('listenQuiz')) + '</span>';
     document.getElementById('ovQuiz').classList.add('open');
     document.getElementById('qzProgress').textContent = '';
-    document.getElementById('qzBody').innerHTML =
-      '<div class="qz-pick">' +
-        '<h3>' + esc(t('quizPick')) + '</h3>' +
-        '<button class="btn btn-primary" data-qzlang="ar">🇫🇷 ⇄ 🇸🇾 العربية</button>' +
-        '<button class="btn btn-primary" data-qzlang="en">🇫🇷 ⇄ 🇺🇸 English</button>' +
-      '</div>';
-    document.getElementById('qzBody').querySelectorAll('[data-qzlang]').forEach(function (b) {
-      b.onclick = function () { lz.lang = b.dataset.qzlang; lzStart(); };
-    });
+    gameLangPick(l, function (lg) { lz.lang = lg; lzStart(); });
   }
   function lzStart() {
     var pool = [];
-    lz.lesson.sections.forEach(function (s) { secPhrases(s).forEach(function (p) { if ((p.fr || '').trim() && (p[lz.lang] || '').trim()) pool.push(p); }); });
+    lz.lesson.sections.forEach(function (s) { secPhrases(s).forEach(function (p) { if (lineText(p, lz.langA).trim() && lineText(p, lz.lang).trim()) pool.push(p); }); });
     if (!pool.length) {
       document.getElementById('qzBody').innerHTML = '<div class="qz-result"><div class="qz-sub">' + esc(t('quizEmpty')) + '</div></div>';
       return;
@@ -2143,7 +2300,7 @@
       '<div class="lz-hero ' + lzHero.size + '" id="lzHero">' + lzHeroInner() + '</div>' +
       '<button class="lz-loop" id="lzReplay" title="' + esc(t('replay')) + '">🔊</button>' +
       '<div class="lz-opts">' + opts.map(function (o, i) {
-        return '<div class="qz-tile" data-ok="' + (o === p ? '1' : '0') + '">' + esc(o[lz.lang]) + '</div>';
+        return '<div class="qz-tile" data-ok="' + (o === p ? '1' : '0') + '">' + esc(lineText(o, lz.lang)) + '</div>';
       }).join('') + '</div>' +
       '<div class="lz-nav">' +
         '<button id="lzNextBtn">⏭ ' + esc(t('next')) + '</button>' +
@@ -2153,7 +2310,7 @@
     document.getElementById('qzProgress').textContent = (lz.idx + 1) + '/' + lz.qs.length;
     lzWireHeroTools();
     var rp = document.getElementById('lzReplay');
-    rp.onclick = function () { speakLoop(p.fr, rp, 'fr'); };
+    rp.onclick = function () { speakLoop(lineText(p, lz.langA), rp, lz.langA); };
     document.getElementById('qzBody').querySelectorAll('.qz-tile').forEach(function (el) {
       el.onclick = function () { lzAnswer(el, p); };
     });
@@ -2163,7 +2320,7 @@
       this.classList.toggle('on', lz.auto);
       if (lz.auto && lz.answered) lzNext();
     };
-    setTimeout(function () { if (document.getElementById('ovQuiz').classList.contains('open')) speakLoop(p.fr, rp, 'fr'); }, 250);
+    setTimeout(function () { if (document.getElementById('ovQuiz').classList.contains('open')) speakLoop(lineText(p, lz.langA), rp, lz.langA); }, 250);
   }
   function lzAnswer(el, p) {
     if (el.dataset.done) return;
@@ -2180,16 +2337,14 @@
     var hero = document.getElementById('lzHero');
     if (hero) {
       hero.className = 'lz-hero v';
-      var vLine = function (txt, cls, lang) {
-        if (!txt) return '';
-        return '<div class="lz-v-row"><div class="' + cls + '">' + esc(txt) + '</div>' +
-          '<button class="lz-v-spk" data-lang="' + lang + '" data-txt="' + esc(txt) + '" title="⟳">⟳</button></div>';
+      var vLine = function (ln, i) {
+        var cls = i === 0 ? 'lz-v-fr' : 'lz-v-tr';
+        var spk = HAS_VOICE[ln.lang] ? '<button class="lz-v-spk" data-lang="' + ln.lang + '" data-txt="' + esc(ln.text) + '" title="⟳">⟳</button>' : '';
+        return '<div class="lz-v-row"><div class="' + cls + '">' + esc(ln.text) + '</div>' + spk + '</div>';
       };
       hero.innerHTML = '<div class="lz-verdict ' + (ok ? 'ok' : 'bad') + '">' +
         '<div class="lz-face">' + (ok ? '😄' : '😢') + '</div>' +
-        vLine(p.fr, 'lz-v-fr', 'fr') +
-        vLine(p.ar, 'lz-v-tr', 'ar') +
-        vLine(p.en, 'lz-v-tr', 'en') +
+        pLines(p).map(vLine).join('') +
       '</div>';
       hero.querySelectorAll('.lz-v-spk').forEach(function (b) {
         b.onclick = function (e) { e.stopPropagation(); speakLoop(b.dataset.txt, b, b.dataset.lang); };
@@ -2248,7 +2403,7 @@
   contentEl.addEventListener('pointerdown', function (e) {
     var w = wordAt(e); if (!w) return;
     var pl = w.closest('.pl');
-    var lang = pl.classList.contains('ar') ? 'ar' : (pl.classList.contains('en') ? 'en' : 'fr');
+    var lang = pl.dataset.lang || 'fr';
     wHeld = false;
     clearTimeout(wHoldT);
     wHoldT = setTimeout(function () { wHeld = true; speakLoop(w.textContent, w, lang); }, 520);
@@ -2262,7 +2417,7 @@
     wTaps++;
     if (wTaps === 1) {
       var pl = w.closest('.pl');
-      var lang = pl.classList.contains('ar') ? 'ar' : (pl.classList.contains('en') ? 'en' : 'fr');
+      var lang = pl.dataset.lang || 'fr';
       var word = w.textContent;
       wTapT = setTimeout(function () { wTaps = 0; speakLoop(word, w, lang); }, 380);
     }
@@ -2272,7 +2427,7 @@
   /* ==================== wiring ==================== */
   document.getElementById('qzClose').onclick = closeQuiz;
   document.getElementById('qzNb').onclick = function () {
-    var p = lz.qs[lz.idx] || { fr: '', ar: '', en: '' };
+    var p = lz.qs[lz.idx] || { lines: [] };
     openNotebook(p);
   };
   var nbEl = nbCanvas();
@@ -2332,9 +2487,6 @@
   document.querySelectorAll('[data-nbtool]').forEach(function (b) {
     b.onclick = function () { nbSetTool(b.dataset.nbtool); };
   });
-  document.querySelectorAll('#nbLangs button').forEach(function (b) {
-    b.onclick = function () { nbSetLang(b.dataset.nbl); };
-  });
   document.querySelectorAll('#nbSizes button').forEach(function (b) {
     b.onclick = function () {
       nb.scale = parseFloat(b.dataset.s);
@@ -2377,14 +2529,24 @@
     localStorage.setItem('gramvip_theme', state.theme);
     applyTheme();
   }
-  document.getElementById('playLangGroup').querySelectorAll('button').forEach(function (b) {
-    b.classList.toggle('on', b.dataset.playlang === state.playlang);
-    b.onclick = function () {
-      state.playlang = b.dataset.playlang;
+  wirePlayLangGroup();
+  function wirePlayLangGroup() {
+    var grp = document.getElementById('playLangGroup');
+    var langs = [];
+    grp.querySelectorAll('button[data-playlang]').forEach(function (b) { if (b.dataset.playlang !== 'all') langs.push(b.dataset.playlang); });
+    if (state.playlang !== 'all' && langs.indexOf(state.playlang) < 0 && langs.length) {
+      state.playlang = 'all';
       localStorage.setItem('gramvip_playlang', state.playlang);
-      document.getElementById('playLangGroup').querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
-    };
-  });
+    }
+    grp.querySelectorAll('button').forEach(function (b) {
+      b.classList.toggle('on', b.dataset.playlang === state.playlang);
+      b.onclick = function () {
+        state.playlang = b.dataset.playlang;
+        localStorage.setItem('gramvip_playlang', state.playlang);
+        grp.querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
+      };
+    });
+  }
   document.getElementById('loopGroup').querySelectorAll('button').forEach(function (b) {
     b.classList.toggle('on', parseInt(b.dataset.loop, 10) === state.loop);
     b.onclick = function () {
