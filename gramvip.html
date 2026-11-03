@@ -1012,7 +1012,16 @@
         break;
       }
       if (flagOf(first) && splitParts(stripFlag(first)).length < 2) {
-        if (stripFlag(first).length < 30) { lesson.title = { fr: stripFlag(first), ar: '', en: '' }; i++; }
+        var ft = stripFlag(first);
+        var nxt = i + 1 < lines.length ? lines[i + 1].t : '';
+        var looksTitle = /[:：—–-]/.test(ft) ||
+          /^(leçon|lesson|درس|unité|وحدة|chapitre|فصل|jour|يوم|mot|verbe|فعل|thème|موضوع|تحيات|salutations)/i.test(ft);
+        var nextIsStruct = !nxt || !flagOf(nxt) || flaggedSegs(nxt) !== null ||
+          HDR_NUM.test(stripFlag(nxt));
+        var sentence = /[.!؟?。…]$/.test(ft);
+        if (ft.length < 40 && !sentence && (looksTitle || nextIsStruct)) {
+          lesson.title = { fr: ft, ar: '', en: '' }; i++;
+        }
         break;
       }
       var tparts = splitParts(stripFlag(first));
