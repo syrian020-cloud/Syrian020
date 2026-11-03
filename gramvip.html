@@ -190,6 +190,16 @@
   .section.open .section-body { display: block; animation: fadeUp .28s ease; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
   .sec-note { color: var(--text-primary); font-size: 0.97rem; font-weight: 700; margin: 0.45rem 0 0.8rem; text-align: center; line-height: 1.6; }
+  .media-box { background: var(--card); border: 1px solid var(--line, rgba(255,255,255,.08)); border-radius: 18px; padding: .6rem; margin-bottom: .9rem; }
+  .media-box video { width: 100%; border-radius: 12px; background: #000; max-height: 320px; }
+  .media-box audio { width: 100%; height: 44px; }
+  .mb-tools { display: flex; align-items: center; gap: .5rem; margin-top: .45rem; }
+  .mb-name { flex: 1; min-width: 0; font-size: .8rem; opacity: .7; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mb-btn { font-size: .78rem; padding: .3rem .6rem; border-radius: 10px; border: 1px solid var(--line, rgba(255,255,255,.15)); background: transparent; color: var(--text-primary, #fff); }
+  .mb-x { width: 28px; height: 28px; border-radius: 8px; border: none; background: rgba(225,29,72,.15); color: #fb7185; font-size: 1rem; font-weight: 800; }
+  .mb-miss { font-size: .85rem; opacity: .75; padding: .3rem; }
+  .phrase.cueable { cursor: pointer; }
+  .phrase.cue-on { outline: 2px solid var(--accent, #7c3aed); outline-offset: 2px; border-radius: 14px; }
   .group-title { display: flex; align-items: center; gap: 0.45rem; color: var(--accent); font-size: 0.88rem; font-weight: 850; margin: 0.75rem 0 0.5rem; padding-inline-start: 0.3rem; }
   .group-title::before { content: ''; width: 14px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--accent-solid), var(--accent-2)); }
 
@@ -608,6 +618,7 @@
       quiz: 'اختبار التوصيل', listenQuiz: 'اسمع واختر', replay: '🔊 إعادة الاستماع', quizPick: 'اختر اللغة المقابلة لـ{lang}:', quizScore: 'النتيجة', quizAgain: 'إعادة اللعب', quizDone: 'انتهى', quizEmpty: 'الدرس يحتاج عبارات بلغتين على الأقل',
       exitTitle: 'الخروج من التطبيق؟', exitYes: 'خروج', exitNo: 'بقاء',
       saved: 'تم الحفظ', savedN: 'تمت إضافة {n} دروس', multiHint: '💡 افصل الدروس بسطر === لإضافة عدة دروس معاً', deleted: 'تم الحذف', imported: 'تم الاستيراد', importBad: 'ملف غير صالح', copied: 'تم نسخ النموذج', pasted: 'تم اللصق',
+      media: 'وسائط', mediaAdded: 'أُرفقت الوسائط', mediaReplace: 'استبدال', mediaMiss: 'الملف غير مخزّن — أرفقه من 🎬', remove: 'إزالة',
       emptyFolders: 'لا مجلدات بعد — أضف أول مجلد', emptyLessons: 'لا دروس بعد — أضف أول درس',
       sectionsCount: 'أقسام', phrasesCount: 'عبارة', unnamed: 'درس بدون اسم',
       edgeOn: 'الصوت الطبيعي مفعّل (إنترنت)', edgeOff: 'صوت الجهاز',
@@ -635,6 +646,7 @@
       quiz: 'Matching quiz', listenQuiz: 'Listen & choose', replay: '🔊 Listen again', quizPick: 'Pick the language to match with {lang}:', quizScore: 'Score', quizAgain: 'Play again', quizDone: 'Done', quizEmpty: 'The lesson needs phrases in at least two languages',
       exitTitle: 'Exit the app?', exitYes: 'Exit', exitNo: 'Stay',
       saved: 'Saved', savedN: '{n} lessons added', multiHint: '💡 Separate lessons with a === line to add several at once', deleted: 'Deleted', imported: 'Imported', importBad: 'Invalid file', copied: 'Template copied', pasted: 'Pasted',
+      media: 'Media', mediaAdded: 'Media attached', mediaReplace: 'Replace', mediaMiss: 'File not stored — attach it via 🎬', remove: 'Remove',
       emptyFolders: 'No folders yet — add your first folder', emptyLessons: 'No lessons yet — add your first lesson',
       sectionsCount: 'sections', phrasesCount: 'phrases', unnamed: 'Untitled lesson',
       edgeOn: 'Neural voice on (internet)', edgeOff: 'Device voice',
@@ -662,6 +674,7 @@
       quiz: 'Quiz d’association', listenQuiz: 'Écoute et choisis', replay: '🔊 Réécouter', quizPick: 'Choisissez la langue à associer à {lang} :', quizScore: 'Score', quizAgain: 'Rejouer', quizDone: 'Terminé', quizEmpty: 'La leçon doit avoir des phrases dans au moins deux langues',
       exitTitle: 'Quitter l\'application ?', exitYes: 'Quitter', exitNo: 'Rester',
       saved: 'Enregistré', savedN: '{n} leçons ajoutées', multiHint: '💡 Séparez les leçons par une ligne === pour en ajouter plusieurs', deleted: 'Supprimé', imported: 'Importé', importBad: 'Fichier invalide', copied: 'Modèle copié', pasted: 'Collé',
+      media: 'Média', mediaAdded: 'Média joint', mediaReplace: 'Remplacer', mediaMiss: 'Fichier absent — joignez-le via 🎬', remove: 'Retirer',
       emptyFolders: 'Aucun dossier — ajoutez votre premier dossier', emptyLessons: 'Aucune leçon — ajoutez votre première leçon',
       sectionsCount: 'sections', phrasesCount: 'phrases', unnamed: 'Leçon sans titre',
       edgeOn: 'Voix neurale activée (internet)', edgeOff: 'Voix de l\'appareil',
@@ -978,12 +991,13 @@
   var idb = null;
   function idbOpen() {
     return new Promise(function (res, rej) {
-      var r = indexedDB.open('gramvip-db', 2);
+      var r = indexedDB.open('gramvip-db', 3);
       r.onupgradeneeded = function (e) {
         var d = e.target.result;
         if (!d.objectStoreNames.contains('folders')) d.createObjectStore('folders', { keyPath: 'id' });
         if (!d.objectStoreNames.contains('lessons')) d.createObjectStore('lessons', { keyPath: 'id' });
         if (!d.objectStoreNames.contains('kv')) d.createObjectStore('kv', { keyPath: 'k' });
+        if (!d.objectStoreNames.contains('media')) d.createObjectStore('media', { keyPath: 'id' });
       };
       r.onsuccess = function (e) { idb = e.target.result; res(); };
       r.onerror = function () { rej(r.error); };
@@ -1052,6 +1066,13 @@
   }
   /* single-flag line accumulation: line whose lang equals the phrase's first-line lang
      starts a NEW phrase; other langs append/merge into the current phrase */
+  // 'MM:SS' / 'HH:MM:SS,mmm' -> seconds (timed cues)
+  function tParse(s) {
+    var m = s.split(':'), sec = 0;
+    if (m.length === 3) sec = (+m[0]) * 3600 + (+m[1]) * 60 + parseFloat(m[2].replace(',', '.'));
+    else sec = (+m[0]) * 60 + parseFloat(m[1].replace(',', '.'));
+    return sec;
+  }
   function pushFlagLine(curPhrase, lang, flag, text) {
     if (!curPhrase) return { lines: [{ lang: lang, flag: flag, text: text }] };
     if (curPhrase.lines.length && curPhrase.lines[0].lang === lang) return { lines: [{ lang: lang, flag: flag, text: text }], _new: true };
@@ -1114,7 +1135,7 @@
       blank = false;
     });
     var lesson = { title: { fr: '', ar: '', en: '' }, sections: [] };
-    var cur = null, curGrp = null, curPhrase = null, i = 0;
+    var cur = null, curGrp = null, curPhrase = null, pendStart = null, pendEnd = null, i = 0;
 
     function ensureGrp() {
       if (!cur) { cur = { title: { fr: '', ar: '', en: '' }, groups: [] }; lesson.sections.push(cur); }
@@ -1176,10 +1197,14 @@
 
     for (; i < lines.length; i++) {
       var line = lines[i].t.replace(/^[*•]\s+/, '').trim();
-      // strip leading timestamps: '00:00 ' / '00:00 --> 00:03 ' (timed templates)
+      // timed templates: '00:00 ' / '00:00 --> 00:03 ' — keep the cue time on the phrase
+      var tmm = line.match(/^(\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d+)?)\s*(?:-+>\s*(\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d+)?))?/);
+      var tStart = tmm ? tParse(tmm[1]) : null, tEnd = tmm && tmm[2] ? tParse(tmm[2]) : null;
       line = line.replace(/^\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d+)?\s*(?:-+>\s*\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d+)?\s*)?\s*/, '');
       var bb = lines[i].bb;
-      if (!line || /^\d+$/.test(line)) continue;
+      if (!line || /^\d+$/.test(line)) { if (tStart != null) { pendStart = tStart; pendEnd = tEnd; } continue; }
+      if (pendStart != null && tStart == null) { tStart = pendStart; tEnd = pendEnd; }
+      pendStart = pendEnd = null;
       if (/^#{1,6}\s+/.test(line)) {   // '### section title' (ProLang style)
         newSec(partsToTri(splitParts(line.replace(/^#{1,6}\s*/, '').replace(/^\d+\s*[.)]\s*/, ''))));
         continue;
@@ -1192,7 +1217,9 @@
           flushPhrase();
           var ftri = segsToTri(fsegs);
           if (line.indexOf('|') >= 0) {
-            ensureGrp().phrases.push({ lines: ftri.lines });
+            var fp2 = { lines: ftri.lines };
+            if (tStart != null) { fp2.start = tStart; if (tEnd != null) fp2.end = tEnd; }
+            ensureGrp().phrases.push(fp2);
           } else if (HDR_NUM.test(fsegs[0].text)) {
             ftri.lines[0].text = ftri.lines[0].text.replace(HDR_NUM, '');
             if (ftri.fr) ftri.fr = ftri.fr.replace(HDR_NUM, '');
@@ -1221,6 +1248,7 @@
           var np = pushFlagLine(curPhrase, fl, LANG_FLAG[fl] || leadFlag, txt);
           if (np._new) { flushPhrase(); delete np._new; }
           curPhrase = np;
+          if (tStart != null && curPhrase.start == null) { curPhrase.start = tStart; if (tEnd != null) curPhrase.end = tEnd; }
         }
         continue;
       }
@@ -1236,7 +1264,12 @@
       }
       if (line.indexOf('\t') >= 0 || /[|→=]/.test(line) || line.indexOf(' - ') >= 0) {
         var tp = splitParts(line);
-        if (tp.length >= 2) { flushPhrase(); ensureGrp().phrases.push(partsToTri(tp)); continue; }
+        if (tp.length >= 2) {
+          flushPhrase();
+          var tpp = partsToTri(tp);
+          if (tStart != null) { tpp.start = tStart; if (tEnd != null) tpp.end = tEnd; }
+          ensureGrp().phrases.push(tpp); continue;
+        }
       }
       if (isHeaderLine(line)) {
         var numbered = HDR_NUM.test(line);
@@ -1408,6 +1441,7 @@
   function speak(text, lang, btn) {
     if (btn.classList.contains('speaking')) { stopSpeaking(); return; }
     stopSpeaking();
+    pauseMedia();
     btn.classList.add('speaking');
     text = cleanSpoken(text);
     if (!text) { btn.classList.remove('speaking'); return; }
@@ -1512,6 +1546,7 @@
   }
   function phraseHtml(p, ref) {
     var refAttr = ref ? ' data-l="' + esc(ref.l) + '" data-s="' + ref.s + '" data-g="' + ref.g + '" data-p="' + ref.p + '"' : '';
+    if (p && p.start != null) refAttr += ' data-ts="' + p.start + '"' + (p.end != null ? ' data-te="' + p.end + '"' : '');
     var rows = '';
     var styleCls = ['fr', 'ar', 'en'];
     pLines(p).forEach(function (ln, i) {
@@ -1663,6 +1698,7 @@
       '<div class="vh-actions">' +
         '<button class="vh-act" id="lessonQuizBtn" title="' + esc(t('quiz')) + '">🧩</button>' +
         '<button class="vh-act" id="lessonListenBtn" title="' + esc(t('listenQuiz')) + '">🎧</button>' +
+        '<button class="vh-act" id="lessonMediaBtn" title="' + esc(t('media')) + '">🎬</button>' +
         '<button class="vh-act" id="lessonEditBtn" title="' + esc(t('edit')) + '">✏️</button>' +
         '<button class="vh-act" id="plIconModeBtn" title="أيقونة الأسطر">' + (plIconMode === 'flag' ? '🚩' : '⟳') + '</button>' +
       '</div>' +
@@ -1674,12 +1710,14 @@
     wirePlayLangGroup();
     document.getElementById('backBtn').onclick = navBack;
     document.getElementById('lessonEditBtn').onclick = function () { openLessonSheet(f, l); };
+    document.getElementById('lessonMediaBtn').onclick = function () { pickLessonMedia(l); };
     document.getElementById('lessonQuizBtn').onclick = function () { openQuiz(l); };
     document.getElementById('lessonListenBtn').onclick = function () { openListen(l); };
     document.getElementById('plIconModeBtn').onclick = togglePlIconMode;
 
+    var mediaWrap = '<div id="mediaBox"></div>';
     var playData = [];
-    wrap.innerHTML = l.sections.map(function (sec, si) {
+    wrap.innerHTML = mediaWrap + l.sections.map(function (sec, si) {
       var phrases = secPhrases(sec);
       var wordsFr = phrases.reduce(function (n, p) { var ls = pLines(p); return n + (ls[0] ? ls[0].text.trim().split(/\s+/).filter(Boolean).length : 0); }, 0);
       playData.push(phrases);
@@ -1713,6 +1751,85 @@
     wireFlagButtons(wrap);
     wireSpeakButtons(head);
     wireSpeakButtons(wrap);
+    loadLessonMedia(l);
+  }
+
+  /* ==================== timed media (video/audio + synced phrases) ==================== */
+  var mediaEl = null, mediaUrl = null, timedEls = [];
+  function pauseMedia() { if (mediaEl) { try { mediaEl.pause(); } catch (e) {} } }
+  function pickLessonMedia(l) {
+    var inp = document.createElement('input');
+    inp.type = 'file'; inp.accept = 'video/*,audio/*';
+    inp.onchange = async function (e) {
+      var file = e.target.files[0]; if (!file) return;
+      var kind = /^video\//.test(file.type) ? 'video' : 'audio';
+      l.media = { kind: kind, name: file.name };
+      await idbPut('lessons', l);
+      await idbPut('media', { id: l.id, blob: file, kind: kind, name: file.name });
+      toast('✓ ' + t('mediaAdded'));
+      renderLesson();
+    };
+    inp.click();
+  }
+  async function loadLessonMedia(l) {
+    var box = document.getElementById('mediaBox');
+    if (!box) return;
+    pauseMedia(); mediaEl = null;
+    if (mediaUrl) { URL.revokeObjectURL(mediaUrl); mediaUrl = null; }
+    timedEls = Array.prototype.slice.call(document.querySelectorAll('.phrase[data-ts]'));
+    if (!l.media) { box.innerHTML = ''; return; }
+    var rec = null;
+    try { rec = await new Promise(function (res) { var r = idb.transaction('media').objectStore('media').get(l.id); r.onsuccess = function () { res(r.result); }; r.onerror = function () { res(null); }; }); } catch (e) {}
+    if (!rec || !rec.blob) {
+      box.innerHTML = '<div class="media-box"><div class="mb-miss">' + esc(t('mediaMiss') + ' — ' + (l.media.name || '')) + '</div>' +
+        '<div class="mb-tools"><button class="mb-x" title="' + esc(t('remove')) + '">×</button></div></div>';
+      box.querySelector('.mb-x').onclick = function () { removeLessonMedia(l); };
+      return;
+    }
+    mediaUrl = URL.createObjectURL(rec.blob);
+    var isV = (l.media.kind || rec.kind) === 'video';
+    box.innerHTML = '<div class="media-box">' +
+      (isV ? '<video controls playsinline src="' + mediaUrl + '"></video>' : '<audio controls src="' + mediaUrl + '"></audio>') +
+      '<div class="mb-tools"><span class="mb-name">' + esc(rec.name || l.media.name || '') + '</span>' +
+      '<button class="mb-btn" id="mbReplace">' + esc(t('mediaReplace')) + '</button>' +
+      '<button class="mb-x" title="' + esc(t('remove')) + '">×</button></div></div>';
+    mediaEl = box.querySelector(isV ? 'video' : 'audio');
+    mediaEl.addEventListener('timeupdate', syncCues);
+    box.querySelector('.mb-x').onclick = function () { removeLessonMedia(l); };
+    box.querySelector('#mbReplace').onclick = function () { pickLessonMedia(l); };
+    timedEls.forEach(function (el) {
+      el.classList.add('cueable');
+      el.addEventListener('click', cueSeek);
+    });
+  }
+  function cueSeek(ev) {
+    if (!mediaEl) return;
+    var el = ev.currentTarget;
+    mediaEl.currentTime = parseFloat(el.dataset.ts) || 0;
+    mediaEl.play();
+  }
+  function syncCues() {
+    if (!mediaEl || !timedEls.length) return;
+    var now = mediaEl.currentTime;
+    timedEls.forEach(function (el) {
+      var s = parseFloat(el.dataset.ts), e = parseFloat(el.dataset.te || 'NaN');
+      var next = null;
+      if (isNaN(e)) {
+        // cue runs until the next timed phrase starts
+        var sib = el.parentElement.querySelectorAll('.phrase[data-ts]');
+        for (var i = 0; i < sib.length; i++) { if (sib[i] === el && sib[i + 1]) { next = parseFloat(sib[i + 1].dataset.t); break; } }
+        e = next != null ? next : Infinity;
+      }
+      el.classList.toggle('cue-on', now >= s && now < e);
+    });
+  }
+  async function removeLessonMedia(l) {
+    delete l.media;
+    await idbPut('lessons', l);
+    await idbDel('media', l.id);
+    pauseMedia(); mediaEl = null;
+    toast('✓ ' + t('deleted'));
+    renderLesson();
   }
 
   function findPhrase(btn) {
@@ -2051,7 +2168,7 @@
   function confirmDeleteFolder(f) {
     var n = lessonsIn(f.id).length;
     confirmBox(t('delFolderT'), f.name + ' — ' + n + ' ' + t('lessons') + '. ' + t('delFolderD'), async function () {
-      for (var l of lessonsIn(f.id)) await idbDel('lessons', l.id);
+      for (var l of lessonsIn(f.id)) { await idbDel('lessons', l.id); await idbDel('media', l.id); }
       await idbDel('folders', f.id);
       lessons = lessons.filter(function (l) { return l.folderId !== f.id; });
       folders = folders.filter(function (x) { return x.id !== f.id; });
@@ -2063,6 +2180,7 @@
   function confirmDeleteLesson(l) {
     confirmBox(t('delLessonT'), lessonTitle(l) + '. ' + t('delLessonD'), async function () {
       await idbDel('lessons', l.id);
+      await idbDel('media', l.id);
       lessons = lessons.filter(function (x) { return x.id !== l.id; });
       if (state.lessonId === l.id) { state.view = 'folder'; state.lessonId = null; }
       toast('✓ ' + t('deleted'));
@@ -2071,8 +2189,25 @@
   }
 
   /* ==================== export / import ==================== */
+  function blobToB64(blob) {
+    return new Promise(function (res, rej) {
+      var rd = new FileReader(); rd.onload = function () { res(String(rd.result).split(',')[1] || ''); }; rd.onerror = rej; rd.readAsDataURL(blob);
+    });
+  }
+  function b64ToBlob(b64, type) {
+    var bin = atob(b64), len = bin.length, arr = new Uint8Array(len);
+    for (var i = 0; i < len; i++) arr[i] = bin.charCodeAt(i);
+    return new Blob([arr], { type: type || 'application/octet-stream' });
+  }
   async function exportData() {
-    var out = { app: 'gramvip', version: 1, exportedAt: new Date().toISOString(), folders: folders, lessons: lessons };
+    var out = { app: 'gramvip', version: 1, exportedAt: new Date().toISOString(), folders: folders, lessons: lessons, media: [] };
+    try {
+      var mrecs = await idbAll('media');
+      for (var mr of mrecs) {
+        if (!mr || !mr.blob) continue;
+        out.media.push({ id: mr.id, kind: mr.kind, name: mr.name, type: mr.blob.type || '', data: await blobToB64(mr.blob) });
+      }
+    } catch (e) {}
     var blob = new Blob([JSON.stringify(out, null, 1)], { type: 'application/json' });
     var name = 'gramvip-backup-' + new Date().toISOString().slice(0, 10) + '.json';
     var FS = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Filesystem;
@@ -2117,6 +2252,11 @@
           if (haveL[le.id]) continue;
           haveL[le.id] = 1;
           lessons.push(le); await idbPut('lessons', le); added++;
+        }
+        var marr = d.media || [];
+        for (var me of marr) {
+          if (!me || !me.id || !me.data) continue;
+          try { await idbPut('media', { id: me.id, kind: me.kind, name: me.name, blob: b64ToBlob(me.data, me.type) }); } catch (e) {}
         }
         toast('✓ ' + t('imported') + ' (' + added + ')');
         renderAll();
