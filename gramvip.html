@@ -1896,6 +1896,8 @@
         ev.stopPropagation();
         if (b.classList.contains('speaking')) { stopSpeaking(); b.classList.remove('speaking'); return; }
         cap.querySelectorAll('.cap-loop').forEach(function (x) { x.classList.remove('speaking'); });
+        stopSpeaking();
+        pauseMedia();
         b.classList.add('speaking');
         speakAuto(cleanSpoken(b.parentElement.querySelector('.cap-txt').textContent), b.dataset.lang, 0, function () { b.classList.remove('speaking'); });
       };
