@@ -3061,10 +3061,30 @@
     };
   });
   document.getElementById('stopBtn').onclick = stopSpeaking;
+  var SAMPLE_GREETING = {
+    fr:'Bonjour, comment ça va ?',ar:'مرحبا، كيف حالك؟',en:'Hello, how are you?',de:'Hallo, wie geht es dir?',
+    es:'Hola, ¿cómo estás?',it:'Ciao, come stai?',zh:'你好，你好吗？',ja:'こんにちは、お元気ですか？',
+    ko:'안녕하세요, 어떻게 지내세요?',th:'สวัสดี สบายดีไหม?',vi:'Xin chào, bạn khỏe không?',hi:'नमस्ते, आप कैसे हैं?',
+    el:'Γεια σου, πώς είσαι;',he:'שלום, מה שלומך?',ru:'Привет, как дела?',tr:'Merhaba, nasılsın?',
+    pt:'Olá, como vai?',nl:'Hallo, hoe gaat het?',pl:'Cześć, jak się masz?',uk:'Привіт, як справи?',
+    sv:'Hej, hur mår du?',fa:'سلام، چطوری؟',ur:'ہیلو، آپ کیسے ہیں؟',bn:'হ্যালো, কেমন আছো?',
+    id:'Halo, apa kabar?',ms:'Hai, apa khabar?',tl:'Kamusta ka?',ro:'Salut, ce faci?',
+    hu:'Szia, hogy vagy?',cs:'Ahoj, jak se máš?',bg:'Здравей, как си?',hr:'Bok, kako si?',
+    sr:'Здраво, како си?',da:'Hej, hvordan går det?',nb:'Hei, hvordan går det?',fi:'Hei, mitä kuuluu?',
+    sw:'Habari yako?',am:'ሰላም፣ እንዴት ነህ?',is:'Halló, hvernig hefur þú það?',sq:'Përshëndetje, si je?',
+    lt:'Labas, kaip sekasi?',lv:'Sveiki, kā iet?',et:'Tere, kuidas läheb?',kk:'Сәлем, қалайсыз?',
+    uz:'Salom, yaxshimisiz?',ne:'नमस्ते, तपाईंलाई कस्तो छ?',km:'ជំរាបសួរ សុខសប្បាយទេ?',lo:'ສະບາຍດີ ບໍ?'
+  };
   document.getElementById('playLangBtn').onclick = function () {
-    var sec = document.querySelector('#content .section.open') || document.querySelector('#content .section');
-    var pb = sec && sec.querySelector('.sec-play');
-    if (pb) pb.click(); else toast(t('noResults'));
+    var b = this;
+    if (b.classList.contains('speaking')) { stopSpeaking(); return; }
+    var lang = state.playlang;
+    if (lang === 'all') { var cl = lessonById(state.lessonId); lang = cl ? primaryLang(cl) : 'fr'; }
+    if (!HAS_VOICE[lang]) { toast(t('noResults')); return; }
+    stopSpeaking(); pauseMedia();
+    b.classList.add('speaking');
+    var seq = speakSeq;
+    speakAuto(SAMPLE_GREETING[lang] || 'Hello.', lang, 1, function () { if (seq === speakSeq) b.classList.remove('speaking'); });
   };
   function toggleEdge() {
     var v = !(window.EdgeTTS && EdgeTTS.enabled());
