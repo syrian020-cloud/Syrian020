@@ -892,8 +892,9 @@ function writeBackup(json) {
     }, 400);
   } catch (e) {}
 }
+var sigCache = new Map();
 function saveData() {
-  sigCache = {};
+  sigCache.clear();
   var j = '[]';
   try { j = JSON.stringify(folders); } catch (e) {}
   try { localStorage.setItem(DATA_KEY, j); } catch (e) {}
@@ -2732,7 +2733,7 @@ function mdb(cb) {
   } catch (e) { cb(null); }
 }
 function mediaPut(key, blob, cb) {
-  sigCache = {};
+  sigCache.clear();
   mdb(function (d) {
     if (!d) { if (cb) cb(false); return; }
     var tx = d.transaction('m', 'readwrite');
@@ -2750,6 +2751,7 @@ function mediaGet(key, cb) {
   });
 }
 function mediaDel(key) {
+  sigCache.clear();
   mdb(function (d) { if (d) d.transaction('m', 'readwrite').objectStore('m').delete(key); });
 }
 function mediaKey(l) { return 'plm_' + l.id; }
@@ -4219,16 +4221,15 @@ async function blobHash(blob) {
     return h;
   } catch (e) { return ''; }
 }
-var sigCache = {};
 async function lessonSig(l) {
-  if (sigCache[l.id]) return sigCache[l.id];
+  if (sigCache.has(l)) return sigCache.get(l);
   var m = [];
   for (var i = 0; i < MEDIA_KEYS.length; i++) {
     var b = await mediaGetP(MEDIA_KEYS[i] + l.id);
     if (b) m.push(MEDIA_KEYS[i] + b.size + ':' + (await blobHash(b)));
   }
   var s = strHash(JSON.stringify(cleanLesson(l)) + '|' + m.join(','));
-  sigCache[l.id] = s;
+  sigCache.set(l, s);
   return s;
 }
 function lessonCount(l) {
