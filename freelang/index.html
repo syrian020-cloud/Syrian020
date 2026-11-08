@@ -2346,6 +2346,11 @@ function colClean(s) {
 function colExtract(line) {
   var cleanLine = String(line || '').trim();
   if (!cleanLine) return null;
+  // pipe-delimited lines keep their inner punctuation (commas, colons, semicolons)
+  if (cleanLine.indexOf('|') >= 0) {
+    var pp = cleanLine.split(/\|+/).map(function (s) { return s.trim(); }).filter(Boolean);
+    if (pp.length === 3 && colIsAr(pp[1])) return { first: pp[0], ar: pp[1], last: pp[2] };
+  }
   var delims = /\s*(?:\|{1,2}|,|;|=>|->|→|=|:|\s+-\s+|\s+)\s*/;
   var tokens = cleanLine.split(delims).map(function (s) { return s.trim(); }).filter(Boolean);
   if (tokens.length < 3) return null;
@@ -2359,8 +2364,8 @@ function colClassify(s) {
   if (!text || colIsAr(text)) return '';
   var lower = text.toLowerCase();
   if (/[éèêàâäæçíïîìôöòûüùœ]/.test(lower)) return 'fr';
-  var enWords = (lower.match(/\b(the|a|an|and|or|is|are|was|were|be|have|has|do|does|will|would|could|should|this|that|my|your|his|her|our|their|in|on|at|to|for|with|of|from|please|thank|thanks|very|much|more|yes|what|when|where|why|how|who|can|i|you|he|she|we|they|it|me|him|them|us)\b/g) || []).length;
-  var frWords = (lower.match(/\b(le|la|les|un|une|des|du|de|et|ou|en|je|tu|il|elle|nous|vous|ils|elles|est|sont|ai|as|avons|avez|ont|mon|ma|mes|ton|ta|tes|son|sa|ses|ce|cette|que|qui|pour|avec|dans|sur|par|avant|après|plus|moins|très|bien|oui|non|merci|quand|comment|pourquoi|si)\b/g) || []).length;
+  var enWords = (lower.match(/\b(the|a|an|and|or|is|are|was|were|be|have|has|do|does|will|would|could|should|this|that|my|your|his|her|our|their|in|on|at|to|for|with|of|from|please|thank|thanks|very|much|more|yes|what|when|where|why|how|who|can|i|you|he|she|we|they|it|me|him|them|us|hello|hi|hey|bye|goodbye|welcome)\b/g) || []).length;
+  var frWords = (lower.match(/\b(le|la|les|un|une|des|du|de|et|ou|en|je|tu|il|elle|nous|vous|ils|elles|est|sont|ai|as|avons|avez|ont|mon|ma|mes|ton|ta|tes|son|sa|ses|ce|cette|que|qui|pour|avec|dans|sur|par|avant|après|plus|moins|très|bien|oui|non|merci|quand|comment|pourquoi|si|bonjour|bonsoir|salut|voilà)\b/g) || []).length;
   if (enWords > frWords) return 'en';
   if (frWords > enWords) return 'fr';
   return '';
@@ -2503,9 +2508,10 @@ function parseLessons(text) {
         var ord = colLineOrder(parts.first, parts.last, colOrder);
         var isEnFirst = ord === 'en-ar-fr';
         var prim = { id: uid(), flag: isEnFirst ? '🇺🇸' : '🇫🇷', lang: isEnFirst ? 'en' : 'fr',
-          text: isEnFirst ? parts.first : parts.last, latin: '', arp: '', meaning: parts.ar,
-          en: isEnFirst ? '' : parts.last, note: '', rows: [] };
+          text: parts.first, latin: '', arp: '', meaning: parts.ar,
+          en: '', note: '', rows: [] };
         if (isEnFirst) prim.rows.push({ flag: '🇫🇷', lang: 'fr', text: parts.last, latin: '', arp: '' });
+        else prim.en = parts.last;
         cur.phrases.push(prim);
         ph = null;
         return;
