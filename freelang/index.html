@@ -1453,11 +1453,14 @@ function renderLessons(v, f) {
       + (ls.cues || []).length;
     c.appendChild(el('div', 'cmeta', n + ' ' + t.phrasesC));
     if (FL_ADMIN && pubMode(ls) !== 'hidden') c.appendChild(el('span', 'fl-cardtag m-' + pubMode(ls), MODE_ICON[pubMode(ls)] + ' ' + modeLabel(pubMode(ls))));
-    else if (isRemote(ls)) c.appendChild(el('span', 'fl-cardtag', (ls.remote.mode === 'auto' ? '⚡ ' : '☁️ ') + FT().fromAdmin));
+    else if (isRemote(ls)) c.appendChild(el('span', 'fl-cardtag', (ls.remote.mode === 'lock' ? '🔒 ' : ls.remote.mode === 'auto' ? '⚡ ' : '☁️ ') + FT().fromAdmin));
     var d = el('button', 'dots', '⋮');
     d.onclick = function (e) { e.stopPropagation(); lessonMenu(f, ls); };
     c.appendChild(d);
-    c.onclick = function () { nav.l = ls.id; render(); };
+    c.onclick = function () {
+      if (isRemote(ls) && ls.remote.mode === 'lock') { toast(FT().lockedMsg); return; }
+      nav.l = ls.id; render();
+    };
     g.appendChild(c);
   });
   v.appendChild(g);
@@ -4792,7 +4795,7 @@ function renderLibrary(v) {
       info.appendChild(md);
       r.appendChild(info);
       var b;
-      if (e.mode === 'lock' && !hit) {
+      if (e.mode === 'lock') {
         b = el('button', 'fl-mode m-lock', '🔒 ' + c.locked);
         b.onclick = function () { toast(c.lockedMsg); };
       } else if (hit && hit.l.remote.rev >= e.rev) {
@@ -4807,7 +4810,7 @@ function renderLibrary(v) {
         };
       }
       r.appendChild(b);
-      if (hit) r.onclick = function (ev) { if (ev.target === b) return; nav.lib = false; nav.f = hit.f.id; nav.l = e.id; render(); };
+      if (hit && e.mode !== 'lock') r.onclick = function (ev) { if (ev.target === b) return; nav.lib = false; nav.f = hit.f.id; nav.l = e.id; render(); };
       p.appendChild(r);
     });
     v.appendChild(p);
@@ -4843,6 +4846,14 @@ function hubTiles(v) {
   pt.innerHTML = '<span class="big">🗓️</span><span class="ttl">' + esc(fpT().tile) + '</span><span class="sub">' + esc(fpT().tileSub) + '</span>';
   pt.onclick = function () { nav.plan = true; nav.f = null; nav.l = null; render(); };
   hub.appendChild(pt);
+  var at = el('button', 'fl-tile gold');
+  at.innerHTML = '<span class="big">📅</span><span class="ttl">' + esc(fpT().apList) + '</span><span class="sub">' + esc(fpT().apptTileSub) + '</span>';
+  at.onclick = function () {
+    nav.plan = true; nav.f = null; nav.l = null; render();
+    var wrap = document.getElementById('fp-apwrap');
+    if (wrap && wrap.scrollIntoView) wrap.scrollIntoView({ block: 'start' });
+  };
+  hub.appendChild(at);
   v.appendChild(hub);
 }
 
@@ -4860,7 +4871,7 @@ var FP_I18N = {
     vOk: 'متوافق مع دوامك', vWarn: 'للتحقق — يلامس حدود الدوام', vConflict: 'تعارض مع دوام العمل',
     vRest: 'راحة', vNoPlan: 'الدوام غير محدد لهالأسبوع',
     vAppt: function (s) { return 'الموعد ' + s; }, vTrav: function (s) { return 'مع الطريق ' + s; }, vAtShift: function (s) { return 'دوام ' + s; },
-    apList: 'مواعيدي', apEmpty: 'لا مواعيد بعد', apEmptyHint: 'اضغط 📅 لإضافة أول موعد', apNext: '⭐ الموعد القادم',
+    apList: 'مواعيدي', apptTileSub: 'إضافة موعد + تنبيهات', apEmpty: 'لا مواعيد بعد', apEmptyHint: 'اضغط 📅 لإضافة أول موعد', apNext: '⭐ الموعد القادم',
     apNew: 'موعد جديد', apEditT: 'تعديل الموعد', apTitle: 'بخصوص ماذا؟ *', apTitlePh: 'مثال: موعد طبيب أسنان',
     apDate: 'التاريخ *', apTime: 'الوقت *', apPlace: 'المكان', apPlacePh: 'مثال: مستشفى',
     apAddr: 'العنوان الكامل', apAddrPh: 'الشارع، الرقم، المدينة…', apCat: 'التصنيف', apNotes: 'ملاحظات', apNotesPh: 'تفاصيل إضافية…',
@@ -4887,7 +4898,7 @@ var FP_I18N = {
     vOk: 'RENDEZ-VOUS COMPATIBLE', vWarn: 'À VÉRIFIER — touche les horaires de travail', vConflict: 'CONFLIT AVEC LE TRAVAIL',
     vRest: 'Repos', vNoPlan: 'Horaire non défini cette semaine',
     vAppt: function (s) { return 'RDV ' + s; }, vTrav: function (s) { return 'avec trajet ' + s; }, vAtShift: function (s) { return 'Travail ' + s; },
-    apList: 'Mes rendez-vous', apEmpty: 'Aucun rendez-vous', apEmptyHint: 'Touchez 📅 pour en ajouter un', apNext: '⭐ Prochain rendez-vous',
+    apList: 'Mes rendez-vous', apptTileSub: 'Ajout + rappels', apEmpty: 'Aucun rendez-vous', apEmptyHint: 'Touchez 📅 pour en ajouter un', apNext: '⭐ Prochain rendez-vous',
     apNew: 'Nouveau rendez-vous', apEditT: 'Modifier le rendez-vous', apTitle: 'À quel sujet ? *', apTitlePh: 'Ex : dentiste',
     apDate: 'Date *', apTime: 'Heure *', apPlace: 'Lieu', apPlacePh: 'Ex : Hôpital',
     apAddr: 'Adresse complète', apAddrPh: 'Rue, numéro, ville…', apCat: 'Catégorie', apNotes: 'Notes', apNotesPh: 'Détails supplémentaires…',
@@ -4914,7 +4925,7 @@ var FP_I18N = {
     vOk: 'APPOINTMENT COMPATIBLE', vWarn: 'CHECK — touches work hours', vConflict: 'CONFLICT WITH WORK',
     vRest: 'Off', vNoPlan: 'No schedule set for that week',
     vAppt: function (s) { return 'Appt ' + s; }, vTrav: function (s) { return 'with travel ' + s; }, vAtShift: function (s) { return 'Work ' + s; },
-    apList: 'My appointments', apEmpty: 'No appointments yet', apEmptyHint: 'Tap 📅 to add your first one', apNext: '⭐ Next appointment',
+    apList: 'My appointments', apptTileSub: 'Add appointment + reminders', apEmpty: 'No appointments yet', apEmptyHint: 'Tap 📅 to add your first one', apNext: '⭐ Next appointment',
     apNew: 'New appointment', apEditT: 'Edit appointment', apTitle: 'What is it about? *', apTitlePh: 'e.g. Dentist appointment',
     apDate: 'Date *', apTime: 'Time *', apPlace: 'Place', apPlacePh: 'e.g. Hospital',
     apAddr: 'Full address', apAddrPh: 'Street, number, city…', apCat: 'Category', apNotes: 'Notes', apNotesPh: 'Extra details…',
