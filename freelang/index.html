@@ -4201,7 +4201,10 @@ function cleanLesson(l) { var c = JSON.parse(JSON.stringify(l)); delete c.pub; d
 async function blobHash(blob) {
   try {
     if (!(window.crypto && crypto.subtle)) return '';
-    var d = await crypto.subtle.digest('SHA-256', await blob.arrayBuffer());
+    // sample first+last MiB: bounded memory/time even for large videos
+    var CH = 1048576, parts = [await blob.slice(0, CH).arrayBuffer()];
+    if (blob.size > CH) parts.push(await blob.slice(blob.size - CH).arrayBuffer());
+    var d = await crypto.subtle.digest('SHA-256', await new Blob(parts).arrayBuffer());
     var v = new Uint8Array(d), h = '';
     for (var i = 0; i < 8; i++) h += ('0' + v[i].toString(16)).slice(-2);
     return h;
