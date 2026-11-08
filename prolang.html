@@ -72,6 +72,10 @@
   main { max-width: 860px; margin: 0 auto; padding: .9rem .8rem; }
 
   /* ---------- cards / lists ---------- */
+  .pl-stats { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; margin: .3rem 0 .9rem; }
+  .pl-stat { background: var(--card, #fff); border: 1px solid var(--line, #e5e7eb); border-radius: 999px;
+    padding: .45rem 1.1rem; font-size: 1.02rem; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+  .pl-stat b { font-size: 1.15rem; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); gap: .7rem; }
   .card { background: var(--card); border: 1px solid var(--line); border-radius: 20px;
     padding: 1rem .7rem .8rem; cursor: pointer; display: flex; flex-direction: column;
@@ -1243,6 +1247,21 @@ function render() {
 
 function renderFolders(v) {
   var t = T();
+  var nL = 0, nP = 0;
+  folders.forEach(function (fd) {
+    nL += (fd.lessons || []).length;
+    (fd.lessons || []).forEach(function (ls) {
+      nP += (ls.phrases || []).filter(function (p) { return p.type !== 'note'; }).length
+        + (ls.cues || []).length;
+    });
+  });
+  var stats = el('div', 'pl-stats');
+  [['📁', folders.length, t.folders], ['📚', nL, t.lessonsC], ['💬', nP, t.phrasesC]].forEach(function (s) {
+    var c = el('div', 'pl-stat');
+    c.innerHTML = '<span>' + s[0] + ' <b>' + s[1] + '</b> ' + esc(s[2]) + '</span>';
+    stats.appendChild(c);
+  });
+  v.appendChild(stats);
   var g = el('div', 'grid');
   if (!folders.length) {
     v.appendChild(el('div', 'empty')).innerHTML =
