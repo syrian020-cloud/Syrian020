@@ -5117,10 +5117,12 @@ function saveAppt(id, d) {
   var t = fpT();
   if (!d.title.trim() || !d.date || !d.time) { toast('⚠️ ' + t.apNeed); return; }
   var a = id ? apById(id) : null;
+  var oldDate = a ? a.date : null, oldTime = a ? a.time : null;
   if (!a) { a = { id: 'a' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), status: 'upcoming', createdAt: Date.now() }; appts.push(a); }
   a.title = d.title.trim(); a.date = d.date; a.time = d.time;
   a.place = (d.place || '').trim(); a.address = (d.address || '').trim(); a.notes = (d.notes || '').trim();
   a.category = d.category; a.updatedAt = Date.now();
+  if (a.date !== oldDate || a.time !== oldTime) a.schedAt = Date.now();
   apSave(); apSchedule(a);
   if (!apLN() && 'Notification' in window && Notification.permission === 'default') { try { Notification.requestPermission(); } catch (e) {} }
   closeOv(); toast('✓ ' + t.apSaved);
@@ -5205,14 +5207,14 @@ if (!apLN()) {
     appts.forEach(function (a) {
       if (a.status !== 'upcoming') return;
       var when = apTime(a); if (!when) return;
-      var created = a.createdAt || 0;
+      var since = a.schedAt || a.createdAt || 0;
       [['apNotifBody0', 0], ['apNotifBody2', 2 * 3600e3], ['apNotifBody12', 12 * 3600e3], ['apNotifBody24', 24 * 3600e3]].forEach(function (pr, i) {
         var key = a.id + ':' + i + ':' + when;   // keyed by exact time: rescheduling refires
         if (s.has(key)) return;
         var fireAt = when - pr[1];
-        // only fire offsets that were still ahead when the appointment was created —
-        // otherwise a 1-hour-away appointment would dump 24h/12h/2h alerts at once
-        if (fireAt <= now && fireAt > created && when > now - 30e3) {
+        // only fire offsets that were still ahead when the appointment was last scheduled —
+        // otherwise a soon appointment (or a reschedule) would dump expired alerts at once
+        if (fireAt <= now && fireAt > since && when > now - 30e3) {
           apMarkFired(key); apBeep();
           var msg = '⏰ ' + t[pr[0]](a.title);
           if ('Notification' in window && Notification.permission === 'granted') {
