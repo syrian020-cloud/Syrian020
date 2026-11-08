@@ -209,6 +209,7 @@
   body.light .mrow { background: rgba(249,115,22,.06); }
   .mrow:active { background: rgba(139,92,246,.16); }
   .mrow .mi { font-size: 1.1rem; width: 1.6rem; text-align: center; flex: none; }
+  .mrow.fl-danger { color: var(--danger); }
   .langs { display: flex; gap: .5rem; margin-bottom: .7rem; }
   .langb { flex: 1; background: var(--card); border: 1px solid var(--line); color: var(--txt);
     border-radius: 14px; padding: .6rem; font-size: .85rem; cursor: pointer; font-family: inherit; }
@@ -557,6 +558,27 @@
   .fl-verd.warn { background: #d9770622; color: #d97706; }
   .fl-verd.bad { background: #dc262622; color: #dc2626; }
   .fl-vlines { font-weight: 600; font-size: .8rem; margin-top: .35rem; line-height: 1.7; }
+  .fl-next { border-radius: 16px; padding: .8rem .9rem; margin-bottom: .7rem; cursor: pointer; color: #fff;
+    background: linear-gradient(135deg, #7c3aed, #9333ea 50%, #f97316); }
+  .fl-next .nl { font-size: .68rem; opacity: .85; font-weight: 700; }
+  .fl-next .nt { font-weight: 800; font-size: 1rem; margin: .15rem 0; }
+  .fl-next .nd { font-size: .78rem; opacity: .92; }
+  .fl-next .nc { display: inline-block; margin-top: .45rem; background: rgba(0,0,0,.28); border-radius: 999px;
+    padding: .15rem .6rem; font-size: .72rem; font-weight: 700; }
+  .fl-appt { display: flex; align-items: center; gap: .6rem; padding: .55rem 0; border-top: 1px solid var(--line); cursor: pointer; }
+  .fl-appt:first-child { border-top: none; }
+  .fl-apx { width: 2.5rem; height: 2.5rem; border-radius: 12px; background: var(--card2); border: 1px solid var(--line);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; flex: none; }
+  .fl-apx .d { font-weight: 800; font-size: .95rem; line-height: 1.1; }
+  .fl-apx .m { font-size: .58rem; opacity: .7; }
+  .fl-apb { flex: 1; min-width: 0; }
+  .fl-apt { font-weight: 700; font-size: .88rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .fl-apm { font-size: .72rem; opacity: .75; margin-top: .15rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .fl-st { display: inline-block; border-radius: 999px; padding: .05rem .5rem; font-size: .62rem; font-weight: 800; margin-inline-start: .35rem; vertical-align: middle; }
+  .fl-st.up { background: #2563eb22; color: #2563eb; } .fl-st.over { background: #d9770622; color: #d97706; }
+  .fl-st.done { background: #16a34a22; color: #16a34a; } .fl-st.off { background: #6b728022; color: #6b7280; }
+  .fl-apmenu { border: none; background: var(--card2); color: var(--txt); border-radius: 10px; padding: .35rem .55rem;
+    font-size: .9rem; cursor: pointer; font-family: inherit; flex: none; }
   .fl-panel { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: .9rem .9rem .5rem; margin-bottom: .8rem; }
   .fl-panel h4 { margin: 0 0 .5rem; font-size: .95rem; }
   .fl-chips { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: .4rem; }
@@ -1328,7 +1350,11 @@ function render() {
   var l = findL(f, nav.l);
 
   if (q) { renderSearch(v); back.classList.add('hidden'); crumb.classList.add('hidden'); return; }
-  fab.classList.toggle('hidden', !FL_ADMIN || !!(nav.lib || nav.admin || isRemote(f)));
+  if (nav.plan) { fab.textContent = '📅'; fab.classList.remove('hidden'); }
+  else {
+    fab.textContent = '➕';
+    fab.classList.toggle('hidden', !FL_ADMIN || !!(nav.lib || nav.admin || isRemote(f)));
+  }
   if (nav.lib || nav.admin || nav.plan) {
     back.classList.remove('hidden'); crumb.classList.remove('hidden');
     crumb.textContent = nav.lib ? '📥 ' + FT().lib : nav.admin ? '🛠 ' + FT().panel : '🗓️ ' + fpT().planTitle;
@@ -4726,7 +4752,22 @@ var FP_I18N = {
     chkGo: 'تحقق', chkNeed: 'أدخل تاريخ ووقت الموعد', trvNone: 'بدون',
     vOk: 'متوافق مع دوامك', vWarn: 'للتحقق — يلامس حدود الدوام', vConflict: 'تعارض مع دوام العمل',
     vRest: 'راحة', vNoPlan: 'الدوام غير محدد لهالأسبوع',
-    vAppt: function (s) { return 'الموعد ' + s; }, vTrav: function (s) { return 'مع الطريق ' + s; }, vAtShift: function (s) { return 'دوام ' + s; } },
+    vAppt: function (s) { return 'الموعد ' + s; }, vTrav: function (s) { return 'مع الطريق ' + s; }, vAtShift: function (s) { return 'دوام ' + s; },
+    apList: 'مواعيدي', apEmpty: 'لا مواعيد بعد', apEmptyHint: 'اضغط 📅 لإضافة أول موعد', apNext: '⭐ الموعد القادم',
+    apNew: 'موعد جديد', apEditT: 'تعديل الموعد', apTitle: 'بخصوص ماذا؟ *', apTitlePh: 'مثال: موعد طبيب أسنان',
+    apDate: 'التاريخ *', apTime: 'الوقت *', apPlace: 'المكان', apPlacePh: 'مثال: مستشفى',
+    apAddr: 'العنوان الكامل', apAddrPh: 'الشارع، الرقم، المدينة…', apCat: 'التصنيف', apNotes: 'ملاحظات', apNotesPh: 'تفاصيل إضافية…',
+    apSave: 'حفظ', apCancel: 'إلغاء', apDel: 'حذف', apEdit: 'تعديل', apMarkDone: 'تم ✓', apMarkOff: 'إلغاء الموعد', apMarkUp: 'إعادة كقادم',
+    apDelQ: 'حذف هذا الموعد نهائياً؟', apYes: 'نعم، احذف', apNo: 'تراجع', apDoneEarly: 'الموعد لسا ما انتهى — بيتحط «تم» بعد ما يخلص وقته',
+    apTomorrow: 'غداً', apPast: 'انتهى', apStUp: 'قادم', apStOver: 'فائت', apStDone: 'تم', apStOff: 'مُلغى',
+    apSaved: 'تم الحفظ', apDeleted: 'تم الحذف', apNeed: 'أدخل العنوان والتاريخ والوقت',
+    apCats: { health: '🩺 صحة', admin: '📋 إدارة', work: '💼 عمل', personal: '👤 شخصي', study: '📚 دراسة', other: '📌 أخرى' },
+    apNotifTitle: '⏰ تذكير بموعد', apAlarmPerm: 'فعّل «المنبهات والتذكيرات» لـ Freelang حتى ترن الإشعارات بوقتها',
+    apNotifBody24: function (m) { return 'غداً: ' + m; }, apNotifBody12: function (m) { return 'بعد ١٢ ساعة: ' + m; },
+    apNotifBody2: function (m) { return 'قريباً بعد ساعتين: ' + m; }, apNotifBody0: function (m) { return 'حان الموعد الآن: ' + m; },
+    apDaysLeft: function (d) { return d === 1 ? 'باقي يوم واحد' : d === 2 ? 'باقي يومان' : d <= 10 ? 'باقي ' + d + ' أيام' : 'باقي ' + d + ' يوماً'; },
+    apMinsLeft: function (m) { return m <= 1 ? 'باقي أقل من دقيقة' : m === 2 ? 'باقي دقيقتان' : 'باقي ' + m + ' دقيقة'; },
+    apHmLeft: function (h, m) { return m ? 'باقي ' + h + ' س ' + m + ' د' : (h === 1 ? 'باقي ساعة' : h === 2 ? 'باقي ساعتان' : 'باقي ' + h + ' ساعات'); } },
   fr: { tile: 'Mon planning', tileSub: 'Alternance + vérif. RDV',
     planTitle: 'Mon planning', planSub: 'Réglez cette semaine — les suivantes alternent automatiquement',
     wkThis: 'Cette semaine :', shMatin: 'MATIN', shSoir: 'SOIR', shRepos: 'REPOS',
@@ -4738,7 +4779,22 @@ var FP_I18N = {
     chkGo: 'Vérifier', chkNeed: 'Date et heure requises', trvNone: 'Aucun',
     vOk: 'RENDEZ-VOUS COMPATIBLE', vWarn: 'À VÉRIFIER — touche les horaires de travail', vConflict: 'CONFLIT AVEC LE TRAVAIL',
     vRest: 'Repos', vNoPlan: 'Horaire non défini cette semaine',
-    vAppt: function (s) { return 'RDV ' + s; }, vTrav: function (s) { return 'avec trajet ' + s; }, vAtShift: function (s) { return 'Travail ' + s; } },
+    vAppt: function (s) { return 'RDV ' + s; }, vTrav: function (s) { return 'avec trajet ' + s; }, vAtShift: function (s) { return 'Travail ' + s; },
+    apList: 'Mes rendez-vous', apEmpty: 'Aucun rendez-vous', apEmptyHint: 'Touchez 📅 pour en ajouter un', apNext: '⭐ Prochain rendez-vous',
+    apNew: 'Nouveau rendez-vous', apEditT: 'Modifier le rendez-vous', apTitle: 'À quel sujet ? *', apTitlePh: 'Ex : dentiste',
+    apDate: 'Date *', apTime: 'Heure *', apPlace: 'Lieu', apPlacePh: 'Ex : Hôpital',
+    apAddr: 'Adresse complète', apAddrPh: 'Rue, numéro, ville…', apCat: 'Catégorie', apNotes: 'Notes', apNotesPh: 'Détails supplémentaires…',
+    apSave: 'Enregistrer', apCancel: 'Annuler', apDel: 'Supprimer', apEdit: 'Modifier', apMarkDone: 'Marquer fait ✓', apMarkOff: 'Annuler le RDV', apMarkUp: 'Remettre à venir',
+    apDelQ: 'Supprimer ce rendez-vous ?', apYes: 'Oui, supprimer', apNo: 'Retour', apDoneEarly: 'Le RDV n\'est pas encore passé — « Fait » possible après son heure',
+    apTomorrow: 'Demain', apPast: 'Passé', apStUp: 'À venir', apStOver: 'Passé', apStDone: 'Fait', apStOff: 'Annulé',
+    apSaved: 'Enregistré', apDeleted: 'Supprimé', apNeed: 'Titre, date et heure requis',
+    apCats: { health: '🩺 Santé', admin: '📋 Admin', work: '💼 Travail', personal: '👤 Perso', study: '📚 Études', other: '📌 Autre' },
+    apNotifTitle: '⏰ Rappel de rendez-vous', apAlarmPerm: 'Autorisez «Alarmes et rappels» pour Freelang pour recevoir les notifications à l\'heure',
+    apNotifBody24: function (m) { return 'Demain : ' + m; }, apNotifBody12: function (m) { return 'Dans 12 h : ' + m; },
+    apNotifBody2: function (m) { return 'Dans 2 h : ' + m; }, apNotifBody0: function (m) { return 'C\'est l\'heure : ' + m; },
+    apDaysLeft: function (d) { return d <= 1 ? 'dans 1 jour' : 'dans ' + d + ' jours'; },
+    apMinsLeft: function (m) { return m <= 1 ? 'dans moins d\'1 min' : 'dans ' + m + ' min'; },
+    apHmLeft: function (h, m) { return m ? 'dans ' + h + ' h ' + m + ' min' : 'dans ' + h + ' h'; } },
   en: { tile: 'Work schedule', tileSub: 'Rotation + appointment check',
     planTitle: 'Work schedule', planSub: 'Set this week — future weeks alternate automatically',
     wkThis: 'This week:', shMatin: 'MORNING', shSoir: 'EVENING', shRepos: 'OFF',
@@ -4750,7 +4806,22 @@ var FP_I18N = {
     chkGo: 'Check', chkNeed: 'Date and time required', trvNone: 'None',
     vOk: 'APPOINTMENT COMPATIBLE', vWarn: 'CHECK — touches work hours', vConflict: 'CONFLICT WITH WORK',
     vRest: 'Off', vNoPlan: 'No schedule set for that week',
-    vAppt: function (s) { return 'Appt ' + s; }, vTrav: function (s) { return 'with travel ' + s; }, vAtShift: function (s) { return 'Work ' + s; } }
+    vAppt: function (s) { return 'Appt ' + s; }, vTrav: function (s) { return 'with travel ' + s; }, vAtShift: function (s) { return 'Work ' + s; },
+    apList: 'My appointments', apEmpty: 'No appointments yet', apEmptyHint: 'Tap 📅 to add your first one', apNext: '⭐ Next appointment',
+    apNew: 'New appointment', apEditT: 'Edit appointment', apTitle: 'What is it about? *', apTitlePh: 'e.g. Dentist appointment',
+    apDate: 'Date *', apTime: 'Time *', apPlace: 'Place', apPlacePh: 'e.g. Hospital',
+    apAddr: 'Full address', apAddrPh: 'Street, number, city…', apCat: 'Category', apNotes: 'Notes', apNotesPh: 'Extra details…',
+    apSave: 'Save', apCancel: 'Cancel', apDel: 'Delete', apEdit: 'Edit', apMarkDone: 'Mark done ✓', apMarkOff: 'Cancel appointment', apMarkUp: 'Back to upcoming',
+    apDelQ: 'Delete this appointment?', apYes: 'Yes, delete', apNo: 'Back', apDoneEarly: 'Appointment has not ended yet — mark it done after its time',
+    apTomorrow: 'Tomorrow', apPast: 'Past', apStUp: 'Upcoming', apStOver: 'Overdue', apStDone: 'Done', apStOff: 'Cancelled',
+    apSaved: 'Saved', apDeleted: 'Deleted', apNeed: 'Title, date and time are required',
+    apCats: { health: '🩺 Health', admin: '📋 Admin', work: '💼 Work', personal: '👤 Personal', study: '📚 Study', other: '📌 Other' },
+    apNotifTitle: '⏰ Appointment reminder', apAlarmPerm: 'Allow «Alarms & reminders» for Freelang so notifications ring on time',
+    apNotifBody24: function (m) { return 'Tomorrow: ' + m; }, apNotifBody12: function (m) { return 'In 12 h: ' + m; },
+    apNotifBody2: function (m) { return 'In 2 h: ' + m; }, apNotifBody0: function (m) { return 'It\'s time: ' + m; },
+    apDaysLeft: function (d) { return d <= 1 ? 'in 1 day' : 'in ' + d + ' days'; },
+    apMinsLeft: function (m) { return m <= 1 ? 'in < 1 min' : 'in ' + m + ' min'; },
+    apHmLeft: function (h, m) { return m ? 'in ' + h + ' h ' + m + ' min' : 'in ' + h + ' h'; } }
 };
 function fpT() { return FP_I18N[uiLang()] || FP_I18N.ar; }
 var FP_KEY = 'freelang_plan';
@@ -4907,6 +4978,246 @@ function renderPlanView(v) {
     lines.push('🕐 ' + esc(t.vAppt(hh(r.start) + '–' + hh(r.end))) + ' · ' + esc(t.vTrav(hh(r.ws) + '–' + hh(r.we))));
     document.getElementById('fp-res').innerHTML = '<div class="fl-verd ' + cls[r.verdict] + '">' + icons[r.verdict] + ' ' + esc(lbl) + '<div class="fl-vlines">' + lines.join('<br>') + '</div></div>';
   };
+
+  var c4 = el('div', 'fl-panel');
+  c4.innerHTML = '<div class="fl-wkline">📅 ' + esc(t.apList) + '</div><div id="fp-apwrap"></div>';
+  v.appendChild(c4);
+  renderAppts(c4.querySelector('#fp-apwrap'));
+}
+
+/* ================= appointments + loud reminders ================= */
+var AP_KEY = 'freelang_appts', AP_FIRED = 'freelang_appt_fired';
+var appts = [];
+function apLoad() {
+  try { appts = JSON.parse(localStorage.getItem(AP_KEY) || '[]'); } catch (e) { appts = []; }
+  if (!Array.isArray(appts)) appts = [];
+}
+function apSave() { try { localStorage.setItem(AP_KEY, JSON.stringify(appts)); } catch (e) {} }
+apLoad();
+function apTime(a) { if (!a || !a.date) return null; var x = new Date(a.date + 'T' + (a.time || '00:00')).getTime(); return isNaN(x) ? null : x; }
+function apEff(a) {
+  if (a.status === 'done') return 'done';
+  if (a.status === 'cancelled') return 'off';
+  var w = apTime(a); return w != null && w <= Date.now() ? 'over' : 'up';
+}
+function apById(id) { return appts.filter(function (x) { return x.id === id; })[0] || null; }
+function apCountdown(a) {
+  var t = fpT(), when = apTime(a); if (when == null) return '';
+  var now = Date.now();
+  var day = new Date(); day.setHours(0, 0, 0, 0);
+  var aday = new Date(a.date + 'T00:00'); var diffD = Math.round((aday - day) / 864e5);
+  if (when <= now) return t.apPast;
+  if (diffD <= 0) {
+    var mins = Math.max(1, Math.ceil((when - now) / 60000));
+    if (mins < 60) return t.apMinsLeft(mins);
+    return t.apHmLeft(Math.floor(mins / 60), mins % 60);
+  }
+  if (diffD === 1) return t.apTomorrow;
+  return t.apDaysLeft(diffD);
+}
+function apFmtDate(a) { try { return new Intl.DateTimeFormat(fpLoc(), { weekday: 'short', day: 'numeric', month: 'short' }).format(new Date(a.date + 'T12:00')); } catch (e) { return a.date || ''; } }
+function apDayNum(a) { try { return String(new Date(a.date + 'T12:00').getDate()); } catch (e) { return '–'; } }
+function apMonth(a) { try { return new Intl.DateTimeFormat(fpLoc(), { month: 'short' }).format(new Date(a.date + 'T12:00')); } catch (e) { return ''; } }
+function renderAppts(box) {
+  var t = fpT(), now = Date.now();
+  var ups = appts.filter(function (a) { return a.status === 'upcoming'; }).sort(function (x, y) { return (apTime(x) || 0) - (apTime(y) || 0); });
+  var rest = appts.filter(function (a) { return a.status !== 'upcoming'; }).sort(function (x, y) { return (y.updatedAt || 0) - (x.updatedAt || 0); });
+  var list = ups.concat(rest);
+  var html = '';
+  var next = ups.filter(function (a) { return apTime(a) > now; })[0];
+  if (next) {
+    html += '<div class="fl-next" data-id="' + esc(next.id) + '"><div class="nl">' + esc(t.apNext) + '</div><div class="nt">' + esc(next.title) + '</div>' +
+      '<div class="nd">📅 ' + esc(apFmtDate(next)) + ' 🕐 ' + esc(next.time || '') + (next.place ? ' 📍 ' + esc(next.place) : '') + '</div>' +
+      '<span class="nc">' + esc(apCountdown(next)) + '</span></div>';
+  }
+  if (!list.length) {
+    html += '<div class="fl-hint">' + esc(t.apEmpty) + ' — ' + esc(t.apEmptyHint) + '</div>';
+  } else {
+    html += list.map(function (a) {
+      var eff = apEff(a), stLbl = { up: t.apStUp, over: t.apStOver, done: t.apStDone, off: t.apStOff }[eff] || eff;
+      var meta = [];
+      if (a.category && t.apCats[a.category]) meta.push(t.apCats[a.category]);
+      meta.push('🕐 ' + (a.time || '—'));
+      if (a.place) meta.push('📍 ' + a.place);
+      if (eff === 'up') meta.push('⏳ ' + apCountdown(a));
+      return '<div class="fl-appt" data-id="' + esc(a.id) + '"><div class="fl-apx"><div class="d">' + esc(apDayNum(a)) + '</div><div class="m">' + esc(apMonth(a)) + '</div></div>' +
+        '<div class="fl-apb"><div class="fl-apt">' + esc(a.title) + '<span class="fl-st ' + eff + '">' + esc(stLbl) + '</span></div>' +
+        '<div class="fl-apm">' + esc(meta.join(' · ')) + '</div></div>' +
+        '<button class="fl-apmenu" data-menu="' + esc(a.id) + '">⋮</button></div>';
+    }).join('');
+  }
+  box.innerHTML = html;
+  box.querySelectorAll('.fl-next[data-id], .fl-appt[data-id]').forEach(function (x) {
+    x.onclick = function () { openApptForm(x.getAttribute('data-id')); };
+  });
+  box.querySelectorAll('[data-menu]').forEach(function (b) {
+    b.onclick = function (e) { e.stopPropagation(); var a = apById(b.getAttribute('data-menu')); if (a) apptMenu(a); };
+  });
+}
+function apptMenu(a) {
+  var t = fpT();
+  var sh = sheetHead('📅 ' + (a.title || ''));
+  function row(icon, label, fn, danger) {
+    var b = el('button', 'mrow' + (danger ? ' fl-danger' : ''));
+    b.appendChild(el('span', 'mi', icon)); b.appendChild(el('span', null, label));
+    b.onclick = function () { closeOv(); fn(); }; sh.appendChild(b);
+  }
+  row('✏️', t.apEdit, function () { openApptForm(a.id); });
+  if (a.status === 'upcoming' || a.status === 'over') row('✅', t.apMarkDone, function () { apSetStatus(a.id, 'done'); });
+  else row('↩️', t.apMarkUp, function () { apSetStatus(a.id, 'upcoming'); });
+  if (a.status !== 'cancelled') row('🚫', t.apMarkOff, function () { apSetStatus(a.id, 'cancelled'); });
+  row('🗑️', t.apDel, function () { apDelete(a.id); }, true);
+}
+function apSetStatus(id, st) {
+  var a = apById(id); if (!a) return;
+  if (st === 'done' && apTime(a) && apTime(a) > Date.now()) { toast('⏳ ' + fpT().apDoneEarly); return; }
+  a.status = st; a.updatedAt = Date.now(); apSave(); apSchedule(a);
+  if (nav.plan) render();
+}
+function apDelete(id) {
+  appts = appts.filter(function (x) { return x.id !== id; }); apSave(); apCancelRem({ id: id });
+  if (nav.plan) render(); toast('🗑️ ' + fpT().apDeleted);
+}
+function openApptForm(id) {
+  var t = fpT();
+  var a = id ? apById(id) : null;
+  var sh = sheetHead('📅 ' + (a ? t.apEditT : t.apNew));
+  var wTitle = fieldRow(t.apTitle, a ? a.title : '', { ph: t.apTitlePh });
+  var wDate = fieldRow(t.apDate, a ? a.date : '', { type: 'date' });
+  var wTime = fieldRow(t.apTime, a ? a.time : '', { type: 'time' });
+  var wPlace = fieldRow(t.apPlace, a ? a.place : '', { ph: t.apPlacePh });
+  var wAddr = fieldRow(t.apAddr, a ? a.address : '', { ph: t.apAddrPh });
+  var wNotes = fieldRow(t.apNotes, a ? a.notes : '', { ph: t.apNotesPh });
+  [wTitle, wDate, wTime, wPlace, wAddr, wNotes].forEach(function (w) { sh.appendChild(w); });
+  var selCat = (a && a.category) || 'other';
+  var catWrap = el('div'); catWrap.appendChild(el('div', 'flabel', t.apCat));
+  var chips = el('div', 'fl-chips');
+  Object.keys(t.apCats).forEach(function (k) {
+    var b = el('button', 'fl-chip' + (k === selCat ? ' on' : ''), t.apCats[k]);
+    b.onclick = function () {
+      selCat = k;
+      chips.querySelectorAll('.fl-chip').forEach(function (x) { x.classList.remove('on'); });
+      b.classList.add('on');
+    };
+    chips.appendChild(b);
+  });
+  catWrap.appendChild(chips); sh.appendChild(catWrap);
+  var act = el('div', 'actions');
+  var cancel = el('button', 'btn ghost', t.apCancel); cancel.onclick = closeOv;
+  var save = el('button', 'btn primary', '💾 ' + t.apSave);
+  save.onclick = function () {
+    saveAppt(id, {
+      title: wTitle.input.value, date: wDate.input.value, time: wTime.input.value,
+      place: wPlace.input.value, address: wAddr.input.value, notes: wNotes.input.value, category: selCat
+    });
+  };
+  act.appendChild(cancel); act.appendChild(save); sh.appendChild(act);
+}
+function saveAppt(id, d) {
+  var t = fpT();
+  if (!d.title.trim() || !d.date || !d.time) { toast('⚠️ ' + t.apNeed); return; }
+  var a = id ? apById(id) : null;
+  if (!a) { a = { id: 'a' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), status: 'upcoming', createdAt: Date.now() }; appts.push(a); }
+  a.title = d.title.trim(); a.date = d.date; a.time = d.time;
+  a.place = (d.place || '').trim(); a.address = (d.address || '').trim(); a.notes = (d.notes || '').trim();
+  a.category = d.category; a.updatedAt = Date.now();
+  apSave(); apSchedule(a);
+  if (!apLN() && 'Notification' in window && Notification.permission === 'default') { try { Notification.requestPermission(); } catch (e) {} }
+  closeOv(); toast('✓ ' + t.apSaved);
+  if (nav.plan) render();
+}
+/* ---- reminders: native LocalNotifications (loud channel) + browser fallback ---- */
+function apLN() { return window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.LocalNotifications; }
+function apNid(id) { var h = 0; for (var i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) % 1000000; return h * 10; }
+async function apCancelRem(a) {
+  var p = apLN(); if (!p) return;
+  try { var b = apNid(a.id); await p.cancel({ notifications: [{ id: b }, { id: b + 1 }, { id: b + 2 }, { id: b + 3 }] }); } catch (e) {}
+}
+async function apEnsureChannel() {
+  var p = apLN(); if (!p || !p.createChannel) return;
+  try {
+    await p.createChannel({ id: 'freelang-alerts', name: 'Freelang reminders', description: 'Appointment reminders',
+      importance: 5, visibility: 1, lights: true, vibration: true, sound: 'freelang_alert' });
+  } catch (e) {}
+}
+async function apSchedule(a) {
+  var p = apLN(); if (!p) return;
+  await apCancelRem(a);
+  if (a.status !== 'upcoming') return;
+  var when = apTime(a); if (!when || when <= Date.now()) return;
+  try {
+    var perm = await p.requestPermissions();
+    if (!perm || perm.display !== 'granted') return;
+    if (p.checkExactNotificationSetting && p.changeExactNotificationSetting) {
+      try {
+        var ex = await p.checkExactNotificationSetting();
+        if (ex && ex.exact_alarm !== 'granted') { toast('⚠️ ' + fpT().apAlarmPerm); await p.changeExactNotificationSetting(); }
+      } catch (e) {}
+    }
+    await apEnsureChannel();
+    var offs = [0, 2 * 3600e3, 12 * 3600e3, 24 * 3600e3];
+    var keys = ['apNotifBody0', 'apNotifBody2', 'apNotifBody12', 'apNotifBody24'];
+    var t = fpT(), b = apNid(a.id), list = [];
+    offs.forEach(function (o, i) {
+      var at = when - o;
+      if (at > Date.now() + 15e3) list.push({ id: b + i, title: t.apNotifTitle, body: t[keys[i]](a.title),
+        channelId: 'freelang-alerts', sound: 'freelang_alert', schedule: { at: new Date(at) } });
+    });
+    if (list.length) await p.schedule({ notifications: list });
+  } catch (e) { console.error('schedule', e); }
+}
+async function apRescheduleAll() {
+  var p = apLN();
+  if (p && p.getPending) {
+    try {
+      var pend = await p.getPending();
+      var alive = [];
+      appts.forEach(function (a) { var b = apNid(a.id); alive.push(b, b + 1, b + 2, b + 3); });
+      var stale = (pend.notifications || []).filter(function (n) { return alive.indexOf(n.id) < 0; });
+      if (stale.length) await p.cancel({ notifications: stale.map(function (n) { return { id: n.id }; }) });
+    } catch (e) {}
+  }
+  for (var i = 0; i < appts.length; i++) await apSchedule(appts[i]);
+}
+function apFiredSet() { try { return new Set(JSON.parse(localStorage.getItem(AP_FIRED) || '[]')); } catch (e) { return new Set(); } }
+function apMarkFired(k) {
+  var s = apFiredSet(); s.add(k);
+  try { var arr = Array.from(s); if (arr.length > 500) arr = arr.slice(-500); localStorage.setItem(AP_FIRED, JSON.stringify(arr)); } catch (e) {}
+}
+function apBeep() {
+  try {
+    var Ctx = window.AudioContext || window.webkitAudioContext; var ctx = new Ctx();
+    [0, 0.35, 0.7].forEach(function (d) {
+      var o = ctx.createOscillator(), g = ctx.createGain();
+      o.frequency.value = 988; o.connect(g); g.connect(ctx.destination);
+      var t0 = ctx.currentTime + d;
+      g.gain.setValueAtTime(0.001, t0);
+      g.gain.exponentialRampToValueAtTime(0.25, t0 + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.001, t0 + 0.3);
+      o.start(t0); o.stop(t0 + 0.32);
+    });
+  } catch (e) {}
+}
+if (!apLN()) {
+  setInterval(function () {
+    if (document.hidden) return;
+    var s = apFiredSet(), now = Date.now(), t = fpT();
+    appts.forEach(function (a) {
+      if (a.status !== 'upcoming') return;
+      var when = apTime(a); if (!when) return;
+      [['apNotifBody0', 0], ['apNotifBody2', 2 * 3600e3], ['apNotifBody12', 12 * 3600e3], ['apNotifBody24', 24 * 3600e3]].forEach(function (pr, i) {
+        var key = a.id + ':' + i;
+        if (s.has(key)) return;
+        if (now >= when - pr[1] && when > now - 30e3) {
+          apMarkFired(key); apBeep();
+          var msg = '⏰ ' + t[pr[0]](a.title);
+          if ('Notification' in window && Notification.permission === 'granted') {
+            try { new Notification(t.apNotifTitle, { body: msg, icon: './icon-192.png' }); } catch (e) { toast(msg); }
+          } else toast(msg);
+        }
+      });
+    });
+  }, 30000);
 }
 
 function confirmExit() {
@@ -4926,6 +5237,7 @@ function goBack() {
 document.getElementById('backBtn').onclick = goBack;
 
 fab.onclick = function () {
+  if (nav.plan) { openApptForm(null); return; }
   var f = findF(nav.f), l = findL(f, nav.l);
   if (isRemote(f)) { f = null; l = null; }
   if (!FL_ADMIN) return;
@@ -5894,12 +6206,13 @@ if (CapApp && CapApp.addListener) {
 
 if (FL_ADMIN) {
   document.body.classList.add('fl-admin');
-  var lgs = document.querySelector('.logo span'); if (lgs) lgs.textContent = 'Freelang Admin';
-  document.title = 'Freelang Admin';
+  var lgs = document.querySelector('.logo span'); if (lgs) lgs.textContent = 'Freelang Pro';
+  document.title = 'Freelang Pro';
 }
 applyTheme();
 applyI18n();
 render();
+setTimeout(function () { apRescheduleAll(); }, 5000);
 if (!FL_ADMIN) {
   setTimeout(function () { syncLibrary(false); }, 1200);
   setInterval(function () { if (!document.hidden) syncLibrary(false); }, 5 * 60 * 1000);

@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 set -e
-# Freelang APKs: ./build-freelang-apk.sh user|admin
+# Freelang APKs: ./build-freelang-apk.sh user|pro
 VARIANT="${1:-user}"
-case "$VARIANT" in user|admin) ;; *) echo "usage: $0 user|admin"; exit 1;; esac
-if [ "$VARIANT" = admin ]; then APP_LABEL="Freelang Admin"; ICON_PREFIX="icon-admin"; else APP_LABEL="Freelang"; ICON_PREFIX="icon"; fi
+case "$VARIANT" in user|admin|pro) ;; *) echo "usage: $0 user|pro"; exit 1;; esac
+if [ "$VARIANT" = pro ]; then VARIANT=admin; fi
+if [ "$VARIANT" = admin ]; then APP_LABEL="Freelang Pro"; ICON_PREFIX="icon-admin"; else APP_LABEL="Freelang"; ICON_PREFIX="icon"; fi
 
 export ANDROID_HOME=${ANDROID_HOME:-/home/ubuntu/android-sdk}
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator"
@@ -118,7 +119,23 @@ if [ -f "$ICON_SRC" ] && command -v convert >/dev/null 2>&1; then
   convert "$ICON_SRC" -resize 192x192 "$MIPMAP/mipmap-xxxhdpi/ic_launcher_round.png"
 fi
 
+# Exact-alarm + vibrate permissions for appointment reminders
+MANIFEST="android/app/src/main/AndroidManifest.xml"
+if [ -f "$MANIFEST" ]; then
+  grep -q 'SCHEDULE_EXACT_ALARM' "$MANIFEST" || \
+    sed -i 's|<uses-permission|<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />\n    <uses-permission|' "$MANIFEST"
+  grep -q 'android.permission.VIBRATE' "$MANIFEST" || \
+    sed -i 's|<uses-permission|<uses-permission android:name="android.permission.VIBRATE" />\n    <uses-permission|' "$MANIFEST"
+fi
+
+# Loud notification sound for appointment reminders
+RAW_DIR="android/app/src/main/res/raw"
+mkdir -p "$RAW_DIR"
+cp freelang/freelang-alert.mp3 "$RAW_DIR/freelang_alert.mp3"
+
 cd android
 ./gradlew $GRADLE_INIT assembleDebug
-cp app/build/outputs/apk/debug/app-debug.apk "$ROOT/freelang-${VARIANT}.apk"
-echo "Freelang ($VARIANT) APK ready at: $ROOT/freelang-${VARIANT}.apk"
+OUT_NAME="freelang-${VARIANT}.apk"
+if [ "$VARIANT" = admin ]; then OUT_NAME="freelang-pro.apk"; fi
+cp app/build/outputs/apk/debug/app-debug.apk "$ROOT/$OUT_NAME"
+echo "Freelang ($VARIANT) APK ready at: $ROOT/$OUT_NAME"

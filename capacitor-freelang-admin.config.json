@@ -1,6 +1,6 @@
 {
   "appId": "com.freelang.admin",
-  "appName": "Freelang Admin",
+  "appName": "Freelang Pro",
   "webDir": "www",
   "server": {
     "androidScheme": "https"
