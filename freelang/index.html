@@ -1266,7 +1266,7 @@ function findL(f, id) {
 
 /* ================= rendering ================= */
 function iconHtml(item, fallback) {
-  if (item.img) return '<img src="' + item.img + '" alt="">';
+  if (item.img) return '<img src="' + esc(item.img) + '" alt="">';
   if (item.icon) return esc(item.icon);
   return esc((item.name || item.title || '?')[0] || '?');
 }
@@ -1802,6 +1802,7 @@ function lessonToText(l) {
 // 📝 lesson-text browser: shows the whole lesson as editable text —
 // the user can change lines, add phrases or delete anything, then save
 function lessonTextSheet(f, l) {
+  if (l.remote && !FL_ADMIN) { toast(FT().roMsg); return; }
   var t = T();
   var sh = sheetHead('📝 ' + (l.title || ''));
   var rTxt = fieldRow(t.pasteTitle || 'Lesson text', lessonToText(l), { textarea: true, rows: 16 });
@@ -4096,7 +4097,8 @@ var FL_I18N = {
     tok: 'رمز GitHub', tokOk: 'متصل بـ GitHub ✓', tokBad: 'الرمز غير صالح أو بدون صلاحية كتابة',
     tokAsk: 'الصق رمز GitHub (Personal Access Token) بصلاحية Contents: Read and write على المستودع — يُحفظ على هذا الجهاز فقط',
     tokOut: 'تسجيل الخروج من GitHub', ver: 'آخر نشر', never: 'لم يُنشر بعد', wholeFolder: 'تطبيق على كل دروس المجلد',
-    statPub: 'منشور', statAuto: 'تلقائي', statLock: 'مقفل', statRev: 'مسحوب', admin: 'Admin'
+    statPub: 'منشور', statAuto: 'تلقائي', statLock: 'مقفل', statRev: 'مسحوب', admin: 'Admin',
+    roMsg: 'الدرس للقراءة فقط — التعديلات من تطبيق الأدمن'
   },
   fr: {
     lib: 'Bibliothèque', libSub: 'Leçons Freelang', panel: 'Publication', panelSub: 'Contrôle des téléchargements',
@@ -4112,7 +4114,8 @@ var FL_I18N = {
     tok: 'Jeton GitHub', tokOk: 'Connecté à GitHub ✓', tokBad: 'Jeton invalide ou sans droit d’écriture',
     tokAsk: 'Collez un jeton GitHub (Personal Access Token) avec Contents: Read and write — stocké sur cet appareil uniquement',
     tokOut: 'Déconnecter GitHub', ver: 'Dernière publication', never: 'Jamais publié', wholeFolder: 'Appliquer à tout le dossier',
-    statPub: 'Publiées', statAuto: 'Auto', statLock: 'Verrouillées', statRev: 'Retirées', admin: 'Admin'
+    statPub: 'Publiées', statAuto: 'Auto', statLock: 'Verrouillées', statRev: 'Retirées', admin: 'Admin',
+    roMsg: 'Leçon en lecture seule — modifiable depuis l’app admin'
   },
   en: {
     lib: 'Lesson library', libSub: 'Lessons from Freelang', panel: 'Publish panel', panelSub: 'Control lesson downloads',
@@ -4128,7 +4131,8 @@ var FL_I18N = {
     tok: 'GitHub token', tokOk: 'Connected to GitHub ✓', tokBad: 'Invalid token or no write access',
     tokAsk: 'Paste a GitHub Personal Access Token with Contents: Read and write on the repo — stored on this device only',
     tokOut: 'Log out of GitHub', ver: 'Last publish', never: 'Never published', wholeFolder: 'Apply to every lesson in the folder',
-    statPub: 'Published', statAuto: 'Auto', statLock: 'Locked', statRev: 'Revoked', admin: 'Admin'
+    statPub: 'Published', statAuto: 'Auto', statLock: 'Locked', statRev: 'Revoked', admin: 'Admin',
+    roMsg: 'Read-only lesson — edit it from the admin app'
   }
 };
 function FT() { return FL_I18N[uiLang()] || FL_I18N.ar; }
@@ -4194,11 +4198,20 @@ function saveCatalog(cat) {
 function mediaGetP(key) { return new Promise(function (res) { mediaGet(key, function (b) { res(b || null); }); }); }
 function strHash(s) { var h = 5381; for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; return h.toString(36); }
 function cleanLesson(l) { var c = JSON.parse(JSON.stringify(l)); delete c.pub; delete c.remote; return c; }
+async function blobHash(blob) {
+  try {
+    if (!(window.crypto && crypto.subtle)) return '';
+    var d = await crypto.subtle.digest('SHA-256', await blob.arrayBuffer());
+    var v = new Uint8Array(d), h = '';
+    for (var i = 0; i < 8; i++) h += ('0' + v[i].toString(16)).slice(-2);
+    return h;
+  } catch (e) { return ''; }
+}
 async function lessonSig(l) {
   var m = [];
   for (var i = 0; i < MEDIA_KEYS.length; i++) {
     var b = await mediaGetP(MEDIA_KEYS[i] + l.id);
-    if (b) m.push(MEDIA_KEYS[i] + b.size);
+    if (b) m.push(MEDIA_KEYS[i] + b.size + ':' + (await blobHash(b)));
   }
   return strHash(JSON.stringify(cleanLesson(l)) + '|' + m.join(','));
 }
@@ -4305,7 +4318,8 @@ async function publishAll() {
             var key = MEDIA_KEYS[k] + l.id;
             var blob = await mediaGetP(key);
             if (!blob) continue;
-            var mpath = PATH_MEDIA + key + '-' + blob.size;
+            var mh = await blobHash(blob);
+            var mpath = PATH_MEDIA + key + '-' + blob.size + (mh ? '-' + mh : '');
             if (!have[mpath]) {
               setBusy('⏳ ' + c.publishing + ' ' + done + '/' + total + ' — 🎬 ' + (blob.size / 1048576).toFixed(1) + ' MB');
               await addBlob(mpath, await blobB64Chunked(blob));
@@ -4442,7 +4456,7 @@ async function downloadLesson(cf, e) {
     var b = await fetchPub(m.path, true);
     if (!b) throw new Error('media');
     if (m.type && b.type !== m.type) b = new Blob([b], { type: m.type });
-    await mediaPutP(m.key, b);
+    if (!(await mediaPutP(m.key, b))) throw new Error('media store');
   }
   var nl = cleanLesson(data);
   nl.id = e.id;
@@ -5178,7 +5192,7 @@ function lzSaveHero() {
 }
 function lzHeroInner() {
   var sz = { s1: 'S', s2: 'M', s3: 'L' }[lzHero.size] || 'M';
-  return (lzHero.img ? '<img src="' + lzHero.img + '" alt="">' : LZ_DEFAULT_IMG) +
+  return (lzHero.img ? '<img src="' + esc(lzHero.img) + '" alt="">' : LZ_DEFAULT_IMG) +
     '<div class="lz-hero-tools">' +
     '<button class="lz-hero-btn" id="lzImgAdd" title="📷">📷</button>' +
     '<button class="lz-hero-btn" id="lzImgSize" title="size">⤢ ' + sz + '</button>' +
