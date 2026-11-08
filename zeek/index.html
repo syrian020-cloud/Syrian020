@@ -174,6 +174,16 @@
     background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius);
     padding: 0.7rem; box-shadow: var(--shadow);
   }
+  .home-stats {
+    display: flex; flex-wrap: wrap; gap: 0.55rem; justify-content: flex-end;
+    margin-bottom: 0.6rem;
+  }
+  .stat-pill {
+    background: var(--bg-secondary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 0.45rem 0.95rem; font-size: 0.95rem; font-weight: 700;
+    box-shadow: var(--shadow); white-space: nowrap;
+  }
   #search {
     flex: 1; min-width: 220px;
     background: var(--bg-tertiary); color: var(--text-primary);
@@ -528,6 +538,7 @@
 </header>
 
 <main>
+  <div id="home-stats" class="home-stats"></div>
   <div class="toolbar">
     <input id="search" type="search" data-t="searchPlaceholder" placeholder="ابحث بالعربية أو الفرنسية أو الإنجليزية…">
     <select class="ctl" id="rate" data-t-title="rateTitle" title="Speech rate">
@@ -1751,6 +1762,7 @@
     library: { ar: 'المكتبة', en: 'Library', fr: 'Bibliothèque' },
     phrases: { ar: 'عبارة', en: 'phrases', fr: 'phrases' },
     lessonsCount: { ar: 'درس', en: 'lessons', fr: 'leçons' },
+    statFolders: { ar: 'مجلدات', en: 'folders', fr: 'dossiers' },
     sectionLabel: { ar: 'الموقف', en: 'Section', fr: 'Section' },
     speakOnce: { ar: 'نطق مرة واحدة', en: 'Speak once', fr: 'Parler une fois' },
     loopTitle: { ar: 'تكرار فيديو العبارة', en: 'Loop phrase video', fr: 'Boucler la vidéo de la phrase' },
@@ -4331,7 +4343,27 @@
     return parts.join('\n');
   }
 
+  function updateStats() {
+    const el = document.getElementById('home-stats');
+    if (!el) return;
+    let folders = 0, lessons = 0, phrases = 0;
+    LESSONS.forEach(it => {
+      if (it.type === 'folder') {
+        folders++;
+        (it.lessons || []).forEach(l => { lessons++; phrases += (l.phrases || []).length; });
+      } else {
+        lessons++;
+        phrases += (it.phrases || []).length;
+      }
+    });
+    el.innerHTML =
+      `<span class="stat-pill">${folders} ${t('statFolders')} 📁</span>` +
+      `<span class="stat-pill">${lessons} ${t('lessonsCount')} 📚</span>` +
+      `<span class="stat-pill">${phrases} ${t('phrases')} 💬</span>`;
+  }
+
   function renderHome() {
+    updateStats();
     const empty = !LESSONS.length ? `<div class="no-lessons"><div class="icon">📝</div><div class="card-title">${t('noItemsYetTitle')}</div><div class="sub">${t('noItemsYetSub')}</div></div>` : '';
     const actionBar = `<div class="action-bar">
       <button class="action-item" data-route='${JSON.stringify({ name: 'add-folder' })}'>
@@ -4415,6 +4447,7 @@
         ${folder.protected ? '' : `<button class="btn ghost menu-btn" data-menu="${folder.id}" data-type="folder" title="${t('actions')}">⋮ ${t('actions')}</button>`}
       </div>` + addCard + empty + lessonsHtml;
     view.innerHTML = html;
+    updateStats();
   }
 
   function renderLesson(lessonId) {
