@@ -4373,7 +4373,7 @@ function startQuiz(lesson, qlang, alang) {
     return m[qlang] && m[alang];
   });
   if (!pool.length) { toast(t.quizNoPhrases); return; }
-  var picks = quizShuffle(pool).slice(0, 8).map(function (p, i) {
+  var picks = quizShuffle(pool).map(function (p, i) {
     return { p: p, id: i, q: qlang, a: alang };
   });
   var body = document.getElementById('quiz-body');
@@ -4562,7 +4562,7 @@ function lzStart() {
   if (!body) return;
   if (!pool.length) { toast(t.quizNoPhrases); return; }
   lz.pool = quizShuffle(pool);
-  lz.qs = lz.pool.slice(0, 8);
+  lz.qs = lz.pool;
   lz.idx = 0; lz.correct = 0; lz.wrong = 0;
   lzQuestion();
 }
