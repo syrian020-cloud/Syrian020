@@ -4825,8 +4825,8 @@ function fpCheck(dateISO, hm, dur, trav) {
     var ty = fpDayType(di), inf = { date: di, type: ty };
     if (ty == null) { unknown = true; return inf; }
     if (ty === 'repos') return inf;
-    var sh = fpRange(ty), base = new Date(di + 'T00:00').getTime();
-    var r0 = base + sh[0] * 60000, r1 = base + sh[1] * 60000;
+    var sh = fpRange(ty);
+    var r0 = new Date(di + 'T00:00').setHours(0, sh[0]), r1 = new Date(di + 'T00:00').setHours(0, sh[1]);
     if (r0 < end && r1 > start) core = true;
     else if (r0 < we && r1 > ws) margin = true;
     return inf;
