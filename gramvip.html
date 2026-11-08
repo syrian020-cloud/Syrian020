@@ -2696,7 +2696,7 @@
       return;
     }
     qzShuffle(pool);
-    qz.pairs = pool.slice(0, 8);
+    qz.pairs = pool;
     qz.sel = null; qz.solved = 0; qz.wrong = 0;
     var left = qzShuffle(qz.pairs.map(function (p, i) { return { p: p, i: i }; }));
     var right = qzShuffle(qz.pairs.map(function (p, i) { return { p: p, i: i }; }));
@@ -2823,7 +2823,7 @@
       return;
     }
     lz.pool = qzShuffle(pool.slice());
-    lz.qs = lz.pool.slice(0, 8);
+    lz.qs = lz.pool;
     lz.idx = 0; lz.correct = 0; lz.wrong = 0;
     lzLoadHero().then(lzQuestion);
   }
