@@ -4819,14 +4819,14 @@ function fpCheck(dateISO, hm, dur, trav) {
   if (isNaN(start)) return null;
   var end = start + dur * 60000, ws = start - trav * 60000, we = end + trav * 60000;
   var days = [], d0 = new Date(ws); d0.setHours(0, 0, 0, 0);
-  for (var d = new Date(d0); d.getTime() <= we; d.setDate(d.getDate() + 1)) days.push(fpIso(d));
+  for (var d = new Date(d0); d.getTime() < we; d.setDate(d.getDate() + 1)) days.push(fpIso(d));
   var unknown = false, core = false, margin = false;
   var infos = days.map(function (di) {
     var ty = fpDayType(di), inf = { date: di, type: ty };
     if (ty == null) { unknown = true; return inf; }
     if (ty === 'repos') return inf;
-    var sh = fpRange(ty), base = new Date(di + 'T00:00').getTime();
-    var r0 = base + sh[0] * 60000, r1 = base + sh[1] * 60000;
+    var sh = fpRange(ty);
+    var r0 = new Date(di + 'T00:00').setHours(0, sh[0]), r1 = new Date(di + 'T00:00').setHours(0, sh[1]);
     if (r0 < end && r1 > start) core = true;
     else if (r0 < we && r1 > ws) margin = true;
     return inf;
