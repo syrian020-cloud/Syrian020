@@ -4631,7 +4631,7 @@
   function startQuiz(lesson, qlang, alang) {
     const pool = lesson.phrases.filter(p => stripSpeechFlags(p[qlang] || '') && stripSpeechFlags(p[alang] || ''));
     if (!pool.length) { showToast(t('quizNoPhrases')); return; }
-    const picks = quizShuffle(pool).slice(0, 8).map((p, i) => ({ p, id: i, q: qlang, a: alang }));
+    const picks = quizShuffle(pool).map((p, i) => ({ p, id: i, q: qlang, a: alang }));
     const body = document.getElementById('quiz-body');
     if (!body) return;
     body.innerHTML = `<div class="quiz-flags"><div class="quiz-flag">${LANG_FLAG[qlang] || '🌐'}</div><div class="quiz-flag">${LANG_FLAG[alang] || '🌐'}</div></div><div class="quiz-cols" id="quiz-cols"></div>`;
@@ -4830,7 +4830,7 @@
     if (!body) return;
     if (!pool.length) { showToast(t('quizNoPhrases')); return; }
     lz.pool = quizShuffle(pool);
-    lz.qs = lz.pool.slice(0, 8);
+    lz.qs = lz.pool;
     lz.idx = 0; lz.correct = 0; lz.wrong = 0;
     lzLoadHero();
     lzQuestion();
