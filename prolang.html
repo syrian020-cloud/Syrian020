@@ -599,6 +599,8 @@ var I18N = {
     errPh: 'أدخل العبارة على الأقل', errPaste: 'لم يتم العثور على عبارات في النص',
     media: '🎬 وسائط مؤقّتة', mediaTitle: 'إرفاق فيديو / صوت + ترجمة مؤقّتة',
     pickMedia: 'اختر ملف فيديو أو صوت', mediaNow: 'الملف الحالي',
+    pickImage: '🖼 اختر صورة للدرس', defVoice: 'الصوت الافتراضي',
+    voiceHint: 'اختر صوتاً للعبارة 1 وآخر للعبارة 2 — تتكرر على بقية العبارات كمحادثة',
     timedL: 'النص المؤقّت — كل سطر: 00:01 العبارة أو 00:01 --> 00:04 العبارة',
     mediaDel: 'حذف الملف المرفق', errTimed: 'لم يتم العثور على أسطر مؤقّتة',
     recClip: 'تسجيل مقطع', recNo: 'التسجيل غير مدعوم هنا',
@@ -649,6 +651,8 @@ var I18N = {
     errPh: 'Phrase requise', errPaste: 'Aucune phrase trouvée dans le texte',
     media: '🎬 Média synchronisé', mediaTitle: 'Joindre vidéo / audio + sous-titres',
     pickMedia: 'Choisir un fichier vidéo ou audio', mediaNow: 'Fichier actuel',
+    pickImage: '🖼 Choisir une image', defVoice: 'Voix par défaut',
+    voiceHint: 'Choisissez une voix pour la phrase 1 et une autre pour la 2 — elles alternent comme un dialogue',
     timedL: 'Texte synchronisé — chaque ligne : 00:01 phrase ou 00:01 --> 00:04 phrase',
     mediaDel: 'Supprimer le fichier joint', errTimed: 'Aucune ligne synchronisée trouvée',
     recClip: 'Enregistrer un clip', recNo: 'Enregistrement non pris en charge',
@@ -699,6 +703,8 @@ var I18N = {
     errPh: 'Phrase required', errPaste: 'No phrases found in the text',
     media: '🎬 Timed media', mediaTitle: 'Attach video / audio + timed captions',
     pickMedia: 'Pick a video or audio file', mediaNow: 'Current file',
+    pickImage: '🖼 Pick a lesson image', defVoice: 'Default voice',
+    voiceHint: 'Pick a voice on phrase 1 and another on phrase 2 — they alternate like a dialogue',
     timedL: 'Timed text — each line: 00:01 phrase or 00:01 --> 00:04 phrase',
     mediaDel: 'Remove attached file', errTimed: 'No timed lines found',
     recClip: 'Record clip', recNo: 'Recording not supported here',
@@ -1023,7 +1029,20 @@ if (window.EdgeTTS) {
     return _edgePlay.apply(EdgeTTS, arguments);
   };
 }
-function speak(text, lang, flagEl) {
+// per-phrase voice for dialogues: explicit p.voice wins, otherwise the
+// voice set on the first phrase of the same parity (odd/even) is reused —
+// setting voices on phrase 1 & 2 casts the whole conversation.
+function phraseVoice(l, p, lang) {
+  var v = p.voice;
+  if (!v && l) {
+    var ph = l.phrases || [];
+    var i = ph.indexOf(p);
+    if (i > 1 && ph[i % 2] && ph[i % 2].voice) v = ph[i % 2].voice;
+  }
+  // a custom voice only applies to lines spoken in its own language
+  return (v && v.split('-')[0] === lang) ? v : null;
+}
+function speak(text, lang, flagEl, voice) {
   if (!window.EdgeTTS) return;
   stopReadAll();
   speakTok++;
@@ -1036,7 +1055,7 @@ function speak(text, lang, flagEl) {
   var tok = speakTok;
   (function play() {
     if (tok !== speakTok) return;
-    EdgeTTS.play(text, lang || 'fr').then(function () {
+    EdgeTTS.play(text, lang || 'fr', voice).then(function () {
       if (tok === speakTok) play();       // loop until stopped
     }, function () {
       toast('TTS ✗');
@@ -1122,7 +1141,8 @@ function readAll(lesson) {
   var items = [];
   (lesson.phrases || []).forEach(function (p) {
     if (p.type === 'note') return;
-    items.push({ t: p.text, lang: p.lang || langOfFlag(p.flag), el: 'phflag-' + p.id });
+    var pLang = p.lang || langOfFlag(p.flag);
+    items.push({ t: p.text, lang: pLang, el: 'phflag-' + p.id, voice: phraseVoice(lesson, p, pLang) });
     (p.rows || []).forEach(function (r, i) {
       items.push({ t: r.text, lang: r.lang || langOfFlag(r.flag), el: 'phflag-' + p.id + '-' + i });
     });
@@ -1155,7 +1175,7 @@ function readAll(lesson) {
     var flagEl = document.getElementById(it.el);
     document.querySelectorAll('.ph-flag.speaking').forEach(function (x) { x.classList.remove('speaking'); });
     if (flagEl) flagEl.classList.add('speaking');
-    EdgeTTS.play((it.t || '').slice(0, 400), it.lang)
+    EdgeTTS.play((it.t || '').slice(0, 400), it.lang, it.voice)
       .catch(function () {})
       .then(function () {
         if (flagEl) flagEl.classList.remove('speaking');
@@ -1322,7 +1342,8 @@ function phraseCard(p, f, l) {
   fb.id = 'phflag-' + p.id;
   fb.onclick = function (e) {
     e.stopPropagation();
-    speak(p.text, p.lang || langOfFlag(p.flag), fb);
+    speak(p.text, p.lang || langOfFlag(p.flag), fb,
+      phraseVoice(l, p, p.lang || langOfFlag(p.flag)));
   };
   c.appendChild(fb);
   var body = el('div', 'ph-body');
@@ -1507,6 +1528,18 @@ function renderLesson(v, f, l) {
   });
   v.appendChild(bar2);
   if (l.media || (l.cues || []).length) renderMedia(v, f, l);
+  if (l.imgSize) {
+    var li = el('div');
+    li.style.cssText = 'margin:.4rem 0 .8rem;text-align:center';
+    mediaGet('pli_' + l.id, function (b) {
+      if (!b) return;
+      var im = document.createElement('img');
+      im.src = URL.createObjectURL(b);
+      im.style.cssText = 'width:' + l.imgSize + '%;border-radius:14px';
+      li.appendChild(im);
+    });
+    v.appendChild(li);
+  }
   (l.phrases || []).forEach(function (p) { v.appendChild(phraseCard(p, f, l)); });
   if (!(l.phrases || []).length && !(l.cues || []).length) {
     var e = el('div', 'empty');
@@ -1858,7 +1891,7 @@ function lessonMenu(f, l) {
   row('🗑', t.del, function () {
     closeOv();
     confirmDialog(t.delLessonQ, t.delYes, function () {
-      mediaDel(mediaKey(l));
+      mediaDel(mediaKey(l)); mediaDel('plc_' + l.id); mediaDel('pli_' + l.id);
       f.lessons = (f.lessons || []).filter(function (x) { return x.id !== l.id; });
       saveData(); render();
     });
@@ -1934,6 +1967,32 @@ function phraseEditor(f, l, p) {
   var rMean = fieldRow(t.fMeaning, p.meaning);
   var rEn = fieldRow(t.fEn, p.en, { ltr: true });
   [rText, rLatin, rArp, rMean, rEn].forEach(function (r) { sh.appendChild(r); });
+  // 🎤 custom voice for this phrase — pick voices on phrase 1 & 2 to cast a
+  // dialogue: odd phrases reuse voice 1, even phrases reuse voice 2
+  var voiceRow = el('div', 'flabel');
+  var vSel = el('select');
+  vSel.style.cssText = 'width:100%;padding:.5rem;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)'; 
+  function fillVoices() {
+    var lg = langOfFlag(flag);
+    vSel.innerHTML = '';
+    var d0 = document.createElement('option');
+    d0.value = ''; d0.textContent = '🎤 ' + (t.defVoice || 'Default voice');
+    vSel.appendChild(d0);
+    (window.EdgeTTS && EdgeTTS.voices ? EdgeTTS.voices(lg) : []).forEach(function (v) {
+      var o = document.createElement('option');
+      o.value = v; o.textContent = v;
+      if (p.voice === v) o.selected = true;
+      vSel.appendChild(o);
+    });
+  }
+  fillVoices();
+  fp.addEventListener('click', function () { setTimeout(fillVoices, 0); });
+  var vHint = el('div', 'flabel');
+  vHint.style.cssText = 'font-size:.8rem;opacity:.7;margin:-.3rem 0 .3rem';
+  vHint.textContent = t.voiceHint || '';
+  voiceRow.appendChild(vSel);
+  sh.appendChild(voiceRow);
+  if (vHint.textContent) sh.appendChild(vHint);
   var act = el('div', 'actions');
   if (isNew) {
     var tpl = el('button', 'btn ghost', '📋 ' + t.pasteTpl);
@@ -1950,6 +2009,8 @@ function phraseEditor(f, l, p) {
     p.arp = rArp.input.value.trim();
     p.meaning = rMean.input.value.trim();
     p.en = rEn.input.value.trim();
+    var vv = vSel.value;
+    if (vv) p.voice = vv; else delete p.voice;
     if (isNew) { l.phrases = l.phrases || []; l.phrases.push(p); }
     saveData(); render(); closeOv();
   };
@@ -3422,6 +3483,64 @@ function mediaSheet(f, l) {
   };
   sh.appendChild(tplBtn);
   sh.appendChild(tplBox);
+  // 🖼 lesson image — pick one, choose its size, ✕ removes it (with confirm)
+  var imgKey = 'pli_' + l.id;
+  var imgRow = el('div');
+  function renderImgRow() {
+    imgRow.innerHTML = '';
+    var ip = el('button', 'mrow');
+    ip.appendChild(el('span', 'mi', '🖼'));
+    ip.appendChild(el('span', null, t.pickImage || 'Pick an image'));
+    ip.onclick = function () {
+      var fi = document.createElement('input');
+      fi.type = 'file'; fi.accept = 'image/*';
+      fi.onchange = function () {
+        var file = fi.files[0];
+        if (!file) return;
+        mediaPut(imgKey, file, function () {
+          if (!l.imgSize) l.imgSize = '60';
+          saveData(); renderImgRow(); render();
+        });
+      };
+      fi.click();
+    };
+    imgRow.appendChild(ip);
+    mediaGet(imgKey, function (b) {
+      if (!b) return;
+      var holder = el('div');
+      holder.style.cssText = 'display:flex;align-items:center;gap:.5rem;margin:.3rem 0';
+      var th = document.createElement('img');
+      th.src = URL.createObjectURL(b);
+      th.style.cssText = 'width:' + (l.imgSize || '60') + '%;border-radius:10px;display:block';
+      holder.appendChild(th);
+      var dx = el('button', 'btn danger', '✕');
+      dx.style.flex = 'none';
+      dx.onclick = function () {
+        confirmDialog(t.del || 'Delete?', t.delYes || '✓', function () {
+          mediaDel(imgKey); delete l.imgSize; saveData(); renderImgRow(); render();
+        });
+      };
+      holder.appendChild(dx);
+      imgRow.appendChild(holder);
+      var sz = el('div');
+      sz.style.cssText = 'display:flex;gap:.4rem;margin:.2rem 0 .4rem';
+      [['30','S'],['60','M'],['100','L']].forEach(function (o) {
+        var b2 = el('button', 'btn' + ((l.imgSize || '60') === o[0] ? ' primary' : ''), o[1]);
+        b2.style.flex = '1';
+        b2.onclick = function () {
+          l.imgSize = o[0]; saveData();
+          th.style.width = o[0] + '%';
+          sz.querySelectorAll('button').forEach(function (x) { x.classList.remove('primary'); });
+          b2.classList.add('primary');
+          render();
+        };
+        sz.appendChild(b2);
+      });
+      imgRow.appendChild(sz);
+    });
+  }
+  renderImgRow();
+  sh.appendChild(imgRow);
   var rTxt = fieldRow(t.timedL, cuesToText(l.cues), { textarea: true, rows: 6, ltr: true });
   sh.appendChild(rTxt);
   var act = el('div', 'actions');
@@ -3692,7 +3811,7 @@ function exportSheet() {
     sel.forEach(function (s) {
       if (s.l.media && ((s.l.media.kind === 'audio' && cbA.checked) ||
           (s.l.media.kind !== 'audio' && cbV.checked))) wanted.push('plm_' + s.l.id);
-      if (cbI.checked) wanted.push('plc_' + s.l.id);
+      if (cbI.checked) { wanted.push('plc_' + s.l.id); if (s.l.imgSize) wanted.push('pli_' + s.l.id); }
     });
     toast('⏳…');
     var FSS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
@@ -3785,7 +3904,7 @@ function importData() {
           folders.push(nf); added++;
         });
         (j.media || []).forEach(function (m) {
-          var mm = (m.key || '').match(/^(plm_|plc_)(.+)$/);
+          var mm = (m.key || '').match(/^(plm_|plc_|pli_)(.+)$/);
           if (!mm || !idMap[mm[2]] || !m.data) return;
           var b = dataURLtoBlob(m.data);
           if (b) { mediaPut(mm[1] + idMap[mm[2]], b); restored++; }

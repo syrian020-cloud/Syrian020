@@ -283,10 +283,10 @@
     return 'file://' + path;
   }
 
-  function fetchAudio(text, lang) {
+  function fetchAudio(text, lang, voice) {
     var p = plugin();
     if (p && !pluginDown) {
-      var v = voiceOf(lang);
+      var v = voice || voiceOf(lang);
       // Retry with the default voice — an unknown voice name fails the request
       // and shouldn't mark Edge TTS as down for the whole session.
       var native = p.speak({ text: text, voice: v, rate: rateOf(lang) })
@@ -314,13 +314,13 @@
     if (i >= 0) { cacheOrder.splice(i, 1); cacheOrder.push(key); }
   }
 
-  function audio(text, lang) {
+  function audio(text, lang, voice) {
     lang = lang || 'fr';
-    var key = lang + '|' + voiceOf(lang) + '|' + rateOf(lang) + '|' + text;
+    var key = lang + '|' + (voice || voiceOf(lang)) + '|' + rateOf(lang) + '|' + text;
     var hit = cache[key];
     if (hit) { touch(key); return Promise.resolve(hit); }
     if (pending[key]) return pending[key];
-    var p = fetchAudio(text, lang).then(function (entry) {
+    var p = fetchAudio(text, lang, voice).then(function (entry) {
       cache[key] = entry;
       cacheOrder.push(key);
       while (cacheOrder.length > CACHE_MAX) {
@@ -384,10 +384,10 @@
     });
   }
 
-  function play(text, lang) {
+  function play(text, lang, voice) {
     // offline → straight to the device voice, no network timeouts
     if (navigator.onLine === false && ttsPlugin()) return nativeSpeak(text, lang);
-    return audio(text, lang).then(function (a) {
+    return audio(text, lang, voice).then(function (a) {
       return playEntry(a);
     }).catch(function (e) {
       // every online engine failed → fall back to the device voice
@@ -597,6 +597,10 @@
   api.supported = supported;
   api.audio = audio;
   api.play = play;
+  // voices offered for a language (Edge names) — used by per-phrase pickers
+  api.voices = function (lang) {
+    return (VOICE_OPTIONS[lang] || VOICE_EXTRA[lang] || [DEFAULT_VOICES[lang]]).slice();
+  };
   api.playUrl = playUrl;
   api.stop = stop;
   window.EdgeTTS = api;
