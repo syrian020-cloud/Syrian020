@@ -523,6 +523,40 @@
   .fl-tile.gold { background: linear-gradient(135deg, #b45309, #d97706 45%, #7c3aed); }
   .fl-badge { position: absolute; top: .45rem; inset-inline-end: .45rem; background: #fff; color: #7c3aed;
     font-size: .62rem; font-weight: 800; border-radius: 999px; padding: .1rem .45rem; min-width: 1.2rem; }
+  .fl-sub { font-size: .72rem; opacity: .75; margin: -.3rem 0 .6rem; }
+  .fl-wkline { font-weight: 800; margin-bottom: .5rem; }
+  .fl-sbadge { display: inline-block; border-radius: 999px; padding: .12rem .55rem; font-size: .7rem; font-weight: 800; color: #fff; }
+  .fl-sbadge.m { background: #2563eb; } .fl-sbadge.s { background: #ea580c; } .fl-sbadge.r { background: #6b7280; } .fl-sbadge.u { background: #9ca3af; }
+  .fl-shiftrow { display: flex; gap: .5rem; margin-bottom: .6rem; }
+  .fl-shiftbtn { flex: 1; border: 2px solid var(--line); background: var(--card2); color: var(--txt); border-radius: 14px;
+    padding: .6rem .3rem; font-family: inherit; font-weight: 800; font-size: .82rem; cursor: pointer; }
+  .fl-shiftbtn.on-m { border-color: #2563eb; background: #2563eb22; }
+  .fl-shiftbtn.on-s { border-color: #ea580c; background: #ea580c22; }
+  .fl-shiftbtn.on-r { border-color: #6b7280; background: #6b728022; }
+  .fl-shiftbtn small { font-weight: 600; opacity: .8; }
+  .fl-tmrow { display: flex; align-items: center; gap: .5rem; margin: .45rem 0; }
+  .fl-tin { width: 6.5rem; padding: .4rem .5rem; border: 1px solid var(--line); border-radius: 10px;
+    background: var(--card2); color: var(--txt); font-family: inherit; font-size: .9rem; }
+  .fl-tdash { opacity: .5; }
+  .fl-tmreset { margin-inline-start: auto; font-size: .75rem; color: var(--accent); text-decoration: none; }
+  .fl-hint { font-size: .7rem; opacity: .65; margin-top: .45rem; }
+  .fl-dayrow { display: flex; gap: .4rem; flex-wrap: wrap; }
+  .fl-dchip { border: 1px solid var(--line); background: var(--card2); color: var(--txt); border-radius: 999px;
+    padding: .35rem .7rem; font-size: .78rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+  .fl-dchip.work { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .fl-dchip.off { opacity: .55; }
+  .fl-frow { display: flex; gap: .6rem; }
+  .fl-frow > div { flex: 1; }
+  .fl-flab { font-size: .72rem; font-weight: 700; opacity: .8; margin: .5rem 0 .2rem; }
+  .fl-fin { width: 100%; box-sizing: border-box; padding: .55rem .7rem; border: 1px solid var(--line); border-radius: 12px;
+    background: var(--card2); color: var(--txt); font-family: inherit; font-size: .9rem; }
+  .fl-btnrow { margin-top: .6rem; }
+  .fl-btnrow .btn { width: 100%; }
+  .fl-verd { margin-top: .7rem; border-radius: 14px; padding: .7rem .8rem; font-weight: 800; font-size: .9rem; }
+  .fl-verd.ok { background: #16a34a22; color: #16a34a; }
+  .fl-verd.warn { background: #d9770622; color: #d97706; }
+  .fl-verd.bad { background: #dc262622; color: #dc2626; }
+  .fl-vlines { font-weight: 600; font-size: .8rem; margin-top: .35rem; line-height: 1.7; }
   .fl-panel { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: .9rem .9rem .5rem; margin-bottom: .8rem; }
   .fl-panel h4 { margin: 0 0 .5rem; font-size: .95rem; }
   .fl-chips { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: .4rem; }
@@ -1255,7 +1289,7 @@ function readAll(lesson) {
 }
 
 /* ================= nav state ================= */
-var nav = { f: null, l: null, lib: false, admin: false };
+var nav = { f: null, l: null, lib: false, admin: false, plan: false };
 var fab = document.getElementById('fab');   // current folder id / lesson id
 var q = '';
 document.getElementById('search').addEventListener('input', function () {
@@ -1294,11 +1328,11 @@ function render() {
   var l = findL(f, nav.l);
 
   if (q) { renderSearch(v); back.classList.add('hidden'); crumb.classList.add('hidden'); return; }
-  fab.classList.toggle('hidden', !!(nav.lib || nav.admin || isRemote(f)));
-  if (nav.lib || nav.admin) {
+  fab.classList.toggle('hidden', !FL_ADMIN || !!(nav.lib || nav.admin || isRemote(f)));
+  if (nav.lib || nav.admin || nav.plan) {
     back.classList.remove('hidden'); crumb.classList.remove('hidden');
-    crumb.textContent = nav.lib ? '📥 ' + FT().lib : '🛠 ' + FT().panel;
-    if (nav.lib) renderLibrary(v); else renderAdminPanel(v);
+    crumb.textContent = nav.lib ? '📥 ' + FT().lib : nav.admin ? '🛠 ' + FT().panel : '🗓️ ' + fpT().planTitle;
+    if (nav.lib) renderLibrary(v); else if (nav.admin) renderAdminPanel(v); else renderPlanView(v);
     return;
   }
 
@@ -1605,7 +1639,7 @@ function renderLesson(v, f, l) {
   mb.style.flex = 'none';
   mb.title = t.media;
   mb.onclick = function () { mediaSheet(f, l); };
-  if (!isRemote(l)) bar2.appendChild(mb);
+  if (FL_ADMIN) bar2.appendChild(mb);
   var lzb = el('button', 'btn', '🎧');
   lzb.style.flex = 'none';
   lzb.title = t.listenQuiz;
@@ -1650,7 +1684,7 @@ function renderLesson(v, f, l) {
     var mb2 = el('button', 'btn primary', '🎬 ' + t.mediaTitle);
     mb2.style.cssText = 'display:block;margin:1.2rem auto 0;padding:.8rem 1.4rem;font-size:1.05rem';
     mb2.onclick = function () { mediaSheet(f, l); };
-    if (!isRemote(l)) e.appendChild(mb2);
+    if (FL_ADMIN) e.appendChild(mb2);
     v.appendChild(e);
   }
 }
@@ -1804,7 +1838,7 @@ function lessonToText(l) {
 // 📝 lesson-text browser: shows the whole lesson as editable text —
 // the user can change lines, add phrases or delete anything, then save
 function lessonTextSheet(f, l) {
-  if (l.remote && !FL_ADMIN) { toast(FT().roMsg); return; }
+  if (!FL_ADMIN) { toast(FT().roMsg); return; }
   var t = T();
   var sh = sheetHead('📝 ' + (l.title || ''));
   var rTxt = fieldRow(t.pasteTitle || 'Lesson text', lessonToText(l), { textarea: true, rows: 16 });
@@ -1960,6 +1994,16 @@ function folderMenu(f) {
     return;
   }
   if (FL_ADMIN) row('☁️', FT().pubMode, function () { closeOv(); publishSheet(f, null); });
+  if (!FL_ADMIN) {
+    row('🗑', t.del, function () {
+      closeOv();
+      confirmDialog(t.delFolderQ, t.delYes, function () {
+        folders = folders.filter(function (x) { return x.id !== f.id; });
+        saveData(); render();
+      });
+    });
+    return;
+  }
   row('✏️', t.editFolder, function () { closeOv(); folderEditor(f); });
   row('📥', t.pasteTpl, function () { closeOv(); pasteSheet(f); });
   row('🗑', t.del, function () {
@@ -2017,6 +2061,17 @@ function lessonMenu(f, l) {
     return;
   }
   if (FL_ADMIN) row('☁️', FT().pubMode, function () { closeOv(); publishSheet(f, l); });
+  if (!FL_ADMIN) {
+    row('🗑', t.del, function () {
+      closeOv();
+      confirmDialog(t.delLessonQ, t.delYes, function () {
+        mediaDel(mediaKey(l)); mediaDel('plc_' + l.id); mediaDel('pli_' + l.id);
+        f.lessons = (f.lessons || []).filter(function (x) { return x.id !== l.id; });
+        saveData(); render();
+      });
+    });
+    return;
+  }
   row('✏️', t.editLesson, function () { closeOv(); lessonEditor(f, l); });
   row('➕', t.addPhrase, function () { closeOv(); phraseEditor(f, l, null); });
   row('🎬', t.media, function () { closeOv(); mediaSheet(f, l); });
@@ -2066,9 +2121,9 @@ function phraseMenu(f, l, p) {
     closeOv();
     recordPhrase(el('span'), p);   // detached button — state shows via toast
   });
-  if (!isRemote(l)) row('✏️', t.editPhrase, function () { closeOv(); phraseEditor(f, l, p); });
+  if (FL_ADMIN) row('✏️', t.editPhrase, function () { closeOv(); phraseEditor(f, l, p); });
   row('📋', t.copy, function () { closeOv(); copyText(p.text || ''); });
-  if (!isRemote(l)) row('🗑', t.del, function () {
+  if (FL_ADMIN) row('🗑', t.del, function () {
     closeOv();
     confirmDialog(t.delPhraseQ, t.delYes, function () {
       l.phrases = (l.phrases || []).filter(function (x) { return x.id !== p.id; });
@@ -3769,18 +3824,20 @@ function openMenu() {
   fz.appendChild(fzc);
   fz.onclick = function (e) { e.stopPropagation(); };
   sh.appendChild(fz);
-  row('📥', t.pasteTpl, function () {
-    closeOv();
-    var f = findF(nav.f);
-    if (isRemote(f)) f = null;
-    if (!f) {
-      f = { id: uid(), name: '📂 ' + t.folders, icon: '📂', img: '', lessons: [] };
-      folders.push(f); saveData();
-    }
-    pasteSheet(f, findL(f, nav.l));
-  });
+  if (FL_ADMIN) {
+    row('📥', t.pasteTpl, function () {
+      closeOv();
+      var f = findF(nav.f);
+      if (isRemote(f)) f = null;
+      if (!f) {
+        f = { id: uid(), name: '📂 ' + t.folders, icon: '📂', img: '', lessons: [] };
+        folders.push(f); saveData();
+      }
+      pasteSheet(f, findL(f, nav.l));
+    });
+  }
   row('⬇', t.exportData, function () { exportSheet(); });
-  row('⬆', t.importData, function () { closeOv(); importData(); });
+  if (FL_ADMIN) row('⬆', t.importData, function () { closeOv(); importData(); });
 }
 
 /* ================= export / import (zeelang style) ================= */
@@ -4649,7 +4706,207 @@ function hubTiles(v) {
     rb.onclick = function () { syncLibrary(true); };
     hub.appendChild(rb);
   }
+  var pt = el('button', 'fl-tile');
+  pt.innerHTML = '<span class="big">🗓️</span><span class="ttl">' + esc(fpT().tile) + '</span><span class="sub">' + esc(fpT().tileSub) + '</span>';
+  pt.onclick = function () { nav.plan = true; nav.f = null; nav.l = null; render(); };
+  hub.appendChild(pt);
   v.appendChild(hub);
+}
+
+/* ================= work schedule + appointment check (from Tempo) ================= */
+var FP_I18N = {
+  ar: { tile: 'جدول عملي', tileSub: 'التناوب + تحقق من المواعيد',
+    planTitle: 'جدول العمل', planSub: 'حدّد دوام هالأسبوع — الأسابيع الجاية بتنحسب بالتناوب تلقائياً',
+    wkThis: 'دوام هالأسبوع:', shMatin: 'صباحي', shSoir: 'مسائي', shRepos: 'راحة',
+    shTimesHint: 'عدّل أوقات الصباحي والمسائي حسب عقدك — كل الحسابات بتتبعها',
+    shBadTime: 'وقت غير صالح — البداية لازم تكون قبل النهاية', shReset: 'رجوع للافتراضي',
+    workDays: 'أيام الدوام', workDaysHint: 'كبس اليوم للتبديل بين دوام وراحة',
+    chkTitle: 'تحقق من موعد', cDate: 'التاريخ', cTime: 'الوقت', cDur: 'المدة', cOrg: 'الجهة',
+    cOrgPh: 'France Travail / مستشفى / طبيب…', cTravel: 'وقت الطريق لكل اتجاه',
+    chkGo: 'تحقق', chkNeed: 'أدخل تاريخ ووقت الموعد', trvNone: 'بدون',
+    vOk: 'متوافق مع دوامك', vWarn: 'للتحقق — يلامس حدود الدوام', vConflict: 'تعارض مع دوام العمل',
+    vRest: 'راحة', vNoPlan: 'الدوام غير محدد لهالأسبوع',
+    vAppt: function (s) { return 'الموعد ' + s; }, vTrav: function (s) { return 'مع الطريق ' + s; }, vAtShift: function (s) { return 'دوام ' + s; } },
+  fr: { tile: 'Mon planning', tileSub: 'Alternance + vérif. RDV',
+    planTitle: 'Mon planning', planSub: 'Réglez cette semaine — les suivantes alternent automatiquement',
+    wkThis: 'Cette semaine :', shMatin: 'MATIN', shSoir: 'SOIR', shRepos: 'REPOS',
+    shTimesHint: 'Ajustez vos horaires matin/soir selon votre contrat — tous les calculs les suivent',
+    shBadTime: 'Horaire invalide — le début doit précéder la fin', shReset: 'Rétablir les valeurs par défaut',
+    workDays: 'Jours travaillés', workDaysHint: 'Touchez un jour pour basculer travail/repos',
+    chkTitle: 'Vérifier un rendez-vous', cDate: 'Date', cTime: 'Heure', cDur: 'Durée', cOrg: 'Organisme',
+    cOrgPh: 'France Travail / Hôpital / Médecin…', cTravel: 'Trajet (par sens)',
+    chkGo: 'Vérifier', chkNeed: 'Date et heure requises', trvNone: 'Aucun',
+    vOk: 'RENDEZ-VOUS COMPATIBLE', vWarn: 'À VÉRIFIER — touche les horaires de travail', vConflict: 'CONFLIT AVEC LE TRAVAIL',
+    vRest: 'Repos', vNoPlan: 'Horaire non défini cette semaine',
+    vAppt: function (s) { return 'RDV ' + s; }, vTrav: function (s) { return 'avec trajet ' + s; }, vAtShift: function (s) { return 'Travail ' + s; } },
+  en: { tile: 'Work schedule', tileSub: 'Rotation + appointment check',
+    planTitle: 'Work schedule', planSub: 'Set this week — future weeks alternate automatically',
+    wkThis: 'This week:', shMatin: 'MORNING', shSoir: 'EVENING', shRepos: 'OFF',
+    shTimesHint: 'Adjust your morning/evening hours — every check follows them',
+    shBadTime: 'Invalid time — start must be before end', shReset: 'Reset to defaults',
+    workDays: 'Working days', workDaysHint: 'Tap a day to toggle work/rest',
+    chkTitle: 'Check an appointment', cDate: 'Date', cTime: 'Time', cDur: 'Duration', cOrg: 'Organisation',
+    cOrgPh: 'France Travail / Hospital / Doctor…', cTravel: 'Travel time (each way)',
+    chkGo: 'Check', chkNeed: 'Date and time required', trvNone: 'None',
+    vOk: 'APPOINTMENT COMPATIBLE', vWarn: 'CHECK — touches work hours', vConflict: 'CONFLICT WITH WORK',
+    vRest: 'Off', vNoPlan: 'No schedule set for that week',
+    vAppt: function (s) { return 'Appt ' + s; }, vTrav: function (s) { return 'with travel ' + s; }, vAtShift: function (s) { return 'Work ' + s; } }
+};
+function fpT() { return FP_I18N[uiLang()] || FP_I18N.ar; }
+var FP_KEY = 'freelang_plan';
+var FP_SHIFTS = { matin: [360, 840], soir: [840, 1320] };
+var FP_DAYS = [1, 2, 3, 4, 5, 6, 0];
+var plan = {};
+function fpLoad() {
+  try { plan = JSON.parse(localStorage.getItem(FP_KEY) || '{}'); } catch (e) { plan = {}; }
+  if (!plan || typeof plan !== 'object') plan = {};
+  if (!Array.isArray(plan.workDays)) plan.workDays = [1, 2, 3, 4, 5];
+  if (!plan.weekOv || typeof plan.weekOv !== 'object') plan.weekOv = {};
+  if (!plan.dayOv || typeof plan.dayOv !== 'object') plan.dayOv = {};
+  if (typeof plan.travel !== 'number') plan.travel = 30;
+  if (typeof plan.dur !== 'number') plan.dur = 60;
+  if (!plan.times || typeof plan.times !== 'object') plan.times = {};
+}
+function fpSave() { try { localStorage.setItem(FP_KEY, JSON.stringify(plan)); } catch (e) {} }
+fpLoad();
+function fpPad(n) { return String(n).padStart(2, '0'); }
+function fpIso(d) { return d.getFullYear() + '-' + fpPad(d.getMonth() + 1) + '-' + fpPad(d.getDate()); }
+function fpMonday(d) { var x = new Date(d.getFullYear(), d.getMonth(), d.getDate()); x.setDate(x.getDate() - ((x.getDay() + 6) % 7)); return x; }
+function fpMonISO(iso) { return fpIso(fpMonday(new Date(iso + 'T12:00'))); }
+function fpWeeks(a, b) { return Math.round((new Date(b + 'T12:00') - new Date(a + 'T12:00')) / 6048e5); }
+function fpMin(m) { return fpPad(Math.floor(m / 60)) + ':' + fpPad(m % 60); }
+function fpLoc() { var l = uiLang(); return l === 'ar' ? 'ar' : l === 'fr' ? 'fr-FR' : 'en-GB'; }
+function fpDay(iso) { return new Intl.DateTimeFormat(fpLoc(), { weekday: 'short', day: 'numeric', month: 'short' }).format(new Date(iso + 'T12:00')); }
+function fpDayName(g) { return new Intl.DateTimeFormat(fpLoc(), { weekday: 'short' }).format(new Date(2024, 0, 1 + ((g + 6) % 7))); }
+function fpWeekType(mon) {
+  if (plan.weekOv[mon]) return plan.weekOv[mon];
+  if (!plan.anchor) return null;
+  var p = ((fpWeeks(plan.anchor.week, mon) % 2) + 2) % 2;
+  return p === 0 ? plan.anchor.type : (plan.anchor.type === 'matin' ? 'soir' : 'matin');
+}
+function fpDayType(iso) {
+  if (plan.dayOv[iso]) return plan.dayOv[iso];
+  var wt = fpWeekType(fpMonISO(iso));
+  if (wt !== 'matin' && wt !== 'soir') return wt;
+  return plan.workDays.indexOf(new Date(iso + 'T12:00').getDay()) >= 0 ? wt : 'repos';
+}
+function fpName(ty) { var t = fpT(); return ty === 'matin' ? t.shMatin : ty === 'soir' ? t.shSoir : t.shRepos; }
+function fpRange(ty) { return (Array.isArray(plan.times[ty]) && plan.times[ty].length === 2) ? plan.times[ty] : FP_SHIFTS[ty]; }
+function fpHm(s) { var m = /^(\d{1,2}):(\d{2})$/.exec(s || ''); return m ? Math.min(+m[1], 23) * 60 + (+m[2]) : null; }
+function fpHours(ty) { return FP_SHIFTS[ty] ? fpMin(fpRange(ty)[0]) + '–' + fpMin(fpRange(ty)[1]) : ''; }
+function fpCls(ty) { return ty === 'matin' ? 'm' : ty === 'soir' ? 's' : ty === 'repos' ? 'r' : 'u'; }
+function fpDur(m) {
+  var ar = uiLang() === 'ar';
+  if (m < 60) return ar ? m + ' د' : m + ' min';
+  var h = m / 60;
+  if (ar) return h === 1 ? 'ساعة' : h === 1.5 ? 'ساعة ونص' : h === 2 ? 'ساعتان' : h + ' ساعات';
+  var hh = Math.floor(h), mm = m % 60;
+  return mm ? hh + ' h ' + mm : hh + ' h';
+}
+function fpSetWeek(ty) {
+  var mon = fpIso(fpMonday(new Date()));
+  if (ty === 'repos') plan.weekOv[mon] = 'repos';
+  else {
+    plan.anchor = { week: mon, type: ty }; delete plan.weekOv[mon];
+    Object.keys(plan.weekOv).forEach(function (k) { if (k >= mon) delete plan.weekOv[k]; });
+    Object.keys(plan.dayOv).forEach(function (k) { if (k >= mon) delete plan.dayOv[k]; });
+  }
+  fpSave(); render();
+}
+function fpCheck(dateISO, hm, dur, trav) {
+  if (!dateISO || !hm) return null;
+  var start = new Date(dateISO + 'T' + hm + ':00').getTime();
+  if (isNaN(start)) return null;
+  var end = start + dur * 60000, ws = start - trav * 60000, we = end + trav * 60000;
+  var days = [], d0 = new Date(ws); d0.setHours(0, 0, 0, 0);
+  for (var d = new Date(d0); d.getTime() <= we; d.setDate(d.getDate() + 1)) days.push(fpIso(d));
+  var unknown = false, core = false, margin = false;
+  var infos = days.map(function (di) {
+    var ty = fpDayType(di), inf = { date: di, type: ty };
+    if (ty == null) { unknown = true; return inf; }
+    if (ty === 'repos') return inf;
+    var sh = fpRange(ty), base = new Date(di + 'T00:00').getTime();
+    var r0 = base + sh[0] * 60000, r1 = base + sh[1] * 60000;
+    if (r0 < end && r1 > start) core = true;
+    else if (r0 < we && r1 > ws) margin = true;
+    return inf;
+  });
+  return { verdict: core ? 'conflict' : (margin || unknown) ? 'warn' : 'ok', infos: infos, start: start, end: end, ws: ws, we: we };
+}
+function renderPlanView(v) {
+  var t = fpT();
+  var mon = fpIso(fpMonday(new Date())), cur = fpWeekType(mon);
+  var c1 = el('div', 'fl-panel');
+  c1.innerHTML =
+    '<div class="fl-wkline">' + esc(t.wkThis) + ' <span class="fl-sbadge ' + fpCls(cur) + '">' +
+      esc(cur ? fpName(cur) + (FP_SHIFTS[cur] ? ' ' + fpHours(cur) : '') : '…') + '</span></div>' +
+    '<div class="fl-shiftrow">' +
+      '<button class="fl-shiftbtn' + (cur === 'matin' ? ' on-m' : '') + '" data-sh="matin">🟦 ' + esc(t.shMatin) + '<br><small>' + fpHours('matin') + '</small></button>' +
+      '<button class="fl-shiftbtn' + (cur === 'soir' ? ' on-s' : '') + '" data-sh="soir">🟧 ' + esc(t.shSoir) + '<br><small>' + fpHours('soir') + '</small></button>' +
+      '<button class="fl-shiftbtn' + (cur === 'repos' ? ' on-r' : '') + '" data-sh="repos">⚪ ' + esc(t.shRepos) + '</button>' +
+    '</div>' +
+    '<div class="fl-tmrow"><span class="fl-sbadge m">' + esc(t.shMatin) + '</span>' +
+      '<input class="fl-tin" id="fp-m1" type="time" value="' + fpMin(fpRange('matin')[0]) + '"><span class="fl-tdash">–</span>' +
+      '<input class="fl-tin" id="fp-m2" type="time" value="' + fpMin(fpRange('matin')[1]) + '"></div>' +
+    '<div class="fl-tmrow"><span class="fl-sbadge s">' + esc(t.shSoir) + '</span>' +
+      '<input class="fl-tin" id="fp-s1" type="time" value="' + fpMin(fpRange('soir')[0]) + '"><span class="fl-tdash">–</span>' +
+      '<input class="fl-tin" id="fp-s2" type="time" value="' + fpMin(fpRange('soir')[1]) + '">' +
+      '<a class="fl-tmreset" href="#" id="fp-reset">' + esc(t.shReset) + '</a></div>' +
+    '<div class="fl-hint">' + esc(t.shTimesHint) + '</div><div class="fl-hint">' + esc(t.planSub) + '</div>';
+  v.appendChild(c1);
+  var c2 = el('div', 'fl-panel');
+  c2.innerHTML = '<div class="fl-wkline">📆 ' + esc(t.workDays) + '</div><div class="fl-dayrow">' +
+    FP_DAYS.map(function (g) { return '<button class="fl-dchip ' + (plan.workDays.indexOf(g) >= 0 ? 'work' : 'off') + '" data-gd="' + g + '">' + esc(fpDayName(g)) + '</button>'; }).join('') +
+    '</div><div class="fl-hint">' + esc(t.workDaysHint) + '</div>';
+  v.appendChild(c2);
+  var c3 = el('div', 'fl-panel');
+  c3.innerHTML = '<div class="fl-wkline">✅ ' + esc(t.chkTitle) + '</div>' +
+    '<div class="fl-frow"><div><div class="fl-flab">' + esc(t.cDate) + '</div><input class="fl-fin" id="fp-date" type="date"></div>' +
+      '<div><div class="fl-flab">' + esc(t.cTime) + '</div><input class="fl-fin" id="fp-time" type="time"></div></div>' +
+    '<div class="fl-frow"><div><div class="fl-flab">' + esc(t.cDur) + '</div><select class="fl-fin" id="fp-dur">' +
+      [30, 45, 60, 90, 120, 180].map(function (m) { return '<option value="' + m + '"' + (m === plan.dur ? ' selected' : '') + '>' + esc(fpDur(m)) + '</option>'; }).join('') + '</select></div>' +
+      '<div><div class="fl-flab">' + esc(t.cTravel) + '</div><select class="fl-fin" id="fp-trav">' +
+      [0, 15, 30, 45, 60].map(function (m) { return '<option value="' + m + '"' + (m === plan.travel ? ' selected' : '') + '>' + esc(m ? fpDur(m) : t.trvNone) + '</option>'; }).join('') + '</select></div></div>' +
+    '<div class="fl-flab">' + esc(t.cOrg) + '</div><input class="fl-fin" id="fp-org" placeholder="' + esc(t.cOrgPh) + '">' +
+    '<div class="fl-btnrow"><button class="btn primary" id="fp-go">✅ ' + esc(t.chkGo) + '</button></div><div id="fp-res"></div>';
+  v.appendChild(c3);
+  c1.querySelectorAll('[data-sh]').forEach(function (b) { b.onclick = function () { fpSetWeek(b.dataset.sh); }; });
+  c2.querySelectorAll('[data-gd]').forEach(function (b) {
+    b.onclick = function () {
+      var g = +b.dataset.gd, i = plan.workDays.indexOf(g);
+      if (i >= 0) plan.workDays.splice(i, 1); else plan.workDays.push(g);
+      fpSave(); render();
+    };
+  });
+  [['m', 'matin'], ['s', 'soir']].forEach(function (pr) {
+    var upd = function () {
+      var a = fpHm(document.getElementById('fp-' + pr[0] + '1').value), b = fpHm(document.getElementById('fp-' + pr[0] + '2').value);
+      if (a == null || b == null) return;
+      if (a >= b) { toast('⚠️ ' + t.shBadTime); render(); return; }
+      plan.times[pr[1]] = [a, b]; fpSave(); render();
+    };
+    document.getElementById('fp-' + pr[0] + '1').onchange = upd;
+    document.getElementById('fp-' + pr[0] + '2').onchange = upd;
+  });
+  document.getElementById('fp-reset').onclick = function (e) { e.preventDefault(); delete plan.times.matin; delete plan.times.soir; fpSave(); render(); };
+  document.getElementById('fp-go').onclick = function () {
+    var d = document.getElementById('fp-date').value, tm = document.getElementById('fp-time').value;
+    if (!d || !tm) { toast('⚠️ ' + t.chkNeed); return; }
+    plan.dur = +document.getElementById('fp-dur').value; plan.travel = +document.getElementById('fp-trav').value; fpSave();
+    var r = fpCheck(d, tm, plan.dur, plan.travel);
+    if (!r) return;
+    var icons = { ok: '🟢', warn: '🟠', conflict: '🔴' }, cls = { ok: 'ok', warn: 'warn', conflict: 'bad' };
+    var lbl = { ok: t.vOk, warn: t.vWarn, conflict: t.vConflict }[r.verdict];
+    var hh = function (ms) { var x = new Date(ms); return fpPad(x.getHours()) + ':' + fpPad(x.getMinutes()); };
+    var lines = r.infos.map(function (inf) {
+      var s = inf.type == null ? t.vNoPlan : inf.type === 'repos' ? t.vRest : t.vAtShift(fpHours(inf.type));
+      return '📅 ' + esc(fpDay(inf.date)) + ' — ' + esc(s);
+    });
+    var org = document.getElementById('fp-org').value.trim();
+    if (org) lines.unshift('🏢 ' + esc(org));
+    lines.push('🕐 ' + esc(t.vAppt(hh(r.start) + '–' + hh(r.end))) + ' · ' + esc(t.vTrav(hh(r.ws) + '–' + hh(r.we))));
+    document.getElementById('fp-res').innerHTML = '<div class="fl-verd ' + cls[r.verdict] + '">' + icons[r.verdict] + ' ' + esc(lbl) + '<div class="fl-vlines">' + lines.join('<br>') + '</div></div>';
+  };
 }
 
 function confirmExit() {
@@ -4661,7 +4918,7 @@ function confirmExit() {
 }
 function goBack() {
   stopReadAll();
-  if (nav.lib || nav.admin) { nav.lib = false; nav.admin = false; render(); return; }
+  if (nav.lib || nav.admin || nav.plan) { nav.lib = false; nav.admin = false; nav.plan = false; render(); return; }
   if (nav.l) { nav.l = null; render(); return; }
   if (nav.f) { nav.f = null; render(); return; }
   confirmExit();
@@ -4671,6 +4928,7 @@ document.getElementById('backBtn').onclick = goBack;
 fab.onclick = function () {
   var f = findF(nav.f), l = findL(f, nav.l);
   if (isRemote(f)) { f = null; l = null; }
+  if (!FL_ADMIN) return;
   if (l) phraseEditor(f, l, null);
   else if (f) lessonEditor(f, null);
   else folderEditor(null);
