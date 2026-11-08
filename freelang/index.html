@@ -64,6 +64,11 @@
     border-radius: 12px; padding: .4rem .55rem; font-size: 1rem; cursor: pointer; flex: none;
     font-family: inherit; transition: transform .12s ease; }
   .iconbtn:active { transform: scale(.92); }
+  .langmini { display: flex; gap: 2px; background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 2px; flex: none; }
+  .langmini button { border: none; background: none; color: var(--dim); font-size: .66rem; font-weight: 800;
+    padding: .32rem .42rem; border-radius: 9px; cursor: pointer; font-family: inherit; }
+  .langmini button.on { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; }
   @media (max-width: 619px) {
     .logo { flex: 1; }
     .searchbox { order: 5; flex: 1 1 100%; }
@@ -526,6 +531,9 @@
     font-size: .62rem; font-weight: 800; border-radius: 999px; padding: .1rem .45rem; min-width: 1.2rem; }
   .fl-sub { font-size: .72rem; opacity: .75; margin: -.3rem 0 .6rem; }
   .fl-wkline { font-weight: 800; margin-bottom: .5rem; }
+  .fl-apadd { float: inline-end; border: none; border-radius: 10px; padding: .18rem .6rem; margin-inline-start: .5rem;
+    font-size: 1rem; font-weight: 900; cursor: pointer; color: #fff;
+    background: linear-gradient(135deg, #7c3aed, #9333ea); font-family: inherit; }
   .fl-sbadge { display: inline-block; border-radius: 999px; padding: .12rem .55rem; font-size: .7rem; font-weight: 800; color: #fff; }
   .fl-sbadge.m { background: #2563eb; } .fl-sbadge.s { background: #ea580c; } .fl-sbadge.r { background: #6b7280; } .fl-sbadge.u { background: #9ca3af; }
   .fl-shiftrow { display: flex; gap: .5rem; margin-bottom: .6rem; }
@@ -641,6 +649,9 @@
       <input id="search" data-i-ph="searchPh" placeholder="ابحث…" autocomplete="off">
     </div>
     <button class="iconbtn" id="waBtn" title="WhatsApp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" style="width:20px;height:20px;display:block"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#fff" transform="translate(4.15,4.15) scale(0.654)" d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35M12.04 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.82 9.82 0 0 1 9.88 9.89c0 5.44-4.44 9.88-9.89 9.88m8.42-18.3A11.82 11.82 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.58 0 11.94-5.36 11.94-11.93 0-3.18-1.24-6.18-3.53-8.38"/></svg></button>
+    <div class="langmini" id="langMini" role="group" aria-label="Language">
+      <button type="button" data-lm="en">EN</button><button type="button" data-lm="fr">FR</button><button type="button" data-lm="ar">AR</button>
+    </div>
     <button class="iconbtn" id="mailBtn" title="Gmail" aria-label="Gmail"><svg viewBox="0 0 256 192" style="width:20px;height:20px;display:block"><path fill="#4285F4" d="M58.182 192.05V93.14L27.507 65.077L0 49.504v125.091c0 9.658 7.825 17.455 17.455 17.455h40.727z"/><path fill="#34A853" d="M197.818 192.05h40.727c9.659 0 17.455-7.826 17.455-17.455V49.504l-27.328 15.564-30.854 28.072v98.91z"/><path fill="#EA4335" d="m58.182 93.14-4.174-38.647 4.174-48.989L128 69.868l69.818-64.364 4.173 48.97-4.173 38.666L128 157.482l-69.818-64.342z"/><path fill="#FBBC04" d="M197.818 5.504v87.636L256 49.504V24.585c0-21.58-24.646-33.858-41.697-20.783L197.818 5.504z"/><path fill="#C5221F" d="m0 49.504 26.759 20.07L58.182 93.14V5.504L41.695 3.802C24.646-9.274 0 3.005 0 24.585v24.919z"/></svg></button>
     <button class="iconbtn" id="themeBtn" title="🌙">🌙</button>
     <button class="iconbtn" id="menuBtn" title="⋮">⋮</button>
@@ -856,7 +867,7 @@ var I18N = {
   }
 };
 function T() { return I18N[uiLang()] || I18N.ar; }
-function uiLang() { return localStorage.getItem('freelang_lang') || 'ar'; }
+function uiLang() { return localStorage.getItem('freelang_lang') || 'en'; }
 function setUiLang(l) {
   try { localStorage.setItem('freelang_lang', l); } catch (e) {}
   document.documentElement.lang = l;
@@ -872,6 +883,12 @@ function applyI18n() {
     var k = el.getAttribute('data-i-ph'); if (t[k]) el.placeholder = t[k];
   });
   document.getElementById('themeBtn').textContent = isDark() ? '🌙' : '☀';
+  var lm = document.getElementById('langMini');
+  if (lm) {
+    document.documentElement.lang = uiLang();
+    document.documentElement.dir = uiLang() === 'ar' ? 'rtl' : 'ltr';
+    lm.querySelectorAll('[data-lm]').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lm') === uiLang()); });
+  }
 }
 
 /* ================= flags → languages ================= */
@@ -2299,6 +2316,18 @@ var TEMPLATES = [
 '00:05 🇺🇸 Hello!\n' +
 '00:08 --> 00:11 🇫🇷 Comment ça va ?\n' +
 '00:11 --> 00:14 🇸🇾 كيفك؟'
+  },
+  {
+    name: 'نموذج أعمدة Zeek — بدون أعلام (فرنسي | عربي | إنكليزي)',
+    text:
+'### الدرس الأول\n' +
+'Bonjour | مرحباً | Hello\n' +
+'Comment ça va ? | كيفك؟ | How are you?\n' +
+'Je m\'appelle Ahmad. | اسمي أحمد. | My name is Ahmad.\n' +
+'===\n' +
+'### إنكليزي أولاً — الترتيب يُكتشف تلقائياً\n' +
+'Hello | مرحباً | Bonjour\n' +
+'Thank you very much | شكراً جزيلاً | Merci beaucoup'
   }
 ];
 var TEMPLATE = TEMPLATES[0].text;
@@ -2306,7 +2335,62 @@ var TEMPLATE = TEMPLATES[0].text;
 var LABEL_RE = /^(?:الأصلية|الأصلي|النص|الكتابة(?:\s+(?:الأصلية|اللاتينية|العربية))?|المعنى(?:\s+(?:بالعربي|بالعربية|بالإنجليزية|بالإنكليزية|إنجليزي|عربي))?|الترجمة(?:\s+\S+)?|الإنجليزية|الانجليزية|English|Meaning|النطق(?:\s+\S+)?|اللفظ|تقريب(?:\s+\S+)?)\s*[:：]\s*/u;
 function deLabel(s) { var m = LABEL_RE.exec(s); return m ? s.slice(m[0].length).trim() : s.trim(); }
 
+/* ---- Zeek-style flagless columns: "French | Arabic | English" (auto order) ---- */
+function colIsAr(s) { return /[؀-ۿ]/.test(s); }
+function colClean(s) {
+  var r = String(s || '').trim(), trim = '*–—-:=;';
+  while (r && trim.indexOf(r[0]) >= 0) r = r.slice(1).trim();
+  while (r && trim.indexOf(r[r.length - 1]) >= 0) r = r.slice(0, -1).trim();
+  return r;
+}
+function colExtract(line) {
+  var cleanLine = String(line || '').trim();
+  if (!cleanLine) return null;
+  var delims = /\s*(?:\|{1,2}|,|;|=>|->|→|=|:|\s+-\s+|\s+)\s*/;
+  var tokens = cleanLine.split(delims).map(function (s) { return s.trim(); }).filter(Boolean);
+  if (tokens.length < 3) return null;
+  var firstAr = -1, lastAr = -1;
+  tokens.forEach(function (tk, i) { if (colIsAr(tk)) { if (firstAr < 0) firstAr = i; lastAr = i; } });
+  if (firstAr <= 0 || lastAr >= tokens.length - 1) return null;  // Arabic must sit between two Latin parts
+  return { first: tokens.slice(0, firstAr).join(' '), ar: tokens.slice(firstAr, lastAr + 1).join(' '), last: tokens.slice(lastAr + 1).join(' ') };
+}
+function colClassify(s) {
+  var text = String(s || '').trim();
+  if (!text || colIsAr(text)) return '';
+  var lower = text.toLowerCase();
+  if (/[éèêàâäæçíïîìôöòûüùœ]/.test(lower)) return 'fr';
+  var enWords = (lower.match(/\b(the|a|an|and|or|is|are|was|were|be|have|has|do|does|will|would|could|should|this|that|my|your|his|her|our|their|in|on|at|to|for|with|of|from|please|thank|thanks|very|much|more|yes|what|when|where|why|how|who|can|i|you|he|she|we|they|it|me|him|them|us)\b/g) || []).length;
+  var frWords = (lower.match(/\b(le|la|les|un|une|des|du|de|et|ou|en|je|tu|il|elle|nous|vous|ils|elles|est|sont|ai|as|avons|avez|ont|mon|ma|mes|ton|ta|tes|son|sa|ses|ce|cette|que|qui|pour|avec|dans|sur|par|avant|après|plus|moins|très|bien|oui|non|merci|quand|comment|pourquoi|si)\b/g) || []).length;
+  if (enWords > frWords) return 'en';
+  if (frWords > enWords) return 'fr';
+  return '';
+}
+function colLineOrder(first, last, blockOrder) {
+  var langFirst = colClassify(first), langLast = colClassify(last);
+  if (langFirst === 'fr' && langLast !== 'fr') return 'fr-ar-en';
+  if (langFirst === 'en' && langLast !== 'en') return 'en-ar-fr';
+  if (langLast === 'fr' && langFirst !== 'fr') return 'en-ar-fr';
+  if (langLast === 'en' && langFirst !== 'en') return 'fr-ar-en';
+  return blockOrder;
+}
+function colBlockOrder(text) {
+  var firstFr = 0, firstEn = 0, lastFr = 0, lastEn = 0;
+  String(text || '').split('\n').forEach(function (raw) {
+    var parts = colExtract(raw);
+    if (!parts) return;
+    var lf = colClassify(colClean(parts.first)), ll = colClassify(colClean(parts.last));
+    if (lf === 'fr') firstFr++; else if (lf === 'en') firstEn++;
+    if (ll === 'fr') lastFr++; else if (ll === 'en') lastEn++;
+  });
+  if (firstEn > firstFr && lastFr >= lastEn) return 'en-ar-fr';
+  if (firstFr > firstEn && lastEn >= lastFr) return 'fr-ar-en';
+  if (firstEn > 0 && lastFr > 0) return 'en-ar-fr';
+  if (firstFr > 0 && lastEn > 0) return 'fr-ar-en';
+  return 'fr-ar-en';
+}
+
 function parseLessons(text) {
+  var colOrder = colBlockOrder(text.split(/\r?\n/).filter(function (l) { return !FLAG_RE.test(l.trim()); }).join('\n'));
   var lessons = [];
   var cur = null, ph = null;
   // pending flag entries of one group: {flag, text, latin, arp, note}.
@@ -2410,6 +2494,23 @@ function parseLessons(text) {
     }
     // flagless line: numbered item = standalone note; else attached to previous phrase
     if (!body) { flushGroup(); return; }
+    // Zeek-style flagless columns: "French | Arabic | English" (order auto-detected)
+    var cols = colExtract(body);
+    if (cols) {
+      var parts = { first: colClean(cols.first), ar: colClean(cols.ar), last: colClean(cols.last) };
+      if (parts.first && parts.ar && parts.last) {
+        flushGroup();
+        var ord = colLineOrder(parts.first, parts.last, colOrder);
+        var isEnFirst = ord === 'en-ar-fr';
+        var prim = { id: uid(), flag: isEnFirst ? '🇺🇸' : '🇫🇷', lang: isEnFirst ? 'en' : 'fr',
+          text: isEnFirst ? parts.first : parts.last, latin: '', arp: '', meaning: parts.ar,
+          en: isEnFirst ? '' : parts.last, note: '', rows: [] };
+        if (isEnFirst) prim.rows.push({ flag: '🇫🇷', lang: 'fr', text: parts.last, latin: '', arp: '' });
+        cur.phrases.push(prim);
+        ph = null;
+        return;
+      }
+    }
     flushGroup();
     // "7. Une fuite — تسرّب" → two rows (latin + arabic) so each speaks its own
     // language instead of one mixed-language line
@@ -4980,8 +5081,10 @@ function renderPlanView(v) {
   };
 
   var c4 = el('div', 'fl-panel');
-  c4.innerHTML = '<div class="fl-wkline">📅 ' + esc(t.apList) + '</div><div id="fp-apwrap"></div>';
+  c4.innerHTML = '<div class="fl-wkline">📅 ' + esc(t.apList) +
+    '<button class="fl-apadd" id="fp-apadd" title="' + esc(t.apNew) + '">📅＋</button></div><div id="fp-apwrap"></div>';
   v.appendChild(c4);
+  c4.querySelector('#fp-apadd').onclick = function () { openApptForm(null); };
   renderAppts(c4.querySelector('#fp-apwrap'));
 }
 
@@ -5117,10 +5220,12 @@ function saveAppt(id, d) {
   var t = fpT();
   if (!d.title.trim() || !d.date || !d.time) { toast('⚠️ ' + t.apNeed); return; }
   var a = id ? apById(id) : null;
+  var oldDate = a ? a.date : null, oldTime = a ? a.time : null;
   if (!a) { a = { id: 'a' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), status: 'upcoming', createdAt: Date.now() }; appts.push(a); }
   a.title = d.title.trim(); a.date = d.date; a.time = d.time;
   a.place = (d.place || '').trim(); a.address = (d.address || '').trim(); a.notes = (d.notes || '').trim();
   a.category = d.category; a.updatedAt = Date.now();
+  if (a.date !== oldDate || a.time !== oldTime) a.schedAt = Date.now();
   apSave(); apSchedule(a);
   if (!apLN() && 'Notification' in window && Notification.permission === 'default') { try { Notification.requestPermission(); } catch (e) {} }
   closeOv(); toast('✓ ' + t.apSaved);
@@ -5137,7 +5242,7 @@ async function apEnsureChannel() {
   var p = apLN(); if (!p || !p.createChannel) return;
   try {
     await p.createChannel({ id: 'freelang-alerts', name: 'Freelang reminders', description: 'Appointment reminders',
-      importance: 5, visibility: 1, lights: true, vibration: true, sound: 'freelang_alert' });
+      importance: 5, visibility: 0, lights: true, vibration: true, sound: 'freelang_alert' });
   } catch (e) {}
 }
 async function apSchedule(a) {
@@ -5205,10 +5310,14 @@ if (!apLN()) {
     appts.forEach(function (a) {
       if (a.status !== 'upcoming') return;
       var when = apTime(a); if (!when) return;
+      var since = a.schedAt || a.createdAt || 0;
       [['apNotifBody0', 0], ['apNotifBody2', 2 * 3600e3], ['apNotifBody12', 12 * 3600e3], ['apNotifBody24', 24 * 3600e3]].forEach(function (pr, i) {
-        var key = a.id + ':' + i;
+        var key = a.id + ':' + i + ':' + when;   // keyed by exact time: rescheduling refires
         if (s.has(key)) return;
-        if (now >= when - pr[1] && when > now - 30e3) {
+        var fireAt = when - pr[1];
+        // only fire offsets that were still ahead when the appointment was last scheduled —
+        // otherwise a soon appointment (or a reschedule) would dump expired alerts at once
+        if (fireAt <= now && fireAt > since && when > now - 30e3) {
           apMarkFired(key); apBeep();
           var msg = '⏰ ' + t[pr[0]](a.title);
           if ('Notification' in window && Notification.permission === 'granted') {
@@ -5235,6 +5344,9 @@ function goBack() {
   confirmExit();
 }
 document.getElementById('backBtn').onclick = goBack;
+document.querySelectorAll('#langMini [data-lm]').forEach(function (b) {
+  b.onclick = function () { setUiLang(b.getAttribute('data-lm')); };
+});
 
 fab.onclick = function () {
   if (nav.plan) { openApptForm(null); return; }
