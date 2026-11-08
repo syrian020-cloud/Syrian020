@@ -20,7 +20,24 @@
 (function () {
   'use strict';
 
-  var DEFAULT_VOICES = { fr: 'fr-FR-DeniseNeural', ar: 'ar-SY-AmanyNeural', en: 'en-US-JennyNeural' };
+  var DEFAULT_VOICES = { fr: 'fr-FR-DeniseNeural', ar: 'ar-SY-AmanyNeural', en: 'en-US-JennyNeural',
+    zh: 'zh-CN-XiaoxiaoNeural', ja: 'ja-JP-NanamiNeural', ko: 'ko-KR-SunHiNeural',
+    th: 'th-TH-PremwadeeNeural', vi: 'vi-VN-HoaiMyNeural', hi: 'hi-IN-SwaraNeural',
+    el: 'el-GR-NestorasNeural', ka: 'ka-GE-EkaNeural',
+    he: 'he-IL-AvriNeural', de: 'de-DE-KatjaNeural', es: 'es-ES-ElviraNeural',
+    it: 'it-IT-ElsaNeural', ru: 'ru-RU-SvetlanaNeural', tr: 'tr-TR-EmelNeural',
+    pt: 'pt-PT-RaquelNeural', nl: 'nl-NL-ColetteNeural', pl: 'pl-PL-ZofiaNeural',
+    uk: 'uk-UA-PolinaNeural', sv: 'sv-SE-SofieNeural', fa: 'fa-IR-DilaraNeural',
+    ur: 'ur-PK-UzmaNeural', bn: 'bn-BD-NabanitaNeural', id: 'id-ID-GadisNeural',
+    ms: 'ms-MY-YasminNeural', tl: 'fil-PH-BlessicaNeural', ro: 'ro-RO-AlinaNeural',
+    hu: 'hu-HU-NoemiNeural', cs: 'cs-CZ-VlastaNeural', bg: 'bg-BG-KalinaNeural',
+    hr: 'hr-HR-GabrijelaNeural', sr: 'sr-RS-SophieNeural', da: 'da-DK-JeppeNeural',
+    nb: 'nb-NO-PernilleNeural', fi: 'fi-FI-NooraNeural', mn: 'mn-MN-YesuiNeural',
+    sw: 'sw-KE-ZuriNeural', zu: 'zu-ZA-ThandoNeural', am: 'am-ET-MekdesNeural',
+    is: 'is-IS-GudrunNeural', sq: 'sq-AL-AnilaNeural', lt: 'lt-LT-OnaNeural',
+    lv: 'lv-LV-NilsNeural', et: 'et-EE-AnuNeural',
+    // Edge TTS has no Yoruba voice — use Nigerian English as the closest accent.
+    yo: 'en-NG-EzinneNeural' };
   var DEFAULT_RATES = { fr: -8, ar: 0, en: 0 };
 
   /* Neural voices per UI language — Edge names also used by the web
@@ -29,7 +46,6 @@
     fr: [
       'fr-FR-DeniseNeural', 'fr-FR-EloiseNeural', 'fr-FR-HenriNeural',
       'fr-FR-VivienneMultilingualNeural', 'fr-FR-RemyMultilingualNeural',
-      'fr-FR-LucienMultilingualNeural',
       'fr-CA-SylvieNeural', 'fr-CA-JeanNeural', 'fr-CA-AntoineNeural', 'fr-CA-ThierryNeural',
       'fr-BE-CharlineNeural', 'fr-BE-GerardNeural',
       'fr-CH-ArianeNeural', 'fr-CH-FabriceNeural'
@@ -61,7 +77,7 @@
       'en-US-BrianMultilingualNeural', 'en-US-EmmaMultilingualNeural',
       'en-GB-SoniaNeural', 'en-GB-RyanNeural', 'en-GB-LibbyNeural',
       'en-GB-MaisieNeural', 'en-GB-ThomasNeural',
-      'en-AU-NatashaNeural', 'en-AU-WilliamNeural',
+      'en-AU-NatashaNeural',
       'en-CA-ClaraNeural', 'en-CA-LiamNeural',
       'en-IN-NeerjaNeural', 'en-IN-PrabhatNeural',
       'en-IE-EmilyNeural', 'en-IE-ConnorNeural',
@@ -74,6 +90,55 @@
       'en-HK-YanNeural', 'en-HK-SamNeural',
       'en-SG-LunaNeural', 'en-SG-WayneNeural'
     ]
+  };
+  var VOICE_EXTRA = {
+    "fr": ["fr-FR-DeniseNeural", "fr-FR-EloiseNeural", "fr-FR-HenriNeural", "fr-FR-RemyMultilingualNeural", "fr-FR-VivienneMultilingualNeural"],
+    "ar": ["ar-SY-AmanyNeural", "ar-SY-LaithNeural"],
+    "en": ["en-US-AnaNeural", "en-US-AndrewMultilingualNeural", "en-US-AndrewNeural", "en-US-AriaNeural", "en-US-AvaMultilingualNeural", "en-US-AvaNeural", "en-US-BrianMultilingualNeural", "en-US-BrianNeural", "en-US-ChristopherNeural", "en-US-EmmaMultilingualNeural", "en-US-EmmaNeural", "en-US-EricNeural", "en-US-GuyNeural", "en-US-JennyNeural", "en-US-MichelleNeural", "en-US-RogerNeural", "en-US-SteffanNeural"],
+    "zh": ["zh-CN-XiaoxiaoNeural", "zh-CN-XiaoyiNeural", "zh-CN-YunjianNeural", "zh-CN-YunxiNeural", "zh-CN-YunxiaNeural", "zh-CN-YunyangNeural", "zh-CN-liaoning-XiaobeiNeural", "zh-CN-shaanxi-XiaoniNeural", "zh-HK-HiuGaaiNeural", "zh-HK-HiuMaanNeural", "zh-HK-WanLungNeural", "zh-TW-HsiaoChenNeural", "zh-TW-HsiaoYuNeural", "zh-TW-YunJheNeural"],
+    "ja": ["ja-JP-KeitaNeural", "ja-JP-NanamiNeural"],
+    "ko": ["ko-KR-HyunsuMultilingualNeural", "ko-KR-InJoonNeural", "ko-KR-SunHiNeural"],
+    "th": ["th-TH-NiwatNeural", "th-TH-PremwadeeNeural"],
+    "vi": ["vi-VN-HoaiMyNeural", "vi-VN-NamMinhNeural"],
+    "hi": ["hi-IN-MadhurNeural", "hi-IN-SwaraNeural"],
+    "el": ["el-GR-NestorasNeural"],
+    "ka": ["ka-GE-EkaNeural", "ka-GE-GiorgiNeural"],
+    "he": ["he-IL-AvriNeural", "he-IL-HilaNeural"],
+    "de": ["de-DE-AmalaNeural", "de-DE-ConradNeural", "de-DE-FlorianMultilingualNeural", "de-DE-KatjaNeural", "de-DE-KillianNeural", "de-DE-SeraphinaMultilingualNeural"],
+    "es": ["es-ES-AlvaroNeural", "es-ES-ElviraNeural", "es-ES-XimenaNeural"],
+    "it": ["it-IT-DiegoNeural", "it-IT-ElsaNeural", "it-IT-GiuseppeMultilingualNeural", "it-IT-IsabellaNeural"],
+    "ru": ["ru-RU-SvetlanaNeural"],
+    "tr": ["tr-TR-AhmetNeural", "tr-TR-EmelNeural"],
+    "pt": ["pt-PT-DuarteNeural", "pt-PT-RaquelNeural"],
+    "nl": ["nl-NL-ColetteNeural", "nl-NL-FennaNeural", "nl-NL-MaartenNeural"],
+    "pl": ["pl-PL-MarekNeural", "pl-PL-ZofiaNeural"],
+    "uk": ["uk-UA-OstapNeural", "uk-UA-PolinaNeural"],
+    "sv": ["sv-SE-MattiasNeural", "sv-SE-SofieNeural"],
+    "fa": ["fa-IR-DilaraNeural", "fa-IR-FaridNeural"],
+    "ur": ["ur-PK-AsadNeural", "ur-PK-UzmaNeural"],
+    "bn": ["bn-BD-NabanitaNeural", "bn-BD-PradeepNeural"],
+    "id": ["id-ID-ArdiNeural", "id-ID-GadisNeural"],
+    "ms": ["ms-MY-OsmanNeural", "ms-MY-YasminNeural"],
+    "tl": ["fil-PH-AngeloNeural", "fil-PH-BlessicaNeural"],
+    "ro": ["ro-RO-AlinaNeural", "ro-RO-EmilNeural"],
+    "hu": ["hu-HU-NoemiNeural", "hu-HU-TamasNeural"],
+    "cs": ["cs-CZ-AntoninNeural", "cs-CZ-VlastaNeural"],
+    "bg": ["bg-BG-BorislavNeural", "bg-BG-KalinaNeural"],
+    "hr": ["hr-HR-GabrijelaNeural", "hr-HR-SreckoNeural"],
+    "sr": ["sr-RS-NicholasNeural", "sr-RS-SophieNeural"],
+    "da": ["da-DK-JeppeNeural"],
+    "nb": ["nb-NO-FinnNeural", "nb-NO-PernilleNeural"],
+    "fi": ["fi-FI-HarriNeural", "fi-FI-NooraNeural"],
+    "mn": ["mn-MN-BataaNeural", "mn-MN-YesuiNeural"],
+    "sw": ["sw-KE-RafikiNeural", "sw-KE-ZuriNeural"],
+    "zu": ["zu-ZA-ThandoNeural", "zu-ZA-ThembaNeural"],
+    "am": ["am-ET-AmehaNeural", "am-ET-MekdesNeural"],
+    "is": ["is-IS-GudrunNeural", "is-IS-GunnarNeural"],
+    "sq": ["sq-AL-AnilaNeural", "sq-AL-IlirNeural"],
+    "lt": ["lt-LT-LeonasNeural", "lt-LT-OnaNeural"],
+    "lv": ["lv-LV-NilsNeural"],
+    "et": ["et-EE-AnuNeural"],
+    "yo": ["en-NG-AbeoNeural", "en-NG-EzinneNeural"]
   };
   var AR_NAME = {
     Amany: 'أماني', Laith: 'ليث', Salma: 'سلمى', Shakir: 'شاكر',
@@ -98,11 +163,39 @@
   var SAMPLE = {
     fr: 'Bonjour, comment allez-vous ?',
     ar: 'مرحبا، كيف حالك؟',
-    en: 'Hello, how are you?'
+    en: 'Hello, how are you?',
+    zh: '你好', ja: 'こんにちは', ko: '안녕하세요', th: 'สวัสดี', vi: 'Xin chào',
+    hi: 'नमस्ते', el: 'Γεια σου', ka: 'გამარჯობა', hy: 'Բարև', he: 'שלום',
+    de: 'Hallo', es: 'Hola', it: 'Ciao', ru: 'Привет', tr: 'Merhaba',
+    pt: 'Olá', nl: 'Hallo', pl: 'Cześć', uk: 'Привіт', sv: 'Hej', fa: 'سلام',
+    ur: 'السلام علیکم', bn: 'নমস্কার', id: 'Halo', ms: 'Apa khabar?',
+    tl: 'Kumusta ka?', ro: 'Bună', hu: 'Szia', cs: 'Ahoj', bg: 'Здравей',
+    hr: 'Bok', sr: 'Здраво', da: 'Hej', nb: 'Hei', fi: 'Hei',
+    mn: 'Сайн байна уу?', sw: 'Hujambo', zu: 'Sawubona', am: 'ሰላም',
+    is: 'Halló', sq: 'Përshëndetje', lt: 'Labas', lv: 'Sveiki', et: 'Tere',
+    yo: 'Báwo ni?'
+  };
+  var LANG_NAMES = {
+    fr: 'Français', ar: 'العربية', en: 'English', zh: '中文', ja: '日本語',
+    ko: '한국어', th: 'ไทย', vi: 'Tiếng Việt', hi: 'हिन्दी', el: 'Ελληνικά',
+    ka: 'ქართული', hy: 'Հայերեն', he: 'עברית', de: 'Deutsch', es: 'Español',
+    it: 'Italiano', ru: 'Русский', tr: 'Türkçe', pt: 'Português', nl: 'Nederlands',
+    pl: 'Polski', uk: 'Українська', sv: 'Svenska', fa: 'فارسی', ur: 'اردو',
+    bn: 'বাংলা', id: 'Indonesia', ms: 'Melayu', tl: 'Tagalog', ro: 'Română',
+    hu: 'Magyar', cs: 'Čeština', bg: 'Български', hr: 'Hrvatski', sr: 'Српски',
+    da: 'Dansk', nb: 'Norsk', fi: 'Suomi', mn: 'Монгол', sw: 'Kiswahili',
+    zu: 'isiZulu', am: 'አማርኛ', is: 'Íslenska', sq: 'Shqip', lt: 'Lietuvių',
+    lv: 'Latviešu', et: 'Eesti', yo: 'Yorùbá'
   };
 
-  var api = { down: false, lastError: null };
-  var RV_TL = { fr: 'fr', ar: 'ar', en: 'en-US' };
+  var api = { down: false };
+  var pluginDown = false;   // native EdgeTTS plugin failed -> skip it for the session
+  var RV_TL = { fr: 'fr', ar: 'ar', en: 'en-US', zh: 'zh-CN', ja: 'ja', ko: 'ko',
+    th: 'th', vi: 'vi', hi: 'hi', el: 'el', he: 'he', de: 'de', es: 'es', it: 'it',
+    ru: 'ru', tr: 'tr', pt: 'pt', nl: 'nl', pl: 'pl', sv: 'sv', fa: 'fa', id: 'id',
+    ur: 'ur', bn: 'bn', ms: 'ms', tl: 'fil', ro: 'ro', hu: 'hu', cs: 'cs', da: 'da',
+    nb: 'no', fi: 'fi', is: 'is', sq: 'sq', lt: 'lt', lv: 'lv', et: 'et', sw: 'sw',
+    am: 'am', mn: 'mn', yo: 'en-NG', zu: 'zu' };
   var RV_RATE = '0.47';
   var CACHE_MAX = 60;
 
@@ -116,7 +209,11 @@
   function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 
   function voiceOf(lang) {
-    return ls('edge_voice_' + lang) || DEFAULT_VOICES[lang] || DEFAULT_VOICES.fr;
+    var v = ls('edge_voice_' + lang);
+    var opts = VOICE_OPTIONS[lang] || VOICE_EXTRA[lang] || [];
+    // ignore saved names that are no longer offered (retired voices)
+    if (v && (opts.indexOf(v) >= 0 || v === DEFAULT_VOICES[lang])) return v;
+    return DEFAULT_VOICES[lang] || DEFAULT_VOICES.fr;
   }
   function rateOf(lang) {
     var v = parseInt(ls('edge_rate_' + lang) || '', 10);
@@ -129,6 +226,7 @@
   }
   api.voiceOf = voiceOf;
   api.rateOf = rateOf;
+  api.langNames = function () { return LANG_NAMES; };
 
   function engine() {
     return ls('tts_engine') === 'device' ? 'device' : 'edge';
@@ -138,16 +236,40 @@
   }
   function setEnabled(v) {
     try { localStorage.setItem('edge_tts', v ? '1' : '0'); } catch (e) {}
-    if (v) { api.down = false; api.lastError = null; }
+    if (v) { api.down = false; pluginDown = false; }
   }
   function plugin() {
     return (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.EdgeTTS) || null;
   }
   function supported() {
     if (!enabled() || api.down) return false;
+    if (ttsPlugin()) return true;              // device voice works offline
     if (navigator.onLine === false) return false;
     return !!plugin() || typeof Audio !== 'undefined';
   }
+
+  // ---- offline device TTS (Android built-in) ----------------------------------
+  function ttsPlugin() {
+    return (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) || null;
+  }
+  var TTS_LOCALE = { ar: 'ar-SA', en: 'en-US', fr: 'fr-FR', zh: 'zh-CN', pt: 'pt-BR',
+    he: 'he-IL', fa: 'fa-IR', ur: 'ur-PK', sw: 'sw-TZ', id: 'id-ID', hi: 'hi-IN' };
+  var curTts = false;
+  function nativeSpeak(text, lang) {
+    var tp = ttsPlugin();
+    if (!tp) return Promise.reject(new Error('no device TTS'));
+    var loc = TTS_LOCALE[lang] || (lang || 'fr');
+    var rate = Math.max(0.5, Math.min(2, api.speed || 1));
+    curTts = true;
+    function done() { curTts = false; }
+    return tp.speak({ text: String(text || '').slice(0, 400), lang: loc, rate: rate, pitch: 1, volume: 1 })
+      .catch(function (e) {
+        if (loc === (lang || 'fr')) throw e;
+        return tp.speak({ text: String(text || '').slice(0, 400), lang: lang || 'fr', rate: rate, pitch: 1, volume: 1 });
+      })
+      .then(done, function (e) { done(); throw e; });
+  }
+  // ----------------------------------------------------------------------------
 
   function rvUrl(text, lang) {
     return 'https://responsivevoice.org/responsivevoice/getvoice.php?text=' + encodeURIComponent(text) +
@@ -161,30 +283,28 @@
     return 'file://' + path;
   }
 
-  function errMsg(e) {
-    return (e && e.message) ? e.message : String(e || 'unknown');
-  }
-
-  /* Internet fallback chain inside the APK:
-   *  1. Native EdgeTtsPlugin -> local MP3 file (played by MediaPlayer).
-   *  2. ResponsiveVoice getvoice.php -> MP3 URL played by <audio>.
-   * Whatever fails first records the real reason in api.lastError. */
-  function fetchAudio(text, lang) {
+  function fetchAudio(text, lang, voice) {
     var p = plugin();
-    if (p) {
-      var v = voiceOf(lang);
+    if (p && !pluginDown) {
+      var v = voice || voiceOf(lang);
       // Retry with the default voice — an unknown voice name fails the request
       // and shouldn't mark Edge TTS as down for the whole session.
-      return p.speak({ text: text, voice: v, rate: rateOf(lang) })
+      var native = p.speak({ text: text, voice: v, rate: rateOf(lang) })
         .catch(function (e) {
           if (v === DEFAULT_VOICES[lang]) throw e;
           return p.speak({ text: text, voice: DEFAULT_VOICES[lang], rate: rateOf(lang) });
         })
-        .then(function (r) { return { url: fileUrl(r.path), nativePath: r.path, rv: rvUrl(text, lang) }; })
-        .catch(function (e) {
-          api.lastError = 'EdgeTTS: ' + errMsg(e);
-          return { url: rvUrl(text, lang) };
-        });
+        .then(function (r) { return { url: fileUrl(r.path), nativePath: r.path }; });
+      // Fallback chain: when the native plugin fails (network to Microsoft
+      // servers blocked, server error, etc.) degrade to ResponsiveVoice — a
+      // plain MP3 URL any WebView audio element can play — instead of dying.
+      return native.catch(function (e) {
+        var msg = (e && (e.message || String(e))) || 'Edge TTS failed';
+        // Remember the failure for this session so the next phrase does not
+        // wait for another plugin timeout before using ResponsiveVoice.
+        pluginDown = true;
+        return { url: rvUrl(text, lang), via: 'rv', err: msg };
+      });
     }
     return Promise.resolve({ url: rvUrl(text, lang) });
   }
@@ -194,13 +314,13 @@
     if (i >= 0) { cacheOrder.splice(i, 1); cacheOrder.push(key); }
   }
 
-  function audio(text, lang) {
+  function audio(text, lang, voice) {
     lang = lang || 'fr';
-    var key = lang + '|' + voiceOf(lang) + '|' + rateOf(lang) + '|' + text;
+    var key = lang + '|' + (voice || voiceOf(lang)) + '|' + rateOf(lang) + '|' + text;
     var hit = cache[key];
     if (hit) { touch(key); return Promise.resolve(hit); }
     if (pending[key]) return pending[key];
-    var p = fetchAudio(text, lang).then(function (entry) {
+    var p = fetchAudio(text, lang, voice).then(function (entry) {
       cache[key] = entry;
       cacheOrder.push(key);
       while (cacheOrder.length > CACHE_MAX) {
@@ -222,6 +342,7 @@
     return new Promise(function (resolve, reject) {
       var el;
       try { el = new Audio(url); } catch (e) { reject(e); return; }
+      try { el.playbackRate = api.speed || 1; } catch (e) {}
       curAudio = el;
       var settled = false;
       function fin(err) {
@@ -246,29 +367,38 @@
       curNative = true;
       return p.play({ path: a.nativePath }).then(function () {
         curNative = false;
-      }, function (e) {
+      }, function () {
         curNative = false;
-        if (!api.lastError) api.lastError = 'MediaPlayer: ' + errMsg(e);
-        // Native playback failed — fall back to the internet MP3 in <audio>.
-        return playUrl(a.rv || a.url).catch(function (e2) {
-          throw new Error(api.lastError + ' | audio: ' + errMsg(e2));
-        });
+        // If native playback dies, retry the same file in a WebView element.
+        return playUrl(a.url);
       });
     }
-    return playUrl(a.url);
+    return playUrl(a.url).catch(function (e) {
+      if (a.via === 'rv') {
+        // Both engines failed — surface the real plugin error for the toast.
+        var err = new Error((a.err || 'Edge TTS failed') + ' · ' + (e && e.message || 'MP3 playback failed'));
+        err.real = true;
+        throw err;
+      }
+      throw e;
+    });
   }
 
-  function play(text, lang) {
-    return audio(text, lang).then(function (a) {
-      return playEntry(a).catch(function (e) {
-        api.down = true;
-        if (!api.lastError) api.lastError = errMsg(e);
-        throw e;
-      });
+  function play(text, lang, voice) {
+    // offline → straight to the device voice, no network timeouts
+    if (navigator.onLine === false && ttsPlugin()) return nativeSpeak(text, lang);
+    return audio(text, lang, voice).then(function (a) {
+      return playEntry(a);
+    }).catch(function (e) {
+      // every online engine failed → fall back to the device voice
+      return nativeSpeak(text, lang).catch(function () { api.down = true; throw e; });
     });
   }
 
   function stop() {
+    var tp = ttsPlugin();
+    if (tp) { try { tp.stop(); } catch (e) {} }
+    curTts = false;
     var p = plugin();
     if (curNative && p && typeof p.stop === 'function') {
       try { p.stop({}); } catch (e) {}
@@ -289,6 +419,7 @@
       voice: 'الصوت', speed: 'السرعة', preview: 'تجربة',
       reset: 'استعادة الافتراضي', close: 'إغلاق',
       langs: { fr: '🇫🇷 الفرنسية', ar: '🇸🇾 العربية', en: '🇺🇸 الإنكليزية' },
+      search: '🔍 ابحث عن لغة…',
       engine: 'المحرك', engineEdge: 'Edge TTS 🌐', engineDevice: 'صوت الجهاز',
       engine: 'المحرك', engineEdge: 'Edge TTS 🌐', engineDevice: 'صوت الجهاز',
       note: 'الصوت الطبيعي يحتاج إنترنت — بدون إنترنت يُستخدم صوت الجهاز.'
@@ -298,6 +429,7 @@
       voice: 'Voice', speed: 'Speed', preview: 'Preview',
       reset: 'Reset to defaults', close: 'Close',
       langs: { fr: '🇫🇷 French', ar: '🇸🇾 Arabic', en: '🇺🇸 English' },
+      search: '🔍 Search a language…',
       engine: 'Engine', engineEdge: 'Edge TTS 🌐', engineDevice: 'Device voice',
       note: 'The neural voice needs internet — offline, the device voice is used.'
     },
@@ -306,6 +438,7 @@
       voice: 'Voix', speed: 'Vitesse', preview: 'Écouter',
       reset: 'Valeurs par défaut', close: 'Fermer',
       langs: { fr: '🇫🇷 Français', ar: '🇸🇾 Arabe', en: '🇺🇸 Anglais' },
+      search: '🔍 Chercher une langue…',
       engine: 'Moteur', engineEdge: 'Edge TTS 🌐', engineDevice: 'Voix de l\'appareil',
       note: 'La voix neurale nécessite internet — hors ligne, la voix de l\'appareil est utilisée.'
     }
@@ -378,12 +511,31 @@
     card.appendChild(engRow);
 
     var devMode = engine() === 'device';
-    ['fr', 'ar', 'en'].forEach(function (lang) {
+    var allLangs = ['fr', 'ar', 'en'].concat(
+      Object.keys(DEFAULT_VOICES).filter(function (k) {
+        return ['fr', 'ar', 'en'].indexOf(k) < 0;
+      }).sort());
+
+    // search box to filter the (long) language list
+    var langRows = [];
+    var lq = h('input', { 'class': 'etts-sel', type: 'search',
+      placeholder: T.search || '🔍', style: 'margin-bottom:.7rem' });
+    lq.oninput = function () {
+      var v = (lq.value || '').toLowerCase().trim();
+      langRows.forEach(function (r) {
+        r.style.display = (!v || r.dataset.key.indexOf(v) >= 0) ? '' : 'none';
+      });
+    };
+    card.appendChild(lq);
+
+    allLangs.forEach(function (lang) {
       var row = h('div', { 'class': 'etts-row' });
-      row.appendChild(h('div', {}, [h('span', { 'class': 'etts-lab', text: T.langs[lang] })]));
+      row.dataset.key = (flagOf(DEFAULT_VOICES[lang]) + ' ' + (LANG_NAMES[lang] || '') + ' ' + lang).toLowerCase();
+      langRows.push(row);
+      row.appendChild(h('div', {}, [h('span', { 'class': 'etts-lab', text: flagOf(DEFAULT_VOICES[lang]) + ' ' + (LANG_NAMES[lang] || lang) })]));
 
       var sel = h('select', { 'class': 'etts-sel' });
-      VOICE_OPTIONS[lang].forEach(function (v) {
+      (VOICE_OPTIONS[lang] || VOICE_EXTRA[lang] || [DEFAULT_VOICES[lang]]).forEach(function (v) {
         var o = h('option', { value: v, text: voiceLabel(v) });
         if (v === voiceOf(lang)) o.selected = true;
         sel.appendChild(o);
@@ -404,7 +556,8 @@
       if (devMode) { rng.disabled = true; pv.disabled = true; }
       pv.onclick = function () {
         pv.disabled = true;
-        play(SAMPLE[lang], lang).catch(function () {}).then(function () { pv.disabled = false; });
+        api.revive();
+        play(SAMPLE[lang] || SAMPLE.en, lang).catch(function () {}).then(function () { pv.disabled = false; });
       };
       row.appendChild(h('div', {}, [h('span', { 'class': 'etts-mini', text: T.speed }), rng, val, pv]));
 
@@ -415,7 +568,7 @@
 
     var reset = h('button', { 'class': 'etts-btn', text: '↺ ' + T.reset });
     reset.onclick = function () {
-      ['fr', 'ar', 'en'].forEach(function (l) {
+      Object.keys(DEFAULT_VOICES).forEach(function (l) {
         try { localStorage.removeItem('edge_voice_' + l); localStorage.removeItem('edge_rate_' + l); } catch (e) {}
       });
       ov.remove();
@@ -435,6 +588,8 @@
     document.body.appendChild(sheetEl);
   }
 
+  // clear 'down' marks so the next call retries every source fresh
+  api.revive = function () { api.down = false; pluginDown = false; };
   api.engine = engine;
   api.enabled = enabled;
   api.setEnabled = setEnabled;
@@ -442,6 +597,10 @@
   api.supported = supported;
   api.audio = audio;
   api.play = play;
+  // voices offered for a language (Edge names) — used by per-phrase pickers
+  api.voices = function (lang) {
+    return (VOICE_OPTIONS[lang] || VOICE_EXTRA[lang] || [DEFAULT_VOICES[lang]]).slice();
+  };
   api.playUrl = playUrl;
   api.stop = stop;
   window.EdgeTTS = api;
