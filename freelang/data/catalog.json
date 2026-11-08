@@ -1,1 +1,1 @@
-{"app":"freelang","version":8,"at":1794152470485,"folders":[{"id":"f_world","name":"لغات العالم","icon":"🌍","img":"","lessons":[{"id":"l_hello","title":"👋 التحيات بـ10 لغات","icon":"👋","img":"","mode":"free","rev":1,"n":10,"size":0,"file":"freelang/data/lessons/l_hello-1-1pxawqk.json","media":[]},{"id":"l_asia","title":"🌏 آسيا","icon":"🌏","img":"","mode":"lock","rev":1,"n":6,"size":0}]}],"revoked":[]}
+{"app":"freelang","version":9,"at":1794152594034,"folders":[],"revoked":[]}
