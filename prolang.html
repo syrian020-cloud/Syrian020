@@ -1527,8 +1527,8 @@ function renderLesson(v, f, l) {
     bx.querySelectorAll('.btn').forEach(function (b) { b.style.padding = '.55rem .55rem'; });
   });
   v.appendChild(bar2);
-  if (l.media || (l.cues || []).length) renderMedia(v, f, l);
-  if (l.imgSize) {
+  var lessonImg = function () {
+    if (!l.imgSize) return;
     var li = el('div');
     li.style.cssText = 'margin:.4rem 0 .8rem;text-align:center';
     mediaGet('pli_' + l.id, function (b) {
@@ -1539,7 +1539,10 @@ function renderLesson(v, f, l) {
       li.appendChild(im);
     });
     v.appendChild(li);
-  }
+  };
+  if (!l.media) lessonImg();   // no video — the image takes the video's place on top
+  if (l.media || (l.cues || []).length) renderMedia(v, f, l);
+  if (l.media) lessonImg();
   (l.phrases || []).forEach(function (p) { v.appendChild(phraseCard(p, f, l)); });
   if (!(l.phrases || []).length && !(l.cues || []).length) {
     var e = el('div', 'empty');
