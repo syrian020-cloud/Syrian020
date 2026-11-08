@@ -4819,7 +4819,7 @@ function fpCheck(dateISO, hm, dur, trav) {
   if (isNaN(start)) return null;
   var end = start + dur * 60000, ws = start - trav * 60000, we = end + trav * 60000;
   var days = [], d0 = new Date(ws); d0.setHours(0, 0, 0, 0);
-  for (var d = new Date(d0); d.getTime() <= we; d.setDate(d.getDate() + 1)) days.push(fpIso(d));
+  for (var d = new Date(d0); d.getTime() < we; d.setDate(d.getDate() + 1)) days.push(fpIso(d));
   var unknown = false, core = false, margin = false;
   var infos = days.map(function (di) {
     var ty = fpDayType(di), inf = { date: di, type: ty };
