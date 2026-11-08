@@ -4080,38 +4080,6 @@ var PATH_MEDIA = 'freelang/media/';
 var MEDIA_KEYS = ['plm_', 'plc_', 'pli_'];
 var PUB_MODES = ['hidden', 'free', 'auto', 'lock', 'revoke'];
 var MODE_ICON = { hidden: '🙈', free: '🌐', auto: '⚡', lock: '🔒', revoke: '🚫' };
-/* Supabase user counter — fill SUPA_URL/SUPA_KEY after creating the project
-   (anon key is public-safe; the tables stay locked behind security-definer RPCs) */
-var SUPA_URL = '', SUPA_KEY = '';
-function supaOn() { return !!(SUPA_URL && SUPA_KEY); }
-function flUid() {
-  try {
-    var u = localStorage.getItem('freelang_uid');
-    if (!u) {
-      u = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : 'u' + Date.now() + Math.random().toString(36).slice(2);
-      localStorage.setItem('freelang_uid', u);
-    }
-    return u;
-  } catch (e) { return 'anon'; }
-}
-function supaHeaders() { return { 'apikey': SUPA_KEY, 'Authorization': 'Bearer ' + SUPA_KEY, 'Content-Type': 'application/json' }; }
-async function heartbeat() {
-  if (!supaOn()) return;
-  try {
-    await fetch(SUPA_URL + '/rest/v1/rpc/freelang_heartbeat', {
-      method: 'POST', headers: supaHeaders(),
-      body: JSON.stringify({ p_uid: flUid(), p_app: FL_ADMIN ? 'admin' : 'user' })
-    });
-  } catch (e) {}
-}
-async function fetchUserStats() {
-  if (!supaOn()) return null;
-  try {
-    var r = await fetch(SUPA_URL + '/rest/v1/rpc/freelang_user_count', { method: 'POST', headers: supaHeaders(), body: '{}' });
-    if (!r.ok) return null;
-    return await r.json();
-  } catch (e) { return null; }
-}
 var cloud = {
   cat: null, busy: false, syncing: false, sig: {},
   token: localStorage.getItem('freelang_gh_token') || ''
@@ -4134,8 +4102,7 @@ var FL_I18N = {
     tokAsk: 'الصق رمز GitHub (Personal Access Token) بصلاحية Contents: Read and write على المستودع — يُحفظ على هذا الجهاز فقط',
     tokOut: 'تسجيل الخروج من GitHub', ver: 'آخر نشر', never: 'لم يُنشر بعد', wholeFolder: 'تطبيق على كل دروس المجلد',
     statPub: 'منشور', statAuto: 'تلقائي', statLock: 'مقفل', statRev: 'مسحوب', admin: 'Admin',
-    roMsg: 'الدرس للقراءة فقط — التعديلات من تطبيق الأدمن',
-    users: 'مستخدمون', usersOn: 'نشطون آخر 7 أيام', usersNone: 'العدّاد غير مفعّل'
+    roMsg: 'الدرس للقراءة فقط — التعديلات من تطبيق الأدمن'
   },
   fr: {
     lib: 'Bibliothèque', libSub: 'Leçons Freelang', panel: 'Publication', panelSub: 'Contrôle des téléchargements',
@@ -4152,8 +4119,7 @@ var FL_I18N = {
     tokAsk: 'Collez un jeton GitHub (Personal Access Token) avec Contents: Read and write — stocké sur cet appareil uniquement',
     tokOut: 'Déconnecter GitHub', ver: 'Dernière publication', never: 'Jamais publié', wholeFolder: 'Appliquer à tout le dossier',
     statPub: 'Publiées', statAuto: 'Auto', statLock: 'Verrouillées', statRev: 'Retirées', admin: 'Admin',
-    roMsg: 'Leçon en lecture seule — modifiable depuis l’app admin',
-    users: 'Utilisateurs', usersOn: 'Actifs 7 j', usersNone: 'Compteur désactivé'
+    roMsg: 'Leçon en lecture seule — modifiable depuis l’app admin'
   },
   en: {
     lib: 'Lesson library', libSub: 'Lessons from Freelang', panel: 'Publish panel', panelSub: 'Control lesson downloads',
@@ -4170,8 +4136,7 @@ var FL_I18N = {
     tokAsk: 'Paste a GitHub Personal Access Token with Contents: Read and write on the repo — stored on this device only',
     tokOut: 'Log out of GitHub', ver: 'Last publish', never: 'Never published', wholeFolder: 'Apply to every lesson in the folder',
     statPub: 'Published', statAuto: 'Auto', statLock: 'Locked', statRev: 'Revoked', admin: 'Admin',
-    roMsg: 'Read-only lesson — edit it from the admin app',
-    users: 'Users', usersOn: 'Active 7d', usersNone: 'Counter disabled'
+    roMsg: 'Read-only lesson — edit it from the admin app'
   }
 };
 function FT() { return FL_I18N[uiLang()] || FL_I18N.ar; }
@@ -4439,10 +4404,6 @@ function renderAdminPanel(v) {
   var tk = el('button', 'fl-chip' + (cloud.token ? ' on' : ''), cloud.token ? '🔑 ' + c.tokOk : '🔑 ' + c.tok);
   tk.onclick = function () { tokenSheet(); };
   var row0 = el('div', 'fl-chips'); row0.appendChild(tk); top.appendChild(row0);
-  var ul = el('div', 'fl-status', c.usersNone); ul.id = 'flUsers'; top.appendChild(ul);
-  if (supaOn()) fetchUserStats().then(function (s) {
-    if (s && ul.isConnected !== false) ul.textContent = '👥 ' + c.users + ': ' + (s.total || 0) + ' · ' + c.usersOn + ': ' + (s.d7 || 0);
-  });
   var counts = { free: 0, auto: 0, lock: 0, revoke: 0 };
   folders.forEach(function (f) { (f.lessons || []).forEach(function (l) { var m = pubMode(l); if (m in counts) counts[m]++; }); });
   var st = el('div', 'pl-stats');
@@ -5681,12 +5642,10 @@ if (FL_ADMIN) {
 applyTheme();
 applyI18n();
 render();
-setTimeout(heartbeat, 3000);
-setInterval(function () { if (!document.hidden) heartbeat(); }, 6 * 3600 * 1000);
 if (!FL_ADMIN) {
   setTimeout(function () { syncLibrary(false); }, 1200);
   setInterval(function () { if (!document.hidden) syncLibrary(false); }, 5 * 60 * 1000);
-  document.addEventListener('visibilitychange', function () { if (!document.hidden) { syncLibrary(false); heartbeat(); } });
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) syncLibrary(false); });
 } else {
   fetchCatalog().then(function (c) { if (c) { saveCatalog(c); if (!nav.f) render(); } });
 }
