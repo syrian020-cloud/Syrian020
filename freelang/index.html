@@ -5137,7 +5137,7 @@ async function apEnsureChannel() {
   var p = apLN(); if (!p || !p.createChannel) return;
   try {
     await p.createChannel({ id: 'freelang-alerts', name: 'Freelang reminders', description: 'Appointment reminders',
-      importance: 5, visibility: 1, lights: true, vibration: true, sound: 'freelang_alert' });
+      importance: 5, visibility: 0, lights: true, vibration: true, sound: 'freelang_alert' });
   } catch (e) {}
 }
 async function apSchedule(a) {
