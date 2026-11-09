@@ -4877,7 +4877,7 @@ function hubTiles(v) {
   hub.appendChild(pt);
   var at = el('button', 'fl-tile gold');
   at.innerHTML = '<span class="big">📅</span><span class="ttl">' + esc(fpT().apList) + '</span><span class="sub">' + esc(fpT().apptTileSub) + '</span>';
-  at.onclick = function () { nav.appts = true; nav.plan = false; nav.f = null; nav.l = null; render(); openApptForm(null); };
+  at.onclick = function () { nav.appts = true; nav.plan = false; nav.f = null; nav.l = null; render(); };
   hub.appendChild(at);
   v.appendChild(hub);
 }
