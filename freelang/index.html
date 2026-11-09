@@ -5314,23 +5314,17 @@ function apSetStatusFromDetails(id, st) {
   closeOv();
 }
 function apMapChooser(a) {
-  var t = fpT();
   var q = (a.address || a.place || '').trim();
   if (!q) return;
-  var e = encodeURIComponent(q);
-  var sh = sheetHead(t.apChooseMap);
-  var opts = [
-    ['Google Maps', 'https://www.google.com/maps/search/?api=1&query=' + e],
-    ['Waze', 'https://waze.com/ul?q=' + e + '&navigate=yes'],
-    ['Apple Maps', 'https://maps.apple.com/?q=' + e],
-    ['OpenStreetMap', 'https://www.openstreetmap.org/search?query=' + e]
-  ];
-  opts.forEach(function (o) {
-    var b = el('button', 'mrow');
-    b.appendChild(el('span', 'mi', '🗺️')); b.appendChild(el('span', null, o[0]));
-    b.onclick = function () { closeOv(); openExternal(o[1]); };
-    sh.appendChild(b);
-  });
+  var web = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+  var AL = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.AppLauncher;
+  if (AL && AL.openUrl) {
+    AL.openUrl({ url: 'geo:0,0?q=' + encodeURIComponent(q) })
+      .then(function (r) { if (r && r.completed === false) openExternal(web); })
+      .catch(function () { openExternal(web); });
+    return;
+  }
+  openExternal(web);
 }
 function openApptForm(id) {
   var t = fpT();
