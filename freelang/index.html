@@ -1328,7 +1328,7 @@ function readAll(lesson) {
 }
 
 /* ================= nav state ================= */
-var nav = { f: null, l: null, lib: false, admin: false, plan: false };
+var nav = { f: null, l: null, lib: false, admin: false, plan: false, appts: false };
 var fab = document.getElementById('fab');   // current folder id / lesson id
 var q = '';
 document.getElementById('search').addEventListener('input', function () {
@@ -1367,15 +1367,17 @@ function render() {
   var l = findL(f, nav.l);
 
   if (q) { renderSearch(v); back.classList.add('hidden'); crumb.classList.add('hidden'); return; }
-  if (nav.plan) { fab.textContent = '📅'; fab.classList.remove('hidden'); }
+  if (nav.plan || nav.appts) { fab.textContent = '📅'; fab.classList.remove('hidden'); }
   else {
     fab.textContent = '➕';
     fab.classList.toggle('hidden', !FL_ADMIN || !!(nav.lib || nav.admin || isRemote(f)));
   }
-  if (nav.lib || nav.admin || nav.plan) {
+  if (nav.lib || nav.admin || nav.plan || nav.appts) {
     back.classList.remove('hidden'); crumb.classList.remove('hidden');
-    crumb.textContent = nav.lib ? '📥 ' + FT().lib : nav.admin ? '🛠 ' + FT().panel : '🗓️ ' + fpT().planTitle;
-    if (nav.lib) renderLibrary(v); else if (nav.admin) renderAdminPanel(v); else renderPlanView(v);
+    crumb.textContent = nav.lib ? '📥 ' + FT().lib : nav.admin ? '🛠 ' + FT().panel :
+      nav.appts ? '📅 ' + fpT().apList : '🗓️ ' + fpT().planTitle;
+    if (nav.lib) renderLibrary(v); else if (nav.admin) renderAdminPanel(v);
+    else if (nav.appts) renderApptsView(v); else renderPlanView(v);
     return;
   }
 
@@ -4844,15 +4846,11 @@ function hubTiles(v) {
   }
   var pt = el('button', 'fl-tile');
   pt.innerHTML = '<span class="big">🗓️</span><span class="ttl">' + esc(fpT().tile) + '</span><span class="sub">' + esc(fpT().tileSub) + '</span>';
-  pt.onclick = function () { nav.plan = true; nav.f = null; nav.l = null; render(); };
+  pt.onclick = function () { nav.plan = true; nav.appts = false; nav.f = null; nav.l = null; render(); };
   hub.appendChild(pt);
   var at = el('button', 'fl-tile gold');
   at.innerHTML = '<span class="big">📅</span><span class="ttl">' + esc(fpT().apList) + '</span><span class="sub">' + esc(fpT().apptTileSub) + '</span>';
-  at.onclick = function () {
-    nav.plan = true; nav.f = null; nav.l = null; render();
-    var wrap = document.getElementById('fp-apwrap');
-    if (wrap && wrap.scrollIntoView) wrap.scrollIntoView({ block: 'start' });
-  };
+  at.onclick = function () { nav.appts = true; nav.plan = false; nav.f = null; nav.l = null; render(); openApptForm(null); };
   hub.appendChild(at);
   v.appendChild(hub);
 }
@@ -5097,12 +5095,21 @@ function renderPlanView(v) {
     document.getElementById('fp-res').innerHTML = '<div class="fl-verd ' + cls[r.verdict] + '">' + icons[r.verdict] + ' ' + esc(lbl) + '<div class="fl-vlines">' + lines.join('<br>') + '</div></div>';
   };
 
-  var c4 = el('div', 'fl-panel');
-  c4.innerHTML = '<div class="fl-wkline">📅 ' + esc(t.apList) +
+  v.appendChild(apptsPanel());
+}
+
+function renderApptsView(v) {
+  v.appendChild(apptsPanel());
+}
+
+function apptsPanel() {
+  var t = fpT();
+  var c = el('div', 'fl-panel');
+  c.innerHTML = '<div class="fl-wkline">📅 ' + esc(t.apList) +
     '<button class="fl-apadd" id="fp-apadd" title="' + esc(t.apNew) + '">📅＋</button></div><div id="fp-apwrap"></div>';
-  v.appendChild(c4);
-  c4.querySelector('#fp-apadd').onclick = function () { openApptForm(null); };
-  renderAppts(c4.querySelector('#fp-apwrap'));
+  c.querySelector('#fp-apadd').onclick = function () { openApptForm(null); };
+  renderAppts(c.querySelector('#fp-apwrap'));
+  return c;
 }
 
 /* ================= appointments + loud reminders ================= */
@@ -5192,11 +5199,11 @@ function apSetStatus(id, st) {
   var a = apById(id); if (!a) return;
   if (st === 'done' && apTime(a) && apTime(a) > Date.now()) { toast('⏳ ' + fpT().apDoneEarly); return; }
   a.status = st; a.updatedAt = Date.now(); apSave(); apSchedule(a);
-  if (nav.plan) render();
+  if (nav.plan || nav.appts) render();
 }
 function apDelete(id) {
   appts = appts.filter(function (x) { return x.id !== id; }); apSave(); apCancelRem({ id: id });
-  if (nav.plan) render(); toast('🗑️ ' + fpT().apDeleted);
+  if (nav.plan || nav.appts) render(); toast('🗑️ ' + fpT().apDeleted);
 }
 function openApptForm(id) {
   var t = fpT();
@@ -5246,7 +5253,7 @@ function saveAppt(id, d) {
   apSave(); apSchedule(a);
   if (!apLN() && 'Notification' in window && Notification.permission === 'default') { try { Notification.requestPermission(); } catch (e) {} }
   closeOv(); toast('✓ ' + t.apSaved);
-  if (nav.plan) render();
+  if (nav.plan || nav.appts) render();
 }
 /* ---- reminders: native LocalNotifications (loud channel) + browser fallback ---- */
 function apLN() { return window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.LocalNotifications; }
@@ -5355,7 +5362,7 @@ function confirmExit() {
 }
 function goBack() {
   stopReadAll();
-  if (nav.lib || nav.admin || nav.plan) { nav.lib = false; nav.admin = false; nav.plan = false; render(); return; }
+  if (nav.lib || nav.admin || nav.plan || nav.appts) { nav.lib = nav.admin = nav.plan = nav.appts = false; render(); return; }
   if (nav.l) { nav.l = null; render(); return; }
   if (nav.f) { nav.f = null; render(); return; }
   confirmExit();
@@ -5366,7 +5373,7 @@ document.querySelectorAll('#langMini [data-lm]').forEach(function (b) {
 });
 
 fab.onclick = function () {
-  if (nav.plan) { openApptForm(null); return; }
+  if (nav.plan || nav.appts) { openApptForm(null); return; }
   var f = findF(nav.f), l = findL(f, nav.l);
   if (isRemote(f)) { f = null; l = null; }
   if (!FL_ADMIN) return;
