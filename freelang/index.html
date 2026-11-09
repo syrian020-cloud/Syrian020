@@ -5297,6 +5297,9 @@ function openApptDetails(a) {
   chk.onclick = function () {
     closeOv();
     nav.appts = false; nav.plan = true; nav.f = null; nav.l = null; render();
+    var fd = document.getElementById('fp-date'), ft = document.getElementById('fp-time');
+    if (fd && a.date) fd.value = a.date;
+    if (ft && a.time) ft.value = a.time;
   };
   sh.appendChild(chk);
 }
