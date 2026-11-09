@@ -587,6 +587,33 @@
   .fl-st.done { background: #16a34a22; color: #16a34a; } .fl-st.off { background: #6b728022; color: #6b7280; }
   .fl-apmenu { border: none; background: var(--card2); color: var(--txt); border-radius: 10px; padding: .35rem .55rem;
     font-size: .9rem; cursor: pointer; font-family: inherit; flex: none; }
+  .fl-apdh { display: flex; align-items: center; gap: .5rem; margin: -.2rem 0 .6rem; }
+  .fl-apd-icbtn { width: 2.1rem; height: 2.1rem; border-radius: 12px; border: 1px solid var(--line);
+    background: var(--card); color: var(--txt); font-size: 1.05rem; cursor: pointer; flex: none; font-family: inherit; }
+  .fl-apd-title { flex: 1; min-width: 0; font-weight: 800; font-size: 1rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .fl-apd-chips { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: .6rem; }
+  .fl-apd-chips .fl-st { margin-inline-start: 0; font-size: .72rem; padding: .16rem .6rem; }
+  .fl-apd-cat { border-radius: 999px; padding: .16rem .6rem; font-size: .72rem; font-weight: 700;
+    background: rgba(251,191,36,.16); color: var(--gold); }
+  .fl-apd-stbtns { display: flex; gap: .5rem; margin-bottom: .7rem; }
+  .fl-apd-stbtn { flex: 1; border: 2px solid var(--line); background: var(--card2); color: var(--txt);
+    border-radius: 14px; padding: .55rem .3rem; font-family: inherit; font-weight: 800; font-size: .82rem; cursor: pointer; }
+  .fl-apd-stbtn.on-up { border-color: #2563eb; background: #2563eb22; }
+  .fl-apd-stbtn.on-done { border-color: #16a34a; background: #16a34a22; }
+  .fl-apd-stbtn.on-off { border-color: #6b7280; background: #6b728022; }
+  .fl-apd-row { display: flex; align-items: flex-start; gap: .6rem; padding: .5rem 0; border-top: 1px solid var(--line); }
+  .fl-apd-ic { flex: none; width: 1.4rem; text-align: center; font-size: .95rem; }
+  .fl-apd-box { flex: 1; min-width: 0; }
+  .fl-apd-lab { display: block; font-size: .68rem; color: var(--dim); font-weight: 700; }
+  .fl-apd-val { font-size: .9rem; font-weight: 600; margin-top: .1rem; overflow-wrap: anywhere; }
+  .fl-apd-maps { display: flex; gap: .5rem; margin-top: .8rem; }
+  .fl-apd-map { flex: 1; border: none; border-radius: 14px; padding: .7rem .4rem; font-family: inherit;
+    font-weight: 800; font-size: .85rem; cursor: pointer; color: #fff; }
+  .fl-apd-map.gmaps { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+  .fl-apd-map.choose { background: linear-gradient(135deg, #7c3aed, #9333ea); }
+  .fl-apd-check { width: 100%; margin-top: .7rem; border: none; border-radius: 14px; padding: .75rem;
+    font-family: inherit; font-weight: 800; font-size: .9rem; cursor: pointer; color: #fff;
+    background: linear-gradient(135deg, #16a34a, #15803d); }
   .fl-panel { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: .9rem .9rem .5rem; margin-bottom: .8rem; }
   .fl-panel h4 { margin: 0 0 .5rem; font-size: .95rem; }
   .fl-chips { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: .4rem; }
@@ -4883,7 +4910,9 @@ var FP_I18N = {
     apNotifBody2: function (m) { return 'قريباً بعد ساعتين: ' + m; }, apNotifBody0: function (m) { return 'حان الموعد الآن: ' + m; },
     apDaysLeft: function (d) { return d === 1 ? 'باقي يوم واحد' : d === 2 ? 'باقي يومان' : d <= 10 ? 'باقي ' + d + ' أيام' : 'باقي ' + d + ' يوماً'; },
     apMinsLeft: function (m) { return m <= 1 ? 'باقي أقل من دقيقة' : m === 2 ? 'باقي دقيقتان' : 'باقي ' + m + ' دقيقة'; },
-    apHmLeft: function (h, m) { return m ? 'باقي ' + h + ' س ' + m + ' د' : (h === 1 ? 'باقي ساعة' : h === 2 ? 'باقي ساعتان' : 'باقي ' + h + ' ساعات'); } },
+    apHmLeft: function (h, m) { return m ? 'باقي ' + h + ' س ' + m + ' د' : (h === 1 ? 'باقي ساعة' : h === 2 ? 'باقي ساعتان' : 'باقي ' + h + ' ساعات'); },
+    apdDate: 'التاريخ', apdTime: 'الوقت', apdPlace: 'المكان', apdAddr: 'العنوان الكامل', apdNotes: 'ملاحظات',
+    apChooseMap: 'اختيار خريطة', apGoogleMaps: 'Google Maps' },
   fr: { tile: 'Mon planning', tileSub: 'Alternance + vérif. RDV',
     planTitle: 'Mon planning', planSub: 'Réglez cette semaine — les suivantes alternent automatiquement',
     wkThis: 'Cette semaine :', shMatin: 'MATIN', shSoir: 'SOIR', shRepos: 'REPOS',
@@ -4910,7 +4939,9 @@ var FP_I18N = {
     apNotifBody2: function (m) { return 'Dans 2 h : ' + m; }, apNotifBody0: function (m) { return 'C\'est l\'heure : ' + m; },
     apDaysLeft: function (d) { return d <= 1 ? 'dans 1 jour' : 'dans ' + d + ' jours'; },
     apMinsLeft: function (m) { return m <= 1 ? 'dans moins d\'1 min' : 'dans ' + m + ' min'; },
-    apHmLeft: function (h, m) { return m ? 'dans ' + h + ' h ' + m + ' min' : 'dans ' + h + ' h'; } },
+    apHmLeft: function (h, m) { return m ? 'dans ' + h + ' h ' + m + ' min' : 'dans ' + h + ' h'; },
+    apdDate: 'Date', apdTime: 'Heure', apdPlace: 'Lieu', apdAddr: 'Adresse complète', apdNotes: 'Notes',
+    apChooseMap: 'Choisir une carte', apGoogleMaps: 'Google Maps' },
   en: { tile: 'Work schedule', tileSub: 'Rotation + appointment check',
     planTitle: 'Work schedule', planSub: 'Set this week — future weeks alternate automatically',
     wkThis: 'This week:', shMatin: 'MORNING', shSoir: 'EVENING', shRepos: 'OFF',
@@ -4937,7 +4968,9 @@ var FP_I18N = {
     apNotifBody2: function (m) { return 'In 2 h: ' + m; }, apNotifBody0: function (m) { return 'It\'s time: ' + m; },
     apDaysLeft: function (d) { return d <= 1 ? 'in 1 day' : 'in ' + d + ' days'; },
     apMinsLeft: function (m) { return m <= 1 ? 'in < 1 min' : 'in ' + m + ' min'; },
-    apHmLeft: function (h, m) { return m ? 'in ' + h + ' h ' + m + ' min' : 'in ' + h + ' h'; } }
+    apHmLeft: function (h, m) { return m ? 'in ' + h + ' h ' + m + ' min' : 'in ' + h + ' h'; },
+    apdDate: 'Date', apdTime: 'Time', apdPlace: 'Place', apdAddr: 'Full address', apdNotes: 'Notes',
+    apChooseMap: 'Choose a map', apGoogleMaps: 'Google Maps' }
 };
 function fpT() { return FP_I18N[uiLang()] || FP_I18N.ar; }
 var FP_KEY = 'freelang_plan';
@@ -5175,7 +5208,7 @@ function renderAppts(box) {
   }
   box.innerHTML = html;
   box.querySelectorAll('.fl-next[data-id], .fl-appt[data-id]').forEach(function (x) {
-    x.onclick = function () { openApptForm(x.getAttribute('data-id')); };
+    x.onclick = function () { var a = apById(x.getAttribute('data-id')); if (a) openApptDetails(a); };
   });
   box.querySelectorAll('[data-menu]').forEach(function (b) {
     b.onclick = function (e) { e.stopPropagation(); var a = apById(b.getAttribute('data-menu')); if (a) apptMenu(a); };
@@ -5204,6 +5237,95 @@ function apSetStatus(id, st) {
 function apDelete(id) {
   appts = appts.filter(function (x) { return x.id !== id; }); apSave(); apCancelRem({ id: id });
   if (nav.plan || nav.appts) render(); toast('🗑️ ' + fpT().apDeleted);
+}
+function apFmtDateLong(a) {
+  try { return new Intl.DateTimeFormat(fpLoc(), { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(a.date + 'T12:00')); }
+  catch (e) { return a.date || ''; }
+}
+function apdRow(icon, label, value) {
+  var r = el('div', 'fl-apd-row');
+  r.appendChild(el('span', 'fl-apd-ic', icon));
+  var box = el('div', 'fl-apd-box');
+  box.appendChild(el('span', 'fl-apd-lab', label));
+  box.appendChild(el('div', 'fl-apd-val', value || '—'));
+  r.appendChild(box);
+  return r;
+}
+function openApptDetails(a) {
+  var t = fpT();
+  if (!a) return;
+  var eff = apEff(a);
+  var sh = sheet();
+  var h = el('div', 'fl-apdh');
+  var back = el('button', 'fl-apd-icbtn', uiLang() === 'ar' ? '→' : '←');
+  back.title = 'Back'; back.onclick = closeOv;
+  var title = el('div', 'fl-apd-title', a.title || t.apList);
+  var edit = el('button', 'fl-apd-icbtn', '✎');
+  edit.title = t.apEdit;
+  edit.onclick = function () { openApptForm(a.id); };
+  h.appendChild(back); h.appendChild(title); h.appendChild(edit);
+  sh.appendChild(h);
+  var chips = el('div', 'fl-apd-chips');
+  var stLbl = { up: t.apStUp, over: t.apStOver, done: t.apStDone, off: t.apStOff }[eff] || eff;
+  chips.appendChild(el('span', 'fl-st ' + eff, stLbl));
+  if (a.category && t.apCats[a.category]) chips.appendChild(el('span', 'fl-apd-cat', t.apCats[a.category]));
+  sh.appendChild(chips);
+  var sbs = el('div', 'fl-apd-stbtns');
+  var stMap = [['upcoming', 'up', t.apStUp], ['done', 'done', t.apStDone], ['cancelled', 'off', t.apStOff]];
+  stMap.forEach(function (x) {
+    var on = a.status === x[0];
+    var b = el('button', 'fl-apd-stbtn' + (on ? ' on-' + x[1] : ''), x[2]);
+    b.onclick = function () { apSetStatusFromDetails(a.id, x[0]); };
+    sbs.appendChild(b);
+  });
+  sh.appendChild(sbs);
+  sh.appendChild(apdRow('📅', t.apdDate, apFmtDateLong(a)));
+  sh.appendChild(apdRow('🕐', t.apdTime, a.time || '—'));
+  if (a.place) sh.appendChild(apdRow('📍', t.apdPlace, a.place));
+  if (a.address) sh.appendChild(apdRow('🏠', t.apdAddr, a.address));
+  if (a.notes) sh.appendChild(apdRow('📝', t.apdNotes, a.notes));
+  if (a.place || a.address) {
+    var maps = el('div', 'fl-apd-maps');
+    var gm = el('button', 'fl-apd-map gmaps', '🔎 ' + t.apGoogleMaps);
+    gm.onclick = function () { openExternal('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent((a.address || a.place || '').trim())); };
+    var ch = el('button', 'fl-apd-map choose', '🗺️ ' + t.apChooseMap);
+    ch.onclick = function () { apMapChooser(a); };
+    maps.appendChild(gm); maps.appendChild(ch);
+    sh.appendChild(maps);
+  }
+  var chk = el('button', 'fl-apd-check', '✅ ' + t.chkTitle);
+  chk.onclick = function () {
+    closeOv();
+    nav.appts = false; nav.plan = true; nav.f = null; nav.l = null; render();
+  };
+  sh.appendChild(chk);
+}
+function apSetStatusFromDetails(id, st) {
+  var before = apById(id);
+  var beforeSt = before ? before.status : null;
+  apSetStatus(id, st);
+  var after = apById(id);
+  if (!after || after.status === beforeSt) return;
+  closeOv();
+}
+function apMapChooser(a) {
+  var t = fpT();
+  var q = (a.address || a.place || '').trim();
+  if (!q) return;
+  var e = encodeURIComponent(q);
+  var sh = sheetHead(t.apChooseMap);
+  var opts = [
+    ['Google Maps', 'https://www.google.com/maps/search/?api=1&query=' + e],
+    ['Waze', 'https://waze.com/ul?q=' + e + '&navigate=yes'],
+    ['Apple Maps', 'https://maps.apple.com/?q=' + e],
+    ['OpenStreetMap', 'https://www.openstreetmap.org/search?query=' + e]
+  ];
+  opts.forEach(function (o) {
+    var b = el('button', 'mrow');
+    b.appendChild(el('span', 'mi', '🗺️')); b.appendChild(el('span', null, o[0]));
+    b.onclick = function () { closeOv(); openExternal(o[1]); };
+    sh.appendChild(b);
+  });
 }
 function openApptForm(id) {
   var t = fpT();
