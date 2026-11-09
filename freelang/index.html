@@ -1394,7 +1394,7 @@ function render() {
   var l = findL(f, nav.l);
 
   if (q) { renderSearch(v); back.classList.add('hidden'); crumb.classList.add('hidden'); return; }
-  if (nav.plan || nav.appts) { fab.textContent = '📅'; fab.classList.remove('hidden'); }
+  if (nav.plan || nav.appts) { fab.textContent = '＋'; fab.classList.remove('hidden'); }
   else {
     fab.textContent = '➕';
     fab.classList.toggle('hidden', !FL_ADMIN || !!(nav.lib || nav.admin || isRemote(f)));
