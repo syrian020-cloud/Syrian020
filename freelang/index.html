@@ -519,16 +519,18 @@
   .hidden { display: none !important; }
 
   /* ====== FreelAng cloud: library / admin dashboard ====== */
-  .fl-hub { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin: .3rem 0 1rem; }
-  .fl-tile { border: none; border-radius: 20px; padding: 1rem .8rem; cursor: pointer; text-align: center;
+  .fl-hub { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; margin: .3rem 0 .9rem; }
+  .fl-tile { border: none; border-radius: 16px; padding: .75rem .6rem; cursor: pointer; text-align: center;
     color: #fff; font-family: inherit; position: relative; overflow: hidden;
-    background: linear-gradient(135deg, #7c3aed, #9333ea 45%, #f97316); }
-  .fl-tile .big { font-size: 2.1rem; display: block; margin-bottom: .3rem; }
-  .fl-tile .ttl { font-weight: 800; font-size: .95rem; display: block; }
-  .fl-tile .sub { font-size: .68rem; opacity: .85; display: block; margin-top: .15rem; }
+    background: linear-gradient(135deg, #7c3aed, #9333ea 45%, #f97316);
+    box-shadow: 0 6px 16px rgba(124,58,237,.16); transition: transform .12s ease, box-shadow .12s ease; }
+  .fl-tile:active { transform: scale(.97); box-shadow: 0 3px 10px rgba(124,58,237,.22); }
+  .fl-tile .big { font-size: 1.7rem; display: block; margin-bottom: .2rem; }
+  .fl-tile .ttl { font-weight: 800; font-size: .88rem; display: block; }
+  .fl-tile .sub { font-size: .64rem; opacity: .85; display: block; margin-top: .1rem; }
   .fl-tile.gold { background: linear-gradient(135deg, #b45309, #d97706 45%, #7c3aed); }
-  .fl-badge { position: absolute; top: .45rem; inset-inline-end: .45rem; background: #fff; color: #7c3aed;
-    font-size: .62rem; font-weight: 800; border-radius: 999px; padding: .1rem .45rem; min-width: 1.2rem; }
+  .fl-badge { position: absolute; top: .4rem; inset-inline-end: .4rem; background: #fff; color: #7c3aed;
+    font-size: .6rem; font-weight: 800; border-radius: 999px; padding: .1rem .42rem; min-width: 1.15rem; }
   .fl-sub { font-size: .72rem; opacity: .75; margin: -.3rem 0 .6rem; }
   .fl-wkline { font-weight: 800; margin-bottom: .5rem; }
   .fl-apadd { float: inline-end; border: none; border-radius: 10px; padding: .18rem .6rem; margin-inline-start: .5rem;
