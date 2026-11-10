@@ -77,10 +77,10 @@
   main { max-width: 860px; margin: 0 auto; padding: .9rem .8rem; }
 
   /* ---------- cards / lists ---------- */
-  .pl-stats { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; margin: .3rem 0 .9rem; }
+  .pl-stats { display: flex; gap: .45rem; justify-content: center; flex-wrap: nowrap; margin: .3rem 0 .9rem; }
   .pl-stat { background: var(--card, #fff); border: 1px solid var(--line, #e5e7eb); border-radius: 999px;
-    padding: .45rem 1.1rem; font-size: 1.02rem; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
-  .pl-stat b { font-size: 1.15rem; }
+    padding: .4rem .7rem; font-size: .88rem; white-space: nowrap; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+  .pl-stat b { font-size: 1rem; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100px, 100%), 1fr)); gap: .5rem; }
   .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px;
     padding: .7rem .55rem .6rem; cursor: pointer; display: flex; flex-direction: column;
@@ -520,15 +520,15 @@
   .hidden { display: none !important; }
 
   /* ====== FreelAng cloud: library / admin dashboard ====== */
-  .fl-hub { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; margin: .3rem 0 .9rem; }
-  .fl-tile { border: none; border-radius: 16px; padding: .75rem .6rem; cursor: pointer; text-align: center;
+  .fl-hub { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin: .3rem 0 .9rem; }
+  .fl-tile { border: none; border-radius: 14px; padding: .6rem .35rem; cursor: pointer; text-align: center;
     color: #fff; font-family: inherit; position: relative; overflow: hidden;
     background: linear-gradient(135deg, #7c3aed, #9333ea 45%, #f97316);
     box-shadow: 0 6px 16px rgba(124,58,237,.16); transition: transform .12s ease, box-shadow .12s ease; }
   .fl-tile:active { transform: scale(.97); box-shadow: 0 3px 10px rgba(124,58,237,.22); }
-  .fl-tile .big { font-size: 1.7rem; display: block; margin-bottom: .2rem; }
-  .fl-tile .ttl { font-weight: 800; font-size: .88rem; display: block; }
-  .fl-tile .sub { font-size: .64rem; opacity: .85; display: block; margin-top: .1rem; }
+  .fl-tile .big { font-size: 1.45rem; display: block; margin-bottom: .15rem; }
+  .fl-tile .ttl { font-weight: 800; font-size: .78rem; display: block; }
+  .fl-tile .sub { font-size: .56rem; opacity: .85; display: block; margin-top: .08rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .fl-tile.gold { background: linear-gradient(135deg, #b45309, #d97706 45%, #7c3aed); }
   .fl-badge { position: absolute; top: .4rem; inset-inline-end: .4rem; background: #fff; color: #7c3aed;
     font-size: .6rem; font-weight: 800; border-radius: 999px; padding: .1rem .42rem; min-width: 1.15rem; }
@@ -4311,7 +4311,8 @@ var FL_I18N = {
     tokAsk: 'الصق رمز GitHub (Personal Access Token) بصلاحية Contents: Read and write على المستودع — يُحفظ على هذا الجهاز فقط',
     tokOut: 'تسجيل الخروج من GitHub', ver: 'آخر نشر', never: 'لم يُنشر بعد', wholeFolder: 'تطبيق على كل دروس المجلد',
     statPub: 'منشور', statAuto: 'تلقائي', statLock: 'مقفل', statRev: 'مسحوب', admin: 'Admin',
-    roMsg: 'الدرس للقراءة فقط — التعديلات من تطبيق الأدمن'
+    roMsg: 'الدرس للقراءة فقط — التعديلات من تطبيق الأدمن',
+    libNotifTitle: '📥 درس جديد', libNotifBody: function (n, first) { return n === 1 ? '«' + first + '» وصل إلى مكتبتك' : n + ' دروس جديدة وصلت إلى مكتبتك'; }
   },
   fr: {
     lib: 'Bibliothèque', libSub: 'Leçons Freelang', panel: 'Publication', panelSub: 'Contrôle des téléchargements',
@@ -4328,7 +4329,8 @@ var FL_I18N = {
     tokAsk: 'Collez un jeton GitHub (Personal Access Token) avec Contents: Read and write — stocké sur cet appareil uniquement',
     tokOut: 'Déconnecter GitHub', ver: 'Dernière publication', never: 'Jamais publié', wholeFolder: 'Appliquer à tout le dossier',
     statPub: 'Publiées', statAuto: 'Auto', statLock: 'Verrouillées', statRev: 'Retirées', admin: 'Admin',
-    roMsg: 'Leçon en lecture seule — modifiable depuis l’app admin'
+    roMsg: 'Leçon en lecture seule — modifiable depuis l’app admin',
+    libNotifTitle: '📥 Nouveau cours', libNotifBody: function (n, first) { return n === 1 ? '« ' + first + ' » est arrivé dans votre bibliothèque' : n + ' nouveaux cours sont arrivés dans votre bibliothèque'; }
   },
   en: {
     lib: 'Lesson library', libSub: 'Lessons from Freelang', panel: 'Publish panel', panelSub: 'Control lesson downloads',
@@ -4345,7 +4347,8 @@ var FL_I18N = {
     tokAsk: 'Paste a GitHub Personal Access Token with Contents: Read and write on the repo — stored on this device only',
     tokOut: 'Log out of GitHub', ver: 'Last publish', never: 'Never published', wholeFolder: 'Apply to every lesson in the folder',
     statPub: 'Published', statAuto: 'Auto', statLock: 'Locked', statRev: 'Revoked', admin: 'Admin',
-    roMsg: 'Read-only lesson — edit it from the admin app'
+    roMsg: 'Read-only lesson — edit it from the admin app',
+    libNotifTitle: '📥 New lesson', libNotifBody: function (n, first) { return n === 1 ? '"' + first + '" arrived in your library' : n + ' new lessons arrived in your library'; }
   }
 };
 function FT() { return FL_I18N[uiLang()] || FL_I18N.ar; }
@@ -4734,8 +4737,19 @@ async function syncLibrary(manual) {
   try {
     var cat = await fetchCatalog();
     if (!cat) { if (manual) toast(c.offline); return; }
+    var prevCat = cloud.cat;
     saveCatalog(cat);
     var changed = applyCatalog(cat);
+    var fresh = [];
+    if (prevCat) {
+      var seen = {};
+      catEntries(prevCat).forEach(function (x) { seen[x.e.id] = 1; });
+      catEntries(cat).forEach(function (x) {
+        if (seen[x.e.id]) return;
+        if (x.e.mode === 'hidden' || x.e.mode === 'revoke') return;
+        fresh.push(x.e.title || x.e.id);
+      });
+    }
     var jobs = catEntries(cat).filter(function (x) {
       if (x.e.mode === 'lock' || !x.e.file) return false;
       var hit = findInstalled(x.e.id);
@@ -4748,6 +4762,7 @@ async function syncLibrary(manual) {
     }
     if (got) toast(c.autoGot + got);
     else if (manual) toast(c.syncOk);
+    if (fresh.length) notifyLibrary(fresh);
     if (changed || got || nav.lib) render();
   } catch (e) {
     if (manual) toast(c.offline);
@@ -4758,6 +4773,31 @@ async function syncLibrary(manual) {
 }
 function newCount() {
   return catEntries(cloud.cat).filter(function (x) { return x.e.mode !== 'lock' && x.e.file && !findInstalled(x.e.id); }).length;
+}
+async function notifyLibrary(titles) {
+  if (!titles || !titles.length) return;
+  var c = FT(), n = titles.length;
+  var title = c.libNotifTitle, body = c.libNotifBody(n, titles[0]);
+  var p = apLN();
+  if (p) {
+    try {
+      var perm = await p.requestPermissions();
+      if (!perm || perm.display !== 'granted') return;
+      await apEnsureChannel();
+      await p.schedule({ notifications: [{ id: 950000 + (Date.now() % 50000), title: title, body: body,
+        channelId: 'freelang-alerts', extra: { fl: 'lib' }, schedule: { at: new Date(Date.now() + 900) } }] });
+    } catch (e) {}
+    return;
+  }
+  if ('Notification' in window) {
+    try {
+      if (Notification.permission === 'default') { try { Notification.requestPermission(); } catch (e) {} }
+      if (Notification.permission === 'granted') {
+        var no = new Notification(title, { body: body, icon: './icon-192.png' });
+        no.onclick = function () { try { window.focus(); } catch (e) {} nav.lib = true; nav.f = null; nav.l = null; render(); };
+      }
+    } catch (e) {}
+  }
 }
 function renderLibrary(v) {
   var c = FT();
@@ -4840,11 +4880,6 @@ function hubTiles(v) {
     a.innerHTML = '<span class="big">🛠</span><span class="ttl">' + esc(c.panel) + '</span><span class="sub">' + esc(c.panelSub) + '</span>';
     a.onclick = function () { nav.admin = true; nav.f = null; nav.l = null; render(); };
     hub.appendChild(a);
-    var pb = el('button', 'fl-tile');
-    pb.innerHTML = '<span class="big">📤</span><span class="ttl">' + esc(c.publish) + '</span><span class="sub">' +
-      esc(cloud.cat && cloud.cat.version ? 'v' + cloud.cat.version : c.never) + '</span>';
-    pb.onclick = publishAll;
-    hub.appendChild(pb);
   } else {
     var lb = el('button', 'fl-tile');
     lb.innerHTML = '<span class="big">📥</span><span class="ttl">' + esc(c.lib) + '</span><span class="sub">' + esc(c.libSub) + '</span>';
@@ -4866,6 +4901,8 @@ function hubTiles(v) {
   at.innerHTML = '<span class="big">📅</span><span class="ttl">' + esc(fpT().apList) + '</span><span class="sub">' + esc(fpT().apptTileSub) + '</span>';
   at.onclick = function () { nav.appts = true; nav.plan = false; nav.f = null; nav.l = null; render(); };
   hub.appendChild(at);
+  var nTiles = hub.children.length;
+  hub.style.gridTemplateColumns = 'repeat(' + (nTiles <= 3 ? nTiles : 2) + ', minmax(0,1fr))';
   v.appendChild(hub);
 }
 
@@ -6444,6 +6481,13 @@ if (CapApp && CapApp.addListener) {
     if (ovRoot.firstChild) { closeOv(); return; }
     goBack();
   });
+}
+var CapLN = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.LocalNotifications;
+if (CapLN && CapLN.addListener) {
+  CapLN.addListener('localNotificationActionPerformed', function (ev) {
+    var x = ev && ev.notification && ev.notification.extra;
+    if (x && x.fl === 'lib') { nav.lib = true; nav.f = null; nav.l = null; render(); }
+  }).catch(function () {});
 }
 
 if (FL_ADMIN) {
