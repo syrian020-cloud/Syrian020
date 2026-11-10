@@ -77,7 +77,7 @@
   main { max-width: 860px; margin: 0 auto; padding: .9rem .8rem; }
 
   /* ---------- cards / lists ---------- */
-  .pl-stats { display: flex; gap: .45rem; justify-content: center; flex-wrap: nowrap; margin: .3rem 0 .9rem; }
+  .pl-stats { display: flex; gap: .45rem; justify-content: center; flex-wrap: nowrap; margin: .3rem 0 .9rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .pl-stat { background: var(--card, #fff); border: 1px solid var(--line, #e5e7eb); border-radius: 999px;
     padding: .4rem .7rem; font-size: .88rem; white-space: nowrap; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
   .pl-stat b { font-size: 1rem; }
@@ -1409,7 +1409,7 @@ function cardShell(inner) {
   return g;
 }
 
-function render() {
+function renderBody() {
   if (recState) recDone();   // leaving/refreshing the view stops any clip recording
   var t = T();
   var v = document.getElementById('view');
@@ -1447,6 +1447,15 @@ function render() {
     crumb.classList.remove('hidden');
     crumb.textContent = (f.icon ? f.icon + ' ' : '') + f.name + ' › ' + (l.title || '');
     renderLesson(v, f, l);
+  }
+}
+
+function render() {
+  try { renderBody(); }
+  catch (e) {
+    var v = document.getElementById('view');
+    if (v) v.innerHTML = '<div class="empty" style="color:#f87171;padding:2rem 1rem;font-size:.9rem">⚠️ ' + esc(String((e && e.message) || e)) + '</div>';
+    try { console.error(e); } catch (_) {}
   }
 }
 
@@ -4808,10 +4817,10 @@ async function notifyLibrary(titles) {
   }
   if ('Notification' in window) {
     try {
-      if (Notification.permission === 'default') { try { Notification.requestPermission(); } catch (e) {} }
+      if (Notification.permission === 'default') { try { await Notification.requestPermission(); } catch (e) {} }
       if (Notification.permission === 'granted') {
         var no = new Notification(title, { body: body, icon: './icon-192.png' });
-        no.onclick = function () { try { window.focus(); } catch (e) {} nav.lib = true; nav.f = null; nav.l = null; render(); };
+        no.onclick = function () { try { window.focus(); } catch (e) {} q = ''; var si = document.getElementById('search'); if (si) si.value = ''; nav.lib = true; nav.f = null; nav.l = null; render(); };
       }
     } catch (e) {}
   }
@@ -6503,7 +6512,7 @@ var CapLN = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.LocalNoti
 if (CapLN && CapLN.addListener) {
   CapLN.addListener('localNotificationActionPerformed', function (ev) {
     var x = ev && ev.notification && ev.notification.extra;
-    if (x && x.fl === 'lib') { nav.lib = true; nav.f = null; nav.l = null; render(); }
+    if (x && x.fl === 'lib') { q = ''; var si = document.getElementById('search'); if (si) si.value = ''; nav.lib = true; nav.f = null; nav.l = null; render(); }
   }).catch(function () {});
 }
 
