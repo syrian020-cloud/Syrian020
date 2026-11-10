@@ -102,6 +102,12 @@
     border: none; color: var(--dim); font-size: 1.05rem; cursor: pointer; padding: .1rem .3rem;
     font-family: inherit; }
   .dots:active { color: var(--accent); }
+  .lgrid { grid-template-columns: repeat(auto-fill, minmax(min(118px, 100%), 1fr)); gap: .55rem; }
+  .lgrid .card { padding: .7rem .55rem .6rem; border-radius: 16px; gap: .35rem; }
+  .lgrid .cicon { width: 44px; height: 44px; border-radius: 14px; font-size: 1.25rem; }
+  .lgrid .cname { font-size: .78rem; }
+  .lgrid .cmeta { font-size: .62rem; }
+  .lgrid .dots { font-size: .95rem; }
 
   /* ---------- phrase cards ---------- */
   .ph { display: flex; gap: .6rem; align-items: flex-start; background: var(--card);
@@ -1474,7 +1480,7 @@ function renderFolders(v) {
 
 function renderLessons(v, f) {
   var t = T();
-  var g = el('div', 'grid');
+  var g = el('div', 'grid lgrid');
   (f.lessons || []).forEach(function (ls) {
     var c = el('div', 'card');
     var ic = el('div', 'cicon'); ic.innerHTML = iconHtml(ls, '📝');
@@ -2131,24 +2137,10 @@ function lessonMenu(f, l) {
       downloadLesson(hit.cf, hit.e).then(function () { setBusy(''); toast(FT().dlOk); render(); },
         function () { setBusy(''); toast(FT().dlFail); });
     });
-    row('🗑', FT().rmLocal, function () {
-      closeOv();
-      confirmDialog(FT().rmLocalQ, t.delYes, function () { removeInstalled(l.id); saveData(); nav.l = null; render(); });
-    });
     return;
   }
   if (FL_ADMIN) row('☁️', FT().pubMode, function () { closeOv(); publishSheet(f, l); });
-  if (!FL_ADMIN) {
-    row('🗑', t.del, function () {
-      closeOv();
-      confirmDialog(t.delLessonQ, t.delYes, function () {
-        mediaDel(mediaKey(l)); mediaDel('plc_' + l.id); mediaDel('pli_' + l.id);
-        f.lessons = (f.lessons || []).filter(function (x) { return x.id !== l.id; });
-        saveData(); render();
-      });
-    });
-    return;
-  }
+  if (!FL_ADMIN) return;
   row('✏️', t.editLesson, function () { closeOv(); lessonEditor(f, l); });
   row('➕', t.addPhrase, function () { closeOv(); phraseEditor(f, l, null); });
   row('🎬', t.media, function () { closeOv(); mediaSheet(f, l); });
@@ -4003,7 +3995,7 @@ function openMenu() {
       pasteSheet(f, findL(f, nav.l));
     });
   }
-  row('⬇', t.exportData, function () { exportSheet(); });
+  if (FL_ADMIN) row('⬇', t.exportData, function () { exportSheet(); });
   if (FL_ADMIN) row('⬆', t.importData, function () { closeOv(); importData(); });
 }
 
