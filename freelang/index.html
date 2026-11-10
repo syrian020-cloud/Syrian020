@@ -81,33 +81,27 @@
   .pl-stat { background: var(--card, #fff); border: 1px solid var(--line, #e5e7eb); border-radius: 999px;
     padding: .45rem 1.1rem; font-size: 1.02rem; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
   .pl-stat b { font-size: 1.15rem; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); gap: .7rem; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 20px;
-    padding: 1rem .7rem .8rem; cursor: pointer; display: flex; flex-direction: column;
-    align-items: center; gap: .5rem; min-width: 0; position: relative;
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(118px, 100%), 1fr)); gap: .55rem; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: .7rem .55rem .6rem; cursor: pointer; display: flex; flex-direction: column;
+    align-items: center; gap: .35rem; min-width: 0; position: relative;
     box-shadow: 0 4px 14px rgba(3,8,12,.22);
     transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease; }
   body.light .card { box-shadow: 0 4px 14px rgba(75,107,116,.10); }
   .card:active { transform: scale(.96) translateY(1px); border-color: var(--accent);
     box-shadow: 0 6px 18px rgba(139,92,246,.25); }
-  .cicon { width: 56px; height: 56px; border-radius: 18px; flex: none; display: flex;
-    align-items: center; justify-content: center; font-weight: 900; font-size: 1.6rem;
+  .cicon { width: 44px; height: 44px; border-radius: 14px; flex: none; display: flex;
+    align-items: center; justify-content: center; font-weight: 900; font-size: 1.25rem;
     color: #fff; overflow: hidden; background: linear-gradient(135deg, #6d28d9, #ea580c);
     box-shadow: inset 0 0 0 1px rgba(255,255,255,.14), 0 5px 12px rgba(234,88,12,.4); }
   .cicon img { width: 100%; height: 100%; object-fit: cover; background: #fff; }
-  .cname { font-weight: 800; font-size: .85rem; line-height: 1.25; text-align: center;
+  .cname { font-weight: 800; font-size: .78rem; line-height: 1.25; text-align: center;
     max-width: 100%; overflow-wrap: anywhere; }
-  .cmeta { font-size: .68rem; color: var(--dim); }
+  .cmeta { font-size: .62rem; color: var(--dim); }
   .dots { position: absolute; top: .3rem; inset-inline-end: .3rem; background: none;
-    border: none; color: var(--dim); font-size: 1.05rem; cursor: pointer; padding: .1rem .3rem;
+    border: none; color: var(--dim); font-size: .95rem; cursor: pointer; padding: .1rem .3rem;
     font-family: inherit; }
   .dots:active { color: var(--accent); }
-  .lgrid { grid-template-columns: repeat(auto-fill, minmax(min(118px, 100%), 1fr)); gap: .55rem; }
-  .lgrid .card { padding: .7rem .55rem .6rem; border-radius: 16px; gap: .35rem; }
-  .lgrid .cicon { width: 44px; height: 44px; border-radius: 14px; font-size: 1.25rem; }
-  .lgrid .cname { font-size: .78rem; }
-  .lgrid .cmeta { font-size: .62rem; }
-  .lgrid .dots { font-size: .95rem; }
 
   /* ---------- phrase cards ---------- */
   .ph { display: flex; gap: .6rem; align-items: flex-start; background: var(--card);
@@ -1480,7 +1474,7 @@ function renderFolders(v) {
 
 function renderLessons(v, f) {
   var t = T();
-  var g = el('div', 'grid lgrid');
+  var g = el('div', 'grid');
   (f.lessons || []).forEach(function (ls) {
     var c = el('div', 'card');
     var ic = el('div', 'cicon'); ic.innerHTML = iconHtml(ls, '📝');
