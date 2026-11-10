@@ -980,6 +980,22 @@ try {
   folders = Array.isArray(_pd) ? _pd : (_pd && Array.isArray(_pd.folders) ? _pd.folders : []);
 } catch (e) { folders = []; }
 if (!Array.isArray(folders)) folders = [];
+// tolerate legacy/corrupted shapes: lessons/phrases/cues must be arrays,
+// and an object map is recovered via its values instead of crashing the UI
+function asArr(x) {
+  if (Array.isArray(x)) return x;
+  if (x && typeof x === 'object') return Object.keys(x).map(function (k) { return x[k]; }).filter(function (v) { return v && typeof v === 'object'; });
+  return [];
+}
+function sanitizeFolders() {
+  if (!Array.isArray(folders)) { folders = []; return; }
+  folders = folders.filter(function (fd) { return fd && typeof fd === 'object'; }).map(function (fd) {
+    fd.lessons = asArr(fd.lessons).filter(function (ls) { return ls && typeof ls === 'object'; });
+    fd.lessons.forEach(function (ls) { ls.phrases = asArr(ls.phrases); ls.cues = asArr(ls.cues); });
+    return fd;
+  });
+}
+sanitizeFolders();
 
 function uid() { return 'x' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
 // every save also writes a backup file to device storage — survives a
@@ -1017,6 +1033,7 @@ function saveData() {
         if (Array.isArray(d) && d.length) {
           folders.length = 0;
           d.forEach(function (f2) { folders.push(f2); });
+          sanitizeFolders();
           try { localStorage.setItem(DATA_KEY, txt); } catch (e) {}
           if (typeof render === 'function') render();
         }
