@@ -2066,14 +2066,6 @@ function folderMenu(f) {
   }
   if (isRemote(f)) {
     row('📥', FT().lib, function () { closeOv(); nav.lib = true; nav.f = null; nav.l = null; render(); });
-    row('🗑', FT().rmLocal, function () {
-      closeOv();
-      confirmDialog(FT().rmLocalQ, t.delYes, function () {
-        (f.lessons || []).forEach(function (x) { MEDIA_KEYS.forEach(function (k) { mediaDel(k + x.id); }); });
-        folders = folders.filter(function (x) { return x.id !== f.id; });
-        saveData(); render();
-      });
-    });
     return;
   }
   if (FL_ADMIN) row('☁️', FT().pubMode, function () { closeOv(); publishSheet(f, null); });
