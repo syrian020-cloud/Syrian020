@@ -90,10 +90,11 @@
   body.light .card { box-shadow: 0 4px 14px rgba(75,107,116,.10); }
   .card:active { transform: scale(.96) translateY(1px); border-color: var(--accent);
     box-shadow: 0 6px 18px rgba(139,92,246,.25); }
-  .cicon { width: 44px; height: 44px; border-radius: 14px; flex: none; display: flex;
-    align-items: center; justify-content: center; font-weight: 900; font-size: 1.25rem;
-    color: #fff; overflow: hidden; background: linear-gradient(135deg, #6d28d9, #ea580c);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.14), 0 5px 12px rgba(234,88,12,.4); }
+  .cicon { width: 78%; aspect-ratio: 1 / 1; height: auto; border-radius: 26%; flex: none;
+    display: flex; align-items: center; justify-content: center; font-weight: 900;
+    font-size: clamp(2rem, 11vw, 2.9rem); color: #fff; overflow: hidden;
+    background: linear-gradient(135deg, #6d28d9, #ea580c);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.14), 0 6px 14px rgba(234,88,12,.35); }
   .cicon img { width: 100%; height: 100%; object-fit: cover; background: #fff; }
   .cname { font-weight: 800; font-size: .78rem; line-height: 1.25; text-align: center;
     max-width: 100%; overflow-wrap: anywhere; }
@@ -1374,6 +1375,12 @@ function iconHtml(item, fallback) {
   if (item.icon) return esc(item.icon);
   return esc((item.name || item.title || '?')[0] || '?');
 }
+function iconBg(seed) {
+  var h = 0, s = String(seed || '');
+  for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+  var h1 = h % 360, h2 = (h1 + 40 + (h % 60)) % 360;
+  return 'linear-gradient(135deg, hsl(' + h1 + ',72%,48%), hsl(' + h2 + ',78%,58%))';
+}
 function esc(s) {
   return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
     return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -1453,7 +1460,7 @@ function renderFolders(v) {
   }
   folders.forEach(function (fd) {
     var c = el('div', 'card');
-    var ic = el('div', 'cicon'); ic.innerHTML = iconHtml(fd, '📂');
+    var ic = el('div', 'cicon'); ic.innerHTML = iconHtml(fd, '📂'); ic.style.background = iconBg(fd.id || fd.name);
     c.appendChild(ic);
     c.appendChild(el('div', 'cname', fd.name || '—'));
     var n = (fd.lessons || []).length;
@@ -1477,7 +1484,7 @@ function renderLessons(v, f) {
   var g = el('div', 'grid');
   (f.lessons || []).forEach(function (ls) {
     var c = el('div', 'card');
-    var ic = el('div', 'cicon'); ic.innerHTML = iconHtml(ls, '📝');
+    var ic = el('div', 'cicon'); ic.innerHTML = iconHtml(ls, '📝'); ic.style.background = iconBg(ls.id || ls.title);
     c.appendChild(ic);
     c.appendChild(el('div', 'cname', ls.title || '—'));
     var n = (ls.phrases || []).filter(function (p) { return p.type !== 'note'; }).length
