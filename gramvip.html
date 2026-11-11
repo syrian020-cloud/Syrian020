@@ -247,7 +247,8 @@
   /* Zeelang-style square action buttons under the card */
   .ph-actions { display: flex; gap: 0.55rem; margin-top: 0.7rem; justify-content: space-between; }
   .ph-act { flex: 1; min-width: 0; max-width: 56px; height: 46px; border-radius: 14px; border: 1px solid #e3d9f0; background: #f4eefb; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .14s; }
-  .ph-act.segloop { background: linear-gradient(135deg, #f6b93b, #f0932b); border-color: transparent; }
+  .ph-act.segloop { background: linear-gradient(135deg, #f6b93b, #f0932b); border-color: transparent; animation: pulse 1s infinite; }
+  .cap-ctrl button.segloop { background: linear-gradient(135deg, #f6b93b, #f0932b); border-color: transparent; animation: pulse 1s infinite; }
   .ph-act:hover { border-color: #c9b3ea; transform: translateY(-2px); box-shadow: 0 6px 14px rgba(130,100,180,0.18); }
   .ph-act:active { transform: scale(0.94); }
   .ph-img { position: relative; display: block; margin-top: 0.6rem; width: 100%; }
