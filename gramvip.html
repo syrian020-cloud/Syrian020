@@ -1888,7 +1888,11 @@
     mediaEl = box.querySelector(isV ? 'video' : 'audio');
     mediaEl.addEventListener('timeupdate', syncCues);
     mediaEl.addEventListener('play', function () { stopSpeaking(); });
-    mediaEl.addEventListener('ended', segLoopReset);
+    mediaEl.addEventListener('ended', function () {
+      // looping the last segment: 'ended' must rewind to the segment start, not stop the loop
+      if (segLoop.on) { mediaEl.currentTime = segLoop.start; mediaEl.play(); }
+      else segLoopReset();
+    });
     timedEls.forEach(function (el) {
       el.classList.add('cueable');
       el.addEventListener('click', cueSeek);
