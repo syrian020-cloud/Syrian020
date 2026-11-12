@@ -2622,7 +2622,7 @@
   }
 
   /* ==================== matching quiz ==================== */
-  var qz = { lesson: null, lang: 'ar', pairs: [], sel: null, solved: 0, wrong: 0, ac: null };
+  var qz = { lesson: null, lang: 'ar', pairs: [], pool: [], round: 0, batchSolved: 0, sel: null, solved: 0, wrong: 0, ac: null };
   function qzTone(ok) {
     try {
       var AC = window.AudioContext || window.webkitAudioContext;
@@ -2701,8 +2701,16 @@
       return;
     }
     qzShuffle(pool);
-    qz.pairs = pool;
-    qz.sel = null; qz.solved = 0; qz.wrong = 0;
+    qz.pool = pool;
+    qz.sel = null; qz.solved = 0; qz.wrong = 0; qz.round = 0;
+    qzRound();
+  }
+  var QZ_ROUND = 8;
+  function qzRound() {
+    // one round = up to 8 pairs; after solving it the next batch loads automatically,
+    // while the counter keeps counting across all lesson phrases (e.g. 9/37)
+    qz.pairs = qz.pool.slice(qz.round * QZ_ROUND, qz.round * QZ_ROUND + QZ_ROUND);
+    qz.batchSolved = 0; qz.sel = null;
     var left = qzShuffle(qz.pairs.map(function (p, i) { return { p: p, i: i }; }));
     var right = qzShuffle(qz.pairs.map(function (p, i) { return { p: p, i: i }; }));
     var rows = Math.max(left.length, right.length);
@@ -2714,7 +2722,7 @@
     }
     html += '</div>';
     document.getElementById('qzBody').innerHTML = html;
-    document.getElementById('qzProgress').textContent = '0/' + qz.pairs.length;
+    document.getElementById('qzProgress').textContent = qz.solved + '/' + qz.pool.length;
     document.getElementById('qzBody').querySelectorAll('.qz-tile').forEach(function (el) {
       el.onclick = function () { qzTap(el); };
     });
@@ -2741,10 +2749,13 @@
       selEl.classList.remove('sel');
       selEl.classList.add('ok');
       el.classList.add('ok');
-      qz.solved++;
+      qz.solved++; qz.batchSolved++;
       stopSpeaking();
-      document.getElementById('qzProgress').textContent = qz.solved + '/' + qz.pairs.length;
-      if (qz.solved === qz.pairs.length) qzFinish();
+      document.getElementById('qzProgress').textContent = qz.solved + '/' + qz.pool.length;
+      if (qz.batchSolved === qz.pairs.length) {
+        if ((qz.round + 1) * QZ_ROUND < qz.pool.length) { qz.round++; setTimeout(qzRound, 650); }
+        else qzFinish();
+      }
     } else {
       qzTone(false);
       qz.wrong++;
@@ -3104,7 +3115,7 @@
   }
 
   function qzFinish() {
-    var n = qz.pairs.length;
+    var n = qz.pool.length;
     var pct = Math.round((n / Math.max(1, n + qz.wrong)) * 100);
     document.getElementById('qzBody').innerHTML =
       '<div class="qz-result">' +
