@@ -4395,17 +4395,29 @@ function startQuiz(lesson, qlang, alang) {
     return m[qlang] && m[alang];
   });
   if (!pool.length) { toast(t.quizNoPhrases); return; }
-  var picks = quizShuffle(pool).map(function (p, i) {
+  var allPicks = quizShuffle(pool).map(function (p, i) {
     return { p: p, id: i, q: qlang, a: alang };
   });
   var body = document.getElementById('quiz-body');
   if (!body) return;
   body.innerHTML = '<div class="qz-flags"><div class="qz-flag">' + flagForLang(lesson, qlang) + '</div><div class="qz-flag">' + flagForLang(lesson, alang) + '</div></div>' +
     '<div class="qz-cols" id="quiz-cols"></div>';
+  var correct = 0, wrong = 0, roundOff = 0;
+  function setProg() {
+    var p2 = document.getElementById('quiz-progress');
+    if (p2) p2.textContent = (roundOff + solvedRound) + '/' + allPicks.length;
+  }
+  var solvedRound = 0;
+  function nextRound() {
+    solvedRound = 0;
+    var round = allPicks.slice(roundOff, roundOff + 8);
+    renderRound(round);
+    setProg();
+  }
+  function renderRound(picks) {
   var cols = document.getElementById('quiz-cols');
-  var prog = document.getElementById('quiz-progress');
-  var selFr = null, correct = 0, wrong = 0, solved = 0;
-  function setProg() { prog.textContent = solved + '/' + picks.length; }
+  cols.innerHTML = '';
+  var selFr = null;
   setProg();
   function mkCard(item, lang) {
     var c = document.createElement('div');
@@ -4439,12 +4451,18 @@ function startQuiz(lesson, qlang, alang) {
       selFr.classList.remove('sel');
       selFr.classList.add('done');
       card.classList.add('done');
-      solved++;
+      solvedRound++;
       // correct match: speak the pair — question fully, then answer — on loop
       speakPair(selFr.dataset.text, selFr.dataset.lang, card.dataset.text, card.dataset.lang, selFr, card);
       selFr = null;
       setProg();
-      if (solved === picks.length) setTimeout(function () { quizEnd(correct, wrong, lesson, qlang, alang); }, 650);
+      if (solvedRound === picks.length) {
+        roundOff += picks.length;
+        setTimeout(function () {
+          if (roundOff >= allPicks.length) quizEnd(correct, wrong, lesson, qlang, alang);
+          else nextRound();
+        }, 650);
+      }
     } else {
       wrong++;
       quizTone(false);
@@ -4465,6 +4483,8 @@ function startQuiz(lesson, qlang, alang) {
       cols.appendChild(g);
     })(i);
   }
+  }
+  nextRound();
 }
 function quizEnd(correct, wrong, lesson, qlang, alang) {
   quizStopSpeak();
