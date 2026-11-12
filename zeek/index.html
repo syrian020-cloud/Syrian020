@@ -4664,14 +4664,17 @@
   function startQuiz(lesson, qlang, alang) {
     const pool = lesson.phrases.filter(p => stripSpeechFlags(p[qlang] || '') && stripSpeechFlags(p[alang] || ''));
     if (!pool.length) { showToast(t('quizNoPhrases')); return; }
-    const picks = quizShuffle(pool).map((p, i) => ({ p, id: i, q: qlang, a: alang }));
+    // all lesson phrases, played in waves of 8 — counter counts the whole pool
+    const all = quizShuffle(pool).map((p, i) => ({ p, id: i, q: qlang, a: alang }));
+    const WAVE = 8;
     const body = document.getElementById('quiz-body');
     if (!body) return;
     body.innerHTML = `<div class="quiz-flags"><div class="quiz-flag">${LANG_FLAG[qlang] || '🌐'}</div><div class="quiz-flag">${LANG_FLAG[alang] || '🌐'}</div></div><div class="quiz-cols" id="quiz-cols"></div>`;
     const cols = document.getElementById('quiz-cols');
     const prog = document.getElementById('quiz-progress');
-    let selFr = null, correct = 0, wrong = 0, solved = 0;
-    const setProg = () => { prog.textContent = solved + '/' + picks.length; };
+    let selFr = null, correct = 0, wrong = 0;
+    let solvedAll = 0, solvedWave = 0, waveStart = 0, wavePicks = [];
+    const setProg = () => { prog.textContent = solvedAll + '/' + all.length; };
     setProg();
     const mkCard = (item, lang) => {
       const c = document.createElement('div');
@@ -4707,10 +4710,18 @@
         qCard.classList.add('done');
         card.classList.add('done');
         selFr = null;
-        solved++;
+        solvedWave++;
+        solvedAll++;
         quizSpeakPair(qCard, card);
         setProg();
-        if (solved === picks.length) setTimeout(() => quizEnd(correct, wrong, lesson, qlang, alang), 650);
+        if (solvedWave === wavePicks.length) {
+          if (solvedAll === all.length) {
+            setTimeout(() => quizEnd(correct, wrong, lesson, qlang, alang), 650);
+          } else {
+            waveStart += WAVE;
+            setTimeout(renderWave, 650);
+          }
+        }
       } else {
         wrong++;
         quizTone(false);
@@ -4719,16 +4730,23 @@
         if (selFr) { selFr.classList.remove('sel'); selFr = null; }
       }
     };
-    const frOrder = quizShuffle(picks);
-    const tgOrder = quizShuffle(picks);
-    for (let i = 0; i < picks.length; i++) {
-      const f = mkCard(frOrder[i], qlang);
-      f.onclick = () => onCard(f, frOrder[i], qlang);
-      cols.appendChild(f);
-      const g = mkCard(tgOrder[i], alang);
-      g.onclick = () => onCard(g, tgOrder[i], alang);
-      cols.appendChild(g);
+    function renderWave() {
+      selFr = null;
+      solvedWave = 0;
+      cols.innerHTML = '';
+      wavePicks = all.slice(waveStart, waveStart + WAVE);
+      const frOrder = quizShuffle(wavePicks);
+      const tgOrder = quizShuffle(wavePicks);
+      for (let i = 0; i < wavePicks.length; i++) {
+        const f = mkCard(frOrder[i], qlang);
+        f.onclick = () => onCard(f, frOrder[i], qlang);
+        cols.appendChild(f);
+        const g = mkCard(tgOrder[i], alang);
+        g.onclick = () => onCard(g, tgOrder[i], alang);
+        cols.appendChild(g);
+      }
     }
+    renderWave();
   }
 
   function quizEnd(correct, wrong, lesson, qlang, alang) {
