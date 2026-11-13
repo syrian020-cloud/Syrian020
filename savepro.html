@@ -269,7 +269,7 @@ var I18N = {
     openNoContent: 'لا يوجد محتوى للفتح',
     userCopied: 'نُسخ اسم المستخدم', passCopied: 'نُسخت كلمة السر',
     atts: 'المرفقات', addImg: 'صورة', addPdf: 'ملف PDF', noAtts: 'لا مرفقات بعد',
-    attDelTitle: 'حذف هذا المرفق؟',
+    attDelTitle: 'حذف هذا المرفق؟', attSaved: 'تم حفظ الملف',
     lockTitle: 'رمز الدخول', lockSub: 'أدخل 4 أرقام للمتابعة',
     lockSet: 'تعيين رمز دخول (4 أرقام)', lockChange: 'تغيير رمز الدخول', lockDel: 'حذف رمز الدخول',
     lockEnter: 'أدخل الرمز الحالي', lockNew: 'الرمز الجديد (4 أرقام)', lockConfirm: 'تأكيد الرمز',
@@ -293,7 +293,7 @@ var I18N = {
     openNoContent: 'Aucun contenu à ouvrir',
     userCopied: 'Identifiant copié', passCopied: 'Mot de passe copié',
     atts: 'Pièces jointes', addImg: 'Image', addPdf: 'Fichier PDF', noAtts: 'Aucune pièce jointe',
-    attDelTitle: 'Supprimer cette pièce ?',
+    attDelTitle: 'Supprimer cette pièce ?', attSaved: 'Fichier enregistré',
     lockTitle: 'Code d’accès', lockSub: 'Entrez 4 chiffres pour continuer',
     lockSet: 'Définir un code (4 chiffres)', lockChange: 'Changer le code', lockDel: 'Supprimer le code',
     lockEnter: 'Code actuel', lockNew: 'Nouveau code (4 chiffres)', lockConfirm: 'Confirmer le code',
@@ -317,7 +317,7 @@ var I18N = {
     openNoContent: 'Nothing to open',
     userCopied: 'Username copied', passCopied: 'Password copied',
     atts: 'Attachments', addImg: 'Image', addPdf: 'PDF file', noAtts: 'No attachments yet',
-    attDelTitle: 'Delete this attachment?',
+    attDelTitle: 'Delete this attachment?', attSaved: 'File saved',
     lockTitle: 'Passcode', lockSub: 'Enter 4 digits to continue',
     lockSet: 'Set passcode (4 digits)', lockChange: 'Change passcode', lockDel: 'Remove passcode',
     lockEnter: 'Current passcode', lockNew: 'New passcode (4 digits)', lockConfirm: 'Confirm passcode',
@@ -498,6 +498,26 @@ function viewAttachment(rec) {
   window.open(url, '_blank');
 }
 
+function saveAttachment(rec) {
+  var t = T();
+  var fname = rec.name || ('savepro-' + rec.id + (rec.kind === 'pdf' ? '.pdf' : '.png'));
+  var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+  var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
+  if (inCap && FS && SH) {
+    var safe = 'savepro-' + rec.id + '-' + fname.replace(/[^\w.\-]+/g, '_');
+    blobToB64(rec.blob).then(function (b64) {
+      return FS.writeFile({ path: safe, data: b64, directory: 'CACHE', recursive: true });
+    }).then(function (w) {
+      return SH.share({ title: fname, url: w.uri });
+    }).then(function () { toast(t.attSaved); }).catch(function (e) { console.error(e); });
+    return;
+  }
+  var u = URL.createObjectURL(rec.blob);
+  var a = document.createElement('a'); a.href = u; a.download = fname; a.click();
+  setTimeout(function () { URL.revokeObjectURL(u); }, 4000);
+  toast(t.attSaved);
+}
+
 function renderAttList(box, siteId) {
   box.innerHTML = '';
   var recs = attMap[siteId] || [];
@@ -511,6 +531,9 @@ function renderAttList(box, siteId) {
       row.appendChild(el('div', 'thumb', '📄'));
     }
     row.appendChild(el('div', 'an', r.name));
+    var dl = el('button', 'ax', '⬇');
+    dl.onclick = function (e) { e.stopPropagation(); saveAttachment(r); };
+    row.appendChild(dl);
     var ax = el('button', 'ax', '✕');
     ax.onclick = function (e) {
       e.stopPropagation();
