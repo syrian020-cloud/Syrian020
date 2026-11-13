@@ -1,4 +1,4 @@
-const CACHE_NAME = 'savepro-v1';
+const CACHE_NAME = 'savepro-v2';
 const FILES_TO_CACHE = [
   './savepro.html',
   './manifest-savepro.json',

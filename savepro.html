@@ -92,6 +92,10 @@
   .site-map:active { transform: scale(1.15); }
   .has-cred { position: absolute; bottom: .35rem; inset-inline-start: .4rem; font-size: .6rem;
     color: var(--gold); }
+  .has-files { position: absolute; bottom: .35rem; inset-inline-end: .4rem; font-size: .68rem;
+    color: var(--accent); background: none; border: none; cursor: pointer; padding: .1rem .2rem;
+    font-family: inherit; }
+  .has-files:active { transform: scale(1.15); }
 
   .add-card { border: 1.5px dashed var(--line); background: transparent; color: var(--dim);
     font-size: 1.8rem; border-radius: 20px; }
@@ -183,6 +187,26 @@
   #lock .pinrow button:active { transform: scale(.94); }
   #lock .lmsg { min-height: 1.2rem; margin-top: .7rem; font-size: .8rem; color: var(--danger); }
 
+  /* ---------- attachments ---------- */
+  .att-add { display: flex; gap: .4rem; margin: .15rem 0 .5rem; }
+  .att-add .mini { flex: 1; padding: .5rem .6rem; font-size: .8rem; }
+  .attlist { display: flex; flex-direction: column; gap: .4rem; }
+  .att { display: flex; align-items: center; gap: .55rem; background: var(--field);
+    border: 1px solid var(--line); border-radius: 12px; padding: .4rem .55rem; cursor: pointer; }
+  .att:active { border-color: var(--accent); }
+  .att .thumb, img.thumb { width: 34px; height: 34px; border-radius: 9px; object-fit: cover; flex: none;
+    background: var(--card); display: flex; align-items: center; justify-content: center;
+    font-size: 1.05rem; overflow: hidden; }
+  .att .an { flex: 1; min-width: 0; font-size: .78rem; overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap; }
+  .att .ax { flex: none; background: none; border: none; color: var(--dim); font-size: .9rem;
+    cursor: pointer; padding: .1rem .3rem; font-family: inherit; }
+  .att .ax:active { color: var(--danger); }
+  .imgview { position: fixed; inset: 0; z-index: 5500; background: rgba(3,6,18,.93);
+    display: flex; align-items: center; justify-content: center; padding: 1.4rem; }
+  .imgview img { max-width: 100%; max-height: 100%; border-radius: 14px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+
   .hidden { display: none !important; }
 </style>
 </head>
@@ -241,8 +265,11 @@ var I18N = {
     open: 'فتح الموقع', openNoUrl: 'أضف رابط الموقع أولاً من ⋮',
     exitTitle: 'هل تريد الخروج من التطبيق؟', yes: 'نعم، اخرج', no: 'إلغاء',
     delTitle: 'حذف هذا الموقع؟', delYes: 'نعم، احذف',
-    exported: 'تم تصدير البيانات', imported: 'تم استيراد البيانات', errUrl: 'أدخل الاسم ورابطاً أو عنواناً',
+    exported: 'تم تصدير البيانات', imported: 'تم استيراد البيانات', errUrl: 'أضف أي محتوى للحفظ (اسم، رابط، مرفق…)',
+    openNoContent: 'لا يوجد محتوى للفتح',
     userCopied: 'نُسخ اسم المستخدم', passCopied: 'نُسخت كلمة السر',
+    atts: 'المرفقات', addImg: 'صورة', addPdf: 'ملف PDF', noAtts: 'لا مرفقات بعد',
+    attDelTitle: 'حذف هذا المرفق؟',
     lockTitle: 'رمز الدخول', lockSub: 'أدخل 4 أرقام للمتابعة',
     lockSet: 'تعيين رمز دخول (4 أرقام)', lockChange: 'تغيير رمز الدخول', lockDel: 'حذف رمز الدخول',
     lockEnter: 'أدخل الرمز الحالي', lockNew: 'الرمز الجديد (4 أرقام)', lockConfirm: 'تأكيد الرمز',
@@ -262,8 +289,11 @@ var I18N = {
     open: 'Ouvrir le site', openNoUrl: 'Ajoutez d’abord l’adresse via ⋮',
     exitTitle: 'Quitter l’application ?', yes: 'Oui, quitter', no: 'Annuler',
     delTitle: 'Supprimer ce site ?', delYes: 'Oui, supprimer',
-    exported: 'Données exportées', imported: 'Données importées', errUrl: 'Nom + URL ou adresse requis',
+    exported: 'Données exportées', imported: 'Données importées', errUrl: 'Ajoutez du contenu à enregistrer',
+    openNoContent: 'Aucun contenu à ouvrir',
     userCopied: 'Identifiant copié', passCopied: 'Mot de passe copié',
+    atts: 'Pièces jointes', addImg: 'Image', addPdf: 'Fichier PDF', noAtts: 'Aucune pièce jointe',
+    attDelTitle: 'Supprimer cette pièce ?',
     lockTitle: 'Code d’accès', lockSub: 'Entrez 4 chiffres pour continuer',
     lockSet: 'Définir un code (4 chiffres)', lockChange: 'Changer le code', lockDel: 'Supprimer le code',
     lockEnter: 'Code actuel', lockNew: 'Nouveau code (4 chiffres)', lockConfirm: 'Confirmer le code',
@@ -283,8 +313,11 @@ var I18N = {
     open: 'Open site', openNoUrl: 'Add the site URL first via ⋮',
     exitTitle: 'Exit the app?', yes: 'Yes, exit', no: 'Cancel',
     delTitle: 'Delete this site?', delYes: 'Yes, delete',
-    exported: 'Data exported', imported: 'Data imported', errUrl: 'Name + URL or address required',
+    exported: 'Data exported', imported: 'Data imported', errUrl: 'Add some content to save',
+    openNoContent: 'Nothing to open',
     userCopied: 'Username copied', passCopied: 'Password copied',
+    atts: 'Attachments', addImg: 'Image', addPdf: 'PDF file', noAtts: 'No attachments yet',
+    attDelTitle: 'Delete this attachment?',
     lockTitle: 'Passcode', lockSub: 'Enter 4 digits to continue',
     lockSet: 'Set passcode (4 digits)', lockChange: 'Change passcode', lockDel: 'Remove passcode',
     lockEnter: 'Current passcode', lockNew: 'New passcode (4 digits)', lockConfirm: 'Confirm passcode',
@@ -330,6 +363,198 @@ if (!localStorage.getItem('savepro_seed_v2')) {
   try { localStorage.setItem('savepro_seed_v2', '1'); } catch (e) {}
 }
 function saveSites() { try { localStorage.setItem('savepro_sites', JSON.stringify(sites)); } catch (e) {} }
+
+/* ================= attachments (IndexedDB) ================= */
+var IDB = {
+  db: null,
+  open: function () {
+    if (IDB.db) return Promise.resolve(IDB.db);
+    return new Promise(function (res, rej) {
+      if (!window.indexedDB) return rej(new Error('no idb'));
+      var r = indexedDB.open('savepro_files', 1);
+      r.onupgradeneeded = function () {
+        var st = r.result.createObjectStore('files', { keyPath: 'id' });
+        st.createIndex('siteId', 'siteId');
+      };
+      r.onsuccess = function () { IDB.db = r.result; res(IDB.db); };
+      r.onerror = function () { rej(r.error); };
+    });
+  },
+  put: function (rec) {
+    return IDB.open().then(function (d) {
+      return new Promise(function (res, rej) {
+        var t = d.transaction('files', 'readwrite');
+        t.objectStore('files').put(rec);
+        t.oncomplete = res; t.onerror = function () { rej(t.error); };
+      });
+    });
+  },
+  del: function (id) {
+    return IDB.open().then(function (d) {
+      return new Promise(function (res, rej) {
+        var t = d.transaction('files', 'readwrite');
+        t.objectStore('files').delete(id);
+        t.oncomplete = res; t.onerror = function () { rej(t.error); };
+      });
+    });
+  },
+  getAll: function () {
+    return IDB.open().then(function (d) {
+      return new Promise(function (res, rej) {
+        var rq = d.transaction('files', 'readonly').objectStore('files').getAll();
+        rq.onsuccess = function () { res(rq.result || []); };
+        rq.onerror = function () { rej(rq.error); };
+      });
+    });
+  }
+};
+
+var attMap = {}; // siteId -> [attachment records], mirrors IndexedDB
+IDB.getAll().then(function (list) {
+  attMap = {};
+  list.forEach(function (r) { (attMap[r.siteId] = attMap[r.siteId] || []).push(r); });
+  renderGrid();
+}).catch(function () {});
+
+var activeSess = null; // { added:[rec], committed:bool } — purge unsaved additions on cancel
+var lastAttWrap = null;
+
+function attCount(sid) { return (attMap[sid] || []).length; }
+function firstAttName(sid) {
+  var a = attMap[sid];
+  return a && a.length ? a[0].name : '';
+}
+
+function purgeSession(sess) {
+  if (!sess || sess.committed) return;
+  sess.added.forEach(function (r) {
+    IDB.del(r.id).catch(function () {});
+    attMap[r.siteId] = (attMap[r.siteId] || []).filter(function (x) { return x.id !== r.id; });
+  });
+  sess.added = [];
+}
+
+function blobToB64(blob) {
+  return new Promise(function (res, rej) {
+    var rd = new FileReader();
+    rd.onload = function () { res(String(rd.result).split(',')[1] || ''); };
+    rd.onerror = function () { rej(rd.error); };
+    rd.readAsDataURL(blob);
+  });
+}
+function b64ToBlob(b64, mime) {
+  var bin = atob(b64), arr = new Uint8Array(bin.length);
+  for (var i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+  return new Blob([arr], { type: mime || 'application/octet-stream' });
+}
+
+function addAttachment(siteId, kind, session) {
+  var fi = document.createElement('input');
+  fi.type = 'file'; fi.multiple = true;
+  fi.accept = kind === 'pdf' ? 'application/pdf,.pdf' : 'image/*';
+  fi.onchange = function () {
+    var files = Array.prototype.slice.call(fi.files || []);
+    if (!files.length) return;
+    Promise.all(files.map(function (f) {
+      var rec = { id: 'f' + Date.now() + Math.random().toString(36).slice(2, 7),
+        siteId: siteId, name: f.name || (kind === 'pdf' ? 'file.pdf' : 'image'),
+        mime: f.type || (kind === 'pdf' ? 'application/pdf' : 'image/*'),
+        kind: kind, blob: f, addedAt: Date.now() };
+      return IDB.put(rec).then(function () {
+        (attMap[siteId] = attMap[siteId] || []).push(rec);
+        if (session) session.added.push(rec);
+      });
+    })).then(function () {
+      renderGrid();
+      if (lastAttWrap) lastAttWrap.refresh();
+    });
+  };
+  fi.click();
+}
+
+function viewAttachment(rec) {
+  if (rec.kind === 'image') {
+    var ov = el('div', 'imgview');
+    var img = new Image();
+    img.src = URL.createObjectURL(rec.blob);
+    ov.appendChild(img);
+    ov.onclick = function () { ov.remove(); };
+    document.body.appendChild(ov);
+    return;
+  }
+  // PDF: Android WebView can't render PDFs — hand it to a native app via the share sheet
+  var url = URL.createObjectURL(rec.blob);
+  var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+  var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
+  if (inCap && FS && SH) {
+    blobToB64(rec.blob).then(function (b64) {
+      return FS.writeFile({ path: 'savepro-' + rec.id + '.pdf', data: b64,
+        directory: 'CACHE', recursive: true });
+    }).then(function (w) {
+      return SH.share({ title: rec.name, url: w.uri });
+    }).catch(function (e) { console.error(e); window.open(url, '_blank'); });
+    return;
+  }
+  window.open(url, '_blank');
+}
+
+function renderAttList(box, siteId) {
+  box.innerHTML = '';
+  var recs = attMap[siteId] || [];
+  if (!recs.length) { box.appendChild(el('div', 'flabel', T().noAtts)); return; }
+  recs.forEach(function (r) {
+    var row = el('div', 'att');
+    if (r.kind === 'image') {
+      var im = new Image(); im.className = 'thumb'; im.src = URL.createObjectURL(r.blob);
+      row.appendChild(im);
+    } else {
+      row.appendChild(el('div', 'thumb', '📄'));
+    }
+    row.appendChild(el('div', 'an', r.name));
+    var ax = el('button', 'ax', '✕');
+    ax.onclick = function (e) {
+      e.stopPropagation();
+      confirmDialog(T().attDelTitle, T().delYes, function () {
+        IDB.del(r.id).catch(function () {});
+        attMap[siteId] = (attMap[siteId] || []).filter(function (x) { return x.id !== r.id; });
+        renderGrid();
+        if (lastAttWrap) lastAttWrap.refresh();
+      }, true);
+    };
+    row.appendChild(ax);
+    row.onclick = function () { viewAttachment(r); };
+    box.appendChild(row);
+  });
+}
+
+function attListEl(siteId, session) {
+  var t = T();
+  var wrap = el('div');
+  wrap.appendChild(el('div', 'flabel', '📎 ' + t.atts));
+  var add = el('div', 'att-add');
+  var bi = el('button', 'mini', '🖼 ' + t.addImg);
+  bi.onclick = function () { addAttachment(siteId, 'image', session); };
+  var bp = el('button', 'mini', '📄 ' + t.addPdf);
+  bp.onclick = function () { addAttachment(siteId, 'pdf', session); };
+  add.appendChild(bi); add.appendChild(bp);
+  wrap.appendChild(add);
+  var list = el('div', 'attlist');
+  wrap.appendChild(list);
+  wrap.refresh = function () { renderAttList(list, siteId); };
+  wrap.refresh();
+  lastAttWrap = wrap;
+  return wrap;
+}
+
+function openAttSheet(s) {
+  var t = T();
+  var sh = sheet();
+  var h = el('h3');
+  h.appendChild(el('span', null, '📎 ' + t.atts + ' — ' + (s.name || hostOf(s.url) || '')));
+  var x = el('button', null, '✕'); x.onclick = closeOv; h.appendChild(x);
+  sh.appendChild(h);
+  sh.appendChild(attListEl(s.id, null));
+}
 
 function isDark() { return localStorage.getItem('savepro_theme') !== 'light'; }
 function applyTheme() { document.body.classList.toggle('light', !isDark()); }
@@ -385,11 +610,16 @@ function renderGrid() {
   var g = document.getElementById('grid');
   g.innerHTML = '';
   sites.forEach(function (s) {
+    var attNames = (attMap[s.id] || []).map(function (r) { return r.name; }).join(' ');
     if (q && (s.name + ' ' + (s.url || '') + ' ' + (s.user || '') + ' ' + (s.addr || '') + ' ' +
-      (s.email || '') + ' ' + (s.phone || '') + ' ' + (s.notes || '')).toLowerCase().indexOf(q) < 0) return;
+      (s.email || '') + ' ' + (s.phone || '') + ' ' + (s.notes || '') + ' ' + attNames).toLowerCase().indexOf(q) < 0) return;
     var card = el('div', 'site');
-    var ic = el('div', 'site-icon', s.name ? s.name[0].toUpperCase() : '?');
+    var ic = el('div', 'site-icon', s.name ? s.name[0].toUpperCase() : (attCount(s.id) ? '📎' : '?'));
     var iu = iconUrlFor(s);
+    if (!iu) {
+      var attImgs = (attMap[s.id] || []).filter(function (r) { return r.kind === 'image'; });
+      if (attImgs.length) iu = URL.createObjectURL(attImgs[0].blob);
+    }
     if (iu) {
       var img = new Image();
       img.src = iu; img.alt = '';
@@ -397,8 +627,14 @@ function renderGrid() {
       ic.innerHTML = ''; ic.appendChild(img);
     }
     card.appendChild(ic);
-    card.appendChild(el('div', 'site-name', s.name || hostOf(s.url) || '—'));
+    card.appendChild(el('div', 'site-name', s.name || hostOf(s.url) || firstAttName(s.id) || '—'));
     if (s.user || s.pass) card.appendChild(el('span', 'has-cred', '🔑'));
+    var na = attCount(s.id);
+    if (na) {
+      var fb = el('button', 'has-files', '📎' + na);
+      fb.onclick = function (e) { e.stopPropagation(); openAttSheet(s); };
+      card.appendChild(fb);
+    }
     if (s.addr) {
       var mb = el('button', 'site-map', '🗺');
       mb.onclick = function (e) { e.stopPropagation(); openMap(s.addr, s.name); };
@@ -473,11 +709,15 @@ function openSite(s) {
     return;
   }
   if (s.addr) { openMap(s.addr, s.name); return; }
-  toast(T().openNoUrl);
+  if (attCount(s.id)) { openAttSheet(s); return; }
+  toast(T().openNoContent);
 }
 
 var ovRoot = document.getElementById('overlayRoot');
-function closeOv() { ovRoot.innerHTML = ''; }
+function closeOv() {
+  ovRoot.innerHTML = '';
+  if (activeSess) { purgeSession(activeSess); activeSess = null; }
+}
 function sheet() {
   var ov = el('div', 'overlay');
   var sh = el('div', 'sheet');
@@ -544,6 +784,8 @@ function openEditor(s) {
   s = s || { id: 's' + Date.now(), name: '', url: '', icon: '', user: '', pass: '', addr: '',
     email: '', phone: '', notes: '' };
   var sh = sheet();
+  var session = { added: [], committed: false };
+  activeSess = session;
   var h = el('h3');
   h.appendChild(el('span', null, (isNew ? '➕ ' : '✏️ ') + (isNew ? t.addSite : t.editSite)));
   var x = el('button', null, '✕'); x.onclick = closeOv; h.appendChild(x);
@@ -574,6 +816,7 @@ function openEditor(s) {
     { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value); } }
   ]});
   [rName, rUrl, rIcon, rUser, rPass, rAddr, rEmail, rPhone, rNotes].forEach(function (r) { sh.appendChild(r); });
+  sh.appendChild(attListEl(s.id, session));
 
   var act = el('div', 'actions');
   if (!isNew) {
@@ -586,7 +829,10 @@ function openEditor(s) {
     var name = rName.input.value.trim();
     var url = rUrl.input.value.trim();
     var addr = rAddr.input.value.trim();
-    if (!name || (!url && !addr)) { toast(t.errUrl); return; }
+    var hasAny = name || url || addr || rIcon.input.value.trim() || rUser.input.value.trim() ||
+      rPass.input.value || rEmail.input.value.trim() || rPhone.input.value.trim() ||
+      rNotes.input.value.trim() || attCount(s.id);
+    if (!hasAny) { toast(t.errUrl); return; }
     s.name = name; s.url = url;
     s.icon = rIcon.input.value.trim();
     s.user = rUser.input.value.trim();
@@ -595,6 +841,7 @@ function openEditor(s) {
     s.email = rEmail.input.value.trim();
     s.phone = rPhone.input.value.trim();
     s.notes = rNotes.input.value.trim();
+    session.committed = true;
     if (isNew) sites.unshift(s);
     saveSites(); renderGrid(); closeOv();
   };
@@ -602,23 +849,28 @@ function openEditor(s) {
   sh.appendChild(act);
 }
 
-function confirmDialog(text, yesLabel, onYes) {
+function confirmDialog(text, yesLabel, onYes, stack) {
   var t = T();
   var ov = el('div', 'overlay');
+  if (stack) ov.style.zIndex = '4600';
   var d = el('div', 'dlg');
   d.appendChild(el('p', null, text));
   var r = el('div', 'row');
-  var no = el('button', null, t.no); no.onclick = closeOv;
+  function bye() { if (stack) ov.remove(); else closeOv(); }
+  var no = el('button', null, t.no); no.onclick = bye;
   var yes = el('button', 'yes', yesLabel);
-  yes.onclick = function () { closeOv(); onYes(); };
+  yes.onclick = function () { bye(); onYes(); };
   r.appendChild(no); r.appendChild(yes);
   d.appendChild(r); ov.appendChild(d);
-  ov.onclick = function (e) { if (e.target === ov) closeOv(); };
-  ovRoot.innerHTML = ''; ovRoot.appendChild(ov);
+  ov.onclick = function (e) { if (e.target === ov) bye(); };
+  if (stack) { document.body.appendChild(ov); }
+  else { ovRoot.innerHTML = ''; ovRoot.appendChild(ov); }
 }
 function confirmDelete(s) {
   confirmDialog(T().delTitle, T().delYes, function () {
     sites = sites.filter(function (x) { return x !== s && x.id !== s.id; });
+    (attMap[s.id] || []).forEach(function (r) { IDB.del(r.id).catch(function () {}); });
+    delete attMap[s.id];
     saveSites(); renderGrid();
   });
 }
@@ -733,7 +985,16 @@ function pinRemove() {
 // Same flow as gramvip: write to CACHE as base64, then open the native share sheet
 async function exportData() {
   var t = T();
-  var out = { app: 'savepro', version: 1, exportedAt: new Date().toISOString(), sites: sites };
+  var filesOut = [];
+  try {
+    var recs = await IDB.getAll();
+    for (var i = 0; i < recs.length; i++) {
+      var b64 = await blobToB64(recs[i].blob);
+      filesOut.push({ id: recs[i].id, siteId: recs[i].siteId, name: recs[i].name,
+        mime: recs[i].mime, kind: recs[i].kind, data: b64 });
+    }
+  } catch (e) {}
+  var out = { app: 'savepro', version: 2, exportedAt: new Date().toISOString(), sites: sites, files: filesOut };
   var blob = new Blob([JSON.stringify(out, null, 1)], { type: 'application/json' });
   var name = 'savepro-backup-' + new Date().toISOString().slice(0, 10) + '.json';
   var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
@@ -767,16 +1028,31 @@ function importData() {
         if (!Array.isArray(list)) throw new Error('bad');
         var seen = {};
         sites.forEach(function (s) { seen[s.id] = 1; });
+        var idMap = {};
         list.forEach(function (s) {
           if (!s || (!s.url && !s.addr)) return;
+          var oldId = s.id;
           if (!s.id) s.id = 's' + Date.now() + Math.random().toString(36).slice(2, 6);
           if (seen[s.id]) s.id = s.id + '_i';
           seen[s.id] = 1;
+          idMap[oldId || s.id] = s.id;
           sites.push({ id: s.id, name: s.name || hostOf(s.url), url: s.url,
             icon: s.icon || '', user: s.user || '', pass: s.pass || '', addr: s.addr || '',
             email: s.email || '', phone: s.phone || '', notes: s.notes || '' });
         });
-        saveSites(); renderGrid(); toast(T().imported);
+        var fl = (j && Array.isArray(j.files)) ? j.files : [];
+        Promise.all(fl.map(function (f) {
+          var sid = idMap[f.siteId];
+          if (!sid || !f.data) return null;
+          var rec = { id: 'f' + Date.now() + Math.random().toString(36).slice(2, 7),
+            siteId: sid, name: f.name || 'file', mime: f.mime || 'application/octet-stream',
+            kind: f.kind === 'pdf' ? 'pdf' : 'image', blob: b64ToBlob(f.data, f.mime) };
+          return IDB.put(rec).then(function () {
+            (attMap[sid] = attMap[sid] || []).push(rec);
+          });
+        })).then(function () {
+          saveSites(); renderGrid(); toast(T().imported);
+        });
       } catch (e) { toast('import ✗'); }
     };
     rd.readAsText(f);
