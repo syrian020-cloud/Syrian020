@@ -828,7 +828,7 @@ function writeBackup(json) {
     if (!FS) return;
     if (backupTimer) clearTimeout(backupTimer);
     backupTimer = setTimeout(function () {
-      FS.writeFile({ path: 'prolang-backup.json', data: json, directory: 'DATA', recursive: true }).catch(function () {});
+      FS.writeFile({ path: 'prolang-backup.json', data: json, directory: 'DATA', recursive: true, encoding: 'utf8' }).catch(function () {});
     }, 400);
   } catch (e) {}
 }
@@ -845,7 +845,7 @@ function saveData() {
     if (!FS) return;
     var raw = localStorage.getItem('prolang_data');
     if (raw && raw !== '[]') return;   // localStorage intact — nothing to restore
-    FS.readFile({ path: 'prolang-backup.json', directory: 'DATA' }).then(function (r) {
+    FS.readFile({ path: 'prolang-backup.json', directory: 'DATA', encoding: 'utf8' }).then(function (r) {
       try {
         var txt = typeof r.data === 'string' ? r.data : '';
         var d = JSON.parse(txt);
@@ -1205,7 +1205,7 @@ function findL(f, id) {
 
 /* ================= rendering ================= */
 function iconHtml(item, fallback) {
-  if (item.img) return '<img src="' + item.img + '" alt="">';
+  if (item.img) return '<img src="' + esc(item.img) + '" alt="">';
   if (item.icon) return esc(item.icon);
   return esc((item.name || item.title || '?')[0] || '?');
 }
@@ -1743,6 +1743,18 @@ function lessonTextSheet(f, l) {
     });
     if (!phs.length && !cues.length &&
         ((l.phrases || []).length || (l.cues || []).length) && !confirm(T().del + '?')) return;
+    // round-trip: keep the original id + per-phrase voice on cards whose text
+    // didn't change — otherwise edited-text saves wipe dialogue casting and
+    // any links (notebook) keyed by the phrase id
+    var oldPh = {};
+    (l.phrases || []).forEach(function (p2) { oldPh[(p2.flag || '') + '|' + (p2.text || '')] = p2; });
+    phs.forEach(function (p2) {
+      var o = oldPh[(p2.flag || '') + '|' + (p2.text || '')];
+      if (o) { p2.id = o.id; if (o.voice) p2.voice = o.voice; }
+    });
+    var oldCue = {};
+    (l.cues || []).forEach(function (c2) { oldCue[c2.start + '|' + (c2.text || '')] = c2; });
+    cues.forEach(function (c2) { var o = oldCue[c2.start + '|' + (c2.text || '')]; if (o) c2.id = o.id; });
     l.phrases = phs;
     l.cues = cues;
     saveData(); render(); closeOv(); toast('✓');
@@ -3887,8 +3899,15 @@ function normPhrase(p) {
   if (!p || typeof p !== 'object') return null;
   if (p.type === 'note') return { id: p.id || uid(), type: 'note', text: p.text || '' };
   if (!p.text) return null;
-  return { id: p.id || uid(), flag: p.flag || '', lang: p.lang || langOfFlag(p.flag),
-    text: p.text || '', latin: p.latin || '', arp: p.arp || '', meaning: p.meaning || '', note: p.note || '' };
+  var np = { id: p.id || uid(), flag: p.flag || '', lang: p.lang || langOfFlag(p.flag),
+    text: p.text || '', latin: p.latin || '', arp: p.arp || '', meaning: p.meaning || '',
+    en: p.en || '', note: p.note || '' };
+  if (p.voice) np.voice = p.voice;
+  if (Array.isArray(p.rows) && p.rows.length) np.rows = p.rows.map(function (r) {
+    return { flag: r.flag || '', lang: r.lang || langOfFlag(r.flag), text: r.text || '',
+      latin: r.latin || '', arp: r.arp || '' };
+  });
+  return np;
 }
 function importData() {
   var inp = document.createElement('input');
@@ -3917,6 +3936,9 @@ function importData() {
             var nl = { id: ls.id || uid(), title: ls.title || '', icon: ls.icon || '📝',
               img: ls.img || '', phrases: [], cues: Array.isArray(ls.cues) ? ls.cues : [],
               media: (ls.media && ls.media.kind) ? { kind: ls.media.kind, name: ls.media.name || '' } : null };
+            if (ls.imgSize) nl.imgSize = ls.imgSize;
+            while (have[nl.id]) nl.id += '_i';   // dup ids share media keys — keep them unique
+            have[nl.id] = 1;
             (ls.phrases || []).forEach(function (p) {
               var np = normPhrase(p); if (np) nl.phrases.push(np);
             });
