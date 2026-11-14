@@ -1,4 +1,4 @@
-const CACHE_NAME = 'savepro-v3';   // bump on every savepro change — existing installs must drop the old cached page
+const CACHE_NAME = 'savepro-v4';   // bump on every savepro change — existing installs must drop the old cached page
 const FILES_TO_CACHE = [
   './savepro.html',
   './manifest-savepro.json',
@@ -35,16 +35,26 @@ self.addEventListener('fetch', (event) => {
   // Everything that is not savepro's own asset/page passes straight through,
   // so this worker never interferes with the other apps sharing this origin.
   if (!isNav && !isOurs) return;
-  event.respondWith(
-    caches.match(event.request).then((cached) =>
-      cached ||
-      fetch(event.request).catch(() => {
-        // Offline fallback only for savepro's own page — never for other pages.
-        if (isNav && url.pathname.endsWith('/savepro.html')) {
-          return caches.match('./savepro.html');
+  if (isNav) {
+    // Network-first for pages: fresh HTML when online, cached copy when
+    // offline — updates reach existing installs without a cache-name bump.
+    event.respondWith(
+      fetch(event.request).then((res) => {
+        if (url.pathname.endsWith('/savepro.html') && res.ok) {
+          const copy = res.clone();
+          caches.open(CACHE_NAME).then((c) => c.put('./savepro.html', copy));
         }
-        return Response.error();
-      })
-    )
+        return res;
+      }).catch(() =>
+        caches.match(event.request).then((cached) =>
+          cached || (url.pathname.endsWith('/savepro.html')
+            ? caches.match('./savepro.html') : Response.error())
+        )
+      )
+    );
+    return;
+  }
+  event.respondWith(
+    caches.match(event.request).then((cached) => cached || fetch(event.request))
   );
 });

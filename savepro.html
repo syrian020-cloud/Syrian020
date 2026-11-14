@@ -553,6 +553,10 @@ function renameAttachment(rec, siteId) {
   yes.onclick = function () {
     var v = inp.value.trim();
     if (v) {
+      // keep the file type: renaming 'doc.pdf' to 'mydoc' must stay a .pdf —
+      // Android derives the share/open MIME from the filename extension
+      var oldExt = (rec.name || '').match(/\.[A-Za-z0-9]{1,6}$/);
+      if (oldExt && !/\.[A-Za-z0-9]{1,6}$/.test(v)) v += oldExt[0];
       rec.name = v;
       IDB.put(rec).catch(function () {});
       if (lastAttWrap) lastAttWrap.refresh();
