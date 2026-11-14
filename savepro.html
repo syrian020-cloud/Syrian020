@@ -270,7 +270,7 @@ var I18N = {
     openNoContent: 'لا يوجد محتوى للفتح',
     userCopied: 'نُسخ اسم المستخدم', passCopied: 'نُسخت كلمة السر',
     credsCopied: 'نُسخ المستخدم وكلمة السر — الأخيرة بسجل الحافظة',
-    atts: 'المرفقات', addImg: 'صورة', addPdf: 'ملف PDF', noAtts: 'لا مرفقات بعد',
+    atts: 'المرفقات', addImg: 'صورة', addPdf: 'ملف PDF', addFile: 'ملف', noAtts: 'لا مرفقات بعد',
     attDelTitle: 'حذف هذا المرفق؟', attSaved: 'تم حفظ الملف',
     attRename: 'تعديل اسم المرفق',
     lockTitle: 'رمز الدخول', lockSub: 'أدخل 4 أرقام للمتابعة',
@@ -296,7 +296,7 @@ var I18N = {
     openNoContent: 'Aucun contenu à ouvrir',
     userCopied: 'Identifiant copié', passCopied: 'Mot de passe copié',
     credsCopied: 'Identifiant + mot de passe copiés',
-    atts: 'Pièces jointes', addImg: 'Image', addPdf: 'Fichier PDF', noAtts: 'Aucune pièce jointe',
+    atts: 'Pièces jointes', addImg: 'Image', addPdf: 'Fichier PDF', addFile: 'Fichier', noAtts: 'Aucune pièce jointe',
     attDelTitle: 'Supprimer cette pièce ?', attSaved: 'Fichier enregistré',
     attRename: 'Renommer la pièce jointe',
     lockTitle: 'Code d’accès', lockSub: 'Entrez 4 chiffres pour continuer',
@@ -322,7 +322,7 @@ var I18N = {
     openNoContent: 'Nothing to open',
     userCopied: 'Username copied', passCopied: 'Password copied',
     credsCopied: 'Username + password copied (password in clipboard history)',
-    atts: 'Attachments', addImg: 'Image', addPdf: 'PDF file', noAtts: 'No attachments yet',
+    atts: 'Attachments', addImg: 'Image', addPdf: 'PDF file', addFile: 'File', noAtts: 'No attachments yet',
     attDelTitle: 'Delete this attachment?', attSaved: 'File saved',
     attRename: 'Rename attachment',
     lockTitle: 'Passcode', lockSub: 'Enter 4 digits to continue',
@@ -460,15 +460,19 @@ function b64ToBlob(b64, mime) {
 function addAttachment(siteId, kind, session) {
   var fi = document.createElement('input');
   fi.type = 'file'; fi.multiple = true;
-  fi.accept = kind === 'pdf' ? 'application/pdf,.pdf' : 'image/*';
+  fi.accept = kind === 'pdf' ? 'application/pdf,.pdf' : kind === 'image' ? 'image/*' : '*/*';
   fi.onchange = function () {
     var files = Array.prototype.slice.call(fi.files || []);
     if (!files.length) return;
     Promise.all(files.map(function (f) {
+      var mime = f.type || '';
+      var kd = mime.indexOf('image/') === 0 ? 'image' :
+        (mime === 'application/pdf' || /\.pdf$/i.test(f.name || '')) ? 'pdf' :
+        (kind === 'file' ? 'file' : kind);
       var rec = { id: 'f' + Date.now() + Math.random().toString(36).slice(2, 7),
-        siteId: siteId, name: f.name || (kind === 'pdf' ? 'file.pdf' : 'image'),
-        mime: f.type || (kind === 'pdf' ? 'application/pdf' : 'image/*'),
-        kind: kind, blob: f, addedAt: Date.now() };
+        siteId: siteId, name: f.name || 'file',
+        mime: mime || 'application/octet-stream',
+        kind: kd, blob: f, addedAt: Date.now() };
       return IDB.put(rec).then(function () {
         (attMap[siteId] = attMap[siteId] || []).push(rec);
         if (session) session.added.push(rec);
@@ -491,17 +495,23 @@ function viewAttachment(rec) {
     document.body.appendChild(ov);
     return;
   }
-  // PDF: Android WebView can't render PDFs — hand it to a native app via the share sheet
+  // Non-image files (PDF/APK/...): the WebView can't open them — hand to a native app
   var url = URL.createObjectURL(rec.blob);
   var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
   var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
   if (inCap && FS && SH) {
+    var cf = 'savepro-' + rec.id + '-' + (rec.name || 'file').replace(/[^\w.\-]+/g, '_');
     blobToB64(rec.blob).then(function (b64) {
-      return FS.writeFile({ path: 'savepro-' + rec.id + '.pdf', data: b64,
+      return FS.writeFile({ path: cf, data: b64,
         directory: 'CACHE', recursive: true });
     }).then(function (w) {
       return SH.share({ title: rec.name, url: w.uri });
     }).catch(function (e) { console.error(e); window.open(url, '_blank'); });
+    return;
+  }
+  if (rec.kind === 'file') {
+    var a = document.createElement('a'); a.href = url; a.download = rec.name || 'file'; a.click();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
     return;
   }
   window.open(url, '_blank');
@@ -567,7 +577,7 @@ function renderAttList(box, siteId) {
       var im = new Image(); im.className = 'thumb'; im.src = URL.createObjectURL(r.blob);
       row.appendChild(im);
     } else {
-      row.appendChild(el('div', 'thumb', '📄'));
+      row.appendChild(el('div', 'thumb', r.kind === 'pdf' ? '📄' : '📁'));
     }
     row.appendChild(el('div', 'an', r.name));
     var rn = el('button', 'ax', '✏');
@@ -601,7 +611,9 @@ function attListEl(siteId, session) {
   bi.onclick = function () { addAttachment(siteId, 'image', session); };
   var bp = el('button', 'mini', '📄 ' + t.addPdf);
   bp.onclick = function () { addAttachment(siteId, 'pdf', session); };
-  add.appendChild(bi); add.appendChild(bp);
+  var bf = el('button', 'mini', '📁 ' + t.addFile);
+  bf.onclick = function () { addAttachment(siteId, 'file', session); };
+  add.appendChild(bi); add.appendChild(bp); add.appendChild(bf);
   wrap.appendChild(add);
   var list = el('div', 'attlist');
   wrap.appendChild(list);
@@ -1207,7 +1219,7 @@ function importData() {
           if (!sid || !f.data) return null;
           var rec = { id: 'f' + Date.now() + Math.random().toString(36).slice(2, 7),
             siteId: sid, name: f.name || 'file', mime: f.mime || 'application/octet-stream',
-            kind: f.kind === 'pdf' ? 'pdf' : 'image', blob: b64ToBlob(f.data, f.mime) };
+            kind: (f.kind === 'pdf' || f.kind === 'file') ? f.kind : 'image', blob: b64ToBlob(f.data, f.mime) };
           return IDB.put(rec).then(function () {
             (attMap[sid] = attMap[sid] || []).push(rec);
           });
