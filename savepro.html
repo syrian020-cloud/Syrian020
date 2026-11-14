@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>savePro</title>
+<link rel="manifest" href="./manifest-savepro.json">
+<link rel="icon" type="image/png" href="./icon-savepro-192.png">
+<style>
+  :root {
+    --bg: #070b18; --card: #0e1330; --card2: #101427; --field: #0b102a;
+    --line: rgba(139, 92, 246, .18); --accent: #8b5cf6; --accent2: #6366f1;
+    --txt: #e8eaf6; --dim: #9aa3c7; --gold: #f5c451;
+    --danger: #f87171;
+  }
+  body.light {
+    --bg: #f2f4fb; --card: #ffffff; --card2: #eef0fa; --field: #f6f7fd;
+    --line: rgba(99, 102, 241, .22); --accent: #6366f1; --accent2: #8b5cf6;
+    --txt: #1a1e3d; --dim: #5a6390; --gold: #b8860b;
+    --danger: #dc2626;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--txt);
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif; overflow-x: clip; }
+  body { min-height: 100vh; padding-bottom: 3rem; }
+  body::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(620px 300px at 85% -4%, rgba(139,92,246,.18), transparent 62%),
+      radial-gradient(480px 260px at -8% 32%, rgba(99,102,241,.10), transparent 62%); }
+  body.light::before { background:
+    radial-gradient(620px 300px at 85% -4%, rgba(99,102,241,.10), transparent 62%),
+    radial-gradient(480px 260px at -8% 32%, rgba(139,92,246,.07), transparent 62%); }
+
+  /* ---------- header ---------- */
+  header { position: sticky; top: 0; z-index: 100; background: rgba(7,11,24,.72);
+    backdrop-filter: blur(16px) saturate(1.35); -webkit-backdrop-filter: blur(16px) saturate(1.35);
+    border-bottom: 1px solid var(--line); padding: .6rem .9rem; }
+  body.light header { background: rgba(242,244,251,.78); }
+  .topbar { display: flex; align-items: center; gap: .5rem; max-width: 860px; margin: 0 auto;
+    flex-wrap: wrap; }
+  .logo { display: flex; align-items: center; gap: .5rem; font-weight: 900; font-size: 1.1rem;
+    flex: none; min-width: 0; letter-spacing: .2px; }
+  .logo span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    background: linear-gradient(90deg, #c4b5fd, #818cf8); -webkit-background-clip: text;
+    background-clip: text; -webkit-text-fill-color: transparent; }
+  body.light .logo span { background: linear-gradient(90deg, #4f46e5, #7c3aed);
+    -webkit-background-clip: text; background-clip: text; }
+  .logo img { width: 32px; height: 32px; border-radius: 10px; flex: none;
+    box-shadow: 0 4px 12px rgba(99,102,241,.35); }
+  .searchbox { flex: 1; display: flex; align-items: center; gap: .4rem;
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: .42rem .7rem; transition: border-color .15s ease, box-shadow .15s ease; }
+  .searchbox:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(139,92,246,.15); }
+  .searchbox input { flex: 1; background: none; border: none; outline: none;
+    color: var(--txt); font-size: .9rem; font-family: inherit; min-width: 0; }
+  .iconbtn { background: var(--card); border: 1px solid var(--line); color: var(--txt);
+    border-radius: 12px; padding: .4rem .65rem; font-size: 1rem; cursor: pointer; flex: none;
+    font-family: inherit; transition: transform .12s ease; }
+  .iconbtn:active { transform: scale(.92); }
+  .iconbtn.on { border-color: var(--gold); color: var(--gold); }
+  @media (max-width: 619px) {
+    .logo { flex: 1; }
+    .searchbox { order: 5; flex: 1 1 100%; }
+  }
+
+  main { max-width: 860px; margin: 0 auto; padding: .8rem; }
+
+  /* ---------- sites grid ---------- */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(112px, 100%), 1fr)); gap: .7rem; }
+  .site { background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+    padding: .95rem .55rem .75rem; cursor: pointer; display: flex; flex-direction: column;
+    align-items: center; gap: .5rem; min-width: 0; position: relative;
+    box-shadow: 0 4px 14px rgba(3,6,18,.22);
+    transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease; }
+  body.light .site { box-shadow: 0 4px 14px rgba(90,99,144,.10); }
+  .site:active { transform: scale(.95) translateY(1px); border-color: var(--accent);
+    box-shadow: 0 6px 18px rgba(124,58,237,.25); }
+  .site-icon { width: 56px; height: 56px; border-radius: 18px; flex: none; display: flex;
+    align-items: center; justify-content: center; font-weight: 900; font-size: 1.45rem;
+    color: #fff; overflow: hidden; background: linear-gradient(135deg, #4338ca, #7c3aed);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.14), 0 5px 12px rgba(67,56,202,.4); }
+  .site-icon img { width: 100%; height: 100%; object-fit: cover; background: #fff; }
+  .site-name { font-weight: 800; font-size: .82rem; line-height: 1.25; text-align: center;
+    max-width: 100%; overflow-wrap: anywhere; letter-spacing: .15px; }
+  .site-dots { position: absolute; top: .3rem; inset-inline-end: .3rem; background: none;
+    border: none; color: var(--dim); font-size: 1.05rem; cursor: pointer; padding: .1rem .3rem;
+    font-family: inherit; }
+  .site-dots:active { color: var(--accent); }
+  .site-map { position: absolute; top: .3rem; inset-inline-start: .3rem; background: none;
+    border: none; font-size: .95rem; cursor: pointer; padding: .1rem .25rem;
+    font-family: inherit; filter: grayscale(.15); }
+  .site-map:active { transform: scale(1.15); }
+  .has-cred { position: absolute; bottom: .35rem; inset-inline-start: .4rem; font-size: .6rem;
+    color: var(--gold); }
+  .has-files { position: absolute; bottom: .35rem; inset-inline-end: .4rem; font-size: .68rem;
+    color: var(--accent); background: none; border: none; cursor: pointer; padding: .1rem .2rem;
+    font-family: inherit; }
+  .has-files:active { transform: scale(1.15); }
+
+  .add-card { border: 1.5px dashed var(--line); background: transparent; color: var(--dim);
+    font-size: 1.8rem; border-radius: 20px; }
+  .add-card:active { border-color: var(--accent); color: var(--accent); }
+
+  /* ---------- toast ---------- */
+  #toast { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+    background: #1a1f3d; border: 1px solid var(--line); color: #e8eaf6;
+    border-radius: 14px; padding: .55rem 1rem; font-size: .82rem; z-index: 5000;
+    box-shadow: 0 8px 24px rgba(0,0,0,.4);
+    opacity: 0; pointer-events: none; transition: opacity .25s; max-width: 90vw; text-align: center; }
+  #toast.show { opacity: 1; }
+
+  /* ---------- sheets & dialogs ---------- */
+  .overlay { position: fixed; inset: 0; background: rgba(3,6,18,.66); backdrop-filter: blur(4px);
+    z-index: 4000; display: flex; align-items: flex-end; justify-content: center; }
+  .sheet { width: 100%; max-width: 480px; background: var(--card2);
+    border: 1px solid var(--line); border-bottom: none; border-radius: 26px 26px 0 0;
+    padding: .8rem 1.2rem 1.6rem; max-height: 85vh; overflow-y: auto;
+    box-shadow: 0 -14px 44px rgba(0,0,0,.45); }
+  .sheet::before { content: ''; display: block; width: 42px; height: 4px; border-radius: 4px;
+    background: var(--line); margin: 0 auto .8rem; }
+  .sheet h3 { margin: 0 0 .8rem; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; }
+  .sheet h3 button { background: none; border: none; color: var(--dim); font-size: 1.2rem; cursor: pointer; }
+
+  .flabel { font-size: .72rem; color: var(--dim); margin: .55rem 0 .25rem; }
+  .frow { display: flex; gap: .4rem; align-items: center; }
+  .field { flex: 1; display: flex; align-items: center; gap: .4rem; min-width: 0;
+    background: var(--field); border: 1px solid var(--line); border-radius: 14px;
+    padding: .55rem .7rem; transition: border-color .15s ease, box-shadow .15s ease; }
+  .field:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(139,92,246,.14); }
+  .field input { flex: 1; background: none; border: none; outline: none; color: var(--txt);
+    font-size: .88rem; font-family: inherit; min-width: 0; }
+  .field input[readonly] { color: var(--dim); }
+  .field input[type=password] { letter-spacing: .1em; }
+  .mini { flex: none; background: var(--card); border: 1px solid var(--line); color: var(--txt);
+    border-radius: 10px; padding: .35rem .6rem; font-size: .75rem; cursor: pointer; font-family: inherit; }
+  .mini:active { background: var(--accent); color: #fff; }
+
+  .actions { display: flex; gap: .5rem; margin-top: .9rem; }
+  .btn { flex: 1; border: 1px solid var(--line); border-radius: 14px; padding: .7rem;
+    font-size: .9rem; cursor: pointer; font-family: inherit; background: var(--card); color: var(--txt);
+    transition: transform .12s ease; }
+  .btn:active { transform: scale(.97); }
+  .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none;
+    color: #fff; font-weight: 700; box-shadow: 0 6px 18px rgba(99,102,241,.35); }
+  .btn.danger { color: var(--danger); border-color: rgba(248,113,113,.4); }
+
+  .mrow { display: flex; align-items: center; gap: .7rem; width: 100%; background: rgba(139,92,246,.07);
+    border: 1px solid var(--line); border-radius: 16px; padding: .8rem 1rem; margin-bottom: .55rem;
+    color: var(--txt); font-size: .9rem; cursor: pointer; font-family: inherit; text-align: start; }
+  body.light .mrow { background: rgba(99,102,241,.06); }
+  .mrow:active { background: rgba(139,92,246,.16); }
+  .mrow .mi { font-size: 1.1rem; width: 1.6rem; text-align: center; flex: none; }
+  .langs { display: flex; gap: .5rem; margin-bottom: .7rem; }
+  .langb { flex: 1; background: var(--card); border: 1px solid var(--line); color: var(--txt);
+    border-radius: 14px; padding: .6rem; font-size: .85rem; cursor: pointer; font-family: inherit; }
+  .langb.on { background: linear-gradient(135deg, var(--accent), var(--accent2)); border-color: transparent; font-weight: 700; }
+
+  .dlg { width: 100%; max-width: 340px; background: var(--card2); border: 1px solid var(--line);
+    border-radius: 22px; padding: 1.3rem; text-align: center; margin: auto 1rem; }
+  .dlg p { font-size: .95rem; margin: 0 0 1rem; }
+  .dlg .row { display: flex; gap: .6rem; }
+  .dlg button { flex: 1; border: 1px solid var(--line); border-radius: 12px; padding: .6rem;
+    font-size: .9rem; cursor: pointer; font-family: inherit; background: var(--card); color: var(--txt); }
+  .dlg button.yes { background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none; color: #fff; font-weight: 700; }
+
+  /* ---------- passcode lock ---------- */
+  #lock { position: fixed; inset: 0; z-index: 6000; display: flex; align-items: center;
+    justify-content: center; background: var(--bg);
+    background-image: radial-gradient(520px 330px at 50% 16%, rgba(139,92,246,.22), transparent 65%); }
+  body.light #lock { background-image: radial-gradient(520px 330px at 50% 16%, rgba(99,102,241,.14), transparent 65%); }
+  #lock .lk { width: min(320px, 86vw); text-align: center; }
+  #lock .lk-ico { width: 74px; height: 74px; margin: 0 auto .9rem; border-radius: 24px;
+    display: flex; align-items: center; justify-content: center; font-size: 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    box-shadow: 0 10px 30px rgba(124,58,237,.35); }
+  #lock h2 { margin: 0 0 .2rem; font-size: 1.05rem; }
+  #lock .sub { color: var(--dim); font-size: .78rem; margin-bottom: 1.1rem; }
+  #lock .pinrow { display: flex; gap: .5rem; }
+  #lock .pinrow input { flex: 1; min-width: 0; background: var(--field);
+    border: 1px solid var(--line); border-radius: 14px; padding: .8rem; color: var(--txt);
+    font-size: 1.25rem; text-align: center; letter-spacing: .55em; font-family: inherit;
+    outline: none; transition: border-color .15s ease; }
+  #lock .pinrow input:focus { border-color: var(--accent); }
+  #lock .pinrow button { flex: none; border: none; border-radius: 14px; padding: 0 1.15rem;
+    font-size: 1.15rem; color: #fff; cursor: pointer; font-family: inherit;
+    background: linear-gradient(135deg, var(--accent), var(--accent2)); }
+  #lock .pinrow button:active { transform: scale(.94); }
+  #lock .lmsg { min-height: 1.2rem; margin-top: .7rem; font-size: .8rem; color: var(--danger); }
+
+  /* ---------- attachments ---------- */
+  .att-add { display: flex; gap: .4rem; margin: .15rem 0 .5rem; }
+  .att-add .mini { flex: 1; padding: .5rem .6rem; font-size: .8rem; }
+  .attlist { display: flex; flex-direction: column; gap: .4rem; }
+  .att { display: flex; align-items: center; gap: .55rem; background: var(--field);
+    border: 1px solid var(--line); border-radius: 12px; padding: .4rem .55rem; cursor: pointer; }
+  .att:active { border-color: var(--accent); }
+  .att .thumb, img.thumb { width: 34px; height: 34px; border-radius: 9px; object-fit: cover; flex: none;
+    background: var(--card); display: flex; align-items: center; justify-content: center;
+    font-size: 1.05rem; overflow: hidden; }
+  .att .an { flex: 1; min-width: 0; font-size: .78rem; overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap; }
+  .att .ax { flex: none; background: none; border: none; color: var(--dim); font-size: .9rem;
+    cursor: pointer; padding: .1rem .3rem; font-family: inherit; }
+  .att .ax:active { color: var(--danger); }
+  .imgview { position: fixed; inset: 0; z-index: 5500; background: rgba(3,6,18,.93);
+    display: flex; align-items: center; justify-content: center; padding: 1.4rem; }
+  .imgview img { max-width: 100%; max-height: 100%; border-radius: 14px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<header>
+  <div class="topbar">
+    <div class="logo"><img src="./icon-savepro-192.png" alt="" onerror="this.style.display='none'"><span data-i="appname">savePro</span></div>
+    <div class="searchbox">
+      <span>🔍</span>
+      <input id="search" data-i-ph="searchPh" placeholder="ابحث عن أي شيء…" autocomplete="off">
+    </div>
+    <button class="iconbtn" id="waBtn" title="WhatsApp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" style="width:20px;height:20px;display:block"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#fff" transform="translate(4.15,4.15) scale(0.654)" d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35M12.04 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.82 9.82 0 0 1 9.88 9.89c0 5.44-4.44 9.88-9.89 9.88m8.42-18.3A11.82 11.82 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.58 0 11.94-5.36 11.94-11.93 0-3.18-1.24-6.18-3.53-8.38"/></svg></button>
+    <button class="iconbtn" id="langBtn" title="🌐" aria-label="Language">🇺🇸</button>
+    <button class="iconbtn" id="mailBtn" title="Gmail" aria-label="Gmail"><svg viewBox="0 0 256 192" style="width:20px;height:20px;display:block"><path fill="#4285F4" d="M58.182 192.05V93.14L27.507 65.077L0 49.504v125.091c0 9.658 7.825 17.455 17.455 17.455h40.727z"/><path fill="#34A853" d="M197.818 192.05h40.727c9.659 0 17.455-7.826 17.455-17.455V49.504l-27.328 15.564-30.854 28.072v98.91z"/><path fill="#EA4335" d="m58.182 93.14-4.174-38.647 4.174-48.989L128 69.868l69.818-64.364 4.173 48.97-4.173 38.666L128 157.482l-69.818-64.342z"/><path fill="#FBBC04" d="M197.818 5.504v87.636L256 49.504V24.585c0-21.58-24.646-33.858-41.697-20.783L197.818 5.504z"/><path fill="#C5221F" d="m0 49.504 26.759 20.07L58.182 93.14V5.504L41.695 3.802C24.646-9.274 0 3.005 0 24.585v24.919z"/></svg></button>
+    <button class="iconbtn" id="themeBtn" title="🌙">🌙</button>
+    <button class="iconbtn" id="menuBtn" title="⋮">⋮</button>
+  </div>
+</header>
+
+<main>
+  <div class="grid" id="grid"></div>
+</main>
+
+<div id="toast"></div>
+<div id="overlayRoot"></div>
+
+<div id="lock" class="hidden">
+  <div class="lk">
+    <div class="lk-ico">🔐</div>
+    <h2 data-i="lockTitle">رمز الدخول</h2>
+    <div class="sub" data-i="lockSub"></div>
+    <div class="pinrow">
+      <input id="lockPin" type="password" inputmode="numeric" maxlength="4" autocomplete="off">
+      <button id="lockGo">✓</button>
+    </div>
+    <div class="lmsg" id="lockMsg"></div>
+  </div>
+</div>
+
+<script src="./js/inappbrowser.js"></script>
+<script>
+(function () {
+'use strict';
+
+/* ================= i18n ================= */
+var I18N = {
+  ar: {
+    appname: 'savePro', searchPh: 'ابحث عن أي شيء…',
+    menu: 'القائمة', langTitle: 'لغة الواجهة', themeDark: 'الوضع الداكن 🌙', themeLight: 'الوضع الفاتح ☀',
+    exportData: 'تصدير البيانات', importData: 'استيراد البيانات',
+    addSite: 'إضافة موقع', editSite: 'تعديل الموقع',
+    fName: 'الاسم', fUrl: 'رابط الموقع', fIcon: 'رابط صورة الأيقونة (اختياري)',
+    fUser: 'اسم المستخدم', fPass: 'كلمة السر', pickImg: 'استوديو',
+    fAddr: 'العنوان (adresse)', mapGo: 'خريطة', openNoAddr: 'أضف العنوان أولاً من ⋮',
+    fEmail: 'البريد الإلكتروني', fPhone: 'رقم الهاتف', fNotes: 'ملاحظات',
+    save: 'حفظ', del: 'حذف', copy: 'نسخ', copied: 'نُسخ ✓', show: 'إظهار', hide: 'إخفاء',
+    open: 'فتح الموقع', openNoUrl: 'أضف رابط الموقع أولاً من ⋮',
+    exitTitle: 'هل تريد الخروج من التطبيق؟', yes: 'نعم، اخرج', no: 'إلغاء',
+    delTitle: 'حذف هذا الموقع؟', delYes: 'نعم، احذف',
+    exported: 'تم تصدير البيانات', imported: 'تم استيراد البيانات', errUrl: 'أضف أي محتوى للحفظ (اسم، رابط، مرفق…)',
+    openNoContent: 'لا يوجد محتوى للفتح',
+    userCopied: 'نُسخ اسم المستخدم', passCopied: 'نُسخت كلمة السر',
+    credsCopied: 'نُسخ المستخدم وكلمة السر — الأخيرة بسجل الحافظة',
+    atts: 'المرفقات', addImg: 'صورة', addPdf: 'ملف PDF', addFile: 'ملف', noAtts: 'لا مرفقات بعد',
+    attDelTitle: 'حذف هذا المرفق؟', attSaved: 'تم حفظ الملف',
+    attRename: 'تعديل اسم المرفق',
+    lockTitle: 'رمز الدخول', lockSub: 'أدخل 4 أرقام للمتابعة',
+    lockSet: 'تعيين رمز دخول (4 أرقام)', lockChange: 'تغيير رمز الدخول', lockDel: 'حذف رمز الدخول',
+    lockEnter: 'أدخل الرمز الحالي', lockNew: 'الرمز الجديد (4 أرقام)', lockConfirm: 'تأكيد الرمز',
+    lockWrong: 'الرمز غير صحيح', lockNoMatch: 'الرمزان غير متطابقين', lockNeedPin: 'الرمز يجب أن يكون 4 أرقام',
+    pinSaved: 'تم حفظ رمز الدخول', unlocked: 'تم حذف رمز الدخول'
+  },
+  fr: {
+    appname: 'savePro', searchPh: 'Rechercher partout…',
+    menu: 'Menu', langTitle: 'Langue de l’interface', themeDark: 'Mode sombre 🌙', themeLight: 'Mode clair ☀',
+    exportData: 'Exporter les données', importData: 'Importer les données',
+    addSite: 'Ajouter un site', editSite: 'Modifier le site',
+    fName: 'Nom', fUrl: 'Adresse du site', fIcon: 'URL de l’icône (optionnel)',
+    fUser: 'Nom d’utilisateur', fPass: 'Mot de passe', pickImg: 'Galerie',
+    fAddr: 'Adresse (rue, ville)', mapGo: 'Carte', openNoAddr: 'Ajoutez d’abord l’adresse via ⋮',
+    fEmail: 'E-mail', fPhone: 'Téléphone', fNotes: 'Notes',
+    save: 'Enregistrer', del: 'Supprimer', copy: 'Copier', copied: 'Copié ✓', show: 'Voir', hide: 'Cacher',
+    open: 'Ouvrir le site', openNoUrl: 'Ajoutez d’abord l’adresse via ⋮',
+    exitTitle: 'Quitter l’application ?', yes: 'Oui, quitter', no: 'Annuler',
+    delTitle: 'Supprimer ce site ?', delYes: 'Oui, supprimer',
+    exported: 'Données exportées', imported: 'Données importées', errUrl: 'Ajoutez du contenu à enregistrer',
+    openNoContent: 'Aucun contenu à ouvrir',
+    userCopied: 'Identifiant copié', passCopied: 'Mot de passe copié',
+    credsCopied: 'Identifiant + mot de passe copiés',
+    atts: 'Pièces jointes', addImg: 'Image', addPdf: 'Fichier PDF', addFile: 'Fichier', noAtts: 'Aucune pièce jointe',
+    attDelTitle: 'Supprimer cette pièce ?', attSaved: 'Fichier enregistré',
+    attRename: 'Renommer la pièce jointe',
+    lockTitle: 'Code d’accès', lockSub: 'Entrez 4 chiffres pour continuer',
+    lockSet: 'Définir un code (4 chiffres)', lockChange: 'Changer le code', lockDel: 'Supprimer le code',
+    lockEnter: 'Code actuel', lockNew: 'Nouveau code (4 chiffres)', lockConfirm: 'Confirmer le code',
+    lockWrong: 'Code incorrect', lockNoMatch: 'Les codes ne correspondent pas', lockNeedPin: 'Le code doit avoir 4 chiffres',
+    pinSaved: 'Code enregistré', unlocked: 'Code supprimé'
+  },
+  en: {
+    appname: 'savePro', searchPh: 'Search anything…',
+    menu: 'Menu', langTitle: 'Interface language', themeDark: 'Dark mode 🌙', themeLight: 'Light mode ☀',
+    exportData: 'Export data', importData: 'Import data',
+    addSite: 'Add site', editSite: 'Edit site',
+    fName: 'Name', fUrl: 'Site URL', fIcon: 'Icon image URL (optional)',
+    fUser: 'Username', fPass: 'Password', pickImg: 'Gallery',
+    fAddr: 'Address', mapGo: 'Map', openNoAddr: 'Add the address first via ⋮',
+    fEmail: 'Email', fPhone: 'Phone', fNotes: 'Notes',
+    save: 'Save', del: 'Delete', copy: 'Copy', copied: 'Copied ✓', show: 'Show', hide: 'Hide',
+    open: 'Open site', openNoUrl: 'Add the site URL first via ⋮',
+    exitTitle: 'Exit the app?', yes: 'Yes, exit', no: 'Cancel',
+    delTitle: 'Delete this site?', delYes: 'Yes, delete',
+    exported: 'Data exported', imported: 'Data imported', errUrl: 'Add some content to save',
+    openNoContent: 'Nothing to open',
+    userCopied: 'Username copied', passCopied: 'Password copied',
+    credsCopied: 'Username + password copied (password in clipboard history)',
+    atts: 'Attachments', addImg: 'Image', addPdf: 'PDF file', addFile: 'File', noAtts: 'No attachments yet',
+    attDelTitle: 'Delete this attachment?', attSaved: 'File saved',
+    attRename: 'Rename attachment',
+    lockTitle: 'Passcode', lockSub: 'Enter 4 digits to continue',
+    lockSet: 'Set passcode (4 digits)', lockChange: 'Change passcode', lockDel: 'Remove passcode',
+    lockEnter: 'Current passcode', lockNew: 'New passcode (4 digits)', lockConfirm: 'Confirm passcode',
+    lockWrong: 'Wrong passcode', lockNoMatch: 'Passcodes do not match', lockNeedPin: 'Passcode must be 4 digits',
+    pinSaved: 'Passcode saved', unlocked: 'Passcode removed'
+  }
+};
+function T() { return I18N[uiLang()] || I18N.ar; }
+function uiLang() { return localStorage.getItem('savepro_lang') || 'en'; }
+function langFlag(l) { return l === 'ar' ? '🇸🇾' : l === 'fr' ? '🇫🇷' : '🇺🇸'; }
+function setUiLang(l) {
+  try { localStorage.setItem('savepro_lang', l); } catch (e) {}
+  document.documentElement.lang = l;
+  document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+  applyI18n(); renderGrid();
+}
+function applyI18n() {
+  var t = T();
+  document.title = t.appname;
+  document.querySelectorAll('[data-i]').forEach(function (el) {
+    var k = el.getAttribute('data-i'); if (t[k]) el.textContent = t[k];
+  });
+  document.querySelectorAll('[data-i-ph]').forEach(function (el) {
+    var k = el.getAttribute('data-i-ph'); if (t[k]) el.placeholder = t[k];
+  });
+  document.getElementById('themeBtn').textContent = isDark() ? '🌙' : '☀';
+  document.getElementById('langBtn').textContent = langFlag(uiLang());
+}
+
+/* ================= data ================= */
+var inCap = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+var sites = [];
+try { sites = JSON.parse(localStorage.getItem('savepro_sites') || '[]'); } catch (e) { sites = []; }
+if (!Array.isArray(sites)) sites = [];
+
+// Built-in starter shortcuts removed — drop them on first run of this version,
+// but keep any seed entry the user already customized (credentials/icon/address)
+var SEED_IDS = { google: 1, youtube: 1, gmail: 1, facebook: 1, instagram: 1, x: 1, whatsapp: 1, github: 1 };
+if (!localStorage.getItem('savepro_seed_v2')) {
+  sites = sites.filter(function (s) {
+    if (!SEED_IDS[s.id]) return true;
+    return !!(s.user || s.pass || s.icon || s.addr);
+  });
+  saveSites();
+  try { localStorage.setItem('savepro_seed_v2', '1'); } catch (e) {}
+}
+function saveSites() { try { localStorage.setItem('savepro_sites', JSON.stringify(sites)); } catch (e) {} }
+
+/* ================= attachments (IndexedDB) ================= */
+var IDB = {
+  db: null,
+  open: function () {
+    if (IDB.db) return Promise.resolve(IDB.db);
+    return new Promise(function (res, rej) {
+      if (!window.indexedDB) return rej(new Error('no idb'));
+      var r = indexedDB.open('savepro_files', 1);
+      r.onupgradeneeded = function () {
+        var st = r.result.createObjectStore('files', { keyPath: 'id' });
+        st.createIndex('siteId', 'siteId');
+      };
+      r.onsuccess = function () { IDB.db = r.result; res(IDB.db); };
+      r.onerror = function () { rej(r.error); };
+    });
+  },
+  put: function (rec) {
+    return IDB.open().then(function (d) {
+      return new Promise(function (res, rej) {
+        var t = d.transaction('files', 'readwrite');
+        t.objectStore('files').put(rec);
+        t.oncomplete = res; t.onerror = function () { rej(t.error); };
+      });
+    });
+  },
+  del: function (id) {
+    return IDB.open().then(function (d) {
+      return new Promise(function (res, rej) {
+        var t = d.transaction('files', 'readwrite');
+        t.objectStore('files').delete(id);
+        t.oncomplete = res; t.onerror = function () { rej(t.error); };
+      });
+    });
+  },
+  getAll: function () {
+    return IDB.open().then(function (d) {
+      return new Promise(function (res, rej) {
+        var rq = d.transaction('files', 'readonly').objectStore('files').getAll();
+        rq.onsuccess = function () { res(rq.result || []); };
+        rq.onerror = function () { rej(rq.error); };
+      });
+    });
+  }
+};
+
+var attMap = {}; // siteId -> [attachment records], mirrors IndexedDB
+IDB.getAll().then(function (list) {
+  attMap = {};
+  list.forEach(function (r) { (attMap[r.siteId] = attMap[r.siteId] || []).push(r); });
+  renderGrid();
+}).catch(function () {});
+
+var activeSess = null; // { added:[rec], committed:bool } — purge unsaved additions on cancel
+var lastAttWrap = null;
+
+function attCount(sid) { return (attMap[sid] || []).length; }
+function firstAttName(sid) {
+  var a = attMap[sid];
+  return a && a.length ? a[0].name : '';
+}
+
+function purgeSession(sess) {
+  if (!sess || sess.committed) return;
+  sess.added.forEach(function (r) {
+    IDB.del(r.id).catch(function () {});
+    attMap[r.siteId] = (attMap[r.siteId] || []).filter(function (x) { return x.id !== r.id; });
+  });
+  sess.added = [];
+}
+
+function blobToB64(blob) {
+  return new Promise(function (res, rej) {
+    var rd = new FileReader();
+    rd.onload = function () { res(String(rd.result).split(',')[1] || ''); };
+    rd.onerror = function () { rej(rd.error); };
+    rd.readAsDataURL(blob);
+  });
+}
+function b64ToBlob(b64, mime) {
+  var bin = atob(b64), arr = new Uint8Array(bin.length);
+  for (var i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+  return new Blob([arr], { type: mime || 'application/octet-stream' });
+}
+
+function addAttachment(siteId, kind, session) {
+  var fi = document.createElement('input');
+  fi.type = 'file'; fi.multiple = true;
+  fi.accept = kind === 'pdf' ? 'application/pdf,.pdf' : kind === 'image' ? 'image/*' : '*/*';
+  fi.onchange = function () {
+    var files = Array.prototype.slice.call(fi.files || []);
+    if (!files.length) return;
+    Promise.all(files.map(function (f) {
+      var mime = f.type || '';
+      var kd = mime.indexOf('image/') === 0 ? 'image' :
+        (mime === 'application/pdf' || /\.pdf$/i.test(f.name || '')) ? 'pdf' :
+        (kind === 'file' ? 'file' : kind);
+      var rec = { id: 'f' + Date.now() + Math.random().toString(36).slice(2, 7),
+        siteId: siteId, name: f.name || 'file',
+        mime: mime || 'application/octet-stream',
+        kind: kd, blob: f, addedAt: Date.now() };
+      return IDB.put(rec).then(function () {
+        (attMap[siteId] = attMap[siteId] || []).push(rec);
+        if (session) session.added.push(rec);
+      });
+    })).then(function () {
+      renderGrid();
+      if (lastAttWrap) lastAttWrap.refresh();
+    });
+  };
+  fi.click();
+}
+
+function viewAttachment(rec) {
+  if (rec.kind === 'image') {
+    var ov = el('div', 'imgview');
+    var img = new Image();
+    img.src = URL.createObjectURL(rec.blob);
+    ov.appendChild(img);
+    ov.onclick = function () { ov.remove(); };
+    document.body.appendChild(ov);
+    return;
+  }
+  // Non-image files (PDF/APK/...): the WebView can't open them — hand to a native app
+  var url = URL.createObjectURL(rec.blob);
+  var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+  var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
+  if (inCap && FS && SH) {
+    var cf = 'savepro-' + rec.id + '-' + (rec.name || 'file').replace(/[^\w.\-]+/g, '_');
+    blobToB64(rec.blob).then(function (b64) {
+      return FS.writeFile({ path: cf, data: b64,
+        directory: 'CACHE', recursive: true });
+    }).then(function (w) {
+      return SH.share({ title: rec.name, url: w.uri });
+    }).catch(function (e) { console.error(e); window.open(url, '_blank'); });
+    return;
+  }
+  if (rec.kind === 'file') {
+    var a = document.createElement('a'); a.href = url; a.download = rec.name || 'file'; a.click();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+    return;
+  }
+  window.open(url, '_blank');
+}
+
+function saveAttachment(rec) {
+  var t = T();
+  var fname = rec.name || ('savepro-' + rec.id + (rec.kind === 'pdf' ? '.pdf' : '.png'));
+  var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+  var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
+  if (inCap && FS && SH) {
+    var safe = 'savepro-' + rec.id + '-' + fname.replace(/[^\w.\-]+/g, '_');
+    blobToB64(rec.blob).then(function (b64) {
+      return FS.writeFile({ path: safe, data: b64, directory: 'CACHE', recursive: true });
+    }).then(function (w) {
+      return SH.share({ title: fname, url: w.uri });
+    }).then(function () { toast(t.attSaved); }).catch(function (e) { console.error(e); });
+    return;
+  }
+  var u = URL.createObjectURL(rec.blob);
+  var a = document.createElement('a'); a.href = u; a.download = fname; a.click();
+  setTimeout(function () { URL.revokeObjectURL(u); }, 4000);
+  toast(t.attSaved);
+}
+
+function renameAttachment(rec, siteId) {
+  var t = T();
+  var ov = el('div', 'overlay'); ov.style.zIndex = '4600';
+  var d = el('div', 'dlg');
+  d.appendChild(el('p', null, t.attRename));
+  var f = el('div', 'field');
+  var inp = document.createElement('input');
+  inp.value = rec.name || ''; inp.dir = 'auto';
+  f.appendChild(inp); d.appendChild(f);
+  var r = el('div', 'row'); r.style.marginTop = '.8rem';
+  function bye() { ov.remove(); }
+  var no = el('button', null, t.no); no.onclick = bye;
+  var yes = el('button', 'yes', t.save);
+  yes.onclick = function () {
+    var v = inp.value.trim();
+    if (v) {
+      // keep the file type: renaming 'doc.pdf' to 'mydoc' must stay a .pdf —
+      // Android derives the share/open MIME from the filename extension
+      var oldExt = (rec.name || '').match(/\.[A-Za-z0-9]{1,6}$/);
+      if (oldExt && !/\.[A-Za-z0-9]{1,6}$/.test(v)) v += oldExt[0];
+      rec.name = v;
+      IDB.put(rec).catch(function () {});
+      if (lastAttWrap) lastAttWrap.refresh();
+      renderGrid();
+    }
+    bye();
+  };
+  r.appendChild(no); r.appendChild(yes);
+  d.appendChild(r); ov.appendChild(d);
+  ov.onclick = function (e) { if (e.target === ov) bye(); };
+  document.body.appendChild(ov);
+  setTimeout(function () { try { inp.focus(); inp.select(); } catch (e) {} }, 200);
+}
+
+function renderAttList(box, siteId) {
+  box.innerHTML = '';
+  var recs = attMap[siteId] || [];
+  if (!recs.length) { box.appendChild(el('div', 'flabel', T().noAtts)); return; }
+  recs.forEach(function (r) {
+    var row = el('div', 'att');
+    if (r.kind === 'image') {
+      var im = new Image(); im.className = 'thumb'; im.src = URL.createObjectURL(r.blob);
+      row.appendChild(im);
+    } else {
+      row.appendChild(el('div', 'thumb', r.kind === 'pdf' ? '📄' : '📁'));
+    }
+    row.appendChild(el('div', 'an', r.name));
+    var rn = el('button', 'ax', '✏');
+    rn.onclick = function (e) { e.stopPropagation(); renameAttachment(r, siteId); };
+    row.appendChild(rn);
+    var dl = el('button', 'ax', '⬇');
+    dl.onclick = function (e) { e.stopPropagation(); saveAttachment(r); };
+    row.appendChild(dl);
+    var ax = el('button', 'ax', '✕');
+    ax.onclick = function (e) {
+      e.stopPropagation();
+      confirmDialog(T().attDelTitle, T().delYes, function () {
+        IDB.del(r.id).catch(function () {});
+        attMap[siteId] = (attMap[siteId] || []).filter(function (x) { return x.id !== r.id; });
+        renderGrid();
+        if (lastAttWrap) lastAttWrap.refresh();
+      }, true);
+    };
+    row.appendChild(ax);
+    row.onclick = function () { viewAttachment(r); };
+    box.appendChild(row);
+  });
+}
+
+function attListEl(siteId, session) {
+  var t = T();
+  var wrap = el('div');
+  wrap.appendChild(el('div', 'flabel', '📎 ' + t.atts));
+  var add = el('div', 'att-add');
+  var bi = el('button', 'mini', '🖼 ' + t.addImg);
+  bi.onclick = function () { addAttachment(siteId, 'image', session); };
+  var bp = el('button', 'mini', '📄 ' + t.addPdf);
+  bp.onclick = function () { addAttachment(siteId, 'pdf', session); };
+  var bf = el('button', 'mini', '📁 ' + t.addFile);
+  bf.onclick = function () { addAttachment(siteId, 'file', session); };
+  add.appendChild(bi); add.appendChild(bp); add.appendChild(bf);
+  wrap.appendChild(add);
+  var list = el('div', 'attlist');
+  wrap.appendChild(list);
+  wrap.refresh = function () { renderAttList(list, siteId); };
+  wrap.refresh();
+  lastAttWrap = wrap;
+  return wrap;
+}
+
+function openAttSheet(s) {
+  var t = T();
+  var sh = sheet();
+  var h = el('h3');
+  h.appendChild(el('span', null, '📎 ' + t.atts + ' — ' + (s.name || hostOf(s.url) || '')));
+  var x = el('button', null, '✕'); x.onclick = closeOv; h.appendChild(x);
+  sh.appendChild(h);
+  sh.appendChild(attListEl(s.id, null));
+}
+
+function isDark() { return localStorage.getItem('savepro_theme') !== 'light'; }
+function applyTheme() { document.body.classList.toggle('light', !isDark()); }
+function toggleTheme() {
+  try { localStorage.setItem('savepro_theme', isDark() ? 'light' : 'dark'); } catch (e) {}
+  applyTheme(); applyI18n();
+}
+
+/* ================= helpers ================= */
+function el(tag, cls, txt) {
+  var e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (txt != null) e.textContent = txt;
+  return e;
+}
+function toast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tm); t._tm = setTimeout(function () { t.classList.remove('show'); }, 2200);
+}
+function hostOf(url) {
+  try { return new URL(url).hostname.replace(/^www\./, ''); } catch (e) { return ''; }
+}
+function iconUrlFor(s) {
+  if (s.icon) return s.icon;
+  var h = hostOf(s.url);
+  return h ? 'https://www.google.com/s2/favicons?domain=' + h + '&sz=128' : '';
+}
+function openExternal(url) {
+  var B = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Browser;
+  if (B && B.open) { B.open({ url: url }); return; }
+  window.open(url, '_blank');
+}
+function copyText(txt, msg) {
+  function done() { toast(msg || T().copied); }
+  var CB = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Clipboard;
+  if (CB && CB.write) { CB.write({ string: txt }).then(done, done); return; }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(txt).then(done, done); return;
+  }
+  var ta = document.createElement('textarea');
+  ta.value = txt; document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  ta.remove(); done();
+}
+
+/* ================= grid ================= */
+var q = '';
+document.getElementById('search').addEventListener('input', function () {
+  q = (this.value || '').toLowerCase().trim(); renderGrid();
+});
+function renderGrid() {
+  var g = document.getElementById('grid');
+  g.innerHTML = '';
+  sites.forEach(function (s) {
+    var attNames = (attMap[s.id] || []).map(function (r) { return r.name; }).join(' ');
+    if (q && (s.name + ' ' + (s.url || '') + ' ' + (s.user || '') + ' ' + (s.addr || '') + ' ' +
+      (s.email || '') + ' ' + (s.phone || '') + ' ' + (s.notes || '') + ' ' + attNames).toLowerCase().indexOf(q) < 0) return;
+    var card = el('div', 'site');
+    var ic = el('div', 'site-icon', s.name ? s.name[0].toUpperCase() : (attCount(s.id) ? '📎' : '?'));
+    var iu = iconUrlFor(s);
+    if (!iu) {
+      var attImgs = (attMap[s.id] || []).filter(function (r) { return r.kind === 'image'; });
+      if (attImgs.length) iu = URL.createObjectURL(attImgs[0].blob);
+    }
+    if (iu) {
+      var img = new Image();
+      img.src = iu; img.alt = '';
+      img.onerror = function () { img.remove(); };
+      ic.innerHTML = ''; ic.appendChild(img);
+    }
+    card.appendChild(ic);
+    card.appendChild(el('div', 'site-name', s.name || hostOf(s.url) || firstAttName(s.id) || '—'));
+    if (s.user || s.pass) card.appendChild(el('span', 'has-cred', '🔑'));
+    var na = attCount(s.id);
+    if (na) {
+      var fb = el('button', 'has-files', '📎' + na);
+      fb.onclick = function (e) { e.stopPropagation(); openAttSheet(s); };
+      card.appendChild(fb);
+    }
+    if (s.addr) {
+      var mb = el('button', 'site-map', '🗺');
+      mb.onclick = function (e) { e.stopPropagation(); openMap(s.addr, s.name); };
+      card.appendChild(mb);
+    }
+    var dots = el('button', 'site-dots', '⋮');
+    dots.onclick = function (e) { e.stopPropagation(); openEditor(s); };
+    card.appendChild(dots);
+    card.onclick = function () { openSite(s); };
+    g.appendChild(card);
+  });
+  var add = el('button', 'site add-card', '➕');
+  add.onclick = function () { openEditor(null); };
+  g.appendChild(add);
+}
+
+/* ================= open / edit ================= */
+// In-app WebView: pages open inside savePro, no external browser needed
+function openInApp(url, title) {
+  var IAB = window.capacitorInAppBrowser && window.capacitorInAppBrowser.InAppBrowser;
+  if (inCap && IAB && IAB.openWebView) {
+    IAB.openWebView({ url: url, title: title || url })
+      .catch(function () { openExternal(url); });
+    return;
+  }
+  openExternal(url);
+}
+/* Direct-contact shortcuts (header) */
+var CONTACT_WA = '33775813643';
+var CONTACT_MAIL = 'syrian020@gmail.com';
+function openWhatsApp() {
+  var AL = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.AppLauncher;
+  var web = 'https://wa.me/' + CONTACT_WA;
+  if (inCap && AL && AL.openUrl) {
+    AL.openUrl({ url: 'whatsapp://send?phone=' + CONTACT_WA })
+      .then(function (r) { if (r && r.completed === false) openExternal(web); })
+      .catch(function () { openExternal(web); });
+    return;
+  }
+  openExternal(web);
+}
+function openMail() {
+  var to = 'mailto:' + CONTACT_MAIL;
+  var AL = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.AppLauncher;
+  if (inCap && AL && AL.openUrl) {
+    AL.openUrl({ url: to }).catch(function () { window.location.href = to; });
+    return;
+  }
+  window.location.href = to;
+}
+
+function openMap(addr, title) {
+  var a = (addr || '').trim();
+  if (!a) { toast(T().openNoAddr); return; }
+  var web = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(a);
+  // geo: URI launches the Google Maps app directly; fall back to the web map
+  var AL = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.AppLauncher;
+  if (inCap && AL && AL.openUrl) {
+    AL.openUrl({ url: 'geo:0,0?q=' + encodeURIComponent(a) })
+      .then(function (r) { if (r && r.completed === false) openExternal(web); })
+      .catch(function () { openExternal(web); });
+    return;
+  }
+  openExternal(web);
+}
+function openSite(s) {
+  var url = s.url ? (/^https?:\/\//i.test(s.url) ? s.url : 'https://' + s.url) : '';
+  if (url) {
+    // Keep credentials one tap away: copy password then username, so the
+    // username is what paste gives first and the password stays one entry
+    // back in the keyboard's clipboard history
+    if (s.pass) copyText(s.pass, s.user ? '' : T().passCopied);
+    if (s.user) copyText(s.user, s.pass ? T().credsCopied : T().userCopied);
+    openInApp(url, s.name || url);
+    return;
+  }
+  if (s.addr) { openMap(s.addr, s.name); return; }
+  if (attCount(s.id)) { openAttSheet(s); return; }
+  toast(T().openNoContent);
+}
+
+var ovRoot = document.getElementById('overlayRoot');
+function closeOv() {
+  ovRoot.innerHTML = '';
+  if (activeSess) { purgeSession(activeSess); activeSess = null; }
+}
+function sheet() {
+  var ov = el('div', 'overlay');
+  var sh = el('div', 'sheet');
+  ov.appendChild(sh);
+  ov.onclick = function (e) { if (e.target === ov) closeOv(); };
+  ovRoot.innerHTML = ''; ovRoot.appendChild(ov);
+  return sh;
+}
+
+// Pick an icon image from the device gallery -> square 128px data URL
+function pickIconImage(inp) {
+  var fi = document.createElement('input');
+  fi.type = 'file'; fi.accept = 'image/*';
+  fi.onchange = function () {
+    var f = fi.files[0]; if (!f) return;
+    var rd = new FileReader();
+    rd.onload = function () {
+      var img = new Image();
+      img.onload = function () {
+        var S = 128;
+        var c = document.createElement('canvas');
+        c.width = c.height = S;
+        var g = c.getContext('2d');
+        var m = Math.min(img.width, img.height);
+        g.drawImage(img, (img.width - m) / 2, (img.height - m) / 2, m, m, 0, 0, S, S);
+        try { inp.value = c.toDataURL('image/png'); } catch (e) { inp.value = rd.result; }
+      };
+      img.src = rd.result;
+    };
+    rd.readAsDataURL(f);
+  };
+  fi.click();
+}
+
+function fieldRow(label, value, opts) {
+  opts = opts || {};
+  var wrap = el('div');
+  wrap.appendChild(el('div', 'flabel', label));
+  var row = el('div', 'frow');
+  var f = el('div', 'field');
+  var inp = document.createElement('input');
+  inp.value = value || '';
+  inp.dir = opts.ltr ? 'ltr' : 'auto';
+  if (opts.ltr) inp.style.textAlign = 'left';
+  if (opts.type) inp.type = opts.type;
+  if (opts.readonly) inp.readOnly = true;
+  inp.autocapitalize = 'off'; inp.autocomplete = 'off'; inp.spellcheck = false;
+  if (opts.attrs) Object.keys(opts.attrs).forEach(function (k) { inp.setAttribute(k, opts.attrs[k]); });
+  f.appendChild(inp);
+  row.appendChild(f);
+  (opts.buttons || []).forEach(function (b) {
+    var btn = el('button', 'mini', b.label);
+    btn.onclick = function () { b.fn(inp, btn); };
+    row.appendChild(btn);
+  });
+  wrap.appendChild(row);
+  wrap.input = inp;
+  return wrap;
+}
+
+function openEditor(s) {
+  var t = T();
+  var isNew = !s;
+  s = s || { id: 's' + Date.now(), name: '', url: '', icon: '', user: '', pass: '', addr: '',
+    email: '', phone: '', notes: '' };
+  var sh = sheet();
+  var session = { added: [], committed: false };
+  activeSess = session;
+  var h = el('h3');
+  h.appendChild(el('span', null, (isNew ? '➕ ' : '✏️ ') + (isNew ? t.addSite : t.editSite)));
+  var x = el('button', null, '✕'); x.onclick = closeOv; h.appendChild(x);
+  sh.appendChild(h);
+
+  var rName = fieldRow(t.fName, s.name);
+  var rUrl  = fieldRow(t.fUrl, s.url, { ltr: true });
+  var rIcon = fieldRow(t.fIcon, s.icon, { ltr: true, buttons: [
+    { label: '📷 ' + t.pickImg, fn: function (inp) { pickIconImage(inp); } }
+  ]});
+  var rUser = fieldRow(t.fUser, s.user, { ltr: true, buttons: [
+    { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value, t.userCopied); } }
+  ]});
+  var rPass = fieldRow(t.fPass, s.pass, { ltr: true, type: 'password', buttons: [
+    { label: '👁', fn: function (inp) { inp.type = inp.type === 'password' ? 'text' : 'password'; } },
+    { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value, t.passCopied); } }
+  ]});
+  var rAddr = fieldRow(t.fAddr, s.addr, { buttons: [
+    { label: '🗺 ' + t.mapGo, fn: function (inp) { openMap(inp.value, rName.input.value); } }
+  ]});
+  var rEmail = fieldRow(t.fEmail, s.email, { ltr: true, buttons: [
+    { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value); } }
+  ]});
+  var rPhone = fieldRow(t.fPhone, s.phone, { ltr: true, buttons: [
+    { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value); } }
+  ]});
+  var rNotes = fieldRow(t.fNotes, s.notes, { buttons: [
+    { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value); } }
+  ]});
+  [rName, rUrl, rIcon, rUser, rPass, rAddr, rEmail, rPhone, rNotes].forEach(function (r) { sh.appendChild(r); });
+  sh.appendChild(attListEl(s.id, session));
+
+  var act = el('div', 'actions');
+  if (!isNew) {
+    var del = el('button', 'btn danger', '🗑 ' + t.del);
+    del.onclick = function () { confirmDelete(s); };
+    act.appendChild(del);
+  }
+  var save = el('button', 'btn primary', '💾 ' + t.save);
+  save.onclick = function () {
+    var name = rName.input.value.trim();
+    var url = rUrl.input.value.trim();
+    var addr = rAddr.input.value.trim();
+    var hasAny = name || url || addr || rIcon.input.value.trim() || rUser.input.value.trim() ||
+      rPass.input.value || rEmail.input.value.trim() || rPhone.input.value.trim() ||
+      rNotes.input.value.trim() || attCount(s.id);
+    if (!hasAny) { toast(t.errUrl); return; }
+    s.name = name; s.url = url;
+    s.icon = rIcon.input.value.trim();
+    s.user = rUser.input.value.trim();
+    s.pass = rPass.input.value;
+    s.addr = addr;
+    s.email = rEmail.input.value.trim();
+    s.phone = rPhone.input.value.trim();
+    s.notes = rNotes.input.value.trim();
+    session.committed = true;
+    if (isNew) sites.unshift(s);
+    saveSites(); renderGrid(); closeOv();
+  };
+  act.appendChild(save);
+  sh.appendChild(act);
+}
+
+function confirmDialog(text, yesLabel, onYes, stack) {
+  var t = T();
+  var ov = el('div', 'overlay');
+  if (stack) ov.style.zIndex = '4600';
+  var d = el('div', 'dlg');
+  d.appendChild(el('p', null, text));
+  var r = el('div', 'row');
+  function bye() { if (stack) ov.remove(); else closeOv(); }
+  var no = el('button', null, t.no); no.onclick = bye;
+  var yes = el('button', 'yes', yesLabel);
+  yes.onclick = function () { bye(); onYes(); };
+  r.appendChild(no); r.appendChild(yes);
+  d.appendChild(r); ov.appendChild(d);
+  ov.onclick = function (e) { if (e.target === ov) bye(); };
+  if (stack) { document.body.appendChild(ov); }
+  else { ovRoot.innerHTML = ''; ovRoot.appendChild(ov); }
+}
+function confirmDelete(s) {
+  confirmDialog(T().delTitle, T().delYes, function () {
+    sites = sites.filter(function (x) { return x !== s && x.id !== s.id; });
+    (attMap[s.id] || []).forEach(function (r) { IDB.del(r.id).catch(function () {}); });
+    delete attMap[s.id];
+    saveSites(); renderGrid();
+  });
+}
+
+/* ================= menu ================= */
+function openMenu() {
+  var t = T();
+  var sh = sheet();
+  var h = el('h3');
+  h.appendChild(el('span', null, t.menu));
+  var x = el('button', null, '✕'); x.onclick = closeOv; h.appendChild(x);
+  sh.appendChild(h);
+
+  var lt = el('div', 'flabel', t.langTitle);
+  sh.appendChild(lt);
+  var langs = el('div', 'langs');
+  [['ar', '🇸🇾 عربي'], ['fr', '🇫🇷 Français'], ['en', '🇺🇸 English']].forEach(function (o) {
+    var b = el('button', 'langb' + (uiLang() === o[0] ? ' on' : ''), o[1]);
+    b.onclick = function () { setUiLang(o[0]); openMenu(); };
+    langs.appendChild(b);
+  });
+  sh.appendChild(langs);
+
+  function row(icon, label, fn) {
+    var b = el('button', 'mrow');
+    b.appendChild(el('span', 'mi', icon));
+    b.appendChild(el('span', null, label));
+    b.onclick = fn;
+    sh.appendChild(b);
+  }
+  row(isDark() ? '☀' : '🌙', isDark() ? t.themeLight : t.themeDark, function () { toggleTheme(); openMenu(); });
+  if (hasPin()) {
+    row('🔑', t.lockChange, function () { closeOv(); pinSetup(); });
+    row('🚫', t.lockDel, function () { closeOv(); pinRemove(); });
+  } else {
+    row('🔒', t.lockSet, function () { closeOv(); pinSetup(); });
+  }
+  row('⬇', t.exportData, function () { closeOv(); exportData(); });
+  row('⬆', t.importData, function () { closeOv(); importData(); });
+}
+
+/* ================= passcode ================= */
+function pinHash(p) {
+  var h = 5381, s = 'sp:' + p + ':v1';
+  for (var i = 0; i < s.length; i++) h = (((h << 5) + h) ^ s.charCodeAt(i)) >>> 0;
+  return 'h' + h.toString(36);
+}
+function hasPin() { return !!localStorage.getItem('savepro_pin'); }
+function showLock() {
+  if (!hasPin()) return;
+  document.getElementById('lock').classList.remove('hidden');
+  var inp = document.getElementById('lockPin');
+  inp.value = '';
+  document.getElementById('lockMsg').textContent = '';
+  setTimeout(function () { try { inp.focus(); } catch (e) {} }, 250);
+}
+var pinFails = 0, pinLockUntil = 0;
+function tryUnlock() {
+  var inp = document.getElementById('lockPin');
+  var now = Date.now();
+  if (now < pinLockUntil) {   // brute-force throttle: longer lockout after each 3 misses
+    document.getElementById('lockMsg').textContent =
+      T().lockWrong + ' ⏳ ' + Math.ceil((pinLockUntil - now) / 1000) + 's';
+    inp.value = ''; try { inp.focus(); } catch (e) {}
+    return;
+  }
+  if (pinHash(inp.value) === localStorage.getItem('savepro_pin')) {
+    pinFails = 0;
+    document.getElementById('lock').classList.add('hidden');
+  } else {
+    pinFails++;
+    if (pinFails % 3 === 0) pinLockUntil = Date.now() + Math.min(60000, 5000 * Math.pow(2, pinFails / 3 - 1));
+    document.getElementById('lockMsg').textContent = T().lockWrong;
+    inp.value = ''; try { inp.focus(); } catch (e) {}
+  }
+}
+function pinField(label) {
+  return fieldRow(label, '', { ltr: true, type: 'password',
+    attrs: { inputmode: 'numeric', maxlength: '4', pattern: '[0-9]*' } });
+}
+function pinSheet(title, rows, btnTxt, fn) {
+  var sh = sheet();
+  var h = el('h3');
+  h.appendChild(el('span', null, title));
+  var x = el('button', null, '✕'); x.onclick = closeOv; h.appendChild(x);
+  sh.appendChild(h);
+  rows.forEach(function (r) { sh.appendChild(r); });
+  var act = el('div', 'actions');
+  var b = el('button', 'btn primary', btnTxt);
+  b.onclick = fn; act.appendChild(b); sh.appendChild(act);
+  setTimeout(function () { try { rows[0].input.focus(); } catch (e) {} }, 250);
+}
+function pinVerify(cb) {
+  var t = T();
+  var r = pinField(t.lockEnter);
+  pinSheet('🔒 ' + t.lockEnter, [r], '✓', function () {
+    if (pinHash(r.input.value) === localStorage.getItem('savepro_pin')) { closeOv(); cb(); }
+    else { toast(t.lockWrong); r.input.value = ''; }
+  });
+}
+function pinSetup() {
+  var t = T();
+  function next() {
+    var r1 = pinField(t.lockNew), r2 = pinField(t.lockConfirm);
+    pinSheet('🔐 ' + (hasPin() ? t.lockChange : t.lockSet), [r1, r2], '💾 ' + t.save, function () {
+      var v1 = r1.input.value.trim(), v2 = r2.input.value.trim();
+      if (!/^\d{4}$/.test(v1)) { toast(t.lockNeedPin); return; }
+      if (v1 !== v2) { toast(t.lockNoMatch); return; }
+      try { localStorage.setItem('savepro_pin', pinHash(v1)); } catch (e) {}
+      closeOv(); toast(t.pinSaved);
+    });
+  }
+  if (hasPin()) pinVerify(next); else next();
+}
+function pinRemove() {
+  pinVerify(function () {
+    try { localStorage.removeItem('savepro_pin'); } catch (e) {}
+    toast(T().unlocked);
+  });
+}
+
+/* ================= export / import ================= */
+// Same flow as gramvip: write to CACHE as base64, then open the native share sheet
+var CRC_TABLE = (function () {
+  var t = new Uint32Array(256);
+  for (var n = 0; n < 256; n++) {
+    var c = n;
+    for (var k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+    t[n] = c;
+  }
+  return t;
+})();
+function crc32(d) {
+  var c = 0xFFFFFFFF;
+  for (var i = 0; i < d.length; i++) c = CRC_TABLE[(c ^ d[i]) & 255] ^ (c >>> 8);
+  return (c ^ 0xFFFFFFFF) >>> 0;
+}
+// Minimal ZIP reader/writer, store method only (no compression).
+function zipStore(entries) {
+  var enc = new TextEncoder();
+  var parts = []; var central = []; var off = 0;
+  entries.forEach(function (e) {
+    var nm = enc.encode(e.name); var d = e.data; var crc = crc32(d);
+    var lh = new DataView(new ArrayBuffer(30));
+    lh.setUint32(0, 0x04034b50, true); lh.setUint16(4, 20, true);
+    lh.setUint16(6, 0x0800, true); lh.setUint16(8, 0, true);
+    lh.setUint16(12, 0x21, true);
+    lh.setUint32(14, crc, true); lh.setUint32(18, d.length, true);
+    lh.setUint32(22, d.length, true); lh.setUint16(26, nm.length, true);
+    parts.push(lh.buffer, nm, d);
+    var ch = new DataView(new ArrayBuffer(46));
+    ch.setUint32(0, 0x02014b50, true); ch.setUint16(4, 20, true);
+    ch.setUint16(6, 20, true); ch.setUint16(8, 0x0800, true);
+    ch.setUint16(14, 0x21, true);
+    ch.setUint32(16, crc, true); ch.setUint32(20, d.length, true);
+    ch.setUint32(24, d.length, true); ch.setUint16(28, nm.length, true);
+    ch.setUint32(42, off, true);
+    central.push(ch.buffer, nm);
+    off += 30 + nm.length + d.length;
+  });
+  var cdLen = central.reduce(function (a, p) { return a + p.byteLength; }, 0);
+  var eo = new DataView(new ArrayBuffer(22));
+  eo.setUint32(0, 0x06054b50, true);
+  eo.setUint16(8, entries.length, true); eo.setUint16(10, entries.length, true);
+  eo.setUint32(12, cdLen, true); eo.setUint32(16, off, true);
+  return new Blob(parts.concat(central).concat([eo.buffer]), { type: 'application/zip' });
+}
+function unzipStored(buf) {
+  var dv = new DataView(buf); var entries = {}; var dec = new TextDecoder();
+  var pos = buf.byteLength - 22;
+  while (pos >= 0 && dv.getUint32(pos, true) !== 0x06054b50) pos--;
+  if (pos < 0) return entries;
+  var n = dv.getUint16(pos + 10, true);
+  var p = dv.getUint32(pos + 16, true);
+  for (var i = 0; i < n; i++) {
+    if (dv.getUint32(p, true) !== 0x02014b50) break;
+    var method = dv.getUint16(p + 10, true);
+    var csize = dv.getUint32(p + 20, true);
+    var nlen = dv.getUint16(p + 28, true);
+    var lho = dv.getUint32(p + 42, true);
+    var lnlen = dv.getUint16(lho + 26, true);
+    var lextra = dv.getUint16(lho + 28, true);
+    var name = dec.decode(new Uint8Array(buf, p + 46, nlen));
+    if (method === 0) entries[name] = new Uint8Array(buf, lho + 30 + lnlen + lextra, csize);
+    p += 46 + nlen + dv.getUint16(p + 30, true) + dv.getUint16(p + 32, true);
+  }
+  return entries;
+}
+async function exportData() {
+  var t = T();
+  var filesOut = [];
+  var entries = [];
+  try {
+    var recs = await IDB.getAll();
+    for (var i = 0; i < recs.length; i++) {
+      var b64 = await blobToB64(recs[i].blob);
+      filesOut.push({ id: recs[i].id, siteId: recs[i].siteId, name: recs[i].name,
+        mime: recs[i].mime, kind: recs[i].kind, data: b64 });
+      var fn = (recs[i].name || 'file-' + recs[i].id).replace(/[\\/:*?"<>|]/g, '_');
+      entries.push({ name: 'files/' + recs[i].id + '-' + fn,
+        data: new Uint8Array(await recs[i].blob.arrayBuffer()) });
+    }
+  } catch (e) {}
+  var out = { app: 'savepro', version: 2, exportedAt: new Date().toISOString(), sites: sites, files: filesOut };
+  entries.push({ name: 'savepro-backup.json', data: new TextEncoder().encode(JSON.stringify(out, null, 1)) });
+  var blob = zipStore(entries);
+  var name = 'savepro-backup-' + new Date().toISOString().slice(0, 10) + '.zip';
+  var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+  var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
+  if (inCap && FS && SH) {
+    try {
+      var text = await new Promise(function (res) {
+        var rd = new FileReader(); rd.onload = function () { res(rd.result); }; rd.readAsDataURL(blob);
+      });
+      var w = await FS.writeFile({ path: name, data: text.split(',')[1], directory: 'CACHE', recursive: true });
+      await SH.share({ title: name, url: w.uri });
+      toast(t.exported);
+      return;
+    } catch (e) { console.error(e); }
+  }
+  var u = URL.createObjectURL(blob);
+  var a = document.createElement('a'); a.href = u; a.download = name; a.click();
+  setTimeout(function () { URL.revokeObjectURL(u); }, 4000);
+  toast(t.exported);
+}
+function importData() {
+  var inp = document.createElement('input');
+  inp.type = 'file'; inp.accept = 'application/json,.json,.zip,application/zip';
+  inp.onchange = function () {
+    var f = inp.files[0]; if (!f) return;
+    var rd = new FileReader();
+    rd.onload = function () {
+      try {
+        var buf = rd.result;
+        var jsonText;
+        if (buf.byteLength > 4 && new DataView(buf).getUint32(0, true) === 0x04034b50) {
+          var ents = unzipStored(buf); var je = null;
+          Object.keys(ents).forEach(function (k) { if (/\.json$/i.test(k)) je = ents[k]; });
+          if (!je) throw new Error('nojson');
+          jsonText = new TextDecoder().decode(je);
+        } else {
+          jsonText = new TextDecoder().decode(buf);
+        }
+        var j = JSON.parse(jsonText);
+        var list = j.sites || j;
+        if (!Array.isArray(list)) throw new Error('bad');
+        var seen = {};
+        sites.forEach(function (s) { seen[s.id] = 1; });
+        var idMap = {};
+        var attOwners = {};
+        ((j && Array.isArray(j.files)) ? j.files : []).forEach(function (f) { attOwners[f.siteId] = 1; });
+        list.forEach(function (s) {
+          if (!s || (!s.url && !s.addr && !s.notes && !s.user && !s.pass && !s.name && !attOwners[s.id])) return;
+          var oldId = s.id;
+          if (!s.id) s.id = 's' + Date.now() + Math.random().toString(36).slice(2, 6);
+          while (seen[s.id]) s.id += '_i';
+          seen[s.id] = 1;
+          idMap[oldId || s.id] = s.id;
+          sites.push({ id: s.id, name: s.name || hostOf(s.url), url: s.url,
+            icon: s.icon || '', user: s.user || '', pass: s.pass || '', addr: s.addr || '',
+            email: s.email || '', phone: s.phone || '', notes: s.notes || '' });
+        });
+        var fl = (j && Array.isArray(j.files)) ? j.files : [];
+        Promise.all(fl.map(function (f) {
+          var sid = idMap[f.siteId];
+          if (!sid || !f.data) return null;
+          var rec = { id: 'f' + Date.now() + Math.random().toString(36).slice(2, 7),
+            siteId: sid, name: f.name || 'file', mime: f.mime || 'application/octet-stream',
+            kind: (f.kind === 'pdf' || f.kind === 'file') ? f.kind : 'image', blob: b64ToBlob(f.data, f.mime) };
+          return IDB.put(rec).then(function () {
+            (attMap[sid] = attMap[sid] || []).push(rec);
+          });
+        })).then(function () {
+          saveSites(); renderGrid(); toast(T().imported);
+        });
+      } catch (e) { toast('import ✗'); }
+    };
+    rd.readAsArrayBuffer(f);
+  };
+  inp.click();
+}
+
+/* ================= exit confirm ================= */
+function confirmExit() {
+  var t = T();
+  confirmDialog(t.exitTitle, t.yes, function () {
+    var A = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App;
+    if (A && A.exitApp) A.exitApp(); else window.close();
+  });
+}
+
+/* ================= wire up ================= */
+document.getElementById('themeBtn').onclick = toggleTheme;
+document.getElementById('menuBtn').onclick = openMenu;
+document.getElementById('waBtn').onclick = openWhatsApp;
+document.getElementById('langBtn').onclick = function () {
+  var order = ['ar', 'fr', 'en'];
+  setUiLang(order[(order.indexOf(uiLang()) + 1) % order.length]);
+};
+document.getElementById('mailBtn').onclick = openMail;
+
+var lockInp = document.getElementById('lockPin');
+document.getElementById('lockGo').onclick = tryUnlock;
+lockInp.addEventListener('input', function () { if (this.value.length >= 4) tryUnlock(); });
+lockInp.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryUnlock(); });
+
+var CapApp = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App;
+if (CapApp && CapApp.addListener) {
+  CapApp.addListener('backButton', function () {
+    if (!document.getElementById('lock').classList.contains('hidden')) {
+      if (CapApp.exitApp) CapApp.exitApp();
+      return;
+    }
+    if (ovRoot.firstChild) { closeOv(); return; }
+    confirmExit();
+  });
+  CapApp.addListener('appStateChange', function (st) {
+    if (st && st.isActive && hasPin()) showLock();
+  });
+}
+
+applyTheme();
+document.documentElement.lang = uiLang();
+document.documentElement.dir = uiLang() === 'ar' ? 'rtl' : 'ltr';
+applyI18n();
+renderGrid();
+if (hasPin()) showLock();
+
+// Service worker: PWA only, never inside Capacitor
+if (!inCap && 'serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw-savepro.js').catch(function () {});
+  });
+}
+})();
+</script>
+</body>
+</html>
