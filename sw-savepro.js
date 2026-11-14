@@ -37,20 +37,24 @@ self.addEventListener('fetch', (event) => {
   if (!isNav && !isOurs) return;
   if (isNav) {
     // Network-first for pages: fresh HTML when online, cached copy when
-    // offline — updates reach existing installs without a cache-name bump.
+    // offline or on HTTP errors — updates reach existing installs without
+    // a cache-name bump.
+    const cachedPage = () =>
+      caches.match(event.request).then((cached) =>
+        cached || (url.pathname.endsWith('/savepro.html')
+          ? caches.match('./savepro.html') : Response.error()));
     event.respondWith(
       fetch(event.request).then((res) => {
-        if (url.pathname.endsWith('/savepro.html') && res.ok) {
+        if (!res.ok) return cachedPage();   // 4xx/5xx resolve fetch — still serve the app
+        if (url.pathname.endsWith('/savepro.html')) {
           const copy = res.clone();
-          caches.open(CACHE_NAME).then((c) => c.put('./savepro.html', copy));
+          // chain the write into the response promise so the worker stays
+          // alive until the updated page is actually in the cache
+          return caches.open(CACHE_NAME)
+            .then((c) => c.put('./savepro.html', copy)).then(() => res);
         }
         return res;
-      }).catch(() =>
-        caches.match(event.request).then((cached) =>
-          cached || (url.pathname.endsWith('/savepro.html')
-            ? caches.match('./savepro.html') : Response.error())
-        )
-      )
+      }).catch(cachedPage)
     );
     return;
   }
