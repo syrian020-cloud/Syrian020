@@ -1,4 +1,4 @@
-const CACHE_NAME = 'savepro-v2';
+const CACHE_NAME = 'savepro-v3';   // bump on every savepro change — existing installs must drop the old cached page
 const FILES_TO_CACHE = [
   './savepro.html',
   './manifest-savepro.json',
