@@ -992,11 +992,22 @@ function showLock() {
   document.getElementById('lockMsg').textContent = '';
   setTimeout(function () { try { inp.focus(); } catch (e) {} }, 250);
 }
+var pinFails = 0, pinLockUntil = 0;
 function tryUnlock() {
   var inp = document.getElementById('lockPin');
+  var now = Date.now();
+  if (now < pinLockUntil) {   // brute-force throttle: longer lockout after each 3 misses
+    document.getElementById('lockMsg').textContent =
+      T().lockWrong + ' ⏳ ' + Math.ceil((pinLockUntil - now) / 1000) + 's';
+    inp.value = ''; try { inp.focus(); } catch (e) {}
+    return;
+  }
   if (pinHash(inp.value) === localStorage.getItem('savepro_pin')) {
+    pinFails = 0;
     document.getElementById('lock').classList.add('hidden');
   } else {
+    pinFails++;
+    if (pinFails % 3 === 0) pinLockUntil = Date.now() + Math.min(60000, 5000 * Math.pow(2, pinFails / 3 - 1));
     document.getElementById('lockMsg').textContent = T().lockWrong;
     inp.value = ''; try { inp.focus(); } catch (e) {}
   }
@@ -1095,10 +1106,10 @@ function importData() {
         sites.forEach(function (s) { seen[s.id] = 1; });
         var idMap = {};
         list.forEach(function (s) {
-          if (!s || (!s.url && !s.addr)) return;
+          if (!s || (!s.url && !s.addr && !s.notes && !s.user && !s.pass)) return;
           var oldId = s.id;
           if (!s.id) s.id = 's' + Date.now() + Math.random().toString(36).slice(2, 6);
-          if (seen[s.id]) s.id = s.id + '_i';
+          while (seen[s.id]) s.id += '_i';
           seen[s.id] = 1;
           idMap[oldId || s.id] = s.id;
           sites.push({ id: s.id, name: s.name || hostOf(s.url), url: s.url,
