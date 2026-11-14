@@ -270,6 +270,7 @@ var I18N = {
     userCopied: 'نُسخ اسم المستخدم', passCopied: 'نُسخت كلمة السر',
     atts: 'المرفقات', addImg: 'صورة', addPdf: 'ملف PDF', noAtts: 'لا مرفقات بعد',
     attDelTitle: 'حذف هذا المرفق؟', attSaved: 'تم حفظ الملف',
+    attRename: 'تعديل اسم المرفق',
     lockTitle: 'رمز الدخول', lockSub: 'أدخل 4 أرقام للمتابعة',
     lockSet: 'تعيين رمز دخول (4 أرقام)', lockChange: 'تغيير رمز الدخول', lockDel: 'حذف رمز الدخول',
     lockEnter: 'أدخل الرمز الحالي', lockNew: 'الرمز الجديد (4 أرقام)', lockConfirm: 'تأكيد الرمز',
@@ -294,6 +295,7 @@ var I18N = {
     userCopied: 'Identifiant copié', passCopied: 'Mot de passe copié',
     atts: 'Pièces jointes', addImg: 'Image', addPdf: 'Fichier PDF', noAtts: 'Aucune pièce jointe',
     attDelTitle: 'Supprimer cette pièce ?', attSaved: 'Fichier enregistré',
+    attRename: 'Renommer la pièce jointe',
     lockTitle: 'Code d’accès', lockSub: 'Entrez 4 chiffres pour continuer',
     lockSet: 'Définir un code (4 chiffres)', lockChange: 'Changer le code', lockDel: 'Supprimer le code',
     lockEnter: 'Code actuel', lockNew: 'Nouveau code (4 chiffres)', lockConfirm: 'Confirmer le code',
@@ -318,6 +320,7 @@ var I18N = {
     userCopied: 'Username copied', passCopied: 'Password copied',
     atts: 'Attachments', addImg: 'Image', addPdf: 'PDF file', noAtts: 'No attachments yet',
     attDelTitle: 'Delete this attachment?', attSaved: 'File saved',
+    attRename: 'Rename attachment',
     lockTitle: 'Passcode', lockSub: 'Enter 4 digits to continue',
     lockSet: 'Set passcode (4 digits)', lockChange: 'Change passcode', lockDel: 'Remove passcode',
     lockEnter: 'Current passcode', lockNew: 'New passcode (4 digits)', lockConfirm: 'Confirm passcode',
@@ -518,6 +521,36 @@ function saveAttachment(rec) {
   toast(t.attSaved);
 }
 
+function renameAttachment(rec, siteId) {
+  var t = T();
+  var ov = el('div', 'overlay'); ov.style.zIndex = '4600';
+  var d = el('div', 'dlg');
+  d.appendChild(el('p', null, t.attRename));
+  var f = el('div', 'field');
+  var inp = document.createElement('input');
+  inp.value = rec.name || ''; inp.dir = 'auto';
+  f.appendChild(inp); d.appendChild(f);
+  var r = el('div', 'row'); r.style.marginTop = '.8rem';
+  function bye() { ov.remove(); }
+  var no = el('button', null, t.no); no.onclick = bye;
+  var yes = el('button', 'yes', t.save);
+  yes.onclick = function () {
+    var v = inp.value.trim();
+    if (v) {
+      rec.name = v;
+      IDB.put(rec).catch(function () {});
+      if (lastAttWrap) lastAttWrap.refresh();
+      renderGrid();
+    }
+    bye();
+  };
+  r.appendChild(no); r.appendChild(yes);
+  d.appendChild(r); ov.appendChild(d);
+  ov.onclick = function (e) { if (e.target === ov) bye(); };
+  document.body.appendChild(ov);
+  setTimeout(function () { try { inp.focus(); inp.select(); } catch (e) {} }, 200);
+}
+
 function renderAttList(box, siteId) {
   box.innerHTML = '';
   var recs = attMap[siteId] || [];
@@ -531,6 +564,9 @@ function renderAttList(box, siteId) {
       row.appendChild(el('div', 'thumb', '📄'));
     }
     row.appendChild(el('div', 'an', r.name));
+    var rn = el('button', 'ax', '✏');
+    rn.onclick = function (e) { e.stopPropagation(); renameAttachment(r, siteId); };
+    row.appendChild(rn);
     var dl = el('button', 'ax', '⬇');
     dl.onclick = function (e) { e.stopPropagation(); saveAttachment(r); };
     row.appendChild(dl);
