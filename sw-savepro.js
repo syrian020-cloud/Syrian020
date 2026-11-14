@@ -36,24 +36,22 @@ self.addEventListener('fetch', (event) => {
   // so this worker never interferes with the other apps sharing this origin.
   if (!isNav && !isOurs) return;
   if (isNav) {
-    // Network-first for pages: fresh HTML when online, cached copy when
-    // offline or on HTTP errors — updates reach existing installs without
-    // a cache-name bump.
+    // Network-first for savepro's own page only: fresh HTML when online,
+    // cached copy when offline or on HTTP errors — updates reach existing
+    // installs without a cache-name bump. Other apps' pages pass through.
+    if (!url.pathname.endsWith('/savepro.html')) return;
     const cachedPage = () =>
       caches.match(event.request).then((cached) =>
-        cached || (url.pathname.endsWith('/savepro.html')
-          ? caches.match('./savepro.html') : Response.error()));
+        cached || caches.match('./savepro.html'));
     event.respondWith(
       fetch(event.request).then((res) => {
-        if (!res.ok) return cachedPage();   // 4xx/5xx resolve fetch — still serve the app
-        if (url.pathname.endsWith('/savepro.html')) {
-          const copy = res.clone();
-          // chain the write into the response promise so the worker stays
-          // alive until the updated page is actually in the cache
-          return caches.open(CACHE_NAME)
-            .then((c) => c.put('./savepro.html', copy)).then(() => res);
-        }
-        return res;
+        if (res.type === 'opaqueredirect') return res;   // let the browser follow redirects
+        if (!res.ok) return cachedPage();                // 4xx/5xx resolve fetch — still serve the app
+        const copy = res.clone();
+        // chain the write into the response promise so the worker stays
+        // alive until the updated page is actually in the cache
+        return caches.open(CACHE_NAME)
+          .then((c) => c.put('./savepro.html', copy)).then(() => res);
       }).catch(cachedPage)
     );
     return;
