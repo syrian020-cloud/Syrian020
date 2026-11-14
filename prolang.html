@@ -854,6 +854,7 @@ function saveData() {
           d.forEach(function (f2) { folders.push(f2); });
           try { localStorage.setItem('prolang_data', txt); } catch (e) {}
           if (typeof render === 'function') render();
+          saveData();   // cancels the pending seed-data write and re-writes the restored backup
         }
       } catch (e) {}
     }).catch(function () {});
@@ -1749,12 +1750,16 @@ function lessonTextSheet(f, l) {
     var oldPh = {};
     (l.phrases || []).forEach(function (p2) { oldPh[(p2.flag || '') + '|' + (p2.text || '')] = p2; });
     phs.forEach(function (p2) {
-      var o = oldPh[(p2.flag || '') + '|' + (p2.text || '')];
-      if (o) { p2.id = o.id; if (o.voice) p2.voice = o.voice; }
+      var k = (p2.flag || '') + '|' + (p2.text || '');
+      var o = oldPh[k];
+      if (o) { p2.id = o.id; if (o.voice) p2.voice = o.voice; delete oldPh[k]; }  // one id per card — duplicates must not share it
     });
     var oldCue = {};
     (l.cues || []).forEach(function (c2) { oldCue[c2.start + '|' + (c2.text || '')] = c2; });
-    cues.forEach(function (c2) { var o = oldCue[c2.start + '|' + (c2.text || '')]; if (o) c2.id = o.id; });
+    cues.forEach(function (c2) {
+      var k = c2.start + '|' + (c2.text || '');
+      var o = oldCue[k]; if (o) { c2.id = o.id; delete oldCue[k]; }
+    });
     l.phrases = phs;
     l.cues = cues;
     saveData(); render(); closeOv(); toast('✓');
@@ -3944,7 +3949,7 @@ function importData() {
             });
             if (nl.phrases.length || nl.title) {
               nf.lessons.push(nl);
-              if (ls.id) idMap[ls.id] = nl.id;
+              if (ls.id) (idMap[ls.id] = idMap[ls.id] || []).push(nl.id);
               if (nl.media && !mediaKeys['plm_' + ls.id]) noPayload++;
             }
           });
@@ -3952,9 +3957,10 @@ function importData() {
         });
         (j.media || []).forEach(function (m) {
           var mm = (m.key || '').match(/^(plm_|plc_|pli_)(.+)$/);
-          if (!mm || !idMap[mm[2]] || !m.data) return;
+          var dest = mm && idMap[mm[2]];
+          if (!dest || !dest.length || !m.data) return;
           var b = dataURLtoBlob(m.data);
-          if (b) { mediaPut(mm[1] + idMap[mm[2]], b); restored++; }
+          if (b) { dest.forEach(function (nid) { mediaPut(mm[1] + nid, b); }); restored++; }
           else restFail++;
         });
         saveData(); render();
