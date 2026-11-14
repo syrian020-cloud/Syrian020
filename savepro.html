@@ -268,6 +268,7 @@ var I18N = {
     exported: 'تم تصدير البيانات', imported: 'تم استيراد البيانات', errUrl: 'أضف أي محتوى للحفظ (اسم، رابط، مرفق…)',
     openNoContent: 'لا يوجد محتوى للفتح',
     userCopied: 'نُسخ اسم المستخدم', passCopied: 'نُسخت كلمة السر',
+    credsCopied: 'نُسخ المستخدم وكلمة السر — الأخيرة بسجل الحافظة',
     atts: 'المرفقات', addImg: 'صورة', addPdf: 'ملف PDF', noAtts: 'لا مرفقات بعد',
     attDelTitle: 'حذف هذا المرفق؟', attSaved: 'تم حفظ الملف',
     attRename: 'تعديل اسم المرفق',
@@ -293,6 +294,7 @@ var I18N = {
     exported: 'Données exportées', imported: 'Données importées', errUrl: 'Ajoutez du contenu à enregistrer',
     openNoContent: 'Aucun contenu à ouvrir',
     userCopied: 'Identifiant copié', passCopied: 'Mot de passe copié',
+    credsCopied: 'Identifiant + mot de passe copiés',
     atts: 'Pièces jointes', addImg: 'Image', addPdf: 'Fichier PDF', noAtts: 'Aucune pièce jointe',
     attDelTitle: 'Supprimer cette pièce ?', attSaved: 'Fichier enregistré',
     attRename: 'Renommer la pièce jointe',
@@ -318,6 +320,7 @@ var I18N = {
     exported: 'Data exported', imported: 'Data imported', errUrl: 'Add some content to save',
     openNoContent: 'Nothing to open',
     userCopied: 'Username copied', passCopied: 'Password copied',
+    credsCopied: 'Username + password copied (password in clipboard history)',
     atts: 'Attachments', addImg: 'Image', addPdf: 'PDF file', noAtts: 'No attachments yet',
     attDelTitle: 'Delete this attachment?', attSaved: 'File saved',
     attRename: 'Rename attachment',
@@ -762,8 +765,11 @@ function openMap(addr, title) {
 function openSite(s) {
   var url = s.url ? (/^https?:\/\//i.test(s.url) ? s.url : 'https://' + s.url) : '';
   if (url) {
-    // Keep credentials one tap away: copy the username so it can be pasted at the site
-    if (s.user) copyText(s.user, T().userCopied);
+    // Keep credentials one tap away: copy password then username, so the
+    // username is what paste gives first and the password stays one entry
+    // back in the keyboard's clipboard history
+    if (s.pass) copyText(s.pass, s.user ? '' : T().passCopied);
+    if (s.user) copyText(s.user, s.pass ? T().credsCopied : T().userCopied);
     openInApp(url, s.name || url);
     return;
   }
