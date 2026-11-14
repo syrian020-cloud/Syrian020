@@ -919,6 +919,7 @@ document.getElementById('docBody').addEventListener('click', function (e) {
   }
   var a = e.target.closest('a[data-url]');
   if (a) {                             // link chip / headline -> open article
+    e.preventDefault();                // stay in the reader — don't follow href
     openUrl(a.dataset.url, a.textContent.trim() || a.dataset.url);
     return;
   }
@@ -948,7 +949,11 @@ function gTranslate(text, tl) {
       return httpGet('https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=auto&tl=' + tl + '&q=' + q)
         .then(function (raw) {
           var j = JSON.parse(raw);
-          var out = Array.isArray(j) ? j.join(' ') : '';
+          // nested segments [["translated","src",...],...] — join only the
+          // translated first element of each, never the language codes
+          var segs = Array.isArray(j[0]) && Array.isArray(j[0][0]) ? j[0] : j;
+          var out = segs.filter(function (s) { return Array.isArray(s); })
+            .map(function (s) { return s[0] || ''; }).join('');
           if (!out.trim()) throw new Error('empty');
           return out;
         });
@@ -965,7 +970,10 @@ function gTranslate(text, tl) {
         .then(function (raw) {
           var j = JSON.parse(raw);
           var out = j.responseData && j.responseData.translatedText || '';
-          if (!out.trim() || /MYMEMORY WARNING|QUOTA/i.test(out)) throw new Error('quota');
+          // MyMemory answers HTTP 200 with an error string in translatedText —
+          // reject it so the next provider is tried instead of showing the error
+          if (!out.trim() || /MYMEMORY WARNING|QUOTA|INVALID|QUERY LENGTH LIMIT|NO QUERY/i.test(out)) throw new Error('quota');
+          if (j.responseStatus && String(j.responseStatus) !== '200') throw new Error('mymemory ' + j.responseStatus);
           return out;
         });
     },
