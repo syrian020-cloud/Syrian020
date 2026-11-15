@@ -1730,6 +1730,27 @@ if(LN()){
  try{LN().addListener('localNotificationActionPerformed',n=>{const a=st.alarms.find(x=>x.id===(n.notification&&n.notification.extra&&n.notification.extra.alarmId));if(a)ring(a);});}catch(e){}
 }
 
+/* =============== tempo appointment reminders (app-wide) =============== */
+function tempoNidBase(id){let h=0;for(const c of String(id))h=(h*31+c.charCodeAt(0))%1000000;return h*10;}
+function tempoAppts(){try{return JSON.parse(localStorage.getItem('tempo_appts')||'[]')}catch(e){return[]}}
+function tempoRing(id){location.href='tempo.html#ring='+id;}
+function tempoNidAppt(nid){return tempoAppts().find(a=>{const b=tempoNidBase(a.id);return nid>=b&&nid<=b+9;});}
+if(LN()){
+ try{LN().addListener('localNotificationReceived',n=>{const a=tempoNidAppt(n&&n.id);if(a)tempoRing(a.id);});}catch(e){}
+ try{LN().addListener('localNotificationActionPerformed',n=>{const a=tempoNidAppt(n&&n.notification&&n.notification.id);if(a)tempoRing(a.id);});}catch(e){}
+}
+/* due-check every 15s while the app is open (covers delayed/missed OS notifications) */
+setInterval(()=>{
+ try{
+  if($('ringShade').classList.contains('on'))return;
+  const fired=new Set(JSON.parse(localStorage.getItem('tempo_fired')||'[]'));
+  const a=tempoAppts().find(x=>x.status==='upcoming'&&x.date&&!fired.has(x.id+':0')
+    &&new Date(x.date+'T'+(x.time||'00:00')).getTime()<=Date.now()
+    &&new Date(x.date+'T'+(x.time||'00:00')).getTime()>Date.now()-5*60e3);
+  if(a){fired.add(a.id+':0');try{localStorage.setItem('tempo_fired',JSON.stringify([...fired]))}catch(e){}tempoRing(a.id);}
+ }catch(e){}
+},15000);
+
 /* =============== alarm in-app trigger =============== */
 function slotsNow(){
  const d=new Date(),hh=d.getHours(),mm=d.getMinutes(),wd=d.getDay(),key=d.toDateString()+hh+':'+mm;
