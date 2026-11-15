@@ -177,6 +177,7 @@ audio.lmed{max-height:none}
 .phic.ic-rec{background:linear-gradient(145deg,#fda4af,#f43f5e);color:#fff;font-size:.9rem}
 .phic.ic-say{background:#6ee7b7}
 .phic.speaking{outline:3px solid var(--acc)}
+.phic.rec-on{background:#e11d48;border-color:#fff;color:#fff}
 .phn-note{margin-top:.5rem}
 .phn-note textarea{width:100%;min-height:56px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--txt);padding:6px 8px;font-family:inherit;font-size:.9rem}
 .phn-note .b{margin-top:4px;padding:6px 14px;font-size:.8rem}
@@ -366,13 +367,14 @@ nav button.on{color:var(--acc)}
 <audio id="pvAudio"></audio>
 <div id="toast"></div>
 <script src="https://cdn.jsdelivr.net/npm/@capacitor/core@6/dist/capacitor.js"></script>
+<script src="js/edge-tts.js"></script>
 <script>
 'use strict';
 /* =============== i18n =============== */
 const L={
-ar:{appName:'ساعتي',tabClock:'الساعة',tabAlarms:'المنبهات',tabCal:'التقويم',tabTimer:'المؤقت',tTimer:'عدّاد',tStop:'إيقاف',start:'ابدأ',pause:'إيقاف مؤقت',resume:'متابعة',reset:'إعادة',lap:'لفة',swStop:'إيقاف',nextAlarm:'المنبه القادم',after:'بعد',snoozeDur:'مدة الغفوة',setWallpaper:'اجعلها خلفية الشاشة',timerDone:'انتهى الوقت',hh:'س',mmm:'د',ss:'ث',days2:'يوم',speakTime:'انطق الوقت',lsTitle:'الدروس',addFolder:'مجلد',addLesson:'درس',rename:'إعادة تسمية',delItem:'حذف',delFolderQ:'حذف المجلد وكل ما بداخله؟',delLessonQ:'حذف الدرس؟',addImg:'أضف صورة',delImg:'احذف الصورة',phAdd:'➕ عبارة',addLine:'سطر',pasteT:'لصق مؤقت',medS:'وسائط',imgS:'صورة',copyAll:'نسخ الكل',playAll:'تشغيل الكل',copiedAll:'✓ نُسخ الدرس كاملًا',phTime:'mm:ss (اختياري)',phTpl:'📝 نص',medAdd:'🎬 فيديو / صوت',copyTpl:'📋 نسخ',copied:'✓ نُسخ',tplPh:'الصق النص هنا…',delMedQ:'حذف الصوت/الفيديو؟',phImg:'🖼️ صورة',phTitle:'أضف عبارة',phOrig:'العبارة الأصلية',phPron:'النطق',phAr:'المعنى بالعربي',phEn:'English',phEmpty:'لا عبارات بعد — أضف عبارة أو الصق نموذجًا 📥',notePh:'ملاحظة…',tplTitle:'اختر نموذجًا ثم عدّل النص وأضفه',doAdd:'إضافة',phAddedN:'عبارة أُضيفت',delPhQ:'حذف العبارة؟',namePh:'الاسم',emptyLs:'فارغ — أضف مجلدًا أو درسًا من الأزرار أعلاه',newFolderNm:'مجلد جديد',newLessonNm:'درس جديد',warnPerm:'⚠️ ليرن المنبه والتطبيق مغلق: فعّل الإشعارات و«المنبهات والتذكيرات»',permBtn:'تفعيل',warnNotif:'الإشعارات معطّلة',warnExact:'«المنبهات والتذكيرات» معطّلة',newAlarm:'منبه جديد',editAlarm:'تعديل المنبه',lTime:'الوقت',lLabel:'الاسم',labelPh:'مثلاً: الاستيقاظ',lRepeat:'التكرار',onceHint:'بدون اختيار أيام = يعمل مرة واحدة',lSound:'الصوت',lVib:'اهتزاز',sndDefault:'صوت الهاتف الافتراضي',sndBeep:'نبضات',sndBell:'جرس',sndSiren:'صافرة',sndCustom:'صوتي المرفوع',uploadSound:'⬆️ ارفع صوتًا من هاتفك',save:'حفظ',cancel:'إلغاء',del:'حذف',yes:'نعم',no:'لا',once:'مرة واحدة',daily:'يوميًا',every:'كل',settings:'الإعدادات',mClock:'نمط الساعة',analog:'عقارب',digital:'أرقام',mTheme:'المظهر',dark:'داكن',light:'فاتح',mLang:'اللغة',mExport:'تصدير المنبهات',mImport:'استيراد المنبهات',mAbout:'حول التطبيق',aboutTxt:'ساعتي — ساعة ومنبه وتقويم\nv1.0',confirmDel:'حذف هذا المنبه؟',exitConfirm:'الخروج من التطبيق؟',ringStop:'إيقاف',ringSnooze:'غفوة +10د',imported:'تم الاستيراد',badFile:'ملف غير صالح',back:'السنة',alarmsOff:'المنبهات معطّلة',permNote:'فعّل إذن الإشعارات ليعمل المنبه والتطبيق مغلق',weekdays:['أح','إث','ثل','أر','خم','جم','سب'],weekdaysFull:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],today:'اليوم',snoozed:'غفوة 10 دقائق'},
-en:{appName:'Sa3a',tabClock:'Clock',tabAlarms:'Alarms',tabCal:'Calendar',tabTimer:'Timer',tTimer:'Countdown',tStop:'Stopwatch',start:'Start',pause:'Pause',resume:'Resume',reset:'Reset',lap:'Lap',swStop:'Stop',nextAlarm:'Next alarm',after:'in',snoozeDur:'Snooze length',setWallpaper:'Set as wallpaper',timerDone:'Time is up',hh:'h',mmm:'m',ss:'s',days2:'day',speakTime:'Speak the time',lsTitle:'Lessons',addFolder:'Folder',addLesson:'Lesson',rename:'Rename',delItem:'Delete',delFolderQ:'Delete folder and all its contents?',delLessonQ:'Delete this lesson?',addImg:'Add image',delImg:'Remove image',phAdd:'➕ Phrase',phTpl:'📝 Text',medAdd:'🎬 Video / Audio',copyTpl:'📋 Copy',copied:'✓ Copied',tplPh:'Paste the text here…',delMedQ:'Delete the audio/video?',phImg:'🖼️ Image',phTitle:'Add a phrase',phOrig:'Original phrase',phPron:'Pronunciation',phAr:'Meaning (Arabic)',phEn:'English',phEmpty:'No phrases yet — add one or paste a template 📥',notePh:'Note…',addLine:'Line',pasteT:'Paste timed',medS:'Media',imgS:'Image',copyAll:'Copy all',playAll:'Play all',copiedAll:'✓ Lesson copied',phTime:'mm:ss (optional)',tplTitle:'Pick a template, edit the text, add it',doAdd:'Add',phAddedN:'phrases added',delPhQ:'Delete this phrase?',namePh:'Name',emptyLs:'Empty — add a folder or lesson above',newFolderNm:'New folder',newLessonNm:'New lesson',warnPerm:'⚠️ For alarms to ring while closed: allow notifications and “Alarms & reminders”',permBtn:'Enable',warnNotif:'Notifications off',warnExact:'“Alarms & reminders” off',newAlarm:'New alarm',editAlarm:'Edit alarm',lTime:'Time',lLabel:'Label',labelPh:'e.g. Wake up',lRepeat:'Repeat',onceHint:'No days selected = rings once',lSound:'Sound',lVib:'Vibrate',sndDefault:'Phone default',sndBeep:'Beeps',sndBell:'Bell',sndSiren:'Siren',sndCustom:'My uploaded sound',uploadSound:'⬆️ Upload a sound from your phone',save:'Save',cancel:'Cancel',del:'Delete',yes:'Yes',no:'No',once:'Once',daily:'Daily',every:'Every',settings:'Settings',mClock:'Clock style',analog:'Analog',digital:'Digital',mTheme:'Theme',dark:'Dark',light:'Light',mLang:'Language',mExport:'Export alarms',mImport:'Import alarms',mAbout:'About',aboutTxt:'Sa3a — clock, alarms & calendar\nv1.0',confirmDel:'Delete this alarm?',exitConfirm:'Exit the app?',ringStop:'Stop',ringSnooze:'Snooze +10m',imported:'Imported',badFile:'Invalid file',back:'Year',alarmsOff:'Alarms disabled',permNote:'Allow notifications so alarms ring while the app is closed',weekdays:['Su','Mo','Tu','We','Th','Fr','Sa'],weekdaysFull:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],today:'Today',snoozed:'Snoozed 10 min'},
-fr:{appName:'Sa3a',tabClock:'Horloge',tabAlarms:'Alarmes',tabCal:'Calendrier',tabTimer:'Minuteur',tTimer:'Compte à rebours',tStop:'Chrono',start:'Démarrer',pause:'Pause',resume:'Reprendre',reset:'Réinit.',lap:'Tour',swStop:'Arrêt',nextAlarm:'Prochaine alarme',after:'dans',snoozeDur:'Durée répétition',setWallpaper:'Fond d’écran animé',timerDone:'Temps écoulé',hh:'h',mmm:'min',ss:'s',days2:'jour',speakTime:'Annoncer l’heure',lsTitle:'Leçons',addFolder:'Dossier',addLesson:'Leçon',rename:'Renommer',delItem:'Supprimer',delFolderQ:'Supprimer le dossier et tout son contenu ?',delLessonQ:'Supprimer cette leçon ?',addImg:'Ajouter une image',delImg:'Supprimer l’image',phAdd:'➕ Phrase',addLine:'Ligne',pasteT:'Coller minuté',medS:'Média',imgS:'Image',copyAll:'Tout copier',playAll:'Tout lire',copiedAll:'✓ Leçon copiée',phTime:'mm:ss (optionnel)',phTpl:'📝 Texte',medAdd:'🎬 Vidéo / Audio',copyTpl:'📋 Copier',copied:'✓ Copié',tplPh:'Collez le texte ici…',delMedQ:'Supprimer l’audio/vidéo ?',phImg:'🖼️ Image',phTitle:'Ajouter une phrase',phOrig:'Phrase originale',phPron:'Prononciation',phAr:'Sens (arabe)',phEn:'English',phEmpty:'Aucune phrase — ajoutez-en ou collez un modèle 📥',notePh:'Note…',tplTitle:'Choisissez un modèle, modifiez le texte, ajoutez',doAdd:'Ajouter',phAddedN:'phrases ajoutées',delPhQ:'Supprimer cette phrase ?',namePh:'Nom',emptyLs:'Vide — ajoutez un dossier ou une leçon ci-dessus',newFolderNm:'Nouveau dossier',newLessonNm:'Nouvelle leçon',warnPerm:'⚠️ Pour que l’alarme sonne appli fermée : notifications + « Alarmes et rappels »',permBtn:'Activer',warnNotif:'Notifications coupées',warnExact:'« Alarmes et rappels » coupés',newAlarm:'Nouvelle alarme',editAlarm:'Modifier l’alarme',lTime:'Heure',lLabel:'Nom',labelPh:'ex. Réveil',lRepeat:'Répéter',onceHint:'Aucun jour choisi = sonne une fois',lSound:'Son',lVib:'Vibration',sndDefault:'Son du téléphone',sndBeep:'Bips',sndBell:'Cloche',sndSiren:'Sirène',sndCustom:'Mon son importé',uploadSound:'⬆️ Importer un son du téléphone',save:'Enregistrer',cancel:'Annuler',del:'Supprimer',yes:'Oui',no:'Non',once:'Une fois',daily:'Quotidien',every:'Chaque',settings:'Réglages',mClock:'Style d’horloge',analog:'Aiguilles',digital:'Chiffres',mTheme:'Thème',dark:'Sombre',light:'Clair',mLang:'Langue',mExport:'Exporter les alarmes',mImport:'Importer des alarmes',mAbout:'À propos',aboutTxt:'Sa3a — horloge, alarmes & calendrier\nv1.0',confirmDel:'Supprimer cette alarme ?',exitConfirm:'Quitter l’application ?',ringStop:'Arrêter',ringSnooze:'Répéter +10m',imported:'Importé',badFile:'Fichier invalide',back:'Année',alarmsOff:'Alarmes désactivées',permNote:'Autorisez les notifications pour que l’alarme sonne appli fermée',weekdays:['Di','Lu','Ma','Me','Je','Ve','Sa'],weekdaysFull:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],today:'Aujourd’hui',snoozed:'Reporté 10 min'}
+ar:{appName:'ساعتي',tabClock:'الساعة',tabAlarms:'المنبهات',tabCal:'التقويم',tabTimer:'المؤقت',tTimer:'عدّاد',tStop:'إيقاف',start:'ابدأ',pause:'إيقاف مؤقت',resume:'متابعة',reset:'إعادة',lap:'لفة',swStop:'إيقاف',nextAlarm:'المنبه القادم',after:'بعد',snoozeDur:'مدة الغفوة',setWallpaper:'اجعلها خلفية الشاشة',timerDone:'انتهى الوقت',hh:'س',mmm:'د',ss:'ث',days2:'يوم',speakTime:'انطق الوقت',lsTitle:'الدروس',addFolder:'مجلد',addLesson:'درس',rename:'إعادة تسمية',delItem:'حذف',delFolderQ:'حذف المجلد وكل ما بداخله؟',delLessonQ:'حذف الدرس؟',addImg:'أضف صورة',delImg:'احذف الصورة',phAdd:'➕ عبارة',addLine:'سطر',pasteT:'لصق مؤقت',medS:'وسائط',imgS:'صورة',copyAll:'نسخ الكل',playAll:'تشغيل الكل',copiedAll:'✓ نُسخ الدرس كاملًا',phTime:'mm:ss (اختياري)',phTpl:'📝 نص',medAdd:'🎬 فيديو / صوت',copyTpl:'📋 نسخ',copied:'✓ نُسخ',tplPh:'الصق النص هنا…',delMedQ:'حذف الصوت/الفيديو؟',phImg:'🖼️ صورة',phTitle:'أضف عبارة',phOrig:'العبارة الأصلية',phPron:'النطق',phAr:'المعنى بالعربي',phEn:'English',phEmpty:'لا عبارات بعد — أضف عبارة أو الصق نموذجًا 📥',notePh:'ملاحظة…',tplTitle:'اختر نموذجًا ثم عدّل النص وأضفه',doAdd:'إضافة',phAddedN:'عبارة أُضيفت',delPhQ:'حذف العبارة؟',recClip:'⏺ تسجيل المقطع…',recNo:'التسجيل غير مدعوم على هذا الجهاز',recSave:'✅ تم حفظ المقطع',namePh:'الاسم',emptyLs:'فارغ — أضف مجلدًا أو درسًا من الأزرار أعلاه',newFolderNm:'مجلد جديد',newLessonNm:'درس جديد',warnPerm:'⚠️ ليرن المنبه والتطبيق مغلق: فعّل الإشعارات و«المنبهات والتذكيرات»',permBtn:'تفعيل',warnNotif:'الإشعارات معطّلة',warnExact:'«المنبهات والتذكيرات» معطّلة',newAlarm:'منبه جديد',editAlarm:'تعديل المنبه',lTime:'الوقت',lLabel:'الاسم',labelPh:'مثلاً: الاستيقاظ',lRepeat:'التكرار',onceHint:'بدون اختيار أيام = يعمل مرة واحدة',lSound:'الصوت',lVib:'اهتزاز',sndDefault:'صوت الهاتف الافتراضي',sndBeep:'نبضات',sndBell:'جرس',sndSiren:'صافرة',sndCustom:'صوتي المرفوع',uploadSound:'⬆️ ارفع صوتًا من هاتفك',save:'حفظ',cancel:'إلغاء',del:'حذف',yes:'نعم',no:'لا',once:'مرة واحدة',daily:'يوميًا',every:'كل',settings:'الإعدادات',mClock:'نمط الساعة',analog:'عقارب',digital:'أرقام',mTheme:'المظهر',dark:'داكن',light:'فاتح',mLang:'اللغة',mExport:'تصدير المنبهات',mImport:'استيراد المنبهات',mAbout:'حول التطبيق',aboutTxt:'ساعتي — ساعة ومنبه وتقويم\nv1.0',confirmDel:'حذف هذا المنبه؟',exitConfirm:'الخروج من التطبيق؟',ringStop:'إيقاف',ringSnooze:'غفوة +10د',imported:'تم الاستيراد',badFile:'ملف غير صالح',back:'السنة',alarmsOff:'المنبهات معطّلة',permNote:'فعّل إذن الإشعارات ليعمل المنبه والتطبيق مغلق',weekdays:['أح','إث','ثل','أر','خم','جم','سب'],weekdaysFull:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],today:'اليوم',snoozed:'غفوة 10 دقائق'},
+en:{appName:'Sa3a',tabClock:'Clock',tabAlarms:'Alarms',tabCal:'Calendar',tabTimer:'Timer',tTimer:'Countdown',tStop:'Stopwatch',start:'Start',pause:'Pause',resume:'Resume',reset:'Reset',lap:'Lap',swStop:'Stop',nextAlarm:'Next alarm',after:'in',snoozeDur:'Snooze length',setWallpaper:'Set as wallpaper',timerDone:'Time is up',hh:'h',mmm:'m',ss:'s',days2:'day',speakTime:'Speak the time',lsTitle:'Lessons',addFolder:'Folder',addLesson:'Lesson',rename:'Rename',delItem:'Delete',delFolderQ:'Delete folder and all its contents?',delLessonQ:'Delete this lesson?',addImg:'Add image',delImg:'Remove image',phAdd:'➕ Phrase',phTpl:'📝 Text',medAdd:'🎬 Video / Audio',copyTpl:'📋 Copy',copied:'✓ Copied',tplPh:'Paste the text here…',delMedQ:'Delete the audio/video?',phImg:'🖼️ Image',phTitle:'Add a phrase',phOrig:'Original phrase',phPron:'Pronunciation',phAr:'Meaning (Arabic)',phEn:'English',phEmpty:'No phrases yet — add one or paste a template 📥',notePh:'Note…',addLine:'Line',pasteT:'Paste timed',medS:'Media',imgS:'Image',copyAll:'Copy all',playAll:'Play all',copiedAll:'✓ Lesson copied',phTime:'mm:ss (optional)',tplTitle:'Pick a template, edit the text, add it',doAdd:'Add',phAddedN:'phrases added',delPhQ:'Delete this phrase?',recClip:'⏺ Recording clip…',recNo:'Recording not supported on this device',recSave:'✅ Clip saved',namePh:'Name',emptyLs:'Empty — add a folder or lesson above',newFolderNm:'New folder',newLessonNm:'New lesson',warnPerm:'⚠️ For alarms to ring while closed: allow notifications and “Alarms & reminders”',permBtn:'Enable',warnNotif:'Notifications off',warnExact:'“Alarms & reminders” off',newAlarm:'New alarm',editAlarm:'Edit alarm',lTime:'Time',lLabel:'Label',labelPh:'e.g. Wake up',lRepeat:'Repeat',onceHint:'No days selected = rings once',lSound:'Sound',lVib:'Vibrate',sndDefault:'Phone default',sndBeep:'Beeps',sndBell:'Bell',sndSiren:'Siren',sndCustom:'My uploaded sound',uploadSound:'⬆️ Upload a sound from your phone',save:'Save',cancel:'Cancel',del:'Delete',yes:'Yes',no:'No',once:'Once',daily:'Daily',every:'Every',settings:'Settings',mClock:'Clock style',analog:'Analog',digital:'Digital',mTheme:'Theme',dark:'Dark',light:'Light',mLang:'Language',mExport:'Export alarms',mImport:'Import alarms',mAbout:'About',aboutTxt:'Sa3a — clock, alarms & calendar\nv1.0',confirmDel:'Delete this alarm?',exitConfirm:'Exit the app?',ringStop:'Stop',ringSnooze:'Snooze +10m',imported:'Imported',badFile:'Invalid file',back:'Year',alarmsOff:'Alarms disabled',permNote:'Allow notifications so alarms ring while the app is closed',weekdays:['Su','Mo','Tu','We','Th','Fr','Sa'],weekdaysFull:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],today:'Today',snoozed:'Snoozed 10 min'},
+fr:{appName:'Sa3a',tabClock:'Horloge',tabAlarms:'Alarmes',tabCal:'Calendrier',tabTimer:'Minuteur',tTimer:'Compte à rebours',tStop:'Chrono',start:'Démarrer',pause:'Pause',resume:'Reprendre',reset:'Réinit.',lap:'Tour',swStop:'Arrêt',nextAlarm:'Prochaine alarme',after:'dans',snoozeDur:'Durée répétition',setWallpaper:'Fond d’écran animé',timerDone:'Temps écoulé',hh:'h',mmm:'min',ss:'s',days2:'jour',speakTime:'Annoncer l’heure',lsTitle:'Leçons',addFolder:'Dossier',addLesson:'Leçon',rename:'Renommer',delItem:'Supprimer',delFolderQ:'Supprimer le dossier et tout son contenu ?',delLessonQ:'Supprimer cette leçon ?',addImg:'Ajouter une image',delImg:'Supprimer l’image',phAdd:'➕ Phrase',addLine:'Ligne',pasteT:'Coller minuté',medS:'Média',imgS:'Image',copyAll:'Tout copier',playAll:'Tout lire',copiedAll:'✓ Leçon copiée',phTime:'mm:ss (optionnel)',phTpl:'📝 Texte',medAdd:'🎬 Vidéo / Audio',copyTpl:'📋 Copier',copied:'✓ Copié',tplPh:'Collez le texte ici…',delMedQ:'Supprimer l’audio/vidéo ?',phImg:'🖼️ Image',phTitle:'Ajouter une phrase',phOrig:'Phrase originale',phPron:'Prononciation',phAr:'Sens (arabe)',phEn:'English',phEmpty:'Aucune phrase — ajoutez-en ou collez un modèle 📥',notePh:'Note…',tplTitle:'Choisissez un modèle, modifiez le texte, ajoutez',doAdd:'Ajouter',phAddedN:'phrases ajoutées',delPhQ:'Supprimer cette phrase ?',recClip:'⏺ Enregistrement…',recNo:'Enregistrement non pris en charge',recSave:'✅ Clip enregistré',namePh:'Nom',emptyLs:'Vide — ajoutez un dossier ou une leçon ci-dessus',newFolderNm:'Nouveau dossier',newLessonNm:'Nouvelle leçon',warnPerm:'⚠️ Pour que l’alarme sonne appli fermée : notifications + « Alarmes et rappels »',permBtn:'Activer',warnNotif:'Notifications coupées',warnExact:'« Alarmes et rappels » coupés',newAlarm:'Nouvelle alarme',editAlarm:'Modifier l’alarme',lTime:'Heure',lLabel:'Nom',labelPh:'ex. Réveil',lRepeat:'Répéter',onceHint:'Aucun jour choisi = sonne une fois',lSound:'Son',lVib:'Vibration',sndDefault:'Son du téléphone',sndBeep:'Bips',sndBell:'Cloche',sndSiren:'Sirène',sndCustom:'Mon son importé',uploadSound:'⬆️ Importer un son du téléphone',save:'Enregistrer',cancel:'Annuler',del:'Supprimer',yes:'Oui',no:'Non',once:'Une fois',daily:'Quotidien',every:'Chaque',settings:'Réglages',mClock:'Style d’horloge',analog:'Aiguilles',digital:'Chiffres',mTheme:'Thème',dark:'Sombre',light:'Clair',mLang:'Langue',mExport:'Exporter les alarmes',mImport:'Importer des alarmes',mAbout:'À propos',aboutTxt:'Sa3a — horloge, alarmes & calendrier\nv1.0',confirmDel:'Supprimer cette alarme ?',exitConfirm:'Quitter l’application ?',ringStop:'Arrêter',ringSnooze:'Répéter +10m',imported:'Importé',badFile:'Fichier invalide',back:'Année',alarmsOff:'Alarmes désactivées',permNote:'Autorisez les notifications pour que l’alarme sonne appli fermée',weekdays:['Di','Lu','Ma','Me','Je','Ve','Sa'],weekdaysFull:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],today:'Aujourd’hui',snoozed:'Reporté 10 min'}
 };
 const LANGS=['ar','en','fr'];
 const $=id=>document.getElementById(id);
@@ -493,13 +495,13 @@ async function showLesson(n){
  const v=$('lsImg');v.style.display='';v.innerHTML='';
  const ib=document.createElement('div');ib.className='limg';v.appendChild(ib);
  try{const r=await idb.get('limg_'+n.id);
-  if(r&&r.blob){ib.innerHTML='<img src="'+URL.createObjectURL(r.blob)+'"><div style="text-align:center;margin-bottom:8px"><button class="b danger" id="liDel" style="padding:6px 14px;font-size:.8rem">'+esc(t('delImg'))+'</button></div>';
+  if(r&&r.blob){ib.innerHTML='<div style="position:relative;display:inline-block;max-width:100%"><img src="'+URL.createObjectURL(r.blob)+'"><button class="opt" id="liDel" style="background:rgba(0,0,0,.55);color:#fff;border-radius:50%;width:28px;height:28px;top:6px;inset-inline-end:8px">×</button></div>';
    $('liDel').onclick=async()=>{if(await confirmBox(t('delImg'))){try{await idb.del('limg_'+n.id)}catch(e){}showLesson(n)}}}
  }catch(e){}
  try{const m=await idb.get('lmed_'+n.id);
-  if(m&&m.blob){const wrap=document.createElement('div');wrap.style.textAlign='center';wrap.style.marginBottom='10px';
+  if(m&&m.blob){const wrap=document.createElement('div');wrap.style.cssText='text-align:center;margin-bottom:10px;position:relative';
    const el=document.createElement(m.kind==='v'?'video':'audio');el.controls=true;el.src=URL.createObjectURL(m.blob);el.className='lmed';el.id='lsMedia';
-   const dd=document.createElement('button');dd.className='b danger';dd.style.cssText='padding:6px 14px;font-size:.8rem';dd.textContent=t('delItem');
+   const dd=document.createElement('button');dd.className='opt';dd.style.cssText='background:rgba(0,0,0,.55);color:#fff;border-radius:50%;width:28px;height:28px;top:6px;inset-inline-end:8px;position:absolute';dd.textContent='×';
    dd.onclick=async()=>{if(await confirmBox(t('delMedQ'))){try{await idb.del('lmed_'+n.id)}catch(e){}showLesson(n)}};
    wrap.appendChild(el);wrap.appendChild(dd);v.appendChild(wrap);
    const cbox=document.createElement('div');cbox.id='cueBox';v.appendChild(cbox);
@@ -594,6 +596,200 @@ function pickResizedImg(){return new Promise(res=>{
    cv.toBlob(b=>res(b),'image/jpeg',.85)}catch(e){res(null)}};
  fi.click()})}
 const cuesOf=n=>(n.ph||[]).filter(p=>p.t);
+/* ---- phrase → language map for AI queries (zeelang phMap) ---- */
+const LANG_KEY={zh:'chinese',ja:'japanese',ko:'korean',th:'thai',vi:'vietnamese',hi:'hindi',el:'greek',ka:'georgian',hy:'armenian',he:'hebrew',fr:'french',en:'english',de:'german',es:'spanish',it:'italian',ru:'russian',tr:'turkish',pt:'portuguese',nl:'dutch',pl:'polish',uk:'ukrainian',sv:'swedish',fa:'persian',ur:'urdu',bn:'bengali',id:'indonesian',ms:'malay',tl:'tagalog',ro:'romanian',hu:'hungarian',cs:'czech',bg:'bulgarian',hr:'croatian',sr:'serbian',da:'danish',nb:'norwegian',fi:'finnish',mn:'mongolian',sw:'swahili',zu:'zulu',yo:'yoruba',am:'amharic',is:'icelandic',sq:'albanian',lt:'lithuanian',lv:'latvian',et:'estonian',ar:'arabic'};
+function phMapS(p){const m={};if(!p)return m;if(p.s)m[p.lg||guessLang(p.s)]=p.s;if(p.a)m.ar=p.a;if(p.e)m.en=p.e;return m}
+function langNameEn(l){const k=(LANG_KEY[l]||'').split(' ')[0];return k?k.charAt(0).toUpperCase()+k.slice(1):(l||'').toUpperCase()}
+function firstMapText(m){const ks=Object.keys(m);for(const k of ks)if(m[k])return m[k];return ''}
+function aiSearchQuery(m,mainLang){
+ let ml=(mainLang&&m[mainLang])?mainLang:'';
+ if(!ml){const ks=Object.keys(m);for(const k of ks)if(m[k]){ml=k;break}}
+ if(!ml)return '';
+ const mlName=langNameEn(ml);
+ const others=Object.keys(m).filter(k=>k!==ml&&m[k]);
+ const names=[mlName].concat(others.map(langNameEn));
+ let q=mlName+' phrase: "'+m[ml]+'"\n';
+ others.forEach(k=>{q+=langNameEn(k)+' translation: "'+m[k]+'"\n'});
+ q+='1) Translate each individual word ('+names.join(' → ')+').\n'+
+  '2) Explain the '+mlName+' grammar rule (verb conjugation, structure, or expression) used in this phrase.\n'+
+  '3) Provide a short practical conversation in '+names.join(', ')+' using this phrase so it can be memorized as a conversation.\n'+
+  'Output in '+names.join(', ')+'.';
+ return q}
+/* ---- clip recording (zeelang recToggle/recordPhrase) ---- */
+function rrPath(c,x,y,w,h,r){c.beginPath();
+ if(c.roundRect){c.roundRect(x,y,w,h,r);return}
+ c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath()}
+let recState=null; // {rec, raf, cv}
+const cuePill=lg=>CAP_THEMES[capThemeIdx][capCls(lg)];
+function drawCuePills(cx,rows,W,H,hi){
+ if(!rows.length)return;
+ function wrapLines(text,maxW){const words=String(text).split(/\s+/).filter(Boolean),lines=[];let cur='';
+  words.forEach(w=>{const t=cur?cur+' '+w:w;if(cur&&cx.measureText(t).width>maxW){lines.push(cur);cur=w}else cur=t});
+  if(cur)lines.push(cur);return lines.length?lines:['']}
+ let fs=Math.max(14,Math.round(H*.055)),lh,lineH,padX,flagW,maxTW,items,totalH;
+ function layout(){lh=Math.round(fs*1.9);lineH=Math.round(fs*1.3);padX=fs*.85;flagW=fs*1.5;
+  maxTW=W*.94-padX*2-flagW;totalH=0;
+  items=rows.map(r=>{const st=cuePill(r.lg);cx.font=(st.it?'italic ':'')+'bold '+fs+'px '+st.font;
+   const lines=wrapLines(r.txt,maxTW);let tw=0;
+   lines.forEach(l=>{tw=Math.max(tw,Math.min(cx.measureText(l).width,maxTW))});
+   const ph=lh*.76+(lines.length-1)*lineH;totalH+=ph;
+   return{r,st,lines,tw,ph}});
+  totalH+=lh*.24*(rows.length-1)}
+ layout();
+ const minFs=Math.max(13,Math.round(H*.03));
+ const tooMany=()=>items.some(it=>it.lines.length>2);
+ while(fs>minFs&&tooMany()){fs-=2;layout()}
+ while(fs>13&&totalH+Math.round(H*.06)>H){fs-=2;layout()}
+ let top=H-Math.round(H*.03)-lh*.34-totalH;
+ items.forEach((it,ri)=>{const st=it.st;
+  cx.font=(st.it?'italic ':'')+'bold '+fs+'px '+st.font;
+  const pw=it.tw+padX*2+flagW,x=(W-pw)/2;
+  cx.fillStyle=st.bg;rrPath(cx,x,top,pw,it.ph,fs*.45);cx.fill();
+  if(ri===hi){cx.strokeStyle='rgba(255,255,255,.85)';cx.lineWidth=Math.max(2,fs*.09);rrPath(cx,x,top,pw,it.ph,fs*.45);cx.stroke()}
+  cx.fillStyle=st.fg;cx.textAlign='center';cx.textBaseline='middle';
+  cx.strokeStyle=st.fg;cx.lineWidth=Math.max(.5,fs*.02);
+  it.lines.forEach((l,li)=>{const ly=top+lh*.39+li*lineH;cx.strokeText(l,W/2-flagW/2,ly,maxTW);cx.fillText(l,W/2-flagW/2,ly,maxTW)});
+  if(it.r.flag&&it.r.flag!=='🏳️'){cx.font=fs+'px sans-serif';cx.textAlign='right';cx.fillText(it.r.flag,x+pw-padX*.6,top+it.ph/2+lh*.01)}
+  top+=it.ph+lh*.24})}
+function createRecSink(ext,mimeType,prefix){
+ const filename=prefix+'-'+new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')+'.'+ext;
+ const FS=CAP.Plugins&&CAP.Plugins.Filesystem,SH=CAP.Plugins&&CAP.Plugins.Share;
+ const toB64=part=>new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>res(String(fr.result).split(',')[1]);fr.onerror=rej;fr.readAsDataURL(part)});
+ if(!(isCap()&&FS)){const chunks=[];
+  return{push:b=>chunks.push(b),finish(){const blob=new Blob(chunks,{type:mimeType});
+   try{const file=new File([blob],filename,{type:mimeType||'video/webm'});
+    if(navigator.canShare&&navigator.canShare({files:[file]})){navigator.share({files:[file],title:'Sa3a'}).catch(()=>{});return Promise.resolve()}}catch(e){}
+   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;
+   document.body.appendChild(a);a.click();a.remove();
+   setTimeout(()=>URL.revokeObjectURL(a.href),5000);return Promise.resolve()}}}
+ let queue=Promise.resolve(),started=false,failed=null,pending=[],pendingSize=0;
+ const FLUSH=512*1024;
+ const writePart=part=>{queue=queue.then(()=>{if(failed)return;
+   return toB64(part).then(b64=>{if(!started){started=true;
+     return FS.writeFile({path:filename,data:b64,directory:'CACHE',recursive:true})}
+    return FS.appendFile({path:filename,data:b64,directory:'CACHE'})})})
+  .catch(e=>{failed=e;console.error('write chunk failed',e)})};
+ const flush=()=>{if(!pending.length)return;writePart(new Blob(pending,{type:mimeType}));pending=[];pendingSize=0};
+ return{push(b){pending.push(b);pendingSize+=b.size;if(pendingSize>=FLUSH)flush()},finish(){
+  flush();toast('💾…');
+  return queue.then(()=>{if(failed){toast('⚠️ '+(failed.message||'save failed'));return}
+   if(!started){toast('⚠️ save failed');return}
+   return FS.getUri({path:filename,directory:'CACHE'}).then(r=>{toast(t('recSave'));
+    if(SH&&SH.share)return SH.share({title:filename,files:[r.uri],dialogTitle:'Sa3a clip'})})
+   .catch(e=>{console.error('share video failed',e);toast('⚠️ '+(e.message||'save failed'))})})}}}
+function recSupported(){if(typeof MediaRecorder==='undefined'||!HTMLCanvasElement.prototype.captureStream){toast('⚠️ '+t('recNo'));return false}return true}
+function pickRecMime(){const list=['video/mp4;codecs=avc1.42E01E,mp4a.40.2','video/mp4;codecs=h264,aac','video/mp4','video/webm;codecs=vp9,opus','video/webm'];
+ for(const m of list){try{if(MediaRecorder.isTypeSupported(m))return m}catch(e){}}return ''}
+function newRec(stream,W,H){const mime=pickRecMime();
+ const opts={videoBitsPerSecond:Math.min(8000000,Math.max(2500000,Math.round((W||1280)*(H||720)*4))),audioBitsPerSecond:128000};
+ if(mime)opts.mimeType=mime;
+ let r;try{r=new MediaRecorder(stream,opts)}catch(e){try{r=new MediaRecorder(stream)}catch(e2){toast('⚠️ '+t('recNo'));return null}}
+ const outMime=(r.mimeType||mime||'video/webm').split(';')[0];
+ r._clipType=outMime;r._clipExt=outMime.indexOf('mp4')>=0?'mp4':'webm';return r}
+function addMediaAudio(me,stream){
+ try{const ms=me.captureStream?me.captureStream():(me.mozCaptureStream?me.mozCaptureStream():null);
+  const trs=ms?ms.getAudioTracks():[];
+  if(trs.length){trs.forEach(tr=>stream.addTrack(tr));return true}}catch(e){}
+ try{const AC=window.AudioContext||window.webkitAudioContext;
+  if(AC){const actx=window._s3ctx||(window._s3ctx=new AC());
+   if(actx.state==='suspended')actx.resume();
+   const src=me._s3src||(me._s3src=actx.createMediaElementSource(me));
+   const dst=me._s3dst||(me._s3dst=actx.createMediaStreamDestination());
+   if(!me._s3conn){src.connect(dst);src.connect(actx.destination);me._s3conn=true}
+   const trs2=dst.stream.getAudioTracks();
+   if(trs2.length){trs2.forEach(tr=>stream.addTrack(tr));return true}}}catch(e){}
+ return false}
+const segsOf=n=>{const c=cuesOf(n),md=$('lsMedia');return c.map((p,i)=>({start:tSec(p.t),end:c[i+1]?tSec(c[i+1].t):(md&&md.duration)||1e9,p}))};
+const segIdxAt=(segs,tt)=>{for(let i=0;i<segs.length;i++)if(tt>=segs[i].start&&tt<segs[i].end)return i;return -1};
+function recToggle(btn,me,segs,segEnd){
+ if(recState){try{recState.rec.stop()}catch(e){recDone(btn)}return}
+ if(!recSupported())return;
+ const isVideo=me.tagName==='VIDEO'&&me.videoWidth;
+ let W=isVideo?me.videoWidth:640,H=isVideo?me.videoHeight:360;
+ if(Math.max(W,H)>1920){const k=1920/Math.max(W,H);W=Math.round(W*k/2)*2;H=Math.round(H*k/2)*2}
+ if(Math.max(W,H)<1080){const k=1080/Math.max(W,H);W=Math.round(W*k/2)*2;H=Math.round(H*k/2)*2}
+ const cv=document.createElement('canvas');cv.width=W;cv.height=H;
+ const cx=cv.getContext('2d'),stream=cv.captureStream(30);
+ addMediaAudio(me,stream);
+ const rec=newRec(stream,W,H);if(!rec)return;
+ const sink=createRecSink(rec._clipExt,rec._clipType,'sa3a-clip');
+ function draw(){if(!recState)return;
+  if(segEnd!=null&&me.currentTime>=segEnd){try{recState.rec.stop()}catch(e){recDone(btn)}return}
+  const ci=document.querySelector('#lsImg .limg img');
+  if(isVideo&&ci&&ci.complete&&ci.naturalWidth){const s=Math.max(W/ci.naturalWidth,H/ci.naturalHeight),dw=ci.naturalWidth*s,dh=ci.naturalHeight*s;
+   try{cx.drawImage(ci,(W-dw)/2,(H-dh)/2,dw,dh)}catch(e){cx.fillStyle='#000';cx.fillRect(0,0,W,H)}}
+  else if(isVideo){try{cx.drawImage(me,0,0,W,H)}catch(e){cx.fillStyle='#000';cx.fillRect(0,0,W,H)}}
+  else{cx.fillStyle='#141a20';cx.fillRect(0,0,W,H)}
+  const i=segIdxAt(segs,me.currentTime);
+  if(i>=0)drawCuePills(cx,phRowsOf(segs[i].p),W,H,-1);
+  recState.raf=requestAnimationFrame(draw)}
+ rec.ondataavailable=e=>{if(e.data&&e.data.size)sink.push(e.data)};
+ rec.onstop=()=>{me.removeEventListener('ended',onEnded);sink.finish();recDone(btn)};
+ const onEnded=()=>{if(recState)try{recState.rec.stop()}catch(e){}};
+ me.addEventListener('ended',onEnded,{once:true});
+ me._seg=null;me._once=null;me._loop=false;
+ document.querySelectorAll('.phnum.speaking,.ctlGrid .on').forEach(x=>x.classList.remove('speaking','on'));
+ let startAt=me.currentTime||0;
+ if(segEnd!=null){for(let ci=segs.length-1;ci>=0;ci--)if(segs[ci].end<=segEnd+.01){startAt=segs[ci].start;break}}
+ else{const cur=segIdxAt(segs,startAt);if(cur>=0)startAt=segs[cur].start;
+  else for(const s of segs)if(s.start>=startAt){startAt=s.start;break}}
+ const begin=()=>{recState={rec,raf:0,cv};draw();rec.start(250);
+  btn._recIcon='⬇';btn.classList.add('rec-on');btn.textContent='⏹';
+  toast('⏺ '+t('recClip'));try{const pr=me.play();if(pr&&pr.catch)pr.catch(()=>{})}catch(e){}};
+ try{me.pause()}catch(e){}
+ if(Math.abs((me.currentTime||0)-startAt)>.05){try{me.currentTime=startAt}catch(e){}
+  let seeked=false;const go=()=>{if(seeked)return;seeked=true;begin()};
+  me.addEventListener('seeked',go,{once:true});setTimeout(go,800)}
+ else begin()}
+function recordPhrase(btn,p){
+ if(recState){try{recState.rec.stop()}catch(e){recDone(btn)}return}
+ if(!recSupported())return;
+ const rows=phRowsOf(p).filter(r=>r.txt);if(!rows.length)return;
+ const W=1080,H=Math.max(700,rows.length*160+90);
+ const cv=document.createElement('canvas');cv.width=W;cv.height=H;
+ const cx=cv.getContext('2d'),stream=cv.captureStream(30);
+ let actx=null,recDst=null;
+ try{const AC=window.AudioContext||window.webkitAudioContext;
+  if(AC){actx=window._s3ctx||(window._s3ctx=new AC());
+   if(actx.state==='suspended')actx.resume();
+   recDst=actx.createMediaStreamDestination();
+   recDst.stream.getAudioTracks().forEach(tr=>stream.addTrack(tr))}}catch(e){}
+ const rec=newRec(stream,W,H);if(!rec)return;
+ const sink=createRecSink(rec._clipExt,rec._clipType,'sa3a-phrase');
+ let hi=-1;
+ function draw(){if(!recState)return;
+  cx.fillStyle='#141a20';cx.fillRect(0,0,W,H);
+  drawCuePills(cx,rows,W,H,hi);recState.raf=requestAnimationFrame(draw)}
+ rec.ondataavailable=e=>{if(e.data&&e.data.size)sink.push(e.data)};
+ rec.onstop=()=>{sink.finish();recDone(btn)};
+ recState={rec,raf:0,cv};draw();rec.start(300);
+ btn._recIcon='⬇';btn.classList.add('rec-on');btn.textContent='⏹';
+ toast('⏺ '+t('recClip'));
+ (function step(k){if(!recState)return;
+  if(k>=rows.length){setTimeout(()=>{if(recState)try{recState.rec.stop()}catch(e){}},700);return}
+  hi=k;const r=rows[k],lang=(r.lg&&r.lg!=='x')?r.lg:guessLang(r.txt);
+  const next=ms=>setTimeout(()=>step(k+1),ms||350);
+  const playUrl=(url,revoke)=>{const au=new Audio(url);
+   if(recDst&&actx){try{const s=actx.createMediaElementSource(au);s.connect(recDst);s.connect(actx.destination)}catch(e){}}
+   else addMediaAudio(au,stream);
+   const done=()=>{if(revoke)URL.revokeObjectURL(url)};
+   au.onended=()=>{done();next(350)};au.onerror=()=>{done();next(300)};
+   const pr=au.play();if(pr&&pr.catch)pr.catch(()=>{done();next(300)})};
+  if(window.EdgeTTS&&EdgeTTS.audio){try{
+   EdgeTTS.audio(r.txt,lang).then(a=>{if(!recState)return;
+    if(!a||!a.url){next(1400);return}
+    const CH=isCap()&&CAP.Plugins&&CAP.Plugins.CapacitorHttp;
+    const FS2=isCap()&&CAP.Plugins&&CAP.Plugins.Filesystem;
+    if(CH&&FS2&&/^https?:/.test(a.url)){
+     CH.get({url:a.url,responseType:'blob'}).then(rsp=>FS2.writeFile({path:'s3rec-'+k+'.mp3',
+       data:String(rsp.data).replace(/[^A-Za-z0-9+/=]/g,''),directory:'CACHE',recursive:true}))
+      .then(w=>playUrl(Capacitor.convertFileSrc(w.uri))).catch(()=>playUrl(a.url))}
+    else playUrl(a.url)},()=>next(1400))}catch(e){next(1400)}}
+  else next(1400)})(0)}
+function recDone(btn){
+ if(recState){cancelAnimationFrame(recState.raf);try{if(recState.rec.state!=='inactive')recState.rec.stop()}catch(e){}}
+ recState=null;
+ if(btn){btn.classList.remove('rec-on');btn.textContent=btn._recIcon||'⬇'}}
 function curCueOf(el,n){const c=cuesOf(n);let ci=-1;for(let i=0;i<c.length;i++)if(tSec(c[i].t)<=el.currentTime)ci=i;return{c,ci}}
 function showCue(p){const b=$('cueBox');if(!b)return;
  b.innerHTML=p?(p.t?'<div class="qt">⏱ '+esc(p.t)+'</div>':'')+
@@ -658,12 +854,10 @@ function renderPhrases(n){
    const sv=document.createElement('button');sv.className='b';sv.textContent=t('save');
    sv.onclick=ev=>{ev.stopPropagation();p.note=ta.value.trim();save();renderPhrases(n)};
    bx.appendChild(ta);bx.appendChild(sv);c.appendChild(bx);ta.focus()});
-  mkI('ic-ai','✨',()=>{const q=(p.s||p.a||p.e||'').trim();if(q)openExt('https://www.google.com/search?q='+encodeURIComponent(q)+'&udm=50&hl='+st.lang)});
-  mkI('ic-clip','🔍',()=>{const q=(p.s||p.a||p.e||'').trim();openExt('https://www.google.com/search?q='+encodeURIComponent(q+' clipart')+'&udm=2&hl='+st.lang)});
+  mkI('ic-ai','✨',()=>{const q=aiSearchQuery(phMapS(p),p.lg);if(q)openExt('https://www.google.com/search?q='+encodeURIComponent(q)+'&udm=50&hl='+st.lang)});
+  mkI('ic-clip','🔍',()=>{const q=firstMapText(phMapS(p));openExt('https://www.google.com/search?q='+encodeURIComponent(q+' clipart')+'&udm=2&hl='+st.lang)});
   mkI('ic-say','🔁',b=>loopSpeak(rows,b));
-  if(md&&p.t)mkI('ic-rec','⬇',()=>{const nx=nextCue(n,p);md._seg=null;
-   md._once=nx?tSec(nx.t):Math.min(md.duration||tSec(p.t)+8,tSec(p.t)+8);
-   md.currentTime=tSec(p.t);md.play().catch(()=>{})});
+  mkI('ic-rec','⬇',b=>{if(md&&p.t){const nx=nextCue(n,p);recToggle(b,md,segsOf(n),nx?tSec(nx.t):null)}else recordPhrase(b,p)});
   mkI('ic-img','🖼️',async()=>{const blob=await pickResizedImg();if(!blob)return;
    try{await idb.set(pk,{blob});renderPhrases(n)}catch(e){toast('!')}});
   body.appendChild(bar);

@@ -12,6 +12,7 @@ cd "$ROOT"
 rm -rf www && mkdir -p www/sounds
 cp index.html manifest.json sw.js icon-192.png icon-512.png www/
 cp sounds/*.mp3 www/sounds/
+mkdir -p www/js && cp js/*.js www/js/ 2>/dev/null || true
 
 # Aliyun Maven mirrors where needed
 GRADLE_INIT=""
