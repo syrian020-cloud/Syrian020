@@ -1086,10 +1086,10 @@ function searchImages(text) {
   if (BR && BR.open) { BR.open({ url: url }); return; }
   window.open(url, '_blank');
 }
-// drag handles: ✥ moves the caption anywhere over the video, ⤡ resizes it
+// drag handles: ✥ moves the caption anywhere over the video, ↗ resizes along its diagonal
 function capDraggable(capEl, wrap) {
   var mv = el('div', 'cap-mv', '✥'); capEl.appendChild(mv);
-  var rs = el('div', 'cap-rs', '⤡'); capEl.appendChild(rs);
+  var rs = el('div', 'cap-rs', '↗'); capEl.appendChild(rs);
   capEl._capGrips = [mv, rs];   // renderCap clears innerHTML, so grips are re-appended after each render
   function drag(handle, onMove) {
     handle.addEventListener('pointerdown', function (e) {
@@ -1121,7 +1121,9 @@ function capDraggable(capEl, wrap) {
     capEl.style.top = ny + 'px'; capEl.style.bottom = 'auto';
   });
   drag(rs, function (dx, dy, x0, y0, w0, wr) {
-    var nw = Math.max(130, Math.min(wr.width * .96, w0 + dx));
+    // resize follows the arrow's diagonal: out (up-right) enlarges, in (down-left) shrinks
+    var delta = (dx - dy) / Math.SQRT2;
+    var nw = Math.max(130, Math.min(wr.width * .96, w0 + delta));
     capEl.style.width = nw + 'px';
     capEl.style.left = x0 + 'px'; capEl.style.right = 'auto';
     capEl.style.top = y0 + 'px'; capEl.style.bottom = 'auto';
