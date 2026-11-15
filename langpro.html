@@ -240,75 +240,6 @@
     height: 100%; max-height: none; object-fit: cover; transform: scale(1.12);
     filter: blur(22px) brightness(.5) saturate(1.5); pointer-events: none; }
   .lov-media audio { width: 100%; }
-  .capzone { position: absolute; left: 6%; right: 6%; bottom: 8%; text-align: center;
-    pointer-events: none; font-weight: 800; font-size: 1.05rem; line-height: 1.4;
-    white-space: pre-line; z-index: 2; }
-  .capzone.ct1 { color: #fff; text-shadow: 0 1px 3px #000, 0 0 8px rgba(0,0,0,.9); }
-  .capzone.ct2 { color: #ffe45c; text-shadow: 0 1px 0 #000, 0 0 6px #000, 1px 1px 0 #000, -1px -1px 0 #000; }
-  .capzone.ct3 { color: #fff; background: rgba(0,0,0,.62); border-radius: 10px; padding: .15em .55em; }
-  .capzone.ct4 { top: 8%; bottom: auto; color: #fff; text-shadow: 0 1px 3px #000, 0 0 8px rgba(0,0,0,.9); }
-  .capzone.ct5 { color: #7dd3fc; font-size: 1.45rem; text-shadow: 0 2px 8px #000; }
-  .capzone.ct6 { bottom: 3%; color: #d1d5db; font-size: .82rem; font-weight: 500;
-    background: rgba(0,0,0,.45); padding: .1em .5em; border-radius: 8px; }
-  .capzone.ct7 { color: #fff; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.25);
-    border-radius: 14px; padding: .18em .65em; text-shadow: 0 1px 3px rgba(0,0,0,.7);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-  .capzone.ct8 { color: #fff; background: linear-gradient(135deg, #7c3aed, #ec4899);
-    border-radius: 999px; padding: .18em .8em; box-shadow: 0 4px 18px rgba(236,72,153,.45);
-    text-shadow: 0 1px 2px rgba(0,0,0,.4); }
-  .capzone.ct9 { color: #ffd76a; background: linear-gradient(135deg, rgba(10,14,36,.88), rgba(38,20,66,.88));
-    border: 1px solid rgba(255,215,106,.4); border-radius: 12px; padding: .18em .65em;
-    text-shadow: 0 0 10px rgba(255,215,106,.35), 0 1px 2px #000; }
-  .capzone.ct10 { color: #e0f2fe; border-bottom: 2px solid #38bdf8; padding-bottom: .06em;
-    text-shadow: 0 0 6px rgba(56,189,248,.8), 0 2px 4px #000; }
-  .capplain { position: static; margin: .5rem .8rem; pointer-events: none; font-weight: 800;
-    font-size: 1.05rem; line-height: 1.4; text-align: center; white-space: pre-line; }
-  .lov-caps { display: flex; gap: .35rem; padding: .45rem .8rem; flex: none; align-items: center;
-    flex-wrap: wrap; }
-  .lov-caps .flabel { margin: 0 .3rem 0 0; }
-  .capdot { width: 30px; height: 26px; border-radius: 8px; border: 2px solid var(--line);
-    background: var(--card); cursor: pointer; font-size: .75rem; font-weight: 800; padding: 0; }
-  .capdot.on { border-color: var(--gold); }
-  /* ---------- zeelang caption card ---------- */
-  .mbcap { position: absolute; left: 50%; top: 62%; transform: translate(-50%, -50%); width: 56%;
-    max-height: none; z-index: 3; display: flex; flex-direction: column; }
-  .mbcap.plain { position: relative; margin: .4rem .8rem; width: auto; left: auto; transform: none;
-    top: auto; bottom: auto; max-height: none; flex: none; justify-content: flex-start; }
-  .cap-card { background: rgba(250,246,255,.94); border-radius: 20px; padding: .6rem .65rem;
-    box-shadow: 0 8px 30px rgba(0,0,0,.45); display: flex; flex-direction: column; min-height: 0;
-    overflow: hidden; }
-  .cap-rows { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; }
-  .cap-pl { display: flex; align-items: center; gap: .55rem; background: #fff;
-    border: 1px solid #e9e0f4; border-radius: 14px; padding: .55rem .7rem; margin-bottom: .45rem; }
-  .cap-pl:last-child { margin-bottom: 0; }
-  .cap-txt { flex: 1; min-width: 0; color: #2d1b4e; font-weight: 700; font-size: 1rem; line-height: 1.55; }
-  .cap-pl:first-child .cap-txt { font-size: 1.12rem; font-weight: 800; }
-  .cap-txt .w { cursor: pointer; border-radius: 5px; padding: 0 1px; }
-  .cap-txt .w.spk-on { background: rgba(245,158,11,.25); color: #b45309; }
-  .cap-loop { flex: none; width: 38px; height: 38px; border-radius: 12px; border: none;
-    background: linear-gradient(135deg,#f6b93b,#f0932b); color: #fff; font-size: 1.1rem;
-    font-weight: 900; box-shadow: 0 4px 10px rgba(240,147,43,.35); cursor: pointer; }
-  .cap-loop.spk-on { background: linear-gradient(135deg,#f0932b,#e07b1f); animation: lppulse 1s infinite; }
-  .cap-ctrl { display: flex; justify-content: center; gap: .55rem; margin-top: .55rem; }
-  .cap-ctrl button { flex: 1; max-width: 90px; height: 40px; border-radius: 12px;
-    border: 1px solid var(--line); background: var(--card); color: var(--txt);
-    font-size: 1.05rem; cursor: pointer; }
-  .cap-ctrl button.spk-on { background: linear-gradient(135deg,#f6b93b,#f0932b);
-    border-color: transparent; color: #fff; animation: lppulse 1s infinite; }
-  .cap-mv, .cap-rs { position: absolute; width: 27px; height: 27px; border-radius: 50%;
-    background: rgba(250,246,255,.96); color: #7a4fd0; font-size: .8rem;
-    font-weight: 900; border: 1.5px solid #e9e0f4; box-shadow: 0 3px 10px rgba(130,100,180,.4);
-    display: flex; align-items: center; justify-content: center; z-index: 6; touch-action: none; }
-  .cap-mv { top: -11px; left: -8px; cursor: grab; }
-  .cap-rs { top: -11px; right: -8px; cursor: nwse-resize; }
-  .cap-aa { bottom: -11px; left: -8px; }
-  .cap-ab { bottom: -11px; left: 22px; }
-  .cap-aa, .cap-ab { position: absolute; width: 27px; height: 27px; border-radius: 50%;
-    background: rgba(250,246,255,.96); color: #7a4fd0; font-size: .62rem;
-    font-weight: 900; letter-spacing: -.02em; border: 1.5px solid #e9e0f4;
-    box-shadow: 0 3px 10px rgba(130,100,180,.4); display: flex; align-items: center;
-    justify-content: center; z-index: 6; cursor: pointer; font-family: inherit; }
-  @keyframes lppulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
   .lov-cues { flex: 1; overflow-y: auto; padding: .3rem .8rem 5.5rem; display: flex;
     flex-direction: column; gap: .4rem; }
   .cue { display: flex; gap: .5rem; align-items: flex-start; background: var(--card);
@@ -428,7 +359,7 @@ var I18N = {
     cueAdd: 'إضافة سطر', cueTime: 'الوقت (mm:ss)', cueNow: 'عند الموضع الحالي', cueLines: 'سطر',
     timedTitle: 'لصق نص مؤقت', timedHelp: 'كل سطر: 00:01 النص أو 00:01 --> 00:04 النص', timedAdd: 'إضافة الأسطر', errTimed: 'لم يُعثر على أسطر مؤقتة', modelsTitle: 'نماذج الصيغ',
     tplZeelang: 'نماذج Zeelang — صيغ مقبولة', tplProlang: 'نماذج ProLang', tplTimed: 'نماذج مؤقّتة — فيديو / صوت 🎬',
-    capTheme: 'ثيم الترجمة', libTitle: 'مكتبة العبارات', libStages: 'المراحل', libVocab: 'المفردات', libBack: 'رجوع',
+    libTitle: 'مكتبة العبارات', libStages: 'المراحل', libVocab: 'المفردات', libBack: 'رجوع',
     copyAll: 'نسخ الكل', toFolder: 'إضافة كدرس', pickFolder: 'اختر المجلد', lessonAdded: 'أُضيف الدرس ✓',
     renameLesson: 'تعديل اسم الدرس', playAll: 'تشغيل الكل'
   },
@@ -463,7 +394,7 @@ var I18N = {
     cueAdd: 'Ajouter une ligne', cueTime: 'Temps (mm:ss)', cueNow: 'À la position actuelle', cueLines: 'lignes',
     timedTitle: 'Coller du texte synchronisé', timedHelp: 'Chaque ligne : 00:01 texte ou 00:01 --> 00:04 texte', timedAdd: 'Ajouter les lignes', errTimed: 'Aucune ligne synchronisée trouvée', modelsTitle: 'Modèles de format',
     tplZeelang: 'Modèles Zeelang — formats acceptés', tplProlang: 'Modèles ProLang', tplTimed: 'Modèles synchronisés — vidéo / audio 🎬',
-    capTheme: 'Thème des sous-titres', libTitle: 'Bibliothèque de phrases', libStages: 'Niveaux', libVocab: 'Vocabulaire', libBack: 'Retour',
+    libTitle: 'Bibliothèque de phrases', libStages: 'Niveaux', libVocab: 'Vocabulaire', libBack: 'Retour',
     copyAll: 'Tout copier', toFolder: 'Ajouter comme leçon', pickFolder: 'Choisir le dossier', lessonAdded: 'Leçon ajoutée ✓',
     renameLesson: 'Renommer la leçon', playAll: 'Tout lire'
   },
@@ -498,7 +429,7 @@ var I18N = {
     cueAdd: 'Add line', cueTime: 'Time (mm:ss)', cueNow: 'At current position', cueLines: 'lines',
     timedTitle: 'Paste timed text', timedHelp: 'Each line: 00:01 text or 00:01 --> 00:04 text', timedAdd: 'Add lines', errTimed: 'No timed lines found', modelsTitle: 'Format models',
     tplZeelang: 'Zeelang templates — accepted formats', tplProlang: 'ProLang templates', tplTimed: 'Timed templates — video / audio 🎬',
-    capTheme: 'Caption theme', libTitle: 'Phrase library', libStages: 'Stages', libVocab: 'Vocabulary', libBack: 'Back',
+    libTitle: 'Phrase library', libStages: 'Stages', libVocab: 'Vocabulary', libBack: 'Back',
     copyAll: 'Copy all', toFolder: 'Add as lesson', pickFolder: 'Pick a folder', lessonAdded: 'Lesson added ✓',
     renameLesson: 'Rename lesson', playAll: 'Play all'
   }
@@ -1094,73 +1025,6 @@ function searchImages(text) {
   if (BR && BR.open) { BR.open({ url: url }); return; }
   window.open(url, '_blank');
 }
-// drag handles: ✥ moves the caption anywhere over the video, ⤡ resizes along its diagonal;
-// A−/A+ buttons scale the whole card like zeelang's caption-size controls
-function capDraggable(capEl, wrap) {
-  var mv = el('div', 'cap-mv', '✥'); capEl.appendChild(mv);
-  var rs = el('div', 'cap-rs', '⤡'); capEl.appendChild(rs);
-  var sc = 1;
-  var aa = el('button', 'cap-aa', 'A-');
-  var ab = el('button', 'cap-ab', 'A+');
-  aa.onclick = function (e) { e.stopPropagation(); sc = Math.max(.5, sc / 1.12); capEl.style.zoom = sc; };
-  ab.onclick = function (e) { e.stopPropagation();
-    var fit = (wrap.clientWidth - 24) / (capEl.getBoundingClientRect().width / sc);   // keep grips inside the wrap
-    sc = Math.min(2, fit, sc * 1.12); capEl.style.zoom = sc; };
-  capEl.appendChild(aa); capEl.appendChild(ab);
-  capEl._capGrips = [mv, rs, aa, ab];   // renderCap clears innerHTML, so grips are re-appended after each render
-  var sc0 = 1;   // pointerdown zoom, shared by coord normalization and resize math
-  function drag(handle, onMove) {
-    handle.addEventListener('pointerdown', function (e) {
-      e.preventDefault(); e.stopPropagation();
-      try { handle.setPointerCapture(e.pointerId); } catch (err) {}
-      var sx = e.clientX, sy = e.clientY;
-      var rect = capEl.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
-      sc0 = sc;   // zoom at drag start — live sc changes during resize drags
-      // A-/A+ zoom scales rects and pointer deltas; style.* takes layout units
-      var rel = capEl.classList.contains('plain'), x0, y0, natL = 0, natT = 0;
-      if (rel) {
-        // position:relative — left/top are offsets from the card's natural spot below the video
-        var cs = getComputedStyle(capEl);
-        x0 = parseFloat(cs.left) || 0; y0 = parseFloat(cs.top) || 0;
-        natL = capEl.offsetLeft - x0; natT = capEl.offsetTop - y0;
-        capEl.style.left = x0 + 'px'; capEl.style.top = y0 + 'px';
-        capEl.style.right = 'auto'; capEl.style.bottom = 'auto';
-      } else {
-        if (capEl.style.transform !== 'none') {
-          capEl.style.left = (rect.left - wr.left) / sc0 + 'px'; capEl.style.right = 'auto';
-          capEl.style.top = (rect.top - wr.top) / sc0 + 'px'; capEl.style.bottom = 'auto';
-          capEl.style.transform = 'none';
-        }
-        x0 = (rect.left - wr.left) / sc0; y0 = (rect.top - wr.top) / sc0;
-      }
-      var w0 = rect.width / sc0, h0 = rect.height / sc0;
-      function mm(ev) { onMove((ev.clientX - sx) / sc0, (ev.clientY - sy) / sc0, x0, y0, w0, wr, h0, natL, natT); }
-      function up() {
-        handle.removeEventListener('pointermove', mm);
-        handle.removeEventListener('pointerup', up);
-        handle.removeEventListener('pointercancel', up);
-      }
-      handle.addEventListener('pointermove', mm);
-      handle.addEventListener('pointerup', up);
-      handle.addEventListener('pointercancel', up);
-    });
-  }
-  drag(mv, function (dx, dy, x0, y0, w0, wr, h0, natL, natT) {
-    // plain mode: card may be dragged up over the video — clamp offsets to the overlay;
-    // right edge accounts for zoom: (nx+w0)*sc0 <= wrap width
-    var nx = Math.max(-natL, Math.min(wr.width / sc0 - w0 - natL, x0 + dx));
-    var ny = Math.max(-natT, Math.min(wr.height - (h0 || 26) - natT, y0 + dy));
-    capEl.style.left = nx + 'px'; capEl.style.right = 'auto';
-    capEl.style.top = ny + 'px'; capEl.style.bottom = 'auto';
-  });
-  drag(rs, function (dx, dy, x0, y0, w0, wr) {
-    // resize scales the whole card (text + frame): along the arrow enlarges, opposite shrinks
-    var delta = (dx + dy) / Math.SQRT2;
-    var fit = (wr.width - 24) / w0;   // grip margin: scaled card never wider than the wrap
-    sc = Math.max(.5, Math.min(2, fit, sc0 * (1 + delta / w0)));
-    capEl.style.zoom = sc;
-  });
-}
 function speak(text, lang) {
   stopSpeakLoop();
   pauseMedia();
@@ -1434,8 +1298,6 @@ function openLessonsSheet(s, session) {
 }
 
 /* ---------- lesson player + caption themes ---------- */
-var CAP_THEMES = ['ct6', 'ct7', 'ct8', 'ct9', 'ct10'];
-function capTheme() { return Math.min(CAP_THEMES.length - 1, parseInt(localStorage.getItem('langpro_captheme') || '0', 10) || 0); }
 function setCapTheme(i) { try { localStorage.setItem('langpro_captheme', String(i)); } catch (e) {} }
 function sortedCues(l) {
   return (l.cues || []).slice().sort(function (a, b) {
@@ -1680,7 +1542,7 @@ function openLesson(l) {
   back.onclick = function () { stopSpeakLoop(); ov.remove(); };
   top.appendChild(back);
   ov.appendChild(top);
-  var player = null, capEl = null;
+  var player = null;
   if (l.blob) {
     var mediaWrap = el('div', 'lov-media');
     player = document.createElement(isV ? 'video' : 'audio');
@@ -1723,91 +1585,9 @@ function openLesson(l) {
       player.addEventListener('timeupdate', bgSync);
     }
     mediaWrap.appendChild(player);
-    if (isV) {
-      // caption floats over the video again; cue list below scrolls as usual
-      capEl = el('div', 'mbcap');
-      mediaWrap.appendChild(capEl);
-      capDraggable(capEl, mediaWrap);
-      // % max-height can't resolve on the auto-height wrap — cap in px so a tall
-      // card scrolls internally instead of clipping its top rows and grips
-      var capMax = function () {
-        var h = mediaWrap.clientHeight;
-        capEl.style.maxHeight = Math.max(80, h - 24) + 'px';
-      };
-      capMax();
-      player.addEventListener('loadedmetadata', capMax);
-    }
     ov.appendChild(mediaWrap);
   }
-  if (!isV) {
-    capEl = el('div', 'mbcap plain');
-    ov.appendChild(capEl);
-    capDraggable(capEl, ov);
-  }
-  var curCapCue = false, curCapText = null;
-  function renderCap(c) {
-    if (!capEl || (c === curCapCue && (!c || c.text === curCapText))) return;
-    curCapCue = c; curCapText = c ? c.text : null;
-    capEl.innerHTML = '';
-    if (!c) return;
-    var card = el('div', 'cap-card');
-    var rowsWrap = el('div', 'cap-rows');
-    cueLangLines(c.text || '').forEach(function (ln) {
-      var row = el('div', 'cap-pl');
-      var tx = el('span', 'cap-txt');
-      (ln.text || '').split(/\s+/).filter(Boolean).forEach(function (w) {
-        var ws = el('span', 'w', w);
-        var tm = null;
-        ws.onclick = function (ev) {
-          ev.stopPropagation();
-          if (tm) { clearTimeout(tm); tm = null; searchImages(w); return; }   // double-tap → image search
-          tm = setTimeout(function () { tm = null; speakLoop(w, ln.lang, ws); }, 400);   // tap → word loop
-        };
-        tx.appendChild(ws);
-        tx.appendChild(document.createTextNode(' '));
-      });
-      row.appendChild(tx);
-      var lb = el('button', 'cap-loop', ln.flag || '🔊');
-      lb.title = ln.lang;
-      lb.onclick = function (ev) { ev.stopPropagation(); speakLoop(ln.text, ln.lang, lb); };
-      row.appendChild(lb);
-      rowsWrap.appendChild(row);
-    });
-    card.appendChild(rowsWrap);
-    capEl.appendChild(card);
-    if (capEl._capGrips) capEl._capGrips.forEach(function (g) { capEl.appendChild(g); });
-    if (player) {
-      var ctrl = el('div', 'cap-ctrl');
-      [['stop', '⏹'], ['back', '⏪'], ['replay', '🔁'], ['fwd', '⏩']].forEach(function (a) {
-        var b = el('button', null, a[1]);
-        b.onclick = function (ev) {
-          ev.stopPropagation();
-          var act = a[0], now = player.currentTime;
-          var tc = sortedCues(l).filter(function (x) { return x.t != null; });
-          var ix = tc.indexOf(c);
-          if (act === 'stop') { stopSegLoop(); player.pause(); }
-          else if (act === 'replay') {
-            if (SEG_LOOP.c === c) { stopSegLoop(); player.pause(); return; }
-            stopSegLoop(); stopSpeakLoop();
-            SEG_LOOP.c = c; SEG_LOOP.btn = b; SEG_LOOP.glyph = '🔁';
-            b.classList.add('spk-on');
-            player.currentTime = c.t; player.play();
-          } else {
-            var tgt = (act === 'back')
-              ? ((now - c.t > 1.5 || ix <= 0) ? c : tc[ix - 1])
-              : (ix >= 0 && ix + 1 < tc.length ? tc[ix + 1] : null);
-            if (tgt) {
-              player.currentTime = tgt.t;
-              if (SEG_LOOP.c) SEG_LOOP.c = tgt;
-              else player.play();
-            } else if (act === 'back') player.currentTime = c.t;
-          }
-        };
-        ctrl.appendChild(b);
-      });
-      card.appendChild(ctrl);
-    }
-  }
+  // caption card removed per user request — the cue list below carries all controls
   var list = el('div', 'lov-cues');
   ov.appendChild(list);
   var cueEls = [];
@@ -1855,7 +1635,6 @@ function openLesson(l) {
   if (player) {
     player.ontimeupdate = function () {
       var ct = player.currentTime, active = null;
-      if (typeof capMax === 'function') capMax();   // re-cap after orientation/viewport changes while playing
       if (SEG_LOOP.c && SEG_LOOP.c.t != null) {   // ▶ loop: replay this cue's segment
         var nxt = null;
         sortedCues(l).forEach(function (x) { if (x.t != null && x.t > SEG_LOOP.c.t && (nxt == null || x.t < nxt)) nxt = x.t; });
@@ -1869,7 +1648,6 @@ function openLesson(l) {
         if (c.t == null) return;
         if (ct >= c.t && ct < (c.d != null ? c.d : 1e9)) active = c;
       });
-      if (capEl) renderCap(active || null);
       var done = false;
       cueEls.forEach(function (ce) {
         var on = ce.c === active;
