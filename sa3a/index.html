@@ -685,6 +685,9 @@ if(CAP.Plugins&&CAP.Plugins.App){
   if(calMonth>=0&&$('monthView').classList.contains('on')){calMonth=-1;renderYear();return}
   if(await confirmBox(t('exitConfirm')))CAP.Plugins.App.exitApp();
  });
+ CAP.Plugins.App.addListener('appStateChange',s=>{
+  if(s.isActive){rescheduleAll();checkPerms();renderAlarms()}
+ });
 }
 
 /* =============== SW (web only) =============== */
