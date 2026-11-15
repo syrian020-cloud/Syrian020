@@ -2394,6 +2394,9 @@ function parseTimedLines(text) {
     if (m) { flush(); cur = { t: parseT(m[1]), d: parseT(m[2]), text: normPhraseText(m[3] || '') }; return; }
     m = line.match(/^\s*\[?(\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d{1,3})?)\]?\s+(.+)$/);
     if (m && !/^\s*--?>/.test(m[2])) { flush(); cur = { t: parseT(m[1]), d: null, text: normPhraseText(m[2]) }; return; }
+    // standalone timestamp line: text follows on the next line(s)
+    m = line.match(/^\s*\[?(\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d{1,3})?)\]?\s*$/);
+    if (m) { flush(); cur = { t: parseT(m[1]), d: null, text: '' }; return; }
     var s = line.trim();
     if (/^\d+$/.test(s)) return;
     // '===' and '###' are section separators, never cue text
