@@ -15,6 +15,7 @@ cp manifest-langpro.json www/manifest.json
 cp icon-prolang-192.png icon-prolang-512.png www/
 cp sw-langpro.js www/
 cp -r data www/data
+cp js/edge-tts.js www/js/
 cp node_modules/@capgo/inappbrowser/dist/plugin.js www/js/inappbrowser.js
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
