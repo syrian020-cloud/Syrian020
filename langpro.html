@@ -2068,7 +2068,8 @@ if (CapApp && CapApp.addListener) {
       return;
     }
     if (ovRoot.firstChild) { closeOv(); return; }
-    var views = document.querySelectorAll('.lov, .libv');   // lessons/library sit above the grid
+    // close the topmost layer: stacked dialogs (pushOv on body), then lesson/library views
+    var views = document.querySelectorAll('body > .overlay, body > .lov, body > .libv');
     if (views.length) { views[views.length - 1].remove(); return; }
     confirmExit();
   });

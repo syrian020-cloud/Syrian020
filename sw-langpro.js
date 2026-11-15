@@ -59,15 +59,19 @@ self.addEventListener('fetch', (event) => {
     return;
   }
   event.respondWith(
-    caches.match(event.request).then((cached) =>
-      cached || fetch(event.request).then((res) => {
+    caches.match(event.request).then((cached) => {
+      // stale-while-revalidate: serve the cached copy instantly and refresh it
+      // in the background; fetch directly when nothing is cached yet. A quota
+      // failure on the cache write must never break the network response.
+      const fetched = fetch(event.request).then((res) => {
         if (!res.ok) return res;
-        // cache-first + write-back: data/ stage scripts and js/ helpers fetched
-        // online must stay available when the library is opened offline
         const copy = res.clone();
         return caches.open(CACHE_NAME)
-          .then((c) => c.put(event.request, copy)).then(() => res);
-      })
-    )
+          .then((c) => c.put(event.request, copy))
+          .catch(() => {})   // storage full — keep serving the network copy
+          .then(() => res);
+      });
+      return cached || fetched.catch(() => cached);
+    })
   );
 });
