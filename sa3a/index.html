@@ -564,7 +564,8 @@ function loopSpeak(rows,btn){
  rows=rows.filter(r=>r.txt);if(!rows.length)return;
  if(btn.classList.contains('speaking')){btn.classList.remove('speaking');stopSay();return}
  document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));
- stopSay();btn.classList.add('speaking');const tok=sayTok;
+ stopSay();const md=$('lsMedia');if(md){md._seg=null;md._once=null;try{md.pause()}catch(e){}}
+ btn.classList.add('speaking');const tok=sayTok;
  (async()=>{let k=0;
   while(btn.classList.contains('speaking')&&tok===sayTok){const r=rows[k++%rows.length];await sayOnce(r.txt,(r.lg&&r.lg!=='x')?r.lg:guessLang(r.txt))}
   btn.classList.remove('speaking')})()}
@@ -728,7 +729,7 @@ function recToggle(btn,me,segs,segEnd){
  const onEnded=()=>{if(recState)try{recState.rec.stop()}catch(e){}};
  me.addEventListener('ended',onEnded,{once:true});
  me._seg=null;me._once=null;me._loop=false;
- document.querySelectorAll('.phnum.speaking,.ctlGrid .on').forEach(x=>x.classList.remove('speaking','on'));
+ stopSay();document.querySelectorAll('.phnum.speaking,.ctlGrid .on,.speaking').forEach(x=>x.classList.remove('speaking','on'));
  let startAt=me.currentTime||0;
  if(segEnd!=null){for(let ci=segs.length-1;ci>=0;ci--)if(segs[ci].end<=segEnd+.01){startAt=segs[ci].start;break}}
  else{const cur=segIdxAt(segs,startAt);if(cur>=0)startAt=segs[cur].start;
@@ -762,6 +763,8 @@ function recordPhrase(btn,p){
   drawCuePills(cx,rows,W,H,hi);recState.raf=requestAnimationFrame(draw)}
  rec.ondataavailable=e=>{if(e.data&&e.data.size)sink.push(e.data)};
  rec.onstop=()=>{sink.finish();recDone(btn)};
+ stopSay();document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));
+ const pmd=$('lsMedia');if(pmd){pmd._seg=null;pmd._once=null;try{pmd.pause()}catch(e){}}
  recState={rec,raf:0,cv};draw();rec.start(300);
  btn._recIcon='⬇';btn.classList.add('rec-on');btn.textContent='⏹';
  toast('⏺ '+t('recClip'));
@@ -839,6 +842,7 @@ function renderPhrases(n){
   const segLoop=btn=>{if(!(md&&md.src&&p.t))return false;
    if(btn.classList.contains('speaking')){btn.classList.remove('speaking');md._seg=null;md.pause();return true}
    document.querySelectorAll('.phnum.speaking,.phic.speaking').forEach(x=>x.classList.remove('speaking'));
+   stopSay();
    const nx=nextCue(n,p);md._once=null;md._seg={start:tSec(p.t),end:nx?tSec(nx.t):md.duration||1e9};
    md.currentTime=md._seg.start;md.play().catch(()=>{});
    md.onended=()=>{md._seg=null;btn.classList.remove('speaking')};
@@ -864,7 +868,7 @@ function renderPhrases(n){
   dx.onclick=async e=>{e.stopPropagation();if(await confirmBox(t('delPhQ'))){n.ph.splice(i,1);try{await idb.del(pk)}catch(e){}save();renderPhrases(n)}};
   c.appendChild(dx);
   c.onclick=e=>{if(e.target.closest('.phbar')||e.target.closest('.phn-note')||e.target.closest('.phim'))return;
-   if(md&&p.t){md.currentTime=tSec(p.t);md.play().catch(()=>{});return}
+   if(md&&p.t){document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));stopSay();md.currentTime=tSec(p.t);md.play().catch(()=>{});return}
    if(rows[0])loopSpeak([rows[0]],c)};
   pl.appendChild(c);
  });
@@ -875,7 +879,7 @@ $('lsCopy').onclick=()=>{
  const done=()=>toast(t('copiedAll'));
  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(done).catch(done);else done();
 };
-$('lsPlay').onclick=()=>{if(!lsLesson)return;const md=$('lsMedia');if(md){md.currentTime=0;md.play().catch(()=>{})}else speakAll(lsLesson)};
+$('lsPlay').onclick=()=>{if(!lsLesson)return;const md=$('lsMedia');document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));stopSay();if(md){md.currentTime=0;md.play().catch(()=>{})}else speakAll(lsLesson)};
 $('lsLine').onclick=()=>{
  $('phTitle').textContent=t('phTitle');
  const md=$('lsMedia');$('phT').value=md?fmtT(md.currentTime):'';
