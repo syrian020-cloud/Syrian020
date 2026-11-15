@@ -270,8 +270,9 @@
   .cue-line.lg-x { background: var(--cap-x-bg, linear-gradient(135deg, #a78bfa, #7c3aed));
     color: var(--cap-x-fg, #fff); border-color: var(--cap-x-bd, transparent);
     font-family: var(--cap-x-font, 'Segoe UI', sans-serif); font-style: var(--cap-x-style, normal); }
-  .cue-tools { display: flex; gap: .4rem; justify-content: center; margin: .3rem .8rem;
-    flex-wrap: wrap; }
+  .cue-tools { display: flex; gap: .4rem; justify-content: flex-start; margin: .3rem .8rem;
+    flex-wrap: nowrap; overflow-x: auto; padding-bottom: .15rem; }
+  .cue-tools .mini { flex: none; min-width: 44px; }
   .cue-tools .mini.on { background: linear-gradient(135deg, var(--accent), var(--accent2));
     color: #fff; border-color: transparent; }
   .cue-tools .mini.rec-on { background: #e11d48; color: #fff; border-color: transparent;
@@ -293,7 +294,7 @@
   .lov-media video.fit-cover { object-fit: cover; }
   .lov-media video.fit-fill { object-fit: fill; }
   .lov-media video.fit-tall { max-height: 62vh; }
-  .lov-cues { flex: 1; min-height: 0; overflow-y: auto; padding: .3rem .8rem 5.5rem; display: flex;
+  .lov-cues { flex: 1; min-height: 0; overflow-y: auto; padding: .3rem .8rem .8rem; display: flex;
     flex-direction: column; gap: .4rem; }
   .cue { display: flex; gap: .5rem; align-items: flex-start; background: var(--card);
     border: 1px solid var(--line); border-radius: 12px; padding: .5rem .6rem; cursor: pointer; }
@@ -313,9 +314,10 @@
   .cue .cx .ct-ar { display: block; color: var(--dim); font-size: .88rem; }
   .cue .cb { flex: none; display: flex; flex-direction: column; gap: .25rem; }
   .ax.spk-on { background: var(--accent); border-color: var(--accent); }
-  .lov-actions { position: fixed; bottom: 0; left: 0; right: 0; z-index: 4401; display: flex;
-    gap: .4rem; padding: .55rem .8rem calc(.55rem + env(safe-area-inset-bottom));
-    background: rgba(7,11,24,.92); backdrop-filter: blur(12px); border-top: 1px solid var(--line); }
+  .lov-actions { position: static; display: flex;
+    gap: .4rem; padding: .55rem 0 calc(.55rem + env(safe-area-inset-bottom));
+    margin-top: .5rem; background: rgba(7,11,24,.92); backdrop-filter: blur(12px);
+    border-top: 1px solid var(--line); border-radius: 12px; }
   body.light .lov-actions { background: rgba(242,244,251,.92); }
   .lov-actions .mini { flex: 1; font-size: .8rem; padding: .55rem .4rem; }
 
@@ -2222,6 +2224,7 @@ function openLesson(l) {
       cueEls.push({ c: c, el: row });
       list.appendChild(row);
     });
+    if (typeof acts !== 'undefined' && acts) list.appendChild(acts);
   }
   function refreshAll() { renderCues(); renderGrid(); }
   if (player) {
@@ -2290,7 +2293,7 @@ function openLesson(l) {
   };
   acts.appendChild(bAdd); acts.appendChild(bTimed); acts.appendChild(bMedia);
   acts.appendChild(bAll); acts.appendChild(bSpk);
-  ov.appendChild(acts);
+  list.appendChild(acts);
   document.body.appendChild(ov);
 }
 
