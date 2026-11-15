@@ -3118,10 +3118,12 @@ if (CapApp && CapApp.addListener) {
     var views = document.querySelectorAll('body > .overlay, body > .lov, body > .libv');
     if (views.length) {
       stopSpeakLoop();
-      if (recState) { try { recState.rec.stop(); } catch (e) {} }
       var vw = views[views.length - 1];
-      vw.querySelectorAll('video, audio').forEach(function (m) { try { m.pause(); } catch (e) {} });
-      if (curPlayer && vw.contains(curPlayer)) curPlayer = null;
+      if (vw.classList.contains('lov')) {   // recorder/media belong to the lesson, not dialogs stacked over it
+        if (recState) { try { recState.rec.stop(); } catch (e) {} }
+        vw.querySelectorAll('video, audio').forEach(function (m) { try { m.pause(); } catch (e) {} });
+        if (curPlayer && vw.contains(curPlayer)) curPlayer = null;
+      }
       vw.remove();
       return;
     }
