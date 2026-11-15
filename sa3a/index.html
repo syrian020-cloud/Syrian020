@@ -661,7 +661,8 @@ async function showLesson(n){
     mk('+A',()=>{fsz=Math.min(30,fsz+2);cbox.style.fontSize=fsz+'px'}),
     mk('×1',e=>{ri=(ri+1)%RATES.length;el.playbackRate=RATES[ri];e.target.textContent='×'+RATES[ri]}),
     mk('−A',()=>{fsz=Math.max(12,fsz-2);cbox.style.fontSize=fsz+'px'}),
-    mk('🔁',e=>{el._loop=!el._loop;e.target.classList.toggle('on',el._loop)}),
+    mk('🔁',e=>{el._loop=!el._loop;e.target.classList.toggle('on',el._loop);
+     if(el._loop){stopSay();const{c,ci}=cur();if(c[ci])el.currentTime=tSec(c[ci].t);el._seg=null;el._once=null;el.play().catch(()=>{})}}),
     mk('🎨',()=>cycleCapTheme())
    ].filter(Boolean));
    if(n.vfit)applyVfit();
