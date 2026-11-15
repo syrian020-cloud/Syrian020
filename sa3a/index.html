@@ -1688,11 +1688,18 @@ function ring(a){
  if(a.vib!==false&&navigator.vibrate){const vib=()=>navigator.vibrate([600,300,600,300]);vib();ringCard._vi=setInterval(vib,1800)}
  ringCard._sp=true;const d=new Date(),hr=d.getHours(),mn=d.getMinutes(),h12=hr%12||12;
  const wl=st.lang==='ar'?'ar':st.lang==='fr'?'fr':'en';
- const wtxt={fr:frTimeFormal(hr,mn)+'. '+frTimeDaily(hr,mn)+'. '+t('wake2'),
-  ar:'الساعة الآن '+h12+(mn?' و '+mn+' دقيقة':' تمامًا')+(hr<12?' صباحًا.':' مساءً. ')+t('wake2'),
-  en:'It is now '+h12+(mn?' '+(mn<10?'oh '+mn:''+mn):' o clock')+(hr<12?' AM. ':' PM. ')+t('wake2')};
- const wrows=wl==='fr'?[['fr','fr'],['ar','ar'],['en','en']]:wl==='ar'?[['ar','ar'],['fr','fr'],['en','en']]:[['en','en'],['fr','fr'],['ar','ar']];
- (async()=>{while(ringCard._sp&&$('ringShade').classList.contains('on')){for(const r of wrows){if(!ringCard._sp)break;await sayOnce(wtxt[r[1]],r[0])}}})()
+ const loc=wl==='ar'?'ar':wl==='fr'?'fr-FR':'en-US';
+ const wd=new Intl.DateTimeFormat(loc,{weekday:'long'}).format(d);
+ const mo=new Intl.DateTimeFormat(loc,{month:'long'}).format(d);
+ const dayN=d.getDate();
+ const enOrd=n=>n+(['th','st','nd','rd'][Math.min(n%10<=3&&Math.floor(n%100/10)!==1?n%10:0,3)]||'th');
+ const enTod=hr<12?'in the morning':hr<17?'in the afternoon':'in the evening';
+ const enTime=mn?'It is '+h12+' '+(mn<10?'oh '+mn:''+mn)+' '+enTod:'It is '+h12+" o'clock "+enTod;
+ const wtxt={
+  fr:'Bonjour ! '+frTimeDaily(hr,mn)+'. Nous sommes '+wd+' '+dayN+' '+mo+". C'est l'heure de se réveiller ! Bonne journée et bon courage !",
+  ar:'صباح الخير! الساعة '+h12+(mn?' و '+mn+' دقيقة':' تمامًا')+(hr<12?' صباحًا. ':' مساءً. ')+'اليوم '+wd+'، '+dayN+' '+mo+'. حان وقت الاستيقاظ! أتمنى لك نهارًا سعيدًا، وبالتوفيق!',
+  en:'Good morning! '+enTime+'. Today is '+wd+', '+mo+' '+enOrd(dayN)+". It's time to wake up! Have a great day, and good luck!"};
+ (async()=>{while(ringCard._sp&&$('ringShade').classList.contains('on')){await sayOnce(wtxt[wl],wl)}})()
  if(!a.days||!a.days.length){a.on=false;save();renderAlarms();rescheduleAll()}
 }
 function stopRing(){$('ringShade').classList.remove('on');ringCard._sp=false;stopSay();const au=$('ringAudio');au.pause();au.src='';clearInterval(ringCard._vi);navigator.vibrate&&navigator.vibrate(0)}
