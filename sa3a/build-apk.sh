@@ -98,6 +98,8 @@ if [ -f "$MANIFEST" ]; then
     sed -i 's|<uses-permission|<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />\n    <uses-permission|' "$MANIFEST"
   grep -q 'android.permission.VIBRATE' "$MANIFEST" || \
     sed -i 's|<uses-permission|<uses-permission android:name="android.permission.VIBRATE" />\n    <uses-permission|' "$MANIFEST"
+  grep -q 'ACCESS_FINE_LOCATION' "$MANIFEST" || \
+    sed -i 's|<uses-permission|<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />\n    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />\n    <uses-permission|' "$MANIFEST"
 fi
 
 # Bundled alarm tones for notification channels

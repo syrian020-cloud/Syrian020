@@ -100,6 +100,48 @@ main{flex:1;overflow:auto;position:relative}
 #speakBtn:active{background:var(--acc);transform:scale(.94)}
 #speakCap{margin-top:12px;font-size:1.05rem;color:var(--txt);font-weight:600;text-align:center;max-width:90%;min-height:1.3em;line-height:1.5;opacity:0;transition:opacity .3s}
 #speakCap.on{opacity:1}
+
+/* ---- weather ---- */
+#wxShade{align-items:stretch;background:var(--bg)}
+#wxSheet{height:100%;max-height:none;width:100%;max-width:none;border-radius:0;padding-top:calc(12px + env(safe-area-inset-top,0px));display:flex;flex-direction:column;overflow:hidden}
+.wxHead{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.wxHead .lb{flex:1;font-weight:800;font-size:1.05rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wxHead button{background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:7px 11px;font-family:inherit;font-size:1rem;font-weight:800;cursor:pointer}
+#wxBody{flex:1;overflow-y:auto}
+.wxNow{background:linear-gradient(150deg,var(--acc),var(--acc2));color:#fff;border-radius:20px;padding:18px;text-align:center;box-shadow:var(--shadow)}
+.wxNow .wc{font-size:3.2rem;line-height:1}
+.wxNow .wt{font-size:2.6rem;font-weight:800;margin-top:4px}
+.wxNow .wd2{font-size:1rem;font-weight:700;opacity:.92;margin-top:2px}
+.wxNow .wsub{font-size:.8rem;opacity:.85;margin-top:6px}
+.wxRow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.wxCell{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 4px;text-align:center}
+.wxCell .i{font-size:1.3rem}
+.wxCell .v{font-weight:800;font-size:.9rem;margin-top:3px}
+.wxCell .k{font-size:.62rem;color:var(--dim);font-weight:700;margin-top:2px}
+.wxDay{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-bottom:8px}
+.wxDay .dn{width:64px;font-weight:800;font-size:.85rem}
+.wxDay .di{font-size:1.5rem}
+.wxDay .dd{flex:1;font-size:.72rem;color:var(--dim);font-weight:600}
+.wxDay .tp{font-weight:800;font-size:.9rem;white-space:nowrap}
+.wxDay .tp .lo{color:var(--dim);font-weight:600}
+.wxHr{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}
+.wxHr::-webkit-scrollbar{display:none}
+.wxHp{flex:0 0 auto;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 10px;text-align:center}
+.wxHp .t{font-size:.7rem;font-weight:800;color:var(--acc)}
+.wxHp .i{font-size:1.15rem;margin-top:3px}
+.wxHp .v{font-size:.8rem;font-weight:800;margin-top:2px}
+.wxTtl{font-weight:800;font-size:.95rem;margin:12px 0 6px}
+/* ---- prettier mini calendar ---- */
+.mini{overflow:hidden;position:relative}
+.mini .mn{margin:-8px -8px 6px;padding:7px 4px;font-weight:800;font-size:.85rem;text-align:center;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.mini .wd div{opacity:.65}
+.mini .gd div.hday{color:var(--danger);font-weight:800}
+#bigcal .gd div.hday{color:var(--danger);font-weight:800}
+#bigcal .gd div.hday.tdy{color:#fff}
+#holyList{margin-top:10px}
+#holyList .hd{display:flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px 10px;margin-bottom:6px;font-size:.82rem;font-weight:700}
+#holyList .hd .d{color:var(--danger);font-weight:800;white-space:nowrap}
+
 /* ---- dock & lessons ---- */
 #dock{display:flex;gap:10px;width:100%;max-width:520px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none}
 #dock::-webkit-scrollbar{display:none}
@@ -375,7 +417,7 @@ nav button.on{color:var(--acc)}
     </div>
     <div id="monthView">
       <div class="mnav"><button class="hbtn" id="backYear">‹ <span id="tBack"></span></button><div class="ttl" id="mTitle"></div><span style="width:60px"></span></div>
-      <div id="bigcal"></div>
+      <div id="bigcal"></div><div id="holyList"></div>
     </div>
   </section>
 </main>
@@ -410,6 +452,12 @@ nav button.on{color:var(--acc)}
   <div class="rowbtns"><button class="b ghost" id="cfNo"></button><button class="b danger" id="cfYes"></button></div>
 </div></div>
 
+<!-- weather -->
+<div class="shade" id="wxShade"><div class="sheet" id="wxSheet">
+  <div class="wxHead"><button id="wxBack">‹</button><div class="lb" id="wxLoc">…</div>
+    <button id="wxCity" title="city">🔍</button><button id="wxRef" title="refresh">↻</button></div>
+  <div id="wxBody"></div>
+</div></div>
 <!-- lessons browser -->
 <div class="shade" id="lessonShade"><div class="sheet" id="lessonSheet">
   <div class="lsHead"><button id="lsBack">‹</button><div class="lb" id="lsPath"></div>
@@ -502,9 +550,9 @@ nav button.on{color:var(--acc)}
 'use strict';
 /* =============== i18n =============== */
 const L={
-ar:{appName:'ساعتي',tabClock:'الساعة',tabAlarms:'المنبهات',tabCal:'التقويم',tabTimer:'المؤقت',tTimer:'عدّاد',tStop:'إيقاف',start:'ابدأ',pause:'إيقاف مؤقت',resume:'متابعة',reset:'إعادة',lap:'لفة',swStop:'إيقاف',nextAlarm:'المنبه القادم',after:'بعد',snoozeDur:'مدة الغفوة',setWallpaper:'اجعلها خلفية الشاشة',edgeVoice:'أصوات الكلام Edge',timerDone:'انتهى الوقت',hh:'س',mmm:'د',ss:'ث',days2:'يوم',speakTime:'انطق الوقت',lsTitle:'الدروس',workSched:'جدول العمل',appts:'المواعيد',addFolder:'مجلد',addLesson:'درس',rename:'إعادة تسمية',delItem:'حذف',delFolderQ:'حذف المجلد وكل ما بداخله؟',delLessonQ:'حذف الدرس؟',addImg:'أضف صورة',delImg:'احذف الصورة',phAdd:'➕ عبارة',addLine:'سطر',pasteT:'لصق مؤقت',medS:'وسائط',imgS:'صورة',copyAll:'نسخ الكل',playAll:'تشغيل الكل',copiedAll:'✓ نُسخ الدرس كاملًا',phTime:'mm:ss (اختياري)',phTpl:'📝 نص',medAdd:'🎬 فيديو / صوت',copyTpl:'📋 نسخ',copied:'✓ نُسخ',tplPh:'الصق النص هنا…',delMedQ:'حذف الصوت/الفيديو؟',phImg:'🖼️ صورة',phTitle:'أضف عبارة',phOrig:'العبارة الأصلية',phPron:'النطق',phAr:'المعنى بالعربي',phEn:'English',phEmpty:'لا عبارات بعد — أضف عبارة أو الصق نموذجًا 📥',notePh:'ملاحظة…',tplTitle:'اختر نموذجًا ثم عدّل النص وأضفه',doAdd:'إضافة',phAddedN:'عبارة أُضيفت',delPhQ:'حذف العبارة؟',namePh:'الاسم',emptyLs:'فارغ — أضف مجلدًا أو درسًا من الأزرار أعلاه',newFolderNm:'مجلد جديد',newLessonNm:'درس جديد',warnPerm:'⚠️ ليرن المنبه والتطبيق مغلق: فعّل الإشعارات و«المنبهات والتذكيرات»',permBtn:'تفعيل',warnNotif:'الإشعارات معطّلة',warnExact:'«المنبهات والتذكيرات» معطّلة',newAlarm:'منبه جديد',editAlarm:'تعديل المنبه',lTime:'الوقت',lLabel:'الاسم',labelPh:'مثلاً: الاستيقاظ',lRepeat:'التكرار',onceHint:'بدون اختيار أيام = يعمل مرة واحدة',lSound:'الصوت',lVib:'اهتزاز',sndDefault:'صوت الهاتف الافتراضي',sndBeep:'نبضات',sndBell:'جرس',sndSiren:'صافرة',sndCustom:'صوتي المرفوع',uploadSound:'⬆️ ارفع صوتًا من هاتفك',save:'حفظ',cancel:'إلغاء',del:'حذف',yes:'نعم',no:'لا',once:'مرة واحدة',daily:'يوميًا',every:'كل',settings:'الإعدادات',mClock:'نمط الساعة',analog:'عقارب',digital:'أرقام',mTheme:'المظهر',dark:'داكن',light:'فاتح',mLang:'اللغة',mExport:'تصدير المنبهات',mImport:'استيراد المنبهات',mAbout:'حول التطبيق',aboutTxt:'ساعتي — ساعة ومنبه وتقويم\nv1.0',confirmDel:'حذف هذا المنبه؟',exitConfirm:'الخروج من التطبيق؟',ringStop:'إيقاف',ringSnooze:'غفوة +5د',ringSolve:'🧩 حل اللعبة للإيقاف',ringNeed:'أكمل اللعبة بصحة 100% لإيقاف المنبّه',ringLocked:'🔒 مغلق — حل اللعبة لفتحه',wake1:'صباح الخير!',wake2:'حان وقت الاستيقاظ!',wakeNow:'الساعة الآن',imported:'تم الاستيراد',badFile:'ملف غير صالح',back:'السنة',alarmsOff:'المنبهات معطّلة',permNote:'فعّل إذن الإشعارات ليعمل المنبه والتطبيق مغلق',weekdays:['أح','إث','ثل','أر','خم','جم','سب'],weekdaysFull:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],today:'اليوم',snoozed:'غفوة 10 دقائق',quiz:'لعبة التوصيل 🧩',quizChooseLang:'اختر لغة المطابقة',quizReplay:'إعادة اللعب',quizExit:'خروج',quizNoPhrases:'لا توجد عبارات كافية للّعبة',quizScore:'النتيجة',listenQuiz:'لعبة الاستماع 🎧',listenReplay:'🔊 إعادة الاستماع',gNext:'التالي',autoNext:'تلقائي',rrTitle:'لعبة اقرأ وانطق 🗣',rrPickLang:'اختر لغة التدريب',rrModeT:'طريقة التدريب',rrModeL:'👂 استمع 5× ثم انطق',rrModeR:'📖 اقرأ وانطق مباشرة',rrListenN:'👂 استمع',rrYourTurn:'🎤 دورك — انطق الآن',rrHear:'🔊 استمع',rrSkip:'تخطي الاستماع',rrWell:'أحسنت! 🎉',rrResume:'↩ متابعة التدريب',rrNew:'🔄 بدء من جديد',rrSlow:'🐢 انطق العبارة ببطء'},
-en:{appName:'Sa3a',tabClock:'Clock',tabAlarms:'Alarms',tabCal:'Calendar',tabTimer:'Timer',tTimer:'Countdown',tStop:'Stopwatch',start:'Start',pause:'Pause',resume:'Resume',reset:'Reset',lap:'Lap',swStop:'Stop',nextAlarm:'Next alarm',after:'in',snoozeDur:'Snooze length',setWallpaper:'Set as wallpaper',edgeVoice:'Edge speech voices',timerDone:'Time is up',hh:'h',mmm:'m',ss:'s',days2:'day',speakTime:'Speak the time',lsTitle:'Lessons',workSched:'Work schedule',appts:'Appointments',addFolder:'Folder',addLesson:'Lesson',rename:'Rename',delItem:'Delete',delFolderQ:'Delete folder and all its contents?',delLessonQ:'Delete this lesson?',addImg:'Add image',delImg:'Remove image',phAdd:'➕ Phrase',phTpl:'📝 Text',medAdd:'🎬 Video / Audio',copyTpl:'📋 Copy',copied:'✓ Copied',tplPh:'Paste the text here…',delMedQ:'Delete the audio/video?',phImg:'🖼️ Image',phTitle:'Add a phrase',phOrig:'Original phrase',phPron:'Pronunciation',phAr:'Meaning (Arabic)',phEn:'English',phEmpty:'No phrases yet — add one or paste a template 📥',notePh:'Note…',addLine:'Line',pasteT:'Paste timed',medS:'Media',imgS:'Image',copyAll:'Copy all',playAll:'Play all',copiedAll:'✓ Lesson copied',phTime:'mm:ss (optional)',tplTitle:'Pick a template, edit the text, add it',doAdd:'Add',phAddedN:'phrases added',delPhQ:'Delete this phrase?',namePh:'Name',emptyLs:'Empty — add a folder or lesson above',newFolderNm:'New folder',newLessonNm:'New lesson',warnPerm:'⚠️ For alarms to ring while closed: allow notifications and “Alarms & reminders”',permBtn:'Enable',warnNotif:'Notifications off',warnExact:'“Alarms & reminders” off',newAlarm:'New alarm',editAlarm:'Edit alarm',lTime:'Time',lLabel:'Label',labelPh:'e.g. Wake up',lRepeat:'Repeat',onceHint:'No days selected = rings once',lSound:'Sound',lVib:'Vibrate',sndDefault:'Phone default',sndBeep:'Beeps',sndBell:'Bell',sndSiren:'Siren',sndCustom:'My uploaded sound',uploadSound:'⬆️ Upload a sound from your phone',save:'Save',cancel:'Cancel',del:'Delete',yes:'Yes',no:'No',once:'Once',daily:'Daily',every:'Every',settings:'Settings',mClock:'Clock style',analog:'Analog',digital:'Digital',mTheme:'Theme',dark:'Dark',light:'Light',mLang:'Language',mExport:'Export alarms',mImport:'Import alarms',mAbout:'About',aboutTxt:'Sa3a — clock, alarms & calendar\nv1.0',confirmDel:'Delete this alarm?',exitConfirm:'Exit the app?',ringStop:'Stop',ringSnooze:'Snooze +5m',ringSolve:'🧩 Solve the game to stop',ringNeed:'Finish the game at 100% to stop the alarm',ringLocked:'🔒 Locked — solve the game to unlock',wake1:'Good morning!',wake2:'Time to wake up!',wakeNow:'It is now',imported:'Imported',badFile:'Invalid file',back:'Year',alarmsOff:'Alarms disabled',permNote:'Allow notifications so alarms ring while the app is closed',weekdays:['Su','Mo','Tu','We','Th','Fr','Sa'],weekdaysFull:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],today:'Today',snoozed:'Snoozed 10 min',quiz:'Matching game 🧩',quizChooseLang:'Choose the match language',quizReplay:'Play again',quizExit:'Exit',quizNoPhrases:'Not enough phrases for the game',quizScore:'Score',listenQuiz:'Listening game 🎧',listenReplay:'🔊 Listen again',gNext:'Next',autoNext:'Auto',rrTitle:'Read & Repeat game 🗣',rrPickLang:'Choose the training language',rrModeT:'Training mode',rrModeL:'👂 Listen 5× then repeat',rrModeR:'📖 Read & repeat directly',rrListenN:'👂 Listen',rrYourTurn:'🎤 Your turn — speak now',rrHear:'🔊 Listen',rrSkip:'Skip listening',rrWell:'Well done! 🎉',rrResume:'↩ Resume training',rrNew:'🔄 Start over',rrSlow:'🐢 Speak the phrase slowly'},
-fr:{appName:'Sa3a',tabClock:'Horloge',tabAlarms:'Alarmes',tabCal:'Calendrier',tabTimer:'Minuteur',tTimer:'Compte à rebours',tStop:'Chrono',start:'Démarrer',pause:'Pause',resume:'Reprendre',reset:'Réinit.',lap:'Tour',swStop:'Arrêt',nextAlarm:'Prochaine alarme',after:'dans',snoozeDur:'Durée répétition',setWallpaper:'Fond d’écran animé',edgeVoice:'Voix Edge',timerDone:'Temps écoulé',hh:'h',mmm:'min',ss:'s',days2:'jour',speakTime:'Annoncer l’heure',lsTitle:'Leçons',workSched:'Horaires de travail',appts:'Rendez-vous',addFolder:'Dossier',addLesson:'Leçon',rename:'Renommer',delItem:'Supprimer',delFolderQ:'Supprimer le dossier et tout son contenu ?',delLessonQ:'Supprimer cette leçon ?',addImg:'Ajouter une image',delImg:'Supprimer l’image',phAdd:'➕ Phrase',addLine:'Ligne',pasteT:'Coller minuté',medS:'Média',imgS:'Image',copyAll:'Tout copier',playAll:'Tout lire',copiedAll:'✓ Leçon copiée',phTime:'mm:ss (optionnel)',phTpl:'📝 Texte',medAdd:'🎬 Vidéo / Audio',copyTpl:'📋 Copier',copied:'✓ Copié',tplPh:'Collez le texte ici…',delMedQ:'Supprimer l’audio/vidéo ?',phImg:'🖼️ Image',phTitle:'Ajouter une phrase',phOrig:'Phrase originale',phPron:'Prononciation',phAr:'Sens (arabe)',phEn:'English',phEmpty:'Aucune phrase — ajoutez-en ou collez un modèle 📥',notePh:'Note…',tplTitle:'Choisissez un modèle, modifiez le texte, ajoutez',doAdd:'Ajouter',phAddedN:'phrases ajoutées',delPhQ:'Supprimer cette phrase ?',namePh:'Nom',emptyLs:'Vide — ajoutez un dossier ou une leçon ci-dessus',newFolderNm:'Nouveau dossier',newLessonNm:'Nouvelle leçon',warnPerm:'⚠️ Pour que l’alarme sonne appli fermée : notifications + « Alarmes et rappels »',permBtn:'Activer',warnNotif:'Notifications coupées',warnExact:'« Alarmes et rappels » coupés',newAlarm:'Nouvelle alarme',editAlarm:'Modifier l’alarme',lTime:'Heure',lLabel:'Nom',labelPh:'ex. Réveil',lRepeat:'Répéter',onceHint:'Aucun jour choisi = sonne une fois',lSound:'Son',lVib:'Vibration',sndDefault:'Son du téléphone',sndBeep:'Bips',sndBell:'Cloche',sndSiren:'Sirène',sndCustom:'Mon son importé',uploadSound:'⬆️ Importer un son du téléphone',save:'Enregistrer',cancel:'Annuler',del:'Supprimer',yes:'Oui',no:'Non',once:'Une fois',daily:'Quotidien',every:'Chaque',settings:'Réglages',mClock:'Style d’horloge',analog:'Aiguilles',digital:'Chiffres',mTheme:'Thème',dark:'Sombre',light:'Clair',mLang:'Langue',mExport:'Exporter les alarmes',mImport:'Importer des alarmes',mAbout:'À propos',aboutTxt:'Sa3a — horloge, alarmes & calendrier\nv1.0',confirmDel:'Supprimer cette alarme ?',exitConfirm:'Quitter l’application ?',ringStop:'Arrêter',ringSnooze:'Répéter +5m',ringSolve:'🧩 Résous le jeu pour arrêter',ringNeed:'Termine le jeu à 100% pour arrêter l’alarme',ringLocked:'🔒 Verrouillé — résous le jeu pour déverrouiller',wake1:'Bonjour !',wake2:'C’est l’heure de se réveiller !',wakeNow:'Il est',imported:'Importé',badFile:'Fichier invalide',back:'Année',alarmsOff:'Alarmes désactivées',permNote:'Autorisez les notifications pour que l’alarme sonne appli fermée',weekdays:['Di','Lu','Ma','Me','Je','Ve','Sa'],weekdaysFull:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],today:'Aujourd’hui',snoozed:'Reporté 10 min',quiz:'Jeu d’association 🧩',quizChooseLang:'Choisis la langue',quizReplay:'Rejouer',quizExit:'Quitter',quizNoPhrases:'Pas assez de phrases',quizScore:'Score',listenQuiz:'Jeu d’écoute 🎧',listenReplay:'🔊 Réécouter',gNext:'Suivant',autoNext:'Auto',rrTitle:'Jeu Lis et répète 🗣',rrPickLang:'Choisis la langue d’entraînement',rrModeT:'Mode d’entraînement',rrModeL:'👂 Écoute 5× puis répète',rrModeR:'📖 Lis et répète directement',rrListenN:'👂 Écoute',rrYourTurn:'🎤 À toi — répète',rrHear:'🔊 Écouter',rrSkip:'Passer l’écoute',rrWell:'Bravo ! 🎉',rrResume:'↩ Continuer l’entraînement',rrNew:'🔄 Recommencer',rrSlow:'🐢 Lecture lente de la phrase'}
+ar:{weather:'الطقس',wxLocating:'جارٍ تحديد الموقع…',wxFail:'تعذّر جلب الطقس — فعّل الموقع والإنترنت',wxCityPh:'اكتب اسم المدينة',wxNoCity:'المدينة غير موجودة',wxFeels:'الإحساس',wxKmh:'كم/س',wxSunrise:'الشروق',wxSunset:'الغروب',wxRain:'أمطار',wxHiLo:'عظمى/صغرى',wxNext24:'الساعات القادمة',wxWeek:'هذا الأسبوع',appName:'ساعتي',tabClock:'الساعة',tabAlarms:'المنبهات',tabCal:'التقويم',tabTimer:'المؤقت',tTimer:'عدّاد',tStop:'إيقاف',start:'ابدأ',pause:'إيقاف مؤقت',resume:'متابعة',reset:'إعادة',lap:'لفة',swStop:'إيقاف',nextAlarm:'المنبه القادم',after:'بعد',snoozeDur:'مدة الغفوة',setWallpaper:'اجعلها خلفية الشاشة',edgeVoice:'أصوات الكلام Edge',timerDone:'انتهى الوقت',hh:'س',mmm:'د',ss:'ث',days2:'يوم',speakTime:'انطق الوقت',lsTitle:'الدروس',workSched:'جدول العمل',appts:'المواعيد',addFolder:'مجلد',addLesson:'درس',rename:'إعادة تسمية',delItem:'حذف',delFolderQ:'حذف المجلد وكل ما بداخله؟',delLessonQ:'حذف الدرس؟',addImg:'أضف صورة',delImg:'احذف الصورة',phAdd:'➕ عبارة',addLine:'سطر',pasteT:'لصق مؤقت',medS:'وسائط',imgS:'صورة',copyAll:'نسخ الكل',playAll:'تشغيل الكل',copiedAll:'✓ نُسخ الدرس كاملًا',phTime:'mm:ss (اختياري)',phTpl:'📝 نص',medAdd:'🎬 فيديو / صوت',copyTpl:'📋 نسخ',copied:'✓ نُسخ',tplPh:'الصق النص هنا…',delMedQ:'حذف الصوت/الفيديو؟',phImg:'🖼️ صورة',phTitle:'أضف عبارة',phOrig:'العبارة الأصلية',phPron:'النطق',phAr:'المعنى بالعربي',phEn:'English',phEmpty:'لا عبارات بعد — أضف عبارة أو الصق نموذجًا 📥',notePh:'ملاحظة…',tplTitle:'اختر نموذجًا ثم عدّل النص وأضفه',doAdd:'إضافة',phAddedN:'عبارة أُضيفت',delPhQ:'حذف العبارة؟',namePh:'الاسم',emptyLs:'فارغ — أضف مجلدًا أو درسًا من الأزرار أعلاه',newFolderNm:'مجلد جديد',newLessonNm:'درس جديد',warnPerm:'⚠️ ليرن المنبه والتطبيق مغلق: فعّل الإشعارات و«المنبهات والتذكيرات»',permBtn:'تفعيل',warnNotif:'الإشعارات معطّلة',warnExact:'«المنبهات والتذكيرات» معطّلة',newAlarm:'منبه جديد',editAlarm:'تعديل المنبه',lTime:'الوقت',lLabel:'الاسم',labelPh:'مثلاً: الاستيقاظ',lRepeat:'التكرار',onceHint:'بدون اختيار أيام = يعمل مرة واحدة',lSound:'الصوت',lVib:'اهتزاز',sndDefault:'صوت الهاتف الافتراضي',sndBeep:'نبضات',sndBell:'جرس',sndSiren:'صافرة',sndCustom:'صوتي المرفوع',uploadSound:'⬆️ ارفع صوتًا من هاتفك',save:'حفظ',cancel:'إلغاء',del:'حذف',yes:'نعم',no:'لا',once:'مرة واحدة',daily:'يوميًا',every:'كل',settings:'الإعدادات',mClock:'نمط الساعة',analog:'عقارب',digital:'أرقام',mTheme:'المظهر',dark:'داكن',light:'فاتح',mLang:'اللغة',mExport:'تصدير المنبهات',mImport:'استيراد المنبهات',mAbout:'حول التطبيق',aboutTxt:'ساعتي — ساعة ومنبه وتقويم\nv1.0',confirmDel:'حذف هذا المنبه؟',exitConfirm:'الخروج من التطبيق؟',ringStop:'إيقاف',ringSnooze:'غفوة +5د',ringSolve:'🧩 حل اللعبة للإيقاف',ringNeed:'أكمل اللعبة بصحة 100% لإيقاف المنبّه',ringLocked:'🔒 مغلق — حل اللعبة لفتحه',wake1:'صباح الخير!',wake2:'حان وقت الاستيقاظ!',wakeNow:'الساعة الآن',imported:'تم الاستيراد',badFile:'ملف غير صالح',back:'السنة',alarmsOff:'المنبهات معطّلة',permNote:'فعّل إذن الإشعارات ليعمل المنبه والتطبيق مغلق',weekdays:['أح','إث','ثل','أر','خم','جم','سب'],weekdaysFull:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],today:'اليوم',snoozed:'غفوة 10 دقائق',quiz:'لعبة التوصيل 🧩',quizChooseLang:'اختر لغة المطابقة',quizReplay:'إعادة اللعب',quizExit:'خروج',quizNoPhrases:'لا توجد عبارات كافية للّعبة',quizScore:'النتيجة',listenQuiz:'لعبة الاستماع 🎧',listenReplay:'🔊 إعادة الاستماع',gNext:'التالي',autoNext:'تلقائي',rrTitle:'لعبة اقرأ وانطق 🗣',rrPickLang:'اختر لغة التدريب',rrModeT:'طريقة التدريب',rrModeL:'👂 استمع 5× ثم انطق',rrModeR:'📖 اقرأ وانطق مباشرة',rrListenN:'👂 استمع',rrYourTurn:'🎤 دورك — انطق الآن',rrHear:'🔊 استمع',rrSkip:'تخطي الاستماع',rrWell:'أحسنت! 🎉',rrResume:'↩ متابعة التدريب',rrNew:'🔄 بدء من جديد',rrSlow:'🐢 انطق العبارة ببطء'},
+en:{weather:'Weather',wxLocating:'Locating…',wxFail:'Could not fetch weather — enable location & internet',wxCityPh:'Type a city name',wxNoCity:'City not found',wxFeels:'Feels like',wxKmh:'km/h',wxSunrise:'Sunrise',wxSunset:'Sunset',wxRain:'Rain',wxHiLo:'High/Low',wxNext24:'Coming hours',wxWeek:'This week',appName:'Sa3a',tabClock:'Clock',tabAlarms:'Alarms',tabCal:'Calendar',tabTimer:'Timer',tTimer:'Countdown',tStop:'Stopwatch',start:'Start',pause:'Pause',resume:'Resume',reset:'Reset',lap:'Lap',swStop:'Stop',nextAlarm:'Next alarm',after:'in',snoozeDur:'Snooze length',setWallpaper:'Set as wallpaper',edgeVoice:'Edge speech voices',timerDone:'Time is up',hh:'h',mmm:'m',ss:'s',days2:'day',speakTime:'Speak the time',lsTitle:'Lessons',workSched:'Work schedule',appts:'Appointments',addFolder:'Folder',addLesson:'Lesson',rename:'Rename',delItem:'Delete',delFolderQ:'Delete folder and all its contents?',delLessonQ:'Delete this lesson?',addImg:'Add image',delImg:'Remove image',phAdd:'➕ Phrase',phTpl:'📝 Text',medAdd:'🎬 Video / Audio',copyTpl:'📋 Copy',copied:'✓ Copied',tplPh:'Paste the text here…',delMedQ:'Delete the audio/video?',phImg:'🖼️ Image',phTitle:'Add a phrase',phOrig:'Original phrase',phPron:'Pronunciation',phAr:'Meaning (Arabic)',phEn:'English',phEmpty:'No phrases yet — add one or paste a template 📥',notePh:'Note…',addLine:'Line',pasteT:'Paste timed',medS:'Media',imgS:'Image',copyAll:'Copy all',playAll:'Play all',copiedAll:'✓ Lesson copied',phTime:'mm:ss (optional)',tplTitle:'Pick a template, edit the text, add it',doAdd:'Add',phAddedN:'phrases added',delPhQ:'Delete this phrase?',namePh:'Name',emptyLs:'Empty — add a folder or lesson above',newFolderNm:'New folder',newLessonNm:'New lesson',warnPerm:'⚠️ For alarms to ring while closed: allow notifications and “Alarms & reminders”',permBtn:'Enable',warnNotif:'Notifications off',warnExact:'“Alarms & reminders” off',newAlarm:'New alarm',editAlarm:'Edit alarm',lTime:'Time',lLabel:'Label',labelPh:'e.g. Wake up',lRepeat:'Repeat',onceHint:'No days selected = rings once',lSound:'Sound',lVib:'Vibrate',sndDefault:'Phone default',sndBeep:'Beeps',sndBell:'Bell',sndSiren:'Siren',sndCustom:'My uploaded sound',uploadSound:'⬆️ Upload a sound from your phone',save:'Save',cancel:'Cancel',del:'Delete',yes:'Yes',no:'No',once:'Once',daily:'Daily',every:'Every',settings:'Settings',mClock:'Clock style',analog:'Analog',digital:'Digital',mTheme:'Theme',dark:'Dark',light:'Light',mLang:'Language',mExport:'Export alarms',mImport:'Import alarms',mAbout:'About',aboutTxt:'Sa3a — clock, alarms & calendar\nv1.0',confirmDel:'Delete this alarm?',exitConfirm:'Exit the app?',ringStop:'Stop',ringSnooze:'Snooze +5m',ringSolve:'🧩 Solve the game to stop',ringNeed:'Finish the game at 100% to stop the alarm',ringLocked:'🔒 Locked — solve the game to unlock',wake1:'Good morning!',wake2:'Time to wake up!',wakeNow:'It is now',imported:'Imported',badFile:'Invalid file',back:'Year',alarmsOff:'Alarms disabled',permNote:'Allow notifications so alarms ring while the app is closed',weekdays:['Su','Mo','Tu','We','Th','Fr','Sa'],weekdaysFull:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],today:'Today',snoozed:'Snoozed 10 min',quiz:'Matching game 🧩',quizChooseLang:'Choose the match language',quizReplay:'Play again',quizExit:'Exit',quizNoPhrases:'Not enough phrases for the game',quizScore:'Score',listenQuiz:'Listening game 🎧',listenReplay:'🔊 Listen again',gNext:'Next',autoNext:'Auto',rrTitle:'Read & Repeat game 🗣',rrPickLang:'Choose the training language',rrModeT:'Training mode',rrModeL:'👂 Listen 5× then repeat',rrModeR:'📖 Read & repeat directly',rrListenN:'👂 Listen',rrYourTurn:'🎤 Your turn — speak now',rrHear:'🔊 Listen',rrSkip:'Skip listening',rrWell:'Well done! 🎉',rrResume:'↩ Resume training',rrNew:'🔄 Start over',rrSlow:'🐢 Speak the phrase slowly'},
+fr:{weather:'Météo',wxLocating:'Localisation…',wxFail:'Météo indisponible — activez position & internet',wxCityPh:'Nom de la ville',wxNoCity:'Ville introuvable',wxFeels:'Ressenti',wxKmh:'km/h',wxSunrise:'Lever',wxSunset:'Coucher',wxRain:'Pluie',wxHiLo:'Max/Min',wxNext24:'Prochaines heures',wxWeek:'Cette semaine',appName:'Sa3a',tabClock:'Horloge',tabAlarms:'Alarmes',tabCal:'Calendrier',tabTimer:'Minuteur',tTimer:'Compte à rebours',tStop:'Chrono',start:'Démarrer',pause:'Pause',resume:'Reprendre',reset:'Réinit.',lap:'Tour',swStop:'Arrêt',nextAlarm:'Prochaine alarme',after:'dans',snoozeDur:'Durée répétition',setWallpaper:'Fond d’écran animé',edgeVoice:'Voix Edge',timerDone:'Temps écoulé',hh:'h',mmm:'min',ss:'s',days2:'jour',speakTime:'Annoncer l’heure',lsTitle:'Leçons',workSched:'Horaires de travail',appts:'Rendez-vous',addFolder:'Dossier',addLesson:'Leçon',rename:'Renommer',delItem:'Supprimer',delFolderQ:'Supprimer le dossier et tout son contenu ?',delLessonQ:'Supprimer cette leçon ?',addImg:'Ajouter une image',delImg:'Supprimer l’image',phAdd:'➕ Phrase',addLine:'Ligne',pasteT:'Coller minuté',medS:'Média',imgS:'Image',copyAll:'Tout copier',playAll:'Tout lire',copiedAll:'✓ Leçon copiée',phTime:'mm:ss (optionnel)',phTpl:'📝 Texte',medAdd:'🎬 Vidéo / Audio',copyTpl:'📋 Copier',copied:'✓ Copié',tplPh:'Collez le texte ici…',delMedQ:'Supprimer l’audio/vidéo ?',phImg:'🖼️ Image',phTitle:'Ajouter une phrase',phOrig:'Phrase originale',phPron:'Prononciation',phAr:'Sens (arabe)',phEn:'English',phEmpty:'Aucune phrase — ajoutez-en ou collez un modèle 📥',notePh:'Note…',tplTitle:'Choisissez un modèle, modifiez le texte, ajoutez',doAdd:'Ajouter',phAddedN:'phrases ajoutées',delPhQ:'Supprimer cette phrase ?',namePh:'Nom',emptyLs:'Vide — ajoutez un dossier ou une leçon ci-dessus',newFolderNm:'Nouveau dossier',newLessonNm:'Nouvelle leçon',warnPerm:'⚠️ Pour que l’alarme sonne appli fermée : notifications + « Alarmes et rappels »',permBtn:'Activer',warnNotif:'Notifications coupées',warnExact:'« Alarmes et rappels » coupés',newAlarm:'Nouvelle alarme',editAlarm:'Modifier l’alarme',lTime:'Heure',lLabel:'Nom',labelPh:'ex. Réveil',lRepeat:'Répéter',onceHint:'Aucun jour choisi = sonne une fois',lSound:'Son',lVib:'Vibration',sndDefault:'Son du téléphone',sndBeep:'Bips',sndBell:'Cloche',sndSiren:'Sirène',sndCustom:'Mon son importé',uploadSound:'⬆️ Importer un son du téléphone',save:'Enregistrer',cancel:'Annuler',del:'Supprimer',yes:'Oui',no:'Non',once:'Une fois',daily:'Quotidien',every:'Chaque',settings:'Réglages',mClock:'Style d’horloge',analog:'Aiguilles',digital:'Chiffres',mTheme:'Thème',dark:'Sombre',light:'Clair',mLang:'Langue',mExport:'Exporter les alarmes',mImport:'Importer des alarmes',mAbout:'À propos',aboutTxt:'Sa3a — horloge, alarmes & calendrier\nv1.0',confirmDel:'Supprimer cette alarme ?',exitConfirm:'Quitter l’application ?',ringStop:'Arrêter',ringSnooze:'Répéter +5m',ringSolve:'🧩 Résous le jeu pour arrêter',ringNeed:'Termine le jeu à 100% pour arrêter l’alarme',ringLocked:'🔒 Verrouillé — résous le jeu pour déverrouiller',wake1:'Bonjour !',wake2:'C’est l’heure de se réveiller !',wakeNow:'Il est',imported:'Importé',badFile:'Fichier invalide',back:'Année',alarmsOff:'Alarmes désactivées',permNote:'Autorisez les notifications pour que l’alarme sonne appli fermée',weekdays:['Di','Lu','Ma','Me','Je','Ve','Sa'],weekdaysFull:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],today:'Aujourd’hui',snoozed:'Reporté 10 min',quiz:'Jeu d’association 🧩',quizChooseLang:'Choisis la langue',quizReplay:'Rejouer',quizExit:'Quitter',quizNoPhrases:'Pas assez de phrases',quizScore:'Score',listenQuiz:'Jeu d’écoute 🎧',listenReplay:'🔊 Réécouter',gNext:'Suivant',autoNext:'Auto',rrTitle:'Jeu Lis et répète 🗣',rrPickLang:'Choisis la langue d’entraînement',rrModeT:'Mode d’entraînement',rrModeL:'👂 Écoute 5× puis répète',rrModeR:'📖 Lis et répète directement',rrListenN:'👂 Écoute',rrYourTurn:'🎤 À toi — répète',rrHear:'🔊 Écouter',rrSkip:'Passer l’écoute',rrWell:'Bravo ! 🎉',rrResume:'↩ Continuer l’entraînement',rrNew:'🔄 Recommencer',rrSlow:'🐢 Lecture lente de la phrase'}
 };
 const LANGS=['ar','en','fr'];
 const $=id=>document.getElementById(id);
@@ -549,6 +597,9 @@ function renderDock(){
  const ap=document.createElement('div');ap.className='dcard';
  ap.innerHTML='<div class="di">📅</div><div class="dn">'+esc(t('appts'))+'</div>';
  ap.onclick=()=>{location.href='tempo.html'};d.appendChild(ap);
+ const wx=document.createElement('div');wx.className='dcard';
+ wx.innerHTML='<div class="di">🌤️</div><div class="dn">'+esc(t('weather'))+'</div>';
+ wx.onclick=openWx;d.appendChild(wx);
 }
 function askBox(title,def){
  return new Promise(r=>{$('askTitle').textContent=title;$('askInput').value=def||'';$('askInput').placeholder=t('namePh');
@@ -1954,6 +2005,87 @@ $('edDel').onclick=async()=>{
  }};
 $('addAlarm').onclick=()=>openEditor(null);
 
+
+/* =============== weather (open-meteo, no key) =============== */
+const WICON={0:'☀️',1:'🌤️',2:'⛅',3:'☁️',45:'🌫️',48:'🌫️',51:'🌦️',53:'🌦️',55:'🌦️',56:'🌦️',57:'🌦️',61:'🌧️',63:'🌧️',65:'🌧️',66:'🌧️',67:'🌧️',71:'🌨️',73:'🌨️',75:'❄️',77:'❄️',80:'🌦️',81:'🌦️',82:'🌧️',85:'🌨️',86:'🌨️',95:'⛈️',96:'⛈️',99:'⛈️'};
+const WNAME={
+ ar:{0:'سماء صافية',1:'صافٍ غالبًا',2:'غائم جزئيًا',3:'غائم',45:'ضباب',48:'ضباب متجمد',51:'رذاذ خفيف',53:'رذاذ',55:'رذاذ كثيف',61:'مطر خفيف',63:'مطر',65:'مطر غزير',66:'مطر متجمد',67:'مطر متجمد غزير',71:'ثلج خفيف',73:'ثلج',75:'ثلج كثيف',77:'حبيبات ثلج',80:'زخات خفيفة',81:'زخات مطر',82:'زخات غزيرة',85:'زخات ثلجية',86:'زخات ثلجية غزيرة',95:'عاصفة رعدية',96:'عاصفة مع برد',99:'عاصفة مع برد غزير'},
+ en:{0:'Clear sky',1:'Mainly clear',2:'Partly cloudy',3:'Overcast',45:'Fog',48:'Icy fog',51:'Light drizzle',53:'Drizzle',55:'Dense drizzle',61:'Light rain',63:'Rain',65:'Heavy rain',66:'Freezing rain',67:'Heavy freezing rain',71:'Light snow',73:'Snow',75:'Heavy snow',77:'Snow grains',80:'Light showers',81:'Showers',82:'Heavy showers',85:'Snow showers',86:'Heavy snow showers',95:'Thunderstorm',96:'Storm with hail',99:'Storm with heavy hail'},
+ fr:{0:'Ciel dégagé',1:'Plutôt dégagé',2:'Partiellement nuageux',3:'Couvert',45:'Brouillard',48:'Brouillard givrant',51:'Bruine légère',53:'Bruine',55:'Bruine dense',61:'Pluie légère',63:'Pluie',65:'Pluie forte',66:'Pluie verglaçante',67:'Pluie verglaçante forte',71:'Neige légère',73:'Neige',75:'Neige forte',77:'Grains de neige',80:'Averses légères',81:'Averses',82:'Averses fortes',85:'Averses de neige',86:'Averses de neige fortes',95:'Orage',96:'Orage avec grêle',99:'Orage avec forte grêle'}};
+const wIco=c=>WICON[c]||'🌡️';
+const wName=c=>{const m=WNAME[st.lang]||WNAME.en;return m[c]||m[3]};
+let wxLoc=JSON.parse(localStorage.getItem('sa3a_wxloc')||'null');
+async function wxPos(){return new Promise((res,rej)=>{
+ if(!navigator.geolocation)return rej('nogeo');
+ navigator.geolocation.getCurrentPosition(p=>res({lat:p.coords.latitude,lon:p.coords.longitude}),e=>rej(e),{timeout:10000,maximumAge:600000})})}
+async function wxCityName(lat,lon){try{
+ const r=await fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude='+lat+'&longitude='+lon+'&localityLanguage='+(st.lang||'en'));
+ const j=await r.json();return {name:(j.city||j.locality||j.principalSubdivision||j.countryName||''),cc:j.countryCode||''}}catch(e){return{name:'',cc:''}}}
+async function openWx(){
+ $('wxShade').classList.add('on');
+ if(wxLoc)renderWx(wxLoc);else $('wxBody').innerHTML='<div class="wxTtl" style="text-align:center;margin-top:30px">'+t('wxLocating')+'</div>';
+ try{
+  if(!wxLoc){const p=await wxPos();const cn=await wxCityName(p.lat,p.lon);
+   wxLoc={lat:p.lat,lon:p.lon,name:cn.name,cc:cn.cc};localStorage.setItem('sa3a_wxloc',JSON.stringify(wxLoc))}
+  const u='https://api.open-meteo.com/v1/forecast?latitude='+wxLoc.lat+'&longitude='+wxLoc.lon+'&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset,wind_speed_10m_max&timezone=auto&forecast_days=8';
+  const j=await (await fetch(u)).json();wxLoc.data=j;renderWx(wxLoc);
+ }catch(e){if(!wxLoc||!wxLoc.data)$('wxBody').innerHTML='<div class="wxTtl" style="text-align:center;margin-top:30px">'+t('wxFail')+'</div>'}
+}
+function renderWx(L){
+ $('wxLoc').textContent='📍 '+(L.name||(+L.lat).toFixed(2)+','+(+L.lon).toFixed(2));
+ const j=L.data;if(!j||!j.current)return;
+ const c=j.current,loc=st.lang==='ar'?'ar':st.lang;
+ const fmtT=v=>Math.round(v)+'°';
+ const hfmt=ts=>new Date(ts).toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit'});
+ let out='<div class="wxNow"><div class="wc">'+wIco(c.weather_code)+'</div><div class="wt">'+fmtT(c.temperature_2m)+'</div>'
+  +'<div class="wd2">'+wName(c.weather_code)+'</div>'
+  +'<div class="wsub">'+t('wxFeels')+' '+fmtT(c.apparent_temperature)+' · 💧 '+c.relative_humidity_2m+'% · 💨 '+Math.round(c.wind_speed_10m)+' '+t('wxKmh')+'</div></div>';
+ // today extras
+ const d0=j.daily;
+ out+='<div class="wxRow">'
+  +'<div class="wxCell"><div class="i">🌅</div><div class="v">'+hfmt(d0.sunrise[0])+'</div><div class="k">'+t('wxSunrise')+'</div></div>'
+  +'<div class="wxCell"><div class="i">🌇</div><div class="v">'+hfmt(d0.sunset[0])+'</div><div class="k">'+t('wxSunset')+'</div></div>'
+  +'<div class="wxCell"><div class="i">🌧️</div><div class="v">'+(d0.precipitation_probability_max[0]??0)+'%</div><div class="k">'+t('wxRain')+'</div></div>'
+  +'<div class="wxCell"><div class="i">🌡️</div><div class="v">'+fmtT(d0.temperature_2m_max[0])+'/'+fmtT(d0.temperature_2m_min[0])+'</div><div class="k">'+t('wxHiLo')+'</div></div></div>';
+ // next 24h hourly
+ out+='<div class="wxTtl">'+t('wxNext24')+'</div><div class="wxHr">';
+ const now=Date.now(),ht=j.hourly.time;
+ for(let i=0;i<ht.length&&i<48;i++){const t0=new Date(ht[i]).getTime();if(t0<now-3600000)continue;
+  out+='<div class="wxHp"><div class="t">'+new Date(ht[i]).toLocaleTimeString(loc,{hour:'numeric'})+'</div><div class="i">'+wIco(j.hourly.weather_code[i])+'</div><div class="v">'+fmtT(j.hourly.temperature_2m[i])+'</div></div>';
+  if(out.split('wxHp').length>26)break}
+ out+='</div><div class="wxTtl">'+t('wxWeek')+'</div>';
+ const dnow=new Date();
+ for(let i=0;i<7;i++){
+  const dt=new Date(j.daily.time[i]);
+  const dn=i===0?t('today'):dt.toLocaleDateString(loc,{weekday:'long'});
+  out+='<div class="wxDay"><div class="dn">'+dn+'</div><div class="di">'+wIco(j.daily.weather_code[i])+'</div>'
+   +'<div class="dd">'+wName(j.daily.weather_code[i])+'<br>🌧️ '+(j.daily.precipitation_probability_max[i]??0)+'% · 💨 '+Math.round(j.daily.wind_speed_10m_max[i])+'</div>'
+   +'<div class="tp">'+fmtT(j.daily.temperature_2m_max[i])+' <span class="lo">'+fmtT(j.daily.temperature_2m_min[i])+'</span></div></div>'}
+ $('wxBody').innerHTML=out}
+$('wxBack').onclick=()=>$('wxShade').classList.remove('on');
+$('wxRef').onclick=async()=>{try{const p=await wxPos();const cn=await wxCityName(p.lat,p.lon);wxLoc={lat:p.lat,lon:p.lon,name:cn.name,cc:cn.cc};localStorage.setItem('sa3a_wxloc',JSON.stringify(wxLoc))}catch(e){}openWx()};
+$('wxCity').onclick=()=>{const nm=prompt(t('wxCityPh'));if(!nm)return;
+ fetch('https://geocoding-api.open-meteo.com/v1/search?name='+encodeURIComponent(nm)+'&count=1&language='+(st.lang||'en')).then(r=>r.json()).then(j=>{
+  if(j.results&&j.results[0]){const r=j.results[0];wxLoc={lat:r.latitude,lon:r.longitude,name:r.name+(r.country?'، '+r.country:''),cc:r.country_code||''};localStorage.setItem('sa3a_wxloc',JSON.stringify(wxLoc));openWx()}
+  else toast(t('wxNoCity'))}).catch(()=>toast(t('wxFail')))};
+
+/* =============== holidays (Nager.Date, by country) =============== */
+let holMap={},holCC='';
+function myCountry(){
+ if(wxLoc&&wxLoc.cc)return wxLoc.cc;
+ const l=(navigator.language||'').toUpperCase();const m=l.match(/-([A-Z]{2})/);
+ if(m)return m[1];
+ return st.lang==='fr'?'FR':st.lang==='ar'?'SY':'US'}
+async function loadHolidays(){
+ const cc=myCountry(),y=calYear;const key='sa3a_hol_'+cc+'_'+y;
+ try{const cached=JSON.parse(localStorage.getItem(key)||'null');
+  if(cached){holMap=cached;holCC=cc;return}}catch(e){}
+ try{
+  const j=await (await fetch('https://date.nager.at/api/v3/publicholidays/'+y+'/'+cc)).json();
+  if(Array.isArray(j)){holMap={};j.forEach(x=>{const d=x.date.split('-');holMap[(+d[0])+'-'+(+d[1]-1)+'-'+(+d[2])]=(holMap[(+d[0])+'-'+(+d[1]-1)+'-'+(+d[2])]?holMap[(+d[0])+'-'+(+d[1]-1)+'-'+(+d[2])]+'، ':'')+x.localName});
+   holCC=cc;try{localStorage.setItem(key,JSON.stringify(holMap))}catch(e){}}}catch(e){holMap={}}
+}
+
 /* =============== calendar =============== */
 let calYear=new Date().getFullYear(),calMonth=-1;
 const alarmDays=()=>{const s=new Set();const now=new Date();
@@ -1965,16 +2097,22 @@ function renderYear(){
  const g=$('yrgrid');g.innerHTML='';
  const ad=alarmDays(),today=new Date(),mn=monthNames(),wd=t('weekdays');
  const firstDow=1; // Monday
+ const hue=m=>(m*47)%360;
+ const dark=document.documentElement.dataset.theme!=='light';
  for(let m=0;m<12;m++){
   const c=document.createElement('div');c.className='mini';
-  let h=`<div class="mn">${mn[m]}</div><div class="wd">`;
+  const H=hue(m);
+  c.style.background=dark?`linear-gradient(150deg,hsl(${H},42%,24%),hsl(${(H+25)%360},42%,17%))`:`linear-gradient(150deg,hsl(${H},85%,93%),hsl(${(H+25)%360},80%,85%))`;
+  c.style.border='none';
+  let h=`<div class="mn" style="background:hsl(${H},60%,${dark?38:52}%)">${mn[m]}</div><div class="wd">`;
   for(let i=0;i<7;i++)h+=`<div>${wd[(i+firstDow)%7]}</div>`;h+='</div><div class="gd">';
   const dim=new Date(calYear,m+1,0).getDate(),off=(new Date(calYear,m,1).getDay()-firstDow+7)%7;
   for(let i=0;i<off;i++)h+='<div></div>';
   for(let d=1;d<=dim;d++){
    const isT=calYear===today.getFullYear()&&m===today.getMonth()&&d===today.getDate();
    const hasA=ad.has(calYear+'-'+m+'-'+d);
-   h+=`<div class="${isT?'tdy':hasA?'alrm':''}">${d}</div>`;
+   const isH=holMap[calYear+'-'+m+'-'+d];
+   h+=`<div class="${isT?'tdy':hasA?'alrm':''}${isH?' hday':''}">${d}</div>`;
   }
   h+='</div>';c.innerHTML=h;
   c.onclick=()=>{calMonth=m;renderMonth()};
@@ -1992,13 +2130,18 @@ function renderMonth(){
  for(let d=1;d<=dim;d++){
   const isT=calYear===today.getFullYear()&&calMonth===today.getMonth()&&d===today.getDate();
   const hasA=ad.has(calYear+'-'+calMonth+'-'+d);
-  h+=`<div class="${isT?'tdy':''}">${d}${hasA?'<span class="dot"></span>':''}</div>`;
+  const isH=holMap[calYear+'-'+calMonth+'-'+d];
+  h+=`<div class="${isT?'tdy':''}${isH?' hday':''}">${d}${hasA?'<span class="dot"></span>':''}</div>`;
  }
  h+='</div>';$('bigcal').innerHTML=h;
+ const loc=st.lang==='ar'?'ar':st.lang,hols=[];
+ for(let d=1;d<=dim;d++){const hn=holMap[calYear+'-'+calMonth+'-'+d];
+  if(hn)hols.push('<div class="hd"><span class="d">'+d+' '+monthNames()[calMonth]+'</span><span>'+esc(hn)+'</span></div>')}
+ $('holyList').innerHTML=hols.length?hols.join(''):'';
  $('yearView').style.display='none';$('monthView').classList.add('on');
 }
-$('yrPrev').onclick=()=>{calYear--;renderYear()};
-$('yrNext').onclick=()=>{calYear++;renderYear()};
+$('yrPrev').onclick=()=>{calYear--;loadHolidays().then(renderYear)};
+$('yrNext').onclick=()=>{calYear++;loadHolidays().then(renderYear)};
 $('backYear').onclick=renderYear;
 
 /* =============== timer & stopwatch =============== */
@@ -2071,7 +2214,7 @@ document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
  document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
  document.querySelectorAll('.tabsec').forEach(s=>s.classList.remove('on'));
  $('sec-'+b.dataset.tab).classList.add('on');
- if(b.dataset.tab==='cal')renderYear();
+ if(b.dataset.tab==='cal'){renderYear();loadHolidays().then(()=>{if(calMonth<0)renderYear();else renderMonth()})}
  if(b.dataset.tab==='alarms')renderAlarms();
 });
 function renderMenu(){
