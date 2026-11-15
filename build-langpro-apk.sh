@@ -53,6 +53,13 @@ fi
 
 npx cap sync android
 
+# Gallery saving (@capacitor-community/media) needs storage/media permissions the stock manifest lacks
+MANIFEST="$ROOT/android/app/src/main/AndroidManifest.xml"
+if [ -f "$MANIFEST" ] && ! grep -q 'WRITE_EXTERNAL_STORAGE' "$MANIFEST"; then
+  sed -i 's|</manifest>|  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />\n  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />\n  <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />\n  <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />\n</manifest>|' "$MANIFEST"
+  sed -i 's|<application |<application android:requestLegacyExternalStorage="true" |' "$MANIFEST"
+fi
+
 # Ensure the Android launcher label matches the Capacitor appName
 STRINGS="$ROOT/android/app/src/main/res/values/strings.xml"
 if [ -f "$STRINGS" ]; then

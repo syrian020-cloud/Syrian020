@@ -1735,15 +1735,21 @@ function createRecSink(ext, mimeType, prefix) {
         if (failed || !started) { toast('⚠️'); return; }
         return FS.getUri({ path: filename, directory: 'CACHE' }).then(function (r) {
           var MED = (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Media) || null;
-          var saveToGallery = MED && MED.saveVideo
-            ? MED.saveVideo({ path: r.uri, albumIdentifier: 'LangPro' }).then(function () { toast('✓ 🖼'); })
-                .catch(function (e) {
-                  console.error('gallery save failed', e);
-                  var p = String(r.uri || '').replace(/^file:\/\//, '/');
-                  return MED.saveVideo({ path: p, albumIdentifier: 'LangPro' })
-                    .then(function () { toast('✓ 🖼'); })
-                    .catch(function (e2) { console.error('gallery save fallback failed', e2); toast('✓'); });
-                })
+          // Media plugin: albumIdentifier must be an existing album DIR — create it first
+          var saveToGallery = MED && MED.saveVideo && MED.getAlbumsPath && MED.createAlbum
+            ? MED.getAlbumsPath().then(function (g) {
+                var albumDir = (g && g.path ? g.path : '') + '/LangPro';
+                return MED.createAlbum({ name: 'LangPro' }).catch(function () {})
+                  .then(function () { return MED.saveVideo({ path: r.uri, albumIdentifier: albumDir }); })
+                  .then(function () { toast('✓ 🖼'); })
+                  .catch(function (e) {
+                    console.error('gallery save failed', e);
+                    var p = String(r.uri || '').replace(/^file:\/\//, '/');
+                    return MED.saveVideo({ path: p, albumIdentifier: albumDir })
+                      .then(function () { toast('✓ 🖼'); })
+                      .catch(function (e2) { console.error('gallery save fallback failed', e2); toast('✓'); });
+                  });
+              }).catch(function (e) { console.error('albums path failed', e); toast('✓'); })
             : Promise.resolve(toast('✓'));
           return saveToGallery.then(function () {
             if (SH && SH.share) return SH.share({ title: filename, files: [r.uri], dialogTitle: 'langPro clip' });
