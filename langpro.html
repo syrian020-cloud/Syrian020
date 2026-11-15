@@ -255,6 +255,8 @@
     font-size: 1.05rem; line-height: 1.55; }
   .cue .cx .clf.cls { font-size: .8rem; opacity: .6; }
   .cue .cx .clf.spk-on { opacity: 1; filter: drop-shadow(0 0 6px var(--accent)); }
+  .cue .cx .w { cursor: pointer; border-radius: 4px; padding: 0 1px; }
+  .cue .cx .w.spk-on { background: rgba(245,158,11,.28); color: #f6b93b; }
   .cue .cx .ct-ar { display: block; color: var(--dim); font-size: .88rem; }
   .cue .cb { flex: none; display: flex; flex-direction: column; gap: .25rem; }
   .ax.spk-on { background: var(--accent); border-color: var(--accent); }
@@ -997,7 +999,23 @@ function cueSpeakArr(c) {
   return cueLangLines(c && c.text).map(function (l) { return { text: l.text, lang: l.lang }; });
 }
 // render cue text as clickable lines: flag emoji speaks that line's language;
-// a line without a flag gets a small 🔊 beside it
+// a line without a flag gets a small 🔊 beside it.
+// Every word: tap → speak it in a loop, double-tap → Google image search
+function wordLine(body, lang) {
+  var tx = el('span', 'clt');
+  String(body || '').split(/\s+/).filter(Boolean).forEach(function (w) {
+    var ws = el('span', 'w', w);
+    var tm = null;
+    ws.onclick = function (ev) {
+      ev.stopPropagation();
+      if (tm) { clearTimeout(tm); tm = null; searchImages(w); return; }
+      tm = setTimeout(function () { tm = null; speakLoop(w, lang, ws); }, 270);
+    };
+    tx.appendChild(ws);
+    tx.appendChild(document.createTextNode(' '));
+  });
+  return tx;
+}
 function fillCueLines(cx, text) {
   String(text || '').split('\n').forEach(function (ln) {
     if (!ln.trim()) return;
@@ -1009,9 +1027,9 @@ function fillCueLines(cx, text) {
       var fb = el('button', 'clf', flag);
       fb.onclick = function (e) { e.stopPropagation(); speakLoop(body, FLAG_LANG[flag], fb); };
       row.appendChild(fb);
-      row.appendChild(el('span', 'clt', body));
+      row.appendChild(wordLine(body, FLAG_LANG[flag]));
     } else {
-      row.appendChild(el('span', 'clt', ln));
+      row.appendChild(wordLine(ln, lineLang(ln)));
       var sb = el('button', 'clf cls', '🔊');
       sb.onclick = function (e) { e.stopPropagation(); speakLoop(ln, lineLang(ln), sb); };
       row.appendChild(sb);
