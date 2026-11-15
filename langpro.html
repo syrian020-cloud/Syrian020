@@ -2420,7 +2420,8 @@ function openLesson(l) {
         e.stopPropagation();
         if (recState) { try { recState.rec.stop(); } catch (e2) { recDone(cr2); } return; }
         player.currentTime = c.t;
-        recToggle(cr2, player, cs, cueEndAt(cs, cs.indexOf(c)));
+        var cs2 = sortedCues(l);   // cues may have been added/edited since this bar rendered
+        recToggle(cr2, player, cs2, cueEndAt(cs2, cs2.indexOf(c)));
       };
       tr.appendChild(cr2);
     }
