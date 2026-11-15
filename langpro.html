@@ -1723,13 +1723,26 @@ function openLesson(l) {
       player.addEventListener('timeupdate', bgSync);
     }
     mediaWrap.appendChild(player);
+    if (isV) {
+      // caption floats over the video again; cue list below scrolls as usual
+      capEl = el('div', 'mbcap');
+      mediaWrap.appendChild(capEl);
+      capDraggable(capEl, mediaWrap);
+      // % max-height doesn't resolve against the auto-height wrap — cap it in px
+      var capMax = function () {
+        var h = mediaWrap.clientHeight;
+        capEl.style.maxHeight = Math.max(80, Math.min(Math.floor(h * 0.55), h - 16)) + 'px';
+      };
+      capMax();
+      player.addEventListener('loadedmetadata', capMax);
+    }
     ov.appendChild(mediaWrap);
   }
-  // zeelang layout: caption card lives below the media, never covering or clipped by it;
-  // grips still let the user drag it (even up over the video) and zoom it
-  capEl = el('div', 'mbcap plain');
-  ov.appendChild(capEl);
-  capDraggable(capEl, ov);
+  if (!isV) {
+    capEl = el('div', 'mbcap plain');
+    ov.appendChild(capEl);
+    capDraggable(capEl, ov);
+  }
   var curCapCue = false, curCapText = null;
   function renderCap(c) {
     if (!capEl || (c === curCapCue && (!c || c.text === curCapText))) return;
