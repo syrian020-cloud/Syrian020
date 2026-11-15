@@ -1671,7 +1671,7 @@ function openLibrary() {
   var top = el('div', 'lov-top');
   var title = el('div', 'lt', '📚 ' + t.libTitle);
   var back = el('button', 'iconbtn', '✕');
-  back.onclick = function () { ov.remove(); };
+  back.onclick = function () { stopSpeakLoop(); ov.remove(); };
   top.appendChild(title); top.appendChild(back);
   ov.appendChild(top);
   var tabs = el('div', 'libtabs');
@@ -2458,7 +2458,7 @@ if (CapApp && CapApp.addListener) {
     if (ovRoot.firstChild) { closeOv(); return; }
     // close the topmost layer: stacked dialogs (pushOv on body), then lesson/library views
     var views = document.querySelectorAll('body > .overlay, body > .lov, body > .libv');
-    if (views.length) { views[views.length - 1].remove(); return; }
+    if (views.length) { stopSpeakLoop(); views[views.length - 1].remove(); return; }
     confirmExit();
   });
   CapApp.addListener('appStateChange', function (st) {
