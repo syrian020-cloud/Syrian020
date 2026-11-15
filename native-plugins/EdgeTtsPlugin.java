@@ -279,12 +279,13 @@ public class EdgeTtsPlugin extends Plugin {
     private final WebSocketListener wsListener = new WebSocketListener() {
         @Override
         public void onOpen(WebSocket socket, Response response) {
+            if (socket != ws) return;   // a discarded socket must not free the replacement's latch
             socket.send("X-Timestamp:" + timestamp()
                     + "\r\nContent-Type:application/json; charset=utf-8"
                     + "\r\nPath:speech.config\r\n\r\n"
                     + "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{"
                     + "\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"true\"},"
-                    + "\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}}\r\n");
+                    + "\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}\r\n");
             wsOpen = true;
             CountDownLatch ol = openLatch;
             if (ol != null) ol.countDown();
@@ -292,12 +293,18 @@ public class EdgeTtsPlugin extends Plugin {
 
         @Override
         public void onMessage(WebSocket socket, ByteString bytes) {
+            if (socket != ws) return;
             ReqCtx ctx = active;
             if (ctx == null) return;
             try {
                 byte[] b = bytes.toByteArray();
                 if (b.length < 3) return;
                 int hlen = ((b[0] & 0xff) << 8) | (b[1] & 0xff);
+                // frames carry the request id in their headers — drop late audio
+                // from a previous (timed-out) turn so it can't corrupt this file
+                String head = new String(b, 2, hlen, "UTF-8");
+                if (ctx.reqId != null && head.contains("X-RequestId:")
+                        && !head.contains(ctx.reqId)) return;
                 if (b.length > 2 + hlen) {
                     ctx.fos.write(b, 2 + hlen, b.length - 2 - hlen);
                     ctx.gotAudio = true;
@@ -310,6 +317,7 @@ public class EdgeTtsPlugin extends Plugin {
 
         @Override
         public void onMessage(WebSocket socket, String text2) {
+            if (socket != ws) return;
             ReqCtx ctx = active;
             if (ctx == null) return;
             if (text2.contains("Path:turn.end")
@@ -320,6 +328,7 @@ public class EdgeTtsPlugin extends Plugin {
 
         @Override
         public void onFailure(WebSocket socket, Throwable t, Response r) {
+            if (socket != ws) return;
             wsOpen = false;
             CountDownLatch ol = openLatch;
             if (ol != null) ol.countDown();
@@ -332,7 +341,19 @@ public class EdgeTtsPlugin extends Plugin {
         }
 
         @Override
+        public void onClosing(WebSocket socket, int code, String reason) {
+            if (socket != ws) return;
+            wsOpen = false;
+            try { socket.close(1000, null); } catch (Exception ignored) {}
+            CountDownLatch ol = openLatch;
+            if (ol != null) ol.countDown();
+            ReqCtx ctx = active;
+            if (ctx != null) ctx.latch.countDown();
+        }
+
+        @Override
         public void onClosed(WebSocket socket, int code, String reason) {
+            if (socket != ws) return;
             wsOpen = false;
             CountDownLatch ol = openLatch;
             if (ol != null) ol.countDown();
