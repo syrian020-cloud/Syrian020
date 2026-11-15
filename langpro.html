@@ -1697,7 +1697,7 @@ function openLesson(l) {
       var capMax = function () { capEl.style.maxHeight = Math.max(80, mediaWrap.clientHeight - 16) + 'px'; };
       capMax();
       player.addEventListener('loadedmetadata', capMax);
-      window.addEventListener('resize', capMax);
+      // no window.resize listener — it would retain this lesson's media tree after close
     }
     ov.appendChild(mediaWrap);
   }
@@ -1813,6 +1813,7 @@ function openLesson(l) {
   if (player) {
     player.ontimeupdate = function () {
       var ct = player.currentTime, active = null;
+      if (typeof capMax === 'function') capMax();   // re-cap after orientation/viewport changes while playing
       if (SEG_LOOP.c && SEG_LOOP.c.t != null) {   // ▶ loop: replay this cue's segment
         var nxt = null;
         sortedCues(l).forEach(function (x) { if (x.t != null && x.t > SEG_LOOP.c.t && (nxt == null || x.t < nxt)) nxt = x.t; });
