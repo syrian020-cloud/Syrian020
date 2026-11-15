@@ -7,6 +7,20 @@
 <link rel="manifest" href="./manifest-langpro.json">
 <link rel="icon" type="image/png" href="./icon-prolang-192.png">
 <style>
+@font-face { font-family: 'Noto Kufi Arabic'; font-style: normal; font-weight: 100 900;
+  font-display: swap; src: url(./fonts/noto-kufi-arabic.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+0660-0669; }
+@font-face { font-family: 'Noto Kufi Arabic'; font-style: normal; font-weight: 100 900;
+  font-display: swap; src: url(./fonts/noto-kufi-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+2000-206F; }
+@font-face { font-family: 'Noto Naskh Arabic'; font-style: normal; font-weight: 400 700;
+  font-display: swap; src: url(./fonts/noto-naskh-arabic.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF, U+0660-0669; }
+@font-face { font-family: 'Noto Naskh Arabic'; font-style: normal; font-weight: 400 700;
+  font-display: swap; src: url(./fonts/noto-naskh-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+2000-206F; }
+</style>
+<style>
   :root {
     --bg: #070b18; --card: #0e1330; --card2: #101427; --field: #0b102a;
     --line: rgba(139, 92, 246, .18); --accent: #8b5cf6; --accent2: #6366f1;
@@ -489,6 +503,7 @@
   .ctime-ic.ic-clip { background: #c4b5fd; }
   .ctime-ic.ic-edit { background: #fcd34d; }
   .ctime-ic.ic-theme { background: #f9a8d4; }
+  .ctime-ic.ic-note { background: #93c5fd; }
   .ctime-rec { flex: none; width: 2rem; height: 2rem; border-radius: 50%; border: 2px solid rgba(0,0,0,.18);
     background: linear-gradient(145deg,#fda4af,#f43f5e); color: #fff; font-size: .85rem; cursor: pointer;
     display: flex; align-items: center; justify-content: center; padding: 0; font-family: inherit;
@@ -519,6 +534,43 @@
   .libph .pt .pa { display: block; opacity: .9; }
   .libph .pt .pe { display: block; color: var(--dim); font-size: .75rem; }
   .libph .pb { flex: none; display: flex; flex-direction: column; gap: .3rem; }
+  /* ---------- notebook painter (from ProLang) ---------- */
+  #noteModal { position: fixed; inset: 0; z-index: 4800; display: none;
+    flex-direction: column; background: #f3f4f6; }
+  #noteModal.show { display: flex; }
+  .note-topbar { display: flex; align-items: center; gap: .3rem; padding: .45rem .4rem;
+    background: #fff; border-bottom: 1px solid #e5e7eb; flex-wrap: wrap; }
+  .note-title { font-weight: 800; font-size: 1rem; color: #111827; white-space: nowrap; }
+  .note-icon { width: 2.15rem; height: 2.15rem; flex: 0 0 auto; border-radius: 50%;
+    border: 1px solid #e5e7eb; background: #fff; color: #0f766e; font-size: 1.05rem;
+    display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+  .note-icon.active { background: #0f766e; color: #fff; border-color: #0f766e; }
+  .note-icon:disabled { opacity: .35; }
+  .note-icon.danger { color: #e53935; }
+  .note-palette { display: none; gap: .5rem; flex-wrap: wrap; padding: .5rem .6rem;
+    background: #fff; border-bottom: 1px solid #e5e7eb; }
+  .note-palette.show { display: flex; }
+  .note-palette .note-tool { width: 2rem; height: 2rem; border-radius: 50%;
+    border: 3px solid #fff; box-shadow: 0 0 0 1px #d1d5db; cursor: pointer; }
+  .note-palette .note-tool.active { box-shadow: 0 0 0 3px #0f766e; }
+  #notePhraseBar { display: flex; gap: .55rem; padding: .6rem .55rem; background: #f3f4f6;
+    overflow-x: auto; }
+  .note-phrase-card { flex: 0 0 auto; width: 8.2rem; min-height: 6.5rem; position: relative;
+    background: #fff; border: 1px solid #e5e7eb; border-radius: 14px; padding: .55rem .55rem 1.9rem;
+    text-align: center; font-weight: 700; font-size: .95rem; line-height: 1.35;
+    color: #111827; overflow-wrap: anywhere; }
+  .note-loop { position: absolute; bottom: .35rem; inset-inline-end: .35rem; border: none;
+    background: #1e2a4a; color: #fff; width: 1.7rem; height: 1.7rem; border-radius: 9px;
+    font-size: .8rem; padding: 0; cursor: pointer; display: flex; align-items: center;
+    justify-content: center; }
+  .note-loop.spk-on { background: #059669; animation: recPulse 1.2s infinite; }
+  .note-canvas-wrap { flex: 1; min-height: 0; position: relative; background: #fff; }
+  .note-canvas-wrap.lined { background-color: #fffdf5;
+    background-image: linear-gradient(to right, transparent 0, transparent 2.6rem, #f4a3a3 2.6rem, #f4a3a3 calc(2.6rem + 2px), transparent calc(2.6rem + 2px)),
+      repeating-linear-gradient(to bottom, transparent 0, transparent calc(2.2rem - 1px), #9fc5e8 calc(2.2rem - 1px), #9fc5e8 2.2rem); }
+  html[dir="rtl"] .note-canvas-wrap.lined { background-image: linear-gradient(to left, transparent 0, transparent 2.6rem, #f4a3a3 2.6rem, #f4a3a3 calc(2.6rem + 2px), transparent calc(2.6rem + 2px)),
+      repeating-linear-gradient(to bottom, transparent 0, transparent calc(2.2rem - 1px), #9fc5e8 calc(2.2rem - 1px), #9fc5e8 2.2rem); }
+  #noteCanvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
 </style>
 </head>
 <body>
@@ -558,6 +610,44 @@
   </div>
 </div>
 
+<div id="noteModal">
+  <div class="note-topbar">
+    <button type="button" class="note-icon" id="noteClose" title="Back">←</button>
+    <span class="note-title" data-i="noteTitle">دفتر الملاحظات</span>
+    <span style="flex:1"></span>
+    <button type="button" class="note-icon" id="notePaper" title="Paper">📓</button>
+    <button type="button" class="note-icon active" id="notePen" title="Pen">✏️</button>
+    <button type="button" class="note-icon" id="noteHl" title="Highlighter">🖍️</button>
+    <button type="button" class="note-icon" id="noteErase" title="Eraser">✕</button>
+    <button type="button" class="note-icon" id="noteSwatch" title="Colors"><span id="noteSwatchDot" style="display:block;width:1.3rem;height:1.3rem;border-radius:6px;background:#111827"></span></button>
+    <button type="button" class="note-icon" id="noteSizeDec" title="Thinner">−</button>
+    <input type="range" id="noteSize" min="1" max="16" value="3" style="width:4rem">
+    <button type="button" class="note-icon" id="noteSizeInc" title="Thicker">+</button>
+    <button type="button" class="note-icon" id="noteUndo" title="Undo">↶</button>
+    <button type="button" class="note-icon" id="noteRedo" title="Redo">↷</button>
+    <button type="button" class="note-icon danger" id="noteClear" title="Clear">🗑</button>
+    <button type="button" class="note-icon" id="noteSave" title="Save">⬇</button>
+  </div>
+  <div id="notePalette" class="note-palette">
+    <button type="button" class="note-tool active" data-color="#111827" style="background:#111827"></button>
+    <button type="button" class="note-tool" data-color="#e53935" style="background:#e53935"></button>
+    <button type="button" class="note-tool" data-color="#fb8c00" style="background:#fb8c00"></button>
+    <button type="button" class="note-tool" data-color="#fdd835" style="background:#fdd835"></button>
+    <button type="button" class="note-tool" data-color="#43a047" style="background:#43a047"></button>
+    <button type="button" class="note-tool" data-color="#00acc1" style="background:#00acc1"></button>
+    <button type="button" class="note-tool" data-color="#1e88e5" style="background:#1e88e5"></button>
+    <button type="button" class="note-tool" data-color="#3949ab" style="background:#3949ab"></button>
+    <button type="button" class="note-tool" data-color="#8e24aa" style="background:#8e24aa"></button>
+    <button type="button" class="note-tool" data-color="#d81b60" style="background:#d81b60"></button>
+    <button type="button" class="note-tool" data-color="#6d4c41" style="background:#6d4c41"></button>
+    <button type="button" class="note-tool" data-color="#9e9e9e" style="background:#9e9e9e"></button>
+  </div>
+  <div id="notePhraseBar"></div>
+  <div id="noteWrap" class="note-canvas-wrap plain">
+    <canvas id="noteCanvas"></canvas>
+  </div>
+</div>
+
 <script src="./js/edge-tts.js"></script>
 <script src="./js/inappbrowser.js"></script>
 <script>
@@ -570,7 +660,7 @@ var I18N = {
     appname: 'LangPro', searchPh: 'ابحث عن أي شيء…',
     menu: 'القائمة', langTitle: 'لغة الواجهة', themeDark: 'الوضع الداكن 🌙', themeLight: 'الوضع الفاتح ☀',
     exportData: 'تصدير البيانات', importData: 'استيراد البيانات',
-    addSite: 'إضافة مجلد', editSite: 'تعديل المجلد', statFolders: 'مجلدات', statLessons: 'دروس', statPhrases: 'عبارات', voiceSet: 'إعدادات الصوت 🎙',
+    addSite: 'إضافة مجلد', editSite: 'تعديل المجلد', statFolders: 'مجلدات', statLessons: 'دروس', statPhrases: 'عبارات', voiceSet: 'إعدادات الصوت 🎙', noteTitle: 'دفتر الملاحظات',
     fName: 'الاسم', fUrl: 'رابط الموقع', fIcon: 'رابط صورة الأيقونة (اختياري)',
     fUser: 'اسم المستخدم', fPass: 'كلمة السر', pickImg: 'استوديو',
     fAddr: 'العنوان (adresse)', mapGo: 'خريطة', openNoAddr: 'أضف العنوان أولاً من ⋮',
@@ -613,7 +703,7 @@ var I18N = {
     appname: 'LangPro', searchPh: 'Rechercher partout…',
     menu: 'Menu', langTitle: 'Langue de l’interface', themeDark: 'Mode sombre 🌙', themeLight: 'Mode clair ☀',
     exportData: 'Exporter les données', importData: 'Importer les données',
-    addSite: 'Ajouter un dossier', editSite: 'Modifier le dossier', statFolders: 'dossiers', statLessons: 'leçons', statPhrases: 'phrases', voiceSet: 'Réglages voix 🎙',
+    addSite: 'Ajouter un dossier', editSite: 'Modifier le dossier', statFolders: 'dossiers', statLessons: 'leçons', statPhrases: 'phrases', voiceSet: 'Réglages voix 🎙', noteTitle: 'Carnet',
     fName: 'Nom', fUrl: 'Adresse du site', fIcon: 'URL de l’icône (optionnel)',
     fUser: 'Nom d’utilisateur', fPass: 'Mot de passe', pickImg: 'Galerie',
     fAddr: 'Adresse (rue, ville)', mapGo: 'Carte', openNoAddr: 'Ajoutez d’abord l’adresse via ⋮',
@@ -656,7 +746,7 @@ var I18N = {
     appname: 'LangPro', searchPh: 'Search anything…',
     menu: 'Menu', langTitle: 'Interface language', themeDark: 'Dark mode 🌙', themeLight: 'Light mode ☀',
     exportData: 'Export data', importData: 'Import data',
-    addSite: 'Add folder', editSite: 'Edit folder', statFolders: 'folders', statLessons: 'lessons', statPhrases: 'phrases', voiceSet: 'Voice settings 🎙',
+    addSite: 'Add folder', editSite: 'Edit folder', statFolders: 'folders', statLessons: 'lessons', statPhrases: 'phrases', voiceSet: 'Voice settings 🎙', noteTitle: 'Notebook',
     fName: 'Name', fUrl: 'Site URL', fIcon: 'Icon image URL (optional)',
     fUser: 'Username', fPass: 'Password', pickImg: 'Gallery',
     fAddr: 'Address', mapGo: 'Map', openNoAddr: 'Add the address first via ⋮',
@@ -2819,6 +2909,15 @@ function openLesson(l) {
       speakLoop(cueSpeakArr(c), null, tb);
     };
     tr.appendChild(tb);
+    var pk = 'cue-' + l.id + '-' + cs.indexOf(c);
+    var nb = el('button', 'ctime-ic ic-note', notesMap[pk] ? '📔' : '📓');
+    nb.dataset.pk = pk;
+    nb.title = t.noteTitle || 'notebook';
+    nb.onclick = function (e) {
+      e.stopPropagation();
+      openNote(pk, cueLangLines(c.text || '').filter(function (r) { return r.text; }));
+    };
+    tr.appendChild(nb);
     var ai = el('button', 'ctime-ic ic-ai', '✨');
     ai.title = 'Google AI';
     ai.onclick = function (e) { e.stopPropagation(); openAiSearch(c.text || ''); };
@@ -4560,6 +4659,225 @@ if (!inCap && 'serviceWorker' in navigator) {
   });
 }
 })();
+
+/* ---------- notebook painter (ported from ProLang, per-cue) ---------- */
+var notesMap = {};
+try { notesMap = JSON.parse(localStorage.getItem('langpro_notes') || '{}'); } catch (e) { notesMap = {}; }
+function saveNotes() { try { localStorage.setItem('langpro_notes', JSON.stringify(notesMap)); } catch (e) {} }
+var noteKey = null, noteCtx = null, noteDrawing = false, noteErasing = false,
+  noteHighlight = false, noteColor = '#111827', noteSize = 3, noteUndo = [], noteRedo = [];
+
+function noteSnapshot() {
+  if (!noteCtx) return;
+  var canvas = document.getElementById('noteCanvas');
+  noteUndo.push(noteCtx.getImageData(0, 0, canvas.width, canvas.height));
+  if (noteUndo.length > 30) noteUndo.shift();
+  noteRedo = [];
+  updateNoteHistoryButtons();
+}
+function noteRestore(img) {
+  noteCtx.save();
+  noteCtx.setTransform(1, 0, 0, 1, 0, 0);
+  noteCtx.globalCompositeOperation = 'source-over';
+  noteCtx.globalAlpha = 1;
+  noteCtx.clearRect(0, 0, img.width, img.height);
+  noteCtx.putImageData(img, 0, 0);
+  noteCtx.restore();
+}
+function undoNote() {
+  if (!noteCtx || !noteUndo.length) return;
+  var canvas = document.getElementById('noteCanvas');
+  noteRedo.push(noteCtx.getImageData(0, 0, canvas.width, canvas.height));
+  noteRestore(noteUndo.pop());
+  updateNoteHistoryButtons();
+}
+function redoNote() {
+  if (!noteCtx || !noteRedo.length) return;
+  var canvas = document.getElementById('noteCanvas');
+  noteUndo.push(noteCtx.getImageData(0, 0, canvas.width, canvas.height));
+  noteRestore(noteRedo.pop());
+  updateNoteHistoryButtons();
+}
+function updateNoteHistoryButtons() {
+  var u = document.getElementById('noteUndo');
+  var r = document.getElementById('noteRedo');
+  if (u) u.disabled = !noteUndo.length;
+  if (r) r.disabled = !noteRedo.length;
+}
+function setNoteSize(n) {
+  noteSize = Math.min(16, Math.max(1, n));
+  var s = document.getElementById('noteSize');
+  if (s) s.value = noteSize;
+}
+function setupNoteCanvas() {
+  var canvas = document.getElementById('noteCanvas');
+  noteCtx = canvas.getContext('2d');
+  var dpr = window.devicePixelRatio || 1;
+  var cssWidth = canvas.clientWidth || 600;
+  var cssHeight = canvas.clientHeight || 400;
+  canvas.width = Math.max(1, cssWidth * dpr);
+  canvas.height = Math.max(1, cssHeight * dpr);
+  noteCtx.setTransform(1, 0, 0, 1, 0, 0);
+  noteCtx.scale(dpr, dpr);
+  noteCtx.lineCap = 'round';
+  noteCtx.lineJoin = 'round';
+}
+function openNote(key, rows) {
+  noteKey = key;
+  document.getElementById('noteModal').classList.add('show');
+  var bar = document.getElementById('notePhraseBar');
+  if (bar) {
+    bar.innerHTML = '';
+    (rows || []).forEach(function (r) {
+      if (!r || !r.text) return;
+      var lg = shortLang(r.lang || '');
+      var card = document.createElement('div');
+      card.className = 'note-phrase-card ' + lg;
+      card.dir = lg === 'ar' ? 'rtl' : 'ltr';
+      card.textContent = (r.flag ? r.flag + ' ' : '') + r.text;
+      var lo = document.createElement('button');
+      lo.className = 'note-loop';
+      lo.textContent = '🔁';
+      lo.title = r.lang || '';
+      lo.onclick = function () { speakLoop(String(r.text), r.lang || 'fr-FR', lo); };
+      card.appendChild(lo);
+      bar.appendChild(card);
+    });
+  }
+  var canvas = document.getElementById('noteCanvas');
+  noteUndo = [];
+  noteRedo = [];
+  updateNoteHistoryButtons();
+  setTimeout(function () {
+    setupNoteCanvas();
+    var dpr = window.devicePixelRatio || 1;
+    var w = canvas.width / dpr;
+    var h = canvas.height / dpr;
+    noteCtx.clearRect(0, 0, w, h);
+    if (notesMap[key]) {
+      var img = new Image();
+      img.onload = function () { noteCtx.drawImage(img, 0, 0, w, h); };
+      img.src = notesMap[key];
+    }
+  }, 50);
+  setNoteTool('pen');
+  document.getElementById('noteSize').value = noteSize;
+  document.querySelectorAll('.note-tool').forEach(function (b) {
+    b.classList.toggle('active', b.dataset.color === noteColor);
+  });
+  document.getElementById('noteSwatchDot').style.background = noteColor;
+  document.getElementById('notePalette').classList.remove('show');
+  applyNotePaper();
+}
+function applyNotePaper() {
+  var wrap = document.getElementById('noteWrap');
+  var lined = localStorage.getItem('langpro_note_paper') === 'lined';
+  wrap.classList.toggle('lined', lined);
+  wrap.classList.toggle('plain', !lined);
+  var pb = document.getElementById('notePaper');
+  pb.textContent = lined ? '📄' : '📓';
+  pb.classList.toggle('active', lined);
+}
+function setNoteTool(tool) {
+  noteErasing = tool === 'erase';
+  noteHighlight = tool === 'hl';
+  document.getElementById('notePen').classList.toggle('active', tool === 'pen');
+  document.getElementById('noteHl').classList.toggle('active', tool === 'hl');
+  document.getElementById('noteErase').classList.toggle('active', tool === 'erase');
+}
+function closeNote() {
+  document.getElementById('noteModal').classList.remove('show');
+  noteKey = null;
+  noteCtx = null;
+}
+function saveNote() {
+  if (!noteKey || !noteCtx) return;
+  var canvas = document.getElementById('noteCanvas');
+  notesMap[noteKey] = canvas.toDataURL('image/png');
+  saveNotes();
+  var btn = document.querySelector('[data-pk="' + noteKey + '"]');
+  if (btn) { btn.textContent = '📔'; }
+  closeNote();
+  toast('✓');
+}
+function clearNote() {
+  if (!noteCtx) return;
+  noteSnapshot();
+  var canvas = document.getElementById('noteCanvas');
+  noteCtx.clearRect(0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
+}
+function getNotePos(e) {
+  var canvas = document.getElementById('noteCanvas');
+  var rect = canvas.getBoundingClientRect();
+  var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+  var clientY = e.touches ? e.touches[0].clientY : e.clientY;
+  return { x: clientX - rect.left, y: clientY - rect.top };
+}
+function noteStart(e) {
+  if (!noteCtx) return;
+  e.preventDefault();
+  noteSnapshot();
+  noteDrawing = true;
+  var p = getNotePos(e);
+  noteCtx.beginPath();
+  noteCtx.moveTo(p.x, p.y);
+  noteCtx.globalCompositeOperation = noteErasing ? 'destination-out' : 'source-over';
+  noteCtx.globalAlpha = noteHighlight ? 0.35 : 1;
+  noteCtx.lineCap = noteHighlight ? 'square' : 'round';
+  noteCtx.strokeStyle = noteColor;
+  noteCtx.lineWidth = noteErasing ? noteSize * 4 : (noteHighlight ? noteSize * 3 : noteSize);
+}
+function noteMove(e) {
+  if (!noteDrawing || !noteCtx) return;
+  e.preventDefault();
+  var p = getNotePos(e);
+  noteCtx.lineTo(p.x, p.y);
+  noteCtx.stroke();
+}
+function noteEnd() {
+  if (!noteCtx) return;
+  noteDrawing = false;
+  noteCtx.closePath();
+}
+function bindNoteUI() {
+  var canvas = document.getElementById('noteCanvas');
+  canvas.addEventListener('mousedown', noteStart);
+  canvas.addEventListener('mousemove', noteMove);
+  window.addEventListener('mouseup', noteEnd);
+  canvas.addEventListener('touchstart', noteStart, { passive: false });
+  canvas.addEventListener('touchmove', noteMove, { passive: false });
+  canvas.addEventListener('touchend', noteEnd);
+  document.getElementById('noteClose').onclick = closeNote;
+  document.getElementById('noteSave').onclick = saveNote;
+  document.getElementById('noteClear').onclick = clearNote;
+  document.getElementById('noteUndo').onclick = undoNote;
+  document.getElementById('noteRedo').onclick = redoNote;
+  document.getElementById('notePen').onclick = function () { setNoteTool('pen'); };
+  document.getElementById('noteHl').onclick = function () { setNoteTool('hl'); };
+  document.getElementById('noteErase').onclick = function () { setNoteTool('erase'); };
+  document.getElementById('notePaper').onclick = function () {
+    var lined = localStorage.getItem('langpro_note_paper') === 'lined';
+    try { localStorage.setItem('langpro_note_paper', lined ? 'plain' : 'lined'); } catch (e) {}
+    applyNotePaper();
+  };
+  document.getElementById('noteSwatch').onclick = function () {
+    document.getElementById('notePalette').classList.toggle('show');
+  };
+  document.getElementById('noteSizeDec').onclick = function () { setNoteSize(noteSize - 1); };
+  document.getElementById('noteSizeInc').onclick = function () { setNoteSize(noteSize + 1); };
+  document.getElementById('noteSize').oninput = function () { setNoteSize(parseInt(this.value, 10) || 3); };
+  document.querySelectorAll('.note-tool').forEach(function (b) {
+    b.onclick = function () {
+      noteColor = b.dataset.color;
+      document.getElementById('noteSwatchDot').style.background = noteColor;
+      document.querySelectorAll('.note-tool').forEach(function (x) {
+        x.classList.toggle('active', x === b);
+      });
+      document.getElementById('notePalette').classList.remove('show');
+    };
+  });
+}
+bindNoteUI();
 </script>
 </body>
 </html>
