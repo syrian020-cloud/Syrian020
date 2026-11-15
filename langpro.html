@@ -2301,7 +2301,7 @@ function openLesson(l) {
         ws.onclick = function (e) {
           e.stopPropagation();
           var nw = Date.now();
-          if (nw - last < 330) searchImages(w);
+          if (nw - last < 330) { stopSpeakLoop(); searchImages(w); }
           else speakLoop(w, r.lang, ws);
           last = nw;
         };
