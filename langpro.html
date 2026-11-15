@@ -795,6 +795,58 @@ function openAttSheet(s) {
   sh.appendChild(attListEl(s.id, null));
 }
 
+/* Lessons block for the folder editor: list + add video/audio/timed-text lesson */
+function lessonListEl(s, session) {
+  var t = T();
+  var wrap = el('div');
+  wrap.appendChild(el('div', 'flabel', '📚 ' + t.lessons));
+  var add = el('div', 'att-add');
+  var bl = el('button', 'mini', '➕ ' + t.addLesson);
+  bl.onclick = function () {
+    addLessonDialog(s.id, function (rec) {
+      if (session) (session.addedL = session.addedL || []).push(rec);
+      wrap.refresh();
+    });
+  };
+  add.appendChild(bl);
+  wrap.appendChild(add);
+  var list = el('div', 'attlist');
+  wrap.appendChild(list);
+  wrap.refresh = function () {
+    list.innerHTML = '';
+    var ls = lessonMap[s.id] || [];
+    if (!ls.length) { list.appendChild(el('div', 'flabel', t.noLessons)); return; }
+    ls.forEach(function (l) {
+      var row = el('div', 'att');
+      row.appendChild(el('div', 'thumb',
+        l.blob ? (String(l.mime).indexOf('video/') === 0 ? '🎬' : '🎵') : '📝'));
+      var mid = el('div'); mid.style.flex = '1'; mid.style.minWidth = '0';
+      mid.appendChild(el('div', 'an', l.name || t.lName));
+      var nc = (l.cues || []).length;
+      if (nc) mid.appendChild(el('div', 'lc', nc + ' ' + t.cueLines));
+      row.appendChild(mid);
+      var rn = el('button', 'ax', '✏');
+      rn.onclick = function (e) { e.stopPropagation(); renameLesson(l, wrap.refresh); };
+      row.appendChild(rn);
+      var ax = el('button', 'ax', '✕');
+      ax.onclick = function (e) {
+        e.stopPropagation();
+        confirmDialog(t.delLessonQ, t.delYes, function () {
+          IDB.ldel(l.id).catch(function () {});
+          lessonMap[s.id] = (lessonMap[s.id] || []).filter(function (x) { return x.id !== l.id; });
+          if (session) session.addedL = (session.addedL || []).filter(function (x) { return x.id !== l.id; });
+          renderGrid(); wrap.refresh();
+        }, true);
+      };
+      row.appendChild(ax);
+      row.onclick = function () { openLesson(l); };
+      list.appendChild(row);
+    });
+  };
+  wrap.refresh();
+  return wrap;
+}
+
 /* ================= text-to-speech ================= */
 function nativeTTS() {
   try {
@@ -1504,6 +1556,8 @@ function openMap(addr, title) {
   openExternal(web);
 }
 function openSite(s) {
+  if (lessonCount(s.id)) { openLessonsSheet(s); return; }
+  if (attCount(s.id)) { openAttSheet(s); return; }
   var url = s.url ? (/^https?:\/\//i.test(s.url) ? s.url : 'https://' + s.url) : '';
   if (url) {
     // Keep credentials one tap away: copy password then username, so the
@@ -1515,9 +1569,7 @@ function openSite(s) {
     return;
   }
   if (s.addr) { openMap(s.addr, s.name); return; }
-  if (attCount(s.id)) { openAttSheet(s); return; }
-  if (lessonCount(s.id)) { openLessonsSheet(s); return; }
-  toast(T().openNoContent);
+  openEditor(s);   // empty folder → straight to its lessons editor
 }
 
 var ovRoot = document.getElementById('overlayRoot');
@@ -1599,38 +1651,9 @@ function openEditor(s) {
   sh.appendChild(h);
 
   var rName = fieldRow(t.fName, s.name);
-  var rUrl  = fieldRow(t.fUrl, s.url, { ltr: true });
-  var rIcon = fieldRow(t.fIcon, s.icon, { ltr: true, buttons: [
-    { label: '📷 ' + t.pickImg, fn: function (inp) { pickIconImage(inp); } }
-  ]});
-  var rUser = fieldRow(t.fUser, s.user, { ltr: true, buttons: [
-    { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value, t.userCopied); } }
-  ]});
-  var rPass = fieldRow(t.fPass, s.pass, { ltr: true, type: 'password', buttons: [
-    { label: '👁', fn: function (inp) { inp.type = inp.type === 'password' ? 'text' : 'password'; } },
-    { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value, t.passCopied); } }
-  ]});
-  var rAddr = fieldRow(t.fAddr, s.addr, { buttons: [
-    { label: '🗺 ' + t.mapGo, fn: function (inp) { openMap(inp.value, rName.input.value); } }
-  ]});
-  var rEmail = fieldRow(t.fEmail, s.email, { ltr: true, buttons: [
-    { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value); } }
-  ]});
-  var rPhone = fieldRow(t.fPhone, s.phone, { ltr: true, buttons: [
-    { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value); } }
-  ]});
-  var rNotes = fieldRow(t.fNotes, s.notes, { buttons: [
-    { label: '📋 ' + t.copy, fn: function (inp) { if (inp.value) copyText(inp.value); } }
-  ]});
-  [rName, rUrl, rIcon, rUser, rPass, rAddr, rEmail, rPhone, rNotes].forEach(function (r) { sh.appendChild(r); });
+  sh.appendChild(rName);
+  sh.appendChild(lessonListEl(s, session));
   sh.appendChild(attListEl(s.id, session));
-  if (!isNew) {
-    var lbtn = el('button', 'mrow');
-    lbtn.appendChild(el('span', 'mi', '📚'));
-    lbtn.appendChild(el('span', null, t.lessons + ' (' + lessonCount(s.id) + ')'));
-    lbtn.onclick = function () { openLessonsSheet(s, session); };
-    sh.appendChild(lbtn);
-  }
 
   var act = el('div', 'actions');
   if (!isNew) {
@@ -1641,20 +1664,10 @@ function openEditor(s) {
   var save = el('button', 'btn primary', '💾 ' + t.save);
   save.onclick = function () {
     var name = rName.input.value.trim();
-    var url = rUrl.input.value.trim();
-    var addr = rAddr.input.value.trim();
-    var hasAny = name || url || addr || rIcon.input.value.trim() || rUser.input.value.trim() ||
-      rPass.input.value || rEmail.input.value.trim() || rPhone.input.value.trim() ||
-      rNotes.input.value.trim() || attCount(s.id);
+    var hasAny = name || s.url || s.icon || s.user || s.pass || s.addr || s.email ||
+      s.phone || s.notes || attCount(s.id) || lessonCount(s.id);
     if (!hasAny) { toast(t.errUrl); return; }
-    s.name = name; s.url = url;
-    s.icon = rIcon.input.value.trim();
-    s.user = rUser.input.value.trim();
-    s.pass = rPass.input.value;
-    s.addr = addr;
-    s.email = rEmail.input.value.trim();
-    s.phone = rPhone.input.value.trim();
-    s.notes = rNotes.input.value.trim();
+    s.name = name;
     session.committed = true;
     if (isNew) sites.unshift(s);
     saveSites(); renderGrid(); closeOv();
