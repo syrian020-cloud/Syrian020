@@ -2591,16 +2591,45 @@ function lessonDetails(l, refresh, onDelete, reopen) {
     covr.appendChild(el('span', null, '🖼'));
     d.appendChild(covr);
   }
-  // ---- text: every timed line of the lesson
-  d.appendChild(el('div', 'flabel', '📝 ' + t.lText));
+  // ---- text: every timed line of the lesson (phrase rows + copy all)
+  var txhead = el('div', 'frow'); txhead.style.marginTop = '.35rem';
+  txhead.appendChild(el('span', 'flabel', '📝 ' + t.lText));
+  var cpy = el('button', 'mini', '📋 ' + t.copyAll);
+  cpy.style.marginInlineStart = 'auto';
+  cpy.onclick = function () {
+    copyText(sortedCues(l).map(function (c) {
+      return (c.t != null ? fmtT(c.t) + ' ' : '') + (c.text || '');
+    }).join('\n'));
+  };
+  txhead.appendChild(cpy);
+  d.appendChild(txhead);
   var tb = el('div');
-  tb.style.cssText = 'max-height:180px;overflow-y:auto;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.5rem .7rem;font-size:.82rem;line-height:1.6;';
+  tb.style.cssText = 'max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:.4rem;';
   var csAll = sortedCues(l);
-  if (!csAll.length) tb.appendChild(el('div', null, '…'));
+  var reDetail = function () { ov.remove(); if (reopen) reopen(); };
+  if (!csAll.length) tb.appendChild(el('div', 'flabel', '…'));
   csAll.forEach(function (c) {
-    var ln = el('div', null, (c.t != null ? fmtT(c.t) + '  ' : '') + (c.text || ''));
-    ln.dir = 'auto';
-    tb.appendChild(ln);
+    var pr = el('div', 'libph');
+    var pt = el('div', 'pt');
+    pt.dir = 'auto';
+    pt.textContent = (c.t != null ? fmtT(c.t) + '  ' : '') + (c.text || '');
+    pr.appendChild(pt);
+    var pb = el('div', 'pb');
+    var pe = el('button', 'mini', '✏');
+    pe.title = t.edit || 'edit';
+    pe.onclick = function () { cueDialog(l, c, reDetail); };
+    pb.appendChild(pe);
+    var pd = el('button', 'mini', '🗑');
+    pd.title = t.delYes || 'delete';
+    pd.onclick = function () {
+      confirmDialog(t.delCueQ, t.delYes, function () {
+        l.cues = (l.cues || []).filter(function (x) { return x !== c; });
+        lSave(l); reDetail();
+      }, true);
+    };
+    pb.appendChild(pd);
+    pr.appendChild(pb);
+    tb.appendChild(pr);
   });
   d.appendChild(tb);
   var r = el('div', 'row'); r.style.marginTop = '.8rem';
