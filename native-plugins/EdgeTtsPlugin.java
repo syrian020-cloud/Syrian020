@@ -140,46 +140,78 @@ public class EdgeTtsPlugin extends Plugin {
 
     private static int rol16(int x) { return (x << 16) | (x >>> 16); }
 
-    private static int[] cs64WordSwap(int[] w, int a, int b) {
-        int acc = 0, last = 0;
-        for (int i = 0; i < w.length; i += 2) {
-            int x = w[i], y = w[i + 1];
-            int t = rol16(rol16(x) * 0xef0569fb + x * a);
-            int q = t * 0x76f50f34;
-            acc = acc + rol16(q) * 0xc3efea97 + q;
-            t = rol16(rol16(y) * 0xc31713db + y * b);
-            q = t * 0x1881ce3c;
-            last = rol16(q) * 0x35bd1ec9 + q;
-            acc = acc + last;
-        }
-        return new int[] { last, acc };
-    }
-
-    private static int[] cs64Reversible(int[] w, int a, int b) {
-        int state = 0, acc = 0;
-        for (int i = 0; i < w.length; i += 2) {
-            state = (state + w[i]) * a;
-            state = rol16(state) * 0xcf98b111;
-            state = rol16(state) * 0x87085b9f;
-            state = rol16(state) * 0x12ceb96d;
-            state = rol16(state) * 0x257e1d83;
-            int t = (w[i + 1] + state) * b;
-            t = rol16(t) * 0xa27416f5;
-            t = rol16(rol16(t) * 0xd38396ff);
-            acc = acc + state;
-            state = rol16(t * 0x7c932b89) * 0xbfa49f69;
-            acc = acc + state;
-        }
-        return new int[] { state, acc };
-    }
+    // v2 Sec-MS-GEC coefficient table (from the Edge browser's own DRM flow).
+    private static final int[][] CS64_COEFF = {
+            { 0xe82e91b1, 0xb32700d0 }, { 0x44de24c6, 0x88dff51d },
+            { 0x3beb65bc, 0x29514038 }, { 0xc89c5933, 0xb328cbdf },
+            { 0x8d1ec211, 0xd405b4d5 }, { 0x314ef5d5, 0x26e55f3c },
+            { 0xe92491b1, 0x607801c6 }, { 0xf0a5b9d5, 0x82b2c1fb },
+            { 0x06064cf3, 0xfa51a3da }, { 0xda79fa60, 0x207cc464 },
+            { 0xbed20560, 0x3c3c74f3 }, { 0x89f9c9f8, 0xd2d14b61 },
+            { 0x35fa38c6, 0xbb04a2c1 }, { 0xcb49e3c6, 0xc5626167 } };
 
     private static int leWord(byte[] b, int off) {
         return (b[off] & 0xff) | ((b[off + 1] & 0xff) << 8)
                 | ((b[off + 2] & 0xff) << 16) | ((b[off + 3] & 0xff) << 24);
     }
 
-    // v2 Sec-MS-GEC: "<CS64 hex>-<SHA256 hex>" over the prefix words followed by
-    // the Windows file time (rounded down to 5 minutes) and the client token.
+    // CS64 digest over "\x00" + data: 14 fixed terms, then one per input word.
+    private static int[] cs64(byte[] data, byte[] digest) {
+        int keyA = leWord(digest, 0) | 1, keyB = leWord(digest, 4) | 1;
+        int factorA = keyA * 0x82893933, factorB = keyB * 0x82893933;
+
+        // little-endian u32 words of "\x00" + data, padded to an even count
+        int nWords = (data.length + 1 + 3) / 4;
+        if (nWords % 2 == 1) nWords++;
+        byte[] salted = new byte[nWords * 4];
+        System.arraycopy(data, 0, salted, 1, data.length);
+        int[] words = new int[nWords];
+        for (int i = 0; i < nWords; i++) words[i] = leWord(salted, i * 4);
+
+        int n = CS64_COEFF.length + nWords;
+        int[] terms = new int[n], offsets = new int[n];
+        for (int i = 0; i < CS64_COEFF.length; i++) {
+            terms[i] = CS64_COEFF[i][0] * (i % 2 == 0 ? factorA : factorB);
+            offsets[i] = CS64_COEFF[i][1];
+        }
+        for (int i = 0; i < nWords; i++) {
+            int term = words[i] * (i % 2 == 0 ? keyA : keyB);
+            int offset = rol16(words[i]) * (i % 2 == 0 ? 0xef0569fb : 0xc31713db);
+            if (i == 0) {
+                term += 0xf2f90b1a * factorA;
+                offset += 0x0b1a0000;
+            }
+            terms[CS64_COEFF.length + i] = term;
+            offsets[CS64_COEFF.length + i] = offset;
+        }
+
+        int swapAcc = 0, swapLast = 0, state = 0, acc = 0;
+        for (int i = 0; i < n; i += 2) {
+            int x = terms[i], y = terms[i + 1];
+            int t = rol16(offsets[i] + x);
+            int q = t * 0x76f50f34;
+            swapAcc += rol16(q) * 0xc3efea97 + q;
+            t = rol16(offsets[i + 1] + y);
+            q = t * 0x1881ce3c;
+            swapLast = rol16(q) * 0x35bd1ec9 + q;
+            swapAcc += swapLast;
+            state = state * keyA + x;
+            state = rol16(state) * 0xcf98b111;
+            state = rol16(state) * 0x87085b9f;
+            state = rol16(state) * 0x12ceb96d;
+            state = rol16(state) * 0x257e1d83;
+            acc += state;
+            t = state * keyB + y;
+            t = rol16(t) * 0xa27416f5;
+            t = rol16(t) * 0xd38396ff;
+            state = rol16(rol16(t) * 0x7c932b89) * 0xbfa49f69;
+            acc += state;
+        }
+        return new int[] { swapLast ^ state, swapAcc ^ acc };
+    }
+
+    // v2 Sec-MS-GEC: "<CS64 hex>-<SHA256 hex>". SHA256 runs over the copyright
+    // prefix + "<ticks><token>"; CS64 salts the same suffix with a leading NUL.
     private static String secMsGec() throws Exception {
         long ticks = System.currentTimeMillis() / 1000 + WIN_EPOCH;
         ticks -= ticks % 300;
@@ -189,18 +221,10 @@ public class EdgeTtsPlugin extends Plugin {
         ByteBuffer bb = ByteBuffer.wrap(data).order(ByteOrder.LITTLE_ENDIAN);
         for (int w : GEC_PREFIX_WORDS) bb.putInt(w);
         System.arraycopy(suffix, 0, data, GEC_PREFIX_LENGTH, suffix.length);
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
-        byte[] digest = md.digest(data);
-        byte[] paddedData = new byte[(data.length + 7) / 8 * 8];
-        System.arraycopy(data, 0, paddedData, 0, data.length);
-        int[] words = new int[paddedData.length / 4];
-        for (int i = 0; i < words.length; i++) words[i] = leWord(paddedData, i * 4);
-        int a = leWord(digest, 0) | 1;
-        int b = leWord(digest, 4) | 1;
-        int[] s = cs64WordSwap(words, a, b);
-        int[] r = cs64Reversible(words, a, b);
+        byte[] digest = MessageDigest.getInstance("SHA-256").digest(data);
+        int[] cs = cs64(suffix, digest);
         StringBuilder sb = new StringBuilder(16 + 1 + digest.length * 2);
-        for (int v : new int[] { s[0] ^ r[0], s[1] ^ r[1] }) {
+        for (int v : cs) {
             for (int i = 0; i < 4; i++) sb.append(String.format(Locale.US, "%02X", (v >>> (8 * i)) & 0xff));
         }
         sb.append('-');
@@ -213,10 +237,10 @@ public class EdgeTtsPlugin extends Plugin {
     private static String fullVoiceName(String v) {
         if (v.startsWith("Microsoft Server Speech")) return v;
         java.util.regex.Matcher m = java.util.regex.Pattern
-                .compile("^([a-z]{2,3})-([A-Z]{2})-(.+Neural)$").matcher(v);
+                .compile("^([a-z]{2,3}-[A-Z]{2}(?:-[a-z]+)?)-(.+Neural)$").matcher(v);
         if (m.matches()) {
             return "Microsoft Server Speech Text to Speech Voice ("
-                    + m.group(1) + "-" + m.group(2) + ", " + m.group(3) + ")";
+                    + m.group(1) + ", " + m.group(2) + ")";
         }
         return v;
     }

@@ -707,7 +707,7 @@ var I18N = {
     timedTitle: 'لصق نص مؤقت', timedHelp: 'كل سطر: 00:01 النص أو 00:01 --> 00:04 النص', timedAdd: 'إضافة الأسطر', errTimed: 'لم يُعثر على أسطر مؤقتة', modelsTitle: 'نماذج الصيغ',
     tplZeelang: 'نماذج Zeelang — صيغ مقبولة', tplProlang: 'نماذج ProLang', tplTimed: 'نماذج مؤقّتة — فيديو / صوت 🎬',
     libTitle: 'مكتبة العبارات', libStages: 'المراحل', libVocab: 'المفردات', libBack: 'رجوع',
-    copyAll: 'نسخ الكل', toFolder: 'إضافة كدرس', pickFolder: 'اختر المجلد', lessonAdded: 'أُضيف الدرس ✓',
+    copyAll: 'نسخ الكل', editAll: 'تحرير الكل', toFolder: 'إضافة كدرس', pickFolder: 'اختر المجلد', lessonAdded: 'أُضيف الدرس ✓',
     renameLesson: 'تعديل اسم الدرس', playAll: 'تشغيل الكل',
     quiz: 'لعبة التوصيل 🧩', quizChooseLang: 'اختر لغة المطابقة', quizReplay: 'إعادة اللعب',
     quizExit: 'خروج', quizNoPhrases: 'لا توجد عبارات كافية للّعبة', quizScore: 'النتيجة',
@@ -750,7 +750,7 @@ var I18N = {
     timedTitle: 'Coller du texte synchronisé', timedHelp: 'Chaque ligne : 00:01 texte ou 00:01 --> 00:04 texte', timedAdd: 'Ajouter les lignes', errTimed: 'Aucune ligne synchronisée trouvée', modelsTitle: 'Modèles de format',
     tplZeelang: 'Modèles Zeelang — formats acceptés', tplProlang: 'Modèles ProLang', tplTimed: 'Modèles synchronisés — vidéo / audio 🎬',
     libTitle: 'Bibliothèque de phrases', libStages: 'Niveaux', libVocab: 'Vocabulaire', libBack: 'Retour',
-    copyAll: 'Tout copier', toFolder: 'Ajouter comme leçon', pickFolder: 'Choisir le dossier', lessonAdded: 'Leçon ajoutée ✓',
+    copyAll: 'Tout copier', editAll: 'Tout modifier', toFolder: 'Ajouter comme leçon', pickFolder: 'Choisir le dossier', lessonAdded: 'Leçon ajoutée ✓',
     renameLesson: 'Renommer la leçon', playAll: 'Tout lire',
     quiz: 'Jeu d’association 🧩', quizChooseLang: 'Choisis la langue', quizReplay: 'Rejouer',
     quizExit: 'Quitter', quizNoPhrases: 'Pas assez de phrases', quizScore: 'Score',
@@ -793,7 +793,7 @@ var I18N = {
     timedTitle: 'Paste timed text', timedHelp: 'Each line: 00:01 text or 00:01 --> 00:04 text', timedAdd: 'Add lines', errTimed: 'No timed lines found', modelsTitle: 'Format models',
     tplZeelang: 'Zeelang templates — accepted formats', tplProlang: 'ProLang templates', tplTimed: 'Timed templates — video / audio 🎬',
     libTitle: 'Phrase library', libStages: 'Stages', libVocab: 'Vocabulary', libBack: 'Back',
-    copyAll: 'Copy all', toFolder: 'Add as lesson', pickFolder: 'Pick a folder', lessonAdded: 'Lesson added ✓',
+    copyAll: 'Copy all', editAll: 'Edit all', toFolder: 'Add as lesson', pickFolder: 'Pick a folder', lessonAdded: 'Lesson added ✓',
     renameLesson: 'Rename lesson', playAll: 'Play all',
     quiz: 'Matching game 🧩', quizChooseLang: 'Choose the match language', quizReplay: 'Play again',
     quizExit: 'Exit', quizNoPhrases: 'Not enough phrases', quizScore: 'Score',
@@ -2608,6 +2608,7 @@ function lessonDetails(l, refresh, onDelete, reopen) {
     }).join('\n'));
   };
   txhead.appendChild(cpy);
+  var edAll = el('button', 'mini', '✏ ' + (t.editAll || 'تحرير الكل'));
   d.appendChild(txhead);
   var tb = el('div');
   tb.style.cssText = 'max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:.4rem;';
@@ -2643,6 +2644,41 @@ function lessonDetails(l, refresh, onDelete, reopen) {
   };
   renderPhrases();
   d.appendChild(tb);
+  // ---- edit all: one textarea holding every timed line; on save the whole
+  // text re-parses and replaces the cues (keep images where text is unchanged)
+  edAll.onclick = function () {
+    var eov = pushOv(4700);
+    var ed = el('div', 'dlg');
+    ed.appendChild(el('p', null, '📝 ' + (t.editAll || 'تحرير الكل')));
+    var f2 = el('div', 'field');
+    var ta2 = document.createElement('textarea');
+    ta2.rows = 14; ta2.dir = 'ltr';
+    ta2.style.cssText = 'width:100%;background:transparent;border:none;outline:none;color:var(--txt);font:inherit;resize:vertical';
+    ta2.value = sortedCues(l).map(function (c) {
+      return (c.t != null ? fmtT(c.t) + ' ' : '') + (c.text || '');
+    }).join('\n');
+    f2.appendChild(ta2); ed.appendChild(f2);
+    var er = el('div', 'row'); er.style.marginTop = '.8rem';
+    var eno = el('button', null, t.no); eno.onclick = function () { eov.remove(); };
+    var eyes = el('button', 'yes', t.save);
+    eyes.onclick = function () {
+      var cues = parseTimedLines(ta2.value);
+      if (!cues.length) { toast(t.errTimed); return; }
+      // a re-saved line keeps its image when its text didn't change
+      var oldByText = {};
+      (l.cues || []).forEach(function (c) {
+        if (c.image && oldByText[c.text] === undefined) oldByText[c.text] = c;
+      });
+      cues.forEach(function (c) {
+        var o = oldByText[c.text];
+        if (o) { c.image = o.image; c.ar = o.ar; }
+      });
+      l.cues = cues;
+      lSave(l); eov.remove(); renderPhrases(); toast('✓');
+    };
+    er.appendChild(eno); er.appendChild(eyes); ed.appendChild(er); eov.appendChild(ed);
+    setTimeout(function () { try { ta2.focus(); } catch (e) {} }, 200);
+  };
   var r = el('div', 'row'); r.style.marginTop = '.8rem';
   if (onDelete) {
     var del = el('button', null, '🗑 ' + (t.delYes || ''));
