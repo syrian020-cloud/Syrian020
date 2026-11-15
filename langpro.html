@@ -381,7 +381,7 @@ var I18N = {
     lockWrong: 'الرمز غير صحيح', lockNoMatch: 'الرمزان غير متطابقين', lockNeedPin: 'الرمز يجب أن يكون 4 أرقام',
     pinSaved: 'تم حفظ رمز الدخول', unlocked: 'تم حذف رمز الدخول',
     lessons: 'الدروس', addLesson: 'درس جديد', noLessons: 'لا دروس بعد', lName: 'اسم الدرس',
-    pickVideo: 'فيديو', pickAudio: 'صوت', noMedia: 'بدون وسائط', delLessonQ: 'حذف هذا الدرس؟',
+    pickVideo: 'فيديو', pickAudio: 'صوت', noMedia: 'بدون وسائط', delLessonQ: 'حذف هذا الدرس؟', delCueQ: 'حذف هذا السطر؟',
     cueAdd: 'إضافة سطر', cueTime: 'الوقت (mm:ss)', cueNow: 'عند الموضع الحالي', cueLines: 'سطر',
     timedTitle: 'لصق نص مؤقت', timedHelp: 'كل سطر: 00:01 النص أو 00:01 --> 00:04 النص', timedAdd: 'إضافة الأسطر', errTimed: 'لم يُعثر على أسطر مؤقتة', modelsTitle: 'نماذج الصيغ',
     tplZeelang: 'نماذج Zeelang — صيغ مقبولة', tplProlang: 'نماذج ProLang', tplTimed: 'نماذج مؤقّتة — فيديو / صوت 🎬',
@@ -416,7 +416,7 @@ var I18N = {
     lockWrong: 'Code incorrect', lockNoMatch: 'Les codes ne correspondent pas', lockNeedPin: 'Le code doit avoir 4 chiffres',
     pinSaved: 'Code enregistré', unlocked: 'Code supprimé',
     lessons: 'Leçons', addLesson: 'Nouvelle leçon', noLessons: 'Pas encore de leçons', lName: 'Nom de la leçon',
-    pickVideo: 'Vidéo', pickAudio: 'Audio', noMedia: 'Sans média', delLessonQ: 'Supprimer cette leçon ?',
+    pickVideo: 'Vidéo', pickAudio: 'Audio', noMedia: 'Sans média', delLessonQ: 'Supprimer cette leçon ?', delCueQ: 'Supprimer cette ligne ?',
     cueAdd: 'Ajouter une ligne', cueTime: 'Temps (mm:ss)', cueNow: 'À la position actuelle', cueLines: 'lignes',
     timedTitle: 'Coller du texte synchronisé', timedHelp: 'Chaque ligne : 00:01 texte ou 00:01 --> 00:04 texte', timedAdd: 'Ajouter les lignes', errTimed: 'Aucune ligne synchronisée trouvée', modelsTitle: 'Modèles de format',
     tplZeelang: 'Modèles Zeelang — formats acceptés', tplProlang: 'Modèles ProLang', tplTimed: 'Modèles synchronisés — vidéo / audio 🎬',
@@ -451,7 +451,7 @@ var I18N = {
     lockWrong: 'Wrong passcode', lockNoMatch: 'Passcodes do not match', lockNeedPin: 'Passcode must be 4 digits',
     pinSaved: 'Passcode saved', unlocked: 'Passcode removed',
     lessons: 'Lessons', addLesson: 'New lesson', noLessons: 'No lessons yet', lName: 'Lesson name',
-    pickVideo: 'Video', pickAudio: 'Audio', noMedia: 'No media', delLessonQ: 'Delete this lesson?',
+    pickVideo: 'Video', pickAudio: 'Audio', noMedia: 'No media', delLessonQ: 'Delete this lesson?', delCueQ: 'Delete this line?',
     cueAdd: 'Add line', cueTime: 'Time (mm:ss)', cueNow: 'At current position', cueLines: 'lines',
     timedTitle: 'Paste timed text', timedHelp: 'Each line: 00:01 text or 00:01 --> 00:04 text', timedAdd: 'Add lines', errTimed: 'No timed lines found', modelsTitle: 'Format models',
     tplZeelang: 'Zeelang templates — accepted formats', tplProlang: 'ProLang templates', tplTimed: 'Timed templates — video / audio 🎬',
@@ -1337,8 +1337,10 @@ function cueDialog(l, cue, refresh, atTime) {
     var del = el('button', null, '🗑');
     del.style.flex = '0 0 3rem';
     del.onclick = function () {
-      l.cues = (l.cues || []).filter(function (x) { return x !== cue; });
-      lSave(l); ov.remove(); refresh();
+      confirmDialog(t.delCueQ, t.delYes, function () {
+        l.cues = (l.cues || []).filter(function (x) { return x !== cue; });
+        lSave(l); ov.remove(); refresh();
+      }, true);
     };
     r.appendChild(del);
   }
