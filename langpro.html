@@ -293,6 +293,35 @@
   .cue-line .cwords { flex: 1; min-width: 0; }
   .cue-line .cwords .w { cursor: pointer; border-radius: 6px; padding: 0 1px; }
   .cue-line .cwords .w.spk-on, .cue-line .cwords .w.speaking { background: var(--accent); color: #fff; }
+
+/* icon themes — flag glyph swaps to a letter via ::before + data-gl */
+.icth1 .cue-flag, .icth1 .crow-flag, .icth2 .cue-flag, .icth2 .crow-flag,
+.icth3 .cue-flag, .icth3 .crow-flag, .icth4 .cue-flag, .icth4 .crow-flag {
+  font-size: 0 !important; display: inline-flex; align-items: center; justify-content: center;
+}
+.icth1 .cue-flag::before, .icth1 .crow-flag::before { content: attr(data-gl); font: 800 1rem sans-serif;
+  width: 2rem; height: 2rem; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; }
+.icth2 .cue-flag::before, .icth2 .crow-flag::before { content: attr(data-gl); font: 700 .8rem monospace;
+  width: 2rem; height: 2rem; border-radius: 6px; border: 2px solid currentColor;
+  display: inline-flex; align-items: center; justify-content: center; }
+.icth3 .cue-flag::before, .icth3 .crow-flag::before { content: attr(data-gl); font: 700 .72rem sans-serif;
+  letter-spacing: .05em; padding: .35rem .6rem; border-radius: 999px; border: 1.5px solid currentColor;
+  display: inline-flex; align-items: center; justify-content: center; }
+.icth4 .cue-flag::before, .icth4 .crow-flag::before { content: '● ' attr(data-gl); font: 800 .8rem serif;
+  padding: .2rem .35rem; display: inline-flex; align-items: center; justify-content: center; }
+.icth1 .cue-flag[data-lg=ar]::before, .icth1 .crow-flag[data-lg=ar]::before { background: var(--cap-ar-bg,#d9a21b); color: var(--cap-ar-fg,#33260a); font-family: var(--cap-ar-font,'Noto Naskh Arabic',serif); }
+.icth1 .cue-flag[data-lg=en]::before, .icth1 .crow-flag[data-lg=en]::before { background: var(--cap-en-bg,#f3ecd9); color: var(--cap-en-fg,#2b2b2b); font-family: var(--cap-en-font,inherit); }
+.icth1 .cue-flag[data-lg=fr]::before, .icth1 .crow-flag[data-lg=fr]::before { background: var(--cap-fr-bg,#3d3d3d); color: var(--cap-fr-fg,#fff); font-family: var(--cap-fr-font,inherit); }
+.icth1 .cue-flag::before, .icth1 .crow-flag::before { background: var(--cap-x-bg,var(--accent)); color: var(--cap-x-fg,#fff); }
+.icth2 .cue-flag[data-lg=ar]::before, .icth2 .crow-flag[data-lg=ar]::before { color: var(--cap-ar-bg,#d9a21b); font-family: var(--cap-ar-font,'Noto Kufi Arabic',sans-serif); }
+.icth2 .cue-flag[data-lg=en]::before, .icth2 .crow-flag[data-lg=en]::before { color: var(--cap-en-bg,#d8cfb0); font-family: var(--cap-en-font,inherit); }
+.icth2 .cue-flag[data-lg=fr]::before, .icth2 .crow-flag[data-lg=fr]::before { color: var(--cap-fr-bg,#888); font-family: var(--cap-fr-font,inherit); }
+.icth3 .cue-flag[data-lg=ar]::before, .icth3 .crow-flag[data-lg=ar]::before { color: var(--cap-ar-bg,#d9a21b); font-family: var(--cap-ar-font,'Noto Naskh Arabic',serif); }
+.icth3 .cue-flag[data-lg=en]::before, .icth3 .crow-flag[data-lg=en]::before { color: var(--cap-en-bg,#d8cfb0); font-family: var(--cap-en-font,inherit); }
+.icth3 .cue-flag[data-lg=fr]::before, .icth3 .crow-flag[data-lg=fr]::before { color: var(--cap-fr-bg,#888); font-family: var(--cap-fr-font,inherit); }
+.icth4 .cue-flag[data-lg=ar]::before, .icth4 .crow-flag[data-lg=ar]::before { color: var(--cap-ar-bg,#d9a21b); font-family: var(--cap-ar-font,'Traditional Arabic',serif); }
+.icth4 .cue-flag[data-lg=en]::before, .icth4 .crow-flag[data-lg=en]::before { color: var(--cap-en-bg,#d8cfb0); font-family: var(--cap-en-font,inherit); }
+.icth4 .cue-flag[data-lg=fr]::before, .icth4 .crow-flag[data-lg=fr]::before { color: var(--cap-fr-bg,#888); font-family: var(--cap-fr-font,inherit); }
   .cue-line .cue-flag { position: static; transform: none; font-size: 1.7rem;
     line-height: 1; flex: none; }
   .cue-line.lg-fr { background: var(--cap-fr-bg, #3d3d3d); color: var(--cap-fr-fg, #fff);
@@ -683,7 +712,7 @@ var I18N = {
     lockWrong: 'الرمز غير صحيح', lockNoMatch: 'الرمزان غير متطابقين', lockNeedPin: 'الرمز يجب أن يكون 4 أرقام',
     pinSaved: 'تم حفظ رمز الدخول', unlocked: 'تم حذف رمز الدخول',
     lessons: 'الدروس', addLesson: 'درس جديد', noLessons: 'لا دروس بعد', lName: 'اسم الدرس',
-    pickVideo: 'فيديو', pickAudio: 'صوت', noMedia: 'بدون وسائط', delLessonQ: 'حذف هذا الدرس؟', lMedia: 'الوسائط', lText: 'النص', repMedia: '🔄 استبدال', delMediaQ: 'حذف الوسائط؟', savedGallery: '✓ تم الحفظ في المعرض', recQ: 'جودة التسجيل', recQHigh: 'عالية', recQMed: 'وسط', recQLow: 'خفيفة', recQUltra: 'فائقة', recQTiny: 'صغيرة جداً', perMin: '/د', delCueQ: 'حذف هذا السطر؟',
+    pickVideo: 'فيديو', pickAudio: 'صوت', noMedia: 'بدون وسائط', delLessonQ: 'حذف هذا الدرس؟', lMedia: 'الوسائط', lText: 'النص', repMedia: '🔄 استبدال', delMediaQ: 'حذف الوسائط؟', savedGallery: '✓ تم الحفظ في المعرض', recQ: 'جودة التسجيل', recQHigh: 'عالية', recQMed: 'وسط', recQLow: 'خفيفة', recQUltra: 'فائقة', recQTiny: 'صغيرة جداً', iconTh: 'ثيم الأيقونات', icth0: 'أعلام', icth1: 'دوائر حروف', icth2: 'مربعات', icth3: 'حبّة كود', icth4: 'نقطة وحرف', perMin: '/د', delCueQ: 'حذف هذا السطر؟',
     cueAdd: 'إضافة سطر', cueTime: 'الوقت (mm:ss)', cueNow: 'عند الموضع الحالي', cueLines: 'سطر',
     timedTitle: 'لصق نص مؤقت', timedHelp: 'كل سطر: 00:01 النص أو 00:01 --> 00:04 النص', timedAdd: 'إضافة الأسطر', errTimed: 'لم يُعثر على أسطر مؤقتة', modelsTitle: 'نماذج الصيغ',
     tplZeelang: 'نماذج Zeelang — صيغ مقبولة', tplProlang: 'نماذج ProLang', tplTimed: 'نماذج مؤقّتة — فيديو / صوت 🎬',
@@ -726,7 +755,7 @@ var I18N = {
     lockWrong: 'Code incorrect', lockNoMatch: 'Les codes ne correspondent pas', lockNeedPin: 'Le code doit avoir 4 chiffres',
     pinSaved: 'Code enregistré', unlocked: 'Code supprimé',
     lessons: 'Leçons', addLesson: 'Nouvelle leçon', noLessons: 'Pas encore de leçons', lName: 'Nom de la leçon',
-    pickVideo: 'Vidéo', pickAudio: 'Audio', noMedia: 'Sans média', delLessonQ: 'Supprimer cette leçon ?', lMedia: 'Média', lText: 'Texte', repMedia: '🔄 Remplacer', delMediaQ: 'Supprimer le média ?', savedGallery: '✓ Enregistré dans la galerie', recQ: 'Qualité vidéo', recQHigh: 'Haute', recQMed: 'Moyenne', recQLow: 'Légère', recQUltra: 'Ultra', recQTiny: 'Minuscule', perMin: '/min', delCueQ: 'Supprimer cette ligne ?',
+    pickVideo: 'Vidéo', pickAudio: 'Audio', noMedia: 'Sans média', delLessonQ: 'Supprimer cette leçon ?', lMedia: 'Média', lText: 'Texte', repMedia: '🔄 Remplacer', delMediaQ: 'Supprimer le média ?', savedGallery: '✓ Enregistré dans la galerie', recQ: 'Qualité vidéo', recQHigh: 'Haute', recQMed: 'Moyenne', recQLow: 'Légère', recQUltra: 'Ultra', recQTiny: 'Minuscule', iconTh: 'Thème icônes', icth0: 'Drapeaux', icth1: 'Cercles lettres', icth2: 'Carrés', icth3: 'Pilule code', icth4: 'Point + lettre', perMin: '/min', delCueQ: 'Supprimer cette ligne ?',
     cueAdd: 'Ajouter une ligne', cueTime: 'Temps (mm:ss)', cueNow: 'À la position actuelle', cueLines: 'lignes',
     timedTitle: 'Coller du texte synchronisé', timedHelp: 'Chaque ligne : 00:01 texte ou 00:01 --> 00:04 texte', timedAdd: 'Ajouter les lignes', errTimed: 'Aucune ligne synchronisée trouvée', modelsTitle: 'Modèles de format',
     tplZeelang: 'Modèles Zeelang — formats acceptés', tplProlang: 'Modèles ProLang', tplTimed: 'Modèles synchronisés — vidéo / audio 🎬',
@@ -769,7 +798,7 @@ var I18N = {
     lockWrong: 'Wrong passcode', lockNoMatch: 'Passcodes do not match', lockNeedPin: 'Passcode must be 4 digits',
     pinSaved: 'Passcode saved', unlocked: 'Passcode removed',
     lessons: 'Lessons', addLesson: 'New lesson', noLessons: 'No lessons yet', lName: 'Lesson name',
-    pickVideo: 'Video', pickAudio: 'Audio', noMedia: 'No media', delLessonQ: 'Delete this lesson?', lMedia: 'Media', lText: 'Text', repMedia: '🔄 Replace', delMediaQ: 'Delete media?', savedGallery: '✓ Saved to gallery', recQ: 'Recording quality', recQHigh: 'High', recQMed: 'Medium', recQLow: 'Light', recQUltra: 'Ultra', recQTiny: 'Tiny', perMin: '/min', delCueQ: 'Delete this line?',
+    pickVideo: 'Video', pickAudio: 'Audio', noMedia: 'No media', delLessonQ: 'Delete this lesson?', lMedia: 'Media', lText: 'Text', repMedia: '🔄 Replace', delMediaQ: 'Delete media?', savedGallery: '✓ Saved to gallery', recQ: 'Recording quality', recQHigh: 'High', recQMed: 'Medium', recQLow: 'Light', recQUltra: 'Ultra', recQTiny: 'Tiny', iconTh: 'Icon theme', icth0: 'Flags', icth1: 'Letter circles', icth2: 'Squares', icth3: 'Code pill', icth4: 'Dot + letter', perMin: '/min', delCueQ: 'Delete this line?',
     cueAdd: 'Add line', cueTime: 'Time (mm:ss)', cueNow: 'At current position', cueLines: 'lines',
     timedTitle: 'Paste timed text', timedHelp: 'Each line: 00:01 text or 00:01 --> 00:04 text', timedAdd: 'Add lines', errTimed: 'No timed lines found', modelsTitle: 'Format models',
     tplZeelang: 'Zeelang templates — accepted formats', tplProlang: 'ProLang templates', tplTimed: 'Timed templates — video / audio 🎬',
@@ -1705,6 +1734,16 @@ var SPEEDS = [1, 1.25, 1.5, 2, 0.5, 0.75];
 var playSpeed = parseFloat(localStorage.getItem('langpro_speed') || '1') || 1;
 var CAPFS = [.7, .8, .9, 1, 1.15, 1.3, 1.5, 1.75, 2];
 var capFs = parseFloat(localStorage.getItem('langpro_capfs') || '1') || 1;
+var iconTh = parseInt(localStorage.getItem('langpro_icth') || '0', 10) || 0;
+function applyIconTheme() {
+  var cl = document.documentElement.classList;
+  for (var i = 0; i < 5; i++) cl.remove('icth' + i);
+  cl.add('icth' + iconTh);
+}
+function iconThName() {
+  var t = T();
+  return [t.icth0, t.icth1, t.icth2, t.icth3, t.icth4][iconTh] || t.icth0;
+}
 var recQ = localStorage.getItem('langpro_recq') || 'high';
 var RECQS = {
   ultra: { M: 2160, f: 10, max: 32000000, imgM: 1600, imgQ: .9 },
@@ -1725,6 +1764,7 @@ function applyCapFs() {
   document.documentElement.style.setProperty('--capfs', capFs);
   document.querySelectorAll('.capfs-lbl').forEach(function (x) { x.textContent = capFs + '×'; });
 }
+applyIconTheme();
 applyCapFs();
 var curPlayer = null;
 function applySpeed() { if (curPlayer) { try { curPlayer.playbackRate = playSpeed; } catch (e) {} } }
@@ -3171,6 +3211,7 @@ function openLesson(l) {
       var lg = shortLang(r.lang);
       var ln = el('div', 'cue-line lg-' + (lg === 'fr' || lg === 'ar' || lg === 'en' ? lg : 'x'));
       var fl = el('span', 'cue-flag', r.flag || langFlag(r.lang) || '🔊');
+      fl.dataset.lg = lg; fl.dataset.gl = lg === 'ar' ? 'ع' : lg.toUpperCase();
       fl.onclick = function (e) { e.stopPropagation(); speakLoop(r.text, r.lang, ln); };
       ln.appendChild(fl);
       var wt = el('span', 'cwords');
@@ -3532,6 +3573,7 @@ function openLesson(l) {
         var lgk = lg === 'ar' || lg === 'en' || lg === 'fr' ? lg : 'x';
         var cr = el('div', 'crow lg-' + lgk);
         var rf = el('button', 'crow-flag', r.flag && r.flag !== '\ud83c\udff3' ? r.flag : '🔊');
+        rf.dataset.lg = lg; rf.dataset.gl = lg === 'ar' ? 'ع' : lg.toUpperCase();
         rf.title = t.speak || 'speak';
         rf.onclick = function (e) { e.stopPropagation(); speakLoop(r.text, r.lang, rf); };
         cr.appendChild(rf);
@@ -4863,6 +4905,29 @@ function openRecQPicker() {
     sh.appendChild(b);
   });
 }
+function openIconThPicker() {
+  var t = T();
+  var sh = sheet();
+  var h = el('h3');
+  h.appendChild(el('span', null, '🎭 ' + t.iconTh));
+  var x = el('button', null, '✕'); x.onclick = closeOv; h.appendChild(x);
+  sh.appendChild(h);
+  var names = [t.icth0, t.icth1, t.icth2, t.icth3, t.icth4];
+  var glyphs = ['🏳️', '🔘', '🟦', '🏷', '●'];
+  for (var i = 0; i < 5; i++) {
+    (function (k) {
+      var b = el('button', 'mrow' + (iconTh === k ? ' on' : ''));
+      b.appendChild(el('span', 'mi', iconTh === k ? '✓' : glyphs[k]));
+      b.appendChild(el('span', null, names[k]));
+      b.onclick = function () {
+        iconTh = k;
+        try { localStorage.setItem('langpro_icth', String(iconTh)); } catch (e) {}
+        applyIconTheme(); closeOv();
+      };
+      sh.appendChild(b);
+    })(i);
+  }
+}
 function openMenu() {
   var t = T();
   var sh = sheet();
@@ -4897,6 +4962,7 @@ function openMenu() {
   }
   if (window.EdgeTTS) row('🎙', t.voiceSet || 'Edge TTS', function () { closeOv(); EdgeTTS.openSettings(); });
   row('🎞', t.recQ + ': ' + recQName(recQ) + ' ' + recQSize(recQ), function () { closeOv(); openRecQPicker(); });
+  row('🎭', t.iconTh + ': ' + iconThName(), function () { closeOv(); openIconThPicker(); });
   row('⬇', t.exportData, function () { closeOv(); exportData(); });
   row('⬆', t.importData, function () { closeOv(); importData(); });
 }
