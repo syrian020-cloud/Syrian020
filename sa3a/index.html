@@ -2115,10 +2115,11 @@ function renderYear(){
    const isT=calYear===today.getFullYear()&&m===today.getMonth()&&d===today.getDate();
    const hasA=ad.has(calYear+'-'+m+'-'+d);
    const isH=holMap[calYear+'-'+m+'-'+d];
-   h+=`<div class="${isT?'tdy':hasA?'alrm':''}${isH?' hday':''}">${d}</div>`;
+   h+=`<div class="${isT?'tdy':hasA?'alrm':''}${isH?' hday':''}" data-d="${d}">${d}</div>`;
   }
   h+='</div>';c.innerHTML=h;
-  c.onclick=()=>{calMonth=m;renderMonth()};
+  c.onclick=e=>{const de=e.target.closest('[data-d]');
+   if(de){e.stopPropagation();speakDate(m,+de.dataset.d)}else{calMonth=m;renderMonth()}};
   g.appendChild(c);
  }
  $('yearView').style.display='';$('monthView').classList.remove('on');
@@ -2134,9 +2135,10 @@ function renderMonth(){
   const isT=calYear===today.getFullYear()&&calMonth===today.getMonth()&&d===today.getDate();
   const hasA=ad.has(calYear+'-'+calMonth+'-'+d);
   const isH=holMap[calYear+'-'+calMonth+'-'+d];
-  h+=`<div class="${isT?'tdy':''}${isH?' hday':''}">${d}${hasA?'<span class="dot"></span>':''}</div>`;
+  h+=`<div class="${isT?'tdy':''}${isH?' hday':''}" data-d="${d}">${d}${hasA?'<span class="dot"></span>':''}</div>`;
  }
  h+='</div>';$('bigcal').innerHTML=h;
+ $('bigcal').onclick=e=>{const de=e.target.closest('[data-d]');if(de)speakDate(calMonth,+de.dataset.d)};
  const loc=st.lang==='ar'?'ar':st.lang,hols=[];
  for(let d=1;d<=dim;d++){const hn=holMap[calYear+'-'+calMonth+'-'+d];
   if(hn)hols.push('<div class="hd"><span class="d">'+d+' '+monthNames()[calMonth]+'</span><span>'+esc(hn)+'</span></div>')}
@@ -2146,6 +2148,17 @@ function renderMonth(){
 $('yrPrev').onclick=()=>{calYear--;loadHolidays().then(renderYear)};
 $('yrNext').onclick=()=>{calYear++;loadHolidays().then(renderYear)};
 $('backYear').onclick=renderYear;
+
+
+/* speak a calendar date on tap */
+function speakDate(m,d){
+ const dt=new Date(calYear,m,d);
+ const loc=st.lang==='ar'?'ar-SY':st.lang==='fr'?'fr-FR':'en-GB';
+ const key=calYear+'-'+m+'-'+d,hn=holMap[key];
+ let txt=new Intl.DateTimeFormat(loc,{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(dt);
+ if(hn)txt+='. '+hn;
+ sayOnce(txt,st.lang==='ar'?'ar':st.lang);
+}
 
 /* =============== timer & stopwatch =============== */
 let tIv=null,swIv=null,swT0=0,swAcc=0,swLapN=0;
