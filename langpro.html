@@ -227,9 +227,10 @@
 
   /* ---------- lesson player ---------- */
   .lov { position: fixed; inset: 0; z-index: 4400; background: var(--bg);
-    display: flex; flex-direction: column; }
+    display: flex; flex-direction: column; overflow-y: auto; }
   .lov-top { display: flex; align-items: center; gap: .5rem; padding: .55rem .8rem;
-    border-bottom: 1px solid var(--line); flex: none; }
+    border-bottom: 1px solid var(--line); flex: none; position: sticky; top: 0;
+    z-index: 5; background: var(--bg); }
   .lov-top .lt { flex: 1; min-width: 0; font-weight: 800; font-size: .95rem;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .lov-top .iconbtn { padding: .3rem .55rem; font-size: .9rem; }
@@ -294,9 +295,9 @@
   .lov-media video.fit-cover { object-fit: cover; }
   .lov-media video.fit-fill { object-fit: fill; }
   .lov-media video.fit-tall { max-height: 62vh; }
-  .lov-cues { flex: 1; min-height: 0; overflow-y: auto; padding: .3rem .8rem 5.5rem; display: flex;
+  .lov-cues { flex: none; padding: .3rem .8rem 6.5rem; display: flex;
     flex-direction: column; gap: .4rem; }
-  .cue { display: block; margin-bottom: .55rem; }
+  .cue { display: block; margin-bottom: .55rem; scroll-margin-top: 60px; }
   .cue.on .crow { box-shadow: 0 0 0 2.5px rgba(139,92,246,.55), 0 4px 12px rgba(3,8,12,.16); }
   .cue .ct { font-size: .68rem; color: var(--accent2); font-variant-numeric: tabular-nums;
     flex: none; padding-top: .15rem; min-width: 2.6rem; }
