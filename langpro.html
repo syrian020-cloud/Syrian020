@@ -2817,14 +2817,174 @@ function cueDialog(l, cue, refresh, atTime) {
 }
 /* ---------- input templates: every Zeelang + ProLang + timed model ---------- */
 var TPL_ZEELANG = [
-  { name: { ar: 'أنبوب |', en: 'Pipe |', fr: 'Barre |' }, text: 'Hello | مرحبا | Bonjour' },
-  { name: { ar: 'أسهم →', en: 'Arrows →', fr: 'Flèches →' }, text: 'Comment allez-vous → كيف حالك → How are you' },
-  { name: { ar: 'مساواة =', en: 'Equals =', fr: 'Égale =' }, text: 'I would like = أريد = Je voudrais' },
-  { name: { ar: 'فاصلة،', en: 'Comma ،', fr: 'Virgule ،' }, text: 'Thank you شكرا, Merci' },
-  { name: { ar: 'نقطتان :', en: 'Colon :', fr: 'Deux-points :' }, text: 'Goodbye مع السلامة: Au revoir' },
-  { name: { ar: 'شرطة -', en: 'Dash -', fr: 'Tiret -' }, text: 'Apple - تفاحة - Pomme' },
-  { name: { ar: 'كلمات متداخلة', en: 'Interleaved', fr: 'Entrelacé' }, text: 'Where Où sont les toilettes أين الحمام is the bathroom' },
-  { name: { ar: 'أسماء اللغات', en: 'Language names', fr: 'Noms des langues' }, text: 'English | Arabic | French' }
+  { name: { ar: 'نموذج عبارات 1 — أنبوب |', en: 'Phrase model 1 — ', fr: 'Modèle phrases 1' }, text:
+'Bonjour | مرحبا | Hello' },
+  { name: { ar: 'نموذج عبارات 2 — أسهم →', en: 'Phrase model 2 — ', fr: 'Modèle phrases 2' }, text:
+'Comment allez-vous → كيف حالك → How are you' },
+  { name: { ar: 'نموذج عبارات 3 — مساواة =', en: 'Phrase model 3 — ', fr: 'Modèle phrases 3' }, text:
+'Je voudrais = أريد = I would like' },
+  { name: { ar: 'نموذج عبارات 4 — فاصلة،', en: 'Phrase model 4 — ', fr: 'Modèle phrases 4' }, text:
+'Merci, شكرا, Thank you' },
+  { name: { ar: 'نموذج عبارات 5 — نقطتان :', en: 'Phrase model 5 — ', fr: 'Modèle phrases 5' }, text:
+'Au revoir: مع السلامة: Goodbye' },
+  { name: { ar: 'نموذج عبارات 6 — شرطة -', en: 'Phrase model 6 — ', fr: 'Modèle phrases 6' }, text:
+'Pomme - تفاحة - Apple' },
+  { name: { ar: 'نموذج عبارات 7 — كلمات متداخلة', en: 'Phrase model 7 — ', fr: 'Modèle phrases 7' }, text:
+'Où sont les toilettes أين الحمام Where is the bathroom' },
+  { name: { ar: 'نموذج عبارات 8 — أسماء اللغات', en: 'Phrase model 8 — ', fr: 'Modèle phrases 8' }, text:
+'English | Arabic | French' },
+  { name: { ar: 'نموذج عبارات 9 — أسطر متعددة بأنابيب', en: 'Phrase model 9 — ', fr: 'Modèle phrases 9' }, text:
+'Maria, j’ai plus de cigarettes. | ماريا، ما عاد معي دخان. | Maria, I’m out of cigarettes.\n' +
+'Donne-moi de l’argent. | أعطيني مصاري. | Give me some money.' },
+  { name: { ar: 'نموذج عبارات 10 — أسطر متعددة بلا فواصل', en: 'Phrase model 10 — ', fr: 'Modèle phrases 10' }, text:
+'Maria, j’ai plus de cigarettes.\n' +
+'ماريا، ما عاد معي دخان.\n' +
+'Maria, I’m out of cigarettes.\n' +
+'\n' +
+'Donne-moi de l’argent.\n' +
+'أعطيني مصاري.\n' +
+'Give me some money.' },
+  { name: { ar: 'نموذج عبارات 11 — أعلام — سطر لكل لغة', en: 'Phrase model 11 — ', fr: 'Modèle phrases 11' }, text:
+'🇫🇷 Maria, j’ai plus de cigarettes.\n' +
+'🇸🇾 ماريا، ما عاد معي دخان.\n' +
+'🇺🇸 Maria, I’m out of cigarettes.' },
+  { name: { ar: 'نموذج عبارات 12 — أكواد لغات FR:/AR:', en: 'Phrase model 12 — ', fr: 'Modèle phrases 12' }, text:
+'FR: Maria, j’ai plus de cigarettes.\n' +
+'AR: ماريا، ما عاد معي دخان.\n' +
+'EN: Maria, I’m out of cigarettes.' },
+  { name: { ar: 'نموذج عبارات 13 — مواقف أعلام — طبيب 🦷', en: 'Phrase model 13 — ', fr: 'Modèle phrases 13' }, text:
+'🦷 الموقف الأول: حجز موعد عند طبيب الأسنان\n' +
+'🇫🇷 Bonjour, je voudrais prendre rendez-vous chez le dentiste.\n' +
+'🇸🇾 مرحباً، بدي احجز موعد عند طبيب الأسنان.\n' +
+'🇺🇸 Hello, I\'d like to make a dentist appointment.\n' +
+'\n' +
+'---\n' +
+'\n' +
+'🦷 الموقف الثاني: شرح ألم الأسنان\n' +
+'🇫🇷 Bonjour docteur, j\'ai très mal aux dents.\n' +
+'🇸🇾 مرحباً دكتور، سناني عم يوجعوني كتير.\n' +
+'🇺🇸 Hello, doctor. My teeth hurt a lot.' },
+  { name: { ar: 'نموذج عبارات 14 — مواقف — حلاق 💈', en: 'Phrase model 14 — ', fr: 'Modèle phrases 14' }, text:
+'💈 الموقف الأول: حجز موعد عند الحلاق\n' +
+'\n' +
+'🇫🇷 Bonjour, je voudrais prendre rendez-vous pour une coupe de cheveux. 🇸🇾 مرحباً، بدي احجز موعد لقصّ الشعر. 🇺🇸 Hello, I\'d like to make an appointment for a haircut.\n' +
+'\n' +
+'💈 الموقف الثاني: السؤال عن السعر\n' +
+'\n' +
+'🇫🇷 Combien coûte une coupe de cheveux ? 🇸🇾 قديش حق قصّ الشعر؟ 🇺🇸 How much does a haircut cost?' },
+  { name: { ar: 'نموذج عبارات 15 — 4 لغات + 🇪🇸', en: 'Phrase model 15 — ', fr: 'Modèle phrases 15' }, text:
+'🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇪🇸 María, ya no me quedan cigarrillos.' },
+  { name: { ar: 'نموذج عبارات 16 — 4 لغات + 🇩🇪', en: 'Phrase model 16 — ', fr: 'Modèle phrases 16' }, text:
+'🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇩🇪 Maria, ich habe keine Zigaretten mehr.' },
+  { name: { ar: 'نموذج عبارات 17 — 4 لغات + 🇵🇹', en: 'Phrase model 17 — ', fr: 'Modèle phrases 17' }, text:
+'🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇵🇹 Maria, já não tenho cigarros.' },
+  { name: { ar: 'نموذج عبارات 18 — 4 لغات + 🇷🇺', en: 'Phrase model 18 — ', fr: 'Modèle phrases 18' }, text:
+'🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇷🇺 Мария, у меня больше нет сигарет.' },
+  { name: { ar: 'نموذج عبارات 19 — 4 لغات + 🇮🇷', en: 'Phrase model 19 — ', fr: 'Modèle phrases 19' }, text:
+'🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇮🇷 ماریا، دیگر سیگار ندارم.' },
+  { name: { ar: 'نموذج عبارات 20 — 4 لغات + 🇹🇷', en: 'Phrase model 20 — ', fr: 'Modèle phrases 20' }, text:
+'🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇹🇷 Maria, artık sigaram kalmadı.' },
+  { name: { ar: 'نموذج عبارات 21 — 4 لغات + 🇮🇹', en: 'Phrase model 21 — ', fr: 'Modèle phrases 21' }, text:
+'🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇮🇹 Maria, non ho più sigarette.' },
+  { name: { ar: 'نموذج عبارات 22 — 4 لغات + 🇳🇱', en: 'Phrase model 22 — ', fr: 'Modèle phrases 22' }, text:
+'🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇳🇱 Maria, ik heb geen sigaretten meer.' },
+  { name: { ar: 'نموذج عبارات 23 — 4 لغات + 🇨🇳', en: 'Phrase model 23 — ', fr: 'Modèle phrases 23' }, text:
+'🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇨🇳 玛丽亚，我没有香烟了。' },
+  { name: { ar: 'نموذج عبارات 24 — 4 لغات + 🇯🇵', en: 'Phrase model 24 — ', fr: 'Modèle phrases 24' }, text:
+'🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇯🇵 マリア、もうタバコがない。' },
+  { name: { ar: 'نموذج عبارات 25 — 4 لغات + 🇰🇷', en: 'Phrase model 25 — ', fr: 'Modèle phrases 25' }, text:
+'🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇰🇷 마리아, 담배가 다 떨어졌어.' },
+  { name: { ar: 'نموذج عبارات 26 — 4 لغات + 🇬🇷', en: 'Phrase model 26 — ', fr: 'Modèle phrases 26' }, text:
+'🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇬🇷 Μαρία, δεν έχω άλλα τσιγάρα.' },
+  { name: { ar: 'نموذج عبارات 27 — 4 لغات + 🇵🇰', en: 'Phrase model 27 — ', fr: 'Modèle phrases 27' }, text:
+'🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇵🇰 ماریا، میرے پاس سگریٹ ختم ہو گئے ہیں۔' },
+  { name: { ar: 'نموذج عبارات 28 — خانات 🇨🇳🇫🇷', en: 'Phrase model 28 — ', fr: 'Modèle phrases 28' }, text:
+'### 1. 🇨🇳 الصينية — Chinese\n' +
+'🇨🇳 你好\n' +
+'🔤 النطق اللاتيني: Nǐ hǎo\n' +
+'🗣️ تقريب النطق بالعربية: ني هاو\n' +
+'🇸🇾 المعنى: مرحبًا\n' +
+'===\n' +
+'### 2. 🇫🇷 الفرنسية\n' +
+'🇫🇷 Bonjour\n' +
+'🔤 Bonjour\n' +
+'🗣️ بونجور\n' +
+'🇸🇾 المعنى: مرحبًا' },
+  { name: { ar: 'نموذج عبارات 29 — أربع خانات 🇬🇧🇫🇷', en: 'Phrase model 29 — ', fr: 'Modèle phrases 29' }, text:
+'### 🇬🇧 الإنجليزية (English)\n' +
+'* 🇬🇧 الأصلية: Hello\n' +
+'* 🔤 النطق اللاتيني: Hello\n' +
+'* 🗣️ بالعربي: هَلّو\n' +
+'* 🇸🇾 المعنى بالعربي: مرحباً\n' +
+'* 🇺🇸 English: Hello\n' +
+'===\n' +
+'### 🇫🇷 الفرنسية (French)\n' +
+'* 🇫🇷 الأصلية: Bonjour\n' +
+'* 🔤 النطق اللاتيني: Bonjour\n' +
+'* 🗣️ بالعربي: بونجور\n' +
+'* 🇸🇾 المعنى بالعربي: مرحباً\n' +
+'* 🇺🇸 English: Hello' },
+  { name: { ar: 'نموذج عبارات 30 — روسي بأنابيب 🇷🇺', en: 'Phrase model 30 — ', fr: 'Modèle phrases 30' }, text:
+'### 🇷🇺 الروسية\n' +
+'🇷🇺 Привет! | 🇸🇾 مرحبا! | 🇺🇸 Hi!\n' +
+'🇷🇺 Здравствуйте! | 🇸🇾 مرحباً! (بأسلوب رسمي) | 🇺🇸 Hello!\n' +
+'🇷🇺 Как дела? | 🇸🇾 كيفك؟ | 🇺🇸 How are you?\n' +
+'🇷🇺 Хорошо, спасибо. | 🇸🇾 منيح، شكراً. | 🇺🇸 Good, thank you.' },
+  { name: { ar: 'نموذج عبارات 31 — مواقف 👋☕', en: 'Phrase model 31 — ', fr: 'Modèle phrases 31' }, text:
+'### 👋 الموقف الأول: التحية والتعارف\n' +
+'🇺🇸 Hello! How are you? 🇪🇸 ¡Hola! ¿Cómo estás? 🇸🇾 مرحبا! كيفك؟\n' +
+'🇺🇸 My name is Ahmad. 🇪🇸 Me llamo Ahmad. 🇸🇾 اسمي أحمد.\n' +
+'🇺🇸 Nice to meet you. 🇪🇸 Mucho gusto. 🇸🇾 تشرفنا.\n' +
+'===\n' +
+'### ☕ الموقف الثاني: في المقهى\n' +
+'🇺🇸 I would like a coffee, please. 🇪🇸 Quisiera un café, por favor. 🇸🇾 بدي قهوة، لو سمحت.\n' +
+'🇺🇸 The bill, please. 🇪🇸 La cuenta, por favor. 🇸🇾 الحساب، لو سمحت.\n' +
+'===\n' +
+'### 🔊 مع اللفظ بالعربي\n' +
+'🇺🇸 Good morning. | 🇪🇸 Buenos días. | 🔊 بوينوس دياس | 🇸🇾 صباح الخير.' },
+  { name: { ar: 'نموذج عبارات 32 — درس مؤقت 🎬', en: 'Phrase model 32 — ', fr: 'Modèle phrases 32' }, text:
+'### 🎬 درس مؤقت\n' +
+'00:00 🇫🇷 Bonjour !\n' +
+'00:03 🇸🇾 مرحبا!\n' +
+'00:05 🇺🇸 Hello!\n' +
+'00:08 --> 00:11 🇫🇷 Comment ça va ?\n' +
+'00:11 --> 00:14 🇸🇾 كيفك؟' },
+  { name: { ar: 'نموذج عبارات 33 — آسيوية 🇹🇭🇻🇳🇮🇱', en: 'Phrase model 33 — ', fr: 'Modèle phrases 33' }, text:
+'### 🇹🇭 التايلاندية\n' +
+'🇹🇭 สวัสดี | 🇸🇾 مرحبا | 🇺🇸 Hello\n' +
+'===\n' +
+'### 🇻🇳 الفيتنامية\n' +
+'🇻🇳 Xin chào | 🇸🇾 مرحبا | 🇺🇸 Hello\n' +
+'===\n' +
+'### 🇮🇱 العبرية\n' +
+'🇮🇱 שלום | 🇸🇾 مرحبا | 🇺🇸 Hello' },
+  { name: { ar: 'نموذج عبارات 34 — أوروبية 🇵🇱🇺🇦🇸🇪', en: 'Phrase model 34 — ', fr: 'Modèle phrases 34' }, text:
+'### 🇵🇱 البولندية\n' +
+'🇵🇱 Cześć | 🇸🇾 مرحبا | 🇺🇸 Hello\n' +
+'===\n' +
+'### 🇺🇦 الأوكرانية\n' +
+'🇺🇦 Привіт | 🇸🇾 مرحبا | 🇺🇸 Hello\n' +
+'===\n' +
+'### 🇸🇪 السويدية\n' +
+'🇸🇪 Hej | 🇸🇾 مرحبا | 🇺🇸 Hello' },
+  { name: { ar: 'نموذج عبارات 35 — آسيوية 🇮🇩🇧🇩🇮🇳', en: 'Phrase model 35 — ', fr: 'Modèle phrases 35' }, text:
+'### 🇮🇩 الإندونيسية\n' +
+'🇮🇩 Halo | 🇸🇾 مرحبا | 🇺🇸 Hello\n' +
+'===\n' +
+'### 🇧🇩 البنغالية\n' +
+'🇧🇩 নমস্কার | 🇸🇾 مرحبا | 🇺🇸 Hello\n' +
+'===\n' +
+'### 🇮🇳 الهندية\n' +
+'🇮🇳 नमस्ते | 🇸🇾 مرحبا | 🇺🇸 Hello' },
+  { name: { ar: 'نموذج عبارات 36 — أفريقية 🇰🇪🇪🇹🇫🇮', en: 'Phrase model 36 — ', fr: 'Modèle phrases 36' }, text:
+'### 🇰🇪 السواحيلية\n' +
+'🇰🇪 Hujambo | 🇸🇾 مرحبا | 🇺🇸 Hello\n' +
+'===\n' +
+'### 🇪🇹 الأمهرية\n' +
+'🇪🇹 ሰላም | 🇸🇾 مرحبا | 🇺🇸 Hello\n' +
+'===\n' +
+'### 🇫🇮 الفنلندية\n' +
+'🇫🇮 Hei | 🇸🇾 مرحبا | 🇺🇸 Hello' },
 ];
 var TPL_PROLANG = [
   { name: { ar: 'نموذج بسيط — Simple', en: 'Simple', fr: 'Simple' }, text:
@@ -3073,7 +3233,64 @@ var TPL_TIMED = [
 '\n' +
 '5. 🇫🇷 T’en auras besoin.\n' +
 '🇸🇾 رح تحتاجه.\n' +
-'🇺🇸 You’ll need it.' }
+'🇺🇸 You’ll need it.' },
+  { name: { ar: 'نموذج ترجمة 4 — وقت ثم أسطر بأعلام', en: 'Caption model 4', fr: 'Modèle sous-titres 4' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes.\n' +
+'🇸🇾 ماريا، ما عاد معي دخان.\n' +
+'🇺🇸 Maria, I’m out of cigarettes.' },
+  { name: { ar: 'نموذج ترجمة 6 — أكواد FR:/AR:/EN:', en: 'Caption model 6', fr: 'Modèle sous-titres 6' }, text:
+'00:00 FR: Maria, j’ai plus de cigarettes.\n' +
+'AR: ماريا، ما عاد معي دخان.\n' +
+'EN: Maria, I’m out of cigarettes.' },
+  { name: { ar: 'نموذج ترجمة 7 — وقت + 🇪🇸', en: 'Caption model 7', fr: 'Modèle sous-titres 7' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇪🇸 María, ya no me quedan cigarrillos.' },
+  { name: { ar: 'نموذج ترجمة 8 — وقت + 🇩🇪', en: 'Caption model 8', fr: 'Modèle sous-titres 8' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇩🇪 Maria, ich habe keine Zigaretten mehr.' },
+  { name: { ar: 'نموذج ترجمة 9 — وقت + 🇵🇹', en: 'Caption model 9', fr: 'Modèle sous-titres 9' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇵🇹 Maria, já não tenho cigarros.' },
+  { name: { ar: 'نموذج ترجمة 10 — وقت + 🇷🇺', en: 'Caption model 10', fr: 'Modèle sous-titres 10' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇷🇺 Мария, у меня больше нет сигарет.' },
+  { name: { ar: 'نموذج ترجمة 11 — وقت + 🇮🇷', en: 'Caption model 11', fr: 'Modèle sous-titres 11' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇮🇷 ماریا، دیگر سیگار ندارم.' },
+  { name: { ar: 'نموذج ترجمة 12 — وقت + 🇹🇷', en: 'Caption model 12', fr: 'Modèle sous-titres 12' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇹🇷 Maria, artık sigaram kalmadı.' },
+  { name: { ar: 'نموذج ترجمة 13 — وقت + 🇮🇹', en: 'Caption model 13', fr: 'Modèle sous-titres 13' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇮🇹 Maria, non ho più sigarette.' },
+  { name: { ar: 'نموذج ترجمة 14 — وقت + 🇳🇱', en: 'Caption model 14', fr: 'Modèle sous-titres 14' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇳🇱 Maria, ik heb geen sigaretten meer.' },
+  { name: { ar: 'نموذج ترجمة 15 — وقت + 🇨🇳', en: 'Caption model 15', fr: 'Modèle sous-titres 15' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇨🇳 玛丽亚，我没有香烟了。' },
+  { name: { ar: 'نموذج ترجمة 16 — وقت + 🇯🇵', en: 'Caption model 16', fr: 'Modèle sous-titres 16' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇯🇵 マリア、もうタバコがない。' },
+  { name: { ar: 'نموذج ترجمة 17 — وقت + 🇰🇷', en: 'Caption model 17', fr: 'Modèle sous-titres 17' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇬🇧 Maria, I’m out of cigarettes. 🇰🇷 마리아, 담배가 다 떨어졌어.' },
+  { name: { ar: 'نموذج ترجمة 18 — أسطر أعلام + 🇬🇷', en: 'Caption model 18', fr: 'Modèle sous-titres 18' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes.\n' +
+'🇸🇾 ماريا، ما عاد معي دخان.\n' +
+'🇬🇧 Maria, I’m out of cigarettes.\n' +
+'🇬🇷 Μαρία, δεν έχω άλλα τσιγάρα.' },
+  { name: { ar: 'نموذج ترجمة 19 — أسطر أعلام + 🇵🇰', en: 'Caption model 19', fr: 'Modèle sous-titres 19' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes.\n' +
+'🇸🇾 ماريا، ما عاد معي دخان.\n' +
+'🇬🇧 Maria, I’m out of cigarettes.\n' +
+'🇵🇰 ماریا، میرے پاس سگریٹ ختم ہو گئے ہیں۔' },
+  { name: { ar: 'نموذج ترجمة 20 — وقت آسيوية بسطر واحد', en: 'Caption model 20', fr: 'Modèle sous-titres 20' }, text:
+'00:00 🇹🇭 สวัสดี 🇸🇾 مرحبا 🇺🇸 Hello\n' +
+'00:04 🇻🇳 Xin chào 🇸🇾 مرحبا 🇺🇸 Hello\n' +
+'00:08 🇮🇳 नमस्ते 🇸🇾 مرحبا 🇺🇸 Hello' },
+  { name: { ar: 'نموذج ترجمة 21 — وقت بسطر مستقل', en: 'Caption model 21', fr: 'Modèle sous-titres 21' }, text:
+'00:00\n' +
+'🇵🇱 Cześć 🇸🇾 مرحبا 🇺🇸 Hello\n' +
+'00:05\n' +
+'🇰🇪 Hujambo 🇸🇾 مرحبا 🇺🇸 Hello\n' +
+'00:10\n' +
+'🇮🇱 שלום 🇸🇾 مرحبا 🇺🇸 Hello' },
+  { name: { ar: 'نموذج ترجمة 22 — بداية ← نهاية 4 لغات', en: 'Caption model 22', fr: 'Modèle sous-titres 22' }, text:
+'00:08 --> 00:11 🇫🇷 Comment ça va ? 🇸🇾 كيفك؟ 🇬🇧 How are you? 🇺🇦 Як справи?\n' +
+'00:12 --> 00:15 🇸🇪 Hej 🇸🇾 مرحبا 🇬🇧 Hello 🇫🇮 Hei' },
+  { name: { ar: 'نموذج ترجمة 23 — وقت + لفظ 🔊', en: 'Caption model 23', fr: 'Modèle sous-titres 23' }, text:
+'00:00 🇫🇷 Bonjour 🇸🇾 مرحبا 🔊 بونجور\n' +
+'00:05 🇩🇪 Hallo | 🇸🇾 مرحبا | 🗣️ هالو' },
 ];
 var TPL_GROUPS = [
   { key: 'tplZeelang', items: TPL_ZEELANG },
