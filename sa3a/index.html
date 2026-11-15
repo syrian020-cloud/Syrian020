@@ -70,7 +70,7 @@ main{flex:1;overflow:auto;position:relative}
 .mini .wd,.mini .gd{display:grid;grid-template-columns:repeat(7,1fr);gap:1px}
 .mini .wd div{text-align:center;font-size:.5rem;color:var(--txt);opacity:.75;font-weight:700}
 .mini .gd div{text-align:center;font-size:.58rem;padding:1.5px 0;border-radius:4px;color:var(--txt)}
-.mini .gd div.tdy{background:var(--acc);color:#fff;font-weight:800}
+.mini .gd div.tdy{background:var(--acc);color:#fff;font-weight:800;border-radius:50%;outline:2px solid #fff;outline-offset:-2px;box-shadow:0 0 6px rgba(0,0,0,.35)}
 .mini .gd div.alrm{color:var(--ok);font-weight:800}
 #monthView{display:none}
 #monthView.on{display:block}
@@ -80,7 +80,7 @@ main{flex:1;overflow:auto;position:relative}
 #bigcal .wd,#bigcal .gd{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
 #bigcal .wd div{text-align:center;font-size:.75rem;color:var(--dim);font-weight:800;padding:4px 0}
 #bigcal .gd div{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;font-size:1rem;font-weight:600}
-#bigcal .gd div.tdy{background:var(--acc);color:#fff;font-weight:800}
+#bigcal .gd div.tdy{background:var(--acc);color:#fff;font-weight:800;outline:3px solid #fff;outline-offset:-3px;box-shadow:0 0 10px rgba(0,0,0,.3)}
 #bigcal .gd div.alrm span.dot{width:5px;height:5px;border-radius:50%;background:var(--ok);margin-top:2px}
 /* ---- timer ---- */
 .modesw{display:flex;gap:8px;justify-content:center;padding:12px 0}
