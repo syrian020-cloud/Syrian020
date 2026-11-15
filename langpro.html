@@ -66,13 +66,12 @@
   main { max-width: 860px; margin: 0 auto; padding: .8rem; }
 
   /* ---------- sites grid ---------- */
-  .stats-row { display: flex; flex-wrap: wrap; gap: .55rem; justify-content: center;
-    padding: .55rem .8rem .15rem; }
-  .stat { display: flex; align-items: center; gap: .4rem; background: var(--card);
-    border: 1.5px solid var(--line); border-radius: 999px; padding: .45rem 1rem;
-    font-weight: 800; font-size: .95rem; color: var(--txt); box-shadow: 0 3px 10px rgba(3,8,12,.2); }
-  .stat b { font-size: 1.05rem; }
-  .stat .s-em { font-size: 1.05rem; }
+  .stats-row { display: flex; flex-wrap: nowrap; gap: .4rem; justify-content: center;
+    align-items: stretch; padding: .55rem .8rem .15rem; }
+  .stat { display: flex; align-items: center; justify-content: center; gap: .35rem;
+    background: var(--card); border: 1.5px solid var(--line); border-radius: 999px;
+    padding: .42rem .7rem; font-weight: 800; font-size: .85rem; color: var(--txt);
+    white-space: nowrap; box-shadow: 0 3px 10px rgba(3,8,12,.2); }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(112px, 100%), 1fr)); gap: .7rem; }
   .site { background: var(--card); border: 1px solid var(--line); border-radius: 20px;
     padding: .95rem .55rem .75rem; cursor: pointer; display: flex; flex-direction: column;
