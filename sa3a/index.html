@@ -581,7 +581,7 @@ function wordsSpan(txt,lg){
  (txt||'').split(/\s+/).forEach(w=>{if(!w)return;
   const ws=document.createElement('span');ws.className='w';ws.textContent=w;let last=0;
   ws.onclick=e=>{e.stopPropagation();const now=Date.now();
-   if(now-last<330){openExt('https://www.google.com/search?q='+encodeURIComponent(w)+'&udm=50&hl='+st.lang)}
+   if(now-last<330){openExt('https://www.google.com/search?q='+encodeURIComponent(w+' clipart')+'&udm=2&hl='+st.lang)}
    else loopSpeak([{txt:w,lg}],ws);
    last=now};
   d.appendChild(ws);d.appendChild(document.createTextNode(' '))});
@@ -836,16 +836,15 @@ function renderPhrases(n){
   const bar=document.createElement('div');bar.className='phbar';
   const mkI=(cls,txt,fn)=>{const b=document.createElement('button');b.className='phic '+cls;b.textContent=txt;
    b.onclick=e=>{e.stopPropagation();fn(b)};bar.appendChild(b);return b};
+  const segLoop=btn=>{if(!(md&&md.src&&p.t))return false;
+   if(btn.classList.contains('speaking')){btn.classList.remove('speaking');md._seg=null;md.pause();return true}
+   document.querySelectorAll('.phnum.speaking,.phic.speaking').forEach(x=>x.classList.remove('speaking'));
+   const nx=nextCue(n,p);md._once=null;md._seg={start:tSec(p.t),end:nx?tSec(nx.t):md.duration||1e9};
+   md.currentTime=md._seg.start;md.play().catch(()=>{});
+   md.onended=()=>{md._seg=null;btn.classList.remove('speaking')};
+   btn.classList.add('speaking');return true};
   if(p.t){const tp=document.createElement('button');tp.className='phnum';tp.textContent=p.t.split('→')[0].trim();
-   tp.onclick=e=>{e.stopPropagation();
-    if(md&&md.src){
-     if(tp.classList.contains('speaking')){tp.classList.remove('speaking');md._seg=null;md.pause();return}
-     document.querySelectorAll('.phnum.speaking').forEach(x=>x.classList.remove('speaking'));
-     const nx=nextCue(n,p);md._once=null;md._seg={start:tSec(p.t),end:nx?tSec(nx.t):md.duration||1e9};
-     md.currentTime=md._seg.start;md.play().catch(()=>{});
-     md.onended=()=>{md._seg=null;tp.classList.remove('speaking')};
-     tp.classList.add('speaking');return}
-    loopSpeak(rows,tp)};
+   tp.onclick=e=>{e.stopPropagation();if(!segLoop(tp))loopSpeak(rows,tp)};
    bar.appendChild(tp)}
   mkI('ic-note',p.note?'📔':'📓',b=>{
    const ex=c.querySelector('.phn-note');if(ex){ex.remove();return}
