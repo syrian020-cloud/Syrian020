@@ -261,13 +261,30 @@
     var loc = TTS_LOCALE[lang] || (lang || 'fr');
     var rate = Math.max(0.5, Math.min(2, api.speed || 1));
     curTts = true;
+    // speak in sentence-sized chunks so long paragraphs aren't truncated
+    var parts = [];
+    var rest = String(text || '');
+    while (rest.length > 400) {
+      var cut = rest.lastIndexOf('. ', 400);
+      if (cut < 80) cut = rest.lastIndexOf(' ', 400);
+      if (cut < 80) cut = 400;
+      parts.push(rest.slice(0, cut + 1));
+      rest = rest.slice(cut + 1);
+    }
+    if (rest.trim()) parts.push(rest);
+    var i = 0;
     function done() { curTts = false; }
-    return tp.speak({ text: String(text || '').slice(0, 400), lang: loc, rate: rate, pitch: 1, volume: 1 })
-      .catch(function (e) {
-        if (loc === (lang || 'fr')) throw e;
-        return tp.speak({ text: String(text || '').slice(0, 400), lang: lang || 'fr', rate: rate, pitch: 1, volume: 1 });
-      })
-      .then(done, function (e) { done(); throw e; });
+    function one() {
+      if (!curTts || i >= parts.length) return undefined;
+      var txt = parts[i++];
+      return tp.speak({ text: txt, lang: loc, rate: rate, pitch: 1, volume: 1 })
+        .catch(function (e) {
+          if (loc === (lang || 'fr')) throw e;
+          return tp.speak({ text: txt, lang: lang || 'fr', rate: rate, pitch: 1, volume: 1 });
+        })
+        .then(function () { return one(); });
+    }
+    return Promise.resolve(one()).then(done, function (e) { done(); throw e; });
   }
   // ----------------------------------------------------------------------------
 
