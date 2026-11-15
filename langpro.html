@@ -1606,7 +1606,7 @@ function drawCuePills(cx, rows, W, H, hi) {
   });
   var PAD = W * 0.06, MAXW = W - 2 * PAD;
   function lh(f) { return f * 1.4; }
-  var base = Math.min(H / 4.4, W / 18);
+  var base = Math.min(H / 4.4, W / 18) * capFs;
   function layout(f) {
     var lines = [], y = 0, gap = f * 0.35;
     items.forEach(function (it) {
