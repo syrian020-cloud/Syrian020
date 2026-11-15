@@ -683,7 +683,7 @@ var I18N = {
     lockWrong: 'الرمز غير صحيح', lockNoMatch: 'الرمزان غير متطابقين', lockNeedPin: 'الرمز يجب أن يكون 4 أرقام',
     pinSaved: 'تم حفظ رمز الدخول', unlocked: 'تم حذف رمز الدخول',
     lessons: 'الدروس', addLesson: 'درس جديد', noLessons: 'لا دروس بعد', lName: 'اسم الدرس',
-    pickVideo: 'فيديو', pickAudio: 'صوت', noMedia: 'بدون وسائط', delLessonQ: 'حذف هذا الدرس؟', delCueQ: 'حذف هذا السطر؟',
+    pickVideo: 'فيديو', pickAudio: 'صوت', noMedia: 'بدون وسائط', delLessonQ: 'حذف هذا الدرس؟', lMedia: 'الوسائط', lText: 'النص', repMedia: '🔄 استبدال', delMediaQ: 'حذف الوسائط؟', delCueQ: 'حذف هذا السطر؟',
     cueAdd: 'إضافة سطر', cueTime: 'الوقت (mm:ss)', cueNow: 'عند الموضع الحالي', cueLines: 'سطر',
     timedTitle: 'لصق نص مؤقت', timedHelp: 'كل سطر: 00:01 النص أو 00:01 --> 00:04 النص', timedAdd: 'إضافة الأسطر', errTimed: 'لم يُعثر على أسطر مؤقتة', modelsTitle: 'نماذج الصيغ',
     tplZeelang: 'نماذج Zeelang — صيغ مقبولة', tplProlang: 'نماذج ProLang', tplTimed: 'نماذج مؤقّتة — فيديو / صوت 🎬',
@@ -726,7 +726,7 @@ var I18N = {
     lockWrong: 'Code incorrect', lockNoMatch: 'Les codes ne correspondent pas', lockNeedPin: 'Le code doit avoir 4 chiffres',
     pinSaved: 'Code enregistré', unlocked: 'Code supprimé',
     lessons: 'Leçons', addLesson: 'Nouvelle leçon', noLessons: 'Pas encore de leçons', lName: 'Nom de la leçon',
-    pickVideo: 'Vidéo', pickAudio: 'Audio', noMedia: 'Sans média', delLessonQ: 'Supprimer cette leçon ?', delCueQ: 'Supprimer cette ligne ?',
+    pickVideo: 'Vidéo', pickAudio: 'Audio', noMedia: 'Sans média', delLessonQ: 'Supprimer cette leçon ?', lMedia: 'Média', lText: 'Texte', repMedia: '🔄 Remplacer', delMediaQ: 'Supprimer le média ?', delCueQ: 'Supprimer cette ligne ?',
     cueAdd: 'Ajouter une ligne', cueTime: 'Temps (mm:ss)', cueNow: 'À la position actuelle', cueLines: 'lignes',
     timedTitle: 'Coller du texte synchronisé', timedHelp: 'Chaque ligne : 00:01 texte ou 00:01 --> 00:04 texte', timedAdd: 'Ajouter les lignes', errTimed: 'Aucune ligne synchronisée trouvée', modelsTitle: 'Modèles de format',
     tplZeelang: 'Modèles Zeelang — formats acceptés', tplProlang: 'Modèles ProLang', tplTimed: 'Modèles synchronisés — vidéo / audio 🎬',
@@ -769,7 +769,7 @@ var I18N = {
     lockWrong: 'Wrong passcode', lockNoMatch: 'Passcodes do not match', lockNeedPin: 'Passcode must be 4 digits',
     pinSaved: 'Passcode saved', unlocked: 'Passcode removed',
     lessons: 'Lessons', addLesson: 'New lesson', noLessons: 'No lessons yet', lName: 'Lesson name',
-    pickVideo: 'Video', pickAudio: 'Audio', noMedia: 'No media', delLessonQ: 'Delete this lesson?', delCueQ: 'Delete this line?',
+    pickVideo: 'Video', pickAudio: 'Audio', noMedia: 'No media', delLessonQ: 'Delete this lesson?', lMedia: 'Media', lText: 'Text', repMedia: '🔄 Replace', delMediaQ: 'Delete media?', delCueQ: 'Delete this line?',
     cueAdd: 'Add line', cueTime: 'Time (mm:ss)', cueNow: 'At current position', cueLines: 'lines',
     timedTitle: 'Paste timed text', timedHelp: 'Each line: 00:01 text or 00:01 --> 00:04 text', timedAdd: 'Add lines', errTimed: 'No timed lines found', modelsTitle: 'Format models',
     tplZeelang: 'Zeelang templates — accepted formats', tplProlang: 'ProLang templates', tplTimed: 'Timed templates — video / audio 🎬',
@@ -2081,6 +2081,143 @@ function addLessonDialog(siteId, onDone) {
   d.appendChild(r); ov.appendChild(d);
   setTimeout(function () { try { inp.focus(); } catch (e) {} }, 200);
 }
+function lessonDetails(l, refresh, onDelete, reopen) {
+  var t = T();
+  var ov = pushOv(4600);
+  var d = el('div', 'dlg');
+  d.style.maxHeight = '82vh'; d.style.overflowY = 'auto';
+  d.appendChild(el('p', null, '✏️ ' + t.renameLesson));
+  var f = el('div', 'field');
+  var inp = document.createElement('input');
+  inp.value = l.name || ''; inp.dir = 'auto';
+  f.appendChild(inp); d.appendChild(f);
+  var iconInp = document.createElement('input');
+  iconInp.type = 'hidden'; iconInp.value = l.icon || '';
+  var irow = el('div', 'frow'); irow.style.marginTop = '.55rem';
+  var iprev = el('div', 'licprev');
+  var paintPrev = function () {
+    iprev.innerHTML = '';
+    if (iconInp.value) { var im = new Image(); im.src = iconInp.value; iprev.appendChild(im); }
+  };
+  var ib = el('button', 'mini', '🖼 ' + t.pickImg);
+  ib.onclick = function () { pickIconImage(iconInp, paintPrev); };
+  var iclear = el('button', 'mini', '🗑');
+  iclear.onclick = function () { iconInp.value = ''; paintPrev(); };
+  irow.appendChild(ib); irow.appendChild(iclear); irow.appendChild(iprev);
+  d.appendChild(irow);
+  paintPrev();
+  // ---- media: show what the lesson carries and let it be replaced/removed
+  d.appendChild(el('div', 'flabel', '🎬 ' + t.lMedia));
+  var mrow = el('div', 'frow'); mrow.style.flexWrap = 'wrap'; mrow.style.gap = '.45rem';
+  var mime = String(l.mime || '');
+  if (l.blob) {
+    var prev = el('div');
+    prev.style.cssText = 'width:100%;text-align:center;';
+    if (mime.indexOf('video/') === 0) {
+      var v = document.createElement('video');
+      v.src = URL.createObjectURL(l.blob); v.controls = true; v.muted = true;
+      v.style.cssText = 'max-width:100%;max-height:180px;border-radius:10px;background:#000';
+      prev.appendChild(v);
+    } else if (mime.indexOf('audio/') === 0) {
+      var a = document.createElement('audio');
+      a.src = URL.createObjectURL(l.blob); a.controls = true;
+      a.style.width = '100%';
+      prev.appendChild(a);
+    } else {
+      var im2 = new Image();
+      im2.src = URL.createObjectURL(l.blob);
+      im2.style.cssText = 'max-width:100%;max-height:180px;border-radius:10px';
+      prev.appendChild(im2);
+    }
+    d.appendChild(prev);
+    var rb = el('button', 'mini', t.repMedia);
+    rb.onclick = function () {
+      var fi = document.createElement('input');
+      fi.type = 'file'; fi.accept = 'video/*,audio/*,image/*';
+      fi.onchange = function () {
+        var fl = fi.files[0]; if (!fl) return;
+        l.blob = fl; l.mime = fl.type || '';
+        lSave(l); ov.remove();
+        if (reopen) reopen();
+      };
+      fi.click();
+    };
+    mrow.appendChild(rb);
+    var db2 = el('button', 'mini', '🗑');
+    db2.onclick = function () {
+      confirmDialog(t.delMediaQ, t.delYes, function () {
+        l.blob = null; l.mime = ''; lSave(l); ov.remove();
+        if (reopen) reopen();
+      }, true);
+    };
+    mrow.appendChild(db2);
+    var mnm = el('span', null, mime.indexOf('video/') === 0 ? '🎬 ' + t.pickVideo : mime.indexOf('audio/') === 0 ? '🎵 ' + t.pickAudio : '🖼');
+    mnm.style.cssText = 'align-self:center;font-size:.8rem;color:var(--dim)';
+    mrow.appendChild(mnm);
+  } else {
+    var add = el('button', 'mini', '➕ ' + t.lMedia);
+    add.onclick = function () {
+      var fi = document.createElement('input');
+      fi.type = 'file'; fi.accept = 'video/*,audio/*,image/*';
+      fi.onchange = function () {
+        var fl = fi.files[0]; if (!fl) return;
+        l.blob = fl; l.mime = fl.type || '';
+        lSave(l); ov.remove();
+        if (reopen) reopen();
+      };
+      fi.click();
+    };
+    mrow.appendChild(add);
+    var nm = el('span', null, t.noMedia);
+    nm.style.cssText = 'align-self:center;font-size:.8rem;color:var(--dim)';
+    mrow.appendChild(nm);
+  }
+  d.appendChild(mrow);
+  if (l.cover) {
+    var covr = el('div', 'frow'); covr.style.marginTop = '.3rem';
+    var cim = new Image(); cim.src = l.cover;
+    cim.style.cssText = 'max-height:80px;border-radius:8px';
+    covr.appendChild(cim);
+    covr.appendChild(el('span', null, '🖼'));
+    d.appendChild(covr);
+  }
+  // ---- text: every timed line of the lesson
+  d.appendChild(el('div', 'flabel', '📝 ' + t.lText));
+  var tb = el('div');
+  tb.style.cssText = 'max-height:180px;overflow-y:auto;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.5rem .7rem;font-size:.82rem;line-height:1.6;';
+  var csAll = sortedCues(l);
+  if (!csAll.length) tb.appendChild(el('div', null, '…'));
+  csAll.forEach(function (c) {
+    var ln = el('div', null, (c.t != null ? fmtT(c.t) + '  ' : '') + (c.text || ''));
+    ln.dir = 'auto';
+    tb.appendChild(ln);
+  });
+  d.appendChild(tb);
+  var r = el('div', 'row'); r.style.marginTop = '.8rem';
+  if (onDelete) {
+    var del = el('button', null, '🗑 ' + (t.delYes || ''));
+    del.onclick = function () {
+      confirmDialog(t.delLessonQ, t.delYes, function () {
+        IDB.ldel(l.id).catch(function () {});
+        if (l.siteId) lessonMap[l.siteId] = (lessonMap[l.siteId] || []).filter(function (x) { return x.id !== l.id; });
+        renderGrid();
+        document.querySelectorAll('.lov, .llist').forEach(function (v) { if (v._lrefresh) v._lrefresh(); });
+        ov.remove();
+        onDelete();
+      }, true);
+    };
+    r.appendChild(del);
+  }
+  var no = el('button', null, t.no); no.onclick = function () { ov.remove(); };
+  var yes = el('button', 'yes', t.save);
+  yes.onclick = function () {
+    var v = inp.value.trim();
+    if (v) { l.name = v; l.icon = iconInp.value; lSave(l); if (refresh) refresh(); renderGrid(); }
+    ov.remove();
+  };
+  r.appendChild(no); r.appendChild(yes); d.appendChild(r); ov.appendChild(d);
+}
+
 function renameLesson(l, refresh, onDelete) {
   var t = T();
   var ov = pushOv(4600);
@@ -2628,11 +2765,15 @@ function openLesson(l) {
   top.appendChild(dk);
   var rn = el('button', 'iconbtn', '✏');
   rn.onclick = function () {
-    renameLesson(l, function () { ov.querySelector('.lt').textContent = l.name || t.lName; }, function () {
+    lessonDetails(l, function () { ov.querySelector('.lt').textContent = l.name || t.lName; }, function () {
       stopSpeakLoop();
       if (recState) { try { recState.rec.stop(); } catch (e) {} }
       if (curPlayer === player) curPlayer = null;
       ov.remove();
+    }, function () {
+      if (recState) { try { recState.rec.stop(); } catch (e) {} }
+      if (curPlayer === player) curPlayer = null;
+      ov.remove(); openLesson(l);
     });
   };
   top.appendChild(rn);
@@ -2920,6 +3061,16 @@ function openLesson(l) {
       applySpeed();
     };
     tools.appendChild(spd);
+    var ntb = el('button', 'mini', '📓');
+    ntb.title = 'notebook';
+    ntb.onclick = function () {
+      var rows = [];
+      sortedCues(l).forEach(function (c) {
+        cueLangLines(c.text || '').forEach(function (rr) { if (rr.text) rows.push(rr); });
+      });
+      openNote('lesson-' + l.id, rows);
+    };
+    tools.appendChild(ntb);
     ov.appendChild(tools);
   }
   var list = el('div', 'lov-cues');
