@@ -1403,6 +1403,68 @@ var CAP_THEMES = [
     ar: { bg: '#fff', bd: '#e2e8f0', fg: '#0f172a', font: "'Noto Naskh Arabic','Segoe UI',serif", it: false },
     en: { bg: '#fff', bd: '#e2e8f0', fg: '#334155', font: "'Segoe UI',sans-serif", it: false },
     x:  { bg: '#fff', bd: '#e2e8f0', fg: '#334155', font: 'Georgia, serif', it: false } }
+  ,
+  // --- 10 extra eye-friendly themes (soft, low-contrast palettes, each with its own fonts) ---
+  // "lavender mist" — serif نسخي / Georgia italic
+  { bar: '#eae4f7',
+    fr: { bg: '#ede7f8', bd: '#cdc0e8', fg: '#4c3f72', font: 'Georgia, serif', it: true },
+    ar: { bg: '#e3dcf5', bd: '#c4b2e3', fg: '#3f3464', font: "'Noto Naskh Arabic',serif", it: false },
+    en: { bg: '#f2eefb', bd: '#d9cdf0', fg: '#4c3f72', font: "'Palatino','Palatino Linotype',serif", it: false },
+    x:  { bg: '#ede7f8', bd: '#cdc0e8', fg: '#4c3f72', font: 'Georgia, serif', it: true } },
+  // "sage" — Verdana + كوفي
+  { bar: '#dfe9dd',
+    fr: { bg: '#e3ecdf', bd: '#b8cdb0', fg: '#3c5140', font: 'Verdana, sans-serif', it: false },
+    ar: { bg: '#d4e2cf', bd: '#a9c4a2', fg: '#33493a', font: "'Noto Kufi Arabic',sans-serif", it: false },
+    en: { bg: '#ecf3e8', bd: '#c6d9be', fg: '#3c5140', font: 'Verdana, sans-serif', it: false },
+    x:  { bg: '#e3ecdf', bd: '#b8cdb0', fg: '#3c5140', font: 'Verdana, sans-serif', it: false } },
+  // "sepia" — كامل سيريف كلاسيكي
+  { bar: '#efe6d5',
+    fr: { bg: '#f1e9d8', bd: '#d6c7a8', fg: '#5b4a2f', font: "'Palatino','Palatino Linotype',serif", it: true },
+    ar: { bg: '#ece2cc', bd: '#cfb98f', fg: '#54412a', font: "'Noto Naskh Arabic','Traditional Arabic',serif", it: false },
+    en: { bg: '#f6efe0', bd: '#ddd0b5', fg: '#5b4a2f', font: "'Palatino','Palatino Linotype',serif", it: false },
+    x:  { bg: '#f1e9d8', bd: '#d6c7a8', fg: '#5b4a2f', font: "'Palatino','Palatino Linotype',serif", it: false } },
+  // "slate calm" — Trebuchet + Segoe
+  { bar: '#dde5ee',
+    fr: { bg: '#e2e9f2', bd: '#b7c5d8', fg: '#33475e', font: "'Trebuchet MS',sans-serif", it: false },
+    ar: { bg: '#d5dfec', bd: '#a9bcd4', fg: '#2c405a', font: "'Noto Kufi Arabic',sans-serif", it: false },
+    en: { bg: '#eaf0f7', bd: '#c4d1e2', fg: '#33475e', font: "'Trebuchet MS',sans-serif", it: false },
+    x:  { bg: '#e2e9f2', bd: '#b7c5d8', fg: '#33475e', font: "'Trebuchet MS',sans-serif", it: false } },
+  // "sand" — Book Antiqua / Times
+  { bar: '#f0e7d7',
+    fr: { bg: '#f3ebdb', bd: '#dccfae', fg: '#6b5433', font: "'Book Antiqua','Times New Roman',serif", it: true },
+    ar: { bg: '#eee3cc', bd: '#d5c399', fg: '#634e2e', font: "'Noto Naskh Arabic','Traditional Arabic',serif", it: false },
+    en: { bg: '#f7f1e3', bd: '#e3d6b9', fg: '#6b5433', font: "'Times New Roman',serif", it: false },
+    x:  { bg: '#f3ebdb', bd: '#dccfae', fg: '#6b5433', font: "'Book Antiqua','Times New Roman',serif", it: false } },
+  // "dusk" — Segoe UI خفيف على الغامق
+  { bar: '#2a2a3a',
+    fr: { bg: '#2e2e40', bd: '#4a4a66', fg: '#c9c9e0', font: "'Segoe UI',sans-serif", it: false },
+    ar: { bg: '#2a2a3a', bd: '#464662', fg: '#cfcfeb', font: "'Noto Kufi Arabic',sans-serif", it: false },
+    en: { bg: '#32324a', bd: '#505070', fg: '#c9c9e0', font: "'Segoe UI',sans-serif", it: false },
+    x:  { bg: '#2e2e40', bd: '#4a4a66', fg: '#c9c9e0', font: "'Segoe UI',sans-serif", it: false } },
+  // "mint cream" — Candara ناعم
+  { bar: '#d9f2e4',
+    fr: { bg: '#dcf3e6', bd: '#aadcc0', fg: '#235a41', font: 'Candara, Calibri, sans-serif', it: false },
+    ar: { bg: '#cfefd9', bd: '#9ad4b2', fg: '#1e523b', font: "'Noto Naskh Arabic',serif", it: false },
+    en: { bg: '#e6f7ec', bd: '#b9e3c9', fg: '#235a41', font: 'Candara, Calibri, sans-serif', it: false },
+    x:  { bg: '#dcf3e6', bd: '#aadcc0', fg: '#235a41', font: 'Candara, Calibri, sans-serif', it: false } },
+  // "blush" — Georgia دائري ناعم
+  { bar: '#f5e0e2',
+    fr: { bg: '#f7e4e5', bd: '#e2b7ba', fg: '#7c4048', font: "'Comic Sans MS','Segoe UI',cursive", it: false },
+    ar: { bg: '#f3d9db', bd: '#daa9ad', fg: '#73383f', font: "'Noto Naskh Arabic',serif", it: false },
+    en: { bg: '#faeceb', bd: '#e9c4c5', fg: '#7c4048', font: "'Comic Sans MS','Segoe UI',cursive", it: false },
+    x:  { bg: '#f7e4e5', bd: '#e2b7ba', fg: '#7c4048', font: "'Comic Sans MS','Segoe UI',cursive", it: false } },
+  // "olive" — Courier/Times ممزوج
+  { bar: '#e6e8d2',
+    fr: { bg: '#eaebcf', bd: '#c9cd9f', fg: '#4c5024', font: "'Courier New',monospace", it: false },
+    ar: { bg: '#e2e4c4', bd: '#bfc490', fg: '#474b20', font: "'Noto Naskh Arabic','Traditional Arabic',serif", it: false },
+    en: { bg: '#f0f1da', bd: '#d2d5ac', fg: '#4c5024', font: "'Courier New',monospace", it: false },
+    x:  { bg: '#eaebcf', bd: '#c9cd9f', fg: '#4c5024', font: "'Courier New',monospace", it: false } },
+  // "midnight soft" — Arial نظيف على كحلي
+  { bar: '#1c2634',
+    fr: { bg: '#202c3d', bd: '#3d5269', fg: '#a8c4dd', font: 'Arial, sans-serif', it: false },
+    ar: { bg: '#1c2736', bd: '#37495e', fg: '#b6cee2', font: "'Noto Kufi Arabic',sans-serif", it: false },
+    en: { bg: '#243145', bd: '#435a73', fg: '#a8c4dd', font: 'Arial, sans-serif', it: false },
+    x:  { bg: '#202c3d', bd: '#3d5269', fg: '#a8c4dd', font: 'Arial, sans-serif', it: false } }
 ];
 var capThemeIdx = parseInt(localStorage.getItem('langpro_captheme') || '0', 10) || 0;
 if (capThemeIdx < 0 || capThemeIdx >= CAP_THEMES.length) capThemeIdx = 0;
@@ -4091,7 +4153,6 @@ function openMenu() {
   } else {
     row('🔒', t.lockSet, function () { closeOv(); pinSetup(); });
   }
-  row('📚', t.libTitle, function () { closeOv(); openLibrary(); });
   if (window.EdgeTTS) row('🎙', t.voiceSet || 'Edge TTS', function () { closeOv(); EdgeTTS.openSettings(); });
   row('⬇', t.exportData, function () { closeOv(); exportData(); });
   row('⬆', t.importData, function () { closeOv(); importData(); });
