@@ -1685,7 +1685,7 @@ function ring(a){
  $('ringStop').textContent=t('ringSolve');$('ringSnooze').textContent=t('ringSnooze');
  $('ringShade').classList.add('on');
  const au=$('ringAudio');au.src=soundURL(a);au.loop=true;au.play().catch(()=>{});
- if(a.vib!==false&&navigator.vibrate){const vib=()=>navigator.vibrate([600,300,600,300]);vib();ringCard._vi=setInterval(vib,1800)}
+ clearInterval(ringCard._vi);if(a.vib!==false&&navigator.vibrate){const vib=()=>{if(!$('ringShade').classList.contains('on')){clearInterval(ringCard._vi);navigator.vibrate(0);return}navigator.vibrate([600,300,600,300])};vib();ringCard._vi=setInterval(vib,1800)}
  ringCard._sp=true;const d=new Date(),hr=d.getHours(),mn=d.getMinutes(),h12=hr%12||12;
  const wl=st.lang==='ar'?'ar':st.lang==='fr'?'fr':'en';
  const loc=wl==='ar'?'ar':wl==='fr'?'fr-FR':'en-US';
