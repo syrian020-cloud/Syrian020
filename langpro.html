@@ -2650,7 +2650,7 @@ function openLesson(l) {
     nowEl = el('div', 'cue-now');
     ov.appendChild(nowEl);
     var tools = el('div', 'cue-tools');
-    if (isV) {
+    {
       var cvr = el('button', 'mini', '🖼');
       cvr.title = 'cover';
       cvr.onclick = function () {
@@ -2686,7 +2686,7 @@ function openLesson(l) {
     rc.title = 'clip';
     rc.onclick = function () { recToggle(rc, player, sortedCues(l)); };
     tools.appendChild(rc);
-    if (sortedCues(l).length) {
+    {
       var nx = el('button', 'mini', '⏭');
       nx.title = 'next';
       nx.onclick = function () {
