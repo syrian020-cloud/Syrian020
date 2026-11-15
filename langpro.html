@@ -2607,19 +2607,24 @@ function openLesson(l) {
     player.src = URL.createObjectURL(l.blob);
     player.controls = true;
     player.onplay = function () { stopSpeakLoop(); };
+    var segLoopEnd = function () {
+      if (!SEG_LOOP.c) return 0;
+      var cs0 = sortedCues(l), i0 = cs0.indexOf(SEG_LOOP.c);
+      var e = i0 >= 0 ? cueEndAt(cs0, i0) : 1e9;
+      return Math.min(e, player.duration || e);
+    };
+    var segLoopRestart = function () {
+      if (!SEG_LOOP.c || SEG_LOOP.c.t == null) { stopSegLoop(); return; }
+      player.currentTime = SEG_LOOP.c.t;
+      var pr = player.play(); if (pr && pr.catch) pr.catch(function () {});
+    };
     player.onpause = function () {
-      // a cue-segment loop that reaches the media's end restarts instead of dying
-      if (SEG_LOOP.c && player.ended) {
-        if (SEG_LOOP.c.t < player.duration) {
-          player.currentTime = SEG_LOOP.c.t;
-          var pr = player.play(); if (pr && pr.catch) pr.catch(function () {});
-          return;
-        }
-        stopSegLoop();
-        return;
-      }
+      // a cue-segment loop whose segment ends restarts instead of dying —
+      // 'ended' is unreliable on Android WebView, so also catch pause-at-seg-end
+      if (SEG_LOOP.c && player.currentTime >= segLoopEnd() - .2) { segLoopRestart(); return; }
       stopSegLoop();
     };
+    player.addEventListener('ended', function () { if (SEG_LOOP.c) segLoopRestart(); });
     if (isV) player.setAttribute('playsinline', '');
     if (isV) {
       // blurred duplicate fills the side bars so a portrait video has no black edges
