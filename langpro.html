@@ -1342,6 +1342,7 @@ var SPEEDS = [1, 1.25, 1.5, 2, 0.5, 0.75];
 var playSpeed = parseFloat(localStorage.getItem('langpro_speed') || '1') || 1;
 var CAPFS = [.7, .8, .9, 1, 1.15, 1.3, 1.5, 1.75, 2];
 var capFs = parseFloat(localStorage.getItem('langpro_capfs') || '1') || 1;
+var capPos = parseInt(localStorage.getItem('langpro_cappos') || '0', 10) || 0;  // 0 bottom · 1 above bottom · 2 top
 function applyCapFs() {
   document.documentElement.style.setProperty('--capfs', capFs);
   document.querySelectorAll('.capfs-lbl').forEach(function (x) { x.textContent = capFs + '×'; });
@@ -1537,7 +1538,11 @@ function drawCuePills(cx, rows, W, H, hi) {
   var l = layout(base);
   var f0 = base;
   while (l.total > H * 0.7 && f0 > 10) { f0 *= 0.92; l = layout(f0); }
-  var lf = lh(f0), y = H - l.total - Math.round(H * 0.06), flagR = f0 * 0.8;
+  var lf = lh(f0), flagR = f0 * 0.8;
+  var y = capPos === 2 ? Math.round(H * 0.07)
+        : capPos === 1 ? H - l.total - Math.round(H * 0.28)
+        : H - l.total - Math.round(H * 0.06);
+  y = Math.max(Math.round(H * 0.04), Math.min(y, H - l.total - Math.round(H * 0.04)));
   l.lines.forEach(function (ln) {
     var p = cuePill(ln.it.lang);
     var pw = Math.min(MAXW, ln.tw + f0 * 1.7 + (ln.fl ? flagR * 2.2 : 0)), px = (W - pw) / 2, ph = lf;
@@ -2751,16 +2756,27 @@ function openLesson(l) {
       applyCapFs();
     };
     tools.appendChild(fup);
-    var spd = el('button', 'mini', playSpeed + '×');
-    spd.title = 'speed';
-    spd.onclick = function () {
-      var i = SPEEDS.indexOf(playSpeed);
-      playSpeed = SPEEDS[(i + 1) % SPEEDS.length];
-      try { localStorage.setItem('langpro_speed', String(playSpeed)); } catch (e) {}
-      spd.textContent = playSpeed + '×';
-      applySpeed();
+    var cpb = el('button', 'mini');
+    cpb.title = 'caption position';
+    function drawPosIcon() {
+      cpb.innerHTML = '';
+      var c2 = document.createElement('canvas');
+      c2.width = 34; c2.height = 34;
+      var g = c2.getContext('2d');
+      g.strokeStyle = 'rgba(255,255,255,.9)'; g.lineWidth = 2;
+      g.strokeRect(2.5, 4, 29, 26);
+      var by = capPos === 2 ? 8 : capPos === 1 ? 19 : 26;
+      g.fillStyle = '#f5c451';
+      g.fillRect(6, by, 22, 4.5);
+      cpb.appendChild(c2);
+    }
+    drawPosIcon();
+    cpb.onclick = function () {
+      capPos = (capPos + 1) % 3;
+      try { localStorage.setItem('langpro_cappos', String(capPos)); } catch (e) {}
+      drawPosIcon();
     };
-    tools.appendChild(spd);
+    tools.appendChild(cpb);
     ov.appendChild(tools);
   }
   var list = el('div', 'lov-cues');
