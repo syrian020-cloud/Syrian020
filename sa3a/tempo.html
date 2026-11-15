@@ -341,6 +341,17 @@ body:not(.light) .toast{background:#2a2e55}
 
   <!-- ============ PLANNING VIEW ============ -->
   <div id="view-plan" class="dview hidden"></div>
+  <div id="apptRing" class="ov mid hidden" style="z-index:99">
+    <div class="sheet" style="text-align:center">
+      <div style="font-size:3rem">⏰</div>
+      <div id="apptRingTitle" style="font-size:1.3rem;font-weight:700;margin:6px 0"></div>
+      <div id="apptRingSub" style="opacity:.7;margin-bottom:14px"></div>
+      <div style="display:flex;gap:8px;justify-content:center">
+        <button id="apptRingStop" class="btn" style="background:#d33;color:#fff"></button>
+        <button id="apptRingSnooze" class="btn"></button>
+      </div>
+    </div>
+  </div>
 
   <button class="fab" id="fab" title="+">+</button>
 </div>
@@ -405,7 +416,7 @@ const I18N = {
     needFields:'أدخل العنوان والتاريخ والوقت',
     cats:{health:'🩺 صحة',admin:'📋 إدارة',work:'💼 عمل',personal:'👤 شخصي',study:'📚 دراسة',other:'📌 أخرى'},
     notifBody24:m=>`غداً: ${m}`, notifBody12:m=>`بعد ١٢ ساعة: ${m}`, notifBody2:m=>`قريباً بعد ساعتين: ${m}`, notifBody0:m=>`حان الموعد الآن: ${m}`,
-    notifTitle:'⏰ تذكير بموعد', alarmPerm:'فعّل «المنبهات والتذكيرات» لـ Tempo حتى ترن الإشعارات بوقتها',
+    notifTitle:'⏰ تذكير بموعد', ringStop:'إيقاف', ringSnooze:'غفوة 10 دق', alarmPerm:'فعّل «المنبهات والتذكيرات» لـ Tempo حتى ترن الإشعارات بوقتها',
     cuesCount:n=>`${n} سطر`,
     samples:'نماذج النص المؤقّت', copy:'نسخ', copied:'تم النسخ',
     lFr:'الفرنسية', lAr:'العربية', lEn:'الإنجليزية',
@@ -472,7 +483,7 @@ const I18N = {
     needFields:'Titre, date et heure requis',
     cats:{health:'🩺 Santé',admin:'📋 Admin',work:'💼 Travail',personal:'👤 Perso',study:'📚 Études',other:'📌 Autre'},
     notifBody24:m=>`Demain : ${m}`, notifBody12:m=>`Dans 12 h : ${m}`, notifBody2:m=>`Dans 2 h : ${m}`, notifBody0:m=>`C'est l'heure : ${m}`,
-    notifTitle:'⏰ Rappel de rendez-vous', alarmPerm:'Autorisez «Alarmes et rappels» pour Tempo pour recevoir les notifications à l\'heure',
+    notifTitle:'⏰ Rappel de rendez-vous', ringStop:'Arrêter', ringSnooze:'Répéter 10 min', alarmPerm:'Autorisez «Alarmes et rappels» pour Tempo pour recevoir les notifications à l\'heure',
     cuesCount:n=>`${n} lignes`,
     samples:'Exemples de texte minuté', copy:'Copier', copied:'Copié',
     lFr:'français', lAr:'arabe', lEn:'anglais',
@@ -539,7 +550,7 @@ const I18N = {
     needFields:'Title, date and time are required',
     cats:{health:'🩺 Health',admin:'📋 Admin',work:'💼 Work',personal:'👤 Personal',study:'📚 Study',other:'📌 Other'},
     notifBody24:m=>`Tomorrow: ${m}`, notifBody12:m=>`In 12 h: ${m}`, notifBody2:m=>`In 2 h: ${m}`, notifBody0:m=>`It's time: ${m}`,
-    notifTitle:'⏰ Appointment reminder', alarmPerm:'Allow «Alarms & reminders» for Tempo so notifications ring on time',
+    notifTitle:'⏰ Appointment reminder', ringStop:'Stop', ringSnooze:'Snooze 10 min', alarmPerm:'Allow «Alarms & reminders» for Tempo so notifications ring on time',
     cuesCount:n=>`${n} lines`,
     samples:'Timed text samples', copy:'Copy', copied:'Copied',
     lFr:'French', lAr:'Arabic', lEn:'English',
@@ -948,6 +959,15 @@ async function scheduleReminders(a){
     if(list.length)await p.schedule({notifications:list});
   }catch(e){console.error('schedule',e);}
 }
+try{
+  const p=LN();
+  if(p&&p.addListener){
+    p.addListener('localNotificationReceived',n=>{
+      const id=n&&n.id;const a=appts.find(x=>{const b=nidBase(x.id);return id>=b&&id<=b+9});
+      if(a)startApptRing(a,n.body);
+    });
+  }
+}catch(e){}
 async function rescheduleAll(){
   const p=LN();
   if(p&&p.getPending){try{
@@ -959,6 +979,51 @@ async function rescheduleAll(){
   }catch(e){}}
   for(const a of appts)await scheduleReminders(a);
 }
+/* ==== in-app reminder ring: alarm sound + spoken loop (like Sa3a timer) ==== */
+let ringAppt=null, ringAudio=null;
+function apptSpeakLines(a){
+  const d=a.date?new Date(a.date+'T'+(a.time||'09:00')):null;
+  const dstr=a.date||'';
+  return[
+    ['fr','Rappel de rendez-vous : '+a.title+'. '+dstr+(a.time?' à '+a.time:'')+(a.place?'. Lieu : '+a.place:'')],
+    ['ar','تذكير بموعد: '+a.title+'. '+dstr+(a.time?' في '+a.time:'')+(a.place?'. المكان: '+a.place:'')],
+    ['en','Appointment reminder: '+a.title+'. '+dstr+(a.time?' at '+a.time:'')+(a.place?'. Place: '+a.place:'')]
+  ];
+}
+async function startApptRing(a,msg){
+  if(ringAppt)return;
+  ringAppt=a;
+  $('#apptRingTitle').textContent='⏰ '+a.title;
+  $('#apptRingSub').textContent=msg||((a.date||'')+' '+(a.time||''));
+  $('#apptRingStop').textContent='■ '+t('ringStop');
+  $('#apptRingSnooze').textContent='😴 '+t('ringSnooze');
+  $('#apptRing').classList.remove('hidden');
+  try{ringAudio=new Audio('sounds/alarm_beep.mp3');ringAudio.loop=true;ringAudio.play().catch(()=>{});}catch(e){}
+  ttsStop();
+  const lines=apptSpeakLines(a);
+  const order=[lang,'fr','ar','en'].filter((v,i,arr)=>arr.indexOf(v)===i);
+  const seq=order.map(l=>lines.find(x=>x[0]===l)).filter(Boolean);
+  const run=ttsRun;let i=0;
+  const step=()=>{
+    if(run!==ttsRun||ringAppt!==a)return;
+    const ln=seq[i];i=(i+1)%seq.length;
+    ttsSpeak(ln[1],ln[0],step);
+  };
+  step();
+}
+function stopApptRing(){
+  ringAppt=null;ttsStop();
+  if(ringAudio){try{ringAudio.pause();}catch(e){}ringAudio=null;}
+  $('#apptRing').classList.add('hidden');
+}
+$('#apptRingStop').onclick=stopApptRing;
+$('#apptRingSnooze').onclick=()=>{
+  const a=ringAppt;stopApptRing();
+  if(a&&LN()){
+    try{const b=nidBase(a.id)+9;
+      LN().schedule({notifications:[{id:b,title:t('notifTitle'),body:t('notifBody0')(a.title),channelId:'tempo-alerts-v2',sound:'tempo_alert',schedule:{at:new Date(Date.now()+10*60e3)}}]});}catch(e){}
+  }
+};
 /* browser fallback: check due reminders every 30s while app is open */
 setInterval(()=>{
   if(LN())return;
@@ -969,8 +1034,9 @@ setInterval(()=>{
     [[0,'notifBody0'],[2*3600e3,'notifBody2'],[12*3600e3,'notifBody12'],[24*3600e3,'notifBody24']].forEach(([o,k],i)=>{
       const key=a.id+':'+i;
       if(!s.has(key)&&Date.now()>=when-o&&when>Date.now()-30e3){
-        markFired(key);notifBeep();
+        markFired(key);
         const msg=t(k)(a.title);
+        startApptRing(a,msg);notifBeep();
         if('Notification' in window&&Notification.permission==='granted'){
           try{new Notification(t('notifTitle'),{body:msg,icon:'icon-tempo-192.png'});}catch(e){toast(msg);}
         }else toast('⏰ '+msg);
