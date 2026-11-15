@@ -757,6 +757,31 @@ function aiSearchQuery(m,mainLang){
   '3) Provide a short practical conversation in '+names.join(', ')+' using this phrase so it can be memorized as a conversation.\n'+
   'Output in '+names.join(', ')+'.';
  return q}
+/* French time in words: formal (24h) + daily (12h) */
+const FRN=['zéro','une','deux','trois','quatre','cinq','six','sept','huit','neuf','dix','onze','douze','treize','quatorze','quinze','seize','dix-sept','dix-huit','dix-neuf'];
+const FRT=['','','vingt','trente','quarante','cinquante','soixante'];
+function frNum(n){if(n<20)return FRN[n];const t=Math.floor(n/10),u=n%10;
+ if(t===7||t===9)return (t===7?'soixante':'quatre-vingt')+'-'+FRN[10+u];
+ let s=FRT[t];if(u===1&&t!==8)s+='-et-une';else if(u===0)s+= t===8?'s':'';else s+='-'+FRN[u];return s}
+function frHeure(h){return h===1?'une heure':h===0?'zéro heure':frNum(h)+' heures'}
+function frTimeFormal(h,m){let s='Il est '+frHeure(h);if(m)s+=' '+frNum(m);return s}
+function frTimeDaily(h,m){
+ if(m===0){if(h===12)return 'Il est midi';if(h===0)return 'Il est minuit';
+  const h12=h%12;let s='Il est '+frHeure(h12);
+  if(h===13)return 'Il est une heure de l’après-midi';
+  if(h>=17)return s+' du soir';
+  if(h>12)return s+' de l’après-midi';
+  return s+' du matin'}
+ const suf=h>=17?' du soir':h>=13?' de l’après-midi':' du matin';
+ if(m<=30){const h12=h%12;let s='Il est '+frHeure(h12);
+  if(m===15)s+=' et quart';else if(m===30)s+=' et demie';else s+=' '+frNum(m);
+  return s+suf}
+ const nx=(h+1)%24,nn=nx%12;let s='Il est '+frHeure(nn)+' moins ';const d=60-m;
+ if(d===15)s+='le quart';else s+=frNum(d);
+ if(nx===0)return 'Il est minuit moins '+(d===15?'le quart':frNum(d));
+ if(nx===12)return 'Il est midi moins '+(d===15?'le quart':frNum(d));
+ return s+suf}
+
 /* ================= games (prolang: matching / listening / read&repeat) ================= */
 const gspeak=(txt,lang,el)=>loopSpeak([{txt,lg:lang}],el);
 function gspeakOnce(txt,lang){
@@ -1645,7 +1670,7 @@ function ring(a){
  if(a.vib!==false&&navigator.vibrate){const vib=()=>navigator.vibrate([600,300,600,300]);vib();ringCard._vi=setInterval(vib,1800)}
  ringCard._sp=true;const d=new Date(),hr=d.getHours(),mn=d.getMinutes(),h12=hr%12||12;
  const wl=st.lang==='ar'?'ar':st.lang==='fr'?'fr':'en';
- const wtxt={fr:'Il est '+hr+' heures'+(mn?' '+mn:'')+'. '+t('wake2'),
+ const wtxt={fr:frTimeFormal(hr,mn)+'. '+frTimeDaily(hr,mn)+'. '+t('wake2'),
   ar:'الساعة الآن '+h12+(mn?' و '+mn+' دقيقة':' تمامًا')+(hr<12?' صباحًا.':' مساءً. ')+t('wake2'),
   en:'It is now '+h12+(mn?' '+(mn<10?'oh '+mn:''+mn):' o clock')+(hr<12?' AM. ':' PM. ')+t('wake2')};
  const wrows=wl==='fr'?[['fr','fr'],['ar','ar'],['en','en']]:wl==='ar'?[['ar','ar'],['fr','fr'],['en','en']]:[['en','en'],['fr','fr'],['ar','ar']];
@@ -1748,7 +1773,7 @@ function speakTime(){
  const d=new Date(),h=d.getHours(),m=d.getMinutes(),h12=h%12||12;
  let txt,lang;
  if(st.lang==='ar'){lang='ar-SA';txt='الساعة الآن '+h12+(m?' و '+m+' دقيقة':' تمامًا')+(h<12?' صباحًا':' مساءً')}
- else if(st.lang==='fr'){lang='fr-FR';txt='Il est '+h+' heures'+(m?' '+m:'')}
+ else if(st.lang==='fr'){lang='fr-FR';txt=frTimeFormal(h,m)+'. '+frTimeDaily(h,m)}
  else{lang='en-US';txt='The time is '+h12+' '+(m?(m<10?'oh '+m:''+m):'o clock')+(h<12?' AM':' PM')}
  if(window.EdgeTTS&&EdgeTTS.supported&&EdgeTTS.supported()){stopSay();EdgeTTS.play(txt,st.lang==='ar'?'ar':st.lang==='fr'?'fr':'en').catch(()=>{});return}
  if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:lang}).catch(()=>toast('!'));return}
