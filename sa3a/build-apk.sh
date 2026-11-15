@@ -35,6 +35,7 @@ sed -i "s|<string name=\"title_activity_main\">.*</string>|<string name=\"title_
 PLUGIN_DIR="android/app/src/main/java/com/syrian020/sa3a"
 mkdir -p "$PLUGIN_DIR"
 cp native-plugins/AlarmSoundPlugin.java "$PLUGIN_DIR/"
+cp native-plugins/TtsPlugin.java "$PLUGIN_DIR/"
 cp native-plugins/Sa3aWallpaperService.java "$PLUGIN_DIR/"
 mkdir -p android/app/src/main/res/xml
 cp native-plugins/sa3a_wallpaper.xml android/app/src/main/res/xml/
@@ -53,14 +54,20 @@ s=s.replace('</application>',svc+'    </application>')
 open(p,'w').write(s)
 PY
 fi
-if [ -f "$MAIN_ACTIVITY" ] && ! grep -q 'AlarmSoundPlugin' "$MAIN_ACTIVITY"; then
+if [ -f "$MAIN_ACTIVITY" ] && ! grep -q 'TtsPlugin' "$MAIN_ACTIVITY"; then
   python3 - "$MAIN_ACTIVITY" <<'PY'
 import sys,re
 p=sys.argv[1];s=open(p).read()
-s=s.replace('import com.getcapacitor.BridgeActivity;',
-            'import com.getcapacitor.BridgeActivity;\nimport com.syrian020.sa3a.AlarmSoundPlugin;')
-s=re.sub(r'(public class MainActivity extends BridgeActivity\s*\{)',
-         r'\1\n    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n        registerPlugin(AlarmSoundPlugin.class);\n        super.onCreate(savedInstanceState);\n    }', s)
+if 'AlarmSoundPlugin' not in s:
+    s=s.replace('import com.getcapacitor.BridgeActivity;',
+                'import com.getcapacitor.BridgeActivity;\nimport com.syrian020.sa3a.AlarmSoundPlugin;\nimport com.syrian020.sa3a.TtsPlugin;')
+    s=re.sub(r'(public class MainActivity extends BridgeActivity\s*\{)',
+             r'\1\n    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n        registerPlugin(AlarmSoundPlugin.class);\n        registerPlugin(TtsPlugin.class);\n        super.onCreate(savedInstanceState);\n    }', s)
+else:
+    s=s.replace('import com.syrian020.sa3a.AlarmSoundPlugin;',
+                'import com.syrian020.sa3a.AlarmSoundPlugin;\nimport com.syrian020.sa3a.TtsPlugin;')
+    s=s.replace('registerPlugin(AlarmSoundPlugin.class);',
+                'registerPlugin(AlarmSoundPlugin.class);\n        registerPlugin(TtsPlugin.class);')
 open(p,'w').write(s)
 PY
 fi
