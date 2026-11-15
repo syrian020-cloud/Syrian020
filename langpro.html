@@ -1036,7 +1036,7 @@ function openAttSheet(s) {
 /* Lessons block for the folder editor: list + add video/audio/timed-text lesson */
 function lessonListEl(s, session) {
   var t = T();
-  var wrap = el('div');
+  var wrap = el('div', 'llist');
   wrap.appendChild(el('div', 'flabel', '📚 ' + t.lessons));
   var add = el('div', 'att-add');
   var bl = el('button', 'mini', '➕ ' + t.addLesson);
@@ -1087,6 +1087,7 @@ function lessonListEl(s, session) {
       list.appendChild(row);
     });
   };
+  wrap._lrefresh = wrap.refresh;
   wrap.refresh();
   return wrap;
 }
@@ -1847,6 +1848,7 @@ function renameLesson(l, refresh, onDelete) {
         IDB.ldel(l.id).catch(function () {});
         if (l.siteId) lessonMap[l.siteId] = (lessonMap[l.siteId] || []).filter(function (x) { return x.id !== l.id; });
         renderGrid();
+        document.querySelectorAll('.lov, .llist').forEach(function (v) { if (v._lrefresh) v._lrefresh(); });
         ov.remove();
         onDelete();
       }, true);
@@ -1878,6 +1880,7 @@ function openLessonsSheet(s, session) {
   top.appendChild(back);
   ov.appendChild(top);
   var body = el('div', 'lov-cues');
+  ov._lrefresh = function () { refresh(); };
   function refresh() {
     body.innerHTML = '';
     var ls = lessonMap[s.id] || [];
