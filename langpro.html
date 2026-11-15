@@ -2777,6 +2777,16 @@ function openLesson(l) {
       drawPosIcon();
     };
     tools.appendChild(cpb);
+    var spd = el('button', 'mini', playSpeed + '×');
+    spd.title = 'speed';
+    spd.onclick = function () {
+      var i = SPEEDS.indexOf(playSpeed);
+      playSpeed = SPEEDS[(i + 1) % SPEEDS.length];
+      try { localStorage.setItem('langpro_speed', String(playSpeed)); } catch (e) {}
+      spd.textContent = playSpeed + '×';
+      applySpeed();
+    };
+    tools.appendChild(spd);
     ov.appendChild(tools);
   }
   var list = el('div', 'lov-cues');
