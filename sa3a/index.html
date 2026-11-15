@@ -888,7 +888,7 @@ function recToggle(btn,me,segs,segEnd){
  addMediaAudio(me,stream);
  const rec=newRec(stream,W,H);if(!rec)return;
  const sink=createRecSink(rec._clipExt,rec._clipType,'sa3a-clip');
- function draw(){if(!recState)return;
+ function draw(){if(!recState||recState.fb)return;
   if(recState.segEnd!=null&&me.currentTime>=recState.segEnd){try{rec.stop()}catch(e){}return}
   const ci=document.querySelector('#lsImg .limg img');
   if(isVideo&&ci&&ci.complete&&ci.naturalWidth){
@@ -907,8 +907,10 @@ function recToggle(btn,me,segs,segEnd){
   recState.raf=requestAnimationFrame(draw)}
  const onEnded=()=>{if(recState&&recState.rec===rec)try{rec.stop()}catch(e){}};
  me.addEventListener('ended',onEnded);
- rec.ondataavailable=e=>{if(e.data&&e.data.size)sink.push(e.data)};
- rec.onstop=()=>{me.removeEventListener('ended',onEnded);sink.finish();recDone(btn)};
+ let gotData=false;
+ rec.ondataavailable=e=>{if(e.data&&e.data.size){gotData=true;sink.push(e.data)}};
+ rec.onstop=()=>{me.removeEventListener('ended',onEnded);
+  if(gotData){sink.finish();recDone(btn)}else recDone(btn,fallback)};
  me._seg=null;me._once=null;me._loop=false;
  stopSay();document.querySelectorAll('.phnum.speaking,.ctlGrid .on,.speaking').forEach(x=>x.classList.remove('speaking','on'));
  let startAt=me.currentTime||0;
@@ -916,11 +918,37 @@ function recToggle(btn,me,segs,segEnd){
  if(cur>=0)startAt=segs[cur].start;
  else for(const s of segs)if(s.start!=null&&s.start>=startAt){startAt=s.start;break}
  btn._recIcon=btn.textContent;
+ const fallback=()=>{
+  let s2=null;
+  try{if(me.captureStream){s2=me.captureStream();if(!s2.getVideoTracks().length)s2=null}}catch(e){s2=null}
+  if(!s2){ // audio-only: WebAudio destination
+   const s3=document.createElement('canvas').captureStream?null:null;
+   const AC2=window.AudioContext||window.webkitAudioContext;
+   if(AC2){const ax=window._plACtx||(window._plACtx=new AC2());if(ax.state==='suspended')ax.resume();
+    const ds=ax.createMediaStreamDestination();
+    try{const sr=ax.createMediaElementSource(me);sr.connect(ds);sr.connect(ax.destination)}catch(e){}
+    s2=ds.stream}
+  }
+  if(!s2){toast('⚠️ '+t('recNo'));return}
+  const mime=s2.getVideoTracks().length?null:'audio/webm';
+  let rec2=null;
+  try{rec2=mime?new MediaRecorder(s2,{mimeType:mime}):newRec(s2,W,H)}catch(e){try{rec2=new MediaRecorder(s2)}catch(e2){}}
+  if(!rec2){toast('⚠️ '+t('recNo'));return}
+  const snk=createRecSink(rec2._clipExt||(mime?'webm':'webm'),rec2._clipType||mime||'audio/webm','sa3a-clip');
+  const endF=()=>{if(recState&&recState.rec===rec2)try{rec2.stop()}catch(e){}};
+  me.addEventListener('ended',endF);
+  rec2.ondataavailable=e=>{if(e.data&&e.data.size)snk.push(e.data)};
+  rec2.onstop=()=>{me.removeEventListener('ended',endF);snk.finish();recDone(btn)};
+  recState={rec:rec2,me,btn,raf:0,segEnd,fb:true};
+  rec2.start(1000);try{me.play()}catch(e){}
+  const iv=setInterval(()=>{if(!recState||recState.rec!==rec2){clearInterval(iv);return}
+   if(recState.segEnd!=null&&me.currentTime>=recState.segEnd)try{rec2.stop()}catch(e){}},250)};
  const begin=()=>{recState={rec,me,btn,raf:0,segEnd};
   rec.start(1000);
   btn.classList.add('rec-on');btn.textContent='⏹';
   toast('⏺ '+t('recClip'));
-  draw();try{const pr=me.play();if(pr&&pr.catch)pr.catch(()=>{})}catch(e){}};
+  draw();try{const pr=me.play();if(pr&&pr.catch)pr.catch(()=>{})}catch(e){}
+  setTimeout(()=>{if(recState&&recState.rec===rec&&!gotData)try{rec.stop()}catch(e){fallback()}},1600)};
  if(me.currentTime!==startAt){
   const sk=()=>{me.removeEventListener('seeked',sk);begin()};
   me.addEventListener('seeked',sk);
@@ -936,7 +964,16 @@ function recordPhrase(btn,p){
  const W=1080,H=Math.max(700,rows.length*160+90);
  const cv=document.createElement('canvas');cv.width=W;cv.height=H;
  const cx=cv.getContext('2d'),stream=cv.captureStream(30);
- let actx=null,recDst=null;
+ let actx=null,recDst=null,gotData=false;
+ const audioFallback=()=>{if(!recDst){toast('⚠️ '+t('recNo'));return}
+  let rec2=null;try{rec2=new MediaRecorder(recDst.stream,{mimeType:'audio/webm'})}catch(e){try{rec2=new MediaRecorder(recDst.stream)}catch(e2){}}
+  if(!rec2){toast('⚠️ '+t('recNo'));return}
+  const snk=createRecSink('webm','audio/webm','sa3a-clip');
+  rec2.ondataavailable=e=>{if(e.data&&e.data.size)snk.push(e.data)};
+  rec2.onstop=()=>{snk.finish();recDone(btn)};
+  recState={rec:rec2,me:null,btn,raf:0,segEnd:null,fb:true};
+  rec2.start(1000);
+  stepFn(0)};
  try{const AC=window.AudioContext||window.webkitAudioContext;
   if(AC){actx=window._s3ctx||(window._s3ctx=new AC());
    if(actx.state==='suspended')actx.resume();
@@ -945,20 +982,20 @@ function recordPhrase(btn,p){
  const rec=newRec(stream,W,H);if(!rec)return;
  const sink=createRecSink(rec._clipExt,rec._clipType,'sa3a-phrase');
  let hi=-1;
- function draw(){if(!recState)return;
+ function draw(){if(!recState||recState.fb)return;
   cx.fillStyle='#141a20';cx.fillRect(0,0,W,H);
   drawCuePills(cx,prows,W,H,hi);recState.raf=requestAnimationFrame(draw)}
- rec.ondataavailable=e=>{if(e.data&&e.data.size)sink.push(e.data)};
- rec.onstop=()=>{sink.finish();recDone(btn)};
+ rec.ondataavailable=e=>{if(e.data&&e.data.size){gotData=true;sink.push(e.data)}};
+ rec.onstop=()=>{if(gotData){sink.finish();recDone(btn)}else if(recDst){const f=audioFallback;recDone(btn);f()}else recDone(btn)};
  stopSay();document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));
  const pmd=$('lsMedia');if(pmd){pmd._seg=null;pmd._once=null;try{pmd.pause()}catch(e){}}
  recState={rec,raf:0,cv};draw();rec.start(300);
  btn._recIcon='⬇';btn.classList.add('rec-on');btn.textContent='⏹';
  toast('⏺ '+t('recClip'));
- (function step(k){if(!recState)return;
+ const stepFn=k=>{if(!recState)return;
   if(k>=rows.length){setTimeout(()=>{if(recState)try{recState.rec.stop()}catch(e){}},700);return}
   hi=k;const r=rows[k],lang=(r.lg&&r.lg!=='x')?r.lg:guessLang(r.txt);
-  const next=ms=>setTimeout(()=>step(k+1),ms||350);
+  const next=ms=>setTimeout(()=>stepFn(k+1),ms||350);
   const playUrl=(url,revoke)=>{const au=new Audio(url);
    if(recDst&&actx){try{const s=actx.createMediaElementSource(au);s.connect(recDst);s.connect(actx.destination)}catch(e){}}
    else addMediaAudio(au,stream);
@@ -975,11 +1012,12 @@ function recordPhrase(btn,p){
        data:String(rsp.data).replace(/[^A-Za-z0-9+/=]/g,''),directory:'CACHE',recursive:true}))
       .then(w=>playUrl(Capacitor.convertFileSrc(w.uri))).catch(()=>playUrl(a.url))}
     else playUrl(a.url)},()=>next(1400))}catch(e){next(1400)}}
-  else next(1400)})(0)}
-function recDone(btn){
- if(recState){cancelAnimationFrame(recState.raf);try{if(recState.rec.state!=='inactive')recState.rec.stop()}catch(e){}}
+  else next(1400)};stepFn(0)}
+function recDone(btn,next){
+ if(recState){if(recState.raf)cancelAnimationFrame(recState.raf);try{if(recState.rec.state!=='inactive')recState.rec.stop()}catch(e){}}
  recState=null;
- if(btn){btn.classList.remove('rec-on');btn.textContent=btn._recIcon||'⬇'}}
+ if(btn){btn.classList.remove('rec-on');btn.textContent=btn._recIcon||'⬇'}
+ if(next)next()}
 /* ================= games (prolang: matching / listening / read&repeat) ================= */
 const gspeak=(txt,lang,el)=>loopSpeak([{txt,lg:lang}],el);
 function gspeakOnce(txt,lang){
