@@ -2875,7 +2875,16 @@ function openLesson(l) {
     cov.appendChild(dx);
     mw.appendChild(cov);
   }
-  if (l.blob) {
+  if (l.blob && String(l.mime).indexOf('image/') === 0) {
+    // photo lesson: show the image itself — there is no playable media
+    var mediaWrapI = el('div', 'lov-media');
+    var imgE = document.createElement('img');
+    imgE.src = URL.createObjectURL(l.blob);
+    imgE.style.cssText = 'width:100%;display:block;border-radius:12px;object-fit:contain;max-height:52vh';
+    mediaWrapI.appendChild(imgE);
+    ov.appendChild(mediaWrapI);
+    showCover();
+  } else if (l.blob) {
     var mediaWrap = el('div', 'lov-media');
     player = document.createElement(isV ? 'video' : 'audio');
     player.src = URL.createObjectURL(l.blob);
