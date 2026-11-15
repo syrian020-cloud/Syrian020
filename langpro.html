@@ -1799,12 +1799,12 @@ function compressVideoBlob(fl) {
         if (done) return; done = true;
         URL.revokeObjectURL(url);
         var out = new Blob(parts, { type: rec._clipType });
-        res(out.size && out.size < fl.size ? out : fl);
+        res(out.size && out.size < fl.size && v.ended ? out : fl);
       };
       rec.onstop = finish;
       v.addEventListener('ended', function () { try { rec.stop(); } catch (e) {} });
       v.addEventListener('timeupdate', function () {
-        if (v.duration) toast('⏳ ' + Math.round(v.currentTime / v.duration * 100) + '%');
+        if (isFinite(v.duration) && v.duration) toast('⏳ ' + Math.round(v.currentTime / v.duration * 100) + '%');
       });
       try { rec.start(500); } catch (e) { bail(); return; }
       var draw = function () {
@@ -1818,7 +1818,8 @@ function compressVideoBlob(fl) {
       var pr = v.play();
       if (pr && pr.catch) pr.catch(function () { try { rec.stop(); } catch (e) {} finish(); });
       draw();
-      setTimeout(function () { if (!done) { try { rec.stop(); } catch (e) {} } }, (v.duration || 60) * 1000 + 5000);
+      var capMs = (isFinite(v.duration) && v.duration > 0) ? v.duration * 1000 + 5000 : 0;
+      if (capMs) setTimeout(function () { if (!done) { try { rec.stop(); } catch (e) {} } }, capMs);
     };
   });
 }
