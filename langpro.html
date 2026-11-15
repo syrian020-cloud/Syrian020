@@ -2421,7 +2421,9 @@ function openLesson(l) {
         if (recState) { try { recState.rec.stop(); } catch (e2) { recDone(cr2); } return; }
         player.currentTime = c.t;
         var cs2 = sortedCues(l);   // cues may have been added/edited since this bar rendered
-        recToggle(cr2, player, cs2, cueEndAt(cs2, cs2.indexOf(c)));
+        var ci2 = cs2.indexOf(c);
+        if (ci2 < 0) return;   // this cue was deleted; the stale card can't record it
+        recToggle(cr2, player, cs2, cueEndAt(cs2, ci2));
       };
       tr.appendChild(cr2);
     }
