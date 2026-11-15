@@ -271,9 +271,11 @@
   .cue-line.lg-x { background: var(--cap-x-bg, linear-gradient(135deg, #a78bfa, #7c3aed));
     color: var(--cap-x-fg, #fff); border-color: var(--cap-x-bd, transparent);
     font-family: var(--cap-x-font, 'Segoe UI', sans-serif); font-style: var(--cap-x-style, normal); }
-  .cue-tools { display: flex; gap: .45rem; justify-content: safe center; align-items: center;
-    margin: .35rem .8rem .5rem; padding: .45rem .5rem; flex-wrap: nowrap; overflow-x: auto;
-    border: 1.5px solid var(--line); border-radius: 18px; background: var(--cap-bar-bg, rgba(7,11,24,.55)); }
+  .cue-tools { display: flex; gap: .5rem; justify-content: center; align-items: center;
+    margin: .35rem .4rem .5rem; padding: .5rem .55rem; flex-wrap: wrap;
+    border: 1.5px solid var(--line); border-radius: 20px;
+    background: var(--cap-bar-bg, rgba(7,11,24,.55));
+    box-shadow: 0 6px 18px rgba(3,8,12,.3), inset 0 1px 0 rgba(255,255,255,.06); }
   .cue-tools .mini { flex: none; min-width: 52px; min-height: 52px; font-size: 1.15rem;
     border-radius: 14px; display: flex; align-items: center; justify-content: center;
     padding: .4rem .55rem; }
@@ -2195,6 +2197,10 @@ function openLesson(l) {
   thm.title = 'theme';
   thm.onclick = cycleCapTheme;
   top.appendChild(thm);
+  var dk = el('button', 'iconbtn', isDark() ? '🌙' : '☀');
+  dk.title = isDark() ? t.themeLight : t.themeDark;
+  dk.onclick = function () { toggleTheme(); dk.textContent = isDark() ? '🌙' : '☀'; };
+  top.appendChild(dk);
   var rn = el('button', 'iconbtn', '✏');
   rn.onclick = function () {
     renameLesson(l, function () { ov.querySelector('.lt').textContent = l.name || t.lName; }, function () {
@@ -2420,10 +2426,6 @@ function openLesson(l) {
       applySpeed();
     };
     tools.appendChild(spd);
-    var ctb = el('button', 'mini', '🎨');
-    ctb.title = 'theme';
-    ctb.onclick = cycleCapTheme;
-    tools.appendChild(ctb);
     ov.appendChild(tools);
   }
   var list = el('div', 'lov-cues');
