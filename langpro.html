@@ -955,7 +955,16 @@ function lineLang(s) {
   if (f && FLAG_LANG[f[1]]) return FLAG_LANG[f[1]];
   if (ARAB_RE.test(s)) return 'ar-SY';
   if (/[\u0400-\u04FF]/.test(s)) return 'ru-RU';
+  if (/[\u4E00-\u9FFF\u3400-\u4DBF\uF900-\uFAFF]/.test(s)) return 'zh-CN';
+  if (/[\u3040-\u30FF]/.test(s)) return 'ja-JP';
+  if (/[\uAC00-\uD7AF]/.test(s)) return 'ko-KR';
+  if (/[\u0590-\u05FF]/.test(s)) return 'he-IL';
+  if (/[\u0E00-\u0E7F]/.test(s)) return 'th-TH';
+  if (/[\u0900-\u097F]/.test(s)) return 'hi-IN';
+  if (/[\u0370-\u03FF]/.test(s)) return 'el-GR';
   if (/[àâäçéèêëîïôöùûüœæ]/i.test(s)) return 'fr-FR';
+  // unaccented French is caught by common function words ('Je suis ici' ≠ English)
+  if (/\b(je|tu|il|elle|nous|vous|ils|elles|suis|sommes|êtes|sont|est|étais|était|étaient|serai|sera|seront|soyez|vais|vas|allons|allez|vont|avons|avez|ont|avais|avait|avaient|aurai|auront|fais|faites|font|fait|être|avoir|faire|aller|venir|pouvoir|vouloir|devoir|savoir|dire|prendre|mettre|donner|parler|manger|boire|finir|choisir|dormir|écrire|lire|ouvrir|fermer|attendre|entendre|répondre|demander|chercher|trouver|laisser|rester|arriver|partir|sortir|rentrer|monter|descendre|payer|acheter|vendre|appeler|téléphoner|travailler|étudier|apprendre|enseigner|comprendre|le|la|les|des|une|du|au|aux|dans|sur|sous|avec|sans|pour|chez|entre|vers|avant|après|depuis|pendant|derrière|devant|contre|malgré|selon|et|ou|mais|donc|ni|que|qui|quoi|dont|où|quand|comment|pourquoi|combien|ce|cet|cette|ces|mon|ma|mes|ta|tes|sa|ses|notre|nos|votre|vos|leur|leurs|moi|toi|lui|eux|mien|tien|sien|ne|pas|jamais|toujours|souvent|encore|déjà|très|bien|beaucoup|peu|trop|aussi|alors|ainsi|ici|maintenant|hier|demain|aujourd|bientôt|tôt|tard|vite|lentement|oui|non|voici|voilà|bonjour|bonsoir|salut|merci|monsieur|madame|mademoiselle|pardon|excusez|plaît|tout|toute|tous|toutes|autre|autres|même|chaque|quelque|quelques|plusieurs|aucun|aucune|rien|personne|voudrais|veux|veut|veulent|veuillez|pouvez|peux|peut|peuvent|dois|doit|doivent|faut|puisse|pourrais|devrais)\b/i.test(s)) return 'fr-FR';
   return 'en-US';
 }
 // cue text lines → [{lang, flag, text}] (flag stays for display; text is the spoken body)
