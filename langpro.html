@@ -270,8 +270,8 @@
   .mbcap { position: absolute; right: 3%; width: 60%; bottom: 4%; z-index: 3; }
   .mbcap.plain { position: static; margin: .4rem .8rem; width: auto; right: auto; }
   .cap-card { background: rgba(250,246,255,.94); border-radius: 16px; padding: .45rem .5rem;
-    box-shadow: 0 8px 30px rgba(0,0,0,.45); max-height: 24vh; overflow-y: auto;
-    -webkit-overflow-scrolling: touch; }
+    box-shadow: 0 8px 30px rgba(0,0,0,.45); }
+  .cap-rows { max-height: 20vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
   .cap-pl { display: flex; align-items: center; gap: .4rem; background: #fff;
     border: 1px solid #e9e0f4; border-radius: 12px; padding: .35rem .55rem; margin-bottom: .3rem; }
   .cap-pl:last-child { margin-bottom: 0; }
@@ -1643,6 +1643,7 @@ function openLesson(l) {
     capEl.innerHTML = '';
     if (!c) return;
     var card = el('div', 'cap-card');
+    var rowsWrap = el('div', 'cap-rows');
     cueLangLines(c.text || '').forEach(function (ln) {
       var row = el('div', 'cap-pl');
       var tx = el('span', 'cap-txt');
@@ -1662,8 +1663,9 @@ function openLesson(l) {
       lb.title = ln.lang;
       lb.onclick = function (ev) { ev.stopPropagation(); speakLoop(ln.text, ln.lang, lb); };
       row.appendChild(lb);
-      card.appendChild(row);
+      rowsWrap.appendChild(row);
     });
+    card.appendChild(rowsWrap);
     capEl.appendChild(card);
     if (player) {
       var ctrl = el('div', 'cap-ctrl');
@@ -1694,7 +1696,7 @@ function openLesson(l) {
         };
         ctrl.appendChild(b);
       });
-      capEl.appendChild(ctrl);
+      card.appendChild(ctrl);
     }
   }
   var list = el('div', 'lov-cues');
