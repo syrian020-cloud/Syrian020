@@ -114,8 +114,9 @@ main{flex:1;overflow:auto;position:relative}
 .lcard .li{font-size:2rem}
 .lcard .ln{font-size:.78rem;font-weight:700;margin-top:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .lcard .opt{position:absolute;top:2px;inset-inline-end:4px;background:none;border:none;color:var(--dim);font-size:1.05rem;cursor:pointer;padding:2px 6px}
-#lsAct{display:none;gap:8px;margin-bottom:10px}
-#lsAct button{flex:1;background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:9px 4px;font-family:inherit;font-size:.85rem;font-weight:800;cursor:pointer}
+#lsAct{display:none;gap:6px;flex:0 0 auto;padding-top:8px;border-top:1px solid var(--line)}
+#lsAct button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:8px 2px;font-family:inherit;font-size:.62rem;font-weight:800;cursor:pointer;white-space:nowrap}
+#lsAct button .i{font-size:1.15rem}
 #lsImg{flex:1;overflow-y:auto;text-align:start}
 #lsImg .limg{text-align:center;margin-bottom:10px}
 #lsImg .limg img{max-width:100%;max-height:34vh;border-radius:16px;border:1px solid var(--line)}
@@ -136,6 +137,15 @@ audio.lmed{max-height:none}
 .phc .pt{cursor:pointer}
 .phc{cursor:pointer}
 .phc:active{opacity:.85}
+#cueBox{margin:10px 0 8px;padding:6px 2px;text-align:center;font-size:19px;min-height:1em}
+#cueBox .qs{font-weight:800;color:var(--txt)}
+#cueBox .qp{color:var(--dim);font-size:.75em;margin-top:2px}
+#cueBox .qa{color:var(--ok);margin-top:5px;font-weight:700}
+#cueBox .qe{color:var(--dim);margin-top:4px}
+#cueBox .qt{color:var(--acc);font-size:.7em;font-weight:800;margin-bottom:4px}
+.ctlGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:10px}
+.ctlGrid button{background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:12px;padding:11px 2px;font-size:1.05rem;font-weight:800;cursor:pointer;font-family:inherit}
+.ctlGrid button.on{border-color:var(--acc);color:var(--acc)}
 #tplText{width:100%;flex:1;min-height:28vh;background:var(--card);border:1px solid var(--line);border-radius:12px;color:var(--txt);padding:10px;font-family:inherit;font-size:.85rem;resize:none;direction:auto}
 .phfld{width:100%;background:var(--card);border:1px solid var(--line);border-radius:12px;color:var(--txt);padding:11px;font-family:inherit;font-size:1rem;margin-bottom:8px}
 #lsEmpty{color:var(--dim);text-align:center;margin-top:40px;font-weight:600}
@@ -273,9 +283,9 @@ nav button.on{color:var(--acc)}
 <div class="shade" id="lessonShade"><div class="sheet" id="lessonSheet">
   <div class="lsHead"><button id="lsBack">‹</button><div class="lb" id="lsPath"></div>
     <button id="lsAddF" title="folder">📁+</button><button id="lsAddL" title="lesson">📄+</button></div>
-  <div id="lsAct"><button id="lsMedAdd"></button><button id="lsTpl"></button><button id="lsImgAdd"></button><button id="lsPhAdd"></button></div>
   <div id="lsGrid"></div>
   <div id="lsImg" style="display:none"></div>
+  <div id="lsAct"><button id="lsLine"></button><button id="lsTpl"></button><button id="lsMedAdd"></button><button id="lsImgAdd"></button><button id="lsCopy"></button><button id="lsPlay"></button></div>
 </div></div>
 <!-- item options -->
 <div class="shade" id="lsOptShade"><div class="sheet">
@@ -286,6 +296,7 @@ nav button.on{color:var(--acc)}
 <!-- phrase add -->
 <div class="shade" id="phShade"><div class="sheet" style="text-align:center">
   <h3 id="phTitle"></h3>
+  <input type="text" id="phT" class="phfld" dir="ltr" style="text-align:center">
   <input type="text" id="phOrig" class="phfld" dir="auto">
   <input type="text" id="phPron" class="phfld" dir="auto">
   <input type="text" id="phAr" class="phfld" dir="auto">
@@ -325,9 +336,9 @@ nav button.on{color:var(--acc)}
 'use strict';
 /* =============== i18n =============== */
 const L={
-ar:{appName:'ساعتي',tabClock:'الساعة',tabAlarms:'المنبهات',tabCal:'التقويم',tabTimer:'المؤقت',tTimer:'عدّاد',tStop:'إيقاف',start:'ابدأ',pause:'إيقاف مؤقت',resume:'متابعة',reset:'إعادة',lap:'لفة',swStop:'إيقاف',nextAlarm:'المنبه القادم',after:'بعد',snoozeDur:'مدة الغفوة',setWallpaper:'اجعلها خلفية الشاشة',timerDone:'انتهى الوقت',hh:'س',mmm:'د',ss:'ث',days2:'يوم',speakTime:'انطق الوقت',lsTitle:'الدروس',addFolder:'مجلد',addLesson:'درس',rename:'إعادة تسمية',delItem:'حذف',delFolderQ:'حذف المجلد وكل ما بداخله؟',delLessonQ:'حذف الدرس؟',addImg:'أضف صورة',delImg:'احذف الصورة',phAdd:'➕ عبارة',phTpl:'📝 نص',medAdd:'🎬 فيديو / صوت',copyTpl:'📋 نسخ',copied:'✓ نُسخ',tplPh:'الصق النص هنا…',delMedQ:'حذف الصوت/الفيديو؟',phImg:'🖼️ صورة',phTitle:'أضف عبارة',phOrig:'العبارة الأصلية',phPron:'النطق',phAr:'المعنى بالعربي',phEn:'English',phEmpty:'لا عبارات بعد — أضف عبارة أو الصق نموذجًا 📥',tplTitle:'اختر نموذجًا ثم عدّل النص وأضفه',doAdd:'إضافة',phAddedN:'عبارة أُضيفت',delPhQ:'حذف العبارة؟',namePh:'الاسم',emptyLs:'فارغ — أضف مجلدًا أو درسًا من الأزرار أعلاه',newFolderNm:'مجلد جديد',newLessonNm:'درس جديد',warnPerm:'⚠️ ليرن المنبه والتطبيق مغلق: فعّل الإشعارات و«المنبهات والتذكيرات»',permBtn:'تفعيل',warnNotif:'الإشعارات معطّلة',warnExact:'«المنبهات والتذكيرات» معطّلة',newAlarm:'منبه جديد',editAlarm:'تعديل المنبه',lTime:'الوقت',lLabel:'الاسم',labelPh:'مثلاً: الاستيقاظ',lRepeat:'التكرار',onceHint:'بدون اختيار أيام = يعمل مرة واحدة',lSound:'الصوت',lVib:'اهتزاز',sndDefault:'صوت الهاتف الافتراضي',sndBeep:'نبضات',sndBell:'جرس',sndSiren:'صافرة',sndCustom:'صوتي المرفوع',uploadSound:'⬆️ ارفع صوتًا من هاتفك',save:'حفظ',cancel:'إلغاء',del:'حذف',yes:'نعم',no:'لا',once:'مرة واحدة',daily:'يوميًا',every:'كل',settings:'الإعدادات',mClock:'نمط الساعة',analog:'عقارب',digital:'أرقام',mTheme:'المظهر',dark:'داكن',light:'فاتح',mLang:'اللغة',mExport:'تصدير المنبهات',mImport:'استيراد المنبهات',mAbout:'حول التطبيق',aboutTxt:'ساعتي — ساعة ومنبه وتقويم\nv1.0',confirmDel:'حذف هذا المنبه؟',exitConfirm:'الخروج من التطبيق؟',ringStop:'إيقاف',ringSnooze:'غفوة +10د',imported:'تم الاستيراد',badFile:'ملف غير صالح',back:'السنة',alarmsOff:'المنبهات معطّلة',permNote:'فعّل إذن الإشعارات ليعمل المنبه والتطبيق مغلق',weekdays:['أح','إث','ثل','أر','خم','جم','سب'],weekdaysFull:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],today:'اليوم',snoozed:'غفوة 10 دقائق'},
+ar:{appName:'ساعتي',tabClock:'الساعة',tabAlarms:'المنبهات',tabCal:'التقويم',tabTimer:'المؤقت',tTimer:'عدّاد',tStop:'إيقاف',start:'ابدأ',pause:'إيقاف مؤقت',resume:'متابعة',reset:'إعادة',lap:'لفة',swStop:'إيقاف',nextAlarm:'المنبه القادم',after:'بعد',snoozeDur:'مدة الغفوة',setWallpaper:'اجعلها خلفية الشاشة',timerDone:'انتهى الوقت',hh:'س',mmm:'د',ss:'ث',days2:'يوم',speakTime:'انطق الوقت',lsTitle:'الدروس',addFolder:'مجلد',addLesson:'درس',rename:'إعادة تسمية',delItem:'حذف',delFolderQ:'حذف المجلد وكل ما بداخله؟',delLessonQ:'حذف الدرس؟',addImg:'أضف صورة',delImg:'احذف الصورة',phAdd:'➕ عبارة',addLine:'سطر',pasteT:'لصق مؤقت',medS:'وسائط',imgS:'صورة',copyAll:'نسخ الكل',playAll:'تشغيل الكل',copiedAll:'✓ نُسخ الدرس كاملًا',phTime:'mm:ss (اختياري)',phTpl:'📝 نص',medAdd:'🎬 فيديو / صوت',copyTpl:'📋 نسخ',copied:'✓ نُسخ',tplPh:'الصق النص هنا…',delMedQ:'حذف الصوت/الفيديو؟',phImg:'🖼️ صورة',phTitle:'أضف عبارة',phOrig:'العبارة الأصلية',phPron:'النطق',phAr:'المعنى بالعربي',phEn:'English',phEmpty:'لا عبارات بعد — أضف عبارة أو الصق نموذجًا 📥',tplTitle:'اختر نموذجًا ثم عدّل النص وأضفه',doAdd:'إضافة',phAddedN:'عبارة أُضيفت',delPhQ:'حذف العبارة؟',namePh:'الاسم',emptyLs:'فارغ — أضف مجلدًا أو درسًا من الأزرار أعلاه',newFolderNm:'مجلد جديد',newLessonNm:'درس جديد',warnPerm:'⚠️ ليرن المنبه والتطبيق مغلق: فعّل الإشعارات و«المنبهات والتذكيرات»',permBtn:'تفعيل',warnNotif:'الإشعارات معطّلة',warnExact:'«المنبهات والتذكيرات» معطّلة',newAlarm:'منبه جديد',editAlarm:'تعديل المنبه',lTime:'الوقت',lLabel:'الاسم',labelPh:'مثلاً: الاستيقاظ',lRepeat:'التكرار',onceHint:'بدون اختيار أيام = يعمل مرة واحدة',lSound:'الصوت',lVib:'اهتزاز',sndDefault:'صوت الهاتف الافتراضي',sndBeep:'نبضات',sndBell:'جرس',sndSiren:'صافرة',sndCustom:'صوتي المرفوع',uploadSound:'⬆️ ارفع صوتًا من هاتفك',save:'حفظ',cancel:'إلغاء',del:'حذف',yes:'نعم',no:'لا',once:'مرة واحدة',daily:'يوميًا',every:'كل',settings:'الإعدادات',mClock:'نمط الساعة',analog:'عقارب',digital:'أرقام',mTheme:'المظهر',dark:'داكن',light:'فاتح',mLang:'اللغة',mExport:'تصدير المنبهات',mImport:'استيراد المنبهات',mAbout:'حول التطبيق',aboutTxt:'ساعتي — ساعة ومنبه وتقويم\nv1.0',confirmDel:'حذف هذا المنبه؟',exitConfirm:'الخروج من التطبيق؟',ringStop:'إيقاف',ringSnooze:'غفوة +10د',imported:'تم الاستيراد',badFile:'ملف غير صالح',back:'السنة',alarmsOff:'المنبهات معطّلة',permNote:'فعّل إذن الإشعارات ليعمل المنبه والتطبيق مغلق',weekdays:['أح','إث','ثل','أر','خم','جم','سب'],weekdaysFull:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],today:'اليوم',snoozed:'غفوة 10 دقائق'},
 en:{appName:'Sa3a',tabClock:'Clock',tabAlarms:'Alarms',tabCal:'Calendar',tabTimer:'Timer',tTimer:'Countdown',tStop:'Stopwatch',start:'Start',pause:'Pause',resume:'Resume',reset:'Reset',lap:'Lap',swStop:'Stop',nextAlarm:'Next alarm',after:'in',snoozeDur:'Snooze length',setWallpaper:'Set as wallpaper',timerDone:'Time is up',hh:'h',mmm:'m',ss:'s',days2:'day',speakTime:'Speak the time',lsTitle:'Lessons',addFolder:'Folder',addLesson:'Lesson',rename:'Rename',delItem:'Delete',delFolderQ:'Delete folder and all its contents?',delLessonQ:'Delete this lesson?',addImg:'Add image',delImg:'Remove image',phAdd:'➕ Phrase',phTpl:'📝 Text',medAdd:'🎬 Video / Audio',copyTpl:'📋 Copy',copied:'✓ Copied',tplPh:'Paste the text here…',delMedQ:'Delete the audio/video?',phImg:'🖼️ Image',phTitle:'Add a phrase',phOrig:'Original phrase',phPron:'Pronunciation',phAr:'Meaning (Arabic)',phEn:'English',phEmpty:'No phrases yet — add one or paste a template 📥',tplTitle:'Pick a template, edit the text, add it',doAdd:'Add',phAddedN:'phrases added',delPhQ:'Delete this phrase?',namePh:'Name',emptyLs:'Empty — add a folder or lesson above',newFolderNm:'New folder',newLessonNm:'New lesson',warnPerm:'⚠️ For alarms to ring while closed: allow notifications and “Alarms & reminders”',permBtn:'Enable',warnNotif:'Notifications off',warnExact:'“Alarms & reminders” off',newAlarm:'New alarm',editAlarm:'Edit alarm',lTime:'Time',lLabel:'Label',labelPh:'e.g. Wake up',lRepeat:'Repeat',onceHint:'No days selected = rings once',lSound:'Sound',lVib:'Vibrate',sndDefault:'Phone default',sndBeep:'Beeps',sndBell:'Bell',sndSiren:'Siren',sndCustom:'My uploaded sound',uploadSound:'⬆️ Upload a sound from your phone',save:'Save',cancel:'Cancel',del:'Delete',yes:'Yes',no:'No',once:'Once',daily:'Daily',every:'Every',settings:'Settings',mClock:'Clock style',analog:'Analog',digital:'Digital',mTheme:'Theme',dark:'Dark',light:'Light',mLang:'Language',mExport:'Export alarms',mImport:'Import alarms',mAbout:'About',aboutTxt:'Sa3a — clock, alarms & calendar\nv1.0',confirmDel:'Delete this alarm?',exitConfirm:'Exit the app?',ringStop:'Stop',ringSnooze:'Snooze +10m',imported:'Imported',badFile:'Invalid file',back:'Year',alarmsOff:'Alarms disabled',permNote:'Allow notifications so alarms ring while the app is closed',weekdays:['Su','Mo','Tu','We','Th','Fr','Sa'],weekdaysFull:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],today:'Today',snoozed:'Snoozed 10 min'},
-fr:{appName:'Sa3a',tabClock:'Horloge',tabAlarms:'Alarmes',tabCal:'Calendrier',tabTimer:'Minuteur',tTimer:'Compte à rebours',tStop:'Chrono',start:'Démarrer',pause:'Pause',resume:'Reprendre',reset:'Réinit.',lap:'Tour',swStop:'Arrêt',nextAlarm:'Prochaine alarme',after:'dans',snoozeDur:'Durée répétition',setWallpaper:'Fond d’écran animé',timerDone:'Temps écoulé',hh:'h',mmm:'min',ss:'s',days2:'jour',speakTime:'Annoncer l’heure',lsTitle:'Leçons',addFolder:'Dossier',addLesson:'Leçon',rename:'Renommer',delItem:'Supprimer',delFolderQ:'Supprimer le dossier et tout son contenu ?',delLessonQ:'Supprimer cette leçon ?',addImg:'Ajouter une image',delImg:'Supprimer l’image',phAdd:'➕ Phrase',phTpl:'📝 Texte',medAdd:'🎬 Vidéo / Audio',copyTpl:'📋 Copier',copied:'✓ Copié',tplPh:'Collez le texte ici…',delMedQ:'Supprimer l’audio/vidéo ?',phImg:'🖼️ Image',phTitle:'Ajouter une phrase',phOrig:'Phrase originale',phPron:'Prononciation',phAr:'Sens (arabe)',phEn:'English',phEmpty:'Aucune phrase — ajoutez-en ou collez un modèle 📥',tplTitle:'Choisissez un modèle, modifiez le texte, ajoutez',doAdd:'Ajouter',phAddedN:'phrases ajoutées',delPhQ:'Supprimer cette phrase ?',namePh:'Nom',emptyLs:'Vide — ajoutez un dossier ou une leçon ci-dessus',newFolderNm:'Nouveau dossier',newLessonNm:'Nouvelle leçon',warnPerm:'⚠️ Pour que l’alarme sonne appli fermée : notifications + « Alarmes et rappels »',permBtn:'Activer',warnNotif:'Notifications coupées',warnExact:'« Alarmes et rappels » coupés',newAlarm:'Nouvelle alarme',editAlarm:'Modifier l’alarme',lTime:'Heure',lLabel:'Nom',labelPh:'ex. Réveil',lRepeat:'Répéter',onceHint:'Aucun jour choisi = sonne une fois',lSound:'Son',lVib:'Vibration',sndDefault:'Son du téléphone',sndBeep:'Bips',sndBell:'Cloche',sndSiren:'Sirène',sndCustom:'Mon son importé',uploadSound:'⬆️ Importer un son du téléphone',save:'Enregistrer',cancel:'Annuler',del:'Supprimer',yes:'Oui',no:'Non',once:'Une fois',daily:'Quotidien',every:'Chaque',settings:'Réglages',mClock:'Style d’horloge',analog:'Aiguilles',digital:'Chiffres',mTheme:'Thème',dark:'Sombre',light:'Clair',mLang:'Langue',mExport:'Exporter les alarmes',mImport:'Importer des alarmes',mAbout:'À propos',aboutTxt:'Sa3a — horloge, alarmes & calendrier\nv1.0',confirmDel:'Supprimer cette alarme ?',exitConfirm:'Quitter l’application ?',ringStop:'Arrêter',ringSnooze:'Répéter +10m',imported:'Importé',badFile:'Fichier invalide',back:'Année',alarmsOff:'Alarmes désactivées',permNote:'Autorisez les notifications pour que l’alarme sonne appli fermée',weekdays:['Di','Lu','Ma','Me','Je','Ve','Sa'],weekdaysFull:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],today:'Aujourd’hui',snoozed:'Reporté 10 min'}
+fr:{appName:'Sa3a',tabClock:'Horloge',tabAlarms:'Alarmes',tabCal:'Calendrier',tabTimer:'Minuteur',tTimer:'Compte à rebours',tStop:'Chrono',start:'Démarrer',pause:'Pause',resume:'Reprendre',reset:'Réinit.',lap:'Tour',swStop:'Arrêt',nextAlarm:'Prochaine alarme',after:'dans',snoozeDur:'Durée répétition',setWallpaper:'Fond d’écran animé',timerDone:'Temps écoulé',hh:'h',mmm:'min',ss:'s',days2:'jour',speakTime:'Annoncer l’heure',lsTitle:'Leçons',addFolder:'Dossier',addLesson:'Leçon',rename:'Renommer',delItem:'Supprimer',delFolderQ:'Supprimer le dossier et tout son contenu ?',delLessonQ:'Supprimer cette leçon ?',addImg:'Ajouter une image',delImg:'Supprimer l’image',phAdd:'➕ Phrase',addLine:'Ligne',pasteT:'Coller minuté',medS:'Média',imgS:'Image',copyAll:'Tout copier',playAll:'Tout lire',copiedAll:'✓ Leçon copiée',phTime:'mm:ss (optionnel)',phTpl:'📝 Texte',medAdd:'🎬 Vidéo / Audio',copyTpl:'📋 Copier',copied:'✓ Copié',tplPh:'Collez le texte ici…',delMedQ:'Supprimer l’audio/vidéo ?',phImg:'🖼️ Image',phTitle:'Ajouter une phrase',phOrig:'Phrase originale',phPron:'Prononciation',phAr:'Sens (arabe)',phEn:'English',phEmpty:'Aucune phrase — ajoutez-en ou collez un modèle 📥',tplTitle:'Choisissez un modèle, modifiez le texte, ajoutez',doAdd:'Ajouter',phAddedN:'phrases ajoutées',delPhQ:'Supprimer cette phrase ?',namePh:'Nom',emptyLs:'Vide — ajoutez un dossier ou une leçon ci-dessus',newFolderNm:'Nouveau dossier',newLessonNm:'Nouvelle leçon',warnPerm:'⚠️ Pour que l’alarme sonne appli fermée : notifications + « Alarmes et rappels »',permBtn:'Activer',warnNotif:'Notifications coupées',warnExact:'« Alarmes et rappels » coupés',newAlarm:'Nouvelle alarme',editAlarm:'Modifier l’alarme',lTime:'Heure',lLabel:'Nom',labelPh:'ex. Réveil',lRepeat:'Répéter',onceHint:'Aucun jour choisi = sonne une fois',lSound:'Son',lVib:'Vibration',sndDefault:'Son du téléphone',sndBeep:'Bips',sndBell:'Cloche',sndSiren:'Sirène',sndCustom:'Mon son importé',uploadSound:'⬆️ Importer un son du téléphone',save:'Enregistrer',cancel:'Annuler',del:'Supprimer',yes:'Oui',no:'Non',once:'Une fois',daily:'Quotidien',every:'Chaque',settings:'Réglages',mClock:'Style d’horloge',analog:'Aiguilles',digital:'Chiffres',mTheme:'Thème',dark:'Sombre',light:'Clair',mLang:'Langue',mExport:'Exporter les alarmes',mImport:'Importer des alarmes',mAbout:'À propos',aboutTxt:'Sa3a — horloge, alarmes & calendrier\nv1.0',confirmDel:'Supprimer cette alarme ?',exitConfirm:'Quitter l’application ?',ringStop:'Arrêter',ringSnooze:'Répéter +10m',imported:'Importé',badFile:'Fichier invalide',back:'Année',alarmsOff:'Alarmes désactivées',permNote:'Autorisez les notifications pour que l’alarme sonne appli fermée',weekdays:['Di','Lu','Ma','Me','Je','Ve','Sa'],weekdaysFull:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],today:'Aujourd’hui',snoozed:'Reporté 10 min'}
 };
 const LANGS=['ar','en','fr'];
 const $=id=>document.getElementById(id);
@@ -442,7 +453,7 @@ async function showLesson(n){
  $('lsPath').textContent=t('lsTitle')+(lsStack.length?' / '+lsStack.map(x=>x.n).join(' / '):'')+' / '+n.n;
  $('lsBack').style.visibility='visible';
  $('lsAddF').style.display='none';$('lsAddL').style.display='none';
- $('lsPhAdd').textContent=t('phAdd');$('lsTpl').textContent=t('phTpl');$('lsImgAdd').textContent=t('phImg');$('lsMedAdd').textContent=t('medAdd');
+ $('lsLine').innerHTML='<span class="i">➕</span>'+t('addLine');$('lsTpl').innerHTML='<span class="i">⏱</span>'+t('pasteT');$('lsMedAdd').innerHTML='<span class="i">🎬</span>'+t('medS');$('lsImgAdd').innerHTML='<span class="i">🖼️</span>'+t('imgS');$('lsCopy').innerHTML='<span class="i">📋</span>'+t('copyAll');$('lsPlay').innerHTML='<span class="i">🔊</span>'+t('playAll');
  $('lsAct').style.display='flex';
  $('lsGrid').style.display='none';
  const v=$('lsImg');v.style.display='';v.innerHTML='';
@@ -456,10 +467,54 @@ async function showLesson(n){
    const el=document.createElement(m.kind==='v'?'video':'audio');el.controls=true;el.src=URL.createObjectURL(m.blob);el.className='lmed';el.id='lsMedia';
    const dd=document.createElement('button');dd.className='b danger';dd.style.cssText='padding:6px 14px;font-size:.8rem';dd.textContent=t('delItem');
    dd.onclick=async()=>{if(await confirmBox(t('delMedQ'))){try{await idb.del('lmed_'+n.id)}catch(e){}showLesson(n)}};
-   wrap.appendChild(el);wrap.appendChild(dd);v.appendChild(wrap)}
+   wrap.appendChild(el);wrap.appendChild(dd);v.appendChild(wrap);
+   const cbox=document.createElement('div');cbox.id='cueBox';v.appendChild(cbox);
+   const grid=document.createElement('div');grid.className='ctlGrid';v.appendChild(grid);
+   const cur=()=>curCueOf(el,n);
+   el.ontimeupdate=()=>{const{c,ci}=cur();if(ci!==el._ci){el._ci=ci;showCue(c[ci])}
+    if(el._loop&&ci>=0){const nx=c[ci+1];const end=nx?tSec(nx.t):el.duration||1e9;if(el.currentTime>=end-.06)el.currentTime=tSec(c[ci].t)}};
+   const RATES=[1,1.5,2,0.75];let ri=0;
+   const mk=(txt,fn)=>{const b=document.createElement('button');b.textContent=txt;b.onclick=fn;return b};
+   grid.append(
+    mk('⏮',()=>{const{c,ci}=cur();const i=Math.max(0,ci<0?0:ci-1);if(c[i])el.currentTime=tSec(c[i].t)}),
+    mk('⏭',()=>{const{c,ci}=cur();const i=Math.min(c.length-1,ci+1);if(c[i])el.currentTime=tSec(c[i].t)}),
+    mk('↓',()=>{const{ci}=cur();const p=n.ph[cuesOf(n)[ci]?n.ph.indexOf(cuesOf(n)[ci]):0]||null;if(ci>=0){const cards=document.querySelectorAll('.phc');const idx=n.ph.indexOf(cuesOf(n)[ci]);if(cards[idx])cards[idx].scrollIntoView({block:'center'})}}),
+    mk('⛶',()=>{if(el.requestFullscreen)el.requestFullscreen()}),
+    mk('🖼️',()=>$('imgPick').click()),
+    mk('CC',e=>{cbox.style.display=cbox.style.display==='none'?'':'none';e.target.classList.toggle('on',cbox.style.display!=='none')}),
+    mk('+A',()=>{fsz=Math.min(30,fsz+2);cbox.style.fontSize=fsz+'px'}),
+    mk('×1',e=>{ri=(ri+1)%RATES.length;el.playbackRate=RATES[ri];e.target.textContent='×'+RATES[ri]}),
+    mk('−A',()=>{fsz=Math.max(12,fsz-2);cbox.style.fontSize=fsz+'px'}),
+    mk('🔁',e=>{el._loop=!el._loop;e.target.classList.toggle('on',el._loop)})
+   );
+  }
  }catch(e){}
  const pl=document.createElement('div');pl.id='phList';v.appendChild(pl);
  renderPhrases(n);
+}
+const LANGFLAG={fr:'🇫🇷',en:'🇺🇸',ar:'🇸🇾',es:'🇪🇸',ru:'🇷🇺',zh:'🇨🇳',ja:'🇯🇵',ko:'🇰🇷',tr:'🇹🇷',de:'🇩🇪',it:'🇮🇹',pt:'🇵🇹',nl:'🇳🇱',pl:'🇵🇱',sv:'🇸🇪',uk:'🇺🇦',hi:'🇮🇳',ur:'🇵🇰',fa:'🇮🇷',be:'🇧🇾',no:'🇳🇴',da:'🇩🇰',fi:'🇫🇮',el:'🇬🇷',he:'🇮🇱',th:'🇹🇭',vi:'🇻🇳',id:'🇮🇩',ro:'🇷🇴',hu:'🇭🇺',cs:'🇨🇿',bg:'🇧🇬',hr:'🇭🇷',sr:'🇷🇸',sk:'🇸🇰',lt:'🇱🇹',lv:'🇱🇻',et:'🇪🇪',ka:'🇬🇪',hy:'🇦🇲',kk:'🇰🇿',az:'🇦🇿'};
+let fsz=19;
+const cuesOf=n=>(n.ph||[]).filter(p=>p.t);
+function curCueOf(el,n){const c=cuesOf(n);let ci=-1;for(let i=0;i<c.length;i++)if(tSec(c[i].t)<=el.currentTime)ci=i;return{c,ci}}
+function showCue(p){const b=$('cueBox');if(!b)return;
+ b.innerHTML=p?(p.t?'<div class="qt">⏱ '+esc(p.t)+'</div>':'')+
+  (p.s?'<div class="qs">'+esc((LANGFLAG[p.lg]||'')+' '+p.s)+'</div>':'')+
+  (p.p?'<div class="qp">'+esc(p.p)+'</div>':'')+
+  (p.a?'<div class="qa">'+esc('🇸🇾 '+p.a)+'</div>':'')+
+  (p.e?'<div class="qe">'+esc('🇺🇸 '+p.e)+'</div>':''):'';
+}
+const fmtT=sec=>{sec=Math.max(0,Math.floor(sec||0));return pad(Math.floor(sec/60))+':'+pad(sec%60)};
+function lessonText(n){return (n.ph||[]).map(p=>{let ln=p.t?p.t+' ':'';if(LANGFLAG[p.lg])ln+=LANGFLAG[p.lg]+' ';ln+=p.s;if(p.p)ln+=' | '+p.p;if(p.a)ln+=' 🇸🇾 '+p.a;if(p.e)ln+=' 🇺🇸 '+p.e;return ln}).join('\n')}
+let speakingAll=false;
+async function speakAll(n){
+ if(speakingAll)return;speakingAll=true;
+ for(const p of n.ph||[]){const txt=p.s||p.a||p.e;if(!txt)continue;
+  const lg=p.lg||guessLang(txt);
+  if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:lg}).catch(()=>{});
+   await new Promise(r=>setTimeout(r,Math.min(8000,700+txt.length*95)))}
+  else if(window.speechSynthesis){await new Promise(r=>{const u=new SpeechSynthesisUtterance(txt);u.lang=lg;u.onend=r;u.onerror=r;speechSynthesis.speak(u)})}
+ }
+ speakingAll=false;
 }
 function renderPhrases(n){
  const pl=$('phList');if(!pl)return;pl.innerHTML='';
@@ -480,22 +535,32 @@ function renderPhrases(n){
  });
 }
 $('lsImgAdd').onclick=()=>$('imgPick').click();
-$('lsMedAdd').onclick=()=>$('medPick').click();
-$('medPick').onchange=async e=>{
- const f=e.target.files[0];e.target.value='';if(!f||!lsLesson)return;
- try{await idb.set('lmed_'+lsLesson.id,{blob:f,kind:f.type.startsWith('video')?'v':'a',name:f.name});showLesson(lsLesson)}catch(err){toast('!')}
+$('lsCopy').onclick=()=>{
+ if(!lsLesson)return;const txt=lessonText(lsLesson);
+ const done=()=>toast(t('copiedAll'));
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(done).catch(done);else done();
 };
-$('lsPhAdd').onclick=()=>{
+$('lsPlay').onclick=()=>{if(!lsLesson)return;const md=$('lsMedia');if(md){md.currentTime=0;md.play().catch(()=>{})}else speakAll(lsLesson)};
+$('lsLine').onclick=()=>{
  $('phTitle').textContent=t('phTitle');
+ const md=$('lsMedia');$('phT').value=md?fmtT(md.currentTime):'';
+ $('phT').placeholder=t('phTime');
  $('phOrig').placeholder=t('phOrig');$('phPron').placeholder=t('phPron');$('phAr').placeholder=t('phAr');$('phEn').placeholder=t('phEn');
  $('phOrig').value=$('phPron').value=$('phAr').value=$('phEn').value='';
  $('phNo').textContent=t('cancel');$('phYes').textContent=t('save');
  $('phShade').classList.add('on');
 };
+$('lsMedAdd').onclick=()=>$('medPick').click();
+$('medPick').onchange=async e=>{
+ const f=e.target.files[0];e.target.value='';if(!f||!lsLesson)return;
+ try{await idb.set('lmed_'+lsLesson.id,{blob:f,kind:f.type.startsWith('video')?'v':'a',name:f.name});showLesson(lsLesson)}catch(err){toast('!')}
+};
 $('phNo').onclick=()=>$('phShade').classList.remove('on');
 $('phYes').onclick=()=>{
- const p={t:'',s:$('phOrig').value.trim(),p:$('phPron').value.trim(),a:$('phAr').value.trim(),e:$('phEn').value.trim(),lg:guessLang($('phOrig').value)};
- if(p.s||p.p||p.a||p.e){lsLesson.ph=lsLesson.ph||[];lsLesson.ph.push(p);save();renderPhrases(lsLesson)}
+ const p={t:$('phT').value.trim(),s:$('phOrig').value.trim(),p:$('phPron').value.trim(),a:$('phAr').value.trim(),e:$('phEn').value.trim(),lg:guessLang($('phOrig').value)};
+ if(p.s||p.p||p.a||p.e){lsLesson.ph=lsLesson.ph||[];lsLesson.ph.push(p);
+  if(p.t)lsLesson.ph.sort((x,y)=>tSec(x.t)-tSec(y.t));
+  save();renderPhrases(lsLesson)}
  $('phShade').classList.remove('on');
 };
 $('lsTpl').onclick=()=>{if(lsLesson)tplSheet('lesson')};
