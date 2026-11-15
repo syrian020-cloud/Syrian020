@@ -1200,7 +1200,7 @@ function drawCuePills(cx, rows, W, H, hi) {
   });
   var PAD = W * 0.06, MAXW = W - 2 * PAD;
   function lh(f) { return f * 1.4; }
-  var base = Math.min(H / 3.4, W / 15);
+  var base = Math.min(H / 4.4, W / 18);
   function layout(f) {
     var lines = [], y = 0, gap = f * 0.35;
     items.forEach(function (it) {
@@ -1235,8 +1235,9 @@ function drawCuePills(cx, rows, W, H, hi) {
     if (ln.fl) {
       var fx = px + flagR + f0 * 0.3, fy = y + ph / 2;
       cx.beginPath(); cx.arc(fx, fy, flagR, 0, 7);
-      cx.fillStyle = 'rgba(0,0,0,.4)'; cx.fill();
-      cx.font = flagR * 1.3 + 'px sans-serif';
+      cx.fillStyle = 'rgba(10,10,15,.85)'; cx.fill();
+      cx.lineWidth = Math.max(1.5, f0 * 0.05); cx.strokeStyle = 'rgba(255,255,255,.85)'; cx.stroke();
+      cx.font = flagR * 1.35 + 'px sans-serif';
       cx.fillText(ln.fl, fx, fy + flagR * 0.1);
     }
     y += ph + f0 * 0.35;
