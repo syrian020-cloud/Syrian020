@@ -2840,8 +2840,10 @@ function cueDialog(l, cue, refresh, atTime) {
     var txt = ta.value.replace(/\r/g, '').trim();
     if (!txt) { ov.remove(); return; }
     l.cues = l.cues || [];
-    if (cue) { cue.t = tt; cue.text = txt; }
-    else l.cues.push({ t: tt, d: null, text: txt });
+    if (cue) {
+      cue.t = tt; cue.text = txt;
+      if (cue.d != null && (tt == null || cue.d <= tt)) delete cue.d;   // start moved past end: fall back to next-cue end
+    } else l.cues.push({ t: tt, d: null, text: txt });
     lSave(l); ov.remove(); refresh();
   };
   if (cue) {
