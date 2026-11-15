@@ -1111,13 +1111,14 @@ function capDraggable(capEl, wrap) {
       try { handle.setPointerCapture(e.pointerId); } catch (err) {}
       var sx = e.clientX, sy = e.clientY;
       var rect = capEl.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
+      // A-/A+ zoom scales rects and pointer deltas; style.* takes layout units
       if (capEl.style.transform !== 'none') {
-        capEl.style.left = (rect.left - wr.left) + 'px'; capEl.style.right = 'auto';
-        capEl.style.top = (rect.top - wr.top) + 'px'; capEl.style.bottom = 'auto';
+        capEl.style.left = (rect.left - wr.left) / sc + 'px'; capEl.style.right = 'auto';
+        capEl.style.top = (rect.top - wr.top) / sc + 'px'; capEl.style.bottom = 'auto';
         capEl.style.transform = 'none';
       }
-      var x0 = rect.left - wr.left, y0 = rect.top - wr.top, w0 = rect.width;
-      function mm(ev) { onMove(ev.clientX - sx, ev.clientY - sy, x0, y0, w0, wr); }
+      var x0 = (rect.left - wr.left) / sc, y0 = (rect.top - wr.top) / sc, w0 = rect.width / sc;
+      function mm(ev) { onMove((ev.clientX - sx) / sc, (ev.clientY - sy) / sc, x0, y0, w0, wr); }
       function up() {
         handle.removeEventListener('pointermove', mm);
         handle.removeEventListener('pointerup', up);
