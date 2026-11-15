@@ -981,6 +981,8 @@ var FLAG_LANG = {
   '🇮🇷': 'fa-IR', '🇰🇷': 'ko-KR', '🇮🇳': 'hi-IN', '🇵🇰': 'ur-PK', '🇬🇷': 'el-GR', '🇸🇪': 'sv-SE',
   '🇫🇮': 'fi-FI', '🇦🇫': 'fa-AF', '🇮🇱': 'he-IL', '🇹🇭': 'th-TH'
 };
+var LANG_FLAG = {};   // short code -> first flag (🇫🇷→fr, 🇸🇾→ar, 🇺🇸→en …)
+for (var _fl in FLAG_LANG) { var _sl = String(FLAG_LANG[_fl]).split('-')[0]; if (!LANG_FLAG[_sl]) LANG_FLAG[_sl] = _fl; }
 var LANG_NAME = { ar: 'Arabic', en: 'English', fr: 'French', es: 'Spanish', de: 'German', it: 'Italian',
   tr: 'Turkish', ru: 'Russian', pt: 'Portuguese', nl: 'Dutch', pl: 'Polish', uk: 'Ukrainian',
   zh: 'Chinese', ja: 'Japanese', fa: 'Persian', ur: 'Urdu', hi: 'Hindi', ko: 'Korean', el: 'Greek',
@@ -1364,11 +1366,12 @@ function cueEndAt(cs, i) {
   return 1e9;
 }
 function cueActiveIdx(cs, t) {
+  var hit = -1;   // latest-starting cue wins, like the player highlight
   for (var i = 0; i < cs.length; i++) {
     var c = cs[i]; if (c.t == null) continue;
-    if (t >= c.t && t < cueEndAt(cs, i)) return i;
+    if (t >= c.t && t < cueEndAt(cs, i)) hit = i;
   }
-  return -1;
+  return hit;
 }
 // ⏺ record media playback with its caption pills
 var recState = null;
@@ -2080,10 +2083,10 @@ function openLesson(l) {
       vlp.title = 'loop';
       vlp.onclick = function () { player.loop = !player.loop; vlp.classList.toggle('on', player.loop); };
       vc.appendChild(vlp);
-      showCover();
       player.className = FITS[l.vfit || 0] || '';
     } else mediaWrap.appendChild(player);
     ov.appendChild(mediaWrap);
+    if (isV) showCover();   // needs mediaWrap inside ov before it queries it
     curPlayer = player;
     try { player.playbackRate = playSpeed; } catch (e) {}
     player.addEventListener('loadedmetadata', applyVfit);
@@ -2091,7 +2094,6 @@ function openLesson(l) {
     nowEl = el('div', 'cue-now');
     ov.appendChild(nowEl);
     var tools = el('div', 'cue-tools');
-    var csNow = sortedCues(l);
     if (isV) {
       var cvr = el('button', 'mini', '🖼');
       cvr.title = 'cover';
@@ -2124,11 +2126,11 @@ function openLesson(l) {
       sz.onclick = function () { l.vfit = ((l.vfit || 0) + 1) % FITS.length; applyVfit(); lSave(l); };
       tools.appendChild(sz);
     }
-    if (csNow.length) {
-      var rc = el('button', 'mini', '⬇');
-      rc.title = 'clip';
-      rc.onclick = function () { recToggle(rc, player, csNow); };
-      tools.appendChild(rc);
+    var rc = el('button', 'mini', '⬇');
+    rc.title = 'clip';
+    rc.onclick = function () { recToggle(rc, player, sortedCues(l)); };
+    tools.appendChild(rc);
+    if (sortedCues(l).length) {
       var nx = el('button', 'mini', '⏭');
       nx.title = 'next';
       nx.onclick = function () {
@@ -3114,7 +3116,15 @@ if (CapApp && CapApp.addListener) {
     if (ovRoot.firstChild) { closeOv(); return; }
     // close the topmost layer: stacked dialogs (pushOv on body), then lesson/library views
     var views = document.querySelectorAll('body > .overlay, body > .lov, body > .libv');
-    if (views.length) { stopSpeakLoop(); views[views.length - 1].remove(); return; }
+    if (views.length) {
+      stopSpeakLoop();
+      if (recState) { try { recState.rec.stop(); } catch (e) {} }
+      var vw = views[views.length - 1];
+      vw.querySelectorAll('video, audio').forEach(function (m) { try { m.pause(); } catch (e) {} });
+      if (curPlayer && vw.contains(curPlayer)) curPlayer = null;
+      vw.remove();
+      return;
+    }
     confirmExit();
   });
   CapApp.addListener('appStateChange', function (st) {
