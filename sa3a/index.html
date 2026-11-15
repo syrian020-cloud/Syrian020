@@ -186,6 +186,71 @@ audio.lmed{max-height:none}
 .phic.ic-say{background:#6ee7b7}
 .phic.speaking{outline:3px solid var(--acc)}
 .phic.rec-on{background:#e11d48;border-color:#fff;color:#fff}
+/* ---- games (prolang quiz/listen/read-repeat) ---- */
+.gameRow{display:flex;gap:8px;justify-content:center;margin:6px 0 10px}
+.gameRow button{flex:1;max-width:130px;background:var(--card);border:1.5px solid var(--line);color:var(--txt);border-radius:14px;padding:8px 4px;font-family:inherit;font-size:.78rem;font-weight:800;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+.gameRow button .gi{font-size:1.3rem}
+.btn{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:.7rem 1rem;color:var(--txt);font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer}
+.btn.primary{background:linear-gradient(135deg,var(--acc),var(--acc2));border:none;color:#fff}
+.btn:disabled{opacity:.4}
+.hidden{display:none}
+.qz-ov{position:fixed;inset:0;z-index:400;background:var(--bg);display:flex;flex-direction:column;overflow-y:auto;overflow-x:hidden;padding:.9rem .75rem;box-sizing:border-box}
+.qz-top{display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem}
+.qz-prog{font-weight:800;font-size:1.05rem}
+.qz-flags{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.55rem;direction:ltr;margin-bottom:.5rem}
+.qz-flag{text-align:center;font-size:1.4rem}
+.qz-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.65rem .55rem;align-content:start;flex:1;direction:ltr}
+.qz-card{border:2px solid var(--line);border-radius:18px;padding:.85rem .7rem;background:var(--card);color:var(--txt);cursor:pointer;font-size:1rem;line-height:1.5;text-align:center;user-select:none;overflow-wrap:anywhere;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.12);transition:transform .15s}
+.qz-card:active{transform:scale(.97)}
+.qz-card.sel{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc);transform:scale(1.02)}
+.qz-card.speaking{outline:3px solid #f59e0b;outline-offset:1px}
+.qz-card.done{background:linear-gradient(135deg,#22c55e,#16a34a);border-color:transparent;color:#fff;pointer-events:none}
+.qz-card.wrong{animation:qzShake .45s;border-color:#e0245e;background:#e0245e;color:#fff}
+@keyframes qzShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.qz-langs{display:flex;flex-direction:column;gap:.9rem;max-width:340px;margin:auto;width:100%}
+.qz-langs .btn{width:100%;min-height:3.2rem;font-size:1.1rem}
+.qz-end{margin:auto;text-align:center}
+.qz-pct{font-size:4.2rem;font-weight:800;line-height:1}
+.lz-stage{display:flex;flex-direction:column;align-items:center;gap:.8rem;width:100%;max-width:480px;margin:0 auto}
+.lz-hero{position:relative;width:100%;border-radius:18px;overflow:hidden;border:1.5px solid var(--line);box-shadow:0 2px 10px rgba(0,0,0,.15);background:linear-gradient(135deg,#14b8a6,#0ea5e9);transition:height .2s}
+.lz-hero.s1{height:96px}.lz-hero.s2{height:150px}.lz-hero.s3{height:210px}.lz-hero.v{height:250px}
+.lz-hero>img{display:block;width:100%;height:100%;object-fit:cover}
+.lz-hero-tools{position:absolute;top:8px;inset-inline-end:8px;display:flex;gap:6px}
+.lz-hero-btn{min-width:34px;height:34px;padding:0 8px;border-radius:12px;border:1px solid rgba(255,255,255,.35);background:rgba(10,12,30,.55);color:#fff;font-size:.9rem;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit}
+.lz-hero-btn.del{background:rgba(225,29,72,.85);border-color:transparent}
+.lz-loop{width:62px;height:62px;border-radius:50%;border:none;cursor:pointer;font-size:1.5rem;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;box-shadow:0 4px 14px rgba(20,184,166,.4)}
+.lz-loop.speaking{animation:lzPulse 1s infinite}
+@keyframes lzPulse{0%,100%{box-shadow:0 0 0 0 rgba(20,184,166,.55)}50%{box-shadow:0 0 0 9px rgba(20,184,166,0)}}
+.lz-opts{display:flex;flex-direction:column;gap:.6rem;width:100%}
+.lz-tile{border:2px solid var(--line);background:var(--card);border-radius:16px;padding:.7rem .6rem;font-size:1rem;font-weight:700;cursor:pointer;text-align:center;min-height:52px;display:flex;align-items:center;justify-content:center;color:var(--txt);line-height:1.4;transition:all .15s}
+.lz-tile.ok{border-color:#22c55e;background:rgba(34,197,94,.13)}
+.lz-tile.bad{border-color:#ef4444;background:rgba(239,68,68,.1);animation:qzShake .45s}
+.rr-wrap{display:flex;flex-direction:column;align-items:center;gap:.9rem;padding:1rem .5rem;flex:1;justify-content:center;width:100%;max-width:520px;margin:0 auto}
+.rr-text{font-size:1.65rem;font-weight:800;text-align:center;line-height:1.45;overflow-wrap:anywhere}
+.rr-tr{opacity:.75;font-size:1.05rem;text-align:center;overflow-wrap:anywhere}
+.rr-ctrl{display:flex;align-items:center;gap:.9rem}
+.rr-ctrl .btn{flex:none;padding:.7rem .9rem}
+.rr-count{font-size:1.5rem;font-weight:900;min-width:4.2rem;text-align:center}
+.rr-plus{width:4.4rem;height:4.4rem;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;font-size:2.1rem;font-weight:900;font-family:inherit;box-shadow:0 4px 14px rgba(20,184,166,.4)}
+.rr-plus.dim{opacity:.35}
+.rr-sub{min-height:1.5rem;opacity:.85;text-align:center}
+.rr-skip{text-decoration:underline;cursor:pointer;color:var(--acc)}
+.rr-wrap>.btn{flex:none;width:auto;min-width:12rem}
+.rr-w{cursor:pointer}
+.rr-w.speaking{color:var(--acc);text-decoration:underline}
+.rr-score{font-size:1.6rem;font-weight:800;text-align:center;margin:.4rem 0 .2rem}
+.lz-nav{display:flex;gap:.6rem;align-items:center}
+.lz-nav button{min-width:52px;height:44px;padding:0 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--card);color:var(--txt);font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:6px}
+.lz-nav button.on{border-color:var(--acc);background:rgba(20,184,166,.15);color:var(--acc)}
+.lz-verdict{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem;padding:.6rem .8rem;text-align:center;background:var(--card);overflow-y:auto}
+.lz-face{font-size:2rem;line-height:1}
+.lz-v-fr{font-weight:800;font-size:1.05rem;color:var(--txt)}
+.lz-verdict.ok .lz-v-fr{color:#16a34a}
+.lz-verdict.bad .lz-v-fr{color:#ef4444}
+.lz-v-tr{font-size:.9rem;font-weight:700;color:var(--dim)}
+.lz-v-line{display:flex;align-items:center;justify-content:center;gap:.4rem;max-width:100%}
+.lz-v-loop{flex:none;width:30px;height:30px;border-radius:50%;border:none;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff}
+.lz-v-loop.speaking{animation:lzPulse 1s infinite}
 .phn-note{margin-top:.5rem}
 .phn-note textarea{width:100%;min-height:56px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--txt);padding:6px 8px;font-family:inherit;font-size:.9rem}
 .phn-note .b{margin-top:4px;padding:6px 14px;font-size:.8rem}
@@ -380,9 +445,9 @@ nav button.on{color:var(--acc)}
 'use strict';
 /* =============== i18n =============== */
 const L={
-ar:{appName:'ساعتي',tabClock:'الساعة',tabAlarms:'المنبهات',tabCal:'التقويم',tabTimer:'المؤقت',tTimer:'عدّاد',tStop:'إيقاف',start:'ابدأ',pause:'إيقاف مؤقت',resume:'متابعة',reset:'إعادة',lap:'لفة',swStop:'إيقاف',nextAlarm:'المنبه القادم',after:'بعد',snoozeDur:'مدة الغفوة',setWallpaper:'اجعلها خلفية الشاشة',timerDone:'انتهى الوقت',hh:'س',mmm:'د',ss:'ث',days2:'يوم',speakTime:'انطق الوقت',lsTitle:'الدروس',addFolder:'مجلد',addLesson:'درس',rename:'إعادة تسمية',delItem:'حذف',delFolderQ:'حذف المجلد وكل ما بداخله؟',delLessonQ:'حذف الدرس؟',addImg:'أضف صورة',delImg:'احذف الصورة',phAdd:'➕ عبارة',addLine:'سطر',pasteT:'لصق مؤقت',medS:'وسائط',imgS:'صورة',copyAll:'نسخ الكل',playAll:'تشغيل الكل',copiedAll:'✓ نُسخ الدرس كاملًا',phTime:'mm:ss (اختياري)',phTpl:'📝 نص',medAdd:'🎬 فيديو / صوت',copyTpl:'📋 نسخ',copied:'✓ نُسخ',tplPh:'الصق النص هنا…',delMedQ:'حذف الصوت/الفيديو؟',phImg:'🖼️ صورة',phTitle:'أضف عبارة',phOrig:'العبارة الأصلية',phPron:'النطق',phAr:'المعنى بالعربي',phEn:'English',phEmpty:'لا عبارات بعد — أضف عبارة أو الصق نموذجًا 📥',notePh:'ملاحظة…',tplTitle:'اختر نموذجًا ثم عدّل النص وأضفه',doAdd:'إضافة',phAddedN:'عبارة أُضيفت',delPhQ:'حذف العبارة؟',recClip:'⏺ تسجيل المقطع…',recNo:'التسجيل غير مدعوم على هذا الجهاز',recSave:'✅ تم حفظ المقطع',namePh:'الاسم',emptyLs:'فارغ — أضف مجلدًا أو درسًا من الأزرار أعلاه',newFolderNm:'مجلد جديد',newLessonNm:'درس جديد',warnPerm:'⚠️ ليرن المنبه والتطبيق مغلق: فعّل الإشعارات و«المنبهات والتذكيرات»',permBtn:'تفعيل',warnNotif:'الإشعارات معطّلة',warnExact:'«المنبهات والتذكيرات» معطّلة',newAlarm:'منبه جديد',editAlarm:'تعديل المنبه',lTime:'الوقت',lLabel:'الاسم',labelPh:'مثلاً: الاستيقاظ',lRepeat:'التكرار',onceHint:'بدون اختيار أيام = يعمل مرة واحدة',lSound:'الصوت',lVib:'اهتزاز',sndDefault:'صوت الهاتف الافتراضي',sndBeep:'نبضات',sndBell:'جرس',sndSiren:'صافرة',sndCustom:'صوتي المرفوع',uploadSound:'⬆️ ارفع صوتًا من هاتفك',save:'حفظ',cancel:'إلغاء',del:'حذف',yes:'نعم',no:'لا',once:'مرة واحدة',daily:'يوميًا',every:'كل',settings:'الإعدادات',mClock:'نمط الساعة',analog:'عقارب',digital:'أرقام',mTheme:'المظهر',dark:'داكن',light:'فاتح',mLang:'اللغة',mExport:'تصدير المنبهات',mImport:'استيراد المنبهات',mAbout:'حول التطبيق',aboutTxt:'ساعتي — ساعة ومنبه وتقويم\nv1.0',confirmDel:'حذف هذا المنبه؟',exitConfirm:'الخروج من التطبيق؟',ringStop:'إيقاف',ringSnooze:'غفوة +10د',imported:'تم الاستيراد',badFile:'ملف غير صالح',back:'السنة',alarmsOff:'المنبهات معطّلة',permNote:'فعّل إذن الإشعارات ليعمل المنبه والتطبيق مغلق',weekdays:['أح','إث','ثل','أر','خم','جم','سب'],weekdaysFull:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],today:'اليوم',snoozed:'غفوة 10 دقائق'},
-en:{appName:'Sa3a',tabClock:'Clock',tabAlarms:'Alarms',tabCal:'Calendar',tabTimer:'Timer',tTimer:'Countdown',tStop:'Stopwatch',start:'Start',pause:'Pause',resume:'Resume',reset:'Reset',lap:'Lap',swStop:'Stop',nextAlarm:'Next alarm',after:'in',snoozeDur:'Snooze length',setWallpaper:'Set as wallpaper',timerDone:'Time is up',hh:'h',mmm:'m',ss:'s',days2:'day',speakTime:'Speak the time',lsTitle:'Lessons',addFolder:'Folder',addLesson:'Lesson',rename:'Rename',delItem:'Delete',delFolderQ:'Delete folder and all its contents?',delLessonQ:'Delete this lesson?',addImg:'Add image',delImg:'Remove image',phAdd:'➕ Phrase',phTpl:'📝 Text',medAdd:'🎬 Video / Audio',copyTpl:'📋 Copy',copied:'✓ Copied',tplPh:'Paste the text here…',delMedQ:'Delete the audio/video?',phImg:'🖼️ Image',phTitle:'Add a phrase',phOrig:'Original phrase',phPron:'Pronunciation',phAr:'Meaning (Arabic)',phEn:'English',phEmpty:'No phrases yet — add one or paste a template 📥',notePh:'Note…',addLine:'Line',pasteT:'Paste timed',medS:'Media',imgS:'Image',copyAll:'Copy all',playAll:'Play all',copiedAll:'✓ Lesson copied',phTime:'mm:ss (optional)',tplTitle:'Pick a template, edit the text, add it',doAdd:'Add',phAddedN:'phrases added',delPhQ:'Delete this phrase?',recClip:'⏺ Recording clip…',recNo:'Recording not supported on this device',recSave:'✅ Clip saved',namePh:'Name',emptyLs:'Empty — add a folder or lesson above',newFolderNm:'New folder',newLessonNm:'New lesson',warnPerm:'⚠️ For alarms to ring while closed: allow notifications and “Alarms & reminders”',permBtn:'Enable',warnNotif:'Notifications off',warnExact:'“Alarms & reminders” off',newAlarm:'New alarm',editAlarm:'Edit alarm',lTime:'Time',lLabel:'Label',labelPh:'e.g. Wake up',lRepeat:'Repeat',onceHint:'No days selected = rings once',lSound:'Sound',lVib:'Vibrate',sndDefault:'Phone default',sndBeep:'Beeps',sndBell:'Bell',sndSiren:'Siren',sndCustom:'My uploaded sound',uploadSound:'⬆️ Upload a sound from your phone',save:'Save',cancel:'Cancel',del:'Delete',yes:'Yes',no:'No',once:'Once',daily:'Daily',every:'Every',settings:'Settings',mClock:'Clock style',analog:'Analog',digital:'Digital',mTheme:'Theme',dark:'Dark',light:'Light',mLang:'Language',mExport:'Export alarms',mImport:'Import alarms',mAbout:'About',aboutTxt:'Sa3a — clock, alarms & calendar\nv1.0',confirmDel:'Delete this alarm?',exitConfirm:'Exit the app?',ringStop:'Stop',ringSnooze:'Snooze +10m',imported:'Imported',badFile:'Invalid file',back:'Year',alarmsOff:'Alarms disabled',permNote:'Allow notifications so alarms ring while the app is closed',weekdays:['Su','Mo','Tu','We','Th','Fr','Sa'],weekdaysFull:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],today:'Today',snoozed:'Snoozed 10 min'},
-fr:{appName:'Sa3a',tabClock:'Horloge',tabAlarms:'Alarmes',tabCal:'Calendrier',tabTimer:'Minuteur',tTimer:'Compte à rebours',tStop:'Chrono',start:'Démarrer',pause:'Pause',resume:'Reprendre',reset:'Réinit.',lap:'Tour',swStop:'Arrêt',nextAlarm:'Prochaine alarme',after:'dans',snoozeDur:'Durée répétition',setWallpaper:'Fond d’écran animé',timerDone:'Temps écoulé',hh:'h',mmm:'min',ss:'s',days2:'jour',speakTime:'Annoncer l’heure',lsTitle:'Leçons',addFolder:'Dossier',addLesson:'Leçon',rename:'Renommer',delItem:'Supprimer',delFolderQ:'Supprimer le dossier et tout son contenu ?',delLessonQ:'Supprimer cette leçon ?',addImg:'Ajouter une image',delImg:'Supprimer l’image',phAdd:'➕ Phrase',addLine:'Ligne',pasteT:'Coller minuté',medS:'Média',imgS:'Image',copyAll:'Tout copier',playAll:'Tout lire',copiedAll:'✓ Leçon copiée',phTime:'mm:ss (optionnel)',phTpl:'📝 Texte',medAdd:'🎬 Vidéo / Audio',copyTpl:'📋 Copier',copied:'✓ Copié',tplPh:'Collez le texte ici…',delMedQ:'Supprimer l’audio/vidéo ?',phImg:'🖼️ Image',phTitle:'Ajouter une phrase',phOrig:'Phrase originale',phPron:'Prononciation',phAr:'Sens (arabe)',phEn:'English',phEmpty:'Aucune phrase — ajoutez-en ou collez un modèle 📥',notePh:'Note…',tplTitle:'Choisissez un modèle, modifiez le texte, ajoutez',doAdd:'Ajouter',phAddedN:'phrases ajoutées',delPhQ:'Supprimer cette phrase ?',recClip:'⏺ Enregistrement…',recNo:'Enregistrement non pris en charge',recSave:'✅ Clip enregistré',namePh:'Nom',emptyLs:'Vide — ajoutez un dossier ou une leçon ci-dessus',newFolderNm:'Nouveau dossier',newLessonNm:'Nouvelle leçon',warnPerm:'⚠️ Pour que l’alarme sonne appli fermée : notifications + « Alarmes et rappels »',permBtn:'Activer',warnNotif:'Notifications coupées',warnExact:'« Alarmes et rappels » coupés',newAlarm:'Nouvelle alarme',editAlarm:'Modifier l’alarme',lTime:'Heure',lLabel:'Nom',labelPh:'ex. Réveil',lRepeat:'Répéter',onceHint:'Aucun jour choisi = sonne une fois',lSound:'Son',lVib:'Vibration',sndDefault:'Son du téléphone',sndBeep:'Bips',sndBell:'Cloche',sndSiren:'Sirène',sndCustom:'Mon son importé',uploadSound:'⬆️ Importer un son du téléphone',save:'Enregistrer',cancel:'Annuler',del:'Supprimer',yes:'Oui',no:'Non',once:'Une fois',daily:'Quotidien',every:'Chaque',settings:'Réglages',mClock:'Style d’horloge',analog:'Aiguilles',digital:'Chiffres',mTheme:'Thème',dark:'Sombre',light:'Clair',mLang:'Langue',mExport:'Exporter les alarmes',mImport:'Importer des alarmes',mAbout:'À propos',aboutTxt:'Sa3a — horloge, alarmes & calendrier\nv1.0',confirmDel:'Supprimer cette alarme ?',exitConfirm:'Quitter l’application ?',ringStop:'Arrêter',ringSnooze:'Répéter +10m',imported:'Importé',badFile:'Fichier invalide',back:'Année',alarmsOff:'Alarmes désactivées',permNote:'Autorisez les notifications pour que l’alarme sonne appli fermée',weekdays:['Di','Lu','Ma','Me','Je','Ve','Sa'],weekdaysFull:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],today:'Aujourd’hui',snoozed:'Reporté 10 min'}
+ar:{appName:'ساعتي',tabClock:'الساعة',tabAlarms:'المنبهات',tabCal:'التقويم',tabTimer:'المؤقت',tTimer:'عدّاد',tStop:'إيقاف',start:'ابدأ',pause:'إيقاف مؤقت',resume:'متابعة',reset:'إعادة',lap:'لفة',swStop:'إيقاف',nextAlarm:'المنبه القادم',after:'بعد',snoozeDur:'مدة الغفوة',setWallpaper:'اجعلها خلفية الشاشة',timerDone:'انتهى الوقت',hh:'س',mmm:'د',ss:'ث',days2:'يوم',speakTime:'انطق الوقت',lsTitle:'الدروس',addFolder:'مجلد',addLesson:'درس',rename:'إعادة تسمية',delItem:'حذف',delFolderQ:'حذف المجلد وكل ما بداخله؟',delLessonQ:'حذف الدرس؟',addImg:'أضف صورة',delImg:'احذف الصورة',phAdd:'➕ عبارة',addLine:'سطر',pasteT:'لصق مؤقت',medS:'وسائط',imgS:'صورة',copyAll:'نسخ الكل',playAll:'تشغيل الكل',copiedAll:'✓ نُسخ الدرس كاملًا',phTime:'mm:ss (اختياري)',phTpl:'📝 نص',medAdd:'🎬 فيديو / صوت',copyTpl:'📋 نسخ',copied:'✓ نُسخ',tplPh:'الصق النص هنا…',delMedQ:'حذف الصوت/الفيديو؟',phImg:'🖼️ صورة',phTitle:'أضف عبارة',phOrig:'العبارة الأصلية',phPron:'النطق',phAr:'المعنى بالعربي',phEn:'English',phEmpty:'لا عبارات بعد — أضف عبارة أو الصق نموذجًا 📥',notePh:'ملاحظة…',tplTitle:'اختر نموذجًا ثم عدّل النص وأضفه',doAdd:'إضافة',phAddedN:'عبارة أُضيفت',delPhQ:'حذف العبارة؟',recClip:'⏺ تسجيل المقطع…',recNo:'التسجيل غير مدعوم على هذا الجهاز',recSave:'✅ تم حفظ المقطع',namePh:'الاسم',emptyLs:'فارغ — أضف مجلدًا أو درسًا من الأزرار أعلاه',newFolderNm:'مجلد جديد',newLessonNm:'درس جديد',warnPerm:'⚠️ ليرن المنبه والتطبيق مغلق: فعّل الإشعارات و«المنبهات والتذكيرات»',permBtn:'تفعيل',warnNotif:'الإشعارات معطّلة',warnExact:'«المنبهات والتذكيرات» معطّلة',newAlarm:'منبه جديد',editAlarm:'تعديل المنبه',lTime:'الوقت',lLabel:'الاسم',labelPh:'مثلاً: الاستيقاظ',lRepeat:'التكرار',onceHint:'بدون اختيار أيام = يعمل مرة واحدة',lSound:'الصوت',lVib:'اهتزاز',sndDefault:'صوت الهاتف الافتراضي',sndBeep:'نبضات',sndBell:'جرس',sndSiren:'صافرة',sndCustom:'صوتي المرفوع',uploadSound:'⬆️ ارفع صوتًا من هاتفك',save:'حفظ',cancel:'إلغاء',del:'حذف',yes:'نعم',no:'لا',once:'مرة واحدة',daily:'يوميًا',every:'كل',settings:'الإعدادات',mClock:'نمط الساعة',analog:'عقارب',digital:'أرقام',mTheme:'المظهر',dark:'داكن',light:'فاتح',mLang:'اللغة',mExport:'تصدير المنبهات',mImport:'استيراد المنبهات',mAbout:'حول التطبيق',aboutTxt:'ساعتي — ساعة ومنبه وتقويم\nv1.0',confirmDel:'حذف هذا المنبه؟',exitConfirm:'الخروج من التطبيق؟',ringStop:'إيقاف',ringSnooze:'غفوة +10د',imported:'تم الاستيراد',badFile:'ملف غير صالح',back:'السنة',alarmsOff:'المنبهات معطّلة',permNote:'فعّل إذن الإشعارات ليعمل المنبه والتطبيق مغلق',weekdays:['أح','إث','ثل','أر','خم','جم','سب'],weekdaysFull:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],today:'اليوم',snoozed:'غفوة 10 دقائق',quiz:'لعبة التوصيل 🧩',quizChooseLang:'اختر لغة المطابقة',quizReplay:'إعادة اللعب',quizExit:'خروج',quizNoPhrases:'لا توجد عبارات كافية للّعبة',quizScore:'النتيجة',listenQuiz:'لعبة الاستماع 🎧',listenReplay:'🔊 إعادة الاستماع',gNext:'التالي',autoNext:'تلقائي',rrTitle:'لعبة اقرأ وانطق 🗣',rrPickLang:'اختر لغة التدريب',rrModeT:'طريقة التدريب',rrModeL:'👂 استمع 5× ثم انطق',rrModeR:'📖 اقرأ وانطق مباشرة',rrListenN:'👂 استمع',rrYourTurn:'🎤 دورك — انطق الآن',rrHear:'🔊 استمع',rrSkip:'تخطي الاستماع',rrWell:'أحسنت! 🎉',rrResume:'↩ متابعة التدريب',rrNew:'🔄 بدء من جديد',rrSlow:'🐢 انطق العبارة ببطء'},
+en:{appName:'Sa3a',tabClock:'Clock',tabAlarms:'Alarms',tabCal:'Calendar',tabTimer:'Timer',tTimer:'Countdown',tStop:'Stopwatch',start:'Start',pause:'Pause',resume:'Resume',reset:'Reset',lap:'Lap',swStop:'Stop',nextAlarm:'Next alarm',after:'in',snoozeDur:'Snooze length',setWallpaper:'Set as wallpaper',timerDone:'Time is up',hh:'h',mmm:'m',ss:'s',days2:'day',speakTime:'Speak the time',lsTitle:'Lessons',addFolder:'Folder',addLesson:'Lesson',rename:'Rename',delItem:'Delete',delFolderQ:'Delete folder and all its contents?',delLessonQ:'Delete this lesson?',addImg:'Add image',delImg:'Remove image',phAdd:'➕ Phrase',phTpl:'📝 Text',medAdd:'🎬 Video / Audio',copyTpl:'📋 Copy',copied:'✓ Copied',tplPh:'Paste the text here…',delMedQ:'Delete the audio/video?',phImg:'🖼️ Image',phTitle:'Add a phrase',phOrig:'Original phrase',phPron:'Pronunciation',phAr:'Meaning (Arabic)',phEn:'English',phEmpty:'No phrases yet — add one or paste a template 📥',notePh:'Note…',addLine:'Line',pasteT:'Paste timed',medS:'Media',imgS:'Image',copyAll:'Copy all',playAll:'Play all',copiedAll:'✓ Lesson copied',phTime:'mm:ss (optional)',tplTitle:'Pick a template, edit the text, add it',doAdd:'Add',phAddedN:'phrases added',delPhQ:'Delete this phrase?',recClip:'⏺ Recording clip…',recNo:'Recording not supported on this device',recSave:'✅ Clip saved',namePh:'Name',emptyLs:'Empty — add a folder or lesson above',newFolderNm:'New folder',newLessonNm:'New lesson',warnPerm:'⚠️ For alarms to ring while closed: allow notifications and “Alarms & reminders”',permBtn:'Enable',warnNotif:'Notifications off',warnExact:'“Alarms & reminders” off',newAlarm:'New alarm',editAlarm:'Edit alarm',lTime:'Time',lLabel:'Label',labelPh:'e.g. Wake up',lRepeat:'Repeat',onceHint:'No days selected = rings once',lSound:'Sound',lVib:'Vibrate',sndDefault:'Phone default',sndBeep:'Beeps',sndBell:'Bell',sndSiren:'Siren',sndCustom:'My uploaded sound',uploadSound:'⬆️ Upload a sound from your phone',save:'Save',cancel:'Cancel',del:'Delete',yes:'Yes',no:'No',once:'Once',daily:'Daily',every:'Every',settings:'Settings',mClock:'Clock style',analog:'Analog',digital:'Digital',mTheme:'Theme',dark:'Dark',light:'Light',mLang:'Language',mExport:'Export alarms',mImport:'Import alarms',mAbout:'About',aboutTxt:'Sa3a — clock, alarms & calendar\nv1.0',confirmDel:'Delete this alarm?',exitConfirm:'Exit the app?',ringStop:'Stop',ringSnooze:'Snooze +10m',imported:'Imported',badFile:'Invalid file',back:'Year',alarmsOff:'Alarms disabled',permNote:'Allow notifications so alarms ring while the app is closed',weekdays:['Su','Mo','Tu','We','Th','Fr','Sa'],weekdaysFull:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],today:'Today',snoozed:'Snoozed 10 min',quiz:'Matching game 🧩',quizChooseLang:'Choose the match language',quizReplay:'Play again',quizExit:'Exit',quizNoPhrases:'Not enough phrases for the game',quizScore:'Score',listenQuiz:'Listening game 🎧',listenReplay:'🔊 Listen again',gNext:'Next',autoNext:'Auto',rrTitle:'Read & Repeat game 🗣',rrPickLang:'Choose the training language',rrModeT:'Training mode',rrModeL:'👂 Listen 5× then repeat',rrModeR:'📖 Read & repeat directly',rrListenN:'👂 Listen',rrYourTurn:'🎤 Your turn — speak now',rrHear:'🔊 Listen',rrSkip:'Skip listening',rrWell:'Well done! 🎉',rrResume:'↩ Resume training',rrNew:'🔄 Start over',rrSlow:'🐢 Speak the phrase slowly'},
+fr:{appName:'Sa3a',tabClock:'Horloge',tabAlarms:'Alarmes',tabCal:'Calendrier',tabTimer:'Minuteur',tTimer:'Compte à rebours',tStop:'Chrono',start:'Démarrer',pause:'Pause',resume:'Reprendre',reset:'Réinit.',lap:'Tour',swStop:'Arrêt',nextAlarm:'Prochaine alarme',after:'dans',snoozeDur:'Durée répétition',setWallpaper:'Fond d’écran animé',timerDone:'Temps écoulé',hh:'h',mmm:'min',ss:'s',days2:'jour',speakTime:'Annoncer l’heure',lsTitle:'Leçons',addFolder:'Dossier',addLesson:'Leçon',rename:'Renommer',delItem:'Supprimer',delFolderQ:'Supprimer le dossier et tout son contenu ?',delLessonQ:'Supprimer cette leçon ?',addImg:'Ajouter une image',delImg:'Supprimer l’image',phAdd:'➕ Phrase',addLine:'Ligne',pasteT:'Coller minuté',medS:'Média',imgS:'Image',copyAll:'Tout copier',playAll:'Tout lire',copiedAll:'✓ Leçon copiée',phTime:'mm:ss (optionnel)',phTpl:'📝 Texte',medAdd:'🎬 Vidéo / Audio',copyTpl:'📋 Copier',copied:'✓ Copié',tplPh:'Collez le texte ici…',delMedQ:'Supprimer l’audio/vidéo ?',phImg:'🖼️ Image',phTitle:'Ajouter une phrase',phOrig:'Phrase originale',phPron:'Prononciation',phAr:'Sens (arabe)',phEn:'English',phEmpty:'Aucune phrase — ajoutez-en ou collez un modèle 📥',notePh:'Note…',tplTitle:'Choisissez un modèle, modifiez le texte, ajoutez',doAdd:'Ajouter',phAddedN:'phrases ajoutées',delPhQ:'Supprimer cette phrase ?',recClip:'⏺ Enregistrement…',recNo:'Enregistrement non pris en charge',recSave:'✅ Clip enregistré',namePh:'Nom',emptyLs:'Vide — ajoutez un dossier ou une leçon ci-dessus',newFolderNm:'Nouveau dossier',newLessonNm:'Nouvelle leçon',warnPerm:'⚠️ Pour que l’alarme sonne appli fermée : notifications + « Alarmes et rappels »',permBtn:'Activer',warnNotif:'Notifications coupées',warnExact:'« Alarmes et rappels » coupés',newAlarm:'Nouvelle alarme',editAlarm:'Modifier l’alarme',lTime:'Heure',lLabel:'Nom',labelPh:'ex. Réveil',lRepeat:'Répéter',onceHint:'Aucun jour choisi = sonne une fois',lSound:'Son',lVib:'Vibration',sndDefault:'Son du téléphone',sndBeep:'Bips',sndBell:'Cloche',sndSiren:'Sirène',sndCustom:'Mon son importé',uploadSound:'⬆️ Importer un son du téléphone',save:'Enregistrer',cancel:'Annuler',del:'Supprimer',yes:'Oui',no:'Non',once:'Une fois',daily:'Quotidien',every:'Chaque',settings:'Réglages',mClock:'Style d’horloge',analog:'Aiguilles',digital:'Chiffres',mTheme:'Thème',dark:'Sombre',light:'Clair',mLang:'Langue',mExport:'Exporter les alarmes',mImport:'Importer des alarmes',mAbout:'À propos',aboutTxt:'Sa3a — horloge, alarmes & calendrier\nv1.0',confirmDel:'Supprimer cette alarme ?',exitConfirm:'Quitter l’application ?',ringStop:'Arrêter',ringSnooze:'Répéter +10m',imported:'Importé',badFile:'Fichier invalide',back:'Année',alarmsOff:'Alarmes désactivées',permNote:'Autorisez les notifications pour que l’alarme sonne appli fermée',weekdays:['Di','Lu','Ma','Me','Je','Ve','Sa'],weekdaysFull:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],today:'Aujourd’hui',snoozed:'Reporté 10 min',quiz:'Jeu d’association 🧩',quizChooseLang:'Choisis la langue',quizReplay:'Rejouer',quizExit:'Quitter',quizNoPhrases:'Pas assez de phrases',quizScore:'Score',listenQuiz:'Jeu d’écoute 🎧',listenReplay:'🔊 Réécouter',gNext:'Suivant',autoNext:'Auto',rrTitle:'Jeu Lis et répète 🗣',rrPickLang:'Choisis la langue d’entraînement',rrModeT:'Mode d’entraînement',rrModeL:'👂 Écoute 5× puis répète',rrModeR:'📖 Lis et répète directement',rrListenN:'👂 Écoute',rrYourTurn:'🎤 À toi — répète',rrHear:'🔊 Écouter',rrSkip:'Passer l’écoute',rrWell:'Bravo ! 🎉',rrResume:'↩ Continuer l’entraînement',rrNew:'🔄 Recommencer',rrSlow:'🐢 Lecture lente de la phrase'}
 };
 const LANGS=['ar','en','fr'];
 const $=id=>document.getElementById(id);
@@ -502,6 +567,10 @@ async function showLesson(n){
  $('lsGrid').style.display='none';
  const v=$('lsImg');v.style.display='';v.innerHTML='';
  const ib=document.createElement('div');ib.className='limg';v.appendChild(ib);
+ const gr=document.createElement('div');gr.className='gameRow';
+ [['🧩','quiz',()=>openQuiz(n)],['🎧','listenQuiz',()=>openListen(n)],['🗣','rrTitle',()=>openReadRepeat(n)]].forEach(([ic,k,fn])=>{
+  const b=document.createElement('button');b.innerHTML='<span class="gi">'+ic+'</span>'+esc(t(k));b.onclick=fn;gr.appendChild(b)});
+ v.appendChild(gr);
  try{const r=await idb.get('limg_'+n.id);
   if(r&&r.blob){ib.innerHTML='<div style="position:relative;display:inline-block;max-width:100%"><img src="'+URL.createObjectURL(r.blob)+'"><button class="opt" id="liDel" style="background:rgba(0,0,0,.55);color:#fff;border-radius:50%;width:28px;height:28px;top:6px;inset-inline-end:8px">×</button></div>';
    $('liDel').onclick=async()=>{if(await confirmBox(t('delImg'))){try{await idb.del('limg_'+n.id)}catch(e){}showLesson(n)}}}
@@ -810,6 +879,348 @@ function recDone(btn){
  if(recState){cancelAnimationFrame(recState.raf);try{if(recState.rec.state!=='inactive')recState.rec.stop()}catch(e){}}
  recState=null;
  if(btn){btn.classList.remove('rec-on');btn.textContent=btn._recIcon||'⬇'}}
+/* ================= games (prolang: matching / listening / read&repeat) ================= */
+const gspeak=(txt,lang,el)=>loopSpeak([{txt,lg:lang}],el);
+function gspeakOnce(txt,lang){
+ if(window.EdgeTTS&&EdgeTTS.supported&&EdgeTTS.supported())return EdgeTTS.play((txt||'').slice(0,400),lang).catch(()=>{});
+ return sayOnce(txt,lang)}
+function gspeakSlow(txt,lang,el){
+ if(el.classList.contains('speaking')){el.classList.remove('speaking');stopSay();return}
+ document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));
+ stopSay();el.classList.add('speaking');const tok=sayTok;
+ if(window.EdgeTTS&&EdgeTTS.supported&&EdgeTTS.supported()){
+  const prev=EdgeTTS.speed;EdgeTTS.speed=.55;
+  (function play(){if(tok!==sayTok||!el.classList.contains('speaking')){EdgeTTS.speed=prev;el.classList.remove('speaking');return}
+   EdgeTTS.play(txt,lang).then(()=>play(),()=>{EdgeTTS.speed=prev;el.classList.remove('speaking')})})()}
+ else{(async()=>{while(el.classList.contains('speaking')&&tok===sayTok){await sayOnce(txt,lang)}el.classList.remove('speaking')})()}}
+function speakPair(t1,l1,t2,l2,el1,el2){
+ document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));
+ stopSay();
+ if(el1)el1.classList.add('speaking');if(el2)el2.classList.add('speaking');
+ const tok=sayTok;
+ (async()=>{let i=0;
+  while(tok===sayTok){await sayOnce(i?t2:t1,(i?l2:l1)||'fr');i=1-i}
+  if(el1)el1.classList.remove('speaking');if(el2)el2.classList.remove('speaking')})()}
+function quizTone(ok){
+ try{const Ctx=window.AudioContext||window.webkitAudioContext;
+  const ctx=quizTone.ctx||(quizTone.ctx=new Ctx());const t0=ctx.currentTime;
+  [0,.12].forEach((d,i)=>{const o=ctx.createOscillator(),g=ctx.createGain();
+   o.frequency.value=ok?[523.25,659.25][i]:(i?196:220);o.type='sine';
+   g.gain.setValueAtTime(.001,t0+d);g.gain.exponentialRampToValueAtTime(ok?.14:.11,t0+d+.02);
+   g.gain.exponentialRampToValueAtTime(.001,t0+d+(ok?.22:.18));
+   o.connect(g);g.connect(ctx.destination);o.start(t0+d);o.stop(t0+d+.3)})}catch(e){}}
+function quizShuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=a[i];a[i]=a[j];a[j]=t}return a}
+const phTxt=(p,l)=>(phMapS(p)[l]||'');
+const gItems=n=>(n.ph||[]).map(phMapS).filter(m=>Object.keys(m).length);
+const gPool=n=>(n.ph||[]).filter(p=>Object.keys(phMapS(p)).length>=2);
+const gQLang=p=>{const m=phMapS(p);return(p.lg&&m[p.lg])?p.lg:Object.keys(m)[0]};
+const gFlag=l=>LANGFLAG[l]||'🏳️';
+function gMainLang(n){const cnt={};(n.ph||[]).forEach(p=>{const l=p.lg||'fr';cnt[l]=(cnt[l]||0)+1});
+ let best='fr',c=0;for(const k in cnt)if(cnt[k]>c){c=cnt[k];best=k}return best}
+function rrLangsOf(items,n){const langs=[],main=gMainLang(n);
+ items.forEach(m=>{Object.keys(m).forEach(k=>{if(m[k]&&langs.indexOf(k)<0)langs.push(k)})});
+ langs.sort((a,b)=>(a===main?-1:0)-(b===main?-1:0));return langs}
+const rrDir=l=>('ar he fa ur'.indexOf(l)>=0?'rtl':'ltr');
+function gamePairPicker(n,title){
+ const maps=gPool(n).map(phMapS),langs=rrLangsOf(gItems(n),n),pairs=[];
+ langs.forEach(q=>{langs.forEach(a=>{if(a===q)return;
+  const c=maps.filter(m=>m[q]&&m[a]).length;if(c)pairs.push({q,a,n:c})})});
+ if(!pairs.length)return '<div class="qz-langs"><h3 style="text-align:center;margin:0">'+esc(t('quizNoPhrases'))+'</h3></div>';
+ return '<div class="qz-langs"><h3 style="text-align:center;margin:0">'+esc(title)+'</h3>'+
+  pairs.map(p=>'<button class="btn" data-q="'+p.q+'" data-a="'+p.a+'">'+
+   gFlag(p.q)+' '+p.q.toUpperCase()+' – '+gFlag(p.a)+' '+p.a.toUpperCase()+' — '+p.n+'</button>').join('')+'</div>'}
+function closeGame(){
+ stopSay();clearTimeout(lz.timer);
+ document.querySelectorAll('#quiz-overlay,#rr-overlay').forEach(o=>o.remove())}
+/* ---- matching game ---- */
+function openQuiz(n){
+ closeGame();
+ const ov=document.createElement('div');ov.id='quiz-overlay';ov.className='qz-ov';
+ ov.innerHTML='<div class="qz-top"><button class="mini" id="quiz-exit">✕</button>'+
+  '<div class="qz-prog" id="quiz-progress"></div></div>'+
+  '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>';
+ document.body.appendChild(ov);
+ $('quiz-exit').onclick=closeGame;
+ const body=$('quiz-body');
+ body.innerHTML=gamePairPicker(n,t('quizChooseLang'));
+ body.querySelectorAll('button[data-q]').forEach(b=>{b.onclick=()=>startQuiz(n,b.dataset.q,b.dataset.a)})}
+function startQuiz(n,qlang,alang){
+ const pool=gPool(n).filter(p=>{const m=phMapS(p);return m[qlang]&&m[alang]});
+ if(!pool.length){toast(t('quizNoPhrases'));return}
+ const picks=quizShuffle(pool).map((p,i)=>({p,id:i,q:qlang,a:alang}));
+ const body=$('quiz-body');if(!body)return;
+ body.innerHTML='<div class="qz-flags"><div class="qz-flag">'+gFlag(qlang)+'</div><div class="qz-flag">'+gFlag(alang)+'</div></div>'+
+  '<div class="qz-cols" id="quiz-cols"></div>';
+ const cols=$('quiz-cols'),prog=$('quiz-progress');
+ let selFr=null,correct=0,wrong=0,solved=0;
+ const setProg=()=>{prog.textContent=solved+'/'+picks.length};setProg();
+ const mkCard=(item,lang)=>{const c=document.createElement('div');c.className='qz-card';
+  c.dataset.text=phTxt(item.p,lang);c.dataset.lang=lang;c.dataset.pid=item.id;
+  c.dir=lang==='ar'?'rtl':'ltr';c.textContent=c.dataset.text;return c};
+ function onCard(card,item,lang,isQ){
+  if(card.classList.contains('done'))return;
+  const wasSpeaking=card.classList.contains('speaking');
+  gspeak(card.dataset.text,lang,card);
+  if(wasSpeaking)return;
+  if(isQ){if(selFr)selFr.classList.remove('sel');selFr=card;card.classList.add('sel');return}
+  if(!selFr){card.classList.add('sel');setTimeout(()=>card.classList.remove('sel'),600);return}
+  if(selFr.dataset.pid===card.dataset.pid){correct++;quizTone(true);
+   selFr.classList.remove('sel');selFr.classList.add('done');card.classList.add('done');solved++;
+   speakPair(selFr.dataset.text,selFr.dataset.lang,card.dataset.text,card.dataset.lang,selFr,card);
+   selFr=null;setProg();
+   if(solved===picks.length)setTimeout(()=>quizEnd(correct,wrong,n,qlang,alang),650)}
+  else{wrong++;quizTone(false);card.classList.add('wrong');
+   setTimeout(()=>card.classList.remove('wrong'),520);
+   if(selFr){selFr.classList.remove('sel');selFr=null}}}
+ const frOrder=quizShuffle(picks),tgOrder=quizShuffle(picks);
+ for(let i=0;i<picks.length;i++){
+  const f=mkCard(frOrder[i],frOrder[i].q);f.onclick=()=>onCard(f,frOrder[i],f.dataset.lang,true);cols.appendChild(f);
+  const g=mkCard(tgOrder[i],tgOrder[i].a);g.onclick=()=>onCard(g,tgOrder[i],g.dataset.lang,false);cols.appendChild(g)}}
+function quizEnd(correct,wrong,n,qlang,alang){
+ stopSay();
+ const total=correct+wrong,pct=total?Math.round(correct/total*100):100;
+ const color=pct>=70?'#1f9d55':pct>=40?'#f59e0b':'#e0245e';
+ const body=$('quiz-body');if(!body)return;
+ body.innerHTML='<div class="qz-end"><div class="qz-pct" style="color:'+color+'">'+pct+'%</div>'+
+  '<div style="font-size:1.25rem;margin:.7rem 0 1.4rem">✅ '+correct+' &nbsp; ❌ '+wrong+'</div>'+
+  '<div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap">'+
+  '<button class="btn" id="quiz-replay">🔁 '+esc(t('quizReplay'))+'</button>'+
+  '<button class="btn" id="quiz-exit2">✕ '+esc(t('quizExit'))+'</button></div></div>';
+ $('quiz-replay').onclick=()=>startQuiz(n,qlang,alang);
+ $('quiz-exit2').onclick=closeGame}
+/* ---- listening game ---- */
+var lz={lesson:null,lang:'ar',qs:[],pool:[],idx:0,correct:0,wrong:0,auto:true,timer:null,answered:false,qlang:'fr'};
+var LZ_DEFAULT_IMG='<img src="data:image/svg+xml;utf8,'+encodeURIComponent(
+ "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 140'>"+
+ "<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#14b8a6'/><stop offset='1' stop-color='#0ea5e9'/></linearGradient></defs>"+
+ "<rect width='240' height='140' fill='url(#g)'/>"+
+ "<circle cx='60' cy='40' r='26' fill='none' stroke='rgba(255,255,255,.25)' stroke-width='3'/><circle cx='180' cy='105' r='34' fill='none' stroke='rgba(255,255,255,.18)' stroke-width='3'/><circle cx='196' cy='34' r='14' fill='none' stroke='rgba(255,255,255,.3)' stroke-width='3'/>"+
+ "<path d='M92 88 v-14 a28 28 0 0 1 56 0 v14' fill='none' stroke='#fff' stroke-width='8' stroke-linecap='round'/>"+
+ "<rect x='84' y='84' width='18' height='30' rx='9' fill='#fff'/><rect x='138' y='84' width='18' height='30' rx='9' fill='#fff'/>"+
+ "</svg>")+'" alt="">';
+var lzHero={img:null,size:'s2'};
+try{lzHero.img=localStorage.getItem('sa3a_lzimg')||null;lzHero.size=localStorage.getItem('sa3a_lzsize')||'s2'}catch(e){}
+function lzSaveHero(){try{
+ if(lzHero.img)localStorage.setItem('sa3a_lzimg',lzHero.img);else localStorage.removeItem('sa3a_lzimg');
+ localStorage.setItem('sa3a_lzsize',lzHero.size)}catch(e){}}
+function lzHeroInner(){const sz={s1:'S',s2:'M',s3:'L'}[lzHero.size]||'M';
+ return (lzHero.img?'<img src="'+lzHero.img+'" alt="">':LZ_DEFAULT_IMG)+
+ '<div class="lz-hero-tools">'+
+ '<button class="lz-hero-btn" id="lzImgAdd" title="📷">📷</button>'+
+ '<button class="lz-hero-btn" id="lzImgSize" title="size">⤢ '+sz+'</button>'+
+ (lzHero.img?'<button class="lz-hero-btn del" id="lzImgDel" title="×">×</button>':'')+'</div>'}
+function resizeImageToDataUrl(file,maxDim,quality,cb){
+ const reader=new FileReader();
+ reader.onload=function(){const img=new Image();
+  img.onload=function(){const s=Math.min(1,maxDim/Math.max(img.width||1,img.height||1));
+   const c=document.createElement('canvas');
+   c.width=Math.max(1,Math.round(img.width*s));c.height=Math.max(1,Math.round(img.height*s));
+   c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+   cb(c.toDataURL('image/jpeg',quality))};
+  img.src=reader.result};
+ reader.readAsDataURL(file)}
+function lzWireHeroTools(){
+ const add=document.getElementById('lzImgAdd');
+ if(add)add.onclick=()=>document.getElementById('lzImgInput').click();
+ const inp=document.getElementById('lzImgInput');
+ if(inp)inp.onchange=e=>{const file=e.target.files&&e.target.files[0];e.target.value='';
+  if(!file)return;
+  resizeImageToDataUrl(file,1000,.82,url=>{lzHero.img=url;lzSaveHero();
+   const h=document.getElementById('lzHero');
+   if(h){h.innerHTML=lzHeroInner();lzWireHeroTools()}})};
+ const szb=document.getElementById('lzImgSize');
+ if(szb)szb.onclick=()=>{lzHero.size=lzHero.size==='s1'?'s2':(lzHero.size==='s2'?'s3':'s1');
+  lzSaveHero();const h=document.getElementById('lzHero');
+  if(h){h.className='lz-hero '+lzHero.size;h.innerHTML=lzHeroInner();lzWireHeroTools()}};
+ const del=document.getElementById('lzImgDel');
+ if(del)del.onclick=()=>{lzHero.img=null;lzSaveHero();
+  const h=document.getElementById('lzHero');
+  if(h){h.innerHTML=lzHeroInner();lzWireHeroTools()}}}
+function openListen(n){
+ closeGame();
+ lz.lesson=n;
+ const ov=document.createElement('div');ov.id='quiz-overlay';ov.className='qz-ov';
+ ov.innerHTML='<div class="qz-top"><button class="mini" id="quiz-exit">✕</button>'+
+  '<div class="qz-prog" id="quiz-progress"></div></div>'+
+  '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>'+
+  '<input type="file" id="lzImgInput" accept="image/*" style="display:none">';
+ document.body.appendChild(ov);
+ $('quiz-exit').onclick=closeGame;
+ const body=$('quiz-body');
+ body.innerHTML=gamePairPicker(n,t('quizChooseLang'));
+ body.querySelectorAll('button[data-q]').forEach(b=>{b.onclick=()=>{lz.qlang=b.dataset.q;lz.lang=b.dataset.a;lzStart()}})}
+function lzStart(){
+ const pool=gPool(lz.lesson).filter(p=>{const m=phMapS(p);return m[lz.qlang]&&m[lz.lang]});
+ const body=$('quiz-body');if(!body)return;
+ if(!pool.length){toast(t('quizNoPhrases'));return}
+ lz.pool=quizShuffle(pool);lz.qs=lz.pool;
+ lz.idx=0;lz.correct=0;lz.wrong=0;lzQuestion()}
+function lzQuestion(){
+ const body=$('quiz-body');
+ if(!body||!document.getElementById('quiz-overlay'))return;
+ const p=lz.qs[lz.idx];
+ const others=lz.pool.filter(x=>x!==p);
+ let opts=quizShuffle(others).slice(0,3);opts.push(p);opts=quizShuffle(opts);
+ body.innerHTML='<div class="lz-stage">'+
+  '<div class="lz-hero '+lzHero.size+'" id="lzHero">'+lzHeroInner()+'</div>'+
+  '<button class="lz-loop" id="lzReplay" title="'+esc(t('listenReplay'))+'">🔊</button>'+
+  '<div class="lz-opts">'+opts.map(o=>'<div class="lz-tile" data-ok="'+(o===p?'1':'0')+'">'+esc(phTxt(o,lz.lang))+'</div>').join('')+'</div>'+
+  '<div class="lz-nav">'+
+  '<button id="lzNextBtn">⏭ '+esc(t('gNext'))+'</button>'+
+  '<button id="lzAutoBtn" class="'+(lz.auto?'on':'')+'">🔁 '+esc(t('autoNext'))+'</button></div>'+
+  '<input type="file" id="lzImgInput" accept="image/*" style="display:none"></div>';
+ $('quiz-progress').textContent=(lz.idx+1)+'/'+lz.qs.length;
+ lzWireHeroTools();
+ const rp=$('lzReplay');
+ const pLang=phMapS(p)[lz.qlang]?lz.qlang:gQLang(p);
+ rp.onclick=()=>gspeak(phTxt(p,pLang),pLang,rp);
+ body.querySelectorAll('.lz-tile').forEach(tile=>{tile.onclick=()=>lzAnswer(tile,p)});
+ $('lzNextBtn').onclick=lzNext;
+ $('lzAutoBtn').onclick=function(){lz.auto=!lz.auto;this.classList.toggle('on',lz.auto);
+  if(lz.auto&&lz.answered)lzNext()};
+ setTimeout(()=>{if(document.getElementById('quiz-overlay'))gspeak(phTxt(p,pLang),pLang,rp)},250)}
+function lzAnswer(tile,p){
+ if(tile.dataset.done)return;
+ const body=$('quiz-body');
+ body.querySelectorAll('.lz-tile').forEach(x=>{x.dataset.done='1'});
+ const ok=tile.dataset.ok==='1';
+ if(ok){quizTone(true);tile.classList.add('ok');lz.correct++}
+ else{quizTone(false);lz.wrong++;tile.classList.add('bad');
+  body.querySelectorAll('.lz-tile[data-ok="1"]').forEach(x=>x.classList.add('ok'))}
+ stopSay();
+ const hero=document.getElementById('lzHero');
+ if(hero){hero.className='lz-hero v';
+  const map=phMapS(p);
+  let html='<div class="lz-verdict '+(ok?'ok':'bad')+'"><div class="lz-face">'+(ok?'😄':'😢')+'</div>';
+  const pmLang=gQLang(p);
+  Object.keys(map).forEach(li=>{const txt=map[li];
+   if(txt)html+='<div class="lz-v-line"><span class="'+(li===pmLang?'lz-v-fr':'lz-v-tr')+'" dir="'+rrDir(li)+'">'+esc(txt)+'</span>'+
+    '<button class="lz-v-loop" data-lang="'+li+'">🔁</button></div>'});
+  html+='</div>';
+  hero.innerHTML=html;
+  hero.querySelectorAll('.lz-v-loop').forEach(b=>{
+   const span=b.parentNode.querySelector('span');
+   b.onclick=()=>gspeak(span.textContent,b.dataset.lang,b)});
+  const aLoopBtn=hero.querySelector('.lz-v-loop[data-lang="'+lz.lang+'"]');
+  if(aLoopBtn)gspeak(phTxt(p,lz.lang),lz.lang,aLoopBtn)}
+ lz.answered=true;
+ clearTimeout(lz.timer);
+ if(lz.auto)lz.timer=setTimeout(lzNext,5000)}
+function lzNext(){
+ if(!document.getElementById('quiz-overlay'))return;
+ clearTimeout(lz.timer);lz.answered=false;stopSay();
+ lz.idx++;
+ if(lz.idx>=lz.qs.length){lzFinish();return}
+ lzQuestion()}
+function lzFinish(){
+ const total=lz.correct+lz.wrong,pct=total?Math.round(lz.correct/total*100):100;
+ const color=pct>=70?'#1f9d55':pct>=40?'#f59e0b':'#e0245e';
+ const body=$('quiz-body');if(!body)return;
+ body.innerHTML='<div class="qz-end"><div class="qz-pct" style="color:'+color+'">'+pct+'%</div>'+
+  '<div style="font-size:1.25rem;margin:.7rem 0 1.4rem">✅ '+lz.correct+' &nbsp; ❌ '+lz.wrong+'</div>'+
+  '<div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap">'+
+  '<button class="btn" id="lz-again">🔁 '+esc(t('quizReplay'))+'</button>'+
+  '<button class="btn" id="lz-exit">✕ '+esc(t('quizExit'))+'</button></div></div>';
+ $('quiz-progress').textContent=t('quizScore')+': '+pct+'%';
+ $('lz-again').onclick=()=>openListen(lz.lesson);
+ $('lz-exit').onclick=closeGame}
+/* ---- read & repeat ---- */
+var rr=null;
+const rrKey=n=>'sa3a_rr_'+n.id;
+const rrSavedGet=n=>{try{return JSON.parse(localStorage.getItem(rrKey(n))||'null')}catch(e){return null}};
+function rrSave(){if(!rr)return;
+ try{localStorage.setItem(rrKey(rr.l),JSON.stringify({l:rr.lang,m:rr.mode,i:rr.i,c:rr.count}))}catch(e){}}
+function rrClearSave(n){try{localStorage.removeItem(rrKey(n))}catch(e){}}
+function rrStopVoice(){if(rr)rr.listenTok++;stopSay();if(window.EdgeTTS)EdgeTTS.stop();
+ document.querySelectorAll('#rr-overlay .speaking').forEach(x=>x.classList.remove('speaking'))}
+function closeRR(){rrSave();rrStopVoice();
+ const ov=document.getElementById('rr-overlay');if(ov)ov.remove();rr=null}
+function openReadRepeat(n){
+ closeGame();
+ const items=gItems(n);
+ if(!items.length){toast(t('quizNoPhrases'));return}
+ const ov=document.createElement('div');ov.id='rr-overlay';ov.className='qz-ov';
+ ov.innerHTML='<div class="qz-top"><button class="mini" id="rr-exit">✕</button>'+
+  '<div class="qz-prog" id="rr-prog">'+esc(t('rrTitle'))+'</div></div>'+
+  '<div id="rr-body" style="display:flex;flex:1;flex-direction:column;overflow:auto"></div>';
+ document.body.appendChild(ov);
+ $('rr-exit').onclick=closeRR;
+ const body=$('rr-body');
+ const langs=rrLangsOf(items,n);
+ function start(lang,mode,idx,cnt){rr={l:n,items,lang,mode,i:idx,count:cnt||0,listenTok:0};rrSave();rrShow()}
+ function modePick(lang){
+  body.innerHTML='<div class="qz-langs"><h3 style="text-align:center;margin:0">'+esc(t('rrModeT'))+'</h3>'+
+   '<button class="btn primary" id="rr-mL">'+esc(t('rrModeL'))+'</button>'+
+   '<button class="btn" id="rr-mR">'+esc(t('rrModeR'))+'</button></div>';
+  $('rr-mL').onclick=()=>start(lang,'l',0,0);
+  $('rr-mR').onclick=()=>start(lang,'r',0,0)}
+ function pickers(){
+  const saved=rrSavedGet(n);
+  if(saved&&saved.i>0&&saved.i<items.length&&langs.indexOf(saved.l)>=0){
+   body.innerHTML='<div class="qz-langs"><h3 style="text-align:center;margin:0">'+esc(t('rrTitle'))+'</h3>'+
+    '<button class="btn primary" id="rr-resume">'+esc(t('rrResume'))+' ('+saved.i+'/'+items.length+')</button>'+
+    '<button class="btn" id="rr-restart">'+esc(t('rrNew'))+'</button></div>';
+   $('rr-resume').onclick=()=>start(saved.l,saved.m||'l',saved.i,saved.c||0);
+   $('rr-restart').onclick=()=>{rrClearSave(n);pickers()};return}
+  body.innerHTML='<div class="qz-langs"><h3 style="text-align:center;margin:0">'+esc(t('rrPickLang'))+'</h3>'+
+   langs.map(g=>{const c=items.filter(m=>m[g]).length;
+    return '<button class="btn" data-lang="'+g+'">'+gFlag(g)+' '+g.toUpperCase()+' — '+c+'</button>'}).join('')+'</div>';
+  body.querySelectorAll('button[data-lang]').forEach(b=>{b.onclick=()=>modePick(b.dataset.lang)})}
+ pickers()}
+function rrShow(){
+ const body=$('rr-body');
+ if(!rr||!body)return;
+ rrStopVoice();
+ if(rr.i>=rr.items.length){rrEnd();return}
+ const m=rr.items[rr.i],text=m[rr.lang]||'';
+ const trans=Object.keys(m).filter(k=>k!==rr.lang&&m[k])
+  .map(k=>'<div class="rr-tr" dir="'+rrDir(k)+'">'+esc(gFlag(k)+' '+m[k])+'</div>').join('');
+ const wordsHtml=(text||'').split(/\s+/).filter(Boolean).map(w=>'<span class="rr-w">'+esc(w)+'</span>').join(' ');
+ $('rr-prog').textContent=(rr.i+1)+'/'+rr.items.length+' · '+t('rrTitle');
+ body.innerHTML='<div class="rr-wrap">'+
+  '<div class="rr-text" dir="'+rrDir(rr.lang)+'">'+wordsHtml+'</div>'+trans+
+  '<div class="rr-ctrl">'+
+   '<button class="btn" id="rr-hear" title="'+esc(t('rrHear'))+'">🔊</button>'+
+   '<div class="rr-count" id="rr-count">'+rr.count+'/5</div>'+
+   '<button class="rr-plus" id="rr-plus">+</button>'+
+  '</div>'+
+  '<div class="rr-sub" id="rr-sub"></div>'+
+  '<button class="btn" id="rr-slow" title="'+esc(t('rrSlow'))+'">🐢</button>'+
+  '<button class="btn primary hidden" id="rr-next">⏭ '+esc(t('gNext'))+'</button>'+
+  '</div>';
+ const plus=$('rr-plus'),hear=$('rr-hear'),nextB=$('rr-next'),sub=$('rr-sub'),cnt=$('rr-count');
+ hear.onclick=()=>gspeak(text,rr.lang,hear);
+ nextB.onclick=()=>rrAdvance();
+ if(rr.count>=5){sub.textContent=t('rrWell');nextB.classList.remove('hidden')}
+ else if(rr.mode==='l'){plus.disabled=true;plus.classList.add('dim');rrListen5(text,plus,sub)}
+ plus.onclick=()=>{if(!rr||rr.count>=5)return;
+  rr.count++;cnt.textContent=rr.count+'/5';rrSave();
+  if(rr.count>=5){quizTone(true);sub.textContent=t('rrWell');nextB.classList.remove('hidden');
+   setTimeout(()=>{if(rr&&rr.count>=5)rrAdvance()},1400)}};
+ body.querySelectorAll('.rr-w').forEach(ws=>{ws.onclick=()=>gspeak(ws.textContent,rr.lang,ws)});
+ $('rr-slow').onclick=function(){gspeakSlow(text,rr.lang,this)}}
+function rrListen5(text,plus,sub){
+ const tok=++rr.listenTok;let k=0;
+ const unlock=()=>{plus.disabled=false;plus.classList.remove('dim');sub.textContent=t('rrYourTurn')};
+ (function one(){
+  if(!rr||tok!==rr.listenTok)return;
+  if(k>=5){unlock();return}
+  k++;
+  sub.innerHTML=esc(t('rrListenN'))+' '+k+'/5 · <span class="rr-skip" id="rr-skip">'+esc(t('rrSkip'))+'</span>';
+  const sk=$('rr-skip');
+  if(sk)sk.onclick=()=>{if(!rr)return;rr.listenTok++;if(window.EdgeTTS)EdgeTTS.stop();unlock()};
+  gspeakOnce(text,rr.lang).then(()=>{if(rr&&tok===rr.listenTok)setTimeout(one,350)})})()}
+function rrAdvance(){if(!rr)return;rr.i++;rr.count=0;rrSave();rrShow()}
+function rrEnd(){
+ const body=$('rr-body');
+ if(!rr||!body)return;
+ rrStopVoice();rrClearSave(rr.l);
+ body.innerHTML='<div class="qz-langs"><h3 style="text-align:center;margin:0">'+esc(t('quizScore'))+'</h3>'+
+  '<div class="rr-score">'+rr.i+'/'+rr.items.length+' · '+Math.round(100*rr.i/rr.items.length)+'%</div>'+
+  '<button class="btn primary" id="rr-again">🔁 '+esc(t('quizReplay'))+'</button>'+
+  '<button class="btn" id="rr-out">✕ '+esc(t('quizExit'))+'</button></div>';
+ $('rr-again').onclick=()=>{rr.i=0;rr.count=0;rrSave();rrShow()};
+ $('rr-out').onclick=closeRR}
 function curCueOf(el,n){const c=cuesOf(n);let ci=-1;for(let i=0;i<c.length;i++)if(tSec(c[i].t)<=el.currentTime)ci=i;return{c,ci}}
 function showCue(p){const b=$('cueBox');if(!b)return;b.innerHTML='';if(!p)return;
  if(p.t){const q=document.createElement('div');q.className='qt';q.textContent='⏱ '+p.t;b.appendChild(q)}
