@@ -1699,7 +1699,7 @@ function ring(a){
   fr:'Bonjour ! '+frTimeDaily(hr,mn)+'. Nous sommes '+wd+' '+dayN+' '+mo+". C'est l'heure de se réveiller ! Bonne journée et bon courage !",
   ar:'صباح الخير! الساعة '+h12+(mn?' و '+mn+' دقيقة':' تمامًا')+(hr<12?' صباحًا. ':' مساءً. ')+'اليوم '+wd+'، '+dayN+' '+mo+'. حان وقت الاستيقاظ! أتمنى لك نهارًا سعيدًا، وبالتوفيق!',
   en:'Good morning! '+enTime+'. Today is '+wd+', '+mo+' '+enOrd(dayN)+". It's time to wake up! Have a great day, and good luck!"};
- (async()=>{while(ringCard._sp&&$('ringShade').classList.contains('on')){await sayOnce(wtxt[wl],wl)}})()
+ (async()=>{for(let i=0;i<3&&ringCard._sp&&$('ringShade').classList.contains('on');i++){await sayOnce(wtxt[wl],wl)}ringCard._sp=false})()
  if(!a.days||!a.days.length){a.on=false;save();renderAlarms();rescheduleAll()}
 }
 function stopRing(){$('ringShade').classList.remove('on');ringCard._sp=false;stopSay();const au=$('ringAudio');au.pause();au.src='';clearInterval(ringCard._vi);navigator.vibrate&&navigator.vibrate(0)}
