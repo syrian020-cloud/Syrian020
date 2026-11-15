@@ -510,6 +510,12 @@ html.icth1 .fab, html.icth1 .fab-it, html.icth2 .fab, html.icth3 .fab, html.icth
   .ctime-ic.ic-ai { background: #7dd3fc; }
   .ctime-ic.ic-clip { background: #c4b5fd; }
   .ctime-ic.ic-edit { background: #fcd34d; }
+  .ctime-ic.ic-img { background: #a5f3fc; }
+  .cue-img { position: relative; margin-bottom: .35rem; }
+  .cue-img img { display: block; width: 100%; max-height: 9.5rem; object-fit: cover; border-radius: .6rem; }
+  .cue-img-del { position: absolute; top: .3rem; inset-inline-end: .3rem; width: 1.6rem; height: 1.6rem;
+    border-radius: 50%; border: none; background: rgba(20,10,10,.72); color: #fff; font-size: .95rem;
+    cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; }
   .ctime-ic.ic-theme { background: #f9a8d4; }
   .ctime-ic.ic-note { background: #93c5fd; }
   .ctime-rec { flex: none; width: 2rem; height: 2rem; border-radius: 50%; border: 2px solid rgba(0,0,0,.18);
@@ -3763,6 +3769,34 @@ function openLesson(l) {
       };
       tr.appendChild(cr2);
     }
+    var im = el('button', 'ctime-ic ic-img', '🖼');
+    im.title = t.chooseImage || 'image';
+    im.onclick = function (e) {
+      e.stopPropagation();
+      var inp = document.createElement('input');
+      inp.type = 'file'; inp.accept = 'image/*';
+      inp.onchange = function () {
+        var f = inp.files && inp.files[0]; if (!f) return;
+        var fr = new FileReader();
+        fr.onload = function () {
+          var img = new Image();
+          img.onload = function () {
+            var qs0 = recQSet();
+            var mx = qs0.imgM, sc = Math.min(1, mx / Math.max(img.naturalWidth, img.naturalHeight));
+            var cv2 = document.createElement('canvas');
+            cv2.width = Math.round(img.naturalWidth * sc);
+            cv2.height = Math.round(img.naturalHeight * sc);
+            cv2.getContext('2d').drawImage(img, 0, 0, cv2.width, cv2.height);
+            c.image = cv2.toDataURL('image/jpeg', qs0.imgQ);
+            lSave(l); renderCues(); toast('✓ 🖼');
+          };
+          img.src = fr.result;
+        };
+        fr.readAsDataURL(f);
+      };
+      inp.click();
+    };
+    tr.appendChild(im);
     var ed = el('button', 'ctime-ic ic-edit', '✏');
     ed.title = t.edit || 'edit';
     ed.onclick = function (e) { e.stopPropagation(); cueDialog(l, c, refreshAll); };
@@ -3783,6 +3817,16 @@ function openLesson(l) {
     cs.forEach(function (c, ci2) {
       var row = el('div', 'cue');
       var cb2 = el('div', 'cue-body');
+      if (c.image) {
+        var iw = el('div', 'cue-img');
+        var im2 = el('img'); im2.src = c.image;
+        iw.appendChild(im2);
+        var idx = el('button', 'cue-img-del', '×');
+        idx.title = t.delete || 'delete';
+        idx.onclick = function (e) { e.stopPropagation(); delete c.image; lSave(l); renderCues(); };
+        iw.appendChild(idx);
+        cb2.appendChild(iw);
+      }
       cueLangLines(c.text || '').forEach(function (r) {
         if (!r.text) return;
         var lg = shortLang(r.lang);
