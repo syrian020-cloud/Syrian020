@@ -2122,7 +2122,10 @@ function renderYear(){
   }
   h+='</div>';c.innerHTML=h;
   c.onclick=e=>{const de=e.target.closest('[data-d]');
-   if(de){e.stopPropagation();speakDate(m,+de.dataset.d)}else{calMonth=m;renderMonth()}};
+   if(de){e.stopPropagation();
+    if(de._t&&Date.now()-de._t<350){de._t=0;openApptFor(m,+de.dataset.d);return}
+    de._t=Date.now();speakDate(m,+de.dataset.d)}
+   else{calMonth=m;renderMonth()}};
   g.appendChild(c);
  }
  $('yearView').style.display='';$('monthView').classList.remove('on');
@@ -2141,7 +2144,10 @@ function renderMonth(){
   h+=`<div class="${isT?'tdy':''}${isH?' hday':''}" data-d="${d}">${d}${hasA?'<span class="dot"></span>':''}</div>`;
  }
  h+='</div>';$('bigcal').innerHTML=h;
- $('bigcal').onclick=e=>{const de=e.target.closest('[data-d]');if(de)speakDate(calMonth,+de.dataset.d)};
+ $('bigcal').onclick=e=>{const de=e.target.closest('[data-d]');
+  if(!de)return;
+  if(de._t&&Date.now()-de._t<350){de._t=0;openApptFor(calMonth,+de.dataset.d);return}
+  de._t=Date.now();speakDate(calMonth,+de.dataset.d)};
  const loc=st.lang==='ar'?'ar':st.lang,hols=[];
  for(let d=1;d<=dim;d++){const hv=holMap[calYear+'-'+calMonth+'-'+d],hn=hv?(hv.l||hv):'',en=hv&&hv.n?hv.n:hn;
   if(hn)hols.push('<div class="hd"><span class="d">'+d+' '+monthNames()[calMonth]+'</span><span class="hn" style="flex:1;cursor:pointer" data-hn="'+esc(hn)+'">'+esc(hn)+'</span><a class="hdai" target="_blank" rel="noopener" href="https://www.google.com/search?udm=50&hl='+st.lang+'&q='+encodeURIComponent((st.lang==='ar'?'اشرح مناسبة «'+hn+'» ('+en+') بالعربية والفرنسية والإنجليزية: ما هي، متى تُحتفل، وتقاليدها الشائعة، بشكل مختصر ومفيد.':st.lang==='fr'?'Explique la fête « '+hn+' » ('+en+') en français, en arabe et en anglais : ce que c’est, quand elle est célébrée et ses traditions courantes, de façon courte et utile.':'Explain the holiday "'+hn+'" ('+en+') in English, Arabic and French: what it is, when it is celebrated, and its common traditions — briefly and usefully.'))+'">🔍 AI</a></div>')}
@@ -2164,6 +2170,9 @@ $('backYear').onclick=renderYear;
 
 
 /* speak a calendar date on tap */
+function openApptFor(m,d){
+ const mm=String(m+1).padStart(2,'0'),dd=String(d).padStart(2,'0');
+ location.href='tempo.html#new='+calYear+'-'+mm+'-'+dd}
 function speakDate(m,d){
  const dt=new Date(calYear,m,d);
  const loc=st.lang==='ar'?'ar-SY':st.lang==='fr'?'fr-FR':'en-GB';

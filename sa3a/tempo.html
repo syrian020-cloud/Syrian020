@@ -1389,9 +1389,9 @@ async function setStatus(id,st){
 }
 
 /* ==================== form ==================== */
-function openForm(id){
+function openForm(id,preset){
   editingId=id||null;pendingAudio=null;
-  const a=id?byId(id):{category:'other'};
+  const a=id?byId(id):Object.assign({category:'other'},preset||{});
   let selCat=a.category||'other';
   $('#form-sheet').innerHTML=`
     <h2>${id?'✏️ '+t('editAppt'):'+ '+t('newAppt')}</h2>
@@ -1892,7 +1892,7 @@ load();renderAll();renderMenu();
 if('serviceWorker' in navigator&&!isCap()){try{navigator.serviceWorker.register('sw-tempo.js');}catch(e){}}
 rescheduleAll();
 if(location.hash==='#plan')openPlan();
-else if(location.hash==='#new')openForm(null);
+else if(location.hash.startsWith('#new')){const m=location.hash.match(/^#new=(\d{4}-\d{2}-\d{2})/);openForm(null,m?{date:m[1]}:null)}
 try{const bk=document.createElement('a');bk.href='index.html';bk.textContent='🕐 Sa3a';
  bk.style.cssText='position:fixed;bottom:14px;inset-inline-start:14px;z-index:40;background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none;font-size:.85rem';
  document.body.appendChild(bk)}catch(e){}
