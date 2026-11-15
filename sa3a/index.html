@@ -306,7 +306,7 @@ function nextTimes(a){
   if(d<=now)d.setDate(d.getDate()+1);
   out.push(d);
  }else{
-  for(let i=0;i<7;i++){
+  for(let i=0;i<8;i++){
    const d=new Date(now);d.setDate(d.getDate()+i);d.setHours(a.hh,a.mm,0,0);
    if(d>now&&a.days.includes(d.getDay()))out.push(d);
   }
