@@ -1103,7 +1103,9 @@ function capDraggable(capEl, wrap) {
   var aa = el('button', 'cap-aa', 'A-');
   var ab = el('button', 'cap-ab', 'A+');
   aa.onclick = function (e) { e.stopPropagation(); sc = Math.max(.5, sc / 1.12); capEl.style.zoom = sc; };
-  ab.onclick = function (e) { e.stopPropagation(); sc = Math.min(2, sc * 1.12); capEl.style.zoom = sc; };
+  ab.onclick = function (e) { e.stopPropagation();
+    var fit = (wrap.clientWidth - 24) / (capEl.getBoundingClientRect().width / sc);   // keep grips inside the wrap
+    sc = Math.min(2, fit, sc * 1.12); capEl.style.zoom = sc; };
   capEl.appendChild(aa); capEl.appendChild(ab);
   capEl._capGrips = [mv, rs, aa, ab];   // renderCap clears innerHTML, so grips are re-appended after each render
   var sc0 = 1;   // pointerdown zoom, shared by coord normalization and resize math
@@ -1133,7 +1135,7 @@ function capDraggable(capEl, wrap) {
     });
   }
   drag(mv, function (dx, dy, x0, y0, w0, wr) {
-    var nx = Math.max(0, Math.min(wr.width - w0, x0 + dx));
+    var nx = Math.max(0, Math.min(wr.width / sc0 - w0, x0 + dx));   // visual right edge (nx+w0)*sc0 <= wrap width
     var ny = Math.max(0, Math.min(wr.height - 26, y0 + dy));
     capEl.style.left = nx + 'px'; capEl.style.right = 'auto';
     capEl.style.top = ny + 'px'; capEl.style.bottom = 'auto';
@@ -1141,7 +1143,8 @@ function capDraggable(capEl, wrap) {
   drag(rs, function (dx, dy, x0, y0, w0, wr) {
     // resize scales the whole card (text + frame): along the arrow enlarges, opposite shrinks
     var delta = (dx + dy) / Math.SQRT2;
-    sc = Math.max(.5, Math.min(2, sc0 * (1 + delta / w0)));
+    var fit = (wr.width - 24) / w0;   // grip margin: scaled card never wider than the wrap
+    sc = Math.max(.5, Math.min(2, fit, sc0 * (1 + delta / w0)));
     capEl.style.zoom = sc;
   });
 }
