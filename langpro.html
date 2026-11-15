@@ -241,18 +241,19 @@
     filter: blur(22px) brightness(.5) saturate(1.5); pointer-events: none; }
   .lov-media audio { width: 100%; }
   /* ---------- ProLang featured phrase + tools ---------- */
-  .cue-now { text-align: center; font-size: 1.05rem; font-weight: 800; line-height: 1.45;
-    padding: .55rem .3rem .2rem; min-height: 1.5rem; overflow-wrap: anywhere; }
-  .cue-now .cue-line { position: relative; display: flex; align-items: center; gap: .8rem;
-    direction: ltr; border-radius: 26px; border-width: 2px; border-style: solid;
-    padding: .55rem 1.1rem; margin: .35rem auto; font-weight: 800; font-size: 1.35rem;
+  .cue-now { text-align: center; font-size: 1rem; font-weight: 800; line-height: 1.4;
+    padding: .4rem .3rem .1rem; min-height: 1.5rem; overflow-wrap: anywhere;
+    flex: none; max-height: 38vh; overflow-y: auto; }
+  .cue-now .cue-line { position: relative; display: flex; align-items: center; gap: .7rem;
+    direction: ltr; border-radius: 22px; border-width: 2px; border-style: solid;
+    padding: .45rem .95rem; margin: .3rem auto; font-weight: 800; font-size: 1.12rem;
     width: 100%; box-sizing: border-box; overflow-wrap: anywhere; text-align: center;
     line-height: 1.45; box-shadow: 0 4px 12px rgba(0,0,0,.3); }
   .cue-now .cue-line > span:last-child { flex: 1; min-width: 0; }
   .cue-line { font-family: 'Segoe UI','Noto Sans',Roboto,'Helvetica Neue',sans-serif;
     letter-spacing: .01em; cursor: pointer; }
   .cue-line.spk-on { outline: 3px solid rgba(255,255,255,.7); }
-  .cue-line .cue-flag { position: static; transform: none; font-size: 2rem;
+  .cue-line .cue-flag { position: static; transform: none; font-size: 1.7rem;
     line-height: 1; flex: none; }
   .cue-line.lg-fr { background: var(--cap-fr-bg, #3d3d3d); color: var(--cap-fr-fg, #fff);
     border-color: var(--cap-fr-bd, transparent);
@@ -261,7 +262,7 @@
   .cue-line.lg-ar { background: var(--cap-ar-bg, #d9a21b); color: var(--cap-ar-fg, #33260a);
     border-color: var(--cap-ar-bd, transparent);
     font-family: var(--cap-ar-font, 'Noto Kufi Arabic', 'Noto Naskh Arabic', 'Segoe UI', Tahoma, sans-serif);
-    font-style: var(--cap-ar-style, normal); font-size: 1.45rem; }
+    font-style: var(--cap-ar-style, normal); font-size: 1.2rem; }
   .cue-line.lg-en { background: var(--cap-en-bg, #f3ecd9); color: var(--cap-en-fg, #2b2b2b);
     border-color: var(--cap-en-bd, transparent);
     font-family: var(--cap-en-font, 'Segoe UI', 'Noto Sans', Roboto, sans-serif);
@@ -292,7 +293,7 @@
   .lov-media video.fit-cover { object-fit: cover; }
   .lov-media video.fit-fill { object-fit: fill; }
   .lov-media video.fit-tall { max-height: 62vh; }
-  .lov-cues { flex: 1; overflow-y: auto; padding: .3rem .8rem 5.5rem; display: flex;
+  .lov-cues { flex: 1; min-height: 0; overflow-y: auto; padding: .3rem .8rem 5.5rem; display: flex;
     flex-direction: column; gap: .4rem; }
   .cue { display: flex; gap: .5rem; align-items: flex-start; background: var(--card);
     border: 1px solid var(--line); border-radius: 12px; padding: .5rem .6rem; cursor: pointer; }
