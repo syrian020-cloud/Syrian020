@@ -217,6 +217,10 @@
     border: 1px solid var(--line); border-radius: 14px; padding: .55rem .7rem; cursor: pointer; }
   .lrow:active { border-color: var(--accent); }
   .lrow .lic { font-size: 1.15rem; flex: none; }
+  .licprev { flex: none; width: 34px; height: 34px; border-radius: 10px; overflow: hidden;
+    background: var(--field); border: 1px solid var(--line); display: flex;
+    align-items: center; justify-content: center; }
+  .licprev img { width: 100%; height: 100%; object-fit: cover; }
   .lrow .ln { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     font-weight: 700; font-size: .88rem; }
   .lrow .lc { font-size: .7rem; color: var(--dim); flex: none; }
@@ -634,6 +638,9 @@ IDB.lgetAll().then(function (list) {
   renderGrid();
 }).catch(function () {});
 function lessonCount(sid) { return (lessonMap[sid] || []).length; }
+function cueCount(sid) {
+  return (lessonMap[sid] || []).reduce(function (n, l) { return n + ((l.cues || []).length); }, 0);
+}
 
 var activeSess = null; // { added:[rec], committed:bool } — purge unsaved additions on cancel
 var lastAttWrap = null;
@@ -1298,12 +1305,27 @@ function renameLesson(l, refresh) {
   var inp = document.createElement('input');
   inp.value = l.name || ''; inp.dir = 'auto';
   f.appendChild(inp); d.appendChild(f);
+  var iconInp = document.createElement('input');
+  iconInp.type = 'hidden'; iconInp.value = l.icon || '';
+  var irow = el('div', 'frow'); irow.style.marginTop = '.55rem';
+  var iprev = el('div', 'licprev');
+  var paintPrev = function () {
+    iprev.innerHTML = '';
+    if (iconInp.value) { var im = new Image(); im.src = iconInp.value; iprev.appendChild(im); }
+  };
+  var ib = el('button', 'mini', '🖼 ' + t.pickImg);
+  ib.onclick = function () { pickIconImage(iconInp, paintPrev); };
+  var iclear = el('button', 'mini', '🗑');
+  iclear.onclick = function () { iconInp.value = ''; paintPrev(); };
+  irow.appendChild(ib); irow.appendChild(iclear); irow.appendChild(iprev);
+  d.appendChild(irow);
+  paintPrev();
   var r = el('div', 'row'); r.style.marginTop = '.8rem';
   var no = el('button', null, t.no); no.onclick = function () { ov.remove(); };
   var yes = el('button', 'yes', t.save);
   yes.onclick = function () {
     var v = inp.value.trim();
-    if (v) { l.name = v; lSave(l); refresh(); renderGrid(); }
+    if (v) { l.name = v; l.icon = iconInp.value; lSave(l); refresh(); renderGrid(); }
     ov.remove();
   };
   r.appendChild(no); r.appendChild(yes); d.appendChild(r); ov.appendChild(d);
@@ -1331,11 +1353,17 @@ function openLessonsSheet(s, session) {
     var grid = el('div', 'grid');
     ls.forEach(function (l) {
       var card = el('div', 'site');
-      card.appendChild(el('div', 'site-icon',
-        l.blob ? (String(l.mime).indexOf('video/') === 0 ? '🎬' : '🎵') : '📝'));
+      var lic = el('div', 'site-icon',
+        l.blob ? (String(l.mime).indexOf('video/') === 0 ? '🎬' : '🎵') : '📝');
+      if (l.icon) {
+        var limg = new Image(); limg.src = l.icon; limg.alt = '';
+        limg.onerror = function () { limg.remove(); };
+        lic.innerHTML = ''; lic.appendChild(limg);
+      }
+      card.appendChild(lic);
       card.appendChild(el('div', 'site-name', l.name || t.lName));
       var nc = (l.cues || []).length;
-      if (nc) { var lbd = el('div', 'site-badges'); lbd.appendChild(el('span', 'badge', '⏱' + nc)); card.appendChild(lbd); }
+      if (nc) { var lbd = el('div', 'site-badges'); lbd.appendChild(el('span', 'badge', '💬' + nc)); card.appendChild(lbd); }
       var rn = el('button', 'site-dots', '✏');
       rn.onclick = function (e) { e.stopPropagation(); renameLesson(l, refresh); };
       card.appendChild(rn);
@@ -2082,6 +2110,8 @@ function renderGrid() {
         var lb = el('button', 'badge', '📚' + nl);
         lb.onclick = function (e) { e.stopPropagation(); openLessonsSheet(s); };
         bd.appendChild(lb);
+        var nq = cueCount(s.id);
+        if (nq) bd.appendChild(el('span', 'badge gold', '💬' + nq));
       }
       if (na) {
         var fb = el('button', 'badge', '📎' + na);
@@ -2188,7 +2218,7 @@ function sheet() {
 }
 
 // Pick an icon image from the device gallery -> square 128px data URL
-function pickIconImage(inp) {
+function pickIconImage(inp, cb) {
   var fi = document.createElement('input');
   fi.type = 'file'; fi.accept = 'image/*';
   fi.onchange = function () {
@@ -2204,6 +2234,7 @@ function pickIconImage(inp) {
         var m = Math.min(img.width, img.height);
         g.drawImage(img, (img.width - m) / 2, (img.height - m) / 2, m, m, 0, 0, S, S);
         try { inp.value = c.toDataURL('image/png'); } catch (e) { inp.value = rd.result; }
+        if (cb) cb(inp.value);
       };
       img.src = rd.result;
     };
@@ -2512,7 +2543,7 @@ async function exportData() {
     var lrecs = await IDB.lgetAll();
     for (var li = 0; li < lrecs.length; li++) {
       var lr = lrecs[li];
-      var mo = { id: lr.id, siteId: lr.siteId, name: lr.name, mime: lr.mime, cues: lr.cues || [] };
+      var mo = { id: lr.id, siteId: lr.siteId, name: lr.name, mime: lr.mime, icon: lr.icon || '', cues: lr.cues || [] };
       if (lr.blob) {
         var mext = String(lr.mime || 'bin').split('/')[1] || 'bin';
         mo.media = 'media/' + lr.id + '.' + mext.split(';')[0];
@@ -2588,7 +2619,7 @@ function importData() {
           var sid = idMap[lm.siteId];
           if (!sid) return null;
           var rec = { id: 'l' + Date.now() + Math.random().toString(36).slice(2, 6),
-            siteId: sid, name: lm.name || '', mime: lm.mime || '',
+            siteId: sid, name: lm.name || '', mime: lm.mime || '', icon: lm.icon || '',
             cues: lm.cues || [], blob: null, addedAt: Date.now() };
           if (lm.media && ents && ents[lm.media]) {
             rec.blob = new Blob([ents[lm.media]], { type: lm.mime || 'application/octet-stream' });
