@@ -270,10 +270,10 @@
     background: var(--card); cursor: pointer; font-size: .75rem; font-weight: 800; padding: 0; }
   .capdot.on { border-color: var(--gold); }
   /* ---------- zeelang caption card ---------- */
-  .mbcap { position: absolute; left: 50%; transform: translateX(-50%); width: 72%; bottom: 5%;
-    max-height: 82%; z-index: 3; display: flex; flex-direction: column; }
+  .mbcap { position: absolute; left: 50%; transform: translateX(-50%); width: 72%;
+    bottom: max(5%, 3rem); z-index: 3; display: flex; flex-direction: column; }
   .mbcap.plain { position: static; margin: .4rem .8rem; width: auto; left: auto; transform: none;
-    max-height: none; display: block; }
+    top: auto; bottom: auto; max-height: 34vh; flex: none; justify-content: flex-start; }
   .cap-card { background: rgba(250,246,255,.94); border-radius: 20px; padding: .6rem .65rem;
     box-shadow: 0 8px 30px rgba(0,0,0,.45); display: flex; flex-direction: column; min-height: 0; }
   .cap-rows { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; }
@@ -1691,14 +1691,21 @@ function openLesson(l) {
       player.addEventListener('timeupdate', bgSync);
     }
     mediaWrap.appendChild(player);
-    if (isV) { capEl = el('div', 'mbcap'); mediaWrap.appendChild(capEl); capDraggable(capEl, mediaWrap); }
+    if (isV) {
+      capEl = el('div', 'mbcap'); mediaWrap.appendChild(capEl); capDraggable(capEl, mediaWrap);
+      // % max-height doesn't resolve against the auto-height wrap — cap it in px instead
+      var capMax = function () { capEl.style.maxHeight = Math.max(80, mediaWrap.clientHeight - 16) + 'px'; };
+      capMax();
+      player.addEventListener('loadedmetadata', capMax);
+      window.addEventListener('resize', capMax);
+    }
     ov.appendChild(mediaWrap);
   }
   if (!isV) { capEl = el('div', 'mbcap plain'); ov.appendChild(capEl); }
-  var curCapCue = false;
+  var curCapCue = false, curCapText = null;
   function renderCap(c) {
-    if (!capEl || c === curCapCue) return;
-    curCapCue = c;
+    if (!capEl || (c === curCapCue && (!c || c.text === curCapText))) return;
+    curCapCue = c; curCapText = c ? c.text : null;
     capEl.innerHTML = '';
     if (!c) return;
     var card = el('div', 'cap-card');
@@ -1712,7 +1719,7 @@ function openLesson(l) {
         ws.onclick = function (ev) {
           ev.stopPropagation();
           if (tm) { clearTimeout(tm); tm = null; searchImages(w); return; }   // double-tap → image search
-          tm = setTimeout(function () { tm = null; speakLoop(w, ln.lang, ws); }, 270);   // tap → word loop
+          tm = setTimeout(function () { tm = null; speakLoop(w, ln.lang, ws); }, 400);   // tap → word loop
         };
         tx.appendChild(ws);
         tx.appendChild(document.createTextNode(' '));
@@ -1793,7 +1800,7 @@ function openLesson(l) {
       ai.onclick = function (e) { e.stopPropagation(); openAiSearch(c.text || ''); };
       cb.appendChild(ai);
       var ed = el('button', 'ax', '✏');
-      ed.onclick = function (e) { e.stopPropagation(); cueDialog(l, c, renderCues); };
+      ed.onclick = function (e) { e.stopPropagation(); cueDialog(l, c, refreshAll); };
       cb.appendChild(ed);
       row.appendChild(cb);
       if (player && c.t != null) row.onclick = function () { stopSpeakLoop(); stopSegLoop(); player.currentTime = c.t; player.play(); };
@@ -1802,6 +1809,7 @@ function openLesson(l) {
       list.appendChild(row);
     });
   }
+  function refreshAll() { renderCues(); renderGrid(); }
   if (player) {
     player.ontimeupdate = function () {
       var ct = player.currentTime, active = null;
@@ -1830,9 +1838,9 @@ function openLesson(l) {
   renderCues();
   var acts = el('div', 'lov-actions');
   var bAdd = el('button', 'mini', '➕ ' + t.cueAdd);
-  bAdd.onclick = function () { cueDialog(l, null, renderCues, player ? player.currentTime : null); };
+  bAdd.onclick = function () { cueDialog(l, null, refreshAll, player ? player.currentTime : null); };
   var bTimed = el('button', 'mini', '⏱ ' + t.timedTitle);
-  bTimed.onclick = function () { timedDialog(l, renderCues); };
+  bTimed.onclick = function () { timedDialog(l, refreshAll); };
   var bMedia = el('button', 'mini', '🎬/🎵');
   bMedia.title = t.pickVideo + '/' + t.pickAudio;
   bMedia.onclick = function () {
