@@ -271,9 +271,12 @@
   .cue-line.lg-x { background: var(--cap-x-bg, linear-gradient(135deg, #a78bfa, #7c3aed));
     color: var(--cap-x-fg, #fff); border-color: var(--cap-x-bd, transparent);
     font-family: var(--cap-x-font, 'Segoe UI', sans-serif); font-style: var(--cap-x-style, normal); }
-  .cue-tools { display: flex; gap: .4rem; justify-content: flex-start; margin: .3rem .8rem;
-    flex-wrap: nowrap; overflow-x: auto; padding-bottom: .15rem; }
-  .cue-tools .mini { flex: none; min-width: 44px; }
+  .cue-tools { display: flex; gap: .45rem; justify-content: center; align-items: center;
+    margin: .35rem .8rem .5rem; padding: .45rem .5rem; flex-wrap: nowrap; overflow-x: auto;
+    border: 1.5px solid var(--line); border-radius: 18px; background: rgba(7,11,24,.55); }
+  .cue-tools .mini { flex: none; min-width: 52px; min-height: 52px; font-size: 1.15rem;
+    border-radius: 14px; display: flex; align-items: center; justify-content: center;
+    padding: .4rem .55rem; }
   .cue-tools .mini.on { background: linear-gradient(135deg, var(--accent), var(--accent2));
     color: #fff; border-color: transparent; }
   .cue-tools .mini.rec-on { background: #e11d48; color: #fff; border-color: transparent;
