@@ -61,6 +61,7 @@ main{flex:1;overflow:auto;position:relative}
 .fab{position:fixed;bottom:calc(64px + env(safe-area-inset-bottom,0px) + 14px);inset-inline-end:18px;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;font-size:1.8rem;cursor:pointer;box-shadow:0 6px 20px rgba(79,140,255,.45);z-index:6;line-height:1}
 /* ---- calendar ---- */
 #sec-cal{padding:12px 12px 20px}
+#calToday{text-align:center;font-weight:800;font-size:1.05rem;color:var(--txt);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;margin-bottom:12px}
 .yrnav{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:10px}
 .yrnav .yr{font-size:1.4rem;font-weight:800;font-family:'Orbitron',monospace;min-width:90px;text-align:center}
 .yrnav button{background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;width:40px;height:36px;font-size:1.1rem;cursor:pointer}
@@ -411,6 +412,7 @@ nav button.on{color:var(--acc)}
     </div>
   </section>
   <section class="tabsec" id="sec-cal">
+    <div id="calToday"></div>
     <div id="yearView">
       <div class="yrnav"><button id="yrPrev">‹</button><div class="yr" id="yrNum"></div><button id="yrNext">›</button></div>
       <div id="yrgrid"></div>
@@ -2094,6 +2096,7 @@ const alarmDays=()=>{const s=new Set();const now=new Date();
 function monthNames(){const f=new Intl.DateTimeFormat(st.lang==='ar'?'ar':st.lang,{month:'long'});return Array.from({length:12},(_,m)=>f.format(new Date(2000,m,1)))}
 function renderYear(){
  $('yrNum').textContent=calYear;
+ $('calToday').textContent='📅 '+new Intl.DateTimeFormat(st.lang==='ar'?'ar-SY':st.lang==='fr'?'fr-FR':'en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date());
  const g=$('yrgrid');g.innerHTML='';
  const ad=alarmDays(),today=new Date(),mn=monthNames(),wd=t('weekdays');
  const firstDow=1; // Monday
