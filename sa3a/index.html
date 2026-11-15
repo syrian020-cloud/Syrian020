@@ -23,7 +23,7 @@ main{flex:1;overflow:auto;position:relative}
 .tabsec{display:none;height:100%;flex-direction:column}
 .tabsec.on{display:flex}
 /* ---- clock ---- */
-#sec-clock{align-items:center;justify-content:center;padding:16px}
+#sec-clock{align-items:center;justify-content:center;padding:16px 16px 8px;transform:translateY(-3.5vh)}
 #analog{width:min(86vw,58vh);height:min(86vw,58vh);display:none}
 #analog.on{display:block}
 #digital{display:none;text-align:center}
@@ -98,6 +98,8 @@ main{flex:1;overflow:auto;position:relative}
 #nextAl{margin-top:14px;color:var(--ok);font-weight:700;font-size:1rem;min-height:1.4em}
 #speakBtn{margin-top:18px;width:62px;height:62px;border-radius:50%;border:2px solid var(--acc);background:var(--card);font-size:1.6rem;cursor:pointer;box-shadow:0 0 18px rgba(79,140,255,.25)}
 #speakBtn:active{background:var(--acc);transform:scale(.94)}
+#speakCap{margin-top:12px;font-size:1.05rem;color:var(--txt);font-weight:600;text-align:center;max-width:90%;min-height:1.3em;line-height:1.5;opacity:0;transition:opacity .3s}
+#speakCap.on{opacity:1}
 /* ---- dock & lessons ---- */
 #dock{display:flex;gap:10px;width:100%;max-width:520px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none}
 #dock::-webkit-scrollbar{display:none}
@@ -334,6 +336,7 @@ nav button.on{color:var(--acc)}
     <svg id="analog" viewBox="0 0 300 300"></svg>
     <div id="digital"><div class="dtime"><span id="dh">00</span><span class="sec" id="ds">:00</span></div><div class="ddate" id="ddate"></div><div id="nextAl"></div></div>
     <button id="speakBtn">🔊</button>
+    <div id="speakCap"></div>
   </section>
   <section class="tabsec" id="sec-alarms">
     <div id="permBanner" style="display:none"></div>
@@ -1824,12 +1827,24 @@ function renderAlarms(){
 }
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 
+const ARN=['صفر','واحد','اثنان','ثلاثة','أربعة','خمسة','ستة','سبعة','ثمانية','تسعة','عشرة','أحد عشر','اثنا عشر','ثلاثة عشر','أربعة عشر','خمسة عشر','ستة عشر','سبعة عشر','ثمانية عشر','تسعة عشر'];
+const ART=['','','عشرون','ثلاثون','أربعون','خمسون'];
+function arNum(n){if(n<20)return ARN[n];const t=Math.floor(n/10),u=n%10;return u?ARN[u]+' و'+ART[t]:ART[t]}
+const ENN=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+const ENT=['','','twenty','thirty','forty','fifty'];
+function enNum(n){if(n<20)return ENN[n];const t=Math.floor(n/10),u=n%10;return u?ENT[t]+'-'+ENN[u]:ENT[t]}
+
 function speakTime(){
  const d=new Date(),h=d.getHours(),m=d.getMinutes(),h12=h%12||12;
  let txt,lang;
  if(st.lang==='ar'){lang='ar-SA';txt='الساعة الآن '+h12+(m?' و '+m+' دقيقة':' تمامًا')+(h<12?' صباحًا':' مساءً')}
  else if(st.lang==='fr'){lang='fr-FR';txt=frTimeFormal(h,m)+'. '+frTimeDaily(h,m)}
  else{lang='en-US';txt='The time is '+h12+' '+(m?(m<10?'oh '+m:''+m):'o clock')+(h<12?' AM':' PM')}
+ const cap=$('speakCap');let ctxt;
+ if(st.lang==='ar')ctxt='الساعة '+arNum(h12)+(m?' و'+arNum(m)+' دقيقة':' تمامًا')+(h<12?' صباحًا':' مساءً');
+ else if(st.lang==='fr')ctxt=txt;
+ else ctxt='It is '+enNum(h12)+(m?' '+enNum(m):" o'clock")+(h<12?' in the morning':h<17?' in the afternoon':' in the evening');
+ cap.textContent=ctxt;cap.classList.add('on');clearTimeout(cap._t);cap._t=setTimeout(()=>cap.classList.remove('on'),9000);
  if(window.EdgeTTS&&EdgeTTS.supported&&EdgeTTS.supported()){stopSay();EdgeTTS.play(txt,st.lang==='ar'?'ar':st.lang==='fr'?'fr':'en').catch(()=>{});return}
  if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:lang}).catch(()=>toast('!'));return}
  try{if('speechSynthesis' in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang=lang;speechSynthesis.speak(u)}}catch(e){toast('!')}
