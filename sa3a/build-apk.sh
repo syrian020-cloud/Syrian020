@@ -35,7 +35,24 @@ sed -i "s|<string name=\"title_activity_main\">.*</string>|<string name=\"title_
 PLUGIN_DIR="android/app/src/main/java/com/syrian020/sa3a"
 mkdir -p "$PLUGIN_DIR"
 cp native-plugins/AlarmSoundPlugin.java "$PLUGIN_DIR/"
+cp native-plugins/Sa3aWallpaperService.java "$PLUGIN_DIR/"
+mkdir -p android/app/src/main/res/xml
+cp native-plugins/sa3a_wallpaper.xml android/app/src/main/res/xml/
 MAIN_ACTIVITY=$(find android/app/src/main/java -name MainActivity.java | head -1)
+MANIFEST="android/app/src/main/AndroidManifest.xml"
+if [ -f "$MANIFEST" ] && ! grep -q 'Sa3aWallpaperService' "$MANIFEST"; then
+  python3 - "$MANIFEST" <<'PY'
+import sys
+p=sys.argv[1];s=open(p).read()
+svc='''    <service android:name=".Sa3aWallpaperService" android:permission="android.permission.BIND_WALLPAPER" android:exported="true">
+        <intent-filter><action android:name="android.service.wallpaper.WallpaperService" /></intent-filter>
+        <meta-data android:name="android.service.wallpaper" android:resource="@xml/sa3a_wallpaper" />
+    </service>
+'''
+s=s.replace('</application>',svc+'    </application>')
+open(p,'w').write(s)
+PY
+fi
 if [ -f "$MAIN_ACTIVITY" ] && ! grep -q 'AlarmSoundPlugin' "$MAIN_ACTIVITY"; then
   python3 - "$MAIN_ACTIVITY" <<'PY'
 import sys,re

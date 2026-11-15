@@ -82,6 +82,20 @@ main{flex:1;overflow:auto;position:relative}
 #bigcal .gd div{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;font-size:1rem;font-weight:600}
 #bigcal .gd div.tdy{background:var(--acc);color:#fff;font-weight:800}
 #bigcal .gd div.alrm span.dot{width:5px;height:5px;border-radius:50%;background:var(--ok);margin-top:2px}
+/* ---- timer ---- */
+.modesw{display:flex;gap:8px;justify-content:center;padding:12px 0}
+.modesw button{background:var(--card);border:1px solid var(--line);color:var(--dim);border-radius:12px;padding:9px 26px;font-family:inherit;font-weight:800;font-size:.95rem;cursor:pointer}
+.modesw button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.tinputs{display:flex;align-items:center;justify-content:center;gap:10px;margin:26px 0 14px}
+.tinputs input{width:80px;background:var(--card);border:1px solid var(--line);border-radius:14px;color:var(--txt);padding:14px 8px;text-align:center;font-family:'Orbitron',monospace;font-size:2rem;font-weight:700}
+.tinputs span{font-size:2rem;color:var(--dim);font-weight:800}
+.presets{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}
+.presets button{background:var(--card2);border:1px solid var(--line);color:var(--acc);border-radius:20px;padding:7px 15px;font-family:inherit;font-weight:700;cursor:pointer}
+#laps .lrow{display:flex;justify-content:space-between;padding:8px 18px;border-bottom:1px solid var(--line);font-family:'Orbitron',monospace;color:var(--dim)}
+#laps .lrow b{color:var(--txt)}
+#permBanner{background:#3a2030;border:1px solid var(--danger);border-radius:14px;padding:12px;margin-bottom:10px;font-size:.9rem;font-weight:600;color:#ffb3bb}
+#permBanner .pb{margin-top:8px;background:var(--danger);color:#fff;border:none;border-radius:10px;padding:8px 18px;font-family:inherit;font-weight:800;cursor:pointer}
+#nextAl{margin-top:14px;color:var(--ok);font-weight:700;font-size:1rem;min-height:1.4em}
 /* ---- bottom nav ---- */
 nav{display:flex;background:var(--bg2);border-top:1px solid var(--line);flex:0 0 auto;padding-bottom:env(safe-area-inset-bottom,0px)}
 nav button{flex:1;background:none;border:none;color:var(--dim);font-family:inherit;font-size:.8rem;font-weight:700;padding:10px 4px 8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
@@ -136,11 +150,37 @@ nav button.on{color:var(--acc)}
 <main>
   <section class="tabsec on" id="sec-clock">
     <svg id="analog" viewBox="0 0 300 300"></svg>
-    <div id="digital"><div class="dtime"><span id="dh">00</span><span class="sec" id="ds">:00</span></div><div class="ddate" id="ddate"></div></div>
+    <div id="digital"><div class="dtime"><span id="dh">00</span><span class="sec" id="ds">:00</span></div><div class="ddate" id="ddate"></div><div id="nextAl"></div></div>
   </section>
   <section class="tabsec" id="sec-alarms">
+    <div id="permBanner" style="display:none"></div>
     <div id="alarmList"></div>
     <button class="fab" id="addAlarm">+</button>
+  </section>
+  <section class="tabsec" id="sec-timer">
+    <div class="modesw"><button class="on" id="modeTimer"></button><button id="modeStop"></button></div>
+    <div id="timerPane">
+      <div id="tPick">
+        <div class="tinputs"><input type="number" id="inH" min="0" max="99" value="0"><span>:</span><input type="number" id="inM" min="0" max="59" value="5"><span>:</span><input type="number" id="inS" min="0" max="59" value="0"></div>
+        <div class="presets">
+          <button data-s="60">1m</button><button data-s="300">5m</button><button data-s="600">10m</button>
+          <button data-s="900">15m</button><button data-s="1800">30m</button><button data-s="3600">60m</button>
+        </div>
+      </div>
+      <div id="tRun" style="display:none;text-align:center">
+        <svg width="250" height="250" viewBox="0 0 250 250"><circle cx="125" cy="125" r="110" fill="none" stroke="var(--card2)" stroke-width="10"/><circle id="tArc" cx="125" cy="125" r="110" fill="none" stroke="var(--acc)" stroke-width="10" stroke-linecap="round" transform="rotate(-90 125 125)"/></svg>
+        <div id="tLeft" style="font-family:'Orbitron',monospace;font-size:3rem;font-weight:700;margin-top:-170px;position:relative"></div>
+      </div>
+      <div class="rowbtns" style="margin-top:22px">
+        <button class="b ghost" id="tReset" style="display:none"></button>
+        <button class="b primary" id="tGo"></button>
+      </div>
+    </div>
+    <div id="stopPane" style="display:none;text-align:center">
+      <div id="swTime" style="font-family:'Orbitron',monospace;font-size:3.4rem;font-weight:700;margin:30px 0 20px">00:00<span style="font-size:.4em;color:var(--dim)">.00</span></div>
+      <div class="rowbtns"><button class="b ghost" id="swLap"></button><button class="b primary" id="swGo"></button></div>
+      <div id="laps" style="margin-top:16px"></div>
+    </div>
   </section>
   <section class="tabsec" id="sec-cal">
     <div id="yearView">
@@ -156,6 +196,7 @@ nav button.on{color:var(--acc)}
 <nav>
   <button class="on" data-tab="clock"><span class="ico">🕐</span><span class="t"></span></button>
   <button data-tab="alarms"><span class="ico">⏰</span><span class="t"></span></button>
+  <button data-tab="timer"><span class="ico">⏱️</span><span class="t"></span></button>
   <button data-tab="cal"><span class="ico">📅</span><span class="t"></span></button>
 </nav>
 
@@ -200,15 +241,16 @@ nav button.on{color:var(--acc)}
 'use strict';
 /* =============== i18n =============== */
 const L={
-ar:{appName:'ساعتي',tabClock:'الساعة',tabAlarms:'المنبهات',tabCal:'التقويم',newAlarm:'منبه جديد',editAlarm:'تعديل المنبه',lTime:'الوقت',lLabel:'الاسم',labelPh:'مثلاً: الاستيقاظ',lRepeat:'التكرار',onceHint:'بدون اختيار أيام = يعمل مرة واحدة',lSound:'الصوت',lVib:'اهتزاز',sndDefault:'صوت الهاتف الافتراضي',sndBeep:'نبضات',sndBell:'جرس',sndSiren:'صافرة',sndCustom:'صوتي المرفوع',uploadSound:'⬆️ ارفع صوتًا من هاتفك',save:'حفظ',cancel:'إلغاء',del:'حذف',yes:'نعم',no:'لا',once:'مرة واحدة',daily:'يوميًا',every:'كل',settings:'الإعدادات',mClock:'نمط الساعة',analog:'عقارب',digital:'أرقام',mTheme:'المظهر',dark:'داكن',light:'فاتح',mLang:'اللغة',mExport:'تصدير المنبهات',mImport:'استيراد المنبهات',mAbout:'حول التطبيق',aboutTxt:'ساعتي — ساعة ومنبه وتقويم\nv1.0',confirmDel:'حذف هذا المنبه؟',exitConfirm:'الخروج من التطبيق؟',ringStop:'إيقاف',ringSnooze:'غفوة +10د',imported:'تم الاستيراد',badFile:'ملف غير صالح',back:'السنة',alarmsOff:'المنبهات معطّلة',permNote:'فعّل إذن الإشعارات ليعمل المنبه والتطبيق مغلق',weekdays:['أح','إث','ثل','أر','خم','جم','سب'],weekdaysFull:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],today:'اليوم',snoozed:'غفوة 10 دقائق'},
-en:{appName:'Sa3a',tabClock:'Clock',tabAlarms:'Alarms',tabCal:'Calendar',newAlarm:'New alarm',editAlarm:'Edit alarm',lTime:'Time',lLabel:'Label',labelPh:'e.g. Wake up',lRepeat:'Repeat',onceHint:'No days selected = rings once',lSound:'Sound',lVib:'Vibrate',sndDefault:'Phone default',sndBeep:'Beeps',sndBell:'Bell',sndSiren:'Siren',sndCustom:'My uploaded sound',uploadSound:'⬆️ Upload a sound from your phone',save:'Save',cancel:'Cancel',del:'Delete',yes:'Yes',no:'No',once:'Once',daily:'Daily',every:'Every',settings:'Settings',mClock:'Clock style',analog:'Analog',digital:'Digital',mTheme:'Theme',dark:'Dark',light:'Light',mLang:'Language',mExport:'Export alarms',mImport:'Import alarms',mAbout:'About',aboutTxt:'Sa3a — clock, alarms & calendar\nv1.0',confirmDel:'Delete this alarm?',exitConfirm:'Exit the app?',ringStop:'Stop',ringSnooze:'Snooze +10m',imported:'Imported',badFile:'Invalid file',back:'Year',alarmsOff:'Alarms disabled',permNote:'Allow notifications so alarms ring while the app is closed',weekdays:['Su','Mo','Tu','We','Th','Fr','Sa'],weekdaysFull:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],today:'Today',snoozed:'Snoozed 10 min'},
-fr:{appName:'Sa3a',tabClock:'Horloge',tabAlarms:'Alarmes',tabCal:'Calendrier',newAlarm:'Nouvelle alarme',editAlarm:'Modifier l’alarme',lTime:'Heure',lLabel:'Nom',labelPh:'ex. Réveil',lRepeat:'Répéter',onceHint:'Aucun jour choisi = sonne une fois',lSound:'Son',lVib:'Vibration',sndDefault:'Son du téléphone',sndBeep:'Bips',sndBell:'Cloche',sndSiren:'Sirène',sndCustom:'Mon son importé',uploadSound:'⬆️ Importer un son du téléphone',save:'Enregistrer',cancel:'Annuler',del:'Supprimer',yes:'Oui',no:'Non',once:'Une fois',daily:'Quotidien',every:'Chaque',settings:'Réglages',mClock:'Style d’horloge',analog:'Aiguilles',digital:'Chiffres',mTheme:'Thème',dark:'Sombre',light:'Clair',mLang:'Langue',mExport:'Exporter les alarmes',mImport:'Importer des alarmes',mAbout:'À propos',aboutTxt:'Sa3a — horloge, alarmes & calendrier\nv1.0',confirmDel:'Supprimer cette alarme ?',exitConfirm:'Quitter l’application ?',ringStop:'Arrêter',ringSnooze:'Répéter +10m',imported:'Importé',badFile:'Fichier invalide',back:'Année',alarmsOff:'Alarmes désactivées',permNote:'Autorisez les notifications pour que l’alarme sonne appli fermée',weekdays:['Di','Lu','Ma','Me','Je','Ve','Sa'],weekdaysFull:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],today:'Aujourd’hui',snoozed:'Reporté 10 min'}
+ar:{appName:'ساعتي',tabClock:'الساعة',tabAlarms:'المنبهات',tabCal:'التقويم',tabTimer:'المؤقت',tTimer:'عدّاد',tStop:'إيقاف',start:'ابدأ',pause:'إيقاف مؤقت',resume:'متابعة',reset:'إعادة',lap:'لفة',swStop:'إيقاف',nextAlarm:'المنبه القادم',after:'بعد',snoozeDur:'مدة الغفوة',setWallpaper:'اجعلها خلفية الشاشة',timerDone:'انتهى الوقت',hh:'س',mmm:'د',ss:'ث',days2:'يوم',warnPerm:'⚠️ ليرن المنبه والتطبيق مغلق: فعّل الإشعارات و«المنبهات والتذكيرات»',permBtn:'تفعيل',warnNotif:'الإشعارات معطّلة',warnExact:'«المنبهات والتذكيرات» معطّلة',newAlarm:'منبه جديد',editAlarm:'تعديل المنبه',lTime:'الوقت',lLabel:'الاسم',labelPh:'مثلاً: الاستيقاظ',lRepeat:'التكرار',onceHint:'بدون اختيار أيام = يعمل مرة واحدة',lSound:'الصوت',lVib:'اهتزاز',sndDefault:'صوت الهاتف الافتراضي',sndBeep:'نبضات',sndBell:'جرس',sndSiren:'صافرة',sndCustom:'صوتي المرفوع',uploadSound:'⬆️ ارفع صوتًا من هاتفك',save:'حفظ',cancel:'إلغاء',del:'حذف',yes:'نعم',no:'لا',once:'مرة واحدة',daily:'يوميًا',every:'كل',settings:'الإعدادات',mClock:'نمط الساعة',analog:'عقارب',digital:'أرقام',mTheme:'المظهر',dark:'داكن',light:'فاتح',mLang:'اللغة',mExport:'تصدير المنبهات',mImport:'استيراد المنبهات',mAbout:'حول التطبيق',aboutTxt:'ساعتي — ساعة ومنبه وتقويم\nv1.0',confirmDel:'حذف هذا المنبه؟',exitConfirm:'الخروج من التطبيق؟',ringStop:'إيقاف',ringSnooze:'غفوة +10د',imported:'تم الاستيراد',badFile:'ملف غير صالح',back:'السنة',alarmsOff:'المنبهات معطّلة',permNote:'فعّل إذن الإشعارات ليعمل المنبه والتطبيق مغلق',weekdays:['أح','إث','ثل','أر','خم','جم','سب'],weekdaysFull:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],today:'اليوم',snoozed:'غفوة 10 دقائق'},
+en:{appName:'Sa3a',tabClock:'Clock',tabAlarms:'Alarms',tabCal:'Calendar',tabTimer:'Timer',tTimer:'Countdown',tStop:'Stopwatch',start:'Start',pause:'Pause',resume:'Resume',reset:'Reset',lap:'Lap',swStop:'Stop',nextAlarm:'Next alarm',after:'in',snoozeDur:'Snooze length',setWallpaper:'Set as wallpaper',timerDone:'Time is up',hh:'h',mmm:'m',ss:'s',days2:'day',warnPerm:'⚠️ For alarms to ring while closed: allow notifications and “Alarms & reminders”',permBtn:'Enable',warnNotif:'Notifications off',warnExact:'“Alarms & reminders” off',newAlarm:'New alarm',editAlarm:'Edit alarm',lTime:'Time',lLabel:'Label',labelPh:'e.g. Wake up',lRepeat:'Repeat',onceHint:'No days selected = rings once',lSound:'Sound',lVib:'Vibrate',sndDefault:'Phone default',sndBeep:'Beeps',sndBell:'Bell',sndSiren:'Siren',sndCustom:'My uploaded sound',uploadSound:'⬆️ Upload a sound from your phone',save:'Save',cancel:'Cancel',del:'Delete',yes:'Yes',no:'No',once:'Once',daily:'Daily',every:'Every',settings:'Settings',mClock:'Clock style',analog:'Analog',digital:'Digital',mTheme:'Theme',dark:'Dark',light:'Light',mLang:'Language',mExport:'Export alarms',mImport:'Import alarms',mAbout:'About',aboutTxt:'Sa3a — clock, alarms & calendar\nv1.0',confirmDel:'Delete this alarm?',exitConfirm:'Exit the app?',ringStop:'Stop',ringSnooze:'Snooze +10m',imported:'Imported',badFile:'Invalid file',back:'Year',alarmsOff:'Alarms disabled',permNote:'Allow notifications so alarms ring while the app is closed',weekdays:['Su','Mo','Tu','We','Th','Fr','Sa'],weekdaysFull:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],today:'Today',snoozed:'Snoozed 10 min'},
+fr:{appName:'Sa3a',tabClock:'Horloge',tabAlarms:'Alarmes',tabCal:'Calendrier',tabTimer:'Minuteur',tTimer:'Compte à rebours',tStop:'Chrono',start:'Démarrer',pause:'Pause',resume:'Reprendre',reset:'Réinit.',lap:'Tour',swStop:'Arrêt',nextAlarm:'Prochaine alarme',after:'dans',snoozeDur:'Durée répétition',setWallpaper:'Fond d’écran animé',timerDone:'Temps écoulé',hh:'h',mmm:'min',ss:'s',days2:'jour',warnPerm:'⚠️ Pour que l’alarme sonne appli fermée : notifications + « Alarmes et rappels »',permBtn:'Activer',warnNotif:'Notifications coupées',warnExact:'« Alarmes et rappels » coupés',newAlarm:'Nouvelle alarme',editAlarm:'Modifier l’alarme',lTime:'Heure',lLabel:'Nom',labelPh:'ex. Réveil',lRepeat:'Répéter',onceHint:'Aucun jour choisi = sonne une fois',lSound:'Son',lVib:'Vibration',sndDefault:'Son du téléphone',sndBeep:'Bips',sndBell:'Cloche',sndSiren:'Sirène',sndCustom:'Mon son importé',uploadSound:'⬆️ Importer un son du téléphone',save:'Enregistrer',cancel:'Annuler',del:'Supprimer',yes:'Oui',no:'Non',once:'Une fois',daily:'Quotidien',every:'Chaque',settings:'Réglages',mClock:'Style d’horloge',analog:'Aiguilles',digital:'Chiffres',mTheme:'Thème',dark:'Sombre',light:'Clair',mLang:'Langue',mExport:'Exporter les alarmes',mImport:'Importer des alarmes',mAbout:'À propos',aboutTxt:'Sa3a — horloge, alarmes & calendrier\nv1.0',confirmDel:'Supprimer cette alarme ?',exitConfirm:'Quitter l’application ?',ringStop:'Arrêter',ringSnooze:'Répéter +10m',imported:'Importé',badFile:'Fichier invalide',back:'Année',alarmsOff:'Alarmes désactivées',permNote:'Autorisez les notifications pour que l’alarme sonne appli fermée',weekdays:['Di','Lu','Ma','Me','Je','Ve','Sa'],weekdaysFull:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],today:'Aujourd’hui',snoozed:'Reporté 10 min'}
 };
 const LANGS=['ar','en','fr'];
 const $=id=>document.getElementById(id);
 const st=JSON.parse(localStorage.getItem('sa3a')||'{}');
 st.lang=st.lang||'ar'; st.theme=st.theme||'dark'; st.style=st.style||'analog';
-st.alarms=st.alarms||[]; st.custom=st.custom||null;
+st.alarms=st.alarms||[]; st.custom=st.custom||null; st.snooze=st.snooze||10;
+st.timer=st.timer||{end:0,left:0,running:false}; st.timer.doneNotif=st.timer.doneNotif||0;
 const save=()=>localStorage.setItem('sa3a',JSON.stringify(st));
 const t=k=>(L[st.lang]&&L[st.lang][k])||L.en[k]||k;
 const isCap=()=>window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform();
@@ -316,9 +358,16 @@ function ring(a){
 }
 function stopRing(){$('ringShade').classList.remove('on');const au=$('ringAudio');au.pause();au.src='';clearInterval(ringCard._vi);navigator.vibrate&&navigator.vibrate(0)}
 $('ringStop').onclick=stopRing;
-$('ringSnooze').onclick=async()=>{stopRing();const d=new Date(Date.now()+10*60000);
+$('ringSnooze').onclick=async()=>{stopRing();const d=new Date(Date.now()+st.snooze*60000);
  const sa={id:9000+Math.floor(Math.random()*500),hh:d.getHours(),mm:d.getMinutes(),label:t('ringSnooze'),days:[],sound:'default',vib:true,on:true};
  st.alarms.push(sa);save();await scheduleAlarm(sa);toast('💤 '+t('snoozed'))};
+function nextAlarmInfo(){let best=null;
+ for(const a of st.alarms)if(a.on)for(const d of nextTimes(a))if(!best||d<best)best=d;
+ return best}
+function fmtDur(ms){const m=Math.max(1,Math.round(ms/60000)),h=Math.floor(m/60),d=Math.floor(h/24);
+ if(d>0)return d+' '+t('days2')+' '+ (h%24) +' '+t('hh');
+ if(h>0)return h+' '+t('hh')+' '+(m%60)+' '+t('mmm');
+ return m+' '+t('mmm')}
 
 /* =============== clock rendering =============== */
 function buildAnalog(){
@@ -327,7 +376,8 @@ function buildAnalog(){
   h+=`<line class="tick${big?' big':''}" x1="${150+r1*Math.sin(a)}" y1="${150-r1*Math.cos(a)}" x2="${150+136*Math.sin(a)}" y2="${150-136*Math.cos(a)}"/>`}
  for(let n=1;n<=12;n++){const a=n*30*Math.PI/180;
   h+=`<text class="num" x="${150+103*Math.sin(a)}" y="${150-103*Math.cos(a)+2}">${n}</text>`}
- h+='<text class="digIn" id="aDate" x="150" y="200"></text>';
+ h+='<text class="digIn" id="aDate" x="150" y="196"></text>';
+ h+='<text class="digIn" id="aNext" x="150" y="218" style="fill:var(--ok);font-size:11px"></text>';
  h+='<line class="hand h" id="hH" x1="150" y1="150" x2="150" y2="82"/>';
  h+='<line class="hand m" id="hM" x1="150" y1="150" x2="150" y2="58"/>';
  h+='<line class="hand s" id="hS" x1="150" y1="150" x2="150" y2="44"/>';
@@ -343,10 +393,14 @@ function tickClock(){
  $('hS').setAttribute('transform',`rotate(${aS} 150 150)`);
  const dateStr=new Intl.DateTimeFormat(st.lang==='ar'?'ar-SY':st.lang==='fr'?'fr-FR':'en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(d);
  $('aDate').textContent=dateStr;
+ const na=nextAlarmInfo();
+ const naTxt=na?('⏰ '+t('nextAlarm')+' '+t('after')+' '+fmtDur(na-d)):'';
+ $('aNext').textContent=naTxt;$('nextAl').textContent=naTxt;
  $('dh').textContent=pad(hh)+':'+pad(mm);
  $('ds').textContent=':'+pad(ss);
  $('ddate').textContent=dateStr;
  for(const a of slotsNow())ring(a);
+ checkTimer();
 }
 setInterval(tickClock,250);
 function applyStyle(){$('analog').classList.toggle('on',st.style==='analog');$('digital').classList.toggle('on',st.style!=='analog')}
@@ -357,15 +411,33 @@ function fmtAlarmSub(a){
  if(a.days.length===7)return t('daily');
  return a.days.slice().sort().map(d=>t('weekdays')[d]).join(' ');
 }
+async function checkPerms(){
+ const b=$('permBanner');
+ if(!isCap()){b.style.display='none';return}
+ let notif=false,exact=true;
+ try{const r=await LN().checkPermissions();notif=r.display==='granted'}catch(e){}
+ try{const r=await AS().exactAlarmStatus();exact=r.canSchedule!==false}catch(e){}
+ if(notif&&exact){b.style.display='none';return}
+ const parts=[];if(!notif)parts.push(t('warnNotif'));if(!exact)parts.push(t('warnExact'));
+ b.innerHTML=esc(t('warnPerm'))+'<br><span style="font-size:.8rem;opacity:.85">'+parts.join(' · ')+'</span><br><button class="pb">'+t('permBtn')+'</button>';
+ b.style.display='';
+ b.querySelector('.pb').onclick=async()=>{
+  try{if(!notif)await LN().requestPermissions()}catch(e){}
+  try{if(!exact)await AS().requestExactAlarm()}catch(e){}
+  setTimeout(checkPerms,1500);
+  if(!notif){try{await AS().openAppSettings()}catch(e){}}
+ }}
 function renderAlarms(){
+ checkPerms();
  const list=$('alarmList');list.innerHTML='';
  if(!st.alarms.length){list.innerHTML='<div class="empty">⏰<br><br>'+t('newAlarm')+'</div>'}
  const ord=st.alarms.slice().sort((a,b)=>(a.hh*60+a.mm)-(b.hh*60+b.mm));
  for(const a of ord){
   const el=document.createElement('div');el.className='alitem'+(a.on?'':' off');
+  const rem=a.on&&nextTimes(a)[0]?(' · '+t('after')+' '+fmtDur(nextTimes(a)[0]-Date.now())):'';
   el.innerHTML=`<div class="tm">${pad(a.hh)}:${pad(a.mm)}</div>
    <div class="meta"><div class="lb">${esc(a.label||t('newAlarm'))}</div>
-   <div class="sub">${fmtAlarmSub(a)} · ${a.sound==='custom'?t('sndCustom'):t(TONE(a.sound).nameKey)}</div></div>
+   <div class="sub">${fmtAlarmSub(a)} · ${a.sound==='custom'?t('sndCustom'):t(TONE(a.sound).nameKey)}${rem}</div></div>
    <button class="mini-btn">⋮</button>
    <label class="switch"><input type="checkbox" ${a.on?'checked':''}><span class="sl"></span></label>`;
   el.querySelector('.mini-btn').onclick=()=>openEditor(a.id);
@@ -485,6 +557,71 @@ $('yrPrev').onclick=()=>{calYear--;renderYear()};
 $('yrNext').onclick=()=>{calYear++;renderYear()};
 $('backYear').onclick=renderYear;
 
+/* =============== timer & stopwatch =============== */
+let tIv=null,swIv=null,swT0=0,swAcc=0,swLapN=0;
+function tTotal(){
+ if(st.timer.end)return st.timer._total||0;
+ return (+$('inH').value||0)*3600+(+$('inM').value||0)*60+(+$('inS').value||0)}
+function fmtLeft(ms){const s=Math.max(0,Math.ceil(ms/1000)),h=Math.floor(s/3600),m=Math.floor(s%3600/60);
+ return (h?pad(h)+':':'')+pad(m)+':'+pad(s%60)}
+function renderTimer(){
+ const r=st.timer.running&&st.timer.end>Date.now();
+ $('tPick').style.display=r?'none':'';
+ $('tRun').style.display=r?'block':'none';
+ $('tReset').style.display=st.timer.end?'':'none';
+ $('tReset').textContent=t('reset');
+ $('tGo').textContent=r?t('pause'):(st.timer.end&&!st.timer.running?t('resume'):t('start'));
+ if(r){const left=st.timer.end-Date.now();
+  $('tLeft').textContent=fmtLeft(left);
+  const c=2*Math.PI*110,fr=left/(st.timer._total||1);
+  $('tArc').setAttribute('stroke-dasharray',`${c*fr} ${c}`);
+ }}
+async function scheduleTimerNotif(){
+ const p=LN();if(!p)return;
+ try{await ensureChannel({sound:'beep'});
+  await p.schedule({notifications:[{id:7777,title:'⏱️ '+t('tabTimer'),body:t('timerDone'),channelId:'sa3a_beep',sound:'sa3a_beep',schedule:{at:new Date(st.timer.end)}}]});
+ }catch(e){}}
+$('tGo').onclick=async()=>{
+ if(st.timer.running){
+  st.timer.running=false;st.timer.left=Math.max(0,st.timer.end-Date.now());st.timer._total=st.timer.left;save();
+  clearInterval(tIv);const p=LN();try{p&&await p.cancel({notifications:[{id:7777}]})}catch(e){}
+ }else if(st.timer.end&&!st.timer.running&&st.timer.left){
+  st.timer.end=Date.now()+st.timer.left;st.timer.running=true;save();await scheduleTimerNotif();
+ }else{
+  const tot=tTotal();if(tot<=0)return;
+  st.timer={end:Date.now()+tot*1000,left:0,running:true,_total:tot*1000};save();await scheduleTimerNotif();
+ }
+ if(st.timer.running){clearInterval(tIv);tIv=setInterval(renderTimer,250)}
+ renderTimer();};
+$('tReset').onclick=async()=>{st.timer={end:0,left:0,running:false};save();clearInterval(tIv);
+ try{LN()&&await LN().cancel({notifications:[{id:7777}]})}catch(e){}renderTimer()};
+function checkTimer(){
+ if(st.timer.running&&st.timer.end&&st.timer.end<=Date.now()){
+  st.timer={end:0,left:0,running:false};save();clearInterval(tIv);renderTimer();
+  ring({id:-9,hh:new Date().getHours(),mm:new Date().getMinutes(),label:t('timerDone'),sound:'beep',vib:true,days:[1]});
+ }}
+document.querySelectorAll('.presets button').forEach(b=>b.onclick=()=>{const s=+b.dataset.s;
+ $('inH').value=Math.floor(s/3600);$('inM').value=Math.floor(s%3600/60);$('inS').value=s%60});
+$('modeTimer').onclick=()=>{swMode(false)};
+$('modeStop').onclick=()=>{swMode(true)};
+function swMode(stop){$('modeTimer').classList.toggle('on',!stop);$('modeStop').classList.toggle('on',stop);
+ $('timerPane').style.display=stop?'none':'';$('stopPane').style.display=stop?'block':'none'}
+function fmtSw(ms){const m=Math.floor(ms/60000),s=Math.floor(ms%60000/1000),c=Math.floor(ms%1000/10);
+ return pad(m)+':'+pad(s)+'<span style="font-size:.4em;color:var(--dim)">.'+pad(c)+'</span>'}
+$('swGo').onclick=()=>{
+ if(swIv){clearInterval(swIv);swIv=null;swAcc+=Date.now()-swT0;$('swGo').textContent=t('start');$('swLap').textContent=t('reset')}
+ else{swT0=Date.now();swIv=setInterval(()=>$('swTime').innerHTML=fmtSw(swAcc+Date.now()-swT0),33);
+  $('swGo').textContent=t('swStop');$('swLap').textContent=t('lap')}};
+$('swLap').onclick=()=>{
+ if(swIv){swLapN++;const r=document.createElement('div');r.className='lrow';
+  r.innerHTML='<b>#'+swLapN+'</b><span>'+fmtSw(swAcc+Date.now()-swT0)+'</span>';$('laps').prepend(r)}
+ else{swAcc=0;swLapN=0;$('swTime').innerHTML=fmtSw(0);$('laps').innerHTML='';$('swLap').textContent=t('lap')}};
+
+/* =============== wallpaper & prefs sync =============== */
+async function syncPrefs(){try{if(CAP.Plugins&&CAP.Plugins.Preferences){
+ await CAP.Plugins.Preferences.set({key:'wallstyle',value:st.style});}}catch(e){}}
+async function setWallpaper(){try{if(AS())await AS().setAsWallpaper()}catch(e){toast('!')}}
+
 /* =============== tabs / menu / settings =============== */
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
  document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
@@ -497,8 +634,10 @@ function renderMenu(){
  $('mTitle2').textContent=t('settings');
  const mi=$('menuItems');mi.innerHTML='';
  const items=[
-  {ico:'🕐',txt:t('mClock')+': '+(st.style==='analog'?t('analog'):t('digital')),fn:()=>{st.style=st.style==='analog'?'digital':'analog';save();applyStyle();renderMenu()}},
+  {ico:'🕐',txt:t('mClock')+': '+(st.style==='analog'?t('analog'):t('digital')),fn:()=>{st.style=st.style==='analog'?'digital':'analog';save();applyStyle();syncPrefs();renderMenu()}},
   {ico:st.theme==='dark'?'🌙':'☀️',txt:t('mTheme')+': '+(st.theme==='dark'?t('dark'):t('light')),fn:()=>{st.theme=st.theme==='dark'?'light':'dark';save();applyTheme();renderMenu()}},
+  {ico:'💤',txt:t('snoozeDur')+': '+st.snooze+' '+t('mmm'),fn:()=>{st.snooze=st.snooze===5?10:st.snooze===10?15:5;save();renderMenu()}},
+  ...(isCap()?[{ico:'🖼️',txt:t('setWallpaper'),fn:setWallpaper}]:[]),
   {ico:'⬇️',txt:t('mExport'),fn:exportAlarms},
   {ico:'⬆️',txt:t('mImport'),fn:()=>$('impPick').click()},
   {ico:'ℹ️',txt:t('mAbout'),fn:()=>toast(t('aboutTxt').split('\n')[0])},
@@ -528,8 +667,12 @@ function applyLang(){
  document.documentElement.dir=st.lang==='ar'?'rtl':'ltr';
  $('hTitle').textContent=t('appName');
  $('langBtn').textContent='🌐 '+(st.lang==='ar'?'EN':st.lang==='en'?'FR':'AR');
- const tabs={clock:t('tabClock'),alarms:t('tabAlarms'),cal:t('tabCal')};
- document.querySelectorAll('nav button .t').forEach((e,i)=>e.textContent=tabs[['clock','alarms','cal'][i]]);
+ const tabs={clock:t('tabClock'),alarms:t('tabAlarms'),timer:t('tabTimer'),cal:t('tabCal')};
+ document.querySelectorAll('nav button .t').forEach((e,i)=>e.textContent=tabs[['clock','alarms','timer','cal'][i]]);
+ $('modeTimer').textContent=t('tTimer');$('modeStop').textContent=t('tStop');
+ $('swGo').textContent=swIv?t('swStop'):t('start');$('swLap').textContent=swIv?t('lap'):t('reset');
+ $('tGo').textContent=st.timer.running?t('pause'):t('start');
+ if(calMonth>=0)renderMonth();
  renderYear();
 }
 $('langBtn').onclick=()=>{st.lang=LANGS[(LANGS.indexOf(st.lang)+1)%3];save();applyLang()};
@@ -548,9 +691,11 @@ if(CAP.Plugins&&CAP.Plugins.App){
 if(!isCap()&&'serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
 
 /* =============== init =============== */
-applyTheme();applyLang();applyStyle();renderAlarms();tickClock();
+applyTheme();applyLang();applyStyle();renderAlarms();tickClock();renderTimer();
 loadCustomBlob().then(()=>{});
+syncPrefs();
 rescheduleAll();
+setInterval(renderAlarms,45000);
 </script>
 </body>
 </html>

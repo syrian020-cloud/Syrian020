@@ -79,6 +79,61 @@ public class AlarmSoundPlugin extends Plugin {
     }
 
     @PluginMethod
+    public void exactAlarmStatus(PluginCall call) {
+        JSObject ret = new JSObject();
+        if (Build.VERSION.SDK_INT >= 31) {
+            android.app.AlarmManager am = (android.app.AlarmManager)
+                    getContext().getSystemService(Context.ALARM_SERVICE);
+            ret.put("canSchedule", am.canScheduleExactAlarms());
+        } else {
+            ret.put("canSchedule", true);
+        }
+        call.resolve(ret);
+    }
+
+    @PluginMethod
+    public void requestExactAlarm(PluginCall call) {
+        try {
+            if (Build.VERSION.SDK_INT >= 31) {
+                android.content.Intent i = new android.content.Intent(
+                        Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM,
+                        Uri.parse("package:" + getContext().getPackageName()));
+                getActivity().startActivity(i);
+            }
+            call.resolve();
+        } catch (Exception e) {
+            call.reject("failed: " + e.getMessage(), e);
+        }
+    }
+
+    @PluginMethod
+    public void openAppSettings(PluginCall call) {
+        try {
+            android.content.Intent i = new android.content.Intent(
+                    Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                    Uri.parse("package:" + getContext().getPackageName()));
+            getActivity().startActivity(i);
+            call.resolve();
+        } catch (Exception e) {
+            call.reject("failed: " + e.getMessage(), e);
+        }
+    }
+
+    @PluginMethod
+    public void setAsWallpaper(PluginCall call) {
+        try {
+            android.content.Intent intent = new android.content.Intent(
+                    android.app.WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER);
+            intent.putExtra(android.app.WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT,
+                    new android.content.ComponentName(getContext(), Sa3aWallpaperService.class));
+            getActivity().startActivity(intent);
+            call.resolve();
+        } catch (Exception e) {
+            call.reject("wallpaper failed: " + e.getMessage(), e);
+        }
+    }
+
+    @PluginMethod
     public void setChannelSound(PluginCall call) {
         String id = call.getString("channelId");
         String chName = call.getString("name", id);
