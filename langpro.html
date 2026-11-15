@@ -1759,7 +1759,7 @@ function pickRecMime() {
 function newRec(stream, W, H) {
   var mime = pickRecMime();
   var opts = {
-    videoBitsPerSecond: Math.min(8000000, Math.max(2500000, Math.round((W || 1280) * (H || 720) * 4))),
+    videoBitsPerSecond: Math.min(24000000, Math.max(6000000, Math.round((W || 1280) * (H || 720) * 8))),
     audioBitsPerSecond: 128000
   };
   if (mime) opts.mimeType = mime;
@@ -1823,7 +1823,7 @@ function recToggle(btn, me, cs, segEnd) {
   if (!recSupported()) return;
   var isVideo = me.tagName === 'VIDEO' && me.videoWidth;
   var W = isVideo ? me.videoWidth : 640, H = isVideo ? me.videoHeight : 360;
-  var M = 1440;
+  var M = 1920;
   if (Math.max(W, H) > M) { var s = M / Math.max(W, H); W = Math.round(W * s); H = Math.round(H * s); }
   var cv = document.createElement('canvas');
   cv.width = W; cv.height = H;
