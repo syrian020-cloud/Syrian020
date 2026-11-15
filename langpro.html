@@ -899,6 +899,12 @@ function pauseMedia() {
       try { if (!m.paused) m.pause(); } catch (e) {}
     });
   } catch (e) {}
+  stopSegLoop();
+}
+var SEG_LOOP = { c: null, btn: null };   // the cue whose ▶ repeats its video segment
+function stopSegLoop() {
+  if (SEG_LOOP.btn) SEG_LOOP.btn.classList.remove('spk-on');
+  SEG_LOOP.c = null; SEG_LOOP.btn = null;
 }
 function stopSpeakLoop() {
   SPEAK_LOOP.on = false;
@@ -1288,7 +1294,7 @@ function openLessonsSheet(s, session) {
 }
 
 /* ---------- lesson player + caption themes ---------- */
-var CAP_THEMES = ['ct1', 'ct2', 'ct3', 'ct4', 'ct5', 'ct6', 'ct7', 'ct8', 'ct9', 'ct10'];
+var CAP_THEMES = ['ct6', 'ct7', 'ct8', 'ct9', 'ct10'];
 function capTheme() { return Math.min(CAP_THEMES.length - 1, parseInt(localStorage.getItem('langpro_captheme') || '0', 10) || 0); }
 function setCapTheme(i) { try { localStorage.setItem('langpro_captheme', String(i)); } catch (e) {} }
 function sortedCues(l) {
@@ -1539,6 +1545,7 @@ function openLesson(l) {
     player.src = URL.createObjectURL(l.blob);
     player.controls = true;
     player.onplay = function () { stopSpeakLoop(); };
+    player.onpause = function () { stopSegLoop(); };
     if (isV) player.setAttribute('playsinline', '');
     mediaWrap.appendChild(player);
     if (isV) {
@@ -1579,11 +1586,17 @@ function openLesson(l) {
       var cb = el('div', 'cb');
       if (player && c.t != null) {
         var pb = el('button', 'ax', '▶');
-        pb.onclick = function (e) { e.stopPropagation(); stopSpeakLoop(); player.currentTime = c.t; player.play(); };
+        pb.onclick = function (e) {
+          e.stopPropagation(); stopSpeakLoop();
+          if (SEG_LOOP.c === c) { stopSegLoop(); player.pause(); return; }
+          stopSegLoop();
+          SEG_LOOP.c = c; SEG_LOOP.btn = pb; pb.classList.add('spk-on');
+          player.currentTime = c.t; player.play();
+        };
         cb.appendChild(pb);
       }
       var sp = el('button', 'ax', '🔊');
-      sp.onclick = function (e) { e.stopPropagation(); speakLoop(cueSpeakArr(c), null, sp); };
+      sp.onclick = function (e) { e.stopPropagation(); speakLoop(cueSpeakArr(c).slice(0, 1), null, sp); };
       cb.appendChild(sp);
       var ai = el('button', 'ax', '✨');
       ai.title = 'Google AI';
@@ -1593,7 +1606,7 @@ function openLesson(l) {
       ed.onclick = function (e) { e.stopPropagation(); cueDialog(l, c, renderCues); };
       cb.appendChild(ed);
       row.appendChild(cb);
-      if (player && c.t != null) row.onclick = function () { player.currentTime = c.t; player.play(); };
+      if (player && c.t != null) row.onclick = function () { stopSpeakLoop(); stopSegLoop(); player.currentTime = c.t; player.play(); };
       else row.onclick = function () { copyText(c.text || ''); };
       cueEls.push({ c: c, el: row });
       list.appendChild(row);
@@ -1602,6 +1615,12 @@ function openLesson(l) {
   if (player) {
     player.ontimeupdate = function () {
       var ct = player.currentTime, active = null;
+      if (SEG_LOOP.c && SEG_LOOP.c.t != null) {   // ▶ loop: replay this cue's segment
+        var nxt = null;
+        sortedCues(l).forEach(function (x) { if (x.t != null && x.t > SEG_LOOP.c.t && (nxt == null || x.t < nxt)) nxt = x.t; });
+        var end = SEG_LOOP.c.d != null ? SEG_LOOP.c.d : (nxt != null ? nxt : (player.duration || 1e9));
+        if (ct >= end) { player.currentTime = SEG_LOOP.c.t; ct = player.currentTime; }
+      }
       sortedCues(l).forEach(function (c) {   // latest-starting cue wins, not insertion order
         if (c.t == null) return;
         if (ct >= c.t && ct < (c.d != null ? c.d : 1e9)) active = c;
