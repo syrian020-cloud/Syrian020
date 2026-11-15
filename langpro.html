@@ -294,34 +294,13 @@
   .cue-line .cwords .w { cursor: pointer; border-radius: 6px; padding: 0 1px; }
   .cue-line .cwords .w.spk-on, .cue-line .cwords .w.speaking { background: var(--accent); color: #fff; }
 
-/* icon themes — flag glyph swaps to a letter via ::before + data-gl */
-.icth1 .cue-flag, .icth1 .crow-flag, .icth2 .cue-flag, .icth2 .crow-flag,
-.icth3 .cue-flag, .icth3 .crow-flag, .icth4 .cue-flag, .icth4 .crow-flag {
-  font-size: 0 !important; display: inline-flex; align-items: center; justify-content: center;
-}
-.icth1 .cue-flag::before, .icth1 .crow-flag::before { content: attr(data-gl); font: 800 1rem sans-serif;
-  width: 2rem; height: 2rem; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; }
-.icth2 .cue-flag::before, .icth2 .crow-flag::before { content: attr(data-gl); font: 700 .8rem monospace;
-  width: 2rem; height: 2rem; border-radius: 6px; border: 2px solid currentColor;
-  display: inline-flex; align-items: center; justify-content: center; }
-.icth3 .cue-flag::before, .icth3 .crow-flag::before { content: attr(data-gl); font: 700 .72rem sans-serif;
-  letter-spacing: .05em; padding: .35rem .6rem; border-radius: 999px; border: 1.5px solid currentColor;
-  display: inline-flex; align-items: center; justify-content: center; }
-.icth4 .cue-flag::before, .icth4 .crow-flag::before { content: '● ' attr(data-gl); font: 800 .8rem serif;
-  padding: .2rem .35rem; display: inline-flex; align-items: center; justify-content: center; }
-.icth1 .cue-flag[data-lg=ar]::before, .icth1 .crow-flag[data-lg=ar]::before { background: var(--cap-ar-bg,#d9a21b); color: var(--cap-ar-fg,#33260a); font-family: var(--cap-ar-font,'Noto Naskh Arabic',serif); }
-.icth1 .cue-flag[data-lg=en]::before, .icth1 .crow-flag[data-lg=en]::before { background: var(--cap-en-bg,#f3ecd9); color: var(--cap-en-fg,#2b2b2b); font-family: var(--cap-en-font,inherit); }
-.icth1 .cue-flag[data-lg=fr]::before, .icth1 .crow-flag[data-lg=fr]::before { background: var(--cap-fr-bg,#3d3d3d); color: var(--cap-fr-fg,#fff); font-family: var(--cap-fr-font,inherit); }
-.icth1 .cue-flag::before, .icth1 .crow-flag::before { background: var(--cap-x-bg,var(--accent)); color: var(--cap-x-fg,#fff); }
-.icth2 .cue-flag[data-lg=ar]::before, .icth2 .crow-flag[data-lg=ar]::before { color: var(--cap-ar-bg,#d9a21b); font-family: var(--cap-ar-font,'Noto Kufi Arabic',sans-serif); }
-.icth2 .cue-flag[data-lg=en]::before, .icth2 .crow-flag[data-lg=en]::before { color: var(--cap-en-bg,#d8cfb0); font-family: var(--cap-en-font,inherit); }
-.icth2 .cue-flag[data-lg=fr]::before, .icth2 .crow-flag[data-lg=fr]::before { color: var(--cap-fr-bg,#888); font-family: var(--cap-fr-font,inherit); }
-.icth3 .cue-flag[data-lg=ar]::before, .icth3 .crow-flag[data-lg=ar]::before { color: var(--cap-ar-bg,#d9a21b); font-family: var(--cap-ar-font,'Noto Naskh Arabic',serif); }
-.icth3 .cue-flag[data-lg=en]::before, .icth3 .crow-flag[data-lg=en]::before { color: var(--cap-en-bg,#d8cfb0); font-family: var(--cap-en-font,inherit); }
-.icth3 .cue-flag[data-lg=fr]::before, .icth3 .crow-flag[data-lg=fr]::before { color: var(--cap-fr-bg,#888); font-family: var(--cap-fr-font,inherit); }
-.icth4 .cue-flag[data-lg=ar]::before, .icth4 .crow-flag[data-lg=ar]::before { color: var(--cap-ar-bg,#d9a21b); font-family: var(--cap-ar-font,'Traditional Arabic',serif); }
-.icth4 .cue-flag[data-lg=en]::before, .icth4 .crow-flag[data-lg=en]::before { color: var(--cap-en-bg,#d8cfb0); font-family: var(--cap-en-font,inherit); }
-.icth4 .cue-flag[data-lg=fr]::before, .icth4 .crow-flag[data-lg=fr]::before { color: var(--cap-fr-bg,#888); font-family: var(--cap-fr-font,inherit); }
+/* app icon themes — card icons + fab shapes/accent per theme */
+.fab { background: var(--icth-acc, var(--accent)) !important; }
+html.icth1 .site-icon { border-radius: 50%; background: #e0f2fe; color: #0369a1; }
+html.icth2 .site-icon { border-radius: 10px; background: #d1fae5; color: #047857; }
+html.icth3 .site-icon { border-radius: 22px; background: #ede9fe; color: #6d28d9; box-shadow: 0 2px 8px rgba(109,40,217,.25); }
+html.icth4 .site-icon { border-radius: 4px; background: transparent; border: 2px solid #d97706; color: #d97706; }
+html.icth1 .fab, html.icth1 .fab-it, html.icth2 .fab, html.icth3 .fab, html.icth4 .fab { }
   .cue-line .cue-flag { position: static; transform: none; font-size: 1.7rem;
     line-height: 1; flex: none; }
   .cue-line.lg-fr { background: var(--cap-fr-bg, #3d3d3d); color: var(--cap-fr-fg, #fff);
@@ -712,7 +691,7 @@ var I18N = {
     lockWrong: 'الرمز غير صحيح', lockNoMatch: 'الرمزان غير متطابقين', lockNeedPin: 'الرمز يجب أن يكون 4 أرقام',
     pinSaved: 'تم حفظ رمز الدخول', unlocked: 'تم حذف رمز الدخول',
     lessons: 'الدروس', addLesson: 'درس جديد', noLessons: 'لا دروس بعد', lName: 'اسم الدرس',
-    pickVideo: 'فيديو', pickAudio: 'صوت', noMedia: 'بدون وسائط', delLessonQ: 'حذف هذا الدرس؟', lMedia: 'الوسائط', lText: 'النص', repMedia: '🔄 استبدال', delMediaQ: 'حذف الوسائط؟', savedGallery: '✓ تم الحفظ في المعرض', recQ: 'جودة التسجيل', recQHigh: 'عالية', recQMed: 'وسط', recQLow: 'خفيفة', recQUltra: 'فائقة', recQTiny: 'صغيرة جداً', iconTh: 'ثيم الأيقونات', icth0: 'أعلام', icth1: 'دوائر حروف', icth2: 'مربعات', icth3: 'حبّة كود', icth4: 'نقطة وحرف', perMin: '/د', delCueQ: 'حذف هذا السطر؟',
+    pickVideo: 'فيديو', pickAudio: 'صوت', noMedia: 'بدون وسائط', delLessonQ: 'حذف هذا الدرس؟', lMedia: 'الوسائط', lText: 'النص', repMedia: '🔄 استبدال', delMediaQ: 'حذف الوسائط؟', savedGallery: '✓ تم الحفظ في المعرض', recQ: 'جودة التسجيل', recQHigh: 'عالية', recQMed: 'وسط', recQLow: 'خفيفة', recQUltra: 'فائقة', recQTiny: 'صغيرة جداً', iconTh: 'ثيم الأيقونات', icth0: 'كلاسيك', icth1: 'عصري أزرق', icth2: 'أخضر ناعم', icth3: 'بنفسجي', icth4: 'بسيط', perMin: '/د', delCueQ: 'حذف هذا السطر؟',
     cueAdd: 'إضافة سطر', cueTime: 'الوقت (mm:ss)', cueNow: 'عند الموضع الحالي', cueLines: 'سطر',
     timedTitle: 'لصق نص مؤقت', timedHelp: 'كل سطر: 00:01 النص أو 00:01 --> 00:04 النص', timedAdd: 'إضافة الأسطر', errTimed: 'لم يُعثر على أسطر مؤقتة', modelsTitle: 'نماذج الصيغ',
     tplZeelang: 'نماذج Zeelang — صيغ مقبولة', tplProlang: 'نماذج ProLang', tplTimed: 'نماذج مؤقّتة — فيديو / صوت 🎬',
@@ -755,7 +734,7 @@ var I18N = {
     lockWrong: 'Code incorrect', lockNoMatch: 'Les codes ne correspondent pas', lockNeedPin: 'Le code doit avoir 4 chiffres',
     pinSaved: 'Code enregistré', unlocked: 'Code supprimé',
     lessons: 'Leçons', addLesson: 'Nouvelle leçon', noLessons: 'Pas encore de leçons', lName: 'Nom de la leçon',
-    pickVideo: 'Vidéo', pickAudio: 'Audio', noMedia: 'Sans média', delLessonQ: 'Supprimer cette leçon ?', lMedia: 'Média', lText: 'Texte', repMedia: '🔄 Remplacer', delMediaQ: 'Supprimer le média ?', savedGallery: '✓ Enregistré dans la galerie', recQ: 'Qualité vidéo', recQHigh: 'Haute', recQMed: 'Moyenne', recQLow: 'Légère', recQUltra: 'Ultra', recQTiny: 'Minuscule', iconTh: 'Thème icônes', icth0: 'Drapeaux', icth1: 'Cercles lettres', icth2: 'Carrés', icth3: 'Pilule code', icth4: 'Point + lettre', perMin: '/min', delCueQ: 'Supprimer cette ligne ?',
+    pickVideo: 'Vidéo', pickAudio: 'Audio', noMedia: 'Sans média', delLessonQ: 'Supprimer cette leçon ?', lMedia: 'Média', lText: 'Texte', repMedia: '🔄 Remplacer', delMediaQ: 'Supprimer le média ?', savedGallery: '✓ Enregistré dans la galerie', recQ: 'Qualité vidéo', recQHigh: 'Haute', recQMed: 'Moyenne', recQLow: 'Légère', recQUltra: 'Ultra', recQTiny: 'Minuscule', iconTh: 'Thème icônes', icth0: 'Classique', icth1: 'Moderne bleu', icth2: 'Vert doux', icth3: 'Violet', icth4: 'Simple', perMin: '/min', delCueQ: 'Supprimer cette ligne ?',
     cueAdd: 'Ajouter une ligne', cueTime: 'Temps (mm:ss)', cueNow: 'À la position actuelle', cueLines: 'lignes',
     timedTitle: 'Coller du texte synchronisé', timedHelp: 'Chaque ligne : 00:01 texte ou 00:01 --> 00:04 texte', timedAdd: 'Ajouter les lignes', errTimed: 'Aucune ligne synchronisée trouvée', modelsTitle: 'Modèles de format',
     tplZeelang: 'Modèles Zeelang — formats acceptés', tplProlang: 'Modèles ProLang', tplTimed: 'Modèles synchronisés — vidéo / audio 🎬',
@@ -798,7 +777,7 @@ var I18N = {
     lockWrong: 'Wrong passcode', lockNoMatch: 'Passcodes do not match', lockNeedPin: 'Passcode must be 4 digits',
     pinSaved: 'Passcode saved', unlocked: 'Passcode removed',
     lessons: 'Lessons', addLesson: 'New lesson', noLessons: 'No lessons yet', lName: 'Lesson name',
-    pickVideo: 'Video', pickAudio: 'Audio', noMedia: 'No media', delLessonQ: 'Delete this lesson?', lMedia: 'Media', lText: 'Text', repMedia: '🔄 Replace', delMediaQ: 'Delete media?', savedGallery: '✓ Saved to gallery', recQ: 'Recording quality', recQHigh: 'High', recQMed: 'Medium', recQLow: 'Light', recQUltra: 'Ultra', recQTiny: 'Tiny', iconTh: 'Icon theme', icth0: 'Flags', icth1: 'Letter circles', icth2: 'Squares', icth3: 'Code pill', icth4: 'Dot + letter', perMin: '/min', delCueQ: 'Delete this line?',
+    pickVideo: 'Video', pickAudio: 'Audio', noMedia: 'No media', delLessonQ: 'Delete this lesson?', lMedia: 'Media', lText: 'Text', repMedia: '🔄 Replace', delMediaQ: 'Delete media?', savedGallery: '✓ Saved to gallery', recQ: 'Recording quality', recQHigh: 'High', recQMed: 'Medium', recQLow: 'Light', recQUltra: 'Ultra', recQTiny: 'Tiny', iconTh: 'Icon theme', icth0: 'Classic', icth1: 'Modern blue', icth2: 'Soft green', icth3: 'Violet', icth4: 'Minimal', perMin: '/min', delCueQ: 'Delete this line?',
     cueAdd: 'Add line', cueTime: 'Time (mm:ss)', cueNow: 'At current position', cueLines: 'lines',
     timedTitle: 'Paste timed text', timedHelp: 'Each line: 00:01 text or 00:01 --> 00:04 text', timedAdd: 'Add lines', errTimed: 'No timed lines found', modelsTitle: 'Format models',
     tplZeelang: 'Zeelang templates — accepted formats', tplProlang: 'ProLang templates', tplTimed: 'Timed templates — video / audio 🎬',
@@ -1123,7 +1102,7 @@ function renderAttList(box, siteId) {
       var im = new Image(); im.className = 'thumb'; im.src = URL.createObjectURL(r.blob);
       row.appendChild(im);
     } else {
-      row.appendChild(el('div', 'thumb', r.kind === 'pdf' ? '📄' : '📁'));
+      row.appendChild(el('div', 'thumb', r.kind === 'pdf' ? '📄' : icOf('folder')));
     }
     row.appendChild(el('div', 'an', r.name));
     var rn = el('button', 'ax', '✏');
@@ -1208,7 +1187,7 @@ function lessonListEl(s, session) {
     ls.forEach(function (l) {
       var row = el('div', 'att');
       row.appendChild(el('div', 'thumb',
-        l.blob ? (String(l.mime).indexOf('video/') === 0 ? '🎬' : '🎵') : '📝'));
+        icLesson(l)));
       var mid = el('div'); mid.style.flex = '1'; mid.style.minWidth = '0';
       mid.appendChild(el('div', 'an', l.name || t.lName));
       var nc = (l.cues || []).length;
@@ -1735,10 +1714,28 @@ var playSpeed = parseFloat(localStorage.getItem('langpro_speed') || '1') || 1;
 var CAPFS = [.7, .8, .9, 1, 1.15, 1.3, 1.5, 1.75, 2];
 var capFs = parseFloat(localStorage.getItem('langpro_capfs') || '1') || 1;
 var iconTh = parseInt(localStorage.getItem('langpro_icth') || '0', 10) || 0;
+var ICON_THEMES = [
+  { v: '🎬', a: '🎵', t: '📝', folder: '📁', plus: '➕', acc: '' },
+  { v: '🎞', a: '🎧', t: '📄', folder: '🗂', plus: '✚', acc: '#0284c7' },
+  { v: '📽', a: '🎙', t: '📑', folder: '🗃', plus: '✜', acc: '#059669' },
+  { v: '▶️', a: '🔊', t: '📃', folder: '📂', plus: '➕', acc: '#7c3aed' },
+  { v: '▶', a: '♪', t: '≡', folder: '●', plus: '＋', acc: '#d97706' }
+];
+function icOf(k) {
+  var th = ICON_THEMES[iconTh] || ICON_THEMES[0];
+  return th[k] || ICON_THEMES[0][k] || '';
+}
+function icLesson(l) {
+  if (!l || !l.blob) return icOf('t');
+  return String(l.mime).indexOf('video/') === 0 ? icOf('v') : icOf('a');
+}
 function applyIconTheme() {
   var cl = document.documentElement.classList;
   for (var i = 0; i < 5; i++) cl.remove('icth' + i);
   cl.add('icth' + iconTh);
+  var th = ICON_THEMES[iconTh] || ICON_THEMES[0];
+  document.documentElement.style.setProperty('--icth-acc', th.acc || 'var(--accent)');
+  document.querySelectorAll('.fab').forEach(function (f) { f.textContent = icOf('plus'); });
 }
 function iconThName() {
   var t = T();
@@ -2667,7 +2664,7 @@ function renameLesson(l, refresh, onDelete) {
   setTimeout(function () { try { inp.focus(); inp.select(); } catch (e) {} }, 200);
 }
 function fabBubble(host, items) {
-  var fab = el('button', 'fab', '➕');
+  var fab = el('button', 'fab', icOf('plus'));
   var menu = el('div', 'fab-menu'); menu.style.display = 'none';
   items.forEach(function (it) {
     var b = el('button', 'fab-it', it.label);
@@ -2684,7 +2681,7 @@ function fabBubble(host, items) {
 function pickFolderThen(fn) {
   var t = T();
   var ov = pushOv(4600); var d = el('div', 'dlg');
-  d.appendChild(el('p', null, '📁'));
+  d.appendChild(el('p', null, icOf('folder')));
   var ls = el('div'); ls.style.cssText = 'max-height:50vh;overflow-y:auto';
   sites.forEach(function (s) {
     var b = el('button', 'mrow', '📁 ' + (s.name || '—'));
@@ -2720,7 +2717,7 @@ function openLessonsSheet(s, session) {
     ls.forEach(function (l) {
       var card = el('div', 'site');
       var lic = el('div', 'site-icon',
-        l.blob ? (String(l.mime).indexOf('video/') === 0 ? '🎬' : '🎵') : '📝');
+        icLesson(l));
       if (l.icon) {
         var limg = new Image(); limg.src = l.icon; limg.alt = '';
         limg.onerror = function () { limg.remove(); };
@@ -3211,7 +3208,6 @@ function openLesson(l) {
       var lg = shortLang(r.lang);
       var ln = el('div', 'cue-line lg-' + (lg === 'fr' || lg === 'ar' || lg === 'en' ? lg : 'x'));
       var fl = el('span', 'cue-flag', r.flag || langFlag(r.lang) || '🔊');
-      fl.dataset.lg = lg; fl.dataset.gl = lg === 'ar' ? 'ع' : lg.toUpperCase();
       fl.onclick = function (e) { e.stopPropagation(); speakLoop(r.text, r.lang, ln); };
       ln.appendChild(fl);
       var wt = el('span', 'cwords');
@@ -3573,7 +3569,6 @@ function openLesson(l) {
         var lgk = lg === 'ar' || lg === 'en' || lg === 'fr' ? lg : 'x';
         var cr = el('div', 'crow lg-' + lgk);
         var rf = el('button', 'crow-flag', r.flag && r.flag !== '\ud83c\udff3' ? r.flag : '🔊');
-        rf.dataset.lg = lg; rf.dataset.gl = lg === 'ar' ? 'ع' : lg.toUpperCase();
         rf.title = t.speak || 'speak';
         rf.onclick = function (e) { e.stopPropagation(); speakLoop(r.text, r.lang, rf); };
         cr.appendChild(rf);
@@ -3732,10 +3727,10 @@ function openLibrary() {
   function pickFolderFor(ls) {
     var ov2 = pushOv(4600);
     var d = el('div', 'dlg');
-    d.appendChild(el('p', null, '📁 ' + t.pickFolder));
+    d.appendChild(el('p', null, icOf('folder') + ' ' + t.pickFolder));
     sites.forEach(function (s2) {
       var b = el('button', 'mrow');
-      b.appendChild(el('span', 'mi', '📁'));
+      b.appendChild(el('span', 'mi', icOf('folder')));
       b.appendChild(el('span', null, s2.name || hostOf(s2.url) || s2.id));
       b.onclick = function () {
         ov2.remove();
@@ -3894,7 +3889,7 @@ function renderStats() {
   sites.forEach(function (s) { nL += (lessonMap[s.id] || []).length; });
   for (var k in lessonMap) (lessonMap[k] || []).forEach(function (l) { nC += (l.cues || []).length; });
   sEl.innerHTML = '';
-  sEl.appendChild(el('div', 'stat', '📁 ' + nSites + ' ' + (t.statFolders || 'folders')));
+  sEl.appendChild(el('div', 'stat', icOf('folder') + ' ' + nSites + ' ' + (t.statFolders || 'folders')));
   sEl.appendChild(el('div', 'stat', '📚 ' + nL + ' ' + (t.statLessons || 'lessons')));
   sEl.appendChild(el('div', 'stat', '💬 ' + nC + ' ' + (t.statPhrases || 'phrases')));
 }
@@ -3956,8 +3951,8 @@ function renderGrid() {
   if (!fabM) {
     var host = document.body; host.id = host.id || 'appBody';
     fabBubble(host, [
-      { label: '📁 ' + T().addSite, fn: function () { openEditor(null); } },
-      { label: '🎬 ' + T().addLesson, fn: function () {
+      { label: icOf('folder') + ' ' + T().addSite, fn: function () { openEditor(null); } },
+      { label: icOf('v') + ' ' + T().addLesson, fn: function () {
         pickFolderThen(function (s) { addLessonDialog(s.id); });
       } }
     ]);
@@ -4922,7 +4917,10 @@ function openIconThPicker() {
       b.onclick = function () {
         iconTh = k;
         try { localStorage.setItem('langpro_icth', String(iconTh)); } catch (e) {}
-        applyIconTheme(); closeOv();
+        applyIconTheme();
+        renderGrid();
+        document.querySelectorAll('.lov, .llist').forEach(function (v) { if (v._lrefresh) v._lrefresh(); });
+        closeOv();
       };
       sh.appendChild(b);
     })(i);
