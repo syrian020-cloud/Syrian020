@@ -1628,29 +1628,52 @@ function drawCuePills(cx, rows, W, H, hi) {
   var l = layout(base);
   var f0 = base;
   while (l.total > H * 0.7 && f0 > 10) { f0 *= 0.92; l = layout(f0); }
-  var lf = lh(f0), flagR = f0 * 0.8;
+  var lf = lh(f0), flagR = f0 * 0.72;
+  // single white card holding every line — flag circles inside, themed border
+  var cardPadX = f0 * 1.1, cardPadY = f0 * 0.9;
+  var flagW = flagR * 2.6;
+  var cardW = Math.min(W - 2 * PAD, Math.max.apply(null, l.lines.map(function (ln) { return ln.tw; })) + flagW + cardPadX * 2);
+  var cardH = l.total + cardPadY * 2;
   var y = capPos === 2 ? Math.round(H * 0.07)
-        : capPos === 1 ? H - l.total - Math.round(H * 0.28)
-        : H - l.total - Math.round(H * 0.06);
-  y = Math.max(Math.round(H * 0.04), Math.min(y, H - l.total - Math.round(H * 0.04)));
+        : capPos === 1 ? H - cardH - Math.round(H * 0.28)
+        : H - cardH - Math.round(H * 0.06);
+  y = Math.max(Math.round(H * 0.04), Math.min(y, H - cardH - Math.round(H * 0.04)));
+  var cardX = (W - cardW) / 2;
+  // card in the active theme: bar color as the card, each line a themed pill
+  var th = CAP_THEMES[capThemeIdx] || CAP_THEMES[0];
+  cx.save();
+  cx.shadowColor = 'rgba(0,0,0,.35)'; cx.shadowBlur = f0 * 0.5; cx.shadowOffsetY = f0 * 0.12;
+  rrPath(cx, cardX, y, cardW, cardH, f0 * 0.55);
+  cx.fillStyle = th.bar || 'rgba(255,255,255,.96)'; cx.fill();
+  cx.restore();
+  cx.lineWidth = Math.max(2, f0 * 0.1); cx.strokeStyle = 'rgba(0,0,0,.18)';
+  rrPath(cx, cardX, y, cardW, cardH, f0 * 0.55); cx.stroke();
+  var ty = y + cardPadY;
   l.lines.forEach(function (ln) {
     var p = cuePill(ln.it.lang);
-    var pw = Math.min(MAXW, ln.tw + f0 * 1.7 + (ln.fl ? flagR * 2.2 : 0)), px = (W - pw) / 2, ph = lf;
-    rrPath(cx, px, y, pw, ph, ph * 0.45);
+    var ph = lf;
+    var pw = Math.min(cardW - cardPadX, ln.tw + f0 * 1.6 + (ln.fl ? flagW : 0));
+    var px = cardX + (cardW - pw) / 2;
+    rrPath(cx, px, ty, pw, ph, ph * 0.45);
     cx.fillStyle = p.bg; cx.fill();
-    if (p.bd && p.bd !== 'transparent') { cx.lineWidth = Math.max(2, f0 * 0.08); cx.strokeStyle = p.bd; cx.stroke(); }
+    if (p.bd && p.bd !== 'transparent') {
+      cx.lineWidth = Math.max(2, f0 * 0.07); cx.strokeStyle = p.bd; cx.stroke();
+    }
     cx.font = (p.it ? 'italic ' : '') + '700 ' + f0 + 'px ' + p.font;
     cx.textAlign = 'center'; cx.textBaseline = 'middle';
-    cx.fillStyle = p.fg; cx.fillText(ln.w, W / 2 + (ln.fl ? flagR * 1.1 : 0), y + ph / 2);
+    cx.fillStyle = p.fg;
+    cx.fillText(ln.w, px + (ln.fl ? flagW : 0) + (pw - (ln.fl ? flagW : 0)) / 2, ty + ph / 2);
     if (ln.fl) {
-      var fx = px + flagR + f0 * 0.3, fy = y + ph / 2;
+      var fx = px + flagR + f0 * 0.35, fy = ty + ph / 2;
       cx.beginPath(); cx.arc(fx, fy, flagR, 0, 7);
       cx.fillStyle = 'rgba(10,10,15,.85)'; cx.fill();
       cx.lineWidth = Math.max(1.5, f0 * 0.05); cx.strokeStyle = 'rgba(255,255,255,.85)'; cx.stroke();
       cx.font = flagR * 1.35 + 'px sans-serif';
       cx.fillText(ln.fl, fx, fy + flagR * 0.1);
+      cx.font = (p.it ? 'italic ' : '') + '700 ' + f0 + 'px ' + p.font;
+      cx.fillStyle = p.fg; cx.textAlign = 'center'; cx.textBaseline = 'middle';
     }
-    y += ph + f0 * 0.35;
+    ty += ph + f0 * 0.35;
   });
 }
 // Capacitor: append chunks to a cache file, then share the file URI —
