@@ -6,14 +6,15 @@ export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform
 
 ROOT=$(pwd)
 
-# Build the Capacitor web assets for savePro
+# Build the Capacitor web assets for langPro
 rm -rf www
 mkdir -p www/js
 
-cp savepro.html www/index.html
-cp manifest-savepro.json www/manifest.json
-cp icon-savepro-192.png icon-savepro-512.png www/
-cp sw-savepro.js www/
+cp langpro.html www/index.html
+cp manifest-langpro.json www/manifest.json
+cp icon-prolang-192.png icon-prolang-512.png www/
+cp sw-langpro.js www/
+cp -r data www/data
 cp node_modules/@capgo/inappbrowser/dist/plugin.js www/js/inappbrowser.js
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
@@ -23,9 +24,9 @@ if [ "$USE_ALIYUN" = "1" ] && [ -f "$ROOT/init.gradle" ]; then
   GRADLE_INIT="--init-script ../init.gradle"
 fi
 
-# Swap Capacitor config for the savePro package and restore after build
+# Swap Capacitor config for the langPro package and restore after build
 cp "$ROOT/capacitor.config.json" "$ROOT/capacitor.config.json.bak"
-cp "$ROOT/capacitor-savepro.config.json" "$ROOT/capacitor.config.json"
+cp "$ROOT/capacitor-langpro.config.json" "$ROOT/capacitor.config.json"
 restore_config() {
   cd "$ROOT"
   cp capacitor.config.json.bak capacitor.config.json
@@ -53,12 +54,12 @@ npx cap sync android
 # Ensure the Android launcher label matches the Capacitor appName
 STRINGS="$ROOT/android/app/src/main/res/values/strings.xml"
 if [ -f "$STRINGS" ]; then
-  sed -i 's|<string name="app_name">.*</string>|<string name="app_name">savePro</string>|' "$STRINGS"
-  sed -i 's|<string name="title_activity_main">.*</string>|<string name="title_activity_main">savePro</string>|' "$STRINGS"
+  sed -i 's|<string name="app_name">.*</string>|<string name="app_name">langPro</string>|' "$STRINGS"
+  sed -i 's|<string name="title_activity_main">.*</string>|<string name="title_activity_main">langPro</string>|' "$STRINGS"
 fi
 
 # Sync the PWA icon into the Android mipmap launcher icons
-ICON_SRC="$ROOT/icon-savepro-512.png"
+ICON_SRC="$ROOT/icon-prolang-512.png"
 MIPMAP="$ROOT/android/app/src/main/res"
 if [ -f "$ICON_SRC" ] && command -v convert >/dev/null 2>&1; then
   mkdir -p "$MIPMAP/mipmap-mdpi" "$MIPMAP/mipmap-hdpi" "$MIPMAP/mipmap-xhdpi" "$MIPMAP/mipmap-xxhdpi" "$MIPMAP/mipmap-xxxhdpi"
@@ -82,4 +83,4 @@ fi
 cd android
 ./gradlew $GRADLE_INIT assembleDebug
 
-echo "savePro APK ready at: android/app/build/outputs/apk/debug/app-debug.apk"
+echo "langPro APK ready at: android/app/build/outputs/apk/debug/app-debug.apk"

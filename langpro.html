@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>savePro</title>
-<link rel="manifest" href="./manifest-savepro.json">
-<link rel="icon" type="image/png" href="./icon-savepro-192.png">
+<title>langPro</title>
+<link rel="manifest" href="./manifest-langpro.json">
+<link rel="icon" type="image/png" href="./icon-prolang-192.png">
 <style>
   :root {
     --bg: #070b18; --card: #0e1330; --card2: #101427; --field: #0b102a;
@@ -208,15 +208,96 @@
     box-shadow: 0 10px 40px rgba(0,0,0,.5); }
 
   .hidden { display: none !important; }
+
+  /* ---------- folders: lessons badge ---------- */
+  .has-lessons { position: absolute; bottom: .35rem; inset-inline-end: 1.9rem; font-size: .68rem;
+    color: var(--gold); background: none; border: none; cursor: pointer; padding: .1rem .2rem;
+    font-family: inherit; }
+  .has-lessons:active { transform: scale(1.15); }
+
+  /* ---------- lesson list ---------- */
+  .lrow { display: flex; align-items: center; gap: .55rem; background: var(--card2);
+    border: 1px solid var(--line); border-radius: 14px; padding: .55rem .7rem; cursor: pointer; }
+  .lrow:active { border-color: var(--accent); }
+  .lrow .lic { font-size: 1.15rem; flex: none; }
+  .lrow .ln { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    font-weight: 700; font-size: .88rem; }
+  .lrow .lc { font-size: .7rem; color: var(--dim); flex: none; }
+
+  /* ---------- lesson player ---------- */
+  .lov { position: fixed; inset: 0; z-index: 4400; background: var(--bg);
+    display: flex; flex-direction: column; }
+  .lov-top { display: flex; align-items: center; gap: .5rem; padding: .55rem .8rem;
+    border-bottom: 1px solid var(--line); flex: none; }
+  .lov-top .lt { flex: 1; min-width: 0; font-weight: 800; font-size: .95rem;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .lov-top .iconbtn { padding: .3rem .55rem; font-size: .9rem; }
+  .lov-media { position: relative; flex: none; background: #000; max-height: 42vh;
+    display: flex; justify-content: center; }
+  .lov-media video { width: 100%; max-height: 42vh; display: block; }
+  .lov-media audio { width: 100%; }
+  .capzone { position: absolute; left: 6%; right: 6%; bottom: 8%; text-align: center;
+    pointer-events: none; font-weight: 800; font-size: 1.05rem; line-height: 1.4;
+    white-space: pre-line; z-index: 2; }
+  .capzone.ct1 { color: #fff; text-shadow: 0 1px 3px #000, 0 0 8px rgba(0,0,0,.9); }
+  .capzone.ct2 { color: #ffe45c; text-shadow: 0 1px 0 #000, 0 0 6px #000, 1px 1px 0 #000, -1px -1px 0 #000; }
+  .capzone.ct3 { color: #fff; background: rgba(0,0,0,.62); border-radius: 10px; padding: .15em .55em; }
+  .capzone.ct4 { top: 8%; bottom: auto; color: #fff; text-shadow: 0 1px 3px #000, 0 0 8px rgba(0,0,0,.9); }
+  .capzone.ct5 { color: #7dd3fc; font-size: 1.45rem; text-shadow: 0 2px 8px #000; }
+  .capzone.ct6 { bottom: 3%; color: #d1d5db; font-size: .82rem; font-weight: 500;
+    background: rgba(0,0,0,.45); padding: .1em .5em; border-radius: 8px; }
+  .capplain { position: static; margin: .5rem .8rem; pointer-events: none; font-weight: 800;
+    font-size: 1.05rem; line-height: 1.4; text-align: center; white-space: pre-line; }
+  .lov-caps { display: flex; gap: .35rem; padding: .45rem .8rem; flex: none; align-items: center; }
+  .lov-caps .flabel { margin: 0 .3rem 0 0; }
+  .capdot { width: 30px; height: 26px; border-radius: 8px; border: 2px solid var(--line);
+    background: var(--card); cursor: pointer; font-size: .75rem; font-weight: 800; padding: 0; }
+  .capdot.on { border-color: var(--gold); }
+  .lov-cues { flex: 1; overflow-y: auto; padding: .3rem .8rem 5.5rem; display: flex;
+    flex-direction: column; gap: .4rem; }
+  .cue { display: flex; gap: .5rem; align-items: flex-start; background: var(--card);
+    border: 1px solid var(--line); border-radius: 12px; padding: .5rem .6rem; cursor: pointer; }
+  .cue.on { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(139,92,246,.25); }
+  .cue .ct { font-size: .68rem; color: var(--accent2); font-variant-numeric: tabular-nums;
+    flex: none; padding-top: .15rem; min-width: 2.6rem; }
+  .cue .cx { flex: 1; min-width: 0; font-size: .85rem; line-height: 1.45; white-space: pre-line;
+    overflow-wrap: anywhere; }
+  .cue .cx .ct-ar { display: block; color: var(--dim); font-size: .78rem; }
+  .cue .cb { flex: none; display: flex; flex-direction: column; gap: .25rem; }
+  .lov-actions { position: fixed; bottom: 0; left: 0; right: 0; z-index: 4401; display: flex;
+    gap: .4rem; padding: .55rem .8rem calc(.55rem + env(safe-area-inset-bottom));
+    background: rgba(7,11,24,.92); backdrop-filter: blur(12px); border-top: 1px solid var(--line); }
+  body.light .lov-actions { background: rgba(242,244,251,.92); }
+  .lov-actions .mini { flex: 1; font-size: .8rem; padding: .55rem .4rem; }
+
+  /* ---------- library ---------- */
+  .libv { position: fixed; inset: 0; z-index: 4400; background: var(--bg);
+    display: flex; flex-direction: column; }
+  .libv .lov-top { flex: none; }
+  .libtabs { display: flex; gap: .4rem; padding: .5rem .8rem; flex: none; }
+  .libtabs .mini.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .libbody { flex: 1; overflow-y: auto; padding: 0 .8rem 5rem; display: flex; flex-direction: column; gap: .45rem; }
+  .librow { background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: .6rem .75rem; cursor: pointer; display: flex; align-items: center; gap: .55rem; }
+  .librow:active { border-color: var(--accent); }
+  .librow .lt { flex: 1; min-width: 0; font-weight: 700; font-size: .88rem; }
+  .librow .ls { font-size: .7rem; color: var(--dim); flex: none; }
+  .libph { background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: .5rem .7rem; display: flex; gap: .5rem; align-items: flex-start; }
+  .libph .pt { flex: 1; min-width: 0; font-size: .84rem; line-height: 1.5; }
+  .libph .pt b { display: block; font-size: .9rem; }
+  .libph .pt .pa { display: block; opacity: .9; }
+  .libph .pt .pe { display: block; color: var(--dim); font-size: .75rem; }
+  .libph .pb { flex: none; display: flex; flex-direction: column; gap: .3rem; }
 </style>
 </head>
 <body>
 <header>
   <div class="topbar">
-    <div class="logo"><img src="./icon-savepro-192.png" alt="" onerror="this.style.display='none'"><span data-i="appname">savePro</span></div>
+    <div class="logo"><img src="./icon-prolang-192.png" alt="" onerror="this.style.display='none'"><span data-i="appname">langPro</span></div>
     <div class="searchbox">
       <span>🔍</span>
-      <input id="search" data-i-ph="searchPh" placeholder="ابحث عن أي شيء…" autocomplete="off">
+      <input id="search" data-i-ph="searchPh" placeholder="Search anything…" autocomplete="off">
     </div>
     <button class="iconbtn" id="waBtn" title="WhatsApp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" style="width:20px;height:20px;display:block"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#fff" transform="translate(4.15,4.15) scale(0.654)" d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35M12.04 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.82 9.82 0 0 1 9.88 9.89c0 5.44-4.44 9.88-9.89 9.88m8.42-18.3A11.82 11.82 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.58 0 11.94-5.36 11.94-11.93 0-3.18-1.24-6.18-3.53-8.38"/></svg></button>
     <button class="iconbtn" id="langBtn" title="🌐" aria-label="Language">🇺🇸</button>
@@ -254,10 +335,10 @@
 /* ================= i18n ================= */
 var I18N = {
   ar: {
-    appname: 'savePro', searchPh: 'ابحث عن أي شيء…',
+    appname: 'langPro', searchPh: 'ابحث عن أي شيء…',
     menu: 'القائمة', langTitle: 'لغة الواجهة', themeDark: 'الوضع الداكن 🌙', themeLight: 'الوضع الفاتح ☀',
     exportData: 'تصدير البيانات', importData: 'استيراد البيانات',
-    addSite: 'إضافة موقع', editSite: 'تعديل الموقع',
+    addSite: 'إضافة مجلد', editSite: 'تعديل المجلد',
     fName: 'الاسم', fUrl: 'رابط الموقع', fIcon: 'رابط صورة الأيقونة (اختياري)',
     fUser: 'اسم المستخدم', fPass: 'كلمة السر', pickImg: 'استوديو',
     fAddr: 'العنوان (adresse)', mapGo: 'خريطة', openNoAddr: 'أضف العنوان أولاً من ⋮',
@@ -265,7 +346,7 @@ var I18N = {
     save: 'حفظ', del: 'حذف', copy: 'نسخ', copied: 'نُسخ ✓', show: 'إظهار', hide: 'إخفاء',
     open: 'فتح الموقع', openNoUrl: 'أضف رابط الموقع أولاً من ⋮',
     exitTitle: 'هل تريد الخروج من التطبيق؟', yes: 'نعم، اخرج', no: 'إلغاء',
-    delTitle: 'حذف هذا الموقع؟', delYes: 'نعم، احذف',
+    delTitle: 'حذف هذا المجلد؟', delYes: 'نعم، احذف',
     exported: 'تم تصدير البيانات', imported: 'تم استيراد البيانات', errUrl: 'أضف أي محتوى للحفظ (اسم، رابط، مرفق…)',
     openNoContent: 'لا يوجد محتوى للفتح',
     userCopied: 'نُسخ اسم المستخدم', passCopied: 'نُسخت كلمة السر',
@@ -277,13 +358,20 @@ var I18N = {
     lockSet: 'تعيين رمز دخول (4 أرقام)', lockChange: 'تغيير رمز الدخول', lockDel: 'حذف رمز الدخول',
     lockEnter: 'أدخل الرمز الحالي', lockNew: 'الرمز الجديد (4 أرقام)', lockConfirm: 'تأكيد الرمز',
     lockWrong: 'الرمز غير صحيح', lockNoMatch: 'الرمزان غير متطابقين', lockNeedPin: 'الرمز يجب أن يكون 4 أرقام',
-    pinSaved: 'تم حفظ رمز الدخول', unlocked: 'تم حذف رمز الدخول'
+    pinSaved: 'تم حفظ رمز الدخول', unlocked: 'تم حذف رمز الدخول',
+    lessons: 'الدروس', addLesson: 'درس جديد', noLessons: 'لا دروس بعد', lName: 'اسم الدرس',
+    pickVideo: 'فيديو', pickAudio: 'صوت', noMedia: 'بدون وسائط', delLessonQ: 'حذف هذا الدرس؟',
+    cueAdd: 'إضافة سطر', cueTime: 'الوقت (mm:ss)', cueNow: 'عند الموضع الحالي', cueLines: 'سطر',
+    timedTitle: 'لصق نص مؤقت', timedHelp: 'كل سطر: 00:01 النص أو 00:01 --> 00:04 النص', timedAdd: 'إضافة الأسطر', errTimed: 'لم يُعثر على أسطر مؤقتة',
+    capTheme: 'ثيم الترجمة', libTitle: 'مكتبة العبارات', libStages: 'المراحل', libVocab: 'المفردات', libBack: 'رجوع',
+    copyAll: 'نسخ الكل', toFolder: 'إضافة كدرس', pickFolder: 'اختر المجلد', lessonAdded: 'أُضيف الدرس ✓',
+    renameLesson: 'تعديل اسم الدرس', playAll: 'تشغيل الكل'
   },
   fr: {
-    appname: 'savePro', searchPh: 'Rechercher partout…',
+    appname: 'langPro', searchPh: 'Rechercher partout…',
     menu: 'Menu', langTitle: 'Langue de l’interface', themeDark: 'Mode sombre 🌙', themeLight: 'Mode clair ☀',
     exportData: 'Exporter les données', importData: 'Importer les données',
-    addSite: 'Ajouter un site', editSite: 'Modifier le site',
+    addSite: 'Ajouter un dossier', editSite: 'Modifier le dossier',
     fName: 'Nom', fUrl: 'Adresse du site', fIcon: 'URL de l’icône (optionnel)',
     fUser: 'Nom d’utilisateur', fPass: 'Mot de passe', pickImg: 'Galerie',
     fAddr: 'Adresse (rue, ville)', mapGo: 'Carte', openNoAddr: 'Ajoutez d’abord l’adresse via ⋮',
@@ -291,7 +379,7 @@ var I18N = {
     save: 'Enregistrer', del: 'Supprimer', copy: 'Copier', copied: 'Copié ✓', show: 'Voir', hide: 'Cacher',
     open: 'Ouvrir le site', openNoUrl: 'Ajoutez d’abord l’adresse via ⋮',
     exitTitle: 'Quitter l’application ?', yes: 'Oui, quitter', no: 'Annuler',
-    delTitle: 'Supprimer ce site ?', delYes: 'Oui, supprimer',
+    delTitle: 'Supprimer ce dossier ?', delYes: 'Oui, supprimer',
     exported: 'Données exportées', imported: 'Données importées', errUrl: 'Ajoutez du contenu à enregistrer',
     openNoContent: 'Aucun contenu à ouvrir',
     userCopied: 'Identifiant copié', passCopied: 'Mot de passe copié',
@@ -303,13 +391,20 @@ var I18N = {
     lockSet: 'Définir un code (4 chiffres)', lockChange: 'Changer le code', lockDel: 'Supprimer le code',
     lockEnter: 'Code actuel', lockNew: 'Nouveau code (4 chiffres)', lockConfirm: 'Confirmer le code',
     lockWrong: 'Code incorrect', lockNoMatch: 'Les codes ne correspondent pas', lockNeedPin: 'Le code doit avoir 4 chiffres',
-    pinSaved: 'Code enregistré', unlocked: 'Code supprimé'
+    pinSaved: 'Code enregistré', unlocked: 'Code supprimé',
+    lessons: 'Leçons', addLesson: 'Nouvelle leçon', noLessons: 'Pas encore de leçons', lName: 'Nom de la leçon',
+    pickVideo: 'Vidéo', pickAudio: 'Audio', noMedia: 'Sans média', delLessonQ: 'Supprimer cette leçon ?',
+    cueAdd: 'Ajouter une ligne', cueTime: 'Temps (mm:ss)', cueNow: 'À la position actuelle', cueLines: 'lignes',
+    timedTitle: 'Coller du texte synchronisé', timedHelp: 'Chaque ligne : 00:01 texte ou 00:01 --> 00:04 texte', timedAdd: 'Ajouter les lignes', errTimed: 'Aucune ligne synchronisée trouvée',
+    capTheme: 'Thème des sous-titres', libTitle: 'Bibliothèque de phrases', libStages: 'Niveaux', libVocab: 'Vocabulaire', libBack: 'Retour',
+    copyAll: 'Tout copier', toFolder: 'Ajouter comme leçon', pickFolder: 'Choisir le dossier', lessonAdded: 'Leçon ajoutée ✓',
+    renameLesson: 'Renommer la leçon', playAll: 'Tout lire'
   },
   en: {
-    appname: 'savePro', searchPh: 'Search anything…',
+    appname: 'langPro', searchPh: 'Search anything…',
     menu: 'Menu', langTitle: 'Interface language', themeDark: 'Dark mode 🌙', themeLight: 'Light mode ☀',
     exportData: 'Export data', importData: 'Import data',
-    addSite: 'Add site', editSite: 'Edit site',
+    addSite: 'Add folder', editSite: 'Edit folder',
     fName: 'Name', fUrl: 'Site URL', fIcon: 'Icon image URL (optional)',
     fUser: 'Username', fPass: 'Password', pickImg: 'Gallery',
     fAddr: 'Address', mapGo: 'Map', openNoAddr: 'Add the address first via ⋮',
@@ -317,7 +412,7 @@ var I18N = {
     save: 'Save', del: 'Delete', copy: 'Copy', copied: 'Copied ✓', show: 'Show', hide: 'Hide',
     open: 'Open site', openNoUrl: 'Add the site URL first via ⋮',
     exitTitle: 'Exit the app?', yes: 'Yes, exit', no: 'Cancel',
-    delTitle: 'Delete this site?', delYes: 'Yes, delete',
+    delTitle: 'Delete this folder?', delYes: 'Yes, delete',
     exported: 'Data exported', imported: 'Data imported', errUrl: 'Add some content to save',
     openNoContent: 'Nothing to open',
     userCopied: 'Username copied', passCopied: 'Password copied',
@@ -329,14 +424,32 @@ var I18N = {
     lockSet: 'Set passcode (4 digits)', lockChange: 'Change passcode', lockDel: 'Remove passcode',
     lockEnter: 'Current passcode', lockNew: 'New passcode (4 digits)', lockConfirm: 'Confirm passcode',
     lockWrong: 'Wrong passcode', lockNoMatch: 'Passcodes do not match', lockNeedPin: 'Passcode must be 4 digits',
-    pinSaved: 'Passcode saved', unlocked: 'Passcode removed'
+    pinSaved: 'Passcode saved', unlocked: 'Passcode removed',
+    lessons: 'Lessons', addLesson: 'New lesson', noLessons: 'No lessons yet', lName: 'Lesson name',
+    pickVideo: 'Video', pickAudio: 'Audio', noMedia: 'No media', delLessonQ: 'Delete this lesson?',
+    cueAdd: 'Add line', cueTime: 'Time (mm:ss)', cueNow: 'At current position', cueLines: 'lines',
+    timedTitle: 'Paste timed text', timedHelp: 'Each line: 00:01 text or 00:01 --> 00:04 text', timedAdd: 'Add lines', errTimed: 'No timed lines found',
+    capTheme: 'Caption theme', libTitle: 'Phrase library', libStages: 'Stages', libVocab: 'Vocabulary', libBack: 'Back',
+    copyAll: 'Copy all', toFolder: 'Add as lesson', pickFolder: 'Pick a folder', lessonAdded: 'Lesson added ✓',
+    renameLesson: 'Rename lesson', playAll: 'Play all'
   }
 };
 function T() { return I18N[uiLang()] || I18N.ar; }
-function uiLang() { return localStorage.getItem('savepro_lang') || 'en'; }
+/* langPro keeps the user's data when upgrading from savePro: copy the old keys once */
+(function () {
+  var keys = ['lang', 'sites', 'theme', 'pin', 'seed_v2', 'captheme'];
+  keys.forEach(function (k) {
+    try {
+      if (localStorage.getItem('langpro_' + k) === null && localStorage.getItem('savepro_' + k) !== null) {
+        localStorage.setItem('langpro_' + k, localStorage.getItem('savepro_' + k));
+      }
+    } catch (e) {}
+  });
+})();
+function uiLang() { return localStorage.getItem('langpro_lang') || 'en'; }
 function langFlag(l) { return l === 'ar' ? '🇸🇾' : l === 'fr' ? '🇫🇷' : '🇺🇸'; }
 function setUiLang(l) {
-  try { localStorage.setItem('savepro_lang', l); } catch (e) {}
+  try { localStorage.setItem('langpro_lang', l); } catch (e) {}
   document.documentElement.lang = l;
   document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
   applyI18n(); renderGrid();
@@ -357,21 +470,21 @@ function applyI18n() {
 /* ================= data ================= */
 var inCap = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
 var sites = [];
-try { sites = JSON.parse(localStorage.getItem('savepro_sites') || '[]'); } catch (e) { sites = []; }
+try { sites = JSON.parse(localStorage.getItem('langpro_sites') || '[]'); } catch (e) { sites = []; }
 if (!Array.isArray(sites)) sites = [];
 
 // Built-in starter shortcuts removed — drop them on first run of this version,
 // but keep any seed entry the user already customized (credentials/icon/address)
 var SEED_IDS = { google: 1, youtube: 1, gmail: 1, facebook: 1, instagram: 1, x: 1, whatsapp: 1, github: 1 };
-if (!localStorage.getItem('savepro_seed_v2')) {
+if (!localStorage.getItem('langpro_seed_v2')) {
   sites = sites.filter(function (s) {
     if (!SEED_IDS[s.id]) return true;
     return !!(s.user || s.pass || s.icon || s.addr);
   });
   saveSites();
-  try { localStorage.setItem('savepro_seed_v2', '1'); } catch (e) {}
+  try { localStorage.setItem('langpro_seed_v2', '1'); } catch (e) {}
 }
-function saveSites() { try { localStorage.setItem('savepro_sites', JSON.stringify(sites)); } catch (e) {} }
+function saveSites() { try { localStorage.setItem('langpro_sites', JSON.stringify(sites)); } catch (e) {} }
 
 /* ================= attachments (IndexedDB) ================= */
 var IDB = {
@@ -380,10 +493,15 @@ var IDB = {
     if (IDB.db) return Promise.resolve(IDB.db);
     return new Promise(function (res, rej) {
       if (!window.indexedDB) return rej(new Error('no idb'));
-      var r = indexedDB.open('savepro_files', 1);
+      var r = indexedDB.open('savepro_files', 2);
       r.onupgradeneeded = function () {
-        var st = r.result.createObjectStore('files', { keyPath: 'id' });
-        st.createIndex('siteId', 'siteId');
+        var db = r.result;
+        if (!db.objectStoreNames.contains('files')) {
+          db.createObjectStore('files', { keyPath: 'id' }).createIndex('siteId', 'siteId');
+        }
+        if (!db.objectStoreNames.contains('lessons')) {
+          db.createObjectStore('lessons', { keyPath: 'id' }).createIndex('siteId', 'siteId');
+        }
       };
       r.onsuccess = function () { IDB.db = r.result; res(IDB.db); };
       r.onerror = function () { rej(r.error); };
@@ -415,6 +533,33 @@ var IDB = {
         rq.onerror = function () { rej(rq.error); };
       });
     });
+  },
+  lput: function (rec) {
+    return IDB.open().then(function (d) {
+      return new Promise(function (res, rej) {
+        var t = d.transaction('lessons', 'readwrite');
+        t.objectStore('lessons').put(rec);
+        t.oncomplete = res; t.onerror = function () { rej(t.error); };
+      });
+    });
+  },
+  ldel: function (id) {
+    return IDB.open().then(function (d) {
+      return new Promise(function (res, rej) {
+        var t = d.transaction('lessons', 'readwrite');
+        t.objectStore('lessons').delete(id);
+        t.oncomplete = res; t.onerror = function () { rej(t.error); };
+      });
+    });
+  },
+  lgetAll: function () {
+    return IDB.open().then(function (d) {
+      return new Promise(function (res, rej) {
+        var rq = d.transaction('lessons', 'readonly').objectStore('lessons').getAll();
+        rq.onsuccess = function () { res(rq.result || []); };
+        rq.onerror = function () { rej(rq.error); };
+      });
+    });
   }
 };
 
@@ -424,6 +569,14 @@ IDB.getAll().then(function (list) {
   list.forEach(function (r) { (attMap[r.siteId] = attMap[r.siteId] || []).push(r); });
   renderGrid();
 }).catch(function () {});
+
+var lessonMap = {}; // siteId -> [lesson records], mirrors the 'lessons' store
+IDB.lgetAll().then(function (list) {
+  lessonMap = {};
+  list.forEach(function (r) { (lessonMap[r.siteId] = lessonMap[r.siteId] || []).push(r); });
+  renderGrid();
+}).catch(function () {});
+function lessonCount(sid) { return (lessonMap[sid] || []).length; }
 
 var activeSess = null; // { added:[rec], committed:bool } — purge unsaved additions on cancel
 var lastAttWrap = null;
@@ -441,6 +594,11 @@ function purgeSession(sess) {
     attMap[r.siteId] = (attMap[r.siteId] || []).filter(function (x) { return x.id !== r.id; });
   });
   sess.added = [];
+  (sess.addedL || []).forEach(function (r) {
+    IDB.ldel(r.id).catch(function () {});
+    lessonMap[r.siteId] = (lessonMap[r.siteId] || []).filter(function (x) { return x.id !== r.id; });
+  });
+  sess.addedL = [];
 }
 
 function blobToB64(blob) {
@@ -500,7 +658,7 @@ function viewAttachment(rec) {
   var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
   var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
   if (inCap && FS && SH) {
-    var cf = 'savepro-' + rec.id + '-' + (rec.name || 'file').replace(/[^\w.\-]+/g, '_');
+    var cf = 'langpro-' + rec.id + '-' + (rec.name || 'file').replace(/[^\w.\-]+/g, '_');
     blobToB64(rec.blob).then(function (b64) {
       return FS.writeFile({ path: cf, data: b64,
         directory: 'CACHE', recursive: true });
@@ -519,11 +677,11 @@ function viewAttachment(rec) {
 
 function saveAttachment(rec) {
   var t = T();
-  var fname = rec.name || ('savepro-' + rec.id + (rec.kind === 'pdf' ? '.pdf' : '.png'));
+  var fname = rec.name || ('langpro-' + rec.id + (rec.kind === 'pdf' ? '.pdf' : '.png'));
   var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
   var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
   if (inCap && FS && SH) {
-    var safe = 'savepro-' + rec.id + '-' + fname.replace(/[^\w.\-]+/g, '_');
+    var safe = 'langpro-' + rec.id + '-' + fname.replace(/[^\w.\-]+/g, '_');
     blobToB64(rec.blob).then(function (b64) {
       return FS.writeFile({ path: safe, data: b64, directory: 'CACHE', recursive: true });
     }).then(function (w) {
@@ -637,10 +795,566 @@ function openAttSheet(s) {
   sh.appendChild(attListEl(s.id, null));
 }
 
-function isDark() { return localStorage.getItem('savepro_theme') !== 'light'; }
+/* ================= text-to-speech ================= */
+function nativeTTS() {
+  try {
+    if (window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.TextToSpeech)
+      return Capacitor.Plugins.TextToSpeech;
+    if (window.Capacitor && Capacitor.registerPlugin) {
+      var p = Capacitor.registerPlugin('TextToSpeech');
+      Capacitor.Plugins = Capacitor.Plugins || {};
+      Capacitor.Plugins.TextToSpeech = p;
+      return p;
+    }
+  } catch (e) {}
+  return null;
+}
+function speak(text, lang) {
+  var n = nativeTTS();
+  if (n && n.speak) {
+    n.speak({ text: String(text || ''), lang: lang || 'fr-FR', rate: 1 }).catch(function () {});
+    return;
+  }
+  if ('speechSynthesis' in window) {
+    try {
+      speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(String(text || ''));
+      u.lang = lang || 'fr-FR';
+      speechSynthesis.speak(u);
+    } catch (e) {}
+  }
+}
+
+/* ================= timed text ================= */
+function fmtT(sec) {
+  if (sec == null || isNaN(sec)) return '—';
+  var m = Math.floor(sec / 60), s = Math.floor(sec % 60);
+  return m + ':' + (s < 10 ? '0' : '') + s;
+}
+function parseT(str) {
+  str = String(str || '').trim().replace(',', '.');
+  if (!/^\d{1,3}(:\d{1,2}){0,2}(\.\d+)?$/.test(str)) return null;
+  var v = 0;
+  str.split(':').forEach(function (x) { v = v * 60 + parseFloat(x); });
+  return isNaN(v) ? null : v;
+}
+// Accepts "00:01 text", "00:01 --> 00:04 text", "[00:01.500] text" and SRT blocks;
+// untimed lines continue the previous cue (translation lines) or start an untimed cue.
+function parseTimedLines(text) {
+  var cues = [], cur = null;
+  function flush() { if (cur && cur.text) cues.push(cur); cur = null; }
+  String(text || '').replace(/\r/g, '').split('\n').forEach(function (line) {
+    var m = line.match(/^\s*\[?(\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d{1,3})?)\]?\s*--?>\s*(\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d{1,3})?)\s*(.*)$/);
+    if (m) { flush(); cur = { t: parseT(m[1]), d: parseT(m[2]), text: (m[3] || '').trim() }; return; }
+    m = line.match(/^\s*\[?(\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d{1,3})?)\]?\s+(.+)$/);
+    if (m && !/^\s*--?>/.test(m[2])) { flush(); cur = { t: parseT(m[1]), d: null, text: m[2].trim() }; return; }
+    var s = line.trim();
+    if (/^\d+$/.test(s)) return;
+    if (!s) { flush(); return; }
+    if (cur) cur.text += '\n' + s; else cur = { t: null, d: null, text: s };
+  });
+  flush();
+  return cues;
+}
+
+/* ================= lessons ================= */
+function pushOv(z) {
+  var ov = el('div', 'overlay');
+  ov.style.zIndex = String(z || 4400);
+  document.body.appendChild(ov);
+  ov.onclick = function (e) { if (e.target === ov) ov.remove(); };
+  return ov;
+}
+function lSave(l) { return IDB.lput(l).catch(function () {}); }
+function addLessonRec(siteId, name, mime, blob, cues) {
+  var rec = { id: 'l' + Date.now() + Math.random().toString(36).slice(2, 6),
+    siteId: siteId, name: name || '', mime: mime || '', blob: blob || null,
+    cues: cues || [], addedAt: Date.now() };
+  (lessonMap[siteId] = lessonMap[siteId] || []).push(rec);
+  return lSave(rec).then(function () { renderGrid(); return rec; });
+}
+function addLessonDialog(siteId, onDone) {
+  var t = T();
+  var ov = pushOv(4600);
+  var d = el('div', 'dlg');
+  d.appendChild(el('p', null, '➕ ' + t.addLesson));
+  var f = el('div', 'field');
+  var inp = document.createElement('input');
+  inp.placeholder = t.lName; inp.dir = 'auto';
+  inp.autocapitalize = 'off'; inp.autocomplete = 'off'; inp.spellcheck = false;
+  f.appendChild(inp); d.appendChild(f);
+  var r = el('div', 'row'); r.style.marginTop = '.8rem';
+  function pick(accept) {
+    var fi = document.createElement('input');
+    fi.type = 'file'; fi.accept = accept;
+    fi.onchange = function () {
+      var fl = fi.files[0]; if (!fl) return;
+      ov.remove();
+      addLessonRec(siteId, inp.value.trim() || (fl.name || t.lName), fl.type, fl, [])
+        .then(function (rec) { if (onDone) onDone(rec); });
+    };
+    fi.click();
+  }
+  var bv = el('button', null, '🎬 ' + t.pickVideo); bv.onclick = function () { pick('video/*'); };
+  var ba = el('button', null, '🎵 ' + t.pickAudio); ba.onclick = function () { pick('audio/*'); };
+  var bn = el('button', null, '✚ ' + t.noMedia);
+  bn.onclick = function () {
+    ov.remove();
+    addLessonRec(siteId, inp.value.trim() || t.lName, '', null, [])
+      .then(function (rec) { if (onDone) onDone(rec); });
+  };
+  r.appendChild(bv); r.appendChild(ba); r.appendChild(bn);
+  d.appendChild(r); ov.appendChild(d);
+  setTimeout(function () { try { inp.focus(); } catch (e) {} }, 200);
+}
+function renameLesson(l, refresh) {
+  var t = T();
+  var ov = pushOv(4600);
+  var d = el('div', 'dlg');
+  d.appendChild(el('p', null, t.renameLesson));
+  var f = el('div', 'field');
+  var inp = document.createElement('input');
+  inp.value = l.name || ''; inp.dir = 'auto';
+  f.appendChild(inp); d.appendChild(f);
+  var r = el('div', 'row'); r.style.marginTop = '.8rem';
+  var no = el('button', null, t.no); no.onclick = function () { ov.remove(); };
+  var yes = el('button', 'yes', t.save);
+  yes.onclick = function () {
+    var v = inp.value.trim();
+    if (v) { l.name = v; lSave(l); refresh(); renderGrid(); }
+    ov.remove();
+  };
+  r.appendChild(no); r.appendChild(yes); d.appendChild(r); ov.appendChild(d);
+  setTimeout(function () { try { inp.focus(); inp.select(); } catch (e) {} }, 200);
+}
+function openLessonsSheet(s, session) {
+  var t = T();
+  var ov = el('div', 'lov');
+  var top = el('div', 'lov-top');
+  top.appendChild(el('div', 'lt', '📚 ' + t.lessons + ' — ' + (s.name || hostOf(s.url) || '')));
+  var back = el('button', 'iconbtn', '✕');
+  back.onclick = function () { ov.remove(); };
+  top.appendChild(back);
+  ov.appendChild(top);
+  var body = el('div', 'lov-cues');
+  function refresh() {
+    body.innerHTML = '';
+    var ls = lessonMap[s.id] || [];
+    if (!ls.length) { body.appendChild(el('div', 'flabel', t.noLessons)); return; }
+    ls.forEach(function (l) {
+      var row = el('div', 'lrow');
+      row.appendChild(el('div', 'lic',
+        l.blob ? (String(l.mime).indexOf('video/') === 0 ? '🎬' : '🎵') : '📝'));
+      var mid = el('div'); mid.style.flex = '1'; mid.style.minWidth = '0';
+      mid.appendChild(el('div', 'ln', l.name || t.lName));
+      var nc = (l.cues || []).length;
+      if (nc) mid.appendChild(el('div', 'lc', nc + ' ' + t.cueLines));
+      row.appendChild(mid);
+      var rn = el('button', 'ax', '✏');
+      rn.onclick = function (e) { e.stopPropagation(); renameLesson(l, refresh); };
+      row.appendChild(rn);
+      var ax = el('button', 'ax', '✕');
+      ax.onclick = function (e) {
+        e.stopPropagation();
+        confirmDialog(t.delLessonQ, t.delYes, function () {
+          IDB.ldel(l.id).catch(function () {});
+          lessonMap[s.id] = (lessonMap[s.id] || []).filter(function (x) { return x.id !== l.id; });
+          if (session) session.addedL = (session.addedL || []).filter(function (x) { return x.id !== l.id; });
+          renderGrid(); refresh();
+        }, true);
+      };
+      row.appendChild(ax);
+      row.onclick = function () { openLesson(l); };
+      body.appendChild(row);
+    });
+  }
+  ov.appendChild(body);
+  var acts = el('div', 'lov-actions');
+  var add = el('button', 'mini', '➕ ' + t.addLesson);
+  add.onclick = function () {
+    addLessonDialog(s.id, function (rec) {
+      if (session) (session.addedL = session.addedL || []).push(rec);
+      refresh();
+    });
+  };
+  acts.appendChild(add);
+  ov.appendChild(acts);
+  refresh();
+  document.body.appendChild(ov);
+}
+
+/* ---------- lesson player + caption themes ---------- */
+var CAP_THEMES = ['ct1', 'ct2', 'ct3', 'ct4', 'ct5', 'ct6'];
+function capTheme() { return Math.min(5, parseInt(localStorage.getItem('langpro_captheme') || '0', 10) || 0); }
+function setCapTheme(i) { try { localStorage.setItem('langpro_captheme', String(i)); } catch (e) {} }
+function sortedCues(l) {
+  return (l.cues || []).slice().sort(function (a, b) {
+    return (a.t == null ? 1e9 : a.t) - (b.t == null ? 1e9 : b.t);
+  });
+}
+function cueDialog(l, cue, refresh, atTime) {
+  var t = T();
+  var ov = pushOv(4600);
+  var d = el('div', 'dlg');
+  d.appendChild(el('p', null, cue ? '✏ ' + t.cueAdd : '➕ ' + t.cueAdd));
+  var fr1 = el('div', 'field');
+  var tin = document.createElement('input');
+  tin.placeholder = t.cueTime + ' — ' + t.cueNow;
+  tin.dir = 'ltr'; tin.style.textAlign = 'left';
+  tin.autocapitalize = 'off'; tin.autocomplete = 'off'; tin.spellcheck = false;
+  if (cue && cue.t != null) tin.value = fmtT(cue.t);
+  else if (atTime != null) tin.value = fmtT(atTime);
+  fr1.appendChild(tin); d.appendChild(fr1);
+  var ftx = el('div', 'field');
+  var ta = document.createElement('textarea');
+  ta.rows = 3; ta.dir = 'auto';
+  ta.style.cssText = 'width:100%;background:transparent;border:none;outline:none;color:var(--txt);font:inherit;resize:vertical';
+  if (cue) ta.value = cue.text || '';
+  ftx.appendChild(ta); d.appendChild(ftx);
+  var r = el('div', 'row'); r.style.marginTop = '.8rem';
+  var no = el('button', null, t.no); no.onclick = function () { ov.remove(); };
+  var yes = el('button', 'yes', t.save);
+  yes.onclick = function () {
+    var tt = tin.value.trim() ? parseT(tin.value) : null;
+    var txt = ta.value.replace(/\r/g, '').trim();
+    if (!txt) { ov.remove(); return; }
+    l.cues = l.cues || [];
+    if (cue) { cue.t = tt; cue.text = txt; }
+    else l.cues.push({ t: tt, d: null, text: txt });
+    lSave(l); ov.remove(); refresh();
+  };
+  r.appendChild(no); r.appendChild(yes); d.appendChild(r); ov.appendChild(d);
+  setTimeout(function () { try { ta.focus(); } catch (e) {} }, 200);
+}
+function timedDialog(l, refresh) {
+  var t = T();
+  var ov = pushOv(4600);
+  var d = el('div', 'dlg');
+  d.appendChild(el('p', null, '⏱ ' + t.timedTitle));
+  d.appendChild(el('div', 'flabel', t.timedHelp));
+  var f = el('div', 'field');
+  var ta = document.createElement('textarea');
+  ta.rows = 8; ta.dir = 'ltr';
+  ta.style.cssText = 'width:100%;background:transparent;border:none;outline:none;color:var(--txt);font:inherit;resize:vertical';
+  f.appendChild(ta); d.appendChild(f);
+  var r = el('div', 'row'); r.style.marginTop = '.8rem';
+  var no = el('button', null, t.no); no.onclick = function () { ov.remove(); };
+  var yes = el('button', 'yes', t.timedAdd);
+  yes.onclick = function () {
+    var cues = parseTimedLines(ta.value);
+    if (!cues.length) { toast(t.errTimed); return; }
+    l.cues = (l.cues || []).concat(cues);
+    lSave(l); ov.remove(); refresh(); toast('+' + cues.length + ' ' + t.cueLines);
+  };
+  r.appendChild(no); r.appendChild(yes); d.appendChild(r); ov.appendChild(d);
+  setTimeout(function () { try { ta.focus(); } catch (e) {} }, 200);
+}
+function openLesson(l) {
+  var t = T();
+  var ov = el('div', 'lov');
+  var isV = !!(l.blob && String(l.mime).indexOf('video/') === 0);
+  var top = el('div', 'lov-top');
+  top.appendChild(el('div', 'lt', l.name || t.lName));
+  var rn = el('button', 'iconbtn', '✏');
+  rn.onclick = function () { renameLesson(l, function () { ov.querySelector('.lt').textContent = l.name || t.lName; }); };
+  top.appendChild(rn);
+  var back = el('button', 'iconbtn', '✕');
+  back.onclick = function () { ov.remove(); };
+  top.appendChild(back);
+  ov.appendChild(top);
+  var player = null, capEl = null;
+  if (l.blob) {
+    var mediaWrap = el('div', 'lov-media');
+    player = document.createElement(isV ? 'video' : 'audio');
+    player.src = URL.createObjectURL(l.blob);
+    player.controls = true;
+    if (isV) player.setAttribute('playsinline', '');
+    mediaWrap.appendChild(player);
+    if (isV) {
+      capEl = el('div', 'capzone ' + CAP_THEMES[capTheme()]);
+      mediaWrap.appendChild(capEl);
+    }
+    ov.appendChild(mediaWrap);
+  }
+  if (!isV) {
+    capEl = el('div', 'capzone capplain ' + CAP_THEMES[capTheme()]);
+    ov.appendChild(capEl);
+  }
+  var caps = el('div', 'lov-caps');
+  caps.appendChild(el('span', 'flabel', t.capTheme));
+  CAP_THEMES.forEach(function (ct, i) {
+    var d = el('button', 'capdot' + (capTheme() === i ? ' on' : ''), 'Aa');
+    d.onclick = function () {
+      setCapTheme(i);
+      caps.querySelectorAll('.capdot').forEach(function (x, j) { x.classList.toggle('on', j === i); });
+      if (capEl) capEl.className = (isV ? 'capzone ' : 'capzone capplain ') + CAP_THEMES[i];
+    };
+    caps.appendChild(d);
+  });
+  ov.appendChild(caps);
+  var list = el('div', 'lov-cues');
+  ov.appendChild(list);
+  var cueEls = [];
+  function renderCues() {
+    list.innerHTML = ''; cueEls = [];
+    var cs = sortedCues(l);
+    if (!cs.length) { list.appendChild(el('div', 'flabel', t.cueAdd + ' / ' + t.timedTitle + ' ⬇')); }
+    cs.forEach(function (c) {
+      var row = el('div', 'cue');
+      row.appendChild(el('div', 'ct', c.t == null ? '•' : fmtT(c.t)));
+      row.appendChild(el('div', 'cx', c.text || ''));
+      var cb = el('div', 'cb');
+      if (player && c.t != null) {
+        var pb = el('button', 'ax', '▶');
+        pb.onclick = function (e) { e.stopPropagation(); player.currentTime = c.t; player.play(); };
+        cb.appendChild(pb);
+      }
+      var sp = el('button', 'ax', '🔊');
+      sp.onclick = function (e) { e.stopPropagation(); speak((c.text || '').split('\n')[0], 'fr-FR'); };
+      cb.appendChild(sp);
+      var cp = el('button', 'ax', '📋');
+      cp.onclick = function (e) { e.stopPropagation(); copyText(c.text || ''); };
+      cb.appendChild(cp);
+      var ed = el('button', 'ax', '✏');
+      ed.onclick = function (e) { e.stopPropagation(); cueDialog(l, c, renderCues); };
+      cb.appendChild(ed);
+      var dx = el('button', 'ax', '✕');
+      dx.onclick = function (e) {
+        e.stopPropagation();
+        l.cues = (l.cues || []).filter(function (x) { return x !== c; });
+        lSave(l); renderCues();
+      };
+      cb.appendChild(dx);
+      row.appendChild(cb);
+      if (player && c.t != null) row.onclick = function () { player.currentTime = c.t; player.play(); };
+      else row.onclick = function () { copyText(c.text || ''); };
+      cueEls.push({ c: c, el: row });
+      list.appendChild(row);
+    });
+  }
+  if (player) {
+    player.ontimeupdate = function () {
+      var ct = player.currentTime, active = null;
+      (l.cues || []).forEach(function (c) {
+        if (c.t == null) return;
+        if (ct >= c.t && ct < (c.d != null ? c.d : 1e9)) active = c;
+      });
+      if (capEl) capEl.textContent = active ? (active.text || '') : '';
+      var done = false;
+      cueEls.forEach(function (ce) {
+        var on = ce.c === active;
+        ce.el.classList.toggle('on', on);
+        if (on && !done) { done = true; try { ce.el.scrollIntoView({ block: 'nearest' }); } catch (e) {} }
+      });
+    };
+  }
+  renderCues();
+  var acts = el('div', 'lov-actions');
+  var bAdd = el('button', 'mini', '➕ ' + t.cueAdd);
+  bAdd.onclick = function () { cueDialog(l, null, renderCues, player ? player.currentTime : null); };
+  var bTimed = el('button', 'mini', '⏱ ' + t.timedTitle);
+  bTimed.onclick = function () { timedDialog(l, renderCues); };
+  var bMedia = el('button', 'mini', '🎬/🎵');
+  bMedia.title = t.pickVideo + '/' + t.pickAudio;
+  bMedia.onclick = function () {
+    var fi = document.createElement('input');
+    fi.type = 'file'; fi.accept = 'video/*,audio/*';
+    fi.onchange = function () {
+      var fl = fi.files[0]; if (!fl) return;
+      l.blob = fl; l.mime = fl.type || '';
+      lSave(l); ov.remove(); openLesson(l);
+    };
+    fi.click();
+  };
+  var bAll = el('button', 'mini', '📋 ' + t.copyAll);
+  bAll.onclick = function () {
+    copyText(sortedCues(l).map(function (c) {
+      return (c.t != null ? fmtT(c.t) + ' ' : '') + (c.text || '');
+    }).join('\n'));
+  };
+  var bSpk = el('button', 'mini', '🔊 ' + t.playAll);
+  bSpk.onclick = function () {
+    speak(sortedCues(l).map(function (c) { return (c.text || '').split('\n')[0]; }).join('. '), 'fr-FR');
+  };
+  acts.appendChild(bAdd); acts.appendChild(bTimed); acts.appendChild(bMedia);
+  acts.appendChild(bAll); acts.appendChild(bSpk);
+  ov.appendChild(acts);
+  document.body.appendChild(ov);
+}
+
+/* ================= phrase library (bundled data/) ================= */
+var STAGE_CACHE = {};
+window.registerStage = function (d) { STAGE_CACHE[d.id] = d; };
+function loadScript(src) {
+  return new Promise(function (res, rej) {
+    var s = document.createElement('script'); s.src = src;
+    s.onload = res; s.onerror = function () { rej(new Error(src)); };
+    document.head.appendChild(s);
+  });
+}
+function libL() { var l = uiLang(); return l === 'fr' ? 'fr' : l === 'en' ? 'en' : 'ar'; }
+function loadStagesIndex() {
+  if (window.FR_STAGES) return Promise.resolve(window.FR_STAGES);
+  return loadScript('./data/manifest.js').then(function () { return window.FR_STAGES || []; });
+}
+function loadStageData(id) {
+  if (STAGE_CACHE[id]) return Promise.resolve(STAGE_CACHE[id]);
+  var p = String(id); while (p.length < 2) p = '0' + p;
+  return loadScript('./data/stage' + p + '.js').then(function () { return STAGE_CACHE[id] || { lessons: [] }; });
+}
+function loadVocab() {
+  if (window.VOCAB_DATA) return Promise.resolve(window.VOCAB_DATA);
+  return loadScript('./data/vocab.js').then(function () { return window.VOCAB_DATA || []; });
+}
+function openLibrary() {
+  var t = T();
+  var ov = el('div', 'libv');
+  var top = el('div', 'lov-top');
+  var title = el('div', 'lt', '📚 ' + t.libTitle);
+  var back = el('button', 'iconbtn', '✕');
+  back.onclick = function () { ov.remove(); };
+  top.appendChild(title); top.appendChild(back);
+  ov.appendChild(top);
+  var tabs = el('div', 'libtabs');
+  var body = el('div', 'libbody');
+  var mode = 'stages', path = [];
+  var tbS = el('button', 'mini on', '📚 ' + t.libStages);
+  var tbV = el('button', 'mini', '📖 ' + t.libVocab);
+  function syncTabs() { tbS.classList.toggle('on', mode === 'stages'); tbV.classList.toggle('on', mode === 'vocab'); }
+  tbS.onclick = function () { mode = 'stages'; path = []; syncTabs(); renderBody(); };
+  tbV.onclick = function () { mode = 'vocab'; syncTabs(); renderBody(); };
+  tabs.appendChild(tbS); tabs.appendChild(tbV);
+  ov.appendChild(tabs);
+  ov.appendChild(body);
+  function triTitle(o) { return (o && (o[libL()] || o.en || o.ar || o.fr)) || ''; }
+  function phRow(p) {
+    var row = el('div', 'libph');
+    var pt = el('div', 'pt');
+    pt.appendChild(el('b', null, p.fr || ''));
+    if (p.ar) pt.appendChild(el('span', 'pa', p.ar));
+    if (p.en) pt.appendChild(el('span', 'pe', p.en));
+    row.appendChild(pt);
+    var pb = el('div', 'pb');
+    var cp = el('button', 'ax', '📋');
+    cp.onclick = function (e) { e.stopPropagation(); copyText([p.fr, p.ar, p.en].filter(Boolean).join('\n')); };
+    pb.appendChild(cp);
+    var sp = el('button', 'ax', '🔊');
+    sp.onclick = function (e) { e.stopPropagation(); speak(p.fr || '', 'fr-FR'); };
+    pb.appendChild(sp);
+    row.appendChild(pb);
+    return row;
+  }
+  function pickFolderFor(ls) {
+    var ov2 = pushOv(4600);
+    var d = el('div', 'dlg');
+    d.appendChild(el('p', null, '📁 ' + t.pickFolder));
+    sites.forEach(function (s2) {
+      var b = el('button', 'mrow');
+      b.appendChild(el('span', 'mi', '📁'));
+      b.appendChild(el('span', null, s2.name || hostOf(s2.url) || s2.id));
+      b.onclick = function () {
+        ov2.remove();
+        var cues = (ls.phrases || []).map(function (p) {
+          return { t: null, d: null, text: [p.fr, p.ar, p.en].filter(Boolean).join('\n') };
+        });
+        addLessonRec(s2.id, triTitle(ls.title) || t.lName, '', null, cues)
+          .then(function () { toast(t.lessonAdded); });
+      };
+      d.appendChild(b);
+    });
+    var no = el('button', null, t.no); no.onclick = function () { ov2.remove(); };
+    d.appendChild(no);
+    ov2.appendChild(d);
+  }
+  function renderBody() {
+    body.innerHTML = '';
+    if (mode === 'vocab') { renderVocab(); return; }
+    title.textContent = '📚 ' + t.libTitle;
+    if (!path.length) {
+      body.appendChild(el('div', 'flabel', '…'));
+      loadStagesIndex().then(function (stages) {
+        body.innerHTML = '';
+        (stages || []).forEach(function (st) {
+          var r = el('div', 'librow');
+          r.appendChild(el('div', 'lt', triTitle(st.title) || ('#' + st.id)));
+          var nl = (st.lessonTitles || []).length;
+          if (nl) r.appendChild(el('div', 'ls', String(nl)));
+          r.appendChild(el('div', 'ls', '›'));
+          r.onclick = function () { path.push({ stage: st.id }); renderBody(); };
+          body.appendChild(r);
+        });
+      }).catch(function () { body.innerHTML = ''; });
+      return;
+    }
+    var bb = el('button', 'mini', '‹ ' + t.libBack);
+    bb.onclick = function () { path.pop(); renderBody(); };
+    body.appendChild(bb);
+    body.appendChild(el('div', 'flabel', '…'));
+    loadStageData(path[0].stage).then(function (st) {
+      body.querySelectorAll('.flabel').forEach(function (x) { x.remove(); });
+      if (path.length === 1) {
+        (st.lessons || []).forEach(function (ls) {
+          var r = el('div', 'librow');
+          r.appendChild(el('div', 'lt', triTitle(ls.title) || String(ls.id)));
+          r.appendChild(el('div', 'ls', String((ls.phrases || []).length)));
+          r.appendChild(el('div', 'ls', '›'));
+          r.onclick = function () { path.push({ lesson: ls.id }); renderBody(); };
+          body.appendChild(r);
+        });
+        return;
+      }
+      var ls = (st.lessons || []).filter(function (x) { return x.id === path[1].lesson; })[0];
+      if (!ls) return;
+      title.textContent = triTitle(ls.title) || t.libTitle;
+      var act = el('div', 'libtabs');
+      var ca = el('button', 'mini', '📋 ' + t.copyAll);
+      ca.onclick = function () {
+        copyText((ls.phrases || []).map(function (p) {
+          return [p.fr, p.ar, p.en].filter(Boolean).join(' — ');
+        }).join('\n'));
+      };
+      var tf = el('button', 'mini', '➕ ' + t.toFolder);
+      tf.onclick = function () { pickFolderFor(ls); };
+      act.appendChild(ca); act.appendChild(tf);
+      body.appendChild(act);
+      (ls.phrases || []).forEach(function (p) { body.appendChild(phRow(p)); });
+    }).catch(function () {});
+  }
+  function renderVocab() {
+    title.textContent = '📖 ' + t.libVocab;
+    var f = el('div', 'field');
+    var si = document.createElement('input');
+    si.placeholder = t.searchPh; si.dir = 'auto';
+    si.autocapitalize = 'off'; si.autocomplete = 'off'; si.spellcheck = false;
+    f.appendChild(si); body.appendChild(f);
+    var holder = el('div');
+    holder.style.cssText = 'display:flex;flex-direction:column;gap:.45rem';
+    body.appendChild(holder);
+    function fill() {
+      var qq = si.value.trim().toLowerCase();
+      loadVocab().then(function (all) {
+        holder.innerHTML = '';
+        var n = 0;
+        (all || []).forEach(function (p) {
+          if (n >= 120) return;
+          var hay = ((p.fr || '') + ' ' + (p.ar || '') + ' ' + (p.en || '')).toLowerCase();
+          if (qq && hay.indexOf(qq) < 0) return;
+          n++;
+          holder.appendChild(phRow(p));
+        });
+      }).catch(function () {});
+    }
+    si.addEventListener('input', fill);
+    fill();
+  }
+  renderBody();
+  document.body.appendChild(ov);
+}
+
+function isDark() { return localStorage.getItem('langpro_theme') !== 'light'; }
 function applyTheme() { document.body.classList.toggle('light', !isDark()); }
 function toggleTheme() {
-  try { localStorage.setItem('savepro_theme', isDark() ? 'light' : 'dark'); } catch (e) {}
+  try { localStorage.setItem('langpro_theme', isDark() ? 'light' : 'dark'); } catch (e) {}
   applyTheme(); applyI18n();
 }
 
@@ -692,8 +1406,10 @@ function renderGrid() {
   g.innerHTML = '';
   sites.forEach(function (s) {
     var attNames = (attMap[s.id] || []).map(function (r) { return r.name; }).join(' ');
+    var lesNames = (lessonMap[s.id] || []).map(function (r) { return r.name; }).join(' ');
     if (q && (s.name + ' ' + (s.url || '') + ' ' + (s.user || '') + ' ' + (s.addr || '') + ' ' +
-      (s.email || '') + ' ' + (s.phone || '') + ' ' + (s.notes || '') + ' ' + attNames).toLowerCase().indexOf(q) < 0) return;
+      (s.email || '') + ' ' + (s.phone || '') + ' ' + (s.notes || '') + ' ' + attNames + ' ' +
+      lesNames).toLowerCase().indexOf(q) < 0) return;
     var card = el('div', 'site');
     var ic = el('div', 'site-icon', s.name ? s.name[0].toUpperCase() : (attCount(s.id) ? '📎' : '?'));
     var iu = iconUrlFor(s);
@@ -716,6 +1432,12 @@ function renderGrid() {
       fb.onclick = function (e) { e.stopPropagation(); openAttSheet(s); };
       card.appendChild(fb);
     }
+    var nl = lessonCount(s.id);
+    if (nl) {
+      var lb = el('button', 'has-lessons', '📚' + nl);
+      lb.onclick = function (e) { e.stopPropagation(); openLessonsSheet(s); };
+      card.appendChild(lb);
+    }
     if (s.addr) {
       var mb = el('button', 'site-map', '🗺');
       mb.onclick = function (e) { e.stopPropagation(); openMap(s.addr, s.name); };
@@ -733,7 +1455,7 @@ function renderGrid() {
 }
 
 /* ================= open / edit ================= */
-// In-app WebView: pages open inside savePro, no external browser needed
+// In-app WebView: pages open inside langPro, no external browser needed
 function openInApp(url, title) {
   var IAB = window.capacitorInAppBrowser && window.capacitorInAppBrowser.InAppBrowser;
   if (inCap && IAB && IAB.openWebView) {
@@ -794,6 +1516,7 @@ function openSite(s) {
   }
   if (s.addr) { openMap(s.addr, s.name); return; }
   if (attCount(s.id)) { openAttSheet(s); return; }
+  if (lessonCount(s.id)) { openLessonsSheet(s); return; }
   toast(T().openNoContent);
 }
 
@@ -901,6 +1624,13 @@ function openEditor(s) {
   ]});
   [rName, rUrl, rIcon, rUser, rPass, rAddr, rEmail, rPhone, rNotes].forEach(function (r) { sh.appendChild(r); });
   sh.appendChild(attListEl(s.id, session));
+  if (!isNew) {
+    var lbtn = el('button', 'mrow');
+    lbtn.appendChild(el('span', 'mi', '📚'));
+    lbtn.appendChild(el('span', null, t.lessons + ' (' + lessonCount(s.id) + ')'));
+    lbtn.onclick = function () { openLessonsSheet(s, session); };
+    sh.appendChild(lbtn);
+  }
 
   var act = el('div', 'actions');
   if (!isNew) {
@@ -955,6 +1685,8 @@ function confirmDelete(s) {
     sites = sites.filter(function (x) { return x !== s && x.id !== s.id; });
     (attMap[s.id] || []).forEach(function (r) { IDB.del(r.id).catch(function () {}); });
     delete attMap[s.id];
+    (lessonMap[s.id] || []).forEach(function (r) { IDB.ldel(r.id).catch(function () {}); });
+    delete lessonMap[s.id];
     saveSites(); renderGrid();
   });
 }
@@ -992,6 +1724,7 @@ function openMenu() {
   } else {
     row('🔒', t.lockSet, function () { closeOv(); pinSetup(); });
   }
+  row('📚', t.libTitle, function () { closeOv(); openLibrary(); });
   row('⬇', t.exportData, function () { closeOv(); exportData(); });
   row('⬆', t.importData, function () { closeOv(); importData(); });
 }
@@ -1002,7 +1735,7 @@ function pinHash(p) {
   for (var i = 0; i < s.length; i++) h = (((h << 5) + h) ^ s.charCodeAt(i)) >>> 0;
   return 'h' + h.toString(36);
 }
-function hasPin() { return !!localStorage.getItem('savepro_pin'); }
+function hasPin() { return !!localStorage.getItem('langpro_pin'); }
 function showLock() {
   if (!hasPin()) return;
   document.getElementById('lock').classList.remove('hidden');
@@ -1021,7 +1754,7 @@ function tryUnlock() {
     inp.value = ''; try { inp.focus(); } catch (e) {}
     return;
   }
-  if (pinHash(inp.value) === localStorage.getItem('savepro_pin')) {
+  if (pinHash(inp.value) === localStorage.getItem('langpro_pin')) {
     pinFails = 0;
     document.getElementById('lock').classList.add('hidden');
   } else {
@@ -1051,7 +1784,7 @@ function pinVerify(cb) {
   var t = T();
   var r = pinField(t.lockEnter);
   pinSheet('🔒 ' + t.lockEnter, [r], '✓', function () {
-    if (pinHash(r.input.value) === localStorage.getItem('savepro_pin')) { closeOv(); cb(); }
+    if (pinHash(r.input.value) === localStorage.getItem('langpro_pin')) { closeOv(); cb(); }
     else { toast(t.lockWrong); r.input.value = ''; }
   });
 }
@@ -1063,7 +1796,7 @@ function pinSetup() {
       var v1 = r1.input.value.trim(), v2 = r2.input.value.trim();
       if (!/^\d{4}$/.test(v1)) { toast(t.lockNeedPin); return; }
       if (v1 !== v2) { toast(t.lockNoMatch); return; }
-      try { localStorage.setItem('savepro_pin', pinHash(v1)); } catch (e) {}
+      try { localStorage.setItem('langpro_pin', pinHash(v1)); } catch (e) {}
       closeOv(); toast(t.pinSaved);
     });
   }
@@ -1071,7 +1804,7 @@ function pinSetup() {
 }
 function pinRemove() {
   pinVerify(function () {
-    try { localStorage.removeItem('savepro_pin'); } catch (e) {}
+    try { localStorage.removeItem('langpro_pin'); } catch (e) {}
     toast(T().unlocked);
   });
 }
@@ -1146,6 +1879,7 @@ function unzipStored(buf) {
 async function exportData() {
   var t = T();
   var filesOut = [];
+  var lessonsOut = [];
   var entries = [];
   try {
     var recs = await IDB.getAll();
@@ -1157,11 +1891,22 @@ async function exportData() {
       entries.push({ name: 'files/' + recs[i].id + '-' + fn,
         data: new Uint8Array(await recs[i].blob.arrayBuffer()) });
     }
+    var lrecs = await IDB.lgetAll();
+    for (var li = 0; li < lrecs.length; li++) {
+      var lr = lrecs[li];
+      var mo = { id: lr.id, siteId: lr.siteId, name: lr.name, mime: lr.mime, cues: lr.cues || [] };
+      if (lr.blob) {
+        var mext = String(lr.mime || 'bin').split('/')[1] || 'bin';
+        mo.media = 'media/' + lr.id + '.' + mext.split(';')[0];
+        entries.push({ name: mo.media, data: new Uint8Array(await lr.blob.arrayBuffer()) });
+      }
+      lessonsOut.push(mo);
+    }
   } catch (e) {}
-  var out = { app: 'savepro', version: 2, exportedAt: new Date().toISOString(), sites: sites, files: filesOut };
-  entries.push({ name: 'savepro-backup.json', data: new TextEncoder().encode(JSON.stringify(out, null, 1)) });
+  var out = { app: 'langpro', version: 3, exportedAt: new Date().toISOString(), sites: sites, files: filesOut, lessons: lessonsOut };
+  entries.push({ name: 'langpro-backup.json', data: new TextEncoder().encode(JSON.stringify(out, null, 1)) });
   var blob = zipStore(entries);
-  var name = 'savepro-backup-' + new Date().toISOString().slice(0, 10) + '.zip';
+  var name = 'langpro-backup-' + new Date().toISOString().slice(0, 10) + '.zip';
   var FS = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
   var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
   if (inCap && FS && SH) {
@@ -1169,7 +1914,7 @@ async function exportData() {
       var text = await new Promise(function (res) {
         var rd = new FileReader(); rd.onload = function () { res(rd.result); }; rd.readAsDataURL(blob);
       });
-      var w = await FS.writeFile({ path: name, data: text.split(',')[1], directory: 'CACHE', recursive: true });
+        var w = await FS.writeFile({ path: name, data: text.split(',')[1], directory: 'CACHE', recursive: true });
       await SH.share({ title: name, url: w.uri });
       toast(t.exported);
       return;
@@ -1190,8 +1935,9 @@ function importData() {
       try {
         var buf = rd.result;
         var jsonText;
+        var ents = null;
         if (buf.byteLength > 4 && new DataView(buf).getUint32(0, true) === 0x04034b50) {
-          var ents = unzipStored(buf); var je = null;
+          ents = unzipStored(buf); var je = null;
           Object.keys(ents).forEach(function (k) { if (/\.json$/i.test(k)) je = ents[k]; });
           if (!je) throw new Error('nojson');
           jsonText = new TextDecoder().decode(je);
@@ -1206,6 +1952,7 @@ function importData() {
         var idMap = {};
         var attOwners = {};
         ((j && Array.isArray(j.files)) ? j.files : []).forEach(function (f) { attOwners[f.siteId] = 1; });
+        ((j && Array.isArray(j.lessons)) ? j.lessons : []).forEach(function (lm) { attOwners[lm.siteId] = 1; });
         list.forEach(function (s) {
           if (!s || (!s.url && !s.addr && !s.notes && !s.user && !s.pass && !s.name && !attOwners[s.id])) return;
           var oldId = s.id;
@@ -1218,7 +1965,21 @@ function importData() {
             email: s.email || '', phone: s.phone || '', notes: s.notes || '' });
         });
         var fl = (j && Array.isArray(j.files)) ? j.files : [];
-        Promise.all(fl.map(function (f) {
+        var ll = (j && Array.isArray(j.lessons)) ? j.lessons : [];
+        Promise.all(ll.map(function (lm) {
+          var sid = idMap[lm.siteId];
+          if (!sid) return null;
+          var rec = { id: 'l' + Date.now() + Math.random().toString(36).slice(2, 6),
+            siteId: sid, name: lm.name || '', mime: lm.mime || '',
+            cues: lm.cues || [], blob: null, addedAt: Date.now() };
+          if (lm.media && ents && ents[lm.media]) {
+            rec.blob = new Blob([ents[lm.media]], { type: lm.mime || 'application/octet-stream' });
+          }
+          return IDB.lput(rec).then(function () {
+            (lessonMap[sid] = lessonMap[sid] || []).push(rec);
+          });
+        })).then(function () {
+          return Promise.all(fl.map(function (f) {
           var sid = idMap[f.siteId];
           if (!sid || !f.data) return null;
           var rec = { id: 'f' + Date.now() + Math.random().toString(36).slice(2, 7),
@@ -1227,7 +1988,8 @@ function importData() {
           return IDB.put(rec).then(function () {
             (attMap[sid] = attMap[sid] || []).push(rec);
           });
-        })).then(function () {
+        }));
+        }).then(function () {
           saveSites(); renderGrid(); toast(T().imported);
         });
       } catch (e) { toast('import ✗'); }
@@ -1286,7 +2048,7 @@ if (hasPin()) showLock();
 // Service worker: PWA only, never inside Capacitor
 if (!inCap && 'serviceWorker' in navigator) {
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('./sw-savepro.js').catch(function () {});
+    navigator.serviceWorker.register('./sw-langpro.js').catch(function () {});
   });
 }
 })();
