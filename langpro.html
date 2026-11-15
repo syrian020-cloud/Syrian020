@@ -3801,10 +3801,6 @@ function openLesson(l) {
       inp.click();
     };
     tr.appendChild(im);
-    var ed = el('button', 'ctime-ic ic-edit', '✏');
-    ed.title = t.edit || 'edit';
-    ed.onclick = function (e) { e.stopPropagation(); cueDialog(l, c, refreshAll); };
-    tr.appendChild(ed);
     if (theme) {
       var thb = el('button', 'ctime-ic ic-theme', '🎨');
       thb.title = t.capTheme || 'theme';
