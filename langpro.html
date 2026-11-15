@@ -458,6 +458,7 @@
   .ctime-ic.ic-ai { background: #7dd3fc; }
   .ctime-ic.ic-clip { background: #c4b5fd; }
   .ctime-ic.ic-edit { background: #fcd34d; }
+  .ctime-ic.ic-theme { background: #f9a8d4; }
   .ctime-rec { flex: none; width: 2rem; height: 2rem; border-radius: 50%; border: 2px solid rgba(0,0,0,.18);
     background: linear-gradient(145deg,#fda4af,#f43f5e); color: #fff; font-size: .85rem; cursor: pointer;
     display: flex; align-items: center; justify-content: center; padding: 0; font-family: inherit;
@@ -2190,7 +2191,7 @@ function openLesson(l) {
       ln.onclick = function () { speakLoop(r.text, r.lang, ln); };
       nowEl.appendChild(ln);
     });
-    nowEl.appendChild(cueBar(c, sortedCues(l)));
+    nowEl.appendChild(cueBar(c, sortedCues(l), true));
   }
   function applyVfit() {
     if (!player || !player._vcrop) return;
@@ -2376,7 +2377,7 @@ function openLesson(l) {
   var list = el('div', 'lov-cues');
   ov.appendChild(list);
   var cueEls = [];
-  function cueBar(c, cs) {
+  function cueBar(c, cs, theme) {
     var tr = el('div', 'crow ctime');
     var tb = el('button', 'ctime-t');
     tb.innerHTML = '<span class="ctime-num">' + (c.t == null ? '•' : fmtT(c.t)) + '</span>';
@@ -2431,6 +2432,12 @@ function openLesson(l) {
     ed.title = t.edit || 'edit';
     ed.onclick = function (e) { e.stopPropagation(); cueDialog(l, c, refreshAll); };
     tr.appendChild(ed);
+    if (theme) {
+      var thb = el('button', 'ctime-ic ic-theme', '🎨');
+      thb.title = t.capTheme || 'theme';
+      thb.onclick = function (e) { e.stopPropagation(); cycleCapTheme(); };
+      tr.appendChild(thb);
+    }
     return tr;
   }
 
@@ -2494,17 +2501,8 @@ function openLesson(l) {
         if (c.t == null) return;
         if (ct >= c.t && ct < (c.d != null ? c.d : 1e9)) active = c;
       });
-      // keep the newly active phrase visible; never yank the page away from the video
-      var pinTop = active !== lastActive; lastActive = active;
-      var done = false;
-      cueEls.forEach(function (ce) {
-        var on = ce.c === active;
-        ce.el.classList.toggle('on', on);
-        if (on && !done) {
-          done = true;
-          if (pinTop) { try { ce.el.scrollIntoView({ block: 'nearest' }); } catch (e) {} }
-        }
-      });
+      lastActive = active;   // user scrolls where they want — active cue just highlights
+      cueEls.forEach(function (ce) { ce.el.classList.toggle('on', ce.c === active); });
       renderNow(active);
     };
   }
