@@ -317,7 +317,7 @@
 
   function rvUrl(text, lang) {
     return 'https://responsivevoice.org/responsivevoice/getvoice.php?text=' + encodeURIComponent(text) +
-      '&tl=' + (RV_TL[lang] || 'fr') + '&sv=g1&vn=&pitch=0.5&rate=' + RV_RATE + '&vol=1&gender=female';
+      '&tl=' + (RV_TL[lang] || lang || 'fr') + '&sv=g1&vn=&pitch=0.5&rate=' + RV_RATE + '&vol=1&gender=female';
   }
 
   function fileUrl(path) {
