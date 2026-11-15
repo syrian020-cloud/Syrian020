@@ -1675,7 +1675,11 @@ function openEditor(s) {
   sh.appendChild(h);
 
   var rName = fieldRow(t.fName, s.name);
+  var rIcon = fieldRow(t.fIcon, s.icon, { ltr: true, buttons: [
+    { label: '📷 ' + t.pickImg, fn: function (inp) { pickIconImage(inp); } }
+  ]});
   sh.appendChild(rName);
+  sh.appendChild(rIcon);
   sh.appendChild(lessonListEl(s, session));
 
   var act = el('div', 'actions');
@@ -1687,10 +1691,11 @@ function openEditor(s) {
   var save = el('button', 'btn primary', '💾 ' + t.save);
   save.onclick = function () {
     var name = rName.input.value.trim();
-    var hasAny = name || s.url || s.icon || s.user || s.pass || s.addr || s.email ||
-      s.phone || s.notes || attCount(s.id) || lessonCount(s.id);
+    var hasAny = name || rIcon.input.value.trim() || s.url || s.icon || s.user ||
+      s.pass || s.addr || s.email || s.phone || s.notes || attCount(s.id) || lessonCount(s.id);
     if (!hasAny) { toast(t.errUrl); return; }
     s.name = name;
+    s.icon = rIcon.input.value.trim();
     session.committed = true;
     if (isNew) sites.unshift(s);
     saveSites(); renderGrid(); closeOv();
