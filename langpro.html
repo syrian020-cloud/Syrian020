@@ -1548,8 +1548,12 @@ function openLesson(l) {
     player.onpause = function () {
       // a cue-segment loop that reaches the media's end restarts instead of dying
       if (SEG_LOOP.c && player.ended) {
-        player.currentTime = SEG_LOOP.c.t;
-        var pr = player.play(); if (pr && pr.catch) pr.catch(function () {});
+        if (SEG_LOOP.c.t < player.duration) {
+          player.currentTime = SEG_LOOP.c.t;
+          var pr = player.play(); if (pr && pr.catch) pr.catch(function () {});
+          return;
+        }
+        stopSegLoop();
         return;
       }
       stopSegLoop();
