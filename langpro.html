@@ -908,7 +908,7 @@ function parseT(str) {
 var LANG_LABEL = /^\s*(?:(?:FR|AR|EN|ES|DE|IT|TR|RU|PT|NL|PL|UK|ZH|JA|FA|UR|KU|SV|FI|EL|HI|KO|LA)|English|الأصلية|النص الأصلي|النطق اللاتيني|النطق|تقريب النطق(?: بالعربية)?|المعنى(?: بالعربي| بالعربية)?|بالعربي|بالعربية)\s*[:=]\s*/iu;
 function stripMark(s) {
   return String(s || '')
-    .replace(/^[^\p{L}\p{N}]+/u, '')
+    .replace(/^(?![-+.,]*\p{N})[^\p{L}\p{N}]+/u, '')
     .replace(LANG_LABEL, '')
     .replace(/[\s=|→←;,:\-–—]+$/, '')
     .trim();
@@ -933,7 +933,8 @@ function splitByScript(s) {
   for (var i = 0; i < s.length; i++) {
     var ch = s.charAt(i), c = scriptOf(ch);
     if (!c) { ws += ch; continue; }
-    if (cls && c !== cls) { parts.push(buf); buf = ch; }
+    // numbers/signs trailing a segment belong to it ('J'ai 2 تفاحات' keeps the 2)
+    if (cls && c !== cls) { parts.push(/\p{N}/u.test(ws) ? (buf + ws).trim() : buf); buf = ch; }
     else buf += ws + ch;
     ws = ''; cls = c;
   }
