@@ -2549,6 +2549,7 @@ function lessonDetails(l, refresh, onDelete, reopen) {
           importMedia(fl, function (bb) {
             l.blob = bb; l.mime = bb.type || fl.type || '';
             lSave(l); renderMedia();
+            if (reopen) reopen();
           });
         };
         fi.click();
@@ -2558,6 +2559,7 @@ function lessonDetails(l, refresh, onDelete, reopen) {
       db2.onclick = function () {
         confirmDialog(t.delMediaQ, t.delYes, function () {
           l.blob = null; l.mime = ''; lSave(l); renderMedia();
+          if (reopen) reopen();
         }, true);
       };
       mrow.appendChild(db2);
@@ -2574,6 +2576,7 @@ function lessonDetails(l, refresh, onDelete, reopen) {
           importMedia(fl, function (bb) {
             l.blob = bb; l.mime = bb.type || fl.type || '';
             lSave(l); renderMedia();
+            if (reopen) reopen();
           });
         };
         fi.click();
@@ -2635,6 +2638,8 @@ function lessonDetails(l, refresh, onDelete, reopen) {
       pr.appendChild(pb);
       tb.appendChild(pr);
     });
+    // keep the open lesson view's cue list in sync with detail edits
+    document.querySelectorAll('.lov').forEach(function (v) { if (v._lrefresh) v._lrefresh(); });
   };
   renderPhrases();
   d.appendChild(tb);
@@ -3941,6 +3946,7 @@ function openLesson(l) {
     };
   }
   renderCues();
+  ov._lrefresh = function () { renderCues(); var lt0 = ov.querySelector('.lt'); if (lt0) lt0.textContent = l.name || t.lName; };
   var acts = el('div', 'lov-actions');
   var bAdd = el('button', 'mini', '➕ ' + t.cueAdd);
   bAdd.onclick = function () { cueDialog(l, null, refreshAll, player ? player.currentTime : null); };
