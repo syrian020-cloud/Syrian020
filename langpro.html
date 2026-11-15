@@ -2913,7 +2913,8 @@ function renderGrid() {
     card.onclick = function () { openSite(s); };
     g.appendChild(card);
   });
-  if (!document.getElementById('fabAdd')) {
+  var fabM = document.getElementById('fabAdd');
+  if (!fabM) {
     var host = document.body; host.id = host.id || 'appBody';
     fabBubble(host, [
       { label: '📁 ' + T().addSite, fn: function () { openEditor(null); } },
@@ -2922,6 +2923,10 @@ function renderGrid() {
       } }
     ]);
     host.lastChild.id = 'fabAdd'; host.children[host.children.length - 2].id = 'fabAddBtn';
+  } else {   // re-translate labels after a language switch
+    var its = fabM.querySelectorAll('.fab-it');
+    if (its[0]) its[0].textContent = '📁 ' + T().addSite;
+    if (its[1]) its[1].textContent = '🎬 ' + T().addLesson;
   }
 }
 
