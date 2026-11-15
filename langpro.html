@@ -3840,7 +3840,7 @@ function openLesson(l) {
         idx.title = t.delete || 'delete';
         idx.onclick = function (e) {
           e.stopPropagation();
-          confirmDialog('🗑 🖼', t.delYes || 'OK', function () { delete c.image; delete c.ar; lSave(l); renderCues(); });
+          confirmDialog('🗑 🖼', t.delYes || 'OK', function () { delete c.image; delete c.ar; lSave(l); renderCues(); }, true);
         };
         iw.appendChild(idx);
         cb2.appendChild(iw);
