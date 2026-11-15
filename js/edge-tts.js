@@ -385,6 +385,8 @@
   }
 
   function play(text, lang, voice) {
+    // the user's engine choice wins: device voice also applies while online
+    if (engine() === 'device' && ttsPlugin()) return nativeSpeak(text, lang);
     // offline → straight to the device voice, no network timeouts
     if (navigator.onLine === false && ttsPlugin()) return nativeSpeak(text, lang);
     return audio(text, lang, voice).then(function (a) {
