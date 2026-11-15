@@ -4586,14 +4586,15 @@ function importData() {
           });
         }));
         }).then(function () {
+          var notesOk = true;
           if (j && j.notes) {
             Object.keys(j.notes).forEach(function (k) {
-              var m = /^cue-(.+)-(.+)$/.exec(k);
+              var m = /^cue-([^-]+)-(.+)$/.exec(k);
               notesMap[m && lidMap[m[1]] ? 'cue-' + lidMap[m[1]] + '-' + m[2] : k] = j.notes[k];
             });
-            saveNotes();
+            notesOk = saveNotes();
           }
-          saveSites(); renderGrid(); toast(T().imported);
+          saveSites(); renderGrid(); toast(T().imported + (notesOk ? '' : ' ⚠ notes')); 
         });
       } catch (e) { toast('import ✗'); }
     };
@@ -4808,8 +4809,9 @@ function closeNote() {
 function saveNote() {
   if (!noteKey || !noteCtx) return;
   var canvas = document.getElementById('noteCanvas');
+  var prevNote = notesMap[noteKey];
   notesMap[noteKey] = canvas.toDataURL('image/png');
-  if (!saveNotes()) { delete notesMap[noteKey]; toast('⚠ storage full'); return; }
+  if (!saveNotes()) { if (prevNote) notesMap[noteKey] = prevNote; else delete notesMap[noteKey]; toast('⚠ storage full'); return; }
   var btn = document.querySelector('[data-pk="' + noteKey + '"]');
   if (btn) { btn.textContent = '📔'; }
   closeNote();
