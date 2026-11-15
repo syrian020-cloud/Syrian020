@@ -142,6 +142,7 @@ main{flex:1;overflow:auto;position:relative}
 #holyList{margin-top:10px}
 #holyList .hd{display:flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px 10px;margin-bottom:6px;font-size:.82rem;font-weight:700}
 #holyList .hd .d{color:var(--danger);font-weight:800;white-space:nowrap}
+#holyList .hd .hdai{background:linear-gradient(120deg,#4285f4,#9b72cb);color:#fff;text-decoration:none;border-radius:8px;padding:4px 9px;font-size:.72rem;font-weight:800;white-space:nowrap}
 
 /* ---- dock & lessons ---- */
 #dock{display:flex;gap:10px;width:100%;max-width:520px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none}
@@ -2141,7 +2142,7 @@ function renderMonth(){
  $('bigcal').onclick=e=>{const de=e.target.closest('[data-d]');if(de)speakDate(calMonth,+de.dataset.d)};
  const loc=st.lang==='ar'?'ar':st.lang,hols=[];
  for(let d=1;d<=dim;d++){const hn=holMap[calYear+'-'+calMonth+'-'+d];
-  if(hn)hols.push('<div class="hd"><span class="d">'+d+' '+monthNames()[calMonth]+'</span><span>'+esc(hn)+'</span></div>')}
+  if(hn)hols.push('<div class="hd"><span class="d">'+d+' '+monthNames()[calMonth]+'</span><span style="flex:1">'+esc(hn)+'</span><a class="hdai" target="_blank" rel="noopener" href="https://www.google.com/search?udm=50&hl='+st.lang+'&q='+encodeURIComponent(hn)+'">🔍 AI</a></div>')}
  $('holyList').innerHTML=hols.length?hols.join(''):'';
  $('yearView').style.display='none';$('monthView').classList.add('on');
 }
