@@ -1445,7 +1445,7 @@ function recQName(k) {
   var t = T();
   return k === 'ultra' ? t.recQUltra : k === 'high' ? t.recQHigh : k === 'med' ? t.recQMed : k === 'low' ? t.recQLow : t.recQTiny;
 }
-function recQSize(k) { return '~' + Math.round(RECQS[k].max * 0.0075) + 'MB' + T().perMin; }
+function recQSize(k) { return '~' + Math.round(RECQS[k].max * 0.0000075) + 'MB' + T().perMin; }
 function recQSet() { return RECQS[recQ] || RECQS.high; }
 var capPos = parseInt(localStorage.getItem('langpro_cappos') || '0', 10) || 0;  // 0 bottom · 1 above bottom · 2 top
 function applyCapFs() {
