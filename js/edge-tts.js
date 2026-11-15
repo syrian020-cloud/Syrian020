@@ -634,6 +634,13 @@
     document.body.appendChild(sheetEl);
   }
 
+  // warm the shared socket ahead of the first tap so the first speak is fast
+  api.prewarm = function () {
+    var p = plugin();
+    if (p && !pluginDown && enabled() && p.prewarm) {
+      try { p.prewarm({}).catch(function () {}); } catch (e) {}
+    }
+  };
   // clear 'down' marks so the next call retries every source fresh
   api.revive = function () { api.down = false; pluginDown = false; };
   api.engine = engine;

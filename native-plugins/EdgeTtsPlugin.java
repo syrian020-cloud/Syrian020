@@ -158,6 +158,17 @@ public class EdgeTtsPlugin extends Plugin {
         }).start();
     }
 
+    // Opens the shared socket ahead of the first speak() so the first tap is fast.
+    @PluginMethod
+    public void prewarm(PluginCall call) {
+        new Thread(() -> {
+            synchronized (wsLock) {
+                try { ensureWs(); } catch (Exception ignored) {}
+            }
+            call.resolve();
+        }).start();
+    }
+
     private static int rol16(int x) { return (x << 16) | (x >>> 16); }
 
     // v2 Sec-MS-GEC coefficient table (from the Edge browser's own DRM flow).

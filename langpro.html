@@ -3464,6 +3464,7 @@ function timedDialog(l, refresh) {
   setTimeout(function () { try { ta.focus(); } catch (e) {} }, 200);
 }
 function openLesson(l) {
+  try { if (window.EdgeTTS && EdgeTTS.prewarm) EdgeTTS.prewarm(); } catch (e) {}
   var t = T();
   var ov = el('div', 'lov lovplay');
   var isV = !!(l.blob && String(l.mime).indexOf('video/') === 0);
@@ -5681,6 +5682,9 @@ document.documentElement.dir = uiLang() === 'ar' ? 'rtl' : 'ltr';
 applyI18n();
 renderGrid();
 if (hasPin()) showLock();
+
+// warm the Edge TTS socket in the background so the first tap speaks fast
+setTimeout(function () { try { if (window.EdgeTTS && EdgeTTS.prewarm) EdgeTTS.prewarm(); } catch (e) {} }, 2500);
 
 // Service worker: PWA only, never inside Capacitor
 if (!inCap && 'serviceWorker' in navigator) {
