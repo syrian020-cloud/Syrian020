@@ -1627,7 +1627,9 @@ function drawCuePills(cx, rows, W, H, hi) {
   }
   var l = layout(base);
   var f0 = base;
-  while (l.total > H * 0.7 && f0 > 10) { f0 *= 0.92; l = layout(f0); }
+  var widest = function () { return Math.max.apply(null, l.lines.map(function (ln) { return ln.tw; })); };
+  // shrink until it fits vertically AND no unbreakable word sticks out horizontally
+  while ((l.total > H * 0.7 || widest() > MAXW * 0.85) && f0 > 10) { f0 *= 0.92; l = layout(f0); }
   var lf = lh(f0), flagR = f0 * 0.72;
   // single white card holding every line — flag circles inside, themed border
   var cardPadX = f0 * 1.1, cardPadY = f0 * 0.9;
