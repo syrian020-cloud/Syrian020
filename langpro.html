@@ -3434,15 +3434,19 @@ function openLesson(l) {
   top.appendChild(dk);
   var rn = el('button', 'iconbtn', '✏');
   rn.onclick = function () {
-    lessonDetails(l, function () { ov.querySelector('.lt').textContent = l.name || t.lName; }, function () {
+    lessonDetails(l, function () {
+      document.querySelectorAll('.lov').forEach(function (v) { if (v._lrefresh) v._lrefresh(); });
+    }, function () {
       stopSpeakLoop();
       if (recState) { try { recState.rec.stop(); } catch (e) {} }
-      if (curPlayer === player) curPlayer = null;
-      ov.remove();
+      if (curPlayer) { try { curPlayer.pause(); } catch (e) {} curPlayer = null; }
+      document.querySelectorAll('.lov').forEach(function (v) { v.remove(); });
     }, function () {
       if (recState) { try { recState.rec.stop(); } catch (e) {} }
-      if (curPlayer === player) curPlayer = null;
-      ov.remove(); openLesson(l);
+      if (curPlayer) { try { curPlayer.pause(); } catch (e) {} curPlayer = null; }
+      // the lesson view may already have been rebuilt by an earlier media change
+      document.querySelectorAll('.lov').forEach(function (v) { v.remove(); });
+      openLesson(l);
     });
   };
   top.appendChild(rn);
