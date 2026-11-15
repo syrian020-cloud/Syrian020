@@ -904,6 +904,7 @@ function stopSpeakLoop() {
   SPEAK_LOOP.on = false;
   if (SPEAK_LOOP.btn) { SPEAK_LOOP.btn.classList.remove('spk-on'); SPEAK_LOOP.btn = null; }
   try { if ('speechSynthesis' in window) speechSynthesis.cancel(); } catch (e) {}
+  try { var n = nativeTTS(); if (n && n.stop) n.stop(); } catch (e) {}
 }
 function speakLoop(lines, lang, btn) {
   var arr = (typeof lines === 'string') ? [{ text: lines, lang: lang }] : lines;
