@@ -1545,7 +1545,15 @@ function openLesson(l) {
     player.src = URL.createObjectURL(l.blob);
     player.controls = true;
     player.onplay = function () { stopSpeakLoop(); };
-    player.onpause = function () { stopSegLoop(); };
+    player.onpause = function () {
+      // a cue-segment loop that reaches the media's end restarts instead of dying
+      if (SEG_LOOP.c && player.ended) {
+        player.currentTime = SEG_LOOP.c.t;
+        var pr = player.play(); if (pr && pr.catch) pr.catch(function () {});
+        return;
+      }
+      stopSegLoop();
+    };
     if (isV) player.setAttribute('playsinline', '');
     mediaWrap.appendChild(player);
     if (isV) {
@@ -1619,7 +1627,10 @@ function openLesson(l) {
         var nxt = null;
         sortedCues(l).forEach(function (x) { if (x.t != null && x.t > SEG_LOOP.c.t && (nxt == null || x.t < nxt)) nxt = x.t; });
         var end = SEG_LOOP.c.d != null ? SEG_LOOP.c.d : (nxt != null ? nxt : (player.duration || 1e9));
-        if (ct >= end) { player.currentTime = SEG_LOOP.c.t; ct = player.currentTime; }
+        if (ct >= end) {
+          player.currentTime = SEG_LOOP.c.t; ct = player.currentTime;
+          if (player.paused) { var pr2 = player.play(); if (pr2 && pr2.catch) pr2.catch(function () {}); }
+        }
       }
       sortedCues(l).forEach(function (c) {   // latest-starting cue wins, not insertion order
         if (c.t == null) return;
