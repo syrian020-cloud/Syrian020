@@ -3016,6 +3016,10 @@ function ttsOnce(text, lang, rate) {
     } catch (e) { res(); }
   });
 }
+function ttsAvail() {
+  var n = nativeTTS();
+  return !!(n && n.speak) || ('speechSynthesis' in window);
+}
 var gameTok = 0;
 function gTtsStop() {
   try { var n = nativeTTS(); if (n && n.stop) n.stop(); } catch (e) {}
@@ -3032,6 +3036,7 @@ function gSpeak(text, lang, flagEl) {
   if (flagEl) flagEl.classList.add('speaking');
   var tok = gameTok;
   pauseMedia();
+  if (!ttsAvail()) { if (flagEl) flagEl.classList.remove('speaking'); return; }
   (function play() {
     if (tok !== gameTok) return;
     ttsOnce(text, lang).then(function () { if (tok === gameTok) play(); });
@@ -3045,6 +3050,7 @@ function gSpeakSlow(text, lang, flagEl) {
   if (flagEl) flagEl.classList.add('speaking');
   var tok = gameTok;
   pauseMedia();
+  if (!ttsAvail()) { if (flagEl) flagEl.classList.remove('speaking'); return; }
   (function play() {
     if (tok !== gameTok) return;
     ttsOnce(text, lang, .5).then(function () { if (tok === gameTok) play(); });
@@ -3059,6 +3065,7 @@ function speakPair(t1, l1, t2, l2, el1, el2) {
   if (el2) el2.classList.add('speaking');
   var tok = gameTok;
   pauseMedia();
+  if (!ttsAvail()) { gClearSpeaking(); return; }
   (function play(i) {
     if (tok !== gameTok) return;
     ttsOnce(i ? t2 : t1, i ? l2 : l1).then(function () { if (tok === gameTok) play(1 - i); });
@@ -3229,6 +3236,7 @@ function startQuiz(lesson, qlang, alang) {
       c.dataset.text = phText(item.p, lang);
       c.dataset.lang = lang;
       c.dataset.pid = item.id;
+      c.dataset.pair = phText(item.p, lang === qlang ? alang : qlang);
       c.dir = lang === 'ar' ? 'rtl' : 'ltr';
       c.textContent = c.dataset.text;
       return c;
@@ -3249,7 +3257,7 @@ function startQuiz(lesson, qlang, alang) {
         setTimeout(function () { card.classList.remove('sel'); }, 600);
         return;
       }
-      if (selFr.dataset.pid === card.dataset.pid) {
+      if (selFr.dataset.pid === card.dataset.pid || card.dataset.text === selFr.dataset.pair) {
         correct++;
         quizTone(true);
         selFr.classList.remove('sel');
@@ -3416,15 +3424,21 @@ function lzQuestion() {
   var body = document.getElementById('quiz-body');
   if (!body || !document.getElementById('quiz-overlay')) return;
   var p = lz.qs[lz.idx];
-  var others = lz.pool.filter(function (x) { return x !== p; });
-  var opts = quizShuffle(others).slice(0, 3);
+  var correctText = phText(p, lz.lang);
+  var seenT = {};
+  var opts = [];
+  quizShuffle(lz.pool.filter(function (x) { return x !== p; })).forEach(function (o) {
+    var tx = phText(o, lz.lang);
+    if (tx && tx !== correctText && !seenT[tx]) { seenT[tx] = 1; opts.push(o); }
+  });
+  opts = opts.slice(0, 3);
   opts.push(p);
   opts = quizShuffle(opts);
   body.innerHTML = '<div class="lz-stage">' +
     '<div class="lz-hero ' + lzHero.size + '" id="lzHero">' + lzHeroInner() + '</div>' +
     '<button class="lz-loop" id="lzReplay" title="' + esc(t.listenReplay) + '">🔊</button>' +
     '<div class="lz-opts">' + opts.map(function (o) {
-      return '<div class="lz-tile" data-ok="' + (o === p ? '1' : '0') + '">' + esc(phText(o, lz.lang)) + '</div>';
+      return '<div class="lz-tile" data-ok="' + (phText(o, lz.lang) === correctText ? '1' : '0') + '">' + esc(phText(o, lz.lang)) + '</div>';
     }).join('') + '</div>' +
     '<div class="lz-nav">' +
     '<button id="lzNextBtn">⏭ ' + esc(t.next) + '</button>' +
@@ -3442,6 +3456,7 @@ function lzQuestion() {
   document.getElementById('lzAutoBtn').onclick = function () {
     lz.auto = !lz.auto;
     this.classList.toggle('on', lz.auto);
+    if (!lz.auto) clearTimeout(lz.timer);
     if (lz.auto && lz.answered) lzNext();
   };
   setTimeout(function () { if (document.getElementById('quiz-overlay')) gSpeak(phText(p, pLang), pLang, rp); }, 250);
@@ -3542,7 +3557,8 @@ function openReadRepeat(l) {
   var body = document.getElementById('rr-body');
   var langs = rrLangs(items, l);
   function start(lang, mode, idx, cnt) {
-    rr = { l: l, items: items, lang: lang, mode: mode, i: idx, count: cnt || 0, listenTok: 0 };
+    var its = items.filter(function (m) { return m[lang]; });   // skip cues that lack the chosen language
+    rr = { l: l, items: its, lang: lang, mode: mode, i: idx, count: cnt || 0, listenTok: 0 };
     rrSave();
     rrShow();
   }
@@ -4049,6 +4065,7 @@ if (CapApp && CapApp.addListener) {
       return;
     }
     if (ovRoot.firstChild) { closeOv(); return; }
+    if (document.querySelector('.qz-ov')) { closeQuiz(); closeRR(); return; }
     // close the topmost layer: stacked dialogs (pushOv on body), then lesson/library views
     var views = document.querySelectorAll('body > .overlay, body > .lov, body > .libv');
     if (views.length) {
