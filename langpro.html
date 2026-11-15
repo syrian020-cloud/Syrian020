@@ -2226,7 +2226,6 @@ function openLesson(l) {
       ln.onclick = function () { speakLoop(r.text, r.lang, ln); };
       nowEl.appendChild(ln);
     });
-    nowEl.appendChild(cueBar(c, sortedCues(l), true));
   }
   function applyVfit() {
     if (!player || !player._vcrop) return;
