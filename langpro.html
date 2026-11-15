@@ -904,21 +904,50 @@ function parseT(str) {
 }
 // Accepts "00:01 text", "00:01 --> 00:04 text", "[00:01.500] text" and SRT blocks;
 // untimed lines continue the previous cue (translation lines) or start an untimed cue.
-var LANG_LABEL = /^\s*(?:[\u{1F1E6}-\u{1F1FF}]{2}\s*)*(?:FR|AR|EN|ES|DE|IT|TR|RU|PT|NL|PL|UK|ZH|JA|FA|UR|KU|SV|FI|EL|HI|KO|LA)\s*[:=]\s*/iu;
+var LANG_LABEL = /^\s*(?:(?:FR|AR|EN|ES|DE|IT|TR|RU|PT|NL|PL|UK|ZH|JA|FA|UR|KU|SV|FI|EL|HI|KO|LA)|English|الأصلية|النص الأصلي|النطق اللاتيني|النطق|تقريب النطق(?: بالعربية)?|المعنى(?: بالعربي| بالعربية)?|بالعربي|بالعربية)\s*[:=]\s*/iu;
 function stripMark(s) {
   return String(s || '')
-    .replace(/^\s*[*•·]\s+/, '')
+    .replace(/^[^\p{L}\p{N}]+/u, '')
     .replace(LANG_LABEL, '')
-    .replace(/^[\u{1F1E6}-\u{1F1FF}]{2}\s*/u, '')
+    .replace(/[\s=|→←;,:\-–—]+$/, '')
     .trim();
 }
+// Letter-script class: letters of different classes on one line mean a language switch
+function scriptOf(ch) {
+  if (!/\p{L}/u.test(ch)) return '';
+  var c = ch.codePointAt(0);
+  if ((c >= 0x0600 && c <= 0x06FF) || (c >= 0x0750 && c <= 0x077F) || (c >= 0x08A0 && c <= 0x08FF) || (c >= 0xFB50 && c <= 0xFDFF) || (c >= 0xFE70 && c <= 0xFEFF)) return 'a';
+  if (c >= 0x0400 && c <= 0x04FF) return 'c';
+  if (c >= 0x0590 && c <= 0x05FF) return 'h';
+  if ((c >= 0x4E00 && c <= 0x9FFF) || (c >= 0x3400 && c <= 0x4DBF) || (c >= 0xF900 && c <= 0xFAFF) || (c >= 0x3040 && c <= 0x30FF) || (c >= 0xAC00 && c <= 0xD7AF)) return 'j';
+  if (c >= 0x0E00 && c <= 0x0E7F) return 't';
+  if (c >= 0x0900 && c <= 0x097F) return 'd';
+  if (c >= 0x10A0 && c <= 0x10FF) return 'g';
+  if (c >= 0x0530 && c <= 0x058F) return 'm';
+  return 'x';
+}
+// split where the letter-script changes: 'Hello مرحبا' → 'Hello' / 'مرحبا'
+function splitByScript(s) {
+  var parts = [], buf = '', cls = '', ws = '';
+  for (var i = 0; i < s.length; i++) {
+    var ch = s.charAt(i), c = scriptOf(ch);
+    if (!c) { ws += ch; continue; }
+    if (cls && c !== cls) { parts.push(buf); buf = ch; }
+    else buf += ws + ch;
+    ws = ''; cls = c;
+  }
+  var tail = (buf + ws).trim();
+  if (tail) parts.push(tail);
+  return parts;
+}
 // Expand zeelang-style one-line formats into caption lines:
-// 'a | b | c' → 3 lines; '🇫🇷 a 🇸🇾 b 🇺🇸 c' → 3 lines; labels/flags stripped
+// 'a | b | c' → 3 lines; '🇫🇷 a 🇸🇾 b 🇺🇸 c' → 3 lines; 'a = b / a: b' via script switch;
+// labels/flags stripped
 function normPhraseText(s) {
   var out = [];
   String(s || '').split(/\s+(?:\||→|←)\s+/).forEach(function (p) {
     p.split(/(?=[\u{1F1E6}-\u{1F1FF}]{2})/u).forEach(function (q) {
-      out.push(stripMark(q));
+      splitByScript(stripMark(q)).forEach(function (r) { out.push(r); });
     });
   });
   return out.filter(function (x) { return x; }).join('\n');
@@ -933,13 +962,17 @@ function parseTimedLines(text) {
     if (m && !/^\s*--?>/.test(m[2])) { flush(); cur = { t: parseT(m[1]), d: null, text: normPhraseText(m[2]) }; return; }
     var s = line.trim();
     if (/^\d+$/.test(s)) return;
-    if (!s || /^={2,}\s*$/.test(s)) { flush(); return; }
-    if (/^#{2,}/.test(s)) { flush(); cur = { t: null, d: null, text: s.replace(/^#{2,}\s*/, '') }; flush(); return; }
+    // '===' and '###' are section separators, never cue text
+    if (!s || /^={2,}\s*$/.test(s) || /^#{2,}/.test(s)) { flush(); return; }
     s = normPhraseText(s);
     if (!s) return;
-    // a plain line right after a timed line is its translation — stays in the same cue
-    if (cur && cur.t != null) cur.text = cur.text ? cur.text + '\n' + s : s;
-    else { flush(); cur = { t: null, d: null, text: s }; }
+    // a timed cue collects whatever follows (SRT body, translation lines)
+    if (cur && cur.t != null) { cur.text = cur.text ? cur.text + '\n' + s : s; return; }
+    // a one-line format ('a | b', 'a → b') expands to a complete multi-line cue
+    if (s.indexOf('\n') !== -1) { flush(); cues.push({ t: null, d: null, text: s }); return; }
+    // a plain line continues the previous cue (its translation) or starts an untimed one
+    if (cur) cur.text = cur.text ? cur.text + '\n' + s : s;
+    else cur = { t: null, d: null, text: s };
   });
   flush();
   return cues;
