@@ -38,6 +38,12 @@ public class TtsPlugin extends Plugin {
         call.resolve();
     }
 
+    @PluginMethod
+    public void stop(PluginCall call) {
+        if (tts != null) tts.stop();
+        call.resolve();
+    }
+
     @Override
     protected void handleOnDestroy() {
         if (tts != null) { tts.stop(); tts.shutdown(); }
