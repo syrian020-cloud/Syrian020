@@ -2614,7 +2614,8 @@ function openLesson(l) {
       return Math.min(e, player.duration || e);
     };
     var segLoopRestart = function () {
-      if (!SEG_LOOP.c || SEG_LOOP.c.t == null) { stopSegLoop(); return; }
+      // a cue that starts at/beyond the playable end can never loop — drop it
+      if (!SEG_LOOP.c || SEG_LOOP.c.t == null || SEG_LOOP.c.t >= segLoopEnd()) { stopSegLoop(); return; }
       player.currentTime = SEG_LOOP.c.t;
       var pr = player.play(); if (pr && pr.catch) pr.catch(function () {});
     };
