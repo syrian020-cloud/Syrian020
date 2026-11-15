@@ -364,6 +364,7 @@ var I18N = {
     pickVideo: 'فيديو', pickAudio: 'صوت', noMedia: 'بدون وسائط', delLessonQ: 'حذف هذا الدرس؟',
     cueAdd: 'إضافة سطر', cueTime: 'الوقت (mm:ss)', cueNow: 'عند الموضع الحالي', cueLines: 'سطر',
     timedTitle: 'لصق نص مؤقت', timedHelp: 'كل سطر: 00:01 النص أو 00:01 --> 00:04 النص', timedAdd: 'إضافة الأسطر', errTimed: 'لم يُعثر على أسطر مؤقتة', modelsTitle: 'نماذج الصيغ',
+    tplZeelang: 'نماذج Zeelang — صيغ مقبولة', tplProlang: 'نماذج ProLang', tplTimed: 'نماذج مؤقّتة — فيديو / صوت 🎬',
     capTheme: 'ثيم الترجمة', libTitle: 'مكتبة العبارات', libStages: 'المراحل', libVocab: 'المفردات', libBack: 'رجوع',
     copyAll: 'نسخ الكل', toFolder: 'إضافة كدرس', pickFolder: 'اختر المجلد', lessonAdded: 'أُضيف الدرس ✓',
     renameLesson: 'تعديل اسم الدرس', playAll: 'تشغيل الكل'
@@ -398,6 +399,7 @@ var I18N = {
     pickVideo: 'Vidéo', pickAudio: 'Audio', noMedia: 'Sans média', delLessonQ: 'Supprimer cette leçon ?',
     cueAdd: 'Ajouter une ligne', cueTime: 'Temps (mm:ss)', cueNow: 'À la position actuelle', cueLines: 'lignes',
     timedTitle: 'Coller du texte synchronisé', timedHelp: 'Chaque ligne : 00:01 texte ou 00:01 --> 00:04 texte', timedAdd: 'Ajouter les lignes', errTimed: 'Aucune ligne synchronisée trouvée', modelsTitle: 'Modèles de format',
+    tplZeelang: 'Modèles Zeelang — formats acceptés', tplProlang: 'Modèles ProLang', tplTimed: 'Modèles synchronisés — vidéo / audio 🎬',
     capTheme: 'Thème des sous-titres', libTitle: 'Bibliothèque de phrases', libStages: 'Niveaux', libVocab: 'Vocabulaire', libBack: 'Retour',
     copyAll: 'Tout copier', toFolder: 'Ajouter comme leçon', pickFolder: 'Choisir le dossier', lessonAdded: 'Leçon ajoutée ✓',
     renameLesson: 'Renommer la leçon', playAll: 'Tout lire'
@@ -432,6 +434,7 @@ var I18N = {
     pickVideo: 'Video', pickAudio: 'Audio', noMedia: 'No media', delLessonQ: 'Delete this lesson?',
     cueAdd: 'Add line', cueTime: 'Time (mm:ss)', cueNow: 'At current position', cueLines: 'lines',
     timedTitle: 'Paste timed text', timedHelp: 'Each line: 00:01 text or 00:01 --> 00:04 text', timedAdd: 'Add lines', errTimed: 'No timed lines found', modelsTitle: 'Format models',
+    tplZeelang: 'Zeelang templates — accepted formats', tplProlang: 'ProLang templates', tplTimed: 'Timed templates — video / audio 🎬',
     capTheme: 'Caption theme', libTitle: 'Phrase library', libStages: 'Stages', libVocab: 'Vocabulary', libBack: 'Back',
     copyAll: 'Copy all', toFolder: 'Add as lesson', pickFolder: 'Pick a folder', lessonAdded: 'Lesson added ✓',
     renameLesson: 'Rename lesson', playAll: 'Play all'
@@ -901,18 +904,42 @@ function parseT(str) {
 }
 // Accepts "00:01 text", "00:01 --> 00:04 text", "[00:01.500] text" and SRT blocks;
 // untimed lines continue the previous cue (translation lines) or start an untimed cue.
+var LANG_LABEL = /^\s*(?:[\u{1F1E6}-\u{1F1FF}]{2}\s*)*(?:FR|AR|EN|ES|DE|IT|TR|RU|PT|NL|PL|UK|ZH|JA|FA|UR|KU|SV|FI|EL|HI|KO|LA)\s*[:=]\s*/iu;
+function stripMark(s) {
+  return String(s || '')
+    .replace(/^\s*[*•·]\s+/, '')
+    .replace(LANG_LABEL, '')
+    .replace(/^[\u{1F1E6}-\u{1F1FF}]{2}\s*/u, '')
+    .trim();
+}
+// Expand zeelang-style one-line formats into caption lines:
+// 'a | b | c' → 3 lines; '🇫🇷 a 🇸🇾 b 🇺🇸 c' → 3 lines; labels/flags stripped
+function normPhraseText(s) {
+  var out = [];
+  String(s || '').split(/\s+(?:\||→|←)\s+/).forEach(function (p) {
+    p.split(/(?=[\u{1F1E6}-\u{1F1FF}]{2})/u).forEach(function (q) {
+      out.push(stripMark(q));
+    });
+  });
+  return out.filter(function (x) { return x; }).join('\n');
+}
 function parseTimedLines(text) {
   var cues = [], cur = null;
   function flush() { if (cur && cur.text) cues.push(cur); cur = null; }
   String(text || '').replace(/\r/g, '').split('\n').forEach(function (line) {
     var m = line.match(/^\s*\[?(\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d{1,3})?)\]?\s*--?>\s*(\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d{1,3})?)\s*(.*)$/);
-    if (m) { flush(); cur = { t: parseT(m[1]), d: parseT(m[2]), text: (m[3] || '').trim() }; return; }
+    if (m) { flush(); cur = { t: parseT(m[1]), d: parseT(m[2]), text: normPhraseText(m[3] || '') }; return; }
     m = line.match(/^\s*\[?(\d{1,2}:\d{2}(?::\d{2})?(?:[.,]\d{1,3})?)\]?\s+(.+)$/);
-    if (m && !/^\s*--?>/.test(m[2])) { flush(); cur = { t: parseT(m[1]), d: null, text: m[2].trim() }; return; }
+    if (m && !/^\s*--?>/.test(m[2])) { flush(); cur = { t: parseT(m[1]), d: null, text: normPhraseText(m[2]) }; return; }
     var s = line.trim();
     if (/^\d+$/.test(s)) return;
-    if (!s) { flush(); return; }
-    if (cur) cur.text += '\n' + s; else cur = { t: null, d: null, text: s };
+    if (!s || /^={2,}\s*$/.test(s)) { flush(); return; }
+    if (/^#{2,}/.test(s)) { flush(); cur = { t: null, d: null, text: s.replace(/^#{2,}\s*/, '') }; flush(); return; }
+    s = normPhraseText(s);
+    if (!s) return;
+    // a plain line right after a timed line is its translation — stays in the same cue
+    if (cur && cur.t != null) cur.text = cur.text ? cur.text + '\n' + s : s;
+    else { flush(); cur = { t: null, d: null, text: s }; }
   });
   flush();
   return cues;
@@ -1101,6 +1128,130 @@ function cueDialog(l, cue, refresh, atTime) {
   r.appendChild(no); r.appendChild(yes); d.appendChild(r); ov.appendChild(d);
   setTimeout(function () { try { ta.focus(); } catch (e) {} }, 200);
 }
+/* ---------- input templates: every Zeelang + ProLang + timed model ---------- */
+var TPL_ZEELANG = [
+  { name: { ar: 'أنبوب |', en: 'Pipe |', fr: 'Barre |' }, text: 'Hello | مرحبا | Bonjour' },
+  { name: { ar: 'أسهم →', en: 'Arrows →', fr: 'Flèches →' }, text: 'Comment allez-vous → كيف حالك → How are you' },
+  { name: { ar: 'مساواة =', en: 'Equals =', fr: 'Égale =' }, text: 'I would like = أريد = Je voudrais' },
+  { name: { ar: 'فاصلة،', en: 'Comma ،', fr: 'Virgule ،' }, text: 'Thank you شكرا, Merci' },
+  { name: { ar: 'نقطتان :', en: 'Colon :', fr: 'Deux-points :' }, text: 'Goodbye مع السلامة: Au revoir' },
+  { name: { ar: 'شرطة -', en: 'Dash -', fr: 'Tiret -' }, text: 'Apple - تفاحة - Pomme' },
+  { name: { ar: 'كلمات متداخلة', en: 'Interleaved', fr: 'Entrelacé' }, text: 'Where Où sont les toilettes أين الحمام is the bathroom' },
+  { name: { ar: 'أسماء اللغات', en: 'Language names', fr: 'Noms des langues' }, text: 'English | Arabic | French' }
+];
+var TPL_PROLANG = [
+  { name: { ar: 'نموذج بسيط — Simple', en: 'Simple', fr: 'Simple' }, text:
+'### 1. 🇨🇳 الصينية — Chinese\n' +
+'🇨🇳 你好\n' +
+'🔤 النطق اللاتيني: Nǐ hǎo\n' +
+'🗣️ تقريب النطق بالعربية: ني هاو\n' +
+'🇸🇾 المعنى: مرحبًا\n' +
+'===\n' +
+'### 2. 🇫🇷 الفرنسية\n' +
+'🇫🇷 Bonjour\n' +
+'🔤 Bonjour\n' +
+'🗣️ بونجور\n' +
+'🇸🇾 المعنى: مرحبًا' },
+  { name: { ar: 'نموذج بأربع خانات — عربي + إنجليزي', en: '4-field — Arabic + English', fr: '4 champs — arabe + anglais' }, text:
+'### 🇬🇧 الإنجليزية (English)\n' +
+'* 🇬🇧 الأصلية: Hello\n' +
+'* 🔤 النطق اللاتيني: Hello\n' +
+'* 🗣️ بالعربي: هَلّو\n' +
+'* 🇸🇾 المعنى بالعربي: مرحباً\n' +
+'* 🇺🇸 English: Hello\n' +
+'===\n' +
+'### 🇫🇷 الفرنسية (French)\n' +
+'* 🇫🇷 الأصلية: Bonjour\n' +
+'* 🔤 النطق اللاتيني: Bonjour\n' +
+'* 🗣️ بالعربي: بونجور\n' +
+'* 🇸🇾 المعنى بالعربي: مرحباً\n' +
+'* 🇺🇸 English: Hello' },
+  { name: { ar: 'نموذج سطر واحد — أنبوب |', en: 'One-line — pipe |', fr: 'Une ligne — barre |' }, text:
+'### 🇷🇺 الروسية\n' +
+'🇷🇺 Привет! | 🇸🇾 مرحبا! | 🇺🇸 Hi!\n' +
+'🇷🇺 Здравствуйте! | 🇸🇾 مرحباً! (بأسلوب رسمي) | 🇺🇸 Hello!\n' +
+'🇷🇺 Как дела? | 🇸🇾 كيفك؟ | 🇺🇸 How are you?\n' +
+'🇷🇺 Хорошо, спасибо. | 🇸🇾 منيح، شكراً. | 🇺🇸 Good, thank you.' },
+  { name: { ar: 'نموذج مواقف — أعلام بسطر واحد', en: 'Situations — flags per line', fr: 'Situations — drapeaux par ligne' }, text:
+'### 👋 الموقف الأول: التحية والتعارف\n' +
+'🇺🇸 Hello! How are you? 🇪🇸 ¡Hola! ¿Cómo estás? 🇸🇾 مرحبا! كيفك؟\n' +
+'🇺🇸 My name is Ahmad. 🇪🇸 Me llamo Ahmad. 🇸🇾 اسمي أحمد.\n' +
+'🇺🇸 Nice to meet you. 🇪🇸 Mucho gusto. 🇸🇾 تشرفنا.\n' +
+'===\n' +
+'### ☕ الموقف الثاني: في المقهى\n' +
+'🇺🇸 I would like a coffee, please. 🇪🇸 Quisiera un café, por favor. 🇸🇾 بدي قهوة، لو سمحت.\n' +
+'🇺🇸 The bill, please. 🇪🇸 La cuenta, por favor. 🇸🇾 الحساب، لو سمحت.\n' +
+'===\n' +
+'### 🔊 مع اللفظ بالعربي\n' +
+'🇺🇸 Good morning. | 🇪🇸 Buenos días. | 🔊 بوينوس دياس | 🇸🇾 صباح الخير.' },
+  { name: { ar: 'نموذج مؤقت — فيديو / صوت 🎬', en: 'Timed — video / audio 🎬', fr: 'Synchronisé — vidéo / audio 🎬' }, text:
+'### 🎬 درس مؤقت\n' +
+'00:00 🇫🇷 Bonjour !\n' +
+'00:03 🇸🇾 مرحبا!\n' +
+'00:05 🇺🇸 Hello!\n' +
+'00:08 --> 00:11 🇫🇷 Comment ça va ?\n' +
+'00:11 --> 00:14 🇸🇾 كيفك؟' }
+];
+var TPL_TIMED = [
+  { name: { ar: 'نموذج مؤقت بسيط — MM:SS', en: 'Simple timed — MM:SS', fr: 'Simple synchronisé — MM:SS' }, text:
+'00:00 🇫🇷 Bonjour !\n' +
+'00:03 🇸🇾 مرحبا!\n' +
+'00:05 🇺🇸 Hello!\n' +
+'00:08 🇫🇷 Comment ça va ?\n' +
+'00:11 🇸🇾 كيفك؟' },
+  { name: { ar: 'نموذج مؤقت بداية ← نهاية', en: 'Start → end timed', fr: 'Début → fin' }, text:
+'00:00 --> 00:03 🇫🇷 Bonjour !\n' +
+'00:03 --> 00:06 🇸🇾 مرحبا!\n' +
+'00:06 --> 00:09 🇫🇷 Au revoir !\n' +
+'00:09 --> 00:12 🇸🇾 مع السلامة' },
+  { name: { ar: 'أعلام — وقت بسطر والترجمات أسفله', en: 'Flags — time line then translations', fr: 'Drapeaux — temps puis traductions' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes.\n' +
+'🇸🇾 ماريا، ما عاد معي دخان.\n' +
+'🇺🇸 Maria, I’m out of cigarettes.\n' +
+'00:02 🇫🇷 Donne-moi de l’argent.\n' +
+'🇸🇾 أعطيني مصاري.\n' +
+'🇺🇸 Give me some money.\n' +
+'00:04 🇫🇷 Pourquoi ? Tu as tout dépensé ?\n' +
+'🇸🇾 ليش؟ صرفت كل المصاري؟\n' +
+'🇺🇸 Why? Did you spend it all?' },
+  { name: { ar: 'SRT — ترجمة احترافية بأنابيب |', en: 'SRT subtitles with pipes |', fr: 'SRT avec barres |' }, text:
+'1\n' +
+'00:00:00,000 --> 00:00:03,000\n' +
+'Maria, j’ai plus de cigarettes. | ماريا، ما عاد معي دخان. | Maria, I’m out of cigarettes.\n' +
+'\n' +
+'2\n' +
+'00:00:03,000 --> 00:00:05,000\n' +
+'Donne-moi de l’argent. | أعطيني مصاري. | Give me some money.' },
+  { name: { ar: 'MM:SS بأنبوب | — بلا أعلام', en: 'MM:SS with pipes — no flags', fr: 'MM:SS avec barres — sans drapeaux' }, text:
+'00:00 Maria, j’ai plus de cigarettes. | ماريا، ما عاد معي دخان. | Maria, I’m out of cigarettes.\n' +
+'00:02 Donne-moi de l’argent. | أعطيني مصاري. | Give me some money.' },
+  { name: { ar: 'MM:SS — أسطر بلا أعلام', en: 'MM:SS — plain lines', fr: 'MM:SS — lignes simples' }, text:
+'00:00 Maria, j’ai plus de cigarettes.\n' +
+'ماريا، ما عاد معي دخان.\n' +
+'Maria, I’m out of cigarettes.\n' +
+'\n' +
+'00:02 Donne-moi de l’argent.\n' +
+'أعطيني مصاري.\n' +
+'Give me some money.' },
+  { name: { ar: 'أعلام بسطر واحد — وقت', en: 'Flags per line — timed', fr: 'Drapeaux par ligne — synchronisé' }, text:
+'00:00 🇫🇷 Maria, j’ai plus de cigarettes. 🇸🇾 ماريا، ما عاد معي دخان. 🇺🇸 Maria, I’m out of cigarettes.\n' +
+'00:02 🇫🇷 Donne-moi de l’argent. 🇸🇾 أعطيني مصاري. 🇺🇸 Give me some money.' },
+  { name: { ar: 'رموز اللغة — FR: / AR: / EN:', en: 'Lang codes — FR: / AR: / EN:', fr: 'Codes langue — FR: / AR: / EN:' }, text:
+'00:00 FR: Maria, j’ai plus de cigarettes.\n' +
+'AR: ماريا، ما عاد معي دخان.\n' +
+'EN: Maria, I’m out of cigarettes.\n' +
+'00:02 FR: Donne-moi de l’argent.\n' +
+'AR: أعطيني مصاري.\n' +
+'EN: Give me some money.' },
+  { name: { ar: 'وقت + نص', en: 'Time + text', fr: 'Temps + texte' }, text: '00:01 Bonjour' },
+  { name: { ar: 'بأقواس ميلي ثانية', en: 'Bracket ms', fr: 'Crochets ms' }, text: '[00:01.500] Bonjour' }
+];
+var TPL_GROUPS = [
+  { key: 'tplZeelang', items: TPL_ZEELANG },
+  { key: 'tplProlang', items: TPL_PROLANG },
+  { key: 'tplTimed', items: TPL_TIMED }
+];
+
 function timedDialog(l, refresh) {
   var t = T();
   var ov = pushOv(4600);
@@ -1108,39 +1259,35 @@ function timedDialog(l, refresh) {
   d.appendChild(el('p', null, '⏱ ' + t.timedTitle));
   d.appendChild(el('div', 'flabel', t.timedHelp));
   var f = el('div', 'field');
-  var MODELS = [
-    { n: '⏱ وقت + نص', v: '00:01 Bonjour' },
-    { n: '⏱ بداية → نهاية', v: '00:01 --> 00:04 Comment ça va ?' },
-    { n: '⏱ بأقواس (ميلي ثانية)', v: '[00:01.500] Bonjour' },
-    { n: '⏱ بلوك SRT', v: '1\n00:00:01,000 --> 00:00:04,000\nBonjour' },
-    { n: '🌐 نص + ترجمة بالسطر التالي', v: '00:01 Bonjour\nمرحبا' },
-    { n: '📝 عبارة بدون وقت', v: 'Juste une phrase' }
-  ];
   var mpanel = null;
   var mb = el('button', 'mini', '📑 ' + t.modelsTitle);
   mb.onclick = function () {
     if (mpanel) { mpanel.remove(); mpanel = null; return; }
     mpanel = el('div', 'attlist');
-    MODELS.forEach(function (m) {
-      var mr = el('div', 'att');
-      var mid = el('div'); mid.style.flex = '1'; mid.style.minWidth = '0';
-      mid.appendChild(el('div', 'an', m.n));
-      var pv = el('div', 'lc'); pv.dir = 'ltr'; pv.style.textAlign = 'left';
-      pv.style.whiteSpace = 'pre-wrap';
-      pv.textContent = m.v;
-      mid.appendChild(pv);
-      mr.appendChild(mid);
-      var cp = el('button', 'ax', '📋');
-      cp.onclick = function (e) { e.stopPropagation(); copyText(m.v, t.copied); };
-      mr.appendChild(cp);
-      mr.onclick = function () {
-        // untimed models need a blank separator or parseTimedLines merges them
-        // into the preceding cue instead of creating their own untimed cue
-        var timed = /^\s*(\[?\s*\d{1,2}:\d{2}|\d+\n)/.test(m.v);
-        var join = (ta.value && !timed) ? '\n\n' : '\n';
-        ta.value = (ta.value ? ta.value.replace(/\n+$/, '') + join : '') + m.v + '\n';
-      };
-      mpanel.appendChild(mr);
+    TPL_GROUPS.forEach(function (g) {
+      mpanel.appendChild(el('div', 'flabel', t[g.key] || g.key));
+      g.items.forEach(function (m) {
+        var mr = el('div', 'att');
+        var mid = el('div'); mid.style.flex = '1'; mid.style.minWidth = '0';
+        mid.appendChild(el('div', 'an', (m.name && (m.name[uiLang()] || m.name.ar)) || m.n || ''));
+        var pv = el('div', 'lc'); pv.dir = 'ltr'; pv.style.textAlign = 'left';
+        pv.style.whiteSpace = 'pre-wrap';
+        var txt = m.text || m.v || '';
+        pv.textContent = txt.length > 300 ? txt.slice(0, 300) + '…' : txt;
+        mid.appendChild(pv);
+        mr.appendChild(mid);
+        var cp = el('button', 'ax', '📋');
+        cp.onclick = function (e) { e.stopPropagation(); copyText(txt, t.copied); };
+        mr.appendChild(cp);
+        mr.onclick = function () {
+          // untimed models need a blank separator or parseTimedLines merges them
+          // into the preceding cue instead of creating their own untimed cue
+          var timed = /^\s*(\[?\s*\d{1,2}:\d{2}|\d+\n)/.test(txt);
+          var join = (ta.value && !timed) ? '\n\n' : '\n';
+          ta.value = (ta.value ? ta.value.replace(/\n+$/, '') + join : '') + txt + '\n';
+        };
+        mpanel.appendChild(mr);
+      });
     });
     d.insertBefore(mpanel, f);
   };
