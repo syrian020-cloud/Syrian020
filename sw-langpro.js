@@ -29,7 +29,35 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  if (event.request.method !== 'GET') return;
+  const url = new URL(event.request.url);
+  const isNav = event.request.mode === 'navigate';
+  const isOurs = FILES_TO_CACHE.some((f) => url.pathname.endsWith(f.replace('./', '/')))
+    || url.pathname.includes('/data/')
+    || url.pathname.includes('/js/');
+  // Everything that is not langpro's own asset/page passes straight through,
+  // so this worker never interferes with the other apps sharing this origin.
+  if (!isNav && !isOurs) return;
+  if (isNav) {
+    // Network-first for langpro's own page only: fresh HTML when online,
+    // cached copy when offline or on HTTP errors — updates reach existing
+    // installs without a cache-name bump. Other apps' pages pass through.
+    if (!url.pathname.endsWith('/langpro.html')) return;
+    const cachedPage = () =>
+      caches.match(event.request).then((cached) =>
+        cached || caches.match('./langpro.html'));
+    event.respondWith(
+      fetch(event.request).then((res) => {
+        if (res.type === 'opaqueredirect') return res;   // let the browser follow redirects
+        if (!res.ok) return cachedPage();                // 4xx/5xx resolve fetch — still serve the app
+        const copy = res.clone();
+        // chain the write into the response promise so the worker stays
+        // alive until the updated page is actually in the cache
+        return caches.open(CACHE_NAME)
+          .then((c) => c.put('./langpro.html', copy)).then(() => res);
+      }).catch(cachedPage)
+    );
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then((cached) => cached || fetch(event.request))
   );
