@@ -3941,8 +3941,7 @@ function openMenu() {
   } else {
     row('🔒', t.lockSet, function () { closeOv(); pinSetup(); });
   }
-  if (window.EdgeTTS) row('🎙', t.voiceSet || 'Voice settings', function () { closeOv(); EdgeTTS.openSettings(); });
-  row('📚', t.libTitle, function () { closeOv(); openLibrary(); });
+  if (window.EdgeTTS) row('🎙', t.voiceSet || 'Edge TTS', function () { closeOv(); EdgeTTS.openSettings(); });
   row('⬇', t.exportData, function () { closeOv(); exportData(); });
   row('⬆', t.importData, function () { closeOv(); importData(); });
 }
