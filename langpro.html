@@ -90,12 +90,14 @@
     border: none; font-size: .95rem; cursor: pointer; padding: .1rem .25rem;
     font-family: inherit; filter: grayscale(.15); }
   .site-map:active { transform: scale(1.15); }
-  .has-cred { position: absolute; bottom: .35rem; inset-inline-start: .4rem; font-size: .6rem;
-    color: var(--gold); }
-  .has-files { position: absolute; bottom: .35rem; inset-inline-end: .4rem; font-size: .68rem;
-    color: var(--accent); background: none; border: none; cursor: pointer; padding: .1rem .2rem;
-    font-family: inherit; }
-  .has-files:active { transform: scale(1.15); }
+  .site-badges { display: flex; gap: .3rem; flex-wrap: wrap; justify-content: center; }
+  .badge { font-size: .62rem; font-weight: 700; padding: .14rem .42rem; border-radius: 999px;
+    background: rgba(139,92,246,.15); color: var(--accent); border: 1px solid rgba(139,92,246,.35);
+    cursor: pointer; font-family: inherit; line-height: 1.2; }
+  .badge.gold { background: rgba(246,185,59,.13); color: var(--gold);
+    border-color: rgba(246,185,59,.35); }
+  .badge:active { transform: scale(1.12); }
+  .site-badges span.badge { cursor: default; }
 
   .add-card { border: 1.5px dashed var(--line); background: transparent; color: var(--dim);
     font-size: 1.8rem; border-radius: 20px; }
@@ -209,12 +211,6 @@
     box-shadow: 0 10px 40px rgba(0,0,0,.5); }
 
   .hidden { display: none !important; }
-
-  /* ---------- folders: lessons badge ---------- */
-  .has-lessons { position: absolute; bottom: .35rem; inset-inline-end: 1.9rem; font-size: .68rem;
-    color: var(--gold); background: none; border: none; cursor: pointer; padding: .1rem .2rem;
-    font-family: inherit; }
-  .has-lessons:active { transform: scale(1.15); }
 
   /* ---------- lesson list ---------- */
   .lrow { display: flex; align-items: center; gap: .55rem; background: var(--card2);
@@ -1339,7 +1335,7 @@ function openLessonsSheet(s, session) {
         l.blob ? (String(l.mime).indexOf('video/') === 0 ? '🎬' : '🎵') : '📝'));
       card.appendChild(el('div', 'site-name', l.name || t.lName));
       var nc = (l.cues || []).length;
-      if (nc) card.appendChild(el('div', 'has-files', '⏱' + nc));
+      if (nc) { var lbd = el('div', 'site-badges'); lbd.appendChild(el('span', 'badge', '⏱' + nc)); card.appendChild(lbd); }
       var rn = el('button', 'site-dots', '✏');
       rn.onclick = function (e) { e.stopPropagation(); renameLesson(l, refresh); };
       card.appendChild(rn);
@@ -2078,18 +2074,21 @@ function renderGrid() {
     }
     card.appendChild(ic);
     card.appendChild(el('div', 'site-name', s.name || hostOf(s.url) || firstAttName(s.id) || '—'));
-    if (s.user || s.pass) card.appendChild(el('span', 'has-cred', '🔑'));
-    var na = attCount(s.id);
-    if (na) {
-      var fb = el('button', 'has-files', '📎' + na);
-      fb.onclick = function (e) { e.stopPropagation(); openAttSheet(s); };
-      card.appendChild(fb);
-    }
-    var nl = lessonCount(s.id);
-    if (nl) {
-      var lb = el('button', 'has-lessons', '📚' + nl);
-      lb.onclick = function (e) { e.stopPropagation(); openLessonsSheet(s); };
-      card.appendChild(lb);
+    var na = attCount(s.id), nl = lessonCount(s.id);
+    if (s.user || s.pass || na || nl) {
+      var bd = el('div', 'site-badges');
+      if (s.user || s.pass) bd.appendChild(el('span', 'badge gold', '🔑'));
+      if (nl) {
+        var lb = el('button', 'badge', '📚' + nl);
+        lb.onclick = function (e) { e.stopPropagation(); openLessonsSheet(s); };
+        bd.appendChild(lb);
+      }
+      if (na) {
+        var fb = el('button', 'badge', '📎' + na);
+        fb.onclick = function (e) { e.stopPropagation(); openAttSheet(s); };
+        bd.appendChild(fb);
+      }
+      card.appendChild(bd);
     }
     if (s.addr) {
       var mb = el('button', 'site-map', '🗺');
