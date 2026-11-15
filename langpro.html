@@ -353,6 +353,7 @@ var I18N = {
     credsCopied: 'نُسخ المستخدم وكلمة السر — الأخيرة بسجل الحافظة',
     atts: 'المرفقات', addImg: 'صورة', addPdf: 'ملف PDF', addFile: 'ملف', noAtts: 'لا مرفقات بعد',
     attDelTitle: 'حذف هذا المرفق؟', attSaved: 'تم حفظ الملف',
+    saveFail: 'فشل الحفظ — المساحة ممتلئة',
     attRename: 'تعديل اسم المرفق',
     lockTitle: 'رمز الدخول', lockSub: 'أدخل 4 أرقام للمتابعة',
     lockSet: 'تعيين رمز دخول (4 أرقام)', lockChange: 'تغيير رمز الدخول', lockDel: 'حذف رمز الدخول',
@@ -386,6 +387,7 @@ var I18N = {
     credsCopied: 'Identifiant + mot de passe copiés',
     atts: 'Pièces jointes', addImg: 'Image', addPdf: 'Fichier PDF', addFile: 'Fichier', noAtts: 'Aucune pièce jointe',
     attDelTitle: 'Supprimer cette pièce ?', attSaved: 'Fichier enregistré',
+    saveFail: 'Échec de l’enregistrement — espace de stockage plein',
     attRename: 'Renommer la pièce jointe',
     lockTitle: 'Code d’accès', lockSub: 'Entrez 4 chiffres pour continuer',
     lockSet: 'Définir un code (4 chiffres)', lockChange: 'Changer le code', lockDel: 'Supprimer le code',
@@ -419,6 +421,7 @@ var I18N = {
     credsCopied: 'Username + password copied (password in clipboard history)',
     atts: 'Attachments', addImg: 'Image', addPdf: 'PDF file', addFile: 'File', noAtts: 'No attachments yet',
     attDelTitle: 'Delete this attachment?', attSaved: 'File saved',
+    saveFail: 'Save failed — storage full',
     attRename: 'Rename attachment',
     lockTitle: 'Passcode', lockSub: 'Enter 4 digits to continue',
     lockSet: 'Set passcode (4 digits)', lockChange: 'Change passcode', lockDel: 'Remove passcode',
@@ -790,6 +793,11 @@ function openAttSheet(s) {
   var sh = sheet();
   var h = el('h3');
   h.appendChild(el('span', null, '📎 ' + t.atts + ' — ' + (s.name || hostOf(s.url) || '')));
+  if (s.url) {
+    var wb = el('button', 'iconbtn', '🌐'); wb.title = s.url;
+    wb.onclick = function () { openSiteUrl(s); };
+    h.appendChild(wb);
+  }
   var x = el('button', null, '✕'); x.onclick = closeOv; h.appendChild(x);
   sh.appendChild(h);
   sh.appendChild(attListEl(s.id, null));
@@ -880,8 +888,9 @@ function speak(text, lang) {
 /* ================= timed text ================= */
 function fmtT(sec) {
   if (sec == null || isNaN(sec)) return '—';
-  var m = Math.floor(sec / 60), s = Math.floor(sec % 60);
-  return m + ':' + (s < 10 ? '0' : '') + s;
+  var m = Math.floor(sec / 60), r = sec % 60;
+  var s = (r % 1) ? r.toFixed(3).replace(/0+$/, '') : String(Math.floor(r));
+  return m + ':' + (r < 10 ? '0' : '') + s;   // keep fractions: 00:01.500 must not lose .5
 }
 function parseT(str) {
   str = String(str || '').trim().replace(',', '.');
@@ -917,13 +926,22 @@ function pushOv(z) {
   ov.onclick = function (e) { if (e.target === ov) ov.remove(); };
   return ov;
 }
-function lSave(l) { return IDB.lput(l).catch(function () {}); }
+function lSave(l) {
+  return IDB.lput(l).then(function () { return true; }).catch(function () {
+    try { toast(T().saveFail || '✗'); } catch (e) {}
+    return false;   // surface quota/IO failures instead of losing the lesson silently
+  });
+}
 function addLessonRec(siteId, name, mime, blob, cues) {
   var rec = { id: 'l' + Date.now() + Math.random().toString(36).slice(2, 6),
     siteId: siteId, name: name || '', mime: mime || '', blob: blob || null,
     cues: cues || [], addedAt: Date.now() };
-  (lessonMap[siteId] = lessonMap[siteId] || []).push(rec);
-  return lSave(rec).then(function () { renderGrid(); return rec; });
+  return lSave(rec).then(function (ok) {
+    if (!ok) return null;   // don't show a lesson that will vanish on restart
+    (lessonMap[siteId] = lessonMap[siteId] || []).push(rec);
+    renderGrid();
+    return rec;
+  });
 }
 function addLessonDialog(siteId, onDone) {
   var t = T();
@@ -943,7 +961,7 @@ function addLessonDialog(siteId, onDone) {
       var fl = fi.files[0]; if (!fl) return;
       ov.remove();
       addLessonRec(siteId, inp.value.trim() || (fl.name || t.lName), fl.type, fl, [])
-        .then(function (rec) { if (onDone) onDone(rec); });
+        .then(function (rec) { if (rec && onDone) onDone(rec); });
     };
     fi.click();
   }
@@ -953,7 +971,7 @@ function addLessonDialog(siteId, onDone) {
   bn.onclick = function () {
     ov.remove();
     addLessonRec(siteId, inp.value.trim() || t.lName, '', null, [])
-      .then(function (rec) { if (onDone) onDone(rec); });
+      .then(function (rec) { if (rec && onDone) onDone(rec); });
   };
   r.appendChild(bv); r.appendChild(ba); r.appendChild(bn);
   d.appendChild(r); ov.appendChild(d);
@@ -984,6 +1002,11 @@ function openLessonsSheet(s, session) {
   var ov = el('div', 'lov');
   var top = el('div', 'lov-top');
   top.appendChild(el('div', 'lt', '📚 ' + t.lessons + ' — ' + (s.name || hostOf(s.url) || '')));
+  if (s.url) {   // a saved website inside a lessons folder must stay reachable
+    var wb = el('button', 'iconbtn', '🌐'); wb.title = s.url;
+    wb.onclick = function () { openSiteUrl(s); };
+    top.appendChild(wb);
+  }
   var back = el('button', 'iconbtn', '✕');
   back.onclick = function () { ov.remove(); };
   top.appendChild(back);
@@ -1187,7 +1210,7 @@ function openLesson(l) {
   if (player) {
     player.ontimeupdate = function () {
       var ct = player.currentTime, active = null;
-      (l.cues || []).forEach(function (c) {
+      sortedCues(l).forEach(function (c) {   // latest-starting cue wins, not insertion order
         if (c.t == null) return;
         if (ct >= c.t && ct < (c.d != null ? c.d : 1e9)) active = c;
       });
@@ -1555,19 +1578,20 @@ function openMap(addr, title) {
   }
   openExternal(web);
 }
+function openSiteUrl(s) {
+  var url = s.url ? (/^https?:\/\//i.test(s.url) ? s.url : 'https://' + s.url) : '';
+  if (!url) return;
+  // Keep credentials one tap away: copy password then username, so the
+  // username is what paste gives first and the password stays one entry
+  // back in the keyboard's clipboard history
+  if (s.pass) copyText(s.pass, s.user ? '' : T().passCopied);
+  if (s.user) copyText(s.user, s.pass ? T().credsCopied : T().userCopied);
+  openInApp(url, s.name || url);
+}
 function openSite(s) {
   if (lessonCount(s.id)) { openLessonsSheet(s); return; }
   if (attCount(s.id)) { openAttSheet(s); return; }
-  var url = s.url ? (/^https?:\/\//i.test(s.url) ? s.url : 'https://' + s.url) : '';
-  if (url) {
-    // Keep credentials one tap away: copy password then username, so the
-    // username is what paste gives first and the password stays one entry
-    // back in the keyboard's clipboard history
-    if (s.pass) copyText(s.pass, s.user ? '' : T().passCopied);
-    if (s.user) copyText(s.user, s.pass ? T().credsCopied : T().userCopied);
-    openInApp(url, s.name || url);
-    return;
-  }
+  if (s.url) { openSiteUrl(s); return; }
   if (s.addr) { openMap(s.addr, s.name); return; }
   openEditor(s);   // empty folder → straight to its lessons editor
 }
@@ -2044,6 +2068,8 @@ if (CapApp && CapApp.addListener) {
       return;
     }
     if (ovRoot.firstChild) { closeOv(); return; }
+    var views = document.querySelectorAll('.lov, .libv');   // lessons/library sit above the grid
+    if (views.length) { views[views.length - 1].remove(); return; }
     confirmExit();
   });
   CapApp.addListener('appStateChange', function (st) {
