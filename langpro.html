@@ -270,6 +270,9 @@
   .cue-line { font-family: 'Segoe UI','Noto Sans',Roboto,'Helvetica Neue',sans-serif;
     letter-spacing: .01em; cursor: pointer; }
   .cue-line.spk-on { outline: 3px solid rgba(255,255,255,.7); }
+  .cue-line .cwords { flex: 1; min-width: 0; }
+  .cue-line .cwords .w { cursor: pointer; border-radius: 6px; padding: 0 1px; }
+  .cue-line .cwords .w.spk-on, .cue-line .cwords .w.speaking { background: var(--accent); color: #fff; }
   .cue-line .cue-flag { position: static; transform: none; font-size: 1.7rem;
     line-height: 1; flex: none; }
   .cue-line.lg-fr { background: var(--cap-fr-bg, #3d3d3d); color: var(--cap-fr-fg, #fff);
@@ -2287,8 +2290,25 @@ function openLesson(l) {
       if (!r.text) return;
       var lg = shortLang(r.lang);
       var ln = el('div', 'cue-line lg-' + (lg === 'fr' || lg === 'ar' || lg === 'en' ? lg : 'x'));
-      ln.appendChild(el('span', 'cue-flag', r.flag || langFlag(r.lang) || '🔊'));
-      ln.appendChild(el('span', null, r.text));
+      var fl = el('span', 'cue-flag', r.flag || langFlag(r.lang) || '🔊');
+      fl.onclick = function (e) { e.stopPropagation(); speakLoop(r.text, r.lang, ln); };
+      ln.appendChild(fl);
+      var wt = el('span', 'cwords');
+      (r.text || '').split(/\s+/).forEach(function (w) {
+        if (!w) return;
+        var ws = el('span', 'w', w);
+        var last = 0;
+        ws.onclick = function (e) {
+          e.stopPropagation();
+          var nw = Date.now();
+          if (nw - last < 330) searchImages(w);
+          else speakLoop(w, r.lang, ws);
+          last = nw;
+        };
+        wt.appendChild(ws);
+        wt.appendChild(document.createTextNode(' '));
+      });
+      ln.appendChild(wt);
       ln.onclick = function () { speakLoop(r.text, r.lang, ln); };
       nowEl.appendChild(ln);
     });
