@@ -2486,7 +2486,7 @@ function openLesson(l) {
         if (c.t == null) return;
         if (ct >= c.t && ct < (c.d != null ? c.d : 1e9)) active = c;
       });
-      // while the video plays, pin the active phrase to the top of the cue list
+      // keep the newly active phrase visible; never yank the page away from the video
       var pinTop = active !== lastActive; lastActive = active;
       var done = false;
       cueEls.forEach(function (ce) {
@@ -2494,7 +2494,7 @@ function openLesson(l) {
         ce.el.classList.toggle('on', on);
         if (on && !done) {
           done = true;
-          try { ce.el.scrollIntoView({ block: pinTop ? 'start' : 'nearest' }); } catch (e) {}
+          if (pinTop) { try { ce.el.scrollIntoView({ block: 'nearest' }); } catch (e) {} }
         }
       });
       renderNow(active);
@@ -4066,12 +4066,12 @@ if (CapApp && CapApp.addListener) {
       return;
     }
     if (ovRoot.firstChild) { closeOv(); return; }
-    if (document.querySelector('.qz-ov')) { closeQuiz(); closeRR(); return; }
-    // close the topmost layer: stacked dialogs (pushOv on body), then lesson/library views
-    var views = document.querySelectorAll('body > .overlay, body > .lov, body > .libv');
+    // close the topmost layer: dialogs, game overlays, then lesson/library views
+    var views = document.querySelectorAll('body > .overlay, body > .qz-ov, body > .lov, body > .libv');
     if (views.length) {
       stopSpeakLoop();
       var vw = views[views.length - 1];
+      if (vw.classList.contains('qz-ov')) { closeQuiz(); closeRR(); return; }
       if (vw.classList.contains('lov')) {   // recorder/media belong to the lesson, not dialogs stacked over it
         if (recState) { try { recState.rec.stop(); } catch (e) {} }
         vw.querySelectorAll('video, audio').forEach(function (m) { try { m.pause(); } catch (e) {} });
