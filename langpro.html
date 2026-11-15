@@ -266,6 +266,29 @@
   .capdot { width: 30px; height: 26px; border-radius: 8px; border: 2px solid var(--line);
     background: var(--card); cursor: pointer; font-size: .75rem; font-weight: 800; padding: 0; }
   .capdot.on { border-color: var(--gold); }
+  /* ---------- zeelang caption card ---------- */
+  .mbcap { position: absolute; left: 4%; right: 4%; bottom: 4%; z-index: 3; }
+  .mbcap.plain { position: static; margin: .4rem .8rem; }
+  .cap-card { background: rgba(250,246,255,.94); border-radius: 20px; padding: .6rem .65rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,.45); }
+  .cap-pl { display: flex; align-items: center; gap: .55rem; background: #fff;
+    border: 1px solid #e9e0f4; border-radius: 14px; padding: .55rem .7rem; margin-bottom: .45rem; }
+  .cap-pl:last-child { margin-bottom: 0; }
+  .cap-txt { flex: 1; min-width: 0; color: #2d1b4e; font-weight: 700; font-size: 1rem; line-height: 1.55; }
+  .cap-pl:first-child .cap-txt { font-size: 1.12rem; font-weight: 800; }
+  .cap-txt .w { cursor: pointer; border-radius: 5px; padding: 0 1px; }
+  .cap-txt .w.spk-on { background: rgba(245,158,11,.25); color: #b45309; }
+  .cap-loop { flex: none; width: 38px; height: 38px; border-radius: 12px; border: none;
+    background: linear-gradient(135deg,#f6b93b,#f0932b); color: #fff; font-size: 1.05rem;
+    font-weight: 900; box-shadow: 0 4px 10px rgba(240,147,43,.35); cursor: pointer; }
+  .cap-loop.spk-on { background: linear-gradient(135deg,#f0932b,#e07b1f); animation: lppulse 1s infinite; }
+  .cap-ctrl { display: flex; justify-content: center; gap: .55rem; margin-top: .55rem; }
+  .cap-ctrl button { flex: 1; max-width: 90px; height: 40px; border-radius: 12px;
+    border: 1px solid var(--line); background: var(--card); color: var(--txt);
+    font-size: 1.05rem; cursor: pointer; }
+  .cap-ctrl button.spk-on { background: linear-gradient(135deg,#f6b93b,#f0932b);
+    border-color: transparent; color: #fff; animation: lppulse 1s infinite; }
+  @keyframes lppulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
   .lov-cues { flex: 1; overflow-y: auto; padding: .3rem .8rem 5.5rem; display: flex;
     flex-direction: column; gap: .4rem; }
   .cue { display: flex; gap: .5rem; align-items: flex-start; background: var(--card);
@@ -901,10 +924,10 @@ function pauseMedia() {
   } catch (e) {}
   stopSegLoop();
 }
-var SEG_LOOP = { c: null, btn: null };   // the cue whose ▶ repeats its video segment
+var SEG_LOOP = { c: null, btn: null, glyph: '' };   // the cue whose ▶ repeats its video segment
 function stopSegLoop() {
-  if (SEG_LOOP.btn) SEG_LOOP.btn.classList.remove('spk-on');
-  SEG_LOOP.c = null; SEG_LOOP.btn = null;
+  if (SEG_LOOP.btn) { SEG_LOOP.btn.classList.remove('spk-on'); SEG_LOOP.btn.textContent = SEG_LOOP.glyph || '▶'; }
+  SEG_LOOP.c = null; SEG_LOOP.btn = null; SEG_LOOP.glyph = '';
 }
 function stopSpeakLoop() {
   SPEAK_LOOP.on = false;
@@ -1041,6 +1064,12 @@ function fillCueLines(cx, text) {
     }
     cx.appendChild(row);
   });
+}
+function searchImages(text) {
+  var url = 'https://www.google.com/search?q=' + encodeURIComponent(String(text || '') + ' clipart') + '&udm=2&hl=' + uiLang();
+  var BR = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Browser;
+  if (BR && BR.open) { BR.open({ url: url }); return; }
+  window.open(url, '_blank');
 }
 function speak(text, lang) {
   stopSpeakLoop();
@@ -1562,28 +1591,71 @@ function openLesson(l) {
     };
     if (isV) player.setAttribute('playsinline', '');
     mediaWrap.appendChild(player);
-    if (isV) {
-      capEl = el('div', 'capzone ' + CAP_THEMES[capTheme()]);
-      mediaWrap.appendChild(capEl);
-    }
+    if (isV) { capEl = el('div', 'mbcap'); mediaWrap.appendChild(capEl); }
     ov.appendChild(mediaWrap);
   }
-  if (!isV) {
-    capEl = el('div', 'capzone capplain ' + CAP_THEMES[capTheme()]);
-    ov.appendChild(capEl);
+  if (!isV) { capEl = el('div', 'mbcap plain'); ov.appendChild(capEl); }
+  var curCapCue = false;
+  function renderCap(c) {
+    if (!capEl || c === curCapCue) return;
+    curCapCue = c;
+    capEl.innerHTML = '';
+    if (!c) return;
+    var card = el('div', 'cap-card');
+    cueLangLines(c.text || '').forEach(function (ln) {
+      var row = el('div', 'cap-pl');
+      var tx = el('span', 'cap-txt');
+      (ln.text || '').split(/\s+/).filter(Boolean).forEach(function (w) {
+        var ws = el('span', 'w', w);
+        var tm = null;
+        ws.onclick = function (ev) {
+          ev.stopPropagation();
+          if (tm) { clearTimeout(tm); tm = null; searchImages(w); return; }   // double-tap → image search
+          tm = setTimeout(function () { tm = null; speakLoop(w, ln.lang, ws); }, 270);   // tap → word loop
+        };
+        tx.appendChild(ws);
+        tx.appendChild(document.createTextNode(' '));
+      });
+      row.appendChild(tx);
+      var lb = el('button', 'cap-loop', ln.flag || '🔊');
+      lb.title = ln.lang;
+      lb.onclick = function (ev) { ev.stopPropagation(); speakLoop(ln.text, ln.lang, lb); };
+      row.appendChild(lb);
+      card.appendChild(row);
+    });
+    capEl.appendChild(card);
+    if (player) {
+      var ctrl = el('div', 'cap-ctrl');
+      [['stop', '⏹'], ['back', '⏪'], ['replay', '🔁'], ['fwd', '⏩']].forEach(function (a) {
+        var b = el('button', null, a[1]);
+        b.onclick = function (ev) {
+          ev.stopPropagation();
+          var act = a[0], now = player.currentTime;
+          var tc = sortedCues(l).filter(function (x) { return x.t != null; });
+          var ix = tc.indexOf(c);
+          if (act === 'stop') { stopSegLoop(); player.pause(); }
+          else if (act === 'replay') {
+            if (SEG_LOOP.c === c) { stopSegLoop(); player.pause(); return; }
+            stopSegLoop(); stopSpeakLoop();
+            SEG_LOOP.c = c; SEG_LOOP.btn = b; SEG_LOOP.glyph = '🔁';
+            b.classList.add('spk-on');
+            player.currentTime = c.t; player.play();
+          } else {
+            var tgt = (act === 'back')
+              ? ((now - c.t > 1.5 || ix <= 0) ? c : tc[ix - 1])
+              : (ix >= 0 && ix + 1 < tc.length ? tc[ix + 1] : null);
+            if (tgt) {
+              player.currentTime = tgt.t;
+              if (SEG_LOOP.c) SEG_LOOP.c = tgt;
+              else player.play();
+            } else if (act === 'back') player.currentTime = c.t;
+          }
+        };
+        ctrl.appendChild(b);
+      });
+      capEl.appendChild(ctrl);
+    }
   }
-  var caps = el('div', 'lov-caps');
-  caps.appendChild(el('span', 'flabel', t.capTheme));
-  CAP_THEMES.forEach(function (ct, i) {
-    var d = el('button', 'capdot' + (capTheme() === i ? ' on' : ''), 'Aa');
-    d.onclick = function () {
-      setCapTheme(i);
-      caps.querySelectorAll('.capdot').forEach(function (x, j) { x.classList.toggle('on', j === i); });
-      if (capEl) capEl.className = (isV ? 'capzone ' : 'capzone capplain ') + CAP_THEMES[i];
-    };
-    caps.appendChild(d);
-  });
-  ov.appendChild(caps);
   var list = el('div', 'lov-cues');
   ov.appendChild(list);
   var cueEls = [];
@@ -1604,7 +1676,8 @@ function openLesson(l) {
           e.stopPropagation(); stopSpeakLoop();
           if (SEG_LOOP.c === c) { stopSegLoop(); player.pause(); return; }
           stopSegLoop();
-          SEG_LOOP.c = c; SEG_LOOP.btn = pb; pb.classList.add('spk-on');
+          SEG_LOOP.c = c; SEG_LOOP.btn = pb; SEG_LOOP.glyph = '▶';
+          pb.classList.add('spk-on'); pb.textContent = '🔁';
           player.currentTime = c.t; player.play();
         };
         cb.appendChild(pb);
@@ -1642,7 +1715,7 @@ function openLesson(l) {
         if (c.t == null) return;
         if (ct >= c.t && ct < (c.d != null ? c.d : 1e9)) active = c;
       });
-      if (capEl) capEl.textContent = active ? (active.text || '') : '';
+      if (capEl) renderCap(active || null);
       var done = false;
       cueEls.forEach(function (ce) {
         var on = ce.c === active;
