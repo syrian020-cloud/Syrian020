@@ -1214,7 +1214,7 @@ function drawCuePills(cx, rows, W, H, hi) {
       }
       if (cur) wl.push(cur);
       if (!wl.length) wl = [''];
-      wl.forEach(function (w) { lines.push({ it: it, w: w, tw: cx.measureText(w).width }); });
+      wl.forEach(function (w, wi) { lines.push({ it: it, w: w, tw: cx.measureText(w).width, fl: wi === 0 ? it.flag : '' }); });
       y += wl.length * lh(f) + gap;
     });
     return { lines: lines, total: y - gap };
@@ -1222,22 +1222,22 @@ function drawCuePills(cx, rows, W, H, hi) {
   var l = layout(base);
   var f0 = base;
   while (l.total > H * 0.7 && f0 > 10) { f0 *= 0.92; l = layout(f0); }
-  var lf = lh(f0), y = (H - l.total) / 2, flagR = f0 * 0.75;
+  var lf = lh(f0), y = H - l.total - Math.round(H * 0.06), flagR = f0 * 0.8;
   l.lines.forEach(function (ln) {
     var p = cuePill(ln.it.lang);
-    var pw = Math.min(MAXW, ln.tw + f0 * 1.7), px = (W - pw) / 2, ph = lf;
+    var pw = Math.min(MAXW, ln.tw + f0 * 1.7 + (ln.fl ? flagR * 2.2 : 0)), px = (W - pw) / 2, ph = lf;
     rrPath(cx, px, y, pw, ph, ph * 0.45);
     cx.fillStyle = p.bg; cx.fill();
     if (p.bd && p.bd !== 'transparent') { cx.lineWidth = Math.max(2, f0 * 0.08); cx.strokeStyle = p.bd; cx.stroke(); }
     cx.font = (p.it ? 'italic ' : '') + '700 ' + f0 + 'px ' + p.font;
     cx.textAlign = 'center'; cx.textBaseline = 'middle';
-    cx.fillStyle = p.fg; cx.fillText(ln.w, W / 2, y + ph / 2);
-    if (ln.it.flag) {
-      var fx = px + ph * 0.4, fy = y + ph / 2;
+    cx.fillStyle = p.fg; cx.fillText(ln.w, W / 2 + (ln.fl ? flagR * 1.1 : 0), y + ph / 2);
+    if (ln.fl) {
+      var fx = px + flagR + f0 * 0.3, fy = y + ph / 2;
       cx.beginPath(); cx.arc(fx, fy, flagR, 0, 7);
-      cx.fillStyle = 'rgba(0,0,0,.35)'; cx.fill();
-      cx.font = flagR * 1.15 + 'px sans-serif';
-      cx.fillText(ln.it.flag, fx, fy + flagR * 0.08);
+      cx.fillStyle = 'rgba(0,0,0,.4)'; cx.fill();
+      cx.font = flagR * 1.3 + 'px sans-serif';
+      cx.fillText(ln.fl, fx, fy + flagR * 0.1);
     }
     y += ph + f0 * 0.35;
   });
@@ -2030,7 +2030,7 @@ function openLesson(l) {
     var dx = el('button', 'vcover-x', '✕');
     dx.onclick = function (e) {
       e.stopPropagation();
-      confirmDialog('🗑 🖼', t.delYes, function () { l.cover = ''; lSave(l); showCover(); });
+      confirmDialog('🗑 🖼', t.delYes, function () { l.cover = ''; lSave(l); showCover(); }, true);
     };
     cov.appendChild(dx);
     mw.appendChild(cov);
