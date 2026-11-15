@@ -287,6 +287,7 @@ nav button.on{color:var(--acc)}
 <!-- template paste -->
 <div class="shade" id="tplShade"><div class="sheet" style="height:92vh;display:flex;flex-direction:column;max-width:640px">
   <h3 id="tplTitle" style="margin-bottom:8px"></h3>
+  <input type="text" id="tplName" class="phfld" style="display:none;flex:0 0 auto" dir="auto">
   <div id="tplList"></div>
   <textarea id="tplText" dir="auto"></textarea>
   <div class="rowbtns" style="flex:0 0 auto;margin-top:10px"><button class="b ghost" id="tplNo"></button><button class="b primary" id="tplYes"></button></div>
@@ -405,10 +406,18 @@ $('lsAddF').onclick=async()=>{
  const nm=await askBox(t('addFolder'),t('newFolderNm'));
  if(nm){LSROOT().push({id:Date.now()+Math.floor(Math.random()*999),t:'f',n:nm,kids:[]});save();renderLessons()}
 };
-$('lsAddL').onclick=async()=>{
- const nm=await askBox(t('addLesson'),t('newLessonNm'));
- if(nm){LSROOT().push({id:Date.now()+Math.floor(Math.random()*999),t:'l',n:nm});save();renderLessons()}
-};
+let tplMode='lesson';
+function tplSheet(mode){
+ tplMode=mode;
+ $('tplTitle').textContent=t('tplTitle');
+ const nm=$('tplName');nm.style.display=mode==='folder'?'':'none';nm.value='';nm.placeholder=t('newLessonNm');
+ const l=$('tplList');l.innerHTML='';
+ TEMPLATES.concat(TIMED_TEMPLATES).forEach(tp=>{const b=document.createElement('button');b.textContent=tp.name;b.onclick=()=>{$('tplText').value=tp.text};l.appendChild(b)});
+ $('tplText').value=TEMPLATES[0].text;
+ $('tplNo').textContent=t('cancel');$('tplYes').textContent=t('doAdd');
+ $('tplShade').classList.add('on');
+}
+$('lsAddL').onclick=()=>tplSheet('folder');
 $('lsBack').onclick=()=>{if(lsView==='lesson'){lsView='grid';renderLessons();return}lsStack.pop();renderLessons()};
 /* lesson view: image + phrases */
 let lsView='grid',lsLesson=null;
@@ -458,19 +467,19 @@ $('phYes').onclick=()=>{
  if(p.s||p.p||p.a||p.e){lsLesson.ph=lsLesson.ph||[];lsLesson.ph.push(p);save();renderPhrases(lsLesson)}
  $('phShade').classList.remove('on');
 };
-$('lsTpl').onclick=()=>{
- if(!lsLesson)return;
- $('tplTitle').textContent=t('tplTitle');
- const l=$('tplList');l.innerHTML='';
- TEMPLATES.concat(TIMED_TEMPLATES).forEach(tp=>{const b=document.createElement('button');b.textContent=tp.name;b.onclick=()=>{$('tplText').value=tp.text};l.appendChild(b)});
- $('tplText').value=TEMPLATES[0].text;
- $('tplNo').textContent=t('cancel');$('tplYes').textContent=t('doAdd');
- $('tplShade').classList.add('on');
-};
+$('lsTpl').onclick=()=>{if(lsLesson)tplSheet('lesson')};
 $('tplNo').onclick=()=>$('tplShade').classList.remove('on');
 $('tplYes').onclick=()=>{
- const ph=parsePhrases($('tplText').value);
- if(ph.length){lsLesson.ph=(lsLesson.ph||[]).concat(ph);save();renderPhrases(lsLesson);toast(ph.length+' '+t('phAddedN'))}
+ const txt=$('tplText').value;
+ if(tplMode==='lesson'){
+  const ph=parsePhrases(txt);
+  if(ph.length){lsLesson.ph=(lsLesson.ph||[]).concat(ph);save();renderPhrases(lsLesson);toast(ph.length+' '+t('phAddedN'))}
+ }else{
+  const nm=$('tplName').value.trim();
+  const parts=parseLessons(txt);
+  if(parts.length){parts.forEach((p,i)=>{LSROOT().push({id:Date.now()+Math.floor(Math.random()*999)+i,t:'l',n:p.title||nm||(t('newLessonNm')+' '+(i+1)),ph:p.ph})});save();renderLessons();toast(parts.length+' '+t('addLesson'))}
+  else if(nm){LSROOT().push({id:Date.now()+Math.floor(Math.random()*999),t:'l',n:nm,ph:[]});save();renderLessons()}
+ }
  $('tplShade').classList.remove('on');
 };
 $('imgPick').onchange=async e=>{
@@ -760,6 +769,17 @@ function segKV(seg){
  s=s.replace(/^(?:الأصلية|الأصلي|النص|النطق(?: اللاتيني)?|تقريب(?: النطق)?(?: بالعربية)?|المعنى(?: بالعربي(?:ة)?)?|بالعربي|بالإنجليزية|English|Meaning|الإنجليزية|الانجليزية|اللفظ)\s*[:：]\s*/u,'');
  if(!k){if(/المعنى|بالعربي/.test(seg))k='a';else if(/English|الإنجليزية|الانجليزية/.test(seg))k='e';else if(/النطق|اللفظ|تقريب/.test(seg))k='p'}
  return{k,txt:s};
+}
+function parseLessons(text){
+ const parts=[];let title='',buf=[];
+ const push=()=>{const ph=parsePhrases(buf.join('\n'));if(ph.length||title)parts.push({title,ph});buf=[];title=''};
+ for(const raw of text.split(/\r?\n/)){
+  const line=raw.trim();
+  const head=line.match(/^#{1,6}\s*\d*\.?\s*(.+)$/);
+  if(head||line==='==='||line==='—'){push();title=head?head[1].trim():'';continue}
+  buf.push(raw);
+ }
+ push();return parts;
 }
 function parsePhrases(text){
  const out=[];let cur=null;
