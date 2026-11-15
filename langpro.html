@@ -102,6 +102,22 @@
   .add-card { border: 1.5px dashed var(--line); background: transparent; color: var(--dim);
     font-size: 1.8rem; border-radius: 20px; }
   .add-card:active { border-color: var(--accent); color: var(--accent); }
+  .fab { position: fixed; bottom: calc(1.1rem + env(safe-area-inset-bottom)); inset-inline-end: 1.1rem;
+    z-index: 3900; width: 60px; height: 60px; border-radius: 50%; border: none; cursor: pointer;
+    background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff;
+    font-size: 2rem; line-height: 1; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 22px rgba(124,58,237,.45); transition: transform .12s ease; }
+  .fab:active { transform: scale(.9); }
+  .lov .fab { z-index: 4402; bottom: 6.6rem; }
+  .fab-menu { position: fixed; bottom: calc(5.6rem + env(safe-area-inset-bottom)); inset-inline-end: 1.3rem;
+    z-index: 3901; display: flex; flex-direction: column; gap: .45rem; align-items: flex-end; }
+  .lov .fab-menu { z-index: 4402; bottom: 11.6rem; }
+  .fab-menu .fab-it { display: flex; align-items: center; gap: .5rem; background: var(--card);
+    border: 1px solid var(--line); border-radius: 999px; padding: .6rem 1.05rem; color: var(--txt);
+    font-weight: 700; font-size: .9rem; cursor: pointer; box-shadow: 0 6px 18px rgba(3,8,12,.35);
+    font-family: inherit; }
+  .fab-menu .fab-it:active { background: var(--accent); color: #fff; }
+  .lov, .libv, .dlg, .sheet { font-family: var(--cap-x-font, inherit); }
 
   /* ---------- toast ---------- */
   #toast { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
@@ -1881,6 +1897,36 @@ function renameLesson(l, refresh, onDelete) {
   r.appendChild(no); r.appendChild(yes); d.appendChild(r); ov.appendChild(d);
   setTimeout(function () { try { inp.focus(); inp.select(); } catch (e) {} }, 200);
 }
+function fabBubble(host, items) {
+  var fab = el('button', 'fab', '➕');
+  var menu = el('div', 'fab-menu'); menu.style.display = 'none';
+  items.forEach(function (it) {
+    var b = el('button', 'fab-it', it.label);
+    b.onclick = function (e) { e.stopPropagation(); menu.style.display = 'none'; it.fn(); };
+    menu.appendChild(b);
+  });
+  fab.onclick = function (e) {
+    e.stopPropagation();
+    menu.style.display = menu.style.display === 'none' ? 'flex' : 'none';
+  };
+  host.addEventListener('click', function () { menu.style.display = 'none'; });
+  host.appendChild(fab); host.appendChild(menu);
+}
+function pickFolderThen(fn) {
+  var t = T();
+  var ov = pushOv(4600); var d = el('div', 'dlg');
+  d.appendChild(el('p', null, '📁'));
+  var ls = el('div'); ls.style.cssText = 'max-height:50vh;overflow-y:auto';
+  sites.forEach(function (s) {
+    var b = el('button', 'mrow', '📁 ' + (s.name || '—'));
+    b.onclick = function () { ov.remove(); fn(s); };
+    ls.appendChild(b);
+  });
+  d.appendChild(ls);
+  var r = el('div', 'row'); var no = el('button', null, t.no);
+  no.onclick = function () { ov.remove(); };
+  r.appendChild(no); d.appendChild(r); ov.appendChild(d);
+}
 function openLessonsSheet(s, session) {
   var t = T();
   var ov = el('div', 'lov');
@@ -1941,16 +1987,12 @@ function openLessonsSheet(s, session) {
     body.appendChild(grid);
   }
   ov.appendChild(body);
-  var acts = el('div', 'lov-actions');
-  var add = el('button', 'mini', '➕ ' + t.addLesson);
-  add.onclick = function () {
+  fabBubble(ov, [{ label: '➕ ' + t.addLesson, fn: function () {
     addLessonDialog(s.id, function (rec) {
       if (session) (session.addedL = session.addedL || []).push(rec);
       refresh();
     });
-  };
-  acts.appendChild(add);
-  ov.appendChild(acts);
+  } }]);
   refresh();
   document.body.appendChild(ov);
 }
@@ -2871,9 +2913,16 @@ function renderGrid() {
     card.onclick = function () { openSite(s); };
     g.appendChild(card);
   });
-  var add = el('button', 'site add-card', '➕');
-  add.onclick = function () { openEditor(null); };
-  g.appendChild(add);
+  if (!document.getElementById('fabAdd')) {
+    var host = document.body; host.id = host.id || 'appBody';
+    fabBubble(host, [
+      { label: '📁 ' + T().addSite, fn: function () { openEditor(null); } },
+      { label: '🎬 ' + T().addLesson, fn: function () {
+        pickFolderThen(function (s) { addLessonDialog(s.id); });
+      } }
+    ]);
+    host.lastChild.id = 'fabAdd'; host.children[host.children.length - 2].id = 'fabAddBtn';
+  }
 }
 
 /* ================= open / edit ================= */
