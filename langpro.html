@@ -271,9 +271,9 @@
   .capdot.on { border-color: var(--gold); }
   /* ---------- zeelang caption card ---------- */
   .mbcap { position: absolute; left: 50%; transform: translateX(-50%); width: 56%;
-    bottom: max(5%, 3rem); max-height: 55%; z-index: 3; display: flex; flex-direction: column; }
+    bottom: max(5%, 3rem); max-height: none; z-index: 3; display: flex; flex-direction: column; }
   .mbcap.plain { position: relative; margin: .4rem .8rem; width: auto; left: auto; transform: none;
-    top: auto; bottom: auto; max-height: 30vh; flex: none; justify-content: flex-start; }
+    top: auto; bottom: auto; max-height: none; flex: none; justify-content: flex-start; }
   .cap-card { background: rgba(250,246,255,.94); border-radius: 20px; padding: .6rem .65rem;
     box-shadow: 0 8px 30px rgba(0,0,0,.45); display: flex; flex-direction: column; min-height: 0;
     overflow: hidden; }
@@ -1728,13 +1728,6 @@ function openLesson(l) {
       capEl = el('div', 'mbcap');
       mediaWrap.appendChild(capEl);
       capDraggable(capEl, mediaWrap);
-      // % max-height doesn't resolve against the auto-height wrap — cap it in px
-      var capMax = function () {
-        var h = mediaWrap.clientHeight;
-        capEl.style.maxHeight = Math.max(80, Math.min(Math.floor(h * 0.55), h - 16)) + 'px';
-      };
-      capMax();
-      player.addEventListener('loadedmetadata', capMax);
     }
     ov.appendChild(mediaWrap);
   }
