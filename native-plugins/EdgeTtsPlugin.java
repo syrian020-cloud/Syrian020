@@ -50,25 +50,6 @@ public class EdgeTtsPlugin extends Plugin {
 
     private final OkHttpClient client = new OkHttpClient();
 
-    // Shared WebSocket: the Edge endpoint accepts several SSML turns on one
-    // connection, so keeping it open skips the TCP+TLS+WS handshake that made
-    // every phrase wait ~1-2s. Serialized by wsLock; self-heals on close.
-    // Listener callbacks never take wsLock — the synth thread holds it while
-    // waiting on latches, so these must be plain volatile reads or it deadlocks.
-    private final Object wsLock = new Object();
-    private volatile WebSocket ws;
-    private volatile boolean wsOpen;
-    private volatile CountDownLatch openLatch;
-    private volatile ReqCtx active;
-
-    private static class ReqCtx {
-        final CountDownLatch latch = new CountDownLatch(1);
-        Exception err;
-        boolean gotAudio;
-        FileOutputStream fos;
-        String reqId;
-    }
-
     private android.media.MediaPlayer mediaPlayer;
     private PluginCall pendingPlayCall;
 
@@ -276,139 +257,94 @@ public class EdgeTtsPlugin extends Plugin {
         return f.format(new Date());
     }
 
-    private final WebSocketListener wsListener = new WebSocketListener() {
-        @Override
-        public void onOpen(WebSocket socket, Response response) {
-            socket.send("X-Timestamp:" + timestamp()
-                    + "\r\nContent-Type:application/json; charset=utf-8"
-                    + "\r\nPath:speech.config\r\n\r\n"
-                    + "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{"
-                    + "\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"true\"},"
-                    + "\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}}\r\n");
-            wsOpen = true;
-            CountDownLatch ol = openLatch;
-            if (ol != null) ol.countDown();
-        }
-
-        @Override
-        public void onMessage(WebSocket socket, ByteString bytes) {
-            ReqCtx ctx = active;
-            if (ctx == null) return;
-            try {
-                byte[] b = bytes.toByteArray();
-                if (b.length < 3) return;
-                int hlen = ((b[0] & 0xff) << 8) | (b[1] & 0xff);
-                if (b.length > 2 + hlen) {
-                    ctx.fos.write(b, 2 + hlen, b.length - 2 - hlen);
-                    ctx.gotAudio = true;
-                }
-            } catch (Exception e) {
-                ctx.err = e;
-                ctx.latch.countDown();
-            }
-        }
-
-        @Override
-        public void onMessage(WebSocket socket, String text2) {
-            ReqCtx ctx = active;
-            if (ctx == null) return;
-            if (text2.contains("Path:turn.end")
-                    && (ctx.reqId == null || text2.contains(ctx.reqId))) {
-                ctx.latch.countDown();
-            }
-        }
-
-        @Override
-        public void onFailure(WebSocket socket, Throwable t, Response r) {
-            wsOpen = false;
-            CountDownLatch ol = openLatch;
-            if (ol != null) ol.countDown();
-            ReqCtx ctx = active;
-            if (ctx != null) {
-                ctx.err = new Exception("ws failure: "
-                        + (r != null ? "HTTP " + r.code() : String.valueOf(t.getMessage())));
-                ctx.latch.countDown();
-            }
-        }
-
-        @Override
-        public void onClosed(WebSocket socket, int code, String reason) {
-            wsOpen = false;
-            CountDownLatch ol = openLatch;
-            if (ol != null) ol.countDown();
-            ReqCtx ctx = active;
-            if (ctx != null) ctx.latch.countDown();
-        }
-    };
-
-    private void killWs() {
-        wsOpen = false;
-        if (ws != null) {
-            try { ws.close(1000, "done"); } catch (Exception ignored) {}
-            ws = null;
-        }
-    }
-
-    // Opens the shared socket if needed and waits for onOpen. Caller holds wsLock.
-    private void ensureWs() throws Exception {
-        if (ws != null && wsOpen) return;
-        killWs();
-        openLatch = new CountDownLatch(1);
+    private File synth(String text, String voice, String rate) throws Exception {
         String url = "wss://api.msedgeservices.com/tts/cognitiveservices/websocket/v1"
                 + "?Ocp-Apim-Subscription-Key=" + TOKEN
                 + "&ConnectionId=" + UUID.randomUUID().toString().replace("-", "")
                 + "&Sec-MS-GEC=" + secMsGec()
                 + "&Sec-MS-GEC-Version=" + GEC_VERSION;
-        ws = client.newWebSocket(new Request.Builder().url(url)
+
+        File out = File.createTempFile("edge-", ".mp3", getContext().getCacheDir());
+        final FileOutputStream fos = new FileOutputStream(out);
+        final CountDownLatch latch = new CountDownLatch(1);
+        final Exception[] err = { null };
+        final boolean[] gotAudio = { false };
+        final boolean[] finished = { false };
+
+        WebSocketListener listener = new WebSocketListener() {
+            @Override
+            public void onOpen(WebSocket ws, Response response) {
+                String ts = timestamp();
+                ws.send("X-Timestamp:" + ts
+                        + "\r\nContent-Type:application/json; charset=utf-8"
+                        + "\r\nPath:speech.config\r\n\r\n"
+                        + "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{"
+                        + "\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"true\"},"
+                        + "\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}\r\n");
+                String ssml = "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'"
+                        + " xml:lang='en-US'><voice name='" + fullVoiceName(voice)
+                        + "'><prosody pitch='+0Hz' rate='" + rate + "' volume='+0%'>"
+                        + escXml(text) + "</prosody></voice></speak>";
+                ws.send("X-RequestId:" + UUID.randomUUID().toString().replace("-", "")
+                        + "\r\nContent-Type:application/ssml+xml\r\nX-Timestamp:" + ts + "Z"
+                        + "\r\nPath:ssml\r\n\r\n" + ssml);
+            }
+
+            @Override
+            public void onMessage(WebSocket ws, ByteString bytes) {
+                try {
+                    byte[] b = bytes.toByteArray();
+                    if (b.length < 3) return;
+                    int hlen = ((b[0] & 0xff) << 8) | (b[1] & 0xff);
+                    if (b.length > 2 + hlen) {
+                        fos.write(b, 2 + hlen, b.length - 2 - hlen);
+                        gotAudio[0] = true;
+                    }
+                } catch (Exception e) {
+                    err[0] = e;
+                    finished[0] = true;
+                    latch.countDown();
+                }
+            }
+
+            @Override
+            public void onMessage(WebSocket ws, String text2) {
+                if (text2.contains("Path:turn.end")) {
+                    finished[0] = true;
+                    latch.countDown();
+                }
+            }
+
+            @Override
+            public void onFailure(WebSocket ws, Throwable t, Response r) {
+                err[0] = new Exception("ws failure: "
+                        + (r != null ? "HTTP " + r.code() : String.valueOf(t.getMessage())));
+                finished[0] = true;
+                latch.countDown();
+            }
+
+            @Override
+            public void onClosed(WebSocket ws, int code, String reason) {
+                if (!finished[0]) {
+                    finished[0] = true;
+                    latch.countDown();
+                }
+            }
+        };
+
+        WebSocket ws = client.newWebSocket(new Request.Builder().url(url)
                 .header("User-Agent", UA)
                 .header("Origin", "chrome-extension://jdiccldimpdaibmpdkjnbmckianbfold")
                 .header("Cookie", "muid=" + UUID.randomUUID().toString().replace("-", "").toUpperCase(Locale.US) + ";")
                 .header("Accept-Language", "en-US,en;q=0.9")
                 .header("Pragma", "no-cache")
                 .header("Cache-Control", "no-cache")
-                .build(), wsListener);
-        if (!openLatch.await(15, TimeUnit.SECONDS) || !wsOpen) {
-            killWs();
-            throw new Exception("ws open timeout");
-        }
-    }
-
-    private File synth(String text, String voice, String rate) throws Exception {
-        String ssml = "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'"
-                + " xml:lang='en-US'><voice name='" + fullVoiceName(voice)
-                + "'><prosody pitch='+0Hz' rate='" + rate + "' volume='+0%'>"
-                + escXml(text) + "</prosody></voice></speak>";
-
-        Exception last = null;
-        synchronized (wsLock) {
-            // One retry on a fresh socket covers idle-timeouts and server closes.
-            for (int attempt = 0; attempt < 2; attempt++) {
-                ReqCtx ctx = new ReqCtx();
-                File out = File.createTempFile("edge-", ".mp3", getContext().getCacheDir());
-                try {
-                    ensureWs();
-                    ctx.reqId = UUID.randomUUID().toString().replace("-", "");
-                    ctx.fos = new FileOutputStream(out);
-                    active = ctx;
-                    ws.send("X-RequestId:" + ctx.reqId
-                            + "\r\nContent-Type:application/ssml+xml\r\nX-Timestamp:" + timestamp() + "Z"
-                            + "\r\nPath:ssml\r\n\r\n" + ssml);
-                    ctx.latch.await(20, TimeUnit.SECONDS);
-                    ctx.fos.close();
-                    if (ctx.err == null && ctx.gotAudio) return out;
-                    out.delete();
-                    last = ctx.err != null ? ctx.err : new Exception("no audio received");
-                    if (ctx.err == null) break; // clean turn.end, no audio — voice issue, not the socket
-                } catch (Exception e) {
-                    try { if (ctx.fos != null) ctx.fos.close(); } catch (Exception ignored) {}
-                    out.delete();
-                    last = e;
-                } finally {
-                    active = null;
-                }
-                killWs();
-            }
-        }
-        throw last;
+                .build(), listener);
+        latch.await(25, TimeUnit.SECONDS);
+        try { ws.close(1000, "done"); } catch (Exception ignored) {}
+        fos.close();
+        if (err[0] != null) { out.delete(); throw err[0]; }
+        if (!gotAudio[0]) { out.delete(); throw new Exception("no audio received"); }
+        return out;
     }
 }
