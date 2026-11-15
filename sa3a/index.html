@@ -877,6 +877,8 @@ function addMediaAudio(me,stream){
 const segsOf=n=>{const c=cuesOf(n),md=$('lsMedia');return c.map((p,i)=>({start:tSec(p.t),end:c[i+1]?tSec(c[i+1].t):(md&&md.duration)||1e9,p}))};
 const segIdxAt=(segs,tt)=>{for(let i=0;i<segs.length;i++)if(tt>=segs[i].start&&tt<segs[i].end)return i;return -1};
 function recToggle(btn,me,segs,segEnd){
+ try{recToggleInner(btn,me,segs,segEnd)}catch(e){toast('⚠️ '+((e&&e.message)||e).slice(0,120))}}
+function recToggleInner(btn,me,segs,segEnd){
  if(recState){try{recState.rec.stop()}catch(e){recDone(btn)}return}
  if(!recSupported())return;
  const isVideo=me.tagName==='VIDEO'&&me.videoWidth;
@@ -965,7 +967,7 @@ function recToggle(btn,me,segs,segEnd){
     const iv3=setInterval(()=>{if(!recState||recState.rec!==rec3){clearInterval(iv3);return}
      if(recState.segEnd!=null&&me.currentTime>=recState.segEnd)try{rec3.stop()}catch(e){}},250)}},1600)};
  const begin=()=>{recState={rec,me,btn,raf:0,segEnd};
-  try{rec.start(1000)}catch(e){recDone(btn);fallback();return}
+  try{rec.start(1000)}catch(e){toast('⚠️ start:'+((e&&e.message)||e).slice(0,90));recDone(btn);fallback();return}
   btn.classList.add('rec-on');btn.textContent='⏹';
   toast('⏺ '+t('recClip'));
   try{const pr=me.play();if(pr&&pr.catch)pr.catch(()=>{})}catch(e){}
@@ -981,6 +983,8 @@ function recToggle(btn,me,segs,segEnd){
  else begin()
  }catch(e){try{me.play()}catch(_){}recDone(btn);toast('⚠️ '+t('recNo'))}}
 function recordPhrase(btn,p){
+ try{recordPhraseInner(btn,p)}catch(e){toast('⚠️ '+((e&&e.message)||e).slice(0,120))}}
+function recordPhraseInner(btn,p){
  if(recState){try{recState.rec.stop()}catch(e){recDone(btn)}return}
  if(!recSupported())return;
  const rows=phRowsOf(p).filter(r=>r.txt);if(!rows.length)return;
@@ -1013,7 +1017,7 @@ function recordPhrase(btn,p){
  rec.onstop=()=>{if(gotData){sink.finish();recDone(btn)}else if(recDst){const f=audioFallback;recDone(btn);f()}else recDone(btn)};
  stopSay();document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));
  const pmd=$('lsMedia');if(pmd){pmd._seg=null;pmd._once=null;try{pmd.pause()}catch(e){}}
- recState={rec,raf:0,cv};draw();rec.start(300);
+ recState={rec,raf:0,cv};draw();try{rec.start(300)}catch(e){toast('⚠️ start:'+((e&&e.message)||e).slice(0,90));recDone(btn);return}
  btn._recIcon='⬇';btn.classList.add('rec-on');btn.textContent='⏹';
  toast('⏺ '+t('recClip'));
  const stepFn=k=>{if(!recState)return;
