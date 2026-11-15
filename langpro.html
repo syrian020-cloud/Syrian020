@@ -2604,8 +2604,10 @@ function lessonDetails(l, refresh, onDelete, reopen) {
   cpy.style.marginInlineStart = 'auto';
   cpy.onclick = function () {
     copyText(sortedCues(l).map(function (c) {
-      return (c.t != null ? fmtT(c.t) + ' ' : '') + (c.text || '');
-    }).join('\n'));
+      // keep end times and a blank line between cues so the text re-parses
+      // into the same cues (a blank line is a flush separator, not cue text)
+      return (c.t != null ? (c.d != null ? fmtT(c.t) + ' --> ' + fmtT(c.d) + ' ' : fmtT(c.t) + ' ') : '') + (c.text || '');
+    }).join('\n\n'));
   };
   txhead.appendChild(cpy);
   var edAll = el('button', 'mini', '✏ ' + (t.editAll || 'تحرير الكل'));
@@ -4013,8 +4015,10 @@ function openLesson(l) {
   var bAll = el('button', 'mini', '📋 ' + t.copyAll);
   bAll.onclick = function () {
     copyText(sortedCues(l).map(function (c) {
-      return (c.t != null ? fmtT(c.t) + ' ' : '') + (c.text || '');
-    }).join('\n'));
+      // keep end times and a blank line between cues so the text re-parses
+      // into the same cues (a blank line is a flush separator, not cue text)
+      return (c.t != null ? (c.d != null ? fmtT(c.t) + ' --> ' + fmtT(c.d) + ' ' : fmtT(c.t) + ' ') : '') + (c.text || '');
+    }).join('\n\n'));
   };
   var bSpk = el('button', 'mini', '🔊 ' + t.playAll);
   bSpk.onclick = function () {
