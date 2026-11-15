@@ -1134,7 +1134,11 @@ function timedDialog(l, refresh) {
       cp.onclick = function (e) { e.stopPropagation(); copyText(m.v, t.copied); };
       mr.appendChild(cp);
       mr.onclick = function () {
-        ta.value = (ta.value ? ta.value.replace(/\n+$/, '') + '\n' : '') + m.v + '\n';
+        // untimed models need a blank separator or parseTimedLines merges them
+        // into the preceding cue instead of creating their own untimed cue
+        var timed = /^\s*(\[?\s*\d{1,2}:\d{2}|\d+\n)/.test(m.v);
+        var join = (ta.value && !timed) ? '\n\n' : '\n';
+        ta.value = (ta.value ? ta.value.replace(/\n+$/, '') + join : '') + m.v + '\n';
       };
       mpanel.appendChild(mr);
     });
