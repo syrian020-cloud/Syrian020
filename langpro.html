@@ -1593,7 +1593,7 @@ function openSite(s) {
   if (attCount(s.id)) { openAttSheet(s); return; }
   if (s.url) { openSiteUrl(s); return; }
   if (s.addr) { openMap(s.addr, s.name); return; }
-  openEditor(s);   // empty folder → straight to its lessons editor
+  openLessonsSheet(s);   // empty folder → its lessons view with the ➕
 }
 
 var ovRoot = document.getElementById('overlayRoot');
@@ -1677,7 +1677,6 @@ function openEditor(s) {
   var rName = fieldRow(t.fName, s.name);
   sh.appendChild(rName);
   sh.appendChild(lessonListEl(s, session));
-  sh.appendChild(attListEl(s.id, session));
 
   var act = el('div', 'actions');
   if (!isNew) {
