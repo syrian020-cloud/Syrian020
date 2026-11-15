@@ -1633,6 +1633,7 @@ function openLesson(l) {
   }
   function refreshAll() { renderCues(); renderGrid(); }
   if (player) {
+    var lastActive = false;
     player.ontimeupdate = function () {
       var ct = player.currentTime, active = null;
       if (SEG_LOOP.c && SEG_LOOP.c.t != null) {   // ▶ loop: replay this cue's segment
@@ -1648,11 +1649,16 @@ function openLesson(l) {
         if (c.t == null) return;
         if (ct >= c.t && ct < (c.d != null ? c.d : 1e9)) active = c;
       });
+      // while the video plays, pin the active phrase to the top of the cue list
+      var pinTop = active !== lastActive; lastActive = active;
       var done = false;
       cueEls.forEach(function (ce) {
         var on = ce.c === active;
         ce.el.classList.toggle('on', on);
-        if (on && !done) { done = true; try { ce.el.scrollIntoView({ block: 'nearest' }); } catch (e) {} }
+        if (on && !done) {
+          done = true;
+          try { ce.el.scrollIntoView({ block: pinTop ? 'start' : 'nearest' }); } catch (e) {}
+        }
       });
     };
   }
