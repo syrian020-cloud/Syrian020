@@ -65,6 +65,7 @@ public class EdgeTtsPlugin extends Plugin {
         final CountDownLatch latch = new CountDownLatch(1);
         Exception err;
         boolean gotAudio;
+        boolean turnEnd;
         FileOutputStream fos;
         String reqId;
     }
@@ -322,6 +323,7 @@ public class EdgeTtsPlugin extends Plugin {
             if (ctx == null) return;
             if (text2.contains("Path:turn.end")
                     && (ctx.reqId == null || text2.contains(ctx.reqId))) {
+                ctx.turnEnd = true;
                 ctx.latch.countDown();
             }
         }
@@ -419,7 +421,10 @@ public class EdgeTtsPlugin extends Plugin {
                     if (ctx.err == null && ctx.gotAudio) return out;
                     out.delete();
                     last = ctx.err != null ? ctx.err : new Exception("no audio received");
-                    if (ctx.err == null) break; // clean turn.end, no audio — voice issue, not the socket
+                    // a clean turn.end with no audio is a voice issue — the socket
+                    // is fine, so retrying would not help; a close/timeout mid-turn
+                    // falls through to killWs() and retries on a fresh connection
+                    if (ctx.err == null && ctx.turnEnd) break;
                 } catch (Exception e) {
                     try { if (ctx.fos != null) ctx.fos.close(); } catch (Exception ignored) {}
                     out.delete();
