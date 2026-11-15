@@ -38,6 +38,33 @@
     lv: 'lv-LV-NilsNeural', et: 'et-EE-AnuNeural',
     // Edge TTS has no Yoruba voice — use Nigerian English as the closest accent.
     yo: 'en-NG-EzinneNeural' };
+
+  // defaults for every other language the app accepts (flag or script) —
+  // where Edge has no neural voice we route to the closest supported one
+  var DEFAULT_VOICES_MORE = {
+    ca: 'ca-ES-JoanaNeural', az: 'az-AZ-BaninNeural', bs: 'bs-BA-GoranNeural',
+    km: 'km-KH-PisethNeural', kk: 'kk-KZ-AigulNeural', lo: 'lo-LA-KeomanyNeural',
+    mk: 'mk-MK-MarijaNeural', ne: 'ne-NP-HemkalaNeural', sk: 'sk-SK-ViktoriaNeural',
+    sl: 'sl-SI-PetraNeural', si: 'si-LK-ThiliniNeural', so: 'so-SO-UbaxNeural',
+    uz: 'uz-UZ-MadinaNeural', my: 'my-MM-NilarNeural',
+    pa: 'pa-IN-OjasNeural', gu: 'gu-IN-DhwaniNeural', or: 'or-IN-SubhasiniNeural',
+    ta: 'ta-IN-PallaviNeural', te: 'te-IN-ShrutiNeural', kn: 'kn-IN-SapnaNeural',
+    ml: 'ml-IN-SobhanaNeural',
+    // no Edge neural voice → closest supported language
+    be: 'ru-RU-SvetlanaNeural', dv: 'hi-IN-SwaraNeural', ti: 'am-ET-MekdesNeural',
+    ky: 'ru-RU-SvetlanaNeural', mg: 'fr-FR-DeniseNeural', mt: 'it-IT-ElsaNeural',
+    sm: 'en-US-JennyNeural', to: 'en-US-JennyNeural', kl: 'da-DK-JeppeNeural',
+    fo: 'da-DK-JeppeNeural', tk: 'tr-TR-EmelNeural', tg: 'fa-IR-DilaraNeural',
+    hy: 'en-US-JennyNeural', dz: 'ne-NP-HemkalaNeural', lb: 'de-DE-KatjaNeural',
+    cy: 'cy-GB-AledNeural', ga: 'ga-IE-OrlaNeural', gl: 'gl-ES-SabelaNeural',
+    eu: 'eu-ES-AinhoaNeural', mr: 'mr-IN-AarohiNeural', sd: 'ur-PK-UzmaNeural',
+    ny: 'en-ZA-LeahNeural', st: 'en-ZA-LeahNeural', tn: 'en-ZA-LeahNeural',
+    xh: 'xh-ZA-PhumezaNeural', rw: 'sw-KE-ZuriNeural', ps: 'ps-AF-LatifaNeural',
+    ha: 'ha-NG-AbeoNeural', ig: 'ig-NG-EzinneNeural', ku: 'tr-TR-EmelNeural',
+    ln: 'fr-CD-ElieNeural', lu: 'fr-FR-DeniseNeural'
+  };
+  for (var _dvm in DEFAULT_VOICES_MORE) if (!DEFAULT_VOICES[_dvm]) DEFAULT_VOICES[_dvm] = DEFAULT_VOICES_MORE[_dvm];
+
   var DEFAULT_RATES = { fr: -8, ar: 0, en: 0 };
 
   /* Neural voices per UI language — Edge names also used by the web
