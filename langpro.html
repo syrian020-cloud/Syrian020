@@ -1105,20 +1105,22 @@ function capDraggable(capEl, wrap) {
   ab.onclick = function (e) { e.stopPropagation(); sc = Math.min(2, sc * 1.12); capEl.style.zoom = sc; };
   capEl.appendChild(aa); capEl.appendChild(ab);
   capEl._capGrips = [mv, rs, aa, ab];   // renderCap clears innerHTML, so grips are re-appended after each render
+  var sc0 = 1;   // pointerdown zoom, shared by coord normalization and resize math
   function drag(handle, onMove) {
     handle.addEventListener('pointerdown', function (e) {
       e.preventDefault(); e.stopPropagation();
       try { handle.setPointerCapture(e.pointerId); } catch (err) {}
       var sx = e.clientX, sy = e.clientY;
       var rect = capEl.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
+      sc0 = sc;   // zoom at drag start — live sc changes during resize drags
       // A-/A+ zoom scales rects and pointer deltas; style.* takes layout units
       if (capEl.style.transform !== 'none') {
-        capEl.style.left = (rect.left - wr.left) / sc + 'px'; capEl.style.right = 'auto';
-        capEl.style.top = (rect.top - wr.top) / sc + 'px'; capEl.style.bottom = 'auto';
+        capEl.style.left = (rect.left - wr.left) / sc0 + 'px'; capEl.style.right = 'auto';
+        capEl.style.top = (rect.top - wr.top) / sc0 + 'px'; capEl.style.bottom = 'auto';
         capEl.style.transform = 'none';
       }
-      var x0 = (rect.left - wr.left) / sc, y0 = (rect.top - wr.top) / sc, w0 = rect.width / sc;
-      function mm(ev) { onMove((ev.clientX - sx) / sc, (ev.clientY - sy) / sc, x0, y0, w0, wr); }
+      var x0 = (rect.left - wr.left) / sc0, y0 = (rect.top - wr.top) / sc0, w0 = rect.width / sc0;
+      function mm(ev) { onMove((ev.clientX - sx) / sc0, (ev.clientY - sy) / sc0, x0, y0, w0, wr); }
       function up() {
         handle.removeEventListener('pointermove', mm);
         handle.removeEventListener('pointerup', up);
@@ -1135,8 +1137,6 @@ function capDraggable(capEl, wrap) {
     capEl.style.left = nx + 'px'; capEl.style.right = 'auto';
     capEl.style.top = ny + 'px'; capEl.style.bottom = 'auto';
   });
-  var sc0 = 1;
-  rs.addEventListener('pointerdown', function () { sc0 = sc; });
   drag(rs, function (dx, dy, x0, y0, w0, wr) {
     // resize scales the whole card (text + frame): along the arrow enlarges, opposite shrinks
     var delta = (dx + dy) / Math.SQRT2;
