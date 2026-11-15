@@ -1558,7 +1558,20 @@ for (var _fl in FLAG_LANG) { var _sl = String(FLAG_LANG[_fl]).split('-')[0]; if 
 var LANG_NAME = { ar: 'Arabic', en: 'English', fr: 'French', es: 'Spanish', de: 'German', it: 'Italian',
   tr: 'Turkish', ru: 'Russian', pt: 'Portuguese', nl: 'Dutch', pl: 'Polish', uk: 'Ukrainian',
   zh: 'Chinese', ja: 'Japanese', fa: 'Persian', ur: 'Urdu', hi: 'Hindi', ko: 'Korean', el: 'Greek',
-  sv: 'Swedish', fi: 'Finnish', he: 'Hebrew', th: 'Thai' };
+  sv: 'Swedish', fi: 'Finnish', he: 'Hebrew', th: 'Thai',
+  am: 'Amharic', az: 'Azerbaijani', be: 'Belarusian', bg: 'Bulgarian', bn: 'Bengali',
+  bs: 'Bosnian', ca: 'Catalan', cs: 'Czech', cy: 'Welsh', da: 'Danish', dv: 'Dhivehi',
+  dz: 'Dzongkha', et: 'Estonian', eu: 'Basque', fo: 'Faroese', ga: 'Irish', gl: 'Galician',
+  gu: 'Gujarati', ha: 'Hausa', hr: 'Croatian', hu: 'Hungarian', hy: 'Armenian', id: 'Indonesian',
+  ig: 'Igbo', is: 'Icelandic', ka: 'Georgian', kk: 'Kazakh', kl: 'Greenlandic', km: 'Khmer',
+  kn: 'Kannada', ku: 'Kurdish', ky: 'Kyrgyz', lb: 'Luxembourgish', ln: 'Lingala', lo: 'Lao',
+  lt: 'Lithuanian', lu: 'Luba-Katanga', lv: 'Latvian', mg: 'Malagasy', mk: 'Macedonian',
+  ml: 'Malayalam', mn: 'Mongolian', mr: 'Marathi', ms: 'Malay', mt: 'Maltese', my: 'Burmese',
+  nb: 'Norwegian', ne: 'Nepali', ny: 'Chichewa', or: 'Odia', pa: 'Punjabi', ps: 'Pashto',
+  ro: 'Romanian', rw: 'Kinyarwanda', sd: 'Sindhi', si: 'Sinhala', sk: 'Slovak', sl: 'Slovenian',
+  sm: 'Samoan', so: 'Somali', sq: 'Albanian', sr: 'Serbian', st: 'Sesotho', sw: 'Swahili',
+  ta: 'Tamil', te: 'Telugu', tg: 'Tajik', ti: 'Tigrinya', tk: 'Turkmen', tl: 'Filipino',
+  tn: 'Tswana', to: 'Tongan', uz: 'Uzbek', vi: 'Vietnamese', xh: 'Xhosa', zu: 'Zulu' };
 function langName(l) { return LANG_NAME[String(l || '').split('-')[0]] || 'English'; }
 var FLAG_RE = /^\s*([\u{1F1E6}-\u{1F1FF}]{2})\s*(.*)$/u;
 var ARAB_RE = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/;
