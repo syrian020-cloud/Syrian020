@@ -2190,6 +2190,7 @@ function openLesson(l) {
       ln.onclick = function () { speakLoop(r.text, r.lang, ln); };
       nowEl.appendChild(ln);
     });
+    nowEl.appendChild(cueBar(c, sortedCues(l)));
   }
   function applyVfit() {
     if (!player || !player._vcrop) return;
@@ -2375,6 +2376,61 @@ function openLesson(l) {
   var list = el('div', 'lov-cues');
   ov.appendChild(list);
   var cueEls = [];
+  function cueBar(c, cs) {
+    var tr = el('div', 'crow ctime');
+    var tb = el('button', 'ctime-t');
+    tb.innerHTML = '<span class="ctime-num">' + (c.t == null ? '•' : fmtT(c.t)) + '</span>';
+    tb.title = t.seg || 'loop segment';
+    tb.onclick = function (e) {
+      e.stopPropagation();
+      if (player && c.t != null) {
+        var was = tb.classList.contains('spk-on') || SEG_LOOP.c === c;
+        stopSpeakLoop();
+        if (SEG_LOOP.c) stopSegLoop();
+        tb.classList.remove('spk-on');
+        if (was) { player.pause(); return; }
+        SEG_LOOP.c = c; SEG_LOOP.btn = null; SEG_LOOP.glyph = '';
+        tb.classList.add('spk-on');
+        player.currentTime = c.t; player.play();
+        return;
+      }
+      speakLoop(cueSpeakArr(c), null, tb);
+    };
+    tr.appendChild(tb);
+    var ai = el('button', 'ctime-ic ic-ai', '✨');
+    ai.title = 'Google AI';
+    ai.onclick = function (e) { e.stopPropagation(); openAiSearch(c.text || ''); };
+    tr.appendChild(ai);
+    var ci = el('button', 'ctime-ic ic-clip', '🔍');
+    ci.title = 'Google Images';
+    ci.onclick = function (e) {
+      e.stopPropagation();
+      var rows0 = cueLangLines(c.text || '').filter(function (r) { return r.text; });
+      searchImages((rows0[0] && rows0[0].text) || c.text || '');
+    };
+    tr.appendChild(ci);
+    var sl = el('button', 'ctime-say', '🔁');
+    sl.title = t.speakAll || 'speak all';
+    sl.onclick = function (e) { e.stopPropagation(); speakLoop(cueSpeakArr(c), null, sl); };
+    tr.appendChild(sl);
+    if (player && c.t != null) {
+      var cr2 = el('button', 'ctime-rec', '⬇');
+      cr2.title = t.recClip || 'record clip';
+      cr2.onclick = function (e) {
+        e.stopPropagation();
+        if (recState) { try { recState.rec.stop(); } catch (e2) { recDone(cr2); } return; }
+        player.currentTime = c.t;
+        recToggle(cr2, player, cs, cueEndAt(cs, cs.indexOf(c)));
+      };
+      tr.appendChild(cr2);
+    }
+    var ed = el('button', 'ctime-ic ic-edit', '✏');
+    ed.title = t.edit || 'edit';
+    ed.onclick = function (e) { e.stopPropagation(); cueDialog(l, c, refreshAll); };
+    tr.appendChild(ed);
+    return tr;
+  }
+
   function renderCues() {
     list.innerHTML = ''; cueEls = [];
     var cs = sortedCues(l);
@@ -2411,58 +2467,7 @@ function openLesson(l) {
         cr.appendChild(tx);
         cb2.appendChild(cr);
       });
-      var tr = el('div', 'crow ctime');
-      var tb = el('button', 'ctime-t');
-      tb.innerHTML = '<span class="ctime-num">' + (c.t == null ? '•' : fmtT(c.t)) + '</span>';
-      tb.title = t.seg || 'loop segment';
-      tb.onclick = function (e) {
-        e.stopPropagation();
-        if (player && c.t != null) {
-          var was = tb.classList.contains('spk-on') || SEG_LOOP.c === c;
-          stopSpeakLoop();
-          if (SEG_LOOP.c) stopSegLoop();
-          tb.classList.remove('spk-on');
-          if (was) { player.pause(); return; }
-          SEG_LOOP.c = c; SEG_LOOP.btn = null; SEG_LOOP.glyph = '';
-          tb.classList.add('spk-on');
-          player.currentTime = c.t; player.play();
-          return;
-        }
-        speakLoop(cueSpeakArr(c), null, tb);
-      };
-      tr.appendChild(tb);
-      var ai = el('button', 'ctime-ic ic-ai', '✨');
-      ai.title = 'Google AI';
-      ai.onclick = function (e) { e.stopPropagation(); openAiSearch(c.text || ''); };
-      tr.appendChild(ai);
-      var ci = el('button', 'ctime-ic ic-clip', '🔍');
-      ci.title = 'Google Images';
-      ci.onclick = function (e) {
-        e.stopPropagation();
-        var rows0 = cueLangLines(c.text || '').filter(function (r) { return r.text; });
-        searchImages((rows0[0] && rows0[0].text) || c.text || '');
-      };
-      tr.appendChild(ci);
-      var sl = el('button', 'ctime-say', '🔁');
-      sl.title = t.speakAll || 'speak all';
-      sl.onclick = function (e) { e.stopPropagation(); speakLoop(cueSpeakArr(c), null, sl); };
-      tr.appendChild(sl);
-      if (player && c.t != null) {
-        var cr2 = el('button', 'ctime-rec', '⬇');
-        cr2.title = t.recClip || 'record clip';
-        cr2.onclick = function (e) {
-          e.stopPropagation();
-          if (recState) { try { recState.rec.stop(); } catch (e2) { recDone(cr2); } return; }
-          player.currentTime = c.t;
-          recToggle(cr2, player, cs, cueEndAt(cs, ci2));
-        };
-        tr.appendChild(cr2);
-      }
-      var ed = el('button', 'ctime-ic ic-edit', '✏');
-      ed.title = t.edit || 'edit';
-      ed.onclick = function (e) { e.stopPropagation(); cueDialog(l, c, refreshAll); };
-      tr.appendChild(ed);
-      cb2.appendChild(tr);
+      cb2.appendChild(cueBar(c, cs));
       row.appendChild(cb2);
       cueEls.push({ c: c, el: row });
       list.appendChild(row);
