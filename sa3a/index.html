@@ -965,18 +965,21 @@ function recToggle(btn,me,segs,segEnd){
     const iv3=setInterval(()=>{if(!recState||recState.rec!==rec3){clearInterval(iv3);return}
      if(recState.segEnd!=null&&me.currentTime>=recState.segEnd)try{rec3.stop()}catch(e){}},250)}},1600)};
  const begin=()=>{recState={rec,me,btn,raf:0,segEnd};
-  rec.start(1000);
+  try{rec.start(1000)}catch(e){recDone(btn);fallback();return}
   btn.classList.add('rec-on');btn.textContent='⏹';
   toast('⏺ '+t('recClip'));
-  draw();try{const pr=me.play();if(pr&&pr.catch)pr.catch(()=>{})}catch(e){}
+  try{const pr=me.play();if(pr&&pr.catch)pr.catch(()=>{})}catch(e){}
+  draw();
   setTimeout(()=>{if(recState&&recState.rec===rec&&!gotData)try{rec.stop()}catch(e){fallback()}},1600)};
+ try{
  if(me.currentTime!==startAt){
   const sk=()=>{me.removeEventListener('seeked',sk);begin()};
   me.addEventListener('seeked',sk);
   try{me.pause()}catch(e){}
   me.currentTime=startAt;
   setTimeout(()=>{if(!recState){me.removeEventListener('seeked',sk);begin()}},1500)}
- else begin()}
+ else begin()
+ }catch(e){try{me.play()}catch(_){}recDone(btn);toast('⚠️ '+t('recNo'))}}
 function recordPhrase(btn,p){
  if(recState){try{recState.rec.stop()}catch(e){recDone(btn)}return}
  if(!recSupported())return;
