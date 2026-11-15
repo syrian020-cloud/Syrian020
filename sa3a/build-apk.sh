@@ -108,6 +108,7 @@ mkdir -p "$RAW_DIR"
 cp sounds/alarm_beep.mp3 "$RAW_DIR/sa3a_beep.mp3"
 cp sounds/alarm_bell.mp3 "$RAW_DIR/sa3a_bell.mp3"
 cp sounds/alarm_siren.mp3 "$RAW_DIR/sa3a_siren.mp3"
+cp sounds/alarm_beep.mp3 "$RAW_DIR/tempo_alert.mp3"
 
 # Launcher icons
 ICON_SRC="$ROOT/icon-512.png"

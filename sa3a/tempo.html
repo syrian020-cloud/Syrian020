@@ -946,7 +946,7 @@ async function scheduleReminders(a){
     if(!perm||perm.display!=='granted')return;
     if(p.checkExactNotificationSetting&&p.changeExactNotificationSetting){
       const ex=await p.checkExactNotificationSetting();
-      if(ex&&ex.exact_alarm!=='granted'){toast(t('alarmPerm'),4500);await p.changeExactNotificationSetting();}
+      if(ex&&ex.exact_alarm!=='granted'){toast(t('alarmPerm'),4500);p.changeExactNotificationSetting().catch(()=>{});}
     }
     await ensureChannel();
     const offs=[0,2*3600e3,12*3600e3,24*3600e3];
@@ -965,6 +965,11 @@ try{
     p.addListener('localNotificationReceived',n=>{
       const id=n&&n.id;const a=appts.find(x=>{const b=nidBase(x.id);return id>=b&&id<=b+9});
       if(a)startApptRing(a,n.body);
+    });
+    p.addListener('localNotificationActionPerformed',n=>{
+      const id=n&&n.notification&&n.notification.id;
+      const a=appts.find(x=>{const b=nidBase(x.id);return id>=b&&id<=b+9});
+      if(a)startApptRing(a,n.notification.body);
     });
   }
 }catch(e){}
