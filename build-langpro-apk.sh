@@ -53,6 +53,37 @@ fi
 
 npx cap sync android
 
+# Inject the EdgeTTS native plugin (free Microsoft neural voices over WebSocket)
+PLUGIN_DIR="android/app/src/main/java/com/syrian020/tts"
+mkdir -p "$PLUGIN_DIR"
+cp native-plugins/EdgeTtsPlugin.java "$PLUGIN_DIR/"
+MAIN_ACTIVITY=$(find android/app/src/main/java -name MainActivity.java | head -1)
+if [ -f "$MAIN_ACTIVITY" ] && ! grep -q 'EdgeTtsPlugin' "$MAIN_ACTIVITY"; then
+  python3 - "$MAIN_ACTIVITY" <<'PYEOF'
+import sys, re
+p = sys.argv[1]
+s = open(p).read()
+s = s.replace('import com.getcapacitor.BridgeActivity;',
+              'import com.getcapacitor.BridgeActivity;\nimport com.syrian020.tts.EdgeTtsPlugin;')
+s = re.sub(r'(public class MainActivity extends BridgeActivity \{)',
+           r'\1\n    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n        registerPlugin(EdgeTtsPlugin.class);\n        super.onCreate(savedInstanceState);\n    }', s)
+open(p, 'w').write(s)
+PYEOF
+fi
+
+if ! grep -q 'squareup.okhttp3' android/app/build.gradle; then
+  python3 - <<'PYEOF'
+p = 'android/app/build.gradle'
+s = open(p).read()
+lines = s.split('\n')
+for i in range(len(lines) - 1, -1, -1):
+    if 'implementation' in lines[i]:
+        lines.insert(i + 1, '    implementation "com.squareup.okhttp3:okhttp:4.12.0"')
+        break
+open(p, 'w').write('\n'.join(lines))
+PYEOF
+fi
+
 # Gallery saving (@capacitor-community/media) needs storage/media permissions the stock manifest lacks
 MANIFEST="$ROOT/android/app/src/main/AndroidManifest.xml"
 if [ -f "$MANIFEST" ] && ! grep -q 'WRITE_EXTERNAL_STORAGE' "$MANIFEST"; then
