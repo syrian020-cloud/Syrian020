@@ -267,8 +267,8 @@
     background: var(--card); cursor: pointer; font-size: .75rem; font-weight: 800; padding: 0; }
   .capdot.on { border-color: var(--gold); }
   /* ---------- zeelang caption card ---------- */
-  .mbcap { position: absolute; right: 3%; width: 60%; bottom: 4%; z-index: 3; }
-  .mbcap.plain { position: static; margin: .4rem .8rem; width: auto; right: auto; }
+  .mbcap { position: absolute; left: 50%; transform: translateX(-50%); width: 72%; bottom: 5%; z-index: 3; }
+  .mbcap.plain { position: static; margin: .4rem .8rem; width: auto; left: auto; transform: none; }
   .cap-card { background: rgba(250,246,255,.94); border-radius: 16px; padding: .45rem .5rem;
     box-shadow: 0 8px 30px rgba(0,0,0,.45); }
   .cap-rows { max-height: 20vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
@@ -289,11 +289,12 @@
     font-size: .9rem; cursor: pointer; }
   .cap-ctrl button.spk-on { background: linear-gradient(135deg,#f6b93b,#f0932b);
     border-color: transparent; color: #fff; animation: lppulse 1s infinite; }
-  .cap-mv, .cap-rs { position: absolute; width: 24px; height: 24px; border-radius: 50%;
-    background: rgba(10,12,26,.75); color: #fff; font-size: .75rem; display: flex;
-    align-items: center; justify-content: center; z-index: 4; touch-action: none; }
-  .cap-mv { top: -9px; left: -7px; cursor: grab; }
-  .cap-rs { bottom: -7px; right: -7px; cursor: nwse-resize; }
+  .cap-mv, .cap-rs { position: absolute; width: 27px; height: 27px; border-radius: 50%;
+    background: linear-gradient(135deg,#f6b93b,#f0932b); color: #fff; font-size: .8rem;
+    font-weight: 900; border: 2px solid #fff; box-shadow: 0 3px 10px rgba(0,0,0,.5);
+    display: flex; align-items: center; justify-content: center; z-index: 6; touch-action: none; }
+  .cap-mv { top: -11px; left: -10px; cursor: grab; }
+  .cap-rs { bottom: -11px; right: -10px; cursor: nwse-resize; }
   @keyframes lppulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
   .lov-cues { flex: 1; overflow-y: auto; padding: .3rem .8rem 5.5rem; display: flex;
     flex-direction: column; gap: .4rem; }
@@ -1087,6 +1088,11 @@ function capDraggable(capEl, wrap) {
       try { handle.setPointerCapture(e.pointerId); } catch (err) {}
       var sx = e.clientX, sy = e.clientY;
       var rect = capEl.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
+      if (capEl.style.transform !== 'none') {
+        capEl.style.left = (rect.left - wr.left) + 'px'; capEl.style.right = 'auto';
+        capEl.style.top = (rect.top - wr.top) + 'px'; capEl.style.bottom = 'auto';
+        capEl.style.transform = 'none';
+      }
       var x0 = rect.left - wr.left, y0 = rect.top - wr.top, w0 = rect.width;
       function mm(ev) { onMove(ev.clientX - sx, ev.clientY - sy, x0, y0, w0, wr); }
       function up() {
