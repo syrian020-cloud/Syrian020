@@ -2909,7 +2909,8 @@ function openLesson(l) {
       speakLoop(cueSpeakArr(c), null, tb);
     };
     tr.appendChild(tb);
-    var pk = 'cue-' + l.id + '-' + cs.indexOf(c);
+    var pk = 'cue-' + l.id + '-' + (c.t != null ? c.t : 'i' + cs.indexOf(c));
+    if (c.t != null && cs.some(function (o) { return o !== c && o.t === c.t; })) pk += '-' + cs.indexOf(c);
     var nb = el('button', 'ctime-ic ic-note', notesMap[pk] ? '📔' : '📓');
     nb.dataset.pk = pk;
     nb.title = t.noteTitle || 'notebook';
@@ -4496,7 +4497,7 @@ async function exportData() {
       lessonsOut.push(mo);
     }
   } catch (e) {}
-  var out = { app: 'langpro', version: 3, exportedAt: new Date().toISOString(), sites: sites, files: filesOut, lessons: lessonsOut };
+  var out = { app: 'langpro', version: 3, exportedAt: new Date().toISOString(), sites: sites, files: filesOut, lessons: lessonsOut, notes: notesMap };
   entries.push({ name: 'langpro-backup.json', data: new TextEncoder().encode(JSON.stringify(out, null, 1)) });
   var blob = zipStore(entries);
   var name = 'langpro-backup-' + new Date().toISOString().slice(0, 10) + '.zip';
@@ -4559,12 +4560,14 @@ function importData() {
         });
         var fl = (j && Array.isArray(j.files)) ? j.files : [];
         var ll = (j && Array.isArray(j.lessons)) ? j.lessons : [];
+        var lidMap = {};
         Promise.all(ll.map(function (lm) {
           var sid = idMap[lm.siteId];
           if (!sid) return null;
           var rec = { id: 'l' + Date.now() + Math.random().toString(36).slice(2, 6),
             siteId: sid, name: lm.name || '', mime: lm.mime || '', icon: lm.icon || '', cover: lm.cover || '', vfit: lm.vfit || 0,
             cues: lm.cues || [], blob: null, addedAt: Date.now() };
+          lidMap[lm.id] = rec.id;
           if (lm.media && ents && ents[lm.media]) {
             rec.blob = new Blob([ents[lm.media]], { type: lm.mime || 'application/octet-stream' });
           }
@@ -4583,6 +4586,13 @@ function importData() {
           });
         }));
         }).then(function () {
+          if (j && j.notes) {
+            Object.keys(j.notes).forEach(function (k) {
+              var m = /^cue-(.+)-(.+)$/.exec(k);
+              notesMap[m && lidMap[m[1]] ? 'cue-' + lidMap[m[1]] + '-' + m[2] : k] = j.notes[k];
+            });
+            saveNotes();
+          }
           saveSites(); renderGrid(); toast(T().imported);
         });
       } catch (e) { toast('import ✗'); }
@@ -4624,6 +4634,7 @@ if (CapApp && CapApp.addListener) {
       return;
     }
     if (ovRoot.firstChild) { closeOv(); return; }
+    if (document.getElementById('noteModal').classList.contains('show')) { closeNote(); return; }
     // close the topmost layer: dialogs, game overlays, then lesson/library views
     var views = document.querySelectorAll('body > .overlay, body > .qz-ov, body > .lov, body > .libv');
     if (views.length) {
@@ -4658,43 +4669,47 @@ if (!inCap && 'serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw-langpro.js').catch(function () {});
   });
 }
-})();
-
 /* ---------- notebook painter (ported from ProLang, per-cue) ---------- */
 var notesMap = {};
 try { notesMap = JSON.parse(localStorage.getItem('langpro_notes') || '{}'); } catch (e) { notesMap = {}; }
-function saveNotes() { try { localStorage.setItem('langpro_notes', JSON.stringify(notesMap)); } catch (e) {} }
+function saveNotes() { try { localStorage.setItem('langpro_notes', JSON.stringify(notesMap)); return true; } catch (e) { return false; } }
 var noteKey = null, noteCtx = null, noteDrawing = false, noteErasing = false,
   noteHighlight = false, noteColor = '#111827', noteSize = 3, noteUndo = [], noteRedo = [];
 
 function noteSnapshot() {
   if (!noteCtx) return;
   var canvas = document.getElementById('noteCanvas');
-  noteUndo.push(noteCtx.getImageData(0, 0, canvas.width, canvas.height));
+  noteUndo.push(canvas.toDataURL('image/png'));
   if (noteUndo.length > 30) noteUndo.shift();
   noteRedo = [];
   updateNoteHistoryButtons();
 }
-function noteRestore(img) {
-  noteCtx.save();
-  noteCtx.setTransform(1, 0, 0, 1, 0, 0);
-  noteCtx.globalCompositeOperation = 'source-over';
-  noteCtx.globalAlpha = 1;
-  noteCtx.clearRect(0, 0, img.width, img.height);
-  noteCtx.putImageData(img, 0, 0);
-  noteCtx.restore();
+function noteRestore(src) {
+  var canvas = document.getElementById('noteCanvas');
+  var img = new Image();
+  img.onload = function () {
+    if (!noteCtx) return;
+    noteCtx.save();
+    noteCtx.setTransform(1, 0, 0, 1, 0, 0);
+    noteCtx.globalCompositeOperation = 'source-over';
+    noteCtx.globalAlpha = 1;
+    noteCtx.clearRect(0, 0, canvas.width, canvas.height);
+    noteCtx.drawImage(img, 0, 0);
+    noteCtx.restore();
+  };
+  img.src = src;
 }
 function undoNote() {
   if (!noteCtx || !noteUndo.length) return;
   var canvas = document.getElementById('noteCanvas');
-  noteRedo.push(noteCtx.getImageData(0, 0, canvas.width, canvas.height));
+  noteRedo.push(canvas.toDataURL('image/png'));
   noteRestore(noteUndo.pop());
   updateNoteHistoryButtons();
 }
 function redoNote() {
   if (!noteCtx || !noteRedo.length) return;
   var canvas = document.getElementById('noteCanvas');
-  noteUndo.push(noteCtx.getImageData(0, 0, canvas.width, canvas.height));
+  noteUndo.push(canvas.toDataURL('image/png'));
   noteRestore(noteRedo.pop());
   updateNoteHistoryButtons();
 }
@@ -4794,7 +4809,7 @@ function saveNote() {
   if (!noteKey || !noteCtx) return;
   var canvas = document.getElementById('noteCanvas');
   notesMap[noteKey] = canvas.toDataURL('image/png');
-  saveNotes();
+  if (!saveNotes()) { delete notesMap[noteKey]; toast('⚠ storage full'); return; }
   var btn = document.querySelector('[data-pk="' + noteKey + '"]');
   if (btn) { btn.textContent = '📔'; }
   closeNote();
@@ -4878,6 +4893,7 @@ function bindNoteUI() {
   });
 }
 bindNoteUI();
+})();
 </script>
 </body>
 </html>
