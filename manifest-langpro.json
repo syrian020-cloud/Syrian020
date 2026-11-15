@@ -1,6 +1,6 @@
 {
-  "name": "langPro — Folders & lessons",
-  "short_name": "langPro",
+  "name": "LangPro — Folders & lessons",
+  "short_name": "LangPro",
   "description": "Folders with video/audio lessons, timed captions and phrase libraries",
   "start_url": "./langpro.html",
   "scope": "./",

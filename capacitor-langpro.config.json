@@ -1,6 +1,6 @@
 {
   "appId": "com.syrian020.langpro",
-  "appName": "langPro",
+  "appName": "LangPro",
   "webDir": "www",
   "server": {
     "androidScheme": "https"

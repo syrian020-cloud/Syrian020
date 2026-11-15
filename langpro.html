@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>langPro</title>
+<title>LangPro</title>
 <link rel="manifest" href="./manifest-langpro.json">
 <link rel="icon" type="image/png" href="./icon-prolang-192.png">
 <style>
@@ -66,6 +66,13 @@
   main { max-width: 860px; margin: 0 auto; padding: .8rem; }
 
   /* ---------- sites grid ---------- */
+  .stats-row { display: flex; flex-wrap: wrap; gap: .55rem; justify-content: center;
+    padding: .55rem .8rem .15rem; }
+  .stat { display: flex; align-items: center; gap: .4rem; background: var(--card);
+    border: 1.5px solid var(--line); border-radius: 999px; padding: .45rem 1rem;
+    font-weight: 800; font-size: .95rem; color: var(--txt); box-shadow: 0 3px 10px rgba(3,8,12,.2); }
+  .stat b { font-size: 1.05rem; }
+  .stat .s-em { font-size: 1.05rem; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(112px, 100%), 1fr)); gap: .7rem; }
   .site { background: var(--card); border: 1px solid var(--line); border-radius: 20px;
     padding: .95rem .55rem .75rem; cursor: pointer; display: flex; flex-direction: column;
@@ -518,7 +525,7 @@
 <body>
 <header>
   <div class="topbar">
-    <div class="logo"><img src="./icon-prolang-192.png" alt="" onerror="this.style.display='none'"><span data-i="appname">langPro</span></div>
+    <div class="logo"><img src="./icon-prolang-192.png" alt="" onerror="this.style.display='none'"><span data-i="appname">LangPro</span></div>
     <div class="searchbox">
       <span>🔍</span>
       <input id="search" data-i-ph="searchPh" placeholder="Search anything…" autocomplete="off">
@@ -532,6 +539,7 @@
 </header>
 
 <main>
+  <div class="stats-row" id="stats"></div>
   <div class="grid" id="grid"></div>
 </main>
 
@@ -559,10 +567,10 @@
 /* ================= i18n ================= */
 var I18N = {
   ar: {
-    appname: 'langPro', searchPh: 'ابحث عن أي شيء…',
+    appname: 'LangPro', searchPh: 'ابحث عن أي شيء…',
     menu: 'القائمة', langTitle: 'لغة الواجهة', themeDark: 'الوضع الداكن 🌙', themeLight: 'الوضع الفاتح ☀',
     exportData: 'تصدير البيانات', importData: 'استيراد البيانات',
-    addSite: 'إضافة مجلد', editSite: 'تعديل المجلد',
+    addSite: 'إضافة مجلد', editSite: 'تعديل المجلد', statFolders: 'مجلدات', statLessons: 'دروس', statPhrases: 'عبارات', voiceSet: 'إعدادات الصوت 🎙',
     fName: 'الاسم', fUrl: 'رابط الموقع', fIcon: 'رابط صورة الأيقونة (اختياري)',
     fUser: 'اسم المستخدم', fPass: 'كلمة السر', pickImg: 'استوديو',
     fAddr: 'العنوان (adresse)', mapGo: 'خريطة', openNoAddr: 'أضف العنوان أولاً من ⋮',
@@ -602,10 +610,10 @@ var I18N = {
     next: 'التالي', autoNext: 'تلقائي', deleted: 'تم الحذف'
   },
   fr: {
-    appname: 'langPro', searchPh: 'Rechercher partout…',
+    appname: 'LangPro', searchPh: 'Rechercher partout…',
     menu: 'Menu', langTitle: 'Langue de l’interface', themeDark: 'Mode sombre 🌙', themeLight: 'Mode clair ☀',
     exportData: 'Exporter les données', importData: 'Importer les données',
-    addSite: 'Ajouter un dossier', editSite: 'Modifier le dossier',
+    addSite: 'Ajouter un dossier', editSite: 'Modifier le dossier', statFolders: 'dossiers', statLessons: 'leçons', statPhrases: 'phrases', voiceSet: 'Réglages voix 🎙',
     fName: 'Nom', fUrl: 'Adresse du site', fIcon: 'URL de l’icône (optionnel)',
     fUser: 'Nom d’utilisateur', fPass: 'Mot de passe', pickImg: 'Galerie',
     fAddr: 'Adresse (rue, ville)', mapGo: 'Carte', openNoAddr: 'Ajoutez d’abord l’adresse via ⋮',
@@ -645,10 +653,10 @@ var I18N = {
     next: 'Suivant', autoNext: 'Auto', deleted: 'Supprimé'
   },
   en: {
-    appname: 'langPro', searchPh: 'Search anything…',
+    appname: 'LangPro', searchPh: 'Search anything…',
     menu: 'Menu', langTitle: 'Interface language', themeDark: 'Dark mode 🌙', themeLight: 'Light mode ☀',
     exportData: 'Export data', importData: 'Import data',
-    addSite: 'Add folder', editSite: 'Edit folder',
+    addSite: 'Add folder', editSite: 'Edit folder', statFolders: 'folders', statLessons: 'lessons', statPhrases: 'phrases', voiceSet: 'Voice settings 🎙',
     fName: 'Name', fUrl: 'Site URL', fIcon: 'Icon image URL (optional)',
     fUser: 'Username', fPass: 'Password', pickImg: 'Gallery',
     fAddr: 'Address', mapGo: 'Map', openNoAddr: 'Add the address first via ⋮',
@@ -1150,6 +1158,7 @@ function stopSpeakLoop() {
   if (SPEAK_LOOP.btn) { SPEAK_LOOP.btn.classList.remove('spk-on'); SPEAK_LOOP.btn = null; }
   try { if ('speechSynthesis' in window) speechSynthesis.cancel(); } catch (e) {}
   try { var n = nativeTTS(); if (n && n.stop) n.stop(); } catch (e) {}
+  try { if (window.EdgeTTS) EdgeTTS.stop(); } catch (e) {}
 }
 function speakLoop(lines, lang, btn) {
   var arr = (typeof lines === 'string') ? [{ text: lines, lang: lang }] : lines;
@@ -1161,10 +1170,30 @@ function speakLoop(lines, lang, btn) {
   if (btn) btn.classList.add('spk-on');
   pauseMedia();
   var n = nativeTTS(), i = -1;
+  var useEdge = window.EdgeTTS && EdgeTTS.supported && EdgeTTS.supported();
+  function nativeSpeak(cur) {
+    if (n && n.speak) {
+      n.speak({ text: String(cur.text || ''), lang: cur.lang || 'fr-FR', rate: playSpeed }).then(next).catch(stopSpeakLoop);
+    } else if ('speechSynthesis' in window) {
+      try {
+        var u = new SpeechSynthesisUtterance(String(cur.text || ''));
+        u.lang = cur.lang || 'fr-FR';
+        u.rate = playSpeed;
+        u.onend = next;
+        speechSynthesis.speak(u);
+      } catch (e) { stopSpeakLoop(); }
+    } else stopSpeakLoop();
+  }
   function next() {
     if (!SPEAK_LOOP.on) return;
     i = (i + 1) % arr.length;
     var cur = arr[i];
+    if (useEdge) {
+      try { EdgeTTS.speed = playSpeed; } catch (e) {}
+      EdgeTTS.play(String(cur.text || ''), String(cur.lang || 'fr').split('-')[0])
+        .then(next, function () { nativeSpeak(cur); });
+      return;
+    }
     if (n && n.speak) {
       n.speak({ text: String(cur.text || ''), lang: cur.lang || 'fr-FR', rate: playSpeed }).then(next).catch(stopSpeakLoop);
     } else if ('speechSynthesis' in window) {
@@ -2880,9 +2909,22 @@ var q = '';
 document.getElementById('search').addEventListener('input', function () {
   q = (this.value || '').toLowerCase().trim(); renderGrid();
 });
+function renderStats() {
+  var sEl = document.getElementById('stats');
+  if (!sEl) return;
+  var t = T();
+  var nSites = sites.length, nL = 0, nC = 0;
+  sites.forEach(function (s) { nL += (lessonMap[s.id] || []).length; });
+  for (var k in lessonMap) (lessonMap[k] || []).forEach(function (l) { nC += (l.cues || []).length; });
+  sEl.innerHTML = '';
+  sEl.appendChild(el('div', 'stat', '📁 ' + nSites + ' ' + (t.statFolders || 'folders')));
+  sEl.appendChild(el('div', 'stat', '📚 ' + nL + ' ' + (t.statLessons || 'lessons')));
+  sEl.appendChild(el('div', 'stat', '💬 ' + nC + ' ' + (t.statPhrases || 'phrases')));
+}
 function renderGrid() {
   var g = document.getElementById('grid');
   g.innerHTML = '';
+  renderStats();
   sites.forEach(function (s) {
     var attNames = (attMap[s.id] || []).map(function (r) { return r.name; }).join(' ');
     var lesNames = (lessonMap[s.id] || []).map(function (r) { return r.name; }).join(' ');
@@ -3136,6 +3178,11 @@ function esc(s) {
 var SHORT_BCP = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
 function bcpLang(l) { var s = shortLang(l); return SHORT_BCP[s] || l || 'fr-FR'; }
 function ttsOnce(text, lang, rate) {
+  if (window.EdgeTTS && EdgeTTS.supported && EdgeTTS.supported()) {
+    try { EdgeTTS.speed = rate || playSpeed; } catch (e) {}
+    return EdgeTTS.play(String(text || '').slice(0, 400), String(lang || 'fr').split('-')[0])
+      .then(function () {}, function () {});
+  }
   var n = nativeTTS();
   if (n && n.speak) {
     return n.speak({ text: String(text || ''), lang: bcpLang(lang), rate: rate || playSpeed })
@@ -3158,6 +3205,7 @@ function ttsAvail() {
 var gameTok = 0;
 function gTtsStop() {
   try { var n = nativeTTS(); if (n && n.stop) n.stop(); } catch (e) {}
+  try { if (window.EdgeTTS) EdgeTTS.stop(); } catch (e) {}
   try { if ('speechSynthesis' in window) speechSynthesis.cancel(); } catch (e) {}
 }
 function gClearSpeaking() {
@@ -3893,6 +3941,7 @@ function openMenu() {
   } else {
     row('🔒', t.lockSet, function () { closeOv(); pinSetup(); });
   }
+  if (window.EdgeTTS) row('🎙', t.voiceSet || 'Voice settings', function () { closeOv(); EdgeTTS.openSettings(); });
   row('📚', t.libTitle, function () { closeOv(); openLibrary(); });
   row('⬇', t.exportData, function () { closeOv(); exportData(); });
   row('⬆', t.importData, function () { closeOv(); importData(); });
