@@ -1728,6 +1728,14 @@ function openLesson(l) {
       capEl = el('div', 'mbcap');
       mediaWrap.appendChild(capEl);
       capDraggable(capEl, mediaWrap);
+      // % max-height can't resolve on the auto-height wrap — cap in px so a tall
+      // card scrolls internally instead of clipping its top rows and grips
+      var capMax = function () {
+        var h = mediaWrap.clientHeight;
+        capEl.style.maxHeight = Math.max(80, h - 24) + 'px';
+      };
+      capMax();
+      player.addEventListener('loadedmetadata', capMax);
     }
     ov.appendChild(mediaWrap);
   }
