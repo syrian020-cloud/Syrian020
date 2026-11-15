@@ -1434,11 +1434,11 @@ var CAPFS = [.7, .8, .9, 1, 1.15, 1.3, 1.5, 1.75, 2];
 var capFs = parseFloat(localStorage.getItem('langpro_capfs') || '1') || 1;
 var recQ = localStorage.getItem('langpro_recq') || 'high';
 var RECQS = {
-  ultra: { M: 2160, f: 10, max: 32000000 },
-  high: { M: 1920, f: 8, max: 24000000 },
-  med: { M: 1280, f: 4, max: 8000000 },
-  low: { M: 960, f: 2.5, max: 4000000 },
-  tiny: { M: 640, f: 1.5, max: 2500000 }
+  ultra: { M: 2160, f: 10, max: 32000000, imgM: 1600, imgQ: .9 },
+  high: { M: 1920, f: 8, max: 24000000, imgM: 1280, imgQ: .85 },
+  med: { M: 1280, f: 4, max: 8000000, imgM: 1024, imgQ: .75 },
+  low: { M: 960, f: 2.5, max: 4000000, imgM: 800, imgQ: .6 },
+  tiny: { M: 640, f: 1.5, max: 2500000, imgM: 640, imgQ: .5 }
 };
 var RECQ_ORDER = ['ultra', 'high', 'med', 'low', 'tiny'];
 function recQName(k) {
@@ -1774,6 +1774,61 @@ function createRecSink(ext, mimeType, prefix) {
     }
   };
 }
+// re-encode an uploaded video at the chosen recording quality before storing it
+function compressVideoBlob(fl) {
+  return new Promise(function (res) {
+    var v = document.createElement('video');
+    v.muted = true; v.setAttribute('playsinline', '');
+    var url = URL.createObjectURL(fl);
+    v.src = url;
+    var bail = function () { URL.revokeObjectURL(url); res(fl); };
+    v.onerror = bail;
+    v.onloadedmetadata = function () {
+      var W = v.videoWidth || 640, H = v.videoHeight || 360;
+      var M = recQSet().M;
+      if (Math.max(W, H) > M) { var s = M / Math.max(W, H); W = Math.round(W * s); H = Math.round(H * s); }
+      var cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+      var cx = cv.getContext('2d');
+      var stream = cv.captureStream(30);
+      addMediaAudio(v, stream);
+      var rec = newRec(stream, W, H);
+      if (!rec) { bail(); return; }
+      var parts = [], done = false;
+      rec.ondataavailable = function (e) { if (e.data && e.data.size) parts.push(e.data); };
+      var finish = function () {
+        if (done) return; done = true;
+        URL.revokeObjectURL(url);
+        var out = new Blob(parts, { type: rec._clipType });
+        res(out.size && out.size < fl.size ? out : fl);
+      };
+      rec.onstop = finish;
+      v.addEventListener('ended', function () { try { rec.stop(); } catch (e) {} });
+      v.addEventListener('timeupdate', function () {
+        if (v.duration) toast('⏳ ' + Math.round(v.currentTime / v.duration * 100) + '%');
+      });
+      try { rec.start(500); } catch (e) { bail(); return; }
+      var draw = function () {
+        if (done) return;
+        cx.fillStyle = '#000'; cx.fillRect(0, 0, W, H);
+        var vr = (v.videoWidth && v.videoHeight) ? v.videoWidth / v.videoHeight : 16 / 9, dw, dh;
+        if (vr > W / H) { dw = W; dh = W / vr; } else { dh = H; dw = H * vr; }
+        try { cx.drawImage(v, (W - dw) / 2, (H - dh) / 2, dw, dh); } catch (e) {}
+        requestAnimationFrame(draw);
+      };
+      var pr = v.play();
+      if (pr && pr.catch) pr.catch(function () { try { rec.stop(); } catch (e) {} finish(); });
+      draw();
+      setTimeout(function () { if (!done) { try { rec.stop(); } catch (e) {} } }, (v.duration || 60) * 1000 + 5000);
+    };
+  });
+}
+function importMedia(fl, cb) {
+  if (fl && String(fl.type).indexOf('video/') === 0 && recQ !== 'ultra' && fl.size > 1500000
+      && typeof MediaRecorder !== 'undefined' && HTMLCanvasElement.prototype.captureStream) {
+    toast('⏳ 0%');
+    compressVideoBlob(fl).then(cb);
+  } else cb(fl);
+}
 function recSupported() {
   if (typeof MediaRecorder === 'undefined' || !HTMLCanvasElement.prototype.captureStream) {
     toast('⚠️ recording not supported');
@@ -2088,8 +2143,10 @@ function addLessonDialog(siteId, onDone) {
     fi.onchange = function () {
       var fl = fi.files[0]; if (!fl) return;
       ov.remove();
-      addLessonRec(siteId, inp.value.trim() || (fl.name || t.lName), fl.type, fl, [])
-        .then(function (rec) { if (rec && onDone) onDone(rec); });
+      importMedia(fl, function (bb) {
+        addLessonRec(siteId, inp.value.trim() || (fl.name || t.lName), bb.type || fl.type, bb, [])
+          .then(function (rec) { if (rec && onDone) onDone(rec); });
+      });
     };
     fi.click();
   }
@@ -2160,9 +2217,11 @@ function lessonDetails(l, refresh, onDelete, reopen) {
       fi.type = 'file'; fi.accept = 'video/*,audio/*,image/*';
       fi.onchange = function () {
         var fl = fi.files[0]; if (!fl) return;
-        l.blob = fl; l.mime = fl.type || '';
-        lSave(l); ov.remove();
-        if (reopen) reopen();
+        importMedia(fl, function (bb) {
+          l.blob = bb; l.mime = bb.type || fl.type || '';
+          lSave(l); ov.remove();
+          if (reopen) reopen();
+        });
       };
       fi.click();
     };
@@ -2185,9 +2244,11 @@ function lessonDetails(l, refresh, onDelete, reopen) {
       fi.type = 'file'; fi.accept = 'video/*,audio/*,image/*';
       fi.onchange = function () {
         var fl = fi.files[0]; if (!fl) return;
-        l.blob = fl; l.mime = fl.type || '';
-        lSave(l); ov.remove();
-        if (reopen) reopen();
+        importMedia(fl, function (bb) {
+          l.blob = bb; l.mime = bb.type || fl.type || '';
+          lSave(l); ov.remove();
+          if (reopen) reopen();
+        });
       };
       fi.click();
     };
@@ -2984,12 +3045,13 @@ function openLesson(l) {
           fr.onload = function () {
             var img = new Image();
             img.onload = function () {
-              var mx = 1024, sc = Math.min(1, mx / Math.max(img.naturalWidth, img.naturalHeight));
+              var qs0 = recQSet();
+              var mx = qs0.imgM, sc = Math.min(1, mx / Math.max(img.naturalWidth, img.naturalHeight));
               var cv2 = document.createElement('canvas');
               cv2.width = Math.round(img.naturalWidth * sc);
               cv2.height = Math.round(img.naturalHeight * sc);
               cv2.getContext('2d').drawImage(img, 0, 0, cv2.width, cv2.height);
-              l.cover = cv2.toDataURL('image/jpeg', .85);
+              l.cover = cv2.toDataURL('image/jpeg', qs0.imgQ);
               lSave(l); showCover(); toast('✓ 🖼');
             };
             img.src = fr.result;
@@ -3261,11 +3323,13 @@ function openLesson(l) {
     fi.type = 'file'; fi.accept = 'video/*,audio/*';
     fi.onchange = function () {
       var fl = fi.files[0]; if (!fl) return;
-      l.blob = fl; l.mime = fl.type || '';
-      lSave(l);
-      if (recState) { try { recState.rec.stop(); } catch (e) {} }
-      curPlayer = null;
-      ov.remove(); openLesson(l);
+      importMedia(fl, function (bb) {
+        l.blob = bb; l.mime = bb.type || fl.type || '';
+        lSave(l);
+        if (recState) { try { recState.rec.stop(); } catch (e) {} }
+        curPlayer = null;
+        ov.remove(); openLesson(l);
+      });
     };
     fi.click();
   };
@@ -5051,7 +5115,12 @@ function saveNote() {
   if (!noteKey || !noteCtx) return;
   var canvas = document.getElementById('noteCanvas');
   var prevNote = notesMap[noteKey];
-  notesMap[noteKey] = canvas.toDataURL('image/png');
+  var ntc = document.createElement('canvas');
+  ntc.width = canvas.width; ntc.height = canvas.height;
+  var ntg = ntc.getContext('2d');
+  ntg.fillStyle = '#fff'; ntg.fillRect(0, 0, ntc.width, ntc.height);
+  ntg.drawImage(canvas, 0, 0);
+  notesMap[noteKey] = ntc.toDataURL('image/jpeg', recQSet().imgQ);
   if (!saveNotes()) { if (prevNote) notesMap[noteKey] = prevNote; else delete notesMap[noteKey]; toast('⚠ storage full'); return; }
   var btn = document.querySelector('[data-pk="' + noteKey + '"]');
   if (btn) { btn.textContent = '📔'; }
