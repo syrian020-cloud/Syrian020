@@ -2609,6 +2609,7 @@ function lessonDetails(l, refresh, onDelete, reopen) {
   };
   txhead.appendChild(cpy);
   var edAll = el('button', 'mini', '✏ ' + (t.editAll || 'تحرير الكل'));
+  txhead.appendChild(edAll);
   d.appendChild(txhead);
   var tb = el('div');
   tb.style.cssText = 'max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:.4rem;';
