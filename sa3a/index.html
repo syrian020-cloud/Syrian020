@@ -251,6 +251,26 @@ audio.lmed{max-height:none}
 .lz-v-line{display:flex;align-items:center;justify-content:center;gap:.4rem;max-width:100%}
 .lz-v-loop{flex:none;width:30px;height:30px;border-radius:50%;border:none;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff}
 .lz-v-loop.speaking{animation:lzPulse 1s infinite}
+
+#noteModal{position:fixed;inset:0;z-index:60;background:#0e1330;display:none;flex-direction:column}
+#noteModal.show{display:flex}
+.note-topbar{display:flex;align-items:center;gap:.35rem;padding:.5rem .6rem;background:#131a3d;flex-wrap:wrap}
+.note-icon{border:1px solid #2a3568;background:#1a2450;color:#fff;border-radius:10px;min-width:2rem;height:2rem;font-size:1rem;display:flex;align-items:center;justify-content:center}
+.note-icon.active{background:#7c5cff;border-color:#7c5cff}
+.note-icon.danger{background:#a33}
+.note-title{font-weight:700;color:#fff;font-size:.95rem}
+.note-palette{display:none;flex-wrap:wrap;gap:.45rem;padding:.5rem .6rem;background:#10173a}
+.note-palette.show{display:flex}
+.note-tool{width:1.5rem;height:1.5rem;border-radius:8px;border:2px solid transparent;padding:0}
+.note-tool.active{border-color:#fff;transform:scale(1.15)}
+#notePhraseBar{display:flex;flex-wrap:wrap;gap:.4rem;padding:.4rem .6rem;background:#0e1330}
+.note-phrase-card{position:relative;flex:1 1 46%;min-width:9rem;background:#f4ecd8;color:#1c1c1c;border-radius:10px;padding:.5rem .7rem .9rem;font-size:.95rem}
+.note-phrase-card.ar{direction:rtl}
+.note-loop{position:absolute;bottom:.3rem;inset-inline-end:.3rem;border:none;background:#1e2a4a;color:#fff;width:1.7rem;height:1.7rem;border-radius:9px;font-size:.8rem;padding:0}
+.note-canvas-wrap{flex:1;min-height:0;position:relative;background:#fff}
+.note-canvas-wrap.lined{background-color:#fffdf5;background-image:linear-gradient(to right,transparent 0,transparent 2.6rem,#f4a3a3 2.6rem,#f4a3a3 calc(2.6rem + 2px),transparent calc(2.6rem + 2px)),repeating-linear-gradient(to bottom,transparent 0,transparent calc(2.2rem - 1px),#9fc5e8 calc(2.2rem - 1px),#9fc5e8 2.2rem)}
+html[dir=rtl] .note-canvas-wrap.lined{background-image:linear-gradient(to left,transparent 0,transparent 2.6rem,#f4a3a3 2.6rem,#f4a3a3 calc(2.6rem + 2px),transparent calc(2.6rem + 2px)),repeating-linear-gradient(to bottom,transparent 0,transparent calc(2.2rem - 1px),#9fc5e8 calc(2.2rem - 1px),#9fc5e8 2.2rem)}
+#noteCanvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair}
 .phn-note{margin-top:.5rem}
 .phn-note textarea{width:100%;min-height:56px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--txt);padding:6px 8px;font-family:inherit;font-size:.9rem}
 .phn-note .b{margin-top:4px;padding:6px 14px;font-size:.8rem}
@@ -420,6 +440,40 @@ nav button.on{color:var(--acc)}
   <div class="rowbtns" style="flex:0 0 auto;margin-top:10px"><button class="b ghost" id="tplNo"></button><button class="b primary" id="tplYes"></button></div>
 </div></div>
 <!-- text ask -->
+<div id="noteModal">
+  <div class="note-topbar">
+    <button type="button" class="note-icon" id="noteClose">←</button>
+    <span class="note-title">📓</span><span style="flex:1"></span>
+    <button type="button" class="note-icon" id="notePaper">📓</button>
+    <button type="button" class="note-icon active" id="notePen">✏️</button>
+    <button type="button" class="note-icon" id="noteHl">🖍️</button>
+    <button type="button" class="note-icon" id="noteErase">✕</button>
+    <button type="button" class="note-icon" id="noteSwatch"><span id="noteSwatchDot" style="display:block;width:1.3rem;height:1.3rem;border-radius:6px;background:#111827"></span></button>
+    <button type="button" class="note-icon" id="noteSizeDec">−</button>
+    <input type="range" id="noteSize" min="1" max="16" value="3" style="width:3.6rem">
+    <button type="button" class="note-icon" id="noteSizeInc">+</button>
+    <button type="button" class="note-icon" id="noteUndo">↶</button>
+    <button type="button" class="note-icon" id="noteRedo">↷</button>
+    <button type="button" class="note-icon danger" id="noteClear">🗑</button>
+    <button type="button" class="note-icon" id="noteSave">⬇</button>
+  </div>
+  <div id="notePalette" class="note-palette">
+    <button type="button" class="note-tool active" data-color="#111827" style="background:#111827"></button>
+    <button type="button" class="note-tool" data-color="#e53935" style="background:#e53935"></button>
+    <button type="button" class="note-tool" data-color="#fb8c00" style="background:#fb8c00"></button>
+    <button type="button" class="note-tool" data-color="#fdd835" style="background:#fdd835"></button>
+    <button type="button" class="note-tool" data-color="#43a047" style="background:#43a047"></button>
+    <button type="button" class="note-tool" data-color="#00acc1" style="background:#00acc1"></button>
+    <button type="button" class="note-tool" data-color="#1e88e5" style="background:#1e88e5"></button>
+    <button type="button" class="note-tool" data-color="#3949ab" style="background:#3949ab"></button>
+    <button type="button" class="note-tool" data-color="#8e24aa" style="background:#8e24aa"></button>
+    <button type="button" class="note-tool" data-color="#d81b60" style="background:#d81b60"></button>
+    <button type="button" class="note-tool" data-color="#6d4c41" style="background:#6d4c41"></button>
+    <button type="button" class="note-tool" data-color="#9e9e9e" style="background:#9e9e9e"></button>
+  </div>
+  <div id="notePhraseBar"></div>
+  <div id="noteWrap" class="note-canvas-wrap plain"><canvas id="noteCanvas"></canvas></div>
+</div>
 <div class="shade" id="askShade"><div class="sheet" style="text-align:center">
   <h3 id="askTitle"></h3>
   <input type="text" id="askInput" class="fld" style="width:100%;background:var(--card);border:1px solid var(--line);border-radius:12px;color:var(--txt);padding:12px;font-family:inherit;font-size:1.05rem">
@@ -639,9 +693,11 @@ function cycleCapTheme(){capThemeIdx=(capThemeIdx+1)%CAP_THEMES.length;try{local
 /* loop-speak: tap starts, tap again stops */
 let sayTok=0;
 function stopSay(){sayTok++;try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(e){}
+ try{if(window.EdgeTTS&&EdgeTTS.stop)EdgeTTS.stop()}catch(e){}
  try{if(isCap()&&CAP.Plugins.Tts&&CAP.Plugins.Tts.stop)CAP.Plugins.Tts.stop().catch(()=>{})}catch(e){}}
 function sayOnce(txt,lg){return new Promise(res=>{
  if(!txt)return res();
+ if(window.EdgeTTS&&EdgeTTS.supported&&EdgeTTS.supported()){EdgeTTS.play((txt||'').slice(0,400),(lg||'fr').split('-')[0]).then(res,()=>res());return}
  if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:lg}).catch(()=>{});setTimeout(res,Math.min(9000,600+txt.length*95));return}
  if(window.speechSynthesis){const u=new SpeechSynthesisUtterance(txt);u.lang=lg||'fr';u.onend=res;u.onerror=res;speechSynthesis.speak(u);return}
  res()})}
@@ -1101,13 +1157,7 @@ function renderPhrases(n){
   if(p.t){const tp=document.createElement('button');tp.className='phnum';tp.textContent=p.t.split('→')[0].trim();
    tp.onclick=e=>{e.stopPropagation();if(!segLoop(tp))loopSpeak(rows,tp)};
    bar.appendChild(tp)}
-  mkI('ic-note',p.note?'📔':'📓',b=>{
-   const ex=c.querySelector('.phn-note');if(ex){ex.remove();return}
-   const bx=document.createElement('div');bx.className='phn-note';bx.onclick=e=>e.stopPropagation();
-   const ta=document.createElement('textarea');ta.value=p.note||'';ta.placeholder=t('notePh');
-   const sv=document.createElement('button');sv.className='b';sv.textContent=t('save');
-   sv.onclick=ev=>{ev.stopPropagation();p.note=ta.value.trim();save();renderPhrases(n)};
-   bx.appendChild(ta);bx.appendChild(sv);c.appendChild(bx);ta.focus()});
+  mkI('ic-note',(p._nd||p.note)?'📔':'📓',b=>openNote('lnot_'+n.id+'_'+i,p,b));
   mkI('ic-ai','✨',()=>{const q=aiSearchQuery(phMapS(p),p.lg);if(q)openExt('https://www.google.com/search?q='+encodeURIComponent(q)+'&udm=50&hl='+st.lang)});
   mkI('ic-clip','🔍',()=>{const q=firstMapText(phMapS(p));openExt('https://www.google.com/search?q='+encodeURIComponent(q+' clipart')+'&udm=2&hl='+st.lang)});
   mkI('ic-say','🔁',b=>loopSpeak(rows,b));
@@ -1699,6 +1749,45 @@ function speakTime(){
 }$('speakBtn').onclick=speakTime;
 function _updSpeakTitle(){const b=$('speakBtn');if(b)b.title=t('speakTime')}
 
+
+/* ---- note pad (ProLang port) ---- */
+var noteKey=null,noteCtx=null,noteDrawing=false,noteErasing=false,noteHighlight=false,noteColor='#111827',noteSize=3,noteUndo=[],noteRedo=[],notePhrase=null,noteCard=null;
+function noteSnapshot(){if(!noteCtx)return;const c=$('noteCanvas');noteUndo.push(noteCtx.getImageData(0,0,c.width,c.height));if(noteUndo.length>30)noteUndo.shift();noteRedo=[];updNoteHist()}
+function noteRestore(img){noteCtx.save();noteCtx.setTransform(1,0,0,1,0,0);noteCtx.globalCompositeOperation='source-over';noteCtx.globalAlpha=1;noteCtx.clearRect(0,0,img.width,img.height);noteCtx.putImageData(img,0,0);noteCtx.restore()}
+function updNoteHist(){$('noteUndo').disabled=!noteUndo.length;$('noteRedo').disabled=!noteRedo.length}
+function undoNote(){if(!noteCtx||!noteUndo.length)return;const c=$('noteCanvas');noteRedo.push(noteCtx.getImageData(0,0,c.width,c.height));noteRestore(noteUndo.pop());updNoteHist()}
+function redoNote(){if(!noteCtx||!noteRedo.length)return;const c=$('noteCanvas');noteUndo.push(noteCtx.getImageData(0,0,c.width,c.height));noteRestore(noteRedo.pop());updNoteHist()}
+function setNoteSize(n){noteSize=Math.min(16,Math.max(1,n));$('noteSize').value=noteSize}
+function setupNoteCanvas(){const c=$('noteCanvas');noteCtx=c.getContext('2d');const dpr=window.devicePixelRatio||1;const w=c.clientWidth||600,hh=c.clientHeight||400;c.width=Math.max(1,w*dpr);c.height=Math.max(1,hh*dpr);noteCtx.setTransform(1,0,0,1,0,0);noteCtx.scale(dpr,dpr);noteCtx.lineCap='round';noteCtx.lineJoin='round'}
+function openNote(key,phrase,btn){noteKey=key;notePhrase=phrase;noteCard=btn;$('noteModal').classList.add('show');const bar=$('notePhraseBar');bar.innerHTML='';
+ if(phrase){phRowsOf(phrase).forEach(r=>{if(!r.txt)return;const card=document.createElement('div');card.className='note-phrase-card';if(r.lg==='ar')card.dir='rtl';
+  const sp=document.createElement('span');sp.textContent=r.txt;card.appendChild(sp);
+  const lo=document.createElement('button');lo.className='note-loop';lo.textContent='🔁';lo.onclick=e=>{e.stopPropagation();loopSpeak([r],lo)};card.appendChild(lo);bar.appendChild(card)})}
+ const c=$('noteCanvas');noteUndo=[];noteRedo=[];updNoteHist();
+ setTimeout(()=>{setupNoteCanvas();const dpr=window.devicePixelRatio||1;const w=c.width/dpr,hh=c.height/dpr;noteCtx.clearRect(0,0,w,hh);
+  idb.get(key).then(r=>{if(r&&r.blob){const img=new Image();img.onload=()=>noteCtx.drawImage(img,0,0,w,hh);img.src=URL.createObjectURL(r.blob)}}).catch(()=>{})},50);
+ setNoteTool('pen');$('noteSize').value=noteSize;
+ document.querySelectorAll('.note-tool').forEach(b=>b.classList.toggle('active',b.dataset.color===noteColor));
+ $('noteSwatchDot').style.background=noteColor;$('notePalette').classList.remove('show');applyNotePaper()}
+function applyNotePaper(){const w=$('noteWrap');const lined=localStorage.getItem('sa3a_note_paper')==='lined';w.classList.toggle('lined',lined);w.classList.toggle('plain',!lined);const pb=$('notePaper');pb.textContent=lined?'📄':'📓';pb.classList.toggle('active',lined)}
+function setNoteTool(tool){noteErasing=tool==='erase';noteHighlight=tool==='hl';$('notePen').classList.toggle('active',tool==='pen');$('noteHl').classList.toggle('active',tool==='hl');$('noteErase').classList.toggle('active',tool==='erase')}
+function closeNote(){$('noteModal').classList.remove('show');noteKey=null;noteCtx=null}
+function saveNote(){if(!noteKey||!noteCtx)return;const c=$('noteCanvas');c.toBlob(async b=>{try{await idb.set(noteKey,{blob:b});if(notePhrase){notePhrase._nd=true;save()}if(noteCard)noteCard.textContent='📔'}catch(e){}closeNote();toast('✓ '+t('save'))},'image/png')}
+function clearNote(){if(!noteCtx)return;noteSnapshot();const c=$('noteCanvas'),dpr=window.devicePixelRatio||1;noteCtx.clearRect(0,0,c.width/dpr,c.height/dpr)}
+function getNotePos(e){const c=$('noteCanvas'),rc=c.getBoundingClientRect();const x=(e.touches?e.touches[0].clientX:e.clientX)-rc.left,y=(e.touches?e.touches[0].clientY:e.clientY)-rc.top;return{x,y}}
+function noteStart(e){if(!noteCtx)return;e.preventDefault();noteSnapshot();noteDrawing=true;const p=getNotePos(e);noteCtx.beginPath();noteCtx.moveTo(p.x,p.y);noteCtx.globalCompositeOperation=noteErasing?'destination-out':'source-over';noteCtx.globalAlpha=noteHighlight?0.35:1;noteCtx.lineCap=noteHighlight?'square':'round';noteCtx.strokeStyle=noteColor;noteCtx.lineWidth=noteErasing?noteSize*4:(noteHighlight?noteSize*3:noteSize)}
+function noteMove(e){if(!noteDrawing||!noteCtx)return;e.preventDefault();const p=getNotePos(e);noteCtx.lineTo(p.x,p.y);noteCtx.stroke()}
+function noteEnd(){if(!noteCtx)return;noteDrawing=false;noteCtx.closePath()}
+function bindNoteUI(){const c=$('noteCanvas');c.addEventListener('mousedown',noteStart);c.addEventListener('mousemove',noteMove);window.addEventListener('mouseup',noteEnd);
+ c.addEventListener('touchstart',noteStart,{passive:false});c.addEventListener('touchmove',noteMove,{passive:false});c.addEventListener('touchend',noteEnd);
+ $('noteClose').onclick=closeNote;$('noteSave').onclick=saveNote;$('noteClear').onclick=clearNote;$('noteUndo').onclick=undoNote;$('noteRedo').onclick=redoNote;
+ $('notePen').onclick=()=>setNoteTool('pen');$('noteHl').onclick=()=>setNoteTool('hl');$('noteErase').onclick=()=>setNoteTool('erase');
+ $('notePaper').onclick=()=>{const lined=localStorage.getItem('sa3a_note_paper')==='lined';try{localStorage.setItem('sa3a_note_paper',lined?'plain':'lined')}catch(e){}applyNotePaper()};
+ $('noteSwatch').onclick=()=>$('notePalette').classList.toggle('show');
+ $('noteSizeDec').onclick=()=>setNoteSize(noteSize-1);$('noteSizeInc').onclick=()=>setNoteSize(noteSize+1);$('noteSize').oninput=function(){setNoteSize(parseInt(this.value,10)||3)};
+ document.querySelectorAll('.note-tool').forEach(b=>{b.onclick=()=>{noteColor=b.dataset.color;$('noteSwatchDot').style.background=noteColor;document.querySelectorAll('.note-tool').forEach(x=>x.classList.toggle('active',x===b));$('notePalette').classList.remove('show')}})}
+bindNoteUI();
+
 /* editor */
 let editing=null;
 function openEditor(id){
@@ -1934,6 +2023,7 @@ function applyTheme(){document.documentElement.dataset.theme=st.theme}
 /* =============== back button =============== */
 if(CAP.Plugins&&CAP.Plugins.App){
  CAP.Plugins.App.addListener('backButton',async()=>{
+  if($('noteModal')&&$('noteModal').classList.contains('show')){closeNote();return}
   for(const s of['ringShade','editShade','menuShade','cfShade','askShade','lsOptShade','phShade','tplShade','lessonShade'])if($(s).classList.contains('on')){if(s==='ringShade')stopRing();else if(s==='lessonShade'&&lsView==='lesson'){lsView='grid';renderLessons()}else if(s==='lessonShade'&&lsStack.length){lsStack.pop();renderLessons()}else $(s).classList.remove('on');return}
   if(calMonth>=0&&$('monthView').classList.contains('on')){calMonth=-1;renderYear();return}
   if(await confirmBox(t('exitConfirm')))CAP.Plugins.App.exitApp();
