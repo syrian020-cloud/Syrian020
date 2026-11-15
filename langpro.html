@@ -683,7 +683,7 @@ var I18N = {
     lockWrong: 'الرمز غير صحيح', lockNoMatch: 'الرمزان غير متطابقين', lockNeedPin: 'الرمز يجب أن يكون 4 أرقام',
     pinSaved: 'تم حفظ رمز الدخول', unlocked: 'تم حذف رمز الدخول',
     lessons: 'الدروس', addLesson: 'درس جديد', noLessons: 'لا دروس بعد', lName: 'اسم الدرس',
-    pickVideo: 'فيديو', pickAudio: 'صوت', noMedia: 'بدون وسائط', delLessonQ: 'حذف هذا الدرس؟', lMedia: 'الوسائط', lText: 'النص', repMedia: '🔄 استبدال', delMediaQ: 'حذف الوسائط؟', delCueQ: 'حذف هذا السطر؟',
+    pickVideo: 'فيديو', pickAudio: 'صوت', noMedia: 'بدون وسائط', delLessonQ: 'حذف هذا الدرس؟', lMedia: 'الوسائط', lText: 'النص', repMedia: '🔄 استبدال', delMediaQ: 'حذف الوسائط؟', savedGallery: '✓ تم الحفظ في المعرض', delCueQ: 'حذف هذا السطر؟',
     cueAdd: 'إضافة سطر', cueTime: 'الوقت (mm:ss)', cueNow: 'عند الموضع الحالي', cueLines: 'سطر',
     timedTitle: 'لصق نص مؤقت', timedHelp: 'كل سطر: 00:01 النص أو 00:01 --> 00:04 النص', timedAdd: 'إضافة الأسطر', errTimed: 'لم يُعثر على أسطر مؤقتة', modelsTitle: 'نماذج الصيغ',
     tplZeelang: 'نماذج Zeelang — صيغ مقبولة', tplProlang: 'نماذج ProLang', tplTimed: 'نماذج مؤقّتة — فيديو / صوت 🎬',
@@ -726,7 +726,7 @@ var I18N = {
     lockWrong: 'Code incorrect', lockNoMatch: 'Les codes ne correspondent pas', lockNeedPin: 'Le code doit avoir 4 chiffres',
     pinSaved: 'Code enregistré', unlocked: 'Code supprimé',
     lessons: 'Leçons', addLesson: 'Nouvelle leçon', noLessons: 'Pas encore de leçons', lName: 'Nom de la leçon',
-    pickVideo: 'Vidéo', pickAudio: 'Audio', noMedia: 'Sans média', delLessonQ: 'Supprimer cette leçon ?', lMedia: 'Média', lText: 'Texte', repMedia: '🔄 Remplacer', delMediaQ: 'Supprimer le média ?', delCueQ: 'Supprimer cette ligne ?',
+    pickVideo: 'Vidéo', pickAudio: 'Audio', noMedia: 'Sans média', delLessonQ: 'Supprimer cette leçon ?', lMedia: 'Média', lText: 'Texte', repMedia: '🔄 Remplacer', delMediaQ: 'Supprimer le média ?', savedGallery: '✓ Enregistré dans la galerie', delCueQ: 'Supprimer cette ligne ?',
     cueAdd: 'Ajouter une ligne', cueTime: 'Temps (mm:ss)', cueNow: 'À la position actuelle', cueLines: 'lignes',
     timedTitle: 'Coller du texte synchronisé', timedHelp: 'Chaque ligne : 00:01 texte ou 00:01 --> 00:04 texte', timedAdd: 'Ajouter les lignes', errTimed: 'Aucune ligne synchronisée trouvée', modelsTitle: 'Modèles de format',
     tplZeelang: 'Modèles Zeelang — formats acceptés', tplProlang: 'Modèles ProLang', tplTimed: 'Modèles synchronisés — vidéo / audio 🎬',
@@ -769,7 +769,7 @@ var I18N = {
     lockWrong: 'Wrong passcode', lockNoMatch: 'Passcodes do not match', lockNeedPin: 'Passcode must be 4 digits',
     pinSaved: 'Passcode saved', unlocked: 'Passcode removed',
     lessons: 'Lessons', addLesson: 'New lesson', noLessons: 'No lessons yet', lName: 'Lesson name',
-    pickVideo: 'Video', pickAudio: 'Audio', noMedia: 'No media', delLessonQ: 'Delete this lesson?', lMedia: 'Media', lText: 'Text', repMedia: '🔄 Replace', delMediaQ: 'Delete media?', delCueQ: 'Delete this line?',
+    pickVideo: 'Video', pickAudio: 'Audio', noMedia: 'No media', delLessonQ: 'Delete this lesson?', lMedia: 'Media', lText: 'Text', repMedia: '🔄 Replace', delMediaQ: 'Delete media?', savedGallery: '✓ Saved to gallery', delCueQ: 'Delete this line?',
     cueAdd: 'Add line', cueTime: 'Time (mm:ss)', cueNow: 'At current position', cueLines: 'lines',
     timedTitle: 'Paste timed text', timedHelp: 'Each line: 00:01 text or 00:01 --> 00:04 text', timedAdd: 'Add lines', errTimed: 'No timed lines found', modelsTitle: 'Format models',
     tplZeelang: 'Zeelang templates — accepted formats', tplProlang: 'ProLang templates', tplTimed: 'Timed templates — video / audio 🎬',
@@ -1741,13 +1741,13 @@ function createRecSink(ext, mimeType, prefix) {
                 var albumDir = (g && g.path ? g.path : '') + '/LangPro';
                 return MED.createAlbum({ name: 'LangPro' }).catch(function () {})
                   .then(function () { return MED.saveVideo({ path: r.uri, albumIdentifier: albumDir }); })
-                  .then(function () { toast('✓ 🖼'); })
+                  .then(function () { toast(t.savedGallery); })
                   .catch(function (e) {
                     console.error('gallery save failed', e);
                     var p = String(r.uri || '').replace(/^file:\/\//, '/');
                     return MED.saveVideo({ path: p, albumIdentifier: albumDir })
-                      .then(function () { toast('✓ 🖼'); })
-                      .catch(function (e2) { console.error('gallery save fallback failed', e2); toast('✓'); });
+                      .then(function () { toast(t.savedGallery); })
+                      .catch(function (e2) { console.error('gallery save fallback failed', e2); toast('⚠️ gallery'); });
                   });
               }).catch(function (e) { console.error('albums path failed', e); toast('✓'); })
             : Promise.resolve(toast('✓'));
