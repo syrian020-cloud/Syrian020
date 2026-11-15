@@ -363,7 +363,7 @@ var I18N = {
     lessons: 'الدروس', addLesson: 'درس جديد', noLessons: 'لا دروس بعد', lName: 'اسم الدرس',
     pickVideo: 'فيديو', pickAudio: 'صوت', noMedia: 'بدون وسائط', delLessonQ: 'حذف هذا الدرس؟',
     cueAdd: 'إضافة سطر', cueTime: 'الوقت (mm:ss)', cueNow: 'عند الموضع الحالي', cueLines: 'سطر',
-    timedTitle: 'لصق نص مؤقت', timedHelp: 'كل سطر: 00:01 النص أو 00:01 --> 00:04 النص', timedAdd: 'إضافة الأسطر', errTimed: 'لم يُعثر على أسطر مؤقتة',
+    timedTitle: 'لصق نص مؤقت', timedHelp: 'كل سطر: 00:01 النص أو 00:01 --> 00:04 النص', timedAdd: 'إضافة الأسطر', errTimed: 'لم يُعثر على أسطر مؤقتة', modelsTitle: 'نماذج الصيغ',
     capTheme: 'ثيم الترجمة', libTitle: 'مكتبة العبارات', libStages: 'المراحل', libVocab: 'المفردات', libBack: 'رجوع',
     copyAll: 'نسخ الكل', toFolder: 'إضافة كدرس', pickFolder: 'اختر المجلد', lessonAdded: 'أُضيف الدرس ✓',
     renameLesson: 'تعديل اسم الدرس', playAll: 'تشغيل الكل'
@@ -397,7 +397,7 @@ var I18N = {
     lessons: 'Leçons', addLesson: 'Nouvelle leçon', noLessons: 'Pas encore de leçons', lName: 'Nom de la leçon',
     pickVideo: 'Vidéo', pickAudio: 'Audio', noMedia: 'Sans média', delLessonQ: 'Supprimer cette leçon ?',
     cueAdd: 'Ajouter une ligne', cueTime: 'Temps (mm:ss)', cueNow: 'À la position actuelle', cueLines: 'lignes',
-    timedTitle: 'Coller du texte synchronisé', timedHelp: 'Chaque ligne : 00:01 texte ou 00:01 --> 00:04 texte', timedAdd: 'Ajouter les lignes', errTimed: 'Aucune ligne synchronisée trouvée',
+    timedTitle: 'Coller du texte synchronisé', timedHelp: 'Chaque ligne : 00:01 texte ou 00:01 --> 00:04 texte', timedAdd: 'Ajouter les lignes', errTimed: 'Aucune ligne synchronisée trouvée', modelsTitle: 'Modèles de format',
     capTheme: 'Thème des sous-titres', libTitle: 'Bibliothèque de phrases', libStages: 'Niveaux', libVocab: 'Vocabulaire', libBack: 'Retour',
     copyAll: 'Tout copier', toFolder: 'Ajouter comme leçon', pickFolder: 'Choisir le dossier', lessonAdded: 'Leçon ajoutée ✓',
     renameLesson: 'Renommer la leçon', playAll: 'Tout lire'
@@ -431,7 +431,7 @@ var I18N = {
     lessons: 'Lessons', addLesson: 'New lesson', noLessons: 'No lessons yet', lName: 'Lesson name',
     pickVideo: 'Video', pickAudio: 'Audio', noMedia: 'No media', delLessonQ: 'Delete this lesson?',
     cueAdd: 'Add line', cueTime: 'Time (mm:ss)', cueNow: 'At current position', cueLines: 'lines',
-    timedTitle: 'Paste timed text', timedHelp: 'Each line: 00:01 text or 00:01 --> 00:04 text', timedAdd: 'Add lines', errTimed: 'No timed lines found',
+    timedTitle: 'Paste timed text', timedHelp: 'Each line: 00:01 text or 00:01 --> 00:04 text', timedAdd: 'Add lines', errTimed: 'No timed lines found', modelsTitle: 'Format models',
     capTheme: 'Caption theme', libTitle: 'Phrase library', libStages: 'Stages', libVocab: 'Vocabulary', libBack: 'Back',
     copyAll: 'Copy all', toFolder: 'Add as lesson', pickFolder: 'Pick a folder', lessonAdded: 'Lesson added ✓',
     renameLesson: 'Rename lesson', playAll: 'Play all'
@@ -1108,6 +1108,39 @@ function timedDialog(l, refresh) {
   d.appendChild(el('p', null, '⏱ ' + t.timedTitle));
   d.appendChild(el('div', 'flabel', t.timedHelp));
   var f = el('div', 'field');
+  var MODELS = [
+    { n: '⏱ وقت + نص', v: '00:01 Bonjour' },
+    { n: '⏱ بداية → نهاية', v: '00:01 --> 00:04 Comment ça va ?' },
+    { n: '⏱ بأقواس (ميلي ثانية)', v: '[00:01.500] Bonjour' },
+    { n: '⏱ بلوك SRT', v: '1\n00:00:01,000 --> 00:00:04,000\nBonjour' },
+    { n: '🌐 نص + ترجمة بالسطر التالي', v: '00:01 Bonjour\nمرحبا' },
+    { n: '📝 عبارة بدون وقت', v: 'Juste une phrase' }
+  ];
+  var mpanel = null;
+  var mb = el('button', 'mini', '📑 ' + t.modelsTitle);
+  mb.onclick = function () {
+    if (mpanel) { mpanel.remove(); mpanel = null; return; }
+    mpanel = el('div', 'attlist');
+    MODELS.forEach(function (m) {
+      var mr = el('div', 'att');
+      var mid = el('div'); mid.style.flex = '1'; mid.style.minWidth = '0';
+      mid.appendChild(el('div', 'an', m.n));
+      var pv = el('div', 'lc'); pv.dir = 'ltr'; pv.style.textAlign = 'left';
+      pv.style.whiteSpace = 'pre-wrap';
+      pv.textContent = m.v;
+      mid.appendChild(pv);
+      mr.appendChild(mid);
+      var cp = el('button', 'ax', '📋');
+      cp.onclick = function (e) { e.stopPropagation(); copyText(m.v, t.copied); };
+      mr.appendChild(cp);
+      mr.onclick = function () {
+        ta.value = (ta.value ? ta.value.replace(/\n+$/, '') + '\n' : '') + m.v + '\n';
+      };
+      mpanel.appendChild(mr);
+    });
+    d.insertBefore(mpanel, f);
+  };
+  d.appendChild(mb);
   var ta = document.createElement('textarea');
   ta.rows = 8; ta.dir = 'ltr';
   ta.style.cssText = 'width:100%;background:transparent;border:none;outline:none;color:var(--txt);font:inherit;resize:vertical';
