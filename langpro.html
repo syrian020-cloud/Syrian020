@@ -1741,12 +1741,12 @@ function createRecSink(ext, mimeType, prefix) {
                 var albumDir = (g && g.path ? g.path : '') + '/LangPro';
                 return MED.createAlbum({ name: 'LangPro' }).catch(function () {})
                   .then(function () { return MED.saveVideo({ path: r.uri, albumIdentifier: albumDir }); })
-                  .then(function () { toast(t.savedGallery); })
+                  .then(function () { toast(T().savedGallery); })
                   .catch(function (e) {
                     console.error('gallery save failed', e);
                     var p = String(r.uri || '').replace(/^file:\/\//, '/');
                     return MED.saveVideo({ path: p, albumIdentifier: albumDir })
-                      .then(function () { toast(t.savedGallery); })
+                      .then(function () { toast(T().savedGallery); })
                       .catch(function (e2) { console.error('gallery save fallback failed', e2); toast('⚠️ gallery'); });
                   });
               }).catch(function (e) { console.error('albums path failed', e); toast('✓'); })
