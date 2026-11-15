@@ -314,9 +314,9 @@
     width: 34px; height: 34px; border-radius: 50%; border: none; cursor: pointer;
     background: rgba(0,0,0,.5); color: #fff; font-size: 1rem; }
   .vc-loop.on { background: linear-gradient(135deg, var(--accent), var(--accent2)); }
-  .lov-media .vcover { position: absolute; inset: 0; z-index: 4; }
+  .lov-media .vcover { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
   .lov-media .vcover img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .lov-media .vcover-x { position: absolute; top: .5rem; inset-inline-end: .5rem; z-index: 6;
+  .lov-media .vcover-x { position: absolute; top: .5rem; inset-inline-end: .5rem; z-index: 6; pointer-events: auto;
     width: 30px; height: 30px; border-radius: 50%; border: none; cursor: pointer;
     background: rgba(0,0,0,.55); color: #fff; font-size: .9rem; }
   .lov-media .vcrop { position: relative; width: 100%; }
@@ -2649,7 +2649,10 @@ function openLesson(l) {
       player.className = FITS[l.vfit || 0] || '';
     } else mediaWrap.appendChild(player);
     ov.appendChild(mediaWrap);
-    if (isV) showCover();   // needs mediaWrap inside ov before it queries it
+    showCover();   // needs mediaWrap inside ov before it queries it
+    var covSync = function () { var cv = mediaWrap.querySelector('.vcover'); if (cv) cv.style.display = player.paused ? '' : 'none'; };
+    player.addEventListener('play', covSync);
+    player.addEventListener('pause', covSync);
     curPlayer = player;
     try { player.playbackRate = playSpeed; } catch (e) {}
     player.addEventListener('loadedmetadata', applyVfit);
