@@ -1,0 +1,8 @@
+{
+  "appId": "com.syrian020.sa3a",
+  "appName": "Sa3a",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

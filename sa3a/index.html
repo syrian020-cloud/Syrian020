@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ساعتي</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--radius:18px}
+[data-theme=dark]{--bg:#0b1020;--bg2:#141b33;--card:#1a2340;--card2:#222c4f;--txt:#eef1ff;--dim:#8b93b8;--acc:#4f8cff;--acc2:#7c5cff;--ok:#2fd180;--danger:#ff5d6c;--line:#2a355e;--shadow:0 6px 24px rgba(0,0,0,.45)}
+[data-theme=light]{--bg:#eef1fa;--bg2:#ffffff;--card:#ffffff;--card2:#f2f4fc;--txt:#141a33;--dim:#5d6480;--acc:#2f6fe0;--acc2:#6a4de0;--ok:#12a45e;--danger:#e0364a;--line:#dde2f2;--shadow:0 6px 18px rgba(30,40,90,.12)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--txt);font-family:'Cairo',system-ui,sans-serif;transition:background .3s,color .3s}
+body{display:flex;flex-direction:column;overflow:hidden}
+header{display:flex;align-items:center;gap:10px;padding:calc(env(safe-area-inset-top,0px) + 10px) 14px 10px;background:var(--bg2);border-bottom:1px solid var(--line);flex:0 0 auto;z-index:5}
+header .logo{font-weight:800;font-size:1.2rem;display:flex;align-items:center;gap:8px}
+header .spacer{flex:1}
+.hbtn{background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:12px;padding:6px 12px;font-family:inherit;font-size:.95rem;font-weight:700;cursor:pointer;white-space:nowrap}
+.hbtn:active{transform:scale(.95)}
+main{flex:1;overflow:auto;position:relative}
+.tabsec{display:none;height:100%;flex-direction:column}
+.tabsec.on{display:flex}
+/* ---- clock ---- */
+#sec-clock{align-items:center;justify-content:center;padding:16px}
+#analog{width:min(86vw,58vh);height:min(86vw,58vh);display:none}
+#analog.on{display:block}
+#digital{display:none;text-align:center}
+#digital.on{display:block}
+#digital .dtime{font-family:'Orbitron',monospace;font-size:clamp(3rem,17vw,7rem);font-weight:700;letter-spacing:.05em;line-height:1;text-shadow:0 0 30px rgba(79,140,255,.35)}
+#digital .dtime .sec{font-size:.35em;color:var(--dim);font-weight:500}
+#digital .ddate{margin-top:14px;font-size:1.15rem;color:var(--dim);font-weight:600}
+#analog .face{fill:var(--card);stroke:var(--line);stroke-width:2}
+#analog .tick{stroke:var(--dim);stroke-width:1.5}
+#analog .tick.big{stroke:var(--txt);stroke-width:3}
+#analog .num{fill:var(--txt);font-size:26px;font-weight:700;text-anchor:middle;dominant-baseline:middle}
+#analog .hand{stroke:var(--txt);stroke-linecap:round}
+#analog .hand.h{stroke-width:7}
+#analog .hand.m{stroke-width:5}
+#analog .hand.s{stroke:var(--acc);stroke-width:2.5}
+#analog .dot{fill:var(--acc)}
+#analog .digIn{fill:var(--dim);font-size:15px;font-weight:600;text-anchor:middle}
+/* ---- alarms ---- */
+#sec-alarms{padding:12px 14px 90px;gap:10px}
+.alitem{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow)}
+.alitem .tm{font-family:'Orbitron',monospace;font-size:1.7rem;font-weight:700}
+.alitem.off .tm{color:var(--dim)}
+.alitem .meta{flex:1;min-width:0}
+.alitem .lb{font-weight:700;font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.alitem .sub{color:var(--dim);font-size:.8rem;font-weight:600}
+.switch{position:relative;width:48px;height:27px;flex:0 0 auto}
+.switch input{opacity:0;width:0;height:0}
+.switch .sl{position:absolute;inset:0;background:var(--card2);border:1px solid var(--line);border-radius:27px;cursor:pointer;transition:.25s}
+.switch .sl:before{content:"";position:absolute;width:19px;height:19px;border-radius:50%;background:var(--dim);top:3px;inset-inline-start:4px;transition:.25s}
+.switch input:checked+.sl{background:var(--ok);border-color:var(--ok)}
+.switch input:checked+.sl:before{transform:translateX(-20px);background:#fff}
+[dir=ltr] .switch input:checked+.sl:before{transform:translateX(20px)}
+.mini-btn{background:none;border:none;color:var(--dim);font-size:1.15rem;cursor:pointer;padding:6px}
+.empty{color:var(--dim);text-align:center;margin-top:60px;font-size:1.05rem}
+.fab{position:fixed;bottom:calc(64px + env(safe-area-inset-bottom,0px) + 14px);inset-inline-end:18px;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;border:none;font-size:1.8rem;cursor:pointer;box-shadow:0 6px 20px rgba(79,140,255,.45);z-index:6;line-height:1}
+/* ---- calendar ---- */
+#sec-cal{padding:12px 12px 20px}
+.yrnav{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:10px}
+.yrnav .yr{font-size:1.4rem;font-weight:800;font-family:'Orbitron',monospace;min-width:90px;text-align:center}
+.yrnav button{background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;width:40px;height:36px;font-size:1.1rem;cursor:pointer}
+#yrgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mini{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px;cursor:pointer}
+.mini .mn{font-weight:800;font-size:.85rem;text-align:center;margin-bottom:5px;color:var(--acc)}
+.mini .wd,.mini .gd{display:grid;grid-template-columns:repeat(7,1fr);gap:1px}
+.mini .wd div{text-align:center;font-size:.5rem;color:var(--dim);font-weight:700}
+.mini .gd div{text-align:center;font-size:.58rem;padding:1.5px 0;border-radius:4px;color:var(--txt)}
+.mini .gd div.tdy{background:var(--acc);color:#fff;font-weight:800}
+.mini .gd div.alrm{color:var(--ok);font-weight:800}
+#monthView{display:none}
+#monthView.on{display:block}
+#monthView .mnav{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+#monthView .mnav .ttl{flex:1;text-align:center;font-weight:800;font-size:1.15rem}
+#bigcal{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px}
+#bigcal .wd,#bigcal .gd{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+#bigcal .wd div{text-align:center;font-size:.75rem;color:var(--dim);font-weight:800;padding:4px 0}
+#bigcal .gd div{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;font-size:1rem;font-weight:600}
+#bigcal .gd div.tdy{background:var(--acc);color:#fff;font-weight:800}
+#bigcal .gd div.alrm span.dot{width:5px;height:5px;border-radius:50%;background:var(--ok);margin-top:2px}
+/* ---- bottom nav ---- */
+nav{display:flex;background:var(--bg2);border-top:1px solid var(--line);flex:0 0 auto;padding-bottom:env(safe-area-inset-bottom,0px)}
+nav button{flex:1;background:none;border:none;color:var(--dim);font-family:inherit;font-size:.8rem;font-weight:700;padding:10px 4px 8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+nav button .ico{font-size:1.35rem}
+nav button.on{color:var(--acc)}
+/* ---- sheets / modals ---- */
+.shade{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;z-index:20;align-items:flex-end;justify-content:center}
+.shade.on{display:flex}
+.sheet{background:var(--bg2);border-radius:22px 22px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom,0px));width:100%;max-width:520px;max-height:88vh;overflow:auto;animation:up .22s ease}
+@keyframes up{from{transform:translateY(40px);opacity:.4}to{transform:none;opacity:1}}
+.sheet h3{margin:0 0 14px;font-size:1.15rem}
+.fld{margin-bottom:14px}
+.fld label{display:block;font-size:.85rem;font-weight:700;color:var(--dim);margin-bottom:6px}
+.fld input[type=text],.fld input[type=time]{width:100%;background:var(--card);border:1px solid var(--line);border-radius:12px;color:var(--txt);padding:12px;font-family:inherit;font-size:1.05rem}
+.fld input[type=time]{font-family:'Orbitron',monospace;font-size:1.5rem;text-align:center;font-weight:700}
+.daychips{display:flex;gap:6px;flex-wrap:wrap}
+.daychips .dc{flex:1;min-width:38px;text-align:center;padding:8px 2px;border-radius:10px;background:var(--card);border:1px solid var(--line);font-size:.78rem;font-weight:700;cursor:pointer;color:var(--dim)}
+.daychips .dc.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.sndrow{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px;cursor:pointer}
+.sndrow.on{border-color:var(--acc);background:var(--card2)}
+.sndrow .r{width:18px;height:18px;border-radius:50%;border:2px solid var(--dim);flex:0 0 auto}
+.sndrow.on .r{border-color:var(--acc);background:var(--acc)}
+.sndrow .nm{flex:1;font-weight:700;font-size:.95rem}
+.sndrow .pv{background:none;border:none;color:var(--acc);font-size:1.2rem;cursor:pointer;padding:4px}
+.rowbtns{display:flex;gap:10px;margin-top:16px}
+.rowbtns .b{flex:1;padding:13px;border-radius:14px;border:none;font-family:inherit;font-size:1rem;font-weight:800;cursor:pointer}
+.b.primary{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff}
+.b.ghost{background:var(--card);color:var(--txt);border:1px solid var(--line)!important}
+.b.danger{background:var(--danger);color:#fff}
+.mitem{display:flex;align-items:center;gap:12px;padding:13px 6px;border-bottom:1px solid var(--line);cursor:pointer;font-weight:700}
+.mitem:last-child{border-bottom:none}
+.mitem .ico{font-size:1.2rem;width:28px;text-align:center}
+/* ---- ringing overlay ---- */
+#ringShade{z-index:50;align-items:center}
+#ringCard{background:var(--bg2);border-radius:26px;padding:34px 26px;width:min(90vw,420px);text-align:center;animation:pulse 1.2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(79,140,255,.5)}50%{box-shadow:0 0 0 22px rgba(79,140,255,0)}}
+#ringCard .rtc{font-family:'Orbitron',monospace;font-size:3.6rem;font-weight:700;line-height:1.1}
+#ringCard .rlb{margin:10px 0 24px;font-size:1.2rem;font-weight:700;color:var(--dim)}
+#ringCard .ico{font-size:3rem;animation:ring .8s infinite alternate}
+@keyframes ring{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}
+/* toast */
+#toast{position:fixed;bottom:calc(64px + 16px);left:50%;transform:translateX(-50%);background:var(--card2);border:1px solid var(--line);padding:10px 20px;border-radius:14px;font-weight:700;display:none;z-index:60;box-shadow:var(--shadow)}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">⏰ <span id="hTitle">ساعتي</span></div>
+  <div class="spacer"></div>
+  <button class="hbtn" id="langBtn">🌐 EN</button>
+  <button class="hbtn" id="menuBtn">⋮</button>
+</header>
+<main>
+  <section class="tabsec on" id="sec-clock">
+    <svg id="analog" viewBox="0 0 300 300"></svg>
+    <div id="digital"><div class="dtime"><span id="dh">00</span><span class="sec" id="ds">:00</span></div><div class="ddate" id="ddate"></div></div>
+  </section>
+  <section class="tabsec" id="sec-alarms">
+    <div id="alarmList"></div>
+    <button class="fab" id="addAlarm">+</button>
+  </section>
+  <section class="tabsec" id="sec-cal">
+    <div id="yearView">
+      <div class="yrnav"><button id="yrPrev">‹</button><div class="yr" id="yrNum"></div><button id="yrNext">›</button></div>
+      <div id="yrgrid"></div>
+    </div>
+    <div id="monthView">
+      <div class="mnav"><button class="hbtn" id="backYear">‹ <span id="tBack"></span></button><div class="ttl" id="mTitle"></div><span style="width:60px"></span></div>
+      <div id="bigcal"></div>
+    </div>
+  </section>
+</main>
+<nav>
+  <button class="on" data-tab="clock"><span class="ico">🕐</span><span class="t"></span></button>
+  <button data-tab="alarms"><span class="ico">⏰</span><span class="t"></span></button>
+  <button data-tab="cal"><span class="ico">📅</span><span class="t"></span></button>
+</nav>
+
+<!-- alarm editor -->
+<div class="shade" id="editShade"><div class="sheet">
+  <h3 id="edTitle"></h3>
+  <div class="fld"><label id="lTime"></label><input type="time" id="edTime" value="07:30"></div>
+  <div class="fld"><label id="lLabel"></label><input type="text" id="edLabel" maxlength="60"></div>
+  <div class="fld"><label id="lRepeat"></label><div class="daychips" id="edDays"></div><div style="margin-top:6px;font-size:.78rem;color:var(--dim)" id="onceHint"></div></div>
+  <div class="fld"><label id="lSound"></label><div id="edSounds"></div></div>
+  <div class="fld" style="display:flex;align-items:center;justify-content:space-between"><label id="lVib" style="margin:0"></label>
+    <label class="switch"><input type="checkbox" id="edVib" checked><span class="sl"></span></label></div>
+  <div class="rowbtns"><button class="b danger" id="edDel" style="display:none"></button><button class="b ghost" id="edCancel"></button><button class="b primary" id="edSave"></button></div>
+</div></div>
+
+<!-- menu -->
+<div class="shade" id="menuShade"><div class="sheet">
+  <h3 id="mTitle2"></h3>
+  <div id="menuItems"></div>
+</div></div>
+
+<!-- confirm -->
+<div class="shade" id="cfShade"><div class="sheet" style="text-align:center">
+  <h3 id="cfText" style="margin:18px 0"></h3>
+  <div class="rowbtns"><button class="b ghost" id="cfNo"></button><button class="b danger" id="cfYes"></button></div>
+</div></div>
+
+<!-- alarm ringing -->
+<div class="shade" id="ringShade"><div id="ringCard">
+  <div class="ico">⏰</div>
+  <div class="rtc" id="ringTime"></div>
+  <div class="rlb" id="ringLabel"></div>
+  <div class="rowbtns"><button class="b ghost" id="ringSnooze"></button><button class="b primary" id="ringStop"></button></div>
+</div></div>
+<input type="file" id="filePick" accept="audio/*" hidden>
+<input type="file" id="impPick" accept="application/json,.json" hidden>
+<audio id="ringAudio" loop></audio>
+<audio id="pvAudio"></audio>
+<div id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@capacitor/core@6/dist/capacitor.js"></script>
+<script>
+'use strict';
+/* =============== i18n =============== */
+const L={
+ar:{appName:'ساعتي',tabClock:'الساعة',tabAlarms:'المنبهات',tabCal:'التقويم',newAlarm:'منبه جديد',editAlarm:'تعديل المنبه',lTime:'الوقت',lLabel:'الاسم',labelPh:'مثلاً: الاستيقاظ',lRepeat:'التكرار',onceHint:'بدون اختيار أيام = يعمل مرة واحدة',lSound:'الصوت',lVib:'اهتزاز',sndDefault:'صوت الهاتف الافتراضي',sndBeep:'نبضات',sndBell:'جرس',sndSiren:'صافرة',sndCustom:'صوتي المرفوع',uploadSound:'⬆️ ارفع صوتًا من هاتفك',save:'حفظ',cancel:'إلغاء',del:'حذف',yes:'نعم',no:'لا',once:'مرة واحدة',daily:'يوميًا',every:'كل',settings:'الإعدادات',mClock:'نمط الساعة',analog:'عقارب',digital:'أرقام',mTheme:'المظهر',dark:'داكن',light:'فاتح',mLang:'اللغة',mExport:'تصدير المنبهات',mImport:'استيراد المنبهات',mAbout:'حول التطبيق',aboutTxt:'ساعتي — ساعة ومنبه وتقويم\nv1.0',confirmDel:'حذف هذا المنبه؟',exitConfirm:'الخروج من التطبيق؟',ringStop:'إيقاف',ringSnooze:'غفوة +10د',imported:'تم الاستيراد',badFile:'ملف غير صالح',back:'السنة',alarmsOff:'المنبهات معطّلة',permNote:'فعّل إذن الإشعارات ليعمل المنبه والتطبيق مغلق',weekdays:['أح','إث','ثل','أر','خم','جم','سب'],weekdaysFull:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],today:'اليوم',snoozed:'غفوة 10 دقائق'},
+en:{appName:'Sa3a',tabClock:'Clock',tabAlarms:'Alarms',tabCal:'Calendar',newAlarm:'New alarm',editAlarm:'Edit alarm',lTime:'Time',lLabel:'Label',labelPh:'e.g. Wake up',lRepeat:'Repeat',onceHint:'No days selected = rings once',lSound:'Sound',lVib:'Vibrate',sndDefault:'Phone default',sndBeep:'Beeps',sndBell:'Bell',sndSiren:'Siren',sndCustom:'My uploaded sound',uploadSound:'⬆️ Upload a sound from your phone',save:'Save',cancel:'Cancel',del:'Delete',yes:'Yes',no:'No',once:'Once',daily:'Daily',every:'Every',settings:'Settings',mClock:'Clock style',analog:'Analog',digital:'Digital',mTheme:'Theme',dark:'Dark',light:'Light',mLang:'Language',mExport:'Export alarms',mImport:'Import alarms',mAbout:'About',aboutTxt:'Sa3a — clock, alarms & calendar\nv1.0',confirmDel:'Delete this alarm?',exitConfirm:'Exit the app?',ringStop:'Stop',ringSnooze:'Snooze +10m',imported:'Imported',badFile:'Invalid file',back:'Year',alarmsOff:'Alarms disabled',permNote:'Allow notifications so alarms ring while the app is closed',weekdays:['Su','Mo','Tu','We','Th','Fr','Sa'],weekdaysFull:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],today:'Today',snoozed:'Snoozed 10 min'},
+fr:{appName:'Sa3a',tabClock:'Horloge',tabAlarms:'Alarmes',tabCal:'Calendrier',newAlarm:'Nouvelle alarme',editAlarm:'Modifier l’alarme',lTime:'Heure',lLabel:'Nom',labelPh:'ex. Réveil',lRepeat:'Répéter',onceHint:'Aucun jour choisi = sonne une fois',lSound:'Son',lVib:'Vibration',sndDefault:'Son du téléphone',sndBeep:'Bips',sndBell:'Cloche',sndSiren:'Sirène',sndCustom:'Mon son importé',uploadSound:'⬆️ Importer un son du téléphone',save:'Enregistrer',cancel:'Annuler',del:'Supprimer',yes:'Oui',no:'Non',once:'Une fois',daily:'Quotidien',every:'Chaque',settings:'Réglages',mClock:'Style d’horloge',analog:'Aiguilles',digital:'Chiffres',mTheme:'Thème',dark:'Sombre',light:'Clair',mLang:'Langue',mExport:'Exporter les alarmes',mImport:'Importer des alarmes',mAbout:'À propos',aboutTxt:'Sa3a — horloge, alarmes & calendrier\nv1.0',confirmDel:'Supprimer cette alarme ?',exitConfirm:'Quitter l’application ?',ringStop:'Arrêter',ringSnooze:'Répéter +10m',imported:'Importé',badFile:'Fichier invalide',back:'Année',alarmsOff:'Alarmes désactivées',permNote:'Autorisez les notifications pour que l’alarme sonne appli fermée',weekdays:['Di','Lu','Ma','Me','Je','Ve','Sa'],weekdaysFull:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],today:'Aujourd’hui',snoozed:'Reporté 10 min'}
+};
+const LANGS=['ar','en','fr'];
+const $=id=>document.getElementById(id);
+const st=JSON.parse(localStorage.getItem('sa3a')||'{}');
+st.lang=st.lang||'ar'; st.theme=st.theme||'dark'; st.style=st.style||'analog';
+st.alarms=st.alarms||[]; st.custom=st.custom||null;
+const save=()=>localStorage.setItem('sa3a',JSON.stringify(st));
+const t=k=>(L[st.lang]&&L[st.lang][k])||L.en[k]||k;
+const isCap=()=>window.Capacitor&&Capacitor.isNativePlatform&&Capacitor.isNativePlatform();
+const CAP=window.Capacitor||{};
+const LN=()=>CAP.Plugins&&CAP.Plugins.LocalNotifications;
+const AS=()=>CAP.Plugins&&CAP.Plugins.AlarmSound;
+const pad=n=>String(n).padStart(2,'0');
+function toast(m){const e=$('toast');e.textContent=m;e.style.display='block';clearTimeout(e._t);e._t=setTimeout(()=>e.style.display='none',2200)}
+function confirmBox(msg){return new Promise(r=>{$('cfText').textContent=msg;$('cfYes').textContent=t('yes');$('cfNo').textContent=t('no');$('cfShade').classList.add('on');
+ $('cfYes').onclick=()=>{$('cfShade').classList.remove('on');r(true)};$('cfNo').onclick=()=>{$('cfShade').classList.remove('on');r(false)}})}
+
+/* =============== custom sound store (IndexedDB) =============== */
+const idb={_d:null,
+ open(){return this._d||(this._d=new Promise((res,rej)=>{const q=indexedDB.open('sa3a-db',1);q.onupgradeneeded=()=>q.result.createObjectStore('s');q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)}))},
+ async set(k,v){const d=await this.open();return new Promise((res,rej)=>{const x=d.transaction('s','readwrite').objectStore('s').put(v,k);x.onsuccess=res;x.onerror=()=>rej(x.error)})},
+ async get(k){const d=await this.open();return new Promise((res,rej)=>{const x=d.transaction('s').objectStore('s').get(k);x.onsuccess=()=>res(x.result);x.onerror=()=>rej(x.error)})}
+};
+let customBlob=null;
+async function loadCustomBlob(){try{const r=await idb.get('custom');if(r&&r.blob)customBlob=r.blob;}catch(e){}}
+
+/* =============== sounds =============== */
+const TONES=[
+ {k:'default',nameKey:'sndDefault',file:null,res:null},
+ {k:'beep',nameKey:'sndBeep',file:'sounds/alarm_beep.mp3',res:'sa3a_beep'},
+ {k:'bell',nameKey:'sndBell',file:'sounds/alarm_bell.mp3',res:'sa3a_bell'},
+ {k:'siren',nameKey:'sndSiren',file:'sounds/alarm_siren.mp3',res:'sa3a_siren'},
+];
+const TONE=k=>TONES.find(x=>x.k===k)||TONES[0];
+function soundURL(a){
+ if(a.sound==='custom'&&customBlob)return URL.createObjectURL(customBlob);
+ const tn=TONE(a.sound);
+ return tn.file||'sounds/alarm_beep.mp3';
+}
+function preview(a){const el=$('pvAudio');el.src=soundURL(a);el.play().catch(()=>{})}
+
+/* =============== notifications =============== */
+async function ensureChannel(a){
+ const p=LN();if(!p)return;
+ try{
+  if(a.sound==='custom'&&st.custom&&st.custom.uri&&AS())
+   await AS().setChannelSound({channelId:'sa3a_custom',name:'Sa3a',soundUri:st.custom.uri});
+  else if(a.sound==='default'&&AS())
+   await AS().setChannelSound({channelId:'sa3a_default',name:'Sa3a',soundUri:''});
+  else
+   await p.createChannel({id:'sa3a_'+a.sound,name:'Sa3a',importance:5,visibility:1,vibration:true,sound:TONE(a.sound).res});
+ }catch(e){console.warn('chan',e)}
+}
+const chId=a=>a.sound==='custom'?'sa3a_custom':(a.sound==='default'?'sa3a_default':'sa3a_'+a.sound);
+function nextTimes(a){
+ const now=new Date(),out=[];
+ if(!a.days||!a.days.length){
+  const d=new Date(now);d.setHours(a.hh,a.mm,0,0);
+  if(d<=now)d.setDate(d.getDate()+1);
+  out.push(d);
+ }else{
+  for(let i=0;i<7;i++){
+   const d=new Date(now);d.setDate(d.getDate()+i);d.setHours(a.hh,a.mm,0,0);
+   if(d>now&&a.days.includes(d.getDay()))out.push(d);
+  }
+ }
+ return out;
+}
+async function scheduleAlarm(a){
+ const p=LN();if(!p||!a.on)return;
+ try{
+  await ensureChannel(a);
+  const times=nextTimes(a),list=times.slice(0,7).map((d,i)=>({
+   id:a.id*10+i,title:'⏰ '+(a.label||t('newAlarm')),
+   body:pad(a.hh)+':'+pad(a.mm)+' — '+t('tabAlarms'),
+   channelId:chId(a),sound:a.sound==='default'?undefined:TONE(a.sound).res,
+   schedule:{at:d},extra:{alarmId:a.id}}));
+  if(list.length)await p.schedule({notifications:list});
+ }catch(e){console.warn('sched',e)}
+}
+async function rescheduleAll(){
+ const p=LN();if(!p)return;
+ try{
+  await p.requestPermissions();
+  const pend=await p.getPending();
+  if(pend.notifications&&pend.notifications.length)
+   await p.cancel({notifications:pend.notifications.map(n=>({id:n.id}))});
+  for(const a of st.alarms)await scheduleAlarm(a);
+ }catch(e){console.warn(e)}
+}
+if(LN()){
+ try{LN().addListener('localNotificationReceived',n=>{const a=st.alarms.find(x=>x.id===(n.extra&&n.extra.alarmId));if(a)ring(a);});}catch(e){}
+ try{LN().addListener('localNotificationActionPerformed',n=>{const a=st.alarms.find(x=>x.id===(n.notification&&n.notification.extra&&n.notification.extra.alarmId));if(a)ring(a);});}catch(e){}
+}
+
+/* =============== alarm in-app trigger =============== */
+function slotsNow(){
+ const d=new Date(),hh=d.getHours(),mm=d.getMinutes(),wd=d.getDay(),key=d.toDateString()+hh+':'+mm;
+ return st.alarms.filter(a=>a.on&&a.hh===hh&&a.mm===mm&&(a.days&&a.days.length?a.days.includes(wd):true)&&a._fired!==key);
+}
+function ring(a){
+ const key=new Date().toDateString()+a.hh+':'+a.mm;
+ a._fired=key; // persist not needed
+ $('ringTime').textContent=pad(a.hh)+':'+pad(a.mm);
+ $('ringLabel').textContent=a.label||t('newAlarm');
+ $('ringStop').textContent=t('ringStop');$('ringSnooze').textContent=t('ringSnooze');
+ $('ringShade').classList.add('on');
+ const au=$('ringAudio');au.src=soundURL(a);au.loop=true;au.play().catch(()=>{});
+ if(a.vib!==false&&navigator.vibrate){const vib=()=>navigator.vibrate([600,300,600,300]);vib();ringCard._vi=setInterval(vib,1800)}
+ if(!a.days||!a.days.length){a.on=false;save();renderAlarms();rescheduleAll()}
+}
+function stopRing(){$('ringShade').classList.remove('on');const au=$('ringAudio');au.pause();au.src='';clearInterval(ringCard._vi);navigator.vibrate&&navigator.vibrate(0)}
+$('ringStop').onclick=stopRing;
+$('ringSnooze').onclick=async()=>{stopRing();const d=new Date(Date.now()+10*60000);
+ const sa={id:9000+Math.floor(Math.random()*500),hh:d.getHours(),mm:d.getMinutes(),label:t('ringSnooze'),days:[],sound:'default',vib:true,on:true};
+ st.alarms.push(sa);save();await scheduleAlarm(sa);toast('💤 '+t('snoozed'))};
+
+/* =============== clock rendering =============== */
+function buildAnalog(){
+ const s=$('analog');let h='<circle class="face" cx="150" cy="150" r="140"/>';
+ for(let i=0;i<60;i++){const a=i*6*Math.PI/180,big=i%5===0,r1=big?124:130;
+  h+=`<line class="tick${big?' big':''}" x1="${150+r1*Math.sin(a)}" y1="${150-r1*Math.cos(a)}" x2="${150+136*Math.sin(a)}" y2="${150-136*Math.cos(a)}"/>`}
+ for(let n=1;n<=12;n++){const a=n*30*Math.PI/180;
+  h+=`<text class="num" x="${150+103*Math.sin(a)}" y="${150-103*Math.cos(a)+2}">${n}</text>`}
+ h+='<text class="digIn" id="aDate" x="150" y="200"></text>';
+ h+='<line class="hand h" id="hH" x1="150" y1="150" x2="150" y2="82"/>';
+ h+='<line class="hand m" id="hM" x1="150" y1="150" x2="150" y2="58"/>';
+ h+='<line class="hand s" id="hS" x1="150" y1="150" x2="150" y2="44"/>';
+ h+='<circle class="dot" cx="150" cy="150" r="7"/>';
+ s.innerHTML=h;
+}
+buildAnalog();
+function tickClock(){
+ const d=new Date(),hh=d.getHours(),mm=d.getMinutes(),ss=d.getSeconds();
+ const aH=(hh%12)*30+mm*.5,aM=mm*6+ss*.1,aS=ss*6;
+ $('hH').setAttribute('transform',`rotate(${aH} 150 150)`);
+ $('hM').setAttribute('transform',`rotate(${aM} 150 150)`);
+ $('hS').setAttribute('transform',`rotate(${aS} 150 150)`);
+ const dateStr=new Intl.DateTimeFormat(st.lang==='ar'?'ar-SY':st.lang==='fr'?'fr-FR':'en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(d);
+ $('aDate').textContent=dateStr;
+ $('dh').textContent=pad(hh)+':'+pad(mm);
+ $('ds').textContent=':'+pad(ss);
+ $('ddate').textContent=dateStr;
+ for(const a of slotsNow())ring(a);
+}
+setInterval(tickClock,250);
+function applyStyle(){$('analog').classList.toggle('on',st.style==='analog');$('digital').classList.toggle('on',st.style!=='analog')}
+
+/* =============== alarms UI =============== */
+function fmtAlarmSub(a){
+ if(!a.days||!a.days.length)return t('once');
+ if(a.days.length===7)return t('daily');
+ return a.days.slice().sort().map(d=>t('weekdays')[d]).join(' ');
+}
+function renderAlarms(){
+ const list=$('alarmList');list.innerHTML='';
+ if(!st.alarms.length){list.innerHTML='<div class="empty">⏰<br><br>'+t('newAlarm')+'</div>'}
+ const ord=st.alarms.slice().sort((a,b)=>(a.hh*60+a.mm)-(b.hh*60+b.mm));
+ for(const a of ord){
+  const el=document.createElement('div');el.className='alitem'+(a.on?'':' off');
+  el.innerHTML=`<div class="tm">${pad(a.hh)}:${pad(a.mm)}</div>
+   <div class="meta"><div class="lb">${esc(a.label||t('newAlarm'))}</div>
+   <div class="sub">${fmtAlarmSub(a)} · ${a.sound==='custom'?t('sndCustom'):t(TONE(a.sound).nameKey)}</div></div>
+   <button class="mini-btn">⋮</button>
+   <label class="switch"><input type="checkbox" ${a.on?'checked':''}><span class="sl"></span></label>`;
+  el.querySelector('.mini-btn').onclick=()=>openEditor(a.id);
+  el.querySelector('.tm').onclick=()=>openEditor(a.id);
+  el.querySelector('input[type=checkbox]').onchange=async e=>{a.on=e.target.checked;save();await rescheduleAll()};
+  list.appendChild(el);
+ }
+}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+/* editor */
+let editing=null;
+function openEditor(id){
+ editing=st.alarms.find(x=>x.id===id)||{id:Date.now(),hh:7,mm:30,label:'',days:[],sound:'default',vib:true,on:true};
+ $('edTitle').textContent=st.alarms.find(x=>x.id===id)?t('editAlarm'):t('newAlarm');
+ $('edTime').value=pad(editing.hh)+':'+pad(editing.mm);
+ $('edLabel').value=editing.label||'';$('edLabel').placeholder=t('labelPh');
+ $('lTime').textContent=t('lTime');$('lLabel').textContent=t('lLabel');$('lRepeat').textContent=t('lRepeat');
+ $('lSound').textContent=t('lSound');$('lVib').textContent=t('lVib');$('onceHint').textContent=t('onceHint');
+ $('edVib').checked=editing.vib!==false;
+ const dc=$('edDays');dc.innerHTML='';
+ t('weekdays').forEach((n,i)=>{const b=document.createElement('div');b.className='dc'+(editing.days.includes(i)?' on':'');b.textContent=n;
+  b.onclick=()=>{const j=editing.days.indexOf(i);j>=0?editing.days.splice(j,1):editing.days.push(i);b.classList.toggle('on')};dc.appendChild(b)});
+ renderSoundRows();
+ $('edDel').style.display=st.alarms.find(x=>x.id===id)?'':'none';
+ $('edDel').textContent=t('del');$('edCancel').textContent=t('cancel');$('edSave').textContent=t('save');
+ $('editShade').classList.add('on');
+}
+function renderSoundRows(){
+ const box=$('edSounds');box.innerHTML='';
+ const rows=[...TONES];
+ if(st.custom)rows.push({k:'custom',nameKey:'sndCustom'});
+ for(const tn of rows){
+  const r=document.createElement('div');r.className='sndrow'+(editing.sound===tn.k?' on':'');
+  const nm=tn.k==='custom'?(st.custom.name||t('sndCustom')):t(tn.nameKey);
+  r.innerHTML=`<div class="r"></div><div class="nm">${esc(nm)}</div>${tn.k!=='default'?'<button class="pv">▶</button>':''}`;
+  r.onclick=()=>{editing.sound=tn.k;renderSoundRows()};
+  const pv=r.querySelector('.pv');if(pv)pv.onclick=e=>{e.stopPropagation();preview({sound:tn.k})};
+  box.appendChild(r);
+ }
+ const up=document.createElement('div');up.className='sndrow';up.innerHTML=`<div class="nm" style="color:var(--acc)">${t('uploadSound')}</div>`;
+ up.onclick=()=>$('filePick').click();box.appendChild(up);
+}
+$('filePick').onchange=async e=>{
+ const f=e.target.files[0];e.target.value='';if(!f)return;
+ try{
+  const buf=await f.arrayBuffer();
+  customBlob=new Blob([buf],{type:f.type||'audio/mpeg'});
+  let uri=null;
+  if(isCap()&&AS()){
+   const b64=await new Promise(res=>{const r=new FileReader();r.onload=()=>res(r.result);r.readAsDataURL(customBlob)});
+   try{const r=await AS().importSound({base64:b64,name:'sa3a-custom'+(f.name.match(/\.[a-z0-9]+$/i)||['.mp3'])[0]});uri=r.uri}catch(err){console.warn('import',err)}
+  }
+  await idb.set('custom',{blob:customBlob,name:f.name,uri});
+  st.custom={name:f.name,uri};save();
+  editing.sound='custom';renderSoundRows();toast('✓ '+f.name);
+ }catch(err){toast(t('badFile'))}
+};
+$('edSave').onclick=async()=>{
+ const tv=$('edTime').value.split(':');editing.hh=+tv[0];editing.mm=+tv[1];
+ editing.label=$('edLabel').value.trim();editing.vib=$('edVib').checked;
+ if(!st.alarms.find(x=>x.id===editing.id))st.alarms.push(editing);
+ save();$('editShade').classList.remove('on');renderAlarms();await rescheduleAll();
+};
+$('edCancel').onclick=()=>$('editShade').classList.remove('on');
+$('edDel').onclick=async()=>{
+ if(await confirmBox(t('confirmDel'))){
+  st.alarms=st.alarms.filter(x=>x.id!==editing.id);save();
+  $('editShade').classList.remove('on');renderAlarms();await rescheduleAll();
+ }};
+$('addAlarm').onclick=()=>openEditor(null);
+
+/* =============== calendar =============== */
+let calYear=new Date().getFullYear(),calMonth=-1;
+const alarmDays=()=>{const s=new Set();const now=new Date();
+ for(const a of st.alarms)if(a.on)for(const d of nextTimes(a))s.add(d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate());
+ return s};
+function monthNames(){const f=new Intl.DateTimeFormat(st.lang==='ar'?'ar':st.lang,{month:'long'});return Array.from({length:12},(_,m)=>f.format(new Date(2000,m,1)))}
+function renderYear(){
+ $('yrNum').textContent=calYear;
+ const g=$('yrgrid');g.innerHTML='';
+ const ad=alarmDays(),today=new Date(),mn=monthNames(),wd=t('weekdays');
+ const firstDow=1; // Monday
+ for(let m=0;m<12;m++){
+  const c=document.createElement('div');c.className='mini';
+  let h=`<div class="mn">${mn[m]}</div><div class="wd">`;
+  for(let i=0;i<7;i++)h+=`<div>${wd[(i+firstDow)%7]}</div>`;h+='</div><div class="gd">';
+  const dim=new Date(calYear,m+1,0).getDate(),off=(new Date(calYear,m,1).getDay()-firstDow+7)%7;
+  for(let i=0;i<off;i++)h+='<div></div>';
+  for(let d=1;d<=dim;d++){
+   const isT=calYear===today.getFullYear()&&m===today.getMonth()&&d===today.getDate();
+   const hasA=ad.has(calYear+'-'+m+'-'+d);
+   h+=`<div class="${isT?'tdy':hasA?'alrm':''}">${d}</div>`;
+  }
+  h+='</div>';c.innerHTML=h;
+  c.onclick=()=>{calMonth=m;renderMonth()};
+  g.appendChild(c);
+ }
+ $('yearView').style.display='';$('monthView').classList.remove('on');
+}
+function renderMonth(){
+ $('mTitle').textContent=monthNames()[calMonth]+' '+calYear;
+ $('tBack').textContent=t('back');
+ const ad=alarmDays(),today=new Date(),wd=t('weekdays'),firstDow=1;
+ let h='<div class="wd">';for(let i=0;i<7;i++)h+=`<div>${wd[(i+firstDow)%7]}</div>`;h+='</div><div class="gd">';
+ const dim=new Date(calYear,calMonth+1,0).getDate(),off=(new Date(calYear,calMonth,1).getDay()-firstDow+7)%7;
+ for(let i=0;i<off;i++)h+='<div></div>';
+ for(let d=1;d<=dim;d++){
+  const isT=calYear===today.getFullYear()&&calMonth===today.getMonth()&&d===today.getDate();
+  const hasA=ad.has(calYear+'-'+calMonth+'-'+d);
+  h+=`<div class="${isT?'tdy':''}">${d}${hasA?'<span class="dot"></span>':''}</div>`;
+ }
+ h+='</div>';$('bigcal').innerHTML=h;
+ $('yearView').style.display='none';$('monthView').classList.add('on');
+}
+$('yrPrev').onclick=()=>{calYear--;renderYear()};
+$('yrNext').onclick=()=>{calYear++;renderYear()};
+$('backYear').onclick=renderYear;
+
+/* =============== tabs / menu / settings =============== */
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
+ document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+ document.querySelectorAll('.tabsec').forEach(s=>s.classList.remove('on'));
+ $('sec-'+b.dataset.tab).classList.add('on');
+ if(b.dataset.tab==='cal')renderYear();
+ if(b.dataset.tab==='alarms')renderAlarms();
+});
+function renderMenu(){
+ $('mTitle2').textContent=t('settings');
+ const mi=$('menuItems');mi.innerHTML='';
+ const items=[
+  {ico:'🕐',txt:t('mClock')+': '+(st.style==='analog'?t('analog'):t('digital')),fn:()=>{st.style=st.style==='analog'?'digital':'analog';save();applyStyle();renderMenu()}},
+  {ico:st.theme==='dark'?'🌙':'☀️',txt:t('mTheme')+': '+(st.theme==='dark'?t('dark'):t('light')),fn:()=>{st.theme=st.theme==='dark'?'light':'dark';save();applyTheme();renderMenu()}},
+  {ico:'⬇️',txt:t('mExport'),fn:exportAlarms},
+  {ico:'⬆️',txt:t('mImport'),fn:()=>$('impPick').click()},
+  {ico:'ℹ️',txt:t('mAbout'),fn:()=>toast(t('aboutTxt').split('\n')[0])},
+ ];
+ for(const it of items){const d=document.createElement('div');d.className='mitem';d.innerHTML=`<span class="ico">${it.ico}</span><span>${it.txt}</span>`;d.onclick=it.fn;mi.appendChild(d)}
+}
+$('menuBtn').onclick=()=>{renderMenu();$('menuShade').classList.add('on')};
+$('menuShade').onclick=e=>{if(e.target===$('menuShade'))$('menuShade').classList.remove('on')};
+function exportAlarms(){
+ const data=JSON.stringify({alarms:st.alarms},null,2);
+ const blob=new Blob([data],{type:'application/json'});
+ if(isCap()&&CAP.Plugins&&CAP.Plugins.Share){const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download='sa3a-alarms.json';a.click()}
+ else{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='sa3a-alarms.json';a.click()}
+}
+$('impPick').onchange=async e=>{
+ const f=e.target.files[0];e.target.value='';if(!f)return;
+ try{const j=JSON.parse(await f.text());const arr=Array.isArray(j)?j:j.alarms;
+  if(!Array.isArray(arr))throw 0;
+  for(const a of arr){if(typeof a.hh==='number'&&typeof a.mm==='number'){a.id=a.id||Date.now()+Math.random();a.on=a.on!==false;a.days=a.days||[];a.sound=a.sound||'default';st.alarms.push(a)}}
+  save();renderAlarms();await rescheduleAll();toast('✓ '+t('imported'));
+ }catch(err){toast(t('badFile'))}
+};
+
+/* =============== lang / theme =============== */
+function applyLang(){
+ document.documentElement.lang=st.lang;
+ document.documentElement.dir=st.lang==='ar'?'rtl':'ltr';
+ $('hTitle').textContent=t('appName');
+ $('langBtn').textContent='🌐 '+(st.lang==='ar'?'EN':st.lang==='en'?'FR':'AR');
+ const tabs={clock:t('tabClock'),alarms:t('tabAlarms'),cal:t('tabCal')};
+ document.querySelectorAll('nav button .t').forEach((e,i)=>e.textContent=tabs[['clock','alarms','cal'][i]]);
+ renderYear();
+}
+$('langBtn').onclick=()=>{st.lang=LANGS[(LANGS.indexOf(st.lang)+1)%3];save();applyLang()};
+function applyTheme(){document.documentElement.dataset.theme=st.theme}
+
+/* =============== back button =============== */
+if(CAP.Plugins&&CAP.Plugins.App){
+ CAP.Plugins.App.addListener('backButton',async()=>{
+  for(const s of['ringShade','editShade','menuShade','cfShade'])if($(s).classList.contains('on')){if(s==='ringShade')stopRing();else $(s).classList.remove('on');return}
+  if(calMonth>=0&&$('monthView').classList.contains('on')){calMonth=-1;renderYear();return}
+  if(await confirmBox(t('exitConfirm')))CAP.Plugins.App.exitApp();
+ });
+}
+
+/* =============== SW (web only) =============== */
+if(!isCap()&&'serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+
+/* =============== init =============== */
+applyTheme();applyLang();applyStyle();renderAlarms();tickClock();
+loadCustomBlob().then(()=>{});
+rescheduleAll();
+</script>
+</body>
+</html>
