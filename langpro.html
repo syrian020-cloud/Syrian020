@@ -2514,75 +2514,78 @@ function lessonDetails(l, refresh, onDelete, reopen) {
   paintPrev();
   // ---- media: show what the lesson carries and let it be replaced/removed
   d.appendChild(el('div', 'flabel', '🎬 ' + t.lMedia));
-  var mrow = el('div', 'frow'); mrow.style.flexWrap = 'wrap'; mrow.style.gap = '.45rem';
-  var mime = String(l.mime || '');
-  if (l.blob) {
-    var prev = el('div');
-    prev.style.cssText = 'width:100%;text-align:center;';
-    if (mime.indexOf('video/') === 0) {
-      var v = document.createElement('video');
-      v.src = URL.createObjectURL(l.blob); v.controls = true; v.muted = true;
-      v.style.cssText = 'max-width:100%;max-height:180px;border-radius:10px;background:#000';
-      prev.appendChild(v);
-    } else if (mime.indexOf('audio/') === 0) {
-      var a = document.createElement('audio');
-      a.src = URL.createObjectURL(l.blob); a.controls = true;
-      a.style.width = '100%';
-      prev.appendChild(a);
+  var msec = el('div');
+  d.appendChild(msec);
+  var renderMedia = function () {
+    msec.innerHTML = '';
+    var mrow = el('div', 'frow'); mrow.style.flexWrap = 'wrap'; mrow.style.gap = '.45rem';
+    var mime = String(l.mime || '');
+    if (l.blob) {
+      var prev = el('div');
+      prev.style.cssText = 'width:100%;text-align:center;';
+      if (mime.indexOf('video/') === 0) {
+        var v = document.createElement('video');
+        v.src = URL.createObjectURL(l.blob); v.controls = true; v.muted = true;
+        v.style.cssText = 'max-width:100%;max-height:180px;border-radius:10px;background:#000';
+        prev.appendChild(v);
+      } else if (mime.indexOf('audio/') === 0) {
+        var a2 = document.createElement('audio');
+        a2.src = URL.createObjectURL(l.blob); a2.controls = true;
+        a2.style.width = '100%';
+        prev.appendChild(a2);
+      } else {
+        var im2 = new Image();
+        im2.src = URL.createObjectURL(l.blob);
+        im2.style.cssText = 'max-width:100%;max-height:180px;border-radius:10px';
+        prev.appendChild(im2);
+      }
+      msec.appendChild(prev);
+      var rb = el('button', 'mini', t.repMedia);
+      rb.onclick = function () {
+        var fi = document.createElement('input');
+        fi.type = 'file'; fi.accept = 'video/*,audio/*,image/*';
+        fi.onchange = function () {
+          var fl = fi.files[0]; if (!fl) return;
+          importMedia(fl, function (bb) {
+            l.blob = bb; l.mime = bb.type || fl.type || '';
+            lSave(l); renderMedia();
+          });
+        };
+        fi.click();
+      };
+      mrow.appendChild(rb);
+      var db2 = el('button', 'mini', '🗑');
+      db2.onclick = function () {
+        confirmDialog(t.delMediaQ, t.delYes, function () {
+          l.blob = null; l.mime = ''; lSave(l); renderMedia();
+        }, true);
+      };
+      mrow.appendChild(db2);
+      var mnm = el('span', null, mime.indexOf('video/') === 0 ? '🎬 ' + t.pickVideo : mime.indexOf('audio/') === 0 ? '🎵 ' + t.pickAudio : '🖼');
+      mnm.style.cssText = 'align-self:center;font-size:.8rem;color:var(--dim)';
+      mrow.appendChild(mnm);
     } else {
-      var im2 = new Image();
-      im2.src = URL.createObjectURL(l.blob);
-      im2.style.cssText = 'max-width:100%;max-height:180px;border-radius:10px';
-      prev.appendChild(im2);
+      var add = el('button', 'mini', '➕ ' + t.lMedia);
+      add.onclick = function () {
+        var fi = document.createElement('input');
+        fi.type = 'file'; fi.accept = 'video/*,audio/*,image/*';
+        fi.onchange = function () {
+          var fl = fi.files[0]; if (!fl) return;
+          importMedia(fl, function (bb) {
+            l.blob = bb; l.mime = bb.type || fl.type || '';
+            lSave(l); renderMedia();
+          });
+        };
+        fi.click();
+      };
+      mrow.appendChild(add);
+      var nm = el('span', null, t.noMedia);
+      nm.style.cssText = 'align-self:center;font-size:.8rem;color:var(--dim)';
+      mrow.appendChild(nm);
     }
-    d.appendChild(prev);
-    var rb = el('button', 'mini', t.repMedia);
-    rb.onclick = function () {
-      var fi = document.createElement('input');
-      fi.type = 'file'; fi.accept = 'video/*,audio/*,image/*';
-      fi.onchange = function () {
-        var fl = fi.files[0]; if (!fl) return;
-        importMedia(fl, function (bb) {
-          l.blob = bb; l.mime = bb.type || fl.type || '';
-          lSave(l); ov.remove();
-          if (reopen) reopen();
-        });
-      };
-      fi.click();
-    };
-    mrow.appendChild(rb);
-    var db2 = el('button', 'mini', '🗑');
-    db2.onclick = function () {
-      confirmDialog(t.delMediaQ, t.delYes, function () {
-        l.blob = null; l.mime = ''; lSave(l); ov.remove();
-        if (reopen) reopen();
-      }, true);
-    };
-    mrow.appendChild(db2);
-    var mnm = el('span', null, mime.indexOf('video/') === 0 ? '🎬 ' + t.pickVideo : mime.indexOf('audio/') === 0 ? '🎵 ' + t.pickAudio : '🖼');
-    mnm.style.cssText = 'align-self:center;font-size:.8rem;color:var(--dim)';
-    mrow.appendChild(mnm);
-  } else {
-    var add = el('button', 'mini', '➕ ' + t.lMedia);
-    add.onclick = function () {
-      var fi = document.createElement('input');
-      fi.type = 'file'; fi.accept = 'video/*,audio/*,image/*';
-      fi.onchange = function () {
-        var fl = fi.files[0]; if (!fl) return;
-        importMedia(fl, function (bb) {
-          l.blob = bb; l.mime = bb.type || fl.type || '';
-          lSave(l); ov.remove();
-          if (reopen) reopen();
-        });
-      };
-      fi.click();
-    };
-    mrow.appendChild(add);
-    var nm = el('span', null, t.noMedia);
-    nm.style.cssText = 'align-self:center;font-size:.8rem;color:var(--dim)';
-    mrow.appendChild(nm);
-  }
-  d.appendChild(mrow);
+    msec.appendChild(mrow);
+  };
+  renderMedia();
   if (l.cover) {
     var covr = el('div', 'frow'); covr.style.marginTop = '.3rem';
     var cim = new Image(); cim.src = l.cover;
@@ -2605,32 +2608,35 @@ function lessonDetails(l, refresh, onDelete, reopen) {
   d.appendChild(txhead);
   var tb = el('div');
   tb.style.cssText = 'max-height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:.4rem;';
-  var csAll = sortedCues(l);
-  var reDetail = function () { ov.remove(); if (reopen) reopen(); };
-  if (!csAll.length) tb.appendChild(el('div', 'flabel', '…'));
-  csAll.forEach(function (c) {
-    var pr = el('div', 'libph');
-    var pt = el('div', 'pt');
-    pt.dir = 'auto';
-    pt.textContent = (c.t != null ? fmtT(c.t) + '  ' : '') + (c.text || '');
-    pr.appendChild(pt);
-    var pb = el('div', 'pb');
-    var pe = el('button', 'mini', '✏');
-    pe.title = t.edit || 'edit';
-    pe.onclick = function () { cueDialog(l, c, reDetail); };
-    pb.appendChild(pe);
-    var pd = el('button', 'mini', '🗑');
-    pd.title = t.delYes || 'delete';
-    pd.onclick = function () {
-      confirmDialog(t.delCueQ, t.delYes, function () {
-        l.cues = (l.cues || []).filter(function (x) { return x !== c; });
-        lSave(l); reDetail();
-      }, true);
-    };
-    pb.appendChild(pd);
-    pr.appendChild(pb);
-    tb.appendChild(pr);
-  });
+  var renderPhrases = function () {
+    tb.innerHTML = '';
+    var csAll = sortedCues(l);
+    if (!csAll.length) tb.appendChild(el('div', 'flabel', '…'));
+    csAll.forEach(function (c) {
+      var pr = el('div', 'libph');
+      var pt = el('div', 'pt');
+      pt.dir = 'auto';
+      pt.textContent = (c.t != null ? fmtT(c.t) + '  ' : '') + (c.text || '');
+      pr.appendChild(pt);
+      var pb = el('div', 'pb');
+      var pe = el('button', 'mini', '✏');
+      pe.title = t.edit || 'edit';
+      pe.onclick = function () { cueDialog(l, c, renderPhrases); };
+      pb.appendChild(pe);
+      var pd = el('button', 'mini', '🗑');
+      pd.title = t.delYes || 'delete';
+      pd.onclick = function () {
+        confirmDialog(t.delCueQ, t.delYes, function () {
+          l.cues = (l.cues || []).filter(function (x) { return x !== c; });
+          lSave(l); renderPhrases();
+        }, true);
+      };
+      pb.appendChild(pd);
+      pr.appendChild(pb);
+      tb.appendChild(pr);
+    });
+  };
+  renderPhrases();
   d.appendChild(tb);
   var r = el('div', 'row'); r.style.marginTop = '.8rem';
   if (onDelete) {
