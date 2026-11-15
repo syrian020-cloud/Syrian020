@@ -1090,6 +1090,7 @@ function searchImages(text) {
 function capDraggable(capEl, wrap) {
   var mv = el('div', 'cap-mv', '✥'); capEl.appendChild(mv);
   var rs = el('div', 'cap-rs', '⤡'); capEl.appendChild(rs);
+  capEl._capGrips = [mv, rs];   // renderCap clears innerHTML, so grips are re-appended after each render
   function drag(handle, onMove) {
     handle.addEventListener('pointerdown', function (e) {
       e.preventDefault(); e.stopPropagation();
@@ -1723,6 +1724,7 @@ function openLesson(l) {
     });
     card.appendChild(rowsWrap);
     capEl.appendChild(card);
+    if (capEl._capGrips) capEl._capGrips.forEach(function (g) { capEl.appendChild(g); });
     if (player) {
       var ctrl = el('div', 'cap-ctrl');
       [['stop', '⏹'], ['back', '⏪'], ['replay', '🔁'], ['fwd', '⏩']].forEach(function (a) {
