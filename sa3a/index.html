@@ -926,7 +926,9 @@ function recToggle(btn,me,segs,segEnd){
    const AC2=window.AudioContext||window.webkitAudioContext;
    if(AC2){const ax=window._plACtx||(window._plACtx=new AC2());if(ax.state==='suspended')ax.resume();
     const ds=ax.createMediaStreamDestination();
-    try{const sr=ax.createMediaElementSource(me);sr.connect(ds);sr.connect(ax.destination)}catch(e){}
+    try{const sr=me._plWaSrc||(me._plWaSrc=ax.createMediaElementSource(me));
+     if(!me._plWaConnected){sr.connect(ax.destination);me._plWaConnected=true}
+     sr.connect(ds)}catch(e){}
     s2=ds.stream}
   }
   if(!s2){toast('⚠️ '+t('recNo'));return}
@@ -937,12 +939,31 @@ function recToggle(btn,me,segs,segEnd){
   const snk=createRecSink(rec2._clipExt||(mime?'webm':'webm'),rec2._clipType||mime||'audio/webm','sa3a-clip');
   const endF=()=>{if(recState&&recState.rec===rec2)try{rec2.stop()}catch(e){}};
   me.addEventListener('ended',endF);
-  rec2.ondataavailable=e=>{if(e.data&&e.data.size)snk.push(e.data)};
-  rec2.onstop=()=>{me.removeEventListener('ended',endF);snk.finish();recDone(btn)};
+  let gd2=false;
+  rec2.ondataavailable=e=>{if(e.data&&e.data.size){gd2=true;snk.push(e.data)}};
+  rec2.onstop=()=>{me.removeEventListener('ended',endF);if(gd2)snk.finish();recDone(btn)};
   recState={rec:rec2,me,btn,raf:0,segEnd,fb:true};
   rec2.start(1000);try{me.play()}catch(e){}
   const iv=setInterval(()=>{if(!recState||recState.rec!==rec2){clearInterval(iv);return}
-   if(recState.segEnd!=null&&me.currentTime>=recState.segEnd)try{rec2.stop()}catch(e){}},250)};
+   if(recState.segEnd!=null&&me.currentTime>=recState.segEnd)try{rec2.stop()}catch(e){}},250);
+  if(s2.getVideoTracks().length)setTimeout(()=>{ // video still silent -> audio-only
+   if(recState&&recState.rec===rec2&&!gd2){try{rec2.onstop=null;rec2.stop()}catch(e){}
+    recState=null;const AC3=window.AudioContext||window.webkitAudioContext;
+    if(!AC3){toast('⚠️ '+t('recNo'));recDone(btn);return}
+    const ax=window._plACtx||(window._plACtx=new AC3());if(ax.state==='suspended')ax.resume();
+    const ds=ax.createMediaStreamDestination();
+    try{const sr=me._plWaSrc||(me._plWaSrc=ax.createMediaElementSource(me));
+     if(!me._plWaConnected){sr.connect(ax.destination);me._plWaConnected=true}
+     sr.connect(ds)}catch(e){}
+    let rec3=null;try{rec3=new MediaRecorder(ds.stream,{mimeType:'audio/webm'})}catch(e){try{rec3=new MediaRecorder(ds.stream)}catch(e2){}}
+    if(!rec3){toast('⚠️ '+t('recNo'));recDone(btn);return}
+    const snk3=createRecSink('webm','audio/webm','sa3a-clip');
+    rec3.ondataavailable=e=>{if(e.data&&e.data.size)snk3.push(e.data)};
+    rec3.onstop=()=>{snk3.finish();recDone(btn)};
+    recState={rec:rec3,me,btn,raf:0,segEnd,fb:true};
+    rec3.start(1000);
+    const iv3=setInterval(()=>{if(!recState||recState.rec!==rec3){clearInterval(iv3);return}
+     if(recState.segEnd!=null&&me.currentTime>=recState.segEnd)try{rec3.stop()}catch(e){}},250)}},1600)};
  const begin=()=>{recState={rec,me,btn,raf:0,segEnd};
   rec.start(1000);
   btn.classList.add('rec-on');btn.textContent='⏹';
