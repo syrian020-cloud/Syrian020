@@ -1064,7 +1064,13 @@ function lessonListEl(s, session) {
       if (nc) mid.appendChild(el('div', 'lc', nc + ' ' + t.cueLines));
       row.appendChild(mid);
       var rn = el('button', 'ax', '✏');
-      rn.onclick = function (e) { e.stopPropagation(); renameLesson(l, wrap.refresh); };
+      rn.onclick = function (e) {
+        e.stopPropagation();
+        renameLesson(l, wrap.refresh, function () {
+          if (session) session.addedL = (session.addedL || []).filter(function (x) { return x.id !== l.id; });
+          wrap.refresh();
+        });
+      };
       row.appendChild(rn);
       var ax = el('button', 'ax', '✕');
       ax.onclick = function (e) {
@@ -1809,7 +1815,7 @@ function addLessonDialog(siteId, onDone) {
   d.appendChild(r); ov.appendChild(d);
   setTimeout(function () { try { inp.focus(); } catch (e) {} }, 200);
 }
-function renameLesson(l, refresh) {
+function renameLesson(l, refresh, onDelete) {
   var t = T();
   var ov = pushOv(4600);
   var d = el('div', 'dlg');
@@ -1834,6 +1840,19 @@ function renameLesson(l, refresh) {
   d.appendChild(irow);
   paintPrev();
   var r = el('div', 'row'); r.style.marginTop = '.8rem';
+  if (onDelete) {
+    var del = el('button', null, '🗑 ' + (t.delYes || ''));
+    del.onclick = function () {
+      confirmDialog(t.delLessonQ, t.delYes, function () {
+        IDB.ldel(l.id).catch(function () {});
+        if (l.siteId) lessonMap[l.siteId] = (lessonMap[l.siteId] || []).filter(function (x) { return x.id !== l.id; });
+        renderGrid();
+        ov.remove();
+        onDelete();
+      }, true);
+    };
+    r.appendChild(del);
+  }
   var no = el('button', null, t.no); no.onclick = function () { ov.remove(); };
   var yes = el('button', 'yes', t.save);
   yes.onclick = function () {
@@ -1878,7 +1897,13 @@ function openLessonsSheet(s, session) {
       var nc = (l.cues || []).length;
       if (nc) { var lbd = el('div', 'site-badges'); lbd.appendChild(el('span', 'badge', '💬' + nc)); card.appendChild(lbd); }
       var rn = el('button', 'site-dots', '✏');
-      rn.onclick = function (e) { e.stopPropagation(); renameLesson(l, refresh); };
+      rn.onclick = function (e) {
+        e.stopPropagation();
+        renameLesson(l, refresh, function () {
+          if (session) session.addedL = (session.addedL || []).filter(function (x) { return x.id !== l.id; });
+          refresh();
+        });
+      };
       card.appendChild(rn);
       var ax = el('button', 'site-map', '✕');
       ax.onclick = function (e) {
@@ -2150,7 +2175,14 @@ function openLesson(l) {
   var top = el('div', 'lov-top');
   top.appendChild(el('div', 'lt', l.name || t.lName));
   var rn = el('button', 'iconbtn', '✏');
-  rn.onclick = function () { renameLesson(l, function () { ov.querySelector('.lt').textContent = l.name || t.lName; }); };
+  rn.onclick = function () {
+    renameLesson(l, function () { ov.querySelector('.lt').textContent = l.name || t.lName; }, function () {
+      stopSpeakLoop();
+      if (recState) { try { recState.rec.stop(); } catch (e) {} }
+      if (curPlayer === player) curPlayer = null;
+      ov.remove();
+    });
+  };
   top.appendChild(rn);
   var grr = el('button', 'iconbtn', '🗣');
   grr.title = t.rrTitle;
