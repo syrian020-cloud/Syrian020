@@ -1299,6 +1299,11 @@ function speakLoop(lines, lang, btn) {
     var cur = arr[i];
     if (useEdge) {
       try { EdgeTTS.speed = playSpeed; } catch (e) {}
+      var pf = arr[(i + 1) % arr.length];
+      if (pf) {
+        // warm the cache for the next line while this one is speaking
+        try { EdgeTTS.audio(String(pf.text || ''), String(pf.lang || 'fr').split('-')[0]).catch(function () {}); } catch (e) {}
+      }
       EdgeTTS.play(String(cur.text || ''), String(cur.lang || 'fr').split('-')[0])
         .then(next, function () { nativeSpeak(cur); });
       return;
