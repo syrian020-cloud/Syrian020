@@ -3420,7 +3420,7 @@ function timedDialog(l, refresh) {
 }
 function openLesson(l) {
   var t = T();
-  var ov = el('div', 'lov');
+  var ov = el('div', 'lov lovplay');
   var isV = !!(l.blob && String(l.mime).indexOf('video/') === 0);
   var top = el('div', 'lov-top');
   top.appendChild(el('div', 'lt', l.name || t.lName));
@@ -3440,12 +3440,12 @@ function openLesson(l) {
       stopSpeakLoop();
       if (recState) { try { recState.rec.stop(); } catch (e) {} }
       if (curPlayer) { try { curPlayer.pause(); } catch (e) {} curPlayer = null; }
-      document.querySelectorAll('.lov').forEach(function (v) { v.remove(); });
+      document.querySelectorAll('.lovplay').forEach(function (v) { v.remove(); });
     }, function () {
       if (recState) { try { recState.rec.stop(); } catch (e) {} }
       if (curPlayer) { try { curPlayer.pause(); } catch (e) {} curPlayer = null; }
       // the lesson view may already have been rebuilt by an earlier media change
-      document.querySelectorAll('.lov').forEach(function (v) { v.remove(); });
+      document.querySelectorAll('.lovplay').forEach(function (v) { v.remove(); });
       openLesson(l);
     });
   };
