@@ -300,6 +300,13 @@
     display: flex; align-items: center; justify-content: center; z-index: 6; touch-action: none; }
   .cap-mv { top: -11px; left: -8px; cursor: grab; }
   .cap-rs { top: -11px; right: -8px; cursor: nwse-resize; }
+  .cap-aa { bottom: -11px; left: -8px; }
+  .cap-ab { bottom: -11px; left: 22px; }
+  .cap-aa, .cap-ab { position: absolute; width: 27px; height: 27px; border-radius: 50%;
+    background: rgba(250,246,255,.96); color: #7a4fd0; font-size: .62rem;
+    font-weight: 900; letter-spacing: -.02em; border: 1.5px solid #e9e0f4;
+    box-shadow: 0 3px 10px rgba(130,100,180,.4); display: flex; align-items: center;
+    justify-content: center; z-index: 6; cursor: pointer; font-family: inherit; }
   @keyframes lppulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
   .lov-cues { flex: 1; overflow-y: auto; padding: .3rem .8rem 5.5rem; display: flex;
     flex-direction: column; gap: .4rem; }
@@ -1086,11 +1093,18 @@ function searchImages(text) {
   if (BR && BR.open) { BR.open({ url: url }); return; }
   window.open(url, '_blank');
 }
-// drag handles: ✥ moves the caption anywhere over the video, ⤡ resizes along its diagonal
+// drag handles: ✥ moves the caption anywhere over the video, ⤡ resizes along its diagonal;
+// A−/A+ buttons scale the whole card like zeelang's caption-size controls
 function capDraggable(capEl, wrap) {
   var mv = el('div', 'cap-mv', '✥'); capEl.appendChild(mv);
   var rs = el('div', 'cap-rs', '⤡'); capEl.appendChild(rs);
-  capEl._capGrips = [mv, rs];   // renderCap clears innerHTML, so grips are re-appended after each render
+  var sc = 1;
+  var aa = el('button', 'cap-aa', 'A-');
+  var ab = el('button', 'cap-ab', 'A+');
+  aa.onclick = function (e) { e.stopPropagation(); sc = Math.max(.5, sc / 1.12); capEl.style.zoom = sc; };
+  ab.onclick = function (e) { e.stopPropagation(); sc = Math.min(2, sc * 1.12); capEl.style.zoom = sc; };
+  capEl.appendChild(aa); capEl.appendChild(ab);
+  capEl._capGrips = [mv, rs, aa, ab];   // renderCap clears innerHTML, so grips are re-appended after each render
   function drag(handle, onMove) {
     handle.addEventListener('pointerdown', function (e) {
       e.preventDefault(); e.stopPropagation();
