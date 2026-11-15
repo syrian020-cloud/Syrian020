@@ -161,6 +161,14 @@ audio.lmed{max-height:none}
 .phrow.lg-en,.qb.lg-en{background:var(--cap-en-bg,transparent);color:var(--cap-en-fg,var(--txt));border:1.5px solid var(--cap-en-bd,transparent);font-family:var(--cap-en-font,inherit);font-style:var(--cap-en-style,normal)}
 .phrow.lg-x,.qb.lg-x{background:var(--cap-x-bg,transparent);color:var(--cap-x-fg,var(--txt));border:1.5px solid var(--cap-x-bd,transparent);font-family:var(--cap-x-font,inherit);font-style:var(--cap-x-style,normal)}
 #cueBox .qb{border-radius:10px;padding:2px 8px;margin:3px auto;width:fit-content;max-width:100%}
+#cueBox .cflag{cursor:pointer;margin-inline-end:6px;display:inline-block}
+#cueBox .cflag.speaking{outline:2px solid var(--acc);border-radius:50%}
+.lmed.fit-cover{object-fit:cover}
+.lmed.fit-fill{object-fit:fill}
+.lmed.fit-tall{max-height:62vh}
+.vcrop{position:relative}
+.vcrop.crop-on{overflow:hidden;border-radius:12px}
+.vcrop.crop-on .lmed{object-fit:cover;object-position:top}
 .phnote{color:var(--dim);font-size:.85rem;margin-top:4px;direction:auto}
 .phim{position:relative;margin-top:8px}
 .phim img{max-width:100%;max-height:26vh;border-radius:12px;border:1px solid var(--line);display:block}
@@ -499,8 +507,8 @@ async function showLesson(n){
    $('liDel').onclick=async()=>{if(await confirmBox(t('delImg'))){try{await idb.del('limg_'+n.id)}catch(e){}showLesson(n)}}}
  }catch(e){}
  try{const m=await idb.get('lmed_'+n.id);
-  if(m&&m.blob){const wrap=document.createElement('div');wrap.style.cssText='text-align:center;margin-bottom:10px;position:relative';
-   const el=document.createElement(m.kind==='v'?'video':'audio');el.controls=true;el.src=URL.createObjectURL(m.blob);el.className='lmed';el.id='lsMedia';
+  if(m&&m.blob){const wrap=document.createElement('div');wrap.className='vcrop';wrap.style.cssText='text-align:center;margin-bottom:10px;position:relative';
+   const el=document.createElement(m.kind==='v'?'video':'audio');el.controls=true;el.src=URL.createObjectURL(m.blob);el.className='lmed';el.id='lsMedia';el._vcrop=wrap;
    const dd=document.createElement('button');dd.className='opt';dd.style.cssText='background:rgba(0,0,0,.55);color:#fff;border-radius:50%;width:28px;height:28px;top:6px;inset-inline-end:8px;position:absolute';dd.textContent='×';
    dd.onclick=async()=>{if(await confirmBox(t('delMedQ'))){try{await idb.del('lmed_'+n.id)}catch(e){}showLesson(n)}};
    wrap.appendChild(el);wrap.appendChild(dd);v.appendChild(wrap);
@@ -512,12 +520,20 @@ async function showLesson(n){
     if(el._once&&el.currentTime>=el._once-.06){el._once=null;el.pause();return}
     if(el._loop&&ci>=0){const nx=c[ci+1];const end=nx?tSec(nx.t):el.duration||1e9;if(el.currentTime>=end-.06)el.currentTime=tSec(c[ci].t)}};
    const RATES=[1,1.5,2,0.75];let ri=0;
+   const FITS=['','fit-cover','fit-fill','fit-tall','fit-crop1','fit-crop2','fit-crop3'];
+   const CROP_FRAC={'fit-crop1':.15,'fit-crop2':.30,'fit-crop3':.45};
+   const applyVfit=()=>{const cls=FITS[n.vfit||0]||'';el.className='lmed '+(cls||'');
+    const frac=CROP_FRAC[cls]||0;
+    if(frac&&el.videoWidth){const w=wrap.clientWidth||300,h=w*el.videoHeight/el.videoWidth;
+     el.style.height=h+'px';wrap.style.height=Math.round(h*(1-frac))+'px';wrap.classList.add('crop-on')}
+    else{el.style.height='';wrap.style.height='';wrap.classList.remove('crop-on')}};
+   el.addEventListener('loadedmetadata',applyVfit);
    const mk=(txt,fn)=>{const b=document.createElement('button');b.textContent=txt;b.onclick=fn;return b};
-   grid.append(
+   grid.append(...[
     mk('⏮',()=>{const{c,ci}=cur();const i=Math.max(0,ci<0?0:ci-1);if(c[i])el.currentTime=tSec(c[i].t)}),
     mk('⏭',()=>{const{c,ci}=cur();const i=Math.min(c.length-1,ci+1);if(c[i])el.currentTime=tSec(c[i].t)}),
-    mk('↓',()=>{const{ci}=cur();const p=n.ph[cuesOf(n)[ci]?n.ph.indexOf(cuesOf(n)[ci]):0]||null;if(ci>=0){const cards=document.querySelectorAll('.phc');const idx=n.ph.indexOf(cuesOf(n)[ci]);if(cards[idx])cards[idx].scrollIntoView({block:'center'})}}),
-    mk('⛶',()=>{if(el.requestFullscreen)el.requestFullscreen()}),
+    mk('⬇',b=>recToggle(b,el,segsOf(n),null)),
+    m.kind==='v'&&mk('⛶',()=>{n.vfit=((n.vfit||0)+1)%FITS.length;applyVfit();save()}),
     mk('🖼️',()=>$('imgPick').click()),
     mk('CC',e=>{cbox.style.display=cbox.style.display==='none'?'':'none';e.target.classList.toggle('on',cbox.style.display!=='none')}),
     mk('+A',()=>{fsz=Math.min(30,fsz+2);cbox.style.fontSize=fsz+'px'}),
@@ -525,7 +541,8 @@ async function showLesson(n){
     mk('−A',()=>{fsz=Math.max(12,fsz-2);cbox.style.fontSize=fsz+'px'}),
     mk('🔁',e=>{el._loop=!el._loop;e.target.classList.toggle('on',el._loop)}),
     mk('🎨',()=>cycleCapTheme())
-   );
+   ].filter(Boolean));
+   if(n.vfit)applyVfit();
   }
  }catch(e){}
  const pl=document.createElement('div');pl.id='phList';v.appendChild(pl);
@@ -794,13 +811,13 @@ function recDone(btn){
  recState=null;
  if(btn){btn.classList.remove('rec-on');btn.textContent=btn._recIcon||'⬇'}}
 function curCueOf(el,n){const c=cuesOf(n);let ci=-1;for(let i=0;i<c.length;i++)if(tSec(c[i].t)<=el.currentTime)ci=i;return{c,ci}}
-function showCue(p){const b=$('cueBox');if(!b)return;
- b.innerHTML=p?(p.t?'<div class="qt">⏱ '+esc(p.t)+'</div>':'')+
-  (p.s?'<div class="qb qs lg-'+capCls(p.lg)+'">'+esc((LANGFLAG[p.lg]||'')+' '+p.s)+'</div>':'')+
-  (p.p?'<div class="qb qp">'+esc(p.p)+'</div>':'')+
-  (p.a?'<div class="qb qa lg-ar">'+esc('🇸🇾 '+p.a)+'</div>':'')+
-  (p.e?'<div class="qb qe lg-en">'+esc('🇺🇸 '+p.e)+'</div>':''):'';
-}
+function showCue(p){const b=$('cueBox');if(!b)return;b.innerHTML='';if(!p)return;
+ if(p.t){const q=document.createElement('div');q.className='qt';q.textContent='⏱ '+p.t;b.appendChild(q)}
+ const cls=['qs','qp','qa','qe'];
+ phRowsOf(p).forEach((r,i)=>{const d=document.createElement('div');d.className='qb '+cls[i]+' lg-'+capCls(r.lg);
+  const f=document.createElement('span');f.className='cflag';f.textContent=r.flag;
+  f.onclick=e=>{e.stopPropagation();loopSpeak([r],f)};
+  d.appendChild(f);d.appendChild(wordsSpan(r.txt,r.lg));b.appendChild(d)})}
 const fmtT=sec=>{sec=Math.max(0,Math.floor(sec||0));return pad(Math.floor(sec/60))+':'+pad(sec%60)};
 function lessonText(n){return (n.ph||[]).map(p=>{let ln=p.t?p.t+' ':'';if(LANGFLAG[p.lg])ln+=LANGFLAG[p.lg]+' ';ln+=p.s;if(p.p)ln+=' | '+p.p;if(p.a)ln+=' 🇸🇾 '+p.a;if(p.e)ln+=' 🇺🇸 '+p.e;return ln}).join('\n')}
 let speakingAll=false;
