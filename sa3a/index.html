@@ -2880,7 +2880,7 @@ function applyLang(){
  if(calMonth>=0)renderMonth();
  renderYear();
 }
-$('langBtn').onclick=()=>{st.lang=LANGS[(LANGS.indexOf(st.lang)+1)%3];save();applyLang()};
+$('langBtn').onclick=()=>{st.lang=LANGS[(LANGS.indexOf(st.lang)+1)%3];save();try{localStorage.setItem('tempo_lang',st.lang)}catch(e){}applyLang()};
 function applyTheme(){document.documentElement.dataset.theme=st.theme}
 
 /* =============== back button =============== */

@@ -596,7 +596,7 @@ const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 
 function load(){
   try{appts=JSON.parse(localStorage.getItem(LS_KEY)||'[]')}catch(e){appts=[]}
-  lang=localStorage.getItem(LS_LANG)||'ar';
+  lang=(()=>{try{const s=JSON.parse(localStorage.getItem('sa3a')||'{}');if(s.lang)return s.lang}catch(e){}return localStorage.getItem(LS_LANG)||'ar'})();
   applyTheme(localStorage.getItem(LS_THEME)||'dark');
   planLoad();
 }
@@ -1006,12 +1006,10 @@ async function startApptRing(a,msg){
   try{ringAudio=new Audio('sounds/alarm_beep.mp3');ringAudio.loop=true;ringAudio.play().catch(()=>{});}catch(e){}
   ttsStop();
   const lines=apptSpeakLines(a);
-  const order=[lang,'fr','ar','en'].filter((v,i,arr)=>arr.indexOf(v)===i);
-  const seq=order.map(l=>lines.find(x=>x[0]===l)).filter(Boolean);
-  const run=ttsRun;let i=0;
+  const ln=lines.find(x=>x[0]===lang)||lines[0];
+  const run=ttsRun;
   const step=()=>{
     if(run!==ttsRun||ringAppt!==a)return;
-    const ln=seq[i];i=(i+1)%seq.length;
     ttsSpeak(ln[1],ln[0],step);
   };
   step();
@@ -1827,7 +1825,7 @@ function renderAll(){applyLang();
 
 /* ==================== events ==================== */
 document.querySelectorAll('.langs button').forEach(b=>b.onclick=()=>{
-  lang=b.dataset.lang;try{localStorage.setItem(LS_LANG,lang);}catch(e){}
+  lang=b.dataset.lang;try{localStorage.setItem(LS_LANG,lang);const s=JSON.parse(localStorage.getItem('sa3a')||'{}');s.lang=lang;localStorage.setItem('sa3a',JSON.stringify(s));}catch(e){}
   if(view==='detail')renderDetail();else if(view==='plan')renderPlan();else renderAll();renderMenu();
 });
 $('#btn-plan').onclick=()=>openPlan();
