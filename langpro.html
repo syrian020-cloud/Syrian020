@@ -2452,8 +2452,9 @@ function parseTimedLines(text) {
     // '===' and '###' are hard separators, never cue text
     if (/^={2,}\s*$/.test(s) || /^#{2,}/.test(s)) { flush(); return; }
     // a blank line is only a soft separator — the next line decides:
-    // a flag line with a language the card lacks continues the same phrase
-    if (!s) { if (cur) pendingSep = true; return; }
+    // a flag line with a language the card lacks continues the same phrase;
+    // an empty timestamp-only cue keeps collecting (stray blank before its caption)
+    if (!s) { if (cur && cur.text) pendingSep = true; return; }
     s = normPhraseText(s);
     if (!s) return;
     // a flag line whose language already appears in the card starts a new phrase —
