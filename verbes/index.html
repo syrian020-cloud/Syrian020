@@ -26,7 +26,7 @@ main{padding:.7rem;max-width:640px;margin:0 auto;padding-bottom:5rem}
 .let.empty{opacity:.55}
 .vcard{background:var(--card);border:1.5px solid var(--bd);border-radius:16px;padding:.6rem .65rem;margin-bottom:.6rem}
 .vtop{display:flex;align-items:center;gap:.55rem}
-.vimg{width:52px;height:52px;border-radius:12px;object-fit:cover;flex:none;border:1px solid var(--bd)}
+.vimg{width:72px;height:72px;border-radius:14px;object-fit:cover;flex:none;border:1px solid var(--bd)}
 .vimg.noimg{display:grid;place-items:center;font-size:1.5rem;background:var(--bg2)}
 .vname{flex:1;min-width:0;line-height:1.35}
 .vname .vf{font-weight:800;font-size:1.05rem}
@@ -315,6 +315,22 @@ function seed2(){
  {id:1010,fr:'Améliorer',ar:'يُحَسِّن',en:'To improve',sfr:'Je veux améliorer mon français.',sar:'بدي حسّن لغتي الفرنسية.',sen:'I want to improve my French.',img:'ameliorer.jpg'}];
  add.forEach(v=>{if(!have.has(v.fr))st.v.A.push(v)});
  save();localStorage.setItem('verbes-seeded2','1')}
+function seed3(){
+ if(localStorage.getItem('verbes-seeded3'))return;
+ st.v.A=st.v.A||[];const have=new Set(st.v.A.map(v=>v.fr));
+ const add=[
+ {id:2001,fr:'Abandonner',ar:'يَتَخَلَّى',en:'To abandon',sfr:"N'abandonne jamais !",sar:'لا تستسلم أبداً!',sen:'Never give up!',img:'abandonner.jpg'},
+ {id:2002,fr:'Accélérer',ar:'يُسْرِع',en:'To accelerate',sfr:'Tu dois accélérer un peu.',sar:'لازم تسرّع شوي.',sen:'You need to speed up a little.',img:'accelerer.jpg'},
+ {id:2003,fr:'Accrocher',ar:'يُعَلِّق',en:'To hang',sfr:'Accroche ton manteau ici.',sar:'علّق معطفك هون.',sen:'Hang your coat here.',img:'accrocher.jpg'},
+ {id:2004,fr:'Accueillir',ar:'يَسْتَقْبِل',en:'To welcome',sfr:'Nous sommes heureux de vous accueillir.',sar:'نحنا مبسوطين باستقبالك.',sen:'We are happy to welcome you.',img:'accueillir.jpg'},
+ {id:2005,fr:'Agir',ar:'يَتَصَرَّف',en:'To act',sfr:'Il faut agir rapidement.',sar:'لازم نتصرف بسرعة.',sen:'We need to act quickly.',img:'agir.jpg'},
+ {id:2006,fr:'Agrandir',ar:'يُكَبِّر',en:'To enlarge',sfr:'Je veux agrandir ma maison.',sar:'بدي كبّر بيتي.',sen:'I want to enlarge my house.',img:'agrandir.jpg'},
+ {id:2007,fr:'Amuser',ar:'يُسَلِّي',en:'To amuse',sfr:"Cette histoire m'amuse.",sar:'هالقصة بتسلّيني.',sen:'This story amuses me.',img:'amuser.jpg'},
+ {id:2008,fr:'Annuler',ar:'يُلْغِي',en:'To cancel',sfr:'Je dois annuler mon rendez-vous.',sar:'لازم ألغي موعدي.',sen:'I have to cancel my appointment.',img:'annuler.jpg'},
+ {id:2009,fr:'Apercevoir',ar:'يَلْمَح',en:'To catch sight of',sfr:"J'aperçois mon ami au loin.",sar:'عم لمح صديقي من بعيد.',sen:'I can see my friend in the distance.',img:'apercevoir.jpg'},
+ {id:2010,fr:'Appliquer',ar:'يُطَبِّق',en:'To apply',sfr:'Il faut appliquer cette règle.',sar:'لازم نطبّق هالقاعدة.',sen:'We must apply this rule.',img:'appliquer.jpg'}];
+ add.forEach(v=>{if(!have.has(v.fr))st.v.A.push(v)});
+ save();localStorage.setItem('verbes-seeded3','1')}
 function render(){if(curLetter)renderLetter();else renderHome()}
 /* hardware back: letter → home, sheet → close, home → exit */
 try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
@@ -323,7 +339,7 @@ try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
   if($('pShade').classList.contains('on')){$('pShade').classList.remove('on');return}
   if(curLetter){stopSay();curLetter=null;renderHome();return}
   CAP.Plugins.App.exitApp()})}}catch(e){}
-seed();seed2();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
