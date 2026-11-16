@@ -113,7 +113,9 @@ main{flex:1;overflow:auto;position:relative}
 .wxHead button.on{border-color:var(--acc);color:var(--acc)}
 #wxBody{flex:1;overflow-y:auto}
 .wxNow{background:linear-gradient(150deg,var(--acc),var(--acc2));color:#fff;border-radius:20px;padding:18px;text-align:center;box-shadow:var(--shadow)}
-.wxNow .wc{font-size:3.2rem;line-height:1}
+.wxNow .wc{font-size:1.9rem;line-height:1}
+#wxCap{margin-top:10px;font-size:.85rem;font-weight:700;line-height:1.5;background:rgba(0,0,0,.28);border-radius:12px;padding:8px 10px;text-align:start;white-space:pre-wrap;display:none}
+#wxCap.on{display:block}
 .wxNow .wt{font-size:2.6rem;font-weight:800;margin-top:4px}
 .wxNow .wd2{font-size:1rem;font-weight:700;opacity:.92;margin-top:2px}
 .wxNow .wsub{font-size:.8rem;opacity:.85;margin-top:6px}
@@ -2113,9 +2115,9 @@ function renderWx(L){
  const c=j.current,loc=st.lang==='ar'?'ar':st.lang;
  const fmtT=v=>Math.round(v)+'°';
  const hfmt=ts=>new Date(ts).toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit'});
- let out='<div class="wxNow"><div class="wc">'+wIco(c.weather_code)+'</div><div class="wt">'+fmtT(c.temperature_2m)+'</div>'
+ let out='<div class="wxNow" id="wxNowCard"><div class="wc">'+wIco(c.weather_code)+'</div><div class="wt">'+fmtT(c.temperature_2m)+'</div>'
   +'<div class="wd2">'+wName(c.weather_code)+'</div>'
-  +'<div class="wsub">'+t('wxFeels')+' '+fmtT(c.apparent_temperature)+' · 💧 '+c.relative_humidity_2m+'% · 💨 '+Math.round(c.wind_speed_10m)+' '+t('wxKmh')+'</div></div>';
+  +'<div class="wsub">'+t('wxFeels')+' '+fmtT(c.apparent_temperature)+' · 💧 '+c.relative_humidity_2m+'% · 💨 '+Math.round(c.wind_speed_10m)+' '+t('wxKmh')+'</div><div id="wxCap"></div></div>';
  // today extras
  const d0=j.daily;
  out+='<div class="wxRow">'
@@ -2209,16 +2211,19 @@ function wxReport(L){
  return R[lg]||R.en;
 }
 let wxSaying=false;
-$('wxSpeak').onclick=()=>{
- if(wxSaying){stopSay();wxSaying=false;$('wxSpeak').classList.remove('on');return}
+const wxCapSet=txt=>{const c=$('wxCap');if(c){c.textContent=txt||'';c.classList.toggle('on',!!txt);c.dir=st.lang==='ar'?'rtl':'ltr'}};
+function wxSpeakToggle(){
+ if(wxSaying){stopSay();wxSaying=false;$('wxSpeak').classList.remove('on');wxCapSet('');return}
  stopSay();
  const txt=wxReport(wxLoc);if(!txt){toast(t('wxLocating'));return}
- const lg=st.lang;wxSaying=true;$('wxSpeak').classList.add('on');
- const done=()=>{wxSaying=false;$('wxSpeak').classList.remove('on')};
+ const lg=st.lang;wxSaying=true;$('wxSpeak').classList.add('on');wxCapSet(txt);
+ const done=()=>{wxSaying=false;$('wxSpeak').classList.remove('on');wxCapSet('')};
  if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:lg}).catch(()=>toast('!'));setTimeout(done,Math.min(60000,1500+txt.length*95));return}
  if(window.speechSynthesis){const u=new SpeechSynthesisUtterance(txt);u.lang=lg;u.onend=done;u.onerror=done;speechSynthesis.speak(u);return}
  done();
-};
+}
+$('wxSpeak').onclick=wxSpeakToggle;
+document.addEventListener('click',e=>{if(e.target.closest('#wxNowCard'))wxSpeakToggle()});
 $('wxBack').onclick=()=>$('wxShade').classList.remove('on');
 $('wxRef').onclick=async()=>{try{const p=await wxPos();const cn=await wxCityName(p.lat,p.lon);wxLoc={lat:p.lat,lon:p.lon,name:cn.name,cc:cn.cc};localStorage.setItem('sa3a_wxloc',JSON.stringify(wxLoc))}catch(e){}openWx()};
 $('wxCity').onclick=()=>{const nm=prompt(t('wxCityPh'));if(!nm)return;
