@@ -2394,7 +2394,7 @@ function splitByScript(s) {
   if (tail) parts.push(tail);
   // re-attach isolated all-caps tokens (ALD, CAF, OFII) to their line-mates —
   // they are acronyms inside the sentence, not a language switch
-  var CAPTOK = /^[A-ZÀ-Þ0-9][A-ZÀ-Þ0-9.'’%&()\/-]{0,14}$/;
+  var CAPTOK = /^[A-ZÀ-Þ0-9][A-ZÀ-Þ0-9.'’%&()\/:-]{0,14}$/;
   function scriptOfStr(str) {
     for (var i = 0; i < str.length; i++) { var c = scriptOf(str.charAt(i)); if (c) return c; }
     return '';
@@ -2445,7 +2445,7 @@ function parseTimedLines(text) {
     // 'N.' alone is a bare list marker — skip it
     var nm = s.match(/^\d{1,3}[.)\-–—](?:\s+(\S[\s\S]*))?$/);
     if (nm && !(cur && cur.t != null)) {
-      if (nm[1] && FLAG_RE.test(nm[1])) s = nm[1];
+      if (nm[1] && FLAG_RE.test(nm[1])) { flush(); s = nm[1]; }  // each numbered flag entry starts a new card
       else if (nm[1]) { flush(); pendingNote = nm[1]; return; }   // title → note on the next card
       else return;
     }
