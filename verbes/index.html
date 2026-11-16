@@ -299,6 +299,22 @@ function seed(){
  {id:9,fr:'Aider',ar:'يُسَاعِد',en:'To help',sfr:"Je peux t'aider.",sar:'فيني ساعدك.',sen:'I can help you.',img:'aider.jpg'},
  {id:10,fr:'Ajouter',ar:'يُضِيف',en:'To add',sfr:'Je veux ajouter du sucre.',sar:'بدي ضيف سكر.',sen:'I want to add sugar.',img:'ajouter.jpg'}];
  save();localStorage.setItem('verbes-seeded','1')}
+function seed2(){
+ if(localStorage.getItem('verbes-seeded2'))return;
+ st.v.A=st.v.A||[];const have=new Set(st.v.A.map(v=>v.fr));
+ const add=[
+ {id:1001,fr:'Allumer',ar:'يُشَغِّل',en:'To turn on',sfr:"Allume la lumière, s'il te plaît.",sar:'شغّل الضو لو سمحت.',sen:'Turn on the light, please.',img:'allumer.jpg'},
+ {id:1002,fr:'Arrêter',ar:'يُوقِف',en:'To stop',sfr:'Arrête la voiture !',sar:'وقّف السيارة!',sen:'Stop the car!',img:'arreter.jpg'},
+ {id:1003,fr:'Apporter',ar:'يُحْضِر',en:'To bring',sfr:"Apporte-moi un verre d'eau.",sar:'جيبلي كاسة مي.',sen:'Bring me a glass of water.',img:'apporter.jpg'},
+ {id:1004,fr:'Accompagner',ar:'يُرَافِق',en:'To accompany',sfr:'Je vais accompagner mon frère.',sar:'رح رافق أخي.',sen:"I'm going to accompany my brother.",img:'accompagner.jpg'},
+ {id:1005,fr:'Annoncer',ar:'يُعْلِن',en:'To announce',sfr:'Je dois annoncer une nouvelle.',sar:'لازم أعلن عن خبر.',sen:'I have to announce some news.',img:'annoncer.jpg'},
+ {id:1006,fr:'Avancer',ar:'يَتَقَدَّم',en:'To move forward',sfr:'Continue à avancer.',sar:'كمّل لقدّام.',sen:'Keep moving forward.',img:'avancer.jpg'},
+ {id:1007,fr:'Adorer',ar:'يُحِبّ كَثِيراً',en:'To adore',sfr:"J'adore cette chanson.",sar:'بحب هالأغنية كتير.',sen:'I love this song.',img:'adorer.jpg'},
+ {id:1008,fr:'Avoir',ar:'يَمْلِك / عِنْدَه',en:'To have',sfr:"J'ai une voiture.",sar:'عندي سيارة.',sen:'I have a car.',img:'avoir.jpg'},
+ {id:1009,fr:'Analyser',ar:'يُحَلِّل',en:'To analyze',sfr:'Je dois analyser ce problème.',sar:'لازم حلّل هالمشكلة.',sen:'I have to analyze this problem.',img:'analyser.jpg'},
+ {id:1010,fr:'Améliorer',ar:'يُحَسِّن',en:'To improve',sfr:'Je veux améliorer mon français.',sar:'بدي حسّن لغتي الفرنسية.',sen:'I want to improve my French.',img:'ameliorer.jpg'}];
+ add.forEach(v=>{if(!have.has(v.fr))st.v.A.push(v)});
+ save();localStorage.setItem('verbes-seeded2','1')}
 function render(){if(curLetter)renderLetter();else renderHome()}
 /* hardware back: letter → home, sheet → close, home → exit */
 try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
@@ -307,7 +323,7 @@ try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
   if($('pShade').classList.contains('on')){$('pShade').classList.remove('on');return}
   if(curLetter){stopSay();curLetter=null;renderHome();return}
   CAP.Plugins.App.exitApp()})}}catch(e){}
-seed();applyTheme();applyLang();renderHome();
+seed();seed2();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
