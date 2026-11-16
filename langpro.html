@@ -2456,17 +2456,19 @@ function parseTimedLines(text) {
     if (!s) { if (cur) pendingSep = true; return; }
     s = normPhraseText(s);
     if (!s) return;
-    // a timed cue collects whatever follows (SRT body, translation lines)
-    if (cur && cur.t != null) { cur.text = cur.text ? cur.text + '\n' + s : s; return; }
     // a flag line whose language already appears in the card starts a new phrase —
-    // so 'fr ar en fr ar en' becomes two cards even with no separators at all
+    // so 'fr ar en fr ar en' becomes two cards even with no separators at all;
+    // after a blank separator a flag line with a NEW language still joins the card
+    // (its translation), while anything else ends it — timed cards included
     var flg = s.match(FLAG_RE);
-    if (flg && FLAG_LANG[flg[1]] && cur && cur.text) {
+    if (flg && FLAG_LANG[flg[1]] && cur && cur.text && (pendingSep || cur.t == null)) {
       var dup = false;
       cueLangLines(cur.text).forEach(function (r) { if (r.lang === FLAG_LANG[flg[1]]) dup = true; });
       if (dup) flush();
       pendingSep = false;
     } else if (pendingSep) { flush(); }
+    // a timed cue collects whatever follows (SRT body, translation lines)
+    if (cur && cur.t != null) { cur.text = cur.text ? cur.text + '\n' + s : s; return; }
     // a one-line format ('a | b', 'a → b') expands to a complete multi-line cue
     if (s.indexOf('\n') !== -1) {
       flush();
