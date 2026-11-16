@@ -10,6 +10,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.service.wallpaper.WallpaperService;
 import android.view.SurfaceHolder;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Path;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -69,7 +72,38 @@ public class Sa3aWallpaperService extends WallpaperService {
             } catch (Exception e) { return "analog"; }
         }
 
+        private String wallTheme() {
+            try {
+                SharedPreferences p = getSharedPreferences("CapacitorStorage", MODE_PRIVATE);
+                String s = p.getString("walltheme", "dark");
+                return s == null ? "dark" : s;
+            } catch (Exception e) { return "dark"; }
+        }
+
+        private Bitmap flagBmp;
+        private Bitmap flag() {
+            if (flagBmp == null) flagBmp = BitmapFactory.decodeResource(getResources(), R.drawable.flag);
+            return flagBmp;
+        }
+
+        private void drawFlag(Canvas c, float cx, float cy, float r) {
+            Bitmap bm = flag();
+            if (bm == null) return;
+            Path clip = new Path();
+            clip.addCircle(cx, cy, r, Path.Direction.CW);
+            c.save();
+            c.clipPath(clip);
+            c.drawBitmap(bm, null, new RectF(cx - r, cy - r, cx + r, cy + r), null);
+            c.restore();
+            Paint ov = new Paint();
+            ov.setColor(Color.argb(95, 0, 0, 0));
+            c.drawCircle(cx, cy, r, ov);
+        }
+
         private void draw() {
+            boolean sy = "syria".equals(wallTheme());
+            bg.setColor(Color.parseColor(sy ? "#06130c" : "#0b1020"));
+            line.setColor(sy ? Color.WHITE : Color.parseColor("#8b93b8"));
             SurfaceHolder h = getSurfaceHolder();
             Canvas c = null;
             try {
@@ -86,8 +120,9 @@ public class Sa3aWallpaperService extends WallpaperService {
         }
 
         private void drawAnalog(Canvas c, float cx, float cy, Calendar cal) {
+            boolean sy = "syria".equals(wallTheme());
             float r = Math.min(c.getWidth(), c.getHeight()) * 0.36f;
-            c.drawCircle(cx, cy, r, face);
+            if (sy) drawFlag(c, cx, cy, r); else c.drawCircle(cx, cy, r, face);
             line.setStrokeWidth(4f);
             c.drawCircle(cx, cy, r, line);
             // ticks + numbers
@@ -106,10 +141,18 @@ public class Sa3aWallpaperService extends WallpaperService {
                         cy - (float)(r * 0.68 * Math.cos(a)) + txt.getTextSize() * 0.35f, txt);
             }
             int hh = cal.get(Calendar.HOUR), mm = cal.get(Calendar.MINUTE), ss = cal.get(Calendar.SECOND);
-            drawHand(c, cx, cy, r, (hh % 12) * 30 + mm * 0.5f, 0.52f, r * 0.05f, txt.getColor());
-            drawHand(c, cx, cy, r, mm * 6 + ss * 0.1f, 0.72f, r * 0.035f, txt.getColor());
-            drawHand(c, cx, cy, r, ss * 6, 0.82f, r * 0.016f, acc.getColor());
-            c.drawCircle(cx, cy, r * 0.05f, acc);
+            int hcol = sy ? Color.WHITE : txt.getColor();
+            int scol = sy ? Color.parseColor("#ffd23e") : acc.getColor();
+            if (sy) {
+                drawHand(c, cx, cy, r, (hh % 12) * 30 + mm * 0.5f, 0.52f, r * 0.085f, Color.BLACK);
+                drawHand(c, cx, cy, r, mm * 6 + ss * 0.1f, 0.72f, r * 0.06f, Color.BLACK);
+                drawHand(c, cx, cy, r, ss * 6, 0.82f, r * 0.03f, Color.BLACK);
+            }
+            drawHand(c, cx, cy, r, (hh % 12) * 30 + mm * 0.5f, 0.52f, r * 0.05f, hcol);
+            drawHand(c, cx, cy, r, mm * 6 + ss * 0.1f, 0.72f, r * 0.035f, hcol);
+            drawHand(c, cx, cy, r, ss * 6, 0.82f, r * 0.016f, scol);
+            Paint dp = new Paint(Paint.ANTI_ALIAS_FLAG); dp.setColor(scol);
+            c.drawCircle(cx, cy, r * 0.05f, dp);
             txt.setTextSize(r * 0.12f);
             txt.setColor(Color.parseColor("#8b93b8"));
             c.drawText(new SimpleDateFormat("EEEE d MMMM", Locale.getDefault()).format(new Date()),
@@ -127,6 +170,7 @@ public class Sa3aWallpaperService extends WallpaperService {
         }
 
         private void drawDigital(Canvas c, float cx, float cy, Calendar cal) {
+            if ("syria".equals(wallTheme())) drawFlag(c, cx, cy, Math.min(c.getWidth(), c.getHeight()) * 0.4f);
             float big = c.getWidth() * 0.22f;
             txt.setColor(Color.parseColor("#eef1ff"));
             txt.setTextSize(big);

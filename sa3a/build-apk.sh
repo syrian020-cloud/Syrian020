@@ -10,7 +10,7 @@ cd "$ROOT"
 
 # Stage web assets into Capacitor's webDir
 rm -rf www && mkdir -p www/sounds
-cp index.html tempo.html manifest.json sw.js icon-192.png icon-512.png icon-tempo-192.png sw-tempo.js www/
+cp index.html tempo.html manifest.json sw.js icon-192.png icon-512.png icon-tempo-192.png sw-tempo.js flag.png www/
 cp sounds/*.mp3 www/sounds/
 mkdir -p www/js && cp js/*.js www/js/ 2>/dev/null || true
 
@@ -45,6 +45,8 @@ if ! grep -q 'com.squareup.okhttp3:okhttp' android/app/build.gradle; then
 fi
 mkdir -p android/app/src/main/res/xml
 cp native-plugins/sa3a_wallpaper.xml android/app/src/main/res/xml/
+mkdir -p android/app/src/main/res/drawable-nodpi
+cp flag.png android/app/src/main/res/drawable-nodpi/flag.png
 MAIN_ACTIVITY=$(find android/app/src/main/java -name MainActivity.java | head -1)
 MANIFEST="android/app/src/main/AndroidManifest.xml"
 if [ -f "$MANIFEST" ] && ! grep -q 'Sa3aWallpaperService' "$MANIFEST"; then
