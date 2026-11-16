@@ -125,7 +125,11 @@ main{flex:1;overflow:auto;position:relative}
 .wxNow .wd2{font-size:1rem;font-weight:700;opacity:.92;margin-top:2px}
 .wxNow .wsub{font-size:.8rem;opacity:.85;margin-top:6px}
 .wxRow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
-.wxCell{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 4px;text-align:center}
+.wxCell{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 4px;text-align:center}
+.wxs{background:none;border:none;font-size:1rem;cursor:pointer;color:var(--acc);padding:2px 4px}
+.wxs.wxon{outline:2px solid var(--acc);border-radius:8px}
+.wxCell .wxs{position:absolute;top:2px;inset-inline-end:2px;font-size:.85rem;opacity:.85}
+.wxCapB{font-size:.85rem;font-weight:700;line-height:1.5;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 10px;text-align:center;color:var(--acc);margin:6px 0 10px}
 .wxCell .i{font-size:1.3rem}
 .wxCell .v{font-weight:800;font-size:.9rem;margin-top:3px}
 .wxCell .k{font-size:.62rem;color:var(--dim);font-weight:700;margin-top:2px}
@@ -2130,13 +2134,14 @@ function renderWx(L){
   +'<div class="wsub">'+t('wxFeels')+' '+fmtT(c.apparent_temperature)+' · 💧 '+c.relative_humidity_2m+'% · 💨 '+Math.round(c.wind_speed_10m)+' '+t('wxKmh')+'</div><div id="wxCap"></div></div>';
  // today extras
  const d0=j.daily;
+ const sb=(k,i)=>'<button class="wxs" data-say="'+k+'"'+(i!=null?' data-i="'+i+'"':'')+'>🔊</button>';
  out+='<div class="wxRow">'
-  +'<div class="wxCell"><div class="i">🌅</div><div class="v">'+hfmt(d0.sunrise[0])+'</div><div class="k">'+t('wxSunrise')+'</div></div>'
-  +'<div class="wxCell"><div class="i">🌇</div><div class="v">'+hfmt(d0.sunset[0])+'</div><div class="k">'+t('wxSunset')+'</div></div>'
-  +'<div class="wxCell"><div class="i">🌧️</div><div class="v">'+(d0.precipitation_probability_max[0]??0)+'%</div><div class="k">'+t('wxRain')+'</div></div>'
-  +'<div class="wxCell"><div class="i">🌡️</div><div class="v">'+fmtT(d0.temperature_2m_max[0])+'/'+fmtT(d0.temperature_2m_min[0])+'</div><div class="k">'+t('wxHiLo')+'</div></div></div>';
+  +'<div class="wxCell">'+sb('sun')+'<div class="i">🌅</div><div class="v">'+hfmt(d0.sunrise[0])+'</div><div class="k">'+t('wxSunrise')+'</div></div>'
+  +'<div class="wxCell">'+sb('set')+'<div class="i">🌇</div><div class="v">'+hfmt(d0.sunset[0])+'</div><div class="k">'+t('wxSunset')+'</div></div>'
+  +'<div class="wxCell">'+sb('rain')+'<div class="i">🌧️</div><div class="v">'+(d0.precipitation_probability_max[0]??0)+'%</div><div class="k">'+t('wxRain')+'</div></div>'
+  +'<div class="wxCell">'+sb('hilo')+'<div class="i">🌡️</div><div class="v">'+fmtT(d0.temperature_2m_max[0])+'/'+fmtT(d0.temperature_2m_min[0])+'</div><div class="k">'+t('wxHiLo')+'</div></div></div>';
  // next 24h hourly
- out+='<div class="wxTtl">'+t('wxNext24')+'</div><div class="wxHr">';
+ out+='<div class="wxTtl">'+t('wxNext24')+' '+sb('hours')+'</div><div class="wxHr">';
  const now=Date.now(),ht=j.hourly.time;
  for(let i=0;i<ht.length&&i<48;i++){const t0=new Date(ht[i]).getTime();if(t0<now-3600000)continue;
   out+='<div class="wxHp"><div class="t">'+new Date(ht[i]).toLocaleTimeString(loc,{hour:'numeric'})+'</div><div class="i">'+wIco(j.hourly.weather_code[i])+'</div><div class="v">'+fmtT(j.hourly.temperature_2m[i])+'</div></div>';
@@ -2148,8 +2153,53 @@ function renderWx(L){
   const dn=i===0?t('today'):dt.toLocaleDateString(loc,{weekday:'long'});
   out+='<div class="wxDay"><div class="dn">'+dn+'</div><div class="di">'+wIco(j.daily.weather_code[i])+'</div>'
    +'<div class="dd">'+wName(j.daily.weather_code[i])+'<br>🌧️ '+(j.daily.precipitation_probability_max[i]??0)+'% · 💨 '+Math.round(j.daily.wind_speed_10m_max[i])+'</div>'
-   +'<div class="tp">'+fmtT(j.daily.temperature_2m_max[i])+' <span class="lo">'+fmtT(j.daily.temperature_2m_min[i])+'</span></div></div>'}
+   +'<div class="tp">'+fmtT(j.daily.temperature_2m_max[i])+' <span class="lo">'+fmtT(j.daily.temperature_2m_min[i])+'</span></div>'+sb('day',i)+'</div>'}
  $('wxBody').innerHTML=out}
+function wxPhrase(kind,i,j){
+ const lg=st.lang,d0=j.daily,loc=lg==='ar'?'ar':lg;
+ const hfmt=ts=>new Date(ts).toLocaleTimeString(loc,{hour:'numeric',minute:'2-digit'});
+ const P=o=>o[lg]||o.en;
+ if(kind==='sun')return P({fr:'Le soleil se lève à '+hfmt(d0.sunrise[0])+'.',ar:'تشرق الشمس الساعة '+hfmt(d0.sunrise[0])+'.',en:'The sun rises at '+hfmt(d0.sunrise[0])+'.'});
+ if(kind==='set')return P({fr:'Le soleil se couche à '+hfmt(d0.sunset[0])+'.',ar:'تغرب الشمس الساعة '+hfmt(d0.sunset[0])+'.',en:'The sun sets at '+hfmt(d0.sunset[0])+'.'});
+ if(kind==='rain'){const p=d0.precipitation_probability_max[0]??0;
+  return P({fr:'Il y a '+p+' % de risque de pluie.'+(p>=70?' Il va pleuvoir à coup sûr.':''),ar:'احتمال هطول المطر '+p+' بالمئة.'+(p>=70?' أكيد رح تمطر.':''),en:"There's a "+p+"% chance of rain."+(p>=70?" It's definitely going to rain.":'')})}
+ if(kind==='hilo'){const hi=Math.round(d0.temperature_2m_max[0]),lo=Math.round(d0.temperature_2m_min[0]);
+  return P({fr:'Les températures varient entre '+lo+' et '+hi+' degrés.',ar:'درجات الحرارة بتتراوح بين '+lo+' و'+hi+' درجة.',en:'Temperatures range between '+lo+' and '+hi+' degrees.'})}
+ if(kind==='hours'){
+  const now=Date.now(),tt=[],ww=[];
+  for(let k=0;k<j.hourly.time.length&&tt.length<8;k++){const t0=new Date(j.hourly.time[k]).getTime();if(t0<now-3600000)continue;tt.push(j.hourly.temperature_2m[k]);ww.push(j.hourly.weather_code[k])}
+  if(!tt.length)return '';
+  const lo=Math.round(Math.min(...tt)),hi=Math.round(Math.max(...tt));
+  const rainy=ww.filter(w=>w>=51&&w<=99).length>=Math.ceil(tt.length*0.6);
+  return P({fr:'Dans les prochaines heures, ça va osciller entre '+lo+' et '+hi+' degrés.'+(rainy?' Il va pleuvoir une bonne partie des prochaines heures.':''),ar:'خلال الساعات القادمة، رح تتراوح الحرارة بين '+lo+' و'+hi+' درجة.'+(rainy?' ورح تمطر أغلب الساعات الجاية.':''),en:'Over the next few hours, temperatures will range between '+lo+' and '+hi+' degrees.'+(rainy?' It will rain for much of the next few hours.':'')})}
+ if(kind==='day'){
+  const dt=new Date(d0.time[i]),wdn=dt.toLocaleDateString(loc,{weekday:'long'});
+  const cond=wName(d0.weather_code[i]),hi=Math.round(d0.temperature_2m_max[i]),lo=Math.round(d0.temperature_2m_min[i]),w=Math.round(d0.wind_speed_10m_max[i]);
+  const dayLab=i===0?{fr:"Aujourd'hui",ar:'اليوم',en:'Today'}[lg]:i===1?{fr:'Demain '+wdn,ar:'بكرا '+wdn,en:'Tomorrow, '+wdn}[lg]:wdn.charAt(0).toUpperCase()+wdn.slice(1);
+  return P({fr:dayLab+', '+cond+', avec des rafales à '+w+' kilomètres-heure. Il fera entre '+lo+' et '+hi+' degrés.',
+   ar:dayLab+' '+cond+'، وهبّات رياح سرعتها '+w+' كيلومتراً في الساعة. الحرارة بين '+lo+' و'+hi+' درجة.',
+   en:dayLab+', '+cond+', with wind gusts of '+w+' kilometers per hour. Temperatures between '+lo+' and '+hi+' degrees.'})}
+ return ''}
+function wxCapB(txt,anchor){
+ const old=$('wxCapB');if(old)old.remove();
+ if(!txt||!anchor)return;
+ const cb=document.createElement('div');cb.id='wxCapB';cb.className='wxCapB';cb.textContent=txt;cb.dir=st.lang==='ar'?'rtl':'ltr';
+ anchor.after(cb);if(cb.scrollIntoView)cb.scrollIntoView({block:'nearest',behavior:'smooth'});
+}
+async function wxSayBtn(b){
+ if(b.classList.contains('wxon')){stopSay();return}
+ document.querySelectorAll('.wxs.wxon').forEach(x=>x.classList.remove('wxon'));
+ wxSaying=false;$('wxSpeak').classList.remove('on');wxCapSet('');wxCapB('');
+ stopSay();
+ const j=wxLoc&&wxLoc.data;if(!j)return;
+ const txt=wxPhrase(b.dataset.say,+(b.dataset.i||0),j);if(!txt)return;
+ b.classList.add('wxon');
+ const anchor=b.closest('.wxDay')||b.closest('.wxRow')||(b.closest('.wxTtl')?b.closest('.wxTtl').nextElementSibling:null)||b.parentElement;
+ wxCapB(txt,anchor);const tok=sayTok;
+ await sayOnce(txt,st.lang==='ar'?'ar':st.lang);
+ if(tok===sayTok){b.classList.remove('wxon');wxCapB('')}
+}
+$('wxBody').addEventListener('click',e=>{const b=e.target.closest('.wxs');if(b){e.stopPropagation();wxSayBtn(b)}});
 function wxReport(L){
  const j=L&&L.data;if(!j||!j.current)return null;
  const lg=st.lang,c=j.current,d0=j.daily;
