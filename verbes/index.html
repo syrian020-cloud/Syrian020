@@ -654,6 +654,21 @@ function updB3(){
  {fr:"Blanchir",ar:"يبيّض",en:"To whiten",sfr:"Cette lessive blanchit le linge.",sar:"هالمنظّف بيبيّض الغسيل.",sen:"This detergent whitens the laundry.",img:"blanchir.jpg"},];
  add.forEach(u=>{const L=normFr(u.fr).replace(/^se /,'').charAt(0).toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(ex){ex.sfr=u.sfr;ex.sar=u.sar;ex.sen=u.sen;if(u.img)ex.img=u.img}else{u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
  save();localStorage.setItem('verbes-updB3','1')}
+function updC1(){
+ if(localStorage.getItem('verbes-updC1'))return;
+ const add=[
+ {fr:"Commencer",ar:"يبدأ",en:"To begin / start",sfr:"Je commence le travail à huit heures.",sar:"ببلّش الشغل الساعة تمانية.",sen:"I start work at eight o'clock.",img:"commencer.jpg"},
+ {fr:"Comprendre",ar:"يفهم",en:"To understand",sfr:"Je ne comprends pas cette question.",sar:"ما عم افهم هالسؤال.",sen:"I don't understand this question.",img:"comprendre.jpg"},
+ {fr:"Connaître",ar:"يعرف / يكون على معرفة بـ",en:"To know",sfr:"Je connais bien cette ville.",sar:"بعرف هالمدينة منيح.",sen:"I know this city well.",img:"connaitre.jpg"},
+ {fr:"Chercher",ar:"يبحث عن",en:"To look for",sfr:"Je cherche mes clés.",sar:"عم دوّر على مفاتيحي.",sen:"I am looking for my keys.",img:"chercher.jpg"},
+ {fr:"Choisir",ar:"يختار",en:"To choose",sfr:"Je voudrais choisir une autre couleur.",sar:"بدي اختار لون تاني.",sen:"I would like to choose another colour.",img:"choisir.jpg"},
+ {fr:"Continuer",ar:"يتابع / يستمر",en:"To continue",sfr:"Tu peux continuer, je t'écoute.",sar:"فيك تكمّل، أنا عم اسمعك.",sen:"You can continue, I'm listening.",img:"continuer.jpg"},
+ {fr:"Compter",ar:"يعدّ / يحسب",en:"To count",sfr:"Je compte mon argent.",sar:"عم عدّ مصرياتي.",sen:"I am counting my money.",img:"compter.jpg"},
+ {fr:"Changer",ar:"يغيّر / يبدّل",en:"To change",sfr:"Je voudrais changer de travail.",sar:"بدي غيّر شغلي.",sen:"I would like to change jobs.",img:"changer.jpg"},
+ {fr:"Couper",ar:"يقطع",en:"To cut",sfr:"Je coupe les légumes pour le dîner.",sar:"عم قطّع الخضرة للعشا.",sen:"I am cutting vegetables for dinner.",img:"couper.jpg"},
+ {fr:"Cuisiner",ar:"يطبخ",en:"To cook",sfr:"J'aime cuisiner à la maison.",sar:"بحب اطبخ بالبيت.",sen:"I like cooking at home."},];
+ add.forEach(u=>{const L=normFr(u.fr).replace(/^se /,'').charAt(0).toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(ex){ex.sfr=u.sfr;ex.sar=u.sar;ex.sen=u.sen;if(u.img)ex.img=u.img}else{u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
+ save();localStorage.setItem('verbes-updC1','1')}
 function render(){if(curLetter)renderLetter();else renderHome()}
 /* hardware back: letter → home, sheet → close, home → exit */
 try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
@@ -701,7 +716,7 @@ function bindNoteUI(){const c=$('noteCanvas');c.addEventListener('mousedown',not
  $('noteSizeDec').onclick=()=>setNoteSize(noteSize-1);$('noteSizeInc').onclick=()=>setNoteSize(noteSize+1);$('noteSize').oninput=function(){setNoteSize(parseInt(this.value,10)||3)};
  document.querySelectorAll('.note-tool').forEach(b=>{b.onclick=()=>{noteColor=b.dataset.color;$('noteSwatchDot').style.background=noteColor;document.querySelectorAll('.note-tool').forEach(x=>x.classList.toggle('active',x===b));$('notePalette').classList.remove('show')}})}
 bindNoteUI();
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
