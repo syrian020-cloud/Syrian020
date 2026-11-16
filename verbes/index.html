@@ -107,7 +107,7 @@ html[dir=rtl] .note-canvas-wrap.lined{background-image:linear-gradient(to left,t
 <h3 id="pTtl"></h3>
 <div id="pHint"></div>
 <div class="fld"><textarea id="pTa" dir="auto" placeholder="1. Accepter – يَقْبَل – To accept&#10;🇫🇷 J'accepte ton invitation.&#10;🇸🇾 أنا بقبل دعوتك.&#10;🇺🇸 I accept your invitation."></textarea></div>
-<div class="brow"><button class="bbtn sec" id="pCopy">📋</button><button class="bbtn sec" id="pCancel"></button><button class="bbtn pri" id="pAdd"></button></div>
+<div class="brow"><button class="bbtn sec" id="pCopy">📋</button><button class="bbtn sec" id="pCopy1">📄</button><button class="bbtn sec" id="pCancel"></button><button class="bbtn pri" id="pAdd"></button></div>
 </div></div>
 <div class="shade" id="vShade"><div class="sheet">
 <h3 id="vTtl"></h3>
@@ -161,9 +161,9 @@ const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const CAP=window.Capacitor||{};const isCap=()=>!!(CAP.isNativePlatform&&CAP.isNativePlatform());
 const LANGS=['ar','en','fr'],LANGICON={ar:'🇸🇾',en:'🇺🇸',fr:'🇫🇷'};
 const T={
-ar:{name:'أفعال',verbs:'فعل',add:'أضف فعلًا',edit:'عدّل الفعل',delQ:'حذف هذا الفعل؟',verb:'الفعل (فرنسي)',arM:'المعنى بالعربي',enM:'English meaning',sfr:'جملة فرنسية',sar:'جملة بالعربي',sen:'English sentence',img:'صورة (اختياري)',save:'حفظ',cancel:'إلغاء',empty:'لا أفعال بعد — اضغط ＋ لإضافة فعل',saved:'✓ حُفظ',letters:'الحروف A–Z',paste:'لصق نص',pasteHint:'الصق النص بهذا الشكل — رقم ثم «فعل – عربي – إنجليزي» ثم الجمل بأعلامها أو بترتيب فرنسي/عربي/إنجليزي. روابط الصور تُجلب تلقائيًا إن أمكن.',addAll:'أضف الكل',addedN:'فعلًا أُضيف',nothing:'لم يُعثر على أفعال في النص',copyTpl:'📋 نسخ النموذج',tplCopied:'✓ نُسخ النموذج — الصقه في أي ذكاء اصطناعي'},
-en:{name:'Verbs',verbs:'verbs',add:'Add a verb',edit:'Edit verb',delQ:'Delete this verb?',verb:'Verb (French)',arM:'Arabic meaning',enM:'English meaning',sfr:'French sentence',sar:'Arabic sentence',sen:'English sentence',img:'Image (optional)',save:'Save',cancel:'Cancel',empty:'No verbs yet — tap ＋ to add one',saved:'✓ Saved',letters:'Letters A–Z',paste:'Paste text',pasteHint:'Paste text like: number, then «verb – ar – en», then sentences with flags or in fr/ar/en order. Image URLs are fetched when possible.',addAll:'Add all',addedN:'verbs added',nothing:'No verbs found in the text',copyTpl:'📋 Copy template',tplCopied:'✓ Template copied — paste it into any AI'},
-fr:{name:'Verbes',verbs:'verbes',add:'Ajouter un verbe',edit:'Modifier le verbe',delQ:'Supprimer ce verbe ?',verb:'Verbe (français)',arM:'Sens en arabe',enM:'Sens en anglais',sfr:'Phrase en français',sar:'Phrase en arabe',sen:'Phrase en anglais',img:'Image (optionnel)',save:'Enregistrer',cancel:'Annuler',empty:'Pas encore de verbes — touchez ＋',saved:'✓ Enregistré',letters:'Lettres A–Z',paste:'Coller du texte',pasteHint:'Collez le texte : numéro, puis «verbe – ar – en», puis les phrases avec drapeaux ou dans l’ordre fr/ar/en. Les images sont récupérées si possible.',addAll:'Tout ajouter',addedN:'verbes ajoutés',nothing:'Aucun verbe trouvé dans le texte',copyTpl:'📋 Copier le modèle',tplCopied:'✓ Modèle copié — collez-le dans une IA'}};
+ar:{name:'أفعال',verbs:'فعل',add:'أضف فعلًا',edit:'عدّل الفعل',delQ:'حذف هذا الفعل؟',verb:'الفعل (فرنسي)',arM:'المعنى بالعربي',enM:'English meaning',sfr:'جملة فرنسية',sar:'جملة بالعربي',sen:'English sentence',img:'صورة (اختياري)',save:'حفظ',cancel:'إلغاء',empty:'لا أفعال بعد — اضغط ＋ لإضافة فعل',saved:'✓ حُفظ',letters:'الحروف A–Z',paste:'لصق نص',pasteHint:'الصق النص بهذا الشكل — رقم ثم «فعل – عربي – إنجليزي» ثم الجمل بأعلامها أو بترتيب فرنسي/عربي/إنجليزي. روابط الصور تُجلب تلقائيًا إن أمكن.',addAll:'أضف الكل',addedN:'فعلًا أُضيف',nothing:'لم يُعثر على أفعال في النص',copyTpl:'📋 10 عبارات',copyTpl1:'📄 جملة واحدة',tplCopied:'✓ نُسخ النموذج — الصقه في أي ذكاء اصطناعي'},
+en:{name:'Verbs',verbs:'verbs',add:'Add a verb',edit:'Edit verb',delQ:'Delete this verb?',verb:'Verb (French)',arM:'Arabic meaning',enM:'English meaning',sfr:'French sentence',sar:'Arabic sentence',sen:'English sentence',img:'Image (optional)',save:'Save',cancel:'Cancel',empty:'No verbs yet — tap ＋ to add one',saved:'✓ Saved',letters:'Letters A–Z',paste:'Paste text',pasteHint:'Paste text like: number, then «verb – ar – en», then sentences with flags or in fr/ar/en order. Image URLs are fetched when possible.',addAll:'Add all',addedN:'verbs added',nothing:'No verbs found in the text',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 sentence',tplCopied:'✓ Template copied — paste it into any AI'},
+fr:{name:'Verbes',verbs:'verbes',add:'Ajouter un verbe',edit:'Modifier le verbe',delQ:'Supprimer ce verbe ?',verb:'Verbe (français)',arM:'Sens en arabe',enM:'Sens en anglais',sfr:'Phrase en français',sar:'Phrase en arabe',sen:'Phrase en anglais',img:'Image (optionnel)',save:'Enregistrer',cancel:'Annuler',empty:'Pas encore de verbes — touchez ＋',saved:'✓ Enregistré',letters:'Lettres A–Z',paste:'Coller du texte',pasteHint:'Collez le texte : numéro, puis «verbe – ar – en», puis les phrases avec drapeaux ou dans l’ordre fr/ar/en. Les images sont récupérées si possible.',addAll:'Tout ajouter',addedN:'verbes ajoutés',nothing:'Aucun verbe trouvé dans le texte',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 phrase',tplCopied:'✓ Modèle copié — collez-le dans une IA'}};
 const t=k=>T[st.lang][k];
 let st={};
 try{st=JSON.parse(localStorage.getItem('verbes')||'{}')}catch(e){st={}}
@@ -335,14 +335,20 @@ function tplText(){
  return 'أعطني 10 أفعال فرنسية تبدأ بحرف '+L+' بهذا الشكل بالضبط: كل فعل برقم ثم اسمه بالفرنسي – بالعربي – بالإنجليزي، ثم 10 عبارات شائعة من الحياة اليومية، كل عبارة برقم وتجمع الأعلام الثلاثة بسطر واحد:\n\n'+
  '1. Verbe – الفعل بالعربي – Verb in English\n1. 🇫🇷 Phrase française. 🇸🇾 جملة بالعربي السوري. 🇬🇧 English sentence.\n2. 🇫🇷 Phrase française. 🇸🇾 جملة بالعربي السوري. 🇬🇧 English sentence.\n… حتى 10\n\n'+
  'مثال:\n1. Boire – يَشْرَب – To drink\n1. 🇫🇷 Je bois de l\'eau. 🇸🇾 عم اشرب مي. 🇬🇧 I drink water.\n2. 🇫🇷 Tu bois un café ? 🇸🇾 عم تشرب قهوة؟ 🇬🇧 Are you drinking a coffee?\n… حتى 10'}
+function tplText1(){
+ const L=curLetter||'A';
+ return 'أعطني 10 أفعال فرنسية تبدأ بحرف '+L+' بهذا الشكل بالضبط، كل فعل برقم ثم اسمه بالفرنسي – بالعربي – بالإنجليزي، ثم جملة بكل لغة مع علمها:\n\n'+
+ '1. Verbe – الفعل بالعربي – Verb in English\n🇫🇷 جملة فرنسية.\n🇸🇾 جملة بالعربي السوري.\n🇺🇸 English sentence.\n\n'+
+ 'مثال:\n1. Boire – يَشْرَب – To drink\n🇫🇷 Je bois de l\'eau.\n🇸🇾 عم اشرب مي.\n🇺🇸 I drink water.'}
 function openPaste(){
- $('pTtl').textContent=t('paste');$('pHint').textContent=t('pasteHint');$('pAdd').textContent=t('addAll');$('pCancel').textContent=t('cancel');$('pCopy').textContent=t('copyTpl');$('pTa').value='';
+ $('pTtl').textContent=t('paste');$('pHint').textContent=t('pasteHint');$('pAdd').textContent=t('addAll');$('pCancel').textContent=t('cancel');$('pCopy').textContent=t('copyTpl');$('pCopy1').textContent=t('copyTpl1');$('pTa').value='';
  $('pShade').classList.add('on')}
-$('pCopy').onclick=async()=>{
- const txt=tplText();
+const copyTxt=async txt=>{
  try{await navigator.clipboard.writeText(txt)}
  catch(e){const ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e2){}ta.remove()}
  toast(t('tplCopied'))};
+$('pCopy').onclick=()=>copyTxt(tplText());
+$('pCopy1').onclick=()=>copyTxt(tplText1());
 $('pCancel').onclick=()=>$('pShade').classList.remove('on');
 $('pasteFab').onclick=openPaste;
 $('pAdd').onclick=async()=>{
