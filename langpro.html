@@ -2400,8 +2400,9 @@ function splitByScript(s) {
     if (!CAPTOK.test(parts[i])) continue;
     var sp = scriptOfStr(parts[i - 1]);
     var sn = parts[i + 1] ? scriptOfStr(parts[i + 1]) : '';
+    // only a caps token sandwiched between same-script text is an acronym —
+    // a trailing one ('نعم = OUI') is the next language's translation
     if (sp && sp === sn) { parts[i - 1] += ' ' + parts[i] + ' ' + parts[i + 1]; parts.splice(i, 2); i--; }
-    else if (sp) { parts[i - 1] += ' ' + parts[i]; parts.splice(i, 1); i--; }
   }
   return parts;
 }
@@ -2430,8 +2431,9 @@ function parseTimedLines(text) {
     if (m) { flush(); cur = { t: parseT(m[1]), d: null, text: '' }; return; }
     var s = line.trim();
     if (/^\d+$/.test(s)) return;
-    // numbered section titles ('1. heading') separate cards like '###' — not cue text
-    if (/^\d{1,3}[.)\-–—]\s+\S/.test(s)) { flush(); return; }
+    // numbered section titles ('1. heading') separate cards like '###' — but a
+    // numbered line inside a timed block is real caption text ('1. Ouvrez…')
+    if (/^\d{1,3}[.)\-–—]\s+\S/.test(s) && !(cur && cur.t != null)) { flush(); return; }
     // '===' and '###' are section separators, never cue text
     if (!s || /^={2,}\s*$/.test(s) || /^#{2,}/.test(s)) { flush(); return; }
     s = normPhraseText(s);
