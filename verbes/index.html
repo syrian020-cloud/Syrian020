@@ -239,9 +239,9 @@ async function fetchImgBlob(url){
   return await new Promise(res=>{const img=new Image();img.onload=()=>{try{const S=160,c=document.createElement('canvas');c.width=c.height=S;const m=Math.min(img.width,img.height);c.getContext('2d').drawImage(img,(img.width-m)/2,(img.height-m)/2,m,m,0,0,S,S);c.toBlob(x=>res(x),'image/jpeg',.82)}catch(e){res(null)}};img.onerror=()=>res(null);img.src=URL.createObjectURL(b)})}catch(e){return null}}
 function tplText(){
  const L=curLetter||'A';
- return 'أعطني 10 أفعال فرنسية تبدأ بحرف '+L+' بهذا الشكل بالضبط: قبل كل فعل سطر صورة ![img](رابط_صورة_معبّرة)، ثم رقم واسم الفعل بالفرنسي – بالعربي – بالإنجليزي، ثم جملة بكل لغة مع علمها:\n\n'+
- '![img](https://رابط_صورة.jpg)\n1. Verbe – الفعل بالعربي – Verb in English\n🇫🇷 جملة فرنسية.\n🇸🇾 جملة بالعربي السوري.\n🇺🇸 English sentence.\n\n'+
- 'مثال:\n![img](https://example.com/drink.jpg)\n1. Boire – يَشْرَب – To drink\n🇫🇷 Je bois de l\'eau.\n🇸🇾 عم اشرب مي.\n🇺🇸 I drink water.'}
+ return 'أعطني 10 أفعال فرنسية تبدأ بحرف '+L+' بهذا الشكل بالضبط، كل فعل برقم ثم اسمه بالفرنسي – بالعربي – بالإنجليزي، ثم جملة بكل لغة مع علمها:\n\n'+
+ '1. Verbe – الفعل بالعربي – Verb in English\n🇫🇷 جملة فرنسية.\n🇸🇾 جملة بالعربي السوري.\n🇺🇸 English sentence.\n\n'+
+ 'مثال:\n1. Boire – يَشْرَب – To drink\n🇫🇷 Je bois de l\'eau.\n🇸🇾 عم اشرب مي.\n🇺🇸 I drink water.'}
 function openPaste(){
  $('pTtl').textContent=t('paste');$('pHint').textContent=t('pasteHint');$('pAdd').textContent=t('addAll');$('pCancel').textContent=t('cancel');$('pCopy').textContent=t('copyTpl');$('pTa').value='';
  $('pShade').classList.add('on')}
