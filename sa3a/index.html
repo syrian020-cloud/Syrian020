@@ -1609,7 +1609,7 @@ function segKV(seg){
   else k='s';}
  else{m=s.match(/^([A-Za-z]{2})\s*[:：]\s*(.*)$/);if(m){const c=m[1].toUpperCase();s=m[2];k=c==='AR'?'a':c==='EN'?'e':'s';lg=c.toLowerCase()}}
  s=s.replace(/^(?:الأصلية|الأصلي|النص|النطق(?: اللاتيني)?|تقريب(?: النطق)?(?: بالعربية)?|المعنى(?: بالعربي(?:ة)?)?|بالعربي|بالإنجليزية|English|Meaning|الإنجليزية|الانجليزية|اللفظ)\s*[:：]\s*/u,'');
- if(!k){if(/المعنى|بالعربي/.test(seg))k='a';else if(/English|الإنجليزية|الانجليزية/.test(seg))k='e';else if(/النطق|اللفظ|تقريب/.test(seg))k='p'}
+ if(!k&&s.length<60){if(/المعنى|بالعربي/.test(seg))k='a';else if(/English|الإنجليزية|الانجليزية/.test(seg))k='e';else if(/النطق|اللفظ|تقريب/.test(seg))k='p'}
  return{k,txt:s,lg};
 }
 const guessLang=s=>/[\u0600-\u06FF]/.test(s)?'ar':/[\u0400-\u04FF]/.test(s)?'ru':/[\u4e00-\u9fff]/.test(s)?'zh':/[\u3040-\u30ff]/.test(s)?'ja':'fr';
@@ -1644,7 +1644,7 @@ function parsePhrases(text){
  for(const raw of text.split(/\r?\n/)){
   let ln=raw.trim();
   if(!ln){flush();continue}
-  if(ln.startsWith('###')){flush();out.push({note:ln.replace(/^#+\s*/,'')});continue}
+  if(ln.startsWith('###')){flush();out.push({note:ln.replace(/^#+\s*/,'').replace(/\\(.)/g,'$1')});continue}
   if(/^[-=─—_]{3,}$/.test(ln)){flush();continue}
   if(/^\d+$/.test(ln))continue;
   const tm=ln.match(/^\[?((?:\d{1,2}:)?\d{1,2}:\d{2}(?:[.,]\d{1,3})?)\]?\s*(?:-+>\s*((?:\d{1,2}:)?\d{1,2}:\d{2}(?:[.,]\d{1,3})?))?\s*(.*)$/);
@@ -1653,7 +1653,7 @@ function parsePhrases(text){
    if(tm[3])posAsg(tm[3].includes('|')?tm[3].split('|'):flagSplit(tm[3]))
    continue;
   }
-  ln=ln.replace(/^\*\s*/,'').replace(/^\d+[.)]\s*(?=\D)/,'');
+  ln=ln.replace(/\\([.()])/g,'$1').replace(/^\*\s*/,'').replace(/^\d+[.)]\s*(?=\D)/,'');
   if(!ln)continue;
   const ehd=ln.match(/^(\p{So}|\p{Sk})/u);
   if(ehd&&!/^[\u{1F1E6}-\u{1F1FF}]{2}/u.test(ln)&&!['🔊','🔤','🗣','⏱','📔','📝'].includes(ehd[1])&&/[\u0600-\u06FF]/.test(ln)){flush();out.push({note:ln});continue}
@@ -1661,8 +1661,10 @@ function parsePhrases(text){
   const ps=flagSplit(ln);
   let sp=null;
   if(ps.length>1)sp=ps;
-  else if(ln.includes('|'))sp=ln.split('|');
-  else{
+  else if(ln.includes('|')){sp=ln.split('|').map(x=>x.trim()).filter(Boolean);
+   if(!sp.length||sp.every(c=>/^[-:\s]+$/.test(c))){sp=null;continue}}
+  if(sp&&sp.every(c=>{const x=segKV(c);return /^([A-Za-z]{2,8}|ال[أ-ي]{2,10})$/i.test(x.txt.replace(/\s/g,''))}))continue
+  if(!sp){
    for(const r of [/\s*→\s*/,/\s+=\s+/]){const p=ln.split(r).map(x=>x.trim()).filter(Boolean);if(p.length>=3){sp=p;break}}
    if(!sp)for(const r of [/\s*[:：]\s*/,/\s+-\s+/,/[،,]\s*/]){const p=ln.split(r).map(x=>x.trim()).filter(Boolean);if(p.length>=3&&mix(p)){sp=p;break}}
    if(!sp&&!/^[🔊🔤🗣⏱]/u.test(ln)){const m=ln.match(/^([^\u0600-\u06FF]+?)\s+([\u0600-\u06FF][\u0600-\u06FF\s،؛.!؟?'()،]*)\s+([^\u0600-\u06FF]+)$/);
@@ -1671,7 +1673,7 @@ function parsePhrases(text){
   if(sp){if(!cur||cur.s||cur.p||cur.a||cur.e)flush();posAsg(sp);continue}
   const x=segKV(ps[0]);
   if(x.k){asg(x.k,x.txt);if(x.k==='s'&&x.lg){need();cur.lg=cur.lg||x.lg}}
-  else asg(cur&&cur.s&&!cur.a?'a':cur&&cur.s&&cur.a?'e':'s',x.txt);
+  else asg(cur&&cur.s&&!cur.a?'a':cur&&cur.s&&cur.a?'e':/[\u0600-\u06FF]/.test(x.txt)?'a':'s',x.txt);
  }
  flush();
  const merged=[];
