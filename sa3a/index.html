@@ -791,11 +791,11 @@ function loopSpeak(rows,btn){
   while(btn.classList.contains('speaking')&&tok===sayTok){const r=rows[k++%rows.length];await sayOnce(r.txt,(r.lg&&r.lg!=='x')?r.lg:guessLang(r.txt))}
   btn.classList.remove('speaking')})()}
 function openExt(u){const B=CAP.Plugins&&CAP.Plugins.Browser;if(B&&B.open){B.open({url:u});return}window.open(u,'_blank')}
-function phRowsOf(p){const r=[];
- if(p.s)r.push({flag:LANGFLAG[p.lg]||'🏳️',lg:p.lg||'x',txt:p.s});
- if(p.p)r.push({flag:'🔤',lg:p.lg||'x',txt:p.p});
- if(p.a)r.push({flag:'🇸🇾',lg:'ar',txt:p.a});
- if(p.e)r.push({flag:'🇺🇸',lg:'en',txt:p.e});
+function phRowsOf(p){const r=[];const tt=p.tt||{};
+ if(p.s)r.push({flag:LANGFLAG[p.lg]||'🏳️',lg:p.lg||'x',txt:p.s,t:tt.s});
+ if(p.p)r.push({flag:'🔤',lg:p.lg||'x',txt:p.p,t:tt.p});
+ if(p.a)r.push({flag:'🇸🇾',lg:'ar',txt:p.a,t:tt.a});
+ if(p.e)r.push({flag:'🇺🇸',lg:'en',txt:p.e,t:tt.e});
  return r}
 const nextCue=(n,p)=>{const c=cuesOf(n);const i=c.indexOf(p);return i>=0?c[i+1]:null};
 function wordsSpan(txt,lg){
@@ -1248,6 +1248,10 @@ function renderPhrases(n){
    const fb=document.createElement('button');fb.className='phflag';fb.textContent=r.flag;
    fb.onclick=e=>{e.stopPropagation();loopSpeak([r],fb)};
    row.appendChild(fb);row.appendChild(wordsSpan(r.txt,r.lg));
+   if(r.t){const tc=document.createElement('button');tc.className='phnum';tc.style.cssText='font-size:.72rem;padding:0 .35rem;align-self:center;flex:none';
+    tc.textContent=r.t.split('→')[0].trim();
+    tc.onclick=e=>{e.stopPropagation();if(!segLoop(tc,r.t))loopSpeak([r],tc)};
+    row.appendChild(tc)}
    body.appendChild(row);
   });
   if(p.note){const nd=document.createElement('div');nd.className='phnote';nd.textContent='📝 '+p.note;body.appendChild(nd)}
@@ -1261,16 +1265,18 @@ function renderPhrases(n){
   const bar=document.createElement('div');bar.className='phbar';
   const mkI=(cls,txt,fn)=>{const b=document.createElement('button');b.className='phic '+cls;b.textContent=txt;
    b.onclick=e=>{e.stopPropagation();fn(b)};bar.appendChild(b);return b};
-  const segLoop=btn=>{if(!(md&&md.src&&p.t))return false;
+  const segLoop=(btn,tt)=>{if(!(md&&md.src&&(tt||p.t)))return false;
    if(btn.classList.contains('speaking')){btn.classList.remove('speaking');md._seg=null;md.pause();return true}
    document.querySelectorAll('.phnum.speaking,.phic.speaking').forEach(x=>x.classList.remove('speaking'));
    stopSay();
-   const nx=nextCue(n,p);md._once=null;md._seg={start:tSec(p.t),end:nx?tSec(nx.t):md.duration||1e9};
+   const start=tSec(tt||p.t),nx=nextCue(n,p);
+   const ends=Object.keys(p.tt||{}).map(k=>tSec(p.tt[k])).concat(nx?[tSec(nx.t)]:[]).filter(x=>x>start).sort((a,b)=>a-b);
+   md._once=null;md._seg={start,end:ends[0]||(md.duration||1e9)};
    md.currentTime=md._seg.start;md.play().catch(()=>{});
    md.onended=()=>{md._seg=null;btn.classList.remove('speaking')};
    btn.classList.add('speaking');return true};
   if(p.t){const tp=document.createElement('button');tp.className='phnum';tp.textContent=p.t.split('→')[0].trim();
-   tp.onclick=e=>{e.stopPropagation();if(!segLoop(tp))loopSpeak(rows,tp)};
+   tp.onclick=e=>{e.stopPropagation();if(!segLoop(tp,p.t))loopSpeak(rows,tp)};
    bar.appendChild(tp)}
   mkI('ic-note',(p._nd||p.note)?'📔':'📓',b=>openNote('lnot_'+n.id+'_'+i,p,b));
   mkI('ic-ai','✨',()=>{const q=aiSearchQuery(phMapS(p),p.lg);if(q)openExt('https://www.google.com/search?q='+encodeURIComponent(q)+'&udm=50&hl='+st.lang)});
@@ -1668,7 +1674,25 @@ function parsePhrases(text){
   else asg(cur&&cur.s&&!cur.a?'a':cur&&cur.s&&cur.a?'e':'s',x.txt);
  }
  flush();
- return out;
+ const merged=[];
+ for(const p of out){
+  if(p.note){merged.push(p);continue}
+  const keys=['s','p','a','e'].filter(k=>p[k]);
+  const prev=merged[merged.length-1];
+  if(keys.length===1&&prev&&!prev.note){
+   const pk=['s','p','a','e'].filter(k=>prev[k]);
+   if((pk.length===1||prev._merged)&&!prev[keys[0]]){
+    prev.tt=prev.tt||{};
+    if(prev.t&&pk.length===1&&!prev.tt[pk[0]])prev.tt[pk[0]]=prev.t;
+    prev[keys[0]]=p[keys[0]];if(p.lg&&!prev.lg)prev.lg=p.lg;
+    if(p.t)prev.tt[keys[0]]=p.t;
+    if(!prev.t&&p.t)prev.t=p.t;
+    prev._merged=1;continue
+   }
+  }
+  merged.push(p)
+ }
+ return merged;
 }
 
 /* =============== sounds =============== */
