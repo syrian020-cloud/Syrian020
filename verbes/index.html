@@ -220,10 +220,13 @@ function renderHome(){
   g.appendChild(d)});
 }
 function verbOf(L,id){return (st.v[L]||[]).find(v=>v.id===id)}
+const normFr=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim();
+function dedupeSort(L){const seen=new Set();const list=(st.v[L]||[]).filter(v=>{const k=normFr(v.fr);if(!k||seen.has(k))return false;seen.add(k);return true});
+ list.sort((a,b)=>normFr(a.fr).localeCompare(normFr(b.fr),'fr'));st.v[L]=list}
 function renderLetter(){
  $('letters').style.display='none';$('lv').style.display='';$('addFab').style.display='grid';$('pasteFab').style.display='grid';$('backBtn').style.display='';
  const box=$('lv');box.innerHTML='';
- const list=st.v[curLetter]||[];
+ dedupeSort(curLetter);save();const list=st.v[curLetter]||[];
  if(!list.length){box.innerHTML='<div id="empty">'+esc(t('empty'))+'</div>';return}
  list.forEach(v=>{
   const c=document.createElement('div');c.className='vcard';
@@ -291,7 +294,8 @@ $('vSave').onclick=async()=>{
  if(editId){const old=verbOf(curLetter,editId);if(old&&old.img)v.img=old.img}
  st.v[curLetter]=st.v[curLetter]||[];
  if(editId){st.v[curLetter]=st.v[curLetter].map(x=>x.id===editId?v:x)}
- else st.v[curLetter].push(v);
+ else{const dup=st.v[curLetter].find(x=>normFr(x.fr)===normFr(fr));if(dup){v.id=dup.id;if(dup.img)v.img=dup.img;st.v[curLetter]=st.v[curLetter].map(x=>x.id===dup.id?v:x)}
+  else st.v[curLetter].push(v)}
  if(pickedBlob){try{await idb.set('img_'+v.id,{blob:pickedBlob});delete v.img}catch(e){}}
  save();$('vShade').classList.remove('on');toast(t('saved'));renderLetter()};
 $('addFab').onclick=()=>openSheet(null);
@@ -340,9 +344,9 @@ $('pAdd').onclick=async()=>{
  for(const pv of vs){
   const L=AZ.includes((pv.fr[0]||'').toUpperCase())?(pv.fr[0]||'').toUpperCase():curLetter;
   const v={id:Date.now()+Math.floor(Math.random()*999)+n,fr:pv.fr,ar:pv.ar,en:pv.en,sfr:pv.sfr,sar:pv.sar,sen:pv.sen};
-  st.v[L]=st.v[L]||[];st.v[L].push(v);n++;
+  st.v[L]=st.v[L]||[];if(st.v[L].some(x=>normFr(x.fr)===normFr(pv.fr)))continue;st.v[L].push(v);n++;
   if(pv.imgurl){const b=await fetchImgBlob(pv.imgurl);if(b){try{await idb.set('img_'+v.id,{blob:b})}catch(e){}}}}
- save();toast('✓ '+n+' '+t('addedN'));renderLetter()};
+ AZ.forEach(dedupeSort);save();toast('✓ '+n+' '+t('addedN'));renderLetter()};
 function toast(s){const x=$('toast');x.textContent=s;x.classList.add('on');clearTimeout(x._t);x._t=setTimeout(()=>x.classList.remove('on'),1800)}
 /* seed letter A */
 function seed(){
