@@ -65,6 +65,8 @@ main{flex:1;overflow:auto;position:relative}
 #calToday .dtx{flex:1;text-align:center}
 #calSpeak{background:none;border:none;font-size:1.2rem;cursor:pointer;padding:2px 6px;color:var(--acc)}
 #calSpeak.on{color:var(--acc);outline:2px solid var(--acc);border-radius:8px}
+#calCap{margin-top:-6px;margin-bottom:12px;font-size:.85rem;font-weight:700;line-height:1.5;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 10px;text-align:center;color:var(--acc);display:none}
+#calCap.on{display:block}
 .yrnav{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:10px}
 .yrnav .yr{font-size:1.4rem;font-weight:800;font-family:'Orbitron',monospace;min-width:90px;text-align:center}
 .yrnav button{background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;width:40px;height:36px;font-size:1.1rem;cursor:pointer}
@@ -424,6 +426,7 @@ nav button.on{color:var(--acc)}
   </section>
   <section class="tabsec" id="sec-cal">
     <div id="calToday"><button id="calSpeak">🔊</button><span class="dtx"></span></div>
+    <div id="calCap"></div>
     <div id="yearView">
       <div class="yrnav"><button id="yrPrev">‹</button><div class="yr" id="yrNum"></div><button id="yrNext">›</button></div>
       <div id="yrgrid"></div>
@@ -2228,7 +2231,7 @@ function wxSpeakToggle(){
 $('wxSpeak').onclick=wxSpeakToggle;
 let calSaying=false;
 $('calSpeak').onclick=()=>{
- if(calSaying){stopSay();calSaying=false;$('calSpeak').classList.remove('on');return}
+ if(calSaying){stopSay();calSaying=false;$('calSpeak').classList.remove('on');$('calCap').classList.remove('on');return}
  stopSay();
  const lg=st.lang,d=new Date();
  const wd=new Intl.DateTimeFormat(lg==='ar'?'ar-SY':lg==='fr'?'fr-FR':'en-GB',{weekday:'long'}).format(d);
@@ -2236,7 +2239,8 @@ $('calSpeak').onclick=()=>{
  const mon=new Intl.DateTimeFormat(lg==='ar'?'ar-SY':lg==='fr'?'fr-FR':'en-GB',{month:'long'}).format(d);
  const txt=lg==='fr'?('Nous sommes '+wd+' '+day+' '+mon+' '+yr):lg==='ar'?('اليوم '+wd+' '+day+' '+mon+' '+yr):('Today is '+wd+', '+mon+' '+day+', '+yr);
  calSaying=true;$('calSpeak').classList.add('on');
- const done=()=>{calSaying=false;$('calSpeak').classList.remove('on')};
+ const cc=$('calCap');cc.textContent=txt;cc.dir=lg==='ar'?'rtl':'ltr';cc.classList.add('on');
+ const done=()=>{calSaying=false;$('calSpeak').classList.remove('on');cc.classList.remove('on')};
  if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:lg}).catch(()=>toast('!'));setTimeout(done,Math.min(15000,1500+txt.length*95));return}
  if(window.speechSynthesis){const u=new SpeechSynthesisUtterance(txt);u.lang=lg;u.onend=done;u.onerror=done;speechSynthesis.speak(u);return}
  done();
