@@ -304,9 +304,10 @@ function parseBulk(txt){
  const L=txt.split(/\r?\n/),blocks=[];let cur=null,pend=[];
  const flush=()=>{if(cur&&cur.title)blocks.push(cur);cur=null};
  for(const l0 of L){const l=l0.trim();if(!l)continue;
+  if(/^[#*>\u2022]/.test(l))continue;
   const um=l.match(/https?:\/\/[^\s)]+/);
   if(/^!\[/.test(l)||/^https?:\/\/\S+$/i.test(l)){if(um)pend.push(um[0]);continue}
-  const m=l.match(/^\d+\s*[.):\-–—]\s*(.+)$/);
+  const m=l.match(/^\d+\s*\\?[.):\-–—]\s*(.+)$/);
   if(m){flush();cur={title:m[1].trim(),lines:[],imgs:pend};pend=[];continue}
   if(!cur)cur={title:'',lines:[]};
   if(!cur.title&&/[–—]/.test(l)||!cur.title&&l.split(' - ').length>=3){cur.title=l;continue}
@@ -319,7 +320,7 @@ function parseBulk(txt){
   const used={};(b.lines||[]).forEach(l=>{const f=flagOf(l);if(f){const s=l.replace(/^\S+\s*/,'').trim();v['s'+f]=(v['s'+f]?v['s'+f]+' ':'')+s;used[f]=1}});
   const rest=(b.lines||[]).filter(l=>!flagOf(l));
   ['fr','ar','en'].forEach((f,i)=>{if(!used[f]&&rest[i])v['s'+f]=rest[i]});
-  return v}).filter(v=>v.fr)}
+  return v}).filter(v=>v.fr&&/^\p{Script=Latin}/u.test(v.fr)&&v.fr.split(/\s+/).length<=4)}
 async function fetchImgBlob(url){
  try{const r=await fetch(url);if(!r.ok)return null;const b=await r.blob();
   return await new Promise(res=>{const img=new Image();img.onload=()=>{try{const S=160,c=document.createElement('canvas');c.width=c.height=S;const m=Math.min(img.width,img.height);c.getContext('2d').drawImage(img,(img.width-m)/2,(img.height-m)/2,m,m,0,0,S,S);c.toBlob(x=>res(x),'image/jpeg',.82)}catch(e){res(null)}};img.onerror=()=>res(null);img.src=URL.createObjectURL(b)})}catch(e){return null}}
@@ -395,6 +396,81 @@ function seed3(){
  {id:2010,fr:'Appliquer',ar:'يُطَبِّق',en:'To apply',sfr:'Il faut appliquer cette règle.',sar:'لازم نطبّق هالقاعدة.',sen:'We must apply this rule.',img:'appliquer.jpg'}];
  add.forEach(v=>{if(!have.has(v.fr))st.v.A.push(v)});
  save();localStorage.setItem('verbes-seeded3','1')}
+function seed4(){
+ if(localStorage.getItem('verbes-seeded4'))return;
+ const have=new Set();AZ.forEach(L=>(st.v[L]||[]).forEach(v=>have.add(normFr(v.fr))));
+ const add=[
+ {id:3001,fr:"Arroser",ar:"يَسْقِي",en:"To water",sfr:"Je dois arroser les plantes.",sar:"لازم اسقي النباتات.",sen:"I have to water the plants.",img:"arroser.jpg"},
+ {id:3002,fr:"Assurer",ar:"يَضْمَن",en:"To ensure",sfr:"Je peux vous assurer que c'est vrai.",sar:"فيني أكدلك إنو هالشي صحيح.",sen:"I can assure you that it's true.",img:"assurer.jpg"},
+ {id:3003,fr:"Asseoir",ar:"يُجْلِس",en:"To seat",sfr:"Asseyez-vous, s'il vous plaît.",sar:"تفضّل اقعد لو سمحت.",sen:"Please, have a seat.",img:"asseoir.jpg"},
+ {id:3004,fr:"Adresser",ar:"يُوَجِّه",en:"To address",sfr:"Je voudrais vous adresser une question.",sar:"بدي وجّهلك سؤال.",sen:"I would like to ask you a question.",img:"adresser.jpg"},
+ {id:3005,fr:"Additionner",ar:"يَجْمَع",en:"To add",sfr:"Additionne ces deux nombres.",sar:"اجمع هالرقمين.",sen:"Add these two numbers.",img:"additionner.jpg"},
+ {id:3006,fr:"Admirer",ar:"يُعْجَب بِـ",en:"To admire",sfr:"J'admire ce paysage.",sar:"أنا معجب بهالمنظر.",sen:"I admire this landscape.",img:"admirer.jpg"},
+ {id:3007,fr:"Adresser (sa candidature)",ar:"يُقَدِّم طَلَبَ تَرَشُّح",en:"To submit an application",sfr:"J'adresse ma candidature à cette entreprise.",sar:"عم قدّم طلب توظيف لهالشركة.",sen:"I'm submitting my application to this company.",img:"adresser_sa_candidature.jpg"},
+ {id:3008,fr:"Administrer",ar:"يُدِير",en:"To administer",sfr:"Il administre cette entreprise.",sar:"هو بيدير هالشركة.",sen:"He manages this company.",img:"administrer.jpg"},
+ {id:3009,fr:"Apprécier",ar:"يُقَدِّر / يَسْتَمْتِع بِـ",en:"To appreciate",sfr:"J'apprécie beaucoup ton aide.",sar:"بقدّر مساعدتك كتير.",sen:"I really appreciate your help.",img:"apprecier.jpg"},
+ {id:3010,fr:"Aérer",ar:"يُهَوِّي",en:"To air / ventilate",sfr:"Je vais aérer la chambre.",sar:"رح هوّي الغرفة.",sen:"I'm going to air out the room.",img:"aerer.jpg"},
+ {id:3011,fr:"Accéder",ar:"يَصِل إلى",en:"To access",sfr:"Je n'arrive pas à accéder à mon compte.",sar:"مو قادر فوت على حسابي.",sen:"I can't access my account.",img:"acceder.jpg"},
+ {id:3012,fr:"Offrir",ar:"يُقَدِّم هَدِيَّة",en:"To offer",sfr:"Je veux t'offrir un cadeau.",sar:"بدي قدملك هدية.",sen:"I want to give you a gift.",img:"offrir.jpg"},
+ {id:3013,fr:"Assister",ar:"يُسَاعِد / يَحْضُر",en:"To assist / attend",sfr:"Je vais assister à la réunion.",sar:"رح احضر الاجتماع.",sen:"I'm going to attend the meeting.",img:"assister.jpg"},
+ {id:3014,fr:"Assimiler",ar:"يَسْتَوْعِب",en:"To assimilate / understand",sfr:"J'ai besoin de temps pour assimiler cette information.",sar:"بحتاج وقت حتى استوعب هالمعلومة.",sen:"I need time to understand this information.",img:"assimiler.jpg"},
+ {id:3015,fr:"Authentifier",ar:"يُصَادِق على",en:"To authenticate",sfr:"Il faut authentifier votre document.",sar:"لازم تصادق على وثيقتك.",sen:"You need to authenticate your document.",img:"authentifier.jpg"},
+ {id:3016,fr:"Acquérir",ar:"يَكْتَسِب",en:"To acquire",sfr:"Je veux acquérir de nouvelles compétences.",sar:"بدي اكتسب مهارات جديدة.",sen:"I want to acquire new skills.",img:"acquerir.jpg"},
+ {id:3017,fr:"Approuver",ar:"يُوَافِق",en:"To approve",sfr:"J'approuve cette décision.",sar:"أنا بوافق على هالقرار.",sen:"I approve this decision.",img:"approuver.jpg"},
+ {id:3018,fr:"Atteindre",ar:"يَبْلُغ / يَصِل إلى",en:"To reach",sfr:"Je veux atteindre mon objectif.",sar:"بدي حقق هدفي.",sen:"I want to reach my goal.",img:"atteindre.jpg"},
+ {id:3019,fr:"Admettre",ar:"يَعْتَرِف / يُقِرّ",en:"To admit",sfr:"J'admets mon erreur.",sar:"بعترف بغلطتي.",sen:"I admit my mistake.",img:"admettre.jpg"},
+ {id:3020,fr:"Ajuster",ar:"يُعَدِّل",en:"To adjust",sfr:"Je dois ajuster l'heure.",sar:"لازم عدّل الوقت.",sen:"I need to adjust the time.",img:"ajuster.jpg"},
+ {id:3021,fr:"Alerter",ar:"يُنْذِر / يُبَلِّغ",en:"To alert",sfr:"Il faut alerter la police.",sar:"لازم نبلّغ الشرطة.",sen:"We need to alert the police.",img:"alerter.jpg"},
+ {id:3022,fr:"Agencer",ar:"يُنَظِّم / يُرَتِّب",en:"To arrange",sfr:"Je vais agencer les meubles.",sar:"رح رتّب الأثاث.",sen:"I'm going to arrange the furniture.",img:"agencer.jpg"},
+ {id:3023,fr:"Attacher",ar:"يَرْبِط / يُثَبِّت",en:"To fasten",sfr:"Attache ta ceinture.",sar:"اربط حزام الأمان.",sen:"Fasten your seat belt.",img:"attacher.jpg"},
+ {id:3024,fr:"Augmenter",ar:"يَزِيد / يَرْفَع",en:"To increase",sfr:"Peux-tu augmenter le volume ?",sar:"فيك تعلّي الصوت؟",sen:"Can you increase the volume?",img:"augmenter.jpg"},
+ {id:3025,fr:"Assister (quelqu'un)",ar:"يُسَاعِد",en:"To assist",sfr:"Je vais assister mon collègue.",sar:"رح ساعد زميلي.",sen:"I'm going to assist my colleague.",img:"assister_quelqu_un.jpg"},
+ {id:3026,fr:"Achever",ar:"يُنْهِي / يُكْمِل",en:"To complete",sfr:"Je dois achever mon travail.",sar:"لازم خلّص شغلي.",sen:"I have to finish my work.",img:"achever.jpg"},
+ {id:3027,fr:"Aborder",ar:"يَتَطَرَّق إلى / يَفْتَح مَوْضُوعاً",en:"To address / bring up",sfr:"Nous devons aborder ce sujet.",sar:"لازم نحكي بهالموضوع.",sen:"We need to discuss this topic.",img:"aborder.jpg"},
+ {id:3028,fr:"Abaisser",ar:"يُخَفِّض",en:"To lower",sfr:"Abaisse un peu la voix.",sar:"وطّي صوتك شوي.",sen:"Lower your voice a little.",img:"abaisser.jpg"},
+ {id:3029,fr:"Abîmer",ar:"يُتْلِف",en:"To damage",sfr:"Tu vas abîmer ton téléphone.",sar:"رح تخرب تلفونك.",sen:"You're going to damage your phone.",img:"abimer.jpg"},
+ {id:3030,fr:"Absorber",ar:"يَمْتَصّ",en:"To absorb",sfr:"Cette éponge absorbe l'eau.",sar:"هالإسفنجة بتمتص المي.",sen:"This sponge absorbs water.",img:"absorber.jpg"},
+ {id:3031,fr:"Abonner (s'abonner)",ar:"يَشْتَرِك",en:"To subscribe",sfr:"Je veux m'abonner à ce magazine.",sar:"بدي اشترك بهالمجلة.",sen:"I want to subscribe to this magazine.",img:"abonner_s_abonner.jpg"},
+ {id:3032,fr:"Abriter",ar:"يُؤْوِي / يَحْمِي",en:"To shelter",sfr:"Cette maison abrite plusieurs familles.",sar:"هالبيت بيأوي عدة عائلات.",sen:"This house shelters several families.",img:"abriter.jpg"},
+ {id:3033,fr:"Aboutir",ar:"يُفْضِي إلى / يَنْجَح في الوصول",en:"To lead to",sfr:"Nos efforts vont aboutir à un résultat.",sar:"جهودنا رح توصل لنتيجة.",sen:"Our efforts will lead to a result.",img:"aboutir.jpg"},
+ {id:3034,fr:"Abuser",ar:"يُسِيء الاسْتِعْمَال",en:"To misuse",sfr:"Il ne faut pas abuser de cette liberté.",sar:"ما لازم نسيء استعمال هالحرية.",sen:"We shouldn't misuse this freedom.",img:"abuser.jpg"},
+ {id:3035,fr:"Abolir",ar:"يُلْغِي",en:"To abolish",sfr:"Ils veulent abolir cette loi.",sar:"بدهن يلغوا هالقانون.",sen:"They want to abolish this law.",img:"abolir.jpg"},
+ {id:3036,fr:"Apposer",ar:"يَضَع / يُلْصِق",en:"To affix",sfr:"Apposez votre signature ici.",sar:"حط توقيعك هون.",sen:"Put your signature here.",img:"apposer.jpg"},
+ {id:3037,fr:"Aiguiser",ar:"يَشْحَذ",en:"To sharpen",sfr:"Je dois aiguiser mon crayon.",sar:"لازم بري قلمي.",sen:"I need to sharpen my pencil.",img:"aiguiser.jpg"},
+ {id:3038,fr:"Activer",ar:"يُفَعِّل",en:"To activate",sfr:"Active ton compte.",sar:"فعّل حسابك.",sen:"Activate your account.",img:"activer.jpg"},
+ {id:3039,fr:"Adapter",ar:"يُكَيِّف / يُعَدِّل",en:"To adapt",sfr:"Je dois adapter mon emploi du temps.",sar:"لازم عدّل برنامجي.",sen:"I need to adapt my schedule.",img:"adapter.jpg"},
+ {id:3040,fr:"Adopter",ar:"يَتَبَنَّى",en:"To adopt",sfr:"Ils veulent adopter un chien.",sar:"بدهن يتبنّوا كلب.",sen:"They want to adopt a dog.",img:"adopter.jpg"},
+ {id:3041,fr:"Annoter",ar:"يُدَوِّن مُلَاحَظَات",en:"To annotate",sfr:"Je vais annoter ce document.",sar:"رح دوّن ملاحظات على هالوثيقة.",sen:"I'm going to annotate this document.",img:"annoter.jpg"},
+ {id:3042,fr:"Avouer",ar:"يَعْتَرِف",en:"To confess",sfr:"Je vais tout avouer.",sar:"رح اعترف بكل شي.",sen:"I'm going to confess everything.",img:"avouer.jpg"},
+ {id:3043,fr:"Agréer",ar:"يُوَافِق",en:"To agree",sfr:"J'agrée votre demande.",sar:"بوافق على طلبك.",sen:"I approve your request.",img:"agreer.jpg"},
+ {id:3044,fr:"Acquiescer",ar:"يُوَافِق",en:"To assent",sfr:"Il a acquiescé sans parler.",sar:"وافق من دون ما يحكي.",sen:"He agreed without speaking.",img:"acquiescer.jpg"},
+ {id:3045,fr:"Afficher",ar:"يَعْرِض / يُظْهِر",en:"To display",sfr:"Affiche ton nom sur le formulaire.",sar:"اكتب اسمك على الاستمارة ليظهر.",sen:"Display your name on the form.",img:"afficher.jpg"},
+ {id:3046,fr:"Agrafer",ar:"يُدَبِّس",en:"To staple",sfr:"Agrafe ces deux feuilles.",sar:"دبّس هالورقتين.",sen:"Staple these two sheets together.",img:"agrafer.jpg"},
+ {id:3047,fr:"Applaudir",ar:"يُصَفِّق",en:"To applaud",sfr:"Tout le monde applaudit.",sar:"الكل عم يصفّق.",sen:"Everyone is applauding.",img:"applaudir.jpg"},
+ {id:3048,fr:"Apaiser",ar:"يُهَدِّئ",en:"To calm",sfr:"Cette musique m'apaise.",sar:"هالموسيقى بتهدّيني.",sen:"This music calms me down.",img:"apaiser.jpg"},
+ {id:3049,fr:"Astiquer",ar:"يُلَمِّع",en:"To polish",sfr:"Je vais astiquer la table.",sar:"رح لمّع الطاولة.",sen:"I'm going to polish the table.",img:"astiquer.jpg"},
+ {id:3050,fr:"Acheminer",ar:"يَنْقُل",en:"To transport",sfr:"Nous allons acheminer les colis.",sar:"رح ننقل الطرود.",sen:"We are going to transport the parcels.",img:"acheminer.jpg"},
+ {id:3051,fr:"Acclamer",ar:"يُهَلِّل / يَهْتِف",en:"To cheer",sfr:"Les supporters acclament leur équipe.",sar:"المشجعين عم يهتفوا لفريقهم.",sen:"The fans are cheering for their team.",img:"acclamer.jpg"},
+ {id:3052,fr:"Acclimater",ar:"يُكَيِّف مَعَ المُنَاخ",en:"To acclimatize",sfr:"Il faut acclimater cette plante.",sar:"لازم نكيّف هالنبتة مع الجو.",sen:"We need to acclimatize this plant.",img:"acclimater.jpg"},
+ {id:3053,fr:"Accorder",ar:"يَمْنَح / يُوَافِق",en:"To grant",sfr:"On m'a accordé un jour de congé.",sar:"عطوني يوم إجازة.",sen:"I was granted a day off.",img:"accorder.jpg"},
+ {id:3054,fr:"Accuser",ar:"يَتَّهِم",en:"To accuse",sfr:"Ne m'accuse pas sans preuve.",sar:"لا تتهمني من دون دليل.",sen:"Don't accuse me without proof.",img:"accuser.jpg"},
+ {id:3055,fr:"Affirmer",ar:"يُؤَكِّد",en:"To affirm",sfr:"Je peux affirmer que c'est vrai.",sar:"فيني أكّد إنو هالشي صحيح.",sen:"I can affirm that it's true.",img:"affirmer.jpg"},
+ {id:3056,fr:"Affronter",ar:"يُوَاجِه",en:"To face",sfr:"Il faut affronter les difficultés.",sar:"لازم نواجه الصعوبات.",sen:"We must face the difficulties.",img:"affronter.jpg"},
+ {id:3057,fr:"Agiter",ar:"يُحَرِّك / يَهُزّ",en:"To shake",sfr:"Agite bien la bouteille.",sar:"رجّ القنينة منيح.",sen:"Shake the bottle well.",img:"agiter.jpg"},
+ {id:3058,fr:"Alimenter",ar:"يُغَذِّي / يُزَوِّد",en:"To feed / supply",sfr:"Il faut alimenter les animaux.",sar:"لازم نطعمي الحيوانات.",sen:"We need to feed the animals.",img:"alimenter.jpg"},
+ {id:3059,fr:"Aménager",ar:"يُجَهِّز / يُهَيِّئ",en:"To arrange / fit out",sfr:"Je veux aménager mon appartement.",sar:"بدي جهّز شقتي.",sen:"I want to furnish my apartment.",img:"amenager.jpg"},
+ {id:3060,fr:"Allonger",ar:"يُطِيل / يُمَدِّد",en:"To lengthen",sfr:"Il faut allonger la table.",sar:"لازم نطوّل الطاولة.",sen:"We need to lengthen the table.",img:"allonger.jpg"},
+ {id:3061,fr:"Amener",ar:"يُحْضِر / يَجْلِب",en:"To bring",sfr:"Amène ton frère avec toi.",sar:"جيب أخوك معك.",sen:"Bring your brother with you.",img:"amener.jpg"},
+ {id:3062,fr:"Animer",ar:"يُنَشِّط / يُنَشِّط فَعَالِيَّة",en:"To lead / animate",sfr:"Elle anime une activité pour les enfants.",sar:"هي عم تدير نشاط للأطفال.",sen:"She is leading an activity for children.",img:"animer.jpg"},
+ {id:3063,fr:"Apparaître",ar:"يَظْهَر",en:"To appear",sfr:"Le soleil commence à apparaître.",sar:"الشمس بلشت تظهر.",sen:"The sun is beginning to appear.",img:"apparaitre.jpg"},
+ {id:3064,fr:"Appartenir",ar:"يَنْتَمِي / يَمْلِك",en:"To belong",sfr:"Cette voiture appartient à mon frère.",sar:"هالسيارة بتخص أخي.",sen:"This car belongs to my brother.",img:"appartenir.jpg"},
+ {id:3065,fr:"Arranger",ar:"يُرَتِّب / يُصْلِح",en:"To arrange",sfr:"Je vais arranger ma chambre.",sar:"رح رتّب غرفتي.",sen:"I'm going to arrange my room.",img:"arranger.jpg"},
+ {id:3066,fr:"Attirer",ar:"يَجْذِب",en:"To attract",sfr:"Cette publicité attire mon attention.",sar:"هالإعلان بيجذب انتباهي.",sen:"This advertisement attracts my attention.",img:"attirer.jpg"},
+ {id:3067,fr:"Autoriser",ar:"يَسْمَح / يُرَخِّص",en:"To authorize",sfr:"Le directeur m'autorise à partir.",sar:"المدير سمحلي روح.",sen:"The manager allows me to leave.",img:"autoriser.jpg"},
+ {id:3068,fr:"Avertir",ar:"يُحَذِّر / يُخْبِر",en:"To warn",sfr:"Je préfère t'avertir à l'avance.",sar:"بفضّل حذّرك من قبل.",sen:"I prefer to warn you in advance.",img:"avertir.jpg"},
+ {id:3069,fr:"Articuler",ar:"يَلْفِظ بِوُضُوح",en:"To articulate",sfr:"Articule bien les mots, s'il te plaît.",sar:"لفظ الكلمات بوضوح لو سمحت.",sen:"Pronounce the words clearly, please."},];
+ add.forEach(v=>{if(have.has(normFr(v.fr)))return;const L=AZ.includes((v.fr[0]||'').toUpperCase())?(v.fr[0]||'').toUpperCase():'A';st.v[L]=st.v[L]||[];st.v[L].push(v)});
+ save();localStorage.setItem('verbes-seeded4','1')}
 function render(){if(curLetter)renderLetter();else renderHome()}
 /* hardware back: letter → home, sheet → close, home → exit */
 try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
@@ -442,7 +518,7 @@ function bindNoteUI(){const c=$('noteCanvas');c.addEventListener('mousedown',not
  $('noteSizeDec').onclick=()=>setNoteSize(noteSize-1);$('noteSizeInc').onclick=()=>setNoteSize(noteSize+1);$('noteSize').oninput=function(){setNoteSize(parseInt(this.value,10)||3)};
  document.querySelectorAll('.note-tool').forEach(b=>{b.onclick=()=>{noteColor=b.dataset.color;$('noteSwatchDot').style.background=noteColor;document.querySelectorAll('.note-tool').forEach(x=>x.classList.toggle('active',x===b));$('notePalette').classList.remove('show')}})}
 bindNoteUI();
-seed();seed2();seed3();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
