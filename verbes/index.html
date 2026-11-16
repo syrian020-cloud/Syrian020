@@ -684,6 +684,95 @@ function updC2(){
  {fr:"Cacher",ar:"يخبّئ",en:"To hide",sfr:"Il cache les clés sous le tapis.",sar:"هو مخبّي المفاتيح تحت السجادة.",sen:"He hides the keys under the rug."},];
  add.forEach(u=>{const L=normFr(u.fr).replace(/^se /,'').charAt(0).toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(ex){ex.sfr=u.sfr;ex.sar=u.sar;ex.sen=u.sen;if(u.img)ex.img=u.img}else{u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
  save();localStorage.setItem('verbes-updC2','1')}
+function updC3(){
+ if(localStorage.getItem('verbes-updC3'))return;
+ const add=[
+ {fr:"Célébrer",ar:"يحتفل بـ",en:"To celebrate",sfr:"Nous célébrons son anniversaire ce soir.",sar:"رح نحتفل بعيد ميلاده الليلة.",sen:"We are celebrating his birthday tonight.",img:"celebrer.jpg"},
+ {fr:"Consulter",ar:"يستشير / يراجع",en:"To consult",sfr:"Je dois consulter un médecin.",sar:"لازم راجع طبيب.",sen:"I need to consult a doctor.",img:"consulter.jpg"},
+ {fr:"Construire",ar:"يبني",en:"To build",sfr:"Ils construisent une nouvelle maison.",sar:"هنن عم يبنوا بيت جديد.",sen:"They are building a new house.",img:"construire.jpg"},
+ {fr:"Conserver",ar:"يحتفظ بـ / يحافظ على",en:"To keep / preserve",sfr:"Je conserve tous mes documents importants.",sar:"بحتفظ بكل أوراقي المهمة.",sen:"I keep all my important documents.",img:"conserver.jpg"},
+ {fr:"Confirmer",ar:"يؤكد",en:"To confirm",sfr:"Pouvez-vous confirmer votre rendez-vous ?",sar:"فيك تأكد موعدك؟",sen:"Can you confirm your appointment?",img:"confirmer.jpg"},
+ {fr:"Comparer",ar:"يقارن",en:"To compare",sfr:"Je compare les prix avant d'acheter.",sar:"بقارن الأسعار قبل ما اشتري.",sen:"I compare prices before buying.",img:"comparer.jpg"},
+ {fr:"Conseiller",ar:"ينصح",en:"To advise",sfr:"Je te conseille de prendre le bus.",sar:"بنصحك تاخد الباص.",sen:"I advise you to take the bus.",img:"conseiller.jpg"},
+ {fr:"Contrôler",ar:"يفحص / يراقب",en:"To check / control",sfr:"Le responsable contrôle les marchandises.",sar:"المسؤول عم يفحص البضاعة.",sen:"The supervisor is checking the goods.",img:"controler.jpg"},
+ {fr:"Couvrir",ar:"يغطي",en:"To cover",sfr:"Couvre la table avec une nappe.",sar:"غطّي الطاولة بمفرش.",sen:"Cover the table with a tablecloth.",img:"couvrir.jpg"},
+ {fr:"Craindre",ar:"يخاف / يخشى",en:"To fear",sfr:"Je crains de rater mon train.",sar:"خايف يفوتني القطار.",sen:"I'm afraid of missing my train.",img:"craindre.jpg"},
+ {fr:"Cuire",ar:"يطبخ / ينضج",en:"To cook",sfr:"Je fais cuire le riz pendant quinze minutes.",sar:"عم اطبخ الرز لمدة خمسطعش دقيقة.",sen:"I cook the rice for fifteen minutes.",img:"cuire.jpg"},
+ {fr:"Coûter",ar:"يكلّف",en:"To cost",sfr:"Ce pantalon coûte cinquante euros.",sar:"هالبنطلون سعره خمسين يورو.",sen:"These trousers cost fifty euros.",img:"couter.jpg"},
+ {fr:"Coller",ar:"يلصق",en:"To stick / glue",sfr:"Je colle une photo dans mon cahier.",sar:"عم لصّق صورة بدفتري.",sen:"I am sticking a photo in my notebook.",img:"coller.jpg"},
+ {fr:"Couper",ar:"سبق أن ذكرناه في الرقم 9، لذلك لن نكرره.",en:"",sfr:"",sar:"",sen:"",img:"couper.jpg"},
+ {fr:"Critiquer",ar:"ينتقد",en:"To criticize",sfr:"Il critique souvent le travail des autres.",sar:"هو بينتقد شغل الآخرين كتير.",sen:"He often criticizes other people's work.",img:"critiquer.jpg"},
+ {fr:"Calculer",ar:"يحسب",en:"To calculate",sfr:"Je dois calculer le prix total.",sar:"لازم احسب السعر الإجمالي.",sen:"I have to calculate the total price.",img:"calculer.jpg"},
+ {fr:"Coudre",ar:"يخيط",en:"To sew",sfr:"Elle sait coudre une robe.",sar:"هي بتعرف تخيط فستان.",sen:"She knows how to sew a dress.",img:"coudre.jpg"},
+ {fr:"Cueillir",ar:"يقطف",en:"To pick",sfr:"Nous cueillons des pommes dans le jardin.",sar:"عم نقطف تفاح من البستان.",sen:"We are picking apples in the garden.",img:"cueillir.jpg"},
+ {fr:"Croiser",ar:"يلتقي صدفة / يتقاطع مع",en:"To cross / run into",sfr:"J'ai croisé mon voisin dans la rue.",sar:"صادفت جاري بالشارع.",sen:"I ran into my neighbour in the street.",img:"croiser.jpg"},
+ {fr:"Céder",ar:"يتنازل / يرضخ",en:"To give in / yield",sfr:"Il ne veut pas céder à la pression.",sar:"ما بدّه يرضخ للضغط.",sen:"He doesn't want to give in to the pressure.",img:"ceder.jpg"},
+ {fr:"Capter",ar:"يلتقط / يستقبل الإشارة",en:"To pick up / receive",sfr:"Mon téléphone ne capte pas le réseau ici.",sar:"تلفوني ما عم يلقط الشبكة هون.",sen:"My phone isn't getting a signal here.",img:"capter.jpg"},
+ {fr:"Candidater",ar:"يتقدّم بطلب ترشّح",en:"To apply / stand as a candidate",sfr:"Elle souhaite candidater à ce poste.",sar:"هي حابة تتقدّم لهالوظيفة.",sen:"She wants to apply for this position.",img:"candidater.jpg"},
+ {fr:"Consommer",ar:"يستهلك",en:"To consume",sfr:"Nous consommons moins d'électricité cette année.",sar:"عم نستهلك كهربا أقل هالسنة.",sen:"We are consuming less electricity this year.",img:"consommer.jpg"},
+ {fr:"Contribuer",ar:"يساهم",en:"To contribute",sfr:"Tout le monde peut contribuer au projet.",sar:"الكل فيه يساهم بالمشروع.",sen:"Everyone can contribute to the project.",img:"contribuer.jpg"},
+ {fr:"Convaincre",ar:"يقنع",en:"To convince",sfr:"Il essaie de convaincre son ami.",sar:"عم يحاول يقنع رفيقه.",sen:"He is trying to convince his friend.",img:"convaincre.jpg"},
+ {fr:"Confondre",ar:"يخلط بين شيئين",en:"To confuse / mix up",sfr:"Je confonds souvent ces deux mots.",sar:"كتير بخلط بين هالكلمتين.",sen:"I often confuse these two words.",img:"confondre.jpg"},
+ {fr:"Constater",ar:"يلاحظ / يعاين",en:"To observe / notice",sfr:"Je constate une grande différence.",sar:"عم لاحظ فرق كبير.",sen:"I notice a big difference.",img:"constater.jpg"},
+ {fr:"Coopérer",ar:"يتعاون",en:"To cooperate",sfr:"Nous devons coopérer pour réussir.",sar:"لازم نتعاون لحتى ننجح.",sen:"We must cooperate to succeed.",img:"cooperer.jpg"},
+ {fr:"Couler",ar:"يغرق / يتدفّق",en:"To sink / flow",sfr:"Le bateau risque de couler.",sar:"السفينة ممكن تغرق.",sen:"The boat might sink.",img:"couler.jpg"},
+ {fr:"Craquer",ar:"يتصدّع / ينهار تحت الضغط",en:"To crack / give in",sfr:"J'ai craqué et j'ai acheté ce gâteau.",sar:"ما قدرت قاوم واشتريت هالكيكة.",sen:"I gave in and bought this cake.",img:"craquer.jpg"},
+ {fr:"Cultiver",ar:"يزرع / ينمّي",en:"To grow / cultivate",sfr:"Ils cultivent des légumes dans leur jardin.",sar:"هنن بيزرعوا خضرة بحديقتهم.",sen:"They grow vegetables in their garden.",img:"cultiver.jpg"},
+ {fr:"Communiquer",ar:"يتواصل",en:"To communicate",sfr:"Il est important de bien communiquer avec ses collègues.",sar:"مهم نتواصل منيح مع زملائنا بالشغل.",sen:"It is important to communicate well with your colleagues.",img:"communiquer.jpg"},
+ {fr:"Compléter",ar:"يُكمل / يملأ",en:"To complete / fill in",sfr:"Vous devez compléter ce formulaire.",sar:"لازم تعبي هالاستمارة.",sen:"You must fill in this form.",img:"completer.jpg"},
+ {fr:"Concerner",ar:"يخصّ / يتعلّق بـ",en:"To concern",sfr:"Cette information me concerne directement.",sar:"هالمعلومة بتخصّني بشكل مباشر.",sen:"This information concerns me directly.",img:"concerner.jpg"},
+ {fr:"Comporter",ar:"يتضمّن / يحتوي على",en:"To include / involve",sfr:"Ce travail comporte plusieurs étapes.",sar:"هالشغل بيتضمّن عدة مراحل.",sen:"This job involves several steps.",img:"comporter.jpg"},
+ {fr:"Confier",ar:"يأتمن / يوكِل",en:"To entrust",sfr:"Je peux te confier cette mission ?",sar:"فيني وكّلك بهالمهمة؟",sen:"Can I entrust you with this task?",img:"confier.jpg"},
+ {fr:"Consoler",ar:"يواسي",en:"To comfort",sfr:"Elle console son amie qui pleure.",sar:"هي عم تواسي رفيقتها اللي عم تبكي.",sen:"She is comforting her friend who is crying.",img:"consoler.jpg"},
+ {fr:"Collaborer",ar:"يتعاون",en:"To collaborate",sfr:"Nous collaborons sur un nouveau projet.",sar:"عم نتعاون بمشروع جديد.",sen:"We are collaborating on a new project.",img:"collaborer.jpg"},
+ {fr:"Coiffer",ar:"يصفّف الشعر",en:"To style hair",sfr:"Elle coiffe sa fille avant de sortir.",sar:"هي عم تسرّح شعر بنتها قبل ما تطلع.",sen:"She is styling her daughter's hair before going out.",img:"coiffer.jpg"},
+ {fr:"Charger",ar:"يشحن / يحمّل",en:"To charge / load",sfr:"Je dois charger mon téléphone.",sar:"لازم اشحن تلفوني.",sen:"I need to charge my phone.",img:"charger.jpg"},
+ {fr:"Chuchoter",ar:"يهمس",en:"To whisper",sfr:"Pourquoi tu chuchotes ?",sar:"ليش عم تهمس؟",sen:"Why are you whispering?",img:"chuchoter.jpg"},
+ {fr:"Claquer",ar:"يصفق / يُغلق بقوة",en:"To slam / snap",sfr:"Il a claqué la porte en partant.",sar:"سكّر الباب بقوة وهو طالع.",sen:"He slammed the door when he left.",img:"claquer.jpg"},
+ {fr:"Cligner",ar:"يرمش",en:"To blink",sfr:"Il cligne des yeux à cause de la lumière.",sar:"عم يرمش بسبب الضوء.",sen:"He is blinking because of the light.",img:"cligner.jpg"},
+ {fr:"Collectionner",ar:"يجمع",en:"To collect",sfr:"Mon frère collectionne les pièces de monnaie.",sar:"أخي بيجمع العملات المعدنية.",sen:"My brother collects coins.",img:"collectionner.jpg"},
+ {fr:"Coïncider",ar:"يتطابق / يتزامن",en:"To coincide",sfr:"Nos horaires ne coïncident pas.",sar:"أوقاتنا ما بتتوافق مع بعضها.",sen:"Our schedules don't coincide.",img:"coincider.jpg"},
+ {fr:"Contenir",ar:"يحتوي على",en:"To contain",sfr:"Cette bouteille contient un litre d'eau.",sar:"هالقنينة فيها لتر مي.",sen:"This bottle contains one litre of water.",img:"contenir.jpg"},
+ {fr:"Candidater",ar:"يتقدّم بطلب ترشّح",en:"To apply",sfr:"سبق ذكره في الرقم 41، لذلك لا نكرره.",sar:"",sen:"",img:"candidater.jpg"},
+ {fr:"Céder",ar:"يتنازل",en:"To give in",sfr:"سبق ذكره في الرقم 39، لذلك لا نكرره.",sar:"",sen:"",img:"ceder.jpg"},
+ {fr:"Circuler",ar:"يسير / يتنقّل",en:"To circulate / move",sfr:"Les voitures circulent difficilement dans le centre-ville.",sar:"السيارات عم تتحرك بصعوبة بوسط المدينة.",sen:"Cars are moving with difficulty in the city centre.",img:"circuler.jpg"},
+ {fr:"Classer",ar:"يرتّب / يصنّف",en:"To sort / classify",sfr:"Je classe mes documents par ordre alphabétique.",sar:"برتّب أوراقي حسب الترتيب الأبجدي.",sen:"I sort my documents alphabetically.",img:"classer.jpg"},
+ {fr:"Cliquer",ar:"ينقر",en:"To click",sfr:"Cliquez sur ce bouton pour continuer.",sar:"انقر على هالزر لتكمل.",sen:"Click this button to continue.",img:"cliquer.jpg"},
+ {fr:"Copier",ar:"ينسخ",en:"To copy",sfr:"Tu peux copier ce texte ?",sar:"فيك تنسخ هالنص؟",sen:"Can you copy this text?",img:"copier.jpg"},
+ {fr:"Coller",ar:"يلصق",en:"To paste / glue",sfr:"سبق ذكره في الرقم 33، لذلك لا نكرره.",sar:"",sen:"",img:"coller.jpg"},
+ {fr:"Consulter",ar:"يستشير / يراجع",en:"To consult",sfr:"سبق ذكره في الرقم 22، لذلك لا نكرره.",sar:"",sen:"",img:"consulter.jpg"},
+ {fr:"Contester",ar:"يعترض على / يطعن في",en:"To dispute / challenge",sfr:"Je souhaite contester cette décision.",sar:"بدي اعترض على هالقرار.",sen:"I would like to challenge this decision.",img:"contester.jpg"},
+ {fr:"Conclure",ar:"يختتم / يستنتج",en:"To conclude",sfr:"Nous pouvons conclure la réunion maintenant.",sar:"فينا نختتم الاجتماع هلأ.",sen:"We can conclude the meeting now.",img:"conclure.jpg"},
+ {fr:"Conduire",ar:"يقود",en:"To drive",sfr:"سبق ذكره في الرقم 15، لذلك لا نكرره.",sar:"",sen:"",img:"conduire.jpg"},
+ {fr:"Considérer",ar:"يعتبر",en:"To consider",sfr:"Je considère cette proposition comme intéressante.",sar:"بعتبر هالاقتراح مهم ومفيد.",sen:"I consider this proposal interesting.",img:"considerer.jpg"},
+ {fr:"Constituer",ar:"يشكّل / يؤلّف",en:"To constitute / form",sfr:"Cette somme constitue une partie importante du budget.",sar:"هالمبلغ بيشكّل جزء مهم من الميزانية.",sen:"This amount constitutes an important part of the budget.",img:"constituer.jpg"},
+ {fr:"Consister",ar:"يتمثّل في",en:"To consist",sfr:"Mon travail consiste à préparer les commandes.",sar:"شغلي بيتمثّل بتجهيز الطلبات.",sen:"My job consists of preparing orders.",img:"consister.jpg"},
+ {fr:"Consommer",ar:"يستهلك",en:"To consume",sfr:"سبق ذكره في الرقم 42، لذلك لا نكرره.",sar:"",sen:"",img:"consommer.jpg"},
+ {fr:"Contribuer",ar:"يساهم",en:"To contribute",sfr:"سبق ذكره في الرقم 43، لذلك لا نكرره.",sar:"",sen:"",img:"contribuer.jpg"},
+ {fr:"Convaincre",ar:"يقنع",en:"To convince",sfr:"سبق ذكره في الرقم 44، لذلك لا نكرره.",sar:"",sen:"",img:"convaincre.jpg"},
+ {fr:"Coordonner",ar:"ينسّق",en:"To coordinate",sfr:"Elle coordonne le travail de toute l'équipe.",sar:"هي بتنسّق شغل الفريق كله.",sen:"She coordinates the work of the whole team.",img:"coordonner.jpg"},
+ {fr:"Corriger",ar:"يصحّح",en:"To correct",sfr:"سبق ذكره في الرقم 18، لذلك لا نكرره.",sar:"",sen:"",img:"corriger.jpg"},
+ {fr:"Couvrir",ar:"يغطي",en:"To cover",sfr:"سبق ذكره في الرقم 29، لذلك لا نكرره.",sar:"",sen:"",img:"couvrir.jpg"},
+ {fr:"Créer",ar:"ينشئ / يبتكر",en:"To create",sfr:"سبق ذكره في الرقم 14، لذلك لا نكرره.",sar:"",sen:"",img:"creer.jpg"},
+ {fr:"Cultiver",ar:"يزرع",en:"To cultivate",sfr:"سبق ذكره في الرقم 50، لذلك لا نكرره.",sar:"",sen:"",img:"cultiver.jpg"},
+ {fr:"Cuisiner",ar:"يطبخ",en:"To cook",sfr:"سبق ذكره في الرقم 10، لذلك لا نكرره.",sar:"",sen:""},
+ {fr:"Coïncider",ar:"يتزامن / يتطابق",en:"To coincide",sfr:"سبق ذكره في الرقم 64، لذلك لا نكرره.",sar:"",sen:"",img:"coincider.jpg"},
+ {fr:"Combattre",ar:"يحارب / يكافح",en:"To fight",sfr:"Il faut combattre les discriminations.",sar:"لازم نكافح التمييز.",sen:"We must fight discrimination.",img:"combattre.jpg"},
+ {fr:"Commettre",ar:"يرتكب",en:"To commit",sfr:"Il a commis une erreur.",sar:"ارتكب غلطة.",sen:"He made a mistake.",img:"commettre.jpg"},
+ {fr:"Conquérir",ar:"يفتح / يستولي على",en:"To conquer",sfr:"Cette entreprise veut conquérir de nouveaux marchés.",sar:"هالشركة بدها تدخل أسواق جديدة وتكسبها.",sen:"This company wants to conquer new markets.",img:"conquerir.jpg"},
+ {fr:"Contourner",ar:"يلتف حول / يتجاوز",en:"To go around / bypass",sfr:"Nous devons contourner les travaux.",sar:"لازم نلاقي طريق تاني لنتجاوز الأشغال.",sen:"We have to go around the roadworks.",img:"contourner.jpg"},
+ {fr:"Convenir",ar:"يناسب / يتفق",en:"To suit / agree",sfr:"Cette date me convient très bien.",sar:"هالتاريخ مناسب إلي كتير.",sen:"This date suits me very well.",img:"convenir.jpg"},
+ {fr:"Convier",ar:"يدعو",en:"To invite",sfr:"Nous sommes conviés à un repas dimanche.",sar:"نحنا مدعوين على غدا يوم الأحد.",sen:"We are invited to a meal on Sunday.",img:"convier.jpg"},
+ {fr:"Craindre",ar:"يخشى",en:"To fear",sfr:"سبق ذكره في الرقم 30، لذلك لا نكرره.",sar:"",sen:"",img:"craindre.jpg"},
+ {fr:"Critiquer",ar:"ينتقد",en:"To criticize",sfr:"سبق ذكره في الرقم 34، لذلك لا نكرره.",sar:"",sen:"",img:"critiquer.jpg"},
+ {fr:"Croire",ar:"يعتقد / يصدّق",en:"To believe",sfr:"سبق ذكره في الرقم 13، لذلك لا نكرره.",sar:"",sen:"",img:"croire.jpg"},
+ {fr:"Capter",ar:"يلتقط الإشارة",en:"To receive a signal",sfr:"سبق ذكره في الرقم 40، لذلك لا نكرره.",sar:"",sen:"",img:"capter.jpg"},
+ {fr:"Caractériser",ar:"يميّز / يصف",en:"To characterize",sfr:"Ce quartier se caractérise par ses petites rues.",sar:"هالحي بيتميّز بشوارعه الصغيرة.",sen:"This neighbourhood is characterized by its small streets.",img:"caracteriser.jpg"},
+ {fr:"Certifier",ar:"يشهد / يصدّق رسمياً",en:"To certify",sfr:"L'organisme doit certifier ce document.",sar:"لازم الجهة المختصة تصدّق هالوثيقة.",sen:"The organization must certify this document.",img:"certifier.jpg"},
+ {fr:"Circonscrire",ar:"يحصر / يحدّد نطاق",en:"To limit / contain",sfr:"Il faut circonscrire le problème.",sar:"لازم نحدّد نطاق المشكلة.",sen:"We need to define the scope of the problem.",img:"circonscrire.jpg"},
+ {fr:"Concrétiser",ar:"يحقّق / يحوّل إلى واقع",en:"To make concrete / realize",sfr:"Elle veut concrétiser son projet cette année.",sar:"بدها تحوّل مشروعها لشي واقعي هالسنة.",sen:"She wants to turn her project into reality this year."},];
+ add.forEach(u=>{const L=normFr(u.fr).replace(/^se /,'').charAt(0).toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(ex){ex.sfr=u.sfr;ex.sar=u.sar;ex.sen=u.sen;if(u.img)ex.img=u.img}else{u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
+ save();localStorage.setItem('verbes-updC3','1')}
 function render(){if(curLetter)renderLetter();else renderHome()}
 /* hardware back: letter → home, sheet → close, home → exit */
 try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
@@ -731,7 +820,7 @@ function bindNoteUI(){const c=$('noteCanvas');c.addEventListener('mousedown',not
  $('noteSizeDec').onclick=()=>setNoteSize(noteSize-1);$('noteSizeInc').onclick=()=>setNoteSize(noteSize+1);$('noteSize').oninput=function(){setNoteSize(parseInt(this.value,10)||3)};
  document.querySelectorAll('.note-tool').forEach(b=>{b.onclick=()=>{noteColor=b.dataset.color;$('noteSwatchDot').style.background=noteColor;document.querySelectorAll('.note-tool').forEach(x=>x.classList.toggle('active',x===b));$('notePalette').classList.remove('show')}})}
 bindNoteUI();
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
