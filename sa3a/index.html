@@ -111,13 +111,18 @@ main{flex:1;overflow:auto;position:relative}
 
 /* ---- weather ---- */
 #wxShade{align-items:stretch;background:var(--bg)}
-#wxSheet{height:100%;max-height:none;width:100%;max-width:none;border-radius:0;padding-top:calc(12px + env(safe-area-inset-top,0px));display:flex;flex-direction:column;overflow:hidden}
+#wxSheet,#wxPhSheet{height:100%;max-height:none;width:100%;max-width:none;border-radius:0;padding-top:calc(12px + env(safe-area-inset-top,0px));display:flex;flex-direction:column;overflow:hidden}
+#wxPhBody{flex:1;overflow-y:auto;padding-bottom:20px}
+#wxPhCap{display:none;font-size:.85rem;font-weight:700;line-height:1.5;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 10px;text-align:center;color:var(--acc);margin-bottom:8px}
+#wxPhCap.on{display:block}
+.wxPhCat{font-weight:800;font-size:1rem;color:var(--acc);margin:14px 0 4px;padding-bottom:4px;border-bottom:2px solid var(--line)}
+.wxDict{position:absolute;top:10px;inset-inline-start:10px;background:rgba(255,255,255,.18);border:none;border-radius:10px;font-size:1.1rem;cursor:pointer;color:#fff;padding:5px 8px;z-index:2}
 .wxHead{display:flex;align-items:center;gap:8px;margin-bottom:8px}
 .wxHead .lb{flex:1;font-weight:800;font-size:1.05rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .wxHead button{background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:7px 11px;font-family:inherit;font-size:1rem;font-weight:800;cursor:pointer}
 .wxHead button.on{border-color:var(--acc);color:var(--acc)}
 #wxBody{flex:1;overflow-y:auto}
-.wxNow{background:linear-gradient(150deg,var(--acc),var(--acc2));color:#fff;border-radius:20px;padding:18px;text-align:center;box-shadow:var(--shadow)}
+.wxNow{position:relative;background:linear-gradient(150deg,var(--acc),var(--acc2));color:#fff;border-radius:20px;padding:18px;text-align:center;box-shadow:var(--shadow)}
 .wxNow .wc{font-size:1.9rem;line-height:1}
 #wxCap{margin-top:10px;font-size:.85rem;font-weight:700;line-height:1.5;background:rgba(0,0,0,.28);border-radius:12px;padding:8px 10px;text-align:start;white-space:pre-wrap;display:none}
 #wxCap.on{display:block}
@@ -478,6 +483,12 @@ nav button.on{color:var(--acc)}
   <div class="wxHead"><button id="wxBack">‹</button><div class="lb" id="wxLoc">…</div>
     <button id="wxSpeak" title="speak">🔊</button><button id="wxCity" title="city">🔍</button><button id="wxRef" title="refresh">↻</button></div>
   <div id="wxBody"></div>
+</div></div>
+<!-- weather phrases folder -->
+<div class="shade" id="wxPhShade"><div class="sheet" id="wxPhSheet">
+  <div class="wxHead"><button id="wxPhBack">‹</button><div class="lb" id="wxPhTtl"></div></div>
+  <div id="wxPhCap"></div>
+  <div id="wxPhBody"></div>
 </div></div>
 <!-- lessons browser -->
 <div class="shade" id="lessonShade"><div class="sheet" id="lessonSheet">
@@ -2131,7 +2142,7 @@ function renderWx(L){
  const fmtT=v=>Math.round(v)+'°';
  const hfmt=ts=>new Date(ts).toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit'});
  const sbi=(k)=>'<button class="wxs wxi" data-say="'+k+'">🔊</button>';
- let out='<div class="wxNow" id="wxNowCard"><div class="wc">'+wIco(c.weather_code)+'</div><div class="wt">'+fmtT(c.temperature_2m)+sbi('temp')+'</div>'
+ let out='<div class="wxNow" id="wxNowCard"><button class="wxDict" id="wxDictB">📁</button><div class="wc">'+wIco(c.weather_code)+'</div><div class="wt">'+fmtT(c.temperature_2m)+sbi('temp')+'</div>'
   +'<div class="wd2">'+wName(c.weather_code)+' '+sbi('cond')+'</div>'
   +'<div class="wsub">'+t('wxFeels')+' '+fmtT(c.apparent_temperature)+' · 💧 '+c.relative_humidity_2m+'% · 💨 '+Math.round(c.wind_speed_10m)+' '+t('wxKmh')+' '+sbi('sub')+'</div><div id="wxCap"></div></div>';
  // today extras
@@ -2193,6 +2204,92 @@ function wxPhrase(kind,i,j){
    ar:dayLab+' '+cond+'، وهبّات رياح سرعتها '+w+' كيلومتراً في الساعة. الحرارة بين '+lo+' و'+hi+' درجة.',
    en:dayLab+', '+cond+', with wind gusts of '+w+' kilometers per hour. Temperatures between '+lo+' and '+hi+' degrees.'})}
  return ''}
+/* ---- weather phrases folder ---- */
+const DIRS={fr:['nord','nord-est','est','sud-est','sud','sud-ouest','ouest','nord-ouest'],ar:['الشمال','الشمال الشرقي','الشرق','الجنوب الشرقي','الجنوب','الجنوب الغربي','الغرب','الشمال الغربي'],en:['north','northeast','east','southeast','south','southwest','west','northwest']};
+const WXPH=[
+{t:{fr:'📍 Lieu & température actuelle',ar:'📍 الموقع والحرارة الحالية',en:'📍 Location & current temperature'},rows:[
+ ['Il fait {t} degrés à {city}.','درجة الحرارة {t} درجة في {city}.',"It's {t} degrees in {city}."],
+ ['Le ciel est couvert.','السماء ملبّدة بالغيوم.','The sky is overcast.'],
+ ["C'est tout gris aujourd'hui.",'الجو غائم ورمادي اليوم.',"It's very cloudy today."],
+ ['Quel temps fait-il aujourd\'hui ?','كيف الطقس اليوم؟',"What's the weather like today?"],
+ ['Il fait beau aujourd\'hui.','الجو حلو اليوم.',"It's nice out today."],
+ ['Il fait froid aujourd\'hui.','الجو بارد اليوم.',"It's cold today."],
+ ['Il fait chaud aujourd\'hui.','الجو حار اليوم.',"It's hot today."]]},
+{t:{fr:'🌡️ Ressenti, humidité & vent',ar:'🌡️ المحسوسة والرطوبة والرياح',en:'🌡️ Feels like, humidity & wind'},rows:[
+ ['On a un ressenti de {f} degrés.','الحرارة المحسوسة {f} درجة.','It feels like {f} degrees.'],
+ ['Il fait {f} en ressenti.','الحرارة المحسوسة {f} درجات.','It feels like {f} degrees.'],
+ ['Le taux d\'humidité est à {h} %.','نسبة الرطوبة {h} بالمئة.','The humidity level is {h}%.'],
+ ['Il y a un petit vent à {w} kilomètres-heure.','توجد رياح خفيفة بسرعة {w} كيلومتراً في الساعة.',"There's a light wind at {w} kilometers per hour."],
+ ['Le vent souffle du {dir}.','الرياح جاية من {dir}.','The wind is blowing from the {dir}.'],
+ ['Attention aux fortes rafales de vent.','انتبه من هبّات الرياح القوية.','Watch out for strong gusts of wind.']]},
+{t:{fr:'☀️ Lever & coucher du soleil',ar:'☀️ الشروق والغروب',en:'☀️ Sunrise & sunset'},rows:[
+ ['Le soleil se lève à {rise}.','تشرق الشمس الساعة {rise}.','The sun rises at {rise}.'],
+ ['Le soleil se couche à {set}.','تغرب الشمس الساعة {set}.','The sun sets at {set}.'],
+ ['Il fait nuit tôt maintenant.','صار الليل يحلّ بكير هلأ.',"It's getting dark early now."]]},
+{t:{fr:'🌧️ Pluie & températures max/min',ar:'🌧️ المطر والحرارة العظمى والصغرى',en:'🌧️ Rain & high/low temperatures'},rows:[
+ ['Il y a {p} % de risque de pluie.','احتمال هطول المطر {p} بالمئة.',"There's a {p}% chance of rain."],
+ ['Il va pleuvoir à coup sûr.','أكيد رح تمطر.',"It's definitely going to rain."],
+ ['Les températures varient entre {lo} et {hi} degrés.','درجات الحرارة بتتراوح بين {lo} و{hi} درجة.','Temperatures range between {lo} and {hi} degrees.'],
+ ['Il fait {lo} degrés au minimum et {hi} au maximum.','الحرارة الصغرى {lo} درجات والعظمى {hi} درجة.',"It's {lo} degrees at the lowest and {hi} at the highest."],
+ ['Attention, prenez un parapluie !','انتبه، خذ معك شمسية!','Be careful, take an umbrella!'],
+ ['Attention au risque de verglas.','انتبه، في خطر تشكّل الجليد على الطرقات.','Beware of icy road conditions.'],
+ ['Pensez à bien vous hydrater.','انتبه تشرب مي كفاية.','Remember to stay hydrated.'],
+ ['Prévoyez des vêtements chauds.','حضّر تياب دافية.','Bring warm clothing.']]},
+{t:{fr:'🕒 Prochaines heures',ar:'🕒 الساعات القادمة',en:'🕒 Next hours'},rows:[
+ ['Dans les prochaines heures, ça va osciller entre {lo} et {hi} degrés.','خلال الساعات القادمة، رح تتراوح الحرارة بين {lo} و{hi} درجة.','Over the next few hours, temperatures will range between {lo} and {hi} degrees.'],
+ ["Il va pleuvoir presque tout l'après-midi et ce soir.",'رح تمطر تقريباً طول فترة بعد الظهر والمسا.',"It's going to rain almost all afternoon and this evening."],
+ ['Il y aura une petite pause dans la pluie.','رح يكون في توقف قصير للمطر.','There will be a short break in the rain.']]},
+{t:{fr:'📅 Aujourd\'hui & demain',ar:'📅 توقعات اليوم والغد',en:'📅 Today & tomorrow'},rows:[
+ ["Aujourd'hui, on a des averses légères.",'اليوم في زخات مطر خفيفة.',"Today, we're having light showers."],
+ ['Avec des rafales à {w} kilomètres-heure.','مع هبّات رياح سرعتها {w} كيلومتراً في الساعة.','With wind gusts of {w} kilometers per hour.'],
+ ['Demain, il y aura de la pluie légère.','بكرا، رح يكون في مطر خفيف.','Tomorrow, there will be light rain.'],
+ ['Mais il fera un peu plus doux avec {hi} degrés.','بس الجو رح يكون أدفى شوي، ودرجة الحرارة {hi}.','But it will be a little milder, with a temperature of {hi} degrees.']]},
+{t:{fr:'🌤️ Conditions du ciel',ar:'🌤️ حالات الطقس',en:'🌤️ Sky conditions'},dyn:'conds'},
+{t:{fr:'🗓️ Les mois',ar:'🗓️ الشهور',en:'🗓️ Months'},dyn:'months'},
+{t:{fr:'💬 Salutations & conseils',ar:'💬 التحيات والنصائح',en:'💬 Greetings & tips'},rows:[
+ ['Bonjour !','صباح الخير!','Good morning!'],
+ ['Bon après-midi !','مساء الخير!','Good afternoon!'],
+ ['Bonsoir !','مساء الخير!','Good evening!'],
+ ['Bonne journée !','نهاركم سعيد!','Have a nice day!'],
+ ['Bonne journée et profitez du beau temps !','نهاركم سعيد واستمتعوا بالطقس الحلو!','Have a nice day and enjoy the good weather!'],
+ ['Attention ! Un orage est attendu dans votre région.','انتبه! متوقّعة عاصفة رعدية بمنطقتك.','Warning! A thunderstorm is expected in your area.']]}];
+const WXPH_TITLE={fr:'📁 Phrases météo',ar:'📁 عبارات الطقس',en:'📁 Weather phrases'};
+function wxPhFill(s,j){
+ const d0=j&&j.daily,c=j&&j.current;
+ const v={t:c?Math.round(c.temperature_2m):'-',f:c?Math.round(c.apparent_temperature):'-',h:c?c.relative_humidity_2m:'-',w:c?Math.round(c.wind_speed_10m):'-',
+  city:(wxLoc&&wxLoc.name||'').split('،')[0].split(',')[0]||'-',
+  dir:DIRS[st.lang]?DIRS[st.lang][Math.round(((c&&c.wind_direction_10m)||0)/45)%8]:'-',
+  rise:d0&&d0.sunrise?new Date(d0.sunrise[0]).toLocaleTimeString('en-GB',{hour:'numeric',minute:'2-digit'}):'-',
+  set:d0&&d0.sunset?new Date(d0.sunset[0]).toLocaleTimeString('en-GB',{hour:'numeric',minute:'2-digit'}):'-',
+  p:d0?(d0.precipitation_probability_max[0]??0):'-',hi:d0?Math.round(d0.temperature_2m_max[0]):'-',lo:d0?Math.round(d0.temperature_2m_min[0]):'-'};
+ return s.replace(/\{(\w+)\}/g,(m,k)=>v[k]!=null?v[k]:m)}
+function wxPhCapSet(txt){const c=$('wxPhCap');if(c){c.textContent=txt||'';c.classList.toggle('on',!!txt)}}
+function renderWxPh(){
+ const body=$('wxPhBody');body.innerHTML='';
+ $('wxPhTtl').textContent=WXPH_TITLE[st.lang]||WXPH_TITLE.en;
+ const j=wxLoc&&wxLoc.data;
+ WXPH.forEach(cat=>{
+  const h=document.createElement('div');h.className='wxPhCat';h.textContent=cat.t[st.lang]||cat.t.en;body.appendChild(h);
+  let rows=cat.rows||[];
+  if(cat.dyn==='conds'){const codes=Object.keys(WNAME.en);rows=codes.map(k=>[WNAME.fr[k],WNAME.ar[k],WNAME.en[k]])}
+  if(cat.dyn==='months'){rows=MONTHS_TRI.fr.map((_,i)=>[MONTHS_TRI.fr[i],MONTHS_TRI.ar[i],MONTHS_TRI.en[i]])}
+  rows.forEach(r3=>{
+   const c=document.createElement('div');c.className='phc';
+   [['fr','🇫🇷',r3[0]],['ar','🇸🇾',r3[1]],['en','🇺🇸',r3[2]]].forEach(x=>{
+    const lg=x[0],txt=wxPhFill(x[2],j);if(!txt)return;
+    const row=document.createElement('div');row.className='phrow lg-'+lg;
+    const fb=document.createElement('button');fb.className='phflag';fb.textContent=x[1];
+    fb.onclick=e=>{e.stopPropagation();
+     if(!fb.classList.contains('speaking'))wxPhCapSet(txt);else wxPhCapSet('');
+     loopSpeak([{txt,lg}],fb)};
+    row.appendChild(fb);row.appendChild(wordsSpan(txt,lg));
+    c.appendChild(row)});
+   body.appendChild(c)})});
+ // word tap → caption follows; double-tap clipart handled inside wordsSpan
+}
+document.addEventListener('click',e=>{
+ const w=e.target.closest('#wxPhBody .w');if(w)wxPhCapSet(w.textContent);
+});
 function wxCapB(txt,anchor){
  const old=$('wxCapB');if(old)old.remove();
  if(!txt||!anchor)return;
@@ -2212,7 +2309,10 @@ async function wxSayBtn(b){
  await sayOnce(txt,st.lang==='ar'?'ar':st.lang);
  if(tok===sayTok){b.classList.remove('wxon');wxCapB('')}
 }
-$('wxBody').addEventListener('click',e=>{const b=e.target.closest('.wxs');if(b){e.stopPropagation();wxSayBtn(b)}});
+$('wxBody').addEventListener('click',e=>{
+ const b=e.target.closest('.wxs');if(b){e.stopPropagation();wxSayBtn(b);return}
+ if(e.target.closest('#wxDictB')){e.stopPropagation();renderWxPh();$('wxPhShade').classList.add('on')}});
+$('wxPhBack').onclick=()=>{stopSay();wxPhCapSet('');$('wxPhShade').classList.remove('on')};
 function wxReport(L){
  const j=L&&L.data;if(!j||!j.current)return null;
  const lg=st.lang,c=j.current,d0=j.daily;
@@ -2325,7 +2425,7 @@ $('calSpeak').onclick=()=>{
  if(window.speechSynthesis){const u=new SpeechSynthesisUtterance(txt);u.lang=lg;u.onend=done;u.onerror=done;speechSynthesis.speak(u);return}
  done();
 };
-document.addEventListener('click',e=>{if(e.target.closest('#wxNowCard'))wxSpeakToggle()});
+document.addEventListener('click',e=>{if(e.target.closest('.wxs')||e.target.closest('#wxDictB'))return;if(e.target.closest('#wxNowCard'))wxSpeakToggle()});
 $('wxBack').onclick=()=>$('wxShade').classList.remove('on');
 $('wxRef').onclick=async()=>{try{const p=await wxPos();const cn=await wxCityName(p.lat,p.lon);wxLoc={lat:p.lat,lon:p.lon,name:cn.name,cc:cn.cc,nlg:st.lang};localStorage.setItem('sa3a_wxloc',JSON.stringify(wxLoc))}catch(e){}openWx()};
 $('wxCity').onclick=()=>{const nm=prompt(t('wxCityPh'));if(!nm)return;
