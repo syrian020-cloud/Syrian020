@@ -110,6 +110,7 @@ main{flex:1;overflow:auto;position:relative}
 .wxHead{display:flex;align-items:center;gap:8px;margin-bottom:8px}
 .wxHead .lb{flex:1;font-weight:800;font-size:1.05rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .wxHead button{background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:7px 11px;font-family:inherit;font-size:1rem;font-weight:800;cursor:pointer}
+.wxHead button.on{border-color:var(--acc);color:var(--acc)}
 #wxBody{flex:1;overflow-y:auto}
 .wxNow{background:linear-gradient(150deg,var(--acc),var(--acc2));color:#fff;border-radius:20px;padding:18px;text-align:center;box-shadow:var(--shadow)}
 .wxNow .wc{font-size:3.2rem;line-height:1}
@@ -2102,7 +2103,7 @@ async function openWx(){
  try{
   if(!wxLoc){const p=await wxPos();const cn=await wxCityName(p.lat,p.lon);
    wxLoc={lat:p.lat,lon:p.lon,name:cn.name,cc:cn.cc};localStorage.setItem('sa3a_wxloc',JSON.stringify(wxLoc))}
-  const u='https://api.open-meteo.com/v1/forecast?latitude='+wxLoc.lat+'&longitude='+wxLoc.lon+'&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset,wind_speed_10m_max&timezone=auto&forecast_days=8';
+  const u='https://api.open-meteo.com/v1/forecast?latitude='+wxLoc.lat+'&longitude='+wxLoc.lon+'&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset,wind_speed_10m_max,uv_index_max&timezone=auto&forecast_days=8';
   const j=await (await fetch(u)).json();wxLoc.data=j;renderWx(wxLoc);
  }catch(e){if(!wxLoc||!wxLoc.data)$('wxBody').innerHTML='<div class="wxTtl" style="text-align:center;margin-top:30px">'+t('wxFail')+'</div>'}
 }
@@ -2169,19 +2170,54 @@ function wxReport(L){
   return null})();
  const hr=now.getHours();
  const greet=lg==='fr'?(hr<18?'Bonjour':'Bonsoir'):lg==='ar'?(hr<12?'صباح الخير':hr<18?'طاب نهارك':'مساء الخير'):(hr<12?'Good morning':hr<18?'Good afternoon':'Good evening');
+ const hum=c.relative_humidity_2m;
+ const wdir=c.wind_direction_10m;
+ const DIRS={fr:['nord','nord-est','est','sud-est','sud','sud-ouest','ouest','nord-ouest'],ar:['الشمال','الشمال الشرقي','الشرق','الجنوب الشرقي','الجنوب','الجنوب الغربي','الغرب','الشمال الغربي'],en:['north','northeast','east','southeast','south','southwest','west','northwest']};
+ const dir=wdir==null?null:DIRS[lg][Math.round(wdir/45)%8];
+ const windPh=(()=>{
+  if(wind>=50)return {fr:'Il y a de fortes rafales de vent.',ar:'في هبّات رياح قوية.',en:'There are strong wind gusts.'};
+  if(wind>=30)return {fr:'Le vent est fort.',ar:'الرياح قوية.',en:'The wind is strong.'};
+  if(wind>=15)return {fr:'Le vent est modéré.',ar:'الرياح معتدلة.',en:'The wind is moderate.'};
+  return {fr:'Le vent est faible.',ar:'الرياح خفيفة.',en:'The wind is light.'}})();
+ const humPh=hum>=80?{fr:"L'air est très humide.",ar:'الجو رطب كتير.',en:'The air is very humid.'}:hum<=30?{fr:"L'air est sec aujourd'hui.",ar:'الجو جاف اليوم.',en:'The air is dry today.'}:null;
+ const uv=(d0.uv_index_max&&d0.uv_index_max[0])||0;
+ const uvPh=uv>=6?{fr:"L'indice UV est élevé. Pensez à mettre de la crème solaire.",ar:'مؤشر الأشعة فوق البنفسجية مرتفع. لا تنسوا تحطوا واقي شمس.',en:'The UV index is high. Remember to apply sunscreen.'}:uv>=3?{fr:"L'indice UV est modéré.",ar:'مؤشر الأشعة فوق البنفسجية متوسط.',en:'The UV index is moderate.'}:null;
+ const sr=d0.sunrise&&d0.sunrise[0]?new Date(d0.sunrise[0]):null;
+ const ss=d0.sunset&&d0.sunset[0]?new Date(d0.sunset[0]):null;
+ const tfmt=x=>x.toLocaleTimeString(lg==='ar'?'ar':lg,{hour:'numeric',minute:'2-digit'});
+ const sunPh=sr&&ss?{fr:'Le soleil se lève à '+tfmt(sr)+' et se couche à '+tfmt(ss)+'.',ar:'الشمس بتشرق الساعة '+tfmt(sr)+' وبتغرب الساعة '+tfmt(ss)+'.',en:'The sun rises at '+tfmt(sr)+' and sets at '+tfmt(ss)+'.'}:null;
+ const tips=[];
+ if(code>=95)tips.push({fr:"Restez à l'abri et suivez les consignes de sécurité.",ar:'ضلّ بمكان آمن واتبع تعليمات السلامة.',en:'Stay sheltered and follow safety instructions.'});
+ if(isRain)tips.push({fr:'Pensez à prendre votre parapluie avant de sortir.',ar:'لا تنسوا أخذ المظلة قبل الخروج.',en:'Remember to take your umbrella before going out.'});
+ if(code===45||code===48)tips.push({fr:'Soyez prudents sur les routes à cause du brouillard.',ar:'خليكوا حذرين على الطرقات بسبب الضباب.',en:'Be careful on the roads because of the fog.'});
+ if(isSnow)tips.push({fr:'Attention au risque de verglas.',ar:'انتبه، في خطر تشكّل الجليد على الطرقات.',en:'Beware of icy road conditions.'});
+ if(temp>=28)tips.push({fr:"Pensez à bien vous hydrater.",ar:'انتبه تشرب مي كفاية.',en:'Remember to stay hydrated.'});
+ if(feels<=5)tips.push({fr:'Prévoyez des vêtements chauds.',ar:'حضّر تياب دافية.',en:'Bring warm clothing.'});
+ if(wind>=50)tips.push({fr:'Faites attention aux fortes rafales de vent.',ar:'انتبه من هبّات الرياح القوية.',en:'Watch out for strong gusts of wind.'});
+ const warnO=code>=95?{fr:"Attention ! Un orage est attendu dans votre région. ",ar:'انتبه! متوقّعة عاصفة رعدية بمنطقتك. ',en:'Warning! A thunderstorm is expected in your area. '}:(code===65||code===82)?{fr:'Attention, de fortes pluies sont prévues. ',ar:'انتبه، متوقّعة أمطار غزيرة. ',en:'Be careful, heavy rain is expected. '}:null;
+ const warn=warnO?warnO[lg]:'';
+ let tmr='';
+ if(d0.time&&d0.time.length>1){
+  const n1=wName(d0.weather_code[1]),h1=Math.round(d0.temperature_2m_max[1]),l1=Math.round(d0.temperature_2m_min[1]);
+  tmr=lg==='fr'?('Demain, '+(n1[0].toLowerCase()+n1.slice(1))+', avec une maximale de '+h1+' degrés et une minimale de '+l1+' degrés.'):lg==='ar'?('بكرا '+n1+'، والحرارة العظمى '+h1+' درجة والصغرى '+l1+' درجات.'):('Tomorrow, '+n1+', with a high of '+h1+' degrees and a low of '+l1+' degrees.');}
+ const tipsTxt=tips.map(x=>x[lg]).join(' ')+(tips.length?' ':'');
  const R={
- fr:greet+' ! Nous sommes '+dateStr+". Aujourd'hui à "+city+", "+cond.fr+". La température actuelle est de "+temp+" degrés. Le ressenti est de "+feels+" degrés. "+(tempFeel?tempFeel.fr+' ':'')+"Le risque de pluie est de "+rain+" %. Le vent souffle à "+wind+" kilomètres par heure. La température maximale sera de "+hi+" degrés et la minimale de "+lo+" degrés. "+(isRain?'Pensez à prendre votre parapluie avant de sortir. ':'')+'Bonne journée !',
- ar:greet+'! اليوم '+dateStr+'. في '+city+' '+cond.ar+'. درجة الحرارة الحالية '+temp+' درجة، والمحسوسة '+feels+' درجات. '+(tempFeel?tempFeel.ar+' ':'')+'احتمال المطر '+rain+'%. سرعة الرياح '+wind+' كيلومتراً بالساعة. الحرارة العظمى '+hi+' درجة والصغرى '+lo+' درجات. '+(isRain?'لا تنسوا أخذ المظلة قبل الخروج. ':'')+'نهاركم سعيد!',
- en:greet+'! Today is '+dateStr+'. In '+city+', '+cond.en+'. The current temperature is '+temp+' degrees. It feels like '+feels+' degrees. '+(tempFeel?tempFeel.en+' ':'')+'The chance of rain is '+rain+'%. The wind is blowing at '+wind+' kilometers per hour. The high will be '+hi+' degrees and the low will be '+lo+' degrees. '+(isRain?'Remember to take your umbrella before going out. ':'')+'Have a nice day!'
+ fr:warn+greet+' ! Nous sommes '+dateStr+". Aujourd'hui à "+city+", "+cond.fr+". La température actuelle est de "+temp+" degrés. Le ressenti est de "+feels+" degrés. "+(tempFeel?tempFeel.fr+' ':'')+"Le risque de pluie est de "+rain+" %. Le vent souffle à "+wind+" kilomètres par heure"+(dir?' en venant du '+dir:'')+'. '+windPh.fr+' '+"Le taux d'humidité est de "+hum+" %. "+(humPh?humPh.fr+' ':'')+(sunPh?sunPh.fr+' ':'')+(uvPh?uvPh.fr+' ':'')+"La température maximale sera de "+hi+" degrés et la minimale de "+lo+" degrés. "+tipsTxt+tmr+' '+'Bonne journée !',
+ ar:warn+greet+'! اليوم '+dateStr+'. في '+city+' '+cond.ar+'. درجة الحرارة الحالية '+temp+' درجة، والمحسوسة '+feels+' درجات. '+(tempFeel?tempFeel.ar+' ':'')+'احتمال المطر '+rain+'%. سرعة الرياح '+wind+' كيلومتراً بالساعة'+(dir?' جاية من '+dir:'')+'. '+windPh.ar+' نسبة الرطوبة '+hum+'%. '+(humPh?humPh.ar+' ':'')+(sunPh?sunPh.ar+' ':'')+(uvPh?uvPh.ar+' ':'')+'الحرارة العظمى '+hi+' درجة والصغرى '+lo+' درجات. '+tipsTxt+tmr+' '+'نهاركم سعيد!',
+ en:warn+greet+'! Today is '+dateStr+'. In '+city+', '+cond.en+'. The current temperature is '+temp+' degrees. It feels like '+feels+' degrees. '+(tempFeel?tempFeel.en+' ':'')+'The chance of rain is '+rain+'%. The wind is blowing at '+wind+' kilometers per hour'+(dir?' from the '+dir:'')+'. '+windPh.en+' The humidity level is '+hum+'%. '+(humPh?humPh.en+' ':'')+(sunPh?sunPh.en+' ':'')+(uvPh?uvPh.en+' ':'')+'The high will be '+hi+' degrees and the low will be '+lo+' degrees. '+tipsTxt+tmr+' '+'Have a nice day!'
  };
  return R[lg]||R.en;
 }
+let wxSaying=false;
 $('wxSpeak').onclick=()=>{
+ if(wxSaying){stopSay();wxSaying=false;$('wxSpeak').classList.remove('on');return}
  stopSay();
  const txt=wxReport(wxLoc);if(!txt){toast(t('wxLocating'));return}
- const lg=st.lang;
- if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:lg}).catch(()=>toast('!'));return}
- if(window.speechSynthesis){const u=new SpeechSynthesisUtterance(txt);u.lang=lg;speechSynthesis.speak(u)}
+ const lg=st.lang;wxSaying=true;$('wxSpeak').classList.add('on');
+ const done=()=>{wxSaying=false;$('wxSpeak').classList.remove('on')};
+ if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:lg}).catch(()=>toast('!'));setTimeout(done,Math.min(60000,1500+txt.length*95));return}
+ if(window.speechSynthesis){const u=new SpeechSynthesisUtterance(txt);u.lang=lg;u.onend=done;u.onerror=done;speechSynthesis.speak(u);return}
+ done();
 };
 $('wxBack').onclick=()=>$('wxShade').classList.remove('on');
 $('wxRef').onclick=async()=>{try{const p=await wxPos();const cn=await wxCityName(p.lat,p.lon);wxLoc={lat:p.lat,lon:p.lon,name:cn.name,cc:cn.cc};localStorage.setItem('sa3a_wxloc',JSON.stringify(wxLoc))}catch(e){}openWx()};
