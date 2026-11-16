@@ -748,7 +748,11 @@ async function showLesson(n){
    el.ontimeupdate=()=>{const{c,ci}=cur();if(ci!==el._ci){el._ci=ci;showCue(c[ci])}
     if(el._seg&&el.currentTime>=el._seg.end-.06){el.currentTime=el._seg.start;return}
     if(el._once&&el.currentTime>=el._once-.06){el._once=null;el.pause();return}
-    if(el._loop&&ci>=0){const nx=c[ci+1];const end=nx?tSec(nx.t):el.duration||1e9;if(el.currentTime>=end-.06)el.currentTime=tSec(c[ci].t)}};
+    if(el._loop){
+     if(ci>=0){const nx=c[ci+1];const end=nx?tSec(nx.t):el.duration||1e9;if(el.currentTime>=end-.03){el.currentTime=tSec(c[ci].t);return}}
+     else if(c.length&&el.currentTime<tSec(c[0].t)){/* before first cue — keep playing */}
+     else if(el.duration&&el.currentTime>=el.duration-.3){el.currentTime=c[0]?tSec(c[0].t):0;return}}};
+   el.onended=()=>{if(el._loop){const{c}=cur();el.currentTime=c[0]?tSec(c[0].t):0;el.play().catch(()=>{})}};
    const RATES=[1,1.5,2,0.75];let ri=0;
    const FITS=['','fit-cover','fit-fill','fit-tall','fit-crop1','fit-crop2','fit-crop3'];
    const CROP_FRAC={'fit-crop1':.15,'fit-crop2':.30,'fit-crop3':.45};
