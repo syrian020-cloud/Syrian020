@@ -411,6 +411,7 @@ nav button.on{color:var(--acc)}
   <div class="spacer"></div>
   <button class="hbtn" id="styleBtn" title="Clock style">🕐</button>
   <button class="hbtn" id="themeBtn" title="Theme">🌙</button>
+  <button class="hbtn" id="muteBtn" title="Mute all">🔇</button>
   <button class="hbtn" id="langBtn">🌐 EN</button>
   <button class="hbtn" id="menuBtn">⋮</button>
 </header>
@@ -2961,6 +2962,9 @@ function renderMenu(){
 }
 $('menuBtn').onclick=()=>{renderMenu();$('menuShade').classList.add('on')};
 $('styleBtn').onclick=()=>{st.style=st.style==='analog'?'digital':'analog';save();applyStyle();syncPrefs();updHdr()};
+$('muteBtn').onclick=()=>{document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));stopSay();
+ document.querySelectorAll('video,audio').forEach(m=>{try{m._seg=null;m._once=null;m.pause()}catch(e){}});
+ if($('ringShade').classList.contains('on'))stopRing()};
 $('themeBtn').onclick=()=>{const THS=['dark','light','syria'];if(st.custImg)THS.push('custom');st.theme=THS[(THS.indexOf(st.theme)+1)%THS.length];save();applyTheme();syncPrefs()};
 $('menuShade').onclick=e=>{if(e.target===$('menuShade'))$('menuShade').classList.remove('on')};
 function exportAlarms(){
