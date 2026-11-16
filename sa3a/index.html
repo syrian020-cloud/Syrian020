@@ -2364,13 +2364,16 @@ $('backYear').onclick=renderYear;
 function openApptFor(m,d){
  const mm=String(m+1).padStart(2,'0'),dd=String(d).padStart(2,'0');
  location.href='tempo.html#new='+calYear+'-'+mm+'-'+dd}
-function speakDate(m,d){
+async function speakDate(m,d){
  const dt=new Date(calYear,m,d);
  const loc=st.lang==='ar'?'ar-SY':st.lang==='fr'?'fr-FR':'en-GB';
  const key=calYear+'-'+m+'-'+d,hv=holMap[key],hn=hv?(hv.l||hv):'';
  let txt=new Intl.DateTimeFormat(loc,{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(dt);
  if(hn)txt+='. '+hn;
- sayOnce(txt,st.lang==='ar'?'ar':st.lang);
+ const cc=$('calCap'),tok=sayTok;
+ cc.textContent=txt;cc.dir=st.lang==='ar'?'rtl':'ltr';cc.classList.add('on');
+ await sayOnce(txt,st.lang==='ar'?'ar':st.lang);
+ if(tok===sayTok)cc.classList.remove('on');
 }
 
 /* =============== timer & stopwatch =============== */
