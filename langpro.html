@@ -2382,8 +2382,9 @@ function splitByScript(s) {
   for (var i = 0; i < s.length; i++) {
     var ch = s.charAt(i), c = scriptOf(ch);
     if (!c) { ws += ch; continue; }
-    // numbers/signs trailing a segment belong to it ('J'ai 2 تفاحات' keeps the 2)
-    if (cls && c !== cls) { parts.push(/\p{N}/u.test(ws) ? (buf + ws).trim() : buf); buf = ch; }
+    // numbers/signs trailing a segment belong to it ('J'ai 2 تفاحات' keeps the 2);
+    // explicit pair separators too ('نعم = OUI' keeps the = so the split stays visible)
+    if (cls && c !== cls) { parts.push(/[\p{N}=:：|\/\\\-–—]/u.test(ws) ? (buf + ws).trim() : buf); buf = ch; }
     else buf += ws + ch;
     ws = ''; cls = c;
   }
@@ -2400,9 +2401,11 @@ function splitByScript(s) {
     if (!CAPTOK.test(parts[i])) continue;
     var sp = scriptOfStr(parts[i - 1]);
     var sn = parts[i + 1] ? scriptOfStr(parts[i + 1]) : '';
-    // only a caps token sandwiched between same-script text is an acronym —
-    // a trailing one ('نعم = OUI') is the next language's translation
+    // sandwiched between same-script text → acronym, merge all three
     if (sp && sp === sn) { parts[i - 1] += ' ' + parts[i] + ' ' + parts[i + 1]; parts.splice(i, 2); i--; }
+    // trailing caps is an acronym too — unless the previous segment ends in an
+    // explicit separator ('نعم = OUI' keeps OUI separate: it's the translation)
+    else if (sp && !/[=:：|\/\\\-–—]\s*$/.test(parts[i - 1])) { parts[i - 1] += ' ' + parts[i]; parts.splice(i, 1); i--; }
   }
   return parts;
 }
