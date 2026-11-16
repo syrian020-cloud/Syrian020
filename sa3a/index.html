@@ -738,7 +738,7 @@ async function showLesson(n){
  }catch(e){}
  try{const m=await idb.get('lmed_'+n.id);
   if(m&&m.blob){const wrap=document.createElement('div');wrap.className='vcrop';wrap.style.cssText='text-align:center;margin-bottom:10px;position:relative;padding-top:16px';
-   const el=document.createElement(m.kind==='v'?'video':'audio');el.controls=true;el.src=URL.createObjectURL(m.blob);el.className='lmed';el.id='lsMedia';el._vcrop=wrap;
+   const el=document.createElement(m.kind==='v'?'video':'audio');el.controls=true;el.src=URL.createObjectURL(m.blob);el.className='lmed';el.id='lsMedia';el._vcrop=wrap;el._n=n;el._loopCi=-1;
    const dd=document.createElement('button');dd.className='opt';dd.style.cssText='background:rgba(0,0,0,.55);color:#fff;border:none;border-radius:50%;width:28px;height:28px;top:0;inset-inline-end:4px;position:absolute;z-index:3;font-size:.95rem;cursor:pointer;line-height:1';dd.textContent='×';
    dd.onclick=async()=>{if(await confirmBox(t('delMedQ'))){try{await idb.del('lmed_'+n.id)}catch(e){}showLesson(n)}};
    wrap.appendChild(el);wrap.appendChild(dd);v.appendChild(wrap);
@@ -749,10 +749,12 @@ async function showLesson(n){
     if(el._seg&&el.currentTime>=el._seg.end-.06){el.currentTime=el._seg.start;return}
     if(el._once&&el.currentTime>=el._once-.06){el._once=null;el.pause();return}
     if(el._loop){
-     if(ci>=0){const nx=c[ci+1];const end=nx?tSec(nx.t):el.duration||1e9;if(el.currentTime>=end-.03){el.currentTime=tSec(c[ci].t);return}}
-     else if(c.length&&el.currentTime<tSec(c[0].t)){/* before first cue — keep playing */}
-     else if(el.duration&&el.currentTime>=el.duration-.3){el.currentTime=c[0]?tSec(c[0].t):0;return}}};
-   el.onended=()=>{if(el._loop){const{c}=cur();el.currentTime=c[0]?tSec(c[0].t):0;el.play().catch(()=>{})}};
+     if(ci>=0&&ci!==el._loopCi&&!el._sb)el._loopCi=ci;
+     const j=el._loopCi>=0?el._loopCi:0;
+     if(c.length){const end=c[j+1]?tSec(c[j+1].t):el.duration||1e9;
+      if(el.currentTime>=end-.03){el._sb=true;el.currentTime=tSec(c[j].t);setTimeout(()=>el._sb=false,600);return}}
+     else if(el.duration&&el.currentTime>=el.duration-.3){el.currentTime=0;return}}};
+   el.onended=()=>{if(el._loop){const{c}=cur();const j=el._loopCi>=0?el._loopCi:0;el.currentTime=c[j]?tSec(c[j].t):0;el.play().catch(()=>{})}};
    const RATES=[1,1.5,2,0.75];let ri=0;
    const FITS=['','fit-cover','fit-fill','fit-tall','fit-crop1','fit-crop2','fit-crop3'];
    const CROP_FRAC={'fit-crop1':.15,'fit-crop2':.30,'fit-crop3':.45};
@@ -775,7 +777,7 @@ async function showLesson(n){
     mk('×1',e=>{ri=(ri+1)%RATES.length;el.playbackRate=RATES[ri];e.target.textContent='×'+RATES[ri]}),
     mk('−A',()=>{fsz=Math.max(12,fsz-2);cbox.style.fontSize=fsz+'px'}),
     mk('🔁',e=>{el._loop=!el._loop;e.target.classList.toggle('on',el._loop);
-     if(el._loop){stopSay();const{c,ci}=cur();if(c[ci])el.currentTime=tSec(c[ci].t);el._seg=null;el._once=null;el.play().catch(()=>{})}}),
+     if(el._loop){stopSay();const{c,ci}=cur();el._loopCi=Math.max(0,ci);if(c[el._loopCi])el.currentTime=tSec(c[el._loopCi].t);el._seg=null;el._once=null;el.play().catch(()=>{})}}),
     mk('🎨',()=>cycleCapTheme())
    ].filter(Boolean));
    if(n.vfit)applyVfit();
@@ -1314,7 +1316,8 @@ function renderPhrases(n){
    const ends=Object.keys(p.tt||{}).map(k=>tSec(p.tt[k])).concat(nx?[tSec(nx.t)]:[]).filter(x=>x>start).sort((a,b)=>a-b);
    md._once=null;md._seg={start,end:ends[0]||(md.duration||1e9)};
    md.currentTime=md._seg.start;md.play().catch(()=>{});
-   md.onended=()=>{md._seg=null;btn.classList.remove('speaking')};
+   md.onended=()=>{md._seg=null;btn.classList.remove('speaking');
+    if(md._loop){const c=cuesOf(md._n||n);const j=md._loopCi>=0?md._loopCi:0;md.currentTime=c[j]?tSec(c[j].t):0;md.play().catch(()=>{})}};
    btn.classList.add('speaking');return true};
   if(p.t){const tp=document.createElement('button');tp.className='phnum';tp.textContent=p.t.split('→')[0].trim();
    tp.onclick=e=>{e.stopPropagation();if(!segLoop(tp,p.t))loopSpeak(rows,tp)};
