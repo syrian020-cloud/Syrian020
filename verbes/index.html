@@ -623,6 +623,21 @@ function updB1(){
  {fr:"Bouillir",ar:"يغلي",en:"To boil",sfr:"L'eau commence à bouillir.",sar:"المي بلشت تغلي.",sen:"The water is starting to boil.",img:"bouillir.jpg"},];
  add.forEach(u=>{const L=(u.fr[0]||'').toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(ex){ex.sfr=u.sfr;ex.sar=u.sar;ex.sen=u.sen;if(u.img)ex.img=u.img}else{u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
  save();localStorage.setItem('verbes-updB1','1')}
+function updB2(){
+ if(localStorage.getItem('verbes-updB2'))return;
+ const add=[
+ {fr:"Besoin de",ar:"يحتاج إلى (الفعل: avoir besoin de)",en:"To need",sfr:"J'ai besoin de ton aide.",sar:"أنا بحاجة لمساعدتك.",sen:"I need your help.",img:"besoin_de.jpg"},
+ {fr:"Blesser",ar:"يجرح / يؤذي",en:"To hurt",sfr:"Je ne voulais pas te blesser.",sar:"ما كان قصدي جرّحك.",sen:"I didn't mean to hurt you.",img:"blesser.jpg"},
+ {fr:"Briser",ar:"يكسر / يحطّم",en:"To break",sfr:"Il a brisé son téléphone en tombant.",sar:"تلفونه انكسر لما وقع.",sen:"He broke his phone when it fell."},
+ {fr:"Balayer",ar:"يكنس",en:"To sweep",sfr:"Je balaie la cuisine tous les jours.",sar:"بكنس المطبخ كل يوم.",sen:"I sweep the kitchen every day.",img:"balayer.jpg"},
+ {fr:"Brancher",ar:"يوصل بالكهرباء",en:"To plug in",sfr:"Branche ton téléphone, la batterie est presque vide.",sar:"وصّل تلفونك بالشاحن، البطارية قربت تخلص.",sen:"Plug in your phone; the battery is almost dead.",img:"brancher.jpg"},
+ {fr:"Débrancher",ar:"يفصل عن الكهرباء",en:"To unplug",sfr:"N'oublie pas de débrancher le fer à repasser.",sar:"لا تنسى تفصل المكواة عن الكهرباء.",sen:"Don't forget to unplug the iron.",img:"debrancher.jpg"},
+ {fr:"Boucher",ar:"يسدّ / يغلق فتحة",en:"To block / plug",sfr:"Il faut boucher le trou dans le mur.",sar:"لازم نسكّر الفتحة الموجودة بالحيط.",sen:"We need to fill the hole in the wall.",img:"boucher.jpg"},
+ {fr:"Bouder",ar:"يزعل ويقاطع الكلام",en:"To sulk",sfr:"Pourquoi tu boudes ?",sar:"ليش زعلان وما عم تحكي؟",sen:"Why are you sulking?",img:"bouder.jpg"},
+ {fr:"Briller",ar:"يلمع / يتألّق",en:"To shine",sfr:"Les étoiles brillent dans le ciel.",sar:"النجوم عم تلمع بالسما.",sen:"The stars are shining in the sky.",img:"briller.jpg"},
+ {fr:"Bosser",ar:"يشتغل (عامية)",en:"To work",sfr:"Je bosse jusqu'à dix heures du soir.",sar:"بشتغل لحد الساعة عشرة بالليل.",sen:"I work until ten in the evening.",img:"bosser.jpg"},];
+ add.forEach(u=>{const L=(u.fr[0]||'').toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(ex){ex.sfr=u.sfr;ex.sar=u.sar;ex.sen=u.sen;if(u.img)ex.img=u.img}else{u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
+ save();localStorage.setItem('verbes-updB2','1')}
 function render(){if(curLetter)renderLetter();else renderHome()}
 /* hardware back: letter → home, sheet → close, home → exit */
 try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
@@ -670,7 +685,7 @@ function bindNoteUI(){const c=$('noteCanvas');c.addEventListener('mousedown',not
  $('noteSizeDec').onclick=()=>setNoteSize(noteSize-1);$('noteSizeInc').onclick=()=>setNoteSize(noteSize+1);$('noteSize').oninput=function(){setNoteSize(parseInt(this.value,10)||3)};
  document.querySelectorAll('.note-tool').forEach(b=>{b.onclick=()=>{noteColor=b.dataset.color;$('noteSwatchDot').style.background=noteColor;document.querySelectorAll('.note-tool').forEach(x=>x.classList.toggle('active',x===b));$('notePalette').classList.remove('show')}})}
 bindNoteUI();
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
