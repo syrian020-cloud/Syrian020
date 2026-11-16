@@ -317,7 +317,8 @@ function parseBulk(txt){
  return blocks.map(b=>{
   const seg=b.title.split(/\s*[–—]\s*|\s+-\s+/).map(s=>s.trim()).filter(Boolean);
   const v={fr:seg[0]||'',ar:seg[1]||'',en:seg[2]||'',sfr:'',sar:'',sen:'',imgurl:(b.imgs||[])[0]||''};
-  const used={};(b.lines||[]).forEach(l=>{const f=flagOf(l);if(f){const s=l.replace(/^\S+\s*/,'').trim();v['s'+f]=(v['s'+f]?v['s'+f]+' ':'')+s;used[f]=1}});
+  const FSPLIT=/(?=🇫🇷|🇸🇾|🇪🇬|🇸🇦|🇦🇪|🇱🇧|🇯🇴|🇵🇸|🇮🇶|🇩🇿|🇲🇦|🇹🇳|🇺🇸|🇬🇧|🇨🇦|🇦🇺)/u;
+  const used={};(b.lines||[]).forEach(l=>{l.split(FSPLIT).map(x=>x.trim()).filter(Boolean).forEach(p=>{const f=flagOf(p);if(f){const s=p.replace(/^\S+\s*/,'').trim();v['s'+f]=(v['s'+f]?v['s'+f]+' ':'')+s;used[f]=1}})});
   const rest=(b.lines||[]).filter(l=>!flagOf(l));
   ['fr','ar','en'].forEach((f,i)=>{if(!used[f]&&rest[i])v['s'+f]=rest[i]});
   return v}).filter(v=>v.fr&&/^\p{Script=Latin}/u.test(v.fr)&&v.fr.split(/\s+/).length<=4)}
@@ -471,6 +472,18 @@ function seed4(){
  {id:3069,fr:"Articuler",ar:"يَلْفِظ بِوُضُوح",en:"To articulate",sfr:"Articule bien les mots, s'il te plaît.",sar:"لفظ الكلمات بوضوح لو سمحت.",sen:"Pronounce the words clearly, please."},];
  add.forEach(v=>{if(have.has(normFr(v.fr)))return;const L=AZ.includes((v.fr[0]||'').toUpperCase())?(v.fr[0]||'').toUpperCase():'A';st.v[L]=st.v[L]||[];st.v[L].push(v)});
  save();localStorage.setItem('verbes-seeded4','1')}
+function fixFlags(){
+ if(localStorage.getItem('verbes-flagsfixed'))return;
+ const FS=/🇫🇷|🇸🇾|🇪🇬|🇸🇦|🇦🇪|🇱🇧|🇯🇴|🇵🇸|🇮🇶|🇩🇿|🇲🇦|🇹🇳|🇺🇸|🇬🇧|🇨🇦|🇦🇺/;
+ const lang=f=>f==='🇫🇷'?'fr':(f==='🇺🇸'||f==='🇬🇧'||f==='🇨🇦'||f==='🇦🇺')?'en':'ar';
+ let ch=false;
+ AZ.forEach(L=>(st.v[L]||[]).forEach(v=>{
+  ['sfr','sar','sen'].forEach(k=>{
+   const s=v[k]||'';if(!FS.test(s))return;
+   const parts=s.split(new RegExp('(?='+FS.source+')','u')).map(x=>x.trim()).filter(Boolean);
+   v[k]='';parts.forEach(p=>{const m=p.match(FS);if(!m)return;const lg=lang(m[0]);const tx=p.replace(FS,'').trim();if(!tx)return;const kk='s'+lg;v[kk]=(v[kk]?v[kk]+' ':'')+tx;ch=true});
+  })}));
+ if(ch)save();localStorage.setItem('verbes-flagsfixed','1')}
 function seed5(){
  if(localStorage.getItem('verbes-seeded5'))return;
  const have=new Set();AZ.forEach(L=>(st.v[L]||[]).forEach(v=>have.add(normFr(v.fr))));
@@ -642,7 +655,7 @@ function bindNoteUI(){const c=$('noteCanvas');c.addEventListener('mousedown',not
  $('noteSizeDec').onclick=()=>setNoteSize(noteSize-1);$('noteSizeInc').onclick=()=>setNoteSize(noteSize+1);$('noteSize').oninput=function(){setNoteSize(parseInt(this.value,10)||3)};
  document.querySelectorAll('.note-tool').forEach(b=>{b.onclick=()=>{noteColor=b.dataset.color;$('noteSwatchDot').style.background=noteColor;document.querySelectorAll('.note-tool').forEach(x=>x.classList.toggle('active',x===b));$('notePalette').classList.remove('show')}})}
 bindNoteUI();
-seed();seed2();seed3();seed4();seed5();seed6();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
