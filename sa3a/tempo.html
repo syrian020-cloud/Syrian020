@@ -1035,9 +1035,11 @@ setInterval(()=>{
   appts.forEach(a=>{
     if(a.status!=='upcoming')return;
     const when=apptTime(a);if(!when)return;
-    [[0,'notifBody0'],[2*3600e3,'notifBody2'],[12*3600e3,'notifBody12'],[24*3600e3,'notifBody24']].forEach(([o,k],i)=>{
+    const OFFS=[[0,'notifBody0'],[2*3600e3,'notifBody2'],[12*3600e3,'notifBody12'],[24*3600e3,'notifBody24']];
+    OFFS.forEach(([o,k],i)=>{
       const key=a.id+':'+i;
-      if(!s.has(key)&&Date.now()>=when-o&&when>Date.now()-30e3){
+      const lo=when-o,hi=i>0?lo+2*60e3:when+60e3;
+      if(!s.has(key)&&Date.now()>=lo&&Date.now()<hi&&when>Date.now()-30e3){
         markFired(key);
         const msg=t(k)(a.title);
         startApptRing(a,msg);notifBeep();
