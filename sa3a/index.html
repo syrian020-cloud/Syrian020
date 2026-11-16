@@ -127,6 +127,7 @@ main{flex:1;overflow:auto;position:relative}
 .wxRow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
 .wxCell{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 4px;text-align:center}
 .wxs{background:none;border:none;font-size:1rem;cursor:pointer;color:var(--acc);padding:2px 4px}
+.wxi{font-size:.7rem;opacity:.95;color:#fff;vertical-align:middle}
 .wxs.wxon{outline:2px solid var(--acc);border-radius:8px}
 .wxCell .wxs{position:absolute;top:2px;inset-inline-end:2px;font-size:.85rem;opacity:.85}
 .wxCapB{font-size:.85rem;font-weight:700;line-height:1.5;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 10px;text-align:center;color:var(--acc);margin:6px 0 10px}
@@ -2129,9 +2130,10 @@ function renderWx(L){
  const c=j.current,loc=st.lang==='ar'?'ar':st.lang;
  const fmtT=v=>Math.round(v)+'°';
  const hfmt=ts=>new Date(ts).toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit'});
- let out='<div class="wxNow" id="wxNowCard"><div class="wc">'+wIco(c.weather_code)+'</div><div class="wt">'+fmtT(c.temperature_2m)+'</div>'
-  +'<div class="wd2">'+wName(c.weather_code)+'</div>'
-  +'<div class="wsub">'+t('wxFeels')+' '+fmtT(c.apparent_temperature)+' · 💧 '+c.relative_humidity_2m+'% · 💨 '+Math.round(c.wind_speed_10m)+' '+t('wxKmh')+'</div><div id="wxCap"></div></div>';
+ const sbi=(k)=>'<button class="wxs wxi" data-say="'+k+'">🔊</button>';
+ let out='<div class="wxNow" id="wxNowCard"><div class="wc">'+wIco(c.weather_code)+'</div><div class="wt">'+fmtT(c.temperature_2m)+sbi('temp')+'</div>'
+  +'<div class="wd2">'+wName(c.weather_code)+' '+sbi('cond')+'</div>'
+  +'<div class="wsub">'+t('wxFeels')+' '+fmtT(c.apparent_temperature)+' · 💧 '+c.relative_humidity_2m+'% · 💨 '+Math.round(c.wind_speed_10m)+' '+t('wxKmh')+' '+sbi('sub')+'</div><div id="wxCap"></div></div>';
  // today extras
  const d0=j.daily;
  const sb=(k,i)=>'<button class="wxs" data-say="'+k+'"'+(i!=null?' data-i="'+i+'"':'')+'>🔊</button>';
@@ -2156,9 +2158,20 @@ function renderWx(L){
    +'<div class="tp">'+fmtT(j.daily.temperature_2m_max[i])+' <span class="lo">'+fmtT(j.daily.temperature_2m_min[i])+'</span></div>'+sb('day',i)+'</div>'}
  $('wxBody').innerHTML=out}
 function wxPhrase(kind,i,j){
- const lg=st.lang,d0=j.daily,loc=lg==='ar'?'ar':lg;
+ const lg=st.lang,d0=j.daily,c=j.current,loc=lg==='ar'?'ar':lg;
  const hfmt=ts=>new Date(ts).toLocaleTimeString(loc,{hour:'numeric',minute:'2-digit'});
  const P=o=>o[lg]||o.en;
+ if(kind==='temp'){const city=(wxLoc&&wxLoc.name||'').split('،')[0].split(',')[0],tt=Math.round(c.temperature_2m);
+  return P({fr:'Il fait '+tt+' degrés à '+city+'.',ar:'درجة الحرارة '+tt+' درجة في '+city+'.',en:"It's "+tt+' degrees in '+city+'.'})}
+ if(kind==='cond'){const cd=wName(c.weather_code),cdl=cd.charAt(0).toLowerCase()+cd.slice(1);
+  return P({fr:'Le ciel est '+cdl+'. '+(c.weather_code===3?"C'est tout gris aujourd'hui.":''),ar:'السماء '+cd+'.'+(c.weather_code===3?' الجو غائم ورمادي اليوم.':''),en:'The sky is '+cdl+'.'+(c.weather_code===3?" It's very cloudy today.":'')})}
+ if(kind==='sub'){const fl=Math.round(c.apparent_temperature),h=c.relative_humidity_2m,wd=Math.round(c.wind_speed_10m);
+  const dir=Math.round((c.wind_direction_10m||0)/45)%8;
+  const DIRS={fr:['nord','nord-est','est','sud-est','sud','sud-ouest','ouest','nord-ouest'],ar:['الشمال','الشمال الشرقي','الشرق','الجنوب الشرقي','الجنوب','الجنوب الغربي','الغرب','الشمال الغربي'],en:['north','northeast','east','southeast','south','southwest','west','northwest']};
+  const windP=wd>=50?{fr:'de fortes rafales de vent',ar:'هبّات رياح قوية',en:'strong gusts of wind'}:wd>=30?{fr:'un vent fort',ar:'رياح قوية',en:'a strong wind'}:wd>=15?{fr:'un vent modéré',ar:'رياح معتدلة',en:'a moderate wind'}:{fr:'un petit vent',ar:'رياح خفيفة',en:'a light wind'};
+  return P({fr:'On a un ressenti de '+fl+' degrés. Le taux d\'humidité est à '+h+' %. Il y a '+windP.fr+' à '+wd+' kilomètres-heure en venant du '+DIRS.fr[dir]+'.',
+   ar:'الحرارة المحسوسة '+fl+' درجة. نسبة الرطوبة '+h+' بالمئة. توجد '+windP.ar+' بسرعة '+wd+' كيلومتراً في الساعة جاية من '+DIRS.ar[dir]+'.',
+   en:'It feels like '+fl+' degrees. The humidity level is '+h+'%. There\'s '+windP.en+' at '+wd+' kilometers per hour from the '+DIRS.en[dir]+'.'})}
  if(kind==='sun')return P({fr:'Le soleil se lève à '+hfmt(d0.sunrise[0])+'.',ar:'تشرق الشمس الساعة '+hfmt(d0.sunrise[0])+'.',en:'The sun rises at '+hfmt(d0.sunrise[0])+'.'});
  if(kind==='set')return P({fr:'Le soleil se couche à '+hfmt(d0.sunset[0])+'.',ar:'تغرب الشمس الساعة '+hfmt(d0.sunset[0])+'.',en:'The sun sets at '+hfmt(d0.sunset[0])+'.'});
  if(kind==='rain'){const p=d0.precipitation_probability_max[0]??0;
@@ -2194,7 +2207,7 @@ async function wxSayBtn(b){
  const j=wxLoc&&wxLoc.data;if(!j)return;
  const txt=wxPhrase(b.dataset.say,+(b.dataset.i||0),j);if(!txt)return;
  b.classList.add('wxon');
- const anchor=b.closest('.wxDay')||b.closest('.wxRow')||(b.closest('.wxTtl')?b.closest('.wxTtl').nextElementSibling:null)||b.parentElement;
+ const anchor=b.closest('.wxNow')||b.closest('.wxDay')||b.closest('.wxRow')||(b.closest('.wxTtl')?b.closest('.wxTtl').nextElementSibling:null)||b.parentElement;
  wxCapB(txt,anchor);const tok=sayTok;
  await sayOnce(txt,st.lang==='ar'?'ar':st.lang);
  if(tok===sayTok){b.classList.remove('wxon');wxCapB('')}
