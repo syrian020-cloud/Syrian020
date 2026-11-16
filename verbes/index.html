@@ -773,6 +773,39 @@ function updC3(){
  {fr:"Concrétiser",ar:"يحقّق / يحوّل إلى واقع",en:"To make concrete / realize",sfr:"Elle veut concrétiser son projet cette année.",sar:"بدها تحوّل مشروعها لشي واقعي هالسنة.",sen:"She wants to turn her project into reality this year."},];
  add.forEach(u=>{const L=normFr(u.fr).replace(/^se /,'').charAt(0).toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(ex){ex.sfr=u.sfr;ex.sar=u.sar;ex.sen=u.sen;if(u.img)ex.img=u.img}else{u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
  save();localStorage.setItem('verbes-updC3','1')}
+function updC4(){
+ if(localStorage.getItem('verbes-updC4'))return;
+ const add=[
+ {fr:"Cocher",ar:"يضع إشارة / يؤشّر",en:"To tick / check",sfr:"Cochez la bonne réponse.",sar:"حط إشارة على الجواب الصحيح.",sen:"Tick the correct answer.",img:"cocher.jpg"},
+ {fr:"Convoquer",ar:"يستدعي",en:"To summon",sfr:"Le responsable m'a convoqué dans son bureau.",sar:"المسؤول استدعاني على مكتبه.",sen:"The manager summoned me to his office.",img:"convoquer.jpg"},
+ {fr:"Compter sur",ar:"يعتمد على",en:"To count on",sfr:"Tu peux compter sur moi.",sar:"فيك تعتمد عليّ.",sen:"You can count on me.",img:"compter_sur.jpg"},
+ {fr:"Côtoyer",ar:"يخالط / يتعامل باستمرار مع",en:"To associate with",sfr:"Je côtoie beaucoup de personnes au travail.",sar:"بتعامل مع أشخاص كتير بالشغل.",sen:"I interact with many people at work.",img:"cotoyer.jpg"},
+ {fr:"Consacrer",ar:"يخصّص",en:"To devote",sfr:"Je consacre une heure par jour au français.",sar:"بخصّص ساعة كل يوم للفرنسي.",sen:"I devote one hour a day to French.",img:"consacrer.jpg"},
+ {fr:"Culpabiliser",ar:"يشعر بالذنب",en:"To feel guilty",sfr:"Ne culpabilise pas pour cette erreur.",sar:"لا تحمّل حالك ذنب هالغلطة.",sen:"Don't feel guilty about this mistake.",img:"culpabiliser.jpg"},
+ {fr:"Calmer",ar:"يهدّئ",en:"To calm",sfr:"Essaie de calmer ton enfant.",sar:"حاول تهدّي ابنك.",sen:"Try to calm your child down.",img:"calmer.jpg"},
+ {fr:"Canaliser",ar:"يضبط / يوجّه",en:"To channel",sfr:"Il faut canaliser son énergie.",sar:"لازم يوجّه طاقته بطريقة مفيدة.",sen:"He needs to channel his energy.",img:"canaliser.jpg"},
+ {fr:"Compromettre",ar:"يعرّض للخطر / يفسد",en:"To jeopardize",sfr:"Cette erreur risque de compromettre le projet.",sar:"هالغلطة ممكن تعرّض المشروع للخطر.",sen:"This mistake could jeopardize the project.",img:"compromettre.jpg"},
+ {fr:"Contredire",ar:"يناقض / يعارض",en:"To contradict",sfr:"Je ne veux pas te contredire.",sar:"ما بدي عارضك أو قول عكس كلامك.",sen:"I don't want to contradict you.",img:"contredire.jpg"},
+ {fr:"Censurer",ar:"يفرض رقابة / يحذف",en:"To censor",sfr:"Le journal a censuré certains passages.",sar:"الجريدة حذفت بعض المقاطع بسبب الرقابة.",sen:"The newspaper censored certain passages.",img:"censurer.jpg"},
+ {fr:"Contaminer",ar:"يلوّث / ينقل العدوى",en:"To contaminate",sfr:"Il faut éviter de contaminer les aliments.",sar:"لازم نتجنب تلويث الأطعمة.",sen:"We must avoid contaminating food.",img:"contaminer.jpg"},
+ {fr:"Consolider",ar:"يعزّز / يقوّي",en:"To strengthen / consolidate",sfr:"Nous devons consolider notre équipe.",sar:"لازم نقوّي فريقنا.",sen:"We need to strengthen our team.",img:"consolider.jpg"},
+ {fr:"Consigner",ar:"يسجّل / يدوّن رسمياً",en:"To record",sfr:"Le gardien doit consigner les incidents dans un rapport.",sar:"لازم الحارس يسجّل الحوادث بتقرير.",sen:"The security guard must record the incidents in a report.",img:"consigner.jpg"},
+ {fr:"Cadrer",ar:"يحدّد الإطار / يضبط",en:"To frame / define",sfr:"Il faut bien cadrer le projet dès le début.",sar:"لازم نحدّد إطار المشروع منيح من البداية.",sen:"We need to define the project's scope properly from the start.",img:"cadrer.jpg"},
+ {fr:"Camoufler",ar:"يموّه / يخفي",en:"To camouflage",sfr:"Il essaie de camoufler son erreur.",sar:"عم يحاول يخفي غلطته.",sen:"He is trying to cover up his mistake.",img:"camoufler.jpg"},
+ {fr:"Capturer",ar:"يلتقط / يأسر",en:"To capture",sfr:"J'aime capturer de beaux paysages en photo.",sar:"بحب صوّر مناظر طبيعية حلوة.",sen:"I like capturing beautiful landscapes in photos.",img:"capturer.jpg"},
+ {fr:"Cartonner",ar:"يحقق نجاحاً كبيراً",en:"To be a big hit",sfr:"Ce film a cartonné au cinéma.",sar:"هالفيلم حقق نجاح كبير بالسينما.",sen:"This film was a big hit at the cinema.",img:"cartonner.jpg"},
+ {fr:"Catégoriser",ar:"يصنّف ضمن فئات",en:"To categorize",sfr:"Nous devons catégoriser les produits.",sar:"لازم نصنّف المنتجات حسب الفئات.",sen:"We need to categorize the products.",img:"categoriser.jpg"},
+ {fr:"Centraliser",ar:"يجمع في مكان مركزي",en:"To centralize",sfr:"L'entreprise veut centraliser toutes les informations.",sar:"الشركة بدها تجمع كل المعلومات بمكان واحد.",sen:"The company wants to centralize all the information.",img:"centraliser.jpg"},
+ {fr:"Cerner",ar:"يحدّد بدقة / يفهم جوهر",en:"To identify precisely",sfr:"Il est difficile de cerner le problème.",sar:"صعب نحدّد المشكلة بدقة.",sen:"It is difficult to identify the problem precisely.",img:"cerner.jpg"},
+ {fr:"Chiffrer",ar:"يقدّر بالأرقام / يشفّر",en:"To quantify / encrypt",sfr:"Nous devons chiffrer le coût des travaux.",sar:"لازم نقدّر تكلفة الأشغال بالأرقام.",sen:"We need to calculate the cost of the work.",img:"chiffrer.jpg"},
+ {fr:"Cirer",ar:"يلمّع بالشمع",en:"To wax / polish",sfr:"Il cire ses chaussures avant de sortir.",sar:"هو عم يلمّع حذاءه قبل ما يطلع.",sen:"He polishes his shoes before going out.",img:"cirer.jpg"},
+ {fr:"Clôturer",ar:"يُنهي / يُغلق",en:"To close / conclude",sfr:"Nous allons clôturer le dossier demain.",sar:"رح نسكّر الملف بكرا.",sen:"We are going to close the file tomorrow.",img:"cloturer.jpg"},
+ {fr:"Combler",ar:"يملأ / يسدّ النقص",en:"To fill / make up for",sfr:"Cette formation permet de combler certaines lacunes.",sar:"هالتدريب بيساعد على سدّ بعض النواقص.",sen:"This training helps fill certain gaps.",img:"combler.jpg"},
+ {fr:"Compenser",ar:"يعوّض",en:"To compensate",sfr:"Il doit compenser les heures perdues.",sar:"لازم يعوّض الساعات اللي خسرها.",sen:"He must make up for the lost hours.",img:"compenser.jpg"},
+ {fr:"Concilier",ar:"يوفّق بين",en:"To reconcile / balance",sfr:"Elle essaie de concilier travail et vie personnelle.",sar:"عم تحاول توفّق بين الشغل وحياتها الشخصية.",sen:"She is trying to balance work and personal life.",img:"concilier.jpg"},
+ {fr:"Condamner",ar:"يدين / يحكم على",en:"To condemn",sfr:"Le tribunal a condamné l'homme.",sar:"المحكمة حكمت على الرجل.",sen:"The court sentenced the man."},];
+ add.forEach(u=>{const L=normFr(u.fr).replace(/^se /,'').charAt(0).toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(ex){ex.sfr=u.sfr;ex.sar=u.sar;ex.sen=u.sen;if(u.img)ex.img=u.img}else{u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
+ save();localStorage.setItem('verbes-updC4','1')}
 function render(){if(curLetter)renderLetter();else renderHome()}
 /* hardware back: letter → home, sheet → close, home → exit */
 try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
@@ -820,7 +853,7 @@ function bindNoteUI(){const c=$('noteCanvas');c.addEventListener('mousedown',not
  $('noteSizeDec').onclick=()=>setNoteSize(noteSize-1);$('noteSizeInc').onclick=()=>setNoteSize(noteSize+1);$('noteSize').oninput=function(){setNoteSize(parseInt(this.value,10)||3)};
  document.querySelectorAll('.note-tool').forEach(b=>{b.onclick=()=>{noteColor=b.dataset.color;$('noteSwatchDot').style.background=noteColor;document.querySelectorAll('.note-tool').forEach(x=>x.classList.toggle('active',x===b));$('notePalette').classList.remove('show')}})}
 bindNoteUI();
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
