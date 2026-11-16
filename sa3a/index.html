@@ -13,7 +13,7 @@
 [data-theme=light]{--bg:#eef1fa;--bg2:#ffffff;--card:#ffffff;--card2:#f2f4fc;--txt:#141a33;--dim:#5d6480;--acc:#2f6fe0;--acc2:#6a4de0;--ok:#12a45e;--danger:#e0364a;--line:#dde2f2;--shadow:0 6px 18px rgba(30,40,90,.12)}
 [data-theme=syria]{--bg:#06130c;--bg2:#0b2014;--card:#102a1b;--card2:#173826;--txt:#f2fff7;--dim:#9db8a8;--acc:#e8493f;--acc2:#35b46a;--ok:#2fd180;--danger:#ff5d6c;--line:#1f4530;--shadow:0 6px 24px rgba(0,0,0,.5)}
 #clockWrap{position:relative}
-#flagDeco{display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(80vw,54vh);aspect-ratio:1;border-radius:50%;z-index:-1;pointer-events:none;filter:brightness(.92)}
+#flagDeco{display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(80vw,54vh);aspect-ratio:1;border-radius:50%;z-index:-1;pointer-events:none;filter:brightness(.55) saturate(1.1)}
 [data-theme=syria] #flagDeco{display:block}
 [data-theme=syria] #analog .face{fill:rgba(0,0,0,.3);stroke:#050505}
 [data-theme=syria] #analog .hand,[data-theme=syria] #analog .num,[data-theme=syria] #analog .tick{filter:drop-shadow(0 0 2.5px rgba(0,0,0,.95))}
@@ -23,6 +23,9 @@
 [data-theme=syria] #analog .num{fill:#fff;stroke:#000;stroke-width:.8px;paint-order:stroke}
 [data-theme=syria] #analog .digIn{fill:#fff;stroke:#000;stroke-width:.6px;paint-order:stroke}
 [data-theme=syria] #analog .tick.big{stroke:#fff}
+[data-theme=syria] #digital .dtime{color:#fff;text-shadow:0 0 4px #000,0 0 14px #000,0 2px 3px #000}
+[data-theme=syria] #digital .dtime .sec{color:#ffe1b0;text-shadow:0 0 4px #000,0 0 10px #000}
+[data-theme=syria] #digital .ddate,[data-theme=syria] #digital #nextAl{color:#fff;text-shadow:0 0 4px #000,0 0 10px #000,0 1px 2px #000}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--txt);font-family:'Cairo',system-ui,sans-serif;transition:background .3s,color .3s}
 body{display:flex;flex-direction:column;overflow:hidden}
