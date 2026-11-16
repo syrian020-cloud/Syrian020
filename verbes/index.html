@@ -473,7 +473,7 @@ function seed4(){
  add.forEach(v=>{if(have.has(normFr(v.fr)))return;const L=AZ.includes((v.fr[0]||'').toUpperCase())?(v.fr[0]||'').toUpperCase():'A';st.v[L]=st.v[L]||[];st.v[L].push(v)});
  save();localStorage.setItem('verbes-seeded4','1')}
 function fixFlags(){
- if(localStorage.getItem('verbes-flagsfixed'))return;
+ if(localStorage.getItem('verbes-flagsfixed2'))return;
  const FS=/🇫🇷|🇸🇾|🇪🇬|🇸🇦|🇦🇪|🇱🇧|🇯🇴|🇵🇸|🇮🇶|🇩🇿|🇲🇦|🇹🇳|🇺🇸|🇬🇧|🇨🇦|🇦🇺/;
  const lang=f=>f==='🇫🇷'?'fr':(f==='🇺🇸'||f==='🇬🇧'||f==='🇨🇦'||f==='🇦🇺')?'en':'ar';
  let ch=false;
@@ -481,9 +481,9 @@ function fixFlags(){
   ['sfr','sar','sen'].forEach(k=>{
    const s=v[k]||'';if(!FS.test(s))return;
    const parts=s.split(new RegExp('(?='+FS.source+')','u')).map(x=>x.trim()).filter(Boolean);
-   v[k]='';parts.forEach(p=>{const m=p.match(FS);if(!m)return;const lg=lang(m[0]);const tx=p.replace(FS,'').trim();if(!tx)return;const kk='s'+lg;v[kk]=(v[kk]?v[kk]+' ':'')+tx;ch=true});
+   v[k]='';parts.forEach(p=>{const m=p.match(FS);if(!m){v[k]=(v[k]?v[k]+' ':'')+p;ch=true;return}const lg=lang(m[0]);const tx=p.replace(FS,'').trim();if(!tx)return;const kk='s'+lg;v[kk]=(v[kk]?v[kk]+' ':'')+tx;ch=true});
   })}));
- if(ch)save();localStorage.setItem('verbes-flagsfixed','1')}
+ if(ch)save();localStorage.setItem('verbes-flagsfixed2','1')}
 function seed5(){
  if(localStorage.getItem('verbes-seeded5'))return;
  const have=new Set();AZ.forEach(L=>(st.v[L]||[]).forEach(v=>have.add(normFr(v.fr))));
