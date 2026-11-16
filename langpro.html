@@ -2701,9 +2701,12 @@ function lessonDetails(l, refresh, onDelete, reopen) {
     var ta2 = document.createElement('textarea');
     ta2.rows = 14; ta2.dir = 'ltr';
     ta2.style.cssText = 'width:100%;background:transparent;border:none;outline:none;color:var(--txt);font:inherit;resize:vertical';
-    ta2.value = sortedCues(l).map(function (c) {
-      return (c.t != null ? fmtT(c.t) + ' ' : '') + (c.text || '');
-    }).join('\n');
+    // same lossless format as copy-all; a numbered title line re-parses into
+    // the cue's note, so Edit-all no longer drops notes or end times on save
+    ta2.value = sortedCues(l).map(function (c, i) {
+      var head = c.note ? (i + 1) + '. ' + c.note + '\n' : '';
+      return head + (c.t != null ? (c.d != null ? fmtT(c.t) + ' --> ' + fmtT(c.d) + ' ' : fmtT(c.t) + ' ') : '') + (c.text || '');
+    }).join('\n\n');
     f2.appendChild(ta2); ed.appendChild(f2);
     var er = el('div', 'row'); er.style.marginTop = '.8rem';
     var eno = el('button', null, t.no); eno.onclick = function () { eov.remove(); };
