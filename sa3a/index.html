@@ -2316,7 +2316,7 @@ function applyLang(){
  document.documentElement.lang=st.lang;
  document.documentElement.dir=st.lang==='ar'?'rtl':'ltr';
  $('hTitle').textContent=t('appName');
- $('langBtn').textContent='🌐 '+(st.lang==='ar'?'EN':st.lang==='en'?'FR':'AR');
+ $('langBtn').textContent='🌐 '+st.lang.toUpperCase();
  const tabs={clock:t('tabClock'),alarms:t('tabAlarms'),timer:t('tabTimer'),cal:t('tabCal')};
  document.querySelectorAll('nav button .t').forEach((e,i)=>e.textContent=tabs[['clock','alarms','timer','cal'][i]]);
  $('modeTimer').textContent=t('tTimer');$('modeStop').textContent=t('tStop');
