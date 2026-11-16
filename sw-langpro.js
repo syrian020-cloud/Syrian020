@@ -1,0 +1,77 @@
+const CACHE_NAME = 'langpro-v1';   // bump on every langpro change — existing installs must drop the old cached page
+const FILES_TO_CACHE = [
+  './langpro.html',
+  './manifest-langpro.json',
+  './icon-prolang-192.png',
+  './icon-prolang-512.png'
+];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) =>
+      cache.addAll(FILES_TO_CACHE.map((url) => new Request(url, { cache: 'reload' })))
+    )
+  );
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  // Only ever delete langpro's own caches — other apps on this origin keep theirs.
+  event.waitUntil(
+    caches.keys().then((names) =>
+      Promise.all(
+        names
+          .filter((name) => name.startsWith('langpro-') && name !== CACHE_NAME)
+          .map((name) => caches.delete(name))
+      )
+    ).then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  const url = new URL(event.request.url);
+  const isNav = event.request.mode === 'navigate';
+  const isOurs = FILES_TO_CACHE.some((f) => url.pathname.endsWith(f.replace('./', '/')))
+    || url.pathname.includes('/data/')
+    || url.pathname.includes('/js/');
+  // Everything that is not langpro's own asset/page passes straight through,
+  // so this worker never interferes with the other apps sharing this origin.
+  if (!isNav && !isOurs) return;
+  if (isNav) {
+    // Network-first for langpro's own page only: fresh HTML when online,
+    // cached copy when offline or on HTTP errors — updates reach existing
+    // installs without a cache-name bump. Other apps' pages pass through.
+    if (!url.pathname.endsWith('/langpro.html')) return;
+    const cachedPage = () =>
+      caches.match(event.request).then((cached) =>
+        cached || caches.match('./langpro.html'));
+    event.respondWith(
+      fetch(event.request).then((res) => {
+        if (res.type === 'opaqueredirect') return res;   // let the browser follow redirects
+        if (!res.ok) return cachedPage();                // 4xx/5xx resolve fetch — still serve the app
+        const copy = res.clone();
+        // chain the write into the response promise so the worker stays
+        // alive until the updated page is actually in the cache
+        return caches.open(CACHE_NAME)
+          .then((c) => c.put('./langpro.html', copy)).then(() => res);
+      }).catch(cachedPage)
+    );
+    return;
+  }
+  event.respondWith(
+    caches.match(event.request).then((cached) => {
+      // stale-while-revalidate: serve the cached copy instantly and refresh it
+      // in the background; fetch directly when nothing is cached yet. A quota
+      // failure on the cache write must never break the network response.
+      const fetched = fetch(event.request).then((res) => {
+        if (!res.ok) return res;
+        const copy = res.clone();
+        return caches.open(CACHE_NAME)
+          .then((c) => c.put(event.request, copy))
+          .catch(() => {})   // storage full — keep serving the network copy
+          .then(() => res);
+      });
+      return cached || fetched.catch(() => cached);
+    })
+  );
+});
