@@ -1,0 +1,8 @@
+{
+  "appId": "com.syrian020.verbes",
+  "appName": "أفعال",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

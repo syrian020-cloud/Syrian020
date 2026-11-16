@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d1025">
+<title>أفعال · Verbes</title>
+<link rel="manifest" href="manifest.json">
+<style>
+:root{--bg:#0d1025;--bg2:#161a33;--card:#1b2040;--bd:#2a3060;--txt:#e8ebff;--dim:#8b93b8;--acc:#4f7cff;--acc2:#38d9a9}
+[data-theme=light]{--bg:#f2f4fc;--bg2:#ffffff;--card:#ffffff;--bd:#d7dcef;--txt:#1b2040;--dim:#5a6285;--acc:#2f5fe8;--acc2:#0e9f78}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:system-ui,'Segoe UI',sans-serif;background:var(--bg);color:var(--txt);min-height:100vh}
+#hdr{position:sticky;top:0;z-index:9;display:flex;align-items:center;gap:.4rem;padding:.55rem .7rem;background:var(--bg);border-bottom:1px solid var(--bd)}
+#ttl{flex:1;font-size:1.15rem;font-weight:800;text-align:center}
+.hbtn{width:38px;height:38px;border-radius:12px;border:1px solid var(--bd);background:var(--card);color:var(--txt);font-size:1.15rem;display:grid;place-items:center;cursor:pointer;flex:none}
+.hbtn:active{filter:brightness(1.3)}
+#backBtn{display:none}
+main{padding:.7rem;max-width:640px;margin:0 auto;padding-bottom:5rem}
+#letters{display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem}
+.let{position:relative;aspect-ratio:1;border-radius:16px;border:1.5px solid var(--bd);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem;cursor:pointer;font-size:1.7rem;font-weight:800;color:var(--txt)}
+.let:active{transform:scale(.96)}
+.let small{font-size:.62rem;color:var(--dim);font-weight:600}
+.let .cnt{position:absolute;top:4px;inset-inline-end:5px;min-width:20px;height:20px;border-radius:10px;background:var(--acc);color:#fff;font-size:.68rem;font-weight:800;display:grid;place-items:center;padding:0 5px}
+.let .cnt:empty{display:none}
+.let.empty{opacity:.55}
+.vcard{background:var(--card);border:1.5px solid var(--bd);border-radius:16px;padding:.6rem .65rem;margin-bottom:.6rem}
+.vtop{display:flex;align-items:center;gap:.55rem}
+.vimg{width:52px;height:52px;border-radius:12px;object-fit:cover;flex:none;border:1px solid var(--bd)}
+.vimg.noimg{display:grid;place-items:center;font-size:1.5rem;background:var(--bg2)}
+.vname{flex:1;min-width:0;line-height:1.35}
+.vname .vf{font-weight:800;font-size:1.05rem}
+.vname .vtr{display:block;font-size:.82rem;color:var(--dim);font-weight:600}
+.vact{display:flex;flex-direction:column;gap:.3rem;flex:none}
+.vact button{width:30px;height:30px;border-radius:9px;border:1px solid var(--bd);background:var(--bg2);color:var(--txt);font-size:.9rem;cursor:pointer}
+.phrow{display:flex;gap:.5rem;align-items:flex-start;margin-top:.4rem;border-radius:12px;padding:.35rem .55rem;border:1.5px solid var(--bd)}
+.phrow .pht{flex:1;min-width:0;font-weight:600;line-height:1.5;overflow-wrap:anywhere;text-align:start}
+.phflag{flex:none;width:34px;height:34px;border-radius:10px;border:1px solid var(--bd);background:var(--bg2);font-size:1.15rem;display:grid;place-items:center;cursor:pointer}
+.phflag.speaking{background:var(--acc);outline:2px solid var(--acc2)}
+.lg-ar{direction:rtl}
+.lg-fr,.lg-en{direction:ltr}
+#empty{text-align:center;color:var(--dim);padding:3rem 1rem;font-weight:600}
+#addFab{position:fixed;bottom:1.1rem;inset-inline-end:1.1rem;width:56px;height:56px;border-radius:50%;border:none;background:var(--acc);color:#fff;font-size:1.7rem;box-shadow:0 6px 20px #0007;cursor:pointer;z-index:8;display:none}
+.shade{position:fixed;inset:0;background:#000a;z-index:50;display:none;align-items:flex-end;justify-content:center}
+.shade.on{display:flex}
+.sheet{background:var(--bg2);border-radius:22px 22px 0 0;width:100%;max-width:640px;max-height:92vh;overflow-y:auto;padding:1rem}
+.sheet h3{margin:.2rem 0 .8rem;text-align:center}
+.fld{margin-bottom:.55rem}
+.fld label{display:block;font-size:.78rem;color:var(--dim);font-weight:700;margin-bottom:.2rem}
+.fld input,.fld textarea{width:100%;padding:.55rem .7rem;border-radius:12px;border:1.5px solid var(--bd);background:var(--card);color:var(--txt);font-size:.95rem;font-family:inherit}
+.fld input[dir=ltr],.fld textarea[dir=ltr]{text-align:left}
+.brow{display:flex;gap:.5rem;margin-top:.8rem}
+.bbtn{flex:1;padding:.7rem;border-radius:14px;border:none;font-size:1rem;font-weight:800;cursor:pointer}
+.bbtn.pri{background:var(--acc);color:#fff}
+.bbtn.sec{background:var(--card);color:var(--txt);border:1.5px solid var(--bd)}
+#imgPrev{width:64px;height:64px;border-radius:12px;object-fit:cover;display:none;margin-top:.4rem}
+.toast{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);background:#222a;color:#fff;padding:.5rem 1.1rem;border-radius:20px;font-size:.85rem;z-index:99;display:none}
+.toast.on{display:block}
+</style>
+</head>
+<body>
+<header id="hdr">
+<button class="hbtn" id="backBtn">→</button>
+<button class="hbtn" id="muteBtn">🔇</button>
+<div id="ttl"></div>
+<button class="hbtn" id="themeBtn">🌙</button>
+<button class="hbtn" id="langBtn">🌐</button>
+</header>
+<main>
+<div id="letters"></div>
+<div id="lv" style="display:none"></div>
+</main>
+<button id="addFab">＋</button>
+<div class="shade" id="vShade"><div class="sheet">
+<h3 id="vTtl"></h3>
+<div class="fld"><label id="lVerb"></label><input id="fVerb" dir="ltr" placeholder="Acheter"></div>
+<div class="fld"><label id="lAr"></label><input id="fAr" dir="rtl" placeholder="يشتري"></div>
+<div class="fld"><label id="lEn"></label><input id="fEn" dir="ltr" placeholder="To buy"></div>
+<div class="fld"><label id="lSfr"></label><textarea id="fSfr" dir="ltr" rows="2" placeholder="Je veux acheter du pain."></textarea></div>
+<div class="fld"><label id="lSar"></label><textarea id="fSar" dir="rtl" rows="2" placeholder="بدي اشتري خبز."></textarea></div>
+<div class="fld"><label id="lSen"></label><textarea id="fSen" dir="ltr" rows="2" placeholder="I want to buy bread."></textarea></div>
+<div class="fld"><label id="lImg"></label><button class="bbtn sec" id="fImgBtn" style="width:auto;padding:.45rem .9rem">🖼️</button><img id="imgPrev"><input type="file" id="fImg" accept="image/*" hidden></div>
+<div class="brow"><button class="bbtn sec" id="vCancel"></button><button class="bbtn pri" id="vSave"></button></div>
+</div></div>
+<div class="toast" id="toast"></div>
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const CAP=window.Capacitor||{};const isCap=()=>!!(CAP.isNativePlatform&&CAP.isNativePlatform());
+const LANGS=['ar','en','fr'],LANGICON={ar:'🇸🇾',en:'🇺🇸',fr:'🇫🇷'};
+const T={
+ar:{name:'أفعال',verbs:'فعل',add:'أضف فعلًا',edit:'عدّل الفعل',delQ:'حذف هذا الفعل؟',verb:'الفعل (فرنسي)',arM:'المعنى بالعربي',enM:'English meaning',sfr:'جملة فرنسية',sar:'جملة بالعربي',sen:'English sentence',img:'صورة (اختياري)',save:'حفظ',cancel:'إلغاء',empty:'لا أفعال بعد — اضغط ＋ لإضافة فعل',saved:'✓ حُفظ',letters:'الحروف A–Z'},
+en:{name:'Verbs',verbs:'verbs',add:'Add a verb',edit:'Edit verb',delQ:'Delete this verb?',verb:'Verb (French)',arM:'Arabic meaning',enM:'English meaning',sfr:'French sentence',sar:'Arabic sentence',sen:'English sentence',img:'Image (optional)',save:'Save',cancel:'Cancel',empty:'No verbs yet — tap ＋ to add one',saved:'✓ Saved',letters:'Letters A–Z'},
+fr:{name:'Verbes',verbs:'verbes',add:'Ajouter un verbe',edit:'Modifier le verbe',delQ:'Supprimer ce verbe ?',verb:'Verbe (français)',arM:'Sens en arabe',enM:'Sens en anglais',sfr:'Phrase en français',sar:'Phrase en arabe',sen:'Phrase en anglais',img:'Image (optionnel)',save:'Enregistrer',cancel:'Annuler',empty:'Pas encore de verbes — touchez ＋',saved:'✓ Enregistré',letters:'Lettres A–Z'}};
+const t=k=>T[st.lang][k];
+let st={};
+try{st=JSON.parse(localStorage.getItem('verbes')||'{}')}catch(e){st={}}
+st.lang=st.lang||'ar';st.theme=st.theme||'dark';st.v=st.v||{};
+const save=()=>{try{localStorage.setItem('verbes',JSON.stringify({lang:st.lang,theme:st.theme,v:st.v}))}catch(e){}};
+/* IndexedDB for user-added images */
+const idb={d:null,open(){return this.d?Promise.resolve(this.d):new Promise((res,rej)=>{const r=indexedDB.open('verbes-db',1);r.onupgradeneeded=()=>r.result.createObjectStore('s');r.onsuccess=()=>{this.d=r.result;res(r.result)};r.onerror=()=>rej(r.error)})},
+ get(k){return this.open().then(d=>new Promise((res,rej)=>{const q=d.transaction('s').objectStore('s').get(k);q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)}))},
+ set(k,v){return this.open().then(d=>new Promise((res,rej)=>{const tx=d.transaction('s','readwrite');tx.objectStore('s').put(v,k);tx.oncomplete=()=>res();tx.onerror=()=>rej(tx.error)}))},
+ del(k){return this.open().then(d=>new Promise((res,rej)=>{const tx=d.transaction('s','readwrite');tx.objectStore('s').delete(k);tx.oncomplete=()=>res();tx.onerror=()=>rej(tx.error)}))}};
+/* TTS */
+let sayTok=0;
+function stopSay(){sayTok++;try{if(isCap()&&CAP.Plugins.Tts&&CAP.Plugins.Tts.stop)CAP.Plugins.Tts.stop().catch(()=>{})}catch(e){}try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(e){}}
+const LGTAG={fr:'fr-FR',ar:'ar-SA',en:'en-US'};
+function sayOnce(txt,lg){return new Promise(res=>{
+ if(!txt)return res();
+ if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:LGTAG[lg]||'fr-FR'}).catch(()=>{});setTimeout(res,Math.min(9000,600+txt.length*95));return}
+ if(window.speechSynthesis){const u=new SpeechSynthesisUtterance(txt);u.lang=LGTAG[lg]||'fr-FR';u.onend=res;u.onerror=res;speechSynthesis.speak(u);return}
+ res()})}
+function loopSpeak(txt,lg,btn){
+ if(!txt)return;
+ if(btn.classList.contains('speaking')){btn.classList.remove('speaking');stopSay();return}
+ document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));
+ stopSay();btn.classList.add('speaking');const tok=sayTok;
+ (async()=>{while(btn.classList.contains('speaking')&&tok===sayTok){await sayOnce(txt,lg)}})()}
+/* letters */
+const AZ='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+let curLetter=null;
+function applyTheme(){document.documentElement.dataset.theme=st.theme;$('themeBtn').textContent=st.theme==='dark'?'🌙':'☀️'}
+function applyLang(){document.documentElement.lang=st.lang;document.documentElement.dir=st.lang==='ar'?'rtl':'ltr';$('langBtn').textContent=LANGICON[st.lang];$('ttl').textContent=(st.lang==='ar'?'🔤 ':'🔤 ')+t('name');$('backBtn').textContent=st.lang==='ar'?'→':'←'}
+$('themeBtn').onclick=()=>{st.theme=st.theme==='dark'?'light':'dark';save();applyTheme()};
+$('langBtn').onclick=()=>{st.lang=LANGS[(LANGS.indexOf(st.lang)+1)%3];save();applyLang();render()};
+$('muteBtn').onclick=()=>{document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));stopSay()};
+$('backBtn').onclick=()=>{stopSay();curLetter=null;renderHome()};
+function renderHome(){
+ $('letters').style.display='';$('lv').style.display='none';$('addFab').style.display='none';$('backBtn').style.display='none';
+ const g=$('letters');g.innerHTML='';
+ AZ.forEach(L=>{
+  const n=(st.v[L]||[]).length;
+  const d=document.createElement('div');d.className='let'+(n?'':' empty');
+  d.innerHTML='<span>'+L+'</span><small>'+(n?n+' '+t('verbs'):'')+'</small>'+(n?'<span class="cnt">'+n+'</span>':'');
+  d.onclick=()=>{curLetter=L;renderLetter()};
+  g.appendChild(d)});
+}
+function verbOf(L,id){return (st.v[L]||[]).find(v=>v.id===id)}
+function renderLetter(){
+ $('letters').style.display='none';$('lv').style.display='';$('addFab').style.display='';$('backBtn').style.display='';
+ const box=$('lv');box.innerHTML='';
+ const list=st.v[curLetter]||[];
+ if(!list.length){box.innerHTML='<div id="empty">'+esc(t('empty'))+'</div>';return}
+ list.forEach(v=>{
+  const c=document.createElement('div');c.className='vcard';
+  const top=document.createElement('div');top.className='vtop';
+  const img=document.createElement('img');img.className='vimg';img.alt='';
+  if(v.img){img.src='img/'+v.img}
+  else{img.classList.add('noimg');idb.get('img_'+v.id).then(r=>{if(r&&r.blob)img.src=URL.createObjectURL(r.blob)}).catch(()=>{})}
+  top.appendChild(img);
+  const nm=document.createElement('div');nm.className='vname';
+  nm.innerHTML='<span class="vf">'+esc(v.fr||'')+'</span><span class="vtr">'+esc(v.ar||'')+(v.en?' · '+esc(v.en):'')+'</span>';
+  top.appendChild(nm);
+  const act=document.createElement('div');act.className='vact';
+  const ed=document.createElement('button');ed.textContent='✎';ed.onclick=e=>{e.stopPropagation();openSheet(v)};
+  const dx=document.createElement('button');dx.textContent='×';
+  dx.onclick=async e=>{e.stopPropagation();if(confirm(t('delQ'))){st.v[curLetter]=list.filter(x=>x.id!==v.id);try{await idb.del('img_'+v.id)}catch(e2){}save();renderLetter()}};
+  act.appendChild(ed);act.appendChild(dx);top.appendChild(act);
+  c.appendChild(top);
+  [['fr',v.sfr],['ar',v.sar],['en',v.sen]].forEach(x=>{
+   if(!x[1])return;
+   const row=document.createElement('div');row.className='phrow lg-'+x[0];
+   const fb=document.createElement('button');fb.className='phflag';fb.textContent=LANGICON[x[0]];
+   fb.onclick=e=>{e.stopPropagation();loopSpeak(x[1],x[0],fb)};
+   const tx=document.createElement('span');tx.className='pht';tx.textContent=x[1];
+   row.appendChild(fb);row.appendChild(tx);c.appendChild(row)});
+  box.appendChild(c)});
+}
+/* add / edit sheet */
+let editId=null,pickedBlob=null;
+function openSheet(v){
+ editId=v?v.id:null;pickedBlob=null;$('imgPrev').style.display='none';$('imgPrev').src='';
+ $('vTtl').textContent=v?t('edit'):t('add');
+ $('lVerb').textContent=t('verb');$('lAr').textContent=t('arM');$('lEn').textContent=t('enM');
+ $('lSfr').textContent=t('sfr');$('lSar').textContent=t('sar');$('lSen').textContent=t('sen');$('lImg').textContent=t('img');
+ $('vSave').textContent=t('save');$('vCancel').textContent=t('cancel');
+ $('fVerb').value=v?v.fr||'':'';$('fAr').value=v?v.ar||'':'';$('fEn').value=v?v.en||'':'';
+ $('fSfr').value=v?v.sfr||'':'';$('fSar').value=v?v.sar||'':'';$('fSen').value=v?v.sen||'':'';
+ if(v&&v.img){$('imgPrev').src='img/'+v.img;$('imgPrev').style.display='block'}
+ else if(v){$('imgPrev').style.display='none';idb.get('img_'+v.id).then(r=>{if(r&&r.blob){$('imgPrev').src=URL.createObjectURL(r.blob);$('imgPrev').style.display='block'}}).catch(()=>{})}
+ $('vShade').classList.add('on')}
+$('vCancel').onclick=()=>$('vShade').classList.remove('on');
+$('fImgBtn').onclick=()=>$('fImg').click();
+$('fImg').onchange=e=>{
+ const f=e.target.files[0];e.target.value='';if(!f)return;
+ const img=new Image();img.onload=()=>{
+  const S=160,c=document.createElement('canvas');c.width=c.height=S;
+  const m=Math.min(img.width,img.height);
+  c.getContext('2d').drawImage(img,(img.width-m)/2,(img.height-m)/2,m,m,0,0,S,S);
+  c.toBlob(b=>{pickedBlob=b;$('imgPrev').src=URL.createObjectURL(b);$('imgPrev').style.display='block'},'image/jpeg',.82)};
+ img.src=URL.createObjectURL(f)};
+$('vSave').onclick=async()=>{
+ const fr=$('fVerb').value.trim();if(!fr){toast('!');return}
+ const v={id:editId||Date.now()+Math.floor(Math.random()*999),fr,
+  ar:$('fAr').value.trim(),en:$('fEn').value.trim(),
+  sfr:$('fSfr').value.trim(),sar:$('fSar').value.trim(),sen:$('fSen').value.trim()};
+ if(editId){const old=verbOf(curLetter,editId);if(old&&old.img)v.img=old.img}
+ st.v[curLetter]=st.v[curLetter]||[];
+ if(editId){st.v[curLetter]=st.v[curLetter].map(x=>x.id===editId?v:x)}
+ else st.v[curLetter].push(v);
+ if(pickedBlob){try{await idb.set('img_'+v.id,{blob:pickedBlob});delete v.img}catch(e){}}
+ save();$('vShade').classList.remove('on');toast(t('saved'));renderLetter()};
+$('addFab').onclick=()=>openSheet(null);
+function toast(s){const x=$('toast');x.textContent=s;x.classList.add('on');clearTimeout(x._t);x._t=setTimeout(()=>x.classList.remove('on'),1800)}
+/* seed letter A */
+function seed(){
+ if(localStorage.getItem('verbes-seeded'))return;
+ st.v.A=[
+ {id:1,fr:'Accepter',ar:'يَقْبَل',en:'To accept',sfr:"J'accepte ton invitation.",sar:'أنا بقبل دعوتك.',sen:'I accept your invitation.',img:'accepter.jpg'},
+ {id:2,fr:'Acheter',ar:'يَشْتَرِي',en:'To buy',sfr:'Je veux acheter du pain.',sar:'بدي اشتري خبز.',sen:'I want to buy bread.',img:'acheter.jpg'},
+ {id:3,fr:'Aimer',ar:'يُحِبّ',en:'To love / like',sfr:"J'aime ma famille.",sar:'بحب عيلتي.',sen:'I love my family.',img:'aimer.jpg'},
+ {id:4,fr:'Aller',ar:'يَذْهَب',en:'To go',sfr:'Je vais au travail.',sar:'أنا رايح عالشغل.',sen:"I'm going to work.",img:'aller.jpg'},
+ {id:5,fr:'Attendre',ar:'يَنْتَظِر',en:'To wait',sfr:"J'attends le bus.",sar:'أنا ناطر الباص.',sen:"I'm waiting for the bus.",img:'attendre.jpg'},
+ {id:6,fr:'Apprendre',ar:'يَتَعَلَّم',en:'To learn',sfr:"J'apprends le français.",sar:'أنا عم اتعلم الفرنسي.',sen:"I'm learning French.",img:'apprendre.jpg'},
+ {id:7,fr:'Appeler',ar:'يَتَّصِل',en:'To call',sfr:"J'appelle mon ami.",sar:'عم اتصل بصديقي.',sen:"I'm calling my friend.",img:'appeler.jpg'},
+ {id:8,fr:'Arriver',ar:'يَصِل',en:'To arrive',sfr:"J'arrive bientôt.",sar:'رح أوصل قريباً.',sen:"I'll arrive soon.",img:'arriver.jpg'},
+ {id:9,fr:'Aider',ar:'يُسَاعِد',en:'To help',sfr:"Je peux t'aider.",sar:'فيني ساعدك.',sen:'I can help you.',img:'aider.jpg'},
+ {id:10,fr:'Ajouter',ar:'يُضِيف',en:'To add',sfr:'Je veux ajouter du sucre.',sar:'بدي ضيف سكر.',sen:'I want to add sugar.',img:'ajouter.jpg'}];
+ save();localStorage.setItem('verbes-seeded','1')}
+function render(){if(curLetter)renderLetter();else renderHome()}
+seed();applyTheme();applyLang();renderHome();
+if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>
