@@ -2967,8 +2967,18 @@ $('muteBtn').onclick=()=>{document.querySelectorAll('.speaking').forEach(x=>x.cl
  if($('ringShade').classList.contains('on'))stopRing()};
 $('themeBtn').onclick=()=>{const THS=['dark','light','syria'];if(st.custImg)THS.push('custom');st.theme=THS[(THS.indexOf(st.theme)+1)%THS.length];save();applyTheme();syncPrefs()};
 $('menuShade').onclick=e=>{if(e.target===$('menuShade'))$('menuShade').classList.remove('on')};
+function blobB64(b){return new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(String(fr.result).split(',')[1]);fr.onerror=()=>r('');fr.readAsDataURL(b)})}
+function b64Blob(b64,ty){try{const bin=atob(b64),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return new Blob([u],{type:ty||''})}catch(e){return new Blob([])}}
+async function idbDump(){const d=await idb.open();return new Promise((res,rej)=>{const tx=d.transaction('s'),s=tx.objectStore('s');
+ const ks=s.getAllKeys(),vs=s.getAll();tx.oncomplete=()=>{const o={};ks.result.forEach((k,i)=>o[k]=vs.result[i]);res(o)};tx.onerror=()=>rej(tx.error)})}
 async function exportAlarms(){
- const data=JSON.stringify({alarms:st.alarms},null,2);
+ const all={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(/^(sa3a|tempo)/.test(k))all[k]=localStorage.getItem(k)}
+ const media={};
+ try{const rows=await idbDump();
+  for(const k of Object.keys(rows)){const r=rows[k];if(!r||!r.blob)continue;
+   media[k]={t:r.blob.type||'',k:r.kind||'',n:r.name||'',d:await blobB64(r.blob)}}
+ }catch(e){}
+ const data=JSON.stringify({v:2,ls:all,idb:media});
  const FS=CAP.Plugins&&CAP.Plugins.Filesystem;
  if(isCap()&&FS){
   try{
@@ -2990,7 +3000,14 @@ $('clkImgPick').onchange=async e=>{
  img.src=URL.createObjectURL(f)};
 $('impPick').onchange=async e=>{
  const f=e.target.files[0];e.target.value='';if(!f)return;
- try{const j=JSON.parse(await f.text());const arr=Array.isArray(j)?j:j.alarms;
+ try{const j=JSON.parse(await f.text());
+  if(j.ls){
+   for(const k of Object.keys(j.ls))try{localStorage.setItem(k,j.ls[k])}catch(e){}
+   if(j.idb){for(const k of Object.keys(j.idb)){const m=j.idb[k];
+    try{await idb.set(k,{blob:b64Blob(m.d,m.t),kind:m.k,name:m.n})}catch(e){}}}
+   toast('✓ '+t('imported'));setTimeout(()=>location.reload(),700);return;
+  }
+  const arr=Array.isArray(j)?j:j.alarms;
   if(!Array.isArray(arr))throw 0;
   for(const a of arr){if(typeof a.hh==='number'&&typeof a.mm==='number'){a.id=a.id||Date.now()+Math.random();a.on=a.on!==false;a.days=a.days||[];a.sound=a.sound||'default';st.alarms.push(a)}}
   save();renderAlarms();await rescheduleAll();toast('✓ '+t('imported'));
