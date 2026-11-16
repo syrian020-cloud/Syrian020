@@ -233,7 +233,7 @@ function renderLetter(){
   const top=document.createElement('div');top.className='vtop';
   const img=document.createElement('img');img.className='vimg';img.alt='';
   if(v.img){img.src='img/'+v.img}
-  else{img.classList.add('noimg');idb.get('img_'+v.id).then(r=>{if(r&&r.blob)img.src=URL.createObjectURL(r.blob)}).catch(()=>{})}
+  else{img.classList.add('noimg');const show=u=>{img.src=u;img.classList.remove('noimg')};idb.get('img_'+v.id).then(r=>{if(r&&r.blob)show(URL.createObjectURL(r.blob));else if(v.imgurl){img.onerror=()=>{img.onerror=null;img.classList.add('noimg');img.removeAttribute('src')};show(v.imgurl)}}).catch(()=>{if(v.imgurl)show(v.imgurl)})}
   top.appendChild(img);
   const nm=document.createElement('div');nm.className='vname';
   nm.innerHTML='<span class="vf">'+esc(v.fr||'')+'</span><span class="vtr">'+esc(v.ar||'')+(v.en?' · '+esc(v.en):'')+'</span>';
