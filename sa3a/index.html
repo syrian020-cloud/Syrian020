@@ -2127,7 +2127,7 @@ async function wxPos(){return new Promise((res,rej)=>{
  if(!navigator.geolocation)return rej('nogeo');
  navigator.geolocation.getCurrentPosition(p=>res({lat:p.coords.latitude,lon:p.coords.longitude}),e=>rej(e),{timeout:10000,maximumAge:600000})})}
 async function wxCityName(lat,lon){try{
- const r=await fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude='+lat+'&longitude='+lon+'&localityLanguage='+(st.lang||'en'));
+ const r=await fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude='+lat+'&longitude='+lon+'&localityLanguage='+(st.lang||'en'),{signal:AbortSignal.timeout(12000)});
  const j=await r.json();return {name:(j.city||j.locality||j.principalSubdivision||j.countryName||''),cc:j.countryCode||''}}catch(e){return{name:'',cc:''}}}
 async function wxLocName(){ // keep city name in the app's current language
  if(!wxLoc||!wxLoc.lat||wxLoc.nlg===st.lang)return;
@@ -2140,7 +2140,7 @@ async function openWx(){
    wxLoc={lat:p.lat,lon:p.lon,name:cn.name,cc:cn.cc,nlg:st.lang};localStorage.setItem('sa3a_wxloc',JSON.stringify(wxLoc))}
  wxLocName();
   const u='https://api.open-meteo.com/v1/forecast?latitude='+wxLoc.lat+'&longitude='+wxLoc.lon+'&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,wind_direction_10m&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset,wind_speed_10m_max,uv_index_max&timezone=auto&forecast_days=8';
-  const j=await (await fetch(u)).json();wxLoc.data=j;renderWx(wxLoc);
+  const j=await (await fetch(u,{signal:AbortSignal.timeout(12000)})).json();wxLoc.data=j;renderWx(wxLoc);
  }catch(e){if(!wxLoc||!wxLoc.data)$('wxBody').innerHTML='<div class="wxTtl" style="text-align:center;margin-top:30px">'+t('wxFail')+'</div>'}
 }
 function renderWx(L){
@@ -2644,7 +2644,7 @@ document.addEventListener('click',e=>{if(e.target.closest('.wxs')||e.target.clos
 $('wxBack').onclick=()=>$('wxShade').classList.remove('on');
 $('wxRef').onclick=async()=>{try{const p=await wxPos();const cn=await wxCityName(p.lat,p.lon);wxLoc={lat:p.lat,lon:p.lon,name:cn.name,cc:cn.cc,nlg:st.lang};localStorage.setItem('sa3a_wxloc',JSON.stringify(wxLoc))}catch(e){}openWx()};
 $('wxCity').onclick=()=>{const nm=prompt(t('wxCityPh'));if(!nm)return;
- fetch('https://geocoding-api.open-meteo.com/v1/search?name='+encodeURIComponent(nm)+'&count=1&language='+(st.lang||'en')).then(r=>r.json()).then(j=>{
+ fetch('https://geocoding-api.open-meteo.com/v1/search?name='+encodeURIComponent(nm)+'&count=1&language='+(st.lang||'en'),{signal:AbortSignal.timeout(12000)}).then(r=>r.json()).then(j=>{
   if(j.results&&j.results[0]){const r=j.results[0];wxLoc={lat:r.latitude,lon:r.longitude,name:r.name+(r.country?'، '+r.country:''),cc:r.country_code||'',nlg:st.lang};localStorage.setItem('sa3a_wxloc',JSON.stringify(wxLoc));openWx()}
   else toast(t('wxNoCity'))}).catch(()=>toast(t('wxFail')))};
 
