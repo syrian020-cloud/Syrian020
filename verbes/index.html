@@ -40,6 +40,9 @@ main{padding:.7rem;max-width:640px;margin:0 auto;padding-bottom:5rem}
 .phrow .pht{flex:1;min-width:0;font-weight:600;line-height:1.5;overflow-wrap:anywhere;text-align:start}
 .phflag{flex:none;width:34px;height:34px;border-radius:10px;border:1px solid var(--bd);background:var(--bg2);font-size:1.15rem;display:grid;place-items:center;cursor:pointer}
 .phflag.speaking{background:var(--acc);outline:2px solid var(--acc2)}
+.w{cursor:pointer;border-radius:6px;padding:0 .1rem}
+.w.speaking{background:var(--acc);color:#fff}
+.w:active{background:var(--bd)}
 .lg-ar{direction:rtl}
 .lg-fr,.lg-en{direction:ltr}
 #empty{text-align:center;color:var(--dim);padding:3rem 1rem;font-weight:600}
@@ -132,6 +135,16 @@ function loopSpeak(rows,btn){
  stopSay();btn.classList.add('speaking');const tok=sayTok;
  (async()=>{let k=0;while(btn.classList.contains('speaking')&&tok===sayTok){const r=rows[k++%rows.length];await sayOnce(r.txt,r.lg)}})()}
 function openExt(u){const B=CAP.Plugins&&CAP.Plugins.Browser;if(B&&B.open){B.open({url:u});return}window.open(u,'_blank')}
+function wordsSpan(txt,lg){
+ const d=document.createElement('span');d.className='pht';
+ (txt||'').split(/\s+/).forEach(w=>{if(!w)return;
+  const ws=document.createElement('span');ws.className='w';ws.textContent=w;let last=0;
+  ws.onclick=e=>{e.stopPropagation();const now=Date.now();
+   if(now-last<330){openExt('https://www.google.com/search?q='+encodeURIComponent(w+' clipart')+'&udm=2&hl='+st.lang)}
+   else loopSpeak([{txt:w,lg}],ws);
+   last=now};
+  d.appendChild(ws);d.appendChild(document.createTextNode(' '))});
+ return d}
 /* letters */
 const AZ='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 let curLetter=null;
@@ -184,8 +197,7 @@ function renderLetter(){
    const row=document.createElement('div');row.className='phrow lg-'+x[0];
    const fb=document.createElement('button');fb.className='phflag';fb.textContent=LANGICON[x[0]];
    fb.onclick=e=>{e.stopPropagation();loopSpeak([{txt:x[1],lg:x[0]}],fb)};
-   const tx=document.createElement('span');tx.className='pht';tx.textContent=x[1];
-   row.appendChild(fb);row.appendChild(tx);c.appendChild(row)});
+   row.appendChild(fb);row.appendChild(wordsSpan(x[1],x[0]));c.appendChild(row)});
   box.appendChild(c)});
 }
 /* add / edit sheet */
