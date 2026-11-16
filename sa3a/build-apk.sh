@@ -13,7 +13,6 @@ rm -rf www && mkdir -p www/sounds
 cp index.html tempo.html manifest.json sw.js icon-192.png icon-512.png icon-tempo-192.png sw-tempo.js www/
 cp sounds/*.mp3 www/sounds/
 mkdir -p www/js && cp js/*.js www/js/ 2>/dev/null || true
-mkdir -p www/seasons && cp seasons/*.jpg www/seasons/
 
 # Aliyun Maven mirrors where needed
 GRADLE_INIT=""

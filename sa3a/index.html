@@ -117,7 +117,6 @@ main{flex:1;overflow:auto;position:relative}
 #wxPhCap.on{display:block}
 .wxPhCat{font-weight:800;font-size:1rem;color:var(--acc);margin:14px 0 4px;padding-bottom:4px;border-bottom:2px solid var(--line)}
 .wxPhSub{font-weight:700;font-size:.9rem;color:var(--dim);margin:8px 0 2px;padding-inline-start:6px}
-.wxPhImg{width:100%;border-radius:12px;margin:6px 0;display:block}
 .wxDict{position:absolute;top:10px;inset-inline-start:10px;background:rgba(255,255,255,.18);border:none;border-radius:10px;font-size:1.1rem;cursor:pointer;color:#fff;padding:5px 8px;z-index:2}
 .wxHead{display:flex;align-items:center;gap:8px;margin-bottom:8px}
 .wxHead .lb{flex:1;font-weight:800;font-size:1.05rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -2489,10 +2488,6 @@ const WXPH=[
  ['En automne, les feuilles tombent.','في الخريف تتساقط أوراق الأشجار.','In autumn, the leaves fall.'],
  ['En hiver, il fait froid.','في الشتاء يكون الجو بارداً.',"In winter, it's cold."],
  {sub:{fr:'4. Le printemps',ar:'4. الربيع',en:'4. Spring'}},
- {img:'seasons/s1.jpg'},
- {img:'seasons/s2.jpg'},
- {img:'seasons/s3.jpg'},
- {img:'seasons/s4.jpg'},
  ['Le printemps arrive.','الربيع قادم.','Spring is coming.'],
  ['Les fleurs commencent à pousser.','تبدأ الأزهار بالنمو.','The flowers start to grow.'],
  ['Les arbres deviennent verts.','تصبح الأشجار خضراء.','The trees turn green.'],
@@ -2502,9 +2497,6 @@ const WXPH=[
  ['Il y a beaucoup de fleurs.','هناك الكثير من الأزهار.','There are lots of flowers.'],
  ['Il pleut parfois.','تمطر أحياناً.','It sometimes rains.'],
  {sub:{fr:"5. L'été",ar:'5. الصيف',en:'5. Summer'}},
- {img:'seasons/s5.jpg'},
- {img:'seasons/s6.jpg'},
- {img:'seasons/s7.jpg'},
  ["L'été commence.",'يبدأ الصيف.','Summer begins.'],
  ['Il fait très chaud.','الجو حار جداً.',"It's very hot."],
  ['Le soleil brille.','الشمس ساطعة.','The sun is shining.'],
@@ -2515,10 +2507,6 @@ const WXPH=[
  ['Je porte des vêtements légers.','أرتدي ملابس خفيفة.','I wear light clothes.'],
  ["J'aime les vacances d'été.",'أحب العطلة الصيفية.','I love the summer holidays.'],
  {sub:{fr:"6. L'automne",ar:'6. الخريف',en:'6. Autumn'}},
- {img:'seasons/s8.jpg'},
- {img:'seasons/s9.jpg'},
- {img:'seasons/s10.jpg'},
- {img:'seasons/s11.jpg'},
  ["L'automne arrive.",'الخريف قادم.','Autumn is coming.'],
  ['Les feuilles changent de couleur.','يتغير لون أوراق الأشجار.','The leaves change color.'],
  ['Les feuilles tombent des arbres.','تتساقط الأوراق من الأشجار.','The leaves fall from the trees.'],
@@ -2528,10 +2516,6 @@ const WXPH=[
  ['Il pleut souvent.','تمطر كثيراً.','It often rains.'],
  ['Les journées raccourcissent.','تقصر الأيام.','The days are getting shorter.'],
  {sub:{fr:"7. L'hiver",ar:'7. الشتاء',en:'7. Winter'}},
- {img:'seasons/s12.jpg'},
- {img:'seasons/s13.jpg'},
- {img:'seasons/s14.jpg'},
- {img:'seasons/s15.jpg'},
  ["L'hiver commence.",'يبدأ الشتاء.','Winter begins.'],
  ['Il fait très froid.','الجو بارد جداً.',"It's very cold."],
  ['Il neige.','تتساقط الثلوج.',"It's snowing."],
@@ -2595,7 +2579,6 @@ function renderWxPh(){
   if(cat.dyn==='months'){rows=MONTHS_TRI.fr.map((_,i)=>[MONTHS_TRI.fr[i],MONTHS_TRI.ar[i],MONTHS_TRI.en[i]])}
   rows.forEach(r3=>{
    if(r3.sub){const s=document.createElement('div');s.className='wxPhSub';s.textContent=r3.sub[st.lang]||r3.sub.en;body.appendChild(s);return}
-   if(r3.img){const im=document.createElement('img');im.className='wxPhImg';im.loading='lazy';im.src=r3.img;im.onerror=()=>im.remove();body.appendChild(im);return}
    const c=document.createElement('div');c.className='phc';
    [['fr','🇫🇷',r3[0]],['ar','🇸🇾',r3[1]],['en','🇺🇸',r3[2]]].forEach(x=>{
     const lg=x[0],txt=wxPhFill(x[2],j);if(!txt)return;
