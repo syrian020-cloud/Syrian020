@@ -306,7 +306,7 @@ function parseBulk(txt){
  for(const l0 of L){const l=l0.trim();if(!l)continue;
   if(/^[#*>\u2022]/.test(l))continue;
   const um=l.match(/https?:\/\/[^\s)]+/);
-  if(/^!\[/.test(l)||/^https?:\/\/\S+$/i.test(l)){if(um)pend.push(um[0]);continue}
+  if(/^!\[/.test(l)||/^https?:\/\/\S+$/i.test(l)){if(um){if(cur&&cur.lines&&cur.lines.length)(cur.imgs=cur.imgs||[]).push(um[0]);else pend.push(um[0])}continue}
   const m=l.match(/^\d+\s*\\?[.):\-–—]\s*(.+)$/);
   if(m){flush();cur={title:m[1].trim(),lines:[],imgs:pend};pend=[];continue}
   if(!cur)cur={title:'',lines:[]};
@@ -608,6 +608,21 @@ function seed6(){
  {id:5070,fr:"Boursiller",ar:"يساهم بمبلغ صغير",en:"To contribute a small amount",sfr:"Chacun peut boursiller pour le cadeau. 🇸🇾 كل واحد فينا ممكن يساهم بمبلغ صغير للهدية. 🇬🇧 Everyone can chip in a little for the gift.",sar:"",sen:"",img:"boursiller.jpg"},];
  add.forEach(v=>{if(have.has(normFr(v.fr)))return;const L=AZ.includes((v.fr[0]||'').toUpperCase())?(v.fr[0]||'').toUpperCase():'A';st.v[L]=st.v[L]||[];st.v[L].push(v)});
  save();localStorage.setItem('verbes-seeded6','1')}
+function updB1(){
+ if(localStorage.getItem('verbes-updB1'))return;
+ const add=[
+ {fr:"Boire",ar:"يشرب",en:"To drink",sfr:"Je bois un café tous les matins.",sar:"بشرب قهوة كل صباح.",sen:"I drink coffee every morning.",img:"boire.jpg"},
+ {fr:"Bouger",ar:"يتحرك",en:"To move",sfr:"Ne bouge pas, s'il te plaît.",sar:"لا تتحرك، لو سمحت.",sen:"Don't move, please.",img:"bouger.jpg"},
+ {fr:"Brûler",ar:"يحرق",en:"To burn",sfr:"Attention, la soupe est brûlante !",sar:"انتبه، الشوربة كتير سخنة!",sen:"Be careful, the soup is very hot!",img:"bruler.jpg"},
+ {fr:"Baisser",ar:"يخفض / يوطّي",en:"To lower / turn down",sfr:"Peux-tu baisser le volume ?",sar:"فيك توطّي الصوت؟",sen:"Can you turn down the volume?",img:"baisser.jpg"},
+ {fr:"Bloquer",ar:"يوقف / يعيق",en:"To block",sfr:"Un camion bloque la route.",sar:"في شاحنة مسكّرة الطريق.",sen:"A truck is blocking the road.",img:"bloquer.jpg"},
+ {fr:"Brosser",ar:"يفرشي",en:"To brush",sfr:"Je me brosse les dents après le petit-déjeuner.",sar:"بفرشي سناني بعد الفطور.",sen:"I brush my teeth after breakfast.",img:"brosser.jpg"},
+ {fr:"Bavarder",ar:"يدردش",en:"To chat",sfr:"Nous bavardons pendant la pause.",sar:"عم ندردش خلال الاستراحة.",sen:"We chat during the break.",img:"bavarder.jpg"},
+ {fr:"Battre",ar:"يخفق / يدقّ",en:"To beat",sfr:"Mon cœur bat très vite.",sar:"قلبي عم يدق بسرعة كتير.",sen:"My heart is beating very fast.",img:"battre.jpg"},
+ {fr:"Bénéficier",ar:"يستفيد",en:"To benefit",sfr:"Je bénéficie d'une aide financière.",sar:"عم استفيد من مساعدة مالية.",sen:"I benefit from financial assistance.",img:"beneficier.jpg"},
+ {fr:"Bouillir",ar:"يغلي",en:"To boil",sfr:"L'eau commence à bouillir.",sar:"المي بلشت تغلي.",sen:"The water is starting to boil.",img:"bouillir.jpg"},];
+ add.forEach(u=>{const L=(u.fr[0]||'').toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(ex){ex.sfr=u.sfr;ex.sar=u.sar;ex.sen=u.sen;if(u.img)ex.img=u.img}else{u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
+ save();localStorage.setItem('verbes-updB1','1')}
 function render(){if(curLetter)renderLetter();else renderHome()}
 /* hardware back: letter → home, sheet → close, home → exit */
 try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
@@ -655,7 +670,7 @@ function bindNoteUI(){const c=$('noteCanvas');c.addEventListener('mousedown',not
  $('noteSizeDec').onclick=()=>setNoteSize(noteSize-1);$('noteSizeInc').onclick=()=>setNoteSize(noteSize+1);$('noteSize').oninput=function(){setNoteSize(parseInt(this.value,10)||3)};
  document.querySelectorAll('.note-tool').forEach(b=>{b.onclick=()=>{noteColor=b.dataset.color;$('noteSwatchDot').style.background=noteColor;document.querySelectorAll('.note-tool').forEach(x=>x.classList.toggle('active',x===b));$('notePalette').classList.remove('show')}})}
 bindNoteUI();
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
