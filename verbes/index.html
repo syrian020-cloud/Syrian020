@@ -621,7 +621,7 @@ function updB1(){
  {fr:"Battre",ar:"يخفق / يدقّ",en:"To beat",sfr:"Mon cœur bat très vite.",sar:"قلبي عم يدق بسرعة كتير.",sen:"My heart is beating very fast.",img:"battre.jpg"},
  {fr:"Bénéficier",ar:"يستفيد",en:"To benefit",sfr:"Je bénéficie d'une aide financière.",sar:"عم استفيد من مساعدة مالية.",sen:"I benefit from financial assistance.",img:"beneficier.jpg"},
  {fr:"Bouillir",ar:"يغلي",en:"To boil",sfr:"L'eau commence à bouillir.",sar:"المي بلشت تغلي.",sen:"The water is starting to boil.",img:"bouillir.jpg"},];
- add.forEach(u=>{const L=(u.fr[0]||'').toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(ex){ex.sfr=u.sfr;ex.sar=u.sar;ex.sen=u.sen;if(u.img)ex.img=u.img}else{u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
+ add.forEach(u=>{const L=normFr(u.fr).replace(/^se /,'').charAt(0).toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(ex){ex.sfr=u.sfr;ex.sar=u.sar;ex.sen=u.sen;if(u.img)ex.img=u.img}else{u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
  save();localStorage.setItem('verbes-updB1','1')}
 function updB2(){
  if(localStorage.getItem('verbes-updB2'))return;
@@ -636,8 +636,24 @@ function updB2(){
  {fr:"Bouder",ar:"يزعل ويقاطع الكلام",en:"To sulk",sfr:"Pourquoi tu boudes ?",sar:"ليش زعلان وما عم تحكي؟",sen:"Why are you sulking?",img:"bouder.jpg"},
  {fr:"Briller",ar:"يلمع / يتألّق",en:"To shine",sfr:"Les étoiles brillent dans le ciel.",sar:"النجوم عم تلمع بالسما.",sen:"The stars are shining in the sky.",img:"briller.jpg"},
  {fr:"Bosser",ar:"يشتغل (عامية)",en:"To work",sfr:"Je bosse jusqu'à dix heures du soir.",sar:"بشتغل لحد الساعة عشرة بالليل.",sen:"I work until ten in the evening.",img:"bosser.jpg"},];
- add.forEach(u=>{const L=(u.fr[0]||'').toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(ex){ex.sfr=u.sfr;ex.sar=u.sar;ex.sen=u.sen;if(u.img)ex.img=u.img}else{u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
+ add.forEach(u=>{const L=normFr(u.fr).replace(/^se /,'').charAt(0).toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(ex){ex.sfr=u.sfr;ex.sar=u.sar;ex.sen=u.sen;if(u.img)ex.img=u.img}else{u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
  save();localStorage.setItem('verbes-updB2','1')}
+function updB3(){
+ if(localStorage.getItem('verbes-updB3'))return;
+ st.v.B=(st.v.B||[]).filter(x=>normFr(x.fr)!==normFr('Besoin de'));
+ const add=[
+ {fr:"Se baigner",ar:"يستحم / يسبح",en:"To bathe / swim",sfr:"Je me baigne dans la mer en été.",sar:"بسبح بالبحر بالصيف.",sen:"I swim in the sea in summer.",img:"se_baigner.jpg"},
+ {fr:"Bronzer",ar:"يسمرّ بالشمس",en:"To tan",sfr:"Nous aimons bronzer sur la plage.",sar:"منحب نسمرّ عالشط.",sen:"We like to tan on the beach.",img:"bronzer.jpg"},
+ {fr:"Blaguer",ar:"يمزح",en:"To joke",sfr:"Arrête de blaguer !",sar:"بطل مزح!",sen:"Stop joking!",img:"blaguer.jpg"},
+ {fr:"Bricoler",ar:"يعمل تصليحات بسيطة",en:"To do DIY",sfr:"Je bricole dans le garage le dimanche.",sar:"بعمل تصليحات بسيطة بالكراج يوم الأحد.",sen:"I do some DIY in the garage on Sundays.",img:"bricoler.jpg"},
+ {fr:"Bousculer",ar:"يدفع / يزاحم",en:"To jostle",sfr:"Quelqu'un m'a bousculé dans le bus.",sar:"حدا دفشني بالباص.",sen:"Someone jostled me on the bus.",img:"bousculer.jpg"},
+ {fr:"Boucler",ar:"ينهي / يُكمل",en:"To finish",sfr:"Je dois boucler ce dossier aujourd'hui.",sar:"لازم خلّص هالملف اليوم.",sen:"I have to finish this file today.",img:"boucler.jpg"},
+ {fr:"Barrer",ar:"يشطب",en:"To cross out",sfr:"Barre la mauvaise réponse.",sar:"اشطب الجواب الغلط.",sen:"Cross out the wrong answer.",img:"barrer.jpg"},
+ {fr:"Balancer",ar:"يرمي / يتخلّص من",en:"To throw",sfr:"Ne balance pas tes déchets par terre !",sar:"لا ترمي زبالتك عالأرض!",sen:"Don't throw your rubbish on the ground!",img:"balancer.jpg"},
+ {fr:"Basculer",ar:"ينقلب / يتحوّل",en:"To tip over / switch",sfr:"La chaise a basculé en arrière.",sar:"الكرسي انقلب لورا.",sen:"The chair tipped backwards.",img:"basculer.jpg"},
+ {fr:"Blanchir",ar:"يبيّض",en:"To whiten",sfr:"Cette lessive blanchit le linge.",sar:"هالمنظّف بيبيّض الغسيل.",sen:"This detergent whitens the laundry.",img:"blanchir.jpg"},];
+ add.forEach(u=>{const L=normFr(u.fr).replace(/^se /,'').charAt(0).toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(ex){ex.sfr=u.sfr;ex.sar=u.sar;ex.sen=u.sen;if(u.img)ex.img=u.img}else{u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
+ save();localStorage.setItem('verbes-updB3','1')}
 function render(){if(curLetter)renderLetter();else renderHome()}
 /* hardware back: letter → home, sheet → close, home → exit */
 try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
@@ -685,7 +701,7 @@ function bindNoteUI(){const c=$('noteCanvas');c.addEventListener('mousedown',not
  $('noteSizeDec').onclick=()=>setNoteSize(noteSize-1);$('noteSizeInc').onclick=()=>setNoteSize(noteSize+1);$('noteSize').oninput=function(){setNoteSize(parseInt(this.value,10)||3)};
  document.querySelectorAll('.note-tool').forEach(b=>{b.onclick=()=>{noteColor=b.dataset.color;$('noteSwatchDot').style.background=noteColor;document.querySelectorAll('.note-tool').forEach(x=>x.classList.toggle('active',x===b));$('notePalette').classList.remove('show')}})}
 bindNoteUI();
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
