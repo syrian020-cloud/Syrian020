@@ -714,7 +714,9 @@ async function showLesson(n){
    const applyVfit=()=>{const cls=FITS[n.vfit||0]||'';el.className='lmed '+(cls||'');
     const frac=CROP_FRAC[cls]||0;
     if(frac&&el.videoWidth){const w=wrap.clientWidth||300,h=w*el.videoHeight/el.videoWidth;
-     el.style.height=h+'px';wrap.style.height=Math.round(h*(1-frac))+'px';wrap.classList.add('crop-on')}
+     el.style.height=h+'px';
+     const rh=el.getBoundingClientRect().height||h;
+     wrap.style.height=Math.round(rh*(1-frac))+'px';wrap.classList.add('crop-on')}
     else{el.style.height='';wrap.style.height='';wrap.classList.remove('crop-on')}};
    el.addEventListener('loadedmetadata',applyVfit);
    const mk=(txt,fn)=>{const b=document.createElement('button');b.textContent=txt;b.onclick=fn;return b};
