@@ -2967,11 +2967,18 @@ $('muteBtn').onclick=()=>{document.querySelectorAll('.speaking').forEach(x=>x.cl
  if($('ringShade').classList.contains('on'))stopRing()};
 $('themeBtn').onclick=()=>{const THS=['dark','light','syria'];if(st.custImg)THS.push('custom');st.theme=THS[(THS.indexOf(st.theme)+1)%THS.length];save();applyTheme();syncPrefs()};
 $('menuShade').onclick=e=>{if(e.target===$('menuShade'))$('menuShade').classList.remove('on')};
-function exportAlarms(){
+async function exportAlarms(){
  const data=JSON.stringify({alarms:st.alarms},null,2);
- const blob=new Blob([data],{type:'application/json'});
- if(isCap()&&CAP.Plugins&&CAP.Plugins.Share){const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download='sa3a-alarms.json';a.click()}
- else{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='sa3a-alarms.json';a.click()}
+ const FS=CAP.Plugins&&CAP.Plugins.Filesystem;
+ if(isCap()&&FS){
+  try{
+   const r=await FS.writeFile({path:'sa3a-alarms.json',data,directory:'CACHE',encoding:'utf8'});
+   if(CAP.Plugins.Share){await CAP.Plugins.Share.share({title:'Sa3a',url:r.uri,dialogTitle:t('mExport')})}
+   else toast('✓ '+r.uri);
+   return;
+  }catch(e){toast('!');return}
+ }
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type:'application/json'}));a.download='sa3a-alarms.json';a.click()
 }
 $('clkImgPick').onchange=async e=>{
  const f=e.target.files[0];e.target.value='';if(!f)return;
