@@ -33,6 +33,9 @@ main{padding:.7rem;max-width:640px;margin:0 auto;padding-bottom:5rem}
 .vname .vtr{display:block;font-size:.82rem;color:var(--dim);font-weight:600}
 .vact{display:flex;flex-direction:column;gap:.3rem;flex:none}
 .vact button{width:30px;height:30px;border-radius:9px;border:1px solid var(--bd);background:var(--bg2);color:var(--txt);font-size:.9rem;cursor:pointer}
+.vbtns{display:flex;gap:.4rem;margin-top:.3rem}
+.vbtns button{width:30px;height:30px;border-radius:9px;border:1px solid var(--bd);background:var(--bg2);font-size:.95rem;cursor:pointer}
+.vbtns button.speaking{background:var(--acc);outline:2px solid var(--acc2)}
 .phrow{display:flex;gap:.5rem;align-items:flex-start;margin-top:.4rem;border-radius:12px;padding:.35rem .55rem;border:1.5px solid var(--bd)}
 .phrow .pht{flex:1;min-width:0;font-weight:600;line-height:1.5;overflow-wrap:anywhere;text-align:start}
 .phflag{flex:none;width:34px;height:34px;border-radius:10px;border:1px solid var(--bd);background:var(--bg2);font-size:1.15rem;display:grid;place-items:center;cursor:pointer}
@@ -122,12 +125,13 @@ function sayOnce(txt,lg){return new Promise(res=>{
  if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:LGTAG[lg]||'fr-FR'}).catch(()=>{});setTimeout(res,Math.min(9000,600+txt.length*95));return}
  if(window.speechSynthesis){const u=new SpeechSynthesisUtterance(txt);u.lang=LGTAG[lg]||'fr-FR';u.onend=res;u.onerror=res;speechSynthesis.speak(u);return}
  res()})}
-function loopSpeak(txt,lg,btn){
- if(!txt)return;
+function loopSpeak(rows,btn){
+ rows=rows.filter(r=>r&&r.txt);if(!rows.length)return;
  if(btn.classList.contains('speaking')){btn.classList.remove('speaking');stopSay();return}
  document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));
  stopSay();btn.classList.add('speaking');const tok=sayTok;
- (async()=>{while(btn.classList.contains('speaking')&&tok===sayTok){await sayOnce(txt,lg)}})()}
+ (async()=>{let k=0;while(btn.classList.contains('speaking')&&tok===sayTok){const r=rows[k++%rows.length];await sayOnce(r.txt,r.lg)}})()}
+function openExt(u){const B=CAP.Plugins&&CAP.Plugins.Browser;if(B&&B.open){B.open({url:u});return}window.open(u,'_blank')}
 /* letters */
 const AZ='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 let curLetter=null;
@@ -162,6 +166,12 @@ function renderLetter(){
   top.appendChild(img);
   const nm=document.createElement('div');nm.className='vname';
   nm.innerHTML='<span class="vf">'+esc(v.fr||'')+'</span><span class="vtr">'+esc(v.ar||'')+(v.en?' · '+esc(v.en):'')+'</span>';
+  const vb=document.createElement('div');vb.className='vbtns';
+  const lp=document.createElement('button');lp.textContent='🔁';lp.title='loop';
+  lp.onclick=e=>{e.stopPropagation();loopSpeak([{txt:v.fr,lg:'fr'},{txt:v.ar,lg:'ar'},{txt:v.en,lg:'en'}],lp)};
+  const ai=document.createElement('button');ai.textContent='✨';ai.title='AI';
+  ai.onclick=e=>{e.stopPropagation();openExt('https://www.google.com/search?udm=50&hl='+st.lang+'&q='+encodeURIComponent('conjugaison du verbe français « '+v.fr+' » à tous les temps (présent, passé composé, imparfait, futur, conditionnel, subjonctif, impératif), avec traduction de chaque forme en arabe et en anglais, et exemples d\'usage quotidien pour chaque temps'))};
+  vb.appendChild(lp);vb.appendChild(ai);nm.appendChild(vb);
   top.appendChild(nm);
   const act=document.createElement('div');act.className='vact';
   const ed=document.createElement('button');ed.textContent='✎';ed.onclick=e=>{e.stopPropagation();openSheet(v)};
@@ -173,7 +183,7 @@ function renderLetter(){
    if(!x[1])return;
    const row=document.createElement('div');row.className='phrow lg-'+x[0];
    const fb=document.createElement('button');fb.className='phflag';fb.textContent=LANGICON[x[0]];
-   fb.onclick=e=>{e.stopPropagation();loopSpeak(x[1],x[0],fb)};
+   fb.onclick=e=>{e.stopPropagation();loopSpeak([{txt:x[1],lg:x[0]}],fb)};
    const tx=document.createElement('span');tx.className='pht';tx.textContent=x[1];
    row.appendChild(fb);row.appendChild(tx);c.appendChild(row)});
   box.appendChild(c)});
