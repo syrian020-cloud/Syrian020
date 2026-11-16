@@ -1,0 +1,12 @@
+{
+  "appId": "com.freelang.app",
+  "appName": "Freelang",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": false
+  }
+}
