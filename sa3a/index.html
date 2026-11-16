@@ -2993,8 +2993,9 @@ async function saveShare(fname,data){
    if(data.length<=CH){r=await FS.writeFile({path:fname,data,directory:'CACHE',encoding:'utf8'})}
    else{r=await FS.writeFile({path:fname,data:data.slice(0,CH),directory:'CACHE',encoding:'utf8'});
     for(let i=CH;i<data.length;i+=CH)await FS.appendFile({path:fname,data:data.slice(i,i+CH),directory:'CACHE',encoding:'utf8'})}
-   if(CAP.Plugins.Share){await CAP.Plugins.Share.share({title:'Sa3a',url:r.uri,dialogTitle:fname})}
-   else toast('✓ '+r.uri);
+   let docUri='';try{await FS.copy({from:r.uri,to:fname,toDirectory:'DOCUMENTS'});docUri=' → Documents'}catch(e2){try{await FS.writeFile({path:fname,data,directory:'DOCUMENTS',encoding:'utf8'});docUri=' → Documents'}catch(e3){}}
+   if(CAP.Plugins.Share){await CAP.Plugins.Share.share({title:'Sa3a',url:r.uri,dialogTitle:fname}).catch(()=>{})}
+   toast('✓ '+fname+docUri);
    return;
   }catch(e){toast('!');return}
  }
