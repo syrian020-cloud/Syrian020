@@ -197,7 +197,9 @@ public class Sa3aWallpaperService extends WallpaperService {
         }
 
         private void drawDigital(Canvas c, float cx, float cy, Calendar cal) {
-            if (deco()) drawFlag(c, cx, cy, Math.min(c.getWidth(), c.getHeight()) * 0.4f);
+            boolean sy = deco();
+            if (sy) drawFlag(c, cx, cy, Math.min(c.getWidth(), c.getHeight()) * 0.4f);
+            if (sy) txt.setShadowLayer(c.getWidth() * 0.012f, 0, c.getWidth() * 0.004f, Color.BLACK);
             float big = c.getWidth() * 0.22f;
             txt.setColor(Color.parseColor("#eef1ff"));
             txt.setTextSize(big);
@@ -210,12 +212,14 @@ public class Sa3aWallpaperService extends WallpaperService {
             float startX = cx - (tw + sw) / 2f;
             txt.setTextSize(big);
             c.drawText(time, startX + tw / 2f, cy, txt);
+            int dim = sy ? Color.WHITE : Color.parseColor("#8b93b8");
             txt.setTextSize(big * 0.35f);
-            txt.setColor(Color.parseColor("#8b93b8"));
+            txt.setColor(dim);
             c.drawText(sec, startX + tw + sw / 2f + big * 0.04f, cy, txt);
             txt.setTextSize(big * 0.16f);
             c.drawText(new SimpleDateFormat("EEEE d MMMM yyyy", Locale.getDefault()).format(new Date()),
                     cx, cy + big * 0.4f, txt);
+            if (sy) txt.clearShadowLayer();
             txt.setColor(Color.parseColor("#eef1ff"));
         }
     }
