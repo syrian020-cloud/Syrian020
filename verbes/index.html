@@ -184,7 +184,9 @@ function renderLetter(){
   lp.onclick=e=>{e.stopPropagation();loopSpeak([{txt:v.fr,lg:'fr'},{txt:v.ar,lg:'ar'},{txt:v.en,lg:'en'}],lp)};
   const ai=document.createElement('button');ai.textContent='✨';ai.title='AI';
   ai.onclick=e=>{e.stopPropagation();openExt('https://www.google.com/search?udm=50&hl='+st.lang+'&q='+encodeURIComponent('conjugaison du verbe français « '+v.fr+' » à tous les temps (présent, passé composé, imparfait, futur, conditionnel, subjonctif, impératif), avec traduction de chaque forme en arabe et en anglais, et exemples d\'usage quotidien pour chaque temps'))};
-  vb.appendChild(lp);vb.appendChild(ai);nm.appendChild(vb);
+  const ph=document.createElement('button');ph.textContent='💬';ph.title='phrases';
+  ph.onclick=e=>{e.stopPropagation();openExt('https://www.google.com/search?udm=50&hl='+st.lang+'&q='+encodeURIComponent('عبارات وجمل شائعة تُستخدم في فرنسا مع الفعل الفرنسي « '+v.fr+' » في جميع المجالات اليومية والإدارية ومراكز الدولة والخدمات، باللغة الفرنسية مع الترجمة إلى العربية والإنجليزية'))};
+  vb.appendChild(lp);vb.appendChild(ai);vb.appendChild(ph);nm.appendChild(vb);
   top.appendChild(nm);
   const act=document.createElement('div');act.className='vact';
   const ed=document.createElement('button');ed.textContent='✎';ed.onclick=e=>{e.stopPropagation();openSheet(v)};
