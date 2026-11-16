@@ -2389,6 +2389,20 @@ function splitByScript(s) {
   }
   var tail = (buf + ws).trim();
   if (tail) parts.push(tail);
+  // re-attach isolated all-caps tokens (ALD, CAF, OFII) to their line-mates —
+  // they are acronyms inside the sentence, not a language switch
+  var CAPTOK = /^[A-ZÀ-Þ0-9][A-ZÀ-Þ0-9.'’%&()\/-]{0,14}$/;
+  function scriptOfStr(str) {
+    for (var i = 0; i < str.length; i++) { var c = scriptOf(str.charAt(i)); if (c) return c; }
+    return '';
+  }
+  for (var i = 1; i < parts.length; i++) {
+    if (!CAPTOK.test(parts[i])) continue;
+    var sp = scriptOfStr(parts[i - 1]);
+    var sn = parts[i + 1] ? scriptOfStr(parts[i + 1]) : '';
+    if (sp && sp === sn) { parts[i - 1] += ' ' + parts[i] + ' ' + parts[i + 1]; parts.splice(i, 2); i--; }
+    else if (sp) { parts[i - 1] += ' ' + parts[i]; parts.splice(i, 1); i--; }
+  }
   return parts;
 }
 // Expand zeelang-style one-line formats into caption lines:
@@ -2416,6 +2430,8 @@ function parseTimedLines(text) {
     if (m) { flush(); cur = { t: parseT(m[1]), d: null, text: '' }; return; }
     var s = line.trim();
     if (/^\d+$/.test(s)) return;
+    // numbered section titles ('1. heading') separate cards like '###' — not cue text
+    if (/^\d{1,3}[.)\-–—]\s+\S/.test(s)) { flush(); return; }
     // '===' and '###' are section separators, never cue text
     if (!s || /^={2,}\s*$/.test(s) || /^#{2,}/.test(s)) { flush(); return; }
     s = normPhraseText(s);
