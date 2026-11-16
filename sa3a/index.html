@@ -2976,39 +2976,52 @@ async function idbDump(){const d=await idb.open();return new Promise((res,rej)=>
  const ks=s.getAllKeys(),vs=s.getAll();tx.oncomplete=()=>{const o={};ks.result.forEach((k,i)=>o[k]=vs.result[i]);res(o)};tx.onerror=()=>rej(tx.error)})}
 async function exportAlarms(){
  const all={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(/^(sa3a|tempo)/.test(k))all[k]=localStorage.getItem(k)}
- const media={};
- try{const rows=await idbDump();
-  for(const k of Object.keys(rows)){const r=rows[k];if(!r||!r.blob)continue;
-   media[k]={t:r.blob.type||'',k:r.kind||'',n:r.name||'',d:await blobB64(r.blob)}}
- }catch(e){}
- const data=JSON.stringify({v:2,ls:all,idb:media});
- await saveShare('sa3a-backup.json',data);
+ await streamJson('sa3a-backup.json',async w=>{
+  await w('{"v":2,"ls":'+JSON.stringify(all)+',"idb":{');
+  await streamMedia(w,null);
+  await w('}}');
+ });
 }
-async function saveShare(fname,data){
+async function streamJson(fname,body){
  const FS=CAP.Plugins&&CAP.Plugins.Filesystem;
  if(isCap()&&FS){
   try{
    toast('💾…');
-   let r=null;const CH=200000;
-   if(data.length<=CH){r=await FS.writeFile({path:fname,data,directory:'CACHE',encoding:'utf8'})}
-   else{r=await FS.writeFile({path:fname,data:data.slice(0,CH),directory:'CACHE',encoding:'utf8'});
-    for(let i=CH;i<data.length;i+=CH)await FS.appendFile({path:fname,data:data.slice(i,i+CH),directory:'CACHE',encoding:'utf8'})}
-   let docUri='';try{await FS.copy({from:r.uri,to:fname,toDirectory:'DOCUMENTS'});docUri=' → Documents'}catch(e2){try{await FS.writeFile({path:fname,data,directory:'DOCUMENTS',encoding:'utf8'});docUri=' → Documents'}catch(e3){}}
-   if(CAP.Plugins.Share){await CAP.Plugins.Share.share({title:'Sa3a',url:r.uri,dialogTitle:fname}).catch(()=>{})}
+   let first=true,uri=null;
+   const w=async s=>{for(let i=0;i<s.length;i+=200000){const c=s.slice(i,i+200000);
+    if(first){const r=await FS.writeFile({path:fname,data:c,directory:'CACHE',encoding:'utf8'});uri=r.uri;first=false}
+    else await FS.appendFile({path:fname,data:c,directory:'CACHE',encoding:'utf8'})}};
+   await body(w);
+   let docUri='';try{await FS.copy({from:uri,to:fname,toDirectory:'DOCUMENTS'});docUri=' → Documents'}catch(e2){}
+   if(CAP.Plugins.Share){await CAP.Plugins.Share.share({title:'Sa3a',url:uri,dialogTitle:fname}).catch(()=>{})}
    toast('✓ '+fname+docUri);
    return;
   }catch(e){toast('!');return}
  }
+ const acc=[];await body(async s=>acc.push(s));const data=acc.join('');
  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type:'application/json'}));a.download=fname;a.click()
 }
+async function streamMedia(w,only){
+ const d=await idb.open();
+ const ks=await new Promise((res,rej)=>{const q=d.transaction('s').objectStore('s').getAllKeys();q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)});
+ let comma=false;
+ for(const k of ks){
+  const kk=String(k);
+  if(only&&!only.test(kk))continue;
+  const r=await idb.get(k);
+  if(!r||!r.blob)continue;
+  await w((comma?',':'')+JSON.stringify(kk)+':{"t":'+JSON.stringify(r.blob.type||'')+',"k":'+JSON.stringify(r.kind||'')+',"n":'+JSON.stringify(r.name||'')+',"d":"');
+  for(let off=0;off<r.blob.size;off+=3000000){
+   const s=r.blob.slice(off,Math.min(off+3000000,r.blob.size));
+   await w(await blobB64(s))}
+  await w('"}');comma=true}
+}
 async function exportLessons(){
- const media={};
- try{const rows=await idbDump();
-  for(const k of Object.keys(rows))if(/^(limg|lmed|lpimg|lnot)_/.test(k)){const r=rows[k];
-   if(r&&r.blob)media[k]={t:r.blob.type||'',k:r.kind||'',n:r.name||'',d:await blobB64(r.blob)}}
- }catch(e){}
- const data=JSON.stringify({v:2,kind:'lessons',lessons:st.lessons||[],idb:media});
- await saveShare('sa3a-lessons.json',data)
+ await streamJson('sa3a-lessons.json',async w=>{
+  await w('{"v":2,"kind":"lessons","lessons":'+JSON.stringify(st.lessons||[])+',"idb":{');
+  await streamMedia(w,/^(limg|lmed|lpimg|lnot)_/);
+  await w('}}');
+ });
 }
 $('clkImgPick').onchange=async e=>{
  const f=e.target.files[0];e.target.value='';if(!f)return;
