@@ -471,6 +471,54 @@ function seed4(){
  {id:3069,fr:"Articuler",ar:"يَلْفِظ بِوُضُوح",en:"To articulate",sfr:"Articule bien les mots, s'il te plaît.",sar:"لفظ الكلمات بوضوح لو سمحت.",sen:"Pronounce the words clearly, please."},];
  add.forEach(v=>{if(have.has(normFr(v.fr)))return;const L=AZ.includes((v.fr[0]||'').toUpperCase())?(v.fr[0]||'').toUpperCase():'A';st.v[L]=st.v[L]||[];st.v[L].push(v)});
  save();localStorage.setItem('verbes-seeded4','1')}
+function seed5(){
+ if(localStorage.getItem('verbes-seeded5'))return;
+ const have=new Set();AZ.forEach(L=>(st.v[L]||[]).forEach(v=>have.add(normFr(v.fr))));
+ const add=[
+ {id:4001,fr:"Boire",ar:"يشرب",en:"To drink",sfr:"Je bois un verre d'eau. 🇸🇾 أنا عم اشرب كاسة مي. 🇺🇸 I am drinking a glass of water.",sar:"",sen:"",img:"boire.jpg"},
+ {id:4002,fr:"Brosser",ar:"يفرشي",en:"To brush",sfr:"Je brosse mes dents. 🇸🇾 أنا عم فرشي سناني. 🇺🇸 I am brushing my teeth.",sar:"",sen:"",img:"brosser.jpg"},
+ {id:4003,fr:"Bouger",ar:"يتحرك",en:"To move",sfr:"Il faut bouger un peu. 🇸🇾 لازم نتحرك شوي. 🇺🇸 We need to move a little.",sar:"",sen:"",img:"bouger.jpg"},
+ {id:4004,fr:"Bosser",ar:"يشتغل (عامية)",en:"To work",sfr:"Je bosse demain matin. 🇸🇾 أنا بشتغل بكرا الصبح. 🇺🇸 I am working tomorrow morning.",sar:"",sen:"",img:"bosser.jpg"},
+ {id:4005,fr:"Baisser",ar:"يخفض",en:"To lower",sfr:"Baisse le volume, s'il te plaît. 🇸🇾 وطّي الصوت لو سمحت. 🇺🇸 Turn down the volume, please.",sar:"",sen:"",img:"baisser.jpg"},
+ {id:4006,fr:"Bloquer",ar:"يمنع / يعيق",en:"To block",sfr:"Cette porte est bloquée. 🇸🇾 هالباب عالق وما عم ينفتح. 🇺🇸 This door is blocked.",sar:"",sen:"",img:"bloquer.jpg"},
+ {id:4007,fr:"Baiser",ar:"يقبّل",en:"To kiss",sfr:"Il baise la main de sa mère. 🇸🇾 هو بيقبّل إيد أمه. 🇺🇸 He kisses his mother's hand.",sar:"",sen:"",img:"baiser.jpg"},
+ {id:4008,fr:"Brûler",ar:"يحرق",en:"To burn",sfr:"Attention, le feu brûle ! 🇸🇾 انتبه، النار عم تحرق! 🇺🇸 Be careful, the fire is burning!",sar:"",sen:"",img:"bruler.jpg"},
+ {id:4009,fr:"Bassiner",ar:"يزعج بالكلام المتكرر",en:"To bore / pester",sfr:"Arrête de me bassiner avec ça ! 🇸🇾 خلص بقى، لا تضل تزعجني بهالموضوع! 🇺🇸 Stop pestering me about that!",sar:"",sen:"",img:"bassiner.jpg"},
+ {id:4010,fr:"Bêcher",ar:"يحفر التراب",en:"To dig",sfr:"Il bêche le jardin. 🇸🇾 هو عم يحفر تراب الحديقة. 🇺🇸 He is digging the garden.",sar:"",sen:"",img:"becher.jpg"},
+ {id:4011,fr:"Bourrer",ar:"يحشو / يملأ بإفراط",en:"To stuff",sfr:"Ne bourre pas ton sac. 🇸🇾 لا تحشي شنطتك زيادة. 🇺🇸 Don't stuff your bag.",sar:"",sen:"",img:"bourrer.jpg"},
+ {id:4012,fr:"Bâtir",ar:"يبني",en:"To build",sfr:"Ils bâtissent une maison. 🇸🇾 هنن عم يبنوا بيت. 🇺🇸 They are building a house.",sar:"",sen:"",img:"batir.jpg"},
+ {id:4013,fr:"Bâiller",ar:"يتثاءب",en:"To yawn",sfr:"Je bâille parce que je suis fatigué. 🇸🇾 عم تثاءب لأني تعبان. 🇺🇸 I am yawning because I am tired.",sar:"",sen:"",img:"bailler.jpg"},
+ {id:4014,fr:"Bouillir",ar:"يغلي",en:"To boil",sfr:"L'eau commence à bouillir. 🇸🇾 المي بلشت تغلي. 🇺🇸 The water is starting to boil.",sar:"",sen:"",img:"bouillir.jpg"},
+ {id:4015,fr:"Briller",ar:"يلمع",en:"To shine",sfr:"Les étoiles brillent dans le ciel. 🇸🇾 النجوم عم تلمع بالسما. 🇺🇸 The stars are shining in the sky.",sar:"",sen:"",img:"briller.jpg"},
+ {id:4016,fr:"Boucler",ar:"يُنهي / يُغلق",en:"To finish / close",sfr:"Je dois boucler ce travail aujourd'hui. 🇸🇾 لازم خلّص هالشغل اليوم. 🇺🇸 I have to finish this work today.",sar:"",sen:"",img:"boucler.jpg"},
+ {id:4017,fr:"Boutonner",ar:"يزرّر",en:"To button up",sfr:"Boutonne ta chemise. 🇸🇾 زرّر قميصك. 🇺🇸 Button up your shirt.",sar:"",sen:"",img:"boutonner.jpg"},
+ {id:4018,fr:"Balancer",ar:"يرمي / يتأرجح",en:"To throw / swing",sfr:"Il balance le ballon. 🇸🇾 هو عم يرمي الطابة. 🇺🇸 He is throwing the ball.",sar:"",sen:"",img:"balancer.jpg"},
+ {id:4019,fr:"Balayer",ar:"يكنس",en:"To sweep",sfr:"Je balaie le sol. 🇸🇾 أنا عم اكنس الأرض. 🇺🇸 I am sweeping the floor.",sar:"",sen:"",img:"balayer.jpg"},
+ {id:4020,fr:"Barboter",ar:"يسبح أو يخوض بالماء الضحل",en:"To paddle",sfr:"Les enfants barbotent dans l'eau. 🇸🇾 الأولاد عم يلعبوا بالمي الضحلة. 🇺🇸 The children are splashing around in shallow water.",sar:"",sen:"",img:"barboter.jpg"},
+ {id:4021,fr:"Bécoter",ar:"يقبّل مراراً",en:"To give little kisses",sfr:"Elle bécote son bébé. 🇸🇾 هي عم تبوس طفلها بوسات صغيرة. 🇺🇸 She is giving her baby little kisses.",sar:"",sen:"",img:"becoter.jpg"},
+ {id:4022,fr:"Blaguer",ar:"يمزح",en:"To joke",sfr:"Je blague, ne t'inquiète pas. 🇸🇾 عم بمزح، لا تقلق. 🇺🇸 I'm joking, don't worry.",sar:"",sen:"",img:"blaguer.jpg"},
+ {id:4023,fr:"Bander",ar:"يلفّ بضماد",en:"To bandage",sfr:"Il bande sa blessure. 🇸🇾 هو عم يلف جرحه بضماد. 🇺🇸 He is bandaging his wound.",sar:"",sen:"",img:"bander.jpg"},
+ {id:4024,fr:"Biberonner",ar:"يشرب من القنينة",en:"To drink from a bottle",sfr:"Le bébé biberonne tranquillement. 🇸🇾 الطفل عم يشرب من الرضاعة بهدوء. 🇺🇸 The baby is drinking peacefully from the bottle.",sar:"",sen:"",img:"biberonner.jpg"},
+ {id:4025,fr:"Badigeonner",ar:"يدهن / يطلي",en:"To coat / brush",sfr:"Badigeonne le gâteau de chocolat. 🇸🇾 ادهن الكاتو بالشوكولا. 🇺🇸 Brush the cake with chocolate.",sar:"",sen:""},
+ {id:4026,fr:"Baliser",ar:"يضع علامات إرشادية",en:"To mark out",sfr:"Ils balisent le chemin. 🇸🇾 هنن عم يحطوا علامات على الطريق. 🇺🇸 They are marking the path.",sar:"",sen:"",img:"baliser.jpg"},
+ {id:4027,fr:"Bagarrer",ar:"يتشاجر",en:"To fight",sfr:"Les deux garçons se bagarrent. 🇸🇾 الولدين عم يتخانقوا. 🇺🇸 The two boys are fighting.",sar:"",sen:"",img:"bagarrer.jpg"},
+ {id:4028,fr:"Bichonner",ar:"يعتني بشيء بعناية",en:"To pamper",sfr:"Elle bichonne sa voiture. 🇸🇾 هي عم تهتم بسيارتها كتير. 🇺🇸 She is taking great care of her car.",sar:"",sen:"",img:"bichonner.jpg"},
+ {id:4029,fr:"Bousculer",ar:"يدفع / يزاحم",en:"To jostle",sfr:"Ne me bouscule pas ! 🇸🇾 لا تدفشني! 🇺🇸 Don't push me!",sar:"",sen:"",img:"bousculer.jpg"},
+ {id:4030,fr:"Bourgeonner",ar:"يزهر / يخرج براعم",en:"To bud",sfr:"Les arbres bourgeonnent au printemps. 🇸🇾 الأشجار عم تطلع براعم بالربيع. 🇺🇸 The trees are budding in spring.",sar:"",sen:"",img:"bourgeonner.jpg"},
+ {id:4031,fr:"Buller",ar:"يتسكّع / يسترخي بلا عمل",en:"To laze around",sfr:"Je bulle pendant les vacances. 🇸🇾 عم استرخي وما عم أعمل شي بالعطلة. 🇺🇸 I'm lazing around during the holidays.",sar:"",sen:""},
+ {id:4032,fr:"Branler",ar:"يهتز / يتمايل",en:"To wobble",sfr:"Cette chaise branle. 🇸🇾 هالكرسي عم يهتز. 🇺🇸 This chair is wobbling.",sar:"",sen:"",img:"branler.jpg"},
+ {id:4033,fr:"Bourlinguer",ar:"يتنقّل ويسافر كثيراً",en:"To travel around",sfr:"Il a bourlingué dans plusieurs pays. 🇸🇾 هو سافر وتنقّل ببلدان كتيرة. 🇺🇸 He has traveled around several countries.",sar:"",sen:"",img:"bourlinguer.jpg"},
+ {id:4034,fr:"Bâfrer",ar:"يأكل بنهم",en:"To gobble up",sfr:"Il bâfre son repas. 🇸🇾 هو عم ياكل بنهم. 🇺🇸 He is gobbling up his meal.",sar:"",sen:"",img:"bafrer.jpg"},
+ {id:4035,fr:"Border",ar:"يزيّن بحافة",en:"To edge",sfr:"Elle borde la nappe de dentelle. 🇸🇾 هي عم تزيّن مفرش الطاولة بالدانتيل. 🇺🇸 She is edging the tablecloth with lace.",sar:"",sen:"",img:"border.jpg"},
+ {id:4036,fr:"Boiser",ar:"يكسو بالخشب",en:"To panel with wood",sfr:"Ils vont boiser le mur. 🇸🇾 رح يكسوا الحيط بالخشب. 🇺🇸 They are going to panel the wall with wood.",sar:"",sen:"",img:"boiser.jpg"},
+ {id:4037,fr:"Barbouiller",ar:"يشخبط / يلطّخ",en:"To scribble / smear",sfr:"L'enfant barbouille le papier. 🇸🇾 الطفل عم يشخبط على الورقة. 🇺🇸 The child is scribbling on the paper.",sar:"",sen:"",img:"barbouiller.jpg"},
+ {id:4038,fr:"Brasser",ar:"يخلط",en:"To stir / mix",sfr:"Il brasse la pâte. 🇸🇾 هو عم يخلط العجينة. 🇺🇸 He is mixing the dough.",sar:"",sen:"",img:"brasser.jpg"},
+ {id:4039,fr:"Bandager",ar:"يضع ضماداً",en:"To bandage",sfr:"L'infirmière bandage son bras. 🇸🇾 الممرضة عم تحط ضماد على إيده. 🇺🇸 The nurse is bandaging his arm.",sar:"",sen:"",img:"bandager.jpg"},
+ {id:4040,fr:"Blanchir",ar:"يبيّض",en:"To whiten",sfr:"Cette lessive blanchit les vêtements. 🇸🇾 هالمسحوق بيبيّض التياب. 🇺🇸 This detergent whitens clothes.",sar:"",sen:"",img:"blanchir.jpg"},
+ {id:4041,fr:"Barrer",ar:"يسدّ / يشطب",en:"To block / cross out",sfr:"Barre la mauvaise réponse. 🇸🇾 اشطب الجواب الغلط. 🇺🇸 Cross out the wrong answer.",sar:"",sen:"",img:"barrer.jpg"},
+ {id:4042,fr:"Ballotter",ar:"يتأرجح / يتمايل",en:"To toss about",sfr:"Le bateau est balloté par les vagues. 🇸🇾 القارب عم تتلاعب فيه الأمواج. 🇺🇸 The boat is being tossed around by the waves.",sar:"",sen:"",img:"ballotter.jpg"},];
+ add.forEach(v=>{if(have.has(normFr(v.fr)))return;const L=AZ.includes((v.fr[0]||'').toUpperCase())?(v.fr[0]||'').toUpperCase():'A';st.v[L]=st.v[L]||[];st.v[L].push(v)});
+ save();localStorage.setItem('verbes-seeded5','1')}
 function render(){if(curLetter)renderLetter();else renderHome()}
 /* hardware back: letter → home, sheet → close, home → exit */
 try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
@@ -518,7 +566,7 @@ function bindNoteUI(){const c=$('noteCanvas');c.addEventListener('mousedown',not
  $('noteSizeDec').onclick=()=>setNoteSize(noteSize-1);$('noteSizeInc').onclick=()=>setNoteSize(noteSize+1);$('noteSize').oninput=function(){setNoteSize(parseInt(this.value,10)||3)};
  document.querySelectorAll('.note-tool').forEach(b=>{b.onclick=()=>{noteColor=b.dataset.color;$('noteSwatchDot').style.background=noteColor;document.querySelectorAll('.note-tool').forEach(x=>x.classList.toggle('active',x===b));$('notePalette').classList.remove('show')}})}
 bindNoteUI();
-seed();seed2();seed3();seed4();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
