@@ -40,7 +40,7 @@ main{padding:.7rem;max-width:640px;margin:0 auto;padding-bottom:5rem}
 .lg-ar{direction:rtl}
 .lg-fr,.lg-en{direction:ltr}
 #empty{text-align:center;color:var(--dim);padding:3rem 1rem;font-weight:600}
-#addFab,#pasteFab{position:fixed;inset-inline-end:1.1rem;width:56px;height:56px;border-radius:50%;border:none;color:#fff;font-size:1.6rem;box-shadow:0 6px 20px #0007;cursor:pointer;z-index:8;display:none}
+#addFab,#pasteFab{position:fixed;inset-inline-end:1.1rem;width:56px;height:56px;border-radius:50%;border:none;color:#fff;font-size:1.6rem;box-shadow:0 6px 20px #0007;cursor:pointer;z-index:8;display:none;place-items:center}
 #addFab{bottom:1.1rem;background:var(--acc)}
 #pasteFab{bottom:5.1rem;background:var(--acc2)}
 #pTa{min-height:180px;font-family:inherit;resize:vertical}
@@ -149,7 +149,7 @@ function renderHome(){
 }
 function verbOf(L,id){return (st.v[L]||[]).find(v=>v.id===id)}
 function renderLetter(){
- $('letters').style.display='none';$('lv').style.display='';$('addFab').style.display='';$('pasteFab').style.display='';$('backBtn').style.display='';
+ $('letters').style.display='none';$('lv').style.display='';$('addFab').style.display='grid';$('pasteFab').style.display='grid';$('backBtn').style.display='';
  const box=$('lv');box.innerHTML='';
  const list=st.v[curLetter]||[];
  if(!list.length){box.innerHTML='<div id="empty">'+esc(t('empty'))+'</div>';return}
