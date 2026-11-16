@@ -462,7 +462,7 @@ nav button.on{color:var(--acc)}
 <!-- weather -->
 <div class="shade" id="wxShade"><div class="sheet" id="wxSheet">
   <div class="wxHead"><button id="wxBack">‹</button><div class="lb" id="wxLoc">…</div>
-    <button id="wxCity" title="city">🔍</button><button id="wxRef" title="refresh">↻</button></div>
+    <button id="wxSpeak" title="speak">🔊</button><button id="wxCity" title="city">🔍</button><button id="wxRef" title="refresh">↻</button></div>
   <div id="wxBody"></div>
 </div></div>
 <!-- lessons browser -->
@@ -2137,6 +2137,52 @@ function renderWx(L){
    +'<div class="dd">'+wName(j.daily.weather_code[i])+'<br>🌧️ '+(j.daily.precipitation_probability_max[i]??0)+'% · 💨 '+Math.round(j.daily.wind_speed_10m_max[i])+'</div>'
    +'<div class="tp">'+fmtT(j.daily.temperature_2m_max[i])+' <span class="lo">'+fmtT(j.daily.temperature_2m_min[i])+'</span></div></div>'}
  $('wxBody').innerHTML=out}
+function wxReport(L){
+ const j=L&&L.data;if(!j||!j.current)return null;
+ const lg=st.lang,c=j.current,d0=j.daily;
+ const city=(L.name||'').split('،')[0].split(',')[0];
+ const now=new Date();
+ const dateStr=now.toLocaleDateString(lg==='ar'?'ar':lg,{weekday:'long',day:'numeric',month:'long'});
+ const code=c.weather_code;
+ const temp=Math.round(c.temperature_2m),feels=Math.round(c.apparent_temperature);
+ const rain=d0.precipitation_probability_max[0]??0;
+ const wind=Math.round(c.wind_speed_10m);
+ const hi=Math.round(d0.temperature_2m_max[0]),lo=Math.round(d0.temperature_2m_min[0]);
+ const isSnow=[71,73,75,77,85,86].includes(code);
+ const isRain=[51,53,55,56,57,61,63,65,66,67,80,81,82,95,96,99].includes(code)||rain>=50;
+ const cond=(()=>{
+  if(code<=1)return {fr:"le ciel est dégagé et il fait soleil",ar:"السماء صافية والجو مشمس",en:"the sky is clear and it's sunny"};
+  if(code===2)return {fr:"il y a quelques nuages",ar:"في كم غيمة بالسما",en:"there are a few clouds"};
+  if(code===3)return {fr:"le ciel est couvert",ar:"السماء غائمة",en:"the sky is overcast"};
+  if(code===45||code===48)return {fr:"il y a du brouillard",ar:"في ضباب",en:"it's foggy"};
+  if(isSnow)return {fr:"il neige",ar:"عم تثلج",en:"it's snowing"};
+  if(code>=95)return {fr:"il y a un orage",ar:"في عاصفة رعدية",en:"there's a thunderstorm"};
+  if(code>=66&&code<=67)return {fr:"il y a de la pluie verglaçante",ar:"في مطر متجمد",en:"there's freezing rain"};
+  return {fr:"il pleut",ar:"عم تمطر",en:"it's raining"}
+ })();
+ const tempFeel=(()=>{
+  if(temp>=30)return {fr:"Il fait chaud.",ar:"الجو حار.",en:"It's hot."};
+  if(temp<=0)return {fr:"Il fait très froid.",ar:"الجو بارد كتير.",en:"It's very cold."};
+  if(temp<=5)return {fr:"Il fait froid.",ar:"الجو بارد.",en:"It's cold."};
+  if(temp<=10)return {fr:"Il fait frais.",ar:"الجو مائل للبرودة.",en:"It's cool."};
+  if(temp>=18&&temp<24)return {fr:"Il fait doux.",ar:"الجو معتدل.",en:"It's mild."};
+  return null})();
+ const hr=now.getHours();
+ const greet=lg==='fr'?(hr<18?'Bonjour':'Bonsoir'):lg==='ar'?(hr<12?'صباح الخير':hr<18?'طاب نهارك':'مساء الخير'):(hr<12?'Good morning':hr<18?'Good afternoon':'Good evening');
+ const R={
+ fr:greet+' ! Nous sommes '+dateStr+". Aujourd'hui à "+city+", "+cond.fr+". La température actuelle est de "+temp+" degrés. Le ressenti est de "+feels+" degrés. "+(tempFeel?tempFeel.fr+' ':'')+"Le risque de pluie est de "+rain+" %. Le vent souffle à "+wind+" kilomètres par heure. La température maximale sera de "+hi+" degrés et la minimale de "+lo+" degrés. "+(isRain?'Pensez à prendre votre parapluie avant de sortir. ':'')+'Bonne journée !',
+ ar:greet+'! اليوم '+dateStr+'. في '+city+' '+cond.ar+'. درجة الحرارة الحالية '+temp+' درجة، والمحسوسة '+feels+' درجات. '+(tempFeel?tempFeel.ar+' ':'')+'احتمال المطر '+rain+'%. سرعة الرياح '+wind+' كيلومتراً بالساعة. الحرارة العظمى '+hi+' درجة والصغرى '+lo+' درجات. '+(isRain?'لا تنسوا أخذ المظلة قبل الخروج. ':'')+'نهاركم سعيد!',
+ en:greet+'! Today is '+dateStr+'. In '+city+', '+cond.en+'. The current temperature is '+temp+' degrees. It feels like '+feels+' degrees. '+(tempFeel?tempFeel.en+' ':'')+'The chance of rain is '+rain+'%. The wind is blowing at '+wind+' kilometers per hour. The high will be '+hi+' degrees and the low will be '+lo+' degrees. '+(isRain?'Remember to take your umbrella before going out. ':'')+'Have a nice day!'
+ };
+ return R[lg]||R.en;
+}
+$('wxSpeak').onclick=()=>{
+ stopSay();
+ const txt=wxReport(wxLoc);if(!txt){toast(t('wxLocating'));return}
+ const lg=st.lang;
+ if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:lg}).catch(()=>toast('!'));return}
+ if(window.speechSynthesis){const u=new SpeechSynthesisUtterance(txt);u.lang=lg;speechSynthesis.speak(u)}
+};
 $('wxBack').onclick=()=>$('wxShade').classList.remove('on');
 $('wxRef').onclick=async()=>{try{const p=await wxPos();const cn=await wxCityName(p.lat,p.lon);wxLoc={lat:p.lat,lon:p.lon,name:cn.name,cc:cn.cc};localStorage.setItem('sa3a_wxloc',JSON.stringify(wxLoc))}catch(e){}openWx()};
 $('wxCity').onclick=()=>{const nm=prompt(t('wxCityPh'));if(!nm)return;
