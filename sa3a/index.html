@@ -161,6 +161,7 @@ main{flex:1;overflow:auto;position:relative}
 .lcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 6px 8px;text-align:center;cursor:pointer;position:relative}
 .lcard .li{font-size:2rem}
 .lcard .ln{font-size:.78rem;font-weight:700;margin-top:6px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;word-break:break-word;line-height:1.35;min-height:3.1em}
+.lcard .lfimg{width:54px;height:54px;object-fit:cover;border-radius:12px;display:block;margin:0 auto;border:1px solid var(--line)}
 .lcard .opt{position:absolute;top:2px;inset-inline-end:4px;background:none;border:none;color:var(--dim);font-size:1.05rem;cursor:pointer;padding:2px 6px}
 #lsAct{display:none;gap:6px;flex:0 0 auto;padding-top:8px;border-top:1px solid var(--line)}
 #lsAct button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:8px 2px;font-family:inherit;font-size:.62rem;font-weight:800;cursor:pointer;white-space:nowrap}
@@ -476,6 +477,7 @@ nav button.on{color:var(--acc)}
 <div class="shade" id="lsOptShade"><div class="sheet">
   <h3 id="lsOptName"></h3>
   <div class="rowbtns"><button class="b ghost" id="lsOptRename"></button><button class="b danger" id="lsOptDel"></button></div>
+  <div class="rowbtns"><button class="b ghost" id="lsOptImg"></button><button class="b danger" id="lsOptImgDel"></button></div>
   <div class="rowbtns"><button class="b ghost" id="lsOptCancel" style="flex:1"></button></div>
 </div></div>
 <!-- phrase add -->
@@ -624,6 +626,8 @@ function renderLessons(){
  for(const n of items){
   const c=document.createElement('div');c.className='lcard';
   c.innerHTML='<div class="li">'+(n.t==='f'?'📁':'📖')+'</div><div class="ln">'+esc(n.n)+'</div><button class="opt">⋮</button>';
+  const liEl=c.querySelector('.li');
+  idb.get('limg_'+n.id).then(r=>{if(r&&r.blob){const im=new Image();im.src=URL.createObjectURL(r.blob);im.className='lfimg';liEl.textContent='';liEl.appendChild(im)}}).catch(()=>{});
   c.onclick=()=>{if(n.t==='f'){lsStack.push(n);renderLessons()}else showLesson(n)};
   c.querySelector('.opt').onclick=e=>{e.stopPropagation();openItemOpt(n)};
   g.appendChild(c);
@@ -633,8 +637,15 @@ let lsOptNode=null;
 function openItemOpt(n){
  lsOptNode=n;$('lsOptName').textContent=n.n;
  $('lsOptRename').textContent=t('rename');$('lsOptDel').textContent=t('delItem');$('lsOptCancel').textContent=t('cancel');
+ $('lsOptImg').textContent='🖼️ '+t('addImg');$('lsOptImgDel').textContent=t('delImg');
  $('lsOptShade').classList.add('on');
 }
+let imgPickTarget=null;
+$('lsOptImg').onclick=()=>{$('lsOptShade').classList.remove('on');imgPickTarget='node';$('imgPick').click()};
+$('lsOptImgDel').onclick=async()=>{
+ $('lsOptShade').classList.remove('on');
+ if(await confirmBox(t('delImg'))){try{await idb.del('limg_'+lsOptNode.id)}catch(e){}renderLessons()}
+};
 $('lsOptCancel').onclick=()=>$('lsOptShade').classList.remove('on');
 $('lsOptRename').onclick=async()=>{
  $('lsOptShade').classList.remove('on');
@@ -646,7 +657,7 @@ $('lsOptDel').onclick=async()=>{
  const n=lsOptNode;
  if(await confirmBox(n.t==='f'?t('delFolderQ'):t('delLessonQ'))){
   const arr=LSROOT();const i=arr.indexOf(n);if(i>=0)arr.splice(i,1);
-  const clean=async nd=>{if(nd.t==='l'){try{await idb.del('limg_'+nd.id);await idb.del('lmed_'+nd.id);(nd.ph||[]).forEach((p,i)=>idb.del('lpimg_'+nd.id+'_'+i).catch(()=>{}))}catch(e){}}else if(nd.kids)for(const k of nd.kids)await clean(k)};
+  const clean=async nd=>{try{await idb.del('limg_'+nd.id);if(nd.t==='l'){await idb.del('lmed_'+nd.id);(nd.ph||[]).forEach((p,i)=>idb.del('lpimg_'+nd.id+'_'+i).catch(()=>{}))}}catch(e){}if(nd.kids)for(const k of nd.kids)await clean(k)};
   await clean(n);
   save();renderLessons();
  }
@@ -1340,15 +1351,17 @@ $('tplYes').onclick=()=>{
  $('tplShade').classList.remove('on');
 };
 $('imgPick').onchange=async e=>{
- const f=e.target.files[0];e.target.value='';if(!f||!lsLesson)return;
+ const f=e.target.files[0];e.target.value='';if(!f)return;
+ const node=imgPickTarget==='node'?lsOptNode:lsLesson;imgPickTarget=null;
+ if(!node)return;
  try{
   const img=new Image();img.src=URL.createObjectURL(f);await img.decode();
   const mx=900,s=Math.min(1,mx/Math.max(img.width,img.height));
   const cv=document.createElement('canvas');cv.width=Math.round(img.width*s);cv.height=Math.round(img.height*s);
   cv.getContext('2d').drawImage(img,0,0,cv.width,cv.height);
   const blob=await new Promise(r=>cv.toBlob(r,'image/jpeg',.85));
-  await idb.set('limg_'+lsLesson.id,{blob});
-  showLesson(lsLesson);
+  await idb.set('limg_'+node.id,{blob});
+  if(node.t==='l'&&lsView==='lesson'&&node===lsLesson)showLesson(node);else renderLessons();
  }catch(err){toast('!')}
 };
 
