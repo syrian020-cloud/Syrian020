@@ -40,7 +40,11 @@ main{padding:.7rem;max-width:640px;margin:0 auto;padding-bottom:5rem}
 .lg-ar{direction:rtl}
 .lg-fr,.lg-en{direction:ltr}
 #empty{text-align:center;color:var(--dim);padding:3rem 1rem;font-weight:600}
-#addFab{position:fixed;bottom:1.1rem;inset-inline-end:1.1rem;width:56px;height:56px;border-radius:50%;border:none;background:var(--acc);color:#fff;font-size:1.7rem;box-shadow:0 6px 20px #0007;cursor:pointer;z-index:8;display:none}
+#addFab,#pasteFab{position:fixed;inset-inline-end:1.1rem;width:56px;height:56px;border-radius:50%;border:none;color:#fff;font-size:1.6rem;box-shadow:0 6px 20px #0007;cursor:pointer;z-index:8;display:none}
+#addFab{bottom:1.1rem;background:var(--acc)}
+#pasteFab{bottom:5.1rem;background:var(--acc2)}
+#pTa{min-height:180px;font-family:inherit;resize:vertical}
+#pHint{font-size:.72rem;color:var(--dim);margin:.2rem 0 .5rem;line-height:1.5;white-space:pre-line}
 .shade{position:fixed;inset:0;background:#000a;z-index:50;display:none;align-items:flex-end;justify-content:center}
 .shade.on{display:flex}
 .sheet{background:var(--bg2);border-radius:22px 22px 0 0;width:100%;max-width:640px;max-height:92vh;overflow-y:auto;padding:1rem}
@@ -70,7 +74,14 @@ main{padding:.7rem;max-width:640px;margin:0 auto;padding-bottom:5rem}
 <div id="letters"></div>
 <div id="lv" style="display:none"></div>
 </main>
+<button id="pasteFab">📥</button>
 <button id="addFab">＋</button>
+<div class="shade" id="pShade"><div class="sheet">
+<h3 id="pTtl"></h3>
+<div id="pHint"></div>
+<div class="fld"><textarea id="pTa" dir="auto" placeholder="1. Accepter – يَقْبَل – To accept&#10;🇫🇷 J'accepte ton invitation.&#10;🇸🇾 أنا بقبل دعوتك.&#10;🇺🇸 I accept your invitation."></textarea></div>
+<div class="brow"><button class="bbtn sec" id="pCancel"></button><button class="bbtn pri" id="pAdd"></button></div>
+</div></div>
 <div class="shade" id="vShade"><div class="sheet">
 <h3 id="vTtl"></h3>
 <div class="fld"><label id="lVerb"></label><input id="fVerb" dir="ltr" placeholder="Acheter"></div>
@@ -89,9 +100,9 @@ const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const CAP=window.Capacitor||{};const isCap=()=>!!(CAP.isNativePlatform&&CAP.isNativePlatform());
 const LANGS=['ar','en','fr'],LANGICON={ar:'🇸🇾',en:'🇺🇸',fr:'🇫🇷'};
 const T={
-ar:{name:'أفعال',verbs:'فعل',add:'أضف فعلًا',edit:'عدّل الفعل',delQ:'حذف هذا الفعل؟',verb:'الفعل (فرنسي)',arM:'المعنى بالعربي',enM:'English meaning',sfr:'جملة فرنسية',sar:'جملة بالعربي',sen:'English sentence',img:'صورة (اختياري)',save:'حفظ',cancel:'إلغاء',empty:'لا أفعال بعد — اضغط ＋ لإضافة فعل',saved:'✓ حُفظ',letters:'الحروف A–Z'},
-en:{name:'Verbs',verbs:'verbs',add:'Add a verb',edit:'Edit verb',delQ:'Delete this verb?',verb:'Verb (French)',arM:'Arabic meaning',enM:'English meaning',sfr:'French sentence',sar:'Arabic sentence',sen:'English sentence',img:'Image (optional)',save:'Save',cancel:'Cancel',empty:'No verbs yet — tap ＋ to add one',saved:'✓ Saved',letters:'Letters A–Z'},
-fr:{name:'Verbes',verbs:'verbes',add:'Ajouter un verbe',edit:'Modifier le verbe',delQ:'Supprimer ce verbe ?',verb:'Verbe (français)',arM:'Sens en arabe',enM:'Sens en anglais',sfr:'Phrase en français',sar:'Phrase en arabe',sen:'Phrase en anglais',img:'Image (optionnel)',save:'Enregistrer',cancel:'Annuler',empty:'Pas encore de verbes — touchez ＋',saved:'✓ Enregistré',letters:'Lettres A–Z'}};
+ar:{name:'أفعال',verbs:'فعل',add:'أضف فعلًا',edit:'عدّل الفعل',delQ:'حذف هذا الفعل؟',verb:'الفعل (فرنسي)',arM:'المعنى بالعربي',enM:'English meaning',sfr:'جملة فرنسية',sar:'جملة بالعربي',sen:'English sentence',img:'صورة (اختياري)',save:'حفظ',cancel:'إلغاء',empty:'لا أفعال بعد — اضغط ＋ لإضافة فعل',saved:'✓ حُفظ',letters:'الحروف A–Z',paste:'لصق نص',pasteHint:'الصق النص بهذا الشكل — رقم ثم «فعل – عربي – إنجليزي» ثم الجمل بأعلامها أو بترتيب فرنسي/عربي/إنجليزي. روابط الصور تُجلب تلقائيًا إن أمكن.',addAll:'أضف الكل',addedN:'فعلًا أُضيف',nothing:'لم يُعثر على أفعال في النص'},
+en:{name:'Verbs',verbs:'verbs',add:'Add a verb',edit:'Edit verb',delQ:'Delete this verb?',verb:'Verb (French)',arM:'Arabic meaning',enM:'English meaning',sfr:'French sentence',sar:'Arabic sentence',sen:'English sentence',img:'Image (optional)',save:'Save',cancel:'Cancel',empty:'No verbs yet — tap ＋ to add one',saved:'✓ Saved',letters:'Letters A–Z',paste:'Paste text',pasteHint:'Paste text like: number, then «verb – ar – en», then sentences with flags or in fr/ar/en order. Image URLs are fetched when possible.',addAll:'Add all',addedN:'verbs added',nothing:'No verbs found in the text'},
+fr:{name:'Verbes',verbs:'verbes',add:'Ajouter un verbe',edit:'Modifier le verbe',delQ:'Supprimer ce verbe ?',verb:'Verbe (français)',arM:'Sens en arabe',enM:'Sens en anglais',sfr:'Phrase en français',sar:'Phrase en arabe',sen:'Phrase en anglais',img:'Image (optionnel)',save:'Enregistrer',cancel:'Annuler',empty:'Pas encore de verbes — touchez ＋',saved:'✓ Enregistré',letters:'Lettres A–Z',paste:'Coller du texte',pasteHint:'Collez le texte : numéro, puis «verbe – ar – en», puis les phrases avec drapeaux ou dans l’ordre fr/ar/en. Les images sont récupérées si possible.',addAll:'Tout ajouter',addedN:'verbes ajoutés',nothing:'Aucun verbe trouvé dans le texte'}};
 const t=k=>T[st.lang][k];
 let st={};
 try{st=JSON.parse(localStorage.getItem('verbes')||'{}')}catch(e){st={}}
@@ -127,7 +138,7 @@ $('langBtn').onclick=()=>{st.lang=LANGS[(LANGS.indexOf(st.lang)+1)%3];save();app
 $('muteBtn').onclick=()=>{document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));stopSay()};
 $('backBtn').onclick=()=>{stopSay();curLetter=null;renderHome()};
 function renderHome(){
- $('letters').style.display='';$('lv').style.display='none';$('addFab').style.display='none';$('backBtn').style.display='none';
+ $('letters').style.display='';$('lv').style.display='none';$('addFab').style.display='none';$('pasteFab').style.display='none';$('backBtn').style.display='none';
  const g=$('letters');g.innerHTML='';
  AZ.forEach(L=>{
   const n=(st.v[L]||[]).length;
@@ -138,7 +149,7 @@ function renderHome(){
 }
 function verbOf(L,id){return (st.v[L]||[]).find(v=>v.id===id)}
 function renderLetter(){
- $('letters').style.display='none';$('lv').style.display='';$('addFab').style.display='';$('backBtn').style.display='';
+ $('letters').style.display='none';$('lv').style.display='';$('addFab').style.display='';$('pasteFab').style.display='';$('backBtn').style.display='';
  const box=$('lv');box.innerHTML='';
  const list=st.v[curLetter]||[];
  if(!list.length){box.innerHTML='<div id="empty">'+esc(t('empty'))+'</div>';return}
@@ -202,6 +213,43 @@ $('vSave').onclick=async()=>{
  if(pickedBlob){try{await idb.set('img_'+v.id,{blob:pickedBlob});delete v.img}catch(e){}}
  save();$('vShade').classList.remove('on');toast(t('saved'));renderLetter()};
 $('addFab').onclick=()=>openSheet(null);
+/* bulk paste */
+function parseBulk(txt){
+ const L=txt.split(/\r?\n/),blocks=[];let cur=null;
+ const flush=()=>{if(cur&&cur.title)blocks.push(cur);cur=null};
+ for(const l0 of L){const l=l0.trim();if(!l)continue;
+  if(/^!\[/.test(l)||/^https?:\/\/\S+$/i.test(l)){if(cur){const u=(l.match(/https?:\/\/[^\s)]+/)||[])[0];if(u)(cur.imgs=cur.imgs||[]).push(u)}continue}
+  const m=l.match(/^\d+\s*[.):\-–—]\s*(.+)$/);
+  if(m){flush();cur={title:m[1].trim(),lines:[]};continue}
+  if(!cur)cur={title:'',lines:[]};
+  if(!cur.title&&/[–—]/.test(l)||!cur.title&&l.split(' - ').length>=3){cur.title=l;continue}
+  cur.lines.push(l)}
+ flush();
+ const flagOf=l=>/^🇫🇷|^🇫🇷\s/.test(l)?'fr':/^🇸🇾|^🇪🇬|^🇸🇦|^🇦🇪|^🇱🇧|^🇯🇴|^🇵🇸|^🇮🇶|^🇩🇿|^🇲🇦|^🇹🇳/.test(l)?'ar':/^🇺🇸|^🇬🇧|^🇨🇦|^🇦🇺/.test(l)?'en':null;
+ return blocks.map(b=>{
+  const seg=b.title.split(/\s*[–—]\s*|\s+-\s+/).map(s=>s.trim()).filter(Boolean);
+  const v={fr:seg[0]||'',ar:seg[1]||'',en:seg[2]||'',sfr:'',sar:'',sen:'',imgurl:(b.imgs||[])[0]||''};
+  const used={};(b.lines||[]).forEach(l=>{const f=flagOf(l);if(f){const s=l.replace(/^\S+\s*/,'').trim();v['s'+f]=(v['s'+f]?v['s'+f]+' ':'')+s;used[f]=1}});
+  const rest=(b.lines||[]).filter(l=>!flagOf(l));
+  ['fr','ar','en'].forEach((f,i)=>{if(!used[f]&&rest[i])v['s'+f]=rest[i]});
+  return v}).filter(v=>v.fr)}
+async function fetchImgBlob(url){
+ try{const r=await fetch(url);if(!r.ok)return null;const b=await r.blob();
+  return await new Promise(res=>{const img=new Image();img.onload=()=>{try{const S=160,c=document.createElement('canvas');c.width=c.height=S;const m=Math.min(img.width,img.height);c.getContext('2d').drawImage(img,(img.width-m)/2,(img.height-m)/2,m,m,0,0,S,S);c.toBlob(x=>res(x),'image/jpeg',.82)}catch(e){res(null)}};img.onerror=()=>res(null);img.src=URL.createObjectURL(b)})}catch(e){return null}}
+function openPaste(){
+ $('pTtl').textContent=t('paste');$('pHint').textContent=t('pasteHint');$('pAdd').textContent=t('addAll');$('pCancel').textContent=t('cancel');$('pTa').value='';
+ $('pShade').classList.add('on')}
+$('pCancel').onclick=()=>$('pShade').classList.remove('on');
+$('pasteFab').onclick=openPaste;
+$('pAdd').onclick=async()=>{
+ const vs=parseBulk($('pTa').value);if(!vs.length){toast(t('nothing'));return}
+ $('pShade').classList.remove('on');toast('⏳');let n=0;
+ for(const pv of vs){
+  const L=AZ.includes((pv.fr[0]||'').toUpperCase())?(pv.fr[0]||'').toUpperCase():curLetter;
+  const v={id:Date.now()+Math.floor(Math.random()*999)+n,fr:pv.fr,ar:pv.ar,en:pv.en,sfr:pv.sfr,sar:pv.sar,sen:pv.sen};
+  st.v[L]=st.v[L]||[];st.v[L].push(v);n++;
+  if(pv.imgurl){const b=await fetchImgBlob(pv.imgurl);if(b){try{await idb.set('img_'+v.id,{blob:b})}catch(e){}}}}
+ save();toast('✓ '+n+' '+t('addedN'));renderLetter()};
 function toast(s){const x=$('toast');x.textContent=s;x.classList.add('on');clearTimeout(x._t);x._t=setTimeout(()=>x.classList.remove('on'),1800)}
 /* seed letter A */
 function seed(){
@@ -219,6 +267,13 @@ function seed(){
  {id:10,fr:'Ajouter',ar:'يُضِيف',en:'To add',sfr:'Je veux ajouter du sucre.',sar:'بدي ضيف سكر.',sen:'I want to add sugar.',img:'ajouter.jpg'}];
  save();localStorage.setItem('verbes-seeded','1')}
 function render(){if(curLetter)renderLetter();else renderHome()}
+/* hardware back: letter → home, sheet → close, home → exit */
+try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
+ CAP.Plugins.App.addListener('backButton',()=>{
+  if($('vShade').classList.contains('on')){$('vShade').classList.remove('on');return}
+  if($('pShade').classList.contains('on')){$('pShade').classList.remove('on');return}
+  if(curLetter){stopSay();curLetter=null;renderHome();return}
+  CAP.Plugins.App.exitApp()})}}catch(e){}
 seed();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
