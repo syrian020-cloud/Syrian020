@@ -63,8 +63,8 @@ main{flex:1;overflow:auto;position:relative}
 #sec-cal{padding:12px 12px 20px}
 #calToday{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.05rem;color:var(--txt);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;margin-bottom:12px}
 #calToday .dtx{flex:1;text-align:center}
-#calSpeak{background:none;border:none;font-size:1.2rem;cursor:pointer;padding:2px 6px;color:var(--acc)}
-#calSpeak.on{color:var(--acc);outline:2px solid var(--acc);border-radius:8px}
+#calSpeak,#calMonB{background:none;border:none;font-size:1.2rem;cursor:pointer;padding:2px 6px;color:var(--acc)}
+#calSpeak.on,#calMonB.on{color:var(--acc);outline:2px solid var(--acc);border-radius:8px}
 #calCap{margin-top:-6px;margin-bottom:12px;font-size:.85rem;font-weight:700;line-height:1.5;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 10px;text-align:center;color:var(--acc);display:none}
 #calCap.on{display:block}
 .yrnav{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:10px}
@@ -425,7 +425,7 @@ nav button.on{color:var(--acc)}
     </div>
   </section>
   <section class="tabsec" id="sec-cal">
-    <div id="calToday"><button id="calSpeak">🔊</button><span class="dtx"></span></div>
+    <div id="calToday"><button id="calSpeak">🔊</button><span class="dtx"></span><button id="calMonB">📅🔊</button></div>
     <div id="calCap"></div>
     <div id="yearView">
       <div class="yrnav"><button id="yrPrev">‹</button><div class="yr" id="yrNum"></div><button id="yrNext">›</button></div>
@@ -2229,8 +2229,20 @@ function wxSpeakToggle(){
  done();
 }
 $('wxSpeak').onclick=wxSpeakToggle;
-let calSaying=false;
+const MONTHS_TRI={fr:['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],ar:['كانون الثاني','شباط','آذار','نيسان','أيار','حزيران','تموز','آب','أيلول','تشرين الأول','تشرين الثاني','كانون الأول'],en:['January','February','March','April','May','June','July','August','September','October','November','December']};
+let calSaying=false,calMonRun=false;
+$('calMonB').onclick=async()=>{
+ if(calMonRun){calMonRun=false;stopSay();$('calMonB').classList.remove('on');$('calCap').classList.remove('on');return}
+ if(calSaying){stopSay();calSaying=false;$('calSpeak').classList.remove('on')}
+ stopSay();calMonRun=true;$('calMonB').classList.add('on');const tok=sayTok,lg=st.lang;
+ const cc=$('calCap');cc.dir='ltr';cc.classList.add('on');
+ for(let m=0;m<12&&calMonRun&&tok===sayTok;m++){
+  cc.textContent='🇫🇷 '+MONTHS_TRI.fr[m]+' — 🇸🇾 '+MONTHS_TRI.ar[m]+' — 🇬🇧 '+MONTHS_TRI.en[m];
+  await sayOnce(MONTHS_TRI[lg][m],lg)}
+ calMonRun=false;$('calMonB').classList.remove('on');cc.classList.remove('on');
+};
 $('calSpeak').onclick=()=>{
+ if(calMonRun){calMonRun=false;$('calMonB').classList.remove('on')}
  if(calSaying){stopSay();calSaying=false;$('calSpeak').classList.remove('on');$('calCap').classList.remove('on');return}
  stopSay();
  const lg=st.lang,d=new Date();
