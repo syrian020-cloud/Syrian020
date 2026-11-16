@@ -737,9 +737,9 @@ async function showLesson(n){
    $('liDel').onclick=async()=>{if(await confirmBox(t('delImg'))){try{await idb.del('limg_'+n.id)}catch(e){}showLesson(n)}}}
  }catch(e){}
  try{const m=await idb.get('lmed_'+n.id);
-  if(m&&m.blob){const wrap=document.createElement('div');wrap.className='vcrop';wrap.style.cssText='text-align:center;margin-bottom:10px;position:relative';
+  if(m&&m.blob){const wrap=document.createElement('div');wrap.className='vcrop';wrap.style.cssText='text-align:center;margin-bottom:10px;position:relative;padding-top:16px';
    const el=document.createElement(m.kind==='v'?'video':'audio');el.controls=true;el.src=URL.createObjectURL(m.blob);el.className='lmed';el.id='lsMedia';el._vcrop=wrap;
-   const dd=document.createElement('button');dd.className='opt';dd.style.cssText='background:rgba(0,0,0,.55);color:#fff;border:none;border-radius:50%;width:30px;height:30px;top:6px;inset-inline-end:8px;position:absolute;z-index:3;font-size:1rem;cursor:pointer';dd.textContent='×';
+   const dd=document.createElement('button');dd.className='opt';dd.style.cssText='background:rgba(0,0,0,.55);color:#fff;border:none;border-radius:50%;width:28px;height:28px;top:0;inset-inline-end:4px;position:absolute;z-index:3;font-size:.95rem;cursor:pointer;line-height:1';dd.textContent='×';
    dd.onclick=async()=>{if(await confirmBox(t('delMedQ'))){try{await idb.del('lmed_'+n.id)}catch(e){}showLesson(n)}};
    wrap.appendChild(el);wrap.appendChild(dd);v.appendChild(wrap);
    const cbox=document.createElement('div');cbox.id='cueBox';v.appendChild(cbox);
