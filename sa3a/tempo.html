@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#6d5cff">
-<title>Tempo</title>
+<title>Sa3a · مواعيد</title>
 <link rel="manifest" href="manifest-tempo.json">
 <link rel="icon" type="image/png" href="icon-tempo-192.png">
 <style>
@@ -306,8 +306,7 @@ body:not(.light) .toast{background:#2a2e55}
     <header>
       <div class="hrow">
         <div class="logo">
-          <img src="icon-tempo-192.png" alt="" onerror="this.style.display='none'">
-          <div><b>Tempo</b><small id="tagline"></small></div>
+          <div><b id="docTitle"></b></div>
         </div>
         <div class="langs">
           <button data-lang="ar">عربي</button>
@@ -322,10 +321,7 @@ body:not(.light) .toast{background:#2a2e55}
 
     <div id="hdrart"></div>
 
-    <div class="contact">
-      <a class="cpill wa" href="https://wa.me/33775813643" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#fff" transform="translate(4.15,4.15) scale(0.654)" d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35M12.04 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.82 9.82 0 0 1 9.88 9.89c0 5.44-4.44 9.88-9.89 9.88m8.42-18.3A11.82 11.82 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.9c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.68 1.45h.01c6.58 0 11.94-5.36 11.94-11.93 0-3.18-1.24-6.18-3.53-8.38"/></svg></a>
-      <a class="cpill mail" href="mailto:syrian020@gmail.com" aria-label="Gmail"><svg viewBox="0 0 256 192"><path fill="#4285F4" d="M58.182 192.05V93.14L27.507 65.077L0 49.504v125.091c0 9.658 7.825 17.455 17.455 17.455h40.727z"/><path fill="#34A853" d="M197.818 192.05h40.727c9.659 0 17.455-7.826 17.455-17.455V49.504l-27.328 15.564-30.854 28.072v98.91z"/><path fill="#EA4335" d="m58.182 93.14-4.174-38.647 4.174-48.989L128 69.868l69.818-64.364 4.173 48.97-4.173 38.666L128 157.482l-69.818-64.342z"/><path fill="#FBBC04" d="M197.818 5.504v87.636L256 49.504V24.585c0-21.58-24.646-33.858-41.697-20.783L197.818 5.504z"/><path fill="#C5221F" d="m0 49.504 26.759 20.07L58.182 93.14V5.504L41.695 3.802C24.646-9.274 0 3.005 0 24.585v24.919z"/></svg></a>
-    </div>
+    
 
     <button class="planbtn" id="btn-plan"><span class="pi">🗓️</span><span><b id="plan-bt"></b><small id="plan-bs"></small></span></button>
 
@@ -379,7 +375,7 @@ body:not(.light) .toast{background:#2a2e55}
 /* ==================== i18n ==================== */
 const I18N = {
   ar: {
-    tagline:'مواعيدك، منظّمة بأناقة', search:'ابحث عن موعد…',
+    tagline:'مواعيد الطبيب', docTitle:'🩺 مواعيد الطبيب', search:'ابحث عن موعد…',
     tabAll:'الكل', tabUp:'قادم', tabOver:'فائت', tabDone:'تم', tabOff:'مُلغى', heroImg:'tempo-hero-ar.jpg',
     empty:'لا مواعيد بعد', emptyHint:'اضغط + لإضافة أول موعد',
     next:'الموعد القادم',
@@ -446,7 +442,7 @@ const I18N = {
     menuPlan:'🗓️ جدول عملي',
   },
   fr: {
-    tagline:'Vos rendez-vous, en toute élégance', search:'Rechercher un rendez-vous…',
+    tagline:'Vos rendez-vous, en toute élégance', docTitle:'🩺 Rendez-vous médecin', search:'Rechercher un rendez-vous…',
     tabAll:'Tous', tabUp:'À venir', tabOver:'Passés', tabDone:'Fait', tabOff:'Annulé', heroImg:'tempo-hero-fr.jpg',
     empty:'Aucun rendez-vous', emptyHint:'Touchez + pour en ajouter un',
     next:'Prochain rendez-vous',
@@ -513,7 +509,7 @@ const I18N = {
     menuPlan:'🗓️ Mon planning',
   },
   en: {
-    tagline:'Your appointments, elegantly organized', search:'Search appointments…',
+    tagline:'Your appointments, elegantly organized', docTitle:'🩺 Doctor appointments', search:'Search appointments…',
     tabAll:'All', tabUp:'Upcoming', tabOver:'Overdue', tabDone:'Done', tabOff:'Cancelled', heroImg:'tempo-hero-en.jpg',
     empty:'No appointments yet', emptyHint:'Tap + to add your first one',
     next:'Next appointment',
@@ -583,7 +579,8 @@ const I18N = {
 const CAT_KEYS=['health','admin','work','personal','study','other'];
 
 /* ==================== state ==================== */
-const LS_KEY='tempo_appts', LS_LANG='tempo_lang', LS_FIRED='tempo_fired', LS_THEME='tempo_theme';
+const LS_KEY='sa3a_tempo_appts', LS_LANG='tempo_lang', LS_FIRED='sa3a_tempo_fired', LS_THEME='sa3a_tempo_theme';
+[['tempo_appts',LS_KEY],['tempo_fired',LS_FIRED],['tempo_theme',LS_THEME],['tempo_plan','sa3a_tempo_plan']].forEach(([o,n])=>{try{if(localStorage.getItem(n)===null&&localStorage.getItem(o)!==null)localStorage.setItem(n,localStorage.getItem(o))}catch(e){}});
 let appts=[], lang='ar', tab='upcoming', query='', view='list', detailId=null;
 let editingId=null, pendingAudio=null; // {name,dataUrl}
 let selectMode=false;const selSet=new Set();
@@ -1592,7 +1589,7 @@ function renderSelBar(){
 }
 
 /* ==================== work planning ==================== */
-const LS_PLAN='tempo_plan';
+const LS_PLAN='sa3a_tempo_plan';
 let plan={}, planFrom='list', chkPrefill=null;
 const SHIFTS={matin:[360,840],soir:[840,1320]}; // minutes: 06:00–14:00 / 14:00–22:00
 const DAY_ORDER=[1,2,3,4,5,6,0];
@@ -1812,7 +1809,7 @@ function openWeekSheet(monISO){
 function applyLang(){
   document.documentElement.lang=lang;
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
-  $('#tagline').textContent=t('tagline');
+
   $('#q').placeholder=t('search');
   $('#plan-bt').textContent=t('planBtn');
   $('#plan-bs').textContent=t('planBtnSub');
@@ -1821,6 +1818,7 @@ function applyLang(){
 function renderAll(){applyLang();
   const hi=t('heroImg');
   const ha=$('#hdrart');if(ha)ha.innerHTML=hi?`<img class="hdrart" src="${hi}" alt="">`:'';
+  const dt=$('#docTitle');if(dt)dt.textContent=t('docTitle');
   renderTabs();renderNext();renderList();}
 
 /* ==================== events ==================== */
@@ -1898,9 +1896,7 @@ if(location.hash==='#plan')openPlan();
 else if(location.hash.startsWith('#new')){const m=location.hash.match(/^#new=(\d{4}-\d{2}-\d{2})/);openForm(null,m?{date:m[1]}:null)}
 else if(location.hash.startsWith('#ring=')){const id=location.hash.slice(6);const a=appts.find(x=>String(x.id)===id);
  if(a){try{history.replaceState(null,'','tempo.html')}catch(e){}markFired(a.id+':0');startApptRing(a)}}
-try{const bk=document.createElement('a');bk.href='index.html';bk.textContent='🕐 Sa3a';
- bk.style.cssText='position:fixed;bottom:14px;inset-inline-start:14px;z-index:40;background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none;font-size:.85rem';
- document.body.appendChild(bk)}catch(e){}
+
 </script>
 </body>
 </html>
