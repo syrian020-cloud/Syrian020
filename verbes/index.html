@@ -354,7 +354,8 @@ function showMiniMenu(items,btn){
  const r=btn.getBoundingClientRect();
  m.style.top=Math.min(window.innerHeight-m.offsetHeight-6,r.bottom+4)+'px';
  const ltr=document.documentElement.dir!=='rtl';
- m.style[ltr?'left':'right']=Math.max(4,(ltr?r.left:window.innerWidth-r.right)-6)+'px'}
+ if(ltr)m.style.left=Math.max(4,Math.min(r.left,window.innerWidth-m.offsetWidth-6))+'px';
+ else m.style.right=Math.max(4,Math.min(window.innerWidth-r.right,window.innerWidth-m.offsetWidth-6))+'px'}
 function openVerbMenu(v,btn,store){
  showMiniMenu([
   {label:t('catEdit'),fn:()=>openSheet(v)},
@@ -378,7 +379,8 @@ function openCatMenu(ct,btn){
  const r=btn.getBoundingClientRect();
  m.style.top=Math.min(window.innerHeight-m.offsetHeight-6,r.bottom+4)+'px';
  const ltr=document.documentElement.dir!=='rtl';
- m.style[ltr?'left':'right']=Math.max(4,(ltr?r.left:window.innerWidth-r.right)-6)+'px'}
+ if(ltr)m.style.left=Math.max(4,Math.min(r.left,window.innerWidth-m.offsetWidth-6))+'px';
+ else m.style.right=Math.max(4,Math.min(window.innerWidth-r.right,window.innerWidth-m.offsetWidth-6))+'px'}
 document.addEventListener('click',e=>{if(catMenuEl&&!catMenuEl.contains(e.target))closeCatMenu()},true);
 /* add / edit category sheet */
 let catEditId=null,catPicked=null;
