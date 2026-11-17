@@ -406,17 +406,52 @@ $('settingsBtn').onclick=()=>{$('sTtl').textContent=t('settings');$('sExport').t
 $('sCancel').onclick=()=>$('sShade').classList.remove('on');
 const blob64=b=>new Promise(res=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(',')[1]);r.readAsDataURL(b)});
 const b64blob=(s,ty)=>{const bin=atob(s),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return new Blob([u],{type:ty})};
+async function streamJson(fname,body){
+ const FS=CAP.Plugins&&CAP.Plugins.Filesystem;
+ if(isCap()&&FS){
+  try{
+   toast('💾…');
+   let first=true,uri=null;
+   const w=async s=>{for(let i=0;i<s.length;i+=200000){const c=s.slice(i,i+200000);
+    if(first){const r=await FS.writeFile({path:fname,data:c,directory:'CACHE',encoding:'utf8'});uri=r.uri;first=false}
+    else await FS.appendFile({path:fname,data:c,directory:'CACHE',encoding:'utf8'})}};
+   await body(w);
+   let docUri='';try{await FS.copy({from:uri,to:fname,toDirectory:'DOCUMENTS'});docUri=' → Documents'}catch(e2){}
+   if(CAP.Plugins.Share){await CAP.Plugins.Share.share({title:'أفعال',url:uri,dialogTitle:fname}).catch(()=>{})}
+   toast('✓ '+fname+docUri);
+   return;
+  }catch(e){toast('!');return}
+ }
+ const acc=[];await body(async s=>acc.push(s));const data=acc.join('');
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type:'application/json'}));a.download=fname;a.click()
+}
+async function streamMedia(w){
+ const d=await idb.open();
+ const ks=await new Promise((res,rej)=>{const q=d.transaction('s').objectStore('s').getAllKeys();q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)});
+ let comma=false;
+ for(const k of ks){
+  const r=await idb.get(k);
+  if(!r||!r.blob)continue;
+  await w((comma?',':'')+JSON.stringify(String(k))+':{"t":'+JSON.stringify(r.blob.type||'')+',"d":"');
+  for(let off=0;off<r.blob.size;off+=3000000){
+   const s=r.blob.slice(off,Math.min(off+3000000,r.blob.size));
+   await w(await blob64(s))}
+  await w('"}');comma=true}
+}
 $('sExport').onclick=async()=>{
- toast('⏳');$('sShade').classList.remove('on');
- try{const out={ls:localStorage.getItem('verbes'),idb:{}};const items=await idb.all();
-  for(const k in items){const r=items[k];if(r&&r.blob)out.idb[k]={b64:await blob64(r.blob),type:r.blob.type||'image/jpeg'}}
-  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(out)],{type:'application/json'}));a.download='af3al-backup.json';document.body.appendChild(a);a.click();a.remove();
-  toast(t('exported'))}catch(e){toast('!')}};
+ $('sShade').classList.remove('on');
+ const all={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);all[k]=localStorage.getItem(k)}
+ await streamJson('af3al-backup.json',async w=>{
+  await w('{"v":2,"ls":'+JSON.stringify(all)+',"idb":{');
+  await streamMedia(w);
+  await w('}}')})};
 $('sImport').onclick=()=>$('sFile').click();
 $('sFile').onchange=async e=>{
  const f=e.target.files[0];e.target.value='';if(!f)return;
- try{const d=JSON.parse(await f.text());if(d.ls)localStorage.setItem('verbes',d.ls);
-  for(const k in(d.idb||{})){const it=d.idb[k];await idb.set(k,{blob:b64blob(it.b64,it.type)})}
+ try{const d=JSON.parse(await f.text());if(!d.ls)throw 0;
+  for(const k of Object.keys(d.ls))try{localStorage.setItem(k,d.ls[k])}catch(x){}
+  for(const k of Object.keys(d.idb||{})){const m=d.idb[k];
+   try{await idb.set(k,{blob:b64blob(m.d,m.t)})}catch(x){}}
   toast(t('imported'));setTimeout(()=>location.reload(),800)}catch(x){toast('!')}};
 $('pAdd').onclick=async()=>{
  const vs=parseBulk($('pTa').value);if(!vs.length){toast(t('nothing'));return}
