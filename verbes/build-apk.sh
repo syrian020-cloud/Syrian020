@@ -9,8 +9,9 @@ ROOT=$(cd "$(dirname "$0")" && pwd)
 cd "$ROOT"
 
 # Stage web assets into Capacitor's webDir
-rm -rf www && mkdir -p www/img
+rm -rf www && mkdir -p www/img www/js
 cp index.html manifest.json sw.js icon-192.png icon-512.png www/
+cp js/*.js www/js/
 cp img/*.jpg www/img/
 
 # Aliyun Maven mirrors where needed
@@ -35,15 +36,30 @@ sed -i "s|<string name=\"title_activity_main\">.*</string>|<string name=\"title_
 PLUGIN_DIR="android/app/src/main/java/com/syrian020/verbes"
 mkdir -p "$PLUGIN_DIR"
 cp native-plugins/TtsPlugin.java "$PLUGIN_DIR/"
+mkdir -p "android/app/src/main/java/com/syrian020/tts"
+cp native-plugins/EdgeTtsPlugin.java "android/app/src/main/java/com/syrian020/tts/"
+if ! grep -q 'com.squareup.okhttp3:okhttp' android/app/build.gradle; then
+  sed -i "s|implementation project(':capacitor-android')|&\n    implementation \"com.squareup.okhttp3:okhttp:4.12.0\"|" android/app/build.gradle
+fi
 MAIN_ACTIVITY=$(find android/app/src/main/java -name MainActivity.java | head -1)
 if [ -f "$MAIN_ACTIVITY" ] && ! grep -q 'TtsPlugin' "$MAIN_ACTIVITY"; then
   python3 - "$MAIN_ACTIVITY" <<'PY'
 import sys,re
 p=sys.argv[1];s=open(p).read()
 s=s.replace('import com.getcapacitor.BridgeActivity;',
-            'import com.getcapacitor.BridgeActivity;\nimport com.syrian020.verbes.TtsPlugin;')
+            'import com.getcapacitor.BridgeActivity;\nimport com.syrian020.verbes.TtsPlugin;\nimport com.syrian020.tts.EdgeTtsPlugin;')
 s=re.sub(r'(public class MainActivity extends BridgeActivity\s*\{)',
-         r'\1\n    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n        registerPlugin(TtsPlugin.class);\n        super.onCreate(savedInstanceState);\n    }', s)
+         r'\1\n    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n        registerPlugin(TtsPlugin.class);\n        registerPlugin(EdgeTtsPlugin.class);\n        super.onCreate(savedInstanceState);\n    }', s)
+open(p,'w').write(s)
+PY
+fi
+if [ -f "$MAIN_ACTIVITY" ] && ! grep -q 'EdgeTtsPlugin' "$MAIN_ACTIVITY"; then
+  python3 - "$MAIN_ACTIVITY" <<'PY'
+import sys,re
+p=sys.argv[1];s=open(p).read()
+if 'import com.syrian020.tts.EdgeTtsPlugin;' not in s:
+    s=s.replace('import com.getcapacitor.BridgeActivity;','import com.getcapacitor.BridgeActivity;\nimport com.syrian020.tts.EdgeTtsPlugin;')
+s=re.sub(r'registerPlugin\([A-Za-z]+\.class\);',lambda m:m.group(0)+'\n        registerPlugin(EdgeTtsPlugin.class);',s,count=1)
 open(p,'w').write(s)
 PY
 fi

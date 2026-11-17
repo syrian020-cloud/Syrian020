@@ -133,7 +133,7 @@ html[dir=rtl] .note-canvas-wrap.lined{background-image:linear-gradient(to left,t
 </div></div>
 <div class="shade" id="sShade"><div class="sheet">
 <h3 id="sTtl"></h3>
-<div class="brow" style="flex-direction:column;gap:.5rem"><button class="bbtn pri" id="sExport" style="width:100%"></button><button class="bbtn sec" id="sImport" style="width:100%"></button><button class="bbtn sec" id="sCancel" style="width:100%"></button></div>
+<div class="brow" style="flex-direction:column;gap:.5rem"><button class="bbtn sec" id="sVoice" style="width:100%"></button><button class="bbtn pri" id="sExport" style="width:100%"></button><button class="bbtn sec" id="sImport" style="width:100%"></button><button class="bbtn sec" id="sCancel" style="width:100%"></button></div>
 <input type="file" id="sFile" accept=".json,application/json" hidden>
 </div></div>
 <div class="shade" id="vShade"><div class="sheet">
@@ -182,15 +182,16 @@ html[dir=rtl] .note-canvas-wrap.lined{background-image:linear-gradient(to left,t
   <div id="noteWrap" class="note-canvas-wrap plain"><canvas id="noteCanvas"></canvas></div>
 </div>
 <div class="toast" id="toast"></div>
+<script src="js/edge-tts.js"></script>
 <script>
 const $=id=>document.getElementById(id);
 const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const CAP=window.Capacitor||{};const isCap=()=>!!(CAP.isNativePlatform&&CAP.isNativePlatform());
 const LANGS=['ar','en','fr'],LANGICON={ar:'🇸🇾',en:'🇺🇸',fr:'🇫🇷'};
 const T={
-ar:{name:'Wordpro',verbs:'فعل',add:'أضف فعلًا',edit:'عدّل الفعل',delQ:'حذف هذا الفعل؟',verb:'الفعل (فرنسي)',arM:'المعنى بالعربي',enM:'English meaning',sfr:'جملة فرنسية',sar:'جملة بالعربي',sen:'English sentence',img:'صورة (اختياري)',save:'حفظ',cancel:'إلغاء',empty:'لا أفعال بعد — اضغط ＋ لإضافة فعل',saved:'✓ حُفظ',letters:'الحروف A–Z',paste:'لصق نص',pasteHint:'الصق النص بهذا الشكل — رقم ثم «فعل – عربي – إنجليزي» ثم الجمل بأعلامها أو بترتيب فرنسي/عربي/إنجليزي. روابط الصور تُجلب تلقائيًا إن أمكن.',addAll:'أضف الكل',addedN:'فعلًا أُضيف',nothing:'لم يُعثر على أفعال في النص',copyTpl:'📋 10 عبارات',copyTpl1:'📄 جملة واحدة',tplCopied:'✓ نُسخ النموذج — الصقه في أي ذكاء اصطناعي',items:'عنصر',settings:'الإعدادات',export:'📤 تصدير كل بيانات التطبيق',import:'📥 استيراد بيانات',exported:'✓ تم التصدير',imported:'✓ تم الاستيراد — جارٍ التحديث',addCat:'أضف تصنيفًا'},
-en:{name:'Wordpro',verbs:'verbs',add:'Add a verb',edit:'Edit verb',delQ:'Delete this verb?',verb:'Verb (French)',arM:'Arabic meaning',enM:'English meaning',sfr:'French sentence',sar:'Arabic sentence',sen:'English sentence',img:'Image (optional)',save:'Save',cancel:'Cancel',empty:'No verbs yet — tap ＋ to add one',saved:'✓ Saved',letters:'Letters A–Z',paste:'Paste text',pasteHint:'Paste text like: number, then «verb – ar – en», then sentences with flags or in fr/ar/en order. Image URLs are fetched when possible.',addAll:'Add all',addedN:'verbs added',nothing:'No verbs found in the text',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 sentence',tplCopied:'✓ Template copied — paste it into any AI',items:'items',settings:'Settings',export:'📤 Export all app data',import:'📥 Import data',exported:'✓ Exported',imported:'✓ Imported — reloading',addCat:'Add a category'},
-fr:{name:'Wordpro',verbs:'verbes',add:'Ajouter un verbe',edit:'Modifier le verbe',delQ:'Supprimer ce verbe ?',verb:'Verbe (français)',arM:'Sens en arabe',enM:'Sens en anglais',sfr:'Phrase en français',sar:'Phrase en arabe',sen:'Phrase en anglais',img:'Image (optionnel)',save:'Enregistrer',cancel:'Annuler',empty:'Pas encore de verbes — touchez ＋',saved:'✓ Enregistré',letters:'Lettres A–Z',paste:'Coller du texte',pasteHint:'Collez le texte : numéro, puis «verbe – ar – en», puis les phrases avec drapeaux ou dans l’ordre fr/ar/en. Les images sont récupérées si possible.',addAll:'Tout ajouter',addedN:'verbes ajoutés',nothing:'Aucun verbe trouvé dans le texte',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 phrase',tplCopied:'✓ Modèle copié — collez-le dans une IA',items:'éléments',settings:'Paramètres',export:'📤 Exporter toutes les données',import:'📥 Importer des données',exported:'✓ Exporté',imported:'✓ Importé — rechargement',addCat:'Ajouter une catégorie'}};
+ar:{name:'Wordpro',verbs:'فعل',add:'أضف فعلًا',edit:'عدّل الفعل',delQ:'حذف هذا الفعل؟',verb:'الفعل (فرنسي)',arM:'المعنى بالعربي',enM:'English meaning',sfr:'جملة فرنسية',sar:'جملة بالعربي',sen:'English sentence',img:'صورة (اختياري)',save:'حفظ',cancel:'إلغاء',empty:'لا أفعال بعد — اضغط ＋ لإضافة فعل',saved:'✓ حُفظ',letters:'الحروف A–Z',paste:'لصق نص',pasteHint:'الصق النص بهذا الشكل — رقم ثم «فعل – عربي – إنجليزي» ثم الجمل بأعلامها أو بترتيب فرنسي/عربي/إنجليزي. روابط الصور تُجلب تلقائيًا إن أمكن.',addAll:'أضف الكل',addedN:'فعلًا أُضيف',nothing:'لم يُعثر على أفعال في النص',copyTpl:'📋 10 عبارات',copyTpl1:'📄 جملة واحدة',tplCopied:'✓ نُسخ النموذج — الصقه في أي ذكاء اصطناعي',items:'عنصر',settings:'الإعدادات',export:'📤 تصدير كل بيانات التطبيق',import:'📥 استيراد بيانات',exported:'✓ تم التصدير',imported:'✓ تم الاستيراد — جارٍ التحديث',addCat:'أضف تصنيفًا',edgeVoice:'🎙️ أصوات الكلام Edge'},
+en:{name:'Wordpro',verbs:'verbs',add:'Add a verb',edit:'Edit verb',delQ:'Delete this verb?',verb:'Verb (French)',arM:'Arabic meaning',enM:'English meaning',sfr:'French sentence',sar:'Arabic sentence',sen:'English sentence',img:'Image (optional)',save:'Save',cancel:'Cancel',empty:'No verbs yet — tap ＋ to add one',saved:'✓ Saved',letters:'Letters A–Z',paste:'Paste text',pasteHint:'Paste text like: number, then «verb – ar – en», then sentences with flags or in fr/ar/en order. Image URLs are fetched when possible.',addAll:'Add all',addedN:'verbs added',nothing:'No verbs found in the text',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 sentence',tplCopied:'✓ Template copied — paste it into any AI',items:'items',settings:'Settings',export:'📤 Export all app data',import:'📥 Import data',exported:'✓ Exported',imported:'✓ Imported — reloading',addCat:'Add a category',edgeVoice:'🎙️ Edge speech voices'},
+fr:{name:'Wordpro',verbs:'verbes',add:'Ajouter un verbe',edit:'Modifier le verbe',delQ:'Supprimer ce verbe ?',verb:'Verbe (français)',arM:'Sens en arabe',enM:'Sens en anglais',sfr:'Phrase en français',sar:'Phrase en arabe',sen:'Phrase en anglais',img:'Image (optionnel)',save:'Enregistrer',cancel:'Annuler',empty:'Pas encore de verbes — touchez ＋',saved:'✓ Enregistré',letters:'Lettres A–Z',paste:'Coller du texte',pasteHint:'Collez le texte : numéro, puis «verbe – ar – en», puis les phrases avec drapeaux ou dans l’ordre fr/ar/en. Les images sont récupérées si possible.',addAll:'Tout ajouter',addedN:'verbes ajoutés',nothing:'Aucun verbe trouvé dans le texte',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 phrase',tplCopied:'✓ Modèle copié — collez-le dans une IA',items:'éléments',settings:'Paramètres',export:'📤 Exporter toutes les données',import:'📥 Importer des données',exported:'✓ Exporté',imported:'✓ Importé — rechargement',addCat:'Ajouter une catégorie',edgeVoice:'🎙️ Voix Edge'}};
 const t=k=>T[st.lang][k];
 let st={};
 try{st=JSON.parse(localStorage.getItem('verbes')||'{}')}catch(e){st={}}
@@ -204,10 +205,11 @@ const idb={d:null,open(){return this.d?Promise.resolve(this.d):new Promise((res,
  all(){return this.open().then(d=>new Promise((res,rej)=>{const tx=d.transaction('s');const o=tx.objectStore('s');const k=o.getAllKeys(),v=o.getAll();tx.oncomplete=()=>{const m={};k.result.forEach((key,i)=>m[key]=v.result[i]);res(m)};tx.onerror=()=>rej(tx.error)}))}};
 /* TTS */
 let sayTok=0;
-function stopSay(){sayTok++;try{if(isCap()&&CAP.Plugins.Tts&&CAP.Plugins.Tts.stop)CAP.Plugins.Tts.stop().catch(()=>{})}catch(e){}try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(e){}}
+function stopSay(){sayTok++;try{if(window.EdgeTTS&&EdgeTTS.stop)EdgeTTS.stop()}catch(e){}try{if(isCap()&&CAP.Plugins.Tts&&CAP.Plugins.Tts.stop)CAP.Plugins.Tts.stop().catch(()=>{})}catch(e){}try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(e){}}
 const LGTAG={fr:'fr-FR',ar:'ar-SA',en:'en-US'};
 function sayOnce(txt,lg){return new Promise(res=>{
  if(!txt)return res();
+ if(window.EdgeTTS&&EdgeTTS.supported&&EdgeTTS.supported()){EdgeTTS.play((txt||'').slice(0,400),(lg||'fr').split('-')[0]).then(res,()=>res());return}
  if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:LGTAG[lg]||'fr-FR'}).catch(()=>{});setTimeout(res,Math.min(9000,600+txt.length*95));return}
  if(window.speechSynthesis){const u=new SpeechSynthesisUtterance(txt);u.lang=LGTAG[lg]||'fr-FR';u.onend=res;u.onerror=res;speechSynthesis.speak(u);return}
  res()})}
@@ -463,7 +465,8 @@ $('pCopy1').onclick=()=>copyTxt(tplText1());
 $('pCancel').onclick=()=>$('pShade').classList.remove('on');
 $('pasteFab').onclick=openPaste;
 /* settings */
-$('settingsBtn').onclick=()=>{$('sTtl').textContent=t('settings');$('sExport').textContent=t('export');$('sImport').textContent=t('import');$('sCancel').textContent=t('cancel');$('sShade').classList.add('on')};
+$('settingsBtn').onclick=()=>{$('sTtl').textContent=t('settings');$('sVoice').textContent=t('edgeVoice');$('sExport').textContent=t('export');$('sImport').textContent=t('import');$('sCancel').textContent=t('cancel');$('sShade').classList.add('on')};
+$('sVoice').onclick=()=>{$('sShade').classList.remove('on');try{EdgeTTS.openSettings()}catch(e){toast('!')}};
 $('sCancel').onclick=()=>$('sShade').classList.remove('on');
 const blob64=b=>new Promise(res=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(',')[1]);r.readAsDataURL(b)});
 const b64blob=(s,ty)=>{const bin=atob(s),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return new Blob([u],{type:ty})};
