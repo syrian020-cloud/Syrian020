@@ -344,6 +344,24 @@ function renderCats(){
 /* category tile menu (⋮) */
 let catMenuEl=null,catMenuCat=null;
 function closeCatMenu(){if(catMenuEl){catMenuEl.remove();catMenuEl=null}catMenuCat=null}
+function showMiniMenu(items,btn){
+ closeCatMenu();
+ const m=document.createElement('div');m.id='catMenu';
+ items.forEach(it=>{const b=document.createElement('button');
+  if(it.danger)b.className='danger';b.textContent=it.label;
+  b.onclick=e=>{e.stopPropagation();closeCatMenu();it.fn()};m.appendChild(b)});
+ document.body.appendChild(m);catMenuEl=m;
+ const r=btn.getBoundingClientRect();
+ m.style.top=Math.min(window.innerHeight-m.offsetHeight-6,r.bottom+4)+'px';
+ const ltr=document.documentElement.dir!=='rtl';
+ m.style[ltr?'left':'right']=Math.max(4,(ltr?r.left:window.innerWidth-r.right)-6)+'px'}
+function openVerbMenu(v,btn,store){
+ showMiniMenu([
+  {label:t('catEdit'),fn:()=>openSheet(v)},
+  {label:t('catDel'),danger:true,fn:async()=>{
+   if(confirm(t('delQ'))){store[curLetter]=VD()[curLetter].filter(x=>x.id!==v.id);
+    try{await idb.del('img_'+v.id);await idb.del('note_'+v.id)}catch(e2){}save();renderLetter()}}}
+ ],btn)}
 function openCatMenu(ct,btn){
  if(catMenuCat===ct.id&&catMenuEl){closeCatMenu();return}
  closeCatMenu();catMenuCat=ct.id;
@@ -441,10 +459,9 @@ function renderLetter(){
   vb.appendChild(lp);vb.appendChild(ai);vb.appendChild(ph);vb.appendChild(nb);nm.appendChild(vb);
   top.appendChild(nm);
   const act=document.createElement('div');act.className='vact';
-  const ed=document.createElement('button');ed.textContent='✎';ed.onclick=e=>{e.stopPropagation();openSheet(v)};
-  const dx=document.createElement('button');dx.textContent='×';
-  dx.onclick=async e=>{e.stopPropagation();if(confirm(t('delQ'))){store[curLetter]=VD()[curLetter].filter(x=>x.id!==v.id);try{await idb.del('img_'+v.id);await idb.del('note_'+v.id)}catch(e2){}save();renderLetter()}};
-  act.appendChild(ed);act.appendChild(dx);top.appendChild(act);
+  const mn=document.createElement('button');mn.textContent='⋮';
+  mn.onclick=e=>{e.stopPropagation();openVerbMenu(v,mn,store)};
+  act.appendChild(mn);top.appendChild(act);
   c.appendChild(top);
   const allph=(v.ph&&v.ph.length?v.ph.map(p=>[['fr',p.fr],['ar',p.ar],['en',p.en]]):[[['fr',v.sfr],['ar',v.sar],['en',v.sen]]]);
   allph.forEach(rows=>rows.forEach(x=>{
