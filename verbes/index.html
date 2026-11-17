@@ -1042,6 +1042,11 @@ function updA1(){
  const add=[{"fr":"Attaquer","ar":"يهاجم","en":"To attack","sfr":"L'équipe attaque rapidement.","sar":"الفريق بيهاجم بسرعة.","sen":"The team attacks quickly.","img":"attaquer.jpg"}];
  add.forEach(u=>{const L=normFr(u.fr).replace(/^se /,'').charAt(0).toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
  save();localStorage.setItem('verbes-updA1','1')}
+function updA2(){
+ if(localStorage.getItem('verbes-updA2'))return;
+ const add=[{"fr":"Abattre","ar":"يُسقط","en":"To knock down","sfr":"Ils vont abattre ce vieux mur.","sar":"رح يهدموا هالحيط القديم.","sen":"They are going to knock down this old wall.","img":"abattre.jpg","ph":[{"fr":"Ils vont abattre ce vieux mur.","ar":"رح يهدموا هالحيط القديم.","en":"They are going to knock down this old wall.","n":3}]},{"fr":"S'abstenir","ar":"يمتنع","en":"To abstain","sfr":"Je préfère m'abstenir de commenter.","sar":"بفضّل امتنع عن التعليق.","sen":"I prefer to refrain from commenting.","img":"s_abstenir.jpg","ph":[{"fr":"Je préfère m'abstenir de commenter.","ar":"بفضّل امتنع عن التعليق.","en":"I prefer to refrain from commenting.","n":3}]}];
+ add.forEach(u=>{const L=normFr(u.fr).replace(/^se /,'').replace(/^s'/,'').charAt(0).toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
+ save();localStorage.setItem('verbes-updA2','1')}
 function render(){if(curLetter)renderLetter();else renderHome()}
 /* hardware back: letter → home, sheet → close, home → exit */
 try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
@@ -1092,7 +1097,7 @@ function bindNoteUI(){const c=$('noteCanvas');c.addEventListener('mousedown',not
  $('noteSizeDec').onclick=()=>setNoteSize(noteSize-1);$('noteSizeInc').onclick=()=>setNoteSize(noteSize+1);$('noteSize').oninput=function(){setNoteSize(parseInt(this.value,10)||3)};
  document.querySelectorAll('.note-tool').forEach(b=>{b.onclick=()=>{noteColor=b.dataset.color;$('noteSwatchDot').style.background=noteColor;document.querySelectorAll('.note-tool').forEach(x=>x.classList.toggle('active',x===b));$('notePalette').classList.remove('show')}})}
 bindNoteUI();
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
