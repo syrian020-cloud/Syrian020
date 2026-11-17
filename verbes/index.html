@@ -179,6 +179,7 @@ html[dir=rtl] .note-canvas-wrap.lined{background-image:linear-gradient(to left,t
 <button class="hbtn" id="settingsBtn">⋮</button>
 <div id="ttl"></div>
 <button class="hbtn" id="muteBtn">🔇</button>
+<button class="hbtn" id="copyBtn" style="display:none" title="copy">📋</button>
 <button class="hbtn" id="themeBtn">🌙</button>
 <button class="hbtn" id="langBtn">🌐</button>
 </header>
@@ -321,7 +322,7 @@ $('langBtn').onclick=()=>{st.lang=LANGS[(LANGS.indexOf(st.lang)+1)%3];save();app
 $('muteBtn').onclick=()=>{document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));stopSay()};
 $('backBtn').onclick=()=>{stopSay();if(curLetter){curLetter=null}else{curCat=null}renderHome()};
 function renderCats(){
- $('cats').style.display='';$('letters').style.display='none';$('lv').style.display='none';$('addFab').style.display='grid';$('pasteFab').style.display='none';$('backBtn').style.display='none';
+ $('cats').style.display='';$('letters').style.display='none';$('lv').style.display='none';$('addFab').style.display='grid';$('pasteFab').style.display='none';$('backBtn').style.display='none';$('copyBtn').style.display='none';
  const g=$('cats');g.innerHTML='';
  catsList().forEach(ct=>{
   const store=ct.id==='verbes'?st.v:(st.c[ct.id]||{});
@@ -414,7 +415,7 @@ $('cSave').onclick=async()=>{
  save();$('cShade').classList.remove('on');toast(t('saved'));renderCats()};
 function renderHome(){
  if(!curCat){renderCats();return}
- $('cats').style.display='none';$('letters').style.display='';$('lv').style.display='none';$('addFab').style.display='none';$('pasteFab').style.display='none';$('backBtn').style.display='';
+ $('cats').style.display='none';$('letters').style.display='';$('lv').style.display='none';$('addFab').style.display='none';$('pasteFab').style.display='none';$('backBtn').style.display='';$('copyBtn').style.display='grid';
  const g=$('letters');g.innerHTML='';
  const store=VD();
  AZ.forEach(L=>{
@@ -429,7 +430,7 @@ const normFr=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u
 function dedupeSort(L){const store=VD();const seen=new Set();const list=(store[L]||[]).filter(v=>{const k=normFr(v.fr);if(!k||seen.has(k))return false;seen.add(k);return true});
  list.sort((a,b)=>normFr(a.fr).localeCompare(normFr(b.fr),'fr'));store[L]=list}
 function renderLetter(){
- $('letters').style.display='none';$('lv').style.display='';$('addFab').style.display='grid';$('pasteFab').style.display='grid';$('backBtn').style.display='';
+ $('letters').style.display='none';$('lv').style.display='';$('addFab').style.display='grid';$('pasteFab').style.display='grid';$('backBtn').style.display='';$('copyBtn').style.display='grid';
  const box=$('lv');box.innerHTML='';
  dedupeSort(curLetter);save();const store=VD();const list=store[curLetter]||[];
  if(!list.length){box.innerHTML='<div id="empty">'+esc(t('empty'))+'</div>';return}
@@ -624,6 +625,21 @@ $('pAdd').onclick=async()=>{
   if(pv.imgurl){const b=await fetchImgBlob(pv.imgurl);if(b){try{await idb.set('img_'+v.id,{blob:b})}catch(e){}}}}
  AZ.forEach(dedupeSort);save();toast('✓ '+n+' '+t('addedN'));renderLetter()};
 function toast(s){const x=$('toast');x.textContent=s;x.classList.add('on');clearTimeout(x._t);x._t=setTimeout(()=>x.classList.remove('on'),1800)}
+function copyText(s){if(navigator.clipboard&&navigator.clipboard.writeText)return navigator.clipboard.writeText(s);
+ return new Promise((res,rej)=>{const ta=document.createElement('textarea');ta.value=s;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();try{document.execCommand('copy');res()}catch(e){rej(e)}ta.remove()})}
+function itemText(v,i){
+ const rows=[(i+1)+'. '+(v.fr||'')+' – '+(v.ar||'')+' – '+(v.en||'')];
+ const phs=(v.ph&&v.ph.length?v.ph:[{fr:v.sfr,ar:v.sar,en:v.sen}]);
+ phs.forEach(p=>{if(p.fr)rows.push('🇫🇷 '+p.fr);if(p.ar)rows.push('🇸🇾 '+p.ar);if(p.en)rows.push('🇬🇧 '+p.en)});
+ if(v.imgurl)rows.push('![]('+v.imgurl+')');else if(v.img)rows.push('🖼 '+v.img);
+ return rows.join('\n')}
+function copyPage(){
+ const store=VD();
+ const list=curLetter?(store[curLetter]||[]):AZ.flatMap(L=>store[L]||[]);
+ if(!list.length){toast(t('nothing'));return}
+ copyText(list.map(itemText).join('\n\n')).then(()=>toast('✓ '+list.length+' '+t('items')),()=>toast('✗'))}
+$('copyBtn').onclick=e=>{e.stopPropagation();copyPage()};
 /* seed letter A */
 function seed(){
  if(localStorage.getItem('verbes-seeded'))return;
