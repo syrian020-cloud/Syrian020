@@ -26,6 +26,9 @@ main{padding:.7rem;max-width:640px;margin:0 auto;padding-bottom:5rem}
 .cat .nm small{display:block;font-size:.58rem;color:var(--dim);font-weight:600}
 .cat .cnt{position:absolute;top:4px;inset-inline-end:5px;min-width:20px;height:20px;border-radius:10px;background:var(--acc);color:#fff;font-size:.68rem;font-weight:800;display:grid;place-items:center;padding:0 5px}
 .cat .cnt:empty{display:none}
+.cat .cact{position:absolute;top:4px;inset-inline-start:5px;display:flex;gap:3px}
+.cat .cact button{width:22px;height:22px;border-radius:7px;border:1px solid var(--bd);background:var(--bg2);color:var(--txt);font-size:.72rem;display:grid;place-items:center;cursor:pointer}
+.cat .cimg{width:34px;height:34px;border-radius:10px;object-fit:cover}
 .let{position:relative;aspect-ratio:1;border-radius:16px;border:1.5px solid var(--bd);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem;cursor:pointer;font-size:1.7rem;font-weight:800;color:var(--txt)}
 .let:active{transform:scale(.96)}
 .let small{font-size:.62rem;color:var(--dim);font-weight:600}
@@ -119,6 +122,15 @@ html[dir=rtl] .note-canvas-wrap.lined{background-image:linear-gradient(to left,t
 <div class="fld"><textarea id="pTa" dir="auto" placeholder="1. Accepter – يَقْبَل – To accept&#10;🇫🇷 J'accepte ton invitation.&#10;🇸🇾 أنا بقبل دعوتك.&#10;🇺🇸 I accept your invitation."></textarea></div>
 <div class="brow"><button class="bbtn sec" id="pCopy">📋</button><button class="bbtn sec" id="pCopy1">📄</button><button class="bbtn sec" id="pCancel"></button><button class="bbtn pri" id="pAdd"></button></div>
 </div></div>
+<div class="shade" id="cShade"><div class="sheet">
+<h3 id="cTtl"></h3>
+<div class="fld"><input id="cIc" dir="ltr" placeholder="📁 إيموجي الأيقونة" style="font-size:1.2rem;text-align:center"></div>
+<div class="fld"><input id="cFr" dir="ltr" placeholder="Les …"></div>
+<div class="fld"><input id="cAr" dir="rtl" placeholder="الاسم بالعربي"></div>
+<div class="fld"><input id="cEn" dir="ltr" placeholder="English name"></div>
+<div class="fld"><button class="bbtn sec" id="cImgBtn" style="width:auto;padding:.45rem .9rem">🖼️</button><img id="cImgPrev" style="width:60px;height:60px;border-radius:10px;margin-inline-start:.5rem"><input type="file" id="cImg" accept="image/*" hidden></div>
+<div class="brow"><button class="bbtn sec" id="cCancel"></button><button class="bbtn pri" id="cSave"></button></div>
+</div></div>
 <div class="shade" id="sShade"><div class="sheet">
 <h3 id="sTtl"></h3>
 <div class="brow" style="flex-direction:column;gap:.5rem"><button class="bbtn pri" id="sExport" style="width:100%"></button><button class="bbtn sec" id="sImport" style="width:100%"></button><button class="bbtn sec" id="sCancel" style="width:100%"></button></div>
@@ -176,14 +188,14 @@ const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const CAP=window.Capacitor||{};const isCap=()=>!!(CAP.isNativePlatform&&CAP.isNativePlatform());
 const LANGS=['ar','en','fr'],LANGICON={ar:'🇸🇾',en:'🇺🇸',fr:'🇫🇷'};
 const T={
-ar:{name:'أفعال',verbs:'فعل',add:'أضف فعلًا',edit:'عدّل الفعل',delQ:'حذف هذا الفعل؟',verb:'الفعل (فرنسي)',arM:'المعنى بالعربي',enM:'English meaning',sfr:'جملة فرنسية',sar:'جملة بالعربي',sen:'English sentence',img:'صورة (اختياري)',save:'حفظ',cancel:'إلغاء',empty:'لا أفعال بعد — اضغط ＋ لإضافة فعل',saved:'✓ حُفظ',letters:'الحروف A–Z',paste:'لصق نص',pasteHint:'الصق النص بهذا الشكل — رقم ثم «فعل – عربي – إنجليزي» ثم الجمل بأعلامها أو بترتيب فرنسي/عربي/إنجليزي. روابط الصور تُجلب تلقائيًا إن أمكن.',addAll:'أضف الكل',addedN:'فعلًا أُضيف',nothing:'لم يُعثر على أفعال في النص',copyTpl:'📋 10 عبارات',copyTpl1:'📄 جملة واحدة',tplCopied:'✓ نُسخ النموذج — الصقه في أي ذكاء اصطناعي',items:'عنصر',settings:'الإعدادات',export:'📤 تصدير كل بيانات التطبيق',import:'📥 استيراد بيانات',exported:'✓ تم التصدير',imported:'✓ تم الاستيراد — جارٍ التحديث'},
-en:{name:'Verbs',verbs:'verbs',add:'Add a verb',edit:'Edit verb',delQ:'Delete this verb?',verb:'Verb (French)',arM:'Arabic meaning',enM:'English meaning',sfr:'French sentence',sar:'Arabic sentence',sen:'English sentence',img:'Image (optional)',save:'Save',cancel:'Cancel',empty:'No verbs yet — tap ＋ to add one',saved:'✓ Saved',letters:'Letters A–Z',paste:'Paste text',pasteHint:'Paste text like: number, then «verb – ar – en», then sentences with flags or in fr/ar/en order. Image URLs are fetched when possible.',addAll:'Add all',addedN:'verbs added',nothing:'No verbs found in the text',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 sentence',tplCopied:'✓ Template copied — paste it into any AI',items:'items',settings:'Settings',export:'📤 Export all app data',import:'📥 Import data',exported:'✓ Exported',imported:'✓ Imported — reloading'},
-fr:{name:'Verbes',verbs:'verbes',add:'Ajouter un verbe',edit:'Modifier le verbe',delQ:'Supprimer ce verbe ?',verb:'Verbe (français)',arM:'Sens en arabe',enM:'Sens en anglais',sfr:'Phrase en français',sar:'Phrase en arabe',sen:'Phrase en anglais',img:'Image (optionnel)',save:'Enregistrer',cancel:'Annuler',empty:'Pas encore de verbes — touchez ＋',saved:'✓ Enregistré',letters:'Lettres A–Z',paste:'Coller du texte',pasteHint:'Collez le texte : numéro, puis «verbe – ar – en», puis les phrases avec drapeaux ou dans l’ordre fr/ar/en. Les images sont récupérées si possible.',addAll:'Tout ajouter',addedN:'verbes ajoutés',nothing:'Aucun verbe trouvé dans le texte',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 phrase',tplCopied:'✓ Modèle copié — collez-le dans une IA',items:'éléments',settings:'Paramètres',export:'📤 Exporter toutes les données',import:'📥 Importer des données',exported:'✓ Exporté',imported:'✓ Importé — rechargement'}};
+ar:{name:'أفعال',verbs:'فعل',add:'أضف فعلًا',edit:'عدّل الفعل',delQ:'حذف هذا الفعل؟',verb:'الفعل (فرنسي)',arM:'المعنى بالعربي',enM:'English meaning',sfr:'جملة فرنسية',sar:'جملة بالعربي',sen:'English sentence',img:'صورة (اختياري)',save:'حفظ',cancel:'إلغاء',empty:'لا أفعال بعد — اضغط ＋ لإضافة فعل',saved:'✓ حُفظ',letters:'الحروف A–Z',paste:'لصق نص',pasteHint:'الصق النص بهذا الشكل — رقم ثم «فعل – عربي – إنجليزي» ثم الجمل بأعلامها أو بترتيب فرنسي/عربي/إنجليزي. روابط الصور تُجلب تلقائيًا إن أمكن.',addAll:'أضف الكل',addedN:'فعلًا أُضيف',nothing:'لم يُعثر على أفعال في النص',copyTpl:'📋 10 عبارات',copyTpl1:'📄 جملة واحدة',tplCopied:'✓ نُسخ النموذج — الصقه في أي ذكاء اصطناعي',items:'عنصر',settings:'الإعدادات',export:'📤 تصدير كل بيانات التطبيق',import:'📥 استيراد بيانات',exported:'✓ تم التصدير',imported:'✓ تم الاستيراد — جارٍ التحديث',addCat:'أضف تصنيفًا'},
+en:{name:'Verbs',verbs:'verbs',add:'Add a verb',edit:'Edit verb',delQ:'Delete this verb?',verb:'Verb (French)',arM:'Arabic meaning',enM:'English meaning',sfr:'French sentence',sar:'Arabic sentence',sen:'English sentence',img:'Image (optional)',save:'Save',cancel:'Cancel',empty:'No verbs yet — tap ＋ to add one',saved:'✓ Saved',letters:'Letters A–Z',paste:'Paste text',pasteHint:'Paste text like: number, then «verb – ar – en», then sentences with flags or in fr/ar/en order. Image URLs are fetched when possible.',addAll:'Add all',addedN:'verbs added',nothing:'No verbs found in the text',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 sentence',tplCopied:'✓ Template copied — paste it into any AI',items:'items',settings:'Settings',export:'📤 Export all app data',import:'📥 Import data',exported:'✓ Exported',imported:'✓ Imported — reloading',addCat:'Add a category'},
+fr:{name:'Verbes',verbs:'verbes',add:'Ajouter un verbe',edit:'Modifier le verbe',delQ:'Supprimer ce verbe ?',verb:'Verbe (français)',arM:'Sens en arabe',enM:'Sens en anglais',sfr:'Phrase en français',sar:'Phrase en arabe',sen:'Phrase en anglais',img:'Image (optionnel)',save:'Enregistrer',cancel:'Annuler',empty:'Pas encore de verbes — touchez ＋',saved:'✓ Enregistré',letters:'Lettres A–Z',paste:'Coller du texte',pasteHint:'Collez le texte : numéro, puis «verbe – ar – en», puis les phrases avec drapeaux ou dans l’ordre fr/ar/en. Les images sont récupérées si possible.',addAll:'Tout ajouter',addedN:'verbes ajoutés',nothing:'Aucun verbe trouvé dans le texte',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 phrase',tplCopied:'✓ Modèle copié — collez-le dans une IA',items:'éléments',settings:'Paramètres',export:'📤 Exporter toutes les données',import:'📥 Importer des données',exported:'✓ Exporté',imported:'✓ Importé — rechargement',addCat:'Ajouter une catégorie'}};
 const t=k=>T[st.lang][k];
 let st={};
 try{st=JSON.parse(localStorage.getItem('verbes')||'{}')}catch(e){st={}}
-st.lang=st.lang||'ar';st.theme=st.theme||'dark';st.v=st.v||{};st.c=st.c||{};
-const save=()=>{try{localStorage.setItem('verbes',JSON.stringify({lang:st.lang,theme:st.theme,v:st.v,c:st.c}))}catch(e){}};
+st.lang=st.lang||'ar';st.theme=st.theme||'dark';st.v=st.v||{};st.c=st.c||{};st.catsU=st.catsU||[];st.catEd=st.catEd||{};st.catDel=st.catDel||[];
+const save=()=>{try{localStorage.setItem('verbes',JSON.stringify({lang:st.lang,theme:st.theme,v:st.v,c:st.c,catsU:st.catsU,catEd:st.catEd,catDel:st.catDel}))}catch(e){}};
 /* IndexedDB for user-added images */
 const idb={d:null,open(){return this.d?Promise.resolve(this.d):new Promise((res,rej)=>{const r=indexedDB.open('verbes-db',1);r.onupgradeneeded=()=>r.result.createObjectStore('s');r.onsuccess=()=>{this.d=r.result;res(r.result)};r.onerror=()=>rej(r.error)})},
  get(k){return this.open().then(d=>new Promise((res,rej)=>{const q=d.transaction('s').objectStore('s').get(k);q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)}))},
@@ -240,6 +252,8 @@ const CATS=[
 {id:'particules',ic:'✨',fr:'Les particules',ar:'الأدوات والجسيمات النحوية',en:'Particles'}];
 let curCat=null,curLetter=null;
 const VD=()=>curCat==='verbes'?st.v:(st.c[curCat]=st.c[curCat]||{});
+const catsList=()=>CATS.filter(c=>!st.catDel.includes(c.id)).map(c=>Object.assign({},c,st.catEd[c.id]||{})).concat(st.catsU);
+const isBuiltin=id=>CATS.some(c=>c.id===id);
 function applyTheme(){document.documentElement.dataset.theme=st.theme;$('themeBtn').textContent=st.theme==='dark'?'🌙':'☀️'}
 function applyLang(){document.documentElement.lang=st.lang;document.documentElement.dir=st.lang==='ar'?'rtl':'ltr';$('langBtn').textContent=LANGICON[st.lang];$('ttl').textContent=(st.lang==='ar'?'🔤 ':'🔤 ')+t('name');$('backBtn').textContent=st.lang==='ar'?'→':'←'}
 $('themeBtn').onclick=()=>{st.theme=st.theme==='dark'?'light':'dark';save();applyTheme()};
@@ -247,16 +261,57 @@ $('langBtn').onclick=()=>{st.lang=LANGS[(LANGS.indexOf(st.lang)+1)%3];save();app
 $('muteBtn').onclick=()=>{document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));stopSay()};
 $('backBtn').onclick=()=>{stopSay();if(curLetter){curLetter=null}else{curCat=null}renderHome()};
 function renderCats(){
- $('cats').style.display='';$('letters').style.display='none';$('lv').style.display='none';$('addFab').style.display='none';$('pasteFab').style.display='none';$('backBtn').style.display='none';
+ $('cats').style.display='';$('letters').style.display='none';$('lv').style.display='none';$('addFab').style.display='grid';$('pasteFab').style.display='none';$('backBtn').style.display='none';
  const g=$('cats');g.innerHTML='';
- CATS.forEach(ct=>{
+ catsList().forEach(ct=>{
   const store=ct.id==='verbes'?st.v:(st.c[ct.id]||{});
   const n=Object.keys(store).reduce((s,k)=>s+(store[k]||[]).length,0);
   const d=document.createElement('div');d.className='cat';
-  d.innerHTML='<span class="ic">'+ct.ic+'</span><span class="nm">'+ct.fr+'<small>'+ct.ar+' · '+ct.en+'</small></span>'+(n?'<span class="cnt">'+n+'</span>':'');
+  const ic=document.createElement('span');ic.className='ic';ic.textContent=ct.ic||'📁';
+  idb.get('cat_'+ct.id).then(r=>{if(r&&r.blob){const im=document.createElement('img');im.className='cimg';im.src=URL.createObjectURL(r.blob);ic.replaceWith(im)}}).catch(()=>{});
+  const nm=document.createElement('span');nm.className='nm';nm.innerHTML=esc(ct.fr)+'<small>'+esc(ct.ar)+' · '+esc(ct.en)+'</small>';
+  const act=document.createElement('div');act.className='cact';
+  const ed=document.createElement('button');ed.textContent='✎';ed.onclick=e=>{e.stopPropagation();openCatSheet(ct)};
+  const dx=document.createElement('button');dx.textContent='×';
+  dx.onclick=async e=>{e.stopPropagation();if(confirm(t('delQ'))){
+   if(isBuiltin(ct.id)){st.catDel.push(ct.id)}else{st.catsU=st.catsU.filter(x=>x.id!==ct.id)}
+   delete st.c[ct.id];try{await idb.del('cat_'+ct.id)}catch(e2){}save();renderCats()}};
+  act.appendChild(ed);act.appendChild(dx);
+  d.appendChild(ic);d.appendChild(nm);d.appendChild(act);
+  if(n){const cn=document.createElement('span');cn.className='cnt';cn.textContent=n;d.appendChild(cn)}
   d.onclick=()=>{curCat=ct.id;renderHome()};
   g.appendChild(d)});
 }
+/* add / edit category sheet */
+let catEditId=null,catPicked=null;
+function openCatSheet(ct){
+ catEditId=ct?ct.id:null;catPicked=null;$('cImgPrev').style.display='none';$('cImgPrev').src='';
+ $('cTtl').textContent=ct?t('edit'):t('addCat');$('cSave').textContent=t('save');$('cCancel').textContent=t('cancel');
+ $('cIc').value=ct?ct.ic||'':'📁';$('cFr').value=ct?ct.fr||'':'';$('cAr').value=ct?ct.ar||'':'';$('cEn').value=ct?ct.en||'':'';
+ if(ct){idb.get('cat_'+ct.id).then(r=>{if(r&&r.blob){$('cImgPrev').src=URL.createObjectURL(r.blob);$('cImgPrev').style.display='block'}}).catch(()=>{})}
+ $('cShade').classList.add('on')}
+$('cCancel').onclick=()=>$('cShade').classList.remove('on');
+$('cImgBtn').onclick=()=>$('cImg').click();
+$('cImg').onchange=e=>{
+ const f=e.target.files[0];e.target.value='';if(!f)return;
+ const img=new Image();img.onload=()=>{
+  const S=160,c=document.createElement('canvas');c.width=c.height=S;
+  const m=Math.min(img.width,img.height);
+  c.getContext('2d').drawImage(img,(img.width-m)/2,(img.height-m)/2,m,m,0,0,S,S);
+  c.toBlob(b=>{catPicked=b;$('cImgPrev').src=URL.createObjectURL(b);$('cImgPrev').style.display='block'},'image/jpeg',.82)};
+ img.src=URL.createObjectURL(f)};
+$('cSave').onclick=async()=>{
+ const ic=$('cIc').value.trim(),fr=$('cFr').value.trim(),ar=$('cAr').value.trim(),en=$('cEn').value.trim();
+ if(!fr&&!ar){toast('!');return}
+ if(catEditId){
+  const patch={ic,fr,ar,en};
+  if(isBuiltin(catEditId)){st.catEd[catEditId]=patch}
+  else{const cu=st.catsU.find(x=>x.id===catEditId);if(cu)Object.assign(cu,patch)}
+ }else{
+  st.catsU.push({id:'cat_'+Date.now(),ic,fr,ar,en})}
+ const id=catEditId||st.catsU[st.catsU.length-1].id;
+ if(catPicked){try{await idb.set('cat_'+id,{blob:catPicked})}catch(e){}}
+ save();$('cShade').classList.remove('on');toast(t('saved'));renderCats()};
 function renderHome(){
  if(!curCat){renderCats();return}
  $('cats').style.display='none';$('letters').style.display='';$('lv').style.display='none';$('addFab').style.display='none';$('pasteFab').style.display='none';$('backBtn').style.display='';
@@ -349,7 +404,7 @@ $('vSave').onclick=async()=>{
   else store[curLetter].push(v)}
  if(pickedBlob){try{await idb.set('img_'+v.id,{blob:pickedBlob});delete v.img}catch(e){}}
  save();$('vShade').classList.remove('on');toast(t('saved'));renderLetter()};
-$('addFab').onclick=()=>openSheet(null);
+$('addFab').onclick=()=>{if(!curCat)openCatSheet(null);else openSheet(null)};
 /* bulk paste */
 function parseBulk(txt){
  const L=txt.split(/\r?\n/),blocks=[];let cur=null,pend=[];
@@ -936,6 +991,7 @@ try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
   if($('vShade').classList.contains('on')){$('vShade').classList.remove('on');return}
   if($('pShade').classList.contains('on')){$('pShade').classList.remove('on');return}
   if($('sShade').classList.contains('on')){$('sShade').classList.remove('on');return}
+  if($('cShade').classList.contains('on')){$('cShade').classList.remove('on');return}
   if(curLetter){stopSay();curLetter=null;renderHome();return}
   if(curCat){curCat=null;renderHome();return}
   CAP.Plugins.App.exitApp()})}}catch(e){}
