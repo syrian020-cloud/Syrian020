@@ -27,7 +27,11 @@ main{padding:.7rem;max-width:640px;margin:0 auto;padding-bottom:5rem}
 .cat .cnt{position:absolute;top:4px;inset-inline-end:5px;min-width:20px;height:20px;border-radius:10px;background:var(--acc);color:#fff;font-size:.68rem;font-weight:800;display:grid;place-items:center;padding:0 5px}
 .cat .cnt:empty{display:none}
 .cat .cact{position:absolute;top:4px;inset-inline-start:5px;display:flex;gap:3px}
-.cat .cact button{width:22px;height:22px;border-radius:7px;border:1px solid var(--bd);background:var(--bg2);color:var(--txt);font-size:.72rem;display:grid;place-items:center;cursor:pointer}
+.cat .cact button{width:22px;height:22px;border-radius:7px;border:1px solid var(--bd);background:var(--bg2);color:var(--txt);font-size:.85rem;display:grid;place-items:center;cursor:pointer;font-weight:900;line-height:1}
+#catMenu{position:fixed;z-index:5000;background:var(--bg2);border:1px solid var(--bd);border-radius:12px;padding:.3rem;min-width:9.5rem;box-shadow:0 8px 30px rgba(0,0,0,.45)}
+#catMenu button{display:flex;width:100%;gap:.5rem;align-items:center;padding:.55rem .7rem;border:none;background:none;color:var(--txt);font-size:.9rem;border-radius:8px;cursor:pointer;text-align:start;font-family:inherit}
+#catMenu button:hover{background:var(--acc2)}
+#catMenu button.danger{color:#f87171}
 .cat .cimg{width:34px;height:34px;border-radius:10px;object-fit:cover}
 .let{position:relative;aspect-ratio:1;border-radius:16px;border:1.5px solid var(--bd);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem;cursor:pointer;font-size:1.7rem;font-weight:800;color:var(--txt)}
 .let:active{transform:scale(.96)}
@@ -189,9 +193,9 @@ const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const CAP=window.Capacitor||{};const isCap=()=>!!(CAP.isNativePlatform&&CAP.isNativePlatform());
 const LANGS=['ar','en','fr'],LANGICON={ar:'🇸🇾',en:'🇺🇸',fr:'🇫🇷'};
 const T={
-ar:{name:'Wordpro',verbs:'فعل',add:'أضف فعلًا',edit:'عدّل الفعل',delQ:'حذف هذا الفعل؟',verb:'الفعل (فرنسي)',arM:'المعنى بالعربي',enM:'English meaning',sfr:'جملة فرنسية',sar:'جملة بالعربي',sen:'English sentence',img:'صورة (اختياري)',save:'حفظ',cancel:'إلغاء',empty:'لا أفعال بعد — اضغط ＋ لإضافة فعل',saved:'✓ حُفظ',letters:'الحروف A–Z',paste:'لصق نص',pasteHint:'الصق النص بهذا الشكل — رقم ثم «فعل – عربي – إنجليزي» ثم الجمل بأعلامها أو بترتيب فرنسي/عربي/إنجليزي. روابط الصور تُجلب تلقائيًا إن أمكن.',addAll:'أضف الكل',addedN:'فعلًا أُضيف',nothing:'لم يُعثر على أفعال في النص',copyTpl:'📋 10 عبارات',copyTpl1:'📄 جملة واحدة',tplCopied:'✓ نُسخ النموذج — الصقه في أي ذكاء اصطناعي',items:'عنصر',settings:'الإعدادات',export:'📤 تصدير كل بيانات التطبيق',import:'📥 استيراد بيانات',exported:'✓ تم التصدير',imported:'✓ تم الاستيراد — جارٍ التحديث',addCat:'أضف تصنيفًا',edgeVoice:'🎙️ أصوات الكلام Edge'},
-en:{name:'Wordpro',verbs:'verbs',add:'Add a verb',edit:'Edit verb',delQ:'Delete this verb?',verb:'Verb (French)',arM:'Arabic meaning',enM:'English meaning',sfr:'French sentence',sar:'Arabic sentence',sen:'English sentence',img:'Image (optional)',save:'Save',cancel:'Cancel',empty:'No verbs yet — tap ＋ to add one',saved:'✓ Saved',letters:'Letters A–Z',paste:'Paste text',pasteHint:'Paste text like: number, then «verb – ar – en», then sentences with flags or in fr/ar/en order. Image URLs are fetched when possible.',addAll:'Add all',addedN:'verbs added',nothing:'No verbs found in the text',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 sentence',tplCopied:'✓ Template copied — paste it into any AI',items:'items',settings:'Settings',export:'📤 Export all app data',import:'📥 Import data',exported:'✓ Exported',imported:'✓ Imported — reloading',addCat:'Add a category',edgeVoice:'🎙️ Edge speech voices'},
-fr:{name:'Wordpro',verbs:'verbes',add:'Ajouter un verbe',edit:'Modifier le verbe',delQ:'Supprimer ce verbe ?',verb:'Verbe (français)',arM:'Sens en arabe',enM:'Sens en anglais',sfr:'Phrase en français',sar:'Phrase en arabe',sen:'Phrase en anglais',img:'Image (optionnel)',save:'Enregistrer',cancel:'Annuler',empty:'Pas encore de verbes — touchez ＋',saved:'✓ Enregistré',letters:'Lettres A–Z',paste:'Coller du texte',pasteHint:'Collez le texte : numéro, puis «verbe – ar – en», puis les phrases avec drapeaux ou dans l’ordre fr/ar/en. Les images sont récupérées si possible.',addAll:'Tout ajouter',addedN:'verbes ajoutés',nothing:'Aucun verbe trouvé dans le texte',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 phrase',tplCopied:'✓ Modèle copié — collez-le dans une IA',items:'éléments',settings:'Paramètres',export:'📤 Exporter toutes les données',import:'📥 Importer des données',exported:'✓ Exporté',imported:'✓ Importé — rechargement',addCat:'Ajouter une catégorie',edgeVoice:'🎙️ Voix Edge'}};
+ar:{name:'Wordpro',verbs:'فعل',add:'أضف فعلًا',edit:'عدّل الفعل',delQ:'حذف هذا الفعل؟',verb:'الفعل (فرنسي)',arM:'المعنى بالعربي',enM:'English meaning',sfr:'جملة فرنسية',sar:'جملة بالعربي',sen:'English sentence',img:'صورة (اختياري)',save:'حفظ',cancel:'إلغاء',empty:'لا أفعال بعد — اضغط ＋ لإضافة فعل',saved:'✓ حُفظ',letters:'الحروف A–Z',paste:'لصق نص',pasteHint:'الصق النص بهذا الشكل — رقم ثم «فعل – عربي – إنجليزي» ثم الجمل بأعلامها أو بترتيب فرنسي/عربي/إنجليزي. روابط الصور تُجلب تلقائيًا إن أمكن.',addAll:'أضف الكل',addedN:'فعلًا أُضيف',nothing:'لم يُعثر على أفعال في النص',copyTpl:'📋 10 عبارات',copyTpl1:'📄 جملة واحدة',tplCopied:'✓ نُسخ النموذج — الصقه في أي ذكاء اصطناعي',items:'عنصر',settings:'الإعدادات',export:'📤 تصدير كل بيانات التطبيق',import:'📥 استيراد بيانات',exported:'✓ تم التصدير',imported:'✓ تم الاستيراد — جارٍ التحديث',addCat:'أضف تصنيفًا',catEdit:'✎ تعديل',catDel:'🗑 حذف',edgeVoice:'🎙️ أصوات الكلام Edge'},
+en:{name:'Wordpro',verbs:'verbs',add:'Add a verb',edit:'Edit verb',delQ:'Delete this verb?',verb:'Verb (French)',arM:'Arabic meaning',enM:'English meaning',sfr:'French sentence',sar:'Arabic sentence',sen:'English sentence',img:'Image (optional)',save:'Save',cancel:'Cancel',empty:'No verbs yet — tap ＋ to add one',saved:'✓ Saved',letters:'Letters A–Z',paste:'Paste text',pasteHint:'Paste text like: number, then «verb – ar – en», then sentences with flags or in fr/ar/en order. Image URLs are fetched when possible.',addAll:'Add all',addedN:'verbs added',nothing:'No verbs found in the text',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 sentence',tplCopied:'✓ Template copied — paste it into any AI',items:'items',settings:'Settings',export:'📤 Export all app data',import:'📥 Import data',exported:'✓ Exported',imported:'✓ Imported — reloading',addCat:'Add a category',catEdit:'✎ Edit',catDel:'🗑 Delete',edgeVoice:'🎙️ Edge speech voices'},
+fr:{name:'Wordpro',verbs:'verbes',add:'Ajouter un verbe',edit:'Modifier le verbe',delQ:'Supprimer ce verbe ?',verb:'Verbe (français)',arM:'Sens en arabe',enM:'Sens en anglais',sfr:'Phrase en français',sar:'Phrase en arabe',sen:'Phrase en anglais',img:'Image (optionnel)',save:'Enregistrer',cancel:'Annuler',empty:'Pas encore de verbes — touchez ＋',saved:'✓ Enregistré',letters:'Lettres A–Z',paste:'Coller du texte',pasteHint:'Collez le texte : numéro, puis «verbe – ar – en», puis les phrases avec drapeaux ou dans l’ordre fr/ar/en. Les images sont récupérées si possible.',addAll:'Tout ajouter',addedN:'verbes ajoutés',nothing:'Aucun verbe trouvé dans le texte',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 phrase',tplCopied:'✓ Modèle copié — collez-le dans une IA',items:'éléments',settings:'Paramètres',export:'📤 Exporter toutes les données',import:'📥 Importer des données',exported:'✓ Exporté',imported:'✓ Importé — rechargement',addCat:'Ajouter une catégorie',catEdit:'✎ Modifier',catDel:'🗑 Supprimer',edgeVoice:'🎙️ Voix Edge'}};
 const t=k=>T[st.lang][k];
 let st={};
 try{st=JSON.parse(localStorage.getItem('verbes')||'{}')}catch(e){st={}}
@@ -273,17 +277,34 @@ function renderCats(){
   idb.get('cat_'+ct.id).then(r=>{if(r&&r.blob){const im=document.createElement('img');im.className='cimg';im.src=URL.createObjectURL(r.blob);ic.replaceWith(im)}}).catch(()=>{});
   const nm=document.createElement('span');nm.className='nm';nm.innerHTML=esc(ct.fr)+'<small>'+esc(ct.ar)+' · '+esc(ct.en)+'</small>';
   const act=document.createElement('div');act.className='cact';
-  const ed=document.createElement('button');ed.textContent='✎';ed.onclick=e=>{e.stopPropagation();openCatSheet(ct)};
-  const dx=document.createElement('button');dx.textContent='×';
-  dx.onclick=async e=>{e.stopPropagation();if(confirm(t('delQ'))){
-   if(isBuiltin(ct.id)){st.catDel.push(ct.id)}else{st.catsU=st.catsU.filter(x=>x.id!==ct.id)}
-   delete st.c[ct.id];try{await idb.del('cat_'+ct.id)}catch(e2){}save();renderCats()}};
-  act.appendChild(ed);act.appendChild(dx);
+  const mn=document.createElement('button');mn.textContent='⋮';mn.onclick=e=>{e.stopPropagation();openCatMenu(ct,mn)};
+  act.appendChild(mn);
   d.appendChild(ic);d.appendChild(nm);d.appendChild(act);
   if(n){const cn=document.createElement('span');cn.className='cnt';cn.textContent=n;d.appendChild(cn)}
   d.onclick=()=>{curCat=ct.id;renderHome()};
   g.appendChild(d)});
 }
+/* category tile menu (⋮) */
+let catMenuEl=null,catMenuCat=null;
+function closeCatMenu(){if(catMenuEl){catMenuEl.remove();catMenuEl=null}catMenuCat=null}
+function openCatMenu(ct,btn){
+ if(catMenuCat===ct.id&&catMenuEl){closeCatMenu();return}
+ closeCatMenu();catMenuCat=ct.id;
+ const m=document.createElement('div');m.id='catMenu';
+ const ed=document.createElement('button');ed.textContent=t('catEdit');
+ ed.onclick=e=>{e.stopPropagation();closeCatMenu();openCatSheet(ct)};
+ const dx=document.createElement('button');dx.className='danger';dx.textContent=t('catDel');
+ dx.onclick=async e=>{e.stopPropagation();closeCatMenu();
+  if(confirm(t('delQ'))){
+   if(isBuiltin(ct.id)){st.catDel.push(ct.id)}else{st.catsU=st.catsU.filter(x=>x.id!==ct.id)}
+   delete st.c[ct.id];try{await idb.del('cat_'+ct.id)}catch(e2){}save();renderCats()}};
+ m.appendChild(ed);m.appendChild(dx);
+ document.body.appendChild(m);catMenuEl=m;
+ const r=btn.getBoundingClientRect();
+ m.style.top=Math.min(window.innerHeight-m.offsetHeight-6,r.bottom+4)+'px';
+ const ltr=document.documentElement.dir!=='rtl';
+ m.style[ltr?'left':'right']=Math.max(4,(ltr?r.left:window.innerWidth-r.right)-6)+'px'}
+document.addEventListener('click',e=>{if(catMenuEl&&!catMenuEl.contains(e.target))closeCatMenu()},true);
 /* add / edit category sheet */
 let catEditId=null,catPicked=null;
 function openCatSheet(ct){
