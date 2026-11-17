@@ -1037,6 +1037,11 @@ function updO2(){
  {"fr":"Outrepasser","ar":"يتجاوز الحدود / يخالف الصلاحيات","en":"To overstep","sfr":"Il ne faut pas outrepasser ses responsabilités.","sar":"ما لازم يتجاوز حدود مسؤولياته.","sen":"One must not overstep one's responsibilities.","img":"outrepasser.jpg","ph":[{"fr":"Il ne faut pas outrepasser ses responsabilités.","ar":"ما لازم يتجاوز حدود مسؤولياته.","en":"One must not overstep one's responsibilities.","n":3}]}];
  add.forEach(u=>{const L=normFr(u.fr).replace(/^se /,'').charAt(0).toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
  save();localStorage.setItem('verbes-updO2','1')}
+function updA1(){
+ if(localStorage.getItem('verbes-updA1'))return;
+ const add=[{"fr":"Attaquer","ar":"يهاجم","en":"To attack","sfr":"L'équipe attaque rapidement.","sar":"الفريق بيهاجم بسرعة.","sen":"The team attacks quickly.","img":"attaquer.jpg"}];
+ add.forEach(u=>{const L=normFr(u.fr).replace(/^se /,'').charAt(0).toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+Math.floor(Math.random()*999);st.v[L]=st.v[L]||[];st.v[L].push(u)}});
+ save();localStorage.setItem('verbes-updA1','1')}
 function render(){if(curLetter)renderLetter();else renderHome()}
 /* hardware back: letter → home, sheet → close, home → exit */
 try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
@@ -1087,7 +1092,7 @@ function bindNoteUI(){const c=$('noteCanvas');c.addEventListener('mousedown',not
  $('noteSizeDec').onclick=()=>setNoteSize(noteSize-1);$('noteSizeInc').onclick=()=>setNoteSize(noteSize+1);$('noteSize').oninput=function(){setNoteSize(parseInt(this.value,10)||3)};
  document.querySelectorAll('.note-tool').forEach(b=>{b.onclick=()=>{noteColor=b.dataset.color;$('noteSwatchDot').style.background=noteColor;document.querySelectorAll('.note-tool').forEach(x=>x.classList.toggle('active',x===b));$('notePalette').classList.remove('show')}})}
 bindNoteUI();
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
