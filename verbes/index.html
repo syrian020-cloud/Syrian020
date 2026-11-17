@@ -341,7 +341,13 @@ function renderLetter(){
   else{img.classList.add('noimg');const show=u=>{img.src=u;img.classList.remove('noimg')};idb.get('img_'+v.id).then(r=>{if(r&&r.blob)show(URL.createObjectURL(r.blob));else if(v.imgurl){img.onerror=()=>{img.onerror=null;img.classList.add('noimg');img.removeAttribute('src')};show(v.imgurl)}}).catch(()=>{if(v.imgurl)show(v.imgurl)})}
   top.appendChild(img);
   const nm=document.createElement('div');nm.className='vname';
-  nm.innerHTML='<span class="vf">'+esc(v.fr||'')+'</span><span class="vtr">'+esc(v.ar||'')+(v.en?' · '+esc(v.en):'')+'</span>';
+  nm.innerHTML='<span class="vtr">'+esc(v.ar||'')+(v.en?' · '+esc(v.en):'')+'</span>';
+  const vf=document.createElement('span');vf.className='vf w';vf.textContent=v.fr||'';let vlast=0;
+  vf.onclick=e=>{e.stopPropagation();const now=Date.now();
+   if(now-vlast<330){openExt('https://www.google.com/search?q='+encodeURIComponent(v.fr+' clipart')+'&udm=2&hl='+st.lang)}
+   else loopSpeak([{txt:v.fr,lg:'fr'}],vf);
+   vlast=now};
+  nm.insertBefore(vf,nm.firstChild);
   const vb=document.createElement('div');vb.className='vbtns';
   const lp=document.createElement('button');lp.textContent='🔁';lp.title='loop';
   lp.onclick=e=>{e.stopPropagation();loopSpeak([{txt:v.fr,lg:'fr'},{txt:v.ar,lg:'ar'},{txt:v.en,lg:'en'}],lp)};
