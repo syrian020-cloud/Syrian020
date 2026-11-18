@@ -3421,13 +3421,73 @@ function updNomsC2(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].C=st.c['noms'].C||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].C.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+73000+i;st.c['noms'].C.push(u)}});
  save();}
+function updNomsC3(){
+ const add=[
+ {fr:"La contrebande",ar:"التهريب",en:"Smuggling",sfr:"La contrebande est punie par la loi.",sar:"التهريب بيعاقب عليه القانون.",sen:"Smuggling is punishable by law.",img:"la_contrebande.webp"},
+ {fr:"La contribution",ar:"مساهمة / إسهام",en:"Contribution",sfr:"Merci pour votre contribution au projet.",sar:"شكراً على مساهمتك بالمشروع.",sen:"Thank you for your contribution to the project.",img:"la_contribution.webp"},
+ {fr:"Le contrôle",ar:"مراقبة / تفتيش / فحص",en:"Check / Inspection",sfr:"Le responsable effectue un contrôle de qualité.",sar:"المسؤول عم يعمل فحص للجودة.",sen:"The supervisor is carrying out a quality check.",img:"le_controle.webp"},
+ {fr:"La controverse",ar:"جدل / خلاف",en:"Controversy",sfr:"Cette décision a provoqué une grande controverse.",sar:"هالقرار أثار جدل كبير.",sen:"This decision caused a major controversy.",img:"la_controverse.webp"},
+ {fr:"La convention",ar:"اتفاقية / عقد / مؤتمر مهني",en:"Agreement / Convention",sfr:"Les deux entreprises ont signé une convention.",sar:"الشركتين وقّعوا اتفاقية.",sen:"The two companies signed an agreement.",img:"la_convention.webp"},
+ {fr:"La conversation",ar:"محادثة / حديث",en:"Conversation",sfr:"Nous avons eu une longue conversation hier.",sar:"عملنا محادثة طويلة مبارح.",sen:"We had a long conversation yesterday.",img:"la_conversation.webp"},
+ {fr:"La conversion",ar:"تحويل / تغيير",en:"Conversion",sfr:"La conversion des euros en dollars est simple.",sar:"تحويل اليورو لدولارات أمر بسيط.",sen:"Converting euros into dollars is simple.",img:"la_conversion.webp"},
+ {fr:"La coopérative",ar:"تعاونية",en:"Cooperative",sfr:"Cette coopérative aide les petits producteurs.",sar:"هالتعاونية بتساعد المنتجين الصغار.",sen:"This cooperative helps small producers.",img:"la_cooperative.webp"},
+ {fr:"La copropriété",ar:"ملكية مشتركة / عقار مشترك",en:"Condominium / Joint Ownership",sfr:"Les habitants paient des charges de copropriété.",sar:"السكان بيدفعوا رسوم الملكية المشتركة.",sen:"Residents pay condominium fees.",img:"la_copropriete.webp"},
+ {fr:"La corbeille",ar:"سلّة / سلّة مهملات",en:"Basket / Wastebasket",sfr:"J'ai jeté les papiers dans la corbeille.",sar:"رميت الأوراق بسلة المهملات.",sen:"I threw the papers into the wastebasket.",img:"la_corbeille.webp"},
+ {fr:"La corde",ar:"حبل",en:"Rope",sfr:"Il utilise une corde pour attacher les cartons.",sar:"عم يستخدم حبل ليربط صناديق الكرتون.",sen:"He is using a rope to tie the cardboard boxes.",img:"la_corde.webp"},
+ {fr:"Le cordon",ar:"سلك / حبل رفيع / رباط",en:"Cord",sfr:"Le cordon électrique est trop court.",sar:"السلك الكهربائي قصير كتير.",sen:"The power cord is too short.",img:"le_cordon.webp"},
+ {fr:"La corniche",ar:"كورنيش / حافة بارزة في البناء",en:"Cornice",sfr:"La corniche du bâtiment est décorée.",sar:"الحافة المزخرفة بالمبنى مزينة.",sen:"The building's cornice is decorated.",img:"la_corniche.webp"},
+ {fr:"Le corps",ar:"الجسم",en:"Body",sfr:"Il faut prendre soin de son corps.",sar:"لازم نهتم بجسمنا.",sen:"We must take care of our bodies.",img:"le_corps.webp"},
+ {fr:"La correction",ar:"تصحيح / تصويب",en:"Correction",sfr:"La correction de cet exercice est importante.",sar:"تصحيح هالتمرين مهم.",sen:"Correcting this exercise is important.",img:"la_correction.webp"},
+ {fr:"La correspondance",ar:"مراسلات / تطابق / رحلة مواصلة",en:"Correspondence / Connection",sfr:"J'attends une correspondance importante par courrier.",sar:"ناطر رسالة مهمة بالبريد.",sen:"I'm expecting an important letter by mail.",img:"la_correspondance.webp"},
+ {fr:"La corruption",ar:"الفساد / الرشوة",en:"Corruption",sfr:"La corruption menace la confiance dans les institutions.",sar:"الفساد بيهدد الثقة بالمؤسسات.",sen:"Corruption threatens trust in institutions.",img:"la_corruption.webp"},
+ {fr:"Les cosmétiques (m. pl.)",ar:"مستحضرات التجميل",en:"Cosmetics",sfr:"Elle achète des cosmétiques dans cette boutique.",sar:"هي بتشتري مستحضرات تجميل من هالمحل.",sen:"She buys cosmetics in this shop.",img:"les_cosmetiques_m_pl.webp"},
+ {fr:"Le costume",ar:"بدلة رسمية / زيّ",en:"Suit / Costume",sfr:"Il porte un costume pour son entretien d'embauche.",sar:"لابس بدلة رسمية لمقابلة العمل.",sen:"He is wearing a suit for his job interview.",img:"le_costume.webp"},
+ {fr:"La cotation",ar:"تسعير / تقييم / إدراج في البورصة",en:"Quotation / Rating",sfr:"La cotation de cette entreprise a augmenté.",sar:"ارتفع تقييم هالشركة بالبورصة.",sen:"This company's stock quotation has increased.",img:"la_cotation.webp"},
+ {fr:"La côte",ar:"الساحل / ضلع",en:"Coast / Rib",sfr:"Nous passons nos vacances sur la côte méditerranéenne.",sar:"عم نقضي عطلتنا على ساحل البحر المتوسط.",sen:"We are spending our holidays on the Mediterranean coast.",img:"la_cote.webp"},
+ {fr:"Le coude",ar:"المِرفق / الكوع",en:"Elbow",sfr:"Il s'est fait mal au coude en tombant.",sar:"وجع كوعه لما وقع.",sen:"He hurt his elbow when he fell.",img:"le_coude.webp"},
+ {fr:"La coulisse",ar:"كواليس / خلف الكواليس",en:"Backstage",sfr:"Les artistes se préparent dans les coulisses.",sar:"الفنانون عم يتحضّروا ورا الكواليس.",sen:"The artists are getting ready backstage.",img:"la_coulisse.webp"},
+ {fr:"Le coup",ar:"ضربة / حركة / مرة",en:"Blow / Move",sfr:"Il a reçu un coup au bras.",sar:"تلقّى ضربة على ذراعه.",sen:"He received a blow to his arm.",img:"le_coup.webp"},
+ {fr:"Le courage",ar:"الشجاعة",en:"Courage",sfr:"Il faut du courage pour recommencer à zéro.",sar:"بدها شجاعة حتى نبلّش من الصفر.",sen:"It takes courage to start over.",img:"le_courage.webp"},
+ {fr:"Le courrier",ar:"البريد / المراسلات",en:"Mail / Correspondence",sfr:"J'ai reçu un courrier important ce matin.",sar:"وصلني بريد مهم هالصبح.",sen:"I received important mail this morning.",img:"le_courrier.webp"},
+ {fr:"La courtoisie",ar:"اللباقة / المجاملة",en:"Courtesy",sfr:"La courtoisie est essentielle dans les relations professionnelles.",sar:"اللباقة ضرورية بالعلاقات المهنية.",sen:"Courtesy is essential in professional relationships.",img:"la_courtoisie.webp"},
+ {fr:"Le couteau",ar:"سكين",en:"Knife",sfr:"Ce couteau est très bien aiguisé.",sar:"هالسكين حدّو حاد كتير.",sen:"This knife is very sharp.",img:"le_couteau.webp"},
+ {fr:"Le coût",ar:"التكلفة / الكلفة",en:"Cost",sfr:"Le coût du logement est trop élevé.",sar:"تكلفة السكن مرتفعة كتير.",sen:"The cost of housing is too high.",img:"le_cout.webp"},
+ {fr:"La coutume",ar:"العادة / التقليد",en:"Custom / Tradition",sfr:"C'est une coutume très ancienne dans notre région.",sar:"هاد تقليد قديم كتير بمنطقتنا.",sen:"It's a very old custom in our region.",img:"la_coutume.webp"},
+ {fr:"La couverture",ar:"غطاء / بطانية / تغطية",en:"Cover / Blanket / Coverage",sfr:"J'ai besoin d'une couverture parce qu'il fait froid.",sar:"بحتاج بطانية لأن الجو بارد.",sen:"I need a blanket because it's cold.",img:"la_couverture.webp"},
+ {fr:"La crainte",ar:"الخوف / الخشية",en:"Fear",sfr:"Il a exprimé sa crainte de perdre son emploi.",sar:"عبّر عن خوفه من خسارة شغله.",sen:"He expressed his fear of losing his job.",img:"la_crainte.webp"},
+ {fr:"Le créateur",ar:"مُبدع / مُبدعة",en:"Creator",sfr:"Cette créatrice imagine des vêtements originaux.",sar:"هالمصممة بتبتكر ملابس مميزة.",sen:"This creator designs original clothes.",img:"le_createur.webp"},
+ {fr:"La création",ar:"إنشاء / إبداع / ابتكار",en:"Creation",sfr:"La création de cette entreprise date de 2020.",sar:"تأسيس هالشركة كان سنة 2020.",sen:"The creation of this company dates back to 2020.",img:"la_creation.webp"},
+ {fr:"Le crédit",ar:"ائتمان / قرض",en:"Credit / Loan",sfr:"La banque m'a accordé un crédit immobilier.",sar:"البنك منحني قرض لشراء منزل.",sen:"The bank granted me a home loan.",img:"le_credit.webp"},
+ {fr:"La crèche",ar:"حضانة أطفال",en:"Daycare / Nursery",sfr:"Mon fils va à la crèche tous les matins.",sar:"ابني بيروح على الحضانة كل صباح.",sen:"My son goes to daycare every morning.",img:"la_creche.webp"},
+ {fr:"Le crédit-bail",ar:"التأجير التمويلي",en:"Leasing",sfr:"L'entreprise utilise le crédit-bail pour financer ses machines.",sar:"الشركة بتستخدم التأجير التمويلي لتمويل آلاتها.",sen:"The company uses leasing to finance its machines.",img:"le_credit_bail.webp"},
+ {fr:"Le cri",ar:"صرخة / صياح",en:"Cry / Shout",sfr:"J'ai entendu un cri dans la rue.",sar:"سمعت صرخة بالشارع.",sen:"I heard a scream in the street.",img:"le_cri.webp"},
+ {fr:"La crise",ar:"أزمة",en:"Crisis",sfr:"Le pays traverse une grave crise économique.",sar:"البلد عم يمر بأزمة اقتصادية خطيرة.",sen:"The country is going through a serious economic crisis.",img:"la_crise.webp"},
+ {fr:"Le critère",ar:"معيار / مقياس",en:"Criterion",sfr:"Le prix est un critère important dans notre choix.",sar:"السعر معيار مهم باختيارنا.",sen:"Price is an important criterion in our choice.",img:"le_critere.webp"},
+ {fr:"La critique",ar:"النقد / الانتقاد",en:"Criticism",sfr:"Il accepte la critique pour améliorer son travail.",sar:"بيتقبّل النقد حتى يحسّن شغله.",sen:"He accepts criticism to improve his work.",img:"la_critique.webp"},
+ {fr:"La croisière",ar:"رحلة بحرية",en:"Cruise",sfr:"Nous avons réservé une croisière en Méditerranée.",sar:"حجزنا رحلة بحرية بالبحر المتوسط.",sen:"We booked a cruise in the Mediterranean.",img:"la_croisiere.webp"},
+ {fr:"La croix",ar:"صليب / علامة الصليب",en:"Cross",sfr:"Une croix est accrochée au mur.",sar:"في صليب معلّق على الحيط.",sen:"A cross is hanging on the wall.",img:"la_croix.webp"},
+ {fr:"La croissance",ar:"النمو / الازدياد",en:"Growth",sfr:"La croissance de cette entreprise est rapide.",sar:"نمو هالشركة سريع.",sen:"This company's growth is rapid.",img:"la_croissance.webp"},
+ {fr:"La croûte",ar:"قشرة / قشرة الخبز",en:"Crust",sfr:"La croûte de ce pain est bien croustillante.",sar:"قشرة هالخبز مقرمشة كتير.",sen:"The crust of this bread is very crispy.",img:"la_croute.webp"},
+ {fr:"Le croyant",ar:"مؤمن / مؤمنة",en:"Believer",sfr:"Chaque croyant a ses propres convictions.",sar:"كل مؤمن عنده قناعاته الخاصة.",sen:"Every believer has their own convictions.",img:"le_croyant.webp"},
+ {fr:"La cuillère",ar:"ملعقة",en:"Spoon",sfr:"Ajoutez une cuillère de sucre dans le café.",sar:"ضيف ملعقة سكر عالقهوة.",sen:"Add a spoonful of sugar to the coffee.",img:"la_cuillere.webp"},
+ {fr:"La cuisine",ar:"المطبخ / الطبخ",en:"Kitchen / Cooking",sfr:"La cuisine est propre et bien rangée.",sar:"المطبخ نظيف ومرتب.",sen:"The kitchen is clean and tidy.",img:"la_cuisine.webp"},
+ {fr:"La culbute",ar:"شقلبة / انقلاب",en:"Somersault / Tumble",sfr:"L'enfant a fait une culbute sur le tapis.",sar:"الطفل عمل شقلبة على الفرشة.",sen:"The child did a somersault on the mat.",img:"la_culbute.webp"},
+ {fr:"Le culte",ar:"عبادة / شعيرة دينية",en:"Worship / Religious Service",sfr:"Le culte a lieu chaque dimanche matin.",sar:"الشعيرة الدينية بتنعمل كل صباح أحد.",sen:"The religious service takes place every Sunday morning.",img:"le_culte.webp"},
+ {fr:"La culture",ar:"الثقافة / الزراعة",en:"Culture",sfr:"La culture française est riche et variée.",sar:"الثقافة الفرنسية غنية ومتنوعة.",sen:"French culture is rich and varied.",img:"la_culture.webp"},
+ {fr:"Le curieux",ar:"فضولي / فضولية",en:"Curious Person",sfr:"Cet enfant est très curieux et pose beaucoup de questions.",sar:"هالطفل فضولي كتير وبيسأل أسئلة كثيرة.",sen:"This child is very curious and asks many questions.",img:"le_curieux.webp"},
+ {fr:"Le cycle",ar:"دورة / حلقة متكررة",en:"Cycle",sfr:"Le cycle de l'eau est essentiel à la vie.",sar:"دورة المياه ضرورية للحياة.",sen:"The water cycle is essential to life.",img:"le_cycle.webp"},
+ {fr:"Le cylindre",ar:"أسطوانة",en:"Cylinder",sfr:"Cette machine possède deux cylindres métalliques.",sar:"هالآلة فيها أسطوانتين معدن.",sen:"This machine has two metal cylinders.",img:"le_cylindre.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].C=st.c['noms'].C||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].C.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+77000+i;st.c['noms'].C.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
