@@ -3383,13 +3383,17 @@ function updNomsB10(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].B=st.c['noms'].B||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+61000+i;st.c['noms'].B.push(u)}});
  save();}
+function delNomsB(){
+ const del=["La baignade surveillée", "La baignoire balnéo", "La baignoire encastrée", "La baignoire sabot", "La balayette à poussière", "La bande de sécurité", "La baratte", "La barge", "La barque de pêche", "La barquette en aluminium", "La barrière antibruit", "La barrière levante automatique", "La bassesse", "La battante", "La batture", "La battée", "La bavette d'étanchéité", "La bavette de cuisine", "La besace", "La besogne", "La bidonnerie", "La bisbille", "La blagueuse", "La bonneterie", "La bourre", "La boussole électronique", "La boîte de dérivation", "La boîte distributrice", "La boîte à clés", "La boîte à outils roulante", "La boîte à pain", "La boîte à pharmacie murale", "La brasserie artisanale", "La bretelle de soutien-gorge", "La brioche vendéenne", "La brisure", "La buse de pulvérisation", "Le bac de dosage", "Le bac de pesée", "Le bac de rangement empilable", "Le bac à bec", "Le bac à glaçage", "Le balai à franges", "Le balancement", "Le balancier", "Le baluchon", "Le baobab", "Le barillet de serrure", "Le baromètre numérique", "Le baroudeur", "Le bastingage", "Le besoin urgent", "Le bilboquet", "Le bison", "Le blaireautin", "Le blanchissage", "Le bloc de glace", "Le bocage", "Le bocal gradué", "Le bocal à poissons", "Le bocal à épices", "Le bon de pesée", "Le bouquiniste", "Le bourgeonnement", "Le bracelet de montre", "Le brasier", "Le bretteur", "Le brin d'ADN", "Le brin de muguet", "Le brochet", "Le bureau réglable", "Le bâillon", "Le bâtonnet de glace"];
+ if(st.c&&st.c['noms']&&st.c['noms'].B){const ds=new Set(del.map(normFr));const n=st.c['noms'].B.filter(u=>!ds.has(normFr(u.fr)));if(n.length!==st.c['noms'].B.length){st.c['noms'].B=n;save()}}
+}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();delNomsB();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
