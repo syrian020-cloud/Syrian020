@@ -3735,13 +3735,78 @@ function updNomsE(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].E=st.c['noms'].E||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].E.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+109000+i;st.c['noms'].E.push(u)}});
  save();}
+function updNomsE2(){
+ const add=[
+ {fr:"L'épreuve",ar:"الاختبار / المحنة",en:"Test / Ordeal",sfr:"J'ai réussi toutes les épreuves de l'examen.",sar:"نجحت بكل اختبارات الامتحان.",sen:"I passed all the exam tests.",img:"l_epreuve.webp"},
+ {fr:"L'épuisement",ar:"الإرهاق الشديد",en:"Exhaustion",sfr:"L'épuisement peut affecter la concentration.",sar:"الإرهاق ممكن يأثر على التركيز.",sen:"Exhaustion can affect concentration.",img:"l_epuisement.webp"},
+ {fr:"L'équilibre",ar:"التوازن",en:"Balance",sfr:"Il faut trouver un équilibre entre le travail et la vie personnelle.",sar:"لازم نلاقي توازن بين الشغل والحياة الشخصية.",sen:"We must find a balance between work and personal life.",img:"l_equilibre.webp"},
+ {fr:"L'équipe",ar:"الفريق",en:"Team",sfr:"Mon équipe travaille très bien ensemble.",sar:"فريقي بيشتغل مع بعض بشكل ممتاز.",sen:"My team works very well together.",img:"l_equipe.webp"},
+ {fr:"L'équipement",ar:"المعدّات / التجهيزات",en:"Equipment",sfr:"L'équipement de sécurité est obligatoire.",sar:"معدات السلامة إلزامية.",sen:"Safety equipment is mandatory.",img:"l_equipement.webp"},
+ {fr:"L'erreur",ar:"الخطأ",en:"Error / Mistake",sfr:"Tout le monde peut faire une erreur.",sar:"كل واحد ممكن يغلط.",sen:"Everyone can make a mistake.",img:"l_erreur.webp"},
+ {fr:"L'escalier",ar:"الدرج",en:"Staircase / Stairs",sfr:"L'escalier se trouve au fond du couloir.",sar:"الدرج موجود بآخر الممر.",sen:"The staircase is at the end of the corridor.",img:"l_escalier.webp"},
+ {fr:"L'espace",ar:"المساحة / الفضاء",en:"Space / Area",sfr:"Il n'y a pas assez d'espace dans cette pièce.",sar:"ما في مساحة كافية بهالغرفة.",sen:"There isn't enough space in this room.",img:"l_espace.webp"},
+ {fr:"L'espoir",ar:"الأمل",en:"Hope",sfr:"Il ne faut jamais perdre espoir.",sar:"لازم ما نفقد الأمل أبداً.",sen:"We must never lose hope.",img:"l_espoir.webp"},
+ {fr:"L'esprit",ar:"العقل / الروح",en:"Mind / Spirit",sfr:"Il faut garder l'esprit ouvert.",sar:"لازم نخلي عقلنا منفتح.",sen:"We must keep an open mind.",img:"l_esprit.webp"},
+ {fr:"L'essai",ar:"المحاولة / المقال",en:"Attempt / Essay",sfr:"Je vais faire un nouvel essai.",sar:"رح جرّب مرة جديدة.",sen:"I will make another attempt.",img:"l_essai.webp"},
+ {fr:"L'essence",ar:"البنزين / الجوهر",en:"Petrol / Essence",sfr:"Je dois faire le plein d'essence.",sar:"لازم عبّي بنزين.",sen:"I need to fill up with petrol.",img:"l_essence.webp"},
+ {fr:"L'établissement",ar:"المؤسسة / المنشأة",en:"Establishment",sfr:"Cet établissement accueille de nombreux étudiants.",sar:"هالمؤسسة بتستقبل عدد كبير من الطلاب.",sen:"This institution welcomes many students.",img:"l_etablissement.webp"},
+ {fr:"L'étage",ar:"الطابق",en:"Floor / Storey",sfr:"Mon appartement est au deuxième étage.",sar:"شقتي بالطابق التاني.",sen:"My apartment is on the second floor.",img:"l_etage.webp"},
+ {fr:"L'étape",ar:"المرحلة / الخطوة",en:"Stage / Step",sfr:"Nous sommes à la première étape du projet.",sar:"نحنا بالمرحلة الأولى من المشروع.",sen:"We are at the first stage of the project.",img:"l_etape.webp"},
+ {fr:"L'état",ar:"الحالة / الدولة",en:"State / Condition",sfr:"L'appartement est en bon état.",sar:"الشقة بحالة جيدة.",sen:"The apartment is in good condition.",img:"l_etat.webp"},
+ {fr:"L'été",ar:"الصيف",en:"Summer",sfr:"En été, il fait souvent chaud.",sar:"بالصيف غالباً بيكون الجو حار.",sen:"In summer, it is often hot.",img:"l_ete.webp"},
+ {fr:"L'étiquette",ar:"الملصق / بطاقة التعريف",en:"Label",sfr:"Vérifiez l'étiquette avant d'utiliser le produit.",sar:"تأكد من الملصق قبل استخدام المنتج.",sen:"Check the label before using the product.",img:"l_etiquette.webp"},
+ {fr:"L'étoile",ar:"النجمة",en:"Star",sfr:"On voit beaucoup d'étoiles dans le ciel.",sar:"منشوف نجوم كتير بالسما.",sen:"We can see many stars in the sky.",img:"l_etoile.webp"},
+ {fr:"L'étranger",ar:"الأجنبي / الخارج",en:"Foreigner / Abroad",sfr:"Il travaille à l'étranger depuis deux ans.",sar:"إله سنتين عم يشتغل بالخارج.",sen:"He has been working abroad for two years.",img:"l_etranger.webp"},
+ {fr:"L'étude",ar:"الدراسة / البحث",en:"Study / Research",sfr:"Cette étude présente des résultats intéressants.",sar:"هالدراسة بتعرض نتائج مثيرة للاهتمام.",sen:"This study presents interesting results.",img:"l_etude.webp"},
+ {fr:"L'étudiant",ar:"الطالب الجامعي",en:"Student",sfr:"L'étudiant prépare ses examens.",sar:"الطالب عم يحضّر لامتحاناته.",sen:"The student is preparing for his exams.",img:"l_etudiant.webp"},
+ {fr:"L'évaluation",ar:"التقييم",en:"Assessment / Evaluation",sfr:"L'évaluation aura lieu à la fin de la formation.",sar:"التقييم رح يكون بنهاية التدريب.",sen:"The assessment will take place at the end of the training.",img:"l_evaluation.webp"},
+ {fr:"L'événement",ar:"الحدث / المناسبة",en:"Event",sfr:"Cet événement aura lieu samedi.",sar:"هالحدث رح يصير يوم السبت.",sen:"This event will take place on Saturday.",img:"l_evenement.webp"},
+ {fr:"L'évolution",ar:"التطور",en:"Development / Evolution",sfr:"Nous constatons une évolution positive.",sar:"عم نلاحظ تطور إيجابي.",sen:"We are seeing positive progress.",img:"l_evolution.webp"},
+ {fr:"L'examen",ar:"الامتحان / الفحص الطبي",en:"Exam / Medical Examination",sfr:"J'ai un examen médical demain.",sar:"عندي فحص طبي بكرا.",sen:"I have a medical examination tomorrow.",img:"l_examen.webp"},
+ {fr:"L'exception",ar:"الاستثناء",en:"Exception",sfr:"Cette règle s'applique à tout le monde, sans exception.",sar:"هالقاعدة بتنطبق على الكل بلا استثناء.",sen:"This rule applies to everyone without exception.",img:"l_exception.webp"},
+ {fr:"L'excuse",ar:"العذر / الاعتذار",en:"Excuse / Apology",sfr:"Je vous présente mes excuses pour le retard.",sar:"بقدّملكم اعتذاري عن التأخير.",sen:"I apologize for the delay.",img:"l_excuse.webp"},
+ {fr:"L'exemple",ar:"المثال",en:"Example",sfr:"Pouvez-vous me donner un exemple ?",sar:"فيك تعطيني مثال؟",sen:"Can you give me an example?",img:"l_exemple.webp"},
+ {fr:"L'exercice",ar:"التمرين",en:"Exercise",sfr:"Je fais des exercices tous les matins.",sar:"بعمل تمارين كل صباح.",sen:"I do exercises every morning.",img:"l_exercice.webp"},
+ {fr:"L'exigence",ar:"المتطلّب / الشرط",en:"Requirement",sfr:"Ce poste demande beaucoup d'exigences.",sar:"هالمنصب بيتطلب شروط كتيرة.",sen:"This position has many requirements.",img:"l_exigence.webp"},
+ {fr:"L'existence",ar:"الوجود",en:"Existence",sfr:"Cette découverte confirme l'existence du phénomène.",sar:"هالاكتشاف بيأكد وجود هالظاهرة.",sen:"This discovery confirms the existence of the phenomenon.",img:"l_existence.webp"},
+ {fr:"L'expérience",ar:"الخبرة / التجربة",en:"Experience / Experiment",sfr:"J'ai trois ans d'expérience professionnelle.",sar:"عندي ثلاث سنين خبرة مهنية.",sen:"I have three years of professional experience.",img:"l_experience.webp"},
+ {fr:"L'explication",ar:"الشرح / التفسير",en:"Explanation",sfr:"Merci pour votre explication.",sar:"شكراً على شرحك.",sen:"Thank you for your explanation.",img:"l_explication.webp"},
+ {fr:"L'expression",ar:"التعبير / العبارة",en:"Expression",sfr:"Cette expression est très utilisée en français.",sar:"هالتعبير مستخدم كتير بالفرنسي.",sen:"This expression is widely used in French.",img:"l_expression.webp"},
+ {fr:"L'extrait",ar:"المقتطف / الجزء المقتبس",en:"Extract / Excerpt",sfr:"Lisez cet extrait du texte.",sar:"اقرأ هالمقتطف من النص.",sen:"Read this excerpt from the text.",img:"l_extrait.webp"},
+ {fr:"L'écart",ar:"الفارق / الفجوة",en:"Gap / Difference",sfr:"Il y a un grand écart entre les deux prix.",sar:"في فرق كبير بين السعرين.",sen:"There is a big difference between the two prices.",img:"l_ecart.webp"},
+ {fr:"L'éventualité",ar:"الاحتمال",en:"Possibility",sfr:"Nous devons envisager cette éventualité.",sar:"لازم ناخد هالاحتمال بعين الاعتبار.",sen:"We must consider this possibility.",img:"l_eventualite.webp"},
+ {fr:"L'évidence",ar:"الوضوح / الأمر البديهي",en:"Obviousness",sfr:"C'est une évidence.",sar:"هالشي واضح وما بدّه نقاش.",sen:"It's obvious.",img:"l_evidence.webp"},
+ {fr:"L'excès",ar:"الإفراط / الزيادة",en:"Excess",sfr:"Il faut éviter les excès.",sar:"لازم نتجنب الإفراط.",sen:"We must avoid excess.",img:"l_exces.webp"},
+ {fr:"L'exclusion",ar:"الاستبعاد",en:"Exclusion",sfr:"L'exclusion peut avoir des conséquences graves.",sar:"الاستبعاد ممكن تكون إله عواقب خطيرة.",sen:"Exclusion can have serious consequences.",img:"l_exclusion.webp"},
+ {fr:"L'extension",ar:"التوسعة / الامتداد",en:"Extension",sfr:"L'entreprise prévoit une extension de ses locaux.",sar:"الشركة مخططة توسّع مقرّها.",sen:"The company is planning to expand its premises.",img:"l_extension.webp"},
+ {fr:"L'exportation",ar:"التصدير",en:"Export",sfr:"L'exportation des produits augmente cette année.",sar:"تصدير المنتجات عم يزيد هالسنة.",sen:"Product exports are increasing this year.",img:"l_exportation.webp"},
+ {fr:"L'expertise",ar:"الخبرة المتخصصة / التقييم الخبير",en:"Expertise",sfr:"Nous avons besoin de son expertise.",sar:"نحنا بحاجة لخبرته المتخصصة.",sen:"We need his expertise.",img:"l_expertise.webp"},
+ {fr:"L'exploitation",ar:"الاستغلال / التشغيل",en:"Exploitation / Operation",sfr:"L'exploitation de cette usine coûte cher.",sar:"تشغيل هالمصنع مكلف.",sen:"Operating this factory is expensive.",img:"l_exploitation.webp"},
+ {fr:"L'exploration",ar:"الاستكشاف",en:"Exploration",sfr:"L'exploration de cette région continue.",sar:"استكشاف هالمنطقة مستمر.",sen:"Exploration of this region continues.",img:"l_exploration.webp"},
+ {fr:"L'exposition",ar:"المعرض / التعرّض",en:"Exhibition / Exposure",sfr:"Nous avons visité une exposition de photographies.",sar:"زرنا معرض صور فوتوغرافية.",sen:"We visited a photography exhibition.",img:"l_exposition.webp"},
+ {fr:"L'expansion",ar:"التوسع",en:"Expansion",sfr:"L'entreprise prévoit une expansion internationale.",sar:"الشركة مخططة للتوسع على المستوى الدولي.",sen:"The company is planning international expansion.",img:"l_expansion.webp"},
+ {fr:"L'éthique",ar:"الأخلاق / المبادئ الأخلاقية",en:"Ethics",sfr:"L'éthique professionnelle est essentielle au travail.",sar:"الأخلاق المهنية أساسية بالشغل.",sen:"Professional ethics are essential at work.",img:"l_ethique.webp"},
+ {fr:"L'éloge",ar:"المديح / الثناء",en:"Praise",sfr:"Il a reçu beaucoup d'éloges pour son travail.",sar:"تلقّى كتير من المديح على شغله.",sen:"He received a lot of praise for his work.",img:"l_eloge.webp"},
+ {fr:"L'éloignement",ar:"الابتعاد / المسافة",en:"Distance / Separation",sfr:"L'éloignement de sa famille lui est difficile.",sar:"البُعد عن عيلته صعب عليه.",sen:"Being far from his family is difficult for him.",img:"l_eloignement.webp"},
+ {fr:"L'émergence",ar:"الظهور / البروز",en:"Emergence",sfr:"On observe l'émergence de nouvelles technologies.",sar:"عم نلاحظ ظهور تقنيات جديدة.",sen:"We are seeing the emergence of new technologies.",img:"l_emergence.webp"},
+ {fr:"L'émigration",ar:"الهجرة إلى الخارج",en:"Emigration",sfr:"L'émigration peut changer la vie d'une personne.",sar:"الهجرة للخارج ممكن تغيّر حياة الشخص.",sen:"Emigration can change a person's life.",img:"l_emigration.webp"},
+ {fr:"L'endettement",ar:"المديونية / تراكم الديون",en:"Indebtedness",sfr:"L'endettement des ménages augmente.",sar:"مديونية الأسر عم تزيد.",sen:"Household indebtedness is increasing.",img:"l_endettement.webp"},
+ {fr:"L'entente",ar:"التفاهم / الاتفاق",en:"Understanding / Agreement",sfr:"Il existe une bonne entente entre les collègues.",sar:"في تفاهم منيح بين الزملاء.",sen:"There is good understanding between colleagues.",img:"l_entente.webp"},
+ {fr:"L'entourage",ar:"المحيطون بالشخص",en:"People Around Someone",sfr:"Son entourage le soutient beaucoup.",sar:"الأشخاص المقرّبين منه عم يدعموه كتير.",sen:"The people around him support him a lot.",img:"l_entourage.webp"},
+ {fr:"L'équité",ar:"الإنصاف / العدالة",en:"Fairness / Equity",sfr:"L'équité est importante dans le monde du travail.",sar:"الإنصاف مهم بعالم الشغل.",sen:"Fairness is important in the workplace.",img:"l_equite.webp"},
+ {fr:"L'équivalence",ar:"المعادلة / التكافؤ",en:"Equivalence",sfr:"Je souhaite demander une équivalence de mon diplôme.",sar:"بدي أطلب معادلة شهادتي.",sen:"I would like to request recognition of my diploma.",img:"l_equivalence.webp"},
+ {fr:"L'essor",ar:"النمو والازدهار",en:"Growth / Expansion",sfr:"Cette région connaît un essor économique.",sar:"هالمنطقة عم تشهد ازدهار اقتصادي.",sen:"This region is experiencing economic growth.",img:"l_essor.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].E=st.c['noms'].E||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].E.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+113000+i;st.c['noms'].E.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
