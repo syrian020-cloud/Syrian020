@@ -3169,13 +3169,29 @@ function updNomsB5(){
  add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+41000+i;st.c['noms'].B.push(u)}});
  save();}
 
+function updNomsB6(){
+ const add=[
+ {fr:"Le blé",ar:"القمح",en:"Wheat",sfr:"Les agriculteurs récoltent le blé en été.",sar:"المزارعين بيحصدوا القمح بالصيف.",sen:"Farmers harvest wheat in summer.",img:"le_ble.webp"},
+ {fr:"La blouse médicale",ar:"المريول الطبي",en:"Medical gown",sfr:"L'infirmière porte une blouse médicale.",sar:"الممرضة لابسة مريول طبي.",sen:"The nurse is wearing a medical gown.",img:"la_blouse_medicale.webp"},
+ {fr:"Le brin",ar:"عود رفيع / خصلة صغيرة",en:"Strand / Sprig",sfr:"Il y a un brin d'herbe sur la table.",sar:"في عود عشب صغير على الطاولة.",sen:"There is a blade of grass on the table.",img:"le_brin.webp"},
+ {fr:"La bourrasque",ar:"هبّة رياح قوية ومفاجئة",en:"Gust / Squall",sfr:"Une violente bourrasque a fait tomber une branche.",sar:"هبّة رياح قوية وقّعت غصن شجرة.",sen:"A strong gust of wind made a branch fall.",img:"la_bourrasque.webp"},
+ {fr:"La bouture",ar:"عُقلة نباتية للزراعة",en:"Plant cutting",sfr:"J'ai planté une bouture de cette plante.",sar:"زرعت عُقلة من هالنبتة.",sen:"I planted a cutting from this plant.",img:"la_bouture.webp"},
+ {fr:"La bouée",ar:"عوامة",en:"Buoy / Life buoy",sfr:"L'enfant utilise une bouée pour nager.",sar:"الطفل بيستخدم عوامة ليسبح.",sen:"The child uses a float to swim.",img:"la_bouee.webp"},
+ {fr:"La bouchée",ar:"لقمة",en:"Mouthful / Bite",sfr:"Il a mangé une bouchée de gâteau.",sar:"أكل لقمة من الكاتو.",sen:"He ate a bite of cake.",img:"la_bouchee.webp"},
+ {fr:"Le blaireau",ar:"الغرير",en:"Badger",sfr:"Le blaireau vit souvent dans les forêts.",sar:"الغرير غالباً بيعيش بالغابات.",sen:"The badger often lives in forests.",img:"le_blaireau.webp"},
+ {fr:"La bousculade",ar:"التدافع / الازدحام مع الدفع",en:"Stampede / Jostling",sfr:"Il y a eu une bousculade à l'entrée.",sar:"صار في تدافع عند المدخل.",sen:"There was a crush at the entrance.",img:"la_bousculade.webp"},
+ {fr:"Le braconnage",ar:"الصيد غير القانوني",en:"Poaching",sfr:"Le braconnage menace certaines espèces animales.",sar:"الصيد غير القانوني بيهدد بعض أنواع الحيوانات.",sen:"Poaching threatens certain animal species.",img:"le_braconnage.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].B=st.c['noms'].B||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+45000+i;st.c['noms'].B.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
