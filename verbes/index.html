@@ -3185,13 +3185,51 @@ function updNomsB6(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].B=st.c['noms'].B||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+45000+i;st.c['noms'].B.push(u)}});
  save();}
+function updNomsB7(){
+ const add=[
+ {fr:"Le blocage",ar:"الانسداد / التعطيل",en:"Blockage",sfr:"Le blocage de la route a provoqué des retards.",sar:"إغلاق الطريق سبّب تأخير.",sen:"The road blockage caused delays.",img:"le_blocage.webp"},
+ {fr:"Le bégaiement",ar:"التأتأة",en:"Stuttering",sfr:"Le bégaiement peut rendre la communication difficile.",sar:"التأتأة ممكن تصعّب التواصل.",sen:"Stuttering can make communication difficult.",img:"le_begaiement.webp"},
+ {fr:"La brume",ar:"الضباب الخفيف / الشبورة",en:"Mist / Haze",sfr:"Une légère brume couvre la vallée.",sar:"في ضباب خفيف مغطّي الوادي.",sen:"A light mist covers the valley.",img:"la_brume.webp"},
+ {fr:"Le briquet",ar:"الولاعة",en:"Lighter",sfr:"Il cherche son briquet dans sa poche.",sar:"عم يفتّش على ولاعته بجيبه.",sen:"He is looking for his lighter in his pocket.",img:"le_briquet.webp"},
+ {fr:"La brièveté",ar:"القِصر / الإيجاز",en:"Brevity",sfr:"La brièveté de son message m'a surpris.",sar:"قِصر رسالته فاجأني.",sen:"The brevity of his message surprised me.",img:"la_brievete.webp"},
+ {fr:"Le bretzel",ar:"بريتزل / معجنات مالحة",en:"Pretzel",sfr:"J'achète un bretzel à la boulangerie.",sar:"بشتري بريتزل من المخبز.",sen:"I buy a pretzel at the bakery.",img:"le_bretzel.webp"},
+ {fr:"La briquette",ar:"قالب صغير مضغوط",en:"Briquette",sfr:"Ces briquettes servent à alimenter le chauffage.",sar:"هالقوالب المضغوطة بتُستخدم لتشغيل التدفئة.",sen:"These briquettes are used to fuel the heating system.",img:"la_briquette.webp"},
+ {fr:"Le brin d'ADN",ar:"خيط الحمض النووي",en:"DNA strand",sfr:"Chaque cellule contient de l'ADN.",sar:"كل خلية فيها حمض نووي.",sen:"Every cell contains DNA.",img:"le_brin_d_adn.webp"},
+ {fr:"La brocante",ar:"سوق الأغراض القديمة والمستعملة",en:"Flea market",sfr:"Nous allons à la brocante dimanche matin.",sar:"رحنا على سوق الأغراض القديمة صباح الأحد.",sen:"We're going to the flea market on Sunday morning.",img:"la_brocante.webp"},
+ {fr:"Le brocanteur",ar:"تاجر الأغراض القديمة",en:"Antique dealer",sfr:"Le brocanteur vend des meubles anciens.",sar:"تاجر الأغراض القديمة بيبيع أثاث عتيق.",sen:"The antique dealer sells old furniture.",img:"le_brocanteur.webp"},
+ {fr:"La brouette",ar:"عربة يد بعجلة واحدة",en:"Wheelbarrow",sfr:"Il transporte la terre avec une brouette.",sar:"بينقل التراب بعربة يد.",sen:"He transports the soil with a wheelbarrow.",img:"la_brouette.webp"},
+ {fr:"Le brochet",ar:"سمك الكراكي",en:"Pike",sfr:"Le brochet vit dans les eaux douces.",sar:"سمك الكراكي بيعيش بالمياه العذبة.",sen:"The pike lives in freshwater.",img:"le_brochet.webp"},
+ {fr:"La brasserie artisanale",ar:"مصنع جعة حرفي صغير",en:"Craft brewery",sfr:"Cette brasserie artisanale produit des boissons locales.",sar:"هالمصنع الحرفي بينتج مشروبات محلية.",sen:"This craft brewery produces local beverages.",img:"la_brasserie_artisanale.webp"},
+ {fr:"La banane",ar:"الموزة",en:"Banana",sfr:"Je mange une banane chaque matin.",sar:"باكل موزة كل صباح.",sen:"I eat a banana every morning.",img:"la_banane.webp"},
+ {fr:"Le bocal à poissons",ar:"حوض السمك الزجاجي",en:"Fishbowl",sfr:"Le poisson rouge nage dans son bocal.",sar:"السمكة الذهبية عم تسبح بحوضها الزجاجي.",sen:"The goldfish is swimming in its fishbowl.",img:"le_bocal_a_poissons.webp"},
+ {fr:"La banquette",ar:"مقعد طويل / كنبة صغيرة",en:"Bench seat",sfr:"Nous sommes assis sur une banquette.",sar:"قاعدين على كنبة طويلة.",sen:"We are sitting on a bench seat.",img:"la_banquette.webp"},
+ {fr:"La brosse à dents",ar:"فرشاة الأسنان",en:"Toothbrush",sfr:"Je me brosse les dents deux fois par jour.",sar:"بفرشي أسناني مرتين باليوم.",sen:"I brush my teeth twice a day.",img:"la_brosse_a_dents.webp"},
+ {fr:"Le bâtonnet",ar:"عود صغير",en:"Small stick",sfr:"Il mélange le café avec un bâtonnet.",sar:"بيحرّك القهوة بعود صغير.",sen:"He stirs the coffee with a small stick.",img:"le_batonnet.webp"},
+ {fr:"La barre chocolatée",ar:"لوح شوكولاتة",en:"Chocolate bar",sfr:"J'achète une barre chocolatée au supermarché.",sar:"بشتري لوح شوكولاتة من السوبرماركت.",sen:"I buy a chocolate bar at the supermarket.",img:"la_barre_chocolatee.webp"},
+ {fr:"Le bretteur",ar:"مبارز بالسيف",en:"Swordsman",sfr:"Le bretteur est habile avec son épée.",sar:"المبارز ماهر باستخدام سيفه.",sen:"The swordsman is skilled with his sword.",img:"le_bretteur.webp"},
+ {fr:"La berline",ar:"سيارة سيدان",en:"Sedan",sfr:"Il préfère conduire une berline.",sar:"بيفضّل يسوق سيارة سيدان.",sen:"He prefers driving a sedan.",img:"la_berline.webp"},
+ {fr:"La balustrade",ar:"درابزين / حاجز الشرفة",en:"Railing / Balustrade",sfr:"Il s'appuie contre la balustrade.",sar:"مستند على الدرابزين.",sen:"He is leaning against the railing.",img:"la_balustrade.webp"},
+ {fr:"La betterave",ar:"الشمندر",en:"Beetroot",sfr:"Je prépare une salade de betteraves.",sar:"عم حضّر سلطة شمندر.",sen:"I'm preparing a beetroot salad.",img:"la_betterave.webp"},
+ {fr:"La bassesse",ar:"الدناءة / الحقارة",en:"Meanness / Baseness",sfr:"Sa bassesse a choqué tout le monde.",sar:"تصرّفه الدنيء صدم الكل.",sen:"His meanness shocked everyone.",img:"la_bassesse.webp"},
+ {fr:"Le bâtonnet de glace",ar:"عود المثلجات",en:"Popsicle stick",sfr:"L'enfant tient son bâtonnet de glace.",sar:"الطفل ماسك عود المثلجات.",sen:"The child is holding his popsicle stick.",img:"le_batonnet_de_glace.webp"},
+ {fr:"La bretelle",ar:"حمّالة الملابس / طريق فرعي للسيارات",en:"Strap / Slip road",sfr:"La bretelle de son sac est cassée.",sar:"حمّالة شنطته مكسورة.",sen:"The strap of his bag is broken.",img:"la_bretelle.webp"},
+ {fr:"Le brin de laine",ar:"خيط من الصوف",en:"Strand of wool",sfr:"Il reste un brin de laine sur le pull.",sar:"ضلّ خيط صوف على الكنزة.",sen:"There is a strand of wool left on the sweater.",img:"le_brin_de_laine.webp"},
+ {fr:"La bavure policière",ar:"تجاوز أو خطأ من الشرطة",en:"Police misconduct",sfr:"Le journal parle d'une bavure policière.",sar:"الجريدة عم تحكي عن تجاوز من الشرطة.",sen:"The newspaper is reporting police misconduct.",img:"la_bavure_policiere.webp"},
+ {fr:"Le baroudeur",ar:"شخص مغامر وكثير الترحال",en:"Adventurer / Globetrotter",sfr:"C'est un baroudeur qui aime voyager.",sar:"هو شخص مغامر وبيحب يسافر.",sen:"He is an adventurer who loves travelling.",img:"le_baroudeur.webp"},
+ {fr:"La bâtisse",ar:"بناء / مبنى",en:"Building / Structure",sfr:"Cette vieille bâtisse date du dix-neuvième siècle.",sar:"هالبناية القديمة بترجع للقرن التاسع عشر.",sen:"This old building dates back to the nineteenth century.",img:"la_batisse.webp"},
+ {fr:"Le blaireautin",ar:"صغير الغرير",en:"Badger cub",sfr:"Le blaireautin reste près de sa mère.",sar:"صغير الغرير بيضل قريب من أمه.",sen:"The badger cub stays close to its mother.",img:"le_blaireautin.webp"},
+ {fr:"La bourre",ar:"حشوة / مادة مالئة",en:"Stuffing / Padding",sfr:"La bourre remplit l'intérieur du coussin.",sar:"الحشوة بتعبّي داخل المخدة.",sen:"The stuffing fills the inside of the cushion.",img:"la_bourre.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].B=st.c['noms'].B||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+49000+i;st.c['noms'].B.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
