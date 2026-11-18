@@ -4164,13 +4164,62 @@ function updNomsV(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].V=st.c['noms'].V||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].V.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+153000+i;st.c['noms'].V.push(u)}});
  save();}
+function updNomsN2(){
+ const add=[
+ {fr:"La nationalité",ar:"الجنسية",en:"Nationality",sfr:"Quelle est votre nationalité ?",sar:"شو جنسيتك؟",sen:"What is your nationality?",img:"la_nationalite.webp"},
+ {fr:"Le nord",ar:"الشمال",en:"North",sfr:"Strasbourg se trouve dans le nord-est de la France.",sar:"ستراسبورغ موجودة بشمال شرق فرنسا.",sen:"Strasbourg is in northeastern France.",img:"le_nord.webp"},
+ {fr:"La notice",ar:"نشرة التعليمات",en:"Instruction manual",sfr:"Lisez la notice avant d'utiliser l'appareil.",sar:"اقرأ نشرة التعليمات قبل ما تستخدم الجهاز.",sen:"Read the instruction manual before using the device.",img:"la_notice.webp"},
+ {fr:"La nappe",ar:"مفرش الطاولة",en:"Tablecloth",sfr:"La nappe est propre.",sar:"مفرش الطاولة نظيف.",sen:"The tablecloth is clean.",img:"la_nappe.webp"},
+ {fr:"La noix",ar:"الجوز",en:"Walnut",sfr:"J'ajoute des noix dans la salade.",sar:"بضيف الجوز على السلطة.",sen:"I add walnuts to the salad.",img:"la_noix.webp"},
+ {fr:"La nuque",ar:"مؤخرة الرقبة",en:"Nape",sfr:"J'ai mal à la nuque.",sar:"عندي وجع بمؤخرة رقبتي.",sen:"My neck hurts at the back.",img:"la_nuque.webp"},
+ {fr:"Le nœud",ar:"العقدة",en:"Knot",sfr:"Fais un nœud avec cette corde.",sar:"اعمل عقدة بهالحبل.",sen:"Tie a knot with this rope.",img:"le_n_ud.webp"},
+ {fr:"Le nourrisson",ar:"الرضيع",en:"Infant",sfr:"Le nourrisson dort dans son berceau.",sar:"الرضيع نايم بسريره.",sen:"The infant is sleeping in his crib.",img:"le_nourrisson.webp"},
+ {fr:"La nounou",ar:"مربية الأطفال",en:"Nanny",sfr:"La nounou garde les enfants pendant la journée.",sar:"مربية الأطفال بتعتني بالأولاد خلال النهار.",sen:"The nanny looks after the children during the day.",img:"la_nounou.webp"},
+ {fr:"La nage",ar:"السباحة",en:"Swimming",sfr:"La nage est bonne pour la santé.",sar:"السباحة مفيدة للصحة.",sen:"Swimming is good for your health.",img:"la_nage.webp"},
+ {fr:"La norme",ar:"المعيار",en:"Standard",sfr:"Ce produit respecte les normes de sécurité.",sar:"هالمنتج مطابق لمعايير السلامة.",sen:"This product meets safety standards.",img:"la_norme.webp"},
+ {fr:"La négociation",ar:"التفاوض",en:"Negotiation",sfr:"La négociation avec l'entreprise a duré une heure.",sar:"التفاوض مع الشركة استمر ساعة.",sen:"The negotiation with the company lasted one hour.",img:"la_negociation.webp"},
+ {fr:"Le notaire",ar:"كاتب العدل",en:"Notary",sfr:"Nous avons rendez-vous chez le notaire.",sar:"عنا موعد عند كاتب العدل.",sen:"We have an appointment with the notary.",img:"le_notaire.webp"},
+ {fr:"La niche",ar:"بيت الكلب",en:"Doghouse",sfr:"Le chien dort dans sa niche.",sar:"الكلب بينام ببيته.",sen:"The dog sleeps in its doghouse.",img:"la_niche.webp"},
+ {fr:"La nouveauté",ar:"الشيء الجديد / المستجد",en:"Novelty / New development",sfr:"Quelle est la nouveauté cette année ?",sar:"شو الجديد هالسنة؟",sen:"What's new this year?",img:"la_nouveaute.webp"},
+ {fr:"La navette",ar:"حافلة نقل مكوكية",en:"Shuttle",sfr:"La navette passe toutes les quinze minutes.",sar:"حافلة النقل بتمر كل ربع ساعة.",sen:"The shuttle runs every fifteen minutes.",img:"la_navette.webp"},
+ {fr:"Le niveau de formation",ar:"المستوى التعليمي / مستوى التدريب",en:"Education or training level",sfr:"Quel est votre niveau de formation ?",sar:"شو مستواك التعليمي؟",sen:"What is your education level?",img:"le_niveau_de_formation.webp"},
+ {fr:"Le numéro de sécurité sociale",ar:"رقم الضمان الاجتماعي",en:"Social Security Number",sfr:"J'ai besoin de mon numéro de sécurité sociale.",sar:"أنا بحاجة لرقم الضمان الاجتماعي تبعي.",sen:"I need my social security number.",img:"le_numero_de_securite_sociale.webp"},
+ {fr:"La négociation salariale",ar:"التفاوض على الراتب",en:"Salary negotiation",sfr:"La négociation salariale a été difficile.",sar:"التفاوض على الراتب كان صعب.",sen:"The salary negotiation was difficult.",img:"la_negociation_salariale.webp"},
+ {fr:"Le nettoyage à sec",ar:"التنظيف الجاف",en:"Dry cleaning",sfr:"Ce manteau doit être nettoyé à sec.",sar:"هالمعطف لازم يتنظف تنظيف جاف.",sen:"This coat needs to be dry-cleaned.",img:"le_nettoyage_a_sec.webp"},
+ {fr:"Le navire de croisière",ar:"سفينة سياحية",en:"Cruise ship",sfr:"Le navire de croisière arrive demain.",sar:"السفينة السياحية بتوصل بكرا.",sen:"The cruise ship arrives tomorrow.",img:"le_navire_de_croisiere.webp"},
+ {fr:"La nappe phréatique",ar:"المياه الجوفية",en:"Groundwater",sfr:"La nappe phréatique est une réserve d'eau souterraine.",sar:"المياه الجوفية هي مخزون من المياه تحت الأرض.",sen:"Groundwater is an underground water reserve.",img:"la_nappe_phreatique.webp"},
+ {fr:"Le navigateur",ar:"متصفح الإنترنت",en:"Web browser",sfr:"J'utilise un navigateur pour accéder à Internet.",sar:"بستخدم متصفح للوصول إلى الإنترنت.",sen:"I use a browser to access the Internet.",img:"le_navigateur.webp"},
+ {fr:"La navigation",ar:"التصفّح / الملاحة",en:"Browsing / Navigation",sfr:"La navigation sur ce site est facile.",sar:"التصفح بهالموقع سهل.",sen:"Browsing this website is easy.",img:"la_navigation.webp"},
+ {fr:"La nuisance",ar:"الإزعاج / الضرر",en:"Nuisance",sfr:"Le bruit est une nuisance pour les voisins.",sar:"الضجيج مصدر إزعاج للجيران.",sen:"Noise is a nuisance for the neighbours.",img:"la_nuisance.webp"},
+ {fr:"Le nageur",ar:"السباح",en:"Swimmer",sfr:"Le nageur s'entraîne tous les jours.",sar:"السباح بيتدرّب كل يوم.",sen:"The swimmer trains every day.",img:"le_nageur.webp"},
+ {fr:"Le niveau de langue",ar:"المستوى اللغوي",en:"Language level",sfr:"Mon niveau de langue est intermédiaire.",sar:"مستواي باللغة متوسط.",sen:"My language level is intermediate.",img:"le_niveau_de_langue.webp"},
+ {fr:"Le nourrissage",ar:"إطعام الحيوانات",en:"Feeding",sfr:"Le nourrissage des oiseaux est interdit ici.",sar:"إطعام الطيور ممنوع هون.",sen:"Feeding the birds is prohibited here.",img:"le_nourrissage.webp"},
+ {fr:"La narine",ar:"فتحة الأنف",en:"Nostril",sfr:"J'ai une narine bouchée.",sar:"عندي فتحة أنف مسدودة.",sen:"One of my nostrils is blocked.",img:"la_narine.webp"},
+ {fr:"Le niveau de risque",ar:"مستوى الخطر",en:"Risk level",sfr:"Le niveau de risque est faible.",sar:"مستوى الخطر منخفض.",sen:"The risk level is low.",img:"le_niveau_de_risque.webp"},
+ {fr:"Le nécessaire de toilette",ar:"مستلزمات النظافة الشخصية",en:"Toiletries",sfr:"J'ai préparé mon nécessaire de toilette.",sar:"جهّزت مستلزمات النظافة الشخصية تبعي.",sen:"I packed my toiletries.",img:"le_necessaire_de_toilette.webp"},
+ {fr:"La note de frais",ar:"كشف المصاريف",en:"Expense report",sfr:"Je dois envoyer ma note de frais.",sar:"لازم أرسل كشف مصاريفي.",sen:"I have to submit my expense report.",img:"la_note_de_frais.webp"},
+ {fr:"Le niveau scolaire",ar:"المستوى الدراسي",en:"School level",sfr:"Quel est votre niveau scolaire ?",sar:"شو مستواك الدراسي؟",sen:"What is your educational level?",img:"le_niveau_scolaire.webp"},
+ {fr:"Le niveau de service",ar:"مستوى الخدمة",en:"Service level",sfr:"Le niveau de service est satisfaisant.",sar:"مستوى الخدمة مُرضي.",sen:"The service level is satisfactory.",img:"le_niveau_de_service.webp"},
+ {fr:"La note de service",ar:"مذكرة إدارية داخلية",en:"Internal memo",sfr:"J'ai reçu une note de service ce matin.",sar:"وصلني تعميم إداري هالصبح.",sen:"I received an internal memo this morning.",img:"la_note_de_service.webp"},
+ {fr:"Le numéro de dossier",ar:"رقم الملف",en:"File reference number",sfr:"Veuillez indiquer votre numéro de dossier.",sar:"يرجى ذكر رقم ملفك.",sen:"Please provide your file reference number.",img:"le_numero_de_dossier.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].N=st.c['noms'].N||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].N.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+157000+i;st.c['noms'].N.push(u)}});
+ save();}
+function updNomsV2(){
+ const add=[
+ {fr:"Le voisinage",ar:"الجوار / الحي المحيط",en:"Neighbourhood",sfr:"Le voisinage est calme.",sar:"الحي والجيران هادئين.",sen:"The neighbourhood is quiet.",img:"le_voisinage.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].V=st.c['noms'].V||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].V.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+161000+i;st.c['noms'].V.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
