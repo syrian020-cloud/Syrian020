@@ -3142,13 +3142,40 @@ function updNomsB4(){
  add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+37000+i;st.c['noms'].B.push(u)}});
  save();}
 
+function updNomsB5(){
+ const add=[
+ {fr:"La blague",ar:"النكتة / المزحة",en:"Joke",sfr:"Il a raconté une blague très drôle.",sar:"حكى نكتة كتير مضحكة.",sen:"He told a very funny joke.",img:"la_blague.webp"},
+ {fr:"Le bout",ar:"الطرف / النهاية / القطعة",en:"End / Piece",sfr:"Il reste un petit bout de pain.",sar:"ضلّت قطعة صغيرة من الخبز.",sen:"There is a small piece of bread left.",img:"le_bout.webp"},
+ {fr:"La boussole",ar:"البوصلة",en:"Compass",sfr:"La boussole indique le nord.",sar:"البوصلة بتدلّ على الشمال.",sen:"The compass points north.",img:"la_boussole.webp"},
+ {fr:"La bourse",ar:"المنحة الدراسية / البورصة",en:"Scholarship / Stock exchange",sfr:"Elle a obtenu une bourse pour ses études.",sar:"حصلت على منحة لدراستها.",sen:"She received a scholarship for her studies.",img:"la_bourse.webp"},
+ {fr:"La bouillotte",ar:"قِربة الماء الساخن",en:"Hot-water bottle",sfr:"Je mets une bouillotte dans mon lit en hiver.",sar:"بحط قِربة مي سخنة بتختي بالشتا.",sen:"I put a hot-water bottle in my bed in winter.",img:"la_bouillotte.webp"},
+ {fr:"Le bougeoir",ar:"شمعدان",en:"Candlestick",sfr:"La bougie est posée dans un bougeoir.",sar:"الشمعة محطوطة بشمعدان.",sen:"The candle is placed in a candlestick.",img:"le_bougeoir.webp"},
+ {fr:"La boulette",ar:"كُرة صغيرة / كُبّة لحم",en:"Meatball",sfr:"Je prépare des boulettes de viande pour le dîner.",sar:"عم حضّر كرات لحم للعشا.",sen:"I'm preparing meatballs for dinner.",img:"la_boulette.webp"},
+ {fr:"La bûche",ar:"جذع خشب / حطبة",en:"Log",sfr:"Il met une bûche dans la cheminée.",sar:"بيحط حطبة بالمدفأة.",sen:"He puts a log in the fireplace.",img:"la_buche.webp"},
+ {fr:"La bulle",ar:"فقاعة",en:"Bubble",sfr:"Les enfants font des bulles de savon.",sar:"الأطفال عم يعملوا فقاعات صابون.",sen:"The children are making soap bubbles.",img:"la_bulle.webp"},
+ {fr:"La braguette",ar:"فتحة سحّاب البنطال",en:"Fly / Zipper fly",sfr:"La braguette de mon pantalon est ouverte.",sar:"سحّاب بنطلوني مفتوح.",sen:"The fly of my trousers is open.",img:"la_braguette.webp"},
+ {fr:"Le bouquin",ar:"كتاب (باللغة العامية)",en:"Book (informal)",sfr:"J'ai acheté un bouquin intéressant.",sar:"اشتريت كتاب ممتع.",sen:"I bought an interesting book.",img:"le_bouquin.webp"},
+ {fr:"Le bouquiniste",ar:"بائع الكتب المستعملة",en:"Second-hand bookseller",sfr:"Le bouquiniste vend de vieux livres.",sar:"بائع الكتب المستعملة بيبيع كتب قديمة.",sen:"The second-hand bookseller sells old books.",img:"le_bouquiniste.webp"},
+ {fr:"La blagueuse",ar:"الشخص المرح الذي يحب المزاح",en:"Joker / Prankster",sfr:"Mon collègue est un grand blagueur.",sar:"زميلي بالشغل بيحب يمزح كتير.",sen:"My colleague is a big joker.",img:"la_blagueuse.webp"},
+ {fr:"La bourde",ar:"غلطة فادحة / هفوة",en:"Blunder",sfr:"J'ai fait une grosse bourde au travail.",sar:"عملت غلطة كبيرة بالشغل.",sen:"I made a big blunder at work.",img:"la_bourde.webp"},
+ {fr:"Le bourg",ar:"بلدة صغيرة",en:"Small town",sfr:"Mes grands-parents habitent dans un petit bourg.",sar:"جدي وجدتي ساكنين ببلدة صغيرة.",sen:"My grandparents live in a small town.",img:"le_bourg.webp"},
+ {fr:"Le bouc",ar:"تيس / ذكر الماعز",en:"Billy goat",sfr:"Le bouc se trouve près de la chèvre.",sar:"التيس موجود جنب الماعز.",sen:"The billy goat is near the female goat.",img:"le_bouc.webp"},
+ {fr:"La broderie",ar:"التطريز",en:"Embroidery",sfr:"Elle apprend la broderie avec sa grand-mère.",sar:"عم تتعلّم التطريز مع جدتها.",sen:"She is learning embroidery with her grandmother.",img:"la_broderie.webp"},
+ {fr:"Le bronzage",ar:"اسمرار البشرة بسبب الشمس",en:"Suntan / Tanning",sfr:"Son bronzage est devenu plus foncé après les vacances.",sar:"صارت بشرتها أغمق بعد العطلة بسبب الشمس.",sen:"Their tan became darker after the holiday.",img:"le_bronzage.webp"},
+ {fr:"La bronchite",ar:"التهاب القصبات الهوائية",en:"Bronchitis",sfr:"Le médecin a diagnostiqué une bronchite.",sar:"الطبيب شخّص التهاب بالقصبات الهوائية.",sen:"The doctor diagnosed bronchitis.",img:"la_bronchite.webp"},
+ {fr:"La bourse d'études",ar:"منحة دراسية",en:"Scholarship",sfr:"Il a demandé une bourse d'études.",sar:"قدّم طلب للحصول على منحة دراسية.",sen:"He applied for a scholarship.",img:"la_bourse_d_etudes.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].B=st.c['noms'].B||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+41000+i;st.c['noms'].B.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
