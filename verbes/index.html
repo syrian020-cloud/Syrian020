@@ -3800,13 +3800,42 @@ function updNomsE2(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].E=st.c['noms'].E||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].E.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+113000+i;st.c['noms'].E.push(u)}});
  save();}
+function updNomsE3(){
+ const add=[
+ {fr:"L'estime",ar:"التقدير / الاحترام",en:"Esteem / Respect",sfr:"J'ai beaucoup d'estime pour cette personne.",sar:"عندي تقدير كبير لهالشخص.",sen:"I have great respect for this person.",img:"l_estime.webp"},
+ {fr:"L'excédent",ar:"الفائض / الكمية الزائدة",en:"Surplus",sfr:"L'entreprise a un excédent de stock.",sar:"الشركة عندها فائض بالمخزون.",sen:"The company has a surplus of stock.",img:"l_excedent.webp"},
+ {fr:"L'exonération",ar:"الإعفاء",en:"Exemption",sfr:"Il a obtenu une exonération de certains frais.",sar:"حصل على إعفاء من بعض الرسوم.",sen:"He obtained an exemption from certain fees.",img:"l_exoneration.webp"},
+ {fr:"L'expulsion",ar:"الطرد / الإخلاء",en:"Expulsion / Eviction",sfr:"Le locataire risque une expulsion.",sar:"المستأجر معرّض للطرد من السكن.",sen:"The tenant is at risk of eviction.",img:"l_expulsion.webp"},
+ {fr:"L'extrémité",ar:"الطرف / النهاية",en:"End / Extremity",sfr:"La pharmacie se trouve à l'extrémité de la rue.",sar:"الصيدلية موجودة بآخر الشارع.",sen:"The pharmacy is at the end of the street.",img:"l_extremite.webp"},
+ {fr:"L'écrivain",ar:"الكاتب",en:"Writer",sfr:"Cet écrivain a publié plusieurs livres.",sar:"هالكاتب نشر عدة كتب.",sen:"This writer has published several books.",img:"l_ecrivain.webp"},
+ {fr:"L'écho",ar:"الصدى",en:"Echo",sfr:"Sa voix produisait un écho dans la montagne.",sar:"صوته كان يعمل صدى بالجبل.",sen:"His voice echoed in the mountains.",img:"l_echo.webp"},
+ {fr:"L'égoïsme",ar:"الأنانية",en:"Selfishness",sfr:"L'égoïsme peut détruire une amitié.",sar:"الأنانية ممكن تدمّر الصداقة.",sen:"Selfishness can destroy a friendship.",img:"l_egoisme.webp"},
+ {fr:"L'élégance",ar:"الأناقة",en:"Elegance",sfr:"Elle est connue pour son élégance.",sar:"هي معروفة بأناقتها.",sen:"She is known for her elegance.",img:"l_elegance.webp"},
+ {fr:"L'enthousiasme",ar:"الحماس",en:"Enthusiasm",sfr:"Il a commencé son nouveau travail avec enthousiasme.",sar:"بلّش شغله الجديد بحماس.",sen:"He started his new job with enthusiasm.",img:"l_enthousiasme.webp"},
+ {fr:"L'empêchement",ar:"المانع / الظرف الطارئ",en:"Hindrance / Unforeseen circumstance",sfr:"En cas d'empêchement, veuillez nous prévenir.",sar:"إذا صار عندك ظرف طارئ، يرجى إخبارنا.",sen:"If something prevents you from attending, please let us know.",img:"l_empechement.webp"},
+ {fr:"L'enchère",ar:"المزايدة",en:"Bid / Auction",sfr:"Il a remporté l'enchère.",sar:"ربح المزايدة.",sen:"He won the bid.",img:"l_enchere.webp"},
+ {fr:"L'espèce",ar:"النوع / الفصيلة",en:"Species",sfr:"Cette espèce animale est protégée.",sar:"هالفصيلة الحيوانية محمية.",sen:"This animal species is protected.",img:"l_espece.webp"},
+ {fr:"L'étonnement",ar:"الدهشة / الاستغراب",en:"Astonishment",sfr:"Il a montré son étonnement devant cette nouvelle.",sar:"أظهر دهشته من هالخبر.",sen:"He showed his astonishment at this news.",img:"l_etonnement.webp"},
+ {fr:"L'évasion",ar:"الهروب",en:"Escape",sfr:"La police a empêché son évasion.",sar:"الشرطة منعت هروبه.",sen:"The police prevented his escape.",img:"l_evasion.webp"},
+ {fr:"L'élimination",ar:"الإزالة / الإقصاء",en:"Elimination / Removal",sfr:"L'élimination des déchets doit être contrôlée.",sar:"لازم تتم مراقبة التخلّص من النفايات.",sen:"Waste disposal must be monitored.",img:"l_elimination.webp"},
+ {fr:"L'exécution",ar:"التنفيذ",en:"Execution / Implementation",sfr:"L'exécution du projet prendra plusieurs mois.",sar:"تنفيذ المشروع رح يستغرق عدة أشهر.",sen:"The implementation of the project will take several months.",img:"l_execution.webp"},
+ {fr:"L'exploit",ar:"الإنجاز الاستثنائي",en:"Feat / Achievement",sfr:"Réussir cet examen est un véritable exploit.",sar:"النجاح بهالامتحان إنجاز كبير فعلاً.",sen:"Passing this exam is a real achievement.",img:"l_exploit.webp"},
+ {fr:"L'ère",ar:"العصر / الحقبة",en:"Era",sfr:"Nous vivons à l'ère du numérique.",sar:"نحن عايشين بعصر التكنولوجيا الرقمية.",sen:"We live in the digital age.",img:"l_ere.webp"},
+ {fr:"L'exil",ar:"المنفى",en:"Exile",sfr:"Il a vécu plusieurs années en exil.",sar:"عاش عدة سنوات بالمنفى.",sen:"He lived in exile for several years.",img:"l_exil.webp"},
+ {fr:"L'extinction",ar:"الانقراض / الإطفاء",en:"Extinction / Switching off",sfr:"Certaines espèces sont menacées d'extinction.",sar:"بعض الأنواع مهددة بالانقراض.",sen:"Some species are threatened with extinction.",img:"l_extinction.webp"},
+ {fr:"L'esclavage",ar:"العبودية",en:"Slavery",sfr:"L'esclavage a été aboli en France en 1848.",sar:"أُلغيت العبودية بفرنسا سنة 1848.",sen:"Slavery was abolished in France in 1848.",img:"l_esclavage.webp"},
+ {fr:"L'entrave",ar:"العائق / ما يعرقل",en:"Obstacle / Hindrance",sfr:"Le manque de temps est une entrave à ce projet.",sar:"قلّة الوقت عائق أمام هالمشروع.",sen:"Lack of time is an obstacle to this project.",img:"l_entrave.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].E=st.c['noms'].E||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].E.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+117000+i;st.c['noms'].E.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
