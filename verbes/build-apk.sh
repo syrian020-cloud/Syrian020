@@ -12,7 +12,7 @@ cd "$ROOT"
 rm -rf www && mkdir -p www/img www/js
 cp index.html manifest.json sw.js icon-192.png icon-512.png www/
 cp js/*.js www/js/
-cp img/*.jpg www/img/
+mkdir -p www/img && rm -f www/img/* && cp img/*.webp www/img/
 
 # Aliyun Maven mirrors where needed
 GRADLE_INIT=""
