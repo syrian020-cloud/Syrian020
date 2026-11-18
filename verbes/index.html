@@ -4616,13 +4616,98 @@ function updNomsS4(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].S=st.c['noms'].S||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].S.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+225000+i;st.c['noms'].S.push(u)}});
  save();}
+function updNomsS5(){
+ const add=[
+ {fr:"Le stagiaire",ar:"المتدرّب",en:"Trainee / Intern",sfr:"Le stagiaire apprend rapidement.",sar:"المتدرّب عم يتعلّم بسرعة.",sen:"The trainee is learning quickly.",img:"le_stagiaire.webp"},
+ {fr:"Le statut professionnel",ar:"الوضع المهني",en:"Employment Status",sfr:"Quel est votre statut professionnel ?",sar:"شو وضعك المهني؟",sen:"What is your employment status?",img:"le_statut_professionnel.webp"},
+ {fr:"Le secteur d'activité",ar:"قطاع النشاط",en:"Industry Sector",sfr:"Il travaille dans le secteur de la production.",sar:"هو بيشتغل بقطاع الإنتاج.",sen:"He works in the production sector.",img:"le_secteur_d_activite.webp"},
+ {fr:"Le salaire mensuel",ar:"الراتب الشهري",en:"Monthly Salary",sfr:"Mon salaire mensuel est versé à la fin du mois.",sar:"راتبي الشهري بينزل بنهاية الشهر.",sen:"My monthly salary is paid at the end of the month.",img:"le_salaire_mensuel.webp"},
+ {fr:"La sécurité sociale",ar:"الضمان الاجتماعي",en:"Social Security",sfr:"Je dois contacter la Sécurité sociale.",sar:"لازم أتواصل مع الضمان الاجتماعي.",sen:"I have to contact Social Security.",img:"la_securite_sociale.webp"},
+ {fr:"La satisfaction",ar:"الرضا",en:"Satisfaction",sfr:"Je suis satisfait de ce résultat.",sar:"أنا راضي عن هالنتيجة.",sen:"I am satisfied with this result.",img:"la_satisfaction.webp"},
+ {fr:"Le sentiment",ar:"الشعور / الإحساس",en:"Feeling",sfr:"J'ai un sentiment de confiance.",sar:"عندي شعور بالثقة.",sen:"I have a feeling of confidence.",img:"le_sentiment.webp"},
+ {fr:"La signification",ar:"المعنى / الدلالة",en:"Meaning / Significance",sfr:"Quelle est la signification de ce mot ?",sar:"شو معنى هالكلمة؟",sen:"What is the meaning of this word?",img:"la_signification.webp"},
+ {fr:"La soumission",ar:"تقديم / إرسال طلب أو وثيقة",en:"Submission",sfr:"La soumission du dossier doit être faite avant vendredi.",sar:"لازم تقدّم الملف قبل يوم الجمعة.",sen:"The submission of the application must be completed before Friday.",img:"la_soumission.webp"},
+ {fr:"Le supplément alimentaire",ar:"المكمّل الغذائي",en:"Dietary Supplement",sfr:"Demandez conseil à votre médecin avant de prendre un supplément alimentaire.",sar:"استشير طبيبك قبل ما تاخد مكمّل غذائي.",sen:"Ask your doctor before taking a dietary supplement.",img:"le_supplement_alimentaire.webp"},
+ {fr:"Le symbole",ar:"الرمز",en:"Symbol",sfr:"Ce symbole représente la liberté.",sar:"هالرمز بيمثّل الحرية.",sen:"This symbol represents freedom.",img:"le_symbole.webp"},
+ {fr:"Le supplément de loyer",ar:"زيادة الإيجار",en:"Rent Supplement",sfr:"Le supplément de loyer dépend de certaines conditions.",sar:"الزيادة على الإيجار بتعتمد على شروط معيّنة.",sen:"The rent supplement depends on certain conditions.",img:"le_supplement_de_loyer.webp"},
+ {fr:"La surcharge de travail",ar:"ضغط العمل الزائد",en:"Work Overload",sfr:"La surcharge de travail devient difficile à supporter.",sar:"ضغط الشغل الزايد صار صعب تحمّله.",sen:"The work overload is becoming difficult to handle.",img:"la_surcharge_de_travail.webp"},
+ {fr:"Le service public",ar:"المرفق العام / الخدمة العامة",en:"Public Service",sfr:"Ce service public accompagne les citoyens.",sar:"هالمرفق العام بيقدّم المساعدة للمواطنين.",sen:"This public service supports citizens.",img:"le_service_public.webp"},
+ {fr:"Le secteur privé",ar:"القطاع الخاص",en:"Private Sector",sfr:"Il travaille dans le secteur privé.",sar:"هو بيشتغل بالقطاع الخاص.",sen:"He works in the private sector.",img:"le_secteur_prive.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].S=st.c['noms'].S||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].S.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+230000+i;st.c['noms'].S.push(u)}});
+ save();}
+function updNomsT2(){
+ const add=[
+ {fr:"Le temps",ar:"الوقت / الطقس",en:"Time / Weather",sfr:"Je n'ai pas beaucoup de temps aujourd'hui.",sar:"ما عندي وقت كتير اليوم.",sen:"I don't have much time today.",img:"le_temps.webp"},
+ {fr:"La table",ar:"الطاولة",en:"Table",sfr:"Les clés sont sur la table.",sar:"المفاتيح على الطاولة.",sen:"The keys are on the table.",img:"la_table.webp"},
+ {fr:"La tête",ar:"الرأس",en:"Head",sfr:"J'ai mal à la tête.",sar:"راسي بيوجعني.",sen:"I have a headache.",img:"la_tete.webp"},
+ {fr:"Le téléphone",ar:"الهاتف",en:"Phone",sfr:"Mon téléphone ne fonctionne plus.",sar:"تلفوني ما عاد يشتغل.",sen:"My phone doesn't work anymore.",img:"le_telephone.webp"},
+ {fr:"La télévision",ar:"التلفاز",en:"Television",sfr:"Je regarde la télévision le soir.",sar:"بحضر التلفزيون بالمساء.",sen:"I watch television in the evening.",img:"la_television.webp"},
+ {fr:"Le transport",ar:"النقل / المواصلات",en:"Transport",sfr:"Je prends les transports en commun pour aller au travail.",sar:"بستخدم المواصلات العامة لروح عالشغل.",sen:"I take public transport to get to work.",img:"le_transport.webp"},
+ {fr:"Le trajet",ar:"الطريق / الرحلة",en:"Journey / Commute",sfr:"Mon trajet jusqu'au travail dure trente minutes.",sar:"الطريق من بيتي للشغل بياخد نص ساعة.",sen:"My commute to work takes thirty minutes.",img:"le_trajet.webp"},
+ {fr:"Le ticket",ar:"التذكرة",en:"Ticket",sfr:"J'ai acheté un ticket de tram.",sar:"اشتريت تذكرة ترام.",sen:"I bought a tram ticket.",img:"le_ticket.webp"},
+ {fr:"Le tarif",ar:"التعرفة / السعر المحدد",en:"Rate / Price",sfr:"Quel est le tarif de cette prestation ?",sar:"قديش سعر هالخدمة؟",sen:"What is the price of this service?",img:"le_tarif.webp"},
+ {fr:"Le téléphone portable",ar:"الهاتف المحمول",en:"Mobile Phone",sfr:"J'ai oublié mon téléphone portable à la maison.",sar:"نسيت موبايلي بالبيت.",sen:"I forgot my mobile phone at home.",img:"le_telephone_portable.webp"},
+ {fr:"Le travailleur",ar:"العامل",en:"Worker",sfr:"Les travailleurs commencent à six heures.",sar:"العمال بيبلشوا الساعة ستة.",sen:"The workers start at six o'clock.",img:"le_travailleur.webp"},
+ {fr:"La toilette",ar:"المرحاض",en:"Toilet",sfr:"Où sont les toilettes, s'il vous plaît ?",sar:"وين الحمّام لو سمحت؟",sen:"Where is the toilet, please?",img:"la_toilette.webp"},
+ {fr:"La taille",ar:"الحجم / المقاس / الطول",en:"Size / Height",sfr:"Quelle est votre taille ?",sar:"شو مقاسك؟ / قديش طولك؟",sen:"What is your size? / How tall are you?",img:"la_taille.webp"},
+ {fr:"Le taux",ar:"النسبة / المعدّل",en:"Rate",sfr:"Le taux de chômage a diminué.",sar:"نسبة البطالة انخفضت.",sen:"The unemployment rate has decreased.",img:"le_taux.webp"},
+ {fr:"La température",ar:"درجة الحرارة",en:"Temperature",sfr:"La température est de vingt degrés.",sar:"درجة الحرارة عشرين درجة.",sen:"The temperature is twenty degrees.",img:"la_temperature.webp"},
+ {fr:"Le terrain",ar:"الأرض / قطعة الأرض / الملعب",en:"Land / Ground",sfr:"Ils ont acheté un terrain pour construire une maison.",sar:"اشتروا قطعة أرض ليبنوا بيت.",sen:"They bought a plot of land to build a house.",img:"le_terrain.webp"},
+ {fr:"Le témoignage",ar:"الشهادة / الإفادة",en:"Testimony",sfr:"Son témoignage est important pour l'enquête.",sar:"شهادته مهمة للتحقيق.",sen:"His testimony is important for the investigation.",img:"le_temoignage.webp"},
+ {fr:"Le titre",ar:"العنوان / اللقب / الوثيقة",en:"Title / Document",sfr:"Quel est le titre de ce document ?",sar:"شو عنوان هالوثيقة؟",sen:"What is the title of this document?",img:"le_titre.webp"},
+ {fr:"Le toit",ar:"السقف / سطح المنزل",en:"Roof",sfr:"Le toit de cette maison est neuf.",sar:"سقف هالبيت جديد.",sen:"The roof of this house is new.",img:"le_toit.webp"},
+ {fr:"Le ton",ar:"النبرة / الأسلوب الصوتي",en:"Tone",sfr:"Je n'aime pas son ton agressif.",sar:"ما بحب نبرته العدوانية.",sen:"I don't like his aggressive tone.",img:"le_ton.webp"},
+ {fr:"Le total",ar:"المجموع / الإجمالي",en:"Total",sfr:"Le total est de cinquante euros.",sar:"المجموع خمسين يورو.",sen:"The total is fifty euros.",img:"le_total.webp"},
+ {fr:"Le taux de chômage",ar:"معدل البطالة",en:"Unemployment Rate",sfr:"Le taux de chômage a augmenté.",sar:"معدل البطالة ارتفع.",sen:"The unemployment rate has increased.",img:"le_taux_de_chomage.webp"},
+ {fr:"Le traitement",ar:"العلاج / المعالجة",en:"Treatment",sfr:"Je suis un traitement depuis deux semaines.",sar:"صارلي أسبوعين عم آخد علاج.",sen:"I've been undergoing treatment for two weeks.",img:"le_traitement.webp"},
+ {fr:"Le transporteur",ar:"شركة النقل / الناقل",en:"Carrier / Transporter",sfr:"Le transporteur va livrer le colis demain.",sar:"شركة النقل رح توصل الطرد بكرا.",sen:"The carrier will deliver the parcel tomorrow.",img:"le_transporteur.webp"},
+ {fr:"Le tournant",ar:"منعطف / نقطة تحول",en:"Turning Point",sfr:"Ce changement marque un tournant dans sa vie.",sar:"هالتغيير بيشكّل نقطة تحول بحياته.",sen:"This change marks a turning point in his life.",img:"le_tournant.webp"},
+ {fr:"La tournée",ar:"الجولة / مسار التوزيع",en:"Round / Delivery Route",sfr:"Le livreur commence sa tournée à huit heures.",sar:"عامل التوصيل بيبلّش جولته الساعة تمانية.",sen:"The delivery driver starts his route at eight o'clock.",img:"la_tournee.webp"},
+ {fr:"Le trouble",ar:"الاضطراب / المشكلة",en:"Disorder / Problem",sfr:"Il souffre de troubles du sommeil.",sar:"بيعاني من اضطرابات بالنوم.",sen:"He suffers from sleep disorders.",img:"le_trouble.webp"},
+ {fr:"La tradition",ar:"العادة / التقليد",en:"Tradition",sfr:"C'est une tradition familiale.",sar:"هاد تقليد عائلي.",sen:"It is a family tradition.",img:"la_tradition.webp"},
+ {fr:"Le témoin",ar:"الشاهد",en:"Witness",sfr:"Le témoin a vu l'accident.",sar:"الشاهد شاف الحادث.",sen:"The witness saw the accident.",img:"le_temoin.webp"},
+ {fr:"Le territoire",ar:"الإقليم / المنطقة",en:"Territory",sfr:"Cette entreprise travaille sur tout le territoire français.",sar:"هالشركة بتشتغل بكل الأراضي الفرنسية.",sen:"This company operates throughout French territory.",img:"le_territoire.webp"},
+ {fr:"La tendance",ar:"التوجّه / النزعة",en:"Trend",sfr:"Cette tendance devient de plus en plus populaire.",sar:"هالتوجّه عم يصير شائع أكتر وأكتر.",sen:"This trend is becoming increasingly popular.",img:"la_tendance.webp"},
+ {fr:"Le tarifaire",ar:"المتعلق بالتعرفة والأسعار",en:"Pricing / Tariff-related",sfr:"Les conditions tarifaires sont disponibles en ligne.",sar:"شروط الأسعار متوفرة على الإنترنت.",sen:"The pricing conditions are available online.",img:"le_tarifaire.webp"},
+ {fr:"La totalité",ar:"الكل / المجموع الكامل",en:"Entirety / Totality",sfr:"J'ai payé la totalité de la facture.",sar:"دفعت كامل الفاتورة.",sen:"I paid the entire bill.",img:"la_totalite.webp"},
+ {fr:"Le titulaire",ar:"صاحب الحق / حامل الوثيقة",en:"Holder",sfr:"Le titulaire du compte doit signer le document.",sar:"صاحب الحساب لازم يوقّع الوثيقة.",sen:"The account holder must sign the document.",img:"le_titulaire.webp"},
+ {fr:"La transaction",ar:"المعاملة / الصفقة",en:"Transaction",sfr:"La transaction a été effectuée avec succès.",sar:"تمت المعاملة بنجاح.",sen:"The transaction was completed successfully.",img:"la_transaction.webp"},
+ {fr:"Le traumatisme",ar:"الصدمة النفسية أو الجسدية",en:"Trauma",sfr:"Cet accident a provoqué un traumatisme.",sar:"هالحادث سبّب صدمة.",sen:"This accident caused trauma.",img:"le_traumatisme.webp"},
+ {fr:"Le tribunal",ar:"المحكمة",en:"Court",sfr:"Il doit se présenter devant le tribunal.",sar:"لازم يمثل قدّام المحكمة.",sen:"He must appear before the court.",img:"le_tribunal.webp"},
+ {fr:"Le trimestre",ar:"ثلاثة أشهر / فصل دراسي أو ربع سنة",en:"Quarter / Term",sfr:"Le paiement est effectué chaque trimestre.",sar:"الدفع بيتم كل ثلاثة أشهر.",sen:"Payment is made every quarter.",img:"le_trimestre.webp"},
+ {fr:"Le tableau",ar:"الجدول / اللوحة",en:"Table / Board",sfr:"Le tableau affiche les horaires de travail.",sar:"اللوحة بتعرض أوقات العمل.",sen:"The board displays the working hours.",img:"le_tableau.webp"},
+ {fr:"La théorie",ar:"النظرية",en:"Theory",sfr:"La théorie est différente de la pratique.",sar:"النظرية مختلفة عن التطبيق العملي.",sen:"Theory is different from practice.",img:"la_theorie.webp"},
+ {fr:"Le traitement de texte",ar:"معالجة النصوص",en:"Word Processing",sfr:"J'utilise un logiciel de traitement de texte.",sar:"بستخدم برنامج لمعالجة النصوص.",sen:"I use word-processing software.",img:"le_traitement_de_texte.webp"},
+ {fr:"La transparence",ar:"الشفافية",en:"Transparency",sfr:"La transparence est importante dans une entreprise.",sar:"الشفافية مهمة بالشركة.",sen:"Transparency is important in a company.",img:"la_transparence.webp"},
+ {fr:"Le transfert",ar:"النقل / التحويل",en:"Transfer",sfr:"Le transfert d'argent a été effectué.",sar:"تم تحويل المبلغ.",sen:"The money transfer has been completed.",img:"le_transfert.webp"},
+ {fr:"La trousse",ar:"المقلمة / حقيبة الأدوات الصغيرة",en:"Pencil Case / Small Kit",sfr:"J'ai oublié ma trousse à la maison.",sar:"نسيت مقلمتي بالبيت.",sen:"I forgot my pencil case at home.",img:"la_trousse.webp"},
+ {fr:"Le tuyau",ar:"الأنبوب / الخرطوم",en:"Pipe / Hose",sfr:"Le tuyau est bouché.",sar:"الأنبوب مسدود.",sen:"The pipe is blocked.",img:"le_tuyau.webp"},
+ {fr:"La taxe",ar:"الضريبة",en:"Tax",sfr:"Cette taxe doit être payée avant la fin du mois.",sar:"لازم تنندفع هالضريبة قبل نهاية الشهر.",sen:"This tax must be paid before the end of the month.",img:"la_taxe.webp"},
+ {fr:"Le technicien",ar:"الفني / التقني",en:"Technician",sfr:"Le technicien va réparer la machine.",sar:"الفني رح يصلّح الآلة.",sen:"The technician is going to repair the machine.",img:"le_technicien.webp"},
+ {fr:"La technologie",ar:"التكنولوجيا",en:"Technology",sfr:"La technologie évolue rapidement.",sar:"التكنولوجيا عم تتطور بسرعة.",sen:"Technology is evolving rapidly.",img:"la_technologie.webp"},
+ {fr:"Le téléphone fixe",ar:"الهاتف الثابت",en:"Landline Phone",sfr:"Nous avons encore un téléphone fixe à la maison.",sar:"لسه عنا تلفون أرضي بالبيت.",sen:"We still have a landline phone at home.",img:"le_telephone_fixe.webp"},
+ {fr:"La tentation",ar:"الإغراء",en:"Temptation",sfr:"Il est difficile de résister à la tentation.",sar:"صعب الواحد يقاوم الإغراء.",sen:"It is difficult to resist temptation.",img:"la_tentation.webp"},
+ {fr:"Le tarif réduit",ar:"السعر المخفّض",en:"Reduced Fare",sfr:"Les étudiants bénéficient d'un tarif réduit.",sar:"الطلاب بيستفيدوا من سعر مخفّض.",sen:"Students benefit from a reduced fare.",img:"le_tarif_reduit.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].T=st.c['noms'].T||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].T.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+235000+i;st.c['noms'].T.push(u)}});
+ save();}
+function updNomsV3(){
+ const add=[
+ {fr:"La voiture",ar:"السيارة",en:"Car",sfr:"Ma voiture est garée devant la maison.",sar:"سيارتي مصفوفة قدام البيت.",sen:"My car is parked in front of the house.",img:"la_voiture.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].V=st.c['noms'].V||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].V.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+290000+i;st.c['noms'].V.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
