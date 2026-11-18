@@ -3975,13 +3975,81 @@ function updNomsF2(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].F=st.c['noms'].F||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].F.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+129000+i;st.c['noms'].F.push(u)}});
  save();}
+function updNomsD2(){
+ const add=[
+ {fr:"La dame",ar:"السيدة",en:"Lady",sfr:"Cette dame est très gentille.",sar:"هالسيدة لطيفة كتير.",sen:"This lady is very kind.",img:"la_dame.webp"},
+ {fr:"Le danger",ar:"الخطر",en:"Danger",sfr:"Il est dangereux de traverser ici.",sar:"من الخطر تقطع من هون.",sen:"It is dangerous to cross here.",img:"le_danger.webp"},
+ {fr:"La danse",ar:"الرقص",en:"Dance",sfr:"Elle aime beaucoup la danse.",sar:"هي بتحب الرقص كتير.",sen:"She loves dancing.",img:"la_danse.webp"},
+ {fr:"Le danseur",ar:"الراقص",en:"Dancer",sfr:"Ce danseur est très talentueux.",sar:"هالراقص موهوب كتير.",sen:"This dancer is very talented.",img:"le_danseur.webp"},
+ {fr:"La date",ar:"التاريخ",en:"Date",sfr:"Quelle est la date de votre rendez-vous ?",sar:"شو تاريخ موعدك؟",sen:"What is the date of your appointment?",img:"la_date.webp"},
+ {fr:"Le débat",ar:"النقاش / المناظرة",en:"Debate",sfr:"Le débat a duré deux heures.",sar:"استمر النقاش ساعتين.",sen:"The debate lasted two hours.",img:"le_debat.webp"},
+ {fr:"Le débit",ar:"معدّل التدفق",en:"Flow Rate",sfr:"Le débit d'eau est trop faible.",sar:"تدفق المي ضعيف كتير.",sen:"The water flow rate is too low.",img:"le_debit.webp"},
+ {fr:"Le début",ar:"البداية",en:"Beginning",sfr:"Le début du cours est à neuf heures.",sar:"بداية الدرس الساعة تسعة.",sen:"The class starts at nine o'clock.",img:"le_debut.webp"},
+ {fr:"Le débutant",ar:"المبتدئ",en:"Beginner",sfr:"Je suis débutant en français.",sar:"أنا مبتدئ باللغة الفرنسية.",sen:"I am a beginner in French.",img:"le_debutant.webp"},
+ {fr:"Le décalage",ar:"الفارق / الاختلاف",en:"Difference / Gap",sfr:"Il y a un décalage horaire entre la France et le Canada.",sar:"في فرق بالتوقيت بين فرنسا وكندا.",sen:"There is a time difference between France and Canada.",img:"le_decalage.webp"},
+ {fr:"La décennie",ar:"عقد من الزمن (10 سنوات)",en:"Decade",sfr:"Il a vécu en France pendant une décennie.",sar:"عاش بفرنسا لمدة عشر سنوات.",sen:"He lived in France for a decade.",img:"la_decennie.webp"},
+ {fr:"La déception",ar:"خيبة الأمل",en:"Disappointment",sfr:"Son refus a été une grande déception pour moi.",sar:"رفضه كان خيبة أمل كبيرة بالنسبة إلي.",sen:"His refusal was a big disappointment for me.",img:"la_deception.webp"},
+ {fr:"Le déchet",ar:"النفاية / المخلفات",en:"Waste",sfr:"Il faut trier les déchets.",sar:"لازم نفرز النفايات.",sen:"We must sort the waste.",img:"le_dechet.webp"},
+ {fr:"La décision",ar:"القرار",en:"Decision",sfr:"Je dois prendre une décision rapidement.",sar:"لازم آخد قرار بسرعة.",sen:"I have to make a decision quickly.",img:"la_decision.webp"},
+ {fr:"La déclaration",ar:"التصريح / الإقرار",en:"Declaration",sfr:"Je dois faire ma déclaration d'impôts.",sar:"لازم قدّم إقراري الضريبي.",sen:"I have to file my tax return.",img:"la_declaration.webp"},
+ {fr:"Le décor",ar:"الديكور / المشهد",en:"Setting / Scenery",sfr:"Le décor de cette pièce est magnifique.",sar:"ديكور هالغرفة رائع.",sen:"The décor of this room is beautiful.",img:"le_decor.webp"},
+ {fr:"La décoration",ar:"الزينة / الديكور",en:"Decoration",sfr:"La décoration de la maison est très jolie.",sar:"زينة البيت حلوة كتير.",sen:"The house decoration is very beautiful.",img:"la_decoration.webp"},
+ {fr:"La défaite",ar:"الهزيمة",en:"Defeat",sfr:"L'équipe a accepté la défaite.",sar:"الفريق تقبّل الهزيمة.",sen:"The team accepted defeat.",img:"la_defaite.webp"},
+ {fr:"Le défaut",ar:"العيب / الخلل",en:"Defect / Flaw",sfr:"Cet appareil a un défaut de fabrication.",sar:"هالجهاز فيه عيب بالتصنيع.",sen:"This device has a manufacturing defect.",img:"le_defaut.webp"},
+ {fr:"La défense",ar:"الدفاع",en:"Defence",sfr:"Il a le droit de préparer sa défense.",sar:"من حقه يحضّر دفاعه.",sen:"He has the right to prepare his defence.",img:"la_defense.webp"},
+ {fr:"Le défi",ar:"التحدّي",en:"Challenge",sfr:"Apprendre une nouvelle langue est un grand défi.",sar:"تعلّم لغة جديدة تحدٍّ كبير.",sen:"Learning a new language is a big challenge.",img:"le_defi.webp"},
+ {fr:"Le déficit",ar:"العجز / النقص المالي",en:"Deficit",sfr:"L'entreprise doit réduire son déficit.",sar:"لازم الشركة تقلّل العجز المالي.",sen:"The company must reduce its deficit.",img:"le_deficit.webp"},
+ {fr:"La définition",ar:"التعريف",en:"Definition",sfr:"Quelle est la définition de ce mot ?",sar:"شو تعريف هالكلمة؟",sen:"What is the definition of this word?",img:"la_definition.webp"},
+ {fr:"Le dégât",ar:"الضرر / التلف",en:"Damage",sfr:"La fuite d'eau a causé beaucoup de dégâts.",sar:"تسرّب المي سبّب أضرار كبيرة.",sen:"The water leak caused a lot of damage.",img:"le_degat.webp"},
+ {fr:"Le degré",ar:"الدرجة / المستوى",en:"Degree",sfr:"La température atteint trente degrés.",sar:"درجة الحرارة بتوصل لثلاثين درجة.",sen:"The temperature reaches thirty degrees.",img:"le_degre.webp"},
+ {fr:"Le déjeuner",ar:"وجبة الغداء",en:"Lunch",sfr:"Je prends mon déjeuner à midi.",sar:"بتغدّى الساعة 12.",sen:"I have lunch at noon.",img:"le_dejeuner.webp"},
+ {fr:"La demande",ar:"الطلب",en:"Request / Demand",sfr:"J'ai envoyé une demande de logement.",sar:"أرسلت طلب سكن.",sen:"I sent a housing request.",img:"la_demande.webp"},
+ {fr:"Le déménagement",ar:"الانتقال إلى منزل جديد",en:"Moving",sfr:"Mon déménagement est prévu pour samedi.",sar:"انتقالي للبيت الجديد مقرر يوم السبت.",sen:"My move is planned for Saturday.",img:"le_demenagement.webp"},
+ {fr:"La démocratie",ar:"الديمقراطية",en:"Democracy",sfr:"La démocratie permet aux citoyens de voter.",sar:"الديمقراطية بتسمح للمواطنين يصوّتوا.",sen:"Democracy allows citizens to vote.",img:"la_democratie.webp"},
+ {fr:"La dent",ar:"السن",en:"Tooth",sfr:"J'ai mal à une dent.",sar:"عندي وجع بسنّي.",sen:"I have a toothache.",img:"la_dent.webp"},
+ {fr:"Le dentiste",ar:"طبيب الأسنان",en:"Dentist",sfr:"Je dois prendre rendez-vous chez le dentiste.",sar:"لازم أحجز موعد عند طبيب الأسنان.",sen:"I need to make an appointment with the dentist.",img:"le_dentiste.webp"},
+ {fr:"Le dentifrice",ar:"معجون الأسنان",en:"Toothpaste",sfr:"Il faut utiliser du dentifrice pour se brosser les dents.",sar:"لازم تستخدم معجون الأسنان لتنظيف أسنانك.",sen:"You need to use toothpaste to brush your teeth.",img:"le_dentifrice.webp"},
+ {fr:"Le départ",ar:"المغادرة / الانطلاق",en:"Departure",sfr:"Le départ du train est prévu à huit heures.",sar:"انطلاق القطار مقرر الساعة تمانية.",sen:"The train departure is scheduled for eight o'clock.",img:"le_depart.webp"},
+ {fr:"Le département",ar:"المقاطعة الإدارية",en:"Department",sfr:"J'habite dans le département du Bas-Rhin.",sar:"أنا ساكن بمقاطعة با-ران.",sen:"I live in the Bas-Rhin department.",img:"le_departement.webp"},
+ {fr:"La dépendance",ar:"الاعتماد / التبعية",en:"Dependence",sfr:"La dépendance au téléphone peut devenir un problème.",sar:"الاعتماد الزائد على الموبايل ممكن يصير مشكلة.",sen:"Dependence on phones can become a problem.",img:"la_dependance.webp"},
+ {fr:"La dépense",ar:"النفقة / المصروف",en:"Expense",sfr:"Je dois contrôler mes dépenses chaque mois.",sar:"لازم راقب مصاريفي كل شهر.",sen:"I have to monitor my expenses every month.",img:"la_depense.webp"},
+ {fr:"Le dépôt",ar:"الإيداع / المستودع",en:"Deposit / Warehouse",sfr:"J'ai versé un dépôt de garantie pour le logement.",sar:"دفعت مبلغ ضمان للسكن.",sen:"I paid a security deposit for the accommodation.",img:"le_depot.webp"},
+ {fr:"La dépression",ar:"الاكتئاب",en:"Depression",sfr:"La dépression peut affecter la vie quotidienne.",sar:"الاكتئاب ممكن يأثر على الحياة اليومية.",sen:"Depression can affect everyday life.",img:"la_depression.webp"},
+ {fr:"Le désaccord",ar:"الخلاف / عدم الاتفاق",en:"Disagreement",sfr:"Nous avons un désaccord sur ce sujet.",sar:"عنا خلاف حول هالموضوع.",sen:"We have a disagreement about this subject.",img:"le_desaccord.webp"},
+ {fr:"Le désavantage",ar:"العيب / نقطة الضعف",en:"Disadvantage",sfr:"Le principal désavantage de ce logement est son prix.",sar:"أكبر عيب بهالسكن هو سعره.",sen:"The main disadvantage of this accommodation is its price.",img:"le_desavantage.webp"},
+ {fr:"Le désert",ar:"الصحراء",en:"Desert",sfr:"Le désert est très chaud pendant la journée.",sar:"الصحراء حارة كتير خلال النهار.",sen:"The desert is very hot during the day.",img:"le_desert.webp"},
+ {fr:"Le désir",ar:"الرغبة",en:"Desire",sfr:"J'ai le désir d'apprendre plusieurs langues.",sar:"عندي رغبة بتعلّم عدة لغات.",sen:"I have a desire to learn several languages.",img:"le_desir.webp"},
+ {fr:"Le dessert",ar:"الحلوى بعد الطعام",en:"Dessert",sfr:"Quel dessert voulez-vous après le repas ?",sar:"أي حلو بدك بعد الأكل؟",sen:"What dessert would you like after the meal?",img:"le_dessert.webp"},
+ {fr:"Le dessin",ar:"الرسم",en:"Drawing",sfr:"J'aime faire des dessins pendant mon temps libre.",sar:"بحب أرسم بوقت فراغي.",sen:"I like drawing in my free time.",img:"le_dessin.webp"},
+ {fr:"La destination",ar:"الوجهة",en:"Destination",sfr:"Quelle est votre destination finale ?",sar:"شو وجهتك النهائية؟",sen:"What is your final destination?",img:"la_destination.webp"},
+ {fr:"Le détail",ar:"التفصيل",en:"Detail",sfr:"Pouvez-vous m'expliquer ce détail ?",sar:"فيك تشرحلي هالتفصيل؟",sen:"Can you explain this detail to me?",img:"le_detail.webp"},
+ {fr:"La détermination",ar:"العزيمة / الإصرار",en:"Determination",sfr:"La détermination est essentielle pour réussir.",sar:"الإصرار ضروري لتحقيق النجاح.",sen:"Determination is essential for success.",img:"la_determination.webp"},
+ {fr:"Le détour",ar:"الطريق الالتفافي",en:"Detour",sfr:"Nous devons faire un détour à cause des travaux.",sar:"لازم ناخد طريق التفافي بسبب الأشغال.",sen:"We have to take a detour because of the roadworks.",img:"le_detour.webp"},
+ {fr:"La dette",ar:"الدَّين",en:"Debt",sfr:"Il essaie de rembourser ses dettes.",sar:"عم يحاول يسدّد ديونه.",sen:"He is trying to repay his debts.",img:"la_dette.webp"},
+ {fr:"Le développement",ar:"التطور / التنمية",en:"Development",sfr:"Le développement durable est un enjeu important.",sar:"التنمية المستدامة قضية مهمة.",sen:"Sustainable development is an important issue.",img:"le_developpement.webp"},
+ {fr:"La devise",ar:"العملة / الشعار",en:"Currency / Motto",sfr:"L'euro est la devise utilisée en France.",sar:"اليورو هو العملة المستخدمة بفرنسا.",sen:"The euro is the currency used in France.",img:"la_devise.webp"},
+ {fr:"Le devoir",ar:"الواجب",en:"Duty / Homework",sfr:"Je dois terminer mes devoirs ce soir.",sar:"لازم خلّص واجباتي الليلة.",sen:"I have to finish my homework tonight.",img:"le_devoir.webp"},
+ {fr:"Le diagnostic",ar:"التشخيص",en:"Diagnosis",sfr:"Le médecin a posé son diagnostic.",sar:"الطبيب حطّ تشخيصه.",sen:"The doctor made his diagnosis.",img:"le_diagnostic.webp"},
+ {fr:"Le dialogue",ar:"الحوار",en:"Dialogue",sfr:"Le dialogue permet de résoudre les problèmes.",sar:"الحوار بيساعد على حل المشاكل.",sen:"Dialogue helps solve problems.",img:"le_dialogue.webp"},
+ {fr:"Le dictionnaire",ar:"القاموس",en:"Dictionary",sfr:"Je cherche ce mot dans le dictionnaire.",sar:"عم دوّر على هالكلمة بالقاموس.",sen:"I'm looking for this word in the dictionary.",img:"le_dictionnaire.webp"},
+ {fr:"La différence",ar:"الاختلاف / الفرق",en:"Difference",sfr:"Quelle est la différence entre ces deux produits ?",sar:"شو الفرق بين هالمنتجين؟",sen:"What is the difference between these two products?",img:"la_difference.webp"},
+ {fr:"La difficulté",ar:"الصعوبة",en:"Difficulty",sfr:"J'ai des difficultés à comprendre ce document.",sar:"عندي صعوبة بفهم هالمستند.",sen:"I have difficulty understanding this document.",img:"la_difficulte.webp"},
+ {fr:"La direction",ar:"الإدارة / الاتجاه",en:"Management / Direction",sfr:"Je dois parler avec la direction de l'entreprise.",sar:"لازم أحكي مع إدارة الشركة.",sen:"I have to speak with the company's management.",img:"la_direction.webp"},
+ {fr:"Le directeur",ar:"المدير",en:"Director / Manager",sfr:"Le directeur organise une réunion avec les employés.",sar:"المدير عم ينظّم اجتماع مع الموظفين.",sen:"The director is organizing a meeting with the employees.",img:"le_directeur.webp"},
+ {fr:"La discussion",ar:"النقاش",en:"Discussion",sfr:"Nous avons eu une discussion intéressante.",sar:"صار بيناتنا نقاش ممتع.",sen:"We had an interesting discussion.",img:"la_discussion.webp"},
+ {fr:"La disponibilité",ar:"التوفّر / الاستعداد",en:"Availability",sfr:"Quelle est votre disponibilité cette semaine ?",sar:"إمتى بتكون متاح هالأسبوع؟",sen:"What is your availability this week?",img:"la_disponibilite.webp"},
+ {fr:"Le dossier",ar:"الملف",en:"File / Case",sfr:"Mon dossier est en cours de traitement.",sar:"ملفّي لسا قيد المعالجة.",sen:"My file is being processed.",img:"le_dossier.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].D=st.c['noms'].D||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].D.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+133000+i;st.c['noms'].D.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
