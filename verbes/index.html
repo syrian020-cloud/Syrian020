@@ -5325,13 +5325,86 @@ function updNomsH3(){
  add.forEach((u,i)=>{const ex=st.c['noms'].H.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+380000+i;st.c['noms'].H.push(u)}});
  save();}
 
+function delNomsP(){
+ if(st.c&&st.c['noms']&&st.c['noms'].P){st.c['noms'].P=[];save();}
+}
+function updNomsP4(){
+ const add=[
+ {fr:"Le pain",ar:"الخبز",en:"Bread",sfr:"J'achète du pain tous les matins.",sar:"بشتري خبز كل صباح.",sen:"I buy bread every morning.",img:"le_pain.webp"},
+ {fr:"Le père",ar:"الأب",en:"Father",sfr:"Mon père travaille à Paris.",sar:"أبي بيشتغل بباريس.",sen:"My father works in Paris.",img:"le_pere.webp"},
+ {fr:"La personne",ar:"الشخص",en:"Person",sfr:"Cette personne est très gentille.",sar:"هالشخص كتير لطيف.",sen:"This person is very kind.",img:"la_personne.webp"},
+ {fr:"Le pays",ar:"البلد",en:"Country",sfr:"La France est un beau pays.",sar:"فرنسا بلد حلو.",sen:"France is a beautiful country.",img:"le_pays.webp"},
+ {fr:"La porte",ar:"الباب",en:"Door",sfr:"Ferme la porte, s'il te plaît.",sar:"سكّر الباب لو سمحت.",sen:"Close the door, please.",img:"la_porte.webp"},
+ {fr:"La place",ar:"المكان / الساحة",en:"Place / Square",sfr:"Il n'y a plus de place dans le bus.",sar:"ما عاد في محل بالباص.",sen:"There is no more room on the bus.",img:"la_place.webp"},
+ {fr:"Le problème",ar:"المشكلة",en:"Problem",sfr:"J'ai un problème avec mon téléphone.",sar:"عندي مشكلة بتلفوني.",sen:"I have a problem with my phone.",img:"le_probleme.webp"},
+ {fr:"Le prix",ar:"السعر",en:"Price",sfr:"Quel est le prix de ce pantalon ?",sar:"قديش سعر هالبنطلون؟",sen:"What is the price of these trousers?",img:"le_prix.webp"},
+ {fr:"La partie",ar:"الجزء / القسم",en:"Part",sfr:"J'ai compris la première partie.",sar:"فهمت الجزء الأول.",sen:"I understood the first part.",img:"la_partie.webp"},
+ {fr:"Le papier",ar:"الورق",en:"Paper",sfr:"J'ai besoin d'un papier pour écrire.",sar:"بحتاج ورقة مشان اكتب.",sen:"I need a sheet of paper to write.",img:"le_papier.webp"},
+ {fr:"Le parc",ar:"الحديقة العامة",en:"Park",sfr:"Nous allons au parc dimanche.",sar:"رح نروح عالحديقة يوم الأحد.",sen:"We're going to the park on Sunday.",img:"le_parc.webp"},
+ {fr:"La parole",ar:"الكلام",en:"Speech / Word",sfr:"Je te donne ma parole.",sar:"بعطيك كلمتي.",sen:"You have my word.",img:"la_parole.webp"},
+ {fr:"La peur",ar:"الخوف",en:"Fear",sfr:"J'ai peur du noir.",sar:"بخاف من العتمة.",sen:"I'm afraid of the dark.",img:"la_peur.webp"},
+ {fr:"Le plaisir",ar:"المتعة / السرور",en:"Pleasure",sfr:"C'est un plaisir de te voir.",sar:"مبسوط إني شفتك.",sen:"It's a pleasure to see you.",img:"le_plaisir.webp"},
+ {fr:"Le pouvoir",ar:"السلطة / القدرة",en:"Power",sfr:"Il a le pouvoir de décider.",sar:"عنده صلاحية يقرّر.",sen:"He has the power to decide.",img:"le_pouvoir.webp"},
+ {fr:"La patience",ar:"الصبر",en:"Patience",sfr:"Il faut avoir de la patience.",sar:"لازم يكون عندك صبر.",sen:"You need to be patient.",img:"la_patience.webp"},
+ {fr:"Le passage",ar:"الممر / المرور",en:"Passage",sfr:"Le passage est étroit.",sar:"الممر ضيّق.",sen:"The passage is narrow.",img:"le_passage.webp"},
+ {fr:"Le portable",ar:"الهاتف المحمول",en:"Mobile Phone",sfr:"J'ai oublié mon portable à la maison.",sar:"نسيت تلفوني بالبيت.",sen:"I forgot my phone at home.",img:"le_portable.webp"},
+ {fr:"Le pantalon",ar:"البنطال",en:"Trousers",sfr:"Ce pantalon est trop long.",sar:"هالبنطلون طويل كتير.",sen:"These trousers are too long.",img:"le_pantalon.webp"},
+ {fr:"La piscine",ar:"المسبح",en:"Swimming Pool",sfr:"Je vais à la piscine deux fois par semaine.",sar:"بروح عالمسبح مرتين بالأسبوع.",sen:"I go to the swimming pool twice a week.",img:"la_piscine.webp"},
+ {fr:"Le poisson",ar:"السمك",en:"Fish",sfr:"Je mange du poisson le vendredi.",sar:"باكل سمك يوم الجمعة.",sen:"I eat fish on Fridays.",img:"le_poisson.webp"},
+ {fr:"Le poulet",ar:"الدجاج",en:"Chicken",sfr:"Nous mangeons du poulet ce soir.",sar:"رح ناكل دجاج الليلة.",sen:"We're eating chicken tonight.",img:"le_poulet.webp"},
+ {fr:"La pomme",ar:"التفاحة",en:"Apple",sfr:"Je mange une pomme chaque jour.",sar:"باكل تفاحة كل يوم.",sen:"I eat an apple every day.",img:"la_pomme.webp"},
+ {fr:"Le petit-déjeuner",ar:"الفطور",en:"Breakfast",sfr:"Je prends mon petit-déjeuner à sept heures.",sar:"بفطر الساعة سبعة.",sen:"I have breakfast at seven o'clock.",img:"le_petit_dejeuner.webp"},
+ {fr:"Le pantalon de travail",ar:"بنطال العمل",en:"Work Trousers",sfr:"Je dois porter un pantalon de travail.",sar:"لازم ألبس بنطال شغل.",sen:"I have to wear work trousers.",img:"le_pantalon_de_travail.webp"},
+ {fr:"La police",ar:"الشرطة",en:"Police",sfr:"La police est arrivée rapidement.",sar:"وصلت الشرطة بسرعة.",sen:"The police arrived quickly.",img:"la_police.webp"},
+ {fr:"Le patron",ar:"المدير / صاحب العمل",en:"Boss / Employer",sfr:"Mon patron m'a appelé ce matin.",sar:"مديري اتصل فيني هالصبح.",sen:"My boss called me this morning.",img:"le_patron.webp"},
+ {fr:"Le poste",ar:"المنصب / الوظيفة",en:"Position / Job",sfr:"Je cherche un poste à temps plein.",sar:"عم دوّر على وظيفة بدوام كامل.",sen:"I'm looking for a full-time position.",img:"le_poste.webp"},
+ {fr:"Le passeport",ar:"جواز السفر",en:"Passport",sfr:"N'oublie pas ton passeport.",sar:"لا تنسى جواز سفرك.",sen:"Don't forget your passport.",img:"le_passeport.webp"},
+ {fr:"La pièce",ar:"الغرفة / القطعة",en:"Room / Piece",sfr:"Ma chambre est la plus grande pièce de l'appartement.",sar:"غرفتي أكبر غرفة بالشقة.",sen:"My bedroom is the largest room in the apartment.",img:"la_piece.webp"},
+ {fr:"Le propriétaire",ar:"المالك / صاحب العقار",en:"Owner / Landlord",sfr:"Le propriétaire va réparer la porte.",sar:"صاحب البيت رح يصلّح الباب.",sen:"The landlord is going to repair the door.",img:"le_proprietaire.webp"},
+ {fr:"Le permis",ar:"الرخصة / التصريح",en:"Licence / Permit",sfr:"J'ai obtenu mon permis de conduire.",sar:"طلعت رخصة السواقة.",sen:"I got my driving licence.",img:"le_permis.webp"},
+ {fr:"La pharmacie",ar:"الصيدلية",en:"Pharmacy",sfr:"La pharmacie ferme à dix-neuf heures.",sar:"الصيدلية بتسكّر الساعة سبعة المسا.",sen:"The pharmacy closes at seven p.m.",img:"la_pharmacie.webp"},
+ {fr:"Le pain de mie",ar:"خبز التوست",en:"Sliced Bread",sfr:"J'achète du pain de mie pour le petit-déjeuner.",sar:"بشتري خبز توست للفطور.",sen:"I buy sliced bread for breakfast.",img:"le_pain_de_mie.webp"},
+ {fr:"La peinture",ar:"الطلاء / الرسم",en:"Paint / Painting",sfr:"J'aime la peinture et le dessin.",sar:"بحب الرسم والتلوين.",sen:"I like painting and drawing.",img:"la_peinture.webp"},
+ {fr:"Le papier toilette",ar:"ورق الحمّام",en:"Toilet Paper",sfr:"Il faut acheter du papier toilette.",sar:"لازم نشتري ورق حمّام.",sen:"We need to buy toilet paper.",img:"le_papier_toilette.webp"},
+ {fr:"La peau",ar:"الجلد / البشرة",en:"Skin",sfr:"Cette crème protège la peau.",sar:"هالكريم بيحمي البشرة.",sen:"This cream protects the skin.",img:"la_peau.webp"},
+ {fr:"Le poids",ar:"الوزن",en:"Weight",sfr:"Je connais mon poids.",sar:"بعرف وزني.",sen:"I know my weight.",img:"le_poids.webp"},
+ {fr:"Le pain au chocolat",ar:"كرواسان بالشوكولاتة",en:"Chocolate Pastry",sfr:"Je prends un pain au chocolat avec mon café.",sar:"باخد قطعة معجنات بالشوكولاتة مع قهوتي.",sen:"I have a chocolate pastry with my coffee.",img:"le_pain_au_chocolat.webp"},
+ {fr:"La panne",ar:"العطل",en:"Breakdown",sfr:"Ma voiture est en panne.",sar:"سيارتي تعطّلت.",sen:"My car has broken down.",img:"la_panne.webp"},
+ {fr:"La plante",ar:"النبتة",en:"Plant",sfr:"Cette plante a besoin d'eau.",sar:"هالنبتة بحاجة لمي.",sen:"This plant needs water.",img:"la_plante.webp"},
+ {fr:"Le plafond",ar:"السقف",en:"Ceiling",sfr:"Le plafond est très haut.",sar:"السقف عالي كتير.",sen:"The ceiling is very high.",img:"le_plafond.webp"},
+ {fr:"La plage",ar:"الشاطئ",en:"Beach",sfr:"Nous passons la journée à la plage.",sar:"منقضي النهار عالشط.",sen:"We spend the day at the beach.",img:"la_plage.webp"},
+ {fr:"Le papier cadeau",ar:"ورق تغليف الهدايا",en:"Wrapping Paper",sfr:"J'ai besoin de papier cadeau.",sar:"بحتاج ورق لتغليف الهدية.",sen:"I need wrapping paper.",img:"le_papier_cadeau.webp"},
+ {fr:"La pause",ar:"الاستراحة",en:"Break",sfr:"Je prends une pause de quinze minutes.",sar:"باخد استراحة ربع ساعة.",sen:"I'm taking a fifteen-minute break.",img:"la_pause.webp"},
+ {fr:"Le permis de travail",ar:"تصريح العمل",en:"Work Permit",sfr:"Il a besoin d'un permis de travail.",sar:"هو بحاجة لتصريح عمل.",sen:"He needs a work permit.",img:"le_permis_de_travail.webp"},
+ {fr:"Le patient / La patiente",ar:"المريض / المريضة",en:"Patient",sfr:"Le patient attend le médecin.",sar:"المريض ناطر الطبيب.",sen:"The patient is waiting for the doctor.",img:"le_patient_la_patiente.webp"},
+ {fr:"La poussière",ar:"الغبار",en:"Dust",sfr:"Il y a beaucoup de poussière dans cette pièce.",sar:"في غبرة كتير بهالغرفة.",sen:"There is a lot of dust in this room.",img:"la_poussiere.webp"},
+ {fr:"Le portefeuille",ar:"المحفظة",en:"Wallet",sfr:"J'ai perdu mon portefeuille.",sar:"ضيّعت محفظتي.",sen:"I lost my wallet.",img:"le_portefeuille.webp"},
+ {fr:"Le pouce",ar:"الإبهام",en:"Thumb",sfr:"Je me suis coupé le pouce.",sar:"جرحت إبهامي.",sen:"I cut my thumb.",img:"le_pouce.webp"},
+ {fr:"La poche",ar:"الجيب",en:"Pocket",sfr:"Mes clés sont dans ma poche.",sar:"مفاتيحي بجيبي.",sen:"My keys are in my pocket.",img:"la_poche.webp"},
+ {fr:"Le programme",ar:"البرنامج",en:"Program",sfr:"Quel est le programme de demain ?",sar:"شو برنامج بكرا؟",sen:"What's tomorrow's schedule?",img:"le_programme.webp"},
+ {fr:"Le produit",ar:"المنتج",en:"Product",sfr:"Ce produit est de bonne qualité.",sar:"هالمنتج جودته منيحة.",sen:"This product is good quality.",img:"le_produit.webp"},
+ {fr:"La promenade",ar:"النزهة / المشوار",en:"Walk / Stroll",sfr:"Je fais une promenade après le travail.",sar:"بطلع بتمشاية بعد الشغل.",sen:"I go for a walk after work.",img:"la_promenade.webp"},
+ {fr:"Le progrès",ar:"التقدّم",en:"Progress",sfr:"Tu fais beaucoup de progrès en français.",sar:"عم تحرز تقدّم كبير بالفرنسي.",sen:"You're making a lot of progress in French.",img:"le_progres.webp"},
+ {fr:"La publicité",ar:"الإعلان / الدعاية",en:"Advertisement",sfr:"J'ai vu cette publicité à la télévision.",sar:"شفت هالإعلان بالتلفزيون.",sen:"I saw this advertisement on television.",img:"la_publicite.webp"},
+ {fr:"Le paysage",ar:"المنظر الطبيعي",en:"Landscape",sfr:"Le paysage est magnifique.",sar:"المنظر الطبيعي رائع.",sen:"The landscape is beautiful.",img:"le_paysage.webp"},
+ {fr:"La présence",ar:"الحضور",en:"Presence",sfr:"Votre présence est obligatoire.",sar:"حضورك إلزامي.",sen:"Your attendance is compulsory.",img:"la_presence.webp"},
+ {fr:"Le peuple",ar:"الشعب",en:"People",sfr:"Le peuple veut la liberté.",sar:"الشعب بدّه الحرية.",sen:"The people want freedom.",img:"le_peuple.webp"},
+ {fr:"Le parfum",ar:"العطر",en:"Perfume",sfr:"J'aime beaucoup ce parfum.",sar:"بحب هالعطر كتير.",sen:"I really like this perfume.",img:"le_parfum.webp"},
+ {fr:"Le passé",ar:"الماضي",en:"Past",sfr:"Il faut parfois oublier le passé.",sar:"أحياناً لازم ننسى الماضي.",sen:"Sometimes you have to forget the past.",img:"le_passe.webp"},
+ {fr:"La pensée",ar:"الفكرة / التفكير",en:"Thought",sfr:"C'est une bonne pensée.",sar:"هاي فكرة حلوة.",sen:"That's a good thought.",img:"la_pensee.webp"},
+ {fr:"La panne d'électricité",ar:"انقطاع الكهرباء",en:"Power Cut",sfr:"Il y a une panne d'électricité dans le quartier.",sar:"في انقطاع كهربا بالحي.",sen:"There is a power cut in the neighbourhood.",img:"la_panne_d_electricite.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].P=st.c['noms'].P||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].P.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+385000+i;st.c['noms'].P.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
