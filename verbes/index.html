@@ -3355,13 +3355,79 @@ function updNomsC(){
  ];
  add.forEach((u,i)=>{u.id=Date.now()+69000+i;st.c['noms'].C.push(u)});
  save();}
+function updNomsC2(){
+ const add=[
+ {fr:"Le collaborateur",ar:"متعاون / زميل عمل",en:"Colleague / Collaborator",sfr:"Mon collaborateur m'aide à terminer le travail.",sar:"زميلي عم يساعدني خلّص الشغل.",sen:"My colleague is helping me finish the work.",img:"le_collaborateur.webp"},
+ {fr:"La collaboration",ar:"التعاون",en:"Collaboration",sfr:"La collaboration entre les équipes est importante.",sar:"التعاون بين الفرق مهم.",sen:"Collaboration between teams is important.",img:"la_collaboration.webp"},
+ {fr:"La collection",ar:"مجموعة / تشكيلة",en:"Collection",sfr:"Elle possède une grande collection de livres.",sar:"عندها مجموعة كبيرة من الكتب.",sen:"She has a large collection of books.",img:"la_collection.webp"},
+ {fr:"Le collège",ar:"المدرسة الإعدادية في فرنسا",en:"Middle School",sfr:"Mon fils entre au collège l'année prochaine.",sar:"ابني رح يفوت عالإعدادية السنة الجاية.",sen:"My son is starting middle school next year.",img:"le_college.webp"},
+ {fr:"Le collègue",ar:"زميل / زميلة عمل",en:"Colleague",sfr:"Je déjeune souvent avec mes collègues.",sar:"غالباً بتغدّى مع زملائي بالشغل.",sen:"I often have lunch with my colleagues.",img:"le_collegue.webp"},
+ {fr:"La colline",ar:"تلّ",en:"Hill",sfr:"Nous avons marché jusqu'au sommet de la colline.",sar:"مشينا لحتى وصلنا لقمة التل.",sen:"We walked to the top of the hill.",img:"la_colline.webp"},
+ {fr:"La colonie",ar:"مستعمرة / مخيم صيفي للأطفال",en:"Colony / Summer Camp",sfr:"Les enfants partent en colonie de vacances en juillet.",sar:"الأطفال بيروحوا على مخيم صيفي بشهر تموز.",sen:"The children go to summer camp in July.",img:"la_colonie.webp"},
+ {fr:"La couleur",ar:"اللون",en:"Color",sfr:"Quelle est ta couleur préférée ?",sar:"شو لونك المفضل؟",sen:"What is your favorite color?",img:"la_couleur.webp"},
+ {fr:"Le combat",ar:"معركة / نضال",en:"Fight / Struggle",sfr:"Il continue son combat pour la justice.",sar:"هو مستمر بنضاله من أجل العدالة.",sen:"He continues his fight for justice.",img:"le_combat.webp"},
+ {fr:"La commande",ar:"طلب شراء / طلبية",en:"Order",sfr:"Votre commande sera livrée demain.",sar:"طلبيتكم رح تنوصل بكرا.",sen:"Your order will be delivered tomorrow.",img:"la_commande.webp"},
+ {fr:"Le commerce",ar:"التجارة / محل تجاري",en:"Trade / Business",sfr:"Il travaille dans le commerce depuis dix ans.",sar:"إلو عشر سنين بيشتغل بالتجارة.",sen:"He has been working in trade for ten years.",img:"le_commerce.webp"},
+ {fr:"La commission",ar:"عمولة / لجنة",en:"Commission",sfr:"Une commission va examiner le dossier.",sar:"لجنة رح تدرس الملف.",sen:"A committee will examine the file.",img:"la_commission.webp"},
+ {fr:"La commune",ar:"بلدية / جماعة محلية",en:"Municipality",sfr:"La commune organise une fête chaque année.",sar:"البلدية بتنظّم احتفال كل سنة.",sen:"The municipality organizes a celebration every year.",img:"la_commune.webp"},
+ {fr:"La communication",ar:"التواصل / الاتصال",en:"Communication",sfr:"Une bonne communication évite les malentendus.",sar:"التواصل الجيد بيمنع سوء الفهم.",sen:"Good communication prevents misunderstandings.",img:"la_communication.webp"},
+ {fr:"La communauté",ar:"المجتمع / الجماعة",en:"Community",sfr:"Cette communauté organise des activités pour les habitants.",sar:"هالمجتمع بينظّم نشاطات للسكان.",sen:"This community organizes activities for residents.",img:"la_communaute.webp"},
+ {fr:"La compagnie",ar:"شركة / رفقة",en:"Company / Companionship",sfr:"Cette compagnie aérienne propose des vols vers Paris.",sar:"هالشركة الجوية بتقدّم رحلات لباريس.",sen:"This airline offers flights to Paris.",img:"la_compagnie.webp"},
+ {fr:"Le comparatif",ar:"صيغة المقارنة",en:"Comparative",sfr:"Le comparatif sert à comparer deux choses.",sar:"صيغة المقارنة منستخدمها لنقارن بين شيئين.",sen:"The comparative is used to compare two things.",img:"le_comparatif.webp"},
+ {fr:"Le compartiment",ar:"مقصورة / حجرة",en:"Compartment",sfr:"J'ai laissé mon sac dans le compartiment du train.",sar:"تركت شنطتي بمقصورة القطار.",sen:"I left my bag in the train compartment.",img:"le_compartiment.webp"},
+ {fr:"La compassion",ar:"التعاطف / الشفقة",en:"Compassion",sfr:"Elle a montré beaucoup de compassion envers les victimes.",sar:"أظهرت تعاطف كبير مع الضحايا.",sen:"She showed great compassion towards the victims.",img:"la_compassion.webp"},
+ {fr:"La compatibilité",ar:"التوافق / التلاؤم",en:"Compatibility",sfr:"Vérifiez la compatibilité de ce logiciel avec votre ordinateur.",sar:"تأكد من توافق هالبرنامج مع كمبيوترك.",sen:"Check the compatibility of this software with your computer.",img:"la_compatibilite.webp"},
+ {fr:"La compensation",ar:"التعويض",en:"Compensation",sfr:"L'entreprise a proposé une compensation financière.",sar:"الشركة عرضت تعويض مالي.",sen:"The company offered financial compensation.",img:"la_compensation.webp"},
+ {fr:"La compétence",ar:"الكفاءة / المهارة",en:"Skill / Competence",sfr:"Il possède de bonnes compétences professionnelles.",sar:"عنده مهارات مهنية جيدة.",sen:"He has good professional skills.",img:"la_competence.webp"},
+ {fr:"La compétition",ar:"منافسة / مسابقة",en:"Competition",sfr:"Elle participe à une compétition sportive.",sar:"هي عم تشارك بمسابقة رياضية.",sen:"She is taking part in a sports competition.",img:"la_competition.webp"},
+ {fr:"Le complot",ar:"مؤامرة",en:"Plot / Conspiracy",sfr:"Ils ont découvert un complot contre le gouvernement.",sar:"اكتشفوا مؤامرة ضد الحكومة.",sen:"They discovered a plot against the government.",img:"le_complot.webp"},
+ {fr:"Le comportement",ar:"السلوك / التصرف",en:"Behaviour",sfr:"Son comportement au travail est exemplaire.",sar:"سلوكه بالشغل مثالي.",sen:"His behaviour at work is exemplary.",img:"le_comportement.webp"},
+ {fr:"La composition",ar:"التركيب / التكوين",en:"Composition",sfr:"La composition de ce produit est indiquée sur l'étiquette.",sar:"مكوّنات هالمنتج مذكورة على الملصق.",sen:"The composition of this product is shown on the label.",img:"la_composition.webp"},
+ {fr:"La compréhension",ar:"الفهم / الاستيعاب",en:"Understanding / Comprehension",sfr:"La compréhension orale demande beaucoup de pratique.",sar:"فهم اللغة المسموعة بدّه تدريب كتير.",sen:"Listening comprehension requires a lot of practice.",img:"la_comprehension.webp"},
+ {fr:"Le compromis",ar:"حل وسط / تسوية",en:"Compromise",sfr:"Nous avons trouvé un compromis acceptable.",sar:"لقينا حل وسط مقبول.",sen:"We found an acceptable compromise.",img:"le_compromis.webp"},
+ {fr:"Le compte",ar:"حساب",en:"Account",sfr:"Je consulte mon compte bancaire chaque semaine.",sar:"بتفقّد حسابي البنكي كل أسبوع.",sen:"I check my bank account every week.",img:"le_compte.webp"},
+ {fr:"Le compteur",ar:"عدّاد",en:"Meter / Counter",sfr:"Le compteur électrique indique la consommation.",sar:"عدّاد الكهرباء بيبيّن الاستهلاك.",sen:"The electricity meter shows the consumption.",img:"le_compteur.webp"},
+ {fr:"La concentration",ar:"التركيز",en:"Concentration",sfr:"J'ai besoin de calme pour améliorer ma concentration.",sar:"بحتاج للهدوء حتى حسّن تركيزي.",sen:"I need quiet to improve my concentration.",img:"la_concentration.webp"},
+ {fr:"Le concept",ar:"مفهوم / فكرة",en:"Concept",sfr:"Ce concept est difficile à comprendre.",sar:"هالمفهوم صعب الفهم.",sen:"This concept is difficult to understand.",img:"le_concept.webp"},
+ {fr:"La conception",ar:"تصميم / تصوّر",en:"Design / Conception",sfr:"La conception de cette machine a pris plusieurs mois.",sar:"تصميم هالآلة أخد عدة أشهر.",sen:"The design of this machine took several months.",img:"la_conception.webp"},
+ {fr:"Le concert",ar:"حفل موسيقي",en:"Concert",sfr:"Nous avons acheté des billets pour le concert.",sar:"اشترينا تذاكر للحفلة الموسيقية.",sen:"We bought tickets for the concert.",img:"le_concert.webp"},
+ {fr:"La concession",ar:"تنازل / امتياز",en:"Concession",sfr:"Chaque partie a fait une concession pour trouver un accord.",sar:"كل طرف قدّم تنازل حتى يوصلوا لاتفاق.",sen:"Each side made a concession to reach an agreement.",img:"la_concession.webp"},
+ {fr:"Le concours",ar:"مسابقة / مباراة توظيف",en:"Competition / Entrance exam",sfr:"Elle prépare un concours pour entrer à l'université.",sar:"هي عم تتحضّر لمسابقة حتى تفوت عالجامعة.",sen:"She is preparing for an entrance exam to get into university.",img:"le_concours.webp"},
+ {fr:"La condition",ar:"شرط / حالة",en:"Condition",sfr:"Vous devez accepter les conditions du contrat.",sar:"لازم توافق على شروط العقد.",sen:"You must accept the conditions of the contract.",img:"la_condition.webp"},
+ {fr:"Les condoléances (f. pl.)",ar:"التعازي",en:"Condolences",sfr:"Je vous présente mes sincères condoléances.",sar:"بتقدّم إلك أحرّ التعازي.",sen:"Please accept my sincere condolences.",img:"les_condoleances_f_pl.webp"},
+ {fr:"La confiserie",ar:"محل الحلويات / صناعة الحلوى",en:"Confectionery",sfr:"Cette confiserie vend des bonbons et des chocolats.",sar:"هالمحل بيبيع حلوى وشوكولاتة.",sen:"This confectionery shop sells sweets and chocolates.",img:"la_confiserie.webp"},
+ {fr:"Le conflit",ar:"نزاع / صراع",en:"Conflict",sfr:"Ils cherchent une solution pour résoudre le conflit.",sar:"عم يدوروا على حل لإنهاء النزاع.",sen:"They are looking for a solution to resolve the conflict.",img:"le_conflit.webp"},
+ {fr:"La confusion",ar:"الارتباك / الالتباس",en:"Confusion",sfr:"Il y a une confusion entre les deux dossiers.",sar:"في التباس بين الملفين.",sen:"There is confusion between the two files.",img:"la_confusion.webp"},
+ {fr:"Le congé",ar:"إجازة / عطلة",en:"Leave",sfr:"Je prends un congé la semaine prochaine.",sar:"رح آخد إجازة الأسبوع الجاي.",sen:"I'm taking leave next week.",img:"le_conge.webp"},
+ {fr:"La connaissance",ar:"معرفة / شخص معارف",en:"Knowledge / Acquaintance",sfr:"La connaissance du français est utile pour trouver un travail.",sar:"معرفة اللغة الفرنسية مفيدة لإيجاد شغل.",sen:"Knowledge of French is useful for finding a job.",img:"la_connaissance.webp"},
+ {fr:"Le conseil",ar:"نصيحة / مجلس",en:"Advice / Council",sfr:"Merci pour votre conseil.",sar:"شكراً على نصيحتك.",sen:"Thank you for your advice.",img:"le_conseil.webp"},
+ {fr:"La consigne",ar:"تعليمات / إرشادات",en:"Instruction",sfr:"Il faut respecter les consignes de sécurité.",sar:"لازم نلتزم بتعليمات السلامة.",sen:"We must follow the safety instructions.",img:"la_consigne.webp"},
+ {fr:"La consommation",ar:"الاستهلاك",en:"Consumption",sfr:"Il faut réduire notre consommation d'électricité.",sar:"لازم نخفّف استهلاكنا للكهرباء.",sen:"We need to reduce our electricity consumption.",img:"la_consommation.webp"},
+ {fr:"La constance",ar:"الثبات / الاستمرارية",en:"Consistency",sfr:"La constance est essentielle pour progresser.",sar:"الاستمرارية ضرورية حتى نتقدّم.",sen:"Consistency is essential for making progress.",img:"la_constance.webp"},
+ {fr:"Le constat",ar:"ملاحظة / إثبات / معاينة",en:"Finding / Report",sfr:"Le médecin a fait un constat après l'examen.",sar:"الطبيب سجّل ملاحظاته بعد الفحص.",sen:"The doctor made a note of his findings after the examination.",img:"le_constat.webp"},
+ {fr:"La constitution",ar:"الدستور / التكوين",en:"Constitution",sfr:"La Constitution garantit les droits des citoyens.",sar:"الدستور بيضمن حقوق المواطنين.",sen:"The Constitution guarantees citizens' rights.",img:"la_constitution.webp"},
+ {fr:"La construction",ar:"البناء / التشييد",en:"Construction",sfr:"La construction de cet immeuble avance rapidement.",sar:"بناء هالبناية عم يتقدّم بسرعة.",sen:"Construction of this building is progressing quickly.",img:"la_construction.webp"},
+ {fr:"Le consultant",ar:"مستشار / مستشارة",en:"Consultant",sfr:"Le consultant aide l'entreprise à améliorer son organisation.",sar:"المستشار بيساعد الشركة تحسّن تنظيمها.",sen:"The consultant helps the company improve its organization.",img:"le_consultant.webp"},
+ {fr:"Le contact",ar:"اتصال / تواصل / شخص للتواصل",en:"Contact",sfr:"J'ai pris contact avec le responsable.",sar:"تواصلت مع المسؤول.",sen:"I contacted the manager.",img:"le_contact.webp"},
+ {fr:"Le conte",ar:"حكاية خيالية / قصة شعبية",en:"Fairy Tale",sfr:"Ma grand-mère me racontait des contes quand j'étais petit.",sar:"كانت جدتي تحكيلي حكايات لما كنت صغير.",sen:"My grandmother used to tell me fairy tales when I was little.",img:"le_conte.webp"},
+ {fr:"Le contemporain",ar:"معاصر / معاصرة",en:"Contemporary",sfr:"Cet artiste est un peintre contemporain.",sar:"هالفنان رسّام معاصر.",sen:"This artist is a contemporary painter.",img:"le_contemporain.webp"},
+ {fr:"Le contenu",ar:"المحتوى",en:"Content",sfr:"Le contenu de ce document est très intéressant.",sar:"محتوى هالوثيقة مثير للاهتمام كتير.",sen:"The content of this document is very interesting.",img:"le_contenu.webp"},
+ {fr:"La contestation",ar:"الاعتراض / الطعن",en:"Objection / Challenge",sfr:"J'ai envoyé une contestation de cette décision.",sar:"أرسلت اعتراض على هالقرار.",sen:"I submitted an appeal against this decision.",img:"la_contestation.webp"},
+ {fr:"Le contexte",ar:"السياق / الظروف المحيطة",en:"Context",sfr:"Il faut comprendre le contexte avant de répondre.",sar:"لازم نفهم السياق قبل ما نجاوب.",sen:"We need to understand the context before answering.",img:"le_contexte.webp"},
+ {fr:"Le continent",ar:"قارة",en:"Continent",sfr:"L'Afrique est un grand continent.",sar:"أفريقيا قارة كبيرة.",sen:"Africa is a large continent.",img:"le_continent.webp"},
+ {fr:"La contravention",ar:"مخالفة مرورية / غرامة",en:"Traffic Fine",sfr:"J'ai reçu une contravention pour stationnement interdit.",sar:"أخدت مخالفة بسبب الوقوف بمكان ممنوع.",sen:"I received a ticket for illegal parking.",img:"la_contravention.webp"},
+ {fr:"Le contrat",ar:"عقد",en:"Contract",sfr:"J'ai signé un contrat de travail.",sar:"وقّعت عقد عمل.",sen:"I signed an employment contract.",img:"le_contrat.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].C=st.c['noms'].C||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].C.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+73000+i;st.c['noms'].C.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
