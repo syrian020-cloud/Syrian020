@@ -5057,13 +5057,83 @@ function updNomsI2(){
  add.forEach((u,i)=>{const ex=st.c['noms'].I.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+335000+i;st.c['noms'].I.push(u)}});
  save();}
 
+function updNomsJ2(){
+ const add=[
+ {fr:"Le jour",ar:"اليوم / النهار",en:"Day",sfr:"Je travaille tous les jours.",sar:"أنا بشتغل كل يوم.",sen:"I work every day.",img:"le_jour.webp"},
+ {fr:"Le journal",ar:"الجريدة / الصحيفة",en:"Newspaper",sfr:"Je lis le journal le matin.",sar:"بقرأ الجريدة الصبح.",sen:"I read the newspaper in the morning.",img:"le_journal.webp"},
+ {fr:"Le jardin",ar:"الحديقة",en:"Garden",sfr:"Les enfants jouent dans le jardin.",sar:"الأطفال عم يلعبوا بالحديقة.",sen:"The children are playing in the garden.",img:"le_jardin.webp"},
+ {fr:"Le jeu",ar:"اللعبة",en:"Game",sfr:"Ce jeu est très amusant.",sar:"هاللعبة مسلّية كتير.",sen:"This game is very fun.",img:"le_jeu.webp"},
+ {fr:"Le jeune",ar:"الشاب",en:"Young Man",sfr:"Ce jeune travaille avec moi.",sar:"هالشاب بيشتغل معي.",sen:"This young man works with me.",img:"le_jeune.webp"},
+ {fr:"La joie",ar:"الفرح",en:"Joy",sfr:"Cette nouvelle me donne de la joie.",sar:"هالخبر بيفرحني.",sen:"This news makes me happy.",img:"la_joie.webp"},
+ {fr:"Le jeune âge",ar:"صغر السن",en:"Young Age",sfr:"Il a commencé à travailler à un jeune âge.",sar:"بلّش يشتغل بعمر صغير.",sen:"He started working at a young age.",img:"le_jeune_age.webp"},
+ {fr:"La jeunesse",ar:"الشباب",en:"Youth",sfr:"La jeunesse est une période importante de la vie.",sar:"مرحلة الشباب فترة مهمة بالحياة.",sen:"Youth is an important period of life.",img:"la_jeunesse.webp"},
+ {fr:"Le jeudi",ar:"يوم الخميس",en:"Thursday",sfr:"Je travaille jeudi matin.",sar:"بشتغل صباح الخميس.",sen:"I work on Thursday morning.",img:"le_jeudi.webp"},
+ {fr:"Le jouet",ar:"اللعبة",en:"Toy",sfr:"Cet enfant aime les jouets.",sar:"هالطفل بيحب الألعاب.",sen:"This child likes toys.",img:"le_jouet.webp"},
+ {fr:"Le jugement",ar:"الحكم / القرار القضائي",en:"Judgment",sfr:"Le jugement sera rendu demain.",sar:"رح يصدر الحكم بكرا.",sen:"The judgment will be delivered tomorrow.",img:"le_jugement.webp"},
+ {fr:"La journée",ar:"اليوم / مدة النهار",en:"Day",sfr:"J'ai passé une bonne journée.",sar:"قضيت يوم حلو.",sen:"I had a good day.",img:"la_journee.webp"},
+ {fr:"Le jambon",ar:"لحم الخنزير المقدّد",en:"Ham",sfr:"Il mange un sandwich au jambon.",sar:"هو عم ياكل سندويشة جامبون.",sen:"He is eating a ham sandwich.",img:"le_jambon.webp"},
+ {fr:"La jambe",ar:"الساق",en:"Leg",sfr:"J'ai mal à la jambe.",sar:"رجلي عم توجعني.",sen:"My leg hurts.",img:"la_jambe.webp"},
+ {fr:"Le Japon",ar:"اليابان",en:"Japan",sfr:"Le Japon est un pays d'Asie.",sar:"اليابان دولة بآسيا.",sen:"Japan is a country in Asia.",img:"le_japon.webp"},
+ {fr:"Le Japonais / La Japonaise",ar:"ياباني / يابانية",en:"Japanese Person",sfr:"Elle est japonaise.",sar:"هي يابانية.",sen:"She is Japanese.",img:"le_japonais_la_japonaise.webp"},
+ {fr:"Le jus",ar:"العصير",en:"Juice",sfr:"Je bois un jus d'orange.",sar:"بشرب عصير برتقال.",sen:"I drink orange juice.",img:"le_jus.webp"},
+ {fr:"Le juge",ar:"القاضي",en:"Judge",sfr:"Le juge écoute les témoins.",sar:"القاضي عم يسمع للشهود.",sen:"The judge is listening to the witnesses.",img:"le_juge.webp"},
+ {fr:"La justice",ar:"العدالة / القضاء",en:"Justice",sfr:"Tout le monde a droit à la justice.",sar:"كل الناس إلها حق بالعدالة.",sen:"Everyone has the right to justice.",img:"la_justice.webp"},
+ {fr:"Le joueur / La joueuse",ar:"اللاعب / اللاعبة",en:"Player",sfr:"Ce joueur est très rapide.",sar:"هاللاعب سريع كتير.",sen:"This player is very fast.",img:"le_joueur_la_joueuse.webp"},
+ {fr:"La joue",ar:"الخد",en:"Cheek",sfr:"Elle a une blessure sur la joue.",sar:"عندها جرح على خدّها.",sen:"She has a wound on her cheek.",img:"la_joue.webp"},
+ {fr:"Le job",ar:"الشغل / الوظيفة",en:"Job",sfr:"Je cherche un job à temps partiel.",sar:"عم دوّر على شغل بدوام جزئي.",sen:"I'm looking for a part-time job.",img:"le_job.webp"},
+ {fr:"Le jardinier / La jardinière",ar:"البستاني / البستانية",en:"Gardener",sfr:"Le jardinier plante des fleurs.",sar:"البستاني عم يزرع ورد.",sen:"The gardener is planting flowers.",img:"le_jardinier_la_jardiniere.webp"},
+ {fr:"La jupe",ar:"التنورة",en:"Skirt",sfr:"Elle porte une jupe noire.",sar:"هي لابسة تنورة سودا.",sen:"She is wearing a black skirt.",img:"la_jupe.webp"},
+ {fr:"Le journalisme",ar:"الصحافة",en:"Journalism",sfr:"Le journalisme demande beaucoup de rigueur.",sar:"الصحافة بدها دقة والتزام كبير.",sen:"Journalism requires a lot of accuracy.",img:"le_journalisme.webp"},
+ {fr:"Le journaliste / La journaliste",ar:"الصحفي / الصحفية",en:"Journalist",sfr:"La journaliste pose des questions.",sar:"الصحفية عم تطرح أسئلة.",sen:"The journalist is asking questions.",img:"le_journaliste_la_journaliste.webp"},
+ {fr:"Le jury",ar:"لجنة التحكيم",en:"Jury",sfr:"Le jury va choisir le gagnant.",sar:"لجنة التحكيم رح تختار الفائز.",sen:"The jury will choose the winner.",img:"le_jury.webp"},
+ {fr:"La juridiction",ar:"الجهة القضائية / المحكمة",en:"Court / Jurisdiction",sfr:"Cette juridiction traite les affaires civiles.",sar:"هالمحكمة بتنظر بالقضايا المدنية.",sen:"This court handles civil cases.",img:"la_juridiction.webp"},
+ {fr:"Le jogging",ar:"الركض الخفيف",en:"Jogging",sfr:"Je fais du jogging le matin.",sar:"بمارس الركض الخفيف الصبح.",sen:"I go jogging in the morning.",img:"le_jogging.webp"},
+ {fr:"Le jus de pomme",ar:"عصير التفاح",en:"Apple Juice",sfr:"Je préfère le jus de pomme.",sar:"بفضّل عصير التفاح.",sen:"I prefer apple juice.",img:"le_jus_de_pomme.webp"},
+ {fr:"Le jour férié",ar:"يوم عطلة رسمية",en:"Public Holiday",sfr:"Lundi prochain est un jour férié.",sar:"يوم الاثنين الجاي عطلة رسمية.",sen:"Next Monday is a public holiday.",img:"le_jour_ferie.webp"},
+ {fr:"Le jumeau / La jumelle",ar:"التوأم",en:"Twin",sfr:"Mon frère est mon jumeau.",sar:"أخي توأمي.",sen:"My brother is my twin.",img:"le_jumeau_la_jumelle.webp"},
+ {fr:"Le jumelage",ar:"التوأمة بين المدن",en:"Town Twinning",sfr:"Le jumelage favorise les échanges entre les villes.",sar:"التوأمة بتشجّع التبادل بين المدن.",sen:"Town twinning encourages exchanges between cities.",img:"le_jumelage.webp"},
+ {fr:"Le jet",ar:"النفاثة / الرشّة",en:"Jet / Spray",sfr:"Le jet d'eau est très puissant.",sar:"اندفاع المي قوي كتير.",sen:"The water jet is very powerful.",img:"le_jet.webp"},
+ {fr:"Le journal télévisé",ar:"نشرة الأخبار التلفزيونية",en:"TV News",sfr:"Je regarde le journal télévisé chaque soir.",sar:"بحضر نشرة الأخبار كل مساء.",sen:"I watch the TV news every evening.",img:"le_journal_televise.webp"},
+ {fr:"Le jeu vidéo",ar:"لعبة فيديو",en:"Video Game",sfr:"Mon frère aime les jeux vidéo.",sar:"أخي بيحب ألعاب الفيديو.",sen:"My brother likes video games.",img:"le_jeu_video.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].J=st.c['noms'].J||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].J.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+340000+i;st.c['noms'].J.push(u)}});
+ save();}
+
+function updNomsC8(){
+ const add=[
+ {fr:"Le chômage partiel",ar:"البطالة الجزئية / العمل المخفّض",en:"Short-time Work",sfr:"L'entreprise a recours au chômage partiel.",sar:"الشركة لجأت لنظام تخفيض ساعات العمل.",sen:"The company has introduced short-time working.",img:"le_chomage_partiel.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].C=st.c['noms'].C||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].C.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+345000+i;st.c['noms'].C.push(u)}});
+ save();}
+
+function updNomsK2(){
+ const add=[
+ {fr:"Le kilométrage",ar:"عدد الكيلومترات المقطوعة",en:"Mileage",sfr:"Cette voiture a un faible kilométrage.",sar:"هالسيارة ماشية كيلومترات قليلة.",sen:"This car has low mileage.",img:"le_kilometrage.webp"},
+ {fr:"Le kérosène",ar:"الكيروسين / وقود الطائرات",en:"Kerosene / Jet Fuel",sfr:"Cet avion utilise du kérosène.",sar:"هالطائرة بتستخدم وقود الطائرات.",sen:"This airplane uses kerosene.",img:"le_kerosene.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].K=st.c['noms'].K||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].K.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+350000+i;st.c['noms'].K.push(u)}});
+ save();}
+
+function updNomsL2(){
+ const add=[
+ {fr:"Le logement",ar:"السكن",en:"Housing / Accommodation",sfr:"Je cherche un logement moins cher.",sar:"عم دوّر على سكن أرخص.",sen:"I'm looking for cheaper accommodation.",img:"le_logement.webp"},
+ {fr:"La location",ar:"الإيجار",en:"Rental",sfr:"La location de cet appartement est chère.",sar:"إيجار هالشقة غالي.",sen:"The rent for this apartment is expensive.",img:"la_location.webp"},
+ {fr:"Le locataire / La locataire",ar:"المستأجر / المستأجرة",en:"Tenant",sfr:"Le locataire doit payer son loyer.",sar:"المستأجر لازم يدفع إيجاره.",sen:"The tenant must pay the rent.",img:"le_locataire_la_locataire.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].L=st.c['noms'].L||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].L.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+355000+i;st.c['noms'].L.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
