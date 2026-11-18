@@ -4424,13 +4424,33 @@ function updNomsP3(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].P=st.c['noms'].P||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].P.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+195000+i;st.c['noms'].P.push(u)}});
  save();}
+function updNomsR3(){
+ const add=[
+ {fr:"Le rayon",ar:"الرف / القسم",en:"Shelf / Department",sfr:"Le lait se trouve dans ce rayon.",sar:"الحليب موجود بهالقسم.",sen:"Milk is in this section.",img:"le_rayon.webp"},
+ {fr:"La recette",ar:"الوصفة",en:"Recipe",sfr:"Je cherche une recette facile.",sar:"عم دوّر على وصفة سهلة.",sen:"I am looking for an easy recipe.",img:"la_recette.webp"},
+ {fr:"Le remerciement",ar:"الشكر",en:"Thanks / Expression of gratitude",sfr:"Je vous adresse mes remerciements.",sar:"بقدّملكم شكري.",sen:"I send you my thanks.",img:"le_remerciement.webp"},
+ {fr:"Le rassemblement",ar:"التجمع",en:"Gathering",sfr:"Un rassemblement est prévu demain.",sar:"في تجمّع مقرّر بكرا.",sen:"A gathering is planned for tomorrow.",img:"le_rassemblement.webp"},
+ {fr:"La randonnée",ar:"التنزّه سيراً على الأقدام",en:"Hiking",sfr:"Nous faisons une randonnée dimanche.",sar:"رح نطلع نمشي بالطبيعة يوم الأحد.",sen:"We are going hiking on Sunday.",img:"la_randonnee.webp"},
+ {fr:"Le rasoir",ar:"شفرة الحلاقة / ماكينة الحلاقة",en:"Razor",sfr:"J'ai besoin d'un nouveau rasoir.",sar:"بحتاج ماكينة حلاقة جديدة.",sen:"I need a new razor.",img:"le_rasoir.webp"},
+ {fr:"La résidence",ar:"السكن / الإقامة",en:"Residence",sfr:"Il habite dans une résidence récente.",sar:"هو ساكن بمجمّع سكني حديث.",sen:"He lives in a modern residential building.",img:"la_residence.webp"},
+ {fr:"Le renouvellement",ar:"التجديد",en:"Renewal",sfr:"Je dois demander le renouvellement de mon titre de séjour.",sar:"لازم أطلب تجديد إقامتي.",sen:"I have to apply to renew my residence permit.",img:"le_renouvellement.webp"},
+ {fr:"La recherche d'emploi",ar:"البحث عن عمل",en:"Job search",sfr:"Je suis en recherche d'emploi.",sar:"أنا عم دوّر على شغل.",sen:"I am looking for a job.",img:"la_recherche_d_emploi.webp"},
+ {fr:"Le refuge",ar:"الملجأ",en:"Shelter",sfr:"Ils ont trouvé refuge dans un abri.",sar:"لقوا ملجأ بمكان آمن.",sen:"They found shelter in a safe place.",img:"le_refuge.webp"},
+ {fr:"Le reflet",ar:"الانعكاس",en:"Reflection",sfr:"Je vois mon reflet dans le miroir.",sar:"شايف انعكاسي بالمراية.",sen:"I can see my reflection in the mirror.",img:"le_reflet.webp"},
+ {fr:"La rubrique",ar:"الخانة / القسم",en:"Section / Category",sfr:"Remplissez toutes les rubriques du formulaire.",sar:"عبّوا كل خانات الاستمارة.",sen:"Fill in all the sections of the form.",img:"la_rubrique.webp"},
+ {fr:"Le registre",ar:"السجل",en:"Register / Record",sfr:"Votre nom figure dans le registre.",sar:"اسمك موجود بالسجل.",sen:"Your name appears in the register.",img:"le_registre.webp"},
+ {fr:"La rupture",ar:"الانقطاع / الانفصال",en:"Break / Rupture",sfr:"Il y a eu une rupture de contrat.",sar:"صار في إنهاء للعقد.",sen:"There was a termination of the contract.",img:"la_rupture.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].R=st.c['noms'].R||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].R.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+200000+i;st.c['noms'].R.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
