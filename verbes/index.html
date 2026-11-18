@@ -4102,13 +4102,33 @@ function updNomsD4(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].D=st.c['noms'].D||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].D.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+141000+i;st.c['noms'].D.push(u)}});
  save();}
+function updNomsK(){
+ const add=[
+ {fr:"Le kilogramme",ar:"الكيلوغرام",en:"Kilogram",sfr:"J'ai acheté un kilogramme de pommes.",sar:"اشتريت كيلو تفاح.",sen:"I bought one kilogram of apples.",img:"le_kilogramme.webp"},
+ {fr:"Le kilomètre",ar:"الكيلومتر",en:"Kilometer",sfr:"Mon travail se trouve à cinq kilomètres de chez moi.",sar:"شغلي بيبعد خمسة كيلومترات عن بيتي.",sen:"My workplace is five kilometres from my home.",img:"le_kilometre.webp"},
+ {fr:"Le kilo",ar:"الكيلو",en:"Kilo",sfr:"Je voudrais deux kilos de tomates.",sar:"بدي كيلوَين بندورة.",sen:"I would like two kilos of tomatoes.",img:"le_kilo.webp"},
+ {fr:"Le kiosque",ar:"كشك",en:"Kiosk",sfr:"J'achète mon journal au kiosque.",sar:"بشتري جريدتي من الكشك.",sen:"I buy my newspaper at the kiosk.",img:"le_kiosque.webp"},
+ {fr:"Le kayak",ar:"قارب الكاياك",en:"Kayak",sfr:"Nous faisons du kayak pendant les vacances.",sar:"منمارس رياضة الكاياك بالعطلة.",sen:"We go kayaking during the holidays.",img:"le_kayak.webp"},
+ {fr:"Le képi",ar:"قبعة عسكرية رسمية",en:"Kepi",sfr:"Le gendarme porte un képi.",sar:"عنصر الدرك لابس قبعة رسمية.",sen:"The gendarme is wearing a kepi.",img:"le_kepi.webp"},
+ {fr:"Le karaté",ar:"الكاراتيه",en:"Karate",sfr:"Mon frère pratique le karaté depuis deux ans.",sar:"أخي بيمارس الكاراتيه من سنتين.",sen:"My brother has been practicing karate for two years.",img:"le_karate.webp"},
+ {fr:"Le kiwi",ar:"الكيوي",en:"Kiwi",sfr:"Je mange un kiwi tous les matins.",sar:"باكل حبة كيوي كل صباح.",sen:"I eat a kiwi every morning.",img:"le_kiwi.webp"},
+ {fr:"Le ketchup",ar:"الكاتشب",en:"Ketchup",sfr:"Tu peux me passer le ketchup, s'il te plaît ?",sar:"فيك تعطيني الكاتشب، لو سمحت؟",sen:"Can you pass me the ketchup, please?",img:"le_ketchup.webp"},
+ {fr:"Le kebab",ar:"الكباب",en:"Kebab",sfr:"Nous mangeons un kebab ce soir.",sar:"رح ناكل كباب هالمسا.",sen:"We're having kebab tonight.",img:"le_kebab.webp"},
+ {fr:"Le klaxon",ar:"زمور السيارة",en:"Car horn",sfr:"Le conducteur a klaxonné pour prévenir les piétons.",sar:"السائق زمّر لينبّه المشاة.",sen:"The driver honked to warn the pedestrians.",img:"le_klaxon.webp"},
+ {fr:"Le karaoké",ar:"الكاريوكي",en:"Karaoke",sfr:"Nous allons faire du karaoké samedi soir.",sar:"رح نروح نغنّي كاريوكي مساء السبت.",sen:"We're going to sing karaoke on Saturday night.",img:"le_karaoke.webp"},
+ {fr:"Le kangourou",ar:"الكنغر",en:"Kangaroo",sfr:"Le kangourou saute très vite.",sar:"الكنغر بيقفز بسرعة كبيرة.",sen:"The kangaroo jumps very fast.",img:"le_kangourou.webp"},
+ {fr:"Le koala",ar:"الكوالا",en:"Koala",sfr:"Le koala dort souvent dans les arbres.",sar:"الكوالا غالباً بينام على الأشجار.",sen:"The koala often sleeps in trees.",img:"le_koala.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].K=st.c['noms'].K||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].K.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+145000+i;st.c['noms'].K.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
