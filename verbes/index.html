@@ -2495,13 +2495,68 @@ function updAdv3(){
  add.forEach(u=>{st.c['adverbes']=st.c['adverbes']||{};const L=normFr(u.fr).replace(/^(le|la|les|l'|un|une|des|du|de la|de l'|au|aux|d')\s+/,'').charAt(0).toUpperCase();const ex=(st.c['adverbes'][L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+Math.floor(Math.random()*999);st.c['adverbes'][L]=st.c['adverbes'][L]||[];st.c['adverbes'][L].push(u)}});
  save();localStorage.setItem('verbes-updAdv3','1')}
 
+function updAdv4(){
+ if(localStorage.getItem('verbes-updAdv4'))return;
+ const add=[
+ {fr:"À l'envers",ar:"بالمقلوب / بالعكس",en:"Upside down / Inside out",sfr:"Tu as mis ton pull à l'envers.",sar:"لبست الكنزة بالمقلوب.",sen:"You put your sweater on inside out.",img:"a_l_envers.jpg"},
+ {fr:"À l'endroit",ar:"بالاتجاه الصحيح / بشكل مستقيم",en:"The right way up",sfr:"Mets la photo à l'endroit.",sar:"حط الصورة بالاتجاه الصحيح.",sen:"Put the photo the right way up.",img:"a_l_endroit.jpg"},
+ {fr:"Aux alentours",ar:"في الجوار / في المناطق المحيطة",en:"Around / In the vicinity",sfr:"Il y a plusieurs magasins aux alentours.",sar:"في عدة محلات بالمناطق المحيطة.",sen:"There are several shops in the vicinity.",img:"aux_alentours.jpg"},
+ {fr:"À l'intérieur de",ar:"داخل",en:"Inside",sfr:"Les clés sont à l'intérieur du sac.",sar:"المفاتيح جوّا الشنطة.",sen:"The keys are inside the bag.",img:"a_l_interieur_de.jpg"},
+ {fr:"À l'extérieur de",ar:"خارج",en:"Outside",sfr:"Il attend à l'extérieur du bâtiment.",sar:"هو ناطر برا المبنى.",sen:"He is waiting outside the building.",img:"a_l_exterieur_de.jpg"},
+ {fr:"À bord",ar:"على متن",en:"On board",sfr:"Tous les passagers sont à bord.",sar:"كل الركاب صاروا على متن القطار.",sen:"All passengers are on board.",img:"a_bord.jpg"},
+ {fr:"À pied",ar:"مشياً على الأقدام",en:"On foot",sfr:"Je vais au travail à pied.",sar:"بروح عالشغل مشي.",sen:"I walk to work.",img:"a_pied.jpg"},
+ {fr:"À vélo",ar:"بالدراجة",en:"By bicycle",sfr:"Elle va à l'université à vélo.",sar:"هي بتروح عالجامعة بالدراجة.",sen:"She goes to university by bicycle.",img:"a_velo.jpg"},
+ {fr:"À toute vitesse",ar:"بأقصى سرعة",en:"At full speed",sfr:"La voiture roulait à toute vitesse.",sar:"السيارة كانت ماشية بأقصى سرعة.",sen:"The car was travelling at full speed.",img:"a_toute_vitesse.jpg"},
+ {fr:"À plusieurs reprises",ar:"عدة مرات",en:"Several times",sfr:"Je l'ai appelé à plusieurs reprises.",sar:"اتصلت فيه عدة مرات.",sen:"I called him several times.",img:"a_plusieurs_reprises.jpg"},
+ {fr:"À l'unanimité",ar:"بالإجماع",en:"Unanimously",sfr:"La décision a été prise à l'unanimité.",sar:"تم اتخاذ القرار بالإجماع.",sen:"The decision was made unanimously.",img:"a_l_unanimite.jpg"},
+ {fr:"À l'abri de",ar:"بمنأى عن / محمي من",en:"Protected from",sfr:"Les enfants sont à l'abri du danger.",sar:"الأولاد بمأمن من الخطر.",sen:"The children are safe from danger.",img:"a_l_abri_de.jpg"},
+ {fr:"À l'insu de",ar:"دون علم شخص",en:"Without someone's knowledge",sfr:"Il a utilisé mon ordinateur à mon insu.",sar:"استخدم كمبيوتري من دون علمي.",sen:"He used my computer without my knowledge.",img:"a_l_insu_de.jpg"},
+ {fr:"À la limite",ar:"في الحد الأقصى / بالكاد",en:"At most / At a stretch",sfr:"Je peux attendre dix minutes, à la limite.",sar:"فيني ناطر عشر دقايق بالكثير.",sen:"I can wait ten minutes at most.",img:"a_la_limite.jpg"},
+ {fr:"À la rigueur",ar:"عند الضرورة / إذا اضطر الأمر",en:"If necessary / At a pinch",sfr:"À la rigueur, je peux prendre le train.",sar:"إذا اضطر الأمر، فيني آخد القطار.",sen:"If necessary, I can take the train.",img:"a_la_rigueur.jpg"},
+ {fr:"À l'aveuglette",ar:"بشكل أعمى / من دون معرفة",en:"Blindly / Blindly guessing",sfr:"Il ne faut pas prendre une décision à l'aveuglette.",sar:"ما لازم تاخد قرار من دون ما تعرف التفاصيل.",sen:"You shouldn't make a decision blindly.",img:"a_l_aveuglette.jpg"},
+ {fr:"À rebours",ar:"بالعكس / عكس الاتجاه",en:"Backwards / In reverse",sfr:"Il a raconté l'histoire à rebours.",sar:"حكى القصة بالعكس، من الآخر للأول.",sen:"He told the story backwards.",img:"a_rebours.jpg"},
+ {fr:"À la légère",ar:"باستخفاف / من دون جدية",en:"Lightly / Carelessly",sfr:"Ne prends pas cette décision à la légère.",sar:"لا تاخد هالقرار باستخفاف.",sen:"Don't take this decision lightly.",img:"a_la_legere.jpg"},
+ {fr:"À contrecœur",ar:"على مضض",en:"Reluctantly",sfr:"Il a accepté à contrecœur.",sar:"وافق على مضض، وهو مو مقتنع.",sen:"He agreed reluctantly.",img:"a_contrec_ur.jpg"},
+ {fr:"À fond",ar:"بكل قوة / بشكل كامل",en:"Full blast / All out",sfr:"Je travaille à fond pour réussir.",sar:"عم اشتغل بكل طاقتي مشان انجح.",sen:"I'm working flat out to succeed.",img:"a_fond.jpg"},
+ {fr:"À tout prix",ar:"بأي ثمن",en:"At all costs",sfr:"Elle veut réussir à tout prix.",sar:"بدها تنجح بأي ثمن.",sen:"She wants to succeed at all costs.",img:"a_tout_prix.jpg"},
+ {fr:"À la dernière minute",ar:"في آخر لحظة",en:"At the last minute",sfr:"Il a annulé le rendez-vous à la dernière minute.",sar:"ألغى الموعد بآخر لحظة.",sen:"He cancelled the appointment at the last minute.",img:"a_la_derniere_minute.jpg"},
+ {fr:"À la hâte",ar:"على عجل / بسرعة",en:"In a hurry / Hastily",sfr:"Elle a préparé ses affaires à la hâte.",sar:"جهّزت أغراضها على عجل.",sen:"She packed her things in a hurry.",img:"a_la_hate.jpg"},
+ {fr:"À tour de rôle",ar:"بالدور / بالتناوب",en:"In turn / By turns",sfr:"Les employés prennent leur pause à tour de rôle.",sar:"الموظفين بياخدوا استراحتهم بالدور.",sen:"The employees take their breaks in turn.",img:"a_tour_de_role.jpg"},
+ {fr:"À l'inverse",ar:"بالعكس",en:"Conversely / Conversely",sfr:"Mon frère préfère le train. Moi, à l'inverse, je préfère le bus.",sar:"أخي بيفضّل القطار، أما أنا فعلى العكس بفضّل الباص.",sen:"My brother prefers the train. I, on the other hand, prefer the bus.",img:"a_l_inverse.jpg"},
+ {fr:"À chaque fois",ar:"في كل مرة",en:"Every time",sfr:"À chaque fois que je viens, il pleut.",sar:"كل مرة بجي فيها، بتمطر.",sen:"Every time I come, it rains.",img:"a_chaque_fois.jpg"},
+ {fr:"À moitié",ar:"إلى النصف / نصفياً",en:"Halfway / Half",sfr:"La porte est à moitié ouverte.",sar:"الباب مفتوح للنص.",sen:"The door is half open.",img:"a_moitie.jpg"},
+ {fr:"À la main",ar:"باليد / يدوياً",en:"By hand",sfr:"Ce produit est fabriqué à la main.",sar:"هالمنتج مصنوع يدوياً.",sen:"This product is handmade.",img:"a_la_main.jpg"},
+ {fr:"À reculons",ar:"إلى الخلف / بالمشي إلى الوراء",en:"Backwards",sfr:"Il avançait à reculons.",sar:"كان عم يرجع لورا وهو ماشي.",sen:"He was moving backwards.",img:"a_reculons.jpg"},
+ {fr:"À vue d'œil",ar:"بشكل ملحوظ للعين",en:"Visibly / At a glance",sfr:"La situation s'améliore à vue d'œil.",sar:"الوضع عم يتحسن بشكل ملحوظ.",sen:"The situation is visibly improving.",img:"a_vue_d_il.jpg"},
+ {fr:"À perte de vue",ar:"إلى مدّ النظر",en:"As far as the eye can see",sfr:"Les champs s'étendent à perte de vue.",sar:"الحقول ممتدة على مدّ النظر.",sen:"The fields stretch as far as the eye can see.",img:"a_perte_de_vue.jpg"},
+ {fr:"À l'unité",ar:"بالقطعة",en:"Individually / Per item",sfr:"Ces articles sont vendus à l'unité.",sar:"هالمنتجات بتنباع بالقطعة.",sen:"These items are sold individually.",img:"a_l_unite.jpg"},
+ {fr:"À intervalles réguliers",ar:"على فترات منتظمة",en:"At regular intervals",sfr:"Le bus passe à intervalles réguliers.",sar:"الباص بيمر على فترات منتظمة.",sen:"The bus runs at regular intervals.",img:"a_intervalles_reguliers.jpg"},
+ {fr:"À l'infini",ar:"بلا نهاية / إلى ما لا نهاية",en:"Infinitely / Endlessly",sfr:"On ne peut pas discuter de ce problème à l'infini.",sar:"ما فينا نضل نناقش هالمشكلة بلا نهاية.",sen:"We can't discuss this problem endlessly.",img:"a_l_infini.jpg"},
+ {fr:"À l'écart de",ar:"بعيداً عن / بمعزل عن",en:"Away from / Apart from",sfr:"Il préfère vivre à l'écart de la ville.",sar:"بيفضّل يعيش بعيد عن المدينة.",sen:"He prefers to live away from the city.",img:"a_l_ecart_de.jpg"},
+ {fr:"À l'opposé",ar:"على العكس تماماً / في الجهة المقابلة",en:"On the opposite side",sfr:"Il habite à l'opposé de la ville.",sar:"هو ساكن بالجهة المقابلة من المدينة.",sen:"He lives on the opposite side of the city.",img:"a_l_oppose.jpg"},
+ {fr:"À la suite de",ar:"على إثر / نتيجةً لـ",en:"Following / As a result of",sfr:"À la suite de cet accident, la route a été fermée.",sar:"على إثر هالحادث، تسكّر الطريق.",sen:"Following this accident, the road was closed.",img:"a_la_suite_de.jpg"},
+ {fr:"À la limite de",ar:"على حدود / عند الحدّ الفاصل بين",en:"On the edge of",sfr:"Nous sommes à la limite de la forêt.",sar:"نحنا على حدود الغابة.",sen:"We are at the edge of the forest.",img:"a_la_limite_de.jpg"},
+ {fr:"À titre exceptionnel",ar:"بشكل استثنائي",en:"As an exception",sfr:"À titre exceptionnel, le magasin restera ouvert dimanche.",sar:"بشكل استثنائي، رح يضل المحل مفتوح يوم الأحد.",sen:"As an exception, the shop will remain open on Sunday.",img:"a_titre_exceptionnel.jpg"},
+ {fr:"À parts égales",ar:"بالتساوي",en:"In equal parts",sfr:"Nous avons partagé les frais à parts égales.",sar:"تقاسمنا المصاريف بالتساوي.",sen:"We shared the expenses equally.",img:"a_parts_egales.jpg"},
+ {fr:"À huis clos",ar:"خلف أبواب مغلقة / بصورة سرية",en:"Behind closed doors / In camera",sfr:"Le procès s'est déroulé à huis clos.",sar:"جرت المحاكمة خلف أبواب مغلقة.",sen:"The trial took place behind closed doors.",img:"a_huis_clos.jpg"},
+ {fr:"À l'aveugle",ar:"بشكل أعمى / من دون رؤية",en:"Blindly / Without seeing",sfr:"Il a avancé à l'aveugle dans l'obscurité.",sar:"تقدّم من دون ما يشوف بالطريق المظلم.",sen:"He moved forward blindly in the darkness.",img:"a_l_aveugle.jpg"},
+ {fr:"À la suite",ar:"تباعاً / بعد ذلك",en:"One after another / Subsequently",sfr:"Les candidats sont entrés à la suite.",sar:"دخل المرشحون واحد ورا التاني.",sen:"The candidates entered one after another.",img:"a_la_suite.jpg"},
+ {fr:"À l'étranger",ar:"في الخارج / خارج البلد",en:"Abroad",sfr:"Mon frère travaille à l'étranger.",sar:"أخي بيشتغل خارج البلد.",sen:"My brother works abroad.",img:"a_l_etranger.jpg"},
+ {fr:"À la campagne",ar:"في الريف",en:"In the countryside",sfr:"Nous passons nos vacances à la campagne.",sar:"منقضي عطلتنا بالريف.",sen:"We spend our holidays in the countryside.",img:"a_la_campagne.jpg"},
+ {fr:"À l'étage",ar:"في الطابق العلوي",en:"Upstairs / On the floor above",sfr:"Votre chambre se trouve à l'étage.",sar:"غرفتكم موجودة بالطابق العلوي.",sen:"Your room is upstairs.",img:"a_l_etage.jpg"},
+ {fr:"À l'avant",ar:"في المقدمة / في الأمام",en:"At the front",sfr:"Les enfants sont assis à l'avant de la voiture.",sar:"الأولاد قاعدين بمقدمة السيارة.",sen:"The children are sitting at the front of the car.",img:"a_l_avant.jpg"},
+ {fr:"À l'arrière",ar:"في الخلف",en:"At the back / Behind",sfr:"Les bagages sont à l'arrière de la voiture.",sar:"الحقائب موجودة بورا السيارة.",sen:"The luggage is at the back of the car.",img:"a_l_arriere.jpg"},
+ ];
+ add.forEach(u=>{st.c['adverbes']=st.c['adverbes']||{};const L=normFr(u.fr).replace(/^(le|la|les|l'|un|une|des|du|de la|de l'|au|aux|d')\s+/,'').charAt(0).toUpperCase();const ex=(st.c['adverbes'][L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+Math.floor(Math.random()*999);st.c['adverbes'][L]=st.c['adverbes'][L]||[];st.c['adverbes'][L].push(u)}});
+ save();localStorage.setItem('verbes-updAdv4','1')}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
