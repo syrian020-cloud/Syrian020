@@ -5199,13 +5199,78 @@ function updNomsM4(){
  add.forEach((u,i)=>{const ex=st.c['noms'].M.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+365000+i;st.c['noms'].M.push(u)}});
  save();}
 
+function updNomsO(){
+ const add=[
+ {fr:"L'objet",ar:"الغرض / الشيء",en:"Object",sfr:"Quel est cet objet ?",sar:"شو هاد الشي؟",sen:"What is this object?",img:"l_objet.webp"},
+ {fr:"L'occasion",ar:"المناسبة / الفرصة",en:"Occasion / Opportunity",sfr:"C'est une bonne occasion.",sar:"هاي فرصة منيحة.",sen:"It's a good opportunity.",img:"l_occasion.webp"},
+ {fr:"L'odeur",ar:"الرائحة",en:"Smell / Odor",sfr:"J'aime l'odeur des fleurs.",sar:"بحب ريحة الورد.",sen:"I like the smell of flowers.",img:"l_odeur.webp"},
+ {fr:"L'œil",ar:"العين",en:"Eye",sfr:"J'ai mal à l'œil.",sar:"عيني عم توجعني.",sen:"My eye hurts.",img:"l_il.webp"},
+ {fr:"L'oreille",ar:"الأذن",en:"Ear",sfr:"J'ai mal à l'oreille.",sar:"أذني عم توجعني.",sen:"My ear hurts.",img:"l_oreille.webp"},
+ {fr:"L'ordinateur",ar:"الكمبيوتر",en:"Computer",sfr:"J'utilise mon ordinateur pour travailler.",sar:"بستخدم الكمبيوتر للشغل.",sen:"I use my computer for work.",img:"l_ordinateur.webp"},
+ {fr:"L'orange",ar:"البرتقالة",en:"Orange",sfr:"Je mange une orange chaque matin.",sar:"باكل برتقالة كل صباح.",sen:"I eat an orange every morning.",img:"l_orange.webp"},
+ {fr:"L'oiseau",ar:"الطائر",en:"Bird",sfr:"Un oiseau chante dans le jardin.",sar:"في طير عم يغني بالحديقة.",sen:"A bird is singing in the garden.",img:"l_oiseau.webp"},
+ {fr:"L'ombre",ar:"الظل",en:"Shade / Shadow",sfr:"Je m'assois à l'ombre.",sar:"بقعد بالظل.",sen:"I sit in the shade.",img:"l_ombre.webp"},
+ {fr:"L'opération",ar:"العملية",en:"Operation",sfr:"L'opération est prévue demain.",sar:"العملية مقررة لبكرا.",sen:"The operation is scheduled for tomorrow.",img:"l_operation.webp"},
+ {fr:"L'ordre",ar:"الترتيب / الأمر",en:"Order",sfr:"J'aime travailler dans l'ordre.",sar:"بحب اشتغل بنظام وترتيب.",sen:"I like working in an orderly way.",img:"l_ordre.webp"},
+ {fr:"L'outil",ar:"الأداة",en:"Tool",sfr:"J'ai besoin d'un outil pour réparer la porte.",sar:"بحتاج أداة حتى صلّح الباب.",sen:"I need a tool to repair the door.",img:"l_outil.webp"},
+ {fr:"L'ouverture",ar:"الافتتاح / الفتح",en:"Opening",sfr:"L'ouverture du magasin est à neuf heures.",sar:"المحل بيفتح الساعة تسعة.",sen:"The shop opens at nine o'clock.",img:"l_ouverture.webp"},
+ {fr:"L'origine",ar:"الأصل / المنشأ",en:"Origin",sfr:"Quelle est l'origine de ce produit ?",sar:"شو منشأ هالمنتج؟",sen:"What is the origin of this product?",img:"l_origine.webp"},
+ {fr:"L'organisation",ar:"التنظيم",en:"Organization",sfr:"Une bonne organisation facilite le travail.",sar:"التنظيم الجيد بيسهّل الشغل.",sen:"Good organization makes work easier.",img:"l_organisation.webp"},
+ {fr:"L'obligation",ar:"الالتزام / الإلزام",en:"Obligation",sfr:"Le port du casque est une obligation.",sar:"لبس الخوذة أمر إلزامي.",sen:"Wearing a helmet is mandatory.",img:"l_obligation.webp"},
+ {fr:"L'observation",ar:"الملاحظة / المراقبة",en:"Observation",sfr:"Cette observation est importante.",sar:"هالملاحظة مهمة.",sen:"This observation is important.",img:"l_observation.webp"},
+ {fr:"L'oubli",ar:"النسيان",en:"Forgetting",sfr:"J'ai fait un oubli.",sar:"نسيت شغلة.",sen:"I forgot something.",img:"l_oubli.webp"},
+ {fr:"L'occupation",ar:"العمل / الانشغال",en:"Occupation",sfr:"Quelle est votre occupation principale ?",sar:"شو شغلك الأساسي؟",sen:"What is your main occupation?",img:"l_occupation.webp"},
+ {fr:"L'offre",ar:"العرض",en:"Offer",sfr:"J'ai reçu une offre d'emploi.",sar:"وصلني عرض عمل.",sen:"I received a job offer.",img:"l_offre.webp"},
+ {fr:"L'occasion de",ar:"فرصة لـ",en:"Opportunity to",sfr:"C'est l'occasion d'apprendre le français.",sar:"هاي فرصة لحتى اتعلم الفرنسي.",sen:"It's an opportunity to learn French.",img:"l_occasion_de.webp"},
+ {fr:"L'objectif",ar:"الهدف",en:"Objective / Goal",sfr:"Mon objectif est de trouver un emploi.",sar:"هدفي لاقي شغل.",sen:"My goal is to find a job.",img:"l_objectif.webp"},
+ {fr:"L'opinion",ar:"الرأي",en:"Opinion",sfr:"Quelle est votre opinion sur ce sujet ?",sar:"شو رأيك بهالموضوع؟",sen:"What is your opinion on this subject?",img:"l_opinion.webp"},
+ {fr:"L'ouvrier / L'ouvrière",ar:"العامل / العاملة",en:"Worker",sfr:"L'ouvrier travaille dans une usine.",sar:"العامل بيشتغل بمصنع.",sen:"The worker works in a factory.",img:"l_ouvrier_l_ouvriere.webp"},
+ {fr:"L'outil informatique",ar:"الأداة الحاسوبية",en:"Computer tool",sfr:"Cet outil informatique facilite le travail.",sar:"هالأداة الحاسوبية بتسهّل الشغل.",sen:"This computer tool makes work easier.",img:"l_outil_informatique.webp"},
+ {fr:"L'orage",ar:"العاصفة الرعدية",en:"Thunderstorm",sfr:"Il y a un orage ce soir.",sar:"في عاصفة رعدية الليلة.",sen:"There is a thunderstorm tonight.",img:"l_orage.webp"},
+ {fr:"L'os",ar:"العظم",en:"Bone",sfr:"Je me suis cassé un os.",sar:"انكسر عندي عظم.",sen:"I broke a bone.",img:"l_os.webp"},
+ {fr:"L'oreiller",ar:"الوسادة",en:"Pillow",sfr:"J'ai besoin d'un nouvel oreiller.",sar:"بحتاج مخدة جديدة.",sen:"I need a new pillow.",img:"l_oreiller.webp"},
+ {fr:"L'ongle",ar:"الظفر",en:"Nail",sfr:"Je me suis cassé un ongle.",sar:"انكسر ظفري.",sen:"I broke a nail.",img:"l_ongle.webp"},
+ {fr:"L'odeur de fumée",ar:"رائحة الدخان",en:"Smell of smoke",sfr:"Il y a une odeur de fumée dans la pièce.",sar:"في ريحة دخان بالغرفة.",sen:"There is a smell of smoke in the room.",img:"l_odeur_de_fumee.webp"},
+ {fr:"L'orchestre",ar:"الأوركسترا / الفرقة الموسيقية",en:"Orchestra",sfr:"L'orchestre joue de la musique classique.",sar:"الفرقة الموسيقية عم تعزف موسيقى كلاسيكية.",sen:"The orchestra is playing classical music.",img:"l_orchestre.webp"},
+ {fr:"L'outil de travail",ar:"أداة العمل",en:"Work tool",sfr:"Chaque employé reçoit ses outils de travail.",sar:"كل موظف بيستلم أدوات شغله.",sen:"Every employee receives their work tools.",img:"l_outil_de_travail.webp"},
+ {fr:"L'occupation du temps",ar:"شغل وقت الفراغ",en:"Pastime",sfr:"La lecture est une bonne occupation.",sar:"القراءة طريقة حلوة لتمضية الوقت.",sen:"Reading is a good pastime.",img:"l_occupation_du_temps.webp"},
+ {fr:"L'opération bancaire",ar:"العملية المصرفية",en:"Banking transaction",sfr:"L'opération bancaire a été refusée.",sar:"العملية المصرفية انرفضت.",sen:"The banking transaction was declined.",img:"l_operation_bancaire.webp"},
+ {fr:"L'oncle",ar:"العم أو الخال",en:"Uncle",sfr:"Mon oncle habite à Paris.",sar:"عمي ساكن بباريس.",sen:"My uncle lives in Paris.",img:"l_oncle.webp"},
+ {fr:"L'oignon",ar:"البصل",en:"Onion",sfr:"Je coupe un oignon pour la salade.",sar:"عم قطّع بصلة للسلطة.",sen:"I'm cutting an onion for the salad.",img:"l_oignon.webp"},
+ {fr:"L'œuf",ar:"البيضة",en:"Egg",sfr:"Je mange un œuf au petit-déjeuner.",sar:"باكل بيضة على الفطور.",sen:"I eat an egg for breakfast.",img:"l_uf.webp"},
+ {fr:"L'option",ar:"الخيار",en:"Option",sfr:"Tu as plusieurs options.",sar:"عندك أكتر من خيار.",sen:"You have several options.",img:"l_option.webp"},
+ {fr:"L'ouest",ar:"الغرب",en:"West",sfr:"Nantes se trouve dans l'ouest de la France.",sar:"نانت موجودة بغرب فرنسا.",sen:"Nantes is in western France.",img:"l_ouest.webp"},
+ {fr:"L'ours",ar:"الدب",en:"Bear",sfr:"L'ours vit dans la forêt.",sar:"الدب بيعيش بالغابة.",sen:"The bear lives in the forest.",img:"l_ours.webp"},
+ {fr:"L'oxygène",ar:"الأكسجين",en:"Oxygen",sfr:"Le corps a besoin d'oxygène.",sar:"الجسم بحاجة للأكسجين.",sen:"The body needs oxygen.",img:"l_oxygene.webp"},
+ {fr:"L'obstacle",ar:"العقبة",en:"Obstacle",sfr:"Nous devons surmonter cet obstacle.",sar:"لازم نتغلّب على هالعقبة.",sen:"We must overcome this obstacle.",img:"l_obstacle.webp"},
+ {fr:"L'orientation",ar:"التوجيه / تحديد الاتجاه",en:"Guidance / Orientation",sfr:"J'ai besoin d'aide pour mon orientation professionnelle.",sar:"بحتاج مساعدة بالتوجيه المهني.",sen:"I need help with my career guidance.",img:"l_orientation.webp"},
+ {fr:"L'opérateur / L'opératrice",ar:"مشغّل / مشغّلة",en:"Operator",sfr:"L'opérateur contrôle la machine.",sar:"مشغّل الآلة عم يراقب الماكينة.",sen:"The operator is checking the machine.",img:"l_operateur_l_operatrice.webp"},
+ {fr:"L'oral",ar:"الامتحان الشفهي / التعبير الشفهي",en:"Oral exam / Speaking",sfr:"J'ai un examen oral demain.",sar:"عندي امتحان شفهي بكرا.",sen:"I have an oral exam tomorrow.",img:"l_oral.webp"},
+ {fr:"L'officier",ar:"الضابط",en:"Officer",sfr:"L'officier donne un ordre.",sar:"الضابط بيعطي أمراً.",sen:"The officer gives an order.",img:"l_officier.webp"},
+ {fr:"L'opposition",ar:"المعارضة / التضاد",en:"Opposition",sfr:"Il y a une opposition entre ces deux idées.",sar:"في تعارض بين هاتين الفكرتين.",sen:"There is a conflict between these two ideas.",img:"l_opposition.webp"},
+ {fr:"L'ouvrage",ar:"الكتاب / المؤلَّف",en:"Work / Book",sfr:"Cet ouvrage parle de l'histoire de France.",sar:"هالكتاب بيحكي عن تاريخ فرنسا.",sen:"This book is about the history of France.",img:"l_ouvrage.webp"},
+ {fr:"L'odeur corporelle",ar:"رائحة الجسم",en:"Body odor",sfr:"Ce déodorant réduit les odeurs corporelles.",sar:"هالمزيل بيخفف روائح الجسم.",sen:"This deodorant reduces body odor.",img:"l_odeur_corporelle.webp"},
+ {fr:"L'oubli de",ar:"نسيان شيء",en:"Forgetting something",sfr:"J'ai oublié mon rendez-vous.",sar:"نسيت موعدي.",sen:"I forgot my appointment.",img:"l_oubli_de.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].O=st.c['noms'].O||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].O.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+370000+i;st.c['noms'].O.push(u)}});
+ save();}
+
+function updNomsH2(){
+ const add=[
+ {fr:"L'huile",ar:"الزيت",en:"Oil",sfr:"Ajoute un peu d'huile dans la poêle.",sar:"ضيف شوي زيت بالمقلاة.",sen:"Add a little oil to the pan.",img:"l_huile.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].H=st.c['noms'].H||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].H.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+375000+i;st.c['noms'].H.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
