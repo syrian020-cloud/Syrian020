@@ -2678,13 +2678,81 @@ function updNomsA2(){
  add.forEach((u,i)=>{const ex=st.c['noms'].A.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+5000+i;st.c['noms'].A.push(u)}});
  save();}
 
+function updNomsA3(){
+ const add=[
+ {fr:"L'abandon",ar:"التخلّي / الهجر",en:"Abandonment",sfr:"L'abandon de ce projet est une mauvaise décision.",sar:"التخلّي عن هالمشروع قرار مو منيح.",sen:"Abandoning this project is a bad decision.",img:"l_abandon.jpg"},
+ {fr:"L'abord",ar:"الاقتراب / الوصول إلى",en:"Approach",sfr:"L'abord de ce bâtiment est difficile.",sar:"الوصول لهالبناية صعب.",sen:"Access to this building is difficult.",img:"l_abord.jpg"},
+ {fr:"L'absorption",ar:"الامتصاص",en:"Absorption",sfr:"Cette éponge permet une bonne absorption de l'eau.",sar:"هالإسفنجة بتمتص المي بشكل جيد.",sen:"This sponge absorbs water well.",img:"l_absorption.jpg"},
+ {fr:"L'abondance",ar:"الوفرة / الكثرة",en:"Abundance",sfr:"Il y a une abondance de fruits au marché.",sar:"في وفرة فواكه بالسوق.",sen:"There is an abundance of fruit at the market.",img:"l_abondance.jpg"},
+ {fr:"L'abordage",ar:"الصعود إلى السفينة / الهجوم البحري",en:"Boarding",sfr:"L'abordage du navire a été évité.",sar:"تم تجنّب الصعود القسري للسفينة.",sen:"The boarding of the ship was avoided.",img:"l_abordage.jpg"},
+ {fr:"L'abattement",ar:"التخفيض / الحسم",en:"Reduction / Allowance",sfr:"Vous pouvez bénéficier d'un abattement sur vos impôts.",sar:"فيك تستفيد من تخفيض على الضرائب.",sen:"You can benefit from a tax allowance.",img:"l_abattement.jpg"},
+ {fr:"L'abattoir",ar:"المسلخ",en:"Slaughterhouse",sfr:"Les animaux sont transportés à l'abattoir.",sar:"بينقلوا الحيوانات إلى المسلخ.",sen:"The animals are transported to the slaughterhouse.",img:"l_abattoir.jpg"},
+ {fr:"L'abeille",ar:"النحلة",en:"Bee",sfr:"L'abeille collecte le nectar des fleurs.",sar:"النحلة بتجمع رحيق الأزهار.",sen:"The bee collects nectar from flowers.",img:"l_abeille.jpg"},
+ {fr:"L'abîme",ar:"الهاوية / الهوّة العميقة",en:"Abyss",sfr:"Il est tombé dans un abîme profond.",sar:"وقع بهوّة عميقة.",sen:"He fell into a deep abyss.",img:"l_abime.jpg"},
+ {fr:"L'aboiement",ar:"نباح الكلب",en:"Barking",sfr:"Les aboiements du chien m'ont réveillé.",sar:"نباح الكلب صحّاني من النوم.",sen:"The dog's barking woke me up.",img:"l_aboiement.jpg"},
+ {fr:"L'accélération",ar:"التسارع / زيادة السرعة",en:"Acceleration",sfr:"L'accélération de la voiture est rapide.",sar:"تسارع السيارة سريع.",sen:"The car's acceleration is fast.",img:"l_acceleration.jpg"},
+ {fr:"L'accent",ar:"اللكنة / النبرة",en:"Accent",sfr:"Il parle français avec un accent syrien.",sar:"هو بيحكي فرنسي بلكنة سورية.",sen:"He speaks French with a Syrian accent.",img:"l_accent.jpg"},
+ {fr:"L'acceptation",ar:"القبول / الموافقة",en:"Acceptance",sfr:"J'attends l'acceptation de ma demande.",sar:"ناطر قبول طلبي.",sen:"I'm waiting for my application to be accepted.",img:"l_acceptation.jpg"},
+ {fr:"L'accessoire",ar:"الإكسسوار / الملحق",en:"Accessory",sfr:"Cet accessoire est très pratique.",sar:"هالإكسسوار عملي كتير.",sen:"This accessory is very practical.",img:"l_accessoire.jpg"},
+ {fr:"L'accompagnateur",ar:"المرافق / المرافقة",en:"Companion / Escort",sfr:"L'accompagnateur aide la personne pendant le déplacement.",sar:"المرافق بيساعد الشخص أثناء التنقّل.",sen:"The companion helps the person during the journey.",img:"l_accompagnateur.jpg"},
+ {fr:"L'acier",ar:"الفولاذ / الحديد الصلب",en:"Steel",sfr:"Cette porte est fabriquée en acier.",sar:"هالباب مصنوع من الفولاذ.",sen:"This door is made of steel.",img:"l_acier.jpg"},
+ {fr:"L'acierie",ar:"مصنع إنتاج الفولاذ",en:"Steelworks",sfr:"Mon oncle travaille dans une aciérie.",sar:"عمي بيشتغل بمصنع فولاذ.",sen:"My uncle works in a steelworks.",img:"l_acierie.jpg"},
+ {fr:"L'acné",ar:"حبّ الشباب",en:"Acne",sfr:"L'acné apparaît souvent à l'adolescence.",sar:"حبّ الشباب غالباً بيظهر بمرحلة المراهقة.",sen:"Acne often appears during adolescence.",img:"l_acne.jpg"},
+ {fr:"L'acrobate",ar:"لاعب الأكروبات / البهلوان",en:"Acrobat",sfr:"L'acrobate réalise un numéro impressionnant.",sar:"لاعب الأكروبات بيقدّم عرضاً مذهلاً.",sen:"The acrobat performs an impressive act.",img:"l_acrobate.jpg"},
+ {fr:"L'actualité",ar:"الأحداث الجارية / الأخبار الراهنة",en:"Current affairs",sfr:"Je regarde l'actualité tous les matins.",sar:"بتابع الأخبار كل صباح.",sen:"I follow current affairs every morning.",img:"l_actualite.jpg"},
+ {fr:"L'addition",ar:"فاتورة المطعم / الحساب",en:"Bill",sfr:"Excusez-moi, je voudrais l'addition, s'il vous plaît.",sar:"عفواً، بدي الحساب لو سمحت.",sen:"Excuse me, I'd like the bill, please.",img:"l_addition.jpg"},
+ {fr:"L'adjectif",ar:"الصفة",en:"Adjective",sfr:"« Grand » est un adjectif.",sar:"كلمة «كبير» صفة.",sen:"“Big” is an adjective.",img:"l_adjectif.jpg"},
+ {fr:"L'adolescence",ar:"مرحلة المراهقة",en:"Adolescence",sfr:"L'adolescence est une période importante de la vie.",sar:"المراهقة مرحلة مهمة بالحياة.",sen:"Adolescence is an important period of life.",img:"l_adolescence.jpg"},
+ {fr:"L'adolescent",ar:"المراهق / المراهقة",en:"Teenager",sfr:"Cet adolescent prépare ses examens.",sar:"هالمراهق عم يحضّر لامتحاناته.",sen:"This teenager is preparing for his exams.",img:"l_adolescent.jpg"},
+ {fr:"L'admission",ar:"القبول / السماح بالدخول",en:"Admission",sfr:"J'ai reçu une confirmation d'admission à l'université.",sar:"وصلني تأكيد قبولي بالجامعة.",sen:"I received confirmation of my admission to the university.",img:"l_admission.jpg"},
+ {fr:"L'adversaire",ar:"الخصم / المنافس",en:"Opponent",sfr:"Notre adversaire est très fort.",sar:"خصمنا قوي كتير.",sen:"Our opponent is very strong.",img:"l_adversaire.jpg"},
+ {fr:"L'affection",ar:"المودّة / المحبة",en:"Affection",sfr:"Elle montre beaucoup d'affection à ses enfants.",sar:"هي بتعبّر عن محبتها الكبيرة لأولادها.",sen:"She shows her children a lot of affection.",img:"l_affection.jpg"},
+ {fr:"L'afflux",ar:"التدفق الكبير / التوافد",en:"Influx",sfr:"Il y a un afflux de touristes en été.",sar:"في توافد كبير للسياح بالصيف.",sen:"There is a large influx of tourists in summer.",img:"l_afflux.jpg"},
+ {fr:"L'agneau",ar:"الحمل / لحم الخروف الصغير",en:"Lamb",sfr:"L'agneau est un animal très doux.",sar:"الحمل حيوان أليف وهادئ.",sen:"The lamb is a very gentle animal.",img:"l_agneau.jpg"},
+ {fr:"L'agrafe",ar:"الدبوس / مشبك التثبيت",en:"Staple / Clip",sfr:"Il manque une agrafe dans ce document.",sar:"ناقص دبوس تثبيت بهالمستند.",sen:"A staple is missing from this document.",img:"l_agrafe.jpg"},
+ {fr:"L'agrafeuse",ar:"دبّاسة الورق",en:"Stapler",sfr:"J'utilise une agrafeuse pour assembler les feuilles.",sar:"بستخدم دبّاسة حتى جمّع الأوراق.",sen:"I use a stapler to fasten the sheets together.",img:"l_agrafeuse.jpg"},
+ {fr:"L'aigle",ar:"النسر",en:"Eagle",sfr:"L'aigle vole très haut dans le ciel.",sar:"النسر بيطير على ارتفاع كبير بالسما.",sen:"The eagle flies very high in the sky.",img:"l_aigle.jpg"},
+ {fr:"L'aile",ar:"الجناح",en:"Wing",sfr:"L'oiseau s'est blessé à l'aile.",sar:"الطير انجرح بجناحه.",sen:"The bird injured its wing.",img:"l_aile.jpg"},
+ {fr:"L'aisance",ar:"السهولة / الارتياح",en:"Ease / Comfort",sfr:"Elle parle français avec aisance.",sar:"هي بتحكي فرنسي بطلاقة وارتياح.",sen:"She speaks French with ease.",img:"l_aisance.jpg"},
+ {fr:"L'ajout",ar:"الإضافة",en:"Addition",sfr:"L'ajout de sucre rend le café plus doux.",sar:"إضافة السكر بتخلّي القهوة أحلى.",sen:"Adding sugar makes the coffee sweeter.",img:"l_ajout.jpg"},
+ {fr:"L'ajustement",ar:"التعديل / الضبط",en:"Adjustment",sfr:"Un ajustement est nécessaire pour cette machine.",sar:"هالآلة بحاجة لتعديل.",sen:"This machine needs an adjustment.",img:"l_ajustement.jpg"},
+ {fr:"L'allée",ar:"الممر / الطريق بين الصفوف",en:"Aisle / Path",sfr:"Les enfants marchent dans l'allée du jardin.",sar:"الأولاد عم يمشوا بممر الحديقة.",sen:"The children are walking along the garden path.",img:"l_allee.jpg"},
+ {fr:"L'allergie",ar:"الحساسية",en:"Allergy",sfr:"J'ai une allergie au pollen.",sar:"عندي حساسية من غبار الطلع.",sen:"I have a pollen allergy.",img:"l_allergie.jpg"},
+ {fr:"L'allergène",ar:"مُسبّب الحساسية",en:"Allergen",sfr:"Le pollen est un allergène pour certaines personnes.",sar:"غبار الطلع بيسبّب الحساسية عند بعض الأشخاص.",sen:"Pollen is an allergen for some people.",img:"l_allergene.jpg"},
+ {fr:"L'allumette",ar:"عود الثقاب / الكبريت",en:"Matchstick",sfr:"Il a allumé la bougie avec une allumette.",sar:"ولّع الشمعة بعود كبريت.",sen:"He lit the candle with a match.",img:"l_allumette.jpg"},
+ {fr:"L'alphabet",ar:"الأبجدية",en:"Alphabet",sfr:"L'alphabet français contient vingt-six lettres.",sar:"الأبجدية الفرنسية فيها ستة وعشرين حرف.",sen:"The French alphabet has twenty-six letters.",img:"l_alphabet.jpg"},
+ {fr:"L'aluminium",ar:"الألمنيوم",en:"Aluminium / Aluminum",sfr:"Cette boîte est fabriquée en aluminium.",sar:"هالعلبة مصنوعة من الألمنيوم.",sen:"This box is made of aluminium.",img:"l_aluminium.jpg"},
+ {fr:"L'amateur",ar:"الهاوي / الهاوية",en:"Amateur / Enthusiast",sfr:"Je suis un amateur de photographie.",sar:"أنا من هواة التصوير.",sen:"I'm a photography enthusiast.",img:"l_amateur.jpg"},
+ {fr:"L'âme",ar:"الروح",en:"Soul",sfr:"La musique touche l'âme.",sar:"الموسيقى بتلامس الروح.",sen:"Music touches the soul.",img:"l_ame.jpg"},
+ {fr:"L'ampoule",ar:"المصباح الكهربائي",en:"Light bulb",sfr:"Il faut remplacer l'ampoule de la cuisine.",sar:"لازم نبدّل لمبة المطبخ.",sen:"We need to replace the kitchen light bulb.",img:"l_ampoule.jpg"},
+ {fr:"L'amplitude",ar:"السعة / المدى",en:"Amplitude / Range",sfr:"L'amplitude du signal est faible.",sar:"سعة الإشارة ضعيفة.",sen:"The signal amplitude is low.",img:"l_amplitude.jpg"},
+ {fr:"L'ananas",ar:"الأناناس",en:"Pineapple",sfr:"J'aime manger de l'ananas frais.",sar:"بحب آكل أناناس طازج.",sen:"I like eating fresh pineapple.",img:"l_ananas.jpg"},
+ {fr:"L'ancre",ar:"المرساة",en:"Anchor",sfr:"Le bateau jette l'ancre près du port.",sar:"السفينة بترمي المرساة بالقرب من المرفأ.",sen:"The boat drops anchor near the port.",img:"l_ancre.jpg"},
+ {fr:"L'anneau",ar:"الحلقة / الخاتم",en:"Ring",sfr:"Elle porte un anneau en argent.",sar:"هي لابسة خاتم فضة.",sen:"She is wearing a silver ring.",img:"l_anneau.jpg"},
+ {fr:"L'anniversaire",ar:"عيد الميلاد / ذكرى سنوية",en:"Birthday / Anniversary",sfr:"Mon anniversaire est le quinze juillet.",sar:"عيد ميلادي بالخمستعش من تموز.",sen:"My birthday is on July fifteenth.",img:"l_anniversaire.jpg"},
+ {fr:"L'antidouleur",ar:"مسكّن الألم",en:"Painkiller",sfr:"Le médecin m'a conseillé un antidouleur.",sar:"الطبيب نصحني بمسكّن للألم.",sen:"The doctor recommended a painkiller.",img:"l_antidouleur.jpg"},
+ {fr:"L'apéritif",ar:"مشروب أو مقبّلات قبل الوجبة",en:"Aperitif",sfr:"Nous prenons un apéritif avant le dîner.",sar:"منتناول مشروب أو مقبّلات قبل العشا.",sen:"We have an aperitif before dinner.",img:"l_aperitif.jpg"},
+ {fr:"L'applaudissement",ar:"التصفيق",en:"Applause",sfr:"Les applaudissements ont duré plusieurs minutes.",sar:"استمرّ التصفيق عدة دقائق.",sen:"The applause lasted several minutes.",img:"l_applaudissement.jpg"},
+ {fr:"L'applaudimètre",ar:"جهاز قياس شدة التصفيق",en:"Applause meter",sfr:"L'applaudimètre indique le niveau des applaudissements.",sar:"جهاز قياس التصفيق بيبيّن مستوى تصفيق الجمهور.",sen:"The applause meter indicates the level of applause.",img:"l_applaudimetre.jpg"},
+ {fr:"L'apnée",ar:"انقطاع التنفس / حبس النفس",en:"Apnea",sfr:"Il pratique l'apnée sous l'eau.",sar:"هو بيمارس حبس النفس تحت المي.",sen:"He practises freediving underwater.",img:"l_apnee.jpg"},
+ {fr:"L'apogée",ar:"الذروة / أوج النجاح",en:"Peak / Height",sfr:"Sa carrière a atteint son apogée en 2020.",sar:"وصلت مسيرته المهنية لذروتها سنة 2020.",sen:"His career reached its peak in 2020.",img:"l_apogee.jpg"},
+ {fr:"L'apostrophe",ar:"الفاصلة العليا / علامة النداء",en:"Apostrophe",sfr:"L'apostrophe est utilisée dans le mot « l'école ».",sar:"الفاصلة العليا بتُستخدم بكلمة «l'école».",sen:"The apostrophe is used in the word “l'école”.",img:"l_apostrophe.jpg"},
+ {fr:"L'appréciation",ar:"التقدير / التقييم",en:"Appreciation / Assessment",sfr:"Le professeur a donné une bonne appréciation de mon travail.",sar:"الأستاذ أعطى تقييماً جيداً لشغلي.",sen:"The teacher gave a positive assessment of my work.",img:"l_appreciation.jpg"},
+ {fr:"L'approbation",ar:"الموافقة / الاستحسان",en:"Approval",sfr:"Le projet attend l'approbation du directeur.",sar:"المشروع ناطر موافقة المدير.",sen:"The project is awaiting the director's approval.",img:"l_approbation.jpg"},
+ {fr:"L'aptitude",ar:"القدرة / الاستعداد",en:"Ability / Aptitude",sfr:"Il a une aptitude naturelle pour les langues.",sar:"عنده قدرة طبيعية على تعلّم اللغات.",sen:"He has a natural aptitude for languages.",img:"l_aptitude.jpg"},
+ {fr:"L'aquarium",ar:"حوض الأسماك / الأكواريوم",en:"Aquarium",sfr:"Les enfants visitent l'aquarium.",sar:"الأولاد عم يزوروا حوض الأسماك.",sen:"The children are visiting the aquarium.",img:"l_aquarium.jpg"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].A=st.c['noms'].A||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].A.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+9000+i;st.c['noms'].A.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
