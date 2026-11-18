@@ -4344,13 +4344,27 @@ function updNomsM2(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].M=st.c['noms'].M||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].M.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+180000+i;st.c['noms'].M.push(u)}});
  save();}
+function updNomsM3(){
+ const add=[
+ {fr:"Le marchand",ar:"التاجر / البائع",en:"Merchant / Trader",sfr:"Le marchand vend des fruits frais.",sar:"التاجر بيبيع فواكه طازجة.",sen:"The merchant sells fresh fruit.",img:"le_marchand.webp"},
+ {fr:"La marchandise",ar:"البضاعة / السلع",en:"Goods / Merchandise",sfr:"La marchandise est prête à être livrée.",sar:"البضاعة جاهزة للتوصيل.",sen:"The goods are ready to be delivered.",img:"la_marchandise.webp"},
+ {fr:"Le marquage",ar:"وضع العلامات / التعليم",en:"Marking / Labelling",sfr:"Le marquage des colis doit être clair.",sar:"لازم تكون العلامات على الطرود واضحة.",sen:"The labelling on the parcels must be clear.",img:"le_marquage.webp"},
+ {fr:"La maintenance",ar:"الصيانة",en:"Maintenance",sfr:"La maintenance des machines est importante.",sar:"صيانة الآلات مهمة.",sen:"Machine maintenance is important.",img:"la_maintenance.webp"},
+ {fr:"La malchance",ar:"سوء الحظ",en:"Bad Luck",sfr:"J'ai eu de la malchance aujourd'hui.",sar:"كان حظي سيئ اليوم.",sen:"I had bad luck today.",img:"la_malchance.webp"},
+ {fr:"Le manuscrit",ar:"المخطوطة / النص المكتوب بخط اليد",en:"Manuscript",sfr:"Il a retrouvé un ancien manuscrit.",sar:"لقى مخطوطة قديمة.",sen:"He found an old manuscript.",img:"le_manuscrit.webp"},
+ {fr:"La manifestation",ar:"المظاهرة / الفعالية",en:"Demonstration / Event",sfr:"Une manifestation est organisée demain.",sar:"في مظاهرة منظّمة بكرا.",sen:"A demonstration is being organised tomorrow.",img:"la_manifestation.webp"},
+ {fr:"La marge",ar:"الهامش",en:"Margin",sfr:"Écris ton nom dans la marge.",sar:"اكتب اسمك بالهامش.",sen:"Write your name in the margin.",img:"la_marge.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].M=st.c['noms'].M||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].M.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+185000+i;st.c['noms'].M.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
