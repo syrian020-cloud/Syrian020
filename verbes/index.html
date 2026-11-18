@@ -2746,13 +2746,72 @@ function updNomsA3(){
  add.forEach((u,i)=>{const ex=st.c['noms'].A.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+9000+i;st.c['noms'].A.push(u)}});
  save();}
 
+function updNomsA4(){
+ const add=[
+ {fr:"L'aqueduc",ar:"قناة مائية / قنطرة مائية",en:"Aqueduct",sfr:"Cet aqueduc transportait l'eau jusqu'à la ville.",sar:"هالقناة المائية كانت بتنقل المي للمدينة.",sen:"This aqueduct used to carry water to the city.",img:"l_aqueduc.jpg"},
+ {fr:"L'arbitre",ar:"الحَكَم",en:"Referee",sfr:"L'arbitre a arrêté le match.",sar:"الحكم أوقف المباراة.",sen:"The referee stopped the match.",img:"l_arbitre.jpg"},
+ {fr:"L'arbitrage",ar:"التحكيم",en:"Arbitration",sfr:"Les deux entreprises ont choisi l'arbitrage.",sar:"الشركتين اختاروا حلّ النزاع عن طريق التحكيم.",sen:"The two companies chose arbitration.",img:"l_arbitrage.jpg"},
+ {fr:"L'arc",ar:"القوس",en:"Bow / Arch",sfr:"Il utilise un arc pour tirer des flèches.",sar:"بيستخدم قوس لرمي السهام.",sen:"He uses a bow to shoot arrows.",img:"l_arc.jpg"},
+ {fr:"L'arc-en-ciel",ar:"قوس قزح",en:"Rainbow",sfr:"Un magnifique arc-en-ciel apparaît après la pluie.",sar:"ظهر قوس قزح جميل بعد المطر.",sen:"A beautiful rainbow appears after the rain.",img:"l_arc_en_ciel.jpg"},
+ {fr:"L'arène",ar:"الحلبة / الساحة",en:"Arena",sfr:"Les spectateurs remplissent l'arène.",sar:"المتفرجين ملّوا الساحة.",sen:"The spectators fill the arena.",img:"l_arene.jpg"},
+ {fr:"L'argile",ar:"الطين / الصلصال",en:"Clay",sfr:"Elle fabrique un vase en argile.",sar:"هي عم تصنع مزهرية من الصلصال.",sen:"She is making a vase out of clay.",img:"l_argile.jpg"},
+ {fr:"L'armature",ar:"الهيكل الداعم / التسليح",en:"Framework / Reinforcement",sfr:"L'armature renforce la structure en béton.",sar:"الهيكل الحديدي بيعزّز البنية الخرسانية.",sen:"The reinforcement strengthens the concrete structure.",img:"l_armature.jpg"},
+ {fr:"L'arôme",ar:"الرائحة العطرية / النكهة",en:"Aroma",sfr:"L'arôme du café est très agréable.",sar:"ريحة القهوة كتير طيبة.",sen:"The aroma of coffee is very pleasant.",img:"l_arome.jpg"},
+ {fr:"L'arsenal",ar:"ترسانة / مخزن أسلحة",en:"Arsenal",sfr:"L'ancien arsenal est devenu un musée.",sar:"الترسانة القديمة صارت متحف.",sen:"The old arsenal has become a museum.",img:"l_arsenal.jpg"},
+ {fr:"L'arrière",ar:"الخلف / الجزء الخلفي",en:"Rear / Back",sfr:"Il y a un problème à l'arrière de la voiture.",sar:"في مشكلة بالجزء الخلفي من السيارة.",sen:"There is a problem at the rear of the car.",img:"l_arriere.jpg"},
+ {fr:"L'arrière-plan",ar:"الخلفية",en:"Background",sfr:"La maison apparaît à l'arrière-plan de la photo.",sar:"البيت ظاهر بخلفية الصورة.",sen:"The house appears in the background of the photo.",img:"l_arriere_plan.jpg"},
+ {fr:"L'ascension",ar:"الصعود / الارتقاء",en:"Ascent",sfr:"L'ascension de la montagne est difficile.",sar:"صعود الجبل صعب.",sen:"The ascent of the mountain is difficult.",img:"l_ascension.jpg"},
+ {fr:"L'aspiration",ar:"الطموح / التطلّع",en:"Aspiration",sfr:"Mon aspiration est de trouver un bon travail.",sar:"طموحي إني لاقي شغل منيح.",sen:"My aspiration is to find a good job.",img:"l_aspiration.jpg"},
+ {fr:"L'assaut",ar:"الهجوم / الاقتحام",en:"Assault",sfr:"Les policiers ont donné l'assaut au bâtiment.",sar:"الشرطة اقتحمت المبنى.",sen:"The police stormed the building.",img:"l_assaut.jpg"},
+ {fr:"L'astuce",ar:"الحيلة / النصيحة المفيدة",en:"Tip / Trick",sfr:"Voici une astuce pour apprendre le français plus facilement.",sar:"هاي نصيحة بتساعدك تتعلّم الفرنسي بسهولة أكبر.",sen:"Here's a tip to learn French more easily.",img:"l_astuce.jpg"},
+ {fr:"L'attitude",ar:"التصرف / السلوك / الموقف",en:"Attitude",sfr:"Son attitude au travail est positive.",sar:"تصرّفه بالشغل إيجابي.",sen:"His attitude at work is positive.",img:"l_attitude.jpg"},
+ {fr:"L'attrait",ar:"الجاذبية / عامل الجذب",en:"Appeal / Attraction",sfr:"Cette ville a beaucoup d'attrait pour les touristes.",sar:"هالمدينة فيها عوامل جذب كتيرة للسياح.",sen:"This city has a lot of appeal for tourists.",img:"l_attrait.jpg"},
+ {fr:"L'auscultation",ar:"الفحص بالسماعة الطبية",en:"Auscultation",sfr:"Le médecin a effectué une auscultation.",sar:"الطبيب فحصني بالسماعة الطبية.",sen:"The doctor performed an auscultation.",img:"l_auscultation.jpg"},
+ {fr:"L'autocollant",ar:"الملصق اللاصق",en:"Sticker",sfr:"J'ai collé un autocollant sur mon ordinateur.",sar:"لصقت ملصق على الكمبيوتر تبعي.",sen:"I stuck a sticker on my computer.",img:"l_autocollant.jpg"},
+ {fr:"L'automobile",ar:"السيارة",en:"Automobile / Car",sfr:"L'automobile consomme beaucoup d'essence.",sar:"السيارة بتستهلك بنزين كتير.",sen:"The car consumes a lot of petrol.",img:"l_automobile.jpg"},
+ {fr:"L'automatisation",ar:"الأتمتة / التشغيل الآلي",en:"Automation",sfr:"L'automatisation facilite le travail en usine.",sar:"الأتمتة بتسهّل الشغل بالمصنع.",sen:"Automation makes factory work easier.",img:"l_automatisation.jpg"},
+ {fr:"L'automatisme",ar:"الحركة الآلية / النظام الآلي",en:"Automatic action / Mechanism",sfr:"Avec l'habitude, certains gestes deviennent des automatismes.",sar:"مع التعود، بعض الحركات بتصير تلقائية.",sen:"With practice, some movements become automatic.",img:"l_automatisme.jpg"},
+ {fr:"L'automobiliste",ar:"سائق السيارة",en:"Motorist",sfr:"Les automobilistes doivent respecter le code de la route.",sar:"لازم سائقي السيارات يلتزموا بقانون السير.",sen:"Motorists must obey the traffic rules.",img:"l_automobiliste.jpg"},
+ {fr:"L'autoroute",ar:"الطريق السريع",en:"Motorway / Highway",sfr:"Nous prenons l'autoroute pour aller à Paris.",sar:"مناخد الطريق السريع لنروح على باريس.",sen:"We take the motorway to go to Paris.",img:"l_autoroute.jpg"},
+ {fr:"L'averse",ar:"زخّة مطر مفاجئة",en:"Shower of rain",sfr:"Une forte averse a commencé cet après-midi.",sar:"بلّشت زخّة مطر قوية بعد الظهر.",sen:"A heavy shower started this afternoon.",img:"l_averse.jpg"},
+ {fr:"L'avertissement",ar:"التحذير / الإنذار",en:"Warning",sfr:"J'ai reçu un avertissement de mon responsable.",sar:"وصلني تحذير من المسؤول عني.",sen:"I received a warning from my supervisor.",img:"l_avertissement.jpg"},
+ {fr:"L'avertisseur",ar:"جهاز التنبيه / المنبّه",en:"Warning device",sfr:"L'avertisseur sonore permet de prévenir les autres conducteurs.",sar:"المنبّه الصوتي بيساعد على تنبيه السائقين الآخرين.",sen:"The warning horn helps alert other drivers.",img:"l_avertisseur.jpg"},
+ {fr:"L'aveugle",ar:"الشخص الكفيف",en:"Blind person",sfr:"Cette association accompagne les personnes aveugles.",sar:"هالجمعية بتساعد الأشخاص المكفوفين.",sen:"This association supports blind people.",img:"l_aveugle.jpg"},
+ {fr:"L'aveuglement",ar:"العمى / التعمّي عن الحقيقة",en:"Blindness",sfr:"Son aveuglement l'empêche de voir la réalité.",sar:"تعنّته وعدم رؤيته للحقيقة بيمنعوه من فهم الواقع.",sen:"His blindness prevents him from seeing reality.",img:"l_aveuglement.jpg"},
+ {fr:"L'avocat",ar:"المحامي / المحامية",en:"Lawyer",sfr:"Mon avocat prépare mon dossier.",sar:"المحامي تبعي عم يحضّر ملفي.",sen:"My lawyer is preparing my case.",img:"l_avocat.jpg"},
+ {fr:"L'avortement",ar:"الإجهاض",en:"Abortion",sfr:"L'avortement est un sujet médical et juridique important.",sar:"الإجهاض موضوع طبي وقانوني مهم.",sen:"Abortion is an important medical and legal issue.",img:"l_avortement.jpg"},
+ {fr:"L'axe",ar:"المحور",en:"Axis",sfr:"L'axe horizontal est appelé l'axe des abscisses.",sar:"المحور الأفقي اسمه محور السينات.",sen:"The horizontal axis is called the x-axis.",img:"l_axe.jpg"},
+ {fr:"L'azote",ar:"النيتروجين / الآزوت",en:"Nitrogen",sfr:"L'azote est présent dans l'air.",sar:"النيتروجين موجود بالهواء.",sen:"Nitrogen is present in the air.",img:"l_azote.jpg"},
+ {fr:"L'affectation",ar:"التعيين / تخصيص مكان أو مهمة",en:"Assignment",sfr:"J'ai reçu mon affectation dans un nouvel atelier.",sar:"تم تعييني بورشة جديدة.",sen:"I received my assignment to a new workshop.",img:"l_affectation.jpg"},
+ {fr:"L'affluence",ar:"الازدحام / كثرة الإقبال",en:"Crowds / High attendance",sfr:"Il y a beaucoup d'affluence dans le métro le matin.",sar:"في ازدحام كبير بالمترو الصبح.",sen:"There are large crowds in the metro in the morning.",img:"l_affluence.jpg"},
+ {fr:"L'agglomération",ar:"التجمع الحضري / المنطقة الحضرية",en:"Urban area",sfr:"Strasbourg est une grande agglomération.",sar:"ستراسبورغ منطقة حضرية كبيرة.",sen:"Strasbourg is a large urban area.",img:"l_agglomeration.jpg"},
+ {fr:"L'agrément",ar:"الموافقة الرسمية / الاعتماد",en:"Official approval / Accreditation",sfr:"Cette association a reçu l'agrément de l'État.",sar:"هالجمعية حصلت على الاعتماد الرسمي من الدولة.",sen:"This association received official state approval.",img:"l_agrement.jpg"},
+ {fr:"L'aîné",ar:"الابن الأكبر / الابنة الكبرى",en:"Eldest child",sfr:"Mon frère aîné habite en France.",sar:"أخي الأكبر ساكن بفرنسا.",sen:"My older brother lives in France.",img:"l_aine.jpg"},
+ {fr:"L'alternance",ar:"التناوب / نظام الدراسة والعمل بالتناوب",en:"Alternation / Work-study programme",sfr:"Je souhaite suivre une formation en alternance.",sar:"بدي تابع تدريب بنظام الدراسة والشغل بالتناوب.",sen:"I would like to take a work-study programme.",img:"l_alternance.jpg"},
+ {fr:"L'ameublement",ar:"تأثيث المنزل / الأثاث",en:"Furnishing",sfr:"L'ameublement de cet appartement coûte cher.",sar:"تأثيث هالشقة بيكلّف كتير.",sen:"Furnishing this apartment is expensive.",img:"l_ameublement.jpg"},
+ {fr:"L'anesthésie",ar:"التخدير",en:"Anaesthesia",sfr:"L'opération nécessite une anesthésie générale.",sar:"العملية بتحتاج تخدير عام.",sen:"The operation requires general anaesthesia.",img:"l_anesthesie.jpg"},
+ {fr:"L'antenne",ar:"الهوائي / فرع مؤسسة",en:"Antenna / Branch office",sfr:"L'antenne locale de cette association se trouve à Strasbourg.",sar:"فرع هالجمعية المحلي موجود بستراسبورغ.",sen:"The local branch of this association is in Strasbourg.",img:"l_antenne.jpg"},
+ {fr:"L'apesanteur",ar:"انعدام الوزن",en:"Weightlessness",sfr:"Les astronautes vivent en apesanteur dans l'espace.",sar:"روّاد الفضاء بيعيشوا بحالة انعدام الوزن بالفضاء.",sen:"Astronauts experience weightlessness in space.",img:"l_apesanteur.jpg"},
+ {fr:"L'approche",ar:"الطريقة / المقاربة",en:"Approach",sfr:"Cette approche facilite l'apprentissage du français.",sar:"هالطريقة بتسهّل تعلّم اللغة الفرنسية.",sen:"This approach makes learning French easier.",img:"l_approche.jpg"},
+ {fr:"L'aptitude professionnelle",ar:"الكفاءة المهنية / الاستعداد للعمل",en:"Professional aptitude",sfr:"L'entreprise évalue les aptitudes professionnelles des candidats.",sar:"الشركة بتقيّم الكفاءات المهنية للمتقدمين.",sen:"The company assesses candidates' professional skills.",img:"l_aptitude_professionnelle.jpg"},
+ {fr:"L'assainissement",ar:"الصرف الصحي / تحسين النظافة والبيئة",en:"Sanitation",sfr:"La ville investit dans l'assainissement des eaux usées.",sar:"المدينة عم تستثمر بمعالجة مياه الصرف الصحي.",sen:"The city is investing in wastewater sanitation.",img:"l_assainissement.jpg"},
+ {fr:"L'assiduité",ar:"المواظبة / الالتزام بالحضور",en:"Attendance / Diligence",sfr:"L'assiduité est importante dans une formation professionnelle.",sar:"المواظبة مهمة بالتدريب المهني.",sen:"Regular attendance is important in vocational training.",img:"l_assiduite.jpg"},
+ {fr:"L'astrologie",ar:"التنجيم / علم الأبراج",en:"Astrology",sfr:"Certaines personnes s'intéressent à l'astrologie.",sar:"بعض الناس بيهتموا بعلم الأبراج.",sen:"Some people are interested in astrology.",img:"l_astrologie.jpg"},
+ {fr:"L'astronomie",ar:"علم الفلك",en:"Astronomy",sfr:"L'astronomie étudie les étoiles et les planètes.",sar:"علم الفلك بيدرس النجوم والكواكب.",sen:"Astronomy studies stars and planets.",img:"l_astronomie.jpg"},
+ {fr:"L'athlétisme",ar:"ألعاب القوى",en:"Athletics / Track and field",sfr:"Il pratique l'athlétisme depuis cinq ans.",sar:"هو بيمارس ألعاب القوى من خمس سنين.",sen:"He has been practising athletics for five years.",img:"l_athletisme.jpg"},
+ {fr:"L'audition",ar:"اختبار الأداء / جلسة الاستماع",en:"Audition / Hearing",sfr:"Elle passe une audition pour un rôle au cinéma.",sar:"هي عم تعمل اختبار أداء لدور بالسينما.",sen:"She is auditioning for a film role.",img:"l_audition.jpg"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].A=st.c['noms'].A||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].A.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+13000+i;st.c['noms'].A.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
