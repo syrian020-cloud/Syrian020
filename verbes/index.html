@@ -3527,6 +3527,62 @@ function fixNomsC(){
  const D={'le candidat':'Le candidat / La candidate','le client':'Le client / La cliente','le collaborateur':'Le collaborateur / La collaboratrice','le collegue':'Le collègue / La collègue','le consultant':'Le consultant / La consultante','le contemporain':'Le contemporain / La contemporaine','le curieux':'Le curieux / La curieuse','le createur':'Le créateur / La créatrice','le croyant':'Le croyant / La croyante','la coulisse':'Les coulisses'};
  Object.keys(s).forEach(L=>{s[L].forEach(u=>{u.fr=u.fr.replace(/\s*\((m|f|m\. pl\.|f\. pl\.)\)\s*/g,'');const f=D[normFr(u.fr)];if(f)u.fr=f})});
  if(s.C){const i=s.C.findIndex(u=>normFr(u.fr)==='le plafond');if(i>-1){s.P=s.P||[];if(!s.P.some(u=>normFr(u.fr)==='le plafond'))s.P.push(s.C[i]);s.C.splice(i,1)}}
+ if(s.B){const j=s.B.findIndex(u=>normFr(u.fr)==='le cerveau');if(j>-1){s.C=s.C||[];if(!s.C.some(u=>normFr(u.fr)==='le cerveau'))s.C.push(s.B[j]);s.B.splice(j,1)}}
+ save();}
+function updNomsC5(){
+ const add=[
+ {fr:"Le calculateur",ar:"آلة حاسبة",en:"Calculator",sfr:"J'utilise un calculateur pour vérifier les chiffres.",sar:"بستخدم آلة حاسبة لأتأكد من الأرقام.",sen:"I use a calculator to check the figures.",img:"le_calculateur.webp"},
+ {fr:"Le canapé-lit",ar:"أريكة تتحول إلى سرير",en:"Sofa bed",sfr:"Ce canapé-lit peut accueillir deux personnes.",sar:"هالكنباية اللي بتتحول لسرير بتساع شخصين.",sen:"This sofa bed can accommodate two people.",img:"le_canape_lit.webp"},
+ {fr:"Le cadenas à code",ar:"قفل برمز سري",en:"Combination lock",sfr:"J'ouvre mon casier avec un cadenas à code.",sar:"بفتح خزانتي بقفل رقمي.",sen:"I open my locker with a combination lock.",img:"le_cadenas_a_code.webp"},
+ {fr:"Le carrefour",ar:"مفترق الطرق",en:"Crossroads",sfr:"Tournez à droite au prochain carrefour.",sar:"لفّ يمين عند مفترق الطرق الجاي.",sen:"Turn right at the next crossroads.",img:"le_carrefour.webp"},
+ {fr:"La carte bancaire",ar:"البطاقة المصرفية",en:"Bank card",sfr:"Je paie avec ma carte bancaire.",sar:"بدفع ببطاقتي المصرفية.",sen:"I pay with my bank card.",img:"la_carte_bancaire.webp"},
+ {fr:"Le carnet",ar:"الدفتر الصغير",en:"Notebook",sfr:"Je note les rendez-vous dans mon carnet.",sar:"بسجّل المواعيد بدفتري الصغير.",sen:"I write appointments in my pocket notebook.",img:"le_carnet.webp"},
+ {fr:"La carte d'identité",ar:"بطاقة الهوية",en:"Identity card",sfr:"N'oubliez pas votre carte d'identité.",sar:"لا تنسى بطاقة هويتك.",sen:"Don't forget your identity card.",img:"la_carte_d_identite.webp"},
+ {fr:"Le certificat",ar:"الشهادة / الإفادة الرسمية",en:"Certificate",sfr:"J'ai besoin d'un certificat médical.",sar:"بحتاج شهادة طبية.",sen:"I need a medical certificate.",img:"le_certificat.webp"},
+ {fr:"Le certificat de travail",ar:"شهادة العمل",en:"Employment certificate",sfr:"Mon employeur m'a remis un certificat de travail.",sar:"صاحب العمل سلّمني شهادة عمل.",sen:"My employer gave me an employment certificate.",img:"le_certificat_de_travail.webp"},
+ {fr:"La cérémonie",ar:"الحفل / المراسم",en:"Ceremony",sfr:"La cérémonie commence à dix heures.",sar:"الحفل بيبلّش الساعة عشرة.",sen:"The ceremony starts at ten o'clock.",img:"la_ceremonie.webp"},
+ {fr:"Le centre",ar:"المركز",en:"Centre",sfr:"Le centre-ville est très animé.",sar:"وسط المدينة فيه حركة كتير.",sen:"The city centre is very lively.",img:"le_centre.webp"},
+ {fr:"La chaîne",ar:"السلسلة / القناة",en:"Chain / Channel",sfr:"Je regarde une émission sur cette chaîne.",sar:"عم بحضر برنامج على هالقناة.",sen:"I'm watching a programme on this channel.",img:"la_chaine.webp"},
+ {fr:"La chanson",ar:"الأغنية",en:"Song",sfr:"Cette chanson me rappelle mon enfance.",sar:"هالأغنية بتذكّرني بطفولتي.",sen:"This song reminds me of my childhood.",img:"la_chanson.webp"},
+ {fr:"Le chapitre",ar:"الفصل",en:"Chapter",sfr:"Nous étudions le troisième chapitre.",sar:"عم ندرس الفصل الثالث.",sen:"We are studying the third chapter.",img:"le_chapitre.webp"},
+ {fr:"La chemise",ar:"القميص",en:"Shirt",sfr:"Je porte une chemise blanche pour le travail.",sar:"لابس قميص أبيض للشغل.",sen:"I'm wearing a white shirt for work.",img:"la_chemise.webp"},
+ {fr:"Le chèque",ar:"الشيك",en:"Cheque",sfr:"Il a payé par chèque.",sar:"دفع بشيك.",sen:"He paid by cheque.",img:"le_cheque.webp"},
+ {fr:"Le chocolat",ar:"الشوكولاتة",en:"Chocolate",sfr:"Je préfère le chocolat noir.",sar:"بفضّل الشوكولاتة الداكنة.",sen:"I prefer dark chocolate.",img:"le_chocolat.webp"},
+ {fr:"La charge",ar:"الحمولة / العبء",en:"Load / Burden",sfr:"Cette charge est trop lourde.",sar:"هالحمولة تقيلة كتير.",sen:"This load is too heavy.",img:"la_charge.webp"},
+ {fr:"Le chef / La cheffe",ar:"المسؤول / المسؤولة",en:"Manager / Head",sfr:"Le chef organise le travail de l'équipe.",sar:"المسؤول بينظّم شغل الفريق.",sen:"The manager organizes the team's work.",img:"le_chef_la_cheffe.webp"},
+ {fr:"Le chèque-cadeau",ar:"قسيمة هدية",en:"Gift voucher",sfr:"J'ai reçu un chèque-cadeau pour mon anniversaire.",sar:"وصلني قسيمة هدية بعيد ميلادي.",sen:"I received a gift voucher for my birthday.",img:"le_cheque_cadeau.webp"},
+ {fr:"Le chemin de fer",ar:"السكك الحديدية",en:"Railway",sfr:"Le chemin de fer relie plusieurs villes.",sar:"السكك الحديدية بتربط بين عدة مدن.",sen:"The railway connects several cities.",img:"le_chemin_de_fer.webp"},
+ {fr:"Le chauffage central",ar:"التدفئة المركزية",en:"Central heating",sfr:"Le chauffage central fonctionne bien en hiver.",sar:"التدفئة المركزية بتشتغل منيح بالشتا.",sen:"The central heating works well in winter.",img:"le_chauffage_central.webp"},
+ {fr:"Le chiffre d'affaires",ar:"رقم الأعمال / حجم المبيعات",en:"Turnover",sfr:"Le chiffre d'affaires de l'entreprise a augmenté.",sar:"رقم أعمال الشركة ارتفع.",sen:"The company's turnover has increased.",img:"le_chiffre_d_affaires.webp"},
+ {fr:"La carte de séjour",ar:"بطاقة الإقامة",en:"Residence permit",sfr:"Ma carte de séjour est encore valable.",sar:"بطاقة إقامتي لسا صالحة.",sen:"My residence permit is still valid.",img:"la_carte_de_sejour.webp"},
+ {fr:"Le code postal",ar:"الرمز البريدي",en:"Postal code",sfr:"Quel est votre code postal ?",sar:"شو الرمز البريدي تبعك؟",sen:"What is your postal code?",img:"le_code_postal.webp"},
+ {fr:"Le code de la route",ar:"قانون السير",en:"Highway Code",sfr:"Je révise le code de la route.",sar:"عم راجع قانون السير.",sen:"I'm revising the Highway Code.",img:"le_code_de_la_route.webp"},
+ {fr:"Le contrat de travail",ar:"عقد العمل",en:"Employment contract",sfr:"J'ai signé mon contrat de travail.",sar:"وقّعت عقد عملي.",sen:"I signed my employment contract.",img:"le_contrat_de_travail.webp"},
+ {fr:"Le compte bancaire",ar:"الحساب المصرفي",en:"Bank account",sfr:"Je consulte mon compte bancaire en ligne.",sar:"بتفقّد حسابي البنكي عبر الإنترنت.",sen:"I check my bank account online.",img:"le_compte_bancaire.webp"},
+ {fr:"La carte vitale",ar:"بطاقة التأمين الصحي الفرنسية",en:"French health insurance card",sfr:"Je présente ma carte Vitale chez le médecin.",sar:"بقدّم بطاقة فيتالي عند الطبيب.",sen:"I show my French health insurance card at the doctor's.",img:"la_carte_vitale.webp"},
+ {fr:"Le certificat de scolarité",ar:"شهادة مدرسية",en:"Certificate of enrolment",sfr:"L'école m'a envoyé un certificat de scolarité.",sar:"المدرسة بعتتلي شهادة مدرسية.",sen:"The school sent me a certificate of enrolment.",img:"le_certificat_de_scolarite.webp"},
+ {fr:"Le centre de santé",ar:"المركز الصحي",en:"Health centre",sfr:"Le centre de santé se trouve près de chez moi.",sar:"المركز الصحي موجود قريب من بيتي.",sen:"The health centre is near my home.",img:"le_centre_de_sante.webp"},
+ {fr:"La consultation",ar:"الاستشارة الطبية",en:"Consultation",sfr:"J'ai une consultation chez le médecin demain.",sar:"عندي موعد استشارة عند الطبيب بكرا.",sen:"I have a doctor's consultation tomorrow.",img:"la_consultation.webp"},
+ {fr:"Le cabinet médical",ar:"عيادة الطبيب",en:"Medical practice",sfr:"Le cabinet médical ouvre à neuf heures.",sar:"عيادة الطبيب بتفتح الساعة تسعة.",sen:"The medical practice opens at nine.",img:"le_cabinet_medical.webp"},
+ {fr:"La carte de mutuelle",ar:"بطاقة التأمين الصحي التكميلي",en:"Complementary health insurance card",sfr:"Je présente ma carte de mutuelle à la pharmacie.",sar:"بقدّم بطاقة التأمين التكميلي بالصيدلية.",sen:"I show my complementary health insurance card at the pharmacy.",img:"la_carte_de_mutuelle.webp"},
+ {fr:"Le centre hospitalier",ar:"المركز الاستشفائي",en:"Hospital centre",sfr:"Il travaille dans un centre hospitalier.",sar:"هو بيشتغل بمركز استشفائي.",sen:"He works in a hospital centre.",img:"le_centre_hospitalier.webp"},
+ {fr:"Le congé maladie",ar:"الإجازة المرضية",en:"Sick leave",sfr:"Mon médecin m'a prescrit un congé maladie.",sar:"الطبيب وصفلي إجازة مرضية.",sen:"My doctor prescribed sick leave.",img:"le_conge_maladie.webp"},
+ {fr:"Le contrat à durée déterminée (CDD)",ar:"عقد عمل محدد المدة",en:"Fixed-term contract",sfr:"Mon contrat à durée déterminée se termine bientôt.",sar:"عقد عملي محدد المدة رح ينتهي قريباً.",sen:"My fixed-term contract ends soon.",img:"le_contrat_a_duree_determinee_cdd.webp"},
+ {fr:"Le contrat à durée indéterminée (CDI)",ar:"عقد عمل غير محدد المدة",en:"Permanent employment contract",sfr:"Elle a obtenu un contrat à durée indéterminée.",sar:"حصلت على عقد عمل غير محدد المدة.",sen:"She got a permanent employment contract.",img:"le_contrat_a_duree_indeterminee_cdi.webp"},
+ {fr:"Le conseiller / La conseillère",ar:"المستشار / المستشارة",en:"Adviser",sfr:"Le conseiller m'a expliqué les démarches.",sar:"المستشار شرحلي الإجراءات.",sen:"The adviser explained the procedures to me.",img:"le_conseiller_la_conseillere.webp"},
+ {fr:"Le conseiller clientèle",ar:"مستشار خدمة العملاء",en:"Customer service adviser",sfr:"Le conseiller clientèle répond aux questions des clients.",sar:"مستشار خدمة العملاء بيجاوب على أسئلة الزبائن.",sen:"The customer service adviser answers customers' questions.",img:"le_conseiller_clientele.webp"},
+ {fr:"Le contrat de location",ar:"عقد الإيجار",en:"Rental agreement",sfr:"J'ai signé le contrat de location.",sar:"وقّعت عقد الإيجار.",sen:"I signed the rental agreement.",img:"le_contrat_de_location.webp"},
+ {fr:"La carte de séjour temporaire",ar:"بطاقة الإقامة المؤقتة",en:"Temporary residence permit",sfr:"Ma carte de séjour temporaire est valable un an.",sar:"بطاقة إقامتي المؤقتة صالحة لمدة سنة.",sen:"My temporary residence permit is valid for one year.",img:"la_carte_de_sejour_temporaire.webp"},
+ {fr:"Le centre de tri",ar:"مركز الفرز",en:"Sorting centre",sfr:"Les colis arrivent au centre de tri.",sar:"الطرود بتوصل لمركز الفرز.",sen:"The parcels arrive at the sorting centre.",img:"le_centre_de_tri.webp"},
+ {fr:"Le contrôle qualité",ar:"مراقبة الجودة",en:"Quality control",sfr:"Le contrôle qualité est obligatoire avant l'expédition.",sar:"مراقبة الجودة إلزامية قبل الشحن.",sen:"Quality control is mandatory before dispatch.",img:"le_controle_qualite.webp"},
+ {fr:"La chaîne de production",ar:"خط الإنتاج",en:"Production line",sfr:"Je travaille sur une chaîne de production.",sar:"بشتغل على خط إنتاج.",sen:"I work on a production line.",img:"la_chaine_de_production.webp"},
+ {fr:"Le cahier des charges",ar:"دفتر الشروط / المواصفات",en:"Specifications",sfr:"Le produit doit respecter le cahier des charges.",sar:"المنتج لازم يطابق دفتر المواصفات.",sen:"The product must comply with the specifications.",img:"le_cahier_des_charges.webp"},
+ {fr:"Le chariot élévateur",ar:"الرافعة الشوكية",en:"Forklift",sfr:"Le cariste conduit un chariot élévateur.",sar:"سائق الرافعة الشوكية عم يسوق الرافعة بالمستودع.",sen:"The forklift operator is driving a forklift.",img:"le_chariot_elevateur.webp"},
+ {fr:"La commande client",ar:"طلبية الزبون",en:"Customer order",sfr:"Je prépare la commande du client.",sar:"عم حضّر طلبية الزبون.",sen:"I'm preparing the customer's order.",img:"la_commande_client.webp"},
+ {fr:"Le conditionnement",ar:"التعبئة والتغليف",en:"Packaging",sfr:"Le conditionnement des produits doit être effectué avec soin.",sar:"لازم تتم تعبئة وتغليف المنتجات بعناية.",sen:"The products must be packaged carefully.",img:"le_conditionnement.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].C=st.c['noms'].C||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].C.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+85000+i;st.c['noms'].C.push(u)}});
  save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
@@ -3534,7 +3590,7 @@ function updClean(){
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
