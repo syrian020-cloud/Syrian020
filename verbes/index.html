@@ -4088,13 +4088,27 @@ function updNomsD3(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].D=st.c['noms'].D||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].D.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+137000+i;st.c['noms'].D.push(u)}});
  save();}
+function updNomsD4(){
+ const add=[
+ {fr:"La dotation",ar:"المخصّصات / التمويل المخصّص",en:"Allocation / Funding",sfr:"La dotation financière de cette association a augmenté.",sar:"زاد التمويل المخصّص لهالجمعية.",sen:"The financial allocation for this organization has increased.",img:"la_dotation.webp"},
+ {fr:"La douceur",ar:"النعومة / اللطف",en:"Softness / Gentleness",sfr:"La douceur de ce tissu est agréable.",sar:"نعومة هالقماش مريحة.",sen:"The softness of this fabric is pleasant.",img:"la_douceur.webp"},
+ {fr:"La densité",ar:"الكثافة",en:"Density",sfr:"La densité de population est élevée dans cette ville.",sar:"الكثافة السكانية مرتفعة بهالمدينة.",sen:"The population density is high in this city.",img:"la_densite.webp"},
+ {fr:"Le désordre",ar:"الفوضى / عدم الترتيب",en:"Disorder / Mess",sfr:"Il y a beaucoup de désordre dans cette pièce.",sar:"في فوضى كبيرة بهالغرفة.",sen:"There is a lot of mess in this room.",img:"le_desordre.webp"},
+ {fr:"Le manque",ar:"النقص / عدم وجود شيء",en:"Lack / Shortage",sfr:"Le manque de personnel pose un problème.",sar:"نقص الموظفين عم يسبّب مشكلة.",sen:"The lack of staff is causing a problem.",img:"le_manque.webp"},
+ {fr:"La discrétion",ar:"التحفّظ / الكتمان",en:"Discretion",sfr:"Je vous remercie pour votre discrétion.",sar:"بشكرك على تحفظك وحفاظك على الخصوصية.",sen:"Thank you for your discretion.",img:"la_discretion.webp"},
+ {fr:"La délégation",ar:"الوفد / التفويض",en:"Delegation",sfr:"Une délégation étrangère est arrivée ce matin.",sar:"وصل وفد أجنبي هالصبح.",sen:"A foreign delegation arrived this morning.",img:"la_delegation.webp"},
+ {fr:"Le dossier médical",ar:"الملف الطبي",en:"Medical File",sfr:"Mon dossier médical contient tous mes examens.",sar:"ملفّي الطبي فيه كل فحوصاتي.",sen:"My medical file contains all my examinations.",img:"le_dossier_medical.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].D=st.c['noms'].D||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].D.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+141000+i;st.c['noms'].D.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
