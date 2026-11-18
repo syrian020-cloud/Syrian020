@@ -3960,13 +3960,28 @@ function updNomsP(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].P=st.c['noms'].P||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].P.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+125000+i;st.c['noms'].P.push(u)}});
  save();}
+function updNomsF2(){
+ const add=[
+ {fr:"Le formulaire d'inscription",ar:"استمارة التسجيل",en:"Registration Form",sfr:"J'ai rempli le formulaire d'inscription.",sar:"عبّيت استمارة التسجيل.",sen:"I filled in the registration form.",img:"le_formulaire_d_inscription.webp"},
+ {fr:"La facture d'électricité",ar:"فاتورة الكهرباء",en:"Electricity Bill",sfr:"J'ai reçu ma facture d'électricité.",sar:"وصلتني فاتورة الكهرباء.",sen:"I received my electricity bill.",img:"la_facture_d_electricite.webp"},
+ {fr:"Le feu d'artifice",ar:"الألعاب النارية",en:"Fireworks",sfr:"Nous avons regardé le feu d'artifice.",sar:"حضرنا عرض الألعاب النارية.",sen:"We watched the fireworks.",img:"le_feu_d_artifice.webp"},
+ {fr:"La feuille de route",ar:"خطة العمل / خارطة الطريق",en:"Roadmap",sfr:"Le responsable nous a présenté la feuille de route.",sar:"المسؤول عرض علينا خطة العمل.",sen:"The manager presented the roadmap to us.",img:"la_feuille_de_route.webp"},
+ {fr:"Le fonds de solidarité",ar:"صندوق التضامن",en:"Solidarity Fund",sfr:"Cette association bénéficie d'un fonds de solidarité.",sar:"هالجمعية بتستفيد من صندوق تضامن.",sen:"This association benefits from a solidarity fund.",img:"le_fonds_de_solidarite.webp"},
+ {fr:"Le formulaire fiscal",ar:"الاستمارة الضريبية",en:"Tax Form",sfr:"J'ai reçu un formulaire fiscal.",sar:"وصلني نموذج ضريبي.",sen:"I received a tax form.",img:"le_formulaire_fiscal.webp"},
+ {fr:"La fiche technique",ar:"ورقة المواصفات التقنية",en:"Technical Data Sheet",sfr:"Consultez la fiche technique du produit.",sar:"راجع ورقة المواصفات التقنية للمنتج.",sen:"Check the product's technical data sheet.",img:"la_fiche_technique.webp"},
+ {fr:"Le fournisseur de services",ar:"مزوّد الخدمات",en:"Service Provider",sfr:"Ce fournisseur de services propose plusieurs offres.",sar:"مزوّد الخدمات هاد بيقدّم عدة عروض.",sen:"This service provider offers several packages.",img:"le_fournisseur_de_services.webp"},
+ {fr:"La fiche de renseignements",ar:"استمارة المعلومات",en:"Information Form",sfr:"Veuillez compléter cette fiche de renseignements.",sar:"يرجى تعبئة استمارة المعلومات.",sen:"Please complete this information form.",img:"la_fiche_de_renseignements.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].F=st.c['noms'].F||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].F.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+129000+i;st.c['noms'].F.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
