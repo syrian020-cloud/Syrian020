@@ -4993,13 +4993,38 @@ function updNomsW(){
  add.forEach((u,i)=>{const ex=st.c['noms'].W.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+325000+i;st.c['noms'].W.push(u)}});
  save();}
 
+function updNomsI(){
+ const add=[
+ {fr:"L'idée",ar:"الفكرة",en:"Idea",sfr:"J'ai une bonne idée.",sar:"عندي فكرة حلوة.",sen:"I have a good idea.",img:"l_idee.webp"},
+ {fr:"L'image",ar:"الصورة",en:"Image",sfr:"Cette image est magnifique.",sar:"هالصورة رائعة.",sen:"This image is beautiful.",img:"l_image.webp"},
+ {fr:"L'immeuble",ar:"المبنى السكني",en:"Apartment Building",sfr:"J'habite dans cet immeuble.",sar:"ساكن بهالبناية.",sen:"I live in this apartment building.",img:"l_immeuble.webp"},
+ {fr:"L'information",ar:"المعلومة",en:"Information",sfr:"J'ai besoin d'une information.",sar:"بدي معلومة.",sen:"I need some information.",img:"l_information.webp"},
+ {fr:"L'internet",ar:"الإنترنت",en:"Internet",sfr:"Je cherche un emploi sur Internet.",sar:"عم دوّر على شغل على الإنترنت.",sen:"I'm looking for a job on the Internet.",img:"l_internet.webp"},
+ {fr:"L'inscription",ar:"التسجيل",en:"Registration",sfr:"L'inscription est gratuite.",sar:"التسجيل مجاني.",sen:"Registration is free.",img:"l_inscription.webp"},
+ {fr:"L'intérêt",ar:"الاهتمام / الفائدة",en:"Interest",sfr:"Ce sujet présente beaucoup d'intérêt.",sar:"هالموضوع فيه فائدة كبيرة.",sen:"This subject is very interesting.",img:"l_interet.webp"},
+ {fr:"L'invitation",ar:"الدعوة",en:"Invitation",sfr:"J'ai reçu une invitation.",sar:"وصلتني دعوة.",sen:"I received an invitation.",img:"l_invitation.webp"},
+ {fr:"L'infirmier / L'infirmière",ar:"الممرّض / الممرّضة",en:"Nurse",sfr:"L'infirmière travaille à l'hôpital.",sar:"الممرّضة بتشتغل بالمشفى.",sen:"The nurse works at the hospital.",img:"l_infirmier_l_infirmiere.webp"},
+ {fr:"L'impôt",ar:"الضريبة",en:"Tax",sfr:"Je dois payer mes impôts.",sar:"لازم ادفع الضرائب.",sen:"I have to pay my taxes.",img:"l_impot.webp"},
+ {fr:"L'industrie",ar:"الصناعة",en:"Industry",sfr:"L'industrie automobile est importante en France.",sar:"صناعة السيارات مهمة بفرنسا.",sen:"The automotive industry is important in France.",img:"l_industrie.webp"},
+ {fr:"L'inconvénient",ar:"العيب / السلبية",en:"Disadvantage",sfr:"Le principal inconvénient est le prix.",sar:"العيب الأساسي هو السعر.",sen:"The main disadvantage is the price.",img:"l_inconvenient.webp"},
+ {fr:"L'incendie",ar:"الحريق",en:"Fire",sfr:"Les pompiers ont éteint l'incendie.",sar:"رجال الإطفاء أخمدوا الحريق.",sen:"The firefighters put out the fire.",img:"l_incendie.webp"},
+ {fr:"L'inquiétude",ar:"القلق",en:"Worry",sfr:"Cette situation me cause de l'inquiétude.",sar:"هالوضع عم يسببلي قلق.",sen:"This situation is causing me worry.",img:"l_inquietude.webp"},
+ {fr:"L'intention",ar:"النيّة",en:"Intention",sfr:"Je n'avais pas l'intention de partir.",sar:"ما كانت نيّتي إني روح.",sen:"I had no intention of leaving.",img:"l_intention.webp"},
+ {fr:"L'interdiction",ar:"المنع / الحظر",en:"Prohibition",sfr:"Il est interdit de fumer ici.",sar:"ممنوع التدخين هون.",sen:"Smoking is prohibited here.",img:"l_interdiction.webp"},
+ {fr:"L'interrupteur",ar:"مفتاح الكهرباء",en:"Light Switch",sfr:"Où est l'interrupteur ?",sar:"وين مفتاح الضو؟",sen:"Where is the light switch?",img:"l_interrupteur.webp"},
+ {fr:"L'itinéraire",ar:"مسار الطريق",en:"Route / Itinerary",sfr:"Je regarde l'itinéraire sur mon téléphone.",sar:"عم شوف الطريق على تلفوني.",sen:"I'm checking the route on my phone.",img:"l_itineraire.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].I=st.c['noms'].I||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].I.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+330000+i;st.c['noms'].I.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
