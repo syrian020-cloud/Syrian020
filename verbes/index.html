@@ -5398,13 +5398,100 @@ function updNomsP4(){
  add.forEach((u,i)=>{const ex=st.c['noms'].P.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+385000+i;st.c['noms'].P.push(u)}});
  save();}
 
+function updNomsP5(){
+ const add=[
+ {fr:"Le patronage",ar:"الرعاية / الإشراف",en:"Sponsorship",sfr:"Cette association travaille sous le patronage de la mairie.",sar:"هالجمعية بتشتغل تحت رعاية البلدية.",sen:"This association works under the sponsorship of the town hall.",img:"le_patronage.webp"},
+ {fr:"La permission",ar:"الإذن / السماح",en:"Permission",sfr:"Est-ce que j'ai la permission de sortir ?",sar:"فيني آخد إذن لأطلع؟",sen:"Do I have permission to leave?",img:"la_permission.webp"},
+ {fr:"Le pourcentage",ar:"النسبة المئوية",en:"Percentage",sfr:"Quel est le pourcentage de réduction ?",sar:"قديش نسبة التخفيض؟",sen:"What is the discount percentage?",img:"le_pourcentage.webp"},
+ {fr:"La profondeur",ar:"العمق",en:"Depth",sfr:"La profondeur de cette piscine est de deux mètres.",sar:"عمق هالمسبح مترين.",sen:"The depth of this swimming pool is two metres.",img:"la_profondeur.webp"},
+ {fr:"La protection",ar:"الحماية",en:"Protection",sfr:"Le casque assure la protection de la tête.",sar:"الخوذة بتحمي الرأس.",sen:"The helmet protects the head.",img:"la_protection.webp"},
+ {fr:"Le public",ar:"الجمهور",en:"Public / Audience",sfr:"Le public applaudit les artistes.",sar:"الجمهور عم يصفّق للفنانين.",sen:"The audience is applauding the performers.",img:"le_public.webp"},
+ {fr:"La poubelle",ar:"سلّة المهملات",en:"Trash Bin",sfr:"Jette ce papier dans la poubelle.",sar:"كبّ هالورقة بسلة المهملات.",sen:"Throw this paper in the trash bin.",img:"la_poubelle.webp"},
+ {fr:"Le poumon",ar:"الرئة",en:"Lung",sfr:"Les poumons nous permettent de respirer.",sar:"الرئتين بيساعدونا نتنفس.",sen:"The lungs allow us to breathe.",img:"le_poumon.webp"},
+ {fr:"La porte d'entrée",ar:"باب المدخل",en:"Entrance Door",sfr:"La porte d'entrée est fermée.",sar:"باب المدخل مسكّر.",sen:"The entrance door is closed.",img:"la_porte_d_entree.webp"},
+ {fr:"Le prêt",ar:"القرض",en:"Loan",sfr:"Je dois rembourser mon prêt.",sar:"لازم سدّد القرض تبعي.",sen:"I have to repay my loan.",img:"le_pret.webp"},
+ {fr:"La priorité",ar:"الأولوية",en:"Priority",sfr:"La santé est une priorité.",sar:"الصحة أولوية.",sen:"Health is a priority.",img:"la_priorite.webp"},
+ {fr:"Le parking",ar:"موقف السيارات",en:"Car Park",sfr:"Où se trouve le parking ?",sar:"وين موجود موقف السيارات؟",sen:"Where is the car park?",img:"le_parking.webp"},
+ {fr:"Le passage piéton",ar:"ممر المشاة",en:"Pedestrian Crossing",sfr:"Traverse la rue sur le passage piéton.",sar:"اقطع الشارع من ممر المشاة.",sen:"Cross the street at the pedestrian crossing.",img:"le_passage_pieton.webp"},
+ {fr:"La panne de voiture",ar:"عطل السيارة",en:"Car Breakdown",sfr:"J'ai eu une panne de voiture.",sar:"تعطّلت سيارتي.",sen:"My car broke down.",img:"la_panne_de_voiture.webp"},
+ {fr:"Le poulet rôti",ar:"الدجاج المشوي",en:"Roast Chicken",sfr:"Nous achetons un poulet rôti pour le déjeuner.",sar:"منشتري دجاجة مشوية للغدا.",sen:"We are buying a roast chicken for lunch.",img:"le_poulet_roti.webp"},
+ {fr:"Le piège",ar:"الفخ",en:"Trap",sfr:"Attention, c'est un piège !",sar:"انتبه، هاد فخ!",sen:"Be careful, it's a trap!",img:"le_piege.webp"},
+ {fr:"La punition",ar:"العقوبة",en:"Punishment",sfr:"Il a reçu une punition à l'école.",sar:"أخد عقوبة بالمدرسة.",sen:"He received a punishment at school.",img:"la_punition.webp"},
+ {fr:"La préparation",ar:"التحضير",en:"Preparation",sfr:"La préparation du repas prend une heure.",sar:"تحضير الوجبة بياخد ساعة.",sen:"Preparing the meal takes an hour.",img:"la_preparation.webp"},
+ {fr:"Le personnel",ar:"الموظفون / طاقم العمل",en:"Staff",sfr:"Le personnel est très sympathique.",sar:"الموظفين كتير لطيفين.",sen:"The staff are very friendly.",img:"le_personnel.webp"},
+ {fr:"La politique",ar:"السياسة",en:"Politics",sfr:"Il s'intéresse à la politique.",sar:"هو مهتم بالسياسة.",sen:"He is interested in politics.",img:"la_politique.webp"},
+ {fr:"Le printemps",ar:"الربيع",en:"Spring",sfr:"Le printemps commence en mars.",sar:"الربيع بيبلّش بشهر آذار.",sen:"Spring begins in March.",img:"le_printemps.webp"},
+ {fr:"La panne de courant",ar:"انقطاع التيار الكهربائي",en:"Power Outage",sfr:"Il y a une panne de courant dans l'immeuble.",sar:"في انقطاع كهربا بالبناية.",sen:"There is a power outage in the building.",img:"la_panne_de_courant.webp"},
+ {fr:"Le patrimoine",ar:"التراث / الممتلكات الموروثة",en:"Heritage",sfr:"La France possède un riche patrimoine culturel.",sar:"فرنسا عندها تراث ثقافي غني.",sen:"France has a rich cultural heritage.",img:"le_patrimoine.webp"},
+ {fr:"La période",ar:"الفترة",en:"Period",sfr:"Cette période est difficile pour moi.",sar:"هالفترة صعبة بالنسبة إلي.",sen:"This period is difficult for me.",img:"la_periode.webp"},
+ {fr:"Le petit-fils",ar:"الحفيد",en:"Grandson",sfr:"Mon petit-fils vient me voir demain.",sar:"حفيدي رح يزورني بكرا.",sen:"My grandson is coming to see me tomorrow.",img:"le_petit_fils.webp"},
+ {fr:"La petite-fille",ar:"الحفيدة",en:"Granddaughter",sfr:"Ma petite-fille aime dessiner.",sar:"حفيدتي بتحب ترسم.",sen:"My granddaughter likes drawing.",img:"la_petite_fille.webp"},
+ {fr:"Le policier / La policière",ar:"الشرطي / الشرطية",en:"Police Officer",sfr:"Le policier aide les personnes.",sar:"الشرطي بيساعد الناس.",sen:"The police officer helps people.",img:"le_policier_la_policiere.webp"},
+ {fr:"La publication",ar:"المنشور / النشر",en:"Publication",sfr:"J'ai lu une publication intéressante.",sar:"قريت منشور مثير للاهتمام.",sen:"I read an interesting post.",img:"la_publication.webp"},
+ {fr:"Le préavis",ar:"الإشعار المسبق",en:"Notice Period",sfr:"Je dois respecter un mois de préavis.",sar:"لازم التزم بمهلة إشعار مدتها شهر.",sen:"I have to give one month's notice.",img:"le_preavis.webp"},
+ {fr:"La procédure",ar:"الإجراء / المسطرة",en:"Procedure",sfr:"Quelle est la procédure à suivre ?",sar:"شو الإجراءات اللي لازم اتبعها؟",sen:"What is the procedure to follow?",img:"la_procedure.webp"},
+ {fr:"Le professeur / La professeure",ar:"الأستاذ / الأستاذة",en:"Teacher",sfr:"Le professeur explique la leçon.",sar:"الأستاذ عم يشرح الدرس.",sen:"The teacher is explaining the lesson.",img:"le_professeur_la_professeure.webp"},
+ {fr:"La profession",ar:"المهنة",en:"Profession",sfr:"Quelle est votre profession ?",sar:"شو مهنتك؟",sen:"What is your profession?",img:"la_profession.webp"},
+ {fr:"Le pourboire",ar:"البقشيش",en:"Tip",sfr:"J'ai laissé un pourboire au serveur.",sar:"تركت بقشيش للنادل.",sen:"I left a tip for the waiter.",img:"le_pourboire.webp"},
+ {fr:"La promesse",ar:"الوعد",en:"Promise",sfr:"Je tiens toujours mes promesses.",sar:"دايماً بوفي بوعودي.",sen:"I always keep my promises.",img:"la_promesse.webp"},
+ {fr:"Le pantalon de sport",ar:"بنطال رياضي",en:"Sports Trousers",sfr:"Je porte un pantalon de sport pour courir.",sar:"بلبس بنطال رياضي مشان أركض.",sen:"I wear sports trousers for running.",img:"le_pantalon_de_sport.webp"},
+ {fr:"La panne de réseau",ar:"انقطاع الشبكة",en:"Network Outage",sfr:"Il y a une panne de réseau dans le quartier.",sar:"في انقطاع بالشبكة بالحي.",sen:"There is a network outage in the neighbourhood.",img:"la_panne_de_reseau.webp"},
+ {fr:"Le passe-temps",ar:"هواية / نشاط لوقت الفراغ",en:"Hobby / Pastime",sfr:"Le dessin est mon passe-temps préféré.",sar:"الرسم هو هوايتي المفضلة.",sen:"Drawing is my favourite hobby.",img:"le_passe_temps.webp"},
+ {fr:"La panne informatique",ar:"عطل معلوماتي / عطل بالحاسوب",en:"Computer Failure",sfr:"Nous avons une panne informatique au travail.",sar:"عنا عطل بالحواسيب بالشغل.",sen:"We have a computer problem at work.",img:"la_panne_informatique.webp"},
+ {fr:"Le pain complet",ar:"خبز القمح الكامل",en:"Wholemeal Bread",sfr:"Je préfère le pain complet.",sar:"بفضّل خبز القمح الكامل.",sen:"I prefer wholemeal bread.",img:"le_pain_complet.webp"},
+ {fr:"La panne sèche",ar:"نفاد الوقود",en:"Running Out of Fuel",sfr:"La voiture est tombée en panne sèche.",sar:"خلص البنزين من السيارة.",sen:"The car ran out of fuel.",img:"la_panne_seche.webp"},
+ {fr:"La ponctualité",ar:"الالتزام بالمواعيد",en:"Punctuality",sfr:"La ponctualité est importante au travail.",sar:"الالتزام بالمواعيد مهم بالشغل.",sen:"Punctuality is important at work.",img:"la_ponctualite.webp"},
+ {fr:"La population",ar:"السكان",en:"Population",sfr:"La population de cette ville augmente.",sar:"عدد سكان هالمدينة عم يزيد.",sen:"The population of this city is increasing.",img:"la_population.webp"},
+ {fr:"Le pouls",ar:"النبض",en:"Pulse",sfr:"Le médecin vérifie mon pouls.",sar:"الطبيب عم يفحص نبضي.",sen:"The doctor is checking my pulse.",img:"le_pouls.webp"},
+ {fr:"Le patin",ar:"الزلّاجة",en:"Skate",sfr:"Il a oublié ses patins à la maison.",sar:"نسي زلاجاته بالبيت.",sen:"He forgot his skates at home.",img:"le_patin.webp"},
+ {fr:"La pâtisserie",ar:"محل الحلويات / صناعة الحلويات",en:"Pastry Shop / Pastry-making",sfr:"Cette pâtisserie vend de délicieux gâteaux.",sar:"هالمحل بيبيع حلويات طيبة كتير.",sen:"This pastry shop sells delicious cakes.",img:"la_patisserie.webp"},
+ {fr:"Le pêcheur / La pêcheuse",ar:"الصياد / الصيادة",en:"Fisher",sfr:"Le pêcheur revient avec du poisson.",sar:"الصياد راجع ومعه سمك.",sen:"The fisherman is coming back with fish.",img:"le_pecheur_la_pecheuse.webp"},
+ {fr:"La pelouse",ar:"العشب / المسطح الأخضر",en:"Lawn",sfr:"Les enfants jouent sur la pelouse.",sar:"الأطفال عم يلعبوا على العشب.",sen:"The children are playing on the lawn.",img:"la_pelouse.webp"},
+ {fr:"Le pétrole",ar:"النفط",en:"Oil / Petroleum",sfr:"Le pétrole est une source d'énergie.",sar:"النفط مصدر من مصادر الطاقة.",sen:"Oil is a source of energy.",img:"le_petrole.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].P=st.c['noms'].P||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].P.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+390000+i;st.c['noms'].P.push(u)}});
+ save();}
+
+function delNomsQ(){
+ if(st.c&&st.c['noms']&&st.c['noms'].Q){st.c['noms'].Q=[];save();}
+}
+function updNomsQ(){
+ const add=[
+ {fr:"Le quartier",ar:"الحيّ",en:"Neighbourhood",sfr:"J'habite dans un quartier calme.",sar:"ساكن بحي هادي.",sen:"I live in a quiet neighbourhood.",img:"le_quartier.webp"},
+ {fr:"La qualité",ar:"الجودة",en:"Quality",sfr:"Ce produit est de bonne qualité.",sar:"هالمنتج جودته منيحة.",sen:"This product is good quality.",img:"la_qualite.webp"},
+ {fr:"La question",ar:"السؤال",en:"Question",sfr:"J'ai une question à vous poser.",sar:"عندي سؤال بدي اسألك ياه.",sen:"I have a question to ask you.",img:"la_question.webp"},
+ {fr:"La quantité",ar:"الكمية",en:"Quantity",sfr:"Quelle quantité de sucre faut-il ajouter ?",sar:"قديش كمية السكر اللي لازم نضيفها؟",sen:"How much sugar should we add?",img:"la_quantite.webp"},
+ {fr:"Le quai",ar:"الرصيف (المحطة)",en:"Platform",sfr:"Le train part du quai numéro trois.",sar:"القطار بينطلق من الرصيف رقم ثلاثة.",sen:"The train leaves from platform number three.",img:"le_quai.webp"},
+ {fr:"Le quotidien",ar:"الحياة اليومية",en:"Daily Life",sfr:"Le travail fait partie de mon quotidien.",sar:"الشغل جزء من حياتي اليومية.",sen:"Work is part of my daily life.",img:"le_quotidien.webp"},
+ {fr:"Le quart",ar:"الربع",en:"Quarter",sfr:"Il est trois heures et quart.",sar:"الساعة تلاتة وربع.",sen:"It's quarter past three.",img:"le_quart.webp"},
+ {fr:"Le quartier général",ar:"المقر الرئيسي",en:"Headquarters",sfr:"Le quartier général se trouve à Paris.",sar:"المقر الرئيسي موجود بباريس.",sen:"The headquarters is in Paris.",img:"le_quartier_general.webp"},
+ {fr:"La queue",ar:"الطابور",en:"Queue / Line",sfr:"Il y a une longue queue devant le magasin.",sar:"في طابور طويل قدام المحل.",sen:"There is a long queue outside the shop.",img:"la_queue.webp"},
+ {fr:"Le questionnaire",ar:"الاستبيان / الاستمارة",en:"Questionnaire",sfr:"Veuillez remplir ce questionnaire.",sar:"لو سمحت عبّي هالاستبيان.",sen:"Please fill in this questionnaire.",img:"le_questionnaire.webp"},
+ {fr:"La qualité de vie",ar:"جودة الحياة",en:"Quality of Life",sfr:"Le sport améliore la qualité de vie.",sar:"الرياضة بتحسّن جودة الحياة.",sen:"Sport improves quality of life.",img:"la_qualite_de_vie.webp"},
+ {fr:"Le quotient",ar:"حاصل القسمة",en:"Quotient",sfr:"Le quotient de douze par trois est quatre.",sar:"حاصل قسمة اتناش على تلاتة هو أربعة.",sen:"The quotient of twelve divided by three is four.",img:"le_quotient.webp"},
+ {fr:"La querelle",ar:"الشجار / الخلاف",en:"Quarrel",sfr:"Ils ont eu une querelle hier.",sar:"صار بيناتن خلاف مبارح.",sen:"They had a quarrel yesterday.",img:"la_querelle.webp"},
+ {fr:"La quittance",ar:"إيصال دفع الإيجار",en:"Rent Receipt",sfr:"J'ai reçu la quittance de loyer.",sar:"استلمت إيصال دفع الإيجار.",sen:"I received the rent receipt.",img:"la_quittance.webp"},
+ {fr:"Le quiproquo",ar:"سوء الفهم",en:"Misunderstanding",sfr:"C'était un simple quiproquo.",sar:"كان مجرد سوء فهم بسيط.",sen:"It was just a simple misunderstanding.",img:"le_quiproquo.webp"},
+ {fr:"La qualification",ar:"المؤهل / التأهيل",en:"Qualification",sfr:"Cette formation donne une qualification professionnelle.",sar:"هالتدريب بيعطي مؤهل مهني.",sen:"This training provides a professional qualification.",img:"la_qualification.webp"},
+ {fr:"Le questionnaire médical",ar:"الاستبيان الطبي",en:"Medical Questionnaire",sfr:"Le médecin m'a demandé de remplir un questionnaire médical.",sar:"الطبيب طلب مني عبّي استبيان طبي.",sen:"The doctor asked me to fill in a medical questionnaire.",img:"le_questionnaire_medical.webp"},
+ {fr:"La qualité professionnelle",ar:"الكفاءة المهنية",en:"Professional Quality",sfr:"La qualité professionnelle est importante.",sar:"الكفاءة المهنية مهمة.",sen:"Professional quality is important.",img:"la_qualite_professionnelle.webp"},
+ {fr:"Le qualificatif",ar:"الوصف / الصفة",en:"Qualifier / Descriptive Term",sfr:"« Gentil » est un qualificatif.",sar:"كلمة «لطيف» صفة.",sen:"\"Kind\" is a descriptive adjective.",img:"le_qualificatif.webp"},
+ {fr:"Le quart d'heure",ar:"ربع ساعة",en:"Quarter of an Hour",sfr:"Attends un quart d'heure, s'il te plaît.",sar:"استنى ربع ساعة لو سمحت.",sen:"Wait a quarter of an hour, please.",img:"le_quart_d_heure.webp"},
+ {fr:"La quarantaine",ar:"الحجر الصحي / الأربعون",en:"Quarantine / Forties",sfr:"Il a dû rester en quarantaine.",sar:"اضطر يضل بالحجر الصحي.",sen:"He had to stay in quarantine.",img:"la_quarantaine.webp"},
+ {fr:"Le quatuor",ar:"فرقة رباعية",en:"Quartet",sfr:"Le quatuor joue de la musique classique.",sar:"الفرقة الرباعية عم تعزف موسيقى كلاسيكية.",sen:"The quartet is playing classical music.",img:"le_quatuor.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].Q=st.c['noms'].Q||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].Q.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+395000+i;st.c['noms'].Q.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
