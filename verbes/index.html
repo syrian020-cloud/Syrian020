@@ -2859,13 +2859,39 @@ function updNomsA5(){
  add.forEach((u,i)=>{const ex=st.c['noms'].A.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+17000+i;st.c['noms'].A.push(u)}});
  save();}
 
+function updNomsA6(){
+ const add=[
+ {fr:"L'artisanat d'art",ar:"الحِرف الفنية",en:"Artistic crafts",sfr:"L'artisanat d'art demande beaucoup de patience.",sar:"الحِرف الفنية بدها صبر كبير.",sen:"Artistic crafts require a lot of patience.",img:"l_artisanat_d_art.webp"},
+ {fr:"L'asile",ar:"اللجوء / المأوى",en:"Asylum / Shelter",sfr:"Il a demandé l'asile en France.",sar:"طلب اللجوء بفرنسا.",sen:"He applied for asylum in France.",img:"l_asile.webp"},
+ {fr:"L'aspirine",ar:"الأسبرين",en:"Aspirin",sfr:"Le médecin lui a conseillé de prendre de l'aspirine.",sar:"الطبيب نصحه ياخد أسبرين.",sen:"The doctor advised him to take aspirin.",img:"l_aspirine.webp"},
+ {fr:"L'assaisonnement",ar:"التتبيل / المنكّهات",en:"Seasoning",sfr:"Cet assaisonnement donne beaucoup de goût à la salade.",sar:"هالتتبيلة بتعطي السلطة نكهة طيبة.",sen:"This seasoning gives the salad a lot of flavour.",img:"l_assaisonnement.webp"},
+ {fr:"L'astéroïde",ar:"كويكب",en:"Asteroid",sfr:"Un astéroïde tourne autour du Soleil.",sar:"الكويكب بيدور حول الشمس.",sen:"An asteroid orbits the Sun.",img:"l_asteroide.webp"},
+ {fr:"L'astronaute",ar:"رائد الفضاء / رائدة الفضاء",en:"Astronaut",sfr:"L'astronaute travaille dans la station spatiale.",sar:"رائد الفضاء بيشتغل بمحطة الفضاء.",sen:"The astronaut works on the space station.",img:"l_astronaute.webp"},
+ {fr:"L'attelage",ar:"نظام ربط المقطورة / العربة",en:"Hitch / Coupling",sfr:"L'attelage de la remorque doit être vérifié.",sar:"لازم نفحص وصلة ربط المقطورة.",sen:"The trailer hitch must be checked.",img:"l_attelage.webp"},
+ {fr:"L'attestation",ar:"شهادة / إفادة رسمية",en:"Certificate / Official statement",sfr:"J'ai besoin d'une attestation de travail.",sar:"بدي شهادة عمل.",sen:"I need an employment certificate.",img:"l_attestation.webp"},
+ {fr:"L'attirance",ar:"الانجذاب / الميل",en:"Attraction",sfr:"Il ressent une attirance pour cette personne.",sar:"هو حاسس بانجذاب تجاه هالشخص.",sen:"He feels attracted to this person.",img:"l_attirance.webp"},
+ {fr:"L'auberge",ar:"النُزل / بيت الضيافة",en:"Inn / Hostel",sfr:"Nous avons réservé une chambre dans une auberge.",sar:"حجزنا غرفة بنُزل.",sen:"We booked a room in an inn.",img:"l_auberge.webp"},
+ {fr:"L'aubergine",ar:"الباذنجان",en:"Eggplant / Aubergine",sfr:"J'achète des aubergines au marché.",sar:"بشتري باذنجان من السوق.",sen:"I buy aubergines at the market.",img:"l_aubergine.webp"},
+ {fr:"L'aubergiste",ar:"صاحب النُزل / صاحبة النُزل",en:"Innkeeper",sfr:"L'aubergiste accueille les voyageurs avec le sourire.",sar:"صاحب النُزل بيستقبل المسافرين بابتسامة.",sen:"The innkeeper welcomes travellers with a smile.",img:"l_aubergiste.webp"},
+ {fr:"L'aube",ar:"الفجر / بداية الصباح",en:"Dawn",sfr:"Je me lève à l'aube pour aller travailler.",sar:"بفيق مع الفجر لحتى روح عالشغل.",sen:"I get up at dawn to go to work.",img:"l_aube.webp"},
+ {fr:"L'aubépine",ar:"الزعرور",en:"Hawthorn",sfr:"L'aubépine fleurit au printemps.",sar:"شجرة الزعرور بتزهر بالربيع.",sen:"The hawthorn blooms in spring.",img:"l_aubepine.webp"},
+ {fr:"L'auvent",ar:"المظلّة الخارجية فوق الباب أو النافذة",en:"Awning / Canopy",sfr:"Nous attendons sous l'auvent pour éviter la pluie.",sar:"ناطرين تحت المظلّة لنتجنب المطر.",sen:"We are waiting under the awning to avoid the rain.",img:"l_auvent.webp"},
+ {fr:"L'avalanche de travail",ar:"كمّ هائل من العمل",en:"Avalanche of work",sfr:"J'ai une avalanche de travail cette semaine.",sar:"عندي كمية شغل هائلة هالأسبوع.",sen:"I have an avalanche of work this week.",img:"l_avalanche_de_travail.webp"},
+ {fr:"L'aumônerie",ar:"الخدمة الدينية / مكتب الإرشاد الديني",en:"Chaplaincy",sfr:"L'aumônerie de l'hôpital accueille les patients.",sar:"مكتب الإرشاد الديني بالمشفى بيستقبل المرضى.",sen:"The hospital chaplaincy welcomes patients.",img:"l_aumonerie.webp"},
+ {fr:"L'auriculaire",ar:"الخنصر",en:"Little finger / Pinky",sfr:"Il s'est blessé à l'auriculaire.",sar:"انجرح بخنصره.",sen:"He injured his little finger.",img:"l_auriculaire.webp"},
+ {fr:"L'azalée",ar:"نبتة الأزالية",en:"Azalea",sfr:"L'azalée fleurit au printemps.",sar:"نبتة الأزالية بتزهر بالربيع.",sen:"The azalea blooms in spring.",img:"l_azalee.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].A=st.c['noms'].A||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].A.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+21000+i;st.c['noms'].A.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
