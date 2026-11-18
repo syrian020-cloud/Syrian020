@@ -3289,13 +3289,79 @@ function updNomsB11(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].B=st.c['noms'].B||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+65000+i;st.c['noms'].B.push(u)}});
  save();}
+function updNomsC(){
+ st.c['noms']=st.c['noms']||{};st.c['noms'].C=[];
+ const add=[
+ {fr:"Le cabas",ar:"حقيبة تسوق كبيرة",en:"Shopping bag",sfr:"J'utilise un cabas pour faire mes courses.",sar:"بستخدم حقيبة تسوق كبيرة لحتى اشتري أغراض البيت.",sen:"I use a shopping bag to do my grocery shopping.",img:"le_cabas.webp"},
+ {fr:"Le cabinet",ar:"مكتب مهني / عيادة",en:"Professional office",sfr:"Je travaille dans un cabinet médical.",sar:"بشتغل بعيادة طبية.",sen:"I work in a medical office.",img:"le_cabinet.webp"},
+ {fr:"Le câble",ar:"كابل / سلك",en:"Cable",sfr:"Ce câble sert à alimenter la machine.",sar:"هالكابل بيغذّي الآلة بالكهرباء.",sen:"This cable supplies power to the machine.",img:"le_cable.webp"},
+ {fr:"Le cachet",ar:"طابع / قرص دواء",en:"Stamp / Tablet",sfr:"Je dois prendre un cachet après le repas.",sar:"لازم آخد حبّة دواء بعد الأكل.",sen:"I have to take a tablet after the meal.",img:"le_cachet.webp"},
+ {fr:"Le cadre",ar:"إطار / موظف إداري",en:"Frame / Manager",sfr:"Elle travaille comme cadre dans une grande entreprise.",sar:"هي بتشتغل بمنصب إداري بشركة كبيرة.",sen:"She works as a manager in a large company.",img:"le_cadre.webp"},
+ {fr:"Le café",ar:"مقهى / قهوة",en:"Café / Coffee",sfr:"Nous prenons un café après le travail.",sar:"منشرب قهوة بعد الشغل.",sen:"We have a coffee after work.",img:"le_cafe.webp"},
+ {fr:"La cage",ar:"قفص",en:"Cage",sfr:"L'oiseau est dans sa cage.",sar:"العصفور جوّا قفصه.",sen:"The bird is in its cage.",img:"la_cage.webp"},
+ {fr:"Le calcul",ar:"حساب / عملية حسابية",en:"Calculation",sfr:"Ce calcul est facile à faire.",sar:"هالحساب سهل نعمله.",sen:"This calculation is easy to do.",img:"le_calcul.webp"},
+ {fr:"Le calendrier",ar:"تقويم",en:"Calendar",sfr:"J'inscris mes rendez-vous dans le calendrier.",sar:"بسجّل مواعيدي على التقويم.",sen:"I write my appointments in the calendar.",img:"le_calendrier.webp"},
+ {fr:"Le calme",ar:"الهدوء",en:"Calm",sfr:"J'ai besoin de calme pour me concentrer.",sar:"بحتاج هدوء لحتى ركّز.",sen:"I need quiet to concentrate.",img:"le_calme.webp"},
+ {fr:"La caméra",ar:"كاميرا",en:"Camera",sfr:"La caméra filme toute la scène.",sar:"الكاميرا عم تصوّر المشهد كله.",sen:"The camera is filming the whole scene.",img:"la_camera.webp"},
+ {fr:"Le camp",ar:"مخيّم",en:"Camp",sfr:"Nous passons deux nuits dans un camp.",sar:"منقضي ليلتين بمخيّم.",sen:"We spend two nights at a camp.",img:"le_camp.webp"},
+ {fr:"La campagne",ar:"الريف / حملة",en:"Countryside / Campaign",sfr:"Nous aimons passer les vacances à la campagne.",sar:"منحب نقضي العطلة بالريف.",sen:"We like spending our holidays in the countryside.",img:"la_campagne.webp"},
+ {fr:"Le canal",ar:"قناة مائية",en:"Canal",sfr:"Les bateaux passent par le canal.",sar:"القوارب بتمرّ عبر القناة المائية.",sen:"Boats pass through the canal.",img:"le_canal.webp"},
+ {fr:"Le candidat",ar:"مرشّح / مرشّحة",en:"Candidate",sfr:"Le candidat passe un entretien d'embauche.",sar:"المرشّح عم يعمل مقابلة عمل.",sen:"The candidate is attending a job interview.",img:"le_candidat.webp"},
+ {fr:"La candidature",ar:"طلب ترشّح",en:"Application",sfr:"J'ai envoyé ma candidature à cette entreprise.",sar:"بعت طلب ترشّحي لهالشركة.",sen:"I sent my application to this company.",img:"la_candidature.webp"},
+ {fr:"La canicule",ar:"موجة حر شديدة",en:"Heatwave",sfr:"La canicule rend le travail difficile.",sar:"موجة الحر الشديدة بتخلّي الشغل صعب.",sen:"The heatwave makes working difficult.",img:"la_canicule.webp"},
+ {fr:"La capacité",ar:"القدرة / السعة",en:"Capacity / Ability",sfr:"Cette salle a une capacité de cinquante personnes.",sar:"هالقاعة بتتّسع لخمسين شخص.",sen:"This room has a capacity of fifty people.",img:"la_capacite.webp"},
+ {fr:"Le capital",ar:"رأس المال",en:"Capital",sfr:"L'entreprise a besoin de capital pour se développer.",sar:"الشركة بحاجة لرأس مال لحتى تتوسّع.",sen:"The company needs capital to grow.",img:"le_capital.webp"},
+ {fr:"Le capitaine",ar:"قبطان / قائد فريق",en:"Captain",sfr:"Le capitaine dirige le navire.",sar:"القبطان بيقود السفينة.",sen:"The captain commands the ship.",img:"le_capitaine.webp"},
+ {fr:"Le car",ar:"حافلة للمسافات الطويلة",en:"Coach",sfr:"Nous prenons le car pour aller à Lyon.",sar:"منركب حافلة للمسافات الطويلة لنروح على ليون.",sen:"We take the coach to go to Lyon.",img:"le_car.webp"},
+ {fr:"Le caractère",ar:"الشخصية / الطابع",en:"Character",sfr:"Il a un caractère calme et gentil.",sar:"شخصيته هادئة ولطيفة.",sen:"He has a calm and kind personality.",img:"le_caractere.webp"},
+ {fr:"Le carbone",ar:"الكربون",en:"Carbon",sfr:"Le carbone est présent dans tous les êtres vivants.",sar:"الكربون موجود بكل الكائنات الحية.",sen:"Carbon is present in all living things.",img:"le_carbone.webp"},
+ {fr:"La carrière",ar:"المسيرة المهنية",en:"Career",sfr:"Elle souhaite faire carrière dans l'industrie.",sar:"هي بتتمنى تبني مسيرتها المهنية بمجال الصناعة.",sen:"She wants to build a career in industry.",img:"la_carriere.webp"},
+ {fr:"La carte",ar:"بطاقة / خريطة / قائمة طعام",en:"Card / Map / Menu",sfr:"J'utilise ma carte bancaire pour payer.",sar:"بستخدم بطاقتي المصرفية للدفع.",sen:"I use my bank card to pay.",img:"la_carte.webp"},
+ {fr:"Le carton",ar:"كرتون / صندوق كرتوني",en:"Cardboard / Box",sfr:"Je mets les produits dans un carton.",sar:"بحط المنتجات بصندوق كرتون.",sen:"I put the products in a cardboard box.",img:"le_carton.webp"},
+ {fr:"Le cas",ar:"حالة / وضع",en:"Case",sfr:"Dans ce cas, il faut appeler le médecin.",sar:"بهالحالة لازم نتصل بالطبيب.",sen:"In this case, we must call the doctor.",img:"le_cas.webp"},
+ {fr:"La cascade",ar:"شلّال",en:"Waterfall",sfr:"Nous admirons une magnifique cascade.",sar:"عم نتفرّج على شلّال رائع.",sen:"We admire a beautiful waterfall.",img:"la_cascade.webp"},
+ {fr:"La case",ar:"خانة / مربع في استمارة",en:"Box / Field",sfr:"Cochez la bonne case sur le formulaire.",sar:"حط إشارة بالخانة الصحيحة بالاستمارة.",sen:"Tick the correct box on the form.",img:"la_case.webp"},
+ {fr:"La casserole",ar:"طنجرة / قدر طبخ",en:"Saucepan",sfr:"L'eau chauffe dans la casserole.",sar:"المي عم تسخن بالطنجرة.",sen:"The water is heating in the saucepan.",img:"la_casserole.webp"},
+ {fr:"La cause",ar:"السبب / قضية",en:"Cause",sfr:"Nous devons comprendre la cause du problème.",sar:"لازم نفهم سبب المشكلة.",sen:"We must understand the cause of the problem.",img:"la_cause.webp"},
+ {fr:"La cave",ar:"قبو / سرداب",en:"Cellar",sfr:"Nous gardons les bouteilles dans la cave.",sar:"منحفظ القناني بالقبو.",sen:"We keep the bottles in the cellar.",img:"la_cave.webp"},
+ {fr:"Le plafond",ar:"السقف الداخلي",en:"Ceiling",sfr:"Le plafond de cette pièce est très haut.",sar:"سقف هالغرفة عالي كتير.",sen:"The ceiling of this room is very high.",img:"le_plafond.webp"},
+ {fr:"Le cèdre",ar:"شجرة الأرز",en:"Cedar tree",sfr:"Le cèdre est un arbre majestueux.",sar:"شجرة الأرز شجرة ضخمة ومهيبة.",sen:"The cedar is a majestic tree.",img:"le_cedre.webp"},
+ {fr:"La ceinture",ar:"حزام / حزام أمان",en:"Belt / Seat belt",sfr:"Attache ta ceinture avant de démarrer.",sar:"اربط حزام الأمان قبل ما تنطلق.",sen:"Fasten your seat belt before setting off.",img:"la_ceinture.webp"},
+ {fr:"La célébrité",ar:"الشهرة / شخصية مشهورة",en:"Fame / Celebrity",sfr:"Cette actrice est devenue une célébrité.",sar:"هالممثلة صارت شخصية مشهورة.",sen:"This actress became a celebrity.",img:"la_celebrite.webp"},
+ {fr:"Le ciment",ar:"الإسمنت",en:"Cement",sfr:"Les ouvriers utilisent du ciment pour construire le mur.",sar:"العمّال بيستخدموا الإسمنت لبناء الحيط.",sen:"The workers use cement to build the wall.",img:"le_ciment.webp"},
+ {fr:"Le cimetière",ar:"المقبرة",en:"Cemetery",sfr:"Le cimetière se trouve près de l'église.",sar:"المقبرة موجودة بالقرب من الكنيسة.",sen:"The cemetery is near the church.",img:"le_cimetiere.webp"},
+ {fr:"Le cinéma",ar:"السينما",en:"Cinema",sfr:"Nous allons au cinéma ce soir.",sar:"رايحين عالسينما هالمسا.",sen:"We are going to the cinema tonight.",img:"le_cinema.webp"},
+ {fr:"Le cercle",ar:"دائرة / حلقة",en:"Circle",sfr:"Dessinez un cercle sur la feuille.",sar:"ارسم دائرة على الورقة.",sen:"Draw a circle on the sheet.",img:"le_cercle.webp"},
+ {fr:"La cire",ar:"الشمع",en:"Wax",sfr:"Cette bougie est fabriquée avec de la cire naturelle.",sar:"هالشمعة مصنوعة من شمع طبيعي.",sen:"This candle is made from natural wax.",img:"la_cire.webp"},
+ {fr:"La citation",ar:"اقتباس",en:"Quote",sfr:"J'aime beaucoup cette citation de Victor Hugo.",sar:"بحب كتير هالاقتباس لفيكتور هوغو.",sen:"I really like this quote by Victor Hugo.",img:"la_citation.webp"},
+ {fr:"La citoyenneté",ar:"المواطنة",en:"Citizenship",sfr:"La citoyenneté donne des droits et des devoirs.",sar:"المواطنة بتعطي حقوق وواجبات.",sen:"Citizenship gives people rights and responsibilities.",img:"la_citoyennete.webp"},
+ {fr:"La citadelle",ar:"قلعة حصينة",en:"Citadel",sfr:"La citadelle domine toute la ville.",sar:"القلعة الحصينة بتطلّ على المدينة كلها.",sen:"The citadel overlooks the entire city.",img:"la_citadelle.webp"},
+ {fr:"La civilité",ar:"اللباقة / آداب التعامل",en:"Courtesy",sfr:"La civilité est importante dans la vie quotidienne.",sar:"اللباقة مهمة بالحياة اليومية.",sen:"Courtesy is important in everyday life.",img:"la_civilite.webp"},
+ {fr:"La classe",ar:"الصف / الفصل الدراسي",en:"Classroom / Class",sfr:"Les élèves entrent dans la classe à huit heures.",sar:"الطلاب بيفوتوا عالصف الساعة تمانية.",sen:"The students enter the classroom at eight o'clock.",img:"la_classe.webp"},
+ {fr:"Le classique",ar:"عمل كلاسيكي / شيء تقليدي",en:"Classic",sfr:"Ce roman est un classique de la littérature française.",sar:"هالرواية من الأعمال الكلاسيكية بالأدب الفرنسي.",sen:"This novel is a classic of French literature.",img:"le_classique.webp"},
+ {fr:"Le client",ar:"زبون / زبونة",en:"Customer",sfr:"Le client demande un renseignement au vendeur.",sar:"الزبون عم يسأل البائع عن معلومة.",sen:"The customer is asking the salesperson for information.",img:"le_client.webp"},
+ {fr:"La clientèle",ar:"الزبائن / قاعدة العملاء",en:"Clientele",sfr:"Ce restaurant a une clientèle fidèle.",sar:"هالمطعم عنده زبائن أوفياء.",sen:"This restaurant has a loyal clientele.",img:"la_clientele.webp"},
+ {fr:"Le climat",ar:"المناخ",en:"Climate",sfr:"Le climat de cette région est plutôt froid.",sar:"مناخ هالمنطقة بارد نوعاً ما.",sen:"The climate in this region is rather cold.",img:"le_climat.webp"},
+ {fr:"La clinique",ar:"عيادة / مستشفى خاص",en:"Clinic",sfr:"Je dois prendre rendez-vous à la clinique.",sar:"لازم آخد موعد بالعيادة.",sen:"I have to make an appointment at the clinic.",img:"la_clinique.webp"},
+ {fr:"Le clou",ar:"مسمار",en:"Nail",sfr:"Il faut un clou pour accrocher ce tableau.",sar:"بدنا مسمار لنعلّق هاللوحة.",sen:"We need a nail to hang this picture.",img:"le_clou.webp"},
+ {fr:"Le club",ar:"نادٍ",en:"Club",sfr:"Mon frère est membre d'un club de sport.",sar:"أخي عضو بنادٍ رياضي.",sen:"My brother is a member of a sports club.",img:"le_club.webp"},
+ {fr:"Le covoiturage",ar:"مشاركة السيارة",en:"Carpooling",sfr:"Nous faisons du covoiturage pour aller au travail.",sar:"منروح عالشغل بسيارة مشتركة مع بعض.",sen:"We carpool to work.",img:"le_covoiturage.webp"},
+ {fr:"Le code",ar:"رمز / قانون / شفرة",en:"Code",sfr:"J'ai oublié le code de mon téléphone.",sar:"نسيت رمز هاتفي.",sen:"I forgot my phone's passcode.",img:"le_code.webp"},
+ {fr:"Le cœur",ar:"القلب",en:"Heart",sfr:"Le cœur est un organe essentiel du corps humain.",sar:"القلب عضو أساسي بجسم الإنسان.",sen:"The heart is an essential organ of the human body.",img:"le_c_ur.webp"},
+ {fr:"Le coffre",ar:"صندوق السيارة الخلفي / خزنة",en:"Trunk / Safe",sfr:"Les valises sont dans le coffre de la voiture.",sar:"الشناتي بصندوق السيارة الخلفي.",sen:"The suitcases are in the car trunk.",img:"le_coffre.webp"},
+ {fr:"La coiffure",ar:"تسريحة الشعر / تصفيف الشعر",en:"Hairstyle / Hairdressing",sfr:"J'aime bien ta nouvelle coiffure.",sar:"عجبتني تسريحة شعرك الجديدة.",sen:"I really like your new hairstyle.",img:"la_coiffure.webp"},
+ {fr:"Le coiffeur",ar:"حلاق / حلاقة",en:"Hairdresser",sfr:"Je vais chez le coiffeur demain matin.",sar:"بكرا الصبح رايح عند الحلاق.",sen:"I'm going to the hairdresser tomorrow morning.",img:"le_coiffeur.webp"},
+ {fr:"La colère",ar:"الغضب",en:"Anger",sfr:"Il a du mal à contrôler sa colère.",sar:"عم يلاقي صعوبة بالسيطرة على غضبه.",sen:"He has difficulty controlling his anger.",img:"la_colere.webp"},
+ ];
+ add.forEach((u,i)=>{u.id=Date.now()+69000+i;st.c['noms'].C.push(u)});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
