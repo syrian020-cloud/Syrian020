@@ -3223,13 +3223,61 @@ function updNomsB7(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].B=st.c['noms'].B||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+49000+i;st.c['noms'].B.push(u)}});
  save();}
+function updNomsB8(){
+ const add=[
+ {fr:"Le bâton de colle",ar:"عصا الغراء",en:"Glue stick",sfr:"J'utilise un bâton de colle pour coller le papier.",sar:"بستخدم عصا غراء للصق الورق.",sen:"I use a glue stick to stick the paper.",img:"le_baton_de_colle.webp"},
+ {fr:"La barquette alimentaire",ar:"علبة طعام",en:"Food container",sfr:"Je mets le repas dans une barquette alimentaire.",sar:"بحط الوجبة بعلبة طعام.",sen:"I put the meal in a food container.",img:"la_barquette_alimentaire.webp"},
+ {fr:"Le balai électrique",ar:"مكنسة كهربائية",en:"Electric broom",sfr:"Le balai électrique est facile à utiliser.",sar:"المكنسة الكهربائية سهلة الاستعمال.",sen:"The electric broom is easy to use.",img:"le_balai_electrique.webp"},
+ {fr:"La banquise",ar:"الغطاء الجليدي البحري",en:"Sea ice",sfr:"La banquise fond pendant l'été.",sar:"الجليد البحري عم يذوب خلال الصيف.",sen:"The sea ice melts during the summer.",img:"la_banquise.webp"},
+ {fr:"Le banquier",ar:"مصرفي / موظف بنك",en:"Banker",sfr:"Le banquier explique les frais du compte.",sar:"موظف البنك بيشرح رسوم الحساب.",sen:"The banker explains the account fees.",img:"le_banquier.webp"},
+ {fr:"La batte",ar:"مضرب",en:"Bat",sfr:"Il frappe la balle avec une batte.",sar:"بيضرب الكرة بالمضرب.",sen:"He hits the ball with a bat.",img:"la_batte.webp"},
+ {fr:"La bêche",ar:"مجرفة الحفر",en:"Spade",sfr:"Il utilise une bêche pour retourner la terre.",sar:"بيستخدم مجرفة ليقلّب التراب.",sen:"He uses a spade to turn over the soil.",img:"la_beche.webp"},
+ {fr:"La bâche de protection",ar:"غطاء واقٍ",en:"Protective tarpaulin",sfr:"Nous couvrons les matériaux avec une bâche de protection.",sar:"منغطّي المواد بغطاء واقي.",sen:"We cover the materials with a protective tarpaulin.",img:"la_bache_de_protection.webp"},
+ {fr:"La balayette à poussière",ar:"فرشاة صغيرة لإزالة الغبار",en:"Dust brush",sfr:"J'utilise une balayette pour enlever la poussière.",sar:"بستخدم فرشاية صغيرة لإزالة الغبار.",sen:"I use a small brush to remove dust.",img:"la_balayette_a_poussiere.webp"},
+ {fr:"La banquette arrière",ar:"المقعد الخلفي للسيارة",en:"Back seat",sfr:"Les enfants sont assis sur la banquette arrière.",sar:"الأطفال قاعدين بالمقعد الخلفي للسيارة.",sen:"The children are sitting in the back seat.",img:"la_banquette_arriere.webp"},
+ {fr:"Le barillet de serrure",ar:"أسطوانة قفل الباب",en:"Lock cylinder",sfr:"Le serrurier remplace le barillet de la serrure.",sar:"صانع المفاتيح عم يبدّل أسطوانة القفل.",sen:"The locksmith is replacing the lock cylinder.",img:"le_barillet_de_serrure.webp"},
+ {fr:"La barrière antibruit",ar:"حاجز عازل للضوضاء",en:"Noise barrier",sfr:"La barrière antibruit réduit le bruit de la circulation.",sar:"الحاجز العازل بيخفّف ضجيج حركة السيارات.",sen:"The noise barrier reduces traffic noise.",img:"la_barriere_antibruit.webp"},
+ {fr:"Le bastingage",ar:"درابزين السفينة",en:"Ship's railing",sfr:"Les passagers regardent la mer depuis le bastingage.",sar:"الركاب عم يتفرّجوا على البحر من عند درابزين السفينة.",sen:"The passengers look at the sea from the ship's railing.",img:"le_bastingage.webp"},
+ {fr:"La batture",ar:"أرض ساحلية مكشوفة عند الجَزر",en:"Tidal flat",sfr:"Les oiseaux cherchent leur nourriture sur la batture.",sar:"الطيور عم تفتّش على أكلها بالأرض الساحلية المكشوفة.",sen:"Birds search for food on the tidal flat.",img:"la_batture.webp"},
+ {fr:"Le bocal à épices",ar:"مرطبان البهارات",en:"Spice jar",sfr:"Elle range le paprika dans un bocal à épices.",sar:"بتحط البابريكا بمرطبان البهارات.",sen:"She puts the paprika in a spice jar.",img:"le_bocal_a_epices.webp"},
+ {fr:"La bretelle d'autoroute",ar:"وصلة الطريق السريع",en:"Motorway slip road",sfr:"Prenez la bretelle d'autoroute à droite.",sar:"خُد وصلة الطريق السريع من اليمين.",sen:"Take the motorway slip road on the right.",img:"la_bretelle_d_autoroute.webp"},
+ {fr:"Le bourdon",ar:"نحلة طنانة كبيرة",en:"Bumblebee",sfr:"Un bourdon se pose sur la fleur.",sar:"نحلة طنانة كبيرة وقفت على الزهرة.",sen:"A bumblebee lands on the flower.",img:"le_bourdon.webp"},
+ {fr:"Le blanchiment",ar:"التبييض / غسل الأموال",en:"Whitening / Money laundering",sfr:"Le blanchiment des dents doit être réalisé avec précaution.",sar:"تبييض الأسنان لازم ينعمل بحذر.",sen:"Teeth whitening must be done carefully.",img:"le_blanchiment.webp"},
+ {fr:"La bretelle de soutien-gorge",ar:"حمّالة حمالة الصدر",en:"Bra strap",sfr:"La bretelle de son soutien-gorge est trop longue.",sar:"حمّالة صدرها طويلة كتير.",sen:"Her bra strap is too long.",img:"la_bretelle_de_soutien_gorge.webp"},
+ {fr:"Le bouchon de liège",ar:"سدادة الفلين",en:"Cork stopper",sfr:"Le bouchon de liège ferme la bouteille.",sar:"سدادة الفلين بتسكّر القنينة.",sen:"The cork stopper closes the bottle.",img:"le_bouchon_de_liege.webp"},
+ {fr:"La boîte à bijoux",ar:"علبة المجوهرات",en:"Jewellery box",sfr:"Elle garde ses bijoux dans une boîte à bijoux.",sar:"بتحفظ مجوهراتها بعلبة مجوهرات.",sen:"She keeps her jewellery in a jewellery box.",img:"la_boite_a_bijoux.webp"},
+ {fr:"Le brin de muguet",ar:"غصين زنبق الوادي",en:"Sprig of lily of the valley",sfr:"En France, on offre du muguet le premier mai.",sar:"بفرنسا بيهدوا زهور زنبق الوادي بالأول من أيار.",sen:"In France, people give lily of the valley on the first of May.",img:"le_brin_de_muguet.webp"},
+ {fr:"Le bourbier",ar:"مستنقع موحل / مأزق صعب",en:"Quagmire / Mess",sfr:"La voiture est coincée dans un bourbier.",sar:"السيارة علقت بمستنقع موحل.",sen:"The car is stuck in a muddy quagmire.",img:"le_bourbier.webp"},
+ {fr:"La bonbonne de gaz",ar:"أسطوانة الغاز",en:"Gas cylinder",sfr:"La bonbonne de gaz doit être stockée dans un endroit ventilé.",sar:"لازم تنحط أسطوانة الغاز بمكان فيه تهوية.",sen:"The gas cylinder must be stored in a ventilated place.",img:"la_bonbonne_de_gaz.webp"},
+ {fr:"Le bracelet-montre",ar:"سوار الساعة",en:"Watch strap",sfr:"Le bracelet-montre est trop serré.",sar:"سوار الساعة ضيّق كتير.",sen:"The watch strap is too tight.",img:"le_bracelet_montre.webp"},
+ {fr:"La brisure",ar:"الكسر / الشظية أو الجزء المكسور",en:"Breakage / Fragment",sfr:"La brisure du verre doit être nettoyée avec précaution.",sar:"لازم ننظّف شظايا الزجاج بحذر.",sen:"The broken glass fragments must be cleaned carefully.",img:"la_brisure.webp"},
+ {fr:"Le béguin",ar:"إعجاب عاطفي بشخص",en:"Crush",sfr:"Il a un béguin pour sa collègue.",sar:"هو معجب بزميلته بالشغل.",sen:"He has a crush on his coworker.",img:"le_beguin.webp"},
+ {fr:"La besace",ar:"حقيبة كتف كبيرة",en:"Shoulder bag / Satchel",sfr:"Il porte ses affaires dans une besace.",sar:"شايل أغراضه بحقيبة كتف.",sen:"He carries his belongings in a satchel.",img:"la_besace.webp"},
+ {fr:"Le bélier",ar:"كبش / برج الحصار",en:"Ram / Battering ram",sfr:"Le bélier a de grandes cornes.",sar:"الكبش عنده قرون كبيرة.",sen:"The ram has large horns.",img:"le_belier.webp"},
+ {fr:"La béquille",ar:"عكّاز / مسند الدراجة",en:"Crutch / Kickstand",sfr:"Il marche avec une béquille après son accident.",sar:"عم يمشي بعكّاز بعد الحادث.",sen:"He walks with a crutch after his accident.",img:"la_bequille.webp"},
+ {fr:"Le boomerang",ar:"بوميرانغ / أداة رمي تعود إلى راميها",en:"Boomerang",sfr:"Le boomerang revient vers celui qui le lance.",sar:"البوميرانغ بيرجع باتجاه الشخص اللي بيرميه.",sen:"The boomerang returns towards the person who throws it.",img:"le_boomerang.webp"},
+ {fr:"La boussole électronique",ar:"البوصلة الإلكترونية",en:"Digital compass",sfr:"La boussole électronique indique la direction.",sar:"البوصلة الإلكترونية بتحدّد الاتجاه.",sen:"The digital compass shows the direction.",img:"la_boussole_electronique.webp"},
+ {fr:"Le bidon",ar:"عبوة / جالون",en:"Canister / Container",sfr:"Le bidon contient cinq litres d'eau.",sar:"العبوة فيها خمس ليترات مي.",sen:"The container holds five litres of water.",img:"le_bidon.webp"},
+ {fr:"La bidonnerie",ar:"مصنع العبوات المعدنية",en:"Can manufacturing plant",sfr:"La bidonnerie fabrique des contenants métalliques.",sar:"المصنع بيصنّع عبوات معدنية.",sen:"The can factory manufactures metal containers.",img:"la_bidonnerie.webp"},
+ {fr:"Le bilboquet",ar:"لعبة الكرة والعصا",en:"Cup-and-ball toy",sfr:"L'enfant joue au bilboquet dans le jardin.",sar:"الطفل عم يلعب بلعبة الكرة والعصا بالحديقة.",sen:"The child is playing with a cup-and-ball toy in the garden.",img:"le_bilboquet.webp"},
+ {fr:"La billetterie",ar:"شباك التذاكر / قسم بيع التذاكر",en:"Ticket office",sfr:"J'achète mon billet à la billetterie.",sar:"بشتري تذكرتي من شباك التذاكر.",sen:"I buy my ticket at the ticket office.",img:"la_billetterie.webp"},
+ {fr:"Le binôme",ar:"زميل العمل الثنائي / شريكان ضمن فريق",en:"Pair / Partner",sfr:"Je travaille en binôme avec un collègue.",sar:"بشتغل مع زميل ضمن فريق من شخصين.",sen:"I work in pairs with a colleague.",img:"le_binome.webp"},
+ {fr:"La bisbille",ar:"خلاف بسيط / مشاحنة",en:"Quarrel / Dispute",sfr:"Une petite bisbille a éclaté entre les voisins.",sar:"صار خلاف صغير بين الجيران.",sen:"A minor quarrel broke out between the neighbours.",img:"la_bisbille.webp"},
+ {fr:"Le bivouac",ar:"مبيت مؤقت في الطبيعة",en:"Bivouac / Outdoor camp",sfr:"Nous avons installé notre bivouac près du lac.",sar:"نصبنا مخيمنا المؤقت جنب البحيرة.",sen:"We set up our bivouac near the lake.",img:"le_bivouac.webp"},
+ {fr:"La blanquette",ar:"يخنة بالصلصة البيضاء",en:"White-sauce stew",sfr:"La blanquette de veau est un plat traditionnel français.",sar:"يخنة لحم العجل بالصلصة البيضاء أكلة فرنسية تقليدية.",sen:"Veal blanquette is a traditional French dish.",img:"la_blanquette.webp"},
+ {fr:"Le bocage",ar:"أراضٍ ريفية مقسّمة بأسيجة الأشجار",en:"Hedged farmland",sfr:"Le bocage est un paysage typique de certaines régions françaises.",sar:"الأراضي الريفية المحاطة بالأسيجة مناظر مميزة ببعض المناطق الفرنسية.",sen:"Bocage is a typical landscape in some French regions.",img:"le_bocage.webp"},
+ {fr:"Le bouillon-cube",ar:"مكعّب مرق",en:"Stock cube",sfr:"Elle ajoute un bouillon-cube dans la soupe.",sar:"بتضيف مكعّب مرق للشوربة.",sen:"She adds a stock cube to the soup.",img:"le_bouillon_cube.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].B=st.c['noms'].B||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+53000+i;st.c['noms'].B.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
