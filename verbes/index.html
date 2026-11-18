@@ -3481,13 +3481,60 @@ function updNomsC3(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].C=st.c['noms'].C||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].C.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+77000+i;st.c['noms'].C.push(u)}});
  save();}
+function updNomsC4(){
+ const add=[
+ {fr:"La chaise",ar:"الكرسي",en:"Chair",sfr:"J'ai acheté une nouvelle chaise.",sar:"اشتريت كرسي جديد.",sen:"I bought a new chair.",img:"la_chaise.webp"},
+ {fr:"Le cahier",ar:"الدفتر",en:"Notebook",sfr:"J'écris mes leçons dans mon cahier.",sar:"بكتب دروسي بدفتري.",sen:"I write my lessons in my notebook.",img:"le_cahier.webp"},
+ {fr:"La caisse",ar:"صندوق / صندوق الدفع",en:"Cash register / Box",sfr:"Je paie mes achats à la caisse.",sar:"بدفع مشترياتي عند صندوق المحاسبة.",sen:"I pay for my purchases at the checkout.",img:"la_caisse.webp"},
+ {fr:"Le colis",ar:"الطرد البريدي",en:"Parcel",sfr:"J'attends un colis aujourd'hui.",sar:"ناطر طرد اليوم.",sen:"I'm waiting for a parcel today.",img:"le_colis.webp"},
+ {fr:"Le chariot",ar:"عربة نقل البضائع",en:"Trolley / Cart",sfr:"Je transporte les cartons avec un chariot.",sar:"بنقل الكراتين بعربة نقل.",sen:"I transport the boxes with a trolley.",img:"le_chariot.webp"},
+ {fr:"Le camion",ar:"الشاحنة",en:"Truck",sfr:"Le camion livre les marchandises.",sar:"الشاحنة بتوصل البضائع.",sen:"The truck delivers the goods.",img:"le_camion.webp"},
+ {fr:"Le carburant",ar:"الوقود",en:"Fuel",sfr:"Le prix du carburant a augmenté.",sar:"سعر الوقود ارتفع.",sen:"The price of fuel has increased.",img:"le_carburant.webp"},
+ {fr:"Le cadenas",ar:"القفل",en:"Padlock",sfr:"J'ai fermé la porte avec un cadenas.",sar:"سكّرت الباب بقفل.",sen:"I locked the door with a padlock.",img:"le_cadenas.webp"},
+ {fr:"Le canapé",ar:"الأريكة",en:"Sofa",sfr:"Je me repose sur le canapé.",sar:"بسترخي على الكنباية.",sen:"I relax on the sofa.",img:"le_canape.webp"},
+ {fr:"Le casque",ar:"الخوذة / سماعات الرأس",en:"Helmet / Headphones",sfr:"Je porte un casque au travail.",sar:"بلبس خوذة بالشغل.",sen:"I wear a helmet at work.",img:"le_casque.webp"},
+ {fr:"La cantine",ar:"مطعم العمل / المقصف",en:"Canteen",sfr:"Je déjeune à la cantine.",sar:"بتغدّى بمطعم العمل.",sen:"I have lunch in the canteen.",img:"la_cantine.webp"},
+ {fr:"Le couloir",ar:"الممر",en:"Corridor",sfr:"Il y a une porte au bout du couloir.",sar:"في باب بآخر الممر.",sen:"There is a door at the end of the corridor.",img:"le_couloir.webp"},
+ {fr:"Le conducteur / La conductrice",ar:"السائق / السائقة",en:"Driver",sfr:"Le conducteur respecte le code de la route.",sar:"السائق بيلتزم بقواعد السير.",sen:"The driver follows the rules of the road.",img:"le_conducteur_la_conductrice.webp"},
+ {fr:"Le courant",ar:"التيار الكهربائي",en:"Electric current",sfr:"Il n'y a plus de courant dans la maison.",sar:"ما عاد في كهربا بالبيت.",sen:"There is no electricity in the house anymore.",img:"le_courant.webp"},
+ {fr:"La clé",ar:"المفتاح",en:"Key",sfr:"J'ai oublié ma clé à la maison.",sar:"نسيت مفتاحي بالبيت.",sen:"I forgot my key at home.",img:"la_cle.webp"},
+ {fr:"Le chapeau",ar:"القبعة",en:"Hat",sfr:"Il porte un chapeau noir.",sar:"هو لابس قبعة سودا.",sen:"He is wearing a black hat.",img:"le_chapeau.webp"},
+ {fr:"La chaussette",ar:"الجورب",en:"Sock",sfr:"J'ai perdu une chaussette.",sar:"ضيّعت جراب.",sen:"I lost a sock.",img:"la_chaussette.webp"},
+ {fr:"Le chantier",ar:"ورشة البناء",en:"Construction site",sfr:"Les ouvriers travaillent sur le chantier.",sar:"العمّال عم يشتغلوا بورشة البناء.",sen:"The workers are working on the construction site.",img:"le_chantier.webp"},
+ {fr:"La cabine",ar:"المقصورة / غرفة القياس",en:"Cabin / Fitting room",sfr:"Je vais essayer cette veste dans la cabine.",sar:"رح جرّب هالجاكيت بغرفة القياس.",sen:"I'm going to try this jacket in the fitting room.",img:"la_cabine.webp"},
+ {fr:"Le cadeau",ar:"الهدية",en:"Gift",sfr:"J'ai acheté un cadeau pour mon ami.",sar:"اشتريت هدية لصاحبي.",sen:"I bought a gift for my friend.",img:"le_cadeau.webp"},
+ {fr:"Le chômage",ar:"البطالة",en:"Unemployment",sfr:"Il cherche un emploi depuis qu'il est au chômage.",sar:"عم يدوّر على شغل من وقت ما صار عاطل عن العمل.",sen:"He has been looking for a job since he became unemployed.",img:"le_chomage.webp"},
+ {fr:"Le choix",ar:"الاختيار",en:"Choice",sfr:"Tu as le choix entre plusieurs possibilités.",sar:"عندك خيارات بين عدة احتمالات.",sen:"You have a choice between several possibilities.",img:"le_choix.webp"},
+ {fr:"Le chiffre",ar:"الرقم",en:"Number / Figure",sfr:"Écris le chiffre sur le papier.",sar:"اكتب الرقم على الورقة.",sen:"Write the number on the paper.",img:"le_chiffre.webp"},
+ {fr:"La circulation",ar:"حركة المرور",en:"Traffic",sfr:"La circulation est difficile ce matin.",sar:"حركة المرور صعبة هالصبح.",sen:"Traffic is heavy this morning.",img:"la_circulation.webp"},
+ {fr:"Le chauffage",ar:"التدفئة",en:"Heating",sfr:"Le chauffage ne fonctionne plus.",sar:"التدفئة ما عادت تشتغل.",sen:"The heating is no longer working.",img:"le_chauffage.webp"},
+ {fr:"La chaussure",ar:"الحذاء",en:"Shoe",sfr:"Cette chaussure est trop petite.",sar:"هالحذاء صغير كتير.",sen:"This shoe is too small.",img:"la_chaussure.webp"},
+ {fr:"Le chat",ar:"القط",en:"Cat",sfr:"Le chat dort sur le canapé.",sar:"البس نايم على الكنباية.",sen:"The cat is sleeping on the sofa.",img:"le_chat.webp"},
+ {fr:"Le chien",ar:"الكلب",en:"Dog",sfr:"Le chien attend devant la porte.",sar:"الكلب ناطر قدّام الباب.",sen:"The dog is waiting in front of the door.",img:"le_chien.webp"},
+ {fr:"La chaleur",ar:"الحرارة",en:"Heat",sfr:"Je ne supporte pas la chaleur.",sar:"ما بتحمّل الحر.",sen:"I can't stand the heat.",img:"la_chaleur.webp"},
+ {fr:"La chambre",ar:"الغرفة",en:"Bedroom / Room",sfr:"Ma chambre est au premier étage.",sar:"غرفتي بالطابق الأول.",sen:"My bedroom is on the first floor.",img:"la_chambre.webp"},
+ {fr:"Le changement",ar:"التغيير",en:"Change",sfr:"Ce changement est important pour moi.",sar:"هالتغيير مهم بالنسبة إلي.",sen:"This change is important to me.",img:"le_changement.webp"},
+ {fr:"La chance",ar:"الحظ / الفرصة",en:"Luck / Chance",sfr:"Tu as de la chance !",sar:"إنت محظوظ!",sen:"You're lucky!",img:"la_chance.webp"},
+ {fr:"Le chemin",ar:"الطريق / المسار",en:"Path / Way",sfr:"Je connais bien le chemin.",sar:"بعرف الطريق منيح.",sen:"I know the way well.",img:"le_chemin.webp"},
+ {fr:"La chose",ar:"الشيء",en:"Thing",sfr:"Il y a une chose que je voudrais te dire.",sar:"في شغلة بدي قلك ياها.",sen:"There is one thing I would like to tell you.",img:"la_chose.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].C=st.c['noms'].C||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].C.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+81000+i;st.c['noms'].C.push(u)}});
+ save();}
+
+function fixNomsC(){
+ if(!st.c||!st.c['noms'])return;const s=st.c['noms'];
+ const D={'le candidat':'Le candidat / La candidate','le client':'Le client / La cliente','le collaborateur':'Le collaborateur / La collaboratrice','le collegue':'Le collègue / La collègue','le consultant':'Le consultant / La consultante','le contemporain':'Le contemporain / La contemporaine','le curieux':'Le curieux / La curieuse','le createur':'Le créateur / La créatrice','le croyant':'Le croyant / La croyante','la coulisse':'Les coulisses'};
+ Object.keys(s).forEach(L=>{s[L].forEach(u=>{u.fr=u.fr.replace(/\s*\((m|f|m\. pl\.|f\. pl\.)\)\s*/g,'');const f=D[normFr(u.fr)];if(f)u.fr=f})});
+ if(s.C){const i=s.C.findIndex(u=>normFr(u.fr)==='le plafond');if(i>-1){s.P=s.P||[];if(!s.P.some(u=>normFr(u.fr)==='le plafond'))s.P.push(s.C[i]);s.C.splice(i,1)}}
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
