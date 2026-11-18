@@ -2806,13 +2806,66 @@ function updNomsA4(){
  save();}
 
 function fixImgs(){let ch=false;const fix=a=>{if(Array.isArray(a))a.forEach(u=>{if(u&&u.img&&u.img.endsWith('.jpg')){u.img=u.img.slice(0,-4)+'.webp';ch=true}})};Object.keys(st.v||{}).forEach(L=>fix(st.v[L]));Object.keys(st.c||{}).forEach(c=>Object.keys(st.c[c]||{}).forEach(L=>fix(st.c[c][L])));if(ch)save()}
+function updNomsA5(){
+ const add=[
+ {fr:"L'audace",ar:"الجرأة / الإقدام",en:"Boldness / Audacity",sfr:"Il faut de l'audace pour changer de vie.",sar:"بدها جرأة حتى تغيّر حياتك.",sen:"It takes boldness to change your life.",img:"l_audace.webp"},
+ {fr:"L'auditeur",ar:"المدقّق / المستمع",en:"Auditor / Listener",sfr:"L'auditeur vérifie les comptes de l'entreprise.",sar:"المدقّق بيراجع حسابات الشركة.",sen:"The auditor checks the company's accounts.",img:"l_auditeur.webp"},
+ {fr:"L'auditoire",ar:"الجمهور / قاعة المحاضرات",en:"Audience / Lecture hall",sfr:"L'auditoire écoute attentivement le professeur.",sar:"الجمهور عم يسمع للأستاذ بانتباه.",sen:"The audience is listening carefully to the professor.",img:"l_auditoire.webp"},
+ {fr:"L'aumône",ar:"الصدقة",en:"Alms / Charity",sfr:"Il donne une aumône à une personne dans le besoin.",sar:"بيعطي صدقة لشخص محتاج.",sen:"He gives alms to someone in need.",img:"l_aumone.webp"},
+ {fr:"L'aurore",ar:"الفجر / الشفق الصباحي",en:"Dawn",sfr:"Nous sommes partis à l'aurore.",sar:"انطلقنا مع الفجر.",sen:"We left at dawn.",img:"l_aurore.webp"},
+ {fr:"L'auspice",ar:"البادرة / العلامة الدالة على أمر قادم",en:"Sign / Omen",sfr:"Ce résultat est de bon augure pour la suite.",sar:"هالنتيجة بشارة منيحة للمرحلة الجاية.",sen:"This result is a good sign for what comes next.",img:"l_auspice.webp"},
+ {fr:"L'autel",ar:"المذبح",en:"Altar",sfr:"L'autel se trouve au fond de l'église.",sar:"المذبح موجود بآخر الكنيسة.",sen:"The altar is at the back of the church.",img:"l_autel.webp"},
+ {fr:"L'automne",ar:"فصل الخريف",en:"Autumn / Fall",sfr:"Les feuilles tombent en automne.",sar:"أوراق الشجر بتتساقط بالخريف.",sen:"Leaves fall in autumn.",img:"l_automne.webp"},
+ {fr:"L'avenue",ar:"الجادة / الشارع العريض",en:"Avenue",sfr:"J'habite dans une avenue calme.",sar:"ساكن بشارع عريض وهادئ.",sen:"I live on a quiet avenue.",img:"l_avenue.webp"},
+ {fr:"L'aveu",ar:"الاعتراف / الإقرار",en:"Confession / Admission",sfr:"Son aveu a surpris tout le monde.",sar:"اعترافه فاجأ الكل.",sen:"His confession surprised everyone.",img:"l_aveu.webp"},
+ {fr:"L'aviation",ar:"الطيران",en:"Aviation",sfr:"L'aviation a beaucoup évolué au cours des dernières décennies.",sar:"الطيران تطوّر كتير خلال العقود الماضية.",sen:"Aviation has evolved greatly over the past decades.",img:"l_aviation.webp"},
+ {fr:"L'aviateur",ar:"الطيّار / الطيّارة",en:"Aviator",sfr:"L'aviateur prépare son prochain vol.",sar:"الطيّار عم يحضّر لرحلته الجوية القادمة.",sen:"The aviator is preparing for his next flight.",img:"l_aviateur.webp"},
+ {fr:"L'avion",ar:"الطائرة",en:"Airplane",sfr:"Mon avion décolle à huit heures.",sar:"طيارتي بتقلع الساعة تمانية.",sen:"My plane takes off at eight o'clock.",img:"l_avion.webp"},
+ {fr:"L'avion-cargo",ar:"طائرة الشحن",en:"Cargo plane",sfr:"L'avion-cargo transporte des marchandises.",sar:"طائرة الشحن بتنقل البضائع.",sen:"The cargo plane transports goods.",img:"l_avion_cargo.webp"},
+ {fr:"L'aviron",ar:"التجديف / مجداف",en:"Rowing / Oar",sfr:"Il pratique l'aviron depuis son enfance.",sar:"هو بيمارس رياضة التجديف من طفولته.",sen:"He has practised rowing since childhood.",img:"l_aviron.webp"},
+ {fr:"L'avocatier",ar:"شجرة الأفوكادو",en:"Avocado tree",sfr:"L'avocatier pousse dans les régions chaudes.",sar:"شجرة الأفوكادو بتنمو بالمناطق الدافئة.",sen:"The avocado tree grows in warm regions.",img:"l_avocatier.webp"},
+ {fr:"L'avalanche",ar:"الانهيار الثلجي",en:"Avalanche",sfr:"Une avalanche a bloqué la route de montagne.",sar:"انهيار ثلجي سكّر طريق الجبل.",sen:"An avalanche blocked the mountain road.",img:"l_avalanche.webp"},
+ {fr:"L'avant",ar:"المقدّمة / الجزء الأمامي",en:"Front / Forepart",sfr:"L'avant de la voiture est endommagé.",sar:"مقدّمة السيارة متضررة.",sen:"The front of the car is damaged.",img:"l_avant.webp"},
+ {fr:"L'avant-bras",ar:"الساعد",en:"Forearm",sfr:"Il a mal à l'avant-bras droit.",sar:"عنده وجع بساعده اليمين.",sen:"His right forearm hurts.",img:"l_avant_bras.webp"},
+ {fr:"L'avant-première",ar:"العرض الأول / العرض الافتتاحي",en:"Premiere / Preview screening",sfr:"Nous assistons à l'avant-première du film.",sar:"عم نحضر العرض الأول للفيلم.",sen:"We are attending the film premiere.",img:"l_avant_premiere.webp"},
+ {fr:"L'avant-projet",ar:"المشروع الأولي / المسودة الأولية للمشروع",en:"Preliminary project",sfr:"L'architecte présente l'avant-projet au client.",sar:"المهندس المعماري عم يقدّم المشروع الأولي للزبون.",sen:"The architect presents the preliminary project to the client.",img:"l_avant_projet.webp"},
+ {fr:"L'avant-veille",ar:"اليوم الذي يسبق أول أمس",en:"Day before yesterday",sfr:"Je suis arrivé l'avant-veille de la réunion.",sar:"وصلت قبل الاجتماع بيومين.",sen:"I arrived two days before the meeting.",img:"l_avant_veille.webp"},
+ {fr:"L'aversion",ar:"النفور / الكراهية الشديدة",en:"Aversion",sfr:"Il a une aversion pour les mensonges.",sar:"عنده نفور من الكذب.",sen:"He has an aversion to lies.",img:"l_aversion.webp"},
+ {fr:"L'avantageux",ar:"الأمر المفيد / الميزة المربحة",en:"Advantageous option",sfr:"Nous avons choisi l'offre la plus avantageuse.",sar:"اخترنا العرض الأكثر فائدة.",sen:"We chose the most advantageous offer.",img:"l_avantageux.webp"},
+ {fr:"L'averse de neige",ar:"زخّة ثلج",en:"Snow shower",sfr:"Une averse de neige est prévue ce soir.",sar:"متوقّع زخّة ثلج هالمسا.",sen:"A snow shower is expected this evening.",img:"l_averse_de_neige.webp"},
+ {fr:"L'avocat général",ar:"المدّعي العام لدى محكمة الاستئناف",en:"Advocate General / Prosecutor General",sfr:"L'avocat général présente ses conclusions devant la cour.",sar:"المدّعي العام بيقدّم ملاحظاته أمام المحكمة.",sen:"The Advocate General presents his conclusions before the court.",img:"l_avocat_general.webp"},
+ {fr:"L'avortement médicamenteux",ar:"الإجهاض الدوائي",en:"Medication abortion",sfr:"Le médecin explique les différentes méthodes d'avortement.",sar:"الطبيب بيشرح الطرق المختلفة للإجهاض.",sen:"The doctor explains the different methods of abortion.",img:"l_avortement_medicamenteux.webp"},
+ {fr:"L'azur",ar:"زرقة السماء / اللون الأزرق السماوي",en:"Azure",sfr:"L'azur du ciel est magnifique aujourd'hui.",sar:"زرقة السما اليوم رائعة.",sen:"The azure blue of the sky is beautiful today.",img:"l_azur.webp"},
+ {fr:"L'avancée",ar:"التقدّم / التطوّر",en:"Progress / Advancement",sfr:"L'avancée des travaux est satisfaisante.",sar:"التقدّم بالأعمال مُرضي.",sen:"The progress of the work is satisfactory.",img:"l_avancee.webp"},
+ {fr:"L'avenant",ar:"ملحق تعديلي للعقد",en:"Contract amendment / Addendum",sfr:"J'ai reçu un avenant à mon contrat de travail.",sar:"وصلني ملحق تعديلي لعقد عملي.",sen:"I received an amendment to my employment contract.",img:"l_avenant.webp"},
+ {fr:"L'avoine",ar:"الشوفان",en:"Oats",sfr:"Je mange des flocons d'avoine au petit-déjeuner.",sar:"باكل رقائق الشوفان على الفطور.",sen:"I eat oatmeal for breakfast.",img:"l_avoine.webp"},
+ {fr:"L'avarice",ar:"البخل / الطمع بالمال",en:"Greed / Stinginess",sfr:"L'avarice peut détruire les relations humaines.",sar:"البخل ممكن يدمّر العلاقات بين الناس.",sen:"Greed can destroy human relationships.",img:"l_avarice.webp"},
+ {fr:"L'avènement",ar:"ظهور / بزوغ / مجيء عهد جديد",en:"Advent / Emergence",sfr:"L'avènement d'Internet a changé notre quotidien.",sar:"ظهور الإنترنت غيّر حياتنا اليومية.",sen:"The advent of the Internet changed our daily lives.",img:"l_avenement.webp"},
+ {fr:"L'aval",ar:"الموافقة / التأييد",en:"Approval / Endorsement",sfr:"Le projet a reçu l'aval de la direction.",sar:"المشروع حصل على موافقة الإدارة.",sen:"The project received management's approval.",img:"l_aval.webp"},
+ {fr:"L'alvéole",ar:"تجويف صغير / سنخ",en:"Small cavity / Alveolus",sfr:"Les alvéoles pulmonaires permettent les échanges gazeux.",sar:"الحويصلات الهوائية بالرئتين بتسمح بتبادل الغازات.",sen:"The pulmonary alveoli allow gas exchange.",img:"l_alveole.webp"},
+ {fr:"L'apanage",ar:"ميزة حصرية / أمر يختصّ بفئة معينة",en:"Privilege / Preserve",sfr:"La réussite n'est pas l'apanage des personnes riches.",sar:"النجاح مو حكر على الأغنياء.",sen:"Success is not the preserve of rich people.",img:"l_apanage.webp"},
+ {fr:"L'aparté",ar:"حديث جانبي / كلام على انفراد",en:"Aside / Private conversation",sfr:"Ils ont échangé quelques mots en aparté.",sar:"تبادلوا كم كلمة على انفراد.",sen:"They exchanged a few words privately.",img:"l_aparte.webp"},
+ {fr:"L'aplomb",ar:"الثقة بالنفس والجرأة في التصرف",en:"Self-assurance / Poise",sfr:"Elle répond aux questions avec beaucoup d'aplomb.",sar:"بتجاوب على الأسئلة بثقة كبيرة.",sen:"She answers questions with great confidence.",img:"l_aplomb.webp"},
+ {fr:"L'aplatissement",ar:"التسطيح / الانضغاط",en:"Flattening",sfr:"L'aplatissement de la boîte facilite son rangement.",sar:"تسطيح الصندوق بيسهّل تخزينه.",sen:"Flattening the box makes it easier to store.",img:"l_aplatissement.webp"},
+ {fr:"L'appréhension",ar:"التخوّف / القلق من أمر قادم",en:"Apprehension",sfr:"J'éprouve une certaine appréhension avant l'entretien.",sar:"عندي شوية تخوّف قبل المقابلة.",sen:"I feel some apprehension before the interview.",img:"l_apprehension.webp"},
+ {fr:"L'arrière-cour",ar:"الفناء الخلفي / الساحة الخلفية",en:"Backyard",sfr:"Les enfants jouent dans l'arrière-cour.",sar:"الأولاد عم يلعبوا بالساحة الخلفية.",sen:"The children are playing in the backyard.",img:"l_arriere_cour.webp"},
+ {fr:"L'arrière-goût",ar:"الطعم المتبقّي بعد الأكل",en:"Aftertaste",sfr:"Ce café laisse un arrière-goût amer.",sar:"هالقهوة بتترك طعمة مُرّة بالفم.",sen:"This coffee leaves a bitter aftertaste.",img:"l_arriere_gout.webp"},
+ {fr:"L'arrière-saison",ar:"أواخر الموسم / الفترة المعتدلة بعد الصيف",en:"Late season",sfr:"Nous aimons voyager pendant l'arrière-saison.",sar:"منحب نسافر بفترة آخر الموسم.",sen:"We like travelling during the late season.",img:"l_arriere_saison.webp"},
+ {fr:"L'arsenic",ar:"الزرنيخ",en:"Arsenic",sfr:"L'arsenic est une substance toxique.",sar:"الزرنيخ مادة سامة.",sen:"Arsenic is a toxic substance.",img:"l_arsenic.webp"},
+ {fr:"L'artère",ar:"الشريان",en:"Artery",sfr:"Cette artère transporte le sang vers le cœur.",sar:"هالشريان بينقل الدم باتجاه القلب.",sen:"This artery carries blood towards the heart.",img:"l_artere.webp"},
+ {fr:"L'artisanat",ar:"الحِرف اليدوية / الصناعة التقليدية",en:"Handicrafts",sfr:"L'artisanat local attire beaucoup de touristes.",sar:"الحرف اليدوية المحلية بتجذب كتير سياح.",sen:"Local handicrafts attract many tourists.",img:"l_artisanat.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].A=st.c['noms'].A||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].A.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+17000+i;st.c['noms'].A.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
