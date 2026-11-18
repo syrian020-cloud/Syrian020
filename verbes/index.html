@@ -3671,13 +3671,77 @@ function updNomsJ(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].J=st.c['noms'].J||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].J.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+105000+i;st.c['noms'].J.push(u)}});
  save();}
+function updNomsE(){
+ const add=[
+ {fr:"L'eau",ar:"الماء",en:"Water",sfr:"Je bois de l'eau tous les jours.",sar:"بشرب مي كل يوم.",sen:"I drink water every day.",img:"l_eau.webp"},
+ {fr:"L'école",ar:"المدرسة",en:"School",sfr:"Les enfants vont à l'école.",sar:"الأطفال بيروحوا عالمدرسة.",sen:"Children go to school.",img:"l_ecole.webp"},
+ {fr:"L'économie",ar:"الاقتصاد",en:"Economy",sfr:"L'économie du pays est en difficulté.",sar:"اقتصاد البلد عم يواجه صعوبات.",sen:"The country's economy is struggling.",img:"l_economie.webp"},
+ {fr:"L'écran",ar:"الشاشة",en:"Screen",sfr:"Mon écran est trop lumineux.",sar:"شاشة جهازي ضوها قوي كتير.",sen:"My screen is too bright.",img:"l_ecran.webp"},
+ {fr:"L'écriture",ar:"الكتابة",en:"Writing",sfr:"L'écriture demande de la pratique.",sar:"الكتابة بدها تدريب.",sen:"Writing requires practice.",img:"l_ecriture.webp"},
+ {fr:"L'éducation",ar:"التعليم والتربية",en:"Education",sfr:"L'éducation est importante pour les enfants.",sar:"التعليم مهم للأطفال.",sen:"Education is important for children.",img:"l_education.webp"},
+ {fr:"L'effet",ar:"التأثير",en:"Effect",sfr:"Ce médicament a un effet rapide.",sar:"هالدواء مفعوله سريع.",sen:"This medicine has a rapid effect.",img:"l_effet.webp"},
+ {fr:"L'effort",ar:"الجهد",en:"Effort",sfr:"Il faut faire un effort pour réussir.",sar:"لازم نبذل جهد لننجح.",sen:"You have to make an effort to succeed.",img:"l_effort.webp"},
+ {fr:"L'électricité",ar:"الكهرباء",en:"Electricity",sfr:"Il n'y a plus d'électricité.",sar:"ما عاد في كهربا.",sen:"There is no electricity anymore.",img:"l_electricite.webp"},
+ {fr:"L'emploi",ar:"العمل / الوظيفة",en:"Employment / Job",sfr:"Je cherche un emploi stable.",sar:"عم دور على شغل مستقر.",sen:"I'm looking for a stable job.",img:"l_emploi.webp"},
+ {fr:"L'échange",ar:"التبادل",en:"Exchange",sfr:"Nous avons eu un échange intéressant.",sar:"صار بيناتنا نقاش وتبادل آراء ممتع.",sen:"We had an interesting exchange.",img:"l_echange.webp"},
+ {fr:"L'échantillon",ar:"العيّنة",en:"Sample",sfr:"Le laboratoire analyse cet échantillon.",sar:"المختبر عم يحلّل هالعينة.",sen:"The laboratory is analyzing this sample.",img:"l_echantillon.webp"},
+ {fr:"L'échec",ar:"الفشل",en:"Failure",sfr:"L'échec fait partie de l'apprentissage.",sar:"الفشل جزء من التعلّم.",sen:"Failure is part of learning.",img:"l_echec.webp"},
+ {fr:"L'échelle",ar:"السُّلّم / المقياس",en:"Ladder / Scale",sfr:"Il utilise une échelle pour atteindre le toit.",sar:"عم يستخدم سلّم ليوصل للسقف.",sen:"He is using a ladder to reach the roof.",img:"l_echelle.webp"},
+ {fr:"L'éclairage",ar:"الإضاءة",en:"Lighting",sfr:"L'éclairage de cette pièce est agréable.",sar:"إضاءة هالغرفة مريحة.",sen:"The lighting in this room is pleasant.",img:"l_eclairage.webp"},
+ {fr:"L'école / L'élève",ar:"المدرسة / التلميذ",en:"School / Pupil",sfr:"L'élève écoute attentivement le professeur.",sar:"التلميذ عم يسمع للأستاذ بانتباه.",sen:"The pupil is listening carefully to the teacher.",img:"l_ecole_l_eleve.webp"},
+ {fr:"L'écologie",ar:"علم البيئة",en:"Ecology",sfr:"L'écologie est importante pour notre avenir.",sar:"حماية البيئة مهمة لمستقبلنا.",sen:"Ecology is important for our future.",img:"l_ecologie.webp"},
+ {fr:"L'efficacité",ar:"الفعالية / الكفاءة",en:"Effectiveness / Efficiency",sfr:"Cette méthode améliore l'efficacité du travail.",sar:"هالطريقة بتحسّن كفاءة الشغل.",sen:"This method improves work efficiency.",img:"l_efficacite.webp"},
+ {fr:"L'égalité",ar:"المساواة",en:"Equality",sfr:"Tous les citoyens doivent avoir les mêmes droits et l'égalité des chances.",sar:"لازم كل المواطنين يكون عندهم نفس الحقوق وتكافؤ الفرص.",sen:"All citizens should have the same rights and equal opportunities.",img:"l_egalite.webp"},
+ {fr:"L'égard",ar:"الاعتبار / الاحترام",en:"Regard / Respect",sfr:"Il faut avoir du respect à l'égard des autres.",sar:"لازم نحترم الآخرين.",sen:"We must show respect towards others.",img:"l_egard.webp"},
+ {fr:"L'élaboration",ar:"الإعداد / الصياغة",en:"Development / Preparation",sfr:"L'élaboration du projet prend du temps.",sar:"إعداد المشروع بياخد وقت.",sen:"Developing the project takes time.",img:"l_elaboration.webp"},
+ {fr:"L'élection",ar:"الانتخابات",en:"Election",sfr:"Les élections auront lieu dimanche.",sar:"الانتخابات رح تصير يوم الأحد.",sen:"The elections will take place on Sunday.",img:"l_election.webp"},
+ {fr:"L'élément",ar:"العنصر",en:"Element",sfr:"Chaque élément a une fonction précise.",sar:"كل عنصر إله وظيفة محددة.",sen:"Each element has a specific function.",img:"l_element.webp"},
+ {fr:"L'emballage",ar:"التغليف / العبوة",en:"Packaging",sfr:"Je travaille dans le secteur de l'emballage.",sar:"بشتغل بمجال التغليف.",sen:"I work in the packaging sector.",img:"l_emballage.webp"},
+ {fr:"L'embauche",ar:"التوظيف",en:"Hiring",sfr:"L'entreprise prévoit une nouvelle embauche.",sar:"الشركة مخططة لتوظيف شخص جديد.",sen:"The company is planning a new hire.",img:"l_embauche.webp"},
+ {fr:"L'embouteillage",ar:"ازدحام مروري",en:"Traffic Jam",sfr:"Il y a un embouteillage sur la route.",sar:"في ازدحام مروري عالطريق.",sen:"There is a traffic jam on the road.",img:"l_embouteillage.webp"},
+ {fr:"L'émission",ar:"البرنامج التلفزيوني / الإذاعي",en:"TV / Radio Show",sfr:"Je regarde une émission intéressante.",sar:"عم أحضر برنامج ممتع.",sen:"I'm watching an interesting TV show.",img:"l_emission.webp"},
+ {fr:"L'émotion",ar:"العاطفة / الشعور",en:"Emotion",sfr:"Elle ne peut pas cacher son émotion.",sar:"ما فيها تخبّي مشاعرها.",sen:"She cannot hide her emotion.",img:"l_emotion.webp"},
+ {fr:"L'employé",ar:"الموظف",en:"Employee",sfr:"L'employé commence son travail à huit heures.",sar:"الموظف بيبلّش شغله الساعة تمانية.",sen:"The employee starts work at eight o'clock.",img:"l_employe.webp"},
+ {fr:"L'employeur",ar:"صاحب العمل",en:"Employer",sfr:"L'employeur doit respecter les droits des salariés.",sar:"لازم صاحب العمل يحترم حقوق الموظفين.",sen:"The employer must respect employees' rights.",img:"l_employeur.webp"},
+ {fr:"L'emprunt",ar:"القرض / الاستعارة",en:"Loan / Borrowing",sfr:"Il a demandé un emprunt à la banque.",sar:"طلب قرض من البنك.",sen:"He applied for a loan from the bank.",img:"l_emprunt.webp"},
+ {fr:"L'encadrement",ar:"الإشراف / التأطير",en:"Supervision",sfr:"L'encadrement des nouveaux employés est important.",sar:"الإشراف على الموظفين الجدد مهم.",sen:"Supervising new employees is important.",img:"l_encadrement.webp"},
+ {fr:"L'encouragement",ar:"التشجيع",en:"Encouragement",sfr:"Merci pour vos encouragements.",sar:"شكراً على تشجيعكم.",sen:"Thank you for your encouragement.",img:"l_encouragement.webp"},
+ {fr:"L'énergie",ar:"الطاقة",en:"Energy",sfr:"Je n'ai pas assez d'énergie aujourd'hui.",sar:"ما عندي طاقة كافية اليوم.",sen:"I don't have enough energy today.",img:"l_energie.webp"},
+ {fr:"L'enfant",ar:"الطفل",en:"Child",sfr:"Cet enfant joue dans le jardin.",sar:"هالطفل عم يلعب بالحديقة.",sen:"This child is playing in the garden.",img:"l_enfant.webp"},
+ {fr:"L'enfance",ar:"الطفولة",en:"Childhood",sfr:"J'ai passé mon enfance en Syrie.",sar:"قضيت طفولتي بسوريا.",sen:"I spent my childhood in Syria.",img:"l_enfance.webp"},
+ {fr:"L'engagement",ar:"الالتزام / التعهّد",en:"Commitment",sfr:"Le travail demande de l'engagement.",sar:"الشغل بدّه التزام.",sen:"Work requires commitment.",img:"l_engagement.webp"},
+ {fr:"L'enjeu",ar:"الرهان / القضية الأساسية",en:"Stakes",sfr:"L'enjeu de cette décision est important.",sar:"أهمية هالقرار كبيرة.",sen:"The stakes of this decision are high.",img:"l_enjeu.webp"},
+ {fr:"L'ennui",ar:"الملل / المشكلة",en:"Boredom / Trouble",sfr:"Je m'ennuie quand je reste seul à la maison.",sar:"بملّ لما ضل لحالي بالبيت.",sen:"I get bored when I stay home alone.",img:"l_ennui.webp"},
+ {fr:"L'enquête",ar:"التحقيق / الاستطلاع",en:"Investigation / Survey",sfr:"La police mène une enquête.",sar:"الشرطة عم تجري تحقيق.",sen:"The police are conducting an investigation.",img:"l_enquete.webp"},
+ {fr:"L'enregistrement",ar:"التسجيل",en:"Recording / Registration",sfr:"L'enregistrement de la réunion est disponible.",sar:"تسجيل الاجتماع متوفر.",sen:"The meeting recording is available.",img:"l_enregistrement.webp"},
+ {fr:"L'enseignement",ar:"التعليم",en:"Teaching / Education",sfr:"L'enseignement du français demande de la patience.",sar:"تعليم اللغة الفرنسية بدّه صبر.",sen:"Teaching French requires patience.",img:"l_enseignement.webp"},
+ {fr:"L'enseignant",ar:"المعلّم / المدرّس",en:"Teacher",sfr:"L'enseignant explique la leçon clairement.",sar:"المدرّس عم يشرح الدرس بوضوح.",sen:"The teacher explains the lesson clearly.",img:"l_enseignant.webp"},
+ {fr:"L'ensemble",ar:"المجموعة / الكل",en:"Set / Whole",sfr:"L'ensemble des documents est prêt.",sar:"كل المستندات جاهزة.",sen:"All the documents are ready.",img:"l_ensemble.webp"},
+ {fr:"L'entraînement",ar:"التدريب",en:"Training",sfr:"L'entraînement commence à neuf heures.",sar:"التدريب بيبلّش الساعة تسعة.",sen:"Training starts at nine o'clock.",img:"l_entrainement.webp"},
+ {fr:"L'entrée",ar:"المدخل / الدخول",en:"Entrance / Entry",sfr:"L'entrée du bâtiment est à gauche.",sar:"مدخل المبنى على اليسار.",sen:"The entrance to the building is on the left.",img:"l_entree.webp"},
+ {fr:"L'entreprise",ar:"الشركة / المؤسسة",en:"Company",sfr:"Cette entreprise cherche de nouveaux employés.",sar:"هالشركة عم تدور على موظفين جدد.",sen:"This company is looking for new employees.",img:"l_entreprise.webp"},
+ {fr:"L'entrepreneur",ar:"رائد الأعمال / صاحب المشروع",en:"Entrepreneur",sfr:"L'entrepreneur a créé sa propre entreprise.",sar:"رائد الأعمال أسّس شركته الخاصة.",sen:"The entrepreneur started his own company.",img:"l_entrepreneur.webp"},
+ {fr:"L'entretien",ar:"المقابلة / الصيانة",en:"Interview / Maintenance",sfr:"J'ai un entretien d'embauche demain.",sar:"عندي مقابلة عمل بكرا.",sen:"I have a job interview tomorrow.",img:"l_entretien.webp"},
+ {fr:"L'enveloppe",ar:"الظرف",en:"Envelope",sfr:"J'ai reçu une lettre dans une enveloppe.",sar:"وصلني جواب بظرف.",sen:"I received a letter in an envelope.",img:"l_enveloppe.webp"},
+ {fr:"L'envie",ar:"الرغبة / الرغبة الشديدة",en:"Desire / Wish",sfr:"J'ai envie de prendre un café.",sar:"عبالي اشرب قهوة.",sen:"I feel like having a coffee.",img:"l_envie.webp"},
+ {fr:"L'environnement",ar:"البيئة",en:"Environment",sfr:"Il faut protéger l'environnement.",sar:"لازم نحمي البيئة.",sen:"We must protect the environment.",img:"l_environnement.webp"},
+ {fr:"L'envoi",ar:"الإرسال",en:"Sending / Dispatch",sfr:"L'envoi du colis est prévu demain.",sar:"إرسال الطرد مقرر لبكرا.",sen:"The parcel is scheduled to be sent tomorrow.",img:"l_envoi.webp"},
+ {fr:"L'épargne",ar:"الادخار / المدّخرات",en:"Savings",sfr:"Je mets de l'argent de côté pour l'épargne.",sar:"عم حط مصاري على جنب للادخار.",sen:"I'm setting money aside as savings.",img:"l_epargne.webp"},
+ {fr:"L'épaule",ar:"الكتف",en:"Shoulder",sfr:"J'ai mal à l'épaule droite.",sar:"كتفي اليمين عم يوجعني.",sen:"My right shoulder hurts.",img:"l_epaule.webp"},
+ {fr:"L'épidémie",ar:"الوباء",en:"Epidemic",sfr:"L'épidémie s'est rapidement propagée.",sar:"الوباء انتشر بسرعة.",sen:"The epidemic spread quickly.",img:"l_epidemie.webp"},
+ {fr:"L'épisode",ar:"الحلقة / المرحلة",en:"Episode / Phase",sfr:"J'ai regardé le dernier épisode de la série.",sar:"حضرت آخر حلقة من المسلسل.",sen:"I watched the latest episode of the series.",img:"l_episode.webp"},
+ {fr:"L'époque",ar:"الحقبة / الزمن",en:"Era / Period",sfr:"À cette époque, la vie était différente.",sar:"بهديك الفترة، كانت الحياة مختلفة.",sen:"At that time, life was different.",img:"l_epoque.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].E=st.c['noms'].E||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].E.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+109000+i;st.c['noms'].E.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
