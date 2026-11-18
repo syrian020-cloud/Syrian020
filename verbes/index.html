@@ -2440,13 +2440,68 @@ function updAdv2(){
  Object.keys(st.c['adverbes']||{}).forEach(L=>{st.c['adverbes'][L]=st.c['adverbes'][L].filter(x=>!drop.includes(normFr(x.fr)));if(!st.c['adverbes'][L].length)delete st.c['adverbes'][L]});
  save();localStorage.setItem('verbes-updAdv2b','1')}
 
+function updAdv3(){
+ if(localStorage.getItem('verbes-updAdv3'))return;
+ const add=[
+ {fr:"À peu près",ar:"تقريباً",en:"Approximately",sfr:"Il est à peu près huit heures.",sar:"الساعة تقريباً تمانية.",sen:"It's approximately eight o'clock.",img:"a_peu_pres.jpg"},
+ {fr:"Assurément",ar:"بلا شك / بالتأكيد",en:"Certainly",sfr:"C'est assurément une bonne idée.",sar:"هاد أكيد فكرة منيحة.",sen:"It's certainly a good idea.",img:"assurement.jpg"},
+ {fr:"Aisément",ar:"بسهولة / بيسر",en:"Easily",sfr:"Tu peux aisément trouver cette adresse.",sar:"فيك تلاقي هالعنوان بسهولة.",sen:"You can easily find this address.",img:"aisement.jpg"},
+ {fr:"Amplement",ar:"بشكل وافٍ / بما يكفي وزيادة",en:"Ample / More than enough",sfr:"Nous avons amplement le temps de terminer.",sar:"عنا وقت كافي وزيادة لنخلّص.",sen:"We have more than enough time to finish.",img:"amplement.jpg"},
+ {fr:"Anormalement",ar:"بشكل غير طبيعي",en:"Abnormally",sfr:"Le moteur chauffe anormalement.",sar:"المحرك عم يسخن بشكل غير طبيعي.",sen:"The engine is heating up abnormally.",img:"anormalement.jpg"},
+ {fr:"Alternativement",ar:"بالتناوب / بصورة بديلة",en:"Alternately",sfr:"Ils travaillent alternativement le matin et le soir.",sar:"بيتناوبوا بالشغل بين الصبح والمسا.",sen:"They work alternately in the morning and evening.",img:"alternativement.jpg"},
+ {fr:"Agréablement",ar:"بشكل ممتع / بلطف",en:"Pleasantly",sfr:"Nous avons passé une soirée agréablement calme.",sar:"قضّينا سهرة هادية وممتعة.",sen:"We had a pleasantly quiet evening.",img:"agreablement.jpg"},
+ {fr:"Amicalement",ar:"بودّ / بطريقة ودّية",en:"In a friendly way",sfr:"Il m'a répondu amicalement.",sar:"ردّ عليّ بطريقة ودّية.",sen:"He replied to me in a friendly way.",img:"amicalement.jpg"},
+ {fr:"Anxieusement",ar:"بقلق / بتوتر",en:"Anxiously",sfr:"Elle attend anxieusement les résultats.",sar:"هي ناطرة النتائج بقلق.",sen:"She is anxiously waiting for the results.",img:"anxieusement.jpg"},
+ {fr:"Ardemment",ar:"بشدّة / بحماس كبير",en:"Passionately / Eagerly",sfr:"Il souhaite ardemment réussir son examen.",sar:"هو بيتمنى بشدّة ينجح بامتحانه.",sen:"He ardently wishes to pass his exam.",img:"ardemment.jpg"},
+ {fr:"Approximativement",ar:"بشكل تقريبي",en:"Approximately",sfr:"Le trajet dure approximativement trente minutes.",sar:"الطريق بياخد تقريباً نص ساعة.",sen:"The journey takes approximately thirty minutes.",img:"approximativement.jpg"},
+ {fr:"Assez souvent",ar:"بشكل متكرر إلى حدّ ما",en:"Quite often",sfr:"Je vais assez souvent à la bibliothèque.",sar:"بروح عالمكتبة بشكل متكرر إلى حدّ ما.",sen:"I go to the library quite often.",img:"assez_souvent.jpg"},
+ {fr:"À domicile",ar:"في المنزل / بالبيت",en:"At home",sfr:"Le médecin peut venir à domicile.",sar:"الطبيب ممكن يجي لعندك عالبيت.",sen:"The doctor can make a home visit.",img:"a_domicile.jpg"},
+ {fr:"Abondamment",ar:"بوفرة / بكثرة",en:"Abundantly",sfr:"Cette région reçoit abondamment de la pluie.",sar:"هالمنطقة بينزل فيها مطر بغزارة.",sen:"This region receives abundant rainfall.",img:"abondamment.jpg"},
+ {fr:"Absolument pas",ar:"أبداً / إطلاقاً",en:"Absolutely not",sfr:"Je ne suis absolument pas d'accord.",sar:"أنا مو موافق أبداً.",sen:"I absolutely disagree.",img:"absolument_pas.jpg"},
+ {fr:"Activement",ar:"بنشاط / بفعالية",en:"Actively",sfr:"Elle participe activement au projet.",sar:"هي عم تشارك بفعالية بالمشروع.",sen:"She actively participates in the project.",img:"activement.jpg"},
+ {fr:"Adroitement",ar:"بمهارة / ببراعة",en:"Skillfully",sfr:"Il a adroitement résolu le problème.",sar:"حلّ المشكلة بمهارة.",sen:"He skillfully solved the problem.",img:"adroitement.jpg"},
+ {fr:"Affreusement",ar:"بشكل فظيع / للغاية",en:"Awfully",sfr:"Il fait affreusement froid aujourd'hui.",sar:"البرد اليوم فظيع كتير.",sen:"It's awfully cold today.",img:"affreusement.jpg"},
+ {fr:"Assez rapidement",ar:"بسرعة لا بأس بها",en:"Fairly quickly",sfr:"Il a terminé son travail assez rapidement.",sar:"خلّص شغله بسرعة لا بأس فيها.",sen:"He finished his work fairly quickly.",img:"assez_rapidement.jpg"},
+ {fr:"A priori",ar:"مبدئياً / بحسب الظاهر",en:"In principle / Apparently",sfr:"A priori, tout semble correct.",sar:"مبدئياً، كل شي بيبدو صحيح.",sen:"Apparently, everything seems correct.",img:"a_priori.jpg"},
+ {fr:"Au moins",ar:"على الأقل",en:"At least",sfr:"Il me faut au moins deux jours.",sar:"بحتاج يومين على الأقل.",sen:"I need at least two days.",img:"au_moins.jpg"},
+ {fr:"Au maximum",ar:"كحد أقصى",en:"At most",sfr:"Le trajet dure une heure au maximum.",sar:"الطريق بياخد ساعة كحد أقصى.",sen:"The journey takes one hour at most.",img:"au_maximum.jpg"},
+ {fr:"À tort",ar:"خطأً / على غير حق",en:"Wrongly",sfr:"Il m'a accusé à tort.",sar:"اتّهمني ظلم ومن دون حق.",sen:"He wrongly accused me.",img:"a_tort.jpg"},
+ {fr:"À juste titre",ar:"عن حق / بشكل مبرّر",en:"Rightly / Justifiably",sfr:"Elle a été félicitée à juste titre.",sar:"انمدحت عن حق.",sen:"She was rightly praised.",img:"a_juste_titre.jpg"},
+ {fr:"À volonté",ar:"حسب الرغبة / بلا حدود محددة",en:"As much as desired",sfr:"Vous pouvez boire de l'eau à volonté.",sar:"فيكن تشربوا مي حسب رغبتكن.",sen:"You can drink as much water as you like.",img:"a_volonte.jpg"},
+ {fr:"À l'intérieur",ar:"في الداخل",en:"Inside",sfr:"Les enfants jouent à l'intérieur.",sar:"الأولاد عم يلعبوا بالداخل.",sen:"The children are playing inside.",img:"a_l_interieur.jpg"},
+ {fr:"À l'extérieur",ar:"في الخارج",en:"Outside",sfr:"Nous allons attendre à l'extérieur.",sar:"رح ناطر برا.",sen:"We are going to wait outside.",img:"a_l_exterieur.jpg"},
+ {fr:"À distance",ar:"عن بُعد",en:"Remotely / At a distance",sfr:"Il travaille à distance trois jours par semaine.",sar:"هو بيشتغل عن بُعد تلات أيام بالأسبوع.",sen:"He works remotely three days a week.",img:"a_distance.jpg"},
+ {fr:"À l'heure",ar:"في الوقت المحدد",en:"On time",sfr:"Le train est arrivé à l'heure.",sar:"القطار وصل بوقته.",sen:"The train arrived on time.",img:"a_l_heure.jpg"},
+ {fr:"À première vue",ar:"للوهلة الأولى",en:"At first sight",sfr:"À première vue, cet appartement me plaît.",sar:"للوهلة الأولى، هالشقة عجبتني.",sen:"At first sight, I like this apartment.",img:"a_premiere_vue.jpg"},
+ {fr:"À l'improviste",ar:"على حين غرّة / دون سابق إنذار",en:"Unexpectedly",sfr:"Il est venu nous rendre visite à l'improviste.",sar:"إجا يزورنا فجأة ومن دون موعد.",sen:"He came to visit us unexpectedly.",img:"a_l_improviste.jpg"},
+ {fr:"À l'occasion",ar:"بهذه المناسبة / عند الاقتضاء",en:"On the occasion / When appropriate",sfr:"Je lui offrirai un cadeau à l'occasion de son anniversaire.",sar:"رح قدمله هدية بمناسبة عيد ميلاده.",sen:"I'll give him a gift on the occasion of his birthday.",img:"a_l_occasion.jpg"},
+ {fr:"À l'amiable",ar:"بالتراضي / ودّياً",en:"Amicably",sfr:"Ils ont réglé leur différend à l'amiable.",sar:"حلّوا خلافهم بالتراضي.",sen:"They settled their dispute amicably.",img:"a_l_amiable.jpg"},
+ {fr:"À long terme",ar:"على المدى الطويل",en:"In the long term",sfr:"Cette décision sera bénéfique à long terme.",sar:"هالقرار رح يكون مفيد على المدى الطويل.",sen:"This decision will be beneficial in the long term.",img:"a_long_terme.jpg"},
+ {fr:"À court terme",ar:"على المدى القصير",en:"In the short term",sfr:"Nous devons trouver une solution à court terme.",sar:"لازم نلاقي حل على المدى القصير.",sen:"We need to find a short-term solution.",img:"a_court_terme.jpg"},
+ {fr:"À peu de choses près",ar:"مع اختلاف بسيط جداً / تقريباً",en:"More or less",sfr:"Les deux prix sont identiques à peu de choses près.",sar:"السعرين نفس الشي تقريباً، مع فرق بسيط.",sen:"The two prices are more or less identical.",img:"a_peu_de_choses_pres.jpg"},
+ {fr:"À l'égard de",ar:"تجاه / إزاء",en:"Towards / With regard to",sfr:"Il est toujours respectueux à l'égard de ses collègues.",sar:"هو دايماً محترم تجاه زملائه.",sen:"He is always respectful towards his colleagues.",img:"a_l_egard_de.jpg"},
+ {fr:"À défaut de",ar:"في غياب / لعدم وجود",en:"In the absence of",sfr:"À défaut de voiture, je prends le bus.",sar:"لعدم وجود سيارة، بركب الباص.",sen:"In the absence of a car, I take the bus.",img:"a_defaut_de.jpg"},
+ {fr:"À condition de",ar:"بشرط أن",en:"On condition of",sfr:"Tu peux sortir à condition de rentrer tôt.",sar:"فيك تطلع بشرط ترجع بكير.",sen:"You can go out on condition that you come back early.",img:"a_condition_de.jpg"},
+ {fr:"À l'exception de",ar:"باستثناء",en:"With the exception of",sfr:"Tout le monde est venu, à l'exception de Paul.",sar:"الكل إجا باستثناء بول.",sen:"Everyone came, with the exception of Paul.",img:"a_l_exception_de.jpg"},
+ {fr:"À vrai dire",ar:"بصراحة / في الحقيقة",en:"To tell the truth",sfr:"À vrai dire, je ne connais pas la réponse.",sar:"بصراحة، ما بعرف الجواب.",sen:"To tell the truth, I don't know the answer.",img:"a_vrai_dire.jpg"},
+ {fr:"À tout moment",ar:"في أي لحظة",en:"At any moment",sfr:"Il peut appeler à tout moment.",sar:"ممكن يتصل بأي لحظة.",sen:"He can call at any moment.",img:"a_tout_moment.jpg"},
+ {fr:"À l'instant",ar:"للتو / قبل لحظات",en:"Just now",sfr:"Il vient de partir à l'instant.",sar:"هو لسا طالع من شوي.",sen:"He just left.",img:"a_l_instant.jpg"},
+ {fr:"À l'époque",ar:"في ذلك الوقت / في تلك الفترة",en:"At that time",sfr:"À l'époque, je travaillais dans une usine.",sar:"بهديك الفترة، كنت اشتغل بمصنع.",sen:"At that time, I was working in a factory.",img:"a_l_epoque.jpg"},
+ {fr:"À l'avenir",ar:"في المستقبل",en:"In the future",sfr:"À l'avenir, je voudrais améliorer mon français.",sar:"بالمستقبل، بدي حسّن لغتي الفرنسية.",sen:"In the future, I would like to improve my French.",img:"a_l_avenir.jpg"},
+ {fr:"À l'abri",ar:"في مأمن / بمكان محمي",en:"Sheltered / Safe",sfr:"Nous sommes à l'abri de la pluie.",sar:"نحنا بمكان محمي من المطر.",sen:"We are sheltered from the rain.",img:"a_l_abri.jpg"},
+ {fr:"À découvert",ar:"مكشوفاً / من دون غطاء",en:"Exposed / Uncovered",sfr:"Les soldats avancent à découvert.",sar:"الجنود عم يتقدموا بمكان مكشوف.",sen:"The soldiers are advancing in the open.",img:"a_decouvert.jpg"},
+ {fr:"À l'écart",ar:"بعيداً عن / على جنب",en:"Apart / Away from",sfr:"Je préfère rester à l'écart du bruit.",sar:"بفضّل ضل بعيد عن الضجة.",sen:"I prefer to stay away from the noise.",img:"a_l_ecart.jpg"},
+ ];
+ add.forEach(u=>{st.c['adverbes']=st.c['adverbes']||{};const L=normFr(u.fr).replace(/^(le|la|les|l'|un|une|des|du|de la|de l'|au|aux|d')\s+/,'').charAt(0).toUpperCase();const ex=(st.c['adverbes'][L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+Math.floor(Math.random()*999);st.c['adverbes'][L]=st.c['adverbes'][L]||[];st.c['adverbes'][L].push(u)}});
+ save();localStorage.setItem('verbes-updAdv3','1')}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
