@@ -1959,7 +1959,7 @@ function updNoms(){
  {fr:"L’évier",ar:"المغسلة / الحوض",en:"Sink",sfr:"Je lave les ustensiles dans l’évier.",sar:"أغسل الأدوات في المغسلة.",sen:"I wash the utensils in the sink.",img:"l_evier.webp"},
  {fr:"un lien",ar:"رابط",en:"a link / link",sfr:"Envoie-moi le lien.",sar:"أرسل لي الرابط.",sen:"Send me the link.",img:"un_lien.webp"},
  {fr:"lecture",ar:"تشغيل",en:"playback",sfr:"La lecture de la vidéo commence.",sar:"يبدأ تشغيل الفيديو.",sen:"The video playback starts.",img:"lecture.webp"},
- {fr:"Logement",ar:"سكن",en:"Housing / Accommodation",sfr:"Je cherche un logement.",sar:"أبحث عن سكن.",sen:"I am looking for housing.",img:"logement.webp"},
+
  {fr:"Le loyer",ar:"الإيجار / الكراء",en:"Rent",sfr:"Je paie mon loyer chaque mois.",sar:"أدفع الإيجار كل شهر.",sen:"I pay my rent every month.",img:"le_loyer.webp"},
  {fr:"L’éponge",ar:"الإسفنجة",en:"Sponge",sfr:"Je nettoie la table avec une éponge.",sar:"أنظف الطاولة بإسفنجة.",sen:"I clean the table with a sponge.",img:"l_eponge.webp"},
  {fr:"L’avocat",ar:"الأفوكادو",en:"Avocado",sfr:"Je coupe l’avocat en petits morceaux.",sar:"أقطع الأفوكادو إلى قطع صغيرة.",sen:"I cut the avocado into small pieces.",img:"l_avocat.webp"},
@@ -3523,7 +3523,8 @@ function updNomsC4(){
  save();}
 
 function fixLesionner(){
- for(const L of Object.keys(st.v||{})){const a=st.v[L];if(Array.isArray(a)){const n=a.filter(u=>u.fr!=="Lésionner");if(n.length!==a.length){st.v[L]=n;save()}}}
+ const bad=u=>u.fr!=="Lésionner"&&u.fr!=="Logement";
+ for(const st0 of [st.v,st.c&&st.c['noms']]){if(!st0)continue;for(const L of Object.keys(st0)){const a=st0[L];if(Array.isArray(a)){const n=a.filter(bad);if(n.length!==a.length){st0[L]=n;save()}}}}
 }
 function fixNomsC(){
  if(!st.c||!st.c['noms'])return;const s=st.c['noms'];
