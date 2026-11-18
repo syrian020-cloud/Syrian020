@@ -3584,13 +3584,57 @@ function updNomsC5(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].C=st.c['noms'].C||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].C.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+85000+i;st.c['noms'].C.push(u)}});
  save();}
+function updNomsC6(){
+ const add=[
+ {fr:"Le créneau",ar:"الفترة الزمنية المتاحة / الموعد",en:"Time slot",sfr:"J'ai trouvé un créneau pour mon rendez-vous.",sar:"لقيت موعد متاح لمراجعتي.",sen:"I found an available time slot for my appointment.",img:"le_creneau.webp"},
+ {fr:"Le crayon",ar:"قلم رصاص",en:"Pencil",sfr:"J'écris avec un crayon.",sar:"بكتب بقلم رصاص.",sen:"I write with a pencil.",img:"le_crayon.webp"},
+ {fr:"Le coussin",ar:"وسادة صغيرة",en:"Cushion",sfr:"Je mets un coussin sur le canapé.",sar:"بحط وسادة على الكنباية.",sen:"I put a cushion on the sofa.",img:"le_coussin.webp"},
+ {fr:"Le croissant",ar:"كرواسان",en:"Croissant",sfr:"Je mange un croissant au petit-déjeuner.",sar:"باكل كرواسان على الفطور.",sen:"I eat a croissant for breakfast.",img:"le_croissant.webp"},
+ {fr:"La crème",ar:"الكريمة / القِشطة",en:"Cream",sfr:"J'ajoute de la crème dans la sauce.",sar:"بضيف كريمة على الصلصة.",sen:"I add cream to the sauce.",img:"la_creme.webp"},
+ {fr:"Le couvercle",ar:"الغطاء",en:"Lid",sfr:"Ferme la boîte avec son couvercle.",sar:"سكّر العلبة بغطاها.",sen:"Close the box with its lid.",img:"le_couvercle.webp"},
+ {fr:"La clôture",ar:"السياج",en:"Fence",sfr:"La clôture protège le jardin.",sar:"السياج بيحمي الحديقة.",sen:"The fence protects the garden.",img:"la_cloture.webp"},
+ {fr:"La cour",ar:"الساحة / الفناء",en:"Courtyard",sfr:"Les enfants jouent dans la cour.",sar:"الأطفال عم يلعبوا بالساحة.",sen:"The children are playing in the courtyard.",img:"la_cour.webp"},
+ {fr:"La cuve",ar:"الخزّان / الوعاء الصناعي",en:"Tank / Vat",sfr:"La cuve contient de l'eau.",sar:"الخزّان فيه مي.",sen:"The tank contains water.",img:"la_cuve.webp"},
+ {fr:"Le contenant",ar:"الوعاء / الحاوية",en:"Container",sfr:"Place les pièces dans un contenant propre.",sar:"حط القطع بوعاء نظيف.",sen:"Put the parts in a clean container.",img:"le_contenant.webp"},
+ {fr:"Le consommateur",ar:"المستهلك",en:"Consumer",sfr:"Le consommateur a le droit de choisir.",sar:"المستهلك إله حق يختار.",sen:"The consumer has the right to choose.",img:"le_consommateur.webp"},
+ {fr:"Le cou",ar:"الرقبة",en:"Neck",sfr:"J'ai mal au cou depuis ce matin.",sar:"رقبتي عم توجعني من الصبح.",sen:"My neck has been hurting since this morning.",img:"le_cou.webp"},
+ {fr:"Le commerçant",ar:"التاجر / صاحب المحل",en:"Shopkeeper / Merchant",sfr:"Le commerçant accueille les clients.",sar:"صاحب المحل بيستقبل الزبائن.",sen:"The shopkeeper welcomes customers.",img:"le_commercant.webp"},
+ {fr:"Le caissier",ar:"أمين الصندوق",en:"Cashier",sfr:"Le caissier vérifie le montant.",sar:"أمين الصندوق بيتأكد من المبلغ.",sen:"The cashier checks the amount.",img:"le_caissier.webp"},
+ {fr:"La caissière",ar:"أمينة الصندوق",en:"Cashier",sfr:"La caissière me donne le ticket.",sar:"أمينة الصندوق بتعطيني الإيصال.",sen:"The cashier gives me the receipt.",img:"la_caissiere.webp"},
+ {fr:"Le chargeur",ar:"الشاحن",en:"Charger",sfr:"J'ai oublié mon chargeur à la maison.",sar:"نسيت الشاحن بالبيت.",sen:"I forgot my charger at home.",img:"le_chargeur.webp"},
+ {fr:"Le consommable",ar:"مادة استهلاكية",en:"Consumable",sfr:"Il faut vérifier le stock des consommables.",sar:"لازم نتأكد من مخزون المواد الاستهلاكية.",sen:"We must check the stock of consumables.",img:"le_consommable.webp"},
+ {fr:"Le CV (Curriculum vitæ)",ar:"السيرة الذاتية",en:"CV / Résumé",sfr:"J'ai préparé mon CV pour postuler à un emploi.",sar:"حضّرت سيرتي الذاتية حتى قدّم على وظيفة.",sen:"I prepared my CV to apply for a job.",img:"le_cv_curriculum_vit.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].C=st.c['noms'].C||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].C.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+89000+i;st.c['noms'].C.push(u)}});
+ save();}
+function updNomsD(){
+ const add=[
+ {fr:"Le déplacement",ar:"التنقّل / الانتقال",en:"Travel / Journey",sfr:"Mes déplacements professionnels sont fréquents.",sar:"تنقّلاتي المهنية متكررة.",sen:"My business trips are frequent.",img:"le_deplacement.webp"},
+ {fr:"La démarche",ar:"الإجراء / الخطوة الإدارية",en:"Procedure / Step",sfr:"Je dois effectuer plusieurs démarches administratives.",sar:"لازم أعمل عدة إجراءات إدارية.",sen:"I have to complete several administrative procedures.",img:"la_demarche.webp"},
+ {fr:"Le délai",ar:"المهلة / المدة الزمنية",en:"Deadline / Time limit",sfr:"Le délai de réponse est de quinze jours.",sar:"مهلة الرد خمسة عشر يوم.",sen:"The response time is fifteen days.",img:"le_delai.webp"},
+ {fr:"Le diplôme",ar:"الشهادة الدراسية",en:"Diploma / Degree",sfr:"J'ai obtenu mon diplôme en Syrie.",sar:"حصلت على شهادتي بسوريا.",sen:"I obtained my diploma in Syria.",img:"le_diplome.webp"},
+ {fr:"Le domicile",ar:"محل السكن / المسكن",en:"Residence / Home",sfr:"Je dois justifier mon domicile.",sar:"لازم أثبت محل سكني.",sen:"I have to provide proof of residence.",img:"le_domicile.webp"},
+ {fr:"Le dommage",ar:"الضرر",en:"Damage",sfr:"Le propriétaire doit réparer les dommages.",sar:"صاحب العقار لازم يصلّح الأضرار.",sen:"The landlord must repair the damage.",img:"le_dommage.webp"},
+ {fr:"Le document",ar:"المستند / الوثيقة",en:"Document",sfr:"Je dois envoyer ce document par courrier.",sar:"لازم أبعت هالوثيقة بالبريد.",sen:"I have to send this document by mail.",img:"le_document.webp"},
+ {fr:"Le doigt",ar:"إصبع اليد",en:"Finger",sfr:"Je me suis coupé le doigt.",sar:"جرحت إصبعي.",sen:"I cut my finger.",img:"le_doigt.webp"},
+ {fr:"Le doute",ar:"الشك",en:"Doubt",sfr:"J'ai un doute sur cette réponse.",sar:"عندي شك بهالإجابة.",sen:"I have a doubt about this answer.",img:"le_doute.webp"},
+ {fr:"Le droit",ar:"الحق / القانون",en:"Right / Law",sfr:"Tout le monde a droit au respect.",sar:"كل الناس إلها حق بالاحترام.",sen:"Everyone has the right to be respected.",img:"le_droit.webp"},
+ {fr:"La durée",ar:"المدة",en:"Duration",sfr:"La durée du travail est de huit heures.",sar:"مدة العمل ثماني ساعات.",sen:"The working duration is eight hours.",img:"la_duree.webp"},
+ {fr:"Le discours",ar:"الخطاب / الكلمة",en:"Speech",sfr:"Le directeur a prononcé un discours.",sar:"المدير ألقى كلمة.",sen:"The director gave a speech.",img:"le_discours.webp"},
+ {fr:"La découverte",ar:"الاكتشاف",en:"Discovery",sfr:"Cette découverte est très importante.",sar:"هالاكتشاف مهم جداً.",sen:"This discovery is very important.",img:"la_decouverte.webp"},
+ {fr:"Le désordre",ar:"الفوضى / عدم الترتيب",en:"Mess / Disorder",sfr:"Il y a beaucoup de désordre dans cette pièce.",sar:"في فوضى كبيرة بهالغرفة.",sen:"There is a lot of mess in this room.",img:"le_desordre.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].D=st.c['noms'].D||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].D.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+93000+i;st.c['noms'].D.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
