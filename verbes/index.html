@@ -4043,13 +4043,58 @@ function updNomsD2(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].D=st.c['noms'].D||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].D.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+133000+i;st.c['noms'].D.push(u)}});
  save();}
+function updNomsD3(){
+ const add=[
+ {fr:"Le dos",ar:"الظهر",en:"Back",sfr:"J'ai mal au dos après le travail.",sar:"ظهري بيوجعني بعد الشغل.",sen:"My back hurts after work.",img:"le_dos.webp"},
+ {fr:"La douche",ar:"الدُّش / الاستحمام",en:"Shower",sfr:"Je prends une douche chaque matin.",sar:"باخد دوش كل صباح.",sen:"I take a shower every morning.",img:"la_douche.webp"},
+ {fr:"La douleur",ar:"الألم",en:"Pain",sfr:"La douleur devient plus forte.",sar:"الألم عم يصير أقوى.",sen:"The pain is getting worse.",img:"la_douleur.webp"},
+ {fr:"Le dimanche",ar:"يوم الأحد",en:"Sunday",sfr:"Je ne travaille pas le dimanche.",sar:"ما بشتغل يوم الأحد.",sen:"I don't work on Sundays.",img:"le_dimanche.webp"},
+ {fr:"Le dîner",ar:"العشاء",en:"Dinner",sfr:"Nous prenons le dîner à vingt heures.",sar:"منتعشّى الساعة تمانية بالليل.",sen:"We have dinner at eight in the evening.",img:"le_diner.webp"},
+ {fr:"Le docteur",ar:"الطبيب",en:"Doctor",sfr:"Je dois prendre rendez-vous chez le docteur.",sar:"لازم آخد موعد عند الطبيب.",sen:"I have to make an appointment with the doctor.",img:"le_docteur.webp"},
+ {fr:"La distance",ar:"المسافة",en:"Distance",sfr:"La distance entre mon domicile et mon travail est de dix kilomètres.",sar:"المسافة بين بيتي وشغلي عشرة كيلومترات.",sen:"The distance between my home and work is ten kilometres.",img:"la_distance.webp"},
+ {fr:"La distribution",ar:"التوزيع",en:"Distribution",sfr:"Je travaille dans la distribution des commandes.",sar:"بشتغل بتوزيع الطلبات.",sen:"I work in order distribution.",img:"la_distribution.webp"},
+ {fr:"Le dispositif",ar:"النظام / الآلية / التجهيز",en:"System / Scheme / Device",sfr:"Ce dispositif permet d'aider les personnes en difficulté.",sar:"هالبرنامج بيساعد الأشخاص اللي عندهم صعوبات.",sen:"This scheme helps people who are experiencing difficulties.",img:"le_dispositif.webp"},
+ {fr:"La diffusion",ar:"البث / النشر",en:"Broadcasting / Distribution",sfr:"La diffusion du programme commence à vingt heures.",sar:"بثّ البرنامج بيبدأ الساعة تمانية بالليل.",sen:"The programme broadcast starts at eight in the evening.",img:"la_diffusion.webp"},
+ {fr:"La digestion",ar:"الهضم",en:"Digestion",sfr:"Ce repas est difficile à digérer.",sar:"هالوجبة صعبة الهضم.",sen:"This meal is difficult to digest.",img:"la_digestion.webp"},
+ {fr:"La diminution",ar:"الانخفاض / التراجع",en:"Decrease / Reduction",sfr:"Nous constatons une diminution des dépenses.",sar:"عم نلاحظ انخفاض بالمصاريف.",sen:"We are seeing a decrease in expenses.",img:"la_diminution.webp"},
+ {fr:"La discrimination",ar:"التمييز",en:"Discrimination",sfr:"La discrimination au travail est interdite par la loi.",sar:"التمييز بالعمل ممنوع بالقانون.",sen:"Discrimination at work is prohibited by law.",img:"la_discrimination.webp"},
+ {fr:"La dispute",ar:"الشجار / الخلاف",en:"Argument / Quarrel",sfr:"Ils ont eu une dispute à cause d'un malentendu.",sar:"تشاجروا بسبب سوء تفاهم.",sen:"They had an argument because of a misunderstanding.",img:"la_dispute.webp"},
+ {fr:"La diversité",ar:"التنوّع",en:"Diversity",sfr:"La diversité est une richesse pour la société.",sar:"التنوّع ثروة للمجتمع.",sen:"Diversity is an asset to society.",img:"la_diversite.webp"},
+ {fr:"Le divorce",ar:"الطلاق",en:"Divorce",sfr:"Le divorce a été prononcé par le tribunal.",sar:"المحكمة أصدرت حكم الطلاق.",sen:"The divorce was granted by the court.",img:"le_divorce.webp"},
+ {fr:"Le domaine",ar:"المجال / الاختصاص",en:"Field / Domain",sfr:"Je souhaite travailler dans le domaine de la logistique.",sar:"بتمنى اشتغل بمجال الخدمات اللوجستية.",sen:"I would like to work in the field of logistics.",img:"le_domaine.webp"},
+ {fr:"La donnée",ar:"المُعطى / البيانات",en:"Data",sfr:"Ces données sont importantes pour l'analyse.",sar:"هالبيانات مهمة للتحليل.",sen:"This data is important for the analysis.",img:"la_donnee.webp"},
+ {fr:"Le dirigeant",ar:"المسؤول / القائد",en:"Leader / Executive",sfr:"Le dirigeant a annoncé une nouvelle décision.",sar:"المسؤول أعلن عن قرار جديد.",sen:"The executive announced a new decision.",img:"le_dirigeant.webp"},
+ {fr:"La distraction",ar:"التشتّت / اللهو",en:"Distraction",sfr:"Le bruit est une source de distraction au travail.",sar:"الضجيج سبب للتشتّت بالشغل.",sen:"Noise is a source of distraction at work.",img:"la_distraction.webp"},
+ {fr:"Le divertissement",ar:"الترفيه / التسلية",en:"Entertainment",sfr:"La musique est une forme de divertissement.",sar:"الموسيقى نوع من الترفيه.",sen:"Music is a form of entertainment.",img:"le_divertissement.webp"},
+ {fr:"Le don",ar:"الهبة / التبرّع",en:"Donation / Gift",sfr:"Il a fait un don à une association.",sar:"قدّم تبرّع لجمعية.",sen:"He made a donation to an organization.",img:"le_don.webp"},
+ {fr:"Le drapeau",ar:"العَلَم",en:"Flag",sfr:"Le drapeau français est bleu, blanc et rouge.",sar:"العلم الفرنسي أزرق وأبيض وأحمر.",sen:"The French flag is blue, white and red.",img:"le_drapeau.webp"},
+ {fr:"Le drap",ar:"شرشف السرير",en:"Bedsheet",sfr:"Je dois changer les draps du lit.",sar:"لازم غيّر شراشف التخت.",sen:"I have to change the bedsheets.",img:"le_drap.webp"},
+ {fr:"La dynamique",ar:"الديناميكية / الحيوية",en:"Dynamics",sfr:"Il y a une bonne dynamique dans notre équipe.",sar:"في جوّ من التعاون والحيوية بفريقنا.",sen:"There is a good dynamic within our team.",img:"la_dynamique.webp"},
+ {fr:"Le déroulement",ar:"سير / مجريات",en:"Process / Proceedings",sfr:"Le déroulement de la réunion s'est bien passé.",sar:"الاجتماع مشي بشكل منيح.",sen:"The meeting went well.",img:"le_deroulement.webp"},
+ {fr:"Le désastre",ar:"الكارثة",en:"Disaster",sfr:"La tempête a provoqué un véritable désastre.",sar:"العاصفة سبّبت كارثة حقيقية.",sen:"The storm caused a real disaster.",img:"le_desastre.webp"},
+ {fr:"Le déséquilibre",ar:"عدم التوازن / الاختلال",en:"Imbalance",sfr:"Il existe un déséquilibre entre les dépenses et les revenus.",sar:"في عدم توازن بين المصاريف والدخل.",sen:"There is an imbalance between expenses and income.",img:"le_desequilibre.webp"},
+ {fr:"Le désespoir",ar:"اليأس",en:"Despair",sfr:"Il ne faut pas perdre espoir face aux difficultés.",sar:"ما لازم نفقد الأمل بوجه الصعوبات.",sen:"We must not lose hope in the face of difficulties.",img:"le_desespoir.webp"},
+ {fr:"La destruction",ar:"التدمير / الخراب",en:"Destruction",sfr:"La destruction de ces bâtiments a commencé.",sar:"بلّش هدم هالمباني.",sen:"The destruction of these buildings has begun.",img:"la_destruction.webp"},
+ {fr:"La détérioration",ar:"التدهور / التلف",en:"Deterioration",sfr:"Nous constatons une détérioration de la situation.",sar:"عم نلاحظ تدهور بالوضع.",sen:"We are noticing a deterioration in the situation.",img:"la_deterioration.webp"},
+ {fr:"La déviation",ar:"التحويلة / تغيير المسار",en:"Detour / Diversion",sfr:"Une déviation est mise en place à cause des travaux.",sar:"عملوا تحويلة بالطريق بسبب الأشغال.",sen:"A diversion has been put in place because of the roadworks.",img:"la_deviation.webp"},
+ {fr:"Le dépassement",ar:"التجاوز / تخطّي الحد",en:"Exceeding / Overtaking",sfr:"Le dépassement de la vitesse autorisée est dangereux.",sar:"تجاوز السرعة المسموح فيها خطير.",sen:"Exceeding the speed limit is dangerous.",img:"le_depassement.webp"},
+ {fr:"Le dépliant",ar:"المنشور المطوي / الكتيّب",en:"Leaflet / Brochure",sfr:"Vous pouvez trouver les informations dans ce dépliant.",sar:"فيك تلاقي المعلومات بهالكتيّب.",sen:"You can find the information in this leaflet.",img:"le_depliant.webp"},
+ {fr:"Le député",ar:"النائب البرلماني",en:"Member of Parliament",sfr:"Le député a présenté une nouvelle proposition de loi.",sar:"النائب البرلماني قدّم اقتراح قانون جديد.",sen:"The member of parliament presented a new bill.",img:"le_depute.webp"},
+ {fr:"Le dérangement",ar:"الإزعاج / التشويش",en:"Disturbance",sfr:"Excusez-moi pour le dérangement.",sar:"سامحني على الإزعاج.",sen:"Sorry for the disturbance.",img:"le_derangement.webp"},
+ {fr:"Le dérèglement",ar:"الاختلال / اضطراب النظام",en:"Disruption / Malfunction",sfr:"Le dérèglement de la machine a interrompu la production.",sar:"خلل الآلة وقّف الإنتاج.",sen:"The machine malfunction interrupted production.",img:"le_dereglement.webp"},
+ {fr:"Le destin",ar:"القدر / المصير",en:"Destiny / Fate",sfr:"Chacun peut influencer son destin.",sar:"كل شخص فيه يأثّر بمصيره.",sen:"Everyone can influence their destiny.",img:"le_destin.webp"},
+ {fr:"La détention",ar:"الاحتجاز / التوقيف",en:"Detention",sfr:"La détention provisoire est décidée par un juge.",sar:"القاضي هو اللي بيقرّر الاحتجاز المؤقت.",sen:"Pretrial detention is decided by a judge.",img:"la_detention.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].D=st.c['noms'].D||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].D.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+137000+i;st.c['noms'].D.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
