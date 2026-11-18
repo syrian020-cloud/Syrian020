@@ -4122,13 +4122,55 @@ function updNomsK(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].K=st.c['noms'].K||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].K.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+145000+i;st.c['noms'].K.push(u)}});
  save();}
+function updNomsN(){
+ const add=[
+ {fr:"Le nom",ar:"الاسم",en:"Name",sfr:"Quel est votre nom ?",sar:"شو اسمك؟",sen:"What is your name?",img:"le_nom.webp"},
+ {fr:"Le numéro",ar:"الرقم",en:"Number",sfr:"Quel est votre numéro de téléphone ?",sar:"شو رقم تلفونك؟",sen:"What is your phone number?",img:"le_numero.webp"},
+ {fr:"La nuit",ar:"الليل",en:"Night",sfr:"Je travaille parfois la nuit.",sar:"أحياناً بشتغل بالليل.",sen:"I sometimes work at night.",img:"la_nuit.webp"},
+ {fr:"Le niveau",ar:"المستوى",en:"Level",sfr:"Mon niveau de français est A2.",sar:"مستواي باللغة الفرنسية A2.",sen:"My French level is A2.",img:"le_niveau.webp"},
+ {fr:"La nature",ar:"الطبيعة",en:"Nature",sfr:"J'aime me promener dans la nature.",sar:"بحب أتمشى بالطبيعة.",sen:"I like walking in nature.",img:"la_nature.webp"},
+ {fr:"La nourriture",ar:"الطعام",en:"Food",sfr:"La nourriture est prête.",sar:"الأكل جاهز.",sen:"The food is ready.",img:"la_nourriture.webp"},
+ {fr:"Le nettoyage",ar:"التنظيف",en:"Cleaning",sfr:"Le nettoyage de la cuisine prend du temps.",sar:"تنظيف المطبخ بياخد وقت.",sen:"Cleaning the kitchen takes time.",img:"le_nettoyage.webp"},
+ {fr:"La naissance",ar:"الولادة",en:"Birth",sfr:"Quelle est votre date de naissance ?",sar:"شو تاريخ ميلادك؟",sen:"What is your date of birth?",img:"la_naissance.webp"},
+ {fr:"Le nuage",ar:"الغيمة",en:"Cloud",sfr:"Il y a beaucoup de nuages aujourd'hui.",sar:"اليوم في غيوم كتير.",sen:"There are a lot of clouds today.",img:"le_nuage.webp"},
+ {fr:"Le nez",ar:"الأنف",en:"Nose",sfr:"J'ai mal au nez.",sar:"أنفي عم يوجعني.",sen:"My nose hurts.",img:"le_nez.webp"},
+ {fr:"Le nombre",ar:"العدد",en:"Number / Quantity",sfr:"Le nombre de participants est limité.",sar:"عدد المشاركين محدود.",sen:"The number of participants is limited.",img:"le_nombre.webp"},
+ {fr:"La nouvelle",ar:"الخبر",en:"News",sfr:"J'ai une bonne nouvelle pour toi.",sar:"عندي خبر حلو إلك.",sen:"I have good news for you.",img:"la_nouvelle.webp"},
+ {fr:"Le nécessaire",ar:"الضروريات / اللازم",en:"Essentials / Necessities",sfr:"J'ai pris le nécessaire pour le voyage.",sar:"أخدت الأشياء الضرورية للسفر.",sen:"I took the essentials for the trip.",img:"le_necessaire.webp"},
+ {fr:"La neige",ar:"الثلج",en:"Snow",sfr:"Il y a beaucoup de neige en hiver.",sar:"في تلج كتير بالشتا.",sen:"There is a lot of snow in winter.",img:"la_neige.webp"},
+ {fr:"Le niveau de vie",ar:"مستوى المعيشة",en:"Standard of living",sfr:"Le niveau de vie est élevé dans cette ville.",sar:"مستوى المعيشة مرتفع بهالمدينة.",sen:"The standard of living is high in this city.",img:"le_niveau_de_vie.webp"},
+ {fr:"Le naturel",ar:"الطبيعي",en:"Naturalness",sfr:"Je préfère les produits naturels.",sar:"بفضّل المنتجات الطبيعية.",sen:"I prefer natural products.",img:"le_naturel.webp"},
+ {fr:"La nécessité",ar:"الضرورة",en:"Necessity",sfr:"C'est une nécessité pour mon travail.",sar:"هالشي ضروري لشغلي.",sen:"It is a necessity for my work.",img:"la_necessite.webp"},
+ {fr:"Le niveau sonore",ar:"مستوى الضجيج",en:"Noise level",sfr:"Le niveau sonore est trop élevé.",sar:"مستوى الضجيج مرتفع كتير.",sen:"The noise level is too high.",img:"le_niveau_sonore.webp"},
+ {fr:"La note",ar:"العلامة / الملاحظة / الفاتورة",en:"Grade / Note / Bill",sfr:"J'ai obtenu une bonne note à l'examen.",sar:"جبت علامة منيحة بالامتحان.",sen:"I got a good grade on the exam.",img:"la_note.webp"},
+ {fr:"Le noyau",ar:"النواة / بذرة الفاكهة",en:"Core / Pit",sfr:"Il faut enlever le noyau de la pêche.",sar:"لازم نشيل نواة الدراق.",sen:"You have to remove the peach pit.",img:"le_noyau.webp"},
+ {fr:"Le navire",ar:"السفينة",en:"Ship",sfr:"Le navire arrive au port demain.",sar:"السفينة بتوصل عالمرفأ بكرا.",sen:"The ship arrives at the port tomorrow.",img:"le_navire.webp"},
+ {fr:"Le nid",ar:"العش",en:"Nest",sfr:"L'oiseau construit son nid dans l'arbre.",sar:"الطير عم يبني عشه بالشجرة.",sen:"The bird is building its nest in the tree.",img:"le_nid.webp"},
+ {fr:"Le neveu",ar:"ابن الأخ أو الأخت",en:"Nephew",sfr:"Mon neveu a six ans.",sar:"ابن أخي عمره ست سنين.",sen:"My nephew is six years old.",img:"le_neveu.webp"},
+ {fr:"La nièce",ar:"ابنة الأخ أو الأخت",en:"Niece",sfr:"Ma nièce va à l'école.",sar:"بنت أختي بتروح عالمدرسة.",sen:"My niece goes to school.",img:"la_niece.webp"},
+ {fr:"Le niveau de difficulté",ar:"مستوى الصعوبة",en:"Difficulty level",sfr:"Le niveau de difficulté de cet exercice est élevé.",sar:"مستوى صعوبة هالتمرين مرتفع.",sen:"The difficulty level of this exercise is high.",img:"le_niveau_de_difficulte.webp"},
+ {fr:"Le navet",ar:"اللفت",en:"Turnip",sfr:"Je vais acheter des navets au marché.",sar:"رح اشتري لفت من السوق.",sen:"I'm going to buy turnips at the market.",img:"le_navet.webp"},
+ {fr:"La noisette",ar:"البندق",en:"Hazelnut",sfr:"J'aime le chocolat aux noisettes.",sar:"بحب الشوكولاتة بالبندق.",sen:"I like hazelnut chocolate.",img:"la_noisette.webp"},
+ {fr:"Le nectar",ar:"الرحيق",en:"Nectar",sfr:"Les abeilles récoltent le nectar des fleurs.",sar:"النحل بيجمع رحيق الأزهار.",sen:"Bees collect nectar from flowers.",img:"le_nectar.webp"},
+ {fr:"La noblesse",ar:"النبل / الطبقة الأرستقراطية",en:"Nobility",sfr:"La noblesse était une classe sociale privilégiée.",sar:"طبقة النبلاء كانت طبقة اجتماعية ذات امتيازات.",sen:"The nobility was a privileged social class.",img:"la_noblesse.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].N=st.c['noms'].N||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].N.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+149000+i;st.c['noms'].N.push(u)}});
+ save();}
+function updNomsV(){
+ const add=[
+ {fr:"Le voisin",ar:"الجار",en:"Neighbour",sfr:"Mon voisin est très gentil.",sar:"جاري لطيف كتير.",sen:"My neighbour is very kind.",img:"le_voisin.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].V=st.c['noms'].V||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].V.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+153000+i;st.c['noms'].V.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
