@@ -2426,13 +2426,27 @@ function updAdv(){
  save();localStorage.setItem('verbes-updAdv','1')}
 
 
+function updAdv2(){
+ if(localStorage.getItem('verbes-updAdv2b'))return;
+ const add=[
+ {fr:"Ailleurs",ar:"في مكان آخر",en:"Elsewhere",sfr:"Je préfère chercher ailleurs.",sar:"بفضّل دوّر بمكان تاني.",sen:"I prefer to look elsewhere.",img:"ailleurs.jpg"},
+ {fr:"Ainsi",ar:"هكذا / بهذه الطريقة",en:"Thus / This way",sfr:"Fais ainsi et tu réussiras.",sar:"اعمل هيك ورح تنجح.",sen:"Do it this way and you will succeed.",img:"ainsi.jpg"},
+ {fr:"Autant",ar:"بنفس القدر",en:"As much / As many",sfr:"Je travaille autant que lui.",sar:"أنا بشتغل قدّه.",sen:"I work as much as he does.",img:"autant.jpg"},
+ {fr:"Autrefois",ar:"قديماً / في الماضي",en:"Formerly / In the past",sfr:"Autrefois, les gens écrivaient davantage de lettres.",sar:"زمان، الناس كانوا يكتبوا رسائل أكتر.",sen:"In the past, people used to write more letters.",img:"autrefois.jpg"},
+ {fr:"Apparemment",ar:"على ما يبدو",en:"Apparently",sfr:"Apparemment, il va pleuvoir.",sar:"على ما يبدو رح تشتي.",sen:"Apparently, it's going to rain.",img:"apparemment.jpg"},
+ ];
+ add.forEach(u=>{st.c['adverbes']=st.c['adverbes']||{};const L=normFr(u.fr).replace(/^(le|la|les|l'|un|une|des|du|de la|de l'|au|aux|d')\s+/,'').charAt(0).toUpperCase();const ex=(st.c['adverbes'][L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+Math.floor(Math.random()*999);st.c['adverbes'][L]=st.c['adverbes'][L]||[];st.c['adverbes'][L].push(u)}});
+ const drop=["arrêter un traitement","arrêter le traitement","continuer le traitement","cesser immédiatement","demander un aménagement","droit au logement","entrée dans le logement","fournir un document","j'ai besoin d'un accompagnement","modifier le traitement","prendre un médicament","renouveler mon traitement","suivre un traitement","tolérer le traitement"];
+ Object.keys(st.c['adverbes']||{}).forEach(L=>{st.c['adverbes'][L]=st.c['adverbes'][L].filter(x=>!drop.includes(normFr(x.fr)));if(!st.c['adverbes'][L].length)delete st.c['adverbes'][L]});
+ save();localStorage.setItem('verbes-updAdv2b','1')}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
