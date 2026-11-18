@@ -4213,13 +4213,84 @@ function updNomsV2(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].V=st.c['noms'].V||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].V.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+161000+i;st.c['noms'].V.push(u)}});
  save();}
+function updNomsM(){
+ const add=[
+ {fr:"La maison",ar:"المنزل",en:"House",sfr:"Ma maison est près du centre-ville.",sar:"بيتي قريب من وسط المدينة.",sen:"My house is near the city centre.",img:"la_maison.webp"},
+ {fr:"Le monde",ar:"العالم / الناس",en:"World / People",sfr:"Le monde change rapidement.",sar:"العالم عم يتغير بسرعة.",sen:"The world is changing quickly.",img:"le_monde.webp"},
+ {fr:"Le mois",ar:"الشهر",en:"Month",sfr:"Je travaille six jours par mois.",sar:"بشتغل ستة أيام بالشهر.",sen:"I work six days a month.",img:"le_mois.webp"},
+ {fr:"Le matin",ar:"الصباح",en:"Morning",sfr:"Je commence le travail à six heures du matin.",sar:"ببلّش الشغل الساعة ستة الصبح.",sen:"I start work at six in the morning.",img:"le_matin.webp"},
+ {fr:"La main",ar:"اليد",en:"Hand",sfr:"J'ai mal à la main.",sar:"إيدي عم توجعني.",sen:"My hand hurts.",img:"la_main.webp"},
+ {fr:"Le médecin",ar:"الطبيب",en:"Doctor",sfr:"J'ai rendez-vous chez le médecin demain.",sar:"عندي موعد عند الطبيب بكرا.",sen:"I have a doctor's appointment tomorrow.",img:"le_medecin.webp"},
+ {fr:"Le magasin",ar:"المتجر",en:"Shop / Store",sfr:"Le magasin ferme à vingt heures.",sar:"المحل بيسكر الساعة تمانية بالليل.",sen:"The shop closes at eight in the evening.",img:"le_magasin.webp"},
+ {fr:"La maladie",ar:"المرض",en:"Illness",sfr:"Cette maladie nécessite un suivi médical.",sar:"هالمرض بيتطلب متابعة طبية.",sen:"This illness requires medical follow-up.",img:"la_maladie.webp"},
+ {fr:"Le mariage",ar:"الزواج / العرس",en:"Marriage / Wedding",sfr:"Leur mariage aura lieu en juin.",sar:"عرسهم رح يكون بشهر حزيران.",sen:"Their wedding will take place in June.",img:"le_mariage.webp"},
+ {fr:"La mémoire",ar:"الذاكرة",en:"Memory",sfr:"J'ai une bonne mémoire.",sar:"ذاكرتي قوية.",sen:"I have a good memory.",img:"la_memoire.webp"},
+ {fr:"Le message",ar:"الرسالة",en:"Message",sfr:"J'ai reçu votre message.",sar:"وصلني رسالتك.",sen:"I received your message.",img:"le_message.webp"},
+ {fr:"Le marché",ar:"السوق",en:"Market",sfr:"Je vais au marché acheter des légumes.",sar:"رح روح عالسوق اشتري خضرة.",sen:"I'm going to the market to buy vegetables.",img:"le_marche.webp"},
+ {fr:"La mer",ar:"البحر",en:"Sea",sfr:"Nous aimons nous promener au bord de la mer.",sar:"منحب نتمشّى على شط البحر.",sen:"We like walking by the sea.",img:"la_mer.webp"},
+ {fr:"La mère",ar:"الأم",en:"Mother",sfr:"Ma mère habite en France.",sar:"أمي ساكنة بفرنسا.",sen:"My mother lives in France.",img:"la_mere.webp"},
+ {fr:"Le mari",ar:"الزوج",en:"Husband",sfr:"Son mari travaille dans une entreprise.",sar:"زوجها بيشتغل بشركة.",sen:"Her husband works for a company.",img:"le_mari.webp"},
+ {fr:"La minute",ar:"الدقيقة",en:"Minute",sfr:"Attends une minute, s'il te plaît.",sar:"استنى دقيقة، لو سمحت.",sen:"Wait a minute, please.",img:"la_minute.webp"},
+ {fr:"Le moment",ar:"اللحظة / الوقت",en:"Moment",sfr:"Ce n'est pas le bon moment.",sar:"هاد مو الوقت المناسب.",sen:"This isn't the right moment.",img:"le_moment.webp"},
+ {fr:"La musique",ar:"الموسيقى",en:"Music",sfr:"J'écoute de la musique tous les jours.",sar:"بسمع موسيقى كل يوم.",sen:"I listen to music every day.",img:"la_musique.webp"},
+ {fr:"La machine",ar:"الآلة / الماكينة",en:"Machine",sfr:"Cette machine ne fonctionne plus.",sar:"هالماكينة ما عادت تشتغل.",sen:"This machine doesn't work anymore.",img:"la_machine.webp"},
+ {fr:"Le mur",ar:"الجدار",en:"Wall",sfr:"Il y a une photo sur le mur.",sar:"في صورة عالحيط.",sen:"There is a photo on the wall.",img:"le_mur.webp"},
+ {fr:"La météo",ar:"الطقس / حالة الجو",en:"Weather",sfr:"La météo annonce de la pluie demain.",sar:"نشرة الطقس بتقول إنو بكرا في مطر.",sen:"The weather forecast says it will rain tomorrow.",img:"la_meteo.webp"},
+ {fr:"Le meuble",ar:"قطعة أثاث",en:"Piece of furniture",sfr:"Je dois acheter un nouveau meuble.",sar:"لازم اشتري قطعة أثاث جديدة.",sen:"I have to buy a new piece of furniture.",img:"le_meuble.webp"},
+ {fr:"Le moyen",ar:"الوسيلة / الطريقة",en:"Means / Way",sfr:"Le bus est un moyen de transport pratique.",sar:"الباص وسيلة نقل عملية.",sen:"The bus is a practical means of transport.",img:"le_moyen.webp"},
+ {fr:"Le mal",ar:"الألم / الشر",en:"Pain / Evil",sfr:"J'ai mal à la tête.",sar:"راسي عم يوجعني.",sen:"I have a headache.",img:"le_mal.webp"},
+ {fr:"Le matinée",ar:"تصحيح: الكلمة الصحيحة هي La matinée",en:"فترة الصباح – Morning",sfr:"Je travaille toute la matinée.",sar:"بشتغل طول فترة الصباح.",sen:"I work all morning.",img:"le_matinee.webp"},
+ {fr:"La marche",ar:"المشي / المسيرة",en:"Walking / March",sfr:"La marche est bonne pour la santé.",sar:"المشي مفيد للصحة.",sen:"Walking is good for your health.",img:"la_marche.webp"},
+ {fr:"Le maximum",ar:"الحد الأقصى",en:"Maximum",sfr:"Il faut respecter le poids maximum.",sar:"لازم نلتزم بالوزن الأقصى.",sen:"We must respect the maximum weight.",img:"le_maximum.webp"},
+ {fr:"Le minimum",ar:"الحد الأدنى",en:"Minimum",sfr:"Il faut avoir un minimum d'expérience.",sar:"لازم يكون عندك حد أدنى من الخبرة.",sen:"You need to have a minimum amount of experience.",img:"le_minimum.webp"},
+ {fr:"La manière",ar:"الطريقة / الأسلوب",en:"Way / Manner",sfr:"J'aime sa manière de parler.",sar:"بحب طريقة حكيه.",sen:"I like the way he speaks.",img:"la_maniere.webp"},
+ {fr:"Le médicament",ar:"الدواء",en:"Medicine",sfr:"Je dois prendre ce médicament après le repas.",sar:"لازم آخد هالدواء بعد الأكل.",sen:"I have to take this medicine after the meal.",img:"le_medicament.webp"},
+ {fr:"Le matériel informatique",ar:"معدات الحاسوب",en:"Computer Equipment",sfr:"L'entreprise fournit le matériel informatique.",sar:"الشركة بتأمّن معدات الكمبيوتر.",sen:"The company provides computer equipment.",img:"le_materiel_informatique.webp"},
+ {fr:"Le marché du travail",ar:"سوق العمل",en:"Labour Market",sfr:"Le marché du travail est difficile actuellement.",sar:"سوق العمل صعب بهالفترة.",sen:"The labour market is difficult at the moment.",img:"le_marche_du_travail.webp"},
+ {fr:"Le malheur",ar:"سوء الحظ / المصيبة",en:"Misfortune",sfr:"Après ce malheur, il a eu besoin de soutien.",sar:"بعد هالمصيبة، احتاج للدعم.",sen:"After this misfortune, he needed support.",img:"le_malheur.webp"},
+ {fr:"La mensualité",ar:"القسط الشهري",en:"Monthly Instalment",sfr:"Je paie une mensualité chaque mois.",sar:"بدفع قسط شهري كل شهر.",sen:"I pay a monthly instalment.",img:"la_mensualite.webp"},
+ {fr:"Le mensonge",ar:"الكذب / الكذبة",en:"Lie",sfr:"Je n'aime pas le mensonge.",sar:"ما بحب الكذب.",sen:"I don't like lying.",img:"le_mensonge.webp"},
+ {fr:"Le mensuel",ar:"الشهري",en:"Monthly",sfr:"Je consulte le calendrier mensuel.",sar:"براجع التقويم الشهري.",sen:"I check the monthly calendar.",img:"le_mensuel.webp"},
+ {fr:"Le mélange",ar:"الخليط / المزيج",en:"Mixture",sfr:"Ce mélange contient plusieurs ingrédients.",sar:"هالخليط فيه عدة مكونات.",sen:"This mixture contains several ingredients.",img:"le_melange.webp"},
+ {fr:"Le message vocal",ar:"الرسالة الصوتية",en:"Voice Message",sfr:"Je t'ai envoyé un message vocal.",sar:"بعتلك رسالة صوتية.",sen:"I sent you a voice message.",img:"le_message_vocal.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].M=st.c['noms'].M||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].M.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+165000+i;st.c['noms'].M.push(u)}});
+ save();}
+function updNomsP2(){
+ const add=[
+ {fr:"Le problème",ar:"المشكلة",en:"Problem",sfr:"J'ai un problème avec mon téléphone.",sar:"عندي مشكلة بموبايلي.",sen:"I have a problem with my phone.",img:"le_probleme.webp"},
+ {fr:"La place",ar:"المكان / المقعد",en:"Place / Seat",sfr:"Est-ce que cette place est libre ?",sar:"هالمقعد فاضي؟",sen:"Is this seat free?",img:"la_place.webp"},
+ {fr:"Le prix",ar:"السعر",en:"Price",sfr:"Quel est le prix de ce produit ?",sar:"قديش سعر هالمنتج؟",sen:"What is the price of this product?",img:"le_prix.webp"},
+ {fr:"Le projet",ar:"المشروع",en:"Project",sfr:"Nous travaillons sur un nouveau projet.",sar:"نحنا عم نشتغل على مشروع جديد.",sen:"We are working on a new project.",img:"le_projet.webp"},
+ {fr:"La personne",ar:"الشخص",en:"Person",sfr:"C'est une personne très gentille.",sar:"هاد شخص لطيف كتير.",sen:"This is a very kind person.",img:"la_personne.webp"},
+ {fr:"Le papier",ar:"الورق / الوثيقة",en:"Paper / Document",sfr:"J'ai besoin de ce papier pour mon dossier.",sar:"بحتاج هالورقة لملفي.",sen:"I need this document for my file.",img:"le_papier.webp"},
+ {fr:"Le poste",ar:"الوظيفة / المنصب",en:"Job / Position",sfr:"Je cherche un poste à temps plein.",sar:"عم دور على وظيفة بدوام كامل.",sen:"I'm looking for a full-time position.",img:"le_poste.webp"},
+ {fr:"La porte",ar:"الباب",en:"Door",sfr:"N'oublie pas de fermer la porte.",sar:"لا تنسى تسكّر الباب.",sen:"Don't forget to close the door.",img:"la_porte.webp"},
+ {fr:"Le portable",ar:"الهاتف المحمول",en:"Mobile Phone",sfr:"J'ai oublié mon portable à la maison.",sar:"نسيت موبايلي بالبيت.",sen:"I forgot my mobile phone at home.",img:"le_portable.webp"},
+ {fr:"La pièce",ar:"الغرفة / القطعة",en:"Room / Piece",sfr:"Cette pièce est très lumineuse.",sar:"هالغرفة مضوية كتير.",sen:"This room is very bright.",img:"la_piece.webp"},
+ {fr:"Le pantalon",ar:"البنطال",en:"Trousers",sfr:"Ce pantalon est trop grand pour moi.",sar:"هالبنطال كبير عليّ كتير.",sen:"These trousers are too big for me.",img:"le_pantalon.webp"},
+ {fr:"La peau",ar:"الجلد / البشرة",en:"Skin",sfr:"Il faut protéger sa peau du soleil.",sar:"لازم نحمي بشرتنا من الشمس.",sen:"We must protect our skin from the sun.",img:"la_peau.webp"},
+ {fr:"Le pain",ar:"الخبز",en:"Bread",sfr:"J'achète du pain tous les matins.",sar:"بشتري خبز كل صباح.",sen:"I buy bread every morning.",img:"le_pain.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].P=st.c['noms'].P||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].P.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+170000+i;st.c['noms'].P.push(u)}});
+ save();}
+function updNomsS(){
+ const add=[
+ {fr:"Le salaire",ar:"الراتب",en:"Salary",sfr:"Mon salaire est versé à la fin du mois.",sar:"راتبي بينزل بنهاية الشهر.",sen:"My salary is paid at the end of the month.",img:"le_salaire.webp"},
+ {fr:"La société",ar:"الشركة / المجتمع",en:"Company / Society",sfr:"Il travaille dans une grande société.",sar:"هو بيشتغل بشركة كبيرة.",sen:"He works for a large company.",img:"la_societe.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].S=st.c['noms'].S||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].S.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+175000+i;st.c['noms'].S.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
