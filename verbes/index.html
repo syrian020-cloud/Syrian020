@@ -5264,13 +5264,74 @@ function updNomsH2(){
  add.forEach((u,i)=>{const ex=st.c['noms'].H.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+375000+i;st.c['noms'].H.push(u)}});
  save();}
 
+function updNomsH3(){
+ const add=[
+ {fr:"L'homme",ar:"الرجل",en:"Man",sfr:"Cet homme travaille avec moi.",sar:"هالرجل بيشتغل معي.",sen:"This man works with me.",img:"l_homme.webp"},
+ {fr:"L'heure",ar:"الساعة / الوقت",en:"Hour / Time",sfr:"Quelle heure est-il ?",sar:"قديش الساعة؟",sen:"What time is it?",img:"l_heure.webp"},
+ {fr:"L'histoire",ar:"القصة / التاريخ",en:"Story / History",sfr:"J'aime apprendre l'histoire de France.",sar:"بحب اتعلّم تاريخ فرنسا.",sen:"I like learning French history.",img:"l_histoire.webp"},
+ {fr:"L'hiver",ar:"الشتاء",en:"Winter",sfr:"En hiver, il fait froid.",sar:"بالشتا بيكون الجو بارد.",sen:"In winter, it's cold.",img:"l_hiver.webp"},
+ {fr:"L'hôpital",ar:"المستشفى",en:"Hospital",sfr:"Je dois aller à l'hôpital.",sar:"لازم روح عالمستشفى.",sen:"I have to go to the hospital.",img:"l_hopital.webp"},
+ {fr:"L'hôtel",ar:"الفندق",en:"Hotel",sfr:"Nous avons réservé une chambre à l'hôtel.",sar:"حجزنا غرفة بالفندق.",sen:"We booked a room at the hotel.",img:"l_hotel.webp"},
+ {fr:"L'habit",ar:"الثوب / اللباس",en:"Clothing / Garment",sfr:"Cet habit est trop grand pour moi.",sar:"هاللباس كبير عليّ كتير.",sen:"This garment is too big for me.",img:"l_habit.webp"},
+ {fr:"L'honneur",ar:"الشرف",en:"Honour",sfr:"C'est un grand honneur pour moi.",sar:"هاد شرف كبير إلي.",sen:"It's a great honour for me.",img:"l_honneur.webp"},
+ {fr:"L'humour",ar:"حسّ الفكاهة",en:"Humour",sfr:"Il a beaucoup d'humour.",sar:"عنده حس فكاهي كتير.",sen:"He has a great sense of humour.",img:"l_humour.webp"},
+ {fr:"L'humanité",ar:"الإنسانية",en:"Humanity",sfr:"Nous devons respecter toute l'humanité.",sar:"لازم نحترم البشرية كلها.",sen:"We must respect all humanity.",img:"l_humanite.webp"},
+ {fr:"L'horaire",ar:"الجدول الزمني / مواعيد الدوام",en:"Schedule / Timetable",sfr:"Mon horaire de travail change chaque semaine.",sar:"جدول دوامي بيتغيّر كل أسبوع.",sen:"My work schedule changes every week.",img:"l_horaire.webp"},
+ {fr:"L'hygiène",ar:"النظافة",en:"Hygiene",sfr:"L'hygiène est importante pour la santé.",sar:"النظافة مهمة للصحة.",sen:"Hygiene is important for health.",img:"l_hygiene.webp"},
+ {fr:"L'humeur",ar:"المزاج",en:"Mood",sfr:"Je suis de bonne humeur aujourd'hui.",sar:"مزاجي رايق اليوم.",sen:"I'm in a good mood today.",img:"l_humeur.webp"},
+ {fr:"L'horizon",ar:"الأفق",en:"Horizon",sfr:"Le soleil disparaît à l'horizon.",sar:"الشمس عم تغيب عند الأفق.",sen:"The sun is disappearing over the horizon.",img:"l_horizon.webp"},
+ {fr:"L'hôte / L'hôtesse",ar:"المضيف / المضيفة",en:"Host / Hostess",sfr:"Notre hôte nous accueille chaleureusement.",sar:"مضيفنا استقبلنا بحرارة.",sen:"Our host welcomes us warmly.",img:"l_hote_l_hotesse.webp"},
+ {fr:"L'héritage",ar:"الإرث / الميراث",en:"Heritage / Inheritance",sfr:"Il a reçu un héritage de son père.",sar:"ورث شي من أبوه.",sen:"He received an inheritance from his father.",img:"l_heritage.webp"},
+ {fr:"L'hypothèse",ar:"الفرضية / الاحتمال",en:"Hypothesis / Assumption",sfr:"C'est une hypothèse, pas une certitude.",sar:"هاد مجرد احتمال، مو شي أكيد.",sen:"It's a hypothesis, not a certainty.",img:"l_hypothese.webp"},
+ {fr:"L'horaire d'ouverture",ar:"وقت الافتتاح",en:"Opening hours",sfr:"Quels sont les horaires d'ouverture ?",sar:"شو أوقات الدوام؟",sen:"What are the opening hours?",img:"l_horaire_d_ouverture.webp"},
+ {fr:"L'hébergement",ar:"السكن / الإقامة",en:"Accommodation",sfr:"Je cherche un hébergement temporaire.",sar:"عم دور على سكن مؤقت.",sen:"I'm looking for temporary accommodation.",img:"l_hebergement.webp"},
+ {fr:"L'héritier / L'héritière",ar:"الوارث / الوارثة",en:"Heir",sfr:"Elle est l'héritière de cette maison.",sar:"هي وريثة هالبيت.",sen:"She is the heir to this house.",img:"l_heritier_l_heritiere.webp"},
+ {fr:"L'hypothèque",ar:"الرهن العقاري",en:"Mortgage",sfr:"Ils ont contracté une hypothèque pour acheter leur maison.",sar:"أخدوا قرض برهن عقاري ليشتروا بيتهم.",sen:"They took out a mortgage to buy their house.",img:"l_hypotheque.webp"},
+ {fr:"L'horaire de travail",ar:"جدول العمل",en:"Work schedule",sfr:"Je dois vérifier mon horaire de travail.",sar:"لازم أتأكد من جدول دوامي.",sen:"I have to check my work schedule.",img:"l_horaire_de_travail.webp"},
+ {fr:"L'hôpital psychiatrique",ar:"مستشفى الأمراض النفسية",en:"Psychiatric hospital",sfr:"Il travaille dans un hôpital psychiatrique.",sar:"هو بيشتغل بمستشفى للأمراض النفسية.",sen:"He works in a psychiatric hospital.",img:"l_hopital_psychiatrique.webp"},
+ {fr:"L'héritage culturel",ar:"التراث الثقافي",en:"Cultural heritage",sfr:"Il faut protéger notre héritage culturel.",sar:"لازم نحمي تراثنا الثقافي.",sen:"We must protect our cultural heritage.",img:"l_heritage_culturel.webp"},
+ {fr:"L'hydratation",ar:"ترطيب الجسم",en:"Hydration",sfr:"Une bonne hydratation est importante.",sar:"شرب المي بشكل كافي مهم.",sen:"Good hydration is important.",img:"l_hydratation.webp"},
+ {fr:"L'hésitation",ar:"التردد",en:"Hesitation",sfr:"Il a répondu sans hésitation.",sar:"جاوب بدون تردد.",sen:"He answered without hesitation.",img:"l_hesitation.webp"},
+ {fr:"L'hospitalité",ar:"حسن الضيافة",en:"Hospitality",sfr:"Merci pour votre hospitalité.",sar:"شكراً على حسن ضيافتكم.",sen:"Thank you for your hospitality.",img:"l_hospitalite.webp"},
+ {fr:"La honte",ar:"الخجل / العار",en:"Shame",sfr:"Il n'y a pas de honte à demander de l'aide.",sar:"ما في عيب إنك تطلب المساعدة.",sen:"There is no shame in asking for help.",img:"la_honte.webp"},
+ {fr:"La haine",ar:"الكراهية",en:"Hatred",sfr:"La haine ne résout aucun problème.",sar:"الكراهية ما بتحل أي مشكلة.",sen:"Hatred doesn't solve any problem.",img:"la_haine.webp"},
+ {fr:"Le hasard",ar:"الصدفة",en:"Chance",sfr:"Je l'ai rencontré par hasard.",sar:"التقيت فيه بالصدفة.",sen:"I met him by chance.",img:"le_hasard.webp"},
+ {fr:"Le handicap",ar:"الإعاقة",en:"Disability",sfr:"Le handicap ne définit pas une personne.",sar:"الإعاقة ما بتحدد قيمة الإنسان.",sen:"Disability does not define a person.",img:"le_handicap.webp"},
+ {fr:"Le harcèlement",ar:"التحرّش / المضايقة المتكررة",en:"Harassment / Bullying",sfr:"Le harcèlement au travail est interdit.",sar:"المضايقات المتكررة بالشغل ممنوعة.",sen:"Workplace harassment is prohibited.",img:"le_harcelement.webp"},
+ {fr:"Le hall",ar:"البهو / المدخل الواسع",en:"Hall / Lobby",sfr:"Attendez-moi dans le hall.",sar:"ناطرني بالبهو.",sen:"Wait for me in the lobby.",img:"le_hall.webp"},
+ {fr:"Le haut",ar:"الأعلى / الجزء العلوي",en:"Top / Upper part",sfr:"Il habite en haut de l'immeuble.",sar:"هو ساكن بالطابق الفوقاني من البناية.",sen:"He lives at the top of the building.",img:"le_haut.webp"},
+ {fr:"Le héros / L'héroïne",ar:"البطل / البطلة",en:"Hero / Heroine",sfr:"Le héros sauve la vie d'un enfant.",sar:"البطل بينقذ حياة طفل.",sen:"The hero saves a child's life.",img:"le_heros_l_heroine.webp"},
+ {fr:"Le hamac",ar:"الأرجوحة الشبكية",en:"Hammock",sfr:"Il se repose dans le hamac.",sar:"هو عم يرتاح بالأرجوحة الشبكية.",sen:"He is resting in the hammock.",img:"le_hamac.webp"},
+ {fr:"Le hibou",ar:"البومة",en:"Owl",sfr:"Le hibou chasse la nuit.",sar:"البومة بتصطاد بالليل.",sen:"The owl hunts at night.",img:"le_hibou.webp"},
+ {fr:"Le homard",ar:"جراد البحر",en:"Lobster",sfr:"Le homard est un fruit de mer.",sar:"جراد البحر من المأكولات البحرية.",sen:"Lobster is a type of seafood.",img:"le_homard.webp"},
+ {fr:"Le haricot",ar:"الفاصولياء",en:"Bean",sfr:"J'aime les haricots verts.",sar:"بحب الفاصولياء الخضرا.",sen:"I like green beans.",img:"le_haricot.webp"},
+ {fr:"Le hamburger",ar:"الهامبرغر",en:"Hamburger",sfr:"Je voudrais un hamburger, s'il vous plaît.",sar:"بدي هامبرغر لو سمحت.",sen:"I'd like a hamburger, please.",img:"le_hamburger.webp"},
+ {fr:"Le handicapé / La handicapée",ar:"الشخص ذو الإعاقة",en:"Disabled person",sfr:"Cette association aide les personnes handicapées.",sar:"هالجمعية بتساعد الأشخاص ذوي الإعاقة.",sen:"This association helps people with disabilities.",img:"le_handicape_la_handicapee.webp"},
+ {fr:"Le hameau",ar:"قرية صغيرة / تجمّع سكني صغير",en:"Hamlet",sfr:"Mes grands-parents habitent dans un petit hameau.",sar:"جدودي ساكنين بقرية صغيرة.",sen:"My grandparents live in a small hamlet.",img:"le_hameau.webp"},
+ {fr:"Le hangar",ar:"المستودع الكبير / الحظيرة",en:"Hangar / Warehouse",sfr:"Les machines sont dans le hangar.",sar:"الآلات موجودة بالمستودع.",sen:"The machines are in the hangar.",img:"le_hangar.webp"},
+ {fr:"Le haricot vert",ar:"الفاصولياء الخضراء",en:"Green bean",sfr:"Je prépare des haricots verts pour le dîner.",sar:"عم حضّر فاصولياء خضرا للعشا.",sen:"I'm preparing green beans for dinner.",img:"le_haricot_vert.webp"},
+ {fr:"Le hublot",ar:"النافذة الدائرية بالطائرة أو السفينة",en:"Porthole",sfr:"Je regarde par le hublot de l'avion.",sar:"عم تطلّع من شباك الطيارة.",sen:"I'm looking through the airplane window.",img:"le_hublot.webp"},
+ {fr:"Le hockey",ar:"الهوكي",en:"Hockey",sfr:"Il joue au hockey depuis cinq ans.",sar:"هو بيلعب هوكي من خمس سنين.",sen:"He has been playing hockey for five years.",img:"le_hockey.webp"},
+ {fr:"Le hérisson",ar:"القنفذ",en:"Hedgehog",sfr:"J'ai vu un hérisson dans le jardin.",sar:"شفت قنفذ بالحديقة.",sen:"I saw a hedgehog in the garden.",img:"le_herisson.webp"},
+ {fr:"Le henné",ar:"الحنّاء",en:"Henna",sfr:"Elle utilise du henné pour ses cheveux.",sar:"هي بتستخدم الحنّا لشعرها.",sen:"She uses henna for her hair.",img:"le_henne.webp"},
+ {fr:"Le héros de guerre",ar:"بطل الحرب",en:"War hero",sfr:"Il est considéré comme un héros de guerre.",sar:"بيعتبروه بطل حرب.",sen:"He is considered a war hero.",img:"le_heros_de_guerre.webp"},
+ {fr:"Le hockeyeur / La hockeyeuse",ar:"لاعب / لاعبة الهوكي",en:"Hockey player",sfr:"Ce hockeyeur joue très bien.",sar:"لاعب الهوكي هاد بيلعب كتير منيح.",sen:"This hockey player plays very well.",img:"le_hockeyeur_la_hockeyeuse.webp"},
+ {fr:"Le houblon",ar:"نبات الجنجل",en:"Hops",sfr:"Le houblon est utilisé dans la fabrication de la bière.",sar:"نبات الجنجل بيُستخدم بصناعة البيرة.",sen:"Hops are used in beer production.",img:"le_houblon.webp"},
+ {fr:"Le harcèlement moral",ar:"التنمّر أو المضايقة النفسية المتكررة",en:"Psychological harassment",sfr:"Le harcèlement moral au travail est interdit.",sar:"المضايقة النفسية المتكررة بالشغل ممنوعة.",sen:"Psychological harassment at work is prohibited.",img:"le_harcelement_moral.webp"},
+ {fr:"La hauteur",ar:"الارتفاع / العلو",en:"Height",sfr:"La hauteur de ce bâtiment est impressionnante.",sar:"ارتفاع هالبناية بيجنّن.",sen:"The height of this building is impressive.",img:"la_hauteur.webp"},
+ {fr:"La hernie",ar:"الفَتْق",en:"Hernia",sfr:"Le médecin a diagnostiqué une hernie.",sar:"الطبيب شخّص عنده فتق.",sen:"The doctor diagnosed a hernia.",img:"la_hernie.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].H=st.c['noms'].H||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].H.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+380000+i;st.c['noms'].H.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
