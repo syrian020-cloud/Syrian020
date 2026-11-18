@@ -5127,13 +5127,85 @@ function updNomsL2(){
  add.forEach((u,i)=>{const ex=st.c['noms'].L.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+355000+i;st.c['noms'].L.push(u)}});
  save();}
 
+function updNomsL3(){
+ const add=[
+ {fr:"Le livre",ar:"الكتاب",en:"Book",sfr:"Je lis un livre intéressant.",sar:"أنا عم اقرأ كتاب ممتع.",sen:"I am reading an interesting book.",img:"le_livre.webp"},
+ {fr:"La langue",ar:"اللغة / اللسان",en:"Language / Tongue",sfr:"J'apprends la langue française.",sar:"أنا عم اتعلم اللغة الفرنسية.",sen:"I am learning the French language.",img:"la_langue.webp"},
+ {fr:"Le lait",ar:"الحليب",en:"Milk",sfr:"Je bois du lait le matin.",sar:"بشرب حليب الصبح.",sen:"I drink milk in the morning.",img:"le_lait.webp"},
+ {fr:"La lumière",ar:"الضوء / النور",en:"Light",sfr:"La lumière est trop forte.",sar:"الضوء قوي كتير.",sen:"The light is too bright.",img:"la_lumiere.webp"},
+ {fr:"Le livreur / La livreuse",ar:"عامل التوصيل / عاملة التوصيل",en:"Delivery person",sfr:"Le livreur arrive dans dix minutes.",sar:"عامل التوصيل رح يوصل بعد عشر دقايق.",sen:"The delivery person will arrive in ten minutes.",img:"le_livreur_la_livreuse.webp"},
+ {fr:"La liberté",ar:"الحرية",en:"Freedom",sfr:"La liberté est importante pour tout le monde.",sar:"الحرية مهمة لكل الناس.",sen:"Freedom is important for everyone.",img:"la_liberte.webp"},
+ {fr:"Le lit",ar:"السرير",en:"Bed",sfr:"Je vais me coucher dans mon lit.",sar:"رح روح نام بتختي.",sen:"I am going to bed.",img:"le_lit.webp"},
+ {fr:"La lettre",ar:"الرسالة / الخطاب",en:"Letter",sfr:"J'ai reçu une lettre importante.",sar:"وصلني خطاب مهم.",sen:"I received an important letter.",img:"la_lettre.webp"},
+ {fr:"Le lieu",ar:"المكان",en:"Place",sfr:"C'est un lieu très calme.",sar:"هاد مكان هادئ كتير.",sen:"It's a very quiet place.",img:"le_lieu.webp"},
+ {fr:"La liste",ar:"القائمة",en:"List",sfr:"J'ai préparé une liste de courses.",sar:"حضرت قائمة أغراض للتسوق.",sen:"I prepared a shopping list.",img:"la_liste.webp"},
+ {fr:"Le litige",ar:"النزاع / الخلاف القانوني",en:"Dispute",sfr:"Nous avons un litige avec le propriétaire.",sar:"عنا نزاع مع صاحب البيت.",sen:"We have a dispute with the landlord.",img:"le_litige.webp"},
+ {fr:"Le linge",ar:"الغسيل / الملابس",en:"Laundry",sfr:"Je dois laver le linge.",sar:"لازم اغسل الغسيل.",sen:"I have to do the laundry.",img:"le_linge.webp"},
+ {fr:"La lessive",ar:"مسحوق الغسيل / مواد الغسيل",en:"Laundry detergent",sfr:"Il faut acheter de la lessive.",sar:"لازم نشتري مسحوق غسيل.",sen:"We need to buy laundry detergent.",img:"la_lessive.webp"},
+ {fr:"Le légume",ar:"الخضار",en:"Vegetable",sfr:"Je mange des légumes tous les jours.",sar:"باكل خضار كل يوم.",sen:"I eat vegetables every day.",img:"le_legume.webp"},
+ {fr:"La leçon",ar:"الدرس",en:"Lesson",sfr:"J'ai une leçon de français aujourd'hui.",sar:"عندي درس فرنسي اليوم.",sen:"I have a French lesson today.",img:"la_lecon.webp"},
+ {fr:"Le lecteur / La lectrice",ar:"القارئ / القارئة",en:"Reader",sfr:"Le lecteur aime les romans.",sar:"القارئ بيحب الروايات.",sen:"The reader likes novels.",img:"le_lecteur_la_lectrice.webp"},
+ {fr:"La lecture",ar:"القراءة",en:"Reading",sfr:"La lecture m'aide à apprendre.",sar:"القراءة بتساعدني اتعلم.",sen:"Reading helps me learn.",img:"la_lecture.webp"},
+ {fr:"Le licenciement",ar:"الفصل من العمل",en:"Dismissal",sfr:"Le licenciement doit respecter la loi.",sar:"الفصل من العمل لازم يكون حسب القانون.",sen:"Dismissal must comply with the law.",img:"le_licenciement.webp"},
+ {fr:"Le lendemain",ar:"اليوم التالي",en:"The next day",sfr:"Je travaille le lendemain.",sar:"بشتغل باليوم التالي.",sen:"I work the next day.",img:"le_lendemain.webp"},
+ {fr:"La lettre de motivation",ar:"رسالة التحفيز / رسالة التقديم للعمل",en:"Cover letter",sfr:"J'envoie ma lettre de motivation à l'entreprise.",sar:"ببعت رسالة التقديم للشركة.",sen:"I send my cover letter to the company.",img:"la_lettre_de_motivation.webp"},
+ {fr:"Le laboratoire",ar:"المختبر",en:"Laboratory",sfr:"Mon analyse est au laboratoire.",sar:"تحليلي بالمختبر.",sen:"My test is at the laboratory.",img:"le_laboratoire.webp"},
+ {fr:"La largeur",ar:"العرض",en:"Width",sfr:"Quelle est la largeur de cette table ?",sar:"قديش عرض هالطاولة؟",sen:"What is the width of this table?",img:"la_largeur.webp"},
+ {fr:"La longueur",ar:"الطول",en:"Length",sfr:"La longueur de cette pièce est de cinq mètres.",sar:"طول هالغرفة خمسة أمتار.",sen:"The length of this room is five meters.",img:"la_longueur.webp"},
+ {fr:"La lumière du jour",ar:"ضوء النهار",en:"Daylight",sfr:"J'aime travailler à la lumière du jour.",sar:"بحب اشتغل بضوء النهار.",sen:"I like working in daylight.",img:"la_lumiere_du_jour.webp"},
+ {fr:"Le loisir",ar:"وقت الفراغ / النشاط الترفيهي",en:"Leisure",sfr:"La lecture est mon loisir préféré.",sar:"القراءة هي هوايتي المفضلة بوقت الفراغ.",sen:"Reading is my favorite leisure activity.",img:"le_loisir.webp"},
+ {fr:"Le logiciel",ar:"البرنامج الحاسوبي",en:"Software",sfr:"J'utilise un logiciel pour traduire.",sar:"بستخدم برنامج للترجمة.",sen:"I use software to translate.",img:"le_logiciel.webp"},
+ {fr:"Le lancement",ar:"الإطلاق",en:"Launch",sfr:"Le lancement du nouveau produit est prévu demain.",sar:"إطلاق المنتج الجديد مقرر لبكرا.",sen:"The launch of the new product is scheduled for tomorrow.",img:"le_lancement.webp"},
+ {fr:"La lumière naturelle",ar:"الضوء الطبيعي",en:"Natural light",sfr:"Cette pièce manque de lumière naturelle.",sar:"هالغرفة ناقصها ضوء طبيعي.",sen:"This room lacks natural light.",img:"la_lumiere_naturelle.webp"},
+ {fr:"Le laboratoire médical",ar:"المختبر الطبي",en:"Medical laboratory",sfr:"Le laboratoire médical analyse mon sang.",sar:"المختبر الطبي بيحلل دمي.",sen:"The medical laboratory tests my blood.",img:"le_laboratoire_medical.webp"},
+ {fr:"La limite",ar:"الحدّ",en:"Limit",sfr:"Il faut respecter la limite de vitesse.",sar:"لازم نلتزم بحد السرعة.",sen:"We must respect the speed limit.",img:"la_limite.webp"},
+ {fr:"Le linge de maison",ar:"مفروشات المنزل",en:"Household linen",sfr:"Je dois acheter du linge de maison.",sar:"لازم اشتري مفروشات للبيت.",sen:"I need to buy household linen.",img:"le_linge_de_maison.webp"},
+ {fr:"La lumière électrique",ar:"الإضاءة الكهربائية",en:"Electric light",sfr:"La lumière électrique ne fonctionne plus.",sar:"الإضاءة الكهربائية ما عادت تشتغل.",sen:"The electric light no longer works.",img:"la_lumiere_electrique.webp"},
+ {fr:"Le laboratoire d'analyses",ar:"مختبر التحاليل",en:"Testing laboratory",sfr:"Je vais au laboratoire d'analyses demain.",sar:"رح روح على مختبر التحاليل بكرا.",sen:"I'm going to the testing laboratory tomorrow.",img:"le_laboratoire_d_analyses.webp"},
+ {fr:"La ligne",ar:"الخطّ",en:"Line",sfr:"Je prends la ligne A du tram.",sar:"بركب خط الترام A.",sen:"I take tram line A.",img:"la_ligne.webp"},
+ {fr:"La lumière rouge",ar:"الضوء الأحمر",en:"Red light",sfr:"Le feu passe au rouge.",sar:"الإشارة بتصير حمرا.",sen:"The traffic light turns red.",img:"la_lumiere_rouge.webp"},
+ {fr:"Le licenciement économique",ar:"التسريح لأسباب اقتصادية",en:"Redundancy",sfr:"L'entreprise annonce un licenciement économique.",sar:"الشركة أعلنت عن تسريح موظفين لأسباب اقتصادية.",sen:"The company announces redundancies for economic reasons.",img:"le_licenciement_economique.webp"},
+ {fr:"La lampe",ar:"المصباح",en:"Lamp",sfr:"J'allume la lampe.",sar:"بشغّل المصباح.",sen:"I turn on the lamp.",img:"la_lampe.webp"},
+ {fr:"Le lavabo",ar:"المغسلة",en:"Washbasin",sfr:"Le lavabo est dans la salle de bains.",sar:"المغسلة موجودة بالحمّام.",sen:"The washbasin is in the bathroom.",img:"le_lavabo.webp"},
+ {fr:"La laverie",ar:"مغسلة الملابس",en:"Laundromat",sfr:"Je vais à la laverie pour laver mes vêtements.",sar:"بروح على مغسلة الملابس حتى اغسل تيابي.",sen:"I go to the laundromat to wash my clothes.",img:"la_laverie.webp"},
+ {fr:"Le livreur de repas",ar:"عامل توصيل الطعام",en:"Food delivery person",sfr:"Le livreur de repas est arrivé.",sar:"وصل عامل توصيل الأكل.",sen:"The food delivery person has arrived.",img:"le_livreur_de_repas.webp"},
+ {fr:"La lumière du soleil",ar:"ضوء الشمس",en:"Sunlight",sfr:"La lumière du soleil entre dans la chambre.",sar:"ضوء الشمس عم يفوت على الغرفة.",sen:"Sunlight is coming into the room.",img:"la_lumiere_du_soleil.webp"},
+ {fr:"Le laboratoire pharmaceutique",ar:"المختبر الدوائي",en:"Pharmaceutical laboratory",sfr:"Ce laboratoire pharmaceutique fabrique des médicaments.",sar:"هالمختبر الدوائي بيصنّع أدوية.",sen:"This pharmaceutical laboratory manufactures medicines.",img:"le_laboratoire_pharmaceutique.webp"},
+ {fr:"Le livreur de colis",ar:"موزّع الطرود",en:"Parcel delivery person",sfr:"Le livreur de colis a sonné à la porte.",sar:"موزّع الطرود دقّ على الباب.",sen:"The parcel delivery person rang the doorbell.",img:"le_livreur_de_colis.webp"},
+ {fr:"Le langage",ar:"اللغة / أسلوب التعبير",en:"Language",sfr:"Le langage est important pour communiquer.",sar:"اللغة مهمة للتواصل.",sen:"Language is important for communication.",img:"le_langage.webp"},
+ {fr:"La lampe de poche",ar:"المصباح اليدوي",en:"Flashlight",sfr:"J'utilise une lampe de poche dans le noir.",sar:"بستخدم مصباح يدوي بالعتمة.",sen:"I use a flashlight in the dark.",img:"la_lampe_de_poche.webp"},
+ {fr:"Le lac",ar:"البحيرة",en:"Lake",sfr:"Nous marchons autour du lac.",sar:"عم نمشي حول البحيرة.",sen:"We are walking around the lake.",img:"le_lac.webp"},
+ {fr:"Le lion",ar:"الأسد",en:"Lion",sfr:"Le lion est un animal sauvage.",sar:"الأسد حيوان بري.",sen:"The lion is a wild animal.",img:"le_lion.webp"},
+ {fr:"La loi",ar:"القانون",en:"Law",sfr:"Tout le monde doit respecter la loi.",sar:"لازم الكل يحترم القانون.",sen:"Everyone must respect the law.",img:"la_loi.webp"},
+ {fr:"La langue maternelle",ar:"اللغة الأم",en:"Mother tongue",sfr:"Ma langue maternelle est l'arabe.",sar:"لغتي الأم هي العربية.",sen:"My mother tongue is Arabic.",img:"la_langue_maternelle.webp"},
+ {fr:"Le lave-linge",ar:"الغسالة",en:"Washing machine",sfr:"Le lave-linge est en panne.",sar:"الغسالة خربانة.",sen:"The washing machine is broken.",img:"le_lave_linge.webp"},
+ {fr:"Le laitier / La laitière",ar:"بائع الحليب / بائعة الحليب",en:"Milkman / Milk seller",sfr:"Le laitier livre du lait le matin.",sar:"بائع الحليب بيوصل الحليب الصبح.",sen:"The milkman delivers milk in the morning.",img:"le_laitier_la_laitiere.webp"},
+ {fr:"La laine",ar:"الصوف",en:"Wool",sfr:"Ce pull est en laine.",sar:"هالكنزة مصنوعة من الصوف.",sen:"This sweater is made of wool.",img:"la_laine.webp"},
+ {fr:"Le lacet",ar:"رباط الحذاء",en:"Shoelace",sfr:"Mon lacet est défait.",sar:"رباط حذائي مفكوك.",sen:"My shoelace is undone.",img:"le_lacet.webp"},
+ {fr:"Le lampadaire",ar:"عمود الإنارة",en:"Street lamp",sfr:"Le lampadaire éclaire la rue.",sar:"عمود الإنارة بينوّر الشارع.",sen:"The street lamp lights up the street.",img:"le_lampadaire.webp"},
+ {fr:"La lentille",ar:"العدس",en:"Lentil",sfr:"Je prépare une soupe de lentilles.",sar:"عم حضّر شوربة عدس.",sen:"I am making lentil soup.",img:"la_lentille.webp"},
+ {fr:"Le lait en poudre",ar:"الحليب المجفف",en:"Powdered milk",sfr:"Il faut ajouter du lait en poudre.",sar:"لازم نضيف حليب مجفف.",sen:"We need to add powdered milk.",img:"le_lait_en_poudre.webp"},
+ {fr:"La législation",ar:"التشريعات / القوانين",en:"Legislation",sfr:"La législation française protège les salariés.",sar:"التشريعات الفرنسية بتحمي الموظفين.",sen:"French legislation protects employees.",img:"la_legislation.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].L=st.c['noms'].L||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].L.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+360000+i;st.c['noms'].L.push(u)}});
+ save();}
+
+function updNomsM4(){
+ const add=[
+ {fr:"Le médecin légiste",ar:"الطبيب الشرعي",en:"Forensic doctor",sfr:"Le médecin légiste examine le corps.",sar:"الطبيب الشرعي بيفحص الجثة.",sen:"The forensic doctor examines the body.",img:"le_medecin_legiste.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].M=st.c['noms'].M||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].M.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+365000+i;st.c['noms'].M.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
