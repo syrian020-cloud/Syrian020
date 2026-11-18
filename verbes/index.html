@@ -3628,13 +3628,56 @@ function updNomsD(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].D=st.c['noms'].D||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].D.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+93000+i;st.c['noms'].D.push(u)}});
  save();}
+function updNomsC7(){
+ const add=[
+ {fr:"Le contrôle technique",ar:"الفحص الفني للسيارة",en:"Vehicle Inspection",sfr:"Ma voiture doit passer le contrôle technique.",sar:"سيارتي لازم تعمل الفحص الفني.",sen:"My car needs to undergo its technical inspection.",img:"le_controle_technique.webp"},
+ {fr:"La cotisation",ar:"الاشتراك / المساهمة المالية",en:"Contribution",sfr:"La cotisation est prélevée chaque mois.",sar:"الاشتراك بينخصم كل شهر.",sen:"The contribution is deducted every month.",img:"la_cotisation.webp"},
+ {fr:"La couverture sociale",ar:"التغطية الاجتماعية",en:"Social Coverage",sfr:"Ma couverture sociale est à jour.",sar:"تغطيتي الاجتماعية محدّثة.",sen:"My social coverage is up to date.",img:"la_couverture_sociale.webp"},
+ {fr:"Le complément",ar:"الإضافة / المكمّل",en:"Supplement / Addition",sfr:"Il manque un complément à mon dossier.",sar:"ناقص ملفّي مستند إضافي.",sen:"An additional document is missing from my file.",img:"le_complement.webp"},
+ {fr:"La confirmation",ar:"التأكيد",en:"Confirmation",sfr:"J'attends la confirmation de mon rendez-vous.",sar:"ناطر تأكيد موعدي.",sen:"I'm waiting for confirmation of my appointment.",img:"la_confirmation.webp"},
+ {fr:"La copie",ar:"النسخة / صورة المستند",en:"Copy",sfr:"Je dois faire une copie de ce document.",sar:"لازم أعمل نسخة عن هالوثيقة.",sen:"I have to make a copy of this document.",img:"la_copie.webp"},
+ {fr:"La coupure",ar:"الانقطاع / القطع",en:"Cut / Interruption",sfr:"Il y a eu une coupure de courant.",sar:"صار في انقطاع بالكهربا.",sen:"There was a power cut.",img:"la_coupure.webp"},
+ {fr:"Le coût de la vie",ar:"تكلفة المعيشة",en:"Cost of Living",sfr:"Le coût de la vie augmente en France.",sar:"تكلفة المعيشة عم ترتفع بفرنسا.",sen:"The cost of living is increasing in France.",img:"le_cout_de_la_vie.webp"},
+ {fr:"Le créneau horaire",ar:"الفترة الزمنية المحددة",en:"Time Slot",sfr:"Quel créneau horaire vous convient ?",sar:"أي فترة زمنية بتناسبك؟",sen:"Which time slot suits you?",img:"le_creneau_horaire.webp"},
+ {fr:"Le centre de formation",ar:"مركز التدريب",en:"Training Centre",sfr:"Je suis inscrit dans un centre de formation.",sar:"أنا مسجّل بمركز تدريب.",sen:"I am enrolled in a training centre.",img:"le_centre_de_formation.webp"},
+ {fr:"Le chef d'équipe",ar:"قائد الفريق / رئيس المجموعة",en:"Team Leader",sfr:"Le chef d'équipe répartit les tâches.",sar:"رئيس الفريق بيوزّع المهام.",sen:"The team leader assigns the tasks.",img:"le_chef_d_equipe.webp"},
+ {fr:"Le congé payé",ar:"الإجازة مدفوعة الأجر",en:"Paid Leave",sfr:"Il me reste cinq jours de congés payés.",sar:"ضايل إلي خمسة أيام إجازة مدفوعة الأجر.",sen:"I have five days of paid leave remaining.",img:"le_conge_paye.webp"},
+ {fr:"Le compte rendu",ar:"تقرير / محضر",en:"Report / Minutes",sfr:"Le médecin m'a remis un compte rendu.",sar:"الطبيب سلّمني تقرير.",sen:"The doctor gave me a report.",img:"le_compte_rendu.webp"},
+ {fr:"Le contrôle médical",ar:"الفحص الطبي",en:"Medical Examination",sfr:"Je dois passer un contrôle médical.",sar:"لازم أعمل فحص طبي.",sen:"I have to undergo a medical examination.",img:"le_controle_medical.webp"},
+ {fr:"Le complément de salaire",ar:"المبلغ الإضافي على الراتب",en:"Salary Supplement",sfr:"Cette prime constitue un complément de salaire.",sar:"هالمكافأة بتشكّل إضافة على الراتب.",sen:"This bonus is a salary supplement.",img:"le_complement_de_salaire.webp"},
+ {fr:"Le centre commercial",ar:"المركز التجاري",en:"Shopping Centre",sfr:"Nous allons au centre commercial samedi.",sar:"رحنا على المركز التجاري يوم السبت.",sen:"We are going to the shopping centre on Saturday.",img:"le_centre_commercial.webp"},
+ {fr:"La carte de transport",ar:"بطاقة النقل",en:"Transport Card",sfr:"Je recharge ma carte de transport chaque mois.",sar:"بشحن بطاقة المواصلات كل شهر.",sen:"I top up my transport card every month.",img:"la_carte_de_transport.webp"},
+ {fr:"Le chef de service",ar:"رئيس القسم",en:"Department Head",sfr:"Le chef de service organise les horaires.",sar:"رئيس القسم بينظّم أوقات الدوام.",sen:"The department head organizes the schedules.",img:"le_chef_de_service.webp"},
+ {fr:"Le cadenas de sécurité",ar:"قفل الأمان",en:"Safety Padlock",sfr:"Le cadenas de sécurité empêche l'accès à la machine.",sar:"قفل الأمان بيمنع الوصول للآلة.",sen:"The safety padlock prevents access to the machine.",img:"le_cadenas_de_securite.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].C=st.c['noms'].C||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].C.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+97000+i;st.c['noms'].C.push(u)}});
+ save();}
+function updNomsR(){
+ const add=[
+ {fr:"La réclamation",ar:"الشكوى",en:"Complaint",sfr:"J'ai envoyé une réclamation à l'entreprise.",sar:"بعت شكوى للشركة.",sen:"I sent a complaint to the company.",img:"la_reclamation.webp"},
+ {fr:"Le remboursement",ar:"استرداد المال",en:"Refund",sfr:"Je demande le remboursement de cette somme.",sar:"عم أطلب استرداد هالمبلغ.",sen:"I'm requesting a refund of this amount.",img:"le_remboursement.webp"},
+ {fr:"Le renseignement",ar:"معلومة",en:"Information",sfr:"Je voudrais un renseignement sur cette formation.",sar:"بدي استفسر عن هالدورة التدريبية.",sen:"I would like some information about this training course.",img:"le_renseignement.webp"},
+ {fr:"Le recrutement",ar:"التوظيف",en:"Recruitment",sfr:"Le recrutement commence le mois prochain.",sar:"التوظيف بيبلّش الشهر الجاي.",sen:"Recruitment starts next month.",img:"le_recrutement.webp"},
+ {fr:"Le responsable",ar:"المسؤول",en:"Person in Charge / Manager",sfr:"Le responsable organise le travail de l'équipe.",sar:"المسؤول بينظّم شغل الفريق.",sen:"The manager organizes the team's work.",img:"le_responsable.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].R=st.c['noms'].R||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].R.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+101000+i;st.c['noms'].R.push(u)}});
+ save();}
+function updNomsJ(){
+ const add=[
+ {fr:"Le justificatif",ar:"وثيقة إثبات",en:"Proof / Supporting Document",sfr:"Je dois fournir un justificatif de domicile.",sar:"لازم قدّم وثيقة تثبت عنوان سكني.",sen:"I have to provide proof of address.",img:"le_justificatif.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].J=st.c['noms'].J||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].J.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+105000+i;st.c['noms'].J.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
