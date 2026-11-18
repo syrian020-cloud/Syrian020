@@ -4980,13 +4980,26 @@ function updNomsV4(){
  add.forEach((u,i)=>{const ex=st.c['noms'].V.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+315000+i;st.c['noms'].V.push(u)}});
  save();}
 
+function updNomsW(){
+ const add=[
+ {fr:"Le week-end",ar:"عطلة نهاية الأسبوع",en:"Weekend",sfr:"Je me repose le week-end.",sar:"بارتاح بعطلة نهاية الأسبوع.",sen:"I rest at the weekend.",img:"le_week_end.webp"},
+ {fr:"Le wifi",ar:"الواي فاي / الاتصال اللاسلكي",en:"Wi-Fi",sfr:"Le wifi ne fonctionne pas.",sar:"الواي فاي ما عم يشتغل.",sen:"The Wi-Fi isn't working.",img:"le_wifi.webp"},
+ {fr:"Le web",ar:"الويب / شبكة الإنترنت",en:"Web",sfr:"Je cherche des informations sur le web.",sar:"عم دوّر على معلومات على الإنترنت.",sen:"I'm looking for information on the web.",img:"le_web.webp"},
+ {fr:"Le wagon",ar:"عربة القطار",en:"Train Carriage",sfr:"Ce wagon est réservé aux voyageurs.",sar:"هالعربة مخصّصة للمسافرين.",sen:"This carriage is reserved for passengers.",img:"le_wagon.webp"},
+ {fr:"Le whisky",ar:"الويسكي",en:"Whisky",sfr:"Il vend du whisky dans ce magasin.",sar:"هو بيبيع ويسكي بهالمحل.",sen:"He sells whisky in this shop.",img:"le_whisky.webp"},
+ {fr:"Le western",ar:"فيلم الغرب الأمريكي",en:"Western",sfr:"J'aime regarder les films westerns.",sar:"بحب أحضر أفلام الغرب الأمريكي.",sen:"I like watching western films.",img:"le_western.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].W=st.c['noms'].W||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].W.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+325000+i;st.c['noms'].W.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
