@@ -4358,13 +4358,79 @@ function updNomsM3(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].M=st.c['noms'].M||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].M.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+185000+i;st.c['noms'].M.push(u)}});
  save();}
+function updNomsR2(){
+ const add=[
+ {fr:"Le repas",ar:"الوجبة",en:"Meal",sfr:"Je prépare le repas.",sar:"أنا عم حضّر الوجبة.",sen:"I am preparing the meal.",img:"le_repas.webp"},
+ {fr:"La rue",ar:"الشارع",en:"Street",sfr:"J'habite dans cette rue.",sar:"أنا ساكن بهالشارع.",sen:"I live on this street.",img:"la_rue.webp"},
+ {fr:"Le restaurant",ar:"المطعم",en:"Restaurant",sfr:"Nous mangeons au restaurant.",sar:"نحن عم ناكل بالمطعم.",sen:"We are eating at the restaurant.",img:"le_restaurant.webp"},
+ {fr:"La réponse",ar:"الجواب",en:"Answer",sfr:"Je connais la réponse.",sar:"أنا بعرف الجواب.",sen:"I know the answer.",img:"la_reponse.webp"},
+ {fr:"Le rendez-vous",ar:"الموعد",en:"Appointment",sfr:"J'ai un rendez-vous chez le médecin.",sar:"عندي موعد عند الطبيب.",sen:"I have a doctor's appointment.",img:"le_rendez_vous.webp"},
+ {fr:"Le retard",ar:"التأخير",en:"Delay",sfr:"Le train a du retard.",sar:"القطار متأخر.",sen:"The train is delayed.",img:"le_retard.webp"},
+ {fr:"Le retour",ar:"العودة",en:"Return",sfr:"Je rentre après mon travail.",sar:"برجع بعد شغلي.",sen:"I return after work.",img:"le_retour.webp"},
+ {fr:"La région",ar:"المنطقة",en:"Region",sfr:"Cette région est très belle.",sar:"هالمنطقة كتير حلوة.",sen:"This region is very beautiful.",img:"la_region.webp"},
+ {fr:"La raison",ar:"السبب",en:"Reason",sfr:"Quelle est la raison de ton absence ?",sar:"شو سبب غيابك؟",sen:"What is the reason for your absence?",img:"la_raison.webp"},
+ {fr:"La règle",ar:"القاعدة",en:"Rule",sfr:"Il faut respecter les règles.",sar:"لازم نحترم القواعد.",sen:"We must respect the rules.",img:"la_regle.webp"},
+ {fr:"Le résultat",ar:"النتيجة",en:"Result",sfr:"J'attends les résultats de l'examen.",sar:"أنا ناطر نتائج الامتحان.",sen:"I am waiting for the exam results.",img:"le_resultat.webp"},
+ {fr:"Le risque",ar:"الخطر / المخاطرة",en:"Risk",sfr:"Il y a un risque de retard.",sar:"في احتمال يصير تأخير.",sen:"There is a risk of delay.",img:"le_risque.webp"},
+ {fr:"Le revenu",ar:"الدخل",en:"Income",sfr:"Mon revenu mensuel est limité.",sar:"دخلي الشهري محدود.",sen:"My monthly income is limited.",img:"le_revenu.webp"},
+ {fr:"La relation",ar:"العلاقة",en:"Relationship",sfr:"Nous avons une bonne relation.",sar:"علاقتنا منيحة.",sen:"We have a good relationship.",img:"la_relation.webp"},
+ {fr:"Le reste",ar:"الباقي",en:"The rest",sfr:"Je vais garder le reste.",sar:"رح احتفظ بالباقي.",sen:"I will keep the rest.",img:"le_reste.webp"},
+ {fr:"Le rire",ar:"الضحك",en:"Laughter",sfr:"Son rire est contagieux.",sar:"ضحكته بتعدي.",sen:"His laughter is contagious.",img:"le_rire.webp"},
+ {fr:"La route",ar:"الطريق",en:"Road",sfr:"La route est longue.",sar:"الطريق طويل.",sen:"The road is long.",img:"la_route.webp"},
+ {fr:"Le reçu",ar:"الإيصال",en:"Receipt",sfr:"J'ai besoin du reçu.",sar:"بحتاج الإيصال.",sen:"I need the receipt.",img:"le_recu.webp"},
+ {fr:"La robe",ar:"الفستان",en:"Dress",sfr:"Elle porte une robe noire.",sar:"هي لابسة فستان أسود.",sen:"She is wearing a black dress.",img:"la_robe.webp"},
+ {fr:"Le regard",ar:"النظرة",en:"Look / Gaze",sfr:"Il a un regard sérieux.",sar:"عنده نظرة جدية.",sen:"He has a serious look.أكيد، بدون تكرار نهائياً. الكلمات السابقة بحرف R مستبعدة، ونكمل بكلمات جديدة وشائعة:",img:"le_regard.webp"},
+ {fr:"Le rêve",ar:"الحلم",en:"Dream",sfr:"Mon rêve est de parler français couramment.",sar:"حلمي أحكي فرنسي بطلاقة.",sen:"My dream is to speak French fluently.",img:"le_reve.webp"},
+ {fr:"Le réveil",ar:"المنبّه / الاستيقاظ",en:"Alarm clock / Waking up",sfr:"Mon réveil sonne à cinq heures.",sar:"المنبّه بيرن الساعة خمسة.",sen:"My alarm rings at five o'clock.",img:"le_reveil.webp"},
+ {fr:"La retraite",ar:"التقاعد",en:"Retirement",sfr:"Il prendra sa retraite à soixante ans.",sar:"رح يتقاعد بعمر الستين.",sen:"He will retire at sixty.",img:"la_retraite.webp"},
+ {fr:"La réparation",ar:"التصليح / الإصلاح",en:"Repair",sfr:"La réparation de la machine coûte cher.",sar:"تصليح الآلة مكلف.",sen:"Repairing the machine is expensive.",img:"la_reparation.webp"},
+ {fr:"La réduction",ar:"التخفيض",en:"Discount / Reduction",sfr:"Ce magasin propose une réduction de 20 %.",sar:"هالمتجر عامل تخفيض عشرين بالمية.",sen:"This shop offers a 20% discount.",img:"la_reduction.webp"},
+ {fr:"La réservation",ar:"الحجز",en:"Reservation / Booking",sfr:"J'ai une réservation pour ce soir.",sar:"عندي حجز لهالمسا.",sen:"I have a reservation for tonight.",img:"la_reservation.webp"},
+ {fr:"La réception",ar:"الاستقبال",en:"Reception",sfr:"Les colis sont à la réception.",sar:"الطرود عند الاستقبال.",sen:"The parcels are at reception.",img:"la_reception.webp"},
+ {fr:"Le repas du soir",ar:"وجبة العشاء",en:"Evening meal",sfr:"Le repas du soir est prêt.",sar:"وجبة العشا جاهزة.",sen:"Dinner is ready.",img:"le_repas_du_soir.webp"},
+ {fr:"Le rangement",ar:"الترتيب / التنظيم",en:"Tidying / Storage",sfr:"Le rangement de la chambre est nécessaire.",sar:"ترتيب الغرفة ضروري.",sen:"Tidying the room is necessary.",img:"le_rangement.webp"},
+ {fr:"Le remboursement intégral",ar:"استرداد كامل المبلغ",en:"Full refund",sfr:"J'ai reçu un remboursement intégral.",sar:"استرجعت المبلغ كامل.",sen:"I received a full refund.",img:"le_remboursement_integral.webp"},
+ {fr:"La responsabilité",ar:"المسؤولية",en:"Responsibility",sfr:"C'est une grande responsabilité.",sar:"هاي مسؤولية كبيرة.",sen:"It is a great responsibility.",img:"la_responsabilite.webp"},
+ {fr:"Le rapport",ar:"التقرير",en:"Report",sfr:"Je dois préparer un rapport.",sar:"لازم حضّر تقرير.",sen:"I have to prepare a report.",img:"le_rapport.webp"},
+ {fr:"La réunion",ar:"الاجتماع",en:"Meeting",sfr:"La réunion commence à neuf heures.",sar:"الاجتماع بيبلّش الساعة تسعة.",sen:"The meeting starts at nine o'clock.",img:"la_reunion.webp"},
+ {fr:"Le règlement",ar:"النظام / اللائحة",en:"Rules / Regulations",sfr:"Il faut lire le règlement.",sar:"لازم نقرأ النظام.",sen:"We must read the regulations.",img:"le_reglement.webp"},
+ {fr:"La rentrée",ar:"العودة إلى الدراسة أو العمل",en:"Back to school / Work",sfr:"La rentrée scolaire est en septembre.",sar:"العودة للمدرسة بتكون بشهر أيلول.",sen:"The school year starts in September.",img:"la_rentree.webp"},
+ {fr:"Le remboursement bancaire",ar:"استرداد المبلغ عبر البنك",en:"Bank refund",sfr:"Le remboursement bancaire prendra quelques jours.",sar:"استرداد المبلغ عن طريق البنك رح ياخد كم يوم.",sen:"The bank refund will take a few days.",img:"le_remboursement_bancaire.webp"},
+ {fr:"Le refus",ar:"الرفض",en:"Refusal",sfr:"J'ai reçu un refus.",sar:"وصلني رفض.",sen:"I received a refusal.",img:"le_refus.webp"},
+ {fr:"Le recours",ar:"الطعن / الاعتراض القانوني",en:"Appeal / Legal remedy",sfr:"Je souhaite faire un recours.",sar:"بدي قدّم اعتراض.",sen:"I would like to file an appeal.",img:"le_recours.webp"},
+ {fr:"Le retardataire",ar:"الشخص المتأخر",en:"Latecomer",sfr:"Le retardataire doit prévenir son responsable.",sar:"الشخص المتأخر لازم يخبر المسؤول.",sen:"The latecomer must inform their manager.",img:"le_retardataire.webp"},
+ {fr:"La ressource",ar:"المورد / الإمكانية",en:"Resource",sfr:"Nous manquons de ressources.",sar:"عنا نقص بالموارد.",sen:"We lack resources.",img:"la_ressource.webp"},
+ {fr:"Le respect",ar:"الاحترام",en:"Respect",sfr:"Le respect est important au travail.",sar:"الاحترام مهم بالشغل.",sen:"Respect is important at work.",img:"le_respect.webp"},
+ {fr:"La richesse",ar:"الثروة / الغنى",en:"Wealth",sfr:"La richesse ne fait pas toujours le bonheur.",sar:"الثروة مو دائماً بتجيب السعادة.",sen:"Wealth does not always bring happiness.",img:"la_richesse.webp"},
+ {fr:"Le repos",ar:"الراحة",en:"Rest",sfr:"J'ai besoin de repos.",sar:"أنا بحاجة للراحة.",sen:"I need rest.",img:"le_repos.webp"},
+ {fr:"La réaction",ar:"رد الفعل",en:"Reaction",sfr:"Sa réaction m'a surpris.",sar:"ردّة فعله فاجأتني.",sen:"His reaction surprised me.",img:"la_reaction.webp"},
+ {fr:"Le remplacement",ar:"الاستبدال",en:"Replacement",sfr:"Le remplacement de cette pièce est nécessaire.",sar:"استبدال هالقطعة ضروري.",sen:"Replacing this part is necessary.",img:"le_remplacement.webp"},
+ {fr:"La réussite",ar:"النجاح",en:"Success",sfr:"La réussite demande du travail.",sar:"النجاح بدّه شغل.",sen:"Success requires hard work.",img:"la_reussite.webp"},
+ {fr:"La ressemblance",ar:"التشابه",en:"Resemblance",sfr:"Il y a une grande ressemblance entre eux.",sar:"في تشابه كبير بيناتهم.",sen:"There is a strong resemblance between them.",img:"la_ressemblance.webp"},
+ {fr:"Le repas de famille",ar:"وجبة عائلية",en:"Family meal",sfr:"Nous organisons un repas de famille dimanche.",sar:"عم نرتّب لوجبة عائلية يوم الأحد.",sen:"We are organizing a family meal on Sunday.",img:"le_repas_de_famille.webp"},
+ {fr:"Le robinet",ar:"الصنبور / الحنفية",en:"Tap / Faucet",sfr:"Le robinet ne fonctionne plus.",sar:"الحنفية ما عادت تشتغل.",sen:"The tap no longer works.",img:"le_robinet.webp"},
+ {fr:"Le rond",ar:"الدائرة / الشكل المستدير",en:"Circle / Round shape",sfr:"Dessine un rond sur la feuille.",sar:"ارسم دائرة على الورقة.",sen:"Draw a circle on the sheet.",img:"le_rond.webp"},
+ {fr:"Le roman",ar:"الرواية",en:"Novel",sfr:"Je lis un roman français.",sar:"عم اقرأ رواية فرنسية.",sen:"I am reading a French novel.",img:"le_roman.webp"},
+ {fr:"La rivière",ar:"النهر",en:"River",sfr:"La rivière traverse le village.",sar:"النهر بيمرّ بالقرية.",sen:"The river runs through the village.",img:"la_riviere.webp"},
+ {fr:"Le rythme",ar:"الإيقاع / الوتيرة",en:"Rhythm / Pace",sfr:"Je travaille à mon propre rythme.",sar:"بشتغل حسب وتيرتي الخاصة.",sen:"I work at my own pace.",img:"le_rythme.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].R=st.c['noms'].R||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].R.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+190000+i;st.c['noms'].R.push(u)}});
+ save();}
+function updNomsP3(){
+ const add=[
+ {fr:"Le propriétaire",ar:"المالك",en:"Owner / Landlord",sfr:"Je dois contacter le propriétaire.",sar:"لازم أتواصل مع صاحب البيت.",sen:"I have to contact the landlord.",img:"le_proprietaire.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].P=st.c['noms'].P||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].P.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+195000+i;st.c['noms'].P.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
