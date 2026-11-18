@@ -2550,13 +2550,79 @@ function updAdv4(){
  add.forEach(u=>{st.c['adverbes']=st.c['adverbes']||{};const L=normFr(u.fr).replace(/^(le|la|les|l'|un|une|des|du|de la|de l'|au|aux|d')\s+/,'').charAt(0).toUpperCase();const ex=(st.c['adverbes'][L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+Math.floor(Math.random()*999);st.c['adverbes'][L]=st.c['adverbes'][L]||[];st.c['adverbes'][L].push(u)}});
  save();localStorage.setItem('verbes-updAdv4','1')}
 
+function updNomsA(){
+ const add=[
+ {fr:"L'abri",ar:"المأوى / الملجأ",en:"Shelter",sfr:"Nous cherchons un abri contre la pluie.",sar:"عم ندور على مكان نحتمي فيه من المطر.",sen:"We are looking for shelter from the rain.",img:"l_abri.jpg"},
+ {fr:"L'accident",ar:"الحادث",en:"Accident",sfr:"Il a eu un accident de voiture.",sar:"صار معه حادث سيارة.",sen:"He had a car accident.",img:"l_accident.jpg"},
+ {fr:"L'achat",ar:"عملية الشراء",en:"Purchase",sfr:"Cet achat coûte vingt euros.",sar:"هالشي اللي اشتريته سعره عشرين يورو.",sen:"This purchase costs twenty euros.",img:"l_achat.jpg"},
+ {fr:"L'activité",ar:"النشاط / الفعالية",en:"Activity",sfr:"Cette activité est intéressante.",sar:"هالنشاط ممتع.",sen:"This activity is interesting.",img:"l_activite.jpg"},
+ {fr:"L'adresse",ar:"العنوان",en:"Address",sfr:"Quelle est votre adresse ?",sar:"شو عنوانك؟",sen:"What is your address?",img:"l_adresse.jpg"},
+ {fr:"L'affaire",ar:"الأمر / القضية / الشأن",en:"Matter / Case",sfr:"C'est une affaire importante.",sar:"هاد موضوع مهم.",sen:"It's an important matter.",img:"l_affaire.jpg"},
+ {fr:"L'âge",ar:"العمر",en:"Age",sfr:"Quel âge avez-vous ?",sar:"قديش عمرك؟",sen:"How old are you?",img:"l_age.jpg"},
+ {fr:"L'aide",ar:"المساعدة",en:"Help / Assistance",sfr:"Merci pour votre aide.",sar:"شكراً على مساعدتك.",sen:"Thank you for your help.",img:"l_aide.jpg"},
+ {fr:"L'air",ar:"الهواء",en:"Air",sfr:"L'air est frais ce matin.",sar:"الهوا منعش هالصبح.",sen:"The air is fresh this morning.",img:"l_air.jpg"},
+ {fr:"L'aéroport",ar:"المطار",en:"Airport",sfr:"Nous arrivons à l'aéroport à huit heures.",sar:"رح نوصل عالمطار الساعة تمانية.",sen:"We arrive at the airport at eight o'clock.",img:"l_aeroport.jpg"},
+ {fr:"L'appartement",ar:"الشقة",en:"Apartment",sfr:"Je cherche un appartement à louer.",sar:"عم دور على شقة للإيجار.",sen:"I'm looking for an apartment to rent.",img:"l_appartement.jpg"},
+ {fr:"L'arbre",ar:"الشجرة",en:"Tree",sfr:"Il y a un grand arbre devant la maison.",sar:"في شجرة كبيرة قدام البيت.",sen:"There is a big tree in front of the house.",img:"l_arbre.jpg"},
+ {fr:"L'argent",ar:"المال / النقود",en:"Money",sfr:"Je n'ai pas assez d'argent.",sar:"ما معي مصاري كفاية.",sen:"I don't have enough money.",img:"l_argent.jpg"},
+ {fr:"L'année",ar:"السنة",en:"Year",sfr:"Cette année, je vais apprendre le français.",sar:"هالسنة رح اتعلم الفرنسي.",sen:"This year, I'm going to learn French.",img:"l_annee.jpg"},
+ {fr:"L'avenir",ar:"المستقبل",en:"Future",sfr:"Je pense souvent à mon avenir.",sar:"بفكر كتير بمستقبلي.",sen:"I often think about my future.",img:"l_avenir.jpg"},
+ {fr:"L'absence",ar:"الغياب",en:"Absence",sfr:"Votre absence a été remarquée.",sar:"غيابك كان ملحوظ.",sen:"Your absence was noticed.",img:"l_absence.jpg"},
+ {fr:"L'accès",ar:"الوصول / إمكانية الدخول",en:"Access",sfr:"L'accès à ce bâtiment est gratuit.",sar:"الدخول لهالمبنى مجاني.",sen:"Access to this building is free.",img:"l_acces.jpg"},
+ {fr:"L'accueil",ar:"الاستقبال",en:"Reception / Welcome",sfr:"L'accueil dans cette entreprise est chaleureux.",sar:"الاستقبال بهالشركة لطيف وودّي.",sen:"The welcome at this company is warm.",img:"l_accueil.jpg"},
+ {fr:"L'accompagnement",ar:"المرافقة / الدعم",en:"Support / Assistance",sfr:"Cet accompagnement m'aide dans mes démarches.",sar:"هالدعم بيساعدني بإجراءاتي.",sen:"This support helps me with my administrative procedures.",img:"l_accompagnement.jpg"},
+ {fr:"L'accord",ar:"الاتفاق / الموافقة",en:"Agreement",sfr:"Nous avons trouvé un accord.",sar:"توصلنا لاتفاق.",sen:"We reached an agreement.",img:"l_accord.jpg"},
+ {fr:"L'assurance",ar:"التأمين / الثقة",en:"Insurance / Confidence",sfr:"J'ai besoin d'une assurance habitation.",sar:"بحتاج تأمين للسكن.",sen:"I need home insurance.",img:"l_assurance.jpg"},
+ {fr:"L'administration",ar:"الإدارة / الدوائر الحكومية",en:"Administration",sfr:"Je dois envoyer un document à l'administration.",sar:"لازم ابعت ورقة للإدارة.",sen:"I have to send a document to the administration.",img:"l_administration.jpg"},
+ {fr:"L'amélioration",ar:"التحسّن",en:"Improvement",sfr:"Nous constatons une amélioration de la situation.",sar:"عم نلاحظ تحسّن بالوضع.",sen:"We are noticing an improvement in the situation.",img:"l_amelioration.jpg"},
+ {fr:"L'annonce",ar:"الإعلان / الخبر",en:"Advertisement / Announcement",sfr:"J'ai trouvé une annonce pour un emploi.",sar:"لقيت إعلان عن فرصة عمل.",sen:"I found a job advertisement.",img:"l_annonce.jpg"},
+ {fr:"L'appareil",ar:"الجهاز / الآلة",en:"Device / Appliance",sfr:"Cet appareil ne fonctionne plus.",sar:"هالجهاز ما عاد يشتغل.",sen:"This device no longer works.",img:"l_appareil.jpg"},
+ {fr:"L'apprentissage",ar:"التعلّم / اكتساب المهارة",en:"Learning",sfr:"L'apprentissage du français demande du temps.",sar:"تعلّم الفرنسي بده وقت.",sen:"Learning French takes time.",img:"l_apprentissage.jpg"},
+ {fr:"L'atelier",ar:"ورشة / مشغل",en:"Workshop",sfr:"Je participe à un atelier de français.",sar:"عم شارك بورشة لتعلّم الفرنسي.",sen:"I'm taking part in a French workshop.",img:"l_atelier.jpg"},
+ {fr:"L'attente",ar:"الانتظار",en:"Waiting",sfr:"L'attente est parfois longue à l'hôpital.",sar:"الانتظار أحياناً بيكون طويل بالمشفى.",sen:"Waiting is sometimes long at the hospital.",img:"l_attente.jpg"},
+ {fr:"L'attention",ar:"الانتباه / الاهتمام",en:"Attention",sfr:"Faites attention à la circulation.",sar:"انتبه لحركة المرور.",sen:"Pay attention to the traffic.",img:"l_attention.jpg"},
+ {fr:"L'avantage",ar:"الميزة / الأفضلية",en:"Advantage",sfr:"Le principal avantage de ce travail est la stabilité.",sar:"أهم ميزة بهالشغل هي الاستقرار.",sen:"The main advantage of this job is stability.",img:"l_avantage.jpg"},
+ {fr:"L'activité professionnelle",ar:"النشاط المهني / العمل",en:"Professional activity",sfr:"Il cherche une nouvelle activité professionnelle.",sar:"عم يدور على عمل مهني جديد.",sen:"He is looking for a new professional activity.",img:"l_activite_professionnelle.jpg"},
+ {fr:"L'accident du travail",ar:"حادث العمل",en:"Workplace accident",sfr:"Il a déclaré son accident du travail.",sar:"بلّغ عن حادث العمل اللي صار معه.",sen:"He reported his workplace accident.",img:"l_accident_du_travail.jpg"},
+ {fr:"L'âge adulte",ar:"سنّ الرشد / مرحلة البلوغ",en:"Adulthood",sfr:"Il est entré dans l'âge adulte.",sar:"دخل بمرحلة سنّ الرشد.",sen:"He has entered adulthood.",img:"l_age_adulte.jpg"},
+ {fr:"L'agenda",ar:"جدول المواعيد",en:"Diary / Planner",sfr:"J'ai noté le rendez-vous dans mon agenda.",sar:"سجّلت الموعد بجدول مواعيدي.",sen:"I wrote the appointment in my planner.",img:"l_agenda.jpg"},
+ {fr:"L'agent/ L'agente",ar:"الموظف / الموظفة",en:"Agent / Officer",sfr:"L'agent m'a expliqué les démarches.",sar:"الموظف شرحلي الإجراءات.",sen:"The officer explained the procedures to me.",img:"l_agent_l_agente.jpg"},
+ {fr:"L'agriculture",ar:"الزراعة",en:"Agriculture",sfr:"L'agriculture joue un rôle important dans cette région.",sar:"الزراعة إلها دور مهم بهالمنطقة.",sen:"Agriculture plays an important role in this region.",img:"l_agriculture.jpg"},
+ {fr:"L'aiguille",ar:"الإبرة / عقرب الساعة",en:"Needle / Hand",sfr:"Elle utilise une aiguille pour coudre.",sar:"عم تستخدم إبرة لتخيط.",sen:"She is using a needle to sew.",img:"l_aiguille.jpg"},
+ {fr:"L'alarme",ar:"جهاز الإنذار / التنبيه",en:"Alarm",sfr:"L'alarme a sonné pendant la nuit.",sar:"رنّ جهاز الإنذار خلال الليل.",sen:"The alarm went off during the night.",img:"l_alarme.jpg"},
+ {fr:"L'alimentation",ar:"التغذية / النظام الغذائي",en:"Nutrition / Diet",sfr:"Une bonne alimentation est importante pour la santé.",sar:"التغذية الجيدة مهمة للصحة.",sen:"Good nutrition is important for health.",img:"l_alimentation.jpg"},
+ {fr:"L'allocation",ar:"الإعانة / المخصّصات المالية",en:"Benefit / Allowance",sfr:"Il reçoit une allocation chaque mois.",sar:"بيستلم إعانة كل شهر.",sen:"He receives a benefit every month.",img:"l_allocation.jpg"},
+ {fr:"L'ambiance",ar:"الأجواء / الجو العام",en:"Atmosphere",sfr:"L'ambiance au travail est agréable.",sar:"الأجواء بالشغل مريحة ولطيفة.",sen:"The atmosphere at work is pleasant.",img:"l_ambiance.jpg"},
+ {fr:"L'amende",ar:"الغرامة المالية",en:"Fine",sfr:"Il a reçu une amende pour stationnement interdit.",sar:"أخد مخالفة بسبب الوقوف بمكان ممنوع.",sen:"He received a fine for illegal parking.",img:"l_amende.jpg"},
+ {fr:"L'analyse",ar:"التحليل / الدراسة التحليلية",en:"Analysis",sfr:"Le médecin m'a prescrit une analyse de sang.",sar:"الدكتور طلبلي تحليل دم.",sen:"The doctor prescribed a blood test.",img:"l_analyse.jpg"},
+ {fr:"L'angle",ar:"الزاوية",en:"Angle",sfr:"Cet angle mesure quarante-cinq degrés.",sar:"هالزاوية قياسها خمسة وأربعين درجة.",sen:"This angle measures forty-five degrees.",img:"l_angle.jpg"},
+ {fr:"L'animal",ar:"الحيوان",en:"Animal",sfr:"Cet animal a besoin de soins.",sar:"هالحيوان بحاجة لعناية.",sen:"This animal needs care.",img:"l_animal.jpg"},
+ {fr:"L'armoire",ar:"الخزانة / الدولاب",en:"Wardrobe / Cupboard",sfr:"Je range mes vêtements dans l'armoire.",sar:"برتّب تيابي بالخزانة.",sen:"I put my clothes in the wardrobe.",img:"l_armoire.jpg"},
+ {fr:"L'arrêt",ar:"التوقّف / المحطة",en:"Stop",sfr:"Le bus s'arrête au prochain arrêt.",sar:"الباص بيوقف بالمحطة الجاية.",sen:"The bus stops at the next stop.",img:"l_arret.jpg"},
+ {fr:"L'arrivée",ar:"الوصول",en:"Arrival",sfr:"Mon arrivée est prévue à dix heures.",sar:"وصولي مقرر الساعة عشرة.",sen:"My arrival is scheduled for ten o'clock.",img:"l_arrivee.jpg"},
+ {fr:"L'art",ar:"الفن",en:"Art",sfr:"L'art permet d'exprimer ses émotions.",sar:"الفن بيسمح للإنسان يعبّر عن مشاعره.",sen:"Art allows people to express their emotions.",img:"l_art.jpg"},
+ {fr:"L'article",ar:"المقال / المادة / السلعة",en:"Article / Item",sfr:"J'ai lu un article intéressant dans le journal.",sar:"قريت مقال ممتع بالجريدة.",sen:"I read an interesting article in the newspaper.",img:"l_article.jpg"},
+ {fr:"L'artisan/ L'artisane",ar:"الحرفي / الحرفية",en:"Craftsperson",sfr:"Cet artisan fabrique des meubles en bois.",sar:"هالحرفي بيصنع أثاث من الخشب.",sen:"This craftsperson makes wooden furniture.",img:"l_artisan_l_artisane.jpg"},
+ {fr:"L'ascenseur",ar:"المصعد / الأسانسير",en:"Elevator / Lift",sfr:"L'ascenseur ne fonctionne pas aujourd'hui.",sar:"المصعد مو شغّال اليوم.",sen:"The elevator isn't working today.",img:"l_ascenseur.jpg"},
+ {fr:"L'assiette",ar:"الصحن",en:"Plate",sfr:"Mets ton assiette sur la table.",sar:"حط صحنك عالطاولة.",sen:"Put your plate on the table.",img:"l_assiette.jpg"},
+ {fr:"L'association",ar:"الجمعية / المنظمة",en:"Association",sfr:"Cette association aide les personnes en difficulté.",sar:"هالجمعية بتساعد الأشخاص اللي عندهم صعوبات.",sen:"This association helps people in difficulty.",img:"l_association.jpg"},
+ {fr:"L'assurance maladie",ar:"التأمين الصحي",en:"Health insurance",sfr:"Je dois envoyer un document à l'Assurance Maladie.",sar:"لازم ابعت ورقة للتأمين الصحي.",sen:"I have to send a document to the health insurance office.",img:"l_assurance_maladie.jpg"},
+ {fr:"L'augmentation",ar:"الزيادة / ارتفاع القيمة",en:"Increase / Rise",sfr:"J'ai demandé une augmentation de salaire.",sar:"طلبت زيادة بالراتب.",sen:"I asked for a pay rise.",img:"l_augmentation.jpg"},
+ {fr:"L'autorisation",ar:"الإذن / التصريح",en:"Permission / Authorization",sfr:"Vous devez demander une autorisation.",sar:"لازم تطلب تصريح أو إذن.",sen:"You must ask for permission.",img:"l_autorisation.jpg"},
+ {fr:"L'autonomie",ar:"الاستقلالية / الاعتماد على النفس",en:"Independence / Autonomy",sfr:"Ce travail me donne plus d'autonomie.",sar:"هالشغل بيعطيني استقلالية أكبر.",sen:"This job gives me more independence.",img:"l_autonomie.jpg"},
+ {fr:"L'aventure",ar:"المغامرة",en:"Adventure",sfr:"Voyager seul est une belle aventure.",sar:"السفر لحالك مغامرة حلوة.",sen:"Travelling alone is a wonderful adventure.",img:"l_aventure.jpg"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].A=[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].A.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+i;st.c['noms'].A.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
