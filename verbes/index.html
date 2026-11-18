@@ -4701,13 +4701,48 @@ function updNomsV3(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].V=st.c['noms'].V||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].V.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+290000+i;st.c['noms'].V.push(u)}});
  save();}
+function updNomsT3(){
+ const add=[
+ {fr:"Le tapis",ar:"السجادة",en:"Carpet",sfr:"Le tapis du salon est propre.",sar:"سجادة غرفة الجلوس نظيفة.",sen:"The living-room carpet is clean.",img:"le_tapis.webp"},
+ {fr:"Le tiroir",ar:"الدرج",en:"Drawer",sfr:"Les clés sont dans le tiroir.",sar:"المفاتيح بالدرج.",sen:"The keys are in the drawer.",img:"le_tiroir.webp"},
+ {fr:"La terrasse",ar:"الشرفة / التراس",en:"Terrace / Patio",sfr:"Nous prenons le café sur la terrasse.",sar:"منشرب القهوة على التراس.",sen:"We have coffee on the terrace.",img:"la_terrasse.webp"},
+ {fr:"Le tissu",ar:"القماش",en:"Fabric",sfr:"Ce tissu est très doux.",sar:"هالقماش ناعم كتير.",sen:"This fabric is very soft.",img:"le_tissu.webp"},
+ {fr:"La tache",ar:"البقعة",en:"Stain / Spot",sfr:"Il y a une tache sur ma chemise.",sar:"في بقعة على قميصي.",sen:"There is a stain on my shirt.",img:"la_tache.webp"},
+ {fr:"Le tour",ar:"الدور / الجولة",en:"Turn / Round",sfr:"C'est ton tour.",sar:"هلأ دورك.",sen:"It's your turn.",img:"le_tour.webp"},
+ {fr:"Le trou",ar:"الثقب / الحفرة",en:"Hole",sfr:"Il y a un trou dans le mur.",sar:"في حفرة بالحيط.",sen:"There is a hole in the wall.",img:"le_trou.webp"},
+ {fr:"Le talent",ar:"الموهبة",en:"Talent",sfr:"Elle a beaucoup de talent.",sar:"عندها موهبة كبيرة.",sen:"She has a lot of talent.",img:"le_talent.webp"},
+ {fr:"La traduction",ar:"الترجمة",en:"Translation",sfr:"La traduction de ce texte est correcte.",sar:"ترجمة هالنص صحيحة.",sen:"The translation of this text is correct.",img:"la_traduction.webp"},
+ {fr:"La terre",ar:"الأرض / التربة",en:"Earth / Soil",sfr:"Les plantes ont besoin de terre et d'eau.",sar:"النباتات بتحتاج تراب ومي.",sen:"Plants need soil and water.",img:"la_terre.webp"},
+ {fr:"Le thé",ar:"الشاي",en:"Tea",sfr:"Je bois du thé sans sucre.",sar:"بشرب شاي بدون سكر.",sen:"I drink tea without sugar.",img:"le_the.webp"},
+ {fr:"La tomate",ar:"البندورة",en:"Tomato",sfr:"J'achète des tomates au marché.",sar:"بشتري بندورة من السوق.",sen:"I buy tomatoes at the market.",img:"la_tomate.webp"},
+ {fr:"Le talon",ar:"كعب القدم / كعب الحذاء",en:"Heel",sfr:"J'ai mal au talon.",sar:"عندي وجع بكعب رجلي.",sen:"My heel hurts.",img:"le_talon.webp"},
+ {fr:"La tranche",ar:"الشريحة / القطعة",en:"Slice",sfr:"Je voudrais deux tranches de pain.",sar:"بدي شريحتين خبز.",sen:"I would like two slices of bread.",img:"la_tranche.webp"},
+ {fr:"Le tournoi",ar:"البطولة",en:"Tournament",sfr:"Notre équipe participe à un tournoi.",sar:"فريقنا بيشارك ببطولة.",sen:"Our team is taking part in a tournament.",img:"le_tournoi.webp"},
+ {fr:"La tranquillité",ar:"الهدوء / السكينة",en:"Peace / Quiet",sfr:"J'aime la tranquillité de cet endroit.",sar:"بحب الهدوء بهالمكان.",sen:"I like the peace and quiet of this place.",img:"la_tranquillite.webp"},
+ {fr:"Le traducteur",ar:"المترجم",en:"Translator",sfr:"Le traducteur parle trois langues.",sar:"المترجم بيحكي ثلاث لغات.",sen:"The translator speaks three languages.",img:"le_traducteur.webp"},
+ {fr:"La trahison",ar:"الخيانة",en:"Betrayal",sfr:"La trahison détruit la confiance.",sar:"الخيانة بتدمّر الثقة.",sen:"Betrayal destroys trust.",img:"la_trahison.webp"},
+ {fr:"Le tapis roulant",ar:"جهاز المشي / السير المتحرك",en:"Treadmill / Conveyor Belt",sfr:"Je marche sur le tapis roulant.",sar:"بمشي على جهاز المشي.",sen:"I walk on the treadmill.",img:"le_tapis_roulant.webp"},
+ {fr:"Le transport en commun",ar:"النقل العام",en:"Public Transport",sfr:"J'utilise les transports en commun.",sar:"بستخدم وسائل النقل العام.",sen:"I use public transport.",img:"le_transport_en_commun.webp"},
+ {fr:"Le trésor",ar:"الكنز",en:"Treasure",sfr:"Ils cherchent un trésor.",sar:"عم يدوروا على كنز.",sen:"They are looking for a treasure.",img:"le_tresor.webp"},
+ {fr:"Le tremblement",ar:"الارتجاف / الاهتزاز",en:"Trembling / Shaking",sfr:"J'ai un tremblement dans les mains.",sar:"عندي رجفة بإيدي.",sen:"I have trembling in my hands.",img:"le_tremblement.webp"},
+ {fr:"Le tricot",ar:"الحياكة / التريكو",en:"Knitting",sfr:"Elle aime faire du tricot.",sar:"بتحب تحيك الصوف.",sen:"She likes knitting.",img:"le_tricot.webp"},
+ {fr:"Le trajet quotidien",ar:"التنقّل اليومي",en:"Daily Commute",sfr:"Mon trajet quotidien dure trente minutes.",sar:"مشواري اليومي بياخد نص ساعة.",sen:"My daily commute takes thirty minutes.",img:"le_trajet_quotidien.webp"},
+ {fr:"Le trottoir",ar:"الرصيف",en:"Sidewalk",sfr:"Il faut marcher sur le trottoir.",sar:"لازم نمشي على الرصيف.",sen:"You must walk on the sidewalk.",img:"le_trottoir.webp"},
+ {fr:"La tribu",ar:"القبيلة",en:"Tribe",sfr:"Cette tribu vit dans les montagnes.",sar:"هالقبيلة بتعيش بالجبال.",sen:"This tribe lives in the mountains.",img:"la_tribu.webp"},
+ {fr:"Le trimestre scolaire",ar:"الفصل الدراسي",en:"School Term",sfr:"Le trimestre scolaire se termine en décembre.",sar:"الفصل الدراسي بينتهي بشهر ديسمبر.",sen:"The school term ends in December.",img:"le_trimestre_scolaire.webp"},
+ {fr:"Le trésor public",ar:"الخزينة العامة",en:"Public Treasury",sfr:"Le trésor public collecte les impôts.",sar:"الخزينة العامة بتحصّل الضرائب.",sen:"The public treasury collects taxes.",img:"le_tresor_public.webp"},
+ {fr:"La trêve",ar:"الهدنة",en:"Truce",sfr:"Les deux pays ont signé une trêve.",sar:"البلدين وقّعوا هدنة.",sen:"The two countries signed a truce.",img:"la_treve.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].T=st.c['noms'].T||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].T.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+295000+i;st.c['noms'].T.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
