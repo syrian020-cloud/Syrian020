@@ -2616,13 +2616,75 @@ function updNomsA(){
  add.forEach((u,i)=>{const ex=st.c['noms'].A.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+i;st.c['noms'].A.push(u)}});
  save();}
 
+function updNomsA2(){
+ const add=[
+ {fr:"L'absence de réponse",ar:"عدم وجود رد",en:"Lack of response",sfr:"L'absence de réponse m'inquiète.",sar:"عدم وجود رد عم يقلقني.",sen:"The lack of a response worries me.",img:"l_absence_de_reponse.jpg"},
+ {fr:"L'abonnement",ar:"الاشتراك",en:"Subscription",sfr:"Mon abonnement de transport coûte cinquante euros par mois.",sar:"اشتراك المواصلات عندي بيكلف خمسين يورو بالشهر.",sen:"My transport subscription costs fifty euros a month.",img:"l_abonnement.jpg"},
+ {fr:"L'abonné",ar:"المشترك / المشتركة",en:"Subscriber",sfr:"Les abonnés reçoivent une notification.",sar:"المشتركين بيوصلهم إشعار.",sen:"Subscribers receive a notification.",img:"l_abonne.jpg"},
+ {fr:"L'abus",ar:"إساءة الاستخدام / الإفراط",en:"Abuse / Misuse",sfr:"L'abus de médicaments peut être dangereux.",sar:"الإفراط باستخدام الأدوية ممكن يكون خطير.",sen:"The misuse of medication can be dangerous.",img:"l_abus.jpg"},
+ {fr:"L'accès aux soins",ar:"إمكانية الحصول على الرعاية الصحية",en:"Access to healthcare",sfr:"Tout le monde devrait avoir accès aux soins.",sar:"لازم يكون عند كل الناس إمكانية الحصول على الرعاية الصحية.",sen:"Everyone should have access to healthcare.",img:"l_acces_aux_soins.jpg"},
+ {fr:"L'accomplissement",ar:"الإنجاز / الإتمام",en:"Achievement / Accomplishment",sfr:"Cet examen représente un grand accomplissement.",sar:"هالامتحان بيمثّل إنجاز كبير.",sen:"This exam represents a great achievement.",img:"l_accomplissement.jpg"},
+ {fr:"L'accusation",ar:"الاتهام",en:"Accusation",sfr:"Il a rejeté toutes les accusations.",sar:"رفض كل الاتهامات.",sen:"He rejected all the accusations.",img:"l_accusation.jpg"},
+ {fr:"L'adaptation",ar:"التكيّف / التأقلم",en:"Adaptation",sfr:"L'adaptation à un nouvel environnement prend du temps.",sar:"التأقلم مع بيئة جديدة بده وقت.",sen:"Adapting to a new environment takes time.",img:"l_adaptation.jpg"},
+ {fr:"L'adhésion",ar:"الانضمام / العضوية",en:"Membership / Joining",sfr:"L'adhésion à cette association est gratuite.",sar:"العضوية بهالجمعية مجانية.",sen:"Membership in this association is free.",img:"l_adhesion.jpg"},
+ {fr:"L'adulte",ar:"الشخص البالغ",en:"Adult",sfr:"Cette formation est réservée aux adultes.",sar:"هالدورة مخصصة للبالغين.",sen:"This training course is intended for adults.",img:"l_adulte.jpg"},
+ {fr:"L'affiche",ar:"الملصق / الإعلان الورقي",en:"Poster",sfr:"Il y a une affiche à l'entrée du bâtiment.",sar:"في ملصق عند مدخل المبنى.",sen:"There is a poster at the entrance of the building.",img:"l_affiche.jpg"},
+ {fr:"L'affirmation",ar:"التصريح / التأكيد",en:"Statement / Assertion",sfr:"Cette affirmation doit être vérifiée.",sar:"لازم نتأكد من صحة هالتصريح.",sen:"This statement needs to be verified.",img:"l_affirmation.jpg"},
+ {fr:"L'agression",ar:"الاعتداء",en:"Assault / Aggression",sfr:"La victime a signalé une agression à la police.",sar:"الضحية بلّغت الشرطة عن اعتداء.",sen:"The victim reported an assault to the police.",img:"l_agression.jpg"},
+ {fr:"L'aide financière",ar:"المساعدة المالية",en:"Financial assistance",sfr:"Cette famille a besoin d'une aide financière.",sar:"هالعائلة بحاجة لمساعدة مالية.",sen:"This family needs financial assistance.",img:"l_aide_financiere.jpg"},
+ {fr:"L'algorithme",ar:"الخوارزمية",en:"Algorithm",sfr:"Cet algorithme analyse les données.",sar:"هالخوارزمية بتحلّل البيانات.",sen:"This algorithm analyzes the data.",img:"l_algorithme.jpg"},
+ {fr:"L'alliance",ar:"التحالف / التحالف بين طرفين",en:"Alliance",sfr:"Les deux entreprises ont formé une alliance.",sar:"الشركتين عملوا تحالف بيناتهن.",sen:"The two companies formed an alliance.",img:"l_alliance.jpg"},
+ {fr:"L'allocation de logement",ar:"إعانة السكن",en:"Housing benefit",sfr:"Il fait une demande d'allocation de logement.",sar:"عم يقدّم طلب للحصول على إعانة السكن.",sen:"He is applying for housing benefit.",img:"l_allocation_de_logement.jpg"},
+ {fr:"L'alternative",ar:"البديل / الخيار الآخر",en:"Alternative",sfr:"Nous devons trouver une autre alternative.",sar:"لازم نلاقي خيار بديل.",sen:"We must find another alternative.",img:"l_alternative.jpg"},
+ {fr:"L'altitude",ar:"الارتفاع عن سطح البحر",en:"Altitude",sfr:"Ce village se trouve à une altitude de mille mètres.",sar:"هالقرية موجودة على ارتفاع ألف متر عن سطح البحر.",sen:"This village is at an altitude of one thousand metres.",img:"l_altitude.jpg"},
+ {fr:"L'ambition",ar:"الطموح",en:"Ambition",sfr:"Elle a beaucoup d'ambition.",sar:"عندها طموح كبير.",sen:"She has a lot of ambition.",img:"l_ambition.jpg"},
+ {fr:"L'ambulance",ar:"سيارة الإسعاف",en:"Ambulance",sfr:"Une ambulance est arrivée rapidement.",sar:"وصلت سيارة الإسعاف بسرعة.",sen:"An ambulance arrived quickly.",img:"l_ambulance.jpg"},
+ {fr:"L'aménagement",ar:"التهيئة / التجهيز / التنظيم",en:"Layout / Development",sfr:"L'aménagement de cet appartement est pratique.",sar:"تصميم وتجهيز هالشقة عملي.",sen:"The layout of this apartment is practical.",img:"l_amenagement.jpg"},
+ {fr:"L'ampleur",ar:"الحجم / النطاق / مدى الأهمية",en:"Scale / Extent",sfr:"Nous ne connaissons pas encore l'ampleur des dégâts.",sar:"لسا ما منعرف حجم الأضرار.",sen:"We don't yet know the extent of the damage.",img:"l_ampleur.jpg"},
+ {fr:"L'analyste",ar:"المحلّل / المحلّلة",en:"Analyst",sfr:"L'analyste présente les résultats de son étude.",sar:"المحلّل عم يعرض نتائج دراسته.",sen:"The analyst is presenting the results of the study.",img:"l_analyste.jpg"},
+ {fr:"L'ancêtre",ar:"السلف / الجدّ القديم",en:"Ancestor",sfr:"Nos ancêtres vivaient dans cette région.",sar:"أجدادنا كانوا عايشين بهالمنطقة.",sen:"Our ancestors lived in this region.",img:"l_ancetre.jpg"},
+ {fr:"L'anecdote",ar:"قصة قصيرة طريفة / حكاية",en:"Anecdote",sfr:"Il nous a raconté une anecdote amusante.",sar:"حكالنا قصة قصيرة ومضحكة.",sen:"He told us a funny anecdote.",img:"l_anecdote.jpg"},
+ {fr:"L'angoisse",ar:"القلق الشديد / الكرب",en:"Anxiety / Anguish",sfr:"L'attente des résultats lui provoque de l'angoisse.",sar:"انتظار النتائج بيسببله قلق شديد.",sen:"Waiting for the results causes him anxiety.",img:"l_angoisse.jpg"},
+ {fr:"L'animalerie",ar:"متجر الحيوانات الأليفة",en:"Pet shop",sfr:"J'ai acheté de la nourriture dans une animalerie.",sar:"اشتريت أكل للحيوانات من متجر حيوانات أليفة.",sen:"I bought pet food at a pet shop.",img:"l_animalerie.jpg"},
+ {fr:"L'annulation",ar:"الإلغاء",en:"Cancellation",sfr:"J'ai reçu un message concernant l'annulation du rendez-vous.",sar:"وصلني إشعار بخصوص إلغاء الموعد.",sen:"I received a message about the cancellation of the appointment.",img:"l_annulation.jpg"},
+ {fr:"L'anomalie",ar:"الخلل / الحالة غير الطبيعية",en:"Anomaly",sfr:"Le technicien a détecté une anomalie.",sar:"الفني اكتشف خللاً غير طبيعي.",sen:"The technician detected an anomaly.",img:"l_anomalie.jpg"},
+ {fr:"L'antécédent",ar:"السابقة / الأمر السابق",en:"Previous event / Precedent",sfr:"Le médecin consulte les antécédents du patient.",sar:"الطبيب عم يراجع السوابق الطبية للمريض.",sen:"The doctor is reviewing the patient's medical history.",img:"l_antecedent.jpg"},
+ {fr:"L'antibiotique",ar:"المضاد الحيوي",en:"Antibiotic",sfr:"Le médecin m'a prescrit un antibiotique.",sar:"الطبيب وصفلي مضاد حيوي.",sen:"The doctor prescribed an antibiotic.",img:"l_antibiotique.jpg"},
+ {fr:"L'antiquité",ar:"العصور القديمة / قطعة أثرية",en:"Antiquity / Antique",sfr:"Ce musée présente des objets de l'Antiquité.",sar:"هالمتحف بيعرض قطع أثرية من العصور القديمة.",sen:"This museum displays objects from antiquity.",img:"l_antiquite.jpg"},
+ {fr:"L'anxiété",ar:"القلق",en:"Anxiety",sfr:"L'anxiété peut perturber le sommeil.",sar:"القلق ممكن يسبب اضطرابات بالنوم.",sen:"Anxiety can disturb sleep.",img:"l_anxiete.jpg"},
+ {fr:"L'appareil électroménager",ar:"جهاز منزلي كهربائي",en:"Household appliance",sfr:"Cet appareil électroménager consomme peu d'énergie.",sar:"هالجهاز المنزلي بيستهلك طاقة قليلة.",sen:"This household appliance uses little energy.",img:"l_appareil_electromenager.jpg"},
+ {fr:"L'appel",ar:"الاتصال / النداء",en:"Call",sfr:"J'attends l'appel du médecin.",sar:"ناطر اتصال الطبيب.",sen:"I'm waiting for the doctor's call.",img:"l_appel.jpg"},
+ {fr:"L'application",ar:"التطبيق",en:"Application / App",sfr:"J'utilise une application pour apprendre le français.",sar:"بستخدم تطبيق لحتى اتعلم الفرنسي.",sen:"I use an app to learn French.",img:"l_application.jpg"},
+ {fr:"L'apprenti",ar:"المتدرّب / المتدرّبة",en:"Apprentice",sfr:"L'apprenti apprend le métier avec son formateur.",sar:"المتدرّب عم يتعلم المهنة مع المدرّب.",sen:"The apprentice is learning the trade with the trainer.",img:"l_apprenti.jpg"},
+ {fr:"L'approvisionnement",ar:"التزويد / التموين",en:"Supply / Provisioning",sfr:"L'approvisionnement du magasin doit être assuré.",sar:"لازم نضمن تزويد المتجر بالبضائع.",sen:"The store's supply must be ensured.",img:"l_approvisionnement.jpg"},
+ {fr:"L'argument",ar:"الحُجّة / المبرّر",en:"Argument / Reason",sfr:"Il a présenté un argument convaincant.",sar:"قدّم حُجّة مقنعة.",sen:"He presented a convincing argument.",img:"l_argument.jpg"},
+ {fr:"L'architecture",ar:"الهندسة المعمارية",en:"Architecture",sfr:"J'aime l'architecture de ce bâtiment.",sar:"بحب الهندسة المعمارية لهالمبنى.",sen:"I like the architecture of this building.",img:"l_architecture.jpg"},
+ {fr:"L'archive",ar:"الأرشيف / الوثيقة المحفوظة",en:"Archive / Record",sfr:"Ce document se trouve dans les archives.",sar:"هالوثيقة موجودة بالأرشيف.",sen:"This document is in the archives.",img:"l_archive.jpg"},
+ {fr:"L'architecture intérieure",ar:"التصميم الداخلي",en:"Interior design",sfr:"L'architecture intérieure de cet appartement est moderne.",sar:"التصميم الداخلي لهالشقة عصري.",sen:"The interior design of this apartment is modern.",img:"l_architecture_interieure.jpg"},
+ {fr:"L'argumentation",ar:"بناء الحجج / عرض المبررات",en:"Argumentation",sfr:"Son argumentation est claire et convaincante.",sar:"طريقة عرض حججه واضحة ومقنعة.",sen:"His argumentation is clear and convincing.",img:"l_argumentation.jpg"},
+ {fr:"L'armement",ar:"التسلّح / الأسلحة",en:"Armament",sfr:"Le débat porte sur l'armement du pays.",sar:"النقاش بيتعلق بتسلّح البلد.",sen:"The debate concerns the country's armament.",img:"l_armement.jpg"},
+ {fr:"L'arrangement",ar:"الترتيب / التسوية / الاتفاق",en:"Arrangement / Settlement",sfr:"Nous avons trouvé un arrangement avec le propriétaire.",sar:"توصلنا لتسوية مع صاحب البيت.",sen:"We reached an arrangement with the landlord.",img:"l_arrangement.jpg"},
+ {fr:"L'articulation",ar:"المفصل / الترابط بين الأفكار",en:"Joint / Articulation",sfr:"Il ressent une douleur à l'articulation du genou.",sar:"عم يحس بألم بمفصل الركبة.",sen:"He feels pain in his knee joint.",img:"l_articulation.jpg"},
+ {fr:"L'aspirateur",ar:"المكنسة الكهربائية",en:"Vacuum cleaner",sfr:"J'utilise l'aspirateur pour nettoyer le tapis.",sar:"بستخدم المكنسة الكهربائية لتنظيف السجادة.",sen:"I use the vacuum cleaner to clean the carpet.",img:"l_aspirateur.jpg"},
+ {fr:"L'assistance",ar:"المساعدة / الدعم",en:"Assistance",sfr:"Vous pouvez contacter l'assistance technique.",sar:"فيك تتواصل مع الدعم الفني.",sen:"You can contact technical support.",img:"l_assistance.jpg"},
+ {fr:"L'assistant",ar:"المساعد / المساعدة",en:"Assistant",sfr:"L'assistante prépare les documents.",sar:"المساعدة عم تجهّز الأوراق.",sen:"The assistant is preparing the documents.",img:"l_assistant.jpg"},
+ {fr:"L'atelier de production",ar:"ورشة الإنتاج",en:"Production workshop",sfr:"Les employés travaillent dans l'atelier de production.",sar:"الموظفين بيشتغلوا بورشة الإنتاج.",sen:"The employees work in the production workshop.",img:"l_atelier_de_production.jpg"},
+ {fr:"L'atout",ar:"نقطة القوة / الميزة",en:"Asset / Strength",sfr:"La maîtrise du français est un atout professionnel.",sar:"إتقان الفرنسي نقطة قوة بالمجال المهني.",sen:"Proficiency in French is a professional asset.",img:"l_atout.jpg"},
+ {fr:"L'audience",ar:"جلسة المحكمة / الجمهور",en:"Hearing / Audience",sfr:"L'audience aura lieu demain matin.",sar:"جلسة المحكمة رح تكون بكرا الصبح.",sen:"The hearing will take place tomorrow morning.",img:"l_audience.jpg"},
+ {fr:"L'auteur",ar:"الكاتب / الكاتبة",en:"Author",sfr:"L'autrice présente son nouveau livre.",sar:"الكاتبة عم تقدّم كتابها الجديد.",sen:"The author is presenting her new book.",img:"l_auteur.jpg"},
+ {fr:"L'autonomie financière",ar:"الاستقلال المالي",en:"Financial independence",sfr:"Il souhaite atteindre l'autonomie financière.",sar:"بيتمنى يحقق الاستقلال المالي.",sen:"He hopes to achieve financial independence.",img:"l_autonomie_financiere.jpg"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].A=st.c['noms'].A||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].A.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+5000+i;st.c['noms'].A.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
