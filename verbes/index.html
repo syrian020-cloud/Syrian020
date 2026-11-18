@@ -5018,13 +5018,52 @@ function updNomsI(){
  add.forEach((u,i)=>{const ex=st.c['noms'].I.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+330000+i;st.c['noms'].I.push(u)}});
  save();}
 
+function updNomsI2(){
+ const add=[
+ {fr:"L'installation",ar:"التركيب / التثبيت",en:"Installation",sfr:"L'installation est terminée.",sar:"خلص التركيب.",sen:"The installation is finished.",img:"l_installation.webp"},
+ {fr:"L'instruction",ar:"التعليمات",en:"Instruction",sfr:"Lisez attentivement les instructions.",sar:"اقرأ التعليمات بانتباه.",sen:"Read the instructions carefully.",img:"l_instruction.webp"},
+ {fr:"L'inventaire",ar:"جرد المخزون",en:"Inventory",sfr:"Je dois faire l'inventaire du stock.",sar:"لازم أعمل جرد للمخزون.",sen:"I have to take inventory of the stock.",img:"l_inventaire.webp"},
+ {fr:"L'intervention",ar:"التدخّل",en:"Intervention",sfr:"Une intervention est nécessaire.",sar:"في ضرورة للتدخّل.",sen:"An intervention is necessary.",img:"l_intervention.webp"},
+ {fr:"L'influence",ar:"التأثير",en:"Influence",sfr:"Les amis ont une grande influence sur lui.",sar:"رفقاته إلهن تأثير كبير عليه.",sen:"His friends have a great influence on him.",img:"l_influence.webp"},
+ {fr:"L'infection",ar:"العدوى / الالتهاب",en:"Infection",sfr:"Le médecin a détecté une infection.",sar:"الطبيب اكتشف وجود عدوى.",sen:"The doctor detected an infection.",img:"l_infection.webp"},
+ {fr:"L'injection",ar:"الحقنة",en:"Injection",sfr:"Le médecin m'a fait une injection.",sar:"الطبيب أعطاني حقنة.",sen:"The doctor gave me an injection.",img:"l_injection.webp"},
+ {fr:"L'intestin",ar:"الأمعاء",en:"Intestine",sfr:"L'intestin fait partie du système digestif.",sar:"الأمعاء جزء من الجهاز الهضمي.",sen:"The intestine is part of the digestive system.",img:"l_intestin.webp"},
+ {fr:"L'introduction",ar:"المقدّمة",en:"Introduction",sfr:"L'introduction de ce livre est intéressante.",sar:"مقدمة هالكتاب مثيرة للاهتمام.",sen:"The introduction of this book is interesting.",img:"l_introduction.webp"},
+ {fr:"L'initiative",ar:"المبادرة",en:"Initiative",sfr:"C'est une bonne initiative.",sar:"هاي مبادرة منيحة.",sen:"It's a good initiative.",img:"l_initiative.webp"},
+ {fr:"L'individu",ar:"الفرد",en:"Individual",sfr:"Chaque individu a des droits.",sar:"كل فرد إله حقوق.",sen:"Every individual has rights.",img:"l_individu.webp"},
+ {fr:"L'indépendance",ar:"الاستقلال",en:"Independence",sfr:"L'indépendance est importante pour un pays.",sar:"الاستقلال مهم لأي بلد.",sen:"Independence is important for a country.",img:"l_independance.webp"},
+ {fr:"L'inégalité",ar:"عدم المساواة",en:"Inequality",sfr:"Il faut lutter contre les inégalités.",sar:"لازم نحارب عدم المساواة.",sen:"We must fight inequality.",img:"l_inegalite.webp"},
+ {fr:"L'indemnité",ar:"التعويض / البدل المالي",en:"Compensation / Allowance",sfr:"J'ai reçu une indemnité de transport.",sar:"استلمت بدل مواصلات.",sen:"I received a transport allowance.",img:"l_indemnite.webp"},
+ {fr:"L'insertion",ar:"الإدماج",en:"Integration",sfr:"Cette association aide à l'insertion professionnelle.",sar:"هالجمعية بتساعد على الاندماج المهني.",sen:"This association helps with professional integration.",img:"l_insertion.webp"},
+ {fr:"L'indication",ar:"الإشارة / المعلومة الإرشادية",en:"Indication",sfr:"Suivez les indications pour trouver la sortie.",sar:"اتبع الإرشادات لتلاقي المخرج.",sen:"Follow the directions to find the exit.",img:"l_indication.webp"},
+ {fr:"L'issue",ar:"المخرج / النتيجة",en:"Exit / Outcome",sfr:"Nous cherchons une issue à ce problème.",sar:"عم ندور على حل لهالمشكلة.",sen:"We are looking for a way out of this problem.",img:"l_issue.webp"},
+ {fr:"L'insuffisance",ar:"القصور / عدم الكفاية",en:"Insufficiency",sfr:"Le médecin a détecté une insuffisance rénale.",sar:"الطبيب اكتشف قصور بالكلى.",sen:"The doctor detected kidney failure.",img:"l_insuffisance.webp"},
+ {fr:"L'inspection",ar:"التفتيش / المعاينة",en:"Inspection",sfr:"Une inspection est prévue demain.",sar:"في معاينة مقررة لبكرا.",sen:"An inspection is scheduled for tomorrow.",img:"l_inspection.webp"},
+ {fr:"L'inspecteur / L'inspectrice",ar:"المفتّش / المفتّشة",en:"Inspector",sfr:"L'inspecteur vérifie les documents.",sar:"المفتّش عم يتأكد من الأوراق.",sen:"The inspector is checking the documents.",img:"l_inspecteur_l_inspectrice.webp"},
+ {fr:"L'installation électrique",ar:"التمديدات الكهربائية",en:"Electrical Installation",sfr:"L'installation électrique doit être vérifiée.",sar:"لازم تنفحص التمديدات الكهربائية.",sen:"The electrical installation must be checked.",img:"l_installation_electrique.webp"},
+ {fr:"L'inconnu / L'inconnue",ar:"شخص مجهول",en:"Stranger / Unknown Person",sfr:"Un inconnu m'a posé une question.",sar:"شخص ما بعرفه سألني سؤال.",sen:"A stranger asked me a question.",img:"l_inconnu_l_inconnue.webp"},
+ {fr:"L'intelligence",ar:"الذكاء",en:"Intelligence",sfr:"L'intelligence ne dépend pas seulement des études.",sar:"الذكاء مو مرتبط بالدراسة بس.",sen:"Intelligence does not depend only on education.",img:"l_intelligence.webp"},
+ {fr:"L'inconfort",ar:"عدم الراحة",en:"Discomfort",sfr:"Cette chaise provoque un inconfort.",sar:"هالكرسي بيسبب عدم راحة.",sen:"This chair causes discomfort.",img:"l_inconfort.webp"},
+ {fr:"L'influenceur / L'influenceuse",ar:"المؤثّر / المؤثّرة",en:"Influencer",sfr:"Cet influenceur publie des vidéos chaque jour.",sar:"هالمؤثّر بينشر فيديوهات كل يوم.",sen:"This influencer posts videos every day.",img:"l_influenceur_l_influenceuse.webp"},
+ {fr:"L'invité / L'invitée",ar:"الضيف / الضيفة",en:"Guest",sfr:"Les invités arrivent à huit heures.",sar:"الضيوف رح يوصلوا الساعة تمانية.",sen:"The guests are arriving at eight o'clock.",img:"l_invite_l_invitee.webp"},
+ {fr:"L'infirmier libéral / L'infirmière libérale",ar:"الممرّض / الممرّضة المستقلّة",en:"Self-employed Nurse",sfr:"L'infirmière libérale vient à domicile.",sar:"الممرّضة المستقلة بتجي لعند المريض عالبيت.",sen:"The self-employed nurse visits patients at home.",img:"l_infirmier_liberal_l_infirmiere_liberale.webp"},
+ {fr:"L'interphone",ar:"جهاز الاتصال الداخلي",en:"Intercom",sfr:"Quelqu'un sonne à l'interphone.",sar:"حدا عم يدق على الإنترفون.",sen:"Someone is ringing the intercom.",img:"l_interphone.webp"},
+ {fr:"L'interview",ar:"المقابلة الصحفية",en:"Interview",sfr:"J'ai regardé une interview à la télévision.",sar:"حضرت مقابلة على التلفزيون.",sen:"I watched an interview on television.",img:"l_interview.webp"},
+ {fr:"L'invalidité",ar:"العجز",en:"Disability / Invalidity",sfr:"Il a obtenu une pension d'invalidité.",sar:"حصل على معاش العجز.",sen:"He received a disability pension.",img:"l_invalidite.webp"},
+ {fr:"L'investissement",ar:"الاستثمار",en:"Investment",sfr:"Cet investissement est important pour l'avenir.",sar:"هالاستثمار مهم للمستقبل.",sen:"This investment is important for the future.",img:"l_investissement.webp"},
+ {fr:"L'investisseur / L'investisseuse",ar:"المستثمر / المستثمرة",en:"Investor",sfr:"L'investisseur cherche une bonne occasion.",sar:"المستثمر عم يدور على فرصة منيحة.",sen:"The investor is looking for a good opportunity.",img:"l_investisseur_l_investisseuse.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].I=st.c['noms'].I||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].I.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+335000+i;st.c['noms'].I.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
