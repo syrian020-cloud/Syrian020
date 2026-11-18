@@ -2885,13 +2885,70 @@ function updNomsA6(){
  add.forEach((u,i)=>{const ex=st.c['noms'].A.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+21000+i;st.c['noms'].A.push(u)}});
  save();}
 
+function updNomsB(){
+ const add=[
+ {fr:"Le bébé",ar:"الطفل الرضيع",en:"Baby",sfr:"Le bébé dort dans son lit.",sar:"الطفل الرضيع نايم بتختو.",sen:"The baby is sleeping in his bed.",img:"le_bebe.webp"},
+ {fr:"Le besoin",ar:"الحاجة / الاحتياج",en:"Need",sfr:"J'ai besoin d'un nouveau téléphone.",sar:"أنا بحاجة لموبايل جديد.",sen:"I need a new phone.",img:"le_besoin.webp"},
+ {fr:"Le bénéfice",ar:"الربح / الفائدة",en:"Profit / Benefit",sfr:"Cette entreprise réalise un bénéfice important.",sar:"هالشركة بتحقق ربح كبير.",sen:"This company makes a significant profit.",img:"le_benefice.webp"},
+ {fr:"Le beurre",ar:"الزبدة",en:"Butter",sfr:"Je mets un peu de beurre sur le pain.",sar:"بحط شوية زبدة على الخبز.",sen:"I put a little butter on the bread.",img:"le_beurre.webp"},
+ {fr:"Le billet",ar:"تذكرة / ورقة نقدية",en:"Ticket / Banknote",sfr:"J'ai acheté un billet de train pour Strasbourg.",sar:"اشتريت تذكرة قطار لستراسبورغ.",sen:"I bought a train ticket to Strasbourg.",img:"le_billet.webp"},
+ {fr:"Le bâtiment",ar:"المبنى",en:"Building",sfr:"Mon bureau se trouve dans ce bâtiment.",sar:"مكتبي موجود بهالمبنى.",sen:"My office is in this building.",img:"le_batiment.webp"},
+ {fr:"La bouteille",ar:"الزجاجة / القنينة",en:"Bottle",sfr:"N'oublie pas ta bouteille d'eau.",sar:"لا تنسى قنينة المي تبعك.",sen:"Don't forget your water bottle.",img:"la_bouteille.webp"},
+ {fr:"Le bruit",ar:"الضجيج / الصوت المزعج",en:"Noise",sfr:"Il y a beaucoup de bruit dans la rue.",sar:"في ضجة كتير بالشارع.",sen:"There is a lot of noise in the street.",img:"le_bruit.webp"},
+ {fr:"Le bureau",ar:"المكتب / مكتب العمل",en:"Office / Desk",sfr:"Je travaille dans un bureau.",sar:"بشتغل بمكتب.",sen:"I work in an office.",img:"le_bureau.webp"},
+ {fr:"La bouche",ar:"الفم",en:"Mouth",sfr:"Ouvre la bouche, s'il te plaît.",sar:"افتح تمّك لو سمحت.",sen:"Open your mouth, please.",img:"la_bouche.webp"},
+ {fr:"Le bras",ar:"الذراع",en:"Arm",sfr:"Il a mal au bras droit.",sar:"عنده وجع بذراعه اليمين.",sen:"His right arm hurts.",img:"le_bras.webp"},
+ {fr:"Le bateau",ar:"القارب / السفينة",en:"Boat",sfr:"Nous prenons le bateau pour traverser le lac.",sar:"منركب القارب لحتى نقطع البحيرة.",sen:"We take the boat to cross the lake.",img:"le_bateau.webp"},
+ {fr:"Le balcon",ar:"الشرفة",en:"Balcony",sfr:"Je prends mon café sur le balcon.",sar:"بشرب قهوتي عالبلكون.",sen:"I drink my coffee on the balcony.",img:"le_balcon.webp"},
+ {fr:"La banque",ar:"المصرف / البنك",en:"Bank",sfr:"Je dois aller à la banque demain.",sar:"لازم روح عالبنك بكرا.",sen:"I have to go to the bank tomorrow.",img:"la_banque.webp"},
+ {fr:"Le banc",ar:"المقعد الطويل",en:"Bench",sfr:"Nous nous asseyons sur un banc dans le parc.",sar:"منقعد على مقعد بالحديقة.",sen:"We sit on a bench in the park.",img:"le_banc.webp"},
+ {fr:"La barbe",ar:"اللحية",en:"Beard",sfr:"Il a une longue barbe.",sar:"عنده لحية طويلة.",sen:"He has a long beard.",img:"la_barbe.webp"},
+ {fr:"La beauté",ar:"الجمال",en:"Beauty",sfr:"La beauté de cette ville me plaît beaucoup.",sar:"جمال هالمدينة بيعجبني كتير.",sen:"I really like the beauty of this city.",img:"la_beaute.webp"},
+ {fr:"Le bonheur",ar:"السعادة",en:"Happiness",sfr:"Le bonheur ne dépend pas seulement de l'argent.",sar:"السعادة مو مرتبطة بالمال بس.",sen:"Happiness does not depend only on money.",img:"le_bonheur.webp"},
+ {fr:"La blessure",ar:"الإصابة / الجرح",en:"Injury / Wound",sfr:"Sa blessure nécessite des soins.",sar:"إصابته بتحتاج لعناية طبية.",sen:"His injury requires medical care.",img:"la_blessure.webp"},
+ {fr:"Le bloc",ar:"الكتلة / المبنى أو القسم",en:"Block",sfr:"J'habite dans le bloc B.",sar:"ساكن بالبناية B.",sen:"I live in block B.",img:"le_bloc.webp"},
+ {fr:"Le boulanger",ar:"الخبّاز / الخبّازة",en:"Baker",sfr:"Le boulanger prépare du pain frais chaque matin.",sar:"الخبّاز بيحضّر خبز طازج كل صباح.",sen:"The baker prepares fresh bread every morning.",img:"le_boulanger.webp"},
+ {fr:"La boulangerie",ar:"المخبز",en:"Bakery",sfr:"Je passe à la boulangerie avant le travail.",sar:"بمرّ عالمخبز قبل الشغل.",sen:"I stop at the bakery before work.",img:"la_boulangerie.webp"},
+ {fr:"Le brasier",ar:"الحريق الكبير / الجمر المتّقد",en:"Blaze",sfr:"Les pompiers ont éteint le brasier.",sar:"رجال الإطفاء أطفؤوا الحريق الكبير.",sen:"The firefighters put out the blaze.",img:"le_brasier.webp"},
+ {fr:"Le bracelet",ar:"السوار / الإسورة",en:"Bracelet",sfr:"Elle porte un bracelet en argent.",sar:"هي لابسة إسورة من الفضة.",sen:"She is wearing a silver bracelet.",img:"le_bracelet.webp"},
+ {fr:"La branche",ar:"الغصن / الفرع",en:"Branch",sfr:"Une branche est tombée pendant la tempête.",sar:"وقع غصن خلال العاصفة.",sen:"A branch fell during the storm.",img:"la_branche.webp"},
+ {fr:"Le budget",ar:"الميزانية",en:"Budget",sfr:"Je dois respecter mon budget chaque mois.",sar:"لازم التزم بميزانيتي كل شهر.",sen:"I have to stick to my budget every month.",img:"le_budget.webp"},
+ {fr:"Le bulletin",ar:"النشرة / كشف العلامات / ورقة التصويت",en:"Bulletin",sfr:"J'ai reçu mon bulletin de salaire.",sar:"استلمت كشف راتبي.",sen:"I received my payslip.",img:"le_bulletin.webp"},
+ {fr:"La baignoire",ar:"حوض الاستحمام",en:"Bathtub",sfr:"La baignoire est dans la salle de bains.",sar:"حوض الاستحمام موجود بالحمّام.",sen:"The bathtub is in the bathroom.",img:"la_baignoire.webp"},
+ {fr:"Le bain",ar:"الحمّام / الاستحمام",en:"Bath",sfr:"Je prends un bain chaud après une longue journée.",sar:"باخد حمّام دافي بعد يوم طويل.",sen:"I take a warm bath after a long day.",img:"le_bain.webp"},
+ {fr:"La batterie",ar:"البطارية / الطبل",en:"Battery / Drum kit",sfr:"La batterie de mon téléphone est presque vide.",sar:"بطارية تلفوني قربت تخلص.",sen:"My phone battery is almost dead.",img:"la_batterie.webp"},
+ {fr:"Le bureau de poste",ar:"مكتب البريد",en:"Post office",sfr:"Je dois envoyer une lettre au bureau de poste.",sar:"لازم ابعت رسالة من مكتب البريد.",sen:"I have to send a letter at the post office.",img:"le_bureau_de_poste.webp"},
+ {fr:"La boîte",ar:"العلبة / الصندوق",en:"Box",sfr:"Mets les documents dans cette boîte.",sar:"حطّ الأوراق بهالصندوق.",sen:"Put the documents in this box.",img:"la_boite.webp"},
+ {fr:"La boîte aux lettres",ar:"صندوق البريد",en:"Mailbox",sfr:"J'ai reçu une lettre dans ma boîte aux lettres.",sar:"وصلتني رسالة بصندوق بريدي.",sen:"I received a letter in my mailbox.",img:"la_boite_aux_lettres.webp"},
+ {fr:"Le boucher",ar:"الجزّار / الجزّارة",en:"Butcher",sfr:"Le boucher prépare la viande pour les clients.",sar:"الجزّار بيحضّر اللحمة للزبائن.",sen:"The butcher prepares the meat for customers.",img:"le_boucher.webp"},
+ {fr:"La boucherie",ar:"محلّ الجزارة",en:"Butcher's shop",sfr:"Cette boucherie vend de la viande fraîche.",sar:"هالمحل بيبيع لحمة طازجة.",sen:"This butcher's shop sells fresh meat.",img:"la_boucherie.webp"},
+ {fr:"Le bouchon",ar:"سدادة القنينة / الزحمة المرورية",en:"Cork / Traffic jam",sfr:"J'ai perdu le bouchon de la bouteille.",sar:"ضيّعت سدادة القنينة.",sen:"I lost the bottle stopper.",img:"le_bouchon.webp"},
+ {fr:"La bougie",ar:"الشمعة",en:"Candle",sfr:"J'allume une bougie quand il y a une panne d'électricité.",sar:"بشعل شمعة لما تنقطع الكهربا.",sen:"I light a candle when there is a power cut.",img:"la_bougie.webp"},
+ {fr:"Le bouton",ar:"الزرّ / الحَبّة الجلدية",en:"Button / Pimple",sfr:"Le bouton de ma chemise est tombé.",sar:"زرّ قميصي وقع.",sen:"The button on my shirt fell off.",img:"le_bouton.webp"},
+ {fr:"Le bras de fer",ar:"مصارعة الأذرع",en:"Arm wrestling",sfr:"Ils font un bras de fer pour s'amuser.",sar:"عم يتصارعوا بالأذرع للتسلية.",sen:"They are arm wrestling for fun.",img:"le_bras_de_fer.webp"},
+ {fr:"Le brouillard",ar:"الضباب",en:"Fog",sfr:"Le brouillard réduit la visibilité sur la route.",sar:"الضباب بيخفّف الرؤية على الطريق.",sen:"Fog reduces visibility on the road.",img:"le_brouillard.webp"},
+ {fr:"Le bâtiment industriel",ar:"المبنى الصناعي",en:"Industrial building",sfr:"Les employés travaillent dans un bâtiment industriel.",sar:"الموظفين بيشتغلوا بمبنى صناعي.",sen:"The employees work in an industrial building.",img:"le_batiment_industriel.webp"},
+ {fr:"La barrière",ar:"الحاجز / السياج",en:"Barrier / Fence",sfr:"La barrière empêche les personnes d'entrer.",sar:"الحاجز بيمنع الناس من الدخول.",sen:"The barrier prevents people from entering.",img:"la_barriere.webp"},
+ {fr:"Le badge",ar:"بطاقة التعريف / بطاقة الدخول",en:"ID badge / Access card",sfr:"N'oublie pas ton badge pour entrer dans l'usine.",sar:"لا تنسى بطاقة الدخول لحتى تفوت عالمصنع.",sen:"Don't forget your access badge to enter the factory.",img:"le_badge.webp"},
+ {fr:"Le balai",ar:"المكنسة",en:"Broom",sfr:"Je prends le balai pour nettoyer le sol.",sar:"بجيب المكنسة لحتى نظّف الأرض.",sen:"I take the broom to clean the floor.",img:"le_balai.webp"},
+ {fr:"Le balayage",ar:"الكنس / المسح",en:"Sweeping",sfr:"Le balayage de l'atelier doit être fait chaque jour.",sar:"لازم ينكنس المشغل كل يوم.",sen:"The workshop must be swept every day.",img:"le_balayage.webp"},
+ {fr:"La balance",ar:"الميزان",en:"Scale",sfr:"Je pèse les légumes avec une balance.",sar:"بوزن الخضرة باستخدام الميزان.",sen:"I weigh the vegetables using a scale.",img:"la_balance.webp"},
+ {fr:"Le barème",ar:"جدول التقييم / سلم النقاط أو الأجور",en:"Scale / Rating system",sfr:"Le professeur utilise un barème pour noter les examens.",sar:"الأستاذ بيستخدم سلّم تقييم لتصحيح الامتحانات.",sen:"The teacher uses a grading scale to mark exams.",img:"le_bareme.webp"},
+ {fr:"La barquette",ar:"علبة طعام صغيرة",en:"Food tray / Container",sfr:"Je mets le repas dans une barquette.",sar:"بحط الوجبة بعلبة طعام.",sen:"I put the meal in a food tray.",img:"la_barquette.webp"},
+ {fr:"Le bas",ar:"الجزء السفلي / الأسفل",en:"Bottom / Lower part",sfr:"Mes chaussures sont en bas de l'escalier.",sar:"أحذيتي بأسفل الدرج.",sen:"My shoes are at the bottom of the stairs.",img:"le_bas.webp"},
+ {fr:"La base",ar:"القاعدة / الأساس",en:"Base / Foundation",sfr:"La base de cette machine doit être solide.",sar:"قاعدة هالآلة لازم تكون متينة.",sen:"The base of this machine must be solid.",img:"la_base.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].B=[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+25000+i;st.c['noms'].B.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
