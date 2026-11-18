@@ -4444,13 +4444,84 @@ function updNomsR3(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].R=st.c['noms'].R||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].R.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+200000+i;st.c['noms'].R.push(u)}});
  save();}
+function updNomsR4(){
+ const add=[
+ {fr:"Le ras-le-bol",ar:"السأم الشديد / طفح الكيل",en:"Being fed up",sfr:"J'en ai ras-le-bol de cette situation.",sar:"طفح كيلي من هالوضع.",sen:"I'm fed up with this situation.",img:"le_ras_le_bol.webp"},
+ {fr:"Le raccourci",ar:"الطريق المختصر / الاختصار",en:"Shortcut",sfr:"Il y a un raccourci pour aller au centre-ville.",sar:"في طريق مختصر لحتى نوصل لوسط المدينة.",sen:"There is a shortcut to get to the city centre.",img:"le_raccourci.webp"},
+ {fr:"Le ravitaillement",ar:"التزوّد بالمؤن / التموين",en:"Supply / Refuelling",sfr:"Le ravitaillement du magasin est prévu demain.",sar:"تموين المتجر مقرر لبكرا.",sen:"The store's restocking is scheduled for tomorrow.",img:"le_ravitaillement.webp"},
+ {fr:"La recharge",ar:"إعادة الشحن",en:"Recharge / Refill",sfr:"La recharge de mon téléphone est terminée.",sar:"خلص شحن تلفوني.",sen:"My phone has finished charging.",img:"la_recharge.webp"},
+ {fr:"Le réfrigérateur",ar:"البراد / الثلاجة",en:"Refrigerator",sfr:"Le lait est dans le réfrigérateur.",sar:"الحليب بالبراد.",sen:"The milk is in the refrigerator.",img:"le_refrigerateur.webp"},
+ {fr:"La récolte",ar:"الحصاد / جني المحصول",en:"Harvest",sfr:"La récolte commence en été.",sar:"الحصاد بيبلّش بالصيف.",sen:"The harvest begins in summer.",img:"la_recolte.webp"},
+ {fr:"Le réservoir",ar:"الخزّان",en:"Tank / Reservoir",sfr:"Le réservoir est presque vide.",sar:"خزان الوقود شبه فارغ.",sen:"The fuel tank is almost empty.",img:"le_reservoir.webp"},
+ {fr:"La réserve",ar:"الاحتياطي / المخزون",en:"Reserve / Stock",sfr:"Il reste des produits en réserve.",sar:"لسه في منتجات بالمخزون.",sen:"There are still products in stock.",img:"la_reserve.webp"},
+ {fr:"La récompense",ar:"المكافأة",en:"Reward",sfr:"Il a reçu une récompense pour son travail.",sar:"حصل على مكافأة على شغله.",sen:"He received a reward for his work.",img:"la_recompense.webp"},
+ {fr:"Le règlement intérieur",ar:"النظام الداخلي",en:"Internal Regulations",sfr:"Chaque salarié doit respecter le règlement intérieur.",sar:"كل موظف لازم يحترم النظام الداخلي.",sen:"Every employee must follow the internal regulations.",img:"le_reglement_interieur.webp"},
+ {fr:"Le rêveur",ar:"الحالم",en:"Dreamer",sfr:"C'est un grand rêveur.",sar:"هو شخص كتير حالم.",sen:"He is a big dreamer.",img:"le_reveur.webp"},
+ {fr:"Le relief",ar:"التضاريس / البروز",en:"Landscape / Relief",sfr:"Le relief de cette région est montagneux.",sar:"تضاريس هالمنطقة جبلية.",sen:"The terrain of this region is mountainous.",img:"le_relief.webp"},
+ {fr:"Le rhume",ar:"الزكام",en:"Common Cold",sfr:"J'ai attrapé un rhume.",sar:"أصبت بالزكام.",sen:"I caught a cold.",img:"le_rhume.webp"},
+ {fr:"La révision",ar:"المراجعة / التصليح",en:"Revision / Servicing",sfr:"Je fais une révision avant l'examen.",sar:"عم راجع قبل الامتحان.",sen:"I am revising before the exam.",img:"la_revision.webp"},
+ {fr:"Le rocher",ar:"الصخرة الكبيرة",en:"Rock / Boulder",sfr:"Le rocher est très lourd.",sar:"الصخرة كتير تقيلة.",sen:"The boulder is very heavy.",img:"le_rocher.webp"},
+ {fr:"La rouille",ar:"الصدأ",en:"Rust",sfr:"Il y a de la rouille sur cette porte.",sar:"في صدأ على هالباب.",sen:"There is rust on this door.",img:"la_rouille.webp"},
+ {fr:"Le réveillon",ar:"سهرة الاحتفال بعيد الميلاد أو رأس السنة",en:"Holiday Eve Celebration",sfr:"Nous passons le réveillon en famille.",sar:"منقضي سهرة العيد مع العيلة.",sen:"We spend the holiday eve with family.",img:"le_reveillon.webp"},
+ {fr:"Le rasage",ar:"الحلاقة",en:"Shaving",sfr:"Le rasage prend quelques minutes.",sar:"الحلاقة بتاخد كم دقيقة.",sen:"Shaving takes a few minutes.",img:"le_rasage.webp"},
+ {fr:"Le remède",ar:"العلاج / الدواء",en:"Remedy",sfr:"Ce remède peut soulager la douleur.",sar:"هالعلاج ممكن يخفف الألم.",sen:"This remedy may relieve the pain.",img:"le_remede.webp"},
+ {fr:"Le rétablissement",ar:"التعافي / الشفاء",en:"Recovery",sfr:"Je vous souhaite un bon rétablissement.",sar:"بتمنالك الشفاء العاجل.",sen:"I wish you a speedy recovery.",img:"le_retablissement.webp"},
+ {fr:"Le rachat",ar:"إعادة الشراء / الاستحواذ",en:"Buyback / Acquisition",sfr:"Le rachat de l'entreprise a été annoncé.",sar:"تم الإعلان عن الاستحواذ على الشركة.",sen:"The company's acquisition was announced.",img:"le_rachat.webp"},
+ {fr:"La remise",ar:"التسليم / الخصم",en:"Delivery / Discount",sfr:"La remise des clés aura lieu demain.",sar:"تسليم المفاتيح رح يكون بكرا.",sen:"The handover of the keys will take place tomorrow.",img:"la_remise.webp"},
+ {fr:"Le remplaçant",ar:"البديل",en:"Replacement / Substitute",sfr:"Le remplaçant arrive lundi.",sar:"البديل رح يوصل يوم الاثنين.",sen:"The replacement arrives on Monday.",img:"le_remplacant.webp"},
+ {fr:"Le représentant",ar:"الممثل / المندوب",en:"Representative",sfr:"Le représentant de l'entreprise est présent.",sar:"مندوب الشركة موجود.",sen:"The company representative is present.",img:"le_representant.webp"},
+ {fr:"La reprise",ar:"الاستئناف / الاسترجاع",en:"Resumption / Takeover",sfr:"La reprise du travail est prévue lundi.",sar:"استئناف العمل مقرر يوم الاثنين.",sen:"The return to work is scheduled for Monday.",img:"la_reprise.webp"},
+ {fr:"Le rendement",ar:"الإنتاجية / المردود",en:"Productivity / Yield",sfr:"Le rendement de cette machine est excellent.",sar:"إنتاجية هالآلة ممتازة.",sen:"The output of this machine is excellent.",img:"le_rendement.webp"},
+ {fr:"La répartition",ar:"التوزيع",en:"Distribution",sfr:"La répartition des tâches est importante.",sar:"توزيع المهام مهم.",sen:"The distribution of tasks is important.",img:"la_repartition.webp"},
+ {fr:"La réouverture",ar:"إعادة الافتتاح",en:"Reopening",sfr:"La réouverture du magasin est prévue demain.",sar:"إعادة افتتاح المتجر مقررة بكرا.",sen:"The store's reopening is scheduled for tomorrow.",img:"la_reouverture.webp"},
+ {fr:"Le retrait",ar:"السحب / الإزالة",en:"Withdrawal / Removal",sfr:"Le retrait d'argent est possible ici.",sar:"فيك تسحب مصاري من هون.",sen:"You can withdraw money here.",img:"le_retrait.webp"},
+ {fr:"La relecture",ar:"إعادة القراءة / التدقيق",en:"Proofreading",sfr:"Une relecture est nécessaire avant l'envoi.",sar:"لازم نراجع النص قبل الإرسال.",sen:"Proofreading is necessary before sending.",img:"la_relecture.webp"},
+ {fr:"La réglementation",ar:"التشريعات / اللوائح التنظيمية",en:"Regulations",sfr:"Cette réglementation concerne les entreprises.",sar:"هالتشريعات بتخص الشركات.",sen:"These regulations concern businesses.",img:"la_reglementation.webp"},
+ {fr:"La résistance",ar:"المقاومة / القدرة على التحمّل",en:"Resistance / Endurance",sfr:"Il faut de la résistance pour faire ce travail.",sar:"هالشغل بده قدرة على التحمّل.",sen:"This job requires endurance.",img:"la_resistance.webp"},
+ {fr:"La ressource humaine",ar:"الموارد البشرية",en:"Human Resources",sfr:"Le service des ressources humaines m'a contacté.",sar:"قسم الموارد البشرية تواصل معي.",sen:"The human resources department contacted me.",img:"la_ressource_humaine.webp"},
+ {fr:"Le recours administratif",ar:"الطعن الإداري",en:"Administrative Appeal",sfr:"J'ai envoyé un recours administratif.",sar:"أرسلت اعتراض إداري.",sen:"I sent an administrative appeal.",img:"le_recours_administratif.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].R=st.c['noms'].R||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].R.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+205000+i;st.c['noms'].R.push(u)}});
+ save();}
+function updNomsS2(){
+ const add=[
+ {fr:"Le soir",ar:"المساء",en:"Evening",sfr:"Je rentre à la maison le soir.",sar:"برجع عالبيت بالمسا.",sen:"I come home in the evening.",img:"le_soir.webp"},
+ {fr:"La semaine",ar:"الأسبوع",en:"Week",sfr:"Je travaille cinq jours par semaine.",sar:"بشتغل خمسة أيام بالأسبوع.",sen:"I work five days a week.",img:"la_semaine.webp"},
+ {fr:"La santé",ar:"الصحة",en:"Health",sfr:"La santé est très importante.",sar:"الصحة مهمة كتير.",sen:"Health is very important.",img:"la_sante.webp"},
+ {fr:"La situation",ar:"الوضع / الحالة",en:"Situation",sfr:"Je dois expliquer ma situation.",sar:"لازم أشرح وضعي.",sen:"I have to explain my situation.",img:"la_situation.webp"},
+ {fr:"Le système",ar:"النظام",en:"System",sfr:"Le système ne fonctionne pas.",sar:"النظام ما عم يشتغل.",sen:"The system is not working.",img:"le_systeme.webp"},
+ {fr:"Le soleil",ar:"الشمس",en:"Sun",sfr:"Le soleil brille aujourd'hui.",sar:"الشمس عم تشرق اليوم.",sen:"The sun is shining today.",img:"le_soleil.webp"},
+ {fr:"Le sac",ar:"الحقيبة",en:"Bag",sfr:"J'ai oublié mon sac à la maison.",sar:"نسيت حقيبتي بالبيت.",sen:"I forgot my bag at home.",img:"le_sac.webp"},
+ {fr:"La salle",ar:"القاعة / الغرفة",en:"Room / Hall",sfr:"La réunion a lieu dans cette salle.",sar:"الاجتماع رح يكون بهالقاعة.",sen:"The meeting takes place in this room.",img:"la_salle.webp"},
+ {fr:"Le savon",ar:"الصابون",en:"Soap",sfr:"Il faut se laver les mains avec du savon.",sar:"لازم نغسل إيدينا بالصابون.",sen:"We must wash our hands with soap.",img:"le_savon.webp"},
+ {fr:"La sortie",ar:"الخروج / المخرج",en:"Exit / Outing",sfr:"Où se trouve la sortie ?",sar:"وين موجود المخرج؟",sen:"Where is the exit?",img:"la_sortie.webp"},
+ {fr:"Le sport",ar:"الرياضة",en:"Sport",sfr:"Je fais du sport deux fois par semaine.",sar:"بمارس الرياضة مرتين بالأسبوع.",sen:"I do sports twice a week.",img:"le_sport.webp"},
+ {fr:"Le sang",ar:"الدم",en:"Blood",sfr:"Le médecin demande une analyse de sang.",sar:"الطبيب طلب تحليل دم.",sen:"The doctor asks for a blood test.",img:"le_sang.webp"},
+ {fr:"Le sourire",ar:"الابتسامة",en:"Smile",sfr:"Elle a un beau sourire.",sar:"عندها ابتسامة حلوة.",sen:"She has a beautiful smile.",img:"le_sourire.webp"},
+ {fr:"Le sommeil",ar:"النوم",en:"Sleep",sfr:"Le sommeil est essentiel pour la santé.",sar:"النوم ضروري للصحة.",sen:"Sleep is essential for health.",img:"le_sommeil.webp"},
+ {fr:"Le soutien",ar:"الدعم",en:"Support",sfr:"Merci pour votre soutien.",sar:"شكراً على دعمكم.",sen:"Thank you for your support.",img:"le_soutien.webp"},
+ {fr:"Le secteur",ar:"القطاع / المجال",en:"Sector",sfr:"Je travaille dans le secteur industriel.",sar:"بشتغل بالقطاع الصناعي.",sen:"I work in the industrial sector.",img:"le_secteur.webp"},
+ {fr:"Le sens",ar:"المعنى / الاتجاه / الحاسة",en:"Meaning / Direction / Sense",sfr:"Je ne comprends pas le sens de cette phrase.",sar:"ما فهمت معنى هالجملة.",sen:"I don't understand the meaning of this sentence.",img:"le_sens.webp"},
+ {fr:"La saison",ar:"الفصل / الموسم",en:"Season",sfr:"Ma saison préférée est le printemps.",sar:"فصلي المفضل هو الربيع.",sen:"My favourite season is spring.",img:"la_saison.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].S=st.c['noms'].S||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].S.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+210000+i;st.c['noms'].S.push(u)}});
+ save();}
+function updNomsT(){
+ const add=[
+ {fr:"Le travail",ar:"العمل",en:"Work",sfr:"Je commence le travail à six heures.",sar:"ببلّش الشغل الساعة ستة.",sen:"I start work at six o'clock.",img:"le_travail.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].T=st.c['noms'].T||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].T.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+215000+i;st.c['noms'].T.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
