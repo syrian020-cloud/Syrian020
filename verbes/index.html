@@ -3013,13 +3013,80 @@ function updNomsB2(){
  add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+29000+i;st.c['noms'].B.push(u)}});
  save();}
 
+function updNomsB3(){
+ const add=[
+ {fr:"La banlieue",ar:"الضواحي / أطراف المدينة",en:"Suburbs",sfr:"J'habite dans la banlieue de Strasbourg.",sar:"ساكن بضواحي ستراسبورغ.",sen:"I live in the suburbs of Strasbourg.",img:"la_banlieue.webp"},
+ {fr:"Le barbecue",ar:"الشوّاية / حفلة الشواء",en:"Barbecue",sfr:"Nous organisons un barbecue dimanche.",sar:"رح نعمل حفلة شواء يوم الأحد.",sen:"We're having a barbecue on Sunday.",img:"le_barbecue.webp"},
+ {fr:"Le bâton",ar:"عصا / قضيب خشبي",en:"Stick",sfr:"Il marche avec un bâton.",sar:"هو بيمشي بمساعدة عصا.",sen:"He walks with a stick.",img:"le_baton.webp"},
+ {fr:"La brise",ar:"نسمة هواء",en:"Breeze",sfr:"Une légère brise rafraîchit l'air.",sar:"نسمة هوا خفيفة عم تلطّف الجو.",sen:"A gentle breeze cools the air.",img:"la_brise.webp"},
+ {fr:"Le brouillon",ar:"المسوّدة",en:"Draft",sfr:"J'écris d'abord mes idées sur un brouillon.",sar:"أول شي بكتب أفكاري على مسوّدة.",sen:"I first write my ideas on a draft.",img:"le_brouillon.webp"},
+ {fr:"Le brevet",ar:"شهادة / براءة اختراع",en:"Certificate / Patent",sfr:"Elle a obtenu son brevet des collèges.",sar:"حصلت على شهادة التعليم الإعدادي بفرنسا.",sen:"She obtained her French middle-school certificate.",img:"le_brevet.webp"},
+ {fr:"Le brancard",ar:"نقالة المرضى",en:"Stretcher",sfr:"Les ambulanciers transportent le patient sur un brancard.",sar:"المسعفون عم ينقلوا المريض على نقالة.",sen:"The paramedics are carrying the patient on a stretcher.",img:"le_brancard.webp"},
+ {fr:"Le branchement",ar:"التوصيل / الربط الكهربائي",en:"Connection",sfr:"Vérifiez le branchement avant de démarrer la machine.",sar:"تأكدوا من التوصيلات قبل تشغيل الآلة.",sen:"Check the connection before starting the machine.",img:"le_branchement.webp"},
+ {fr:"Le bourgeon",ar:"برعم النبات",en:"Bud",sfr:"Un bourgeon apparaît sur cette branche.",sar:"ظهر برعم على هالغصن.",sen:"A bud is appearing on this branch.",img:"le_bourgeon.webp"},
+ {fr:"Le bouillon",ar:"المرق / الشوربة الخفيفة",en:"Broth",sfr:"Je prépare un bouillon de légumes.",sar:"عم حضّر مرق خضار.",sen:"I'm preparing vegetable broth.",img:"le_bouillon.webp"},
+ {fr:"Le bourdonnement",ar:"الطنين / الأزيز",en:"Buzzing / Humming",sfr:"J'entends un bourdonnement dans la machine.",sar:"عم اسمع صوت طنين بالآلة.",sen:"I hear a humming sound in the machine.",img:"le_bourdonnement.webp"},
+ {fr:"Le bordereau",ar:"كشف / قائمة تسليم أو استلام",en:"Delivery slip / Statement",sfr:"Le chauffeur signe le bordereau de livraison.",sar:"السائق بيوقّع على كشف تسليم البضاعة.",sen:"The driver signs the delivery note.",img:"le_bordereau.webp"},
+ {fr:"La borne de recharge",ar:"محطة شحن",en:"Charging station",sfr:"Il recharge sa voiture à une borne de recharge.",sar:"هو عم يشحن سيارته بمحطة شحن.",sen:"He charges his car at a charging station.",img:"la_borne_de_recharge.webp"},
+ {fr:"Le buraliste",ar:"بائع التبغ والصحف",en:"Tobacconist / Newsagent",sfr:"Le buraliste vend des journaux et des cartes.",sar:"بائع التبغ بيبيع جرائد وبطاقات.",sen:"The tobacconist sells newspapers and cards.",img:"le_buraliste.webp"},
+ {fr:"Le bus",ar:"الحافلة / الباص",en:"Bus",sfr:"Je prends le bus pour aller au travail.",sar:"بركب الباص لروح عالشغل.",sen:"I take the bus to go to work.",img:"le_bus.webp"},
+ {fr:"La buée",ar:"بخار الماء المتكاثف / الضباب على الزجاج",en:"Condensation / Mist",sfr:"Il y a de la buée sur la fenêtre.",sar:"في بخار متكاثف على الشباك.",sen:"There is condensation on the window.",img:"la_buee.webp"},
+ {fr:"La brûlure",ar:"الحرق / الحُرقة",en:"Burn",sfr:"Il a une brûlure à la main.",sar:"عنده حرق بإيده.",sen:"He has a burn on his hand.",img:"la_brulure.webp"},
+ {fr:"Le bracelet électronique",ar:"السوار الإلكتروني",en:"Electronic ankle monitor",sfr:"Le bracelet électronique permet de surveiller les déplacements d'une personne.",sar:"السوار الإلكتروني بيسمح بمراقبة تنقّلات الشخص.",sen:"An electronic ankle monitor makes it possible to track a person's movements.",img:"le_bracelet_electronique.webp"},
+ {fr:"La boîte de conserve",ar:"علبة طعام معدنية",en:"Tin can",sfr:"J'ouvre une boîte de conserve de tomates.",sar:"عم افتح علبة بندورة معلبة.",sen:"I'm opening a can of tomatoes.",img:"la_boite_de_conserve.webp"},
+ {fr:"Le balancement",ar:"التأرجح / الحركة ذهاباً وإياباً",en:"Swaying / Swinging",sfr:"Le balancement de la machine est anormal.",sar:"حركة تأرجح الآلة مو طبيعية.",sen:"The machine's swaying is abnormal.",img:"le_balancement.webp"},
+ {fr:"Le bricoleur",ar:"الشخص الذي يقوم بأعمال التصليح المنزلية",en:"DIY enthusiast / Handyperson",sfr:"Mon voisin est un excellent bricoleur.",sar:"جاري شاطر كتير بأعمال التصليح.",sen:"My neighbour is very good at DIY.",img:"le_bricoleur.webp"},
+ {fr:"Le bricolage",ar:"التصليحات والأعمال اليدوية المنزلية",en:"DIY / Home repairs",sfr:"J'aime faire du bricolage pendant le week-end.",sar:"بحب أعمل تصليحات وأشغال يدوية بعطلة نهاية الأسبوع.",sen:"I enjoy doing DIY projects at the weekend.",img:"le_bricolage.webp"},
+ {fr:"La brosse",ar:"الفرشاة",en:"Brush",sfr:"J'utilise une brosse pour nettoyer mes chaussures.",sar:"بستخدم فرشاة لتنظيف أحذيتي.",sen:"I use a brush to clean my shoes.",img:"la_brosse.webp"},
+ {fr:"Le brossage",ar:"عملية التنظيف بالفرشاة",en:"Brushing",sfr:"Le brossage des dents doit durer deux minutes.",sar:"لازم تنظيف الأسنان بالفرشاة يستمر دقيقتين.",sen:"Brushing your teeth should last two minutes.",img:"le_brossage.webp"},
+ {fr:"La broche",ar:"سيخ الشواء / دبوس الزينة",en:"Skewer / Brooch",sfr:"Il prépare la viande sur une broche.",sar:"عم يجهّز اللحمة على سيخ الشواء.",sen:"He is preparing the meat on a roasting skewer.",img:"la_broche.webp"},
+ {fr:"Le brassard",ar:"شارة الذراع / رباط الذراع",en:"Armband",sfr:"Le responsable porte un brassard de sécurité.",sar:"المسؤول لابس شارة أمان على ذراعه.",sen:"The supervisor is wearing a safety armband.",img:"le_brassard.webp"},
+ {fr:"La bride",ar:"مشبك تثبيت / حَلَقة ربط",en:"Clamp / Flange",sfr:"La bride maintient le tuyau en place.",sar:"مشبك التثبيت بيحافظ على الأنبوب بمكانه.",sen:"The clamp holds the pipe in place.",img:"la_bride.webp"},
+ {fr:"Le brasage",ar:"اللحام بالنحاس",en:"Brazing",sfr:"Le brasage permet d'assembler certaines pièces métalliques.",sar:"اللحام بالنحاس بيسمح بربط بعض القطع المعدنية.",sen:"Brazing makes it possible to join certain metal parts.",img:"le_brasage.webp"},
+ {fr:"La brèche",ar:"فجوة / ثغرة",en:"Breach / Gap",sfr:"Les ouvriers ont réparé la brèche dans le mur.",sar:"العمال صلّحوا الفجوة الموجودة بالجدار.",sen:"The workers repaired the gap in the wall.",img:"la_breche.webp"},
+ {fr:"Le bûcheron",ar:"حطّاب / حطّابة",en:"Lumberjack",sfr:"Le bûcheron coupe du bois dans la forêt.",sar:"الحطّاب بيقطع الحطب بالغابة.",sen:"The lumberjack cuts wood in the forest.",img:"le_bucheron.webp"},
+ {fr:"Le bureau d'études",ar:"مكتب الدراسات والتصميم التقني",en:"Engineering design office",sfr:"Le bureau d'études prépare les plans techniques.",sar:"مكتب الدراسات بيحضّر المخططات التقنية.",sen:"The engineering design office prepares the technical plans.",img:"le_bureau_d_etudes.webp"},
+ {fr:"Le bourgeonnement",ar:"تفتّح البراعم",en:"Budding",sfr:"Le bourgeonnement commence au printemps.",sar:"تفتّح البراعم بيبدأ بفصل الربيع.",sen:"Budding begins in spring.",img:"le_bourgeonnement.webp"},
+ {fr:"La bouilloire",ar:"غلّاية الماء الكهربائية",en:"Electric kettle",sfr:"La bouilloire chauffe l'eau rapidement.",sar:"غلّاية المي بتسخّن المي بسرعة.",sen:"The electric kettle heats water quickly.",img:"la_bouilloire.webp"},
+ {fr:"Le bouchon de bouteille",ar:"سدادة الزجاجة",en:"Bottle cap",sfr:"Le bouchon de cette bouteille est difficile à ouvrir.",sar:"سدادة هالقنينة صعب تنفتح.",sen:"The cap on this bottle is difficult to open.",img:"le_bouchon_de_bouteille.webp"},
+ {fr:"La bavure",ar:"زائدة معدنية / نتوء ناتج عن التصنيع",en:"Burr / Flash",sfr:"Il faut enlever les bavures de cette pièce métallique.",sar:"لازم نشيل الزوائد المعدنية من هالقطعة.",sen:"We need to remove the burrs from this metal part.",img:"la_bavure.webp"},
+ {fr:"Le boîtier de commande",ar:"صندوق التحكّم",en:"Control box",sfr:"Le technicien vérifie le boîtier de commande.",sar:"الفني عم يفحص صندوق التحكّم.",sen:"The technician is checking the control box.",img:"le_boitier_de_commande.webp"},
+ {fr:"La bonbonne",ar:"أسطوانة / قارورة كبيرة",en:"Large bottle / Cylinder",sfr:"Nous avons remplacé la bonbonne d'eau.",sar:"بدّلنا قارورة المي الكبيرة.",sen:"We replaced the large water bottle.",img:"la_bonbonne.webp"},
+ {fr:"Le balisage",ar:"تحديد المسار ووضع إشارات التحذير",en:"Signposting / Marking",sfr:"Le balisage indique une zone de travaux.",sar:"إشارات التحذير بتحدد منطقة الأشغال.",sen:"The safety markings indicate a roadwork area.",img:"le_balisage.webp"},
+ {fr:"La bonneterie",ar:"الملابس المحاكة / صناعة الجوارب والملابس المحاكة",en:"Hosiery / Knitwear",sfr:"Cette entreprise travaille dans la bonneterie.",sar:"هالشركة بتشتغل بمجال صناعة الملابس المحاكة.",sen:"This company works in the knitwear industry.",img:"la_bonneterie.webp"},
+ {fr:"Le bétail",ar:"الماشية / المواشي",en:"Livestock",sfr:"L'agriculteur élève du bétail.",sar:"المزارع بيربّي المواشي.",sen:"The farmer raises livestock.",img:"le_betail.webp"},
+ {fr:"Le bac à déchets",ar:"حاوية النفايات",en:"Waste bin",sfr:"Jetez les déchets dans le bac prévu à cet effet.",sar:"ارموا النفايات بالحاوية المخصّصة إلها.",sen:"Put the waste in the designated bin.",img:"le_bac_a_dechets.webp"},
+ {fr:"La bâche",ar:"غطاء واقٍ / مشمّع",en:"Tarpaulin",sfr:"La bâche protège les marchandises de la pluie.",sar:"الغطاء الواقي بيحمي البضاعة من المطر.",sen:"The tarpaulin protects the goods from the rain.",img:"la_bache.webp"},
+ {fr:"Le balai-brosse",ar:"فرشاة تنظيف الأرضيات",en:"Scrubbing brush",sfr:"Le balai-brosse permet de nettoyer le sol en profondeur.",sar:"فرشاة الأرضيات بتساعد على تنظيف الأرض بعمق.",sen:"The scrubbing brush helps clean the floor thoroughly.",img:"le_balai_brosse.webp"},
+ {fr:"La baratte",ar:"مخضّة الزبدة",en:"Churn",sfr:"La baratte sert à fabriquer du beurre.",sar:"مخضّة الزبدة بتُستخدم لصناعة الزبدة.",sen:"A churn is used to make butter.",img:"la_baratte.webp"},
+ {fr:"Le barillet",ar:"أسطوانة القفل / قلب القفل",en:"Lock cylinder",sfr:"Le serrurier remplace le barillet de la porte.",sar:"صانع المفاتيح عم يبدّل قلب قفل الباب.",sen:"The locksmith is replacing the door lock cylinder.",img:"le_barillet.webp"},
+ {fr:"La barge",ar:"بارجة / سفينة نقل مسطّحة",en:"Barge",sfr:"La barge transporte des marchandises sur le fleuve.",sar:"البارجة بتنقل البضائع عبر النهر.",sen:"The barge transports goods along the river.",img:"la_barge.webp"},
+ {fr:"Le bâti",ar:"الهيكل الحامل للآلة",en:"Machine frame",sfr:"Le bâti supporte les différents éléments de la machine.",sar:"هيكل الآلة بيحمل مختلف أجزائها.",sen:"The machine frame supports its various components.",img:"le_bati.webp"},
+ {fr:"La bavette de protection",ar:"واقية / حاجز حماية مرن",en:"Protective flap",sfr:"La bavette de protection empêche les projections.",sar:"واقية الحماية بتمنع تطاير المواد.",sen:"The protective flap prevents splashes.",img:"la_bavette_de_protection.webp"},
+ {fr:"Le bécher",ar:"كأس مخبري مدرّج",en:"Beaker",sfr:"Le technicien verse le liquide dans un bécher.",sar:"الفني عم يسكب السائل بكأس مخبري.",sen:"The technician pours the liquid into a beaker.",img:"le_becher.webp"},
+ {fr:"Le barème horaire",ar:"جدول الأجور حسب الساعة",en:"Hourly pay scale",sfr:"Le barème horaire dépend du poste occupé.",sar:"جدول الأجور بالساعة بيعتمد على طبيعة الوظيفة.",sen:"The hourly pay scale depends on the position held.",img:"le_bareme_horaire.webp"},
+ {fr:"Le bac de tri",ar:"حاوية فرز النفايات",en:"Sorting bin",sfr:"Les employés déposent les cartons dans le bac de tri.",sar:"الموظفين بيحطّوا الكراتين بحاوية الفرز.",sen:"Employees put cardboard in the sorting bin.",img:"le_bac_de_tri.webp"},
+ {fr:"La balance électronique",ar:"الميزان الإلكتروني",en:"Electronic scale",sfr:"La balance électronique affiche le poids exact.",sar:"الميزان الإلكتروني بيعرض الوزن الدقيق.",sen:"The electronic scale displays the exact weight.",img:"la_balance_electronique.webp"},
+ {fr:"Le balisage au sol",ar:"علامات تحديد المسارات على الأرض",en:"Floor marking",sfr:"Le balisage au sol indique les zones de circulation.",sar:"علامات الأرض بتحدد مناطق حركة الأشخاص والآليات.",sen:"Floor markings indicate traffic areas.",img:"le_balisage_au_sol.webp"},
+ {fr:"La barrière levante",ar:"حاجز آلي مرتفع",en:"Boom barrier",sfr:"La barrière levante contrôle l'accès au parking.",sar:"الحاجز الآلي بينظّم الدخول إلى موقف السيارات.",sen:"The boom barrier controls access to the car park.",img:"la_barriere_levante.webp"},
+ {fr:"Le bac de rétention",ar:"حوض احتواء التسربات",en:"Spill containment tray",sfr:"Le bac de rétention évite la propagation des fuites.",sar:"حوض الاحتواء بيمنع انتشار التسرّبات.",sen:"The containment tray prevents leaks from spreading.",img:"le_bac_de_retention.webp"},
+ {fr:"Le bloc-notes",ar:"دفتر ملاحظات",en:"Notepad",sfr:"Je note les consignes dans mon bloc-notes.",sar:"بكتب التعليمات بدفتر ملاحظاتي.",sen:"I write the instructions in my notepad.",img:"le_bloc_notes.webp"},
+ {fr:"Le bon de commande",ar:"طلبية شراء",en:"Purchase order",sfr:"Le responsable valide le bon de commande.",sar:"المسؤول بيوافق على طلبية الشراء.",sen:"The manager approves the purchase order.",img:"le_bon_de_commande.webp"},
+ {fr:"Le bon de livraison",ar:"وصل التسليم",en:"Delivery note",sfr:"Le client signe le bon de livraison.",sar:"الزبون بيوقّع على وصل التسليم.",sen:"The customer signs the delivery note.",img:"le_bon_de_livraison.webp"},
+ {fr:"Le bon de réception",ar:"وصل استلام البضاعة",en:"Goods receipt document",sfr:"Le magasinier vérifie le bon de réception.",sar:"أمين المستودع بيتأكد من وصل استلام البضاعة.",sen:"The warehouse worker checks the goods receipt document.",img:"le_bon_de_reception.webp"},
+ {fr:"La boîte de rangement",ar:"صندوق تخزين",en:"Storage box",sfr:"Les outils sont rangés dans une boîte de rangement.",sar:"الأدوات مرتّبة بصندوق تخزين.",sen:"The tools are stored in a storage box.",img:"la_boite_de_rangement.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].B=st.c['noms'].B||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+33000+i;st.c['noms'].B.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
