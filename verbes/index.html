@@ -4515,13 +4515,52 @@ function updNomsT(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].T=st.c['noms'].T||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].T.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+215000+i;st.c['noms'].T.push(u)}});
  save();}
+function updNomsS3(){
+ const add=[
+ {fr:"Le séjour",ar:"الإقامة",en:"Stay",sfr:"Mon séjour en France se passe bien.",sar:"إقامتي بفرنسا ماشية منيح.",sen:"My stay in France is going well.",img:"le_sejour.webp"},
+ {fr:"La somme",ar:"المبلغ / المجموع",en:"Sum / Amount",sfr:"Je dois payer cette somme.",sar:"لازم ادفع هالمبلغ.",sen:"I have to pay this amount.",img:"la_somme.webp"},
+ {fr:"Le soin",ar:"العناية / العلاج",en:"Care / Treatment",sfr:"Ce patient a besoin de soins.",sar:"هالمريض بحاجة لرعاية.",sen:"This patient needs care.",img:"le_soin.webp"},
+ {fr:"La solution",ar:"الحل",en:"Solution",sfr:"Nous devons trouver une solution.",sar:"لازم نلاقي حل.",sen:"We must find a solution.",img:"la_solution.webp"},
+ {fr:"Le souci",ar:"المشكلة / الهمّ",en:"Problem / Concern",sfr:"J'ai un petit souci avec mon téléphone.",sar:"عندي مشكلة صغيرة بتلفوني.",sen:"I have a small problem with my phone.",img:"le_souci.webp"},
+ {fr:"La surface",ar:"المساحة / السطح",en:"Surface / Area",sfr:"La surface de cet appartement est de 40 mètres carrés.",sar:"مساحة هالشقة 40 متر مربع.",sen:"The area of this apartment is 40 square metres.",img:"la_surface.webp"},
+ {fr:"Le syndicat",ar:"النقابة",en:"Trade Union",sfr:"Le syndicat défend les droits des salariés.",sar:"النقابة بتدافع عن حقوق الموظفين.",sen:"The trade union defends employees' rights.",img:"le_syndicat.webp"},
+ {fr:"Le signal",ar:"الإشارة",en:"Signal",sfr:"Le signal est rouge.",sar:"الإشارة حمرا.",sen:"The signal is red.",img:"le_signal.webp"},
+ {fr:"Le silence",ar:"الصمت",en:"Silence",sfr:"J'ai besoin de silence pour travailler.",sar:"بحتاج هدوء حتى أشتغل.",sen:"I need silence to work.",img:"le_silence.webp"},
+ {fr:"La signature",ar:"التوقيع",en:"Signature",sfr:"Il manque votre signature ici.",sar:"توقيعك ناقص هون.",sen:"Your signature is missing here.",img:"la_signature.webp"},
+ {fr:"Le signe",ar:"العلامة / الإشارة",en:"Sign",sfr:"C'est un signe de fatigue.",sar:"هاي علامة تعب.",sen:"It is a sign of fatigue.",img:"le_signe.webp"},
+ {fr:"Le secours",ar:"النجدة / الإنقاذ",en:"Rescue / Help",sfr:"Appelez les secours !",sar:"اتصلوا بالإسعاف والنجدة!",sen:"Call the emergency services!",img:"le_secours.webp"},
+ {fr:"La souffrance",ar:"المعاناة",en:"Suffering",sfr:"Il parle de sa souffrance.",sar:"هو عم يحكي عن معاناته.",sen:"He is talking about his suffering.",img:"la_souffrance.webp"},
+ {fr:"Le spécialiste",ar:"الاختصاصي",en:"Specialist",sfr:"Je dois consulter un spécialiste.",sar:"لازم راجع طبيب اختصاصي.",sen:"I have to see a specialist.",img:"le_specialiste.webp"},
+ {fr:"La serrure",ar:"القفل",en:"Lock",sfr:"La serrure est cassée.",sar:"القفل خربان.",sen:"The lock is broken.",img:"la_serrure.webp"},
+ {fr:"Le souhait",ar:"الأمنية / الرغبة",en:"Wish",sfr:"Je vous souhaite beaucoup de bonheur.",sar:"بتمنالكم كل السعادة.",sen:"I wish you lots of happiness.",img:"le_souhait.webp"},
+ {fr:"Le spectacle",ar:"العرض / المشهد",en:"Show / Performance",sfr:"Nous allons voir un spectacle ce soir.",sar:"رح نحضر عرض هالمسا.",sen:"We are going to see a show tonight.",img:"le_spectacle.webp"},
+ {fr:"Le stade",ar:"الملعب",en:"Stadium",sfr:"Le stade est plein de supporters.",sar:"الملعب مليان مشجعين.",sen:"The stadium is full of supporters.",img:"le_stade.webp"},
+ {fr:"Le stationnement",ar:"ركن السيارات",en:"Parking",sfr:"Le stationnement est interdit ici.",sar:"ممنوع ركن السيارات هون.",sen:"Parking is prohibited here.",img:"le_stationnement.webp"},
+ {fr:"La soupe",ar:"الحساء / الشوربة",en:"Soup",sfr:"Je prépare une soupe de légumes.",sar:"عم حضّر شوربة خضار.",sen:"I am making vegetable soup.",img:"la_soupe.webp"},
+ {fr:"Le souvenir",ar:"الذكرى / التذكار",en:"Memory / Souvenir",sfr:"Ce voyage reste un bon souvenir.",sar:"هالرحلة بتضل ذكرى حلوة.",sen:"This trip remains a good memory.",img:"le_souvenir.webp"},
+ {fr:"Le sous-sol",ar:"الطابق السفلي / القبو",en:"Basement",sfr:"La machine à laver est au sous-sol.",sar:"الغسالة بالطابق السفلي.",sen:"The washing machine is in the basement.",img:"le_sous_sol.webp"},
+ {fr:"Le site",ar:"الموقع",en:"Website / Site",sfr:"Vous pouvez consulter le site Internet.",sar:"فيك تطّلع على الموقع الإلكتروني.",sen:"You can visit the website.",img:"le_site.webp"},
+ {fr:"Le stage",ar:"التدريب / فترة التدريب",en:"Internship / Training",sfr:"Je fais un stage dans une entreprise.",sar:"عم أعمل تدريب بشركة.",sen:"I am doing an internship at a company.",img:"le_stage.webp"},
+ {fr:"Le stress",ar:"التوتر / الضغط النفسي",en:"Stress",sfr:"Le stress peut affecter le sommeil.",sar:"التوتر ممكن يأثر على النوم.",sen:"Stress can affect sleep.",img:"le_stress.webp"},
+ {fr:"Le succès",ar:"النجاح",en:"Success",sfr:"Le succès demande du travail et de la patience.",sar:"النجاح بدّه شغل وصبر.",sen:"Success requires work and patience.",img:"le_succes.webp"},
+ {fr:"La suite",ar:"الباقي / المتابعة",en:"Rest / Continuation",sfr:"Nous parlerons de la suite demain.",sar:"رح نحكي عن الباقي بكرا.",sen:"We will talk about the rest tomorrow.",img:"la_suite.webp"},
+ {fr:"Le sondage",ar:"استطلاع الرأي",en:"Survey / Poll",sfr:"J'ai répondu à un sondage en ligne.",sar:"جاوبت على استطلاع رأي عبر الإنترنت.",sen:"I answered an online survey.",img:"le_sondage.webp"},
+ {fr:"La source",ar:"المصدر",en:"Source",sfr:"Quelle est la source de cette information ?",sar:"شو مصدر هالمعلومة؟",sen:"What is the source of this information?",img:"la_source.webp"},
+ {fr:"Le supplément",ar:"الإضافة / المبلغ الإضافي",en:"Extra / Supplement",sfr:"Il faut payer un supplément pour ce service.",sar:"لازم تدفع مبلغ إضافي مقابل هالخدمة.",sen:"You have to pay extra for this service.",img:"le_supplement.webp"},
+ {fr:"La surprise",ar:"المفاجأة",en:"Surprise",sfr:"J'ai une surprise pour toi.",sar:"عندي مفاجأة إلك.",sen:"I have a surprise for you.",img:"la_surprise.webp"},
+ {fr:"Le suivi",ar:"المتابعة",en:"Follow-up / Monitoring",sfr:"Un suivi médical régulier est nécessaire.",sar:"المتابعة الطبية المنتظمة ضرورية.",sen:"Regular medical follow-up is necessary.",img:"le_suivi.webp"},
+ {fr:"Le symptôme",ar:"العَرَض (الطبي)",en:"Symptom",sfr:"Ce médicament peut réduire les symptômes.",sar:"هالدواء ممكن يخفف الأعراض.",sen:"This medicine can reduce the symptoms.",img:"le_symptome.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].S=st.c['noms'].S||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].S.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+220000+i;st.c['noms'].S.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
