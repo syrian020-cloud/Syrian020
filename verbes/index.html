@@ -2942,13 +2942,84 @@ function updNomsB(){
  add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+25000+i;st.c['noms'].B.push(u)}});
  save();}
 
+function updNomsB2(){
+ const add=[
+ {fr:"Le bac",ar:"الحوض / الصندوق الكبير",en:"Bin / Container",sfr:"Place les pièces dans le bac prévu à cet effet.",sar:"حطّ القطع بالصندوق المخصّص إلها.",sen:"Put the parts in the designated bin.",img:"le_bac.webp"},
+ {fr:"Le bac de rangement",ar:"صندوق التخزين",en:"Storage box",sfr:"Les outils sont rangés dans un bac de rangement.",sar:"الأدوات مرتّبة بصندوق تخزين.",sen:"The tools are stored in a storage box.",img:"le_bac_de_rangement.webp"},
+ {fr:"Le bagage",ar:"الأمتعة / حقيبة السفر",en:"Luggage",sfr:"Mon bagage est trop lourd.",sar:"شنطة سفري تقيلة كتير.",sen:"My luggage is too heavy.",img:"le_bagage.webp"},
+ {fr:"Le bagagiste",ar:"عامل الأمتعة",en:"Baggage handler",sfr:"Le bagagiste transporte les valises des voyageurs.",sar:"عامل الأمتعة بينقل شنط المسافرين.",sen:"The baggage handler transports travellers' suitcases.",img:"le_bagagiste.webp"},
+ {fr:"La baignade",ar:"السباحة / الاستحمام بالماء",en:"Swimming / Bathing",sfr:"La baignade est interdite dans cette zone.",sar:"السباحة ممنوعة بهالمنطقة.",sen:"Swimming is prohibited in this area.",img:"la_baignade.webp"},
+ {fr:"Le bain de soleil",ar:"حمّام الشمس / التشمّس",en:"Sunbathing",sfr:"Il aime prendre un bain de soleil à la plage.",sar:"بيحب يتشمّس عالبحر.",sen:"He likes sunbathing at the beach.",img:"le_bain_de_soleil.webp"},
+ {fr:"Le bal",ar:"الحفلة الراقصة",en:"Ball / Dance",sfr:"Nous allons au bal samedi soir.",sar:"رح نروح على حفلة راقصة مساء السبت.",sen:"We are going to a dance on Saturday evening.",img:"le_bal.webp"},
+ {fr:"La balade",ar:"النزهة / المشوار",en:"Walk / Stroll",sfr:"Je fais une balade dans le parc après le travail.",sar:"بطلع بتمشاية بالحديقة بعد الشغل.",sen:"I go for a walk in the park after work.",img:"la_balade.webp"},
+ {fr:"Le bar",ar:"الحانة / المقهى",en:"Bar",sfr:"Nous nous retrouvons dans un bar près de la gare.",sar:"منلتقي بمقهى قريب من المحطة.",sen:"We meet at a bar near the station.",img:"le_bar.webp"},
+ {fr:"La barre",ar:"القضيب / العارضة",en:"Bar / Rod",sfr:"Cette barre métallique est très lourde.",sar:"هالقضيب المعدني تقيل كتير.",sen:"This metal bar is very heavy.",img:"la_barre.webp"},
+ {fr:"Le baril",ar:"البرميل",en:"Barrel",sfr:"Les produits sont stockés dans des barils.",sar:"المنتجات مخزّنة ببراميل.",sen:"The products are stored in barrels.",img:"le_baril.webp"},
+ {fr:"La barrière de sécurité",ar:"حاجز الأمان",en:"Safety barrier",sfr:"La barrière de sécurité protège les employés.",sar:"حاجز الأمان بيحمي الموظفين.",sen:"The safety barrier protects employees.",img:"la_barriere_de_securite.webp"},
+ {fr:"La bascule",ar:"الميزان الكبير / ميزان الشاحنات",en:"Weighbridge / Platform scale",sfr:"Le camion passe sur la bascule avant le chargement.",sar:"الشاحنة بتمرّ على الميزان قبل التحميل.",sen:"The truck goes over the weighbridge before loading.",img:"la_bascule.webp"},
+ {fr:"La bassine",ar:"الطشت / الوعاء الكبير",en:"Washing basin / Tub",sfr:"Je lave les légumes dans une bassine.",sar:"بغسل الخضرة بطشت.",sen:"I wash the vegetables in a basin.",img:"la_bassine.webp"},
+ {fr:"La bataille",ar:"المعركة / الشجار",en:"Battle / Fight",sfr:"La bataille a duré plusieurs jours.",sar:"المعركة استمرت عدة أيام.",sen:"The battle lasted several days.",img:"la_bataille.webp"},
+ {fr:"Le bavardage",ar:"الثرثرة / كثرة الحكي",en:"Chatter",sfr:"Le bavardage est interdit pendant cette réunion.",sar:"الثرثرة ممنوعة خلال هالاجتماع.",sen:"Chattering is forbidden during this meeting.",img:"le_bavardage.webp"},
+ {fr:"La bavette",ar:"مريلة الطفل / قطعة لحم تُسمّى ستيك الخاصرة",en:"Bib / Flank steak",sfr:"Le bébé porte une bavette pour ne pas salir ses vêtements.",sar:"الطفل لابس مريلة حتى ما يوسّخ تيابه.",sen:"The baby wears a bib to avoid dirtying his clothes.",img:"la_bavette.webp"},
+ {fr:"Le bavard",ar:"الثرثار / الثرثارة",en:"Chatterbox",sfr:"Mon collègue est très bavard.",sar:"زميلي بالشغل بيحكي كتير.",sen:"My colleague is very talkative.",img:"le_bavard.webp"},
+ {fr:"Le bec",ar:"المنقار",en:"Beak",sfr:"L'oiseau ouvre son bec pour manger.",sar:"الطير بيفتح منقاره لحتى ياكل.",sen:"The bird opens its beak to eat.",img:"le_bec.webp"},
+ {fr:"La baignoire balnéo",ar:"حوض الاستحمام بالتدليك المائي",en:"Whirlpool bathtub",sfr:"La baignoire balnéo est équipée de jets d'eau.",sar:"حوض الاستحمام مجهّز بنفاثات مي.",sen:"The whirlpool bathtub is equipped with water jets.",img:"la_baignoire_balneo.webp"},
+ {fr:"Le bénéfice net",ar:"صافي الربح",en:"Net profit",sfr:"Le bénéfice net de l'entreprise a augmenté cette année.",sar:"صافي ربح الشركة زاد هالسنة.",sen:"The company's net profit increased this year.",img:"le_benefice_net.webp"},
+ {fr:"La berge",ar:"ضفة النهر",en:"Riverbank",sfr:"Nous marchons le long de la berge.",sar:"عم نمشي على طول ضفة النهر.",sen:"We are walking along the riverbank.",img:"la_berge.webp"},
+ {fr:"Le berceau",ar:"مهد الطفل",en:"Cradle",sfr:"Le bébé dort dans son berceau.",sar:"الطفل نايم بمَهده.",sen:"The baby is sleeping in his cradle.",img:"le_berceau.webp"},
+ {fr:"La besogne",ar:"العمل / الشغل",en:"Work / Task",sfr:"Il reste encore beaucoup de besogne à faire.",sar:"لسا في شغل كتير لازم نعمله.",sen:"There is still a lot of work to do.",img:"la_besogne.webp"},
+ {fr:"La bêtise",ar:"الحماقة / الغلطة السخيفة",en:"Stupidity / Silly mistake",sfr:"J'ai fait une bêtise en envoyant ce message.",sar:"عملت غلطة سخيفة لما بعت هالرسالة.",sen:"I made a silly mistake by sending that message.",img:"la_betise.webp"},
+ {fr:"Le beurre de cacahuète",ar:"زبدة الفول السوداني",en:"Peanut butter",sfr:"Il mange du beurre de cacahuète au petit-déjeuner.",sar:"بياكل زبدة الفول السوداني على الفطور.",sen:"He eats peanut butter for breakfast.",img:"le_beurre_de_cacahuete.webp"},
+ {fr:"Le billet de banque",ar:"ورقة نقدية",en:"Banknote",sfr:"J'ai un billet de vingt euros dans mon portefeuille.",sar:"معي ورقة نقدية من عشرين يورو بمحفظتي.",sen:"I have a twenty-euro banknote in my wallet.",img:"le_billet_de_banque.webp"},
+ {fr:"La bijouterie",ar:"محل المجوهرات",en:"Jewellery shop",sfr:"Elle travaille dans une bijouterie au centre-ville.",sar:"هي بتشتغل بمحل مجوهرات بوسط المدينة.",sen:"She works in a jewellery shop in the city centre.",img:"la_bijouterie.webp"},
+ {fr:"Le bijou",ar:"قطعة مجوهرات / حُلي",en:"Piece of jewellery",sfr:"Ce bijou est très ancien.",sar:"قطعة المجوهرات هاي قديمة كتير.",sen:"This piece of jewellery is very old.",img:"le_bijou.webp"},
+ {fr:"La bille",ar:"كرة صغيرة / بلية",en:"Marble / Small ball",sfr:"L'enfant joue avec des billes.",sar:"الطفل عم يلعب بالبلّيات.",sen:"The child is playing with marbles.",img:"la_bille.webp"},
+ {fr:"Le bilan",ar:"الحصيلة / التقييم / الفحص الشامل",en:"Assessment / Review",sfr:"Le médecin m'a demandé de faire un bilan sanguin.",sar:"الطبيب طلب مني أعمل تحاليل دم شاملة.",sen:"The doctor asked me to have a blood test.",img:"le_bilan.webp"},
+ {fr:"Le bilan de santé",ar:"الفحص الصحي الشامل",en:"Health check-up",sfr:"Je fais un bilan de santé une fois par an.",sar:"بعمل فحص صحي شامل مرة بالسنة.",sen:"I have a health check-up once a year.",img:"le_bilan_de_sante.webp"},
+ {fr:"La biodiversité",ar:"التنوع البيولوجي",en:"Biodiversity",sfr:"La biodiversité est essentielle à l'équilibre de la nature.",sar:"التنوع البيولوجي ضروري لتوازن الطبيعة.",sen:"Biodiversity is essential to the balance of nature.",img:"la_biodiversite.webp"},
+ {fr:"Le bien",ar:"الشيء / الملكية / الخير",en:"Property / Good",sfr:"Il souhaite vendre son bien immobilier.",sar:"هو حابب يبيع عقاره.",sen:"He wants to sell his property.",img:"le_bien.webp"},
+ {fr:"Le bien-être",ar:"الرفاهية / العافية / الشعور بالراحة",en:"Well-being",sfr:"Le sommeil est important pour le bien-être.",sar:"النوم مهم للراحة والعافية.",sen:"Sleep is important for well-being.",img:"le_bien_etre.webp"},
+ {fr:"La bière",ar:"البيرة",en:"Beer",sfr:"Il commande une bière au restaurant.",sar:"هو بيطلب بيرة بالمطعم.",sen:"He orders a beer at the restaurant.",img:"la_biere.webp"},
+ {fr:"La bicyclette",ar:"الدراجة الهوائية",en:"Bicycle",sfr:"Je vais au travail à bicyclette.",sar:"بروح عالشغل بالدراجة الهوائية.",sen:"I go to work by bicycle.",img:"la_bicyclette.webp"},
+ {fr:"Le biceps",ar:"العضلة ذات الرأسين",en:"Biceps",sfr:"Il travaille ses biceps à la salle de sport.",sar:"عم يدرّب عضلات البايسبس بالنادي الرياضي.",sen:"He works his biceps at the gym.",img:"le_biceps.webp"},
+ {fr:"La bibliothèque",ar:"المكتبة",en:"Library",sfr:"J'emprunte des livres à la bibliothèque.",sar:"بستعير كتب من المكتبة.",sen:"I borrow books from the library.",img:"la_bibliotheque.webp"},
+ {fr:"Le bibliothécaire",ar:"أمين المكتبة / أمينة المكتبة",en:"Librarian",sfr:"Le bibliothécaire m'aide à trouver ce livre.",sar:"أمين المكتبة بيساعدني لاقي هالكتاب.",sen:"The librarian helps me find this book.",img:"le_bibliothecaire.webp"},
+ {fr:"Le bien immobilier",ar:"العقار",en:"Real estate property",sfr:"Ce bien immobilier est situé près du centre-ville.",sar:"هالعقار موجود قريب من وسط المدينة.",sen:"This property is located near the city centre.",img:"le_bien_immobilier.webp"},
+ {fr:"La bienvenue",ar:"الترحيب / حسن الاستقبال",en:"Welcome",sfr:"Vous êtes toujours le bienvenu chez nous.",sar:"إنت دايماً أهلاً وسهلاً فيك عنا.",sen:"You are always welcome at our place.",img:"la_bienvenue.webp"},
+ {fr:"Le billet aller-retour",ar:"تذكرة ذهاب وإياب",en:"Return ticket",sfr:"Je voudrais un billet aller-retour pour Paris.",sar:"بدي تذكرة ذهاب وإياب لباريس.",sen:"I would like a return ticket to Paris.",img:"le_billet_aller_retour.webp"},
+ {fr:"Le bilan comptable",ar:"الميزانية المحاسبية",en:"Balance sheet",sfr:"Le comptable prépare le bilan comptable de l'entreprise.",sar:"المحاسب عم يجهّز الميزانية المحاسبية للشركة.",sen:"The accountant is preparing the company's balance sheet.",img:"le_bilan_comptable.webp"},
+ {fr:"Le biberon",ar:"رضاعة الطفل / زجاجة الحليب",en:"Baby bottle",sfr:"Le bébé boit son lait dans un biberon.",sar:"الطفل الرضيع بيشرب حليبه من الرضّاعة.",sen:"The baby drinks milk from a baby bottle.",img:"le_biberon.webp"},
+ {fr:"Le bicarbonate",ar:"بيكربونات الصوديوم",en:"Baking soda",sfr:"J'utilise du bicarbonate pour nettoyer l'évier.",sar:"بستخدم بيكربونات الصوديوم لتنظيف المجلى.",sen:"I use baking soda to clean the sink.",img:"le_bicarbonate.webp"},
+ {fr:"La biographie",ar:"السيرة الذاتية / سيرة الحياة",en:"Biography",sfr:"Je lis la biographie de cet écrivain.",sar:"عم اقرأ سيرة حياة هالكاتب.",sen:"I'm reading this writer's biography.",img:"la_biographie.webp"},
+ {fr:"La biologie",ar:"علم الأحياء",en:"Biology",sfr:"La biologie étudie les êtres vivants.",sar:"علم الأحياء بيدرس الكائنات الحية.",sen:"Biology studies living organisms.",img:"la_biologie.webp"},
+ {fr:"Le biologiste",ar:"عالم الأحياء / عالمة الأحياء",en:"Biologist",sfr:"La biologiste analyse des échantillons au laboratoire.",sar:"عالمة الأحياء بتحلّل عينات بالمختبر.",sen:"The biologist analyses samples in the laboratory.",img:"le_biologiste.webp"},
+ {fr:"La brasserie",ar:"مطعم تقليدي / مطعم ومقهى",en:"Brasserie",sfr:"Nous déjeunons dans une brasserie française.",sar:"عم نتغدّى بمطعم فرنسي تقليدي.",sen:"We are having lunch in a French brasserie.",img:"la_brasserie.webp"},
+ {fr:"La brioche",ar:"خبز البريوش",en:"Brioche",sfr:"J'achète une brioche pour le petit-déjeuner.",sar:"بشتري بريوش للفطور.",sen:"I buy a brioche for breakfast.",img:"la_brioche.webp"},
+ {fr:"Le brocoli",ar:"البروكلي",en:"Broccoli",sfr:"Je préfère manger le brocoli à la vapeur.",sar:"بفضّل آكل البروكلي على البخار.",sen:"I prefer eating steamed broccoli.",img:"le_brocoli.webp"},
+ {fr:"La brochure",ar:"كتيّب / مطوية تعريفية",en:"Brochure / Leaflet",sfr:"L'association distribue une brochure d'information.",sar:"الجمعية عم توزّع كتيّب معلومات.",sen:"The association is distributing an information brochure.",img:"la_brochure.webp"},
+ {fr:"La buanderie",ar:"غرفة الغسيل",en:"Laundry room",sfr:"La buanderie se trouve au sous-sol.",sar:"غرفة الغسيل موجودة بالقبو.",sen:"The laundry room is in the basement.",img:"la_buanderie.webp"},
+ {fr:"Le buffet",ar:"خزانة الأواني / بوفيه الطعام",en:"Sideboard / Buffet",sfr:"Nous avons acheté un nouveau buffet pour la salle à manger.",sar:"اشترينا خزانة جديدة لغرفة السفرة.",sen:"We bought a new sideboard for the dining room.",img:"le_buffet.webp"},
+ {fr:"La boue",ar:"الوحل / الطين",en:"Mud",sfr:"Mes chaussures sont pleines de boue.",sar:"أحذيتي مليانة طين.",sen:"My shoes are covered in mud.",img:"la_boue.webp"},
+ {fr:"Le bouquet",ar:"باقة زهور",en:"Bouquet",sfr:"Il offre un bouquet de fleurs à sa mère.",sar:"هو بيقدّم باقة ورد لأمه.",sen:"He gives his mother a bouquet of flowers.",img:"le_bouquet.webp"},
+ {fr:"Le boulevard",ar:"جادة / شارع عريض",en:"Boulevard",sfr:"La banque se trouve sur ce boulevard.",sar:"البنك موجود بهالشارع العريض.",sen:"The bank is on this boulevard.",img:"le_boulevard.webp"},
+ {fr:"La boule",ar:"كرة / جسم كروي",en:"Ball / Sphere",sfr:"Les enfants jouent avec une boule rouge.",sar:"الأطفال عم يلعبوا بكرة حمرا.",sen:"The children are playing with a red ball.",img:"la_boule.webp"},
+ {fr:"Le boulon",ar:"برغي صامولة / مسمار لولبي",en:"Bolt",sfr:"Il faut serrer le boulon avec une clé.",sar:"لازم نشدّ البرغي بالمفتاح.",sen:"We need to tighten the bolt with a wrench.",img:"le_boulon.webp"},
+ {fr:"Le bord",ar:"الحافة / الطرف",en:"Edge / Side",sfr:"Pose le verre au bord de la table.",sar:"حط الكاسة على طرف الطاولة.",sen:"Put the glass at the edge of the table.",img:"le_bord.webp"},
+ {fr:"Le bocal",ar:"مرطبان / وعاء زجاجي",en:"Jar",sfr:"Je conserve le riz dans un bocal en verre.",sar:"بحفظ الرز بمرطبان زجاجي.",sen:"I store rice in a glass jar.",img:"le_bocal.webp"},
+ {fr:"La borne",ar:"محطة / جهاز خدمة ذاتية",en:"Terminal / Kiosk",sfr:"J'achète mon billet à la borne automatique.",sar:"بشتري تذكرتي من الجهاز الآلي.",sen:"I buy my ticket at the self-service machine.",img:"la_borne.webp"},
+ {fr:"Le boîtier",ar:"علبة الجهاز / الغلاف الخارجي",en:"Casing / Housing",sfr:"Le boîtier protège les composants électroniques.",sar:"غلاف الجهاز بيحمي المكوّنات الإلكترونية.",sen:"The casing protects the electronic components.",img:"le_boitier.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].B=st.c['noms'].B||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+29000+i;st.c['noms'].B.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
