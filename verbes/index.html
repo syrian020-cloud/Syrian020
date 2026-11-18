@@ -3525,6 +3525,7 @@ function updNomsC4(){
 function fixLesionner(){
  const bad=u=>u.fr!=="Lésionner"&&u.fr!=="Logement";
  for(const st0 of [st.v,st.c&&st.c['noms']]){if(!st0)continue;for(const L of Object.keys(st0)){const a=st0[L];if(Array.isArray(a)){const n=a.filter(bad);if(n.length!==a.length){st0[L]=n;save()}}}}
+ const n=st.c&&st.c['noms'];if(n){for(const L of Object.keys(n)){(n[L]||[]).forEach(u=>{if(normFr(u.fr)==="l'addition"){Object.assign(u,{ar:"فاتورة المطعم / الحساب",en:"Bill / Check",sfr:"Excusez-moi, je voudrais l'addition, s'il vous plaît.",sar:"عفواً، بدي الحساب لو سمحت.",sen:"Excuse me, I'd like the bill, please.",img:"l_addition.webp"});save()}})}}
 }
 function fixNomsC(){
  if(!st.c||!st.c['noms'])return;const s=st.c['noms'];
