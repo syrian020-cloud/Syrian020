@@ -4819,13 +4819,174 @@ function updNomsT4(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].T=st.c['noms'].T||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].T.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+300000+i;st.c['noms'].T.push(u)}});
  save();}
+function updNomsU(){
+ const add=[
+ {fr:"Unité",ar:"الوحدة",en:"Unit",sfr:"Cette unité mesure la longueur.",sar:"هالوحدة بتقيس الطول.",sen:"This unit measures length.",img:"unite.webp"},
+ {fr:"L'université",ar:"الجامعة",en:"University",sfr:"Mon frère étudie à l'université.",sar:"أخي بيدرس بالجامعة.",sen:"My brother studies at university.",img:"l_universite.webp"},
+ {fr:"L'urgence",ar:"حالة الطوارئ",en:"Emergency",sfr:"En cas d'urgence, appelez le 15.",sar:"بحالة الطوارئ، اتصل بالرقم 15.",sen:"In an emergency, call 15.",img:"l_urgence.webp"},
+ {fr:"L'usine",ar:"المصنع",en:"Factory",sfr:"Il travaille dans une usine.",sar:"هو بيشتغل بمصنع.",sen:"He works in a factory.",img:"l_usine.webp"},
+ {fr:"L'utilisateur",ar:"المستخدم",en:"User",sfr:"L'utilisateur doit créer un compte.",sar:"لازم المستخدم ينشئ حساب.",sen:"The user must create an account.",img:"l_utilisateur.webp"},
+ {fr:"L'utilisation",ar:"الاستخدام",en:"Use / Usage",sfr:"L'utilisation de cette application est facile.",sar:"استخدام هالتطبيق سهل.",sen:"Using this application is easy.",img:"l_utilisation.webp"},
+ {fr:"L'usager",ar:"المستفيد / مستخدم الخدمة",en:"Service User",sfr:"Les usagers attendent le tram.",sar:"الركاب ناطرين الترام.",sen:"The passengers are waiting for the tram.",img:"l_usager.webp"},
+ {fr:"L'uniforme",ar:"الزي الرسمي",en:"Uniform",sfr:"Le port de l'uniforme est obligatoire.",sar:"لبس الزي الرسمي إلزامي.",sen:"Wearing a uniform is compulsory.",img:"l_uniforme.webp"},
+ {fr:"L'univers",ar:"الكون",en:"Universe",sfr:"L'univers est immense.",sar:"الكون واسع جداً.",sen:"The universe is immense.",img:"l_univers.webp"},
+ {fr:"L'usure",ar:"التآكل / الاهتراء",en:"Wear and Tear",sfr:"Cette pièce présente des signes d'usure.",sar:"هالقطعة عليها علامات اهتراء.",sen:"This part shows signs of wear.",img:"l_usure.webp"},
+ {fr:"L'ustensile",ar:"الأداة / أداة المطبخ",en:"Utensil",sfr:"J'ai besoin d'un ustensile de cuisine.",sar:"بحتاج أداة للمطبخ.",sen:"I need a kitchen utensil.",img:"l_ustensile.webp"},
+ {fr:"L'usage",ar:"الاستعمال / الاستخدام",en:"Use",sfr:"Ce produit est réservé à un usage professionnel.",sar:"هالمنتج مخصص للاستعمال المهني.",sen:"This product is for professional use only.",img:"l_usage.webp"},
+ {fr:"L'usine de production",ar:"مصنع الإنتاج",en:"Manufacturing Plant",sfr:"Cette usine de production emploie cent personnes.",sar:"هالمصنع بيشغّل مية شخص.",sen:"This manufacturing plant employs one hundred people.",img:"l_usine_de_production.webp"},
+ {fr:"L'unité de mesure",ar:"وحدة القياس",en:"Unit of Measurement",sfr:"Le mètre est une unité de mesure.",sar:"المتر هو وحدة قياس.",sen:"The metre is a unit of measurement.",img:"l_unite_de_mesure.webp"},
+ {fr:"L'urbanisme",ar:"التخطيط العمراني",en:"Urban Planning",sfr:"L'urbanisme organise le développement des villes.",sar:"التخطيط العمراني بينظّم تطوّر المدن.",sen:"Urban planning organizes the development of cities.",img:"l_urbanisme.webp"},
+ {fr:"L'urne",ar:"صندوق الاقتراع",en:"Ballot Box",sfr:"L'électeur dépose son bulletin dans l'urne.",sar:"الناخب بيحط ورقة التصويت بصندوق الاقتراع.",sen:"The voter puts the ballot paper in the ballot box.",img:"l_urne.webp"},
+ {fr:"L'union",ar:"الاتحاد / الارتباط",en:"Union",sfr:"L'union fait la force.",sar:"الاتحاد قوة.",sen:"Unity is strength.",img:"l_union.webp"},
+ {fr:"L'unité de production",ar:"وحدة الإنتاج",en:"Production Unit",sfr:"Cette unité de production fonctionne jour et nuit.",sar:"وحدة الإنتاج هاي بتشتغل ليل ونهار.",sen:"This production unit operates day and night.",img:"l_unite_de_production.webp"},
+ {fr:"L'urgence médicale",ar:"الحالة الطبية الطارئة",en:"Medical Emergency",sfr:"Il faut appeler les secours en cas d'urgence médicale.",sar:"لازم نتصل بالإسعاف بحالة طبية طارئة.",sen:"Emergency services must be called in a medical emergency.",img:"l_urgence_medicale.webp"},
+ {fr:"L'usine automobile",ar:"مصنع السيارات",en:"Car Factory",sfr:"Il travaille dans une usine automobile.",sar:"هو بيشتغل بمصنع سيارات.",sen:"He works in a car factory.",img:"l_usine_automobile.webp"},
+ {fr:"L'urbanisation",ar:"التوسّع العمراني",en:"Urbanization",sfr:"L'urbanisation transforme les villes.",sar:"التوسّع العمراني بيغيّر المدن.",sen:"Urbanization transforms cities.",img:"l_urbanisation.webp"},
+ {fr:"L'usager des transports",ar:"مستخدم وسائل النقل",en:"Public Transport User",sfr:"Les usagers des transports attendent le tram.",sar:"مستخدمو وسائل النقل ناطرين الترام.",sen:"Public transport users are waiting for the tram.",img:"l_usager_des_transports.webp"},
+ {fr:"L'usure des pneus",ar:"تآكل الإطارات",en:"Tyre Wear",sfr:"L'usure des pneus doit être vérifiée.",sar:"لازم نفحص تآكل دواليب السيارة.",sen:"Tyre wear must be checked.",img:"l_usure_des_pneus.webp"},
+ {fr:"L'unité de travail",ar:"وحدة العمل",en:"Work Unit",sfr:"Chaque unité de travail a ses propres règles.",sar:"كل وحدة عمل إلها قواعدها الخاصة.",sen:"Each work unit has its own rules.",img:"l_unite_de_travail.webp"},
+ {fr:"L'usage quotidien",ar:"الاستعمال اليومي",en:"Daily Use",sfr:"Ce téléphone est conçu pour un usage quotidien.",sar:"هالهاتف مصمّم للاستعمال اليومي.",sen:"This phone is designed for daily use.",img:"l_usage_quotidien.webp"},
+ {fr:"L'uniformité",ar:"التجانس / التناسق",en:"Uniformity",sfr:"Nous vérifions l'uniformité des produits.",sar:"عم نتحقق من تجانس المنتجات.",sen:"We check the uniformity of the products.",img:"l_uniformite.webp"},
+ {fr:"L'usufruit",ar:"حق الانتفاع",en:"Usufruct",sfr:"L'usufruit permet d'utiliser un bien sans en être propriétaire.",sar:"حق الانتفاع بيسمح باستخدام ملك مو ملكك.",sen:"Usufruct allows someone to use property without owning it.",img:"l_usufruit.webp"},
+ {fr:"L'ultime",ar:"الأخير / النهائي",en:"Final / Ultimate",sfr:"C'est notre ultime chance.",sar:"هاي فرصتنا الأخيرة.",sen:"This is our last chance.",img:"l_ultime.webp"},
+ {fr:"L'urgence sociale",ar:"حالة طوارئ اجتماعية",en:"Social Emergency",sfr:"Ce service aide les personnes en urgence sociale.",sar:"هالخدمة بتساعد الأشخاص بحالات الطوارئ الاجتماعية.",sen:"This service helps people in social emergencies.",img:"l_urgence_sociale.webp"},
+ {fr:"L'usine textile",ar:"مصنع النسيج",en:"Textile Factory",sfr:"Cette usine textile fabrique des vêtements.",sar:"هالمصنع النسيجي بيصنع ملابس.",sen:"This textile factory manufactures clothes.",img:"l_usine_textile.webp"},
+ {fr:"L'usage abusif",ar:"الاستخدام التعسفي / المفرط",en:"Abusive Use",sfr:"L'usage abusif de ce médicament peut être dangereux.",sar:"الاستخدام المفرط لهالدواء ممكن يكون خطير.",sen:"The excessive use of this medicine can be dangerous.",img:"l_usage_abusif.webp"},
+ {fr:"L'unité centrale",ar:"وحدة المعالجة المركزية / صندوق الحاسوب",en:"Computer System Unit",sfr:"L'unité centrale est sous le bureau.",sar:"صندوق الكمبيوتر تحت المكتب.",sen:"The computer tower is under the desk.",img:"l_unite_centrale.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].U=st.c['noms'].U||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].U.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+305000+i;st.c['noms'].U.push(u)}});
+ save();}
+
+function updNomsH(){
+ const add=[
+ {fr:"L'habitude",ar:"العادة",en:"Habit",sfr:"J'ai l'habitude de me lever tôt.",sar:"متعوّد إني فيق بكير.",sen:"I'm used to getting up early.",img:"l_habitude.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].H=st.c['noms'].H||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].H.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+320000+i;st.c['noms'].H.push(u)}});
+ save();}
+
+function updNomsL(){
+ const add=[
+ {fr:"La livraison",ar:"التوصيل / التسليم",en:"Delivery",sfr:"La livraison est prévue pour demain.",sar:"التوصيل محدد لبكرا.",sen:"The delivery is scheduled for tomorrow.",img:"la_livraison.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].L=st.c['noms'].L||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].L.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+310000+i;st.c['noms'].L.push(u)}});
+ save();}
+
+function updNomsV4(){
+ const add=[
+ {fr:"La vie",ar:"الحياة",en:"Life",sfr:"La vie est belle.",sar:"الحياة حلوة.",sen:"Life is beautiful.",img:"la_vie.webp"},
+ {fr:"La ville",ar:"المدينة",en:"City",sfr:"J'habite dans une grande ville.",sar:"ساكن بمدينة كبيرة.",sen:"I live in a big city.",img:"la_ville.webp"},
+ {fr:"Le voyage",ar:"السفر / الرحلة",en:"Travel / Trip",sfr:"J'aime voyager pendant les vacances.",sar:"بحب سافر خلال العطلة.",sen:"I like travelling during the holidays.",img:"le_voyage.webp"},
+ {fr:"Le verre",ar:"الكأس / الزجاج",en:"Glass",sfr:"Je voudrais un verre d'eau.",sar:"بدي كاسة مي.",sen:"I would like a glass of water.",img:"le_verre.webp"},
+ {fr:"Le vêtement",ar:"قطعة ملابس",en:"Clothing / Garment",sfr:"Ce vêtement est trop cher.",sar:"هاللباس غالي كتير.",sen:"This garment is too expensive.",img:"le_vetement.webp"},
+ {fr:"La visite",ar:"الزيارة",en:"Visit",sfr:"Je rends visite à mon ami demain.",sar:"رح زور رفيقي بكرا.",sen:"I'm visiting my friend tomorrow.",img:"la_visite.webp"},
+ {fr:"Le voisin / La voisine",ar:"الجار / الجارة",en:"Neighbor",sfr:"Mon voisin est très gentil.",sar:"جاري كتير لطيف.",sen:"My neighbor is very kind.",img:"le_voisin_la_voisine.webp"},
+ {fr:"La vérité",ar:"الحقيقة",en:"Truth",sfr:"Je veux connaître la vérité.",sar:"بدي أعرف الحقيقة.",sen:"I want to know the truth.",img:"la_verite.webp"},
+ {fr:"La vitesse",ar:"السرعة",en:"Speed",sfr:"Réduisez votre vitesse, s'il vous plaît.",sar:"خفّف سرعتك، لو سمحت.",sen:"Please reduce your speed.",img:"la_vitesse.webp"},
+ {fr:"Le visage",ar:"الوجه",en:"Face",sfr:"Elle a un joli visage.",sar:"عندها وجه حلو.",sen:"She has a beautiful face.",img:"le_visage.webp"},
+ {fr:"La voix",ar:"الصوت",en:"Voice",sfr:"J'aime beaucoup ta voix.",sar:"كتير بحب صوتك.",sen:"I really like your voice.",img:"la_voix.webp"},
+ {fr:"Le village",ar:"القرية",en:"Village",sfr:"Mes parents habitent dans un village.",sar:"أهلي ساكنين بقرية.",sen:"My parents live in a village.",img:"le_village.webp"},
+ {fr:"Le vent",ar:"الرياح",en:"Wind",sfr:"Aujourd'hui, il y a beaucoup de vent.",sar:"اليوم في هوا قوي.",sen:"It's very windy today.",img:"le_vent.webp"},
+ {fr:"Le vendredi",ar:"يوم الجمعة",en:"Friday",sfr:"Je ne travaille pas vendredi.",sar:"ما عندي شغل يوم الجمعة.",sen:"I don't work on Friday.",img:"le_vendredi.webp"},
+ {fr:"La vente",ar:"البيع",en:"Sale",sfr:"La vente de ce produit est interdite.",sar:"بيع هالمنتج ممنوع.",sen:"The sale of this product is prohibited.",img:"la_vente.webp"},
+ {fr:"Le vendeur / La vendeuse",ar:"البائع / البائعة",en:"Seller",sfr:"Le vendeur m'a aidé à choisir.",sar:"البائع ساعدني اختار.",sen:"The salesman helped me choose.",img:"le_vendeur_la_vendeuse.webp"},
+ {fr:"Le vélo",ar:"الدراجة الهوائية",en:"Bicycle",sfr:"Je vais au travail à vélo.",sar:"بروح عالشغل بالدراجة.",sen:"I go to work by bicycle.",img:"le_velo.webp"},
+ {fr:"Le vol",ar:"السرقة / الرحلة الجوية",en:"Theft / Flight",sfr:"Mon vol part à huit heures.",sar:"رحلتي الجوية بتقلع الساعة تمانية.",sen:"My flight leaves at eight o'clock.",img:"le_vol.webp"},
+ {fr:"La valeur",ar:"القيمة",en:"Value",sfr:"Ce document a une grande valeur.",sar:"هالوثيقة إلها قيمة كبيرة.",sen:"This document has great value.",img:"la_valeur.webp"},
+ {fr:"Le voyageur / La voyageuse",ar:"المسافر / المسافرة",en:"Traveller",sfr:"Le voyageur attend le train.",sar:"المسافر ناطر القطار.",sen:"The traveller is waiting for the train.",img:"le_voyageur_la_voyageuse.webp"},
+ {fr:"Le vote",ar:"التصويت / الاقتراع",en:"Vote",sfr:"Le vote aura lieu dimanche.",sar:"التصويت رح يكون يوم الأحد.",sen:"The vote will take place on Sunday.",img:"le_vote.webp"},
+ {fr:"La voiture électrique",ar:"السيارة الكهربائية",en:"Electric Car",sfr:"La voiture électrique ne fait presque pas de bruit.",sar:"السيارة الكهربائية تقريباً ما بتعمل صوت.",sen:"The electric car makes almost no noise.",img:"la_voiture_electrique.webp"},
+ {fr:"Le volume",ar:"الحجم / مستوى الصوت",en:"Volume",sfr:"Peux-tu baisser le volume ?",sar:"فيك توطّي الصوت؟",sen:"Can you turn down the volume?",img:"le_volume.webp"},
+ {fr:"La vapeur",ar:"البخار",en:"Steam",sfr:"Attention à la vapeur chaude !",sar:"دير بالك من البخار السخن!",sen:"Be careful of the hot steam!",img:"la_vapeur.webp"},
+ {fr:"Le virage",ar:"المنعطف / الانعطاف",en:"Turn / Bend",sfr:"Ralentissez avant le virage.",sar:"خفّف السرعة قبل المنعطف.",sen:"Slow down before the bend.",img:"le_virage.webp"},
+ {fr:"Le vêtement de travail",ar:"لباس العمل",en:"Workwear",sfr:"Le vêtement de travail est obligatoire dans l'usine.",sar:"لباس العمل إلزامي بالمصنع.",sen:"Workwear is mandatory in the factory.",img:"le_vetement_de_travail.webp"},
+ {fr:"La viande",ar:"اللحم",en:"Meat",sfr:"Je ne mange pas beaucoup de viande.",sar:"ما باكل لحمة كتير.",sen:"I don't eat much meat.",img:"la_viande.webp"},
+ {fr:"Le vide",ar:"الفراغ / الخواء",en:"Emptiness",sfr:"La pièce est complètement vide.",sar:"الغرفة فاضية تماماً.",sen:"The room is completely empty.",img:"le_vide.webp"},
+ {fr:"Le visa",ar:"تأشيرة الدخول",en:"Visa",sfr:"J'ai besoin d'un visa pour voyager.",sar:"بحتاج تأشيرة لحتى سافر.",sen:"I need a visa to travel.",img:"le_visa.webp"},
+ {fr:"La visite médicale",ar:"الفحص الطبي",en:"Medical Examination",sfr:"Je dois passer une visite médicale.",sar:"لازم أعمل فحص طبي.",sen:"I have to undergo a medical examination.",img:"la_visite_medicale.webp"},
+ {fr:"Le volant",ar:"مقود السيارة",en:"Steering Wheel",sfr:"Il tient le volant avec les deux mains.",sar:"ماسك مقود السيارة بإيديه التنين.",sen:"He is holding the steering wheel with both hands.",img:"le_volant.webp"},
+ {fr:"Le voleur / La voleuse",ar:"اللص / اللصة",en:"Thief",sfr:"Le voleur a été arrêté par la police.",sar:"الشرطة قبضت على اللص.",sen:"The thief was arrested by the police.",img:"le_voleur_la_voleuse.webp"},
+ {fr:"La victoire",ar:"النصر / الفوز",en:"Victory",sfr:"Notre équipe a remporté la victoire.",sar:"فريقنا حقق الفوز.",sen:"Our team won the victory.",img:"la_victoire.webp"},
+ {fr:"Le véhicule",ar:"المركبة / وسيلة النقل",en:"Vehicle",sfr:"Ce véhicule consomme peu de carburant.",sar:"هالمركبة بتستهلك وقود قليل.",sen:"This vehicle uses little fuel.",img:"le_vehicule.webp"},
+ {fr:"La vallée",ar:"الوادي",en:"Valley",sfr:"Nous avons traversé une belle vallée.",sar:"قطعنا وادي حلو.",sen:"We crossed a beautiful valley.",img:"la_vallee.webp"},
+ {fr:"Le virage dangereux",ar:"المنعطف الخطير",en:"Dangerous Bend",sfr:"Attention, ce virage est dangereux.",sar:"انتبه، هالمنعطف خطير.",sen:"Be careful, this bend is dangerous.",img:"le_virage_dangereux.webp"},
+ {fr:"La viande hachée",ar:"اللحم المفروم",en:"Minced Meat",sfr:"Je voudrais un kilo de viande hachée.",sar:"بدي كيلو لحمة مفرومة.",sen:"I would like a kilo of minced meat.",img:"la_viande_hachee.webp"},
+ {fr:"La vitesse maximale",ar:"السرعة القصوى",en:"Maximum Speed",sfr:"La vitesse maximale est limitée à 50 km/h.",sar:"السرعة القصوى محددة بـ50 كم بالساعة.",sen:"The maximum speed is limited to 50 km/h.",img:"la_vitesse_maximale.webp"},
+ {fr:"Le verre à vin",ar:"كأس النبيذ",en:"Wine Glass",sfr:"Le verre à vin est sur la table.",sar:"كأس النبيذ على الطاولة.",sen:"The wine glass is on the table.",img:"le_verre_a_vin.webp"},
+ {fr:"La viande blanche",ar:"اللحوم البيضاء",en:"White Meat",sfr:"Le poulet est une viande blanche.",sar:"الدجاج من اللحوم البيضاء.",sen:"Chicken is a type of white meat.",img:"la_viande_blanche.webp"},
+ {fr:"Le vestiaire",ar:"غرفة تبديل الملابس / خزانة الملابس",en:"Changing Room / Locker Room",sfr:"Je laisse mes affaires dans le vestiaire.",sar:"بترك أغراضي بغرفة تبديل الملابس.",sen:"I leave my belongings in the locker room.",img:"le_vestiaire.webp"},
+ {fr:"La veille",ar:"اليوم السابق / عشية",en:"The Day Before / Eve",sfr:"Je prépare mes affaires la veille du départ.",sar:"بحضّر أغراضي باليوم اللي قبل السفر.",sen:"I prepare my things the day before departure.",img:"la_veille.webp"},
+ {fr:"Le virement",ar:"التحويل المصرفي",en:"Bank Transfer",sfr:"J'ai reçu mon salaire par virement bancaire.",sar:"استلمت راتبي عن طريق تحويل بنكي.",sen:"I received my salary by bank transfer.",img:"le_virement.webp"},
+ {fr:"Le volume sonore",ar:"مستوى الصوت",en:"Sound Level",sfr:"Le volume sonore est trop élevé ici.",sar:"مستوى الصوت عالي كتير هون.",sen:"The sound level is too high here.",img:"le_volume_sonore.webp"},
+ {fr:"La vérification",ar:"التحقّق / الفحص",en:"Verification / Check",sfr:"Une vérification est nécessaire avant le départ.",sar:"لازم نعمل فحص قبل الانطلاق.",sen:"A check is necessary before departure.",img:"la_verification.webp"},
+ {fr:"Le vocabulaire",ar:"المفردات",en:"Vocabulary",sfr:"J'apprends du nouveau vocabulaire chaque jour.",sar:"عم اتعلّم مفردات جديدة كل يوم.",sen:"I learn new vocabulary every day.",img:"le_vocabulaire.webp"},
+ {fr:"La volonté",ar:"الإرادة",en:"Willpower",sfr:"Avec de la volonté, on peut progresser.",sar:"بالإرادة فينا نتطوّر ونتقدّم.",sen:"With willpower, we can make progress.",img:"la_volonte.webp"},
+ {fr:"Le voilier",ar:"قارب شراعي",en:"Sailboat",sfr:"Le voilier avance grâce au vent.",sar:"القارب الشراعي بيتحرّك بفضل الريح.",sen:"The sailboat moves thanks to the wind.",img:"le_voilier.webp"},
+ {fr:"Le verbe",ar:"الفعل",en:"Verb",sfr:"Ce verbe est difficile à conjuguer.",sar:"هالفعل صعب تصريفه.",sen:"This verb is difficult to conjugate.",img:"le_verbe.webp"},
+ {fr:"La valise",ar:"حقيبة السفر",en:"Suitcase",sfr:"Ma valise est trop lourde.",sar:"شنطة سفري تقيلة كتير.",sen:"My suitcase is too heavy.",img:"la_valise.webp"},
+ {fr:"Le verre doseur",ar:"كأس القياس",en:"Measuring Cup",sfr:"Utilise le verre doseur pour mesurer l'eau.",sar:"استخدم كأس القياس لقياس المي.",sen:"Use the measuring cup to measure the water.",img:"le_verre_doseur.webp"},
+ {fr:"La vapeur d'eau",ar:"بخار الماء",en:"Water Vapor",sfr:"La vapeur d'eau se forme quand l'eau chauffe.",sar:"بيتشكّل بخار المي لما تسخن المي.",sen:"Water vapor forms when water is heated.",img:"la_vapeur_d_eau.webp"},
+ {fr:"La variété",ar:"التنوّع / النوع",en:"Variety",sfr:"Ce magasin propose une grande variété de produits.",sar:"هالمحل بيقدّم تشكيلة كبيرة من المنتجات.",sen:"This shop offers a wide variety of products.",img:"la_variete.webp"},
+ {fr:"Le vieillissement",ar:"الشيخوخة / التقدّم بالعمر",en:"Aging",sfr:"Le vieillissement est un processus naturel.",sar:"التقدّم بالعمر عملية طبيعية.",sen:"Aging is a natural process.",img:"le_vieillissement.webp"},
+ {fr:"La vitre",ar:"زجاج النافذة",en:"Windowpane",sfr:"La vitre est cassée.",sar:"زجاج الشباك مكسور.",sen:"The windowpane is broken.",img:"la_vitre.webp"},
+ {fr:"Le volant moteur",ar:"دولاب الموازنة (قطعة في المحرك)",en:"Flywheel",sfr:"Le mécanicien doit remplacer le volant moteur.",sar:"الميكانيكي لازم يبدّل دولاب الموازنة.",sen:"The mechanic needs to replace the flywheel.",img:"le_volant_moteur.webp"},
+ {fr:"La veilleuse",ar:"ضوء ليلي خافت",en:"Night Light",sfr:"J'allume la veilleuse pour mon enfant.",sar:"بشغّل الضوء الليلي لطفلي.",sen:"I turn on the night light for my child.",img:"la_veilleuse.webp"},
+ {fr:"Le vide-ordures",ar:"مزلقة النفايات",en:"Garbage Chute",sfr:"Le vide-ordures est au bout du couloir.",sar:"مزلقة الزبالة بآخر الممر.",sen:"The garbage chute is at the end of the hallway.",img:"le_vide_ordures.webp"},
+ {fr:"La vis",ar:"البرغي",en:"Screw",sfr:"Il manque une vis à cette étagère.",sar:"ناقص برغي بهالرف.",sen:"A screw is missing from this shelf.",img:"la_vis.webp"},
+ {fr:"Le vendeur ambulant",ar:"البائع المتجوّل",en:"Street Vendor",sfr:"Le vendeur ambulant propose des fruits frais.",sar:"البائع المتجوّل عم يبيع فواكه طازجة.",sen:"The street vendor is selling fresh fruit.",img:"le_vendeur_ambulant.webp"},
+ {fr:"La visite guidée",ar:"جولة برفقة مرشد",en:"Guided Tour",sfr:"Nous avons réservé une visite guidée du musée.",sar:"حجزنا جولة مع مرشد بالمتحف.",sen:"We booked a guided tour of the museum.",img:"la_visite_guidee.webp"},
+ {fr:"Le vétérinaire",ar:"الطبيب البيطري",en:"Veterinarian",sfr:"Je dois emmener mon chat chez le vétérinaire.",sar:"لازم آخد بستي لعند الطبيب البيطري.",sen:"I have to take my cat to the vet.",img:"le_veterinaire.webp"},
+ {fr:"Le veston",ar:"السترة الرسمية",en:"Jacket",sfr:"Il porte un veston noir.",sar:"لابس سترة رسمية سودا.",sen:"He is wearing a black jacket.",img:"le_veston.webp"},
+ {fr:"La visibilité",ar:"مدى الرؤية / وضوح الرؤية",en:"Visibility",sfr:"La visibilité est mauvaise à cause du brouillard.",sar:"الرؤية سيئة بسبب الضباب.",sen:"Visibility is poor because of the fog.",img:"la_visibilite.webp"},
+ {fr:"La victime",ar:"الضحية",en:"Victim",sfr:"La victime a été transportée à l'hôpital.",sar:"نقلوا الضحية إلى المستشفى.",sen:"The victim was taken to hospital.",img:"la_victime.webp"},
+ {fr:"La variété de produits",ar:"تنوّع المنتجات",en:"Product Variety",sfr:"Ce supermarché offre une grande variété de produits.",sar:"هالسوبرماركت فيه تشكيلة كبيرة من المنتجات.",sen:"This supermarket offers a wide variety of products.",img:"la_variete_de_produits.webp"},
+ {fr:"Le véhicule utilitaire",ar:"المركبة التجارية / مركبة العمل",en:"Commercial Vehicle",sfr:"L'entreprise utilise un véhicule utilitaire.",sar:"الشركة بتستخدم مركبة مخصّصة للعمل.",sen:"The company uses a commercial vehicle.",img:"le_vehicule_utilitaire.webp"},
+ {fr:"La valeur ajoutée",ar:"القيمة المضافة",en:"Added Value",sfr:"Ce service apporte une réelle valeur ajoutée.",sar:"هالخدمة بتضيف قيمة فعلية.",sen:"This service provides real added value.",img:"la_valeur_ajoutee.webp"},
+ {fr:"Le vestiaire professionnel",ar:"غرفة تبديل ملابس العمل",en:"Staff Changing Room",sfr:"Les employés doivent laisser leurs affaires au vestiaire professionnel.",sar:"لازم الموظفين يتركوا أغراضهم بغرفة تبديل الملابس.",sen:"Employees must leave their belongings in the staff changing room.",img:"le_vestiaire_professionnel.webp"},
+ {fr:"La voie",ar:"الطريق / المسار / السكة",en:"Way / Lane / Track",sfr:"Le train arrive sur la voie numéro trois.",sar:"القطار رح يوصل على السكة رقم تلاتة.",sen:"The train is arriving on platform track number three.",img:"la_voie.webp"},
+ {fr:"Le virage serré",ar:"منعطف حاد",en:"Sharp Bend",sfr:"Ralentissez, le virage est très serré.",sar:"خفّف السرعة، المنعطف حاد كتير.",sen:"Slow down, the bend is very sharp.",img:"le_virage_serre.webp"},
+ {fr:"La vigilance",ar:"اليقظة / الانتباه",en:"Vigilance",sfr:"La vigilance est essentielle au travail.",sar:"الانتباه ضروري بالشغل.",sen:"Vigilance is essential at work.",img:"la_vigilance.webp"},
+ {fr:"Le vol à l'étalage",ar:"السرقة من المتاجر",en:"Shoplifting",sfr:"Le vol à l'étalage est puni par la loi.",sar:"السرقة من المحلات بيعاقب عليها القانون.",sen:"Shoplifting is punishable by law.",img:"le_vol_a_l_etalage.webp"},
+ {fr:"La vérification d'identité",ar:"التحقق من الهوية",en:"Identity Check",sfr:"Une vérification d'identité est nécessaire.",sar:"لازم التحقق من الهوية.",sen:"An identity check is necessary.",img:"la_verification_d_identite.webp"},
+ {fr:"Le vaccin",ar:"اللقاح",en:"Vaccine",sfr:"Ce vaccin protège contre la maladie.",sar:"هاللقاح بيحمي من المرض.",sen:"This vaccine protects against the disease.",img:"le_vaccin.webp"},
+ {fr:"La viande fraîche",ar:"اللحوم الطازجة",en:"Fresh Meat",sfr:"Je préfère acheter de la viande fraîche.",sar:"بفضّل اشتري لحمة طازجة.",sen:"I prefer to buy fresh meat.",img:"la_viande_fraiche.webp"},
+ {fr:"Le verre de lunettes",ar:"عدسة النظارات",en:"Eyeglass Lens",sfr:"Le verre de mes lunettes est rayé.",sar:"عدسة نظارتي مخدوشة.",sen:"The lens of my glasses is scratched.",img:"le_verre_de_lunettes.webp"},
+ {fr:"La vocation",ar:"المهنة التي يشعر الإنسان أنها رسالته / الدعوة المهنية",en:"Vocation",sfr:"Enseigner est une véritable vocation pour elle.",sar:"التعليم بالنسبة إلها رسالة حقيقية.",sen:"Teaching is a true vocation for her.",img:"la_vocation.webp"},
+ {fr:"Le volume de travail",ar:"حجم العمل",en:"Workload",sfr:"Le volume de travail augmente en décembre.",sar:"حجم الشغل بيزيد بشهر ديسمبر.",sen:"The workload increases in December.",img:"le_volume_de_travail.webp"},
+ {fr:"La validité",ar:"الصلاحية / مدة السريان",en:"Validity",sfr:"Vérifiez la validité de votre carte.",sar:"تأكد من صلاحية بطاقتك.",sen:"Check the validity of your card.",img:"la_validite.webp"},
+ {fr:"La vieillesse",ar:"الشيخوخة / كِبَر السن",en:"Old Age",sfr:"Il vit tranquillement sa vieillesse.",sar:"عم يعيش مرحلة الشيخوخة بهدوء.",sen:"He is enjoying his old age peacefully.",img:"la_vieillesse.webp"},
+ {fr:"Le voleur à l'étalage",ar:"سارق المتاجر",en:"Shoplifter",sfr:"Le voleur à l'étalage a été arrêté.",sar:"انقبض على سارق المتاجر.",sen:"The shoplifter was arrested.",img:"le_voleur_a_l_etalage.webp"},
+ {fr:"La vaisselle",ar:"أواني الطعام / الجلي",en:"Dishes / Crockery",sfr:"Je dois faire la vaisselle après le dîner.",sar:"لازم اغسل الصحون بعد العشا.",sen:"I have to do the dishes after dinner.",img:"la_vaisselle.webp"},
+ {fr:"Le virage à gauche",ar:"المنعطف إلى اليسار",en:"Left Turn",sfr:"Prenez le virage à gauche au prochain carrefour.",sar:"خُد المنعطف عاليسار عند التقاطع الجاي.",sen:"Take the left turn at the next intersection.",img:"le_virage_a_gauche.webp"},
+ {fr:"Le virage à droite",ar:"المنعطف إلى اليمين",en:"Right Turn",sfr:"Tournez à droite après le feu.",sar:"لفّ عاليمين بعد الإشارة.",sen:"Turn right after the traffic light.",img:"le_virage_a_droite.webp"},
+ {fr:"La valeur marchande",ar:"القيمة السوقية",en:"Market Value",sfr:"La valeur marchande de cette voiture est élevée.",sar:"القيمة السوقية لهالسيارة مرتفعة.",sen:"The market value of this car is high.",img:"la_valeur_marchande.webp"},
+ {fr:"Le vocabulaire professionnel",ar:"المفردات المهنية",en:"Professional Vocabulary",sfr:"Il faut apprendre le vocabulaire professionnel.",sar:"لازم نتعلّم المفردات المهنية.",sen:"We need to learn professional vocabulary.",img:"le_vocabulaire_professionnel.webp"},
+ {fr:"La voie ferrée",ar:"السكة الحديدية",en:"Railway Track",sfr:"La voie ferrée est fermée pour travaux.",sar:"السكة الحديدية مسكّرة بسبب الأشغال.",sen:"The railway track is closed for maintenance.",img:"la_voie_ferree.webp"},
+ {fr:"Le visa de séjour",ar:"تأشيرة الإقامة",en:"Residence Visa",sfr:"Il doit renouveler son visa de séjour.",sar:"لازم يجدّد تأشيرة إقامته.",sen:"He must renew his residence visa.",img:"le_visa_de_sejour.webp"},
+ {fr:"Le vieillissement de la population",ar:"شيخوخة السكان",en:"Population Aging",sfr:"Le vieillissement de la population est un enjeu important.",sar:"شيخوخة السكان قضية مهمة.",sen:"Population aging is an important issue.",img:"le_vieillissement_de_la_population.webp"},
+ {fr:"La vente en ligne",ar:"البيع عبر الإنترنت",en:"Online Sales",sfr:"La vente en ligne se développe rapidement.",sar:"البيع عبر الإنترنت عم يتطوّر بسرعة.",sen:"Online sales are growing rapidly.",img:"la_vente_en_ligne.webp"},
+ {fr:"La volonté politique",ar:"الإرادة السياسية",en:"Political Will",sfr:"Il faut une volonté politique pour changer la situation.",sar:"لازم تكون في إرادة سياسية لتغيير الوضع.",sen:"Political will is needed to change the situation.",img:"la_volonte_politique.webp"},
+ {fr:"Le volume de ventes",ar:"حجم المبيعات",en:"Sales Volume",sfr:"Le volume de ventes a augmenté cette année.",sar:"حجم المبيعات زاد هالسنة.",sen:"Sales volume increased this year.",img:"le_volume_de_ventes.webp"},
+ {fr:"La voie publique",ar:"الطريق العام",en:"Public Road",sfr:"Il est interdit de stationner sur la voie publique à cet endroit.",sar:"ممنوع توقف السيارة بالطريق العام بهالمكان.",sen:"Parking on the public road is prohibited here.",img:"la_voie_publique.webp"},
+ {fr:"Le versement mensuel",ar:"الدفعة الشهرية",en:"Monthly Payment",sfr:"Le versement mensuel sera effectué le cinq du mois.",sar:"الدفعة الشهرية رح تنعمل بيوم خمسة من الشهر.",sen:"The monthly payment will be made on the fifth of the month.",img:"le_versement_mensuel.webp"},
+ {fr:"La vente aux enchères",ar:"البيع بالمزاد العلني",en:"Auction",sfr:"Le tableau sera vendu aux enchères.",sar:"رح تنباع اللوحة بالمزاد العلني.",sen:"The painting will be sold at auction.",img:"la_vente_aux_encheres.webp"},
+ {fr:"Le vocabulaire courant",ar:"المفردات الشائعة",en:"Everyday Vocabulary",sfr:"J'apprends le vocabulaire courant pour parler plus facilement.",sar:"عم اتعلّم المفردات الشائعة لحتى أحكي بسهولة أكتر.",sen:"I'm learning everyday vocabulary to speak more easily.",img:"le_vocabulaire_courant.webp"},
+ {fr:"La vue",ar:"النظر / الإطلالة",en:"Sight / View",sfr:"J'ai une belle vue depuis mon appartement.",sar:"عندي إطلالة حلوة من شقتي.",sen:"I have a beautiful view from my apartment.",img:"la_vue.webp"},
+ {fr:"La visiteuse",ar:"الزائرة",en:"Female Visitor",sfr:"La visiteuse attend devant l'entrée.",sar:"الزائرة ناطرة قدّام المدخل.",sen:"The female visitor is waiting in front of the entrance.",img:"la_visiteuse.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].V=st.c['noms'].V||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].V.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+315000+i;st.c['noms'].V.push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
