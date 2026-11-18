@@ -4284,13 +4284,73 @@ function updNomsS(){
  st.c['noms']=st.c['noms']||{};st.c['noms'].S=st.c['noms'].S||[];
  add.forEach((u,i)=>{const ex=st.c['noms'].S.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+175000+i;st.c['noms'].S.push(u)}});
  save();}
+function updNomsM2(){
+ const add=[
+ {fr:"Le manque de temps",ar:"ضيق الوقت",en:"Lack of Time",sfr:"Je n'ai pas assez de temps.",sar:"ما عندي وقت كافي.",sen:"I don't have enough time.",img:"le_manque_de_temps.webp"},
+ {fr:"La machine à laver",ar:"الغسالة",en:"Washing Machine",sfr:"La machine à laver ne fonctionne plus.",sar:"الغسالة ما عادت تشتغل.",sen:"The washing machine doesn't work anymore.",img:"la_machine_a_laver.webp"},
+ {fr:"Le manteau",ar:"المعطف",en:"Coat",sfr:"Mets ton manteau, il fait froid.",sar:"البس معطفك، الجو برد.",sen:"Put on your coat; it's cold.",img:"le_manteau.webp"},
+ {fr:"La montagne",ar:"الجبل",en:"Mountain",sfr:"Nous allons à la montagne ce week-end.",sar:"رح نروح عالجبل بنهاية الأسبوع.",sen:"We're going to the mountains this weekend.",img:"la_montagne.webp"},
+ {fr:"La mauvaise nouvelle",ar:"الخبر السيئ",en:"Bad News",sfr:"J'ai reçu une mauvaise nouvelle.",sar:"وصلني خبر سيئ.",sen:"I received some bad news.",img:"la_mauvaise_nouvelle.webp"},
+ {fr:"Le mois dernier",ar:"الشهر الماضي",en:"Last Month",sfr:"J'ai commencé ce travail le mois dernier.",sar:"بلّشت هالشغل الشهر الماضي.",sen:"I started this job last month.",img:"le_mois_dernier.webp"},
+ {fr:"Le métro",ar:"مترو الأنفاق",en:"Metro / Subway",sfr:"Je prends le métro pour aller au travail.",sar:"بركب المترو لروح عالشغل.",sen:"I take the metro to go to work.",img:"le_metro.webp"},
+ {fr:"Le mal de dos",ar:"ألم الظهر",en:"Back Pain",sfr:"J'ai souvent mal au dos.",sar:"غالباً بيوجعني ظهري.",sen:"I often have back pain.",img:"le_mal_de_dos.webp"},
+ {fr:"La main-d'œuvre",ar:"اليد العاملة",en:"Workforce / Labour",sfr:"Cette entreprise manque de main-d'œuvre.",sar:"هالشركة عندها نقص باليد العاملة.",sen:"This company has a labour shortage.",img:"la_main_d_uvre.webp"},
+ {fr:"Le mal de tête",ar:"الصداع",en:"Headache",sfr:"J'ai un mal de tête depuis ce matin.",sar:"عندي صداع من الصبح.",sen:"I've had a headache since this morning.",img:"le_mal_de_tete.webp"},
+ {fr:"Le mal de ventre",ar:"ألم البطن",en:"Stomachache",sfr:"Il a un mal de ventre après le repas.",sar:"عنده وجع بطن بعد الأكل.",sen:"He has a stomachache after the meal.",img:"le_mal_de_ventre.webp"},
+ {fr:"Le montant",ar:"المبلغ",en:"Amount",sfr:"Quel est le montant de la facture ?",sar:"قديش مبلغ الفاتورة؟",sen:"What is the amount of the bill?",img:"le_montant.webp"},
+ {fr:"Le motif",ar:"السبب / النقش",en:"Reason / Pattern",sfr:"Quel est le motif de votre demande ?",sar:"شو سبب طلبك؟",sen:"What is the reason for your request?",img:"le_motif.webp"},
+ {fr:"La modification",ar:"التعديل",en:"Modification / Change",sfr:"Je souhaite apporter une modification à mon dossier.",sar:"بدي أعمل تعديل على ملفي.",sen:"I would like to make a change to my file.",img:"la_modification.webp"},
+ {fr:"La moquette",ar:"السجاد المثبّت بالأرض",en:"Carpet",sfr:"La moquette de cette chambre est propre.",sar:"سجاد هالغرفة نظيف.",sen:"The carpet in this bedroom is clean.",img:"la_moquette.webp"},
+ {fr:"Le moniteur",ar:"الشاشة / المدرّب",en:"Monitor / Instructor",sfr:"Mon moniteur ne fonctionne plus.",sar:"شاشة الكمبيوتر عندي ما عادت تشتغل.",sen:"My monitor doesn't work anymore.",img:"le_moniteur.webp"},
+ {fr:"Le magasinier",ar:"أمين المستودع",en:"Warehouse Worker",sfr:"Le magasinier prépare les commandes.",sar:"عامل المستودع بيحضّر الطلبات.",sen:"The warehouse worker prepares the orders.",img:"le_magasinier.webp"},
+ {fr:"La manutention",ar:"مناولة البضائع",en:"Material Handling",sfr:"La manutention demande de la prudence.",sar:"مناولة البضائع بدها انتباه وحذر.",sen:"Material handling requires care.",img:"la_manutention.webp"},
+ {fr:"Le matériel médical",ar:"المعدات الطبية",en:"Medical Equipment",sfr:"Le matériel médical doit être propre.",sar:"المعدات الطبية لازم تكون نظيفة.",sen:"Medical equipment must be clean.",img:"le_materiel_medical.webp"},
+ {fr:"La machine automatique",ar:"الآلة الأوتوماتيكية",en:"Automatic Machine",sfr:"Cette machine automatique fonctionne rapidement.",sar:"هالآلة الأوتوماتيكية بتشتغل بسرعة.",sen:"This automatic machine works quickly.",img:"la_machine_automatique.webp"},
+ {fr:"Le malentendu",ar:"سوء الفهم",en:"Misunderstanding",sfr:"Il y a eu un malentendu entre nous.",sar:"صار سوء تفاهم بيناتنا.",sen:"There was a misunderstanding between us.",img:"le_malentendu.webp"},
+ {fr:"La mise à jour",ar:"التحديث",en:"Update",sfr:"Une mise à jour est disponible.",sar:"في تحديث متوفر.",sen:"An update is available.",img:"la_mise_a_jour.webp"},
+ {fr:"La mise en place",ar:"التجهيز / الإعداد",en:"Setup / Implementation",sfr:"La mise en place du matériel est terminée.",sar:"خلص تجهيز المعدات.",sen:"The equipment setup is complete.",img:"la_mise_en_place.webp"},
+ {fr:"Le malentendant",ar:"ضعيف السمع",en:"Hard of Hearing",sfr:"Il est malentendant depuis plusieurs années.",sar:"سمعه ضعيف من عدة سنين.",sen:"He has been hard of hearing for several years.",img:"le_malentendant.webp"},
+ {fr:"Le mode",ar:"الطريقة / النمط",en:"Mode / Method",sfr:"Choisissez le mode de paiement.",sar:"اختار طريقة الدفع.",sen:"Choose the payment method.",img:"le_mode.webp"},
+ {fr:"La moquerie",ar:"السخرية / الاستهزاء",en:"Mockery",sfr:"Les moqueries peuvent blesser les autres.",sar:"السخرية ممكن تجرح الآخرين.",sen:"Mockery can hurt others.",img:"la_moquerie.webp"},
+ {fr:"Le mobilier",ar:"الأثاث",en:"Furniture",sfr:"Le mobilier de cet appartement est neuf.",sar:"أثاث هالشقة جديد.",sen:"The furniture in this apartment is new.",img:"le_mobilier.webp"},
+ {fr:"La mobilité",ar:"التنقّل / القدرة على الحركة",en:"Mobility",sfr:"La mobilité est importante pour trouver un emploi.",sar:"القدرة على التنقّل مهمة لإيجاد شغل.",sen:"Mobility is important for finding a job.",img:"la_mobilite.webp"},
+ {fr:"Le mérite",ar:"الاستحقاق / الجدارة",en:"Merit",sfr:"Il a obtenu ce poste grâce à son mérite.",sar:"حصل على هالمنصب بفضل كفاءته واستحقاقه.",sen:"He got this position through his merit.",img:"le_merite.webp"},
+ {fr:"Le maillot",ar:"القميص الرياضي / لباس السباحة",en:"Sports Shirt / Swimsuit",sfr:"J'ai acheté un nouveau maillot de bain.",sar:"اشتريت لباس سباحة جديد.",sen:"I bought a new swimsuit.",img:"le_maillot.webp"},
+ {fr:"Le mécanicien",ar:"الميكانيكي",en:"Mechanic",sfr:"Le mécanicien répare ma voiture.",sar:"الميكانيكي عم يصلّح سيارتي.",sen:"The mechanic is repairing my car.",img:"le_mecanicien.webp"},
+ {fr:"La mécanique",ar:"الميكانيك / علم الآلات",en:"Mechanics",sfr:"Il connaît bien la mécanique automobile.",sar:"هو بيعرف ميكانيك السيارات منيح.",sen:"He knows car mechanics well.",img:"la_mecanique.webp"},
+ {fr:"La mission",ar:"المهمة",en:"Task / Assignment",sfr:"Ma mission consiste à préparer les commandes.",sar:"مهمتي هي تحضير الطلبات.",sen:"My task is to prepare the orders.",img:"la_mission.webp"},
+ {fr:"Le ministère",ar:"الوزارة",en:"Ministry",sfr:"Il travaille au ministère de l'Éducation.",sar:"هو بيشتغل بوزارة التربية.",sen:"He works at the Ministry of Education.",img:"le_ministere.webp"},
+ {fr:"Le malade",ar:"المريض",en:"Sick Person / Patient",sfr:"Le malade attend le médecin.",sar:"المريض ناطر الطبيب.",sen:"The patient is waiting for the doctor.",img:"le_malade.webp"},
+ {fr:"Le mal de gorge",ar:"ألم الحلق",en:"Sore Throat",sfr:"J'ai mal à la gorge depuis hier.",sar:"حلقي عم يوجعني من مبارح.",sen:"I've had a sore throat since yesterday.",img:"le_mal_de_gorge.webp"},
+ {fr:"La marche à pied",ar:"المشي على الأقدام",en:"Walking",sfr:"Je préfère la marche à pied pour les petits trajets.",sar:"بفضّل المشي للمسافات القصيرة.",sen:"I prefer walking for short distances.",img:"la_marche_a_pied.webp"},
+ {fr:"La moisson",ar:"حصاد المحاصيل",en:"Harvest",sfr:"La moisson commence en été.",sar:"حصاد القمح بيبلّش بالصيف.",sen:"The harvest begins in summer.",img:"la_moisson.webp"},
+ {fr:"La maîtrise",ar:"الإتقان / التحكم",en:"Mastery / Control",sfr:"Il a une bonne maîtrise du français.",sar:"عنده إتقان جيد للغة الفرنسية.",sen:"He has a good command of French.",img:"la_maitrise.webp"},
+ {fr:"La marque",ar:"العلامة التجارية",en:"Brand",sfr:"Quelle est la marque de ton téléphone ?",sar:"شو ماركة تلفونك؟",sen:"What is the brand of your phone?",img:"la_marque.webp"},
+ {fr:"La moyenne",ar:"المعدّل / المتوسط",en:"Average",sfr:"J'ai obtenu une bonne moyenne à l'examen.",sar:"جبت معدّل منيح بالامتحان.",sen:"I got a good average in the exam.",img:"la_moyenne.webp"},
+ {fr:"Le mal de mer",ar:"دوار البحر",en:"Seasickness",sfr:"J'ai le mal de mer sur les bateaux.",sar:"بيجيني دوار البحر بالمراكب.",sen:"I get seasick on boats.",img:"le_mal_de_mer.webp"},
+ {fr:"Le monsieur",ar:"السيد / الرجل",en:"Mr. / Gentleman",sfr:"Bonjour monsieur, comment allez-vous ?",sar:"مرحبا سيدي، كيف حالك؟",sen:"Hello, sir. How are you?",img:"le_monsieur.webp"},
+ {fr:"Le mauvais",ar:"السيئ / الخاطئ",en:"Bad / Wrong",sfr:"J'ai pris le mauvais bus.",sar:"ركبت الباص الغلط.",sen:"I took the wrong bus.",img:"le_mauvais.webp"},
+ {fr:"Le meilleur",ar:"الأفضل",en:"The Best",sfr:"C'est le meilleur choix pour moi.",sar:"هاد أفضل خيار إلي.",sen:"This is the best choice for me.",img:"le_meilleur.webp"},
+ {fr:"Le milieu",ar:"الوسط",en:"Middle / Centre",sfr:"La pharmacie est au milieu de la rue.",sar:"الصيدلية بنص الشارع.",sen:"The pharmacy is in the middle of the street.",img:"le_milieu.webp"},
+ {fr:"Le ménage",ar:"تنظيف المنزل / الأعمال المنزلية",en:"Housework",sfr:"Je fais le ménage le samedi.",sar:"بنضّف البيت يوم السبت.",sen:"I do the housework on Saturday.",img:"le_menage.webp"},
+ {fr:"La menace",ar:"التهديد",en:"Threat",sfr:"Il a reçu une menace par téléphone.",sar:"وصله تهديد عن طريق التلفون.",sen:"He received a threat by phone.",img:"la_menace.webp"},
+ {fr:"Le mécontentement",ar:"عدم الرضا / الاستياء",en:"Dissatisfaction",sfr:"Le client a exprimé son mécontentement.",sar:"الزبون عبّر عن عدم رضاه.",sen:"The customer expressed his dissatisfaction.",img:"le_mecontentement.webp"},
+ {fr:"La messe",ar:"القداس",en:"Mass",sfr:"L'église organise une messe le dimanche.",sar:"الكنيسة بتقيم قداس يوم الأحد.",sen:"The church holds a mass on Sunday.",img:"la_messe.webp"},
+ {fr:"Le maquillage",ar:"مستحضرات التجميل / المكياج",en:"Makeup",sfr:"Elle utilise peu de maquillage.",sar:"هي بتستعمل مكياج قليل.",sen:"She wears very little makeup.",img:"le_maquillage.webp"},
+ {fr:"Le matelas",ar:"فرشة السرير",en:"Mattress",sfr:"Ce matelas est très confortable.",sar:"هالفرشة مريحة كتير.",sen:"This mattress is very comfortable.",img:"le_matelas.webp"},
+ {fr:"La machine à café",ar:"ماكينة القهوة",en:"Coffee Machine",sfr:"La machine à café est dans la cuisine.",sar:"ماكينة القهوة بالمطبخ.",sen:"The coffee machine is in the kitchen.",img:"la_machine_a_cafe.webp"},
+ {fr:"Le maçon",ar:"البنّاء",en:"Mason / Bricklayer",sfr:"Le maçon construit un mur.",sar:"البنّاء عم يبني حيط.",sen:"The bricklayer is building a wall.",img:"le_macon.webp"},
+ ];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].M=st.c['noms'].M||[];
+ add.forEach((u,i)=>{const ex=st.c['noms'].M.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+180000+i;st.c['noms'].M.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
