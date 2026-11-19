@@ -6872,13 +6872,104 @@ function updGramConjonctions(){
  st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="conjonctions";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
  add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+751000+i;st.c["grammaticaux"][F].push(u)}});
  save();}
+function updGramConjonctions2(){
+ const add=[
+{"fr":"En outre","ar":"علاوة على ذلك","en":"Furthermore","sfr":"Ce travail est intéressant. En outre, il est bien payé.","sar":"هالشغل ممتع، وفوق هيك راتبو منيح.","sen":"This job is interesting. Furthermore, it is well paid.","img":"en_outre.webp"},
+{"fr":"De plus","ar":"بالإضافة إلى ذلك","en":"Moreover","sfr":"Elle parle français. De plus, elle parle anglais.","sar":"هي بتحكي فرنسي، وكمان بتحكي إنجليزي.","sen":"She speaks French. Moreover, she speaks English.","img":"de_plus.webp"},
+{"fr":"Toutefois","ar":"ومع ذلك","en":"However / Nevertheless","sfr":"Le trajet est long. Toutefois, le voyage est agréable.","sar":"الطريق طويل، ومع هيك الرحلة ممتعة.","sen":"The journey is long. Nevertheless, the trip is enjoyable.","img":"toutefois.webp"},
+{"fr":"Au contraire","ar":"على العكس","en":"On the contrary","sfr":"Je ne suis pas fatigué. Au contraire, je suis en pleine forme.","sar":"أنا مو تعبان، بالعكس أنا بنشاط كامل.","sen":"I'm not tired. On the contrary, I'm full of energy.","img":"au_contraire.webp"},
+{"fr":"Or","ar":"غير أنّ / والحال أنّ","en":"Yet / Now","sfr":"Il voulait sortir, or il pleuvait.","sar":"كان بدو يطلع، بس كان عم تشتي.","sen":"He wanted to go out, yet it was raining.","img":"or.webp"},
+{"fr":"Soit… soit…","ar":"إما… أو…","en":"Either… or…","sfr":"Soit tu prends le bus, soit tu prends le tram.","sar":"يا بتاخد الباص، يا بتاخد الترام.","sen":"Either you take the bus or you take the tram.","img":"soit_soit.webp"},
+{"fr":"Non seulement… mais aussi…","ar":"ليس فقط… بل أيضاً…","en":"Not only… but also…","sfr":"Il parle non seulement français, mais aussi anglais.","sar":"هو مو بس بيحكي فرنسي، كمان بيحكي إنجليزي.","sen":"He speaks not only French but also English.","img":"non_seulement_mais_aussi.webp"},
+{"fr":"Que… ou…","ar":"سواء… أو… (في تركيب مناسب)","en":"Whether… or…","sfr":"Que tu viennes ou non, je partirai à huit heures.","sar":"سواء جيت أو ما جيت، أنا رح أطلع الساعة تمانية.","sen":"Whether you come or not, I'll leave at eight.","img":"que_ou.webp"}
+ ];
+ st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="conjonctions";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
+ add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+753000+i;st.c["grammaticaux"][F].push(u)}});
+ save();}
+function delGramDeterminants(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["determinants"]){st.c["grammaticaux"]["determinants"]=[];save()} }
+function updGramDeterminants(){
+ const add=[
+{"fr":"Chaque","ar":"كلّ (للمفرد)","en":"Each / Every","sfr":"Chaque jour, j'apprends le français.","sar":"كل يوم بتعلّم الفرنسي.","sen":"Every day, I learn French.","img":"chaque.webp"},
+{"fr":"Plusieurs","ar":"عدة / أكثر من واحد","en":"Several","sfr":"J'ai plusieurs amis en France.","sar":"عندي عدة أصدقاء بفرنسا.","sen":"I have several friends in France.","img":"plusieurs.webp"},
+{"fr":"Quelques","ar":"بعض / بضعة","en":"A few / Some","sfr":"J'ai quelques questions.","sar":"عندي كم سؤال.","sen":"I have a few questions.","img":"quelques.webp"},
+{"fr":"Certains","ar":"بعض (للمذكر الجمع)","en":"Certain / Some","sfr":"Certains étudiants arrivent en retard.","sar":"بعض الطلاب بيوصلوا متأخرين.","sen":"Some students arrive late.","img":"certains.webp"},
+{"fr":"Certaines","ar":"بعض (للمؤنث الجمع)","en":"Certain / Some","sfr":"Certaines personnes préfèrent travailler seules.","sar":"بعض الأشخاص بيفضّلوا يشتغلوا لحالهم.","sen":"Some people prefer working alone.","img":"certaines.webp"},
+{"fr":"Tout","ar":"كلّ (للمذكر المفرد)","en":"Every / All","sfr":"Tout le travail est terminé.","sar":"كل الشغل خلص.","sen":"All the work is finished.","img":"tout.webp"},
+{"fr":"Toute","ar":"كلّ (للمؤنث المفرد)","en":"Every / All","sfr":"Toute la journée, je travaille.","sar":"طول النهار أنا عم اشتغل.","sen":"I work all day.","img":"toute.webp"},
+{"fr":"Tous","ar":"كلّ (للمذكر الجمع)","en":"All","sfr":"Tous les employés sont présents.","sar":"كل الموظفين موجودين.","sen":"All the employees are present.","img":"tous.webp"},
+{"fr":"Toutes","ar":"كلّ (للمؤنث الجمع)","en":"All","sfr":"Toutes les fenêtres sont ouvertes.","sar":"كل الشبابيك مفتوحة.","sen":"All the windows are open.","img":"toutes.webp"},
+{"fr":"Aucun","ar":"ولا أيّ (للمذكر المفرد)","en":"No / Not any","sfr":"Aucun problème n'est signalé.","sar":"ما في أي مشكلة مُبلّغ عنها.","sen":"No problem has been reported.","img":"aucun.webp"},
+{"fr":"Aucune","ar":"ولا أيّ (للمؤنث المفرد)","en":"No / Not any","sfr":"Aucune réponse n'est arrivée.","sar":"ما وصل أي جواب.","sen":"No answer has arrived.","img":"aucune.webp"},
+{"fr":"Quelque","ar":"بعض / نحو (بحسب السياق)","en":"Some / About","sfr":"Il y a quelque vingt personnes dans la salle.","sar":"في حوالي عشرين شخص بالقاعة.","sen":"There are about twenty people in the room.","img":"quelque.webp"},
+{"fr":"N'importe quel","ar":"أيّ (للمذكر المفرد)","en":"Any","sfr":"Tu peux choisir n'importe quel livre.","sar":"فيك تختار أي كتاب.","sen":"You can choose any book.","img":"n_importe_quel.webp"},
+{"fr":"N'importe quelle","ar":"أيّ (للمؤنث المفرد)","en":"Any","sfr":"Tu peux venir n'importe quelle journée.","sar":"فيك تجي بأي يوم.","sen":"You can come on any day.","img":"n_importe_quelle.webp"},
+{"fr":"Même","ar":"نفس / ذاته","en":"Same","sfr":"Nous avons le même professeur.","sar":"عنا نفس الأستاذ.","sen":"We have the same teacher.","img":"meme.webp"},
+{"fr":"Différents","ar":"مختلفون / عدة","en":"Different / Various","sfr":"J'ai essayé différents modèles.","sar":"جرّبت موديلات مختلفة.","sen":"I tried different models.","img":"differents.webp"},
+{"fr":"Divers","ar":"متنوع / مختلف","en":"Various","sfr":"Nous proposons divers services.","sar":"منقدّم خدمات متنوعة.","sen":"We offer various services.","img":"divers.webp"},
+{"fr":"Tel","ar":"مثل هذا / من هذا النوع (مذكر)","en":"Such","sfr":"Je n'ai jamais vu un tel problème.","sar":"ما شفت مشكلة من هالنوع من قبل.","sen":"I've never seen such a problem.","img":"tel.webp"},
+{"fr":"Telle","ar":"مثل هذه / من هذا النوع (مؤنث)","en":"Such","sfr":"Une telle décision est importante.","sar":"قرار متل هاد مهم.","sen":"Such a decision is important.","img":"telle.webp"},
+{"fr":"Un certain","ar":"معيّن / أحد","en":"A certain","sfr":"Un certain homme m'a appelé.","sar":"شخص معيّن اتصل فيني.","sen":"A certain man called me.","img":"un_certain.webp"},
+{"fr":"Une certaine","ar":"معيّنة","en":"A certain","sfr":"Une certaine personne connaît la réponse.","sar":"في شخص معيّن بيعرف الجواب.","sen":"A certain person knows the answer.","img":"une_certaine.webp"},
+{"fr":"Plusieurs autres","ar":"عدة آخرين","en":"Several other","sfr":"Plusieurs autres candidats attendent.","sar":"في عدة مرشحين تانين ناطرين.","sen":"Several other candidates are waiting.","img":"plusieurs_autres.webp"},
+{"fr":"Quelques autres","ar":"بعض الآخرين","en":"A few other","sfr":"Je voudrais voir quelques autres modèles.","sar":"بدي شوف كم موديل تاني.","sen":"I would like to see a few other models.","img":"quelques_autres.webp"}
+ ];
+ st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="determinants";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
+ add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+754000+i;st.c["grammaticaux"][F].push(u)}});
+ save();}
+function delGramInterrogatifs(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["interrogatifs"]){st.c["grammaticaux"]["interrogatifs"]=[];save()} }
+function updGramInterrogatifs(){
+ const add=[
+{"fr":"Qui","ar":"مَن","en":"Who","sfr":"Qui est cette personne ?","sar":"مين هالشخص؟","sen":"Who is this person?","img":"qui.webp"},
+{"fr":"Que","ar":"ماذا","en":"What","sfr":"Que fais-tu ?","sar":"شو عم تعمل؟","sen":"What are you doing?","img":"que.webp"},
+{"fr":"Quoi","ar":"ماذا","en":"What","sfr":"Tu fais quoi ?","sar":"شو عم تعمل؟","sen":"What are you doing?","img":"quoi.webp"},
+{"fr":"Où","ar":"أين","en":"Where","sfr":"Où habites-tu ?","sar":"وين ساكن؟","sen":"Where do you live?","img":"ou.webp"},
+{"fr":"Quand","ar":"متى","en":"When","sfr":"Quand commence le travail ?","sar":"إمتى بيبلّش الشغل؟","sen":"When does work start?","img":"quand.webp"},
+{"fr":"Pourquoi","ar":"لماذا / ليش","en":"Why","sfr":"Pourquoi tu es en retard ?","sar":"ليش إنت متأخر؟","sen":"Why are you late?","img":"pourquoi.webp"},
+{"fr":"Comment","ar":"كيف","en":"How","sfr":"Comment tu vas ?","sar":"كيفك؟","sen":"How are you?","img":"comment.webp"},
+{"fr":"Combien","ar":"كم","en":"How much / How many","sfr":"Combien ça coûte ?","sar":"قديش سعره؟","sen":"How much does it cost?","img":"combien.webp"},
+{"fr":"Combien de","ar":"كم من","en":"How many / How much","sfr":"Combien de jours travailles-tu par semaine ?","sar":"كم يوم بتشتغل بالأسبوع؟","sen":"How many days do you work per week?","img":"combien_de.webp"},
+{"fr":"Quel","ar":"أيّ / ما (مذكر مفرد)","en":"Which / What","sfr":"Quel jour sommes-nous ?","sar":"أي يوم نحنا اليوم؟","sen":"What day is it today?","img":"quel.webp"},
+{"fr":"Quelle","ar":"أيّ / ما (مؤنث مفرد)","en":"Which / What","sfr":"Quelle heure est-il ?","sar":"قديش الساعة؟","sen":"What time is it?","img":"quelle.webp"},
+{"fr":"Quels","ar":"أيّ / ما (مذكر جمع)","en":"Which / What","sfr":"Quels livres préfères-tu ?","sar":"أي كتب بتفضّل؟","sen":"Which books do you prefer?","img":"quels.webp"},
+{"fr":"Quelles","ar":"أيّ / ما (مؤنث جمع)","en":"Which / What","sfr":"Quelles langues parles-tu ?","sar":"أي لغات بتحكي؟","sen":"Which languages do you speak?","img":"quelles.webp"},
+{"fr":"Lequel","ar":"أيّ واحد (مذكر مفرد)","en":"Which one","sfr":"Lequel tu préfères ?","sar":"أي واحد بتفضّل؟","sen":"Which one do you prefer?","img":"lequel.webp"},
+{"fr":"Laquelle","ar":"أيّ واحدة (مؤنث مفرد)","en":"Which one","sfr":"Laquelle tu veux acheter ?","sar":"أي وحدة بدك تشتري؟","sen":"Which one do you want to buy?","img":"laquelle.webp"},
+{"fr":"Lesquels","ar":"أيّ واحدين (مذكر جمع)","en":"Which ones","sfr":"Lesquels sont à toi ?","sar":"أي واحدين إلك؟","sen":"Which ones are yours?","img":"lesquels.webp"},
+{"fr":"Lesquelles","ar":"أيّ واحدات (مؤنث جمع)","en":"Which ones","sfr":"Lesquelles tu préfères ?","sar":"أي وحدات بتفضّل؟","sen":"Which ones do you prefer?","img":"lesquelles.webp"},
+{"fr":"À qui","ar":"لِمَن","en":"Whose / To whom","sfr":"À qui est ce sac ?","sar":"لمين هالشنطة؟","sen":"Whose bag is this?","img":"a_qui.webp"},
+{"fr":"De qui","ar":"مَن / عن مَن","en":"Whose / About whom","sfr":"De qui parles-tu ?","sar":"عن مين عم تحكي؟","sen":"Who are you talking about?","img":"de_qui.webp"},
+{"fr":"Avec qui","ar":"مع مَن","en":"With whom","sfr":"Avec qui tu travailles ?","sar":"مع مين بتشتغل؟","sen":"Who do you work with?","img":"avec_qui.webp"},
+{"fr":"Pour qui","ar":"لِمَن","en":"For whom","sfr":"Pour qui est ce cadeau ?","sar":"لمين هالهدية؟","sen":"Who is this gift for?","img":"pour_qui.webp"},
+{"fr":"À quoi","ar":"بماذا / لأي شيء","en":"What ... to / What ... for","sfr":"À quoi ça sert ?","sar":"لشو بيُستخدم هالشي؟","sen":"What is it used for?","img":"a_quoi.webp"},
+{"fr":"De quoi","ar":"عن ماذا / من ماذا","en":"What ... about / What ... of","sfr":"De quoi as-tu besoin ?","sar":"شو اللي بتحتاجه؟","sen":"What do you need?","img":"de_quoi.webp"},
+{"fr":"Avec quoi","ar":"بماذا","en":"With what","sfr":"Avec quoi tu écris ?","sar":"بماذا بتكتب؟","sen":"What do you write with?","img":"avec_quoi.webp"},
+{"fr":"Depuis quand","ar":"منذ متى","en":"Since when","sfr":"Depuis quand tu habites ici ?","sar":"من إمتى ساكن هون؟","sen":"Since when have you lived here?","img":"depuis_quand.webp"},
+{"fr":"Depuis combien de temps","ar":"منذ كم من الوقت","en":"How long","sfr":"Depuis combien de temps tu travailles ici ?","sar":"من قديش إلك عم تشتغل هون؟","sen":"How long have you been working here?","img":"depuis_combien_de_temps.webp"}
+ ];
+ st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="interrogatifs";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
+ add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+755000+i;st.c["grammaticaux"][F].push(u)}});
+ save();}
+function delGramNegation(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["negation"]){st.c["grammaticaux"]["negation"]=[];save()} }
+function updGramNegation(){
+ const add=[
+{"fr":"Ne... pas","ar":"لا / ليس","en":"Not","sfr":"Je ne travaille pas aujourd'hui.","sar":"أنا ما بشتغل اليوم.","sen":"I am not working today.","img":"ne_pas.webp"},
+{"fr":"Ne... plus","ar":"لم يَعُد / ما عاد","en":"No longer / Not anymore","sfr":"Je ne travaille plus ici.","sar":"ما عدت اشتغل هون.","sen":"I no longer work here.","img":"ne_plus.webp"},
+{"fr":"Ne... jamais","ar":"أبداً","en":"Never","sfr":"Je ne fume jamais.","sar":"أنا ما بدخّن أبداً.","sen":"I never smoke.","img":"ne_jamais.webp"},
+{"fr":"Ne... rien","ar":"لا شيء","en":"Nothing","sfr":"Je ne comprends rien.","sar":"أنا ما عم أفهم شي.","sen":"I understand nothing.","img":"ne_rien.webp"},
+{"fr":"Ne... personne","ar":"لا أحد","en":"Nobody / No one","sfr":"Je ne connais personne ici.","sar":"ما بعرف حدا هون.","sen":"I don't know anyone here.","img":"ne_personne.webp"},
+{"fr":"Ne... pas encore","ar":"ليس بعد","en":"Not yet","sfr":"Je n'ai pas encore terminé.","sar":"لسا ما خلّصت.","sen":"I haven't finished yet.","img":"ne_pas_encore.webp"},
+{"fr":"Ne... plus du tout","ar":"أبداً بعد الآن / لم يعد إطلاقاً","en":"Not at all anymore","sfr":"Je ne travaille plus du tout le dimanche.","sar":"ما عدت بشتغل نهائياً يوم الأحد.","sen":"I don't work on Sundays at all anymore.","img":"ne_plus_du_tout.webp"}
+ ];
+ st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="negation";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
+ add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+756000+i;st.c["grammaticaux"][F].push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1,grammaticaux:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();delAdjP();updAdjP();delAdjR();updAdjR();delAdjS();updAdjS();delAdjT();updAdjT();updAdjT2();delAdjU();updAdjU();delAdjV();updAdjV();delAdjW();updAdjW();delAdjX();updAdjX();delAdjZ();updAdjZ();updAdjK2();updAdjK3();delAdvB();updAdvB();delAdvC();updAdvC();updAdvD();delAdvD();updAdvD2();delAdvE();updAdvE();delAdvF();updAdvF();delAdvG();updAdvG();delAdvH();updAdvH();delAdvI();updAdvI();delAdvJ();updAdvJ();delAdvL();updAdvL();delAdvM();updAdvM();delAdvN();updAdvN();delAdvO();updAdvO();delAdvP();updAdvP();delAdvQ();updAdvQ();delAdvR();updAdvR();delAdvS();updAdvS();delAdvT();updAdvT();delAdvU();updAdvU();delAdvV();updAdvV();delGramPrepositions();updGramPrepositions();delGramPronoms();updGramPronoms();updGramPronoms2();delGramArticles();updGramArticles();delGramConjonctions();updGramConjonctions();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();delAdjP();updAdjP();delAdjR();updAdjR();delAdjS();updAdjS();delAdjT();updAdjT();updAdjT2();delAdjU();updAdjU();delAdjV();updAdjV();delAdjW();updAdjW();delAdjX();updAdjX();delAdjZ();updAdjZ();updAdjK2();updAdjK3();delAdvB();updAdvB();delAdvC();updAdvC();updAdvD();delAdvD();updAdvD2();delAdvE();updAdvE();delAdvF();updAdvF();delAdvG();updAdvG();delAdvH();updAdvH();delAdvI();updAdvI();delAdvJ();updAdvJ();delAdvL();updAdvL();delAdvM();updAdvM();delAdvN();updAdvN();delAdvO();updAdvO();delAdvP();updAdvP();delAdvQ();updAdvQ();delAdvR();updAdvR();delAdvS();updAdvS();delAdvT();updAdvT();delAdvU();updAdvU();delAdvV();updAdvV();delGramPrepositions();updGramPrepositions();delGramPronoms();updGramPronoms();updGramPronoms2();delGramArticles();updGramArticles();delGramConjonctions();updGramConjonctions();updGramConjonctions2();delGramDeterminants();updGramDeterminants();delGramInterrogatifs();updGramInterrogatifs();delGramNegation();updGramNegation();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
