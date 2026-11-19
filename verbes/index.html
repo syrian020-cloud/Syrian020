@@ -39,6 +39,9 @@ main{padding:.7rem;max-width:640px;margin:0 auto;padding-bottom:5rem}
 .let .cnt{position:absolute;top:4px;inset-inline-end:5px;min-width:20px;height:20px;border-radius:10px;background:var(--acc);color:#fff;font-size:.68rem;font-weight:800;display:grid;place-items:center;padding:0 5px}
 .let .cnt:empty{display:none}
 .let.empty{opacity:.55}
+#letters.twocol{grid-template-columns:repeat(2,1fr)}
+.letsub{aspect-ratio:auto;min-height:60px;flex-direction:row;justify-content:flex-start;gap:.5rem;font-size:.82rem;font-weight:700;padding:.55rem .65rem;text-align:start;line-height:1.2}
+.letsub .fic{font-size:1.4rem;flex:none}
 .vcard{background:var(--card);border:1.5px solid var(--bd);border-radius:16px;padding:.6rem .65rem;margin-bottom:.6rem}
 .vtop{display:flex;align-items:center;gap:.55rem}
 .vimg{width:72px;height:72px;border-radius:14px;object-fit:cover;flex:none;border:1px solid var(--bd)}
@@ -310,7 +313,23 @@ const CATS=[
 {id:'verbes',ic:'🏃',fr:'Les verbes',ar:'الأفعال',en:'Verbs'},
 {id:'noms',ic:'🏷️',fr:'Les noms',ar:'الأسماء',en:'Nouns'},
 {id:'adjectifs',ic:'🎨',fr:'Les adjectifs',ar:'الصفات',en:'Adjectives'},
-{id:'adverbes',ic:'⚡',fr:'Les adverbes',ar:'الظروف',en:'Adverbs'}];
+{id:'adverbes',ic:'⚡',fr:'Les adverbes',ar:'الظروف',en:'Adverbs'},
+{id:'grammaticaux',ic:'🧩',fr:'Les mots grammaticaux',ar:'أدوات اللغة الفرنسية',en:'Grammatical Words'}];
+const GRAM_FOLDERS=[
+{id:'prepositions',ic:'📍',fr:'Les prépositions',ar:'حروف الجر',en:'Prepositions'},
+{id:'pronoms',ic:'👤',fr:'Les pronoms',ar:'الضمائر',en:'Pronouns'},
+{id:'articles',ic:'📰',fr:'Les articles',ar:'أدوات التعريف والتنكير',en:'Articles'},
+{id:'conjonctions',ic:'🔗',fr:'Les conjonctions',ar:'أدوات الربط',en:'Conjunctions'},
+{id:'determinants',ic:'🧭',fr:'Les déterminants',ar:'المحددات',en:'Determiners'},
+{id:'interrogatifs',ic:'❓',fr:"Les mots interrogatifs",ar:'أدوات الاستفهام',en:'Interrogative Words'},
+{id:'negation',ic:'🚫',fr:'La négation',ar:'أدوات النفي',en:'Negation'},
+{id:'demonstratifs',ic:'👉',fr:'Les démonstratifs',ar:'أدوات الإشارة',en:'Demonstratives'},
+{id:'possessifs',ic:'🤝',fr:'Les possessifs',ar:'أدوات الملكية',en:'Possessives'},
+{id:'quantificateurs',ic:'📊',fr:'Les quantificateurs',ar:'أدوات الكمية',en:'Quantifiers'},
+{id:'interjections',ic:'❗',fr:'Les interjections',ar:'أدوات التعجب',en:'Interjections'},
+{id:'comparaison',ic:'⚖️',fr:'Les mots de comparaison',ar:'أدوات المقارنة',en:'Comparison Words'},
+{id:'insistance',ic:'💪',fr:"Les mots d'insistance",ar:'أدوات التوكيد',en:'Emphasis Words'},
+{id:'ordre',ic:'🔢',fr:"Les marqueurs d'ordre",ar:'أدوات الترتيب والتسلسل',en:'Sequencing Words'}];
 let curCat=null,curLetter=null;
 const VD=()=>curCat==='verbes'?st.v:(st.c[curCat]=st.c[curCat]||{});
 const catsList=()=>CATS.filter(c=>!st.catDel.includes(c.id)).map(c=>Object.assign({},c,st.catEd[c.id]||{})).concat(st.catsU);
@@ -416,8 +435,19 @@ $('cSave').onclick=async()=>{
 function renderHome(){
  if(!curCat){renderCats();return}
  $('cats').style.display='none';$('letters').style.display='';$('lv').style.display='none';$('addFab').style.display='none';$('pasteFab').style.display='none';$('backBtn').style.display='';$('copyBtn').style.display='grid';
- const g=$('letters');g.innerHTML='';
+ const g=$('letters');g.innerHTML='';g.classList.remove('twocol');
  const store=VD();
+ if(curCat==='grammaticaux'){
+  g.classList.add('twocol');
+  GRAM_FOLDERS.forEach(f=>{
+   const n=(store[f.id]||[]).length;
+   const d=document.createElement('div');d.className='let letsub'+(n?'':' empty');
+   const fic=document.createElement('span');fic.className='fic';fic.textContent=f.ic;d.appendChild(fic);
+   const nm=document.createElement('span');nm.textContent=f[st.lang]||f.fr;d.appendChild(nm);
+   if(n){const cn=document.createElement('span');cn.className='cnt';cn.textContent=n;d.appendChild(cn)}
+   d.onclick=()=>{curLetter=f.id;renderLetter()};
+   g.appendChild(d)});
+  return}
  AZ.forEach(L=>{
   const n=(store[L]||[]).length;
   const d=document.createElement('div');d.className='let'+(n?'':' empty');
@@ -1406,9 +1436,9 @@ function gPickCat(g){
 function gPickLetter(g,cid){
  const body=$('quiz-body');if(!body)return;
  const s=catStore(cid);
- const letters=AZ.filter(L=>(s[L]||[]).length);
+ const letters=(cid==='grammaticaux'?GRAM_FOLDERS.filter(f=>(s[f.id]||[]).length).map(f=>({k:f.id,lb:f.ic+' '+(f[st.lang]||f.fr)})):AZ.filter(L=>(s[L]||[]).length).map(L=>({k:L,lb:L})));
  body.innerHTML='<div class="qz-langs"><h3 style="text-align:center;margin:0">'+esc(t('pickLetter'))+'</h3>'+
-  letters.map(L=>'<button class="btn" data-l="'+L+'">'+L+' — '+(s[L]||[]).length+'</button>').join('')+'</div>';
+  letters.map(o=>'<button class="btn" data-l="'+o.k+'">'+o.lb+' — '+(s[o.k]||[]).length+'</button>').join('')+'</div>';
  body.querySelectorAll('button[data-l]').forEach(b=>{b.onclick=()=>gPickKind(g,cid,b.dataset.l)})}
 function gPickKind(g,cid,L){
  const items=(catStore(cid)[L]||[]);
