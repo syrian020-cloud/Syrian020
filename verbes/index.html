@@ -2198,11 +2198,6 @@ function updAdj(){
  {fr:"Commun / Commune",ar:"مشترك / عام",en:"Common",sfr:"C'est un problème commun.",sar:"هذه مشكلة مشتركة.",sen:"It is a common problem.",img:"commun_commune.webp"},
  {fr:"Coquin / Coquine",ar:"مشاغب / ماكر",en:"Naughty",sfr:"Cet enfant est très coquin.",sar:"هذا الطفل مشاغب جدًا.",sen:"This child is very naughty.",img:"coquin_coquine.webp"},
  {fr:"Certain / Certaine",ar:"معين / متأكد",en:"Certain / Sure",sfr:"Je suis certain de ma décision.",sar:"أنا متأكد من قراري.",sen:"I am sure of my decision.",img:"certain_certaine.webp"},
- {fr:"Périmé",ar:"منتهي الصلاحية",en:"Expired",sfr:"Ce produit est périmé.",sar:"هذا المنتج منتهي الصلاحية.",sen:"This product is expired.",img:"perime.webp"},
- {fr:"Propre",ar:"نظيف",en:"Clean",sfr:"Le poste de travail doit rester propre.",sar:"يجب أن يبقى مكان العمل نظيفًا.",sen:"The workstation must remain clean.",img:"propre.webp"},
- {fr:"Piquant / Piquante",ar:"حار (لاذع)",en:"Hot / Pungent",sfr:"Le wasabi est très piquant.",sar:"الوسابي حار جدًا.",sen:"Wasabi is very pungent.",img:"piquant_piquante.webp"},
- {fr:"Parfumé / Parfumée",ar:"عطِر / ذو رائحة طيبة",en:"Fragrant / Aromatic",sfr:"Le riz est bien parfumé.",sar:"الأرز ذو رائحة طيبة.",sen:"The rice is very fragrant.",img:"parfume_parfumee.webp"},
- {fr:"Prioritaire",ar:"ذو أولوية",en:"Priority",sfr:"Mon dossier est prioritaire.",sar:"ملفي له أولوية.",sen:"My file has priority.",img:"prioritaire.webp"},
  {fr:"Quasi",ar:"شبه / تقريبًا",en:"almost / virtually",sfr:"C'est quasi impossible.",sar:"هالشي شبه مستحيل.",sen:"It's almost impossible.",img:"quasi.webp"},
  {fr:"Quelconque",ar:"عادي / أيًّا كان",en:"ordinary / random / any",sfr:"Ce n'est pas un problème quelconque.",sar:"مو مشكلة عادية.",sen:"It's not an ordinary problem.",img:"quelconque.webp"},
  {fr:"Quasi-totalité",ar:"الغالبية العظمى / تقريبًا الكل",en:"almost all / vast majority",sfr:"Quasi-totalité",sar:"الغالبية العظمى / تقريبًا الكل",sen:"almost all / vast majority",img:"quasi_totalite.webp"},
@@ -5931,13 +5926,74 @@ function updAdjO(){
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+570000+i;st.c['adjectifs'][L].push(u)}});
  save();}
 
+function delAdjP(){
+ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].P){st.c['adjectifs'].P=[];save()}
+}
+function updAdjP(){
+ const add=[
+ {fr:"Petit / Petite",ar:"صغير",en:"Small",sfr:"J'habite dans un petit appartement.",sar:"ساكن بشقة صغيرة.",sen:"I live in a small apartment.",img:"petit_petite.webp"},
+ {fr:"Pauvre",ar:"فقير",en:"Poor",sfr:"Cette famille est pauvre.",sar:"هالعيلة فقيرة.",sen:"This family is poor.",img:"pauvre.webp"},
+ {fr:"Propre",ar:"نظيف",en:"Clean",sfr:"Ma chambre est propre.",sar:"غرفتي نظيفة.",sen:"My room is clean.",img:"propre.webp"},
+ {fr:"Plein / Pleine",ar:"ممتلئ",en:"Full",sfr:"Le bus est plein.",sar:"الباص مليان.",sen:"The bus is full.",img:"plein_pleine.webp"},
+ {fr:"Possible",ar:"ممكن",en:"Possible",sfr:"Tout est possible.",sar:"كل شي ممكن.",sen:"Everything is possible.",img:"possible.webp"},
+ {fr:"Patient / Patiente",ar:"صبور",en:"Patient",sfr:"Il est très patient.",sar:"هو صبور كتير.",sen:"He is very patient.",img:"patient_patiente.webp"},
+ {fr:"Pressé / Pressée",ar:"مستعجل",en:"In a hurry",sfr:"Je suis pressé ce matin.",sar:"أنا مستعجل هالصبح.",sen:"I'm in a hurry this morning.",img:"presse_pressee.webp"},
+ {fr:"Prêt / Prête",ar:"جاهز",en:"Ready",sfr:"Je suis prêt à partir.",sar:"أنا جاهز روح.",sen:"I'm ready to leave.",img:"pret_prete.webp"},
+ {fr:"Poli / Polie",ar:"مؤدب",en:"Polite",sfr:"Cet employé est très poli.",sar:"هالموظف مؤدب كتير.",sen:"This employee is very polite.",img:"poli_polie.webp"},
+ {fr:"Puissant / Puissante",ar:"قوي / ذو قوة",en:"Powerful",sfr:"C'est un moteur puissant.",sar:"هاد محرك قوي.",sen:"It's a powerful engine.",img:"puissant_puissante.webp"},
+ {fr:"Proche",ar:"قريب",en:"Near / Close",sfr:"Mon travail est proche de chez moi.",sar:"شغلي قريب من بيتي.",sen:"My workplace is close to my home.",img:"proche.webp"},
+ {fr:"Public / Publique",ar:"عام / حكومي",en:"Public",sfr:"C'est un service public.",sar:"هاد مرفق عام.",sen:"This is a public service.",img:"public_publique.webp"},
+ {fr:"Privé / Privée",ar:"خاص",en:"Private",sfr:"C'est une école privée.",sar:"هاي مدرسة خاصة.",sen:"This is a private school.",img:"prive_privee.webp"},
+ {fr:"Pratique",ar:"عملي / مريح",en:"Practical / Convenient",sfr:"Ce sac est très pratique.",sar:"هالشنطة عملية كتير.",sen:"This bag is very practical.",img:"pratique.webp"},
+ {fr:"Précis / Précise",ar:"دقيق / محدد",en:"Precise / Accurate",sfr:"Donne-moi une réponse précise.",sar:"أعطيني جواب دقيق.",sen:"Give me a precise answer.",img:"precis_precise.webp"},
+ {fr:"Populaire",ar:"شعبي / محبوب",en:"Popular",sfr:"Ce chanteur est très populaire.",sar:"هالمغني محبوب كتير.",sen:"This singer is very popular.",img:"populaire.webp"},
+ {fr:"Positif / Positive",ar:"إيجابي",en:"Positive",sfr:"Il a une attitude positive.",sar:"عنده موقف إيجابي.",sen:"He has a positive attitude.",img:"positif_positive.webp"},
+ {fr:"Personnel / Personnelle",ar:"شخصي",en:"Personal",sfr:"C'est mon choix personnel.",sar:"هاد اختياري الشخصي.",sen:"This is my personal choice.",img:"personnel_personnelle.webp"},
+ {fr:"Pénible",ar:"متعب / شاق / مزعج",en:"Difficult / Exhausting",sfr:"Ce travail est pénible.",sar:"هالشغل متعب وشاق.",sen:"This work is exhausting.",img:"penible.webp"},
+ {fr:"Peureux / Peureuse",ar:"خواف",en:"Fearful / Timid",sfr:"Il est un peu peureux.",sar:"هو خواف شوي.",sen:"He is a little timid.",img:"peureux_peureuse.webp"},
+ {fr:"Parfait / Parfaite",ar:"مثالي / كامل",en:"Perfect",sfr:"Tout est parfait.",sar:"كل شي مثالي.",sen:"Everything is perfect.",img:"parfait_parfaite.webp"},
+ {fr:"Profond / Profonde",ar:"عميق",en:"Deep",sfr:"Ce lac est très profond.",sar:"هالبحيرة عميقة كتير.",sen:"This lake is very deep.",img:"profond_profonde.webp"},
+ {fr:"Précieux / Précieuse",ar:"ثمين / قيّم",en:"Precious / Valuable",sfr:"Ce bijou est précieux.",sar:"هالحلي ثمين.",sen:"This piece of jewelry is precious.",img:"precieux_precieuse.webp"},
+ {fr:"Préférable",ar:"أفضل / مُفضّل",en:"Preferable",sfr:"Il est préférable de réserver à l'avance.",sar:"الأفضل تحجز مسبقاً.",sen:"It is preferable to book in advance.",img:"preferable.webp"},
+ {fr:"Permanent / Permanente",ar:"دائم",en:"Permanent",sfr:"Il cherche un emploi permanent.",sar:"هو عم يدور على شغل دائم.",sen:"He is looking for a permanent job.",img:"permanent_permanente.webp"},
+ {fr:"Ponctuel / Ponctuelle",ar:"ملتزم بالمواعيد",en:"Punctual",sfr:"Elle est toujours ponctuelle.",sar:"هي دايماً بتلتزم بالمواعيد.",sen:"She is always punctual.",img:"ponctuel_ponctuelle.webp"},
+ {fr:"Pâle",ar:"شاحب",en:"Pale",sfr:"Tu as l'air pâle aujourd'hui.",sar:"شكلك شاحب اليوم.",sen:"You look pale today.",img:"pale.webp"},
+ {fr:"Puéril / Puérile",ar:"طفولي / صبياني",en:"Childish",sfr:"C'est une réaction puérile.",sar:"هاد رد فعل طفولي.",sen:"That's a childish reaction.",img:"pueril_puerile.webp"},
+ {fr:"Pittoresque",ar:"خلّاب / جميل بطابعه",en:"Picturesque",sfr:"C'est un village pittoresque.",sar:"هاي قرية خلّابة.",sen:"It's a picturesque village.",img:"pittoresque.webp"},
+ {fr:"Pessimiste",ar:"متشائم",en:"Pessimistic",sfr:"Il est toujours pessimiste.",sar:"هو دايماً متشائم.",sen:"He is always pessimistic.",img:"pessimiste.webp"},
+ {fr:"Productif / Productive",ar:"منتج",en:"Productive",sfr:"J'ai eu une journée productive.",sar:"قضيت يوم منتج.",sen:"I had a productive day.",img:"productif_productive.webp"},
+ {fr:"Professionnel / Professionnelle",ar:"مهني / احترافي",en:"Professional",sfr:"Il est très professionnel.",sar:"هو محترف كتير بشغله.",sen:"He is very professional.",img:"professionnel_professionnelle.webp"},
+ {fr:"Principal / Principale",ar:"رئيسي / أساسي",en:"Main / Principal",sfr:"C'est le problème principal.",sar:"هاد المشكلة الرئيسية.",sen:"This is the main problem.",img:"principal_principale.webp"},
+ {fr:"Prudent / Prudente",ar:"حذر",en:"Careful / Cautious",sfr:"Il faut être prudent sur la route.",sar:"لازم نكون حذرين عالطريق.",sen:"You must be careful on the road.",img:"prudent_prudente.webp"},
+ {fr:"Paisible",ar:"هادئ / مسالم",en:"Peaceful",sfr:"C'est un endroit paisible.",sar:"هاد مكان هادئ.",sen:"It's a peaceful place.",img:"paisible.webp"},
+ {fr:"Particulier / Particulière",ar:"خاص / مميز",en:"Particular / Special",sfr:"C'est un cas particulier.",sar:"هاي حالة خاصة.",sen:"This is a particular case.",img:"particulier_particuliere.webp"},
+ {fr:"Passif / Passive",ar:"سلبي / غير مبادر",en:"Passive",sfr:"Il reste passif devant le problème.",sar:"بيضل سلبي قدام المشكلة.",sen:"He remains passive in the face of the problem.",img:"passif_passive.webp"},
+ {fr:"Précipité / Précipitée",ar:"متسرّع",en:"Hasty / Rushed",sfr:"C'était une décision précipitée.",sar:"كان قرار متسرّع.",sen:"It was a hasty decision.",img:"precipite_precipitee.webp"},
+ {fr:"Préoccupé / Préoccupée",ar:"مشغول البال / قلق",en:"Preoccupied / Worried",sfr:"Il semble préoccupé.",sar:"شكله مشغول البال.",sen:"He seems preoccupied.",img:"preoccupe_preoccupee.webp"},
+ {fr:"Protecteur / Protectrice",ar:"حامٍ / واقٍ",en:"Protective",sfr:"Il est très protecteur avec ses enfants.",sar:"هو بيحمي أولاده وبيهتم فيهم كتير.",sen:"He is very protective of his children.",img:"protecteur_protectrice.webp"},
+ {fr:"Profitable",ar:"مربح",en:"Profitable",sfr:"Cette activité est profitable.",sar:"هالنشاط مربح.",sen:"This activity is profitable.",img:"profitable.webp"},
+ {fr:"Portable",ar:"قابل للحمل / محمول",en:"Portable",sfr:"Cet ordinateur est portable.",sar:"هالكمبيوتر محمول.",sen:"This computer is portable.",img:"portable.webp"},
+ {fr:"Prévisible",ar:"متوقّع",en:"Predictable",sfr:"Le résultat était prévisible.",sar:"النتيجة كانت متوقعة.",sen:"The result was predictable.",img:"previsible.webp"},
+ {fr:"Présent / Présente",ar:"حاضر / موجود",en:"Present",sfr:"Tous les employés sont présents.",sar:"كل الموظفين موجودين.",sen:"All employees are present.",img:"present_presente.webp"},
+ {fr:"Pressant / Pressante",ar:"عاجل / ملحّ",en:"Urgent / Pressing",sfr:"J'ai une demande pressante.",sar:"عندي طلب مستعجل.",sen:"I have an urgent request.",img:"pressant_pressante.webp"},
+ {fr:"Préféré / Préférée",ar:"مفضّل",en:"Favourite / Preferred",sfr:"C'est mon plat préféré.",sar:"هاد أكلي المفضّل.",sen:"This is my favorite dish.",img:"prefere_preferee.webp"},
+ {fr:"Préparé / Préparée",ar:"مُحضّر / جاهز",en:"Prepared",sfr:"Le repas est déjà préparé.",sar:"الأكل محضّر من قبل.",sen:"The meal is already prepared.",img:"prepare_preparee.webp"},
+ {fr:"Plié / Pliée",ar:"مطوي",en:"Folded",sfr:"Les vêtements sont bien pliés.",sar:"التياب مطوية ومرتبة.",sen:"The clothes are neatly folded.",img:"plie_pliee.webp"},
+ {fr:"Périmé / Périmée",ar:"منتهي الصلاحية",en:"Expired",sfr:"Ce produit est périmé.",sar:"هالمنتج منتهي الصلاحية.",sen:"This product has expired.",img:"perime_perimee.webp"},
+ {fr:"Partagé / Partagée",ar:"مشترك",en:"Shared",sfr:"C'est un espace partagé.",sar:"هاد مكان مشترك.",sen:"This is a shared space.",img:"partage_partagee.webp"},
+ {fr:"Pensif / Pensive",ar:"شارد الذهن / غارق بالتفكير",en:"Thoughtful / Pensive",sfr:"Il a l'air pensif.",sar:"شكله غرقان بالتفكير.",sen:"He looks thoughtful.",img:"pensif_pensive.webp"},
+ {fr:"Plausible",ar:"معقول / قابل للتصديق",en:"Plausible",sfr:"Son explication est plausible.",sar:"تفسيره معقول وممكن نصدقه.",sen:"His explanation is plausible.",img:"plausible.webp"},
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+580000+i;st.c['adjectifs'][L].push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();delAdjP();updAdjP();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
