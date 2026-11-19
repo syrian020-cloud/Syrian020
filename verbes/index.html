@@ -2198,24 +2198,6 @@ function updAdj(){
  {fr:"Commun / Commune",ar:"مشترك / عام",en:"Common",sfr:"C'est un problème commun.",sar:"هذه مشكلة مشتركة.",sen:"It is a common problem.",img:"commun_commune.webp"},
  {fr:"Coquin / Coquine",ar:"مشاغب / ماكر",en:"Naughty",sfr:"Cet enfant est très coquin.",sar:"هذا الطفل مشاغب جدًا.",sen:"This child is very naughty.",img:"coquin_coquine.webp"},
  {fr:"Certain / Certaine",ar:"معين / متأكد",en:"Certain / Sure",sfr:"Je suis certain de ma décision.",sar:"أنا متأكد من قراري.",sen:"I am sure of my decision.",img:"certain_certaine.webp"},
- {fr:"Obsolète",ar:"قديم وغير صالح للاستخدام",en:"obsolete / outdated",sfr:"Cette information est obsolète.",sar:"هالمعلومة قديمة وما عادت صالحة.",sen:"This information is outdated.",img:"obsolete.webp"},
- {fr:"Ordinaire",ar:"عادي",en:"ordinary / regular",sfr:"Je prends un café ordinaire.",sar:"بدي قهوة عادية.",sen:"I'll have a regular coffee.",img:"ordinaire.webp"},
- {fr:"Optimiste",ar:"متفائل",en:"optimistic",sfr:"Je reste optimiste.",sar:"لسا متفائل.",sen:"I remain optimistic.",img:"optimiste.webp"},
- {fr:"Organique",ar:"عضوي",en:"organic",sfr:"Je préfère les produits organiques.",sar:"بفضّل المنتجات العضوية.",sen:"I prefer organic products.",img:"organique.webp"},
- {fr:"Oral / Orale",ar:"شفهي",en:"oral / spoken",sfr:"J'ai passé un examen oral.",sar:"قدمت امتحان شفهي.",sen:"I took an oral exam.",img:"oral_orale.webp"},
- {fr:"Offert / Offerte",ar:"مجاني / مقدَّم",en:"free / offered",sfr:"La livraison est offerte.",sar:"التوصيل مجاني.",sen:"Delivery is free.",img:"offert_offerte.webp"},
- {fr:"Obscur / Obscure",ar:"مظلم / غير واضح",en:"dark / unclear",sfr:"Le texte est obscur.",sar:"النص مو واضح.",sen:"The text is unclear.",img:"obscur_obscure.webp"},
- {fr:"Obligé / Obligée",ar:"مضطر / مجبور",en:"obliged / forced",sfr:"Je suis obligé de partir tôt.",sar:"أنا مضطر اطلع بكير.",sen:"I'm obliged to leave early.",img:"oblige_obligee.webp"},
- {fr:"Optimal / Optimale",ar:"أمثل / أفضل",en:"optimal",sfr:"C'est la solution optimale.",sar:"هاد أفضل حل.",sen:"It's the optimal solution.",img:"optimal_optimale.webp"},
- {fr:"Observé / Observée",ar:"ملاحظ / مرصود / ملحوظ",en:"observed",sfr:"Aucun problème n'a été observé.",sar:"ما تم ملاحظة أي مشكلة.",sen:"No problem was observed.",img:"observe_observee.webp"},
- {fr:"Ouvert(e) d'esprit",ar:"منفتح الفكر",en:"open-minded",sfr:"Je suis ouvert d'esprit et j'aime apprendre.",sar:"أنا شخص منفتح وبحب اتعلم.",sen:"I'm open-minded and I like learning.",img:"ouvert_e_d_esprit.webp"},
- {fr:"Offensif / Offensive",ar:"هجومي / عدواني / مسيء",en:"offensive / aggressive",sfr:"Son comportement est offensif.",sar:"تصرفه هجومي.",sen:"His behavior is aggressive.",img:"offensif_offensive.webp"},
- {fr:"Objectif / Objective",ar:"موضوعي",en:"objective / impartial / unbiased",sfr:"Il faut rester objectif.",sar:"لازم تضل موضوعي.",sen:"You have to remain objective.",img:"objectif_objective.webp"},
- {fr:"Organisé / Organisée",ar:"منظّم",en:"organized",sfr:"Je suis quelqu'un de sérieux et organisé.",sar:"أنا شخص جدي ومنظّم.",sen:"I'm a serious and organized person.",img:"organise_organisee.webp"},
- {fr:"Officiel / Officielle",ar:"رسمي",en:"official",sfr:"C'est un document officiel.",sar:"هاي وثيقة رسمية.",sen:"It's an official document.",img:"officiel_officielle.webp"},
- {fr:"Offensant / Offensante",ar:"مسيء / جارح",en:"offensive / insulting",sfr:"Cette remarque est offensante.",sar:"هالملاحظة مسيئة.",sen:"This remark is offensive.",img:"offensant_offensante.webp"},
- {fr:"Obéissant / Obéissante",ar:"مطيع / ملتزم",en:"obedient",sfr:"Il est obéissant et respecte les règles.",sar:"هو ملتزم وبيحترم القوانين.",sen:"He is obedient and follows the rules.",img:"obeissant_obeissante.webp"},
- {fr:"Opportun / Opportun(e)",ar:"مناسب / في الوقت المناسب / ملائم",en:"timely / suitable / appropriate",sfr:"C'est le moment opportun pour faire la demande.",sar:"هاد الوقت المناسب لتقديم الطلب.",sen:"It's the right time to make the request.",img:"opportun_opportun_e.webp"},
  {fr:"Périmé",ar:"منتهي الصلاحية",en:"Expired",sfr:"Ce produit est périmé.",sar:"هذا المنتج منتهي الصلاحية.",sen:"This product is expired.",img:"perime.webp"},
  {fr:"Propre",ar:"نظيف",en:"Clean",sfr:"Le poste de travail doit rester propre.",sar:"يجب أن يبقى مكان العمل نظيفًا.",sen:"The workstation must remain clean.",img:"propre.webp"},
  {fr:"Piquant / Piquante",ar:"حار (لاذع)",en:"Hot / Pungent",sfr:"Le wasabi est très piquant.",sar:"الوسابي حار جدًا.",sen:"Wasabi is very pungent.",img:"piquant_piquante.webp"},
@@ -5924,13 +5906,38 @@ function updAdjN(){
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+560000+i;st.c['adjectifs'][L].push(u)}});
  save();}
 
+function delAdjO(){
+ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].O){st.c['adjectifs'].O=[];save()}
+}
+function updAdjO(){
+ const add=[
+ {fr:"Occupé / Occupée",ar:"مشغول",en:"Busy",sfr:"Je suis occupé aujourd'hui.",sar:"أنا مشغول اليوم.",sen:"I'm busy today.",img:"occupe_occupee.webp"},
+ {fr:"Ouvert / Ouverte",ar:"مفتوح",en:"Open",sfr:"Le magasin est ouvert.",sar:"المحل مفتوح.",sen:"The shop is open.",img:"ouvert_ouverte.webp"},
+ {fr:"Obligatoire",ar:"إلزامي / إجباري",en:"Mandatory",sfr:"Le casque est obligatoire.",sar:"الخوذة إجبارية.",sen:"A helmet is mandatory.",img:"obligatoire.webp"},
+ {fr:"Original / Originale",ar:"أصلي / مميز",en:"Original",sfr:"C'est une idée originale.",sar:"هاي فكرة مميزة.",sen:"That's an original idea.",img:"original_originale.webp"},
+ {fr:"Ordinaire",ar:"عادي",en:"Ordinary",sfr:"C'est une journée ordinaire.",sar:"هاد يوم عادي.",sen:"It's an ordinary day.",img:"ordinaire.webp"},
+ {fr:"Optimiste",ar:"متفائل",en:"Optimistic",sfr:"Je suis optimiste pour l'avenir.",sar:"أنا متفائل بالمستقبل.",sen:"I'm optimistic about the future.",img:"optimiste.webp"},
+ {fr:"Officiel / Officielle",ar:"رسمي",en:"Official",sfr:"C'est un document officiel.",sar:"هاد مستند رسمي.",sen:"This is an official document.",img:"officiel_officielle.webp"},
+ {fr:"Obligé / Obligée",ar:"مضطر / مُلزَم",en:"Obliged / Forced",sfr:"Je suis obligé de partir.",sar:"أنا مضطر روح.",sen:"I'm obliged to leave.",img:"oblige_obligee.webp"},
+ {fr:"Organisé / Organisée",ar:"منظّم",en:"Organized",sfr:"Mon bureau est bien organisé.",sar:"مكتبي مرتب ومنظّم.",sen:"My desk is well organized.",img:"organise_organisee.webp"},
+ {fr:"Orgueilleux / Orgueilleuse",ar:"متكبّر / مغرور",en:"Arrogant / Proud",sfr:"Il est trop orgueilleux.",sar:"هو مغرور زيادة عن اللزوم.",sen:"He is too arrogant.",img:"orgueilleux_orgueilleuse.webp"},
+ {fr:"Obèse",ar:"بدين جداً",en:"Obese",sfr:"Il est obèse.",sar:"هو عنده سمنة مفرطة.",sen:"He is obese.",img:"obese.webp"},
+ {fr:"Ovale",ar:"بيضاوي",en:"Oval",sfr:"Cette table est ovale.",sar:"هالطاولة بيضاوية.",sen:"This table is oval.",img:"ovale.webp"},
+ {fr:"Ondulé / Ondulée",ar:"متموّج",en:"Wavy",sfr:"Elle a les cheveux ondulés.",sar:"شعرها متموّج.",sen:"She has wavy hair.",img:"ondule_ondulee.webp"},
+ {fr:"Obscur / Obscure",ar:"مظلم / غامض",en:"Dark / Obscure",sfr:"La pièce est obscure.",sar:"الغرفة معتمة.",sen:"The room is dark.",img:"obscur_obscure.webp"},
+ {fr:"Oisif / Oisive",ar:"عاطل عن العمل / خامل",en:"Idle",sfr:"Il mène une vie oisive.",sar:"عايش حياة كلها خمول.",sen:"He leads an idle life.",img:"oisif_oisive.webp"},
+ {fr:"Omniprésent / Omniprésente",ar:"موجود في كل مكان",en:"Omnipresent",sfr:"La technologie est omniprésente.",sar:"التكنولوجيا موجودة بكل مكان.",sen:"Technology is everywhere.",img:"omnipresent_omnipresente.webp"},
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+570000+i;st.c['adjectifs'][L].push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
