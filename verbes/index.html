@@ -6639,13 +6639,120 @@ function updAdvV(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+747000+i;st.c['adverbes'][L].push(u)}});
  save();}
+function delGramPrepositions(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["prepositions"]){st.c["grammaticaux"]["prepositions"]=[];save()} }
+function updGramPrepositions(){
+ const add=[
+{"fr":"À","ar":"في / إلى / عند","en":"At / To","sfr":"Je vais à Paris.","sar":"أنا رايح على باريس.","sen":"I'm going to Paris.","img":"a.webp"},
+{"fr":"De","ar":"من / عن","en":"From / Of","sfr":"Je viens de France.","sar":"أنا جاي من فرنسا.","sen":"I come from France.","img":"de.webp"},
+{"fr":"Dans","ar":"داخل / في","en":"In / Inside","sfr":"Les clés sont dans le sac.","sar":"المفاتيح جوّا الشنطة.","sen":"The keys are in the bag.","img":"dans.webp"},
+{"fr":"Sur","ar":"على / فوق","en":"On","sfr":"Le téléphone est sur la table.","sar":"التلفون على الطاولة.","sen":"The phone is on the table.","img":"sur.webp"},
+{"fr":"Sous","ar":"تحت","en":"Under","sfr":"Le chat est sous la chaise.","sar":"البس تحت الكرسي.","sen":"The cat is under the chair.","img":"sous.webp"},
+{"fr":"Avec","ar":"مع","en":"With","sfr":"Je travaille avec mon frère.","sar":"أنا بشتغل مع أخي.","sen":"I work with my brother.","img":"avec.webp"},
+{"fr":"Sans","ar":"بدون","en":"Without","sfr":"Je bois du café sans sucre.","sar":"بشرب قهوة بدون سكر.","sen":"I drink coffee without sugar.","img":"sans.webp"},
+{"fr":"Pour","ar":"من أجل / لـ","en":"For","sfr":"Ce cadeau est pour toi.","sar":"هالهدية إلك.","sen":"This gift is for you.","img":"pour.webp"},
+{"fr":"Chez","ar":"عند / إلى مكان شخص","en":"At / To someone's place","sfr":"Je vais chez le médecin.","sar":"أنا رايح لعند الدكتور.","sen":"I'm going to the doctor's.","img":"chez.webp"},
+{"fr":"Par","ar":"بواسطة / عبر","en":"By / Through","sfr":"Je vais au travail en tram.","sar":"بروح عالشغل بالترام.","sen":"I go to work by tram.","img":"par.webp"},
+{"fr":"En","ar":"في / إلى","en":"In / To","sfr":"J'habite en France.","sar":"أنا ساكن بفرنسا.","sen":"I live in France.","img":"en.webp"},
+{"fr":"Au","ar":"إلى / في","en":"To / In","sfr":"Je vais au Canada.","sar":"أنا رايح على كندا.","sen":"I'm going to Canada.","img":"au.webp"},
+{"fr":"Aux","ar":"إلى / في","en":"To / In","sfr":"Je vais aux toilettes.","sar":"أنا رايح عالحمّام.","sen":"I'm going to the restroom.","img":"aux.webp"},
+{"fr":"Du","ar":"من / عن","en":"From / Of","sfr":"Je reviens du travail.","sar":"أنا راجع من الشغل.","sen":"I'm coming back from work.","img":"du.webp"},
+{"fr":"Des","ar":"من / عن","en":"From / Of","sfr":"Je reviens des magasins.","sar":"أنا راجع من المحلات.","sen":"I'm coming back from the shops.","img":"des.webp"},
+{"fr":"Entre","ar":"بين","en":"Between","sfr":"La pharmacie est entre la banque et le café.","sar":"الصيدلية بين البنك والمقهى.","sen":"The pharmacy is between the bank and the café.","img":"entre.webp"},
+{"fr":"Devant","ar":"أمام","en":"In front of","sfr":"J'attends devant la gare.","sar":"أنا ناطر قدام المحطة.","sen":"I'm waiting in front of the station.","img":"devant.webp"},
+{"fr":"Derrière","ar":"خلف","en":"Behind","sfr":"La voiture est derrière la maison.","sar":"السيارة ورا البيت.","sen":"The car is behind the house.","img":"derriere.webp"},
+{"fr":"Avant","ar":"قبل","en":"Before","sfr":"Je prends un café avant le travail.","sar":"بشرب قهوة قبل الشغل.","sen":"I have coffee before work.","img":"avant.webp"},
+{"fr":"Après","ar":"بعد","en":"After","sfr":"Je rentre à la maison après le travail.","sar":"برجع عالبيت بعد الشغل.","sen":"I go home after work.","img":"apres.webp"},
+{"fr":"Pendant","ar":"أثناء / خلال","en":"During","sfr":"Je ne parle pas pendant le cours.","sar":"ما بحكي أثناء الدرس.","sen":"I don't talk during the lesson.","img":"pendant.webp"},
+{"fr":"Depuis","ar":"منذ","en":"Since / For","sfr":"J'habite ici depuis deux ans.","sar":"أنا ساكن هون من سنتين.","sen":"I've been living here for two years.","img":"depuis.webp"},
+{"fr":"Jusqu'à","ar":"حتى / إلى غاية","en":"Until / Up to","sfr":"Je travaille jusqu'à 22 heures.","sar":"بشتغل لحد الساعة عشرة بالليل.","sen":"I work until 10 p.m.","img":"jusqu_a.webp"},
+{"fr":"Vers","ar":"حوالي / باتجاه","en":"Around / Toward","sfr":"J'arrive vers huit heures.","sar":"بوصل حوالي الساعة تمانية.","sen":"I arrive around eight o'clock.","img":"vers.webp"},
+{"fr":"Chez moi","ar":"عندي / في بيتي","en":"At my home","sfr":"Je reste chez moi ce soir.","sar":"رح ضل ببيتي هالمسا.","sen":"I'm staying at home tonight.","img":"chez_moi.webp"},
+{"fr":"Contre","ar":"ضد / مقابل","en":"Against","sfr":"Je suis contre cette décision.","sar":"أنا ضد هالقرار.","sen":"I'm against this decision.","img":"contre.webp"},
+{"fr":"Parmi","ar":"من بين","en":"Among","sfr":"Il est parmi les meilleurs élèves.","sar":"هو من بين أفضل الطلاب.","sen":"He is among the best students.","img":"parmi.webp"},
+{"fr":"Selon","ar":"حسب / وفقاً لـ","en":"According to","sfr":"Selon le médecin, tout va bien.","sar":"حسب كلام الدكتور، كل شي تمام.","sen":"According to the doctor, everything is fine.","img":"selon.webp"},
+{"fr":"Malgré","ar":"رغم","en":"Despite","sfr":"Malgré la pluie, je vais travailler.","sar":"رغم المطر، رح روح عالشغل.","sen":"Despite the rain, I'm going to work.","img":"malgre.webp"},
+{"fr":"Sauf","ar":"باستثناء","en":"Except","sfr":"Tout le monde est venu sauf Ali.","sar":"الكل إجا ما عدا علي.","sen":"Everyone came except Ali.","img":"sauf.webp"},
+{"fr":"À côté de","ar":"بجانب","en":"Next to","sfr":"La banque est à côté de la pharmacie.","sar":"البنك جنب الصيدلية.","sen":"The bank is next to the pharmacy.","img":"a_cote_de.webp"},
+{"fr":"En face de","ar":"مقابل","en":"Opposite / Across from","sfr":"J'habite en face de la gare.","sar":"أنا ساكن مقابل المحطة.","sen":"I live opposite the station.","img":"en_face_de.webp"},
+{"fr":"À travers","ar":"عبر / من خلال","en":"Through / Across","sfr":"Je marche à travers le parc.","sar":"أنا بمشي عبر الحديقة.","sen":"I walk through the park.","img":"a_travers.webp"},
+{"fr":"Autour de","ar":"حول","en":"Around","sfr":"Il y a des arbres autour de la maison.","sar":"في أشجار حول البيت.","sen":"There are trees around the house.","img":"autour_de.webp"},
+{"fr":"Loin de","ar":"بعيداً عن","en":"Far from","sfr":"Mon travail est loin de chez moi.","sar":"شغلي بعيد عن بيتي.","sen":"My workplace is far from my home.","img":"loin_de.webp"},
+{"fr":"Près de","ar":"بالقرب من","en":"Near","sfr":"J'habite près du tram.","sar":"أنا ساكن قريب من الترام.","sen":"I live near the tram.","img":"pres_de.webp"},
+{"fr":"À cause de","ar":"بسبب","en":"Because of","sfr":"Je suis en retard à cause des embouteillages.","sar":"تأخرت بسبب أزمة السير.","sen":"I'm late because of the traffic.","img":"a_cause_de.webp"},
+{"fr":"Grâce à","ar":"بفضل","en":"Thanks to","sfr":"J'ai réussi grâce à ton aide.","sar":"نجحت بفضل مساعدتك.","sen":"I succeeded thanks to your help.","img":"grace_a.webp"},
+{"fr":"Au lieu de","ar":"بدلاً من","en":"Instead of","sfr":"Je marche au lieu de prendre le bus.","sar":"بمشي بدل ما آخد الباص.","sen":"I walk instead of taking the bus.","img":"au_lieu_de.webp"},
+{"fr":"Au-dessus de","ar":"فوق / أعلى من","en":"Above","sfr":"L'avion vole au-dessus des nuages.","sar":"الطيارة عم تطير فوق الغيوم.","sen":"The plane is flying above the clouds.","img":"au_dessus_de.webp"},
+{"fr":"Au-dessous de","ar":"تحت / أسفل من","en":"Below","sfr":"La température est au-dessous de zéro.","sar":"درجة الحرارة تحت الصفر.","sen":"The temperature is below zero.","img":"au_dessous_de.webp"},
+{"fr":"Le long de","ar":"على طول","en":"Along","sfr":"Nous marchons le long de la rivière.","sar":"عم نمشي على طول النهر.","sen":"We are walking along the river.","img":"le_long_de.webp"},
+{"fr":"En direction de","ar":"باتجاه","en":"In the direction of / Toward","sfr":"Le bus roule en direction du centre-ville.","sar":"الباص ماشي باتجاه وسط المدينة.","sen":"The bus is heading toward the city centre.","img":"en_direction_de.webp"},
+{"fr":"Faute de","ar":"بسبب عدم وجود / لعدم توفر","en":"For lack of","sfr":"Faute de temps, je ne peux pas venir.","sar":"بسبب ضيق الوقت، ما فيني إجي.","sen":"For lack of time, I can't come.","img":"faute_de.webp"},
+{"fr":"Au milieu de","ar":"في وسط","en":"In the middle of","sfr":"Il y a une fontaine au milieu de la place.","sar":"في نافورة بنص الساحة.","sen":"There is a fountain in the middle of the square.","img":"au_milieu_de.webp"},
+{"fr":"À proximité de","ar":"بالقرب من","en":"Close to / Near","sfr":"L'hôpital est à proximité de la gare.","sar":"المشفى قريب من المحطة.","sen":"The hospital is close to the station.","img":"a_proximite_de.webp"},
+{"fr":"En faveur de","ar":"لصالح / مؤيد لـ","en":"In favour of","sfr":"Je suis en faveur de cette proposition.","sar":"أنا مع هالاقتراح.","sen":"I'm in favour of this proposal.","img":"en_faveur_de.webp"},
+{"fr":"À l'aide de","ar":"باستخدام / بمساعدة","en":"With the help of","sfr":"J'ouvre la boîte à l'aide d'un couteau.","sar":"بفتح العلبة باستخدام سكين.","sen":"I open the box with the help of a knife.","img":"a_l_aide_de.webp"},
+{"fr":"Vis-à-vis de","ar":"تجاه / بالنسبة إلى","en":"Toward / With regard to","sfr":"Il est honnête vis-à-vis de ses collègues.","sar":"هو صريح مع زملائه.","sen":"He is honest with his colleagues.","img":"vis_a_vis_de.webp"},
+{"fr":"À l'occasion de","ar":"بمناسبة","en":"On the occasion of","sfr":"Je vous souhaite une bonne fête à l'occasion de votre anniversaire.","sar":"بتمنالك عيد سعيد بمناسبة عيد ميلادك.","sen":"I wish you a happy celebration on the occasion of your birthday.","img":"a_l_occasion_de.webp"},
+{"fr":"En cas de","ar":"في حال / في حالة","en":"In case of","sfr":"En cas de problème, appelez-moi.","sar":"إذا صار في مشكلة، اتصل فيني.","sen":"In case of a problem, call me.","img":"en_cas_de.webp"},
+{"fr":"À défaut de","ar":"في حال عدم وجود / لعدم توفر","en":"In the absence of","sfr":"À défaut de voiture, je prends le bus.","sar":"إذا ما في سيارة، باخد الباص.","sen":"In the absence of a car, I take the bus.","img":"a_defaut_de.webp"},
+{"fr":"À l'égard de","ar":"تجاه / حيال","en":"Toward / With regard to","sfr":"Il est toujours respectueux à l'égard de ses collègues.","sar":"هو دايماً محترم تجاه زملائه.","sen":"He is always respectful toward his colleagues.","img":"a_l_egard_de.webp"},
+{"fr":"En vue de","ar":"بهدف / استعداداً لـ","en":"With a view to / In preparation for","sfr":"Je fais une formation en vue de trouver un meilleur travail.","sar":"عم أعمل تدريب بهدف لاقي شغل أحسن.","sen":"I'm taking a course with a view to finding a better job.","img":"en_vue_de.webp"},
+{"fr":"Au sujet de","ar":"بخصوص / حول","en":"About / Regarding","sfr":"Je voudrais vous parler au sujet de mon contrat.","sar":"بدي احكي معك بخصوص عقدي.","sen":"I would like to talk to you about my contract.","img":"au_sujet_de.webp"},
+{"fr":"En fonction de","ar":"حسب / بناءً على","en":"Depending on","sfr":"Les horaires changent en fonction du travail.","sar":"أوقات الدوام بتتغير حسب الشغل.","sen":"Working hours change depending on the work.","img":"en_fonction_de.webp"},
+{"fr":"À la place de","ar":"بدلاً من","en":"Instead of","sfr":"Je prends le train à la place du bus.","sar":"باخد القطار بدل الباص.","sen":"I take the train instead of the bus.","img":"a_la_place_de.webp"},
+{"fr":"En plus de","ar":"بالإضافة إلى","en":"In addition to","sfr":"En plus du français, j'apprends l'anglais.","sar":"بالإضافة للفرنسي، عم اتعلم الإنكليزي.","sen":"In addition to French, I'm learning English.","img":"en_plus_de.webp"},
+{"fr":"À l'avance","ar":"مسبقاً","en":"In advance","sfr":"Merci de me prévenir à l'avance.","sar":"شكراً إنك تخبرني مسبقاً.","sen":"Please let me know in advance.","img":"a_l_avance.webp"}
+ ];
+ st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="prepositions";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
+ add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+748000+i;st.c["grammaticaux"][F].push(u)}});
+ save();}
+function delGramPronoms(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["pronoms"]){st.c["grammaticaux"]["pronoms"]=[];save()} }
+function updGramPronoms(){
+ const add=[
+{"fr":"Je","ar":"أنا","en":"I","sfr":"Je travaille aujourd'hui.","sar":"أنا بشتغل اليوم.","sen":"I am working today.","img":"je.webp"},
+{"fr":"Tu","ar":"أنتَ / أنتِ","en":"You","sfr":"Tu habites en France.","sar":"إنت ساكن بفرنسا.","sen":"You live in France.","img":"tu.webp"},
+{"fr":"Il","ar":"هو","en":"He","sfr":"Il parle français.","sar":"هو بيحكي فرنسي.","sen":"He speaks French.","img":"il.webp"},
+{"fr":"Elle","ar":"هي","en":"She","sfr":"Elle travaille à Strasbourg.","sar":"هي بتشتغل بستراسبورغ.","sen":"She works in Strasbourg.","img":"elle.webp"},
+{"fr":"On","ar":"نحن / الناس / الواحد","en":"We / People / One","sfr":"On va au travail ensemble.","sar":"نحنا رايحين عالشغل سوا.","sen":"We're going to work together.","img":"on.webp"},
+{"fr":"Nous","ar":"نحن","en":"We","sfr":"Nous apprenons le français.","sar":"نحنا عم نتعلم الفرنسي.","sen":"We are learning French.","img":"nous.webp"},
+{"fr":"Vous","ar":"أنتم / حضرتك","en":"You","sfr":"Vous pouvez entrer.","sar":"فيكن تفوتوا / حضرتك فيك تفوت.","sen":"You can come in.","img":"vous.webp"},
+{"fr":"Ils","ar":"هم (مذكر أو مجموعة مختلطة)","en":"They","sfr":"Ils travaillent ensemble.","sar":"هنن بيشتغلوا سوا.","sen":"They work together.","img":"ils.webp"},
+{"fr":"Elles","ar":"هنّ (مجموعة مؤنثة)","en":"They","sfr":"Elles étudient à l'université.","sar":"هنن عم يدرسوا بالجامعة.","sen":"They are studying at university.","img":"elles.webp"},
+{"fr":"Me / M'","ar":"ني / إياي","en":"Me","sfr":"Il me regarde.","sar":"هو عم يطلع فيني.","sen":"He is looking at me.","img":"me_m.webp"},
+{"fr":"Te / T'","ar":"ك / إياك","en":"You","sfr":"Je te comprends.","sar":"أنا بفهمك.","sen":"I understand you.","img":"te_t.webp"},
+{"fr":"Le / L'","ar":"إياه / ـه","en":"Him / It","sfr":"Je le connais.","sar":"أنا بعرفه.","sen":"I know him.","img":"le_l.webp"},
+{"fr":"La / L'","ar":"إياها / ـها","en":"Her / It","sfr":"Je la connais.","sar":"أنا بعرفها.","sen":"I know her.","img":"la_l.webp"},
+{"fr":"Les","ar":"إياهم / ـهم أو ـهن","en":"Them","sfr":"Je les connais.","sar":"أنا بعرفهن.","sen":"I know them.","img":"les.webp"},
+{"fr":"Lui","ar":"له / لها","en":"To him / To her","sfr":"Je lui donne un cadeau.","sar":"أنا بعطيه هدية.","sen":"I give him a gift.","img":"lui.webp"},
+{"fr":"Leur","ar":"لهم / لهن","en":"To them","sfr":"Je leur parle souvent.","sar":"بحكي معن كتير.","sen":"I often talk to them.","img":"leur.webp"},
+{"fr":"Moi","ar":"أنا / إيّاي","en":"Me","sfr":"Moi, j'aime le français.","sar":"أنا بحب اللغة الفرنسية.","sen":"I like French.","img":"moi.webp"},
+{"fr":"Toi","ar":"أنت / إيّاك","en":"You","sfr":"Je viens avec toi.","sar":"أنا جاي معك.","sen":"I'm coming with you.","img":"toi.webp"},
+{"fr":"Soi","ar":"النفس / المرء","en":"Oneself","sfr":"Il faut croire en soi.","sar":"لازم الواحد يثق بحاله.","sen":"You have to believe in yourself.","img":"soi.webp"},
+{"fr":"Eux","ar":"هم / إيّاهم","en":"Them (مذكر أو مختلط)","sfr":"Je vais avec eux.","sar":"أنا رايح معن.","sen":"I'm going with them.","img":"eux.webp"},
+{"fr":"Celui","ar":"هذا / ذلك (مذكر مفرد)","en":"This one / That one","sfr":"Je préfère celui-ci.","sar":"بفضّل هاد.","sen":"I prefer this one.","img":"celui.webp"},
+{"fr":"Celle","ar":"هذه / تلك (مؤنث مفرد)","en":"This one / That one","sfr":"Je préfère celle-ci.","sar":"بفضّل هاي.","sen":"I prefer this one.","img":"celle.webp"},
+{"fr":"Ceux","ar":"هؤلاء / أولئك (مذكر جمع أو مختلط)","en":"These ones / Those ones","sfr":"Ceux qui travaillent sérieusement réussissent.","sar":"اللي بيشتغلوا بجد بينجحوا.","sen":"Those who work seriously succeed.","img":"ceux.webp"},
+{"fr":"Celles","ar":"هؤلاء / أولئك (مؤنث جمع)","en":"These ones / Those ones","sfr":"Celles de gauche sont moins chères.","sar":"اللي عاليسار أرخص.","sen":"The ones on the left are cheaper.","img":"celles.webp"},
+{"fr":"Ceci","ar":"هذا","en":"This","sfr":"Ceci est important.","sar":"هاد الشي مهم.","sen":"This is important.","img":"ceci.webp"},
+{"fr":"Cela","ar":"ذلك / هذا","en":"That","sfr":"Cela me plaît beaucoup.","sar":"هالشي بيعجبني كتير.","sen":"I like that very much.","img":"cela.webp"},
+{"fr":"Ça","ar":"هذا / ذلك (باللغة اليومية)","en":"This / That","sfr":"Ça va bien.","sar":"الأمور تمام.","sen":"It's going well.","img":"ca.webp"},
+{"fr":"Qui","ar":"مَن","en":"Who","sfr":"Qui est à la porte ?","sar":"مين عالباب؟","sen":"Who is at the door?","img":"qui.webp"},
+{"fr":"Que / Qu'","ar":"ماذا","en":"What","sfr":"Que veux-tu manger ?","sar":"شو بدك تاكل؟","sen":"What do you want to eat?","img":"que_qu.webp"},
+{"fr":"Quoi","ar":"ماذا","en":"What","sfr":"Tu penses à quoi ?","sar":"بماذا عم تفكر؟","sen":"What are you thinking about?","img":"quoi.webp"},
+{"fr":"Lequel","ar":"أيّ واحد (مذكر مفرد)","en":"Which one","sfr":"Lequel tu préfères ?","sar":"أي واحد بتفضّل؟","sen":"Which one do you prefer?","img":"lequel.webp"},
+{"fr":"Laquelle","ar":"أيّ واحدة (مؤنث مفرد)","en":"Which one","sfr":"Laquelle tu veux ?","sar":"أي وحدة بدك؟","sen":"Which one do you want?","img":"laquelle.webp"},
+{"fr":"Lesquels","ar":"أيّهم (مذكر جمع أو مختلط)","en":"Which ones","sfr":"Lesquels sont à toi ?","sar":"أيّهن إلك؟","sen":"Which ones are yours?","img":"lesquels.webp"},
+{"fr":"Lesquelles","ar":"أيّهن (مؤنث جمع)","en":"Which ones","sfr":"Lesquelles tu préfères ?","sar":"أي وحدات بتفضّل؟","sen":"Which ones do you prefer?","img":"lesquelles.webp"}
+ ];
+ st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="pronoms";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
+ add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+749000+i;st.c["grammaticaux"][F].push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
- const keep={noms:1,adjectifs:1,adverbes:1};
+ const keep={noms:1,adjectifs:1,adverbes:1,grammaticaux:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();delAdjP();updAdjP();delAdjR();updAdjR();delAdjS();updAdjS();delAdjT();updAdjT();updAdjT2();delAdjU();updAdjU();delAdjV();updAdjV();delAdjW();updAdjW();delAdjX();updAdjX();delAdjZ();updAdjZ();updAdjK2();updAdjK3();delAdvB();updAdvB();delAdvC();updAdvC();updAdvD();delAdvD();updAdvD2();delAdvE();updAdvE();delAdvF();updAdvF();delAdvG();updAdvG();delAdvH();updAdvH();delAdvI();updAdvI();delAdvJ();updAdvJ();delAdvL();updAdvL();delAdvM();updAdvM();delAdvN();updAdvN();delAdvO();updAdvO();delAdvP();updAdvP();delAdvQ();updAdvQ();delAdvR();updAdvR();delAdvS();updAdvS();delAdvT();updAdvT();delAdvU();updAdvU();delAdvV();updAdvV();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();delAdjP();updAdjP();delAdjR();updAdjR();delAdjS();updAdjS();delAdjT();updAdjT();updAdjT2();delAdjU();updAdjU();delAdjV();updAdjV();delAdjW();updAdjW();delAdjX();updAdjX();delAdjZ();updAdjZ();updAdjK2();updAdjK3();delAdvB();updAdvB();delAdvC();updAdvC();updAdvD();delAdvD();updAdvD2();delAdvE();updAdvE();delAdvF();updAdvF();delAdvG();updAdvG();delAdvH();updAdvH();delAdvI();updAdvI();delAdvJ();updAdvJ();delAdvL();updAdvL();delAdvM();updAdvM();delAdvN();updAdvN();delAdvO();updAdvO();delAdvP();updAdvP();delAdvQ();updAdvQ();delAdvR();updAdvR();delAdvS();updAdvS();delAdvT();updAdvT();delAdvU();updAdvU();delAdvV();updAdvV();delGramPrepositions();updGramPrepositions();delGramPronoms();updGramPronoms();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
