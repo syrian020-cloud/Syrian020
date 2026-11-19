@@ -2181,24 +2181,6 @@ function updNoms(){
 function updAdj(){
  if(localStorage.getItem('verbes-updAdj'))return;
  const add=[
- {fr:"Absent",ar:"غائب",en:"Absent",sfr:"Le responsable est absent aujourd'hui.",sar:"المسؤول غائب اليوم.",sen:"The manager is absent today.",img:"absent.webp"},
- {fr:"Amusant",ar:"ممتع / مسلٍ",en:"Fun / Entertaining",sfr:"C'est un film amusant.",sar:"إنه فيلم ممتع.",sen:"It's a fun movie.",img:"amusant.webp"},
- {fr:"Âgé",ar:"كبير في السن",en:"Elderly / Aged",sfr:"Une personne âgée a besoin d'aide.",sar:"الشخص المسن يحتاج إلى مساعدة.",sen:"An elderly person needs help.",img:"age.webp"},
- {fr:"Ailé",ar:"مجنّح",en:"Winged",sfr:"Un insecte ailé.",sar:"حشرة مجنحة.",sen:"A winged insect.",img:"aile.webp"},
- {fr:"Aisé",ar:"سهل / ميسور",en:"Easy / Well-off",sfr:"Un accès aisé.",sar:"وصول سهل.",sen:"Easy access.",img:"aise.webp"},
- {fr:"Aéré",ar:"مهوّى / جيد التهوية",en:"Ventilated / Airy",sfr:"Une pièce bien aérée.",sar:"غرفة جيدة التهوية.",sen:"A well-ventilated room.",img:"aere.webp"},
- {fr:"Armé",ar:"مجهّز / مسلح",en:"Equipped / Armed",sfr:"Il est bien armé pour réussir.",sar:"هو مجهز جيدًا للنجاح.",sen:"He is well equipped to succeed.",img:"arme.webp"},
- {fr:"Abîmé",ar:"تالف / متضرر",en:"Damaged",sfr:"L'écran est abîmé.",sar:"الشاشة متضررة.",sen:"The screen is damaged.",img:"abime.webp"},
- {fr:"Actif",ar:"نشيط / فعّال / نشط / ذو قيمة",en:"Active / Asset-related",sfr:"Je reste actif malgré mon âge.",sar:"أبقى نشيطًا رغم عمري.",sen:"I stay active despite my age.",img:"actif.webp"},
- {fr:"Agile",ar:"رشيق / سريع الحركة",en:"Agile",sfr:"Il est agile et rapide.",sar:"هو رشيق وسريع.",sen:"He is agile and fast.",img:"agile.webp"},
- {fr:"Aride",ar:"جاف / صعب الفهم",en:"Dry / Arid",sfr:"Un texte aride est difficile à lire.",sar:"نص جاف صعب القراءة.",sen:"A dry text is difficult to read.",img:"aride.webp"},
- {fr:"Agréé",ar:"معتمد / مرخّص",en:"Approved / Certified",sfr:"Un professionnel agréé.",sar:"مهني معتمد.",sen:"A certified professional.",img:"agree.webp"},
- {fr:"Ample",ar:"واسع / كافٍ",en:"Ample / Sufficient",sfr:"Il y a un espace ample.",sar:"هناك مساحة واسعة.",sen:"There is ample space.",img:"ample.webp"},
- {fr:"Acéré",ar:"حاد / شديد",en:"Sharp / Acute",sfr:"Une douleur acérée.",sar:"ألم حاد.",sen:"A sharp pain.",img:"acere.webp"},
- {fr:"Absolu",ar:"مطلق / كامل",en:"Absolute",sfr:"Ce n'est pas une vérité absolue.",sar:"ليست حقيقة مطلقة.",sen:"It's not an absolute truth.",img:"absolu.webp"},
- {fr:"Accusé",ar:"متهم",en:"Accused",sfr:"Il est accusé d'une erreur.",sar:"هو متهم بخطأ.",sen:"He is accused of a mistake.",img:"accuse.webp"},
- {fr:"Actuel",ar:"حالي",en:"Current",sfr:"Le problème actuel doit être réglé.",sar:"يجب حل المشكلة الحالية.",sen:"The current problem must be solved.",img:"actuel.webp"},
- {fr:"Adapté",ar:"مناسب / ملائم",en:"Suitable / Adapted",sfr:"Ce traitement est adapté à ma situation.",sar:"هذا العلاج مناسب لوضعي.",sen:"This treatment is suitable for my situation.",img:"adapte.webp"},
  {fr:"Bête",ar:"غبي / (كاسم: حيوان)",en:"Stupid / Silly",sfr:"Ne sois pas bête, réfléchis un peu.",sar:"لا تكون غبي، فكر شوي.",sen:"Don't be silly, think a bit.",img:"bete.webp"},
  {fr:"Bleu",ar:"أزرق",en:"Blue",sfr:"Le ciel est bleu aujourd'hui.",sar:"السما زرقا اليوم.",sen:"The sky is blue today.",img:"bleu.webp"},
  {fr:"Brutal",ar:"عنيف / فظ",en:"Brutal / Harsh",sfr:"La réponse a été brutale.",sar:"الجواب كان قاسي.",sen:"The answer was harsh.",img:"brutal.webp"},
@@ -5512,13 +5494,52 @@ function updVYZ(){
  const add=[{"fr":"Assommer","ar":"يُفقد شخصاً وعيه بضربة","en":"To knock unconscious","sfr":"Le boxeur a assommé son adversaire.","sar":"الملاكم فقد خصمه الوعي بضربة.","sen":"The boxer knocked his opponent unconscious.","img":"assommer.webp"},{"fr":"Mettre K.-O.","ar":"يُسقط شخصاً بالضربة القاضية","en":"To knock someone out","sfr":"Le boxeur a mis son adversaire K.-O.","sar":"الملاكم أسقط خصمه بالضربة القاضية.","sen":"The boxer knocked out his opponent.","img":"mettre_k_o.webp"},{"fr":"Y avoir","ar":"يوجد / يكون هناك","en":"There is / There are","sfr":"Il y a beaucoup de monde ici.","sar":"في عالم كتير هون.","sen":"There are a lot of people here.","img":"y_avoir.webp"}];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^se /,'').charAt(0).toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+420000+i;st.v[L]=st.v[L]||[];st.v[L].push(u)}});
  save();}
+function delAdjA(){
+ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].A){st.c['adjectifs'].A=[];save();}
+}
+function updAdjA(){
+ const add=[
+ {fr:"Absent",ar:"غائب",en:"Absent",sfr:"Il est absent aujourd'hui.",sar:"هو غايب اليوم.",sen:"He is absent today.",img:"absent.webp"},
+ {fr:"Abordable",ar:"بسعر معقول / في متناول اليد",en:"Affordable",sfr:"Ce magasin propose des prix abordables.",sar:"هالمحل أسعاره معقولة.",sen:"This shop offers affordable prices.",img:"abordable.webp"},
+ {fr:"Abîmé",ar:"تالف / متضرّر",en:"Damaged",sfr:"Mon téléphone est abîmé.",sar:"تلفوني متضرّر.",sen:"My phone is damaged.",img:"abime.webp"},
+ {fr:"Absurde",ar:"سخيف / غير منطقي",en:"Absurd",sfr:"C'est une idée absurde.",sar:"هاي فكرة غير منطقية.",sen:"It's an absurd idea.",img:"absurde.webp"},
+ {fr:"Actif / Active",ar:"نشيط",en:"Active",sfr:"Elle est très active.",sar:"هي نشيطة كتير.",sen:"She is very active.",img:"actif_active.webp"},
+ {fr:"Agréable",ar:"لطيف / ممتع",en:"Pleasant",sfr:"Cette journée est agréable.",sar:"هاليوم لطيف.",sen:"This day is pleasant.",img:"agreable.webp"},
+ {fr:"Aimable",ar:"بشوش / لطيف بالتعامل",en:"Kind",sfr:"Le vendeur est très aimable.",sar:"البائع لطيف كتير بالتعامل.",sen:"The shop assistant is very kind.",img:"aimable.webp"},
+ {fr:"Amical / Amicale",ar:"ودّي",en:"Friendly",sfr:"Nous avons une relation amicale.",sar:"علاقتنا ودّية.",sen:"We have a friendly relationship.",img:"amical_amicale.webp"},
+ {fr:"Amoureux / Amoureuse",ar:"واقع بالحب / عاشق",en:"In love",sfr:"Il est amoureux d'elle.",sar:"هو واقع بحبها.",sen:"He is in love with her.",img:"amoureux_amoureuse.webp"},
+ {fr:"Ancien / Ancienne",ar:"قديم / سابق",en:"Old / Former",sfr:"C'est mon ancien appartement.",sar:"هاد بيتي السابق.",sen:"This is my former apartment.",img:"ancien_ancienne.webp"},
+ {fr:"Angoissé / Angoissée",ar:"قَلِق جداً / متوتر",en:"Anxious",sfr:"Il est angoissé avant l'examen.",sar:"هو متوتر قبل الامتحان.",sen:"He is anxious before the exam.",img:"angoisse_angoissee.webp"},
+ {fr:"Anxieux / Anxieuse",ar:"قَلِق",en:"Worried / Anxious",sfr:"Elle est anxieuse pour son entretien.",sar:"هي قلقة بسبب مقابلة العمل.",sen:"She is worried about her interview.",img:"anxieux_anxieuse.webp"},
+ {fr:"Appétissant / Appétissante",ar:"شهيّ",en:"Appetizing",sfr:"Ce plat est très appétissant.",sar:"هالطبق بيشهّي كتير.",sen:"This dish looks very appetizing.",img:"appetissant_appetissante.webp"},
+ {fr:"Approprié / Appropriée",ar:"مناسب / ملائم",en:"Appropriate",sfr:"Cette tenue est appropriée pour le travail.",sar:"هاللباس مناسب للشغل.",sen:"This outfit is appropriate for work.",img:"approprie_appropriee.webp"},
+ {fr:"Arrogant / Arrogante",ar:"مغرور / متكبّر",en:"Arrogant",sfr:"Il est parfois arrogant avec ses collègues.",sar:"أحياناً بيتصرف بغرور مع زملائه.",sen:"He is sometimes arrogant with his colleagues.",img:"arrogant_arrogante.webp"},
+ {fr:"Attentif / Attentive",ar:"منتبه / مهتم",en:"Attentive",sfr:"Soyez attentifs pendant la leçon.",sar:"انتبهوا أثناء الدرس.",sen:"Pay attention during the lesson.",img:"attentif_attentive.webp"},
+ {fr:"Attentionné / Attentionnée",ar:"حنون / مهتم بالآخرين",en:"Thoughtful / Caring",sfr:"Elle est très attentionnée avec sa famille.",sar:"هي مهتمة بعيلتها وبتراعي مشاعرهم.",sen:"She is very thoughtful towards her family.",img:"attentionne_attentionnee.webp"},
+ {fr:"Authentique",ar:"أصيل / حقيقي",en:"Authentic",sfr:"Ce produit est authentique.",sar:"هالمنتج أصلي.",sen:"This product is authentic.",img:"authentique.webp"},
+ {fr:"Automatique",ar:"آلي / تلقائي",en:"Automatic",sfr:"Cette porte est automatique.",sar:"هالباب أوتوماتيكي.",sen:"This door is automatic.",img:"automatique.webp"},
+ {fr:"Autorisé / Autorisée",ar:"مسموح به",en:"Allowed / Authorized",sfr:"Le stationnement est autorisé ici.",sar:"الوقوف مسموح هون.",sen:"Parking is allowed here.",img:"autorise_autorisee.webp"},
+ {fr:"Aveugle",ar:"أعمى / كفيف",en:"Blind",sfr:"Cet homme est aveugle.",sar:"هالرجل كفيف.",sen:"This man is blind.",img:"aveugle.webp"},
+ {fr:"Averti / Avertie",ar:"مُطّلع / على دراية",en:"Informed / Experienced",sfr:"C'est un consommateur averti.",sar:"هو مستهلك عنده معرفة وخبرة.",sen:"He is an informed consumer.",img:"averti_avertie.webp"},
+ {fr:"Agrandi / Agrandie",ar:"مُكبَّر / موسَّع",en:"Enlarged",sfr:"J'ai acheté une photo agrandie.",sar:"اشتريت صورة مكبّرة.",sen:"I bought an enlarged photo.",img:"agrandi_agrandie.webp"},
+ {fr:"Aisé / Aisée",ar:"ميسور الحال",en:"Well-off",sfr:"Il vient d'une famille aisée.",sar:"هو من عيلة ميسورة الحال.",sen:"He comes from a well-off family.",img:"aise_aisee.webp"},
+ {fr:"Amer / Amère",ar:"مُرّ",en:"Bitter",sfr:"Ce café est trop amer.",sar:"هالقهوة مُرّة كتير.",sen:"This coffee is too bitter.",img:"amer_amere.webp"},
+ {fr:"Amusant / Amusante",ar:"مُضحك / مُسلٍّ",en:"Funny / Amusing",sfr:"Ce film est vraiment amusant.",sar:"هالفيلم مسلّي كتير.",sen:"This film is really amusing.",img:"amusant_amusante.webp"},
+ {fr:"Annuel / Annuelle",ar:"سنوي",en:"Annual / Yearly",sfr:"Nous avons une réunion annuelle.",sar:"عنا اجتماع سنوي.",sen:"We have an annual meeting.",img:"annuel_annuelle.webp"},
+ {fr:"Anonyme",ar:"مجهول الهوية",en:"Anonymous",sfr:"Il a envoyé un message anonyme.",sar:"بعت رسالة مجهولة المصدر.",sen:"He sent an anonymous message.",img:"anonyme.webp"},
+ {fr:"Aqueux / Aqueuse",ar:"مائي / كثير الماء",en:"Watery",sfr:"Cette soupe est trop aqueuse.",sar:"هالشوربة مائية زيادة.",sen:"This soup is too watery.",img:"aqueux_aqueuse.webp"},
+ {fr:"Artificiel / Artificielle",ar:"اصطناعي",en:"Artificial",sfr:"Ces fleurs sont artificielles.",sar:"هالورد اصطناعي.",sen:"These flowers are artificial.",img:"artificiel_artificielle.webp"},
+];
+ st.c['adjectifs']=st.c['adjectifs']||{};st.c['adjectifs'].A=st.c['adjectifs'].A||[];
+ add.forEach((u,i)=>{const ex=st.c['adjectifs'].A.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+430000+i;st.c['adjectifs'].A.push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
