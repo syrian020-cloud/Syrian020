@@ -2207,8 +2207,6 @@ function updAdj(){
  {fr:"Quel / Quelle",ar:"أي / ما هو / ما هي",en:"what / which",sfr:"Quel document dois-je fournir ?",sar:"أي وثيقة لازم قدّم؟",sen:"Which document do I need to provide?",img:"quel_quelle.webp"},
  {fr:"Qualifié / Qualifiée",ar:"مؤهّل / مؤهل",en:"qualified",sfr:"Je suis qualifié pour ce poste.",sar:"أنا مؤهّل لهالوظيفة.",sen:"I am qualified for this position.",img:"qualifie_qualifiee.webp"},
  {fr:"Qualitatif / Qualitative",ar:"نوعي / متعلق بالجودة",en:"qualitative / high-quality",sfr:"Nous avons besoin d'un travail qualitatif.",sar:"بدنا شغل بجودة منيحة.",sen:"We need quality work.",img:"qualitatif_qualitative.webp"},
- {fr:"Refusé",ar:"مرفوض",en:"Refused / Rejected",sfr:"Ma demande a été refusée.",sar:"تم رفض طلبي.",sen:"My application was refused.",img:"refuse.webp"},
- {fr:"Rapide",ar:"سريع",en:"Fast / Quick",sfr:"Il faut être rapide pendant le service.",sar:"يجب أن تكون سريعًا أثناء فترة الخدمة.",sen:"You must be fast during service.",img:"rapide.webp"},
  {fr:"Sale",ar:"متسخ",en:"Dirty",sfr:"Cette table est sale, il faut la nettoyer.",sar:"هذه الطاولة متسخة، يجب تنظيفها.",sen:"This table is dirty, it must be cleaned.",img:"sale.webp"},
  {fr:"Stable",ar:"مستقر",en:"Stable",sfr:"Mon état est stable.",sar:"حالتي مستقرة.",sen:"My condition is stable.",img:"stable.webp"},
  {fr:"Salé / Salée",ar:"مالح",en:"Salty",sfr:"La sauce soja est salée.",sar:"صلصة الصويا مالحة.",sen:"Soy sauce is salty.",img:"sale_salee.webp"},
@@ -5987,13 +5985,77 @@ function updAdjP(){
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+580000+i;st.c['adjectifs'][L].push(u)}});
  save();}
 
+function delAdjR(){
+ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].R){st.c['adjectifs'].R=[];save()}
+}
+function updAdjR(){
+ const add=[
+ {fr:"Rapide",ar:"سريع",en:"Fast",sfr:"Cette voiture est rapide.",sar:"هالسيارة سريعة.",sen:"This car is fast.",img:"rapide.webp"},
+ {fr:"Rare",ar:"نادر",en:"Rare",sfr:"Ce produit est rare.",sar:"هالمنتج نادر.",sen:"This product is rare.",img:"rare.webp"},
+ {fr:"Riche",ar:"غني",en:"Rich",sfr:"Il est riche.",sar:"هو غني.",sen:"He is rich.",img:"riche.webp"},
+ {fr:"Rouge",ar:"أحمر",en:"Red",sfr:"La voiture est rouge.",sar:"السيارة حمرا.",sen:"The car is red.",img:"rouge.webp"},
+ {fr:"Rond / Ronde",ar:"دائري / مستدير",en:"Round",sfr:"La table est ronde.",sar:"الطاولة مدوّرة.",sen:"The table is round.",img:"rond_ronde.webp"},
+ {fr:"Responsable",ar:"مسؤول",en:"Responsible",sfr:"Il est responsable de son travail.",sar:"هو مسؤول عن شغله.",sen:"He is responsible for his work.",img:"responsable.webp"},
+ {fr:"Respectueux / Respectueuse",ar:"محترم",en:"Respectful",sfr:"Elle est respectueuse avec tout le monde.",sar:"هي بتحترم الكل بتعاملها.",sen:"She is respectful to everyone.",img:"respectueux_respectueuse.webp"},
+ {fr:"Reposé / Reposée",ar:"مرتاح بعد الراحة",en:"Rested",sfr:"Je suis bien reposé.",sar:"أنا مرتاح بعد ما نمت.",sen:"I am well rested.",img:"repose_reposee.webp"},
+ {fr:"Récent / Récente",ar:"حديث / جديد نسبياً",en:"Recent",sfr:"C'est une information récente.",sar:"هاي معلومة حديثة.",sen:"This is recent information.",img:"recent_recente.webp"},
+ {fr:"Régulier / Régulière",ar:"منتظم",en:"Regular",sfr:"Il fait du sport régulièrement.",sar:"هو بيمارس الرياضة بانتظام.",sen:"He exercises regularly.",img:"regulier_reguliere.webp"},
+ {fr:"Réel / Réelle",ar:"حقيقي",en:"Real",sfr:"Ce problème est réel.",sar:"هالمشكلة حقيقية.",sen:"This problem is real.",img:"reel_reelle.webp"},
+ {fr:"Raisonnable",ar:"معقول / منطقي",en:"Reasonable",sfr:"C'est un prix raisonnable.",sar:"هاد سعر معقول.",sen:"This is a reasonable price.",img:"raisonnable.webp"},
+ {fr:"Robuste",ar:"متين / قوي البنية",en:"Robust",sfr:"Ces chaussures sont robustes.",sar:"هالأحذية متينة.",sen:"These shoes are sturdy.",img:"robuste.webp"},
+ {fr:"Romantique",ar:"رومانسي",en:"Romantic",sfr:"C'est un film romantique.",sar:"هاد فيلم رومانسي.",sen:"This is a romantic film.",img:"romantique.webp"},
+ {fr:"Rural / Rurale",ar:"ريفي",en:"Rural",sfr:"Il habite dans une région rurale.",sar:"هو ساكن بمنطقة ريفية.",sen:"He lives in a rural area.",img:"rural_rurale.webp"},
+ {fr:"Réservé / Réservée",ar:"كتوم / قليل الاختلاط",en:"Reserved",sfr:"Il est plutôt réservé.",sar:"هو كتوم شوي.",sen:"He is rather reserved.",img:"reserve_reservee.webp"},
+ {fr:"Rempli / Remplie",ar:"ممتلئ / معبّأ",en:"Filled",sfr:"Le verre est rempli d'eau.",sar:"الكاسة مليانة مي.",sen:"The glass is filled with water.",img:"rempli_remplie.webp"},
+ {fr:"Rigide",ar:"قاسٍ / غير مرن",en:"Rigid",sfr:"Cette règle est rigide.",sar:"هالمسطرة قاسية وما بتنثني.",sen:"This ruler is rigid.",img:"rigide.webp"},
+ {fr:"Réfléchi / Réfléchie",ar:"متروّي / مدروس",en:"Thoughtful",sfr:"C'est une décision réfléchie.",sar:"هاد قرار مدروس.",sen:"This is a well-considered decision.",img:"reflechi_reflechie.webp"},
+ {fr:"Réussi / Réussie",ar:"ناجح / موفّق",en:"Successful",sfr:"C'est un projet réussi.",sar:"هاد مشروع ناجح.",sen:"This is a successful project.",img:"reussi_reussie.webp"},
+ {fr:"Résistant / Résistante",ar:"مقاوم / متين",en:"Resistant",sfr:"Ce matériau est résistant.",sar:"هالمادة مقاومة ومتينة.",sen:"This material is resistant.",img:"resistant_resistante.webp"},
+ {fr:"Remarquable",ar:"ملحوظ / مميز",en:"Remarkable",sfr:"C'est un travail remarquable.",sar:"هاد عمل مميز.",sen:"This is remarkable work.",img:"remarquable.webp"},
+ {fr:"Reconnaissant / Reconnaissante",ar:"ممتن",en:"Grateful",sfr:"Je suis reconnaissant pour ton aide.",sar:"أنا ممتن لمساعدتك.",sen:"I am grateful for your help.",img:"reconnaissant_reconnaissante.webp"},
+ {fr:"Répandu / Répandue",ar:"منتشر / شائع",en:"Widespread",sfr:"Cette pratique est très répandue.",sar:"هالممارسة منتشرة كتير.",sen:"This practice is widespread.",img:"repandu_repandue.webp"},
+ {fr:"Régional / Régionale",ar:"إقليمي / خاص بمنطقة",en:"Regional",sfr:"C'est un produit régional.",sar:"هاد منتج من المنطقة.",sen:"This is a regional product.",img:"regional_regionale.webp"},
+ {fr:"Renouvelable",ar:"متجدّد",en:"Renewable",sfr:"L'énergie solaire est renouvelable.",sar:"الطاقة الشمسية متجددة.",sen:"Solar energy is renewable.",img:"renouvelable.webp"},
+ {fr:"Réglable",ar:"قابل للتعديل",en:"Adjustable",sfr:"Cette chaise est réglable.",sar:"هالكرسي قابل للتعديل.",sen:"This chair is adjustable.",img:"reglable.webp"},
+ {fr:"Répétitif / Répétitive",ar:"متكرر / رتيب",en:"Repetitive",sfr:"Ce travail est répétitif.",sar:"هالشغل متكرر وروتيني.",sen:"This work is repetitive.",img:"repetitif_repetitive.webp"},
+ {fr:"Rigoureux / Rigoureuse",ar:"دقيق ومنضبط",en:"Rigorous / Thorough",sfr:"Il est rigoureux dans son travail.",sar:"هو دقيق ومنضبط بشغله.",sen:"He is thorough in his work.",img:"rigoureux_rigoureuse.webp"},
+ {fr:"Rassurant / Rassurante",ar:"مطمئن / باعث على الطمأنينة",en:"Reassuring",sfr:"Son attitude est rassurante.",sar:"تصرفه بيطمن.",sen:"His attitude is reassuring.",img:"rassurant_rassurante.webp"},
+ {fr:"Réaliste",ar:"واقعي",en:"Realistic",sfr:"Il est réaliste.",sar:"هو واقعي.",sen:"He is realistic.",img:"realiste.webp"},
+ {fr:"Réactif / Réactive",ar:"سريع الاستجابة",en:"Responsive",sfr:"Cette équipe est très réactive.",sar:"هالفريق سريع بالاستجابة.",sen:"This team is very responsive.",img:"reactif_reactive.webp"},
+ {fr:"Rentable",ar:"مربح / مجدٍ اقتصادياً",en:"Profitable / Cost-effective",sfr:"Cet investissement est rentable.",sar:"هالاستثمار مربح.",sen:"This investment is profitable.",img:"rentable.webp"},
+ {fr:"Réciproque",ar:"متبادل",en:"Reciprocal / Mutual",sfr:"Le respect doit être réciproque.",sar:"الاحترام لازم يكون متبادل.",sen:"Respect must be mutual.",img:"reciproque.webp"},
+ {fr:"Récurrent / Récurrente",ar:"متكرر باستمرار",en:"Recurring",sfr:"C'est un problème récurrent.",sar:"هاي مشكلة بتتكرر باستمرار.",sen:"This is a recurring problem.",img:"recurrent_recurrente.webp"},
+ {fr:"Remboursable",ar:"قابل للاسترداد",en:"Refundable",sfr:"Ce billet est remboursable.",sar:"هالتذكرة قابلة للاسترداد.",sen:"This ticket is refundable.",img:"remboursable.webp"},
+ {fr:"Rapproché / Rapprochée",ar:"متقارب / متقارب زمنياً أو مكانياً",en:"Close together",sfr:"Les deux rendez-vous sont rapprochés.",sar:"الموعدين قريبين من بعض.",sen:"The two appointments are close together.",img:"rapproche_rapprochee.webp"},
+ {fr:"Rayé / Rayée",ar:"مخطط",en:"Striped",sfr:"Il porte une chemise rayée.",sar:"هو لابس قميص مخطط.",sen:"He is wearing a striped shirt.",img:"raye_rayee.webp"},
+ {fr:"Ridicule",ar:"مثير للسخرية / سخيف",en:"Ridiculous",sfr:"Cette idée est ridicule.",sar:"هالفكرة سخيفة.",sen:"This idea is ridiculous.",img:"ridicule.webp"},
+ {fr:"Rugueux / Rugueuse",ar:"خشن",en:"Rough",sfr:"Cette surface est rugueuse.",sar:"هالسطح خشن.",sen:"This surface is rough.",img:"rugueux_rugueuse.webp"},
+ {fr:"Ruiné / Ruinée",ar:"مفلس / مدمر مالياً",en:"Ruined / Bankrupt",sfr:"Après cette dépense, il est ruiné.",sar:"بعد هالمصاريف صار مفلس.",sen:"After this expense, he is broke.",img:"ruine_ruinee.webp"},
+ {fr:"Rusé / Rusée",ar:"ماكر / داهية",en:"Cunning",sfr:"C'est un homme rusé.",sar:"هو رجل ماكر.",sen:"He is a cunning man.",img:"ruse_rusee.webp"},
+ {fr:"Réglé / Réglée",ar:"مضبوط / منظّم",en:"Set / Regulated",sfr:"Mon réveil est bien réglé.",sar:"منبهي مضبوط تماماً.",sen:"My alarm clock is set correctly.",img:"regle_reglee.webp"},
+ {fr:"Réputé / Réputée",ar:"ذو سمعة جيدة / مشهور",en:"Renowned",sfr:"Ce restaurant est réputé.",sar:"هالمطعم إله سمعة طيبة.",sen:"This restaurant is renowned.",img:"repute_reputee.webp"},
+ {fr:"Résolu / Résolue",ar:"حازم / مصمّم",en:"Determined",sfr:"Elle est résolue à réussir.",sar:"هي مصممة تنجح.",sen:"She is determined to succeed.",img:"resolu_resolue.webp"},
+ {fr:"Réversible",ar:"قابل للعكس",en:"Reversible",sfr:"Cette veste est réversible.",sar:"هالجاكيت بينلبس على الوجهين.",sen:"This jacket is reversible.",img:"reversible.webp"},
+ {fr:"Rassasié / Rassasiée",ar:"شبعان",en:"Full / Satiated",sfr:"Je suis rassasié.",sar:"أنا شبعان.",sen:"I am full.",img:"rassasie_rassasiee.webp"},
+ {fr:"Recommandé / Recommandée",ar:"موصى به",en:"Recommended",sfr:"Ce restaurant est fortement recommandé.",sar:"هالمطعم الكل بينصح فيه.",sen:"This restaurant is highly recommended.",img:"recommande_recommandee.webp"},
+ {fr:"Renseigné / Renseignée",ar:"مُطّلع / عنده معلومات",en:"Informed",sfr:"Je suis bien renseigné sur ce sujet.",sar:"عندي معلومات منيحة عن هالموضوع.",sen:"I am well informed about this subject.",img:"renseigne_renseignee.webp"},
+ {fr:"Respirant / Respirante",ar:"يسمح بمرور الهواء",en:"Breathable",sfr:"Ce tissu est respirant.",sar:"هالقماش بيسمح بمرور الهوا.",sen:"This fabric is breathable.",img:"respirant_respirante.webp"},
+ {fr:"Reconnu / Reconnue",ar:"معروف / معترف به",en:"Recognized",sfr:"C'est un professionnel reconnu.",sar:"هو شخص مهني ومعروف بمجاله.",sen:"He is a recognized professional.",img:"reconnu_reconnue.webp"},
+ {fr:"Rembourré / Rembourrée",ar:"مبطّن / محشو",en:"Padded",sfr:"Cette veste est bien rembourrée.",sar:"هالجاكيت مبطّن منيح.",sen:"This jacket is well padded.",img:"rembourre_rembourree.webp"},
+ {fr:"Rassasiant / Rassasiante",ar:"مُشبِع",en:"Filling",sfr:"Ce repas est très rassasiant.",sar:"هالوجبة بتشبّع كتير.",sen:"This meal is very filling.",img:"rassasiant_rassasiante.webp"},
+ {fr:"Rêveur / Rêveuse",ar:"حالم",en:"Dreamy / Dreamer-like",sfr:"C'est un garçon rêveur.",sar:"هاد شب حالم.",sen:"He is a dreamy boy.",img:"reveur_reveuse.webp"},
+ {fr:"Renversé / Renversée",ar:"مقلوب",en:"Upside down / Overturned",sfr:"Le verre est renversé.",sar:"الكاسة مقلوبة.",sen:"The glass is overturned.",img:"renverse_renversee.webp"},
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+590000+i;st.c['adjectifs'][L].push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();delAdjP();updAdjP();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();delAdjP();updAdjP();delAdjR();updAdjR();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
