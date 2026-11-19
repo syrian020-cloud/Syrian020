@@ -2198,9 +2198,6 @@ function updAdj(){
  {fr:"Commun / Commune",ar:"مشترك / عام",en:"Common",sfr:"C'est un problème commun.",sar:"هذه مشكلة مشتركة.",sen:"It is a common problem.",img:"commun_commune.webp"},
  {fr:"Coquin / Coquine",ar:"مشاغب / ماكر",en:"Naughty",sfr:"Cet enfant est très coquin.",sar:"هذا الطفل مشاغب جدًا.",sen:"This child is very naughty.",img:"coquin_coquine.webp"},
  {fr:"Certain / Certaine",ar:"معين / متأكد",en:"Certain / Sure",sfr:"Je suis certain de ma décision.",sar:"أنا متأكد من قراري.",sen:"I am sure of my decision.",img:"certain_certaine.webp"},
- {fr:"Hébergé",ar:"مستضاف / مقيم عند شخص",en:"Hosted",sfr:"Je suis hébergé gratuitement chez un proche.",sar:"أنا مقيم مجانًا عند أحد الأقارب.",sen:"I am staying free of charge with a relative.",img:"heberge.webp"},
- {fr:"Indétectable",ar:"غير قابل للكشف",en:"Undetectable",sfr:"La charge virale est indétectable.",sar:"الحمل الفيروسي غير قابل للكشف.",sen:"The viral load is undetectable.",img:"indetectable.webp"},
- {fr:"indisponible",ar:"غير متاح",en:"unavailable",sfr:"Cette fonction est temporairement indisponible.",sar:"هذه الوظيفة غير متاحة مؤقتًا.",sen:"This feature is temporarily unavailable.",img:"indisponible.webp"},
  {fr:"Non-reçu",ar:"لم يتم الاستلام",en:"Not received",sfr:"Je n'ai pas reçu le versement.",sar:"لم أستلم التحويل.",sen:"I did not receive the payment.",img:"non_recu.webp"},
  {fr:"Obsolète",ar:"قديم وغير صالح للاستخدام",en:"obsolete / outdated",sfr:"Cette information est obsolète.",sar:"هالمعلومة قديمة وما عادت صالحة.",sen:"This information is outdated.",img:"obsolete.webp"},
  {fr:"Ordinaire",ar:"عادي",en:"ordinary / regular",sfr:"Je prends un café ordinaire.",sar:"بدي قهوة عادية.",sen:"I'll have a regular coffee.",img:"ordinaire.webp"},
@@ -5737,13 +5734,86 @@ function updAdjF(){
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+490000+i;st.c['adjectifs'][L].push(u)}});
  save();}
 
+function delAdjGHI(){
+ if(st.c&&st.c['adjectifs']){['G','H','I'].forEach(L=>{st.c['adjectifs'][L]=[]});save()}
+}
+
+function updAdjG(){
+ const add=[
+ {fr:"Grand / Grande",ar:"كبير / طويل القامة",en:"Big / Tall",sfr:"Mon frère est grand.",sar:"أخي طويل القامة.",sen:"My brother is tall.",img:"grand_grande.webp"},
+ {fr:"Gros / Grosse",ar:"كبير / ضخم",en:"Big / Large",sfr:"Ce sac est trop gros.",sar:"هالشنطة كبيرة زيادة.",sen:"This bag is too big.",img:"gros_grosse.webp"},
+ {fr:"Gentil / Gentille",ar:"لطيف / طيب",en:"Nice / Kind",sfr:"Elle est très gentille.",sar:"هي لطيفة كتير.",sen:"She is very kind.",img:"gentil_gentille.webp"},
+ {fr:"Gauche",ar:"أيسر / على اليسار",en:"Left",sfr:"Ma main gauche me fait mal.",sar:"إيدي اليسار عم توجعني.",sen:"My left hand hurts.",img:"gauche.webp"},
+ {fr:"Gratuit / Gratuite",ar:"مجاني",en:"Free",sfr:"L'entrée est gratuite.",sar:"الدخول مجاني.",sen:"Admission is free.",img:"gratuit_gratuite.webp"},
+ {fr:"Génial / Géniale",ar:"رائع / عبقري",en:"Brilliant / Great",sfr:"C'est une idée géniale.",sar:"هاي فكرة رائعة.",sen:"It's a brilliant idea.",img:"genial_geniale.webp"},
+ {fr:"Grave",ar:"خطير / جسيم",en:"Serious",sfr:"Le problème est grave.",sar:"المشكلة خطيرة.",sen:"The problem is serious.",img:"grave.webp"},
+ {fr:"Gourmand / Gourmande",ar:"محبّ للأكل / نَهِم",en:"Food-loving / Fond of food",sfr:"Mon frère est gourmand.",sar:"أخي بيحب الأكل كتير.",sen:"My brother loves food.",img:"gourmand_gourmande.webp"},
+ {fr:"Généreux / Généreuse",ar:"كريم",en:"Generous",sfr:"Elle est généreuse avec tout le monde.",sar:"هي كريمة مع الكل.",sen:"She is generous with everyone.",img:"genereux_genereuse.webp"},
+ {fr:"Gris / Grise",ar:"رمادي",en:"Grey",sfr:"Ma voiture est grise.",sar:"سيارتي رمادية.",sen:"My car is grey.",img:"gris_grise.webp"},
+ {fr:"Global / Globale",ar:"شامل / عام",en:"Global / Overall",sfr:"La situation globale est bonne.",sar:"الوضع العام منيح.",sen:"The overall situation is good.",img:"global_globale.webp"},
+ {fr:"Gênant / Gênante",ar:"محرج / مزعج",en:"Embarrassing / Awkward",sfr:"Cette situation est gênante.",sar:"هالموقف محرج.",sen:"This situation is embarrassing.",img:"genant_genante.webp"},
+ {fr:"Géant / Géante",ar:"عملاق / هائل",en:"Giant / Huge",sfr:"C'est un arbre géant.",sar:"هاد شجر عملاق.",sen:"It's a giant tree.",img:"geant_geante.webp"},
+ {fr:"Grincheux / Grincheuse",ar:"متذمّر / كثير الشكوى",en:"Grumpy",sfr:"Mon voisin est grincheux le matin.",sar:"جاري بيكون متذمّر الصبح.",sen:"My neighbor is grumpy in the morning.",img:"grincheux_grincheuse.webp"},
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+500000+i;st.c['adjectifs'][L].push(u)}});
+ save();}
+
+function updAdjH(){
+ const add=[
+ {fr:"Heureux / Heureuse",ar:"سعيد",en:"Happy",sfr:"Je suis heureux aujourd'hui.",sar:"أنا سعيد اليوم.",sen:"I'm happy today.",img:"heureux_heureuse.webp"},
+ {fr:"Honnête",ar:"صادق / أمين",en:"Honest",sfr:"C'est une personne honnête.",sar:"هاد شخص صادق.",sen:"This is an honest person.",img:"honnete.webp"},
+ {fr:"Humain / Humaine",ar:"إنساني / بشري",en:"Human",sfr:"Il a un côté très humain.",sar:"عنده جانب إنساني كتير.",sen:"He has a very human side.",img:"humain_humaine.webp"},
+ {fr:"Horrible",ar:"فظيع / مريع",en:"Horrible / Awful",sfr:"Le temps est horrible.",sar:"الطقس فظيع.",sen:"The weather is horrible.",img:"horrible.webp"},
+ {fr:"Habituel / Habituelle",ar:"معتاد / اعتيادي",en:"Usual / Ordinary",sfr:"C'est mon trajet habituel.",sar:"هاد طريقي المعتاد.",sen:"This is my usual route.",img:"habituel_habituelle.webp"},
+ {fr:"Haut / Haute",ar:"عالٍ / مرتفع",en:"High / Tall",sfr:"Ce bâtiment est très haut.",sar:"هالبناء عالي كتير.",sen:"This building is very tall.",img:"haut_haute.webp"},
+ {fr:"Humide",ar:"رطب / مبلّل",en:"Humid / Damp",sfr:"L'air est humide aujourd'hui.",sar:"الجو رطب اليوم.",sen:"The air is humid today.",img:"humide.webp"},
+ {fr:"Habile",ar:"ماهر / شاطر",en:"Skillful",sfr:"Il est habile de ses mains.",sar:"هو شاطر بإيديه.",sen:"He is skillful with his hands.",img:"habile.webp"},
+ {fr:"Hypocrite",ar:"منافق",en:"Hypocritical",sfr:"Je n'aime pas les gens hypocrites.",sar:"ما بحب الناس المنافقة.",sen:"I don't like hypocritical people.",img:"hypocrite.webp"},
+ {fr:"Hospitalier / Hospitalière",ar:"مضياف / كريم باستقبال الضيوف",en:"Hospitable",sfr:"Les habitants sont très hospitaliers.",sar:"السكان مضيافين كتير.",sen:"The locals are very hospitable.",img:"hospitalier_hospitaliere.webp"},
+ {fr:"Hésitant / Hésitante",ar:"متردد",en:"Hesitant",sfr:"Je suis encore hésitant.",sar:"أنا لسا متردد.",sen:"I'm still hesitant.",img:"hesitant_hesitante.webp"},
+ {fr:"Honteux / Honteuse",ar:"خجلان / يشعر بالعار",en:"Ashamed",sfr:"Il est honteux de son comportement.",sar:"هو مستحي من تصرفه.",sen:"He is ashamed of his behavior.",img:"honteux_honteuse.webp"},
+ {fr:"Harcelé / Harcelée",ar:"يتعرض للمضايقة أو التنمّر",en:"Harassed / Bullied",sfr:"Cet élève est harcelé à l'école.",sar:"هالطالب عم يتعرض للتنمّر بالمدرسة.",sen:"This student is being bullied at school.",img:"harcele_harcelee.webp"},
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+510000+i;st.c['adjectifs'][L].push(u)}});
+ save();}
+
+function updAdjI(){
+ const add=[
+ {fr:"Important / Importante",ar:"مهم",en:"Important",sfr:"C'est une décision importante.",sar:"هاد قرار مهم.",sen:"It's an important decision.",img:"important_importante.webp"},
+ {fr:"Intelligent / Intelligente",ar:"ذكي",en:"Intelligent",sfr:"Elle est très intelligente.",sar:"هي ذكية كتير.",sen:"She is very intelligent.",img:"intelligent_intelligente.webp"},
+ {fr:"Impossible",ar:"مستحيل",en:"Impossible",sfr:"C'est impossible sans aide.",sar:"هالشي مستحيل بدون مساعدة.",sen:"It's impossible without help.",img:"impossible.webp"},
+ {fr:"Idéal / Idéale",ar:"مثالي",en:"Ideal",sfr:"C'est l'endroit idéal.",sar:"هاد المكان المثالي.",sen:"This is the ideal place.",img:"ideal_ideale.webp"},
+ {fr:"Inquiet / Inquiète",ar:"قلق",en:"Worried",sfr:"Je suis inquiet pour mon travail.",sar:"أنا قلقان على شغلي.",sen:"I'm worried about my job.",img:"inquiet_inquiete.webp"},
+ {fr:"Intéressant / Intéressante",ar:"مثير للاهتمام",en:"Interesting",sfr:"Ce livre est très intéressant.",sar:"هالكتاب ممتع ومثير للاهتمام.",sen:"This book is very interesting.",img:"interessant_interessante.webp"},
+ {fr:"Inutile",ar:"غير مفيد / بلا فائدة",en:"Useless",sfr:"Cette discussion est inutile.",sar:"هالنقاش بلا فائدة.",sen:"This discussion is useless.",img:"inutile.webp"},
+ {fr:"Incroyable",ar:"لا يُصدّق / مذهل",en:"Incredible",sfr:"C'est une histoire incroyable.",sar:"هاي قصة ما بتتصدّق.",sen:"It's an incredible story.",img:"incroyable.webp"},
+ {fr:"Inconnu / Inconnue",ar:"مجهول / غير معروف",en:"Unknown",sfr:"Ce numéro est inconnu.",sar:"هالرقم مجهول.",sen:"This number is unknown.",img:"inconnu_inconnue.webp"},
+ {fr:"Indispensable",ar:"ضروري جداً / لا غنى عنه",en:"Essential / Indispensable",sfr:"Le téléphone est indispensable pour mon travail.",sar:"التلفون ضروري لشغلي.",sen:"A phone is essential for my work.",img:"indispensable.webp"},
+ {fr:"Impatient / Impatiente",ar:"نافد الصبر / متلهّف",en:"Impatient",sfr:"Il est impatient de partir.",sar:"هو متلهّف لحتى يروح.",sen:"He is impatient to leave.",img:"impatient_impatiente.webp"},
+ {fr:"Irrité / Irritée",ar:"منزعج / مستاء",en:"Irritated",sfr:"Elle est irritée par le bruit.",sar:"هي منزعجة من الضجيج.",sen:"She is irritated by the noise.",img:"irrite_irritee.webp"},
+ {fr:"Indépendant / Indépendante",ar:"مستقل",en:"Independent",sfr:"Il est financièrement indépendant.",sar:"هو مستقل مادياً.",sen:"He is financially independent.",img:"independant_independante.webp"},
+ {fr:"Injuste",ar:"غير عادل / ظالم",en:"Unfair",sfr:"Cette décision est injuste.",sar:"هالقرار مو عادل.",sen:"This decision is unfair.",img:"injuste.webp"},
+ {fr:"Irrégulier / Irrégulière",ar:"غير منتظم",en:"Irregular",sfr:"Ses horaires sont irréguliers.",sar:"أوقات دوامه مو منتظمة.",sen:"His working hours are irregular.",img:"irregulier_irreguliere.webp"},
+ {fr:"Invisible",ar:"غير مرئي / مخفي",en:"Invisible",sfr:"Cette tache est presque invisible.",sar:"هالبقعة تقريباً مو مبينة.",sen:"This stain is almost invisible.",img:"invisible.webp"},
+ {fr:"Identique",ar:"متطابق / مطابق",en:"Identical",sfr:"Les deux produits sont identiques.",sar:"المنتجين متطابقين.",sen:"The two products are identical.",img:"identique.webp"},
+ {fr:"Impeccable",ar:"ممتاز / لا تشوبه شائبة",en:"Impeccable",sfr:"Ton travail est impeccable.",sar:"شغلك ممتاز وما عليه أي ملاحظة.",sen:"Your work is impeccable.",img:"impeccable.webp"},
+ {fr:"Incomplet / Incomplète",ar:"غير مكتمل / ناقص",en:"Incomplete",sfr:"Mon dossier est incomplet.",sar:"ملفي ناقص.",sen:"My file is incomplete.",img:"incomplet_incomplete.webp"},
+ {fr:"Inhabituel / Inhabituelle",ar:"غير معتاد",en:"Unusual",sfr:"C'est une situation inhabituelle.",sar:"هاد وضع غير معتاد.",sen:"This is an unusual situation.",img:"inhabituel_inhabituelle.webp"},
+ {fr:"Insupportable",ar:"لا يُطاق / مزعج جداً",en:"Unbearable",sfr:"Ce bruit est insupportable.",sar:"هالضجيج ما بينطاق.",sen:"This noise is unbearable.",img:"insupportable.webp"},
+ {fr:"Irrésistible",ar:"لا يُقاوَم / جذّاب جداً",en:"Irresistible",sfr:"Ce gâteau est irrésistible.",sar:"هالكيكة ما بينقاوم طعمها.",sen:"This cake is irresistible.",img:"irresistible.webp"},
+ {fr:"Irréprochable",ar:"لا يُلام عليه / ممتاز بلا أخطاء",en:"Flawless / Blameless",sfr:"Son comportement est irréprochable.",sar:"تصرّفه ما عليه أي ملاحظة.",sen:"His behavior is impeccable.",img:"irreprochable.webp"},
+ {fr:"Inséparable",ar:"لا ينفصل / متلازم",en:"Inseparable",sfr:"Ils sont inséparables.",sar:"هنن ما بيفترقوا عن بعض.",sen:"They are inseparable.",img:"inseparable.webp"},
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+520000+i;st.c['adjectifs'][L].push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
