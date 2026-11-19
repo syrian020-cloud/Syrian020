@@ -2181,18 +2181,6 @@ function updNoms(){
 function updAdj(){
  if(localStorage.getItem('verbes-updAdj'))return;
  const add=[
- {fr:"Bête",ar:"غبي / (كاسم: حيوان)",en:"Stupid / Silly",sfr:"Ne sois pas bête, réfléchis un peu.",sar:"لا تكون غبي، فكر شوي.",sen:"Don't be silly, think a bit.",img:"bete.webp"},
- {fr:"Bleu",ar:"أزرق",en:"Blue",sfr:"Le ciel est bleu aujourd'hui.",sar:"السما زرقا اليوم.",sen:"The sky is blue today.",img:"bleu.webp"},
- {fr:"Brutal",ar:"عنيف / فظ",en:"Brutal / Harsh",sfr:"La réponse a été brutale.",sar:"الجواب كان قاسي.",sen:"The answer was harsh.",img:"brutal.webp"},
- {fr:"Bizarre",ar:"غريب",en:"Strange / Weird",sfr:"C'est bizarre, il n'a pas répondu.",sar:"غريب، ما جاوب.",sen:"It's strange, he didn't answer.",img:"bizarre.webp"},
- {fr:"Bruyant",ar:"صاخب / مزعج بالصوت",en:"Noisy",sfr:"Le quartier est très bruyant la nuit.",sar:"الحي صاخب كتير بالليل.",sen:"The neighborhood is very noisy at night.",img:"bruyant.webp"},
- {fr:"Brillant",ar:"لامع / بارع",en:"Brilliant / Shiny",sfr:"C'est une idée brillante.",sar:"هاد فكرة رائعة.",sen:"That's a brilliant idea.",img:"brillant.webp"},
- {fr:"Bas / Basse",ar:"منخفض / واطي",en:"Low",sfr:"Les prix sont bas en ce moment.",sar:"الأسعار واطية هلأ.",sen:"Prices are low right now.",img:"bas_basse.webp"},
- {fr:"Bon / Bonne",ar:"جيد / طيب",en:"Good",sfr:"C'est un bon restaurant.",sar:"هاد مطعم منيح.",sen:"This is a good restaurant.",img:"bon_bonne.webp"},
- {fr:"Beau / Belle",ar:"جميل",en:"Beautiful",sfr:"Quel beau temps aujourd'hui !",sar:"شو أحلى طقس اليوم!",sen:"What beautiful weather today!",img:"beau_belle.webp"},
- {fr:"Bref / Brève",ar:"مختصر",en:"Brief / Short",sfr:"Il a fait un discours bref.",sar:"عمل خطاب مختصر.",sen:"He gave a brief speech.",img:"bref_breve.webp"},
- {fr:"Brun / Brune",ar:"بني الشعر / أسمر",en:"Brown-haired / Dark",sfr:"Elle a les cheveux bruns.",sar:"شعرها بني.",sen:"She has brown hair.",img:"brun_brune.webp"},
- {fr:"Blanc / Blanche",ar:"أبيض",en:"White",sfr:"J'ai acheté une chemise blanche.",sar:"اشتريت قميص أبيض.",sen:"I bought a white shirt.",img:"blanc_blanche.webp"},
  {fr:"Calme",ar:"هادئ",en:"Calm / Quiet",sfr:"Le quartier est calme.",sar:"الحي هادئ.",sen:"The neighborhood is quiet.",img:"calme.webp"},
  {fr:"Confortable",ar:"مريح",en:"Comfortable",sfr:"Ce canapé est confortable.",sar:"هذه الأريكة مريحة.",sen:"This sofa is comfortable.",img:"confortable.webp"},
  {fr:"Cher / Chère",ar:"غالي / عزيز",en:"Expensive / Dear",sfr:"Ce téléphone est trop cher.",sar:"هذا الهاتف غالٍ جداً.",sen:"This phone is too expensive.",img:"cher_chere.webp"},
@@ -2206,7 +2194,6 @@ function updAdj(){
  {fr:"Complet / Complète",ar:"كامل / ممتلئ",en:"Complete / Full",sfr:"Le dossier est complet.",sar:"الملف كامل.",sen:"The file is complete.",img:"complet_complete.webp"},
  {fr:"Correct / Correcte",ar:"صحيح",en:"Correct / Right",sfr:"Votre réponse est correcte.",sar:"إجابتك صحيحة.",sen:"Your answer is correct.",img:"correct_correcte.webp"},
  {fr:"Capable",ar:"قادر",en:"Able / Capable",sfr:"Je suis capable de le faire.",sar:"أنا قادر على فعل ذلك.",sen:"I am able to do it.",img:"capable.webp"},
- {fr:"Chaleureux",ar:"دافئ / ودود",en:"Warm / Friendly",sfr:"Les habitants sont chaleureux.",sar:"السكان ودودون.",sen:"The inhabitants are friendly.",img:"chaleureux.webp"},
  {fr:"Cellulaire",ar:"خلوي / محمول",en:"Cellular",sfr:"Il utilise un téléphone cellulaire.",sar:"يستخدم هاتفًا محمولًا.",sen:"He uses a mobile phone.",img:"cellulaire.webp"},
  {fr:"Commun / Commune",ar:"مشترك / عام",en:"Common",sfr:"C'est un problème commun.",sar:"هذه مشكلة مشتركة.",sen:"It is a common problem.",img:"commun_commune.webp"},
  {fr:"Coquin / Coquine",ar:"مشاغب / ماكر",en:"Naughty",sfr:"Cet enfant est très coquin.",sar:"هذا الطفل مشاغب جدًا.",sen:"This child is very naughty.",img:"coquin_coquine.webp"},
@@ -5564,13 +5551,110 @@ function updAdjA2(){
  st.c['adjectifs']=st.c['adjectifs']||{};st.c['adjectifs'].A=st.c['adjectifs'].A||[];
  add.forEach((u,i)=>{const ex=st.c['adjectifs'].A.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+440000+i;st.c['adjectifs'].A.push(u)}});
  save();}
+function delAdjBC(){
+ if(st.c&&st.c['adjectifs']){
+  if(st.c['adjectifs'].B){st.c['adjectifs'].B=[];save()}
+  if(st.c['adjectifs'].C){const a=st.c['adjectifs'].C;const n=a.filter(u=>u.fr!=="Chaleureux");if(n.length!==a.length){st.c['adjectifs'].C=n;save()}}
+ }
+}
+
+function updAdjB(){
+ const add=[
+ {fr:"Beau / Belle",ar:"جميل",en:"Beautiful",sfr:"C'est une très belle maison.",sar:"هاد بيت جميل كتير.",sen:"It's a very beautiful house.",img:"beau_belle.webp"},
+ {fr:"Bon / Bonne",ar:"جيد / طيّب",en:"Good",sfr:"Ce restaurant est très bon.",sar:"هالمطعم طيب كتير.",sen:"This restaurant is very good.",img:"bon_bonne.webp"},
+ {fr:"Blanc / Blanche",ar:"أبيض",en:"White",sfr:"Je porte une chemise blanche.",sar:"أنا لابس قميص أبيض.",sen:"I'm wearing a white shirt.",img:"blanc_blanche.webp"},
+ {fr:"Bleu / Bleue",ar:"أزرق",en:"Blue",sfr:"Le ciel est bleu aujourd'hui.",sar:"السما زرقا اليوم.",sen:"The sky is blue today.",img:"bleu_bleue.webp"},
+ {fr:"Bas / Basse",ar:"منخفض / قصير",en:"Low / Short",sfr:"Cette table est trop basse.",sar:"هالطاولة واطية كتير.",sen:"This table is too low.",img:"bas_basse.webp"},
+ {fr:"Bref / Brève",ar:"قصير / مختصر",en:"Brief",sfr:"J'ai eu une brève conversation avec lui.",sar:"حكيت معه محادثة قصيرة.",sen:"I had a brief conversation with him.",img:"bref_breve.webp"},
+ {fr:"Bizarre",ar:"غريب",en:"Strange / Weird",sfr:"C'est une situation bizarre.",sar:"هاد موقف غريب.",sen:"It's a strange situation.",img:"bizarre.webp"},
+ {fr:"Brillant / Brillante",ar:"لامع / بارع",en:"Shiny / Brilliant",sfr:"C'est un étudiant brillant.",sar:"هو طالب متفوّق.",sen:"He is a brilliant student. نكمل من الصفة رقم 9، ونحافظ على نفس الطريقة. نكمل صفات حرف B، مع التركيز على الكلمات الشائعة والمفيدة، بدون تكرار.",img:"brillant_brillante.webp"},
+ {fr:"Bavard / Bavarde",ar:"ثرثار / كثير الكلام",en:"Talkative",sfr:"Mon collègue est très bavard.",sar:"زميلي بالشغل بيحكي كتير.",sen:"My colleague is very talkative.",img:"bavard_bavarde.webp"},
+ {fr:"Brûlant / Brûlante",ar:"حار جداً / ساخن",en:"Burning / Very hot",sfr:"Attention, le café est brûlant !",sar:"انتبه، القهوة سخنة كتير!",sen:"Be careful, the coffee is very hot!",img:"brulant_brulante.webp"},
+ {fr:"Brutal / Brutale",ar:"عنيف / قاسٍ",en:"Brutal",sfr:"Le changement a été brutal.",sar:"التغيير كان مفاجئ وقاسي.",sen:"The change was sudden and brutal.",img:"brutal_brutale.webp"},
+ {fr:"Bruyant / Bruyante",ar:"صاخب / مزعج",en:"Noisy",sfr:"Ce quartier est très bruyant.",sar:"هالحي فيه ضجة كتير.",sen:"This neighborhood is very noisy.",img:"bruyant_bruyante.webp"},
+ {fr:"Bondé / Bondée",ar:"مكتظ / مليان بالناس",en:"Crowded / Packed",sfr:"Le tram est bondé ce matin.",sar:"الترام مليان ناس هالصبح.",sen:"The tram is packed this morning.",img:"bonde_bondee.webp"},
+ {fr:"Bénévole",ar:"متطوّع / تطوعي",en:"Voluntary",sfr:"Elle travaille dans une association bénévole.",sar:"هي بتشتغل بجمعية تطوعية.",sen:"She works with a volunteer organization.",img:"benevole.webp"},
+ {fr:"Biologique",ar:"عضوي / حيوي",en:"Organic / Biological",sfr:"J'achète des légumes biologiques.",sar:"بشتري خضرة عضوية.",sen:"I buy organic vegetables. ملاحظة: الصفة bénévole تُستعمل غالباً للشخص المتطوع أو النشاط التطوعي، والأدق في المثال: Elle est bénévole dans une association. (هي متطوعة بجمعية). نكمل صفات حرف B، بدون تكرار، ونختار الكلمات المفيدة بالحياة اليومية والعمل.",img:"biologique.webp"},
+ {fr:"Blessé / Blessée",ar:"مصاب / مجروح",en:"Injured",sfr:"Il est blessé à la jambe.",sar:"هو مصاب برجله.",sen:"He is injured in the leg.",img:"blesse_blessee.webp"},
+ {fr:"Borné / Bornée",ar:"عنيد ومنغلق التفكير",en:"Narrow-minded",sfr:"Il est trop borné pour accepter une autre opinion.",sar:"هو عنيد ومنغلق لدرجة ما بيتقبل رأي تاني.",sen:"He is too narrow-minded to accept another opinion.",img:"borne_bornee.webp"},
+ {fr:"Bienveillant / Bienveillante",ar:"عطوف / طيب النية",en:"Kind / Caring",sfr:"Mon responsable est très bienveillant.",sar:"المسؤول عني بالشغل متفهّم وطيب بالتعامل.",sen:"My manager is very kind and considerate.",img:"bienveillant_bienveillante.webp"},
+ {fr:"Bouclé / Bouclée",ar:"مجعّد",en:"Curly",sfr:"Elle a les cheveux bouclés.",sar:"شعرها مجعّد.",sen:"She has curly hair.",img:"boucle_bouclee.webp"},
+ {fr:"Branché / Branchée",ar:"عصري / مواكب للموضة",en:"Trendy",sfr:"Ce magasin vend des vêtements branchés.",sar:"هالمحل بيبيع تياب عصرية.",sen:"This shop sells trendy clothes.",img:"branche_branchee.webp"},
+ {fr:"Brut / Brute",ar:"خام / غير مصقول",en:"Raw / Rough",sfr:"Cette table est en bois brut.",sar:"هالطاولة مصنوعة من خشب خام.",sen:"This table is made of raw wood. ملاحظة: borné وbranché مفيدتان، لكنهما أقل أولوية من صفات مثل bon وbeau وbruyant. نتابع بالأكثر استعمالاً أولاً. نكمل صفات حرف B، مع تجنّب التكرار والكلمات النادرة.",img:"brut_brute.webp"},
+ {fr:"Bien",ar:"جيد / بخير",en:"Good / Well",sfr:"Tout va bien aujourd'hui.",sar:"كل شي تمام اليوم.",sen:"Everything is fine today.",img:"bien.webp"},
+ {fr:"Bien élevé / Bien élevée",ar:"حسن التربية",en:"Well-mannered",sfr:"C'est un enfant bien élevé.",sar:"هاد طفل متربّي منيح.",sen:"He is a well-mannered child.",img:"bien_eleve_bien_elevee.webp"},
+ {fr:"Blême",ar:"شاحب",en:"Pale",sfr:"Tu es tout blême, qu'est-ce qui t'arrive ?",sar:"وجهك شاحب كتير، شو صاير معك؟",sen:"You look very pale. What's wrong?",img:"bleme.webp"},
+ {fr:"Banal / Banale",ar:"عادي / مألوف",en:"Ordinary / Common",sfr:"Ce n'est pas un problème banal.",sar:"هاد مو مشكلة عادية.",sen:"This isn't an ordinary problem.",img:"banal_banale.webp"},
+ {fr:"Bancal / Bancale",ar:"غير ثابت / مهزوز",en:"Wobbly",sfr:"Cette chaise est bancale.",sar:"هالكرسي مو ثابت وبيهتز.",sen:"This chair is wobbly.",img:"bancal_bancale.webp"},
+ {fr:"Bénéfique",ar:"مفيد / نافع",en:"Beneficial",sfr:"La marche est bénéfique pour la santé.",sar:"المشي مفيد للصحة.",sen:"Walking is beneficial for health. ملاحظة: blême وbancal أقل استعمالاً من بقية الكلمات، لكنهما مفيدتان للفهم. نكمل صفات حرف B، بدون تكرار، ونركّز على المفيد بمستويات A1–B2.",img:"benefique.webp"},
+ {fr:"Bouillant / Bouillante",ar:"شديد السخونة / يغلي",en:"Boiling hot",sfr:"L'eau est bouillante.",sar:"المي عم تغلي وسخنة كتير.",sen:"The water is boiling hot.",img:"bouillant_bouillante.webp"},
+ {fr:"Bienvenu / Bienvenue",ar:"مرحّب به",en:"Welcome",sfr:"Tu es toujours le bienvenu chez nous.",sar:"إنت دايماً مرحّب فيك ببيتنا.",sen:"You are always welcome at our home.",img:"bienvenu_bienvenue.webp"},
+ {fr:"Bouleversé / Bouleversée",ar:"متأثّر بشدة / مصدوم",en:"Deeply Upset",sfr:"Elle est bouleversée par cette nouvelle.",sar:"هي متأثرة كتير بهالخبر.",sen:"She is deeply upset by this news.",img:"bouleverse_bouleversee.webp"},
+ {fr:"Brûlé / Brûlée",ar:"محترق",en:"Burnt",sfr:"Le pain est brûlé.",sar:"الخبز محروق.",sen:"The bread is burnt.",img:"brule_brulee.webp"},
+ {fr:"Bienfaisant / Bienfaisante",ar:"نافع / مفيد",en:"Beneficial",sfr:"L'air frais est bienfaisant.",sar:"الهوا النقي مفيد ومنعش.",sen:"Fresh air is beneficial. ملاحظة: bienfaisant أقل شيوعاً؛ لا تجعله من أولويات الحفظ. الأفضل التركيز على bénéfique. نكمل صفات حرف B، مع تجنّب التكرار والتركيز على الكلمات المفيدة.",img:"bienfaisant_bienfaisante.webp"},
+ {fr:"Brisé / Brisée",ar:"مكسور / محطم",en:"Broken",sfr:"Mon téléphone est brisé.",sar:"تلفوني مكسور.",sen:"My phone is broken.",img:"brise_brisee.webp"},
+ {fr:"Bourré / Bourrée",ar:"ممتلئ جداً / مليان",en:"Full / Packed",sfr:"Le bus est bourré de monde.",sar:"الباص مليان ناس كتير.",sen:"The bus is packed with people.",img:"bourre_bourree.webp"},
+ {fr:"Basique",ar:"أساسي / بسيط",en:"Basic",sfr:"J'ai besoin d'un équipement basique.",sar:"بحتاج تجهيزات أساسية.",sen:"I need basic equipment.",img:"basique.webp"},
+ {fr:"Bien portant / Bien portante",ar:"بصحة جيدة",en:"In Good Health",sfr:"Malgré son âge, il est encore bien portant.",sar:"رغم عمره، لسه بصحة جيدة.",sen:"Despite his age, he is still in good health.",img:"bien_portant_bien_portante.webp"},
+ {fr:"Bienheureux / Bienheureuse",ar:"سعيد جداً / هانئ",en:"Blissful",sfr:"Il se sent bienheureux dans sa nouvelle maison.",sar:"هو حاسس بسعادة وراحة ببيته الجديد.",sen:"He feels blissful in his new home.",img:"bienheureux_bienheureuse.webp"},
+ {fr:"Bilingue",ar:"ثنائي اللغة",en:"Bilingual",sfr:"Elle est bilingue en français et en anglais.",sar:"هي بتحكي فرنسي وإنجليزي بطلاقة.",sen:"She is bilingual in French and English.",img:"bilingue.webp"},
+ {fr:"Brumeux / Brumeuse",ar:"ضبابي",en:"Foggy / Misty",sfr:"Le temps est brumeux ce matin.",sar:"الجو ضبابي هالصبح.",sen:"The weather is foggy this morning.",img:"brumeux_brumeuse.webp"},
+ {fr:"Bouché / Bouchée",ar:"مسدود",en:"Blocked / Clogged",sfr:"Le lavabo est bouché.",sar:"المغسلة مسدودة.",sen:"The sink is clogged.",img:"bouche_bouchee.webp"},
+ {fr:"Bordélique",ar:"فوضوي / غير مرتب (عامية)",en:"Messy",sfr:"Ma chambre est complètement bordélique.",sar:"غرفتي فوضى تماماً.",sen:"My room is completely messy.",img:"bordelique.webp"},
+ {fr:"Bête",ar:"غبي / سخيف",en:"Stupid / Silly",sfr:"C'est une erreur bête.",sar:"هاد خطأ سخيف.",sen:"That's a silly mistake.",img:"bete.webp"},
+ {fr:"Brave",ar:"طيب / شهم، وأحياناً شجاع",en:"Kind / Brave",sfr:"C'est une personne brave.",sar:"هو شخص طيب وشهم.",sen:"He is a kind and decent person.",img:"brave.webp"},
+ {fr:"Barbu / Barbue",ar:"ذو لحية / ملتحٍ",en:"Bearded",sfr:"Mon frère est barbu.",sar:"أخي ملتحي.",sen:"My brother is bearded.",img:"barbu_barbue.webp"},
+ {fr:"Bon marché",ar:"رخيص / بسعر منخفض",en:"Inexpensive",sfr:"Ces chaussures sont bon marché.",sar:"هالأحذية سعرها رخيص.",sen:"These shoes are inexpensive. </received_chat_message>",img:"bon_marche.webp"},
+ {fr:"Bosseur / Bosseuse",ar:"مجتهد بالعمل / يحب الشغل",en:"Hardworking",sfr:"Il est très bosseur.",sar:"هو مجتهد كتير بالشغل.",sen:"He is very hardworking.",img:"bosseur_bosseuse.webp"},
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+450000+i;st.c['adjectifs'][L].push(u)}});
+ save();}
+
+function updAdjC(){
+ const add=[
+ {fr:"Courageux / Courageuse",ar:"شجاع",en:"Brave / Courageous",sfr:"Elle est très courageuse.",sar:"هي شجاعة كتير.",sen:"She is very brave.",img:"courageux_courageuse.webp"},
+ {fr:"Compliqué / Compliquée",ar:"معقّد",en:"Complicated",sfr:"Cet exercice est compliqué.",sar:"هالتمرين معقّد.",sen:"This exercise is complicated.",img:"complique_compliquee.webp"},
+ {fr:"Connu / Connue",ar:"معروف",en:"Known / Famous",sfr:"Cet acteur est très connu.",sar:"هالممثل معروف كتير.",sen:"This actor is very famous.",img:"connu_connue.webp"},
+ {fr:"Chaotique",ar:"فوضوي",en:"Chaotic",sfr:"Ma chambre est chaotique.",sar:"غرفتي فوضوية.",sen:"My room is chaotic.",img:"chaotique.webp"},
+ {fr:"Chouette",ar:"رائع / حلو",en:"Great / Nice (informal)",sfr:"C'est une idée chouette !",sar:"هاي فكرة حلوة!",sen:"That's a great idea!",img:"chouette.webp"},
+ {fr:"Commode",ar:"مريح / عملي",en:"Convenient",sfr:"Cette application est très commode.",sar:"هالتطبيق عملي كتير.",sen:"This app is very convenient.",img:"commode.webp"},
+ {fr:"Confiant / Confiante",ar:"واثق من نفسه",en:"Confident",sfr:"Elle est confiante avant l'examen.",sar:"هي واثقة من حالها قبل الامتحان.",sen:"She is confident before the exam.",img:"confiant_confiante.webp"},
+ {fr:"Créatif / Créative",ar:"مبدع",en:"Creative",sfr:"Mon collègue est très créatif.",sar:"زميلي مبدع كتير.",sen:"My colleague is very creative.",img:"creatif_creative.webp"},
+ {fr:"Cruel / Cruelle",ar:"قاسٍ / ظالم",en:"Cruel",sfr:"Ce comportement est cruel.",sar:"هالتصرف قاسي.",sen:"This behavior is cruel.",img:"cruel_cruelle.webp"},
+ {fr:"Coupable",ar:"مذنب",en:"Guilty",sfr:"Il se sent coupable.",sar:"هو حاسس حاله مذنب.",sen:"He feels guilty.",img:"coupable.webp"},
+ {fr:"Conscient / Consciente",ar:"واعٍ / مدرك",en:"Aware / Conscious",sfr:"Elle est consciente du problème.",sar:"هي مدركة للمشكلة.",sen:"She is aware of the problem.",img:"conscient_consciente.webp"},
+ {fr:"Compatible",ar:"متوافق",en:"Compatible",sfr:"Ces deux appareils sont compatibles.",sar:"هالجهازين متوافقين مع بعض.",sen:"These two devices are compatible.",img:"compatible.webp"},
+ {fr:"Contraire",ar:"معاكس / مخالف",en:"Opposite / Contrary",sfr:"C'est le contraire de ce que je pensais.",sar:"هاد عكس اللي كنت مفكره.",sen:"That's the opposite of what I thought.",img:"contraire.webp"},
+ {fr:"Carré / Carrée",ar:"مربّع",en:"Square",sfr:"Cette table est carrée.",sar:"هالطاولة مربعة.",sen:"This table is square.",img:"carre_carree.webp"},
+ {fr:"Cassé / Cassée",ar:"مكسور / معطّل",en:"Broken",sfr:"Mon téléphone est cassé.",sar:"تلفوني مكسور.",sen:"My phone is broken.",img:"casse_cassee.webp"},
+ {fr:"Cuit / Cuite",ar:"مطبوخ / ناضج",en:"Cooked",sfr:"Le riz est bien cuit.",sar:"الرز مستوي منيح.",sen:"The rice is well cooked.",img:"cuit_cuite.webp"},
+ {fr:"Coloré / Colorée",ar:"مُلوّن",en:"Colorful",sfr:"Elle porte une robe colorée.",sar:"هي لابسة فستان ملوّن.",sen:"She is wearing a colorful dress.",img:"colore_coloree.webp"},
+ {fr:"Concentré / Concentrée",ar:"مركّز / منتبه",en:"Focused",sfr:"Je suis concentré sur mon travail.",sar:"أنا مركّز على شغلي.",sen:"I am focused on my work.",img:"concentre_concentree.webp"},
+ {fr:"Coûteux / Coûteuse",ar:"مكلف",en:"Costly / Expensive",sfr:"Cette réparation est coûteuse.",sar:"هالتصليحة مكلفة.",sen:"This repair is costly.",img:"couteux_couteuse.webp"},
+ {fr:"Copieux / Copieuse",ar:"وفير / كبير (عن وجبة الطعام)",en:"Hearty / Generous",sfr:"Le repas est copieux.",sar:"الوجبة كبيرة ومشبعة.",sen:"The meal is hearty.",img:"copieux_copieuse.webp"},
+ {fr:"Chanceux / Chanceuse",ar:"محظوظ",en:"Lucky",sfr:"Tu as de la chance, tu es chanceux !",sar:"أنت محظوظ!",sen:"You are lucky!",img:"chanceux_chanceuse.webp"},
+ {fr:"Comique",ar:"مضحك",en:"Funny / Comical",sfr:"Ce film est comique.",sar:"هالفيلم مضحك.",sen:"This film is funny.",img:"comique.webp"},
+ {fr:"Concret / Concrète",ar:"ملموس / واقعي",en:"Concrete / Practical",sfr:"Nous avons besoin d'une solution concrète.",sar:"نحن بحاجة لحل عملي وواقعي.",sen:"We need a practical solution.",img:"concret_concrete.webp"},
+ {fr:"Constant / Constante",ar:"مستمر / ثابت",en:"Constant",sfr:"Il fait des progrès constants.",sar:"عم يحقق تقدّم مستمر.",sen:"He is making steady progress.",img:"constant_constante.webp"},
+ {fr:"Croissant / Croissante",ar:"متزايد / متنامٍ",en:"Increasing / Growing",sfr:"Le nombre de clients est croissant.",sar:"عدد الزبائن عم يزيد.",sen:"The number of customers is increasing.",img:"croissant_croissante.webp"},
+ {fr:"Capricieux / Capricieuse",ar:"متقلّب المزاج / كثير المطالب",en:"Moody / Fussy",sfr:"Cet enfant est capricieux.",sar:"هالطفل مزاجي وبيعمل اللي براسه.",sen:"This child is fussy.",img:"capricieux_capricieuse.webp"},
+ {fr:"Craintif / Craintive",ar:"خائف / كثير الخوف",en:"Fearful / Timid",sfr:"Mon chien est craintif.",sar:"كلبي خواف.",sen:"My dog is timid.",img:"craintif_craintive.webp"},
+ {fr:"Chaleureux / Chaleureuse",ar:"ودود / حنون",en:"Warm / Warm-hearted",sfr:"Notre voisin est très chaleureux.",sar:"جارنا ودود وبيستقبل الناس بمحبة.",sen:"Our neighbor is very warm and welcoming.",img:"chaleureux_chaleureuse.webp"},
+ {fr:"Classique",ar:"كلاسيكي / تقليدي",en:"Classic / Traditional",sfr:"Je préfère le style classique.",sar:"بفضّل الأسلوب الكلاسيكي.",sen:"I prefer the classic style.",img:"classique.webp"},
+ {fr:"Froid / Froide",ar:"بارد",en:"Cold",sfr:"L'eau est froide.",sar:"المي باردة.",sen:"The water is cold.",img:"froid_froide.webp"},
+ {fr:"Sérieux / Sérieuse",ar:"جدي",en:"Serious",sfr:"C'est un travail sérieux.",sar:"هاد شغل جدي.",sen:"This is serious work.",img:"serieux_serieuse.webp"},
+ {fr:"Sympathique",ar:"لطيف / محبوب",en:"Nice / Friendly",sfr:"Notre voisin est sympathique.",sar:"جارنا لطيف.",sen:"Our neighbor is nice.",img:"sympathique.webp"},
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+460000+i;st.c['adjectifs'][L].push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
