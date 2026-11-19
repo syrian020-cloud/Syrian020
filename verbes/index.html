@@ -6545,13 +6545,77 @@ function updAdvR(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+743000+i;st.c['adverbes'][L].push(u)}});
  save();}
+function delAdvS(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].S){st.c['adverbes'].S=[];save()} }
+function updAdvS(){
+ const add=[
+{"fr":"Souvent","ar":"غالباً / كثيراً","en":"Often","sfr":"Je viens souvent ici.","sar":"بجي لهون كتير.","sen":"I often come here.","img":"souvent.webp"},
+{"fr":"Seulement","ar":"فقط","en":"Only","sfr":"J'ai seulement dix euros.","sar":"معي بس عشرة يورو.","sen":"I only have ten euros.","img":"seulement.webp"},
+{"fr":"Surtout","ar":"خصوصاً / بالأخص","en":"Especially","sfr":"J'aime surtout le français.","sar":"بحب الفرنسي بشكل خاص.","sen":"I especially like French.","img":"surtout.webp"},
+{"fr":"Soudain","ar":"فجأة","en":"Suddenly","sfr":"Soudain, il a commencé à pleuvoir.","sar":"فجأة بلّش المطر.","sen":"Suddenly, it started raining.","img":"soudain.webp"},
+{"fr":"Simplement","ar":"ببساطة","en":"Simply","sfr":"Explique-moi simplement.","sar":"اشرحلي ببساطة.","sen":"Explain it to me simply.","img":"simplement.webp"},
+{"fr":"Sérieusement","ar":"بجدية","en":"Seriously","sfr":"Il faut travailler sérieusement.","sar":"لازم نشتغل بجدية.","sen":"We must work seriously.","img":"serieusement.webp"},
+{"fr":"Sincèrement","ar":"بصدق / بإخلاص","en":"Sincerely","sfr":"Je te remercie sincèrement.","sar":"بشكرك من قلبي وبصدق.","sen":"I sincerely thank you.","img":"sincerement.webp"},
+{"fr":"Spécialement","ar":"خصيصاً","en":"Especially / Specifically","sfr":"J'ai préparé ce repas spécialement pour toi.","sar":"حضرت هالأكلة خصيصاً إلك.","sen":"I prepared this meal especially for you.","img":"specialement.webp"},
+{"fr":"Suffisamment","ar":"بما فيه الكفاية","en":"Enough / Sufficiently","sfr":"Tu dors suffisamment ?","sar":"عم تنام بما فيه الكفاية؟","sen":"Are you sleeping enough?","img":"suffisamment.webp"},
+{"fr":"Systématiquement","ar":"بشكل منهجي / في كل مرة","en":"Systematically / Every time","sfr":"Il vérifie systématiquement son travail.","sar":"هو بيتأكد من شغله كل مرة.","sen":"He systematically checks his work.","img":"systematiquement.webp"},
+{"fr":"Silencieusement","ar":"بصمت","en":"Silently","sfr":"Elle est entrée silencieusement.","sar":"دخلت بصمت.","sen":"She entered silently.","img":"silencieusement.webp"},
+{"fr":"Subitement","ar":"بشكل مفاجئ","en":"Suddenly","sfr":"Il a subitement changé d'avis.","sar":"غيّر رأيه فجأة.","sen":"He suddenly changed his mind.","img":"subitement.webp"},
+{"fr":"Sûrement","ar":"بالتأكيد / على الأرجح","en":"Surely / Probably","sfr":"Il viendra sûrement demain.","sar":"غالباً رح يجي بكرا.","sen":"He will probably come tomorrow.","img":"surement.webp"},
+{"fr":"Séparément","ar":"بشكل منفصل","en":"Separately","sfr":"Nous allons payer séparément.","sar":"رح ندفع كل واحد لحاله.","sen":"We will pay separately.","img":"separement.webp"},
+{"fr":"Spontanément","ar":"بعفوية / تلقائياً","en":"Spontaneously","sfr":"Il a répondu spontanément.","sar":"ردّ بعفوية.","sen":"He answered spontaneously.","img":"spontanement.webp"},
+{"fr":"Strictement","ar":"بصرامة / بشكل دقيق","en":"Strictly","sfr":"Il faut respecter strictement les règles.","sar":"لازم نلتزم بالقواعد بدقة.","sen":"We must strictly follow the rules.","img":"strictement.webp"},
+{"fr":"Symboliquement","ar":"بشكل رمزي","en":"Symbolically","sfr":"Ce cadeau est symboliquement important.","sar":"هالهدية إلها أهمية رمزية.","sen":"This gift is symbolically important.","img":"symboliquement.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+744000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvT(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].T){st.c['adverbes'].T=[];save()} }
+function updAdvT(){
+ const add=[
+{fr:"Tolérer le traitement",ar:"تحمل العلاج",en:"Tolerate the treatment",sfr:"Je tolère bien le traitement.",sar:"أتحمل العلاج بشكل جيد.",sen:"I tolerate the treatment well.",img:"tolerer_le_traitement.webp"},
+{"fr":"Toujours","ar":"دائماً / لا يزال","en":"Always / Still","sfr":"Je travaille toujours ici.","sar":"لسا بشتغل هون.","sen":"I still work here.","img":"toujours.webp"},
+{"fr":"Très","ar":"جداً","en":"Very","sfr":"Ce travail est très difficile.","sar":"هالشغل صعب جداً.","sen":"This job is very difficult.","img":"tres.webp"},
+{"fr":"Trop","ar":"كثيراً / أكثر من اللازم","en":"Too much","sfr":"Tu travailles trop.","sar":"إنت بتشتغل أكتر من اللازم.","sen":"You work too much.","img":"trop.webp"},
+{"fr":"Tard","ar":"متأخراً","en":"Late","sfr":"Je rentre tard.","sar":"برجع متأخر.","sen":"I come home late.","img":"tard.webp"},
+{"fr":"Tôt","ar":"مبكراً","en":"Early","sfr":"Je me lève tôt.","sar":"بفيق بكير.","sen":"I get up early.","img":"tot.webp"},
+{"fr":"Totalement","ar":"تماماً / كلياً","en":"Totally / Completely","sfr":"Je suis totalement d'accord.","sar":"أنا موافق تماماً.","sen":"I totally agree.","img":"totalement.webp"},
+{"fr":"Tellement","ar":"للغاية / كثيراً","en":"So much","sfr":"Je suis tellement fatigué.","sar":"أنا تعبان كتير.","sen":"I'm so tired.","img":"tellement.webp"},
+{"fr":"Tout à fait","ar":"تماماً / بالتأكيد","en":"Absolutely / Exactly","sfr":"Tu as raison, tout à fait.","sar":"معك حق، تماماً.","sen":"You're absolutely right.","img":"tout_a_fait.webp"},
+{"fr":"Tout simplement","ar":"بكل بساطة","en":"Quite simply","sfr":"C'est tout simplement impossible.","sar":"هالشي مستحيل بكل بساطة.","sen":"It's quite simply impossible.","img":"tout_simplement.webp"},
+{"fr":"Tout de suite","ar":"فوراً / حالاً","en":"Right away","sfr":"J'arrive tout de suite.","sar":"جاي فوراً.","sen":"I'll be right there.","img":"tout_de_suite.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+745000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvU(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].U){st.c['adverbes'].U=[];save()} }
+function updAdvU(){
+ const add=[
+{"fr":"Uniquement","ar":"فقط / حصراً","en":"Only / Solely","sfr":"Ce service est uniquement disponible en ligne.","sar":"هالخدمة متوفرة حصراً على الإنترنت.","sen":"This service is only available online.","img":"uniquement.webp"},
+{"fr":"Urgemment","ar":"بشكل عاجل","en":"Urgently","sfr":"J'ai besoin de ce document urgemment.","sar":"أنا بحاجة لهالوثيقة بشكل عاجل.","sen":"I urgently need this document.","img":"urgemment.webp"},
+{"fr":"Uniformément","ar":"بشكل متساوٍ / بانتظام","en":"Uniformly / Evenly","sfr":"Répartissez le produit uniformément.","sar":"وزّع المنتج بشكل متساوٍ.","sen":"Distribute the product evenly.","img":"uniformement.webp"},
+{"fr":"Ultérieurement","ar":"لاحقاً / في وقت لاحق","en":"Subsequently / Later","sfr":"Nous discuterons de ce sujet ultérieurement.","sar":"رح نناقش هالموضوع بوقت لاحق.","sen":"We will discuss this subject later.","img":"ulterieurement.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+746000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvV(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].V){st.c['adverbes'].V=[];save()} }
+function updAdvV(){
+ const add=[
+{"fr":"Vraiment","ar":"حقاً / فعلاً","en":"Really","sfr":"Tu es vraiment gentil.","sar":"إنت فعلاً لطيف.","sen":"You are really kind.","img":"vraiment.webp"},
+{"fr":"Volontiers","ar":"بكل سرور","en":"Willingly / Gladly","sfr":"Oui, volontiers !","sar":"إي، بكل سرور!","sen":"Yes, gladly!","img":"volontiers.webp"},
+{"fr":"Visiblement","ar":"من الواضح","en":"Obviously / Apparently","sfr":"Il est visiblement fatigué.","sar":"واضح إنه تعبان.","sen":"He is obviously tired.","img":"visiblement.webp"},
+{"fr":"Vite","ar":"بسرعة","en":"Quickly","sfr":"Dépêche-toi, viens vite !","sar":"استعجل، تعا بسرعة!","sen":"Hurry up, come quickly!","img":"vite.webp"},
+{"fr":"Violemment","ar":"بعنف","en":"Violently","sfr":"Il a violemment réagi.","sar":"كان رد فعله عنيف.","sen":"He reacted violently.","img":"violemment.webp"},
+{"fr":"Volontairement","ar":"عمداً / بإرادته","en":"Voluntarily / Deliberately","sfr":"Il a fait ça volontairement.","sar":"هو عمل هالشي عن قصد.","sen":"He did that deliberately.","img":"volontairement.webp"},
+{"fr":"Vaguement","ar":"بشكل مبهم / بشكل غير واضح","en":"Vaguely","sfr":"Je me souviens vaguement de lui.","sar":"بتذكّره بشكل مو واضح.","sen":"I vaguely remember him.","img":"vaguement.webp"},
+{"fr":"Vis-à-vis","ar":"تجاه / بالنسبة إلى","en":"With regard to","sfr":"Il est prudent vis-à-vis de cette situation.","sar":"هو حذر تجاه هالوضع.","sen":"He is cautious with regard to this situation.","img":"vis_a_vis.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+747000+i;st.c['adverbes'][L].push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();delAdjP();updAdjP();delAdjR();updAdjR();delAdjS();updAdjS();delAdjT();updAdjT();updAdjT2();delAdjU();updAdjU();delAdjV();updAdjV();delAdjW();updAdjW();delAdjX();updAdjX();delAdjZ();updAdjZ();updAdjK2();updAdjK3();delAdvB();updAdvB();delAdvC();updAdvC();updAdvD();delAdvD();updAdvD2();delAdvE();updAdvE();delAdvF();updAdvF();delAdvG();updAdvG();delAdvH();updAdvH();delAdvI();updAdvI();delAdvJ();updAdvJ();delAdvL();updAdvL();delAdvM();updAdvM();delAdvN();updAdvN();delAdvO();updAdvO();delAdvP();updAdvP();delAdvQ();updAdvQ();delAdvR();updAdvR();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();delAdjP();updAdjP();delAdjR();updAdjR();delAdjS();updAdjS();delAdjT();updAdjT();updAdjT2();delAdjU();updAdjU();delAdjV();updAdjV();delAdjW();updAdjW();delAdjX();updAdjX();delAdjZ();updAdjZ();updAdjK2();updAdjK3();delAdvB();updAdvB();delAdvC();updAdvC();updAdvD();delAdvD();updAdvD2();delAdvE();updAdvE();delAdvF();updAdvF();delAdvG();updAdvG();delAdvH();updAdvH();delAdvI();updAdvI();delAdvJ();updAdvJ();delAdvL();updAdvL();delAdvM();updAdvM();delAdvN();updAdvN();delAdvO();updAdvO();delAdvP();updAdvP();delAdvQ();updAdvQ();delAdvR();updAdvR();delAdvS();updAdvS();delAdvT();updAdvT();delAdvU();updAdvU();delAdvV();updAdvV();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
