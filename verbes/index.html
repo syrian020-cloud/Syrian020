@@ -6963,13 +6963,275 @@ function updGramNegation(){
  st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="negation";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
  add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+756000+i;st.c["grammaticaux"][F].push(u)}});
  save();}
+function updGramNegation2(){
+ const add=[
+{"fr":"Ne... ni... ni","ar":"لا... ولا...","en":"Neither... nor","sfr":"Je ne bois ni café ni thé.","sar":"أنا ما بشرب لا قهوة ولا شاي.","sen":"I drink neither coffee nor tea.","img":"ne_ni_ni.webp"},
+{"fr":"Ne... aucun","ar":"ولا أيّ (مذكر)","en":"Not any / No","sfr":"Je n'ai aucun problème.","sar":"ما عندي ولا أي مشكلة.","sen":"I have no problem.","img":"ne_aucun.webp"},
+{"fr":"Ne... aucune","ar":"ولا أيّ (مؤنث)","en":"Not any / No","sfr":"Je n'ai aucune question.","sar":"ما عندي ولا أي سؤال.","sen":"I have no questions.","img":"ne_aucune.webp"},
+{"fr":"Ne... que","ar":"فقط / لا... إلا","en":"Only","sfr":"Je ne travaille que le matin.","sar":"أنا بشتغل بس الصبح.","sen":"I only work in the morning.","img":"ne_que.webp"}
+ ];
+ st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="negation";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
+ add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+757000+i;st.c["grammaticaux"][F].push(u)}});
+ save();}
+function delGramDemonstratifs(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["demonstratifs"]){st.c["grammaticaux"]["demonstratifs"]=[];save()} }
+function updGramDemonstratifs(){
+ const add=[
+{"fr":"Ce","ar":"هذا (قبل اسم مذكر)","en":"This / That","sfr":"Ce livre est intéressant.","sar":"هالكتاب ممتع.","sen":"This book is interesting.","img":"ce.webp"},
+{"fr":"Cet","ar":"هذا (قبل اسم مذكر يبدأ بصوت متحرك)","en":"This / That","sfr":"Cet homme est gentil.","sar":"هالزلمة لطيف.","sen":"This man is kind.","img":"cet.webp"},
+{"fr":"Cette","ar":"هذه (قبل اسم مؤنث)","en":"This / That","sfr":"Cette maison est grande.","sar":"هالبيت كبير.","sen":"This house is big.","img":"cette.webp"},
+{"fr":"Ces","ar":"هؤلاء / هذه (للجمع)","en":"These / Those","sfr":"Ces chaussures sont neuves.","sar":"هالأحذية جداد.","sen":"These shoes are new.","img":"ces.webp"},
+{"fr":"Ce...-ci","ar":"هذا هنا","en":"This one here","sfr":"Je préfère ce modèle-ci.","sar":"بفضّل هالموديل هون.","sen":"I prefer this model here.","img":"ce_ci.webp"},
+{"fr":"Ce...-là","ar":"ذاك / ذلك","en":"That one there","sfr":"Je préfère ce modèle-là.","sar":"بفضّل هداك الموديل.","sen":"I prefer that model there.","img":"ce_la.webp"},
+{"fr":"Celui","ar":"ذلك / هذا (مذكر مفرد)","en":"This one / That one","sfr":"Celui que je préfère est noir.","sar":"اللي بفضّله لونه أسود.","sen":"The one I prefer is black.","img":"celui.webp"},
+{"fr":"Celle","ar":"تلك / هذه (مؤنث مفرد)","en":"This one / That one","sfr":"Celle-ci est plus belle.","sar":"هاي أحلى.","sen":"This one is prettier.","img":"celle.webp"},
+{"fr":"Ceux","ar":"هؤلاء / أولئك (مذكر جمع)","en":"These ones / Those ones","sfr":"Ceux de gauche sont moins chers.","sar":"اللي عاليسار أرخص.","sen":"The ones on the left are cheaper.","img":"ceux.webp"},
+{"fr":"Celles","ar":"هؤلاء / أولئك (مؤنث جمع)","en":"These ones / Those ones","sfr":"Celles-ci sont à moi.","sar":"هدول إلي.","sen":"These ones are mine.","img":"celles.webp"},
+{"fr":"Ceci","ar":"هذا","en":"This","sfr":"Écoute ceci.","sar":"اسمع هاد.","sen":"Listen to this.","img":"ceci.webp"},
+{"fr":"Cela","ar":"ذلك / هذا","en":"That","sfr":"Cela me plaît beaucoup.","sar":"هالشي بيعجبني كتير.","sen":"I like that very much.","img":"cela.webp"},
+{"fr":"Ça","ar":"هذا / ذلك (محادثة يومية)","en":"This / That / It","sfr":"Ça va bien ?","sar":"كيفك؟ / أمورك منيحة؟","sen":"Are you doing well?","img":"ca.webp"}
+ ];
+ st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="demonstratifs";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
+ add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+758000+i;st.c["grammaticaux"][F].push(u)}});
+ save();}
+function delGramPossessifs(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["possessifs"]){st.c["grammaticaux"]["possessifs"]=[];save()} }
+function updGramPossessifs(){
+ const add=[
+{"fr":"Mon","ar":"لي / خاصتي (مذكر مفرد)","en":"My","sfr":"Mon téléphone est neuf.","sar":"تلفوني جديد.","sen":"My phone is new.","img":"mon.webp"},
+{"fr":"Ma","ar":"لي / خاصتي (مؤنث مفرد)","en":"My","sfr":"Ma voiture est rouge.","sar":"سيارتي حمرا.","sen":"My car is red.","img":"ma.webp"},
+{"fr":"Mes","ar":"لي / خاصتي (جمع)","en":"My","sfr":"Mes amis sont gentils.","sar":"رفقاتي طيبين.","sen":"My friends are kind.","img":"mes.webp"},
+{"fr":"Ton","ar":"إلك (مذكر مفرد)","en":"Your","sfr":"Ton travail est difficile.","sar":"شغلك صعب.","sen":"Your job is difficult.","img":"ton.webp"},
+{"fr":"Ta","ar":"إلك (مؤنث مفرد)","en":"Your","sfr":"Ta chambre est propre.","sar":"غرفتك نظيفة.","sen":"Your room is clean.","img":"ta.webp"},
+{"fr":"Tes","ar":"إلك (جمع)","en":"Your","sfr":"Tes chaussures sont belles.","sar":"أحذيتك حلوة.","sen":"Your shoes are beautiful.","img":"tes.webp"},
+{"fr":"Son","ar":"له / لها (مذكر مفرد)","en":"His / Her","sfr":"Son frère habite à Paris.","sar":"أخوه أو أخوها ساكن بباريس.","sen":"His / Her brother lives in Paris.","img":"son.webp"},
+{"fr":"Sa","ar":"له / لها (مؤنث مفرد)","en":"His / Her","sfr":"Sa sœur travaille ici.","sar":"أخته أو أختها بتشتغل هون.","sen":"His / Her sister works here.","img":"sa.webp"},
+{"fr":"Ses","ar":"له / لها (جمع)","en":"His / Her","sfr":"Ses enfants vont à l'école.","sar":"أولاده أو أولادها بيروحوا عالمدرسة.","sen":"His / Her children go to school.","img":"ses.webp"},
+{"fr":"Notre","ar":"لنا (مفرد)","en":"Our","sfr":"Notre appartement est petit.","sar":"شقتنا صغيرة.","sen":"Our apartment is small.","img":"notre.webp"},
+{"fr":"Nos","ar":"لنا (جمع)","en":"Our","sfr":"Nos voisins sont sympathiques.","sar":"جيراننا لطفاء.","sen":"Our neighbors are friendly.","img":"nos.webp"},
+{"fr":"Votre","ar":"لكم / لك (مفرد رسمي)","en":"Your","sfr":"Votre rendez-vous est demain.","sar":"موعدك بكرا.","sen":"Your appointment is tomorrow.","img":"votre.webp"},
+{"fr":"Vos","ar":"لكم / لك (جمع)","en":"Your","sfr":"Vos documents sont prêts.","sar":"أوراقكم جاهزة.","sen":"Your documents are ready.","img":"vos.webp"},
+{"fr":"Le mien","ar":"لي / خاصتي (مذكر مفرد)","en":"Mine","sfr":"Ce téléphone est le mien.","sar":"هالتلفون إلي.","sen":"This phone is mine.","img":"le_mien.webp"},
+{"fr":"La mienne","ar":"لي / خاصتي (مؤنث مفرد)","en":"Mine","sfr":"Cette voiture est la mienne.","sar":"هالسيارة إلي.","sen":"This car is mine.","img":"la_mienne.webp"},
+{"fr":"Les miens","ar":"لي / خاصتي (مذكر جمع)","en":"Mine","sfr":"Ces livres sont les miens.","sar":"هالكتب إلي.","sen":"These books are mine.","img":"les_miens.webp"},
+{"fr":"Les miennes","ar":"لي / خاصتي (مؤنث جمع)","en":"Mine","sfr":"Ces chaussures sont les miennes.","sar":"هالأحذية إلي.","sen":"These shoes are mine.","img":"les_miennes.webp"},
+{"fr":"Le tien","ar":"إلك (مذكر مفرد)","en":"Yours","sfr":"Ce sac est le tien.","sar":"هالشنطة إلك.","sen":"This bag is yours.","img":"le_tien.webp"},
+{"fr":"La tienne","ar":"إلك (مؤنث مفرد)","en":"Yours","sfr":"Cette clé est la tienne.","sar":"هالمفتاح إلك.","sen":"This key is yours.","img":"la_tienne.webp"},
+{"fr":"Les tiens","ar":"إلك (مذكر جمع)","en":"Yours","sfr":"Ces stylos sont les tiens.","sar":"هالأقلام إلك.","sen":"These pens are yours.","img":"les_tiens.webp"},
+{"fr":"Les tiennes","ar":"إلك (مؤنث جمع)","en":"Yours","sfr":"Ces lunettes sont les tiennes.","sar":"هالنظارات إلك.","sen":"These glasses are yours.","img":"les_tiennes.webp"},
+{"fr":"Le sien","ar":"له / لها (مذكر مفرد)","en":"His / Hers","sfr":"Ce téléphone est le sien.","sar":"هالتلفون إله أو إلها.","sen":"This phone is his / hers.","img":"le_sien.webp"},
+{"fr":"La sienne","ar":"له / لها (مؤنث مفرد)","en":"His / Hers","sfr":"Cette maison est la sienne.","sar":"هالبيت إله أو إلها.","sen":"This house is his / hers.","img":"la_sienne.webp"},
+{"fr":"Les siens","ar":"له / لها (مذكر جمع)","en":"His / Hers","sfr":"Ces livres sont les siens.","sar":"هالكتب إله أو إلها.","sen":"These books are his / hers.","img":"les_siens.webp"},
+{"fr":"Les siennes","ar":"له / لها (مؤنث جمع)","en":"His / Hers","sfr":"Ces chaussures sont les siennes.","sar":"هالأحذية إله أو إلها.","sen":"These shoes are his / hers.","img":"les_siennes.webp"},
+{"fr":"Le nôtre","ar":"لنا (مذكر مفرد)","en":"Ours","sfr":"Ce jardin est le nôtre.","sar":"هالحديقة إلنا.","sen":"This garden is ours.","img":"le_notre.webp"},
+{"fr":"La nôtre","ar":"لنا (مؤنث مفرد)","en":"Ours","sfr":"Cette voiture est la nôtre.","sar":"هالسيارة إلنا.","sen":"This car is ours.","img":"la_notre.webp"},
+{"fr":"Les nôtres","ar":"لنا (جمع)","en":"Ours","sfr":"Ces enfants sont les nôtres.","sar":"هدول أولادنا.","sen":"These children are ours.","img":"les_notres.webp"},
+{"fr":"Le vôtre","ar":"لكم / لك باحترام (مذكر مفرد)","en":"Yours","sfr":"Ce bureau est le vôtre.","sar":"هالمكتب إلكم.","sen":"This desk is yours.","img":"le_votre.webp"},
+{"fr":"La vôtre","ar":"لكم / لك باحترام (مؤنث مفرد)","en":"Yours","sfr":"Cette maison est la vôtre.","sar":"هالبيت إلكم.","sen":"This house is yours.","img":"la_votre.webp"},
+{"fr":"Les vôtres","ar":"لكم / لك باحترام (جمع)","en":"Yours","sfr":"Ces affaires sont les vôtres.","sar":"هالأغراض إلكن.","sen":"These belongings are yours.","img":"les_votres.webp"},
+{"fr":"Le leur","ar":"لهم (مذكر مفرد)","en":"Theirs","sfr":"Ce chien est le leur.","sar":"هالكلب إلهم.","sen":"This dog is theirs.","img":"le_leur.webp"},
+{"fr":"La leur","ar":"لهم (مؤنث مفرد)","en":"Theirs","sfr":"Cette voiture est la leur.","sar":"هالسيارة إلهم.","sen":"This car is theirs.","img":"la_leur.webp"},
+{"fr":"Les leurs","ar":"لهم (جمع)","en":"Theirs","sfr":"Ces livres sont les leurs.","sar":"هالكتب إلهم.","sen":"These books are theirs.","img":"les_leurs.webp"}
+ ];
+ st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="possessifs";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
+ add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+759000+i;st.c["grammaticaux"][F].push(u)}});
+ save();}
+function delGramQuantificateurs(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["quantificateurs"]){st.c["grammaticaux"]["quantificateurs"]=[];save()} }
+function updGramQuantificateurs(){
+ const add=[
+{"fr":"Beaucoup de","ar":"الكثير من","en":"A lot of / Much / Many","sfr":"J'ai beaucoup de travail.","sar":"عندي شغل كتير.","sen":"I have a lot of work.","img":"beaucoup_de.webp"},
+{"fr":"Peu de","ar":"القليل من","en":"Few / Little","sfr":"Il y a peu de temps.","sar":"في وقت قليل.","sen":"There is little time.","img":"peu_de.webp"},
+{"fr":"Un peu de","ar":"قليل من","en":"A little","sfr":"Je veux un peu d'eau.","sar":"بدي شوي مي.","sen":"I want a little water.","img":"un_peu_de.webp"},
+{"fr":"Assez de","ar":"ما يكفي من","en":"Enough","sfr":"J'ai assez d'argent.","sar":"معي مصاري كفاية.","sen":"I have enough money.","img":"assez_de.webp"},
+{"fr":"Trop de","ar":"الكثير أكثر من اللازم","en":"Too much / Too many","sfr":"Tu manges trop de sucre.","sar":"إنت بتاكل سكر أكتر من اللازم.","sen":"You eat too much sugar.","img":"trop_de.webp"},
+{"fr":"Énormément de","ar":"كمية هائلة من","en":"An enormous amount of","sfr":"Il y a énormément de monde aujourd'hui.","sar":"في عالم كتير كتير اليوم.","sen":"There are an enormous number of people today.","img":"enormement_de.webp"},
+{"fr":"Un grand nombre de","ar":"عدد كبير من","en":"A large number of","sfr":"Un grand nombre de personnes attendent.","sar":"عدد كبير من الناس ناطرين.","sen":"A large number of people are waiting.","img":"un_grand_nombre_de.webp"},
+{"fr":"La plupart de","ar":"معظم","en":"Most of","sfr":"La plupart des étudiants travaillent.","sar":"معظم الطلاب بيشتغلوا.","sen":"Most students work.","img":"la_plupart_de.webp"},
+{"fr":"La moitié de","ar":"نصف","en":"Half of","sfr":"J'ai mangé la moitié du gâteau.","sar":"أكلت نص الكاتو.","sen":"I ate half of the cake.","img":"la_moitie_de.webp"},
+{"fr":"La totalité de","ar":"كامل / مجموع","en":"The entirety of","sfr":"J'ai lu la totalité du document.","sar":"قرأت المستند كله.","sen":"I read the entire document.","img":"la_totalite_de.webp"},
+{"fr":"Une partie de","ar":"جزء من","en":"Part of","sfr":"Une partie du travail est terminée.","sar":"جزء من الشغل خلص.","sen":"Part of the work is finished.","img":"une_partie_de.webp"},
+{"fr":"Plusieurs","ar":"عدة / العديد من","en":"Several","sfr":"J'ai plusieurs rendez-vous cette semaine.","sar":"عندي عدة مواعيد هالأسبوع.","sen":"I have several appointments this week.","img":"plusieurs.webp"},
+{"fr":"Une quantité de","ar":"كمية من","en":"An amount of","sfr":"Il faut une quantité suffisante d'eau.","sar":"لازم كمية كافية من المي.","sen":"A sufficient amount of water is needed.","img":"une_quantite_de.webp"},
+{"fr":"Autant de","ar":"نفس الكمية من / بقدر","en":"As much / As many","sfr":"Tu as autant de travail que moi.","sar":"عندك نفس كمية الشغل اللي عندي.","sen":"You have as much work as I do.","img":"autant_de.webp"}
+ ];
+ st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="quantificateurs";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
+ add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+760000+i;st.c["grammaticaux"][F].push(u)}});
+ save();}
+function delGramInterjections(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["interjections"]){st.c["grammaticaux"]["interjections"]=[];save()} }
+function updGramInterjections(){
+ const add=[
+{"fr":"Oh !","ar":"أوه!","en":"Oh!","sfr":"Oh ! C'est magnifique !","sar":"أوه! هالشي رائع!","sen":"Oh! That's magnificent!","img":"oh.webp"},
+{"fr":"Ah !","ar":"آه!","en":"Ah!","sfr":"Ah ! Je comprends maintenant.","sar":"آه! هلأ فهمت.","sen":"Ah! I understand now.","img":"ah.webp"},
+{"fr":"Aïe !","ar":"آخ!","en":"Ouch!","sfr":"Aïe ! J'ai mal au pied.","sar":"آخ! رجلي عم توجعني.","sen":"Ouch! My foot hurts.","img":"aie.webp"},
+{"fr":"Ouf !","ar":"الحمد لله! / يا للراحة!","en":"Phew!","sfr":"Ouf ! J'ai enfin terminé.","sar":"أوف! أخيراً خلّصت.","sen":"Phew! I've finally finished.","img":"ouf.webp"},
+{"fr":"Bravo !","ar":"أحسنت!","en":"Well done!","sfr":"Bravo ! Tu as réussi ton examen.","sar":"برافو! نجحت بامتحانك.","sen":"Well done! You passed your exam.","img":"bravo.webp"},
+{"fr":"Mince !","ar":"يا خسارة! / تبّاً!","en":"Darn!","sfr":"Mince ! J'ai oublié mes clés.","sar":"يا خسارة! نسيت مفاتيحي.","sen":"Darn! I forgot my keys.","img":"mince.webp"},
+{"fr":"Zut !","ar":"تبّاً! / يا إلهي!","en":"Darn! / Shoot!","sfr":"Zut ! Le bus est parti.","sar":"يا لطيف! الباص راح.","sen":"Shoot! The bus has left.","img":"zut.webp"},
+{"fr":"Dommage !","ar":"يا للخسارة! / للأسف!","en":"What a pity!","sfr":"Dommage ! Tu ne peux pas venir.","sar":"يا خسارة! ما فيك تجي.","sen":"What a pity! You can't come.","img":"dommage.webp"},
+{"fr":"Tiens !","ar":"خذ! / انظر!","en":"Here! / Look!","sfr":"Tiens ! Voilà tes clés.","sar":"تفضّل! هاي مفاتيحك.","sen":"Here! These are your keys.","img":"tiens.webp"},
+{"fr":"Eh !","ar":"مهلاً! / يا!","en":"Hey!","sfr":"Eh ! Attends-moi !","sar":"يا! استناني!","sen":"Hey! Wait for me!","img":"eh.webp"},
+{"fr":"Bah !","ar":"إي يعني / لا بأس","en":"Well! / Oh well!","sfr":"Bah ! Ce n'est pas grave.","sar":"إي، مو مشكلة.","sen":"Well! It's not a big deal.","img":"bah.webp"},
+{"fr":"Beurk !","ar":"يع! / مقرف!","en":"Yuck!","sfr":"Beurk ! Cette soupe est froide.","sar":"يع! هالشوربة باردة.","sen":"Yuck! This soup is cold.","img":"beurk.webp"},
+{"fr":"Chut !","ar":"ششش! / اسكت!","en":"Shh!","sfr":"Chut ! Le bébé dort.","sar":"ششش! البيبي نايم.","sen":"Shh! The baby is sleeping.","img":"chut.webp"}
+ ];
+ st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="interjections";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
+ add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+761000+i;st.c["grammaticaux"][F].push(u)}});
+ save();}
+function delGramComparaison(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["comparaison"]){st.c["grammaticaux"]["comparaison"]=[];save()} }
+function updGramComparaison(){
+ const add=[
+{"fr":"Plus... que","ar":"أكثر من","en":"More... than","sfr":"Cette voiture est plus rapide que l'autre.","sar":"هالسيارة أسرع من التانية.","sen":"This car is faster than the other one.","img":"plus_que.webp"},
+{"fr":"Moins... que","ar":"أقل من","en":"Less... than","sfr":"Ce téléphone est moins cher que celui-là.","sar":"هالتلفون أرخص من هداك.","sen":"This phone is cheaper than that one.","img":"moins_que.webp"},
+{"fr":"Aussi... que","ar":"بنفس الدرجة من","en":"As... as","sfr":"Il est aussi grand que son frère.","sar":"هو بطول أخوه.","sen":"He is as tall as his brother.","img":"aussi_que.webp"},
+{"fr":"Autant... que","ar":"بنفس القدر من","en":"As much / As many as","sfr":"Je travaille autant que toi.","sar":"أنا بشتغل قدّك.","sen":"I work as much as you.","img":"autant_que.webp"},
+{"fr":"Meilleur(e)(s) que","ar":"أفضل من","en":"Better than","sfr":"Ce restaurant est meilleur que l'autre.","sar":"هالمطعم أحسن من التاني.","sen":"This restaurant is better than the other one.","img":"meilleur_e_s_que.webp"},
+{"fr":"Mieux que","ar":"بشكل أفضل من","en":"Better than","sfr":"Tu parles français mieux que moi.","sar":"إنت بتحكي فرنسي أحسن مني.","sen":"You speak French better than me.","img":"mieux_que.webp"},
+{"fr":"Pire que","ar":"أسوأ من","en":"Worse than","sfr":"Cette situation est pire que la précédente.","sar":"هالوضع أسوأ من اللي قبله.","sen":"This situation is worse than the previous one.","img":"pire_que.webp"},
+{"fr":"Le plus","ar":"الأكثر / الأفضل","en":"The most","sfr":"C'est le plus grand magasin de la ville.","sar":"هاد أكبر محل بالمدينة.","sen":"This is the biggest shop in the city.","img":"le_plus.webp"},
+{"fr":"Le moins","ar":"الأقل","en":"The least","sfr":"C'est le moins cher.","sar":"هاد الأرخص.","sen":"This is the cheapest one.","img":"le_moins.webp"},
+{"fr":"De plus en plus","ar":"أكثر فأكثر","en":"More and more","sfr":"Je comprends de plus en plus le français.","sar":"عم أفهم الفرنسي أكتر وأكتر.","sen":"I understand French more and more.","img":"de_plus_en_plus.webp"},
+{"fr":"De moins en moins","ar":"أقل فأقل","en":"Less and less","sfr":"J'ai de moins en moins de temps libre.","sar":"عم يصير عندي وقت فراغ أقل وأقل.","sen":"I have less and less free time.","img":"de_moins_en_moins.webp"}
+ ];
+ st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="comparaison";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
+ add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+762000+i;st.c["grammaticaux"][F].push(u)}});
+ save();}
+function delGramInsistance(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["insistance"]){st.c["grammaticaux"]["insistance"]=[];save()} }
+function updGramInsistance(){
+ const add=[
+{"fr":"Très","ar":"جداً","en":"Very","sfr":"Ce travail est très difficile.","sar":"هالشغل صعب كتير.","sen":"This job is very difficult.","img":"tres.webp"},
+{"fr":"Vraiment","ar":"حقاً / فعلاً","en":"Really","sfr":"Tu es vraiment gentil.","sar":"إنت فعلاً لطيف.","sen":"You are really kind.","img":"vraiment.webp"},
+{"fr":"Tellement","ar":"إلى هذا الحد / كتير","en":"So / So much","sfr":"Je suis tellement fatigué !","sar":"أنا تعبان كتير!","sen":"I'm so tired!","img":"tellement.webp"},
+{"fr":"Surtout","ar":"خصوصاً / بالأخص","en":"Especially / Above all","sfr":"J'aime surtout apprendre les langues.","sar":"بحب خصوصاً تعلّم اللغات.","sen":"I especially like learning languages.","img":"surtout.webp"},
+{"fr":"Même","ar":"حتى","en":"Even","sfr":"Même mon frère le sait.","sar":"حتى أخي بيعرف هالشي.","sen":"Even my brother knows that.","img":"meme.webp"},
+{"fr":"Absolument","ar":"بالتأكيد / إطلاقاً","en":"Absolutely","sfr":"Je suis absolument certain.","sar":"أنا متأكد تماماً.","sen":"I am absolutely certain.","img":"absolument.webp"},
+{"fr":"Tout à fait","ar":"تماماً / بالضبط","en":"Exactly / Quite","sfr":"Vous avez tout à fait raison.","sar":"معك حق تماماً.","sen":"You are absolutely right.","img":"tout_a_fait.webp"},
+{"fr":"Justement","ar":"بالضبط / تحديداً","en":"Exactly","sfr":"Justement, je voulais te parler.","sar":"بالضبط، كنت بدي أحكي معك.","sen":"Exactly, I wanted to talk to you.","img":"justement.webp"},
+{"fr":"Particulièrement","ar":"بشكل خاص","en":"Particularly","sfr":"J'aime particulièrement cette ville.","sar":"بحب هالمدينة بشكل خاص.","sen":"I particularly like this city.","img":"particulierement.webp"},
+{"fr":"Sincèrement","ar":"بصراحة / بإخلاص","en":"Sincerely","sfr":"Sincèrement, je ne suis pas d'accord.","sar":"بصراحة، أنا مو موافق.","sen":"Honestly, I disagree.","img":"sincerement.webp"},
+{"fr":"Clairement","ar":"بوضوح / بشكل واضح","en":"Clearly","sfr":"Il faut clairement expliquer la situation.","sar":"لازم نشرح الوضع بوضوح.","sen":"The situation must be explained clearly.","img":"clairement.webp"},
+{"fr":"Absolument pas","ar":"أبداً / إطلاقاً","en":"Absolutely not","sfr":"Non, absolument pas !","sar":"لا، أبداً!","sen":"No, absolutely not!","img":"absolument_pas.webp"},
+{"fr":"Tout simplement","ar":"بكل بساطة","en":"Quite simply / Simply","sfr":"C'est tout simplement magnifique.","sar":"هالشي ببساطة رائع.","sen":"It is simply magnificent.","img":"tout_simplement.webp"}
+ ];
+ st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="insistance";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
+ add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+763000+i;st.c["grammaticaux"][F].push(u)}});
+ save();}
+function delGramOrdre(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["ordre"]){st.c["grammaticaux"]["ordre"]=[];save()} }
+function updGramOrdre(){
+ const add=[
+{"fr":"D'abord","ar":"أولاً","en":"First / First of all","sfr":"D'abord, je prends mon petit-déjeuner.","sar":"أول شي، بتناول الفطور.","sen":"First, I have breakfast.","img":"d_abord.webp"},
+{"fr":"Premièrement","ar":"أولاً","en":"Firstly","sfr":"Premièrement, il faut lire les instructions.","sar":"أولاً، لازم نقرأ التعليمات.","sen":"Firstly, we must read the instructions.","img":"premierement.webp"},
+{"fr":"Deuxièmement","ar":"ثانياً","en":"Secondly","sfr":"Deuxièmement, il faut remplir le formulaire.","sar":"ثانياً، لازم نعبي الاستمارة.","sen":"Secondly, we must fill in the form.","img":"deuxiemement.webp"},
+{"fr":"Ensuite","ar":"بعد ذلك","en":"Next / Then","sfr":"Ensuite, je vais au travail.","sar":"بعدين بروح عالشغل.","sen":"Next, I go to work.","img":"ensuite.webp"},
+{"fr":"Puis","ar":"ثم","en":"Then","sfr":"Je mange, puis je me repose.","sar":"باكل، وبعدين برتاح.","sen":"I eat, then I rest.","img":"puis.webp"},
+{"fr":"Après","ar":"بعد","en":"After / Afterwards","sfr":"Après le travail, je rentre chez moi.","sar":"بعد الشغل، برجع عالبيت.","sen":"After work, I go home.","img":"apres.webp"},
+{"fr":"Enfin","ar":"أخيراً","en":"Finally","sfr":"Enfin, je peux me reposer.","sar":"أخيراً، فيني ارتاح.","sen":"Finally, I can rest.","img":"enfin.webp"},
+{"fr":"Finalement","ar":"في النهاية","en":"Eventually / In the end","sfr":"Finalement, j'ai trouvé un travail.","sar":"بالنهاية، لقيت شغل.","sen":"Eventually, I found a job.","img":"finalement.webp"},
+{"fr":"Pour commencer","ar":"للبدء","en":"To begin with","sfr":"Pour commencer, je vais me présenter.","sar":"بالبداية، رح عرّف عن حالي.","sen":"To begin with, I will introduce myself.","img":"pour_commencer.webp"},
+{"fr":"Pour terminer","ar":"للإنهاء","en":"To finish","sfr":"Pour terminer, je vous remercie.","sar":"وبالنهاية، بشكركم.","sen":"To finish, I thank you.","img":"pour_terminer.webp"},
+{"fr":"D'une part... d'autre part","ar":"من جهة... ومن جهة أخرى","en":"On the one hand... on the other hand","sfr":"D'une part, le travail est intéressant ; d'autre part, il est fatigant.","sar":"من جهة الشغل ممتع، ومن جهة تانية متعب.","sen":"On the one hand, the job is interesting; on the other hand, it is tiring.","img":"d_une_part_d_autre_part.webp"},
+{"fr":"En premier lieu","ar":"في المقام الأول","en":"In the first place","sfr":"En premier lieu, il faut vérifier les documents.","sar":"أول شي، لازم نتأكد من الأوراق.","sen":"In the first place, we must check the documents.","img":"en_premier_lieu.webp"},
+{"fr":"En second lieu","ar":"في المقام الثاني","en":"In the second place","sfr":"En second lieu, nous devons signer le contrat.","sar":"بالمرحلة التانية، لازم نوقّع العقد.","sen":"In the second place, we must sign the contract.","img":"en_second_lieu.webp"}
+ ];
+ st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="ordre";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
+ add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+764000+i;st.c["grammaticaux"][F].push(u)}});
+ save();}
+function updAdvTLM(){
+ const add=[
+{"fr":"Aujourd'hui","ar":"اليوم","en":"Today","sfr":"Aujourd'hui, je travaille.","sar":"اليوم أنا بشتغل.","sen":"Today, I am working.","img":"aujourd_hui.webp"},
+{"fr":"Hier","ar":"أمس / مبارح","en":"Yesterday","sfr":"Hier, je suis allé au marché.","sar":"مبارح رحت عالسوق.","sen":"Yesterday, I went to the market.","img":"hier.webp"},
+{"fr":"Demain","ar":"غداً / بكرا","en":"Tomorrow","sfr":"Demain, j'ai un rendez-vous.","sar":"بكرا عندي موعد.","sen":"Tomorrow, I have an appointment.","img":"demain.webp"},
+{"fr":"Maintenant","ar":"الآن / هلأ","en":"Now","sfr":"Je suis occupé maintenant.","sar":"أنا مشغول هلأ.","sen":"I am busy now.","img":"maintenant.webp"},
+{"fr":"Tout à l'heure","ar":"بعد قليل / قبل قليل","en":"Earlier / In a little while","sfr":"Je vais sortir tout à l'heure.","sar":"رح أطلع بعد شوي.","sen":"I'm going out in a little while.","img":"tout_a_l_heure.webp"},
+{"fr":"Bientôt","ar":"قريباً","en":"Soon","sfr":"Je reviendrai bientôt.","sar":"رح أرجع قريباً.","sen":"I will come back soon.","img":"bientot.webp"},
+{"fr":"Tard","ar":"متأخراً","en":"Late","sfr":"Je rentre tard le soir.","sar":"برجع عالبيت متأخر بالليل.","sen":"I come home late in the evening.","img":"tard.webp"},
+{"fr":"Tôt","ar":"باكراً","en":"Early","sfr":"Je me réveille tôt.","sar":"بفيق بكير.","sen":"I wake up early.","img":"tot.webp"},
+{"fr":"Toujours","ar":"دائماً / ما زال","en":"Always / Still","sfr":"Il arrive toujours à l'heure.","sar":"هو دايماً بيوصل عالوقت.","sen":"He always arrives on time.","img":"toujours.webp"},
+{"fr":"Souvent","ar":"غالباً / كثيراً","en":"Often","sfr":"Je prends souvent le tram.","sar":"غالباً بركب الترام.","sen":"I often take the tram.","img":"souvent.webp"},
+{"fr":"Parfois","ar":"أحياناً","en":"Sometimes","sfr":"Je cuisine parfois à la maison.","sar":"أحياناً بطبخ بالبيت.","sen":"I sometimes cook at home.","img":"parfois.webp"},
+{"fr":"Rarement","ar":"نادراً","en":"Rarely","sfr":"Je mange rarement au restaurant.","sar":"نادراً ما باكل بالمطعم.","sen":"I rarely eat at restaurants.","img":"rarement.webp"},
+{"fr":"Jamais","ar":"أبداً","en":"Never","sfr":"Je ne prends jamais de taxi.","sar":"ما بركب تاكسي أبداً.","sen":"I never take a taxi.","img":"jamais.webp"},
+{"fr":"Déjà","ar":"بالفعل / من قبل","en":"Already","sfr":"J'ai déjà mangé.","sar":"أنا أكلت من قبل.","sen":"I have already eaten.","img":"deja.webp"},
+{"fr":"Encore","ar":"مجدداً / ما زال","en":"Again / Still","sfr":"Je veux encore un café.","sar":"بدي كمان فنجان قهوة.","sen":"I want another coffee.","img":"encore.webp"},
+{"fr":"Récemment","ar":"مؤخراً","en":"Recently","sfr":"J'ai récemment changé de travail.","sar":"غيّرت شغلي مؤخراً.","sen":"I recently changed jobs.","img":"recemment.webp"},
+{"fr":"Autrefois","ar":"قديماً / في الماضي","en":"In the past / Formerly","sfr":"Autrefois, je vivais à la campagne.","sar":"زمان كنت عايش بالريف.","sen":"I used to live in the countryside.","img":"autrefois.webp"},
+{"fr":"Immédiatement","ar":"فوراً","en":"Immediately","sfr":"Appelez le médecin immédiatement !","sar":"اتصلوا بالطبيب فوراً!","sen":"Call the doctor immediately!","img":"immediatement.webp"},
+{"fr":"Finalement","ar":"أخيراً / في النهاية","en":"Finally","sfr":"Finalement, j'ai trouvé un appartement.","sar":"بالنهاية لقيت شقة.","sen":"Finally, I found an apartment.","img":"finalement.webp"},
+{"fr":"Désormais","ar":"من الآن فصاعداً","en":"From now on","sfr":"Désormais, je prendrai le tram.","sar":"من هلأ وطالع رح أركب الترام.","sen":"From now on, I will take the tram.","img":"desormais.webp"},
+{"fr":"Auparavant","ar":"سابقاً / من قبل","en":"Previously","sfr":"Auparavant, je travaillais dans un restaurant.","sar":"قبل كنت اشتغل بمطعم.","sen":"Previously, I worked in a restaurant.","img":"auparavant.webp"},
+{"fr":"Pendant","ar":"أثناء / خلال","en":"During","sfr":"Je lis pendant la pause.","sar":"بقرأ خلال الاستراحة.","sen":"I read during the break.","img":"pendant.webp"},
+{"fr":"Longtemps","ar":"طويلاً / لمدة طويلة","en":"For a long time","sfr":"J'ai attendu longtemps.","sar":"نطرت وقت طويل.","sen":"I waited for a long time.","img":"longtemps.webp"},
+{"fr":"Tout de suite","ar":"حالاً / فوراً","en":"Right away","sfr":"Je viens tout de suite.","sar":"جاي هلأ فوراً.","sen":"I'm coming right away.","img":"tout_de_suite.webp"},
+{"fr":"De temps en temps","ar":"من وقت لوقت","en":"From time to time","sfr":"Je vais au cinéma de temps en temps.","sar":"بروح عالسينما من وقت للتاني.","sen":"I go to the cinema from time to time.","img":"de_temps_en_temps.webp"},
+{"fr":"À présent","ar":"في الوقت الحالي / الآن","en":"At present","sfr":"À présent, je comprends mieux le français.","sar":"هلأ صرت أفهم الفرنسي أحسن.","sen":"At present, I understand French better.","img":"a_present.webp"},
+{"fr":"Quotidiennement","ar":"يومياً","en":"Daily","sfr":"Je prends ce médicament quotidiennement.","sar":"باخد هالدواء يومياً.","sen":"I take this medication daily.","img":"quotidiennement.webp"},
+{"fr":"Hebdomadairement","ar":"أسبوعياً","en":"Weekly","sfr":"Nous faisons une réunion hebdomadairement.","sar":"منعمل اجتماع كل أسبوع.","sen":"We have a meeting weekly.","img":"hebdomadairement.webp"},
+{"fr":"Mensuellement","ar":"شهرياً","en":"Monthly","sfr":"Je paie mon loyer mensuellement.","sar":"بدفع إيجار البيت شهرياً.","sen":"I pay my rent monthly.","img":"mensuellement.webp"},
+{"fr":"Annuellement","ar":"سنوياً","en":"Annually","sfr":"Cette assurance est renouvelée annuellement.","sar":"هالتأمين بيتجدد سنوياً.","sen":"This insurance is renewed annually.","img":"annuellement.webp"},
+{"fr":"Prochainement","ar":"قريباً","en":"Soon","sfr":"Le magasin ouvrira prochainement.","sar":"المحل رح يفتح قريباً.","sen":"The shop will open soon.","img":"prochainement.webp"},
+{"fr":"Entre-temps","ar":"في هذه الأثناء","en":"In the meantime","sfr":"Entre-temps, je vais préparer le dîner.","sar":"بهالوقت رح حضّر العشا.","sen":"In the meantime, I will prepare dinner.","img":"entre_temps.webp"},
+{"fr":"Ici","ar":"هنا / هون","en":"Here","sfr":"J'habite ici.","sar":"أنا ساكن هون.","sen":"I live here.","img":"ici.webp"},
+{"fr":"Là","ar":"هناك / هنيك","en":"There","sfr":"Mon sac est là.","sar":"شنطتي هنيك.","sen":"My bag is there.","img":"la.webp"},
+{"fr":"Là-bas","ar":"هناك بعيداً","en":"Over there","sfr":"La gare est là-bas.","sar":"المحطة هنيك بالبعيد.","sen":"The station is over there.","img":"la_bas.webp"},
+{"fr":"Partout","ar":"في كل مكان","en":"Everywhere","sfr":"Il y a des magasins partout.","sar":"في محلات بكل مكان.","sen":"There are shops everywhere.","img":"partout.webp"},
+{"fr":"Quelque part","ar":"في مكان ما","en":"Somewhere","sfr":"J'ai mis mes clés quelque part.","sar":"حطّيت مفاتيحي بمحل ما.","sen":"I put my keys somewhere.","img":"quelque_part.webp"},
+{"fr":"Nulle part","ar":"لا مكان / ولا محل","en":"Nowhere","sfr":"Je ne trouve mes clés nulle part.","sar":"مو عم لاقي مفاتيحي ولا بمحل.","sen":"I can't find my keys anywhere.","img":"nulle_part.webp"},
+{"fr":"Ailleurs","ar":"في مكان آخر","en":"Elsewhere","sfr":"Nous devons chercher ailleurs.","sar":"لازم ندوّر بمكان تاني.","sen":"We have to look elsewhere.","img":"ailleurs.webp"},
+{"fr":"Dedans","ar":"في الداخل","en":"Inside","sfr":"Les enfants sont dedans.","sar":"الأولاد جوّا.","sen":"The children are inside.","img":"dedans.webp"},
+{"fr":"Dehors","ar":"في الخارج / برّا","en":"Outside","sfr":"Il fait froid dehors.","sar":"الجو بارد برّا.","sen":"It's cold outside.","img":"dehors.webp"},
+{"fr":"Dessus","ar":"فوقه / عليه","en":"On top","sfr":"Le livre est dessus.","sar":"الكتاب فوقه.","sen":"The book is on top.","img":"dessus.webp"},
+{"fr":"Dessous","ar":"تحته","en":"Underneath","sfr":"Le chat est dessous.","sar":"البس تحت.","sen":"The cat is underneath.","img":"dessous.webp"},
+{"fr":"Devant","ar":"أمام / قدّام","en":"In front","sfr":"La voiture est devant la maison.","sar":"السيارة قدّام البيت.","sen":"The car is in front of the house.","img":"devant.webp"},
+{"fr":"Derrière","ar":"خلف / ورا","en":"Behind","sfr":"Le jardin est derrière la maison.","sar":"الحديقة ورا البيت.","sen":"The garden is behind the house.","img":"derriere.webp"},
+{"fr":"Loin","ar":"بعيد","en":"Far","sfr":"Mon travail est loin d'ici.","sar":"شغلي بعيد من هون.","sen":"My workplace is far from here.","img":"loin.webp"},
+{"fr":"Près","ar":"قريب","en":"Near","sfr":"La pharmacie est près de chez moi.","sar":"الصيدلية قريبة من بيتي.","sen":"The pharmacy is near my home.","img":"pres.webp"},
+{"fr":"En haut","ar":"في الأعلى / لفوق","en":"Upstairs / At the top","sfr":"Mon appartement est en haut.","sar":"شقتي بالطابق الفوقاني.","sen":"My apartment is upstairs.","img":"en_haut.webp"},
+{"fr":"En bas","ar":"في الأسفل / لتحت","en":"Downstairs / At the bottom","sfr":"Je t'attends en bas.","sar":"ناطرك بالطابق التحتاني.","sen":"I'll wait for you downstairs.","img":"en_bas.webp"},
+{"fr":"À côté","ar":"بجانب","en":"Next to / Beside","sfr":"La banque est à côté.","sar":"البنك حدّنا.","sen":"The bank is next door.","img":"a_cote.webp"},
+{"fr":"En face","ar":"بالمقابل","en":"Opposite / Across from","sfr":"Le café est en face de la gare.","sar":"المقهى مقابل المحطة.","sen":"The café is opposite the station.","img":"en_face.webp"},
+{"fr":"Autour","ar":"حول","en":"Around","sfr":"Il y a des arbres autour de la maison.","sar":"في أشجار حوالي البيت.","sen":"There are trees around the house.","img":"autour.webp"},
+{"fr":"N'importe où","ar":"في أي مكان","en":"Anywhere","sfr":"Tu peux t'asseoir n'importe où.","sar":"فيك تقعد بأي مكان.","sen":"You can sit anywhere.","img":"n_importe_ou.webp"},
+{"fr":"Quelque part ailleurs","ar":"بمكان تاني","en":"Somewhere else","sfr":"Je veux vivre quelque part ailleurs.","sar":"بدي عيش بمكان تاني.","sen":"I want to live somewhere else.","img":"quelque_part_ailleurs.webp"},
+{"fr":"N'importe où ailleurs","ar":"بأي مكان تاني","en":"Anywhere else","sfr":"Je préfère aller n'importe où ailleurs.","sar":"بفضّل روح على أي مكان تاني.","sen":"I would rather go anywhere else.","img":"n_importe_ou_ailleurs.webp"},
+{"fr":"Au-dessus","ar":"فوق","en":"Above","sfr":"L'appartement au-dessus est vide.","sar":"الشقة اللي فوق فاضية.","sen":"The apartment above is empty.","img":"au_dessus.webp"},
+{"fr":"Au-dessous","ar":"أسفل / تحت","en":"Below","sfr":"Regardez l'image au-dessous.","sar":"انظروا للصورة اللي تحت.","sen":"Look at the image below.","img":"au_dessous.webp"},
+{"fr":"Nulle part ailleurs","ar":"ولا بمكان تاني","en":"Nowhere else","sfr":"Je ne trouve ce produit nulle part ailleurs.","sar":"ما عم لاقي هالمنتج ولا بمكان تاني.","sen":"I can't find this product anywhere else.","img":"nulle_part_ailleurs.webp"},
+{"fr":"Bien","ar":"جيداً / منيح","en":"Well","sfr":"Tu parles bien français.","sar":"إنت بتحكي فرنسي منيح.","sen":"You speak French well.","img":"bien.webp"},
+{"fr":"Mal","ar":"بشكل سيئ / مو منيح","en":"Badly","sfr":"J'ai mal dormi cette nuit.","sar":"نمت مو منيح هالليلة.","sen":"I slept badly last night.","img":"mal.webp"},
+{"fr":"Vite","ar":"بسرعة","en":"Quickly","sfr":"Il marche très vite.","sar":"هو بيمشي بسرعة كتير.","sen":"He walks very quickly.","img":"vite.webp"},
+{"fr":"Lentement","ar":"ببطء","en":"Slowly","sfr":"Parlez lentement, s'il vous plaît.","sar":"احكي ببطء، لو سمحت.","sen":"Please speak slowly.","img":"lentement.webp"},
+{"fr":"Facilement","ar":"بسهولة","en":"Easily","sfr":"Je comprends facilement cette leçon.","sar":"بفهم هالدرس بسهولة.","sen":"I understand this lesson easily.","img":"facilement.webp"},
+{"fr":"Difficilement","ar":"بصعوبة","en":"With difficulty","sfr":"Il marche difficilement.","sar":"هو عم يمشي بصعوبة.","sen":"He walks with difficulty.","img":"difficilement.webp"},
+{"fr":"Correctement","ar":"بشكل صحيح","en":"Correctly","sfr":"Tu as répondu correctement.","sar":"جاوبت بشكل صحيح.","sen":"You answered correctly.","img":"correctement.webp"},
+{"fr":"Rapidement","ar":"بسرعة","en":"Rapidly","sfr":"Le train avance rapidement.","sar":"القطار عم يتحرك بسرعة.","sen":"The train is moving rapidly.","img":"rapidement.webp"},
+{"fr":"Doucement","ar":"بهدوء / بلطف","en":"Gently / Slowly","sfr":"Parlez doucement, s'il vous plaît.","sar":"احكي بهدوء، لو سمحت.","sen":"Please speak gently.","img":"doucement.webp"},
+{"fr":"Sérieusement","ar":"بجدية","en":"Seriously","sfr":"Il travaille sérieusement.","sar":"هو بيشتغل بجدية.","sen":"He works seriously.","img":"serieusement.webp"},
+{"fr":"Poliment","ar":"بأدب","en":"Politely","sfr":"Il répond poliment.","sar":"هو بيرد بأدب.","sen":"He answers politely.","img":"poliment.webp"},
+{"fr":"Gentiment","ar":"بلطف","en":"Kindly","sfr":"Elle m'a parlé gentiment.","sar":"حكت معي بلطف.","sen":"She spoke to me kindly.","img":"gentiment.webp"},
+{"fr":"Prudemment","ar":"بحذر","en":"Carefully","sfr":"Conduisez prudemment.","sar":"سوق بحذر.","sen":"Drive carefully.","img":"prudemment.webp"},
+{"fr":"Silencieusement","ar":"بصمت","en":"Silently","sfr":"Il est entré silencieusement.","sar":"فات بدون صوت.","sen":"He entered silently.","img":"silencieusement.webp"},
+{"fr":"Volontairement","ar":"عن قصد / طوعاً","en":"Voluntarily / Deliberately","sfr":"Il a fait cela volontairement.","sar":"هو عمل هالشي عن قصد.","sen":"He did that deliberately.","img":"volontairement.webp"},
+{"fr":"Ensemble","ar":"معاً","en":"Together","sfr":"Nous travaillons ensemble.","sar":"منشتغل مع بعض.","sen":"We work together.","img":"ensemble.webp"},
+{"fr":"Séparément","ar":"بشكل منفصل","en":"Separately","sfr":"Rangez les documents séparément.","sar":"رتّبوا الأوراق بشكل منفصل.","sen":"Sort the documents separately.","img":"separement.webp"},
+{"fr":"Directement","ar":"مباشرةً","en":"Directly","sfr":"Allez directement à l'accueil.","sar":"روح مباشرةً على الاستقبال.","sen":"Go directly to reception.","img":"directement.webp"},
+{"fr":"Précisément","ar":"بدقة / بالتحديد","en":"Precisely / Exactly","sfr":"Expliquez précisément le problème.","sar":"اشرح المشكلة بالتحديد.","sen":"Explain the problem precisely.","img":"precisement.webp"},
+{"fr":"Généralement","ar":"عموماً / بشكل عام","en":"Generally","sfr":"Je prends généralement le tram.","sar":"عادةً بركب الترام.","sen":"I generally take the tram.","img":"generalement.webp"},
+{"fr":"Personnellement","ar":"شخصياً","en":"Personally","sfr":"Personnellement, je préfère le français.","sar":"أنا شخصياً بفضّل الفرنسي.","sen":"Personally, I prefer French.","img":"personnellement.webp"},
+{"fr":"Automatiquement","ar":"تلقائياً","en":"Automatically","sfr":"La porte s'ouvre automatiquement.","sar":"الباب بيفتح تلقائياً.","sen":"The door opens automatically.","img":"automatiquement.webp"},
+{"fr":"Exactement","ar":"تماماً / بالضبط","en":"Exactly","sfr":"C'est exactement ce que je cherche.","sar":"هاد بالضبط اللي عم دور عليه.","sen":"That's exactly what I'm looking for.","img":"exactement.webp"},
+{"fr":"Simplement","ar":"ببساطة","en":"Simply","sfr":"Expliquez-moi simplement.","sar":"اشرحلي ببساطة.","sen":"Explain it to me simply.","img":"simplement.webp"},
+{"fr":"Heureusement","ar":"لحسن الحظ","en":"Fortunately","sfr":"Heureusement, je suis arrivé à l'heure.","sar":"لحسن الحظ، وصلت عالوقت.","sen":"Fortunately, I arrived on time.","img":"heureusement.webp"},
+{"fr":"Malheureusement","ar":"للأسف","en":"Unfortunately","sfr":"Malheureusement, le magasin est fermé.","sar":"للأسف، المحل مسكّر.","sen":"Unfortunately, the shop is closed.","img":"malheureusement.webp"},
+{"fr":"Probablement","ar":"على الأرجح","en":"Probably","sfr":"Il viendra probablement demain.","sar":"غالباً رح يجي بكرا.","sen":"He will probably come tomorrow.","img":"probablement.webp"},
+{"fr":"Certainement","ar":"بالتأكيد / حتماً","en":"Certainly","sfr":"Elle viendra certainement.","sar":"أكيد رح تجي.","sen":"She will certainly come.","img":"certainement.webp"},
+{"fr":"Apparemment","ar":"على ما يبدو","en":"Apparently","sfr":"Apparemment, il est malade.","sar":"على ما يبدو، هو مريض.","sen":"Apparently, he is ill.","img":"apparemment.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l'|un|une|des|du|de la|de l'|d'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+765000+i;st.c['adverbes'][L].push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1,grammaticaux:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();delAdjP();updAdjP();delAdjR();updAdjR();delAdjS();updAdjS();delAdjT();updAdjT();updAdjT2();delAdjU();updAdjU();delAdjV();updAdjV();delAdjW();updAdjW();delAdjX();updAdjX();delAdjZ();updAdjZ();updAdjK2();updAdjK3();delAdvB();updAdvB();delAdvC();updAdvC();updAdvD();delAdvD();updAdvD2();delAdvE();updAdvE();delAdvF();updAdvF();delAdvG();updAdvG();delAdvH();updAdvH();delAdvI();updAdvI();delAdvJ();updAdvJ();delAdvL();updAdvL();delAdvM();updAdvM();delAdvN();updAdvN();delAdvO();updAdvO();delAdvP();updAdvP();delAdvQ();updAdvQ();delAdvR();updAdvR();delAdvS();updAdvS();delAdvT();updAdvT();delAdvU();updAdvU();delAdvV();updAdvV();delGramPrepositions();updGramPrepositions();delGramPronoms();updGramPronoms();updGramPronoms2();delGramArticles();updGramArticles();delGramConjonctions();updGramConjonctions();updGramConjonctions2();delGramDeterminants();updGramDeterminants();delGramInterrogatifs();updGramInterrogatifs();delGramNegation();updGramNegation();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();delAdjP();updAdjP();delAdjR();updAdjR();delAdjS();updAdjS();delAdjT();updAdjT();updAdjT2();delAdjU();updAdjU();delAdjV();updAdjV();delAdjW();updAdjW();delAdjX();updAdjX();delAdjZ();updAdjZ();updAdjK2();updAdjK3();delAdvB();updAdvB();delAdvC();updAdvC();updAdvD();delAdvD();updAdvD2();delAdvE();updAdvE();delAdvF();updAdvF();delAdvG();updAdvG();delAdvH();updAdvH();delAdvI();updAdvI();delAdvJ();updAdvJ();delAdvL();updAdvL();delAdvM();updAdvM();delAdvN();updAdvN();delAdvO();updAdvO();delAdvP();updAdvP();delAdvQ();updAdvQ();delAdvR();updAdvR();delAdvS();updAdvS();delAdvT();updAdvT();delAdvU();updAdvU();delAdvV();updAdvV();delGramPrepositions();updGramPrepositions();delGramPronoms();updGramPronoms();updGramPronoms2();delGramArticles();updGramArticles();delGramConjonctions();updGramConjonctions();updGramConjonctions2();delGramDeterminants();updGramDeterminants();delGramInterrogatifs();updGramInterrogatifs();delGramNegation();updGramNegation();updGramNegation2();delGramDemonstratifs();updGramDemonstratifs();delGramPossessifs();updGramPossessifs();delGramQuantificateurs();updGramQuantificateurs();delGramInterjections();updGramInterjections();delGramComparaison();updGramComparaison();delGramInsistance();updGramInsistance();delGramOrdre();updGramOrdre();updAdvTLM();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
