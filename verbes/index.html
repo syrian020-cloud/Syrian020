@@ -6285,13 +6285,273 @@ function updAdvD(){
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+720000+i;st.c['adverbes'][L].push(u)}});
  save();}
 
+function delAdvD(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].D){st.c['adverbes'].D=[];save()} }
+function updAdvD2(){
+ const add=[
+{fr:"Demander un aménagement",ar:"طلب تكييف",en:"Request an adjustment",sfr:"Je souhaite demander un aménagement de travail.",sar:"أريد طلب تكييف في العمل.",sen:"I would like to request a work adjustment.",img:"demander_un_amenagement.webp"},
+{fr:"Droit au logement",ar:"الحق في السكن",en:"Right to housing",sfr:"Chacun a un droit au logement.",sar:"لكل شخص الحق في السكن.",sen:"Everyone has a right to housing.",img:"droit_au_logement.webp"},
+{"fr":"Déjà","ar":"بالفعل / مسبقاً","en":"Already","sfr":"J'ai déjà mangé.","sar":"أنا أكلت من قبل.","sen":"I've already eaten.","img":"deja.webp"},
+{"fr":"Demain","ar":"غداً","en":"Tomorrow","sfr":"Je travaille demain.","sar":"أنا بشتغل بكرا.","sen":"I work tomorrow.","img":"demain.webp"},
+{"fr":"Dedans","ar":"في الداخل","en":"Inside","sfr":"Mets les clés dedans.","sar":"حط المفاتيح لجوا.","sen":"Put the keys inside.","img":"dedans.webp"},
+{"fr":"Dehors","ar":"في الخارج","en":"Outside","sfr":"Les enfants jouent dehors.","sar":"الأطفال عم يلعبوا برا.","sen":"The children are playing outside.","img":"dehors.webp"},
+{"fr":"Derrière","ar":"في الخلف / وراء","en":"Behind","sfr":"Il est derrière moi.","sar":"هو وراي.","sen":"He is behind me.","img":"derriere.webp"},
+{"fr":"Devant","ar":"في الأمام / أمام","en":"In front","sfr":"Attends-moi devant.","sar":"ناطرني قدّام.","sen":"Wait for me outside / in front.","img":"devant.webp"},
+{"fr":"Doucement","ar":"بهدوء / ببطء","en":"Gently / Slowly","sfr":"Parle doucement.","sar":"احكي بهدوء.","sen":"Speak gently.","img":"doucement.webp"},
+{"fr":"Désormais","ar":"من الآن فصاعداً","en":"From now on","sfr":"Désormais, je vais faire attention.","sar":"من هلأ وطالع رح انتبه.","sen":"From now on, I'll be careful.","img":"desormais.webp"},
+{"fr":"Directement","ar":"مباشرةً","en":"Directly","sfr":"Appelle-moi directement.","sar":"اتصل فيني مباشرةً.","sen":"Call me directly.","img":"directement.webp"},
+{"fr":"D'abord","ar":"أولاً","en":"First","sfr":"D'abord, je vais prendre une douche.","sar":"أول شي رح آخد دوش.","sen":"First, I'm going to take a shower.","img":"d_abord.webp"},
+{"fr":"D'habitude","ar":"عادةً","en":"Usually","sfr":"D'habitude, je prends le tram.","sar":"عادةً بركب الترام.","sen":"I usually take the tram.","img":"d_habitude.webp"},
+{"fr":"Dernièrement","ar":"مؤخراً","en":"Recently","sfr":"J'ai beaucoup travaillé dernièrement.","sar":"اشتغلت كتير بالفترة الأخيرة.","sen":"I've worked a lot recently.","img":"dernierement.webp"},
+{"fr":"Définitivement","ar":"نهائياً","en":"Definitely / Permanently","sfr":"Il a définitivement quitté son travail.","sar":"ترك شغله نهائياً.","sen":"He has permanently left his job.","img":"definitivement.webp"},
+{"fr":"Désespérément","ar":"بشكل يائس","en":"Desperately","sfr":"Il cherche désespérément un emploi.","sar":"عم يدور على شغل بيأس شديد.","sen":"He is desperately looking for a job.","img":"desesperement.webp"},
+{"fr":"Drôlement","ar":"بشكل غريب / بشكل ملحوظ","en":"Strangely / Remarkably","sfr":"Il est drôlement gentil.","sar":"هو لطيف بشكل ملحوظ.","sen":"He is remarkably kind.","img":"drolement.webp"},
+{"fr":"Difficilement","ar":"بصعوبة","en":"With difficulty","sfr":"Je comprends difficilement cette phrase.","sar":"عم أفهم هالجملة بصعوبة.","sen":"I find this sentence difficult to understand.","img":"difficilement.webp"},
+{"fr":"Dorénavant","ar":"من الآن فصاعداً","en":"From now on","sfr":"Dorénavant, je prendrai le bus.","sar":"من هلأ وطالع رح آخد الباص.","sen":"From now on, I'll take the bus.","img":"dorenavant.webp"},
+{"fr":"Doublement","ar":"بشكل مضاعف / مرتين","en":"Doubly / Twofold","sfr":"Je suis doublement heureux.","sar":"أنا فرحان للضعف.","sen":"I'm doubly happy.","img":"doublement.webp"},
+{"fr":"Durement","ar":"بقساوة / بشدة","en":"Harshly / Hard","sfr":"Il a été durement critiqué.","sar":"تعرّض لانتقادات قاسية.","sen":"He was harshly criticized.","img":"durement.webp"},
+{"fr":"Discrètement","ar":"بشكل غير ملفت / بسرية","en":"Discreetly","sfr":"Il est parti discrètement.","sar":"طلع بهدوء ومن دون ما يلفت الانتباه.","sen":"He left discreetly.","img":"discretement.webp"},
+{"fr":"Distinctement","ar":"بوضوح وتمييز","en":"Distinctly","sfr":"Parle distinctement, s'il te plaît.","sar":"احكي بوضوح، لو سمحت.","sen":"Speak distinctly, please.","img":"distinctement.webp"},
+{"fr":"Docilement","ar":"بطاعة","en":"Obediently","sfr":"Il a suivi les instructions docilement.","sar":"اتبع التعليمات بطاعة.","sen":"He followed the instructions obediently.","img":"docilement.webp"},
+{"fr":"Désagréablement","ar":"بشكل مزعج","en":"Unpleasantly","sfr":"Il m'a répondu désagréablement.","sar":"ردّ عليّ بطريقة مزعجة.","sen":"He answered me unpleasantly.","img":"desagreablement.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+730000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvE(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].E){st.c['adverbes'].E=[];save()} }
+function updAdvE(){
+ const add=[
+{fr:"Entrée dans le logement",ar:"دخول السكن",en:"Moving in",sfr:"La date d'entrée dans le logement est fixée.",sar:"تم تحديد تاريخ دخول السكن.",sen:"The move-in date is set.",img:"entree_dans_le_logement.webp"},
+{"fr":"Encore","ar":"ما زال / مرة أخرى","en":"Still / Again","sfr":"Tu travailles encore ?","sar":"لساتك عم تشتغل؟","sen":"Are you still working?","img":"encore.webp"},
+{"fr":"Ensemble","ar":"معاً","en":"Together","sfr":"Nous travaillons ensemble.","sar":"نحن منشتغل مع بعض.","sen":"We work together.","img":"ensemble.webp"},
+{"fr":"Enfin","ar":"أخيراً","en":"Finally","sfr":"Enfin, tu es arrivé !","sar":"أخيراً وصلت!","sen":"Finally, you've arrived!","img":"enfin.webp"},
+{"fr":"Environ","ar":"حوالي","en":"Approximately","sfr":"Il est environ huit heures.","sar":"الساعة حوالي تمانية.","sen":"It's approximately eight o'clock.","img":"environ.webp"},
+{"fr":"Exactement","ar":"بالضبط","en":"Exactly","sfr":"C'est exactement ce que je veux.","sar":"هاد بالضبط اللي بدي ياه.","sen":"That's exactly what I want.","img":"exactement.webp"},
+{"fr":"Également","ar":"أيضاً","en":"Also / Equally","sfr":"Je travaille également le samedi.","sar":"أنا كمان بشتغل يوم السبت.","sen":"I also work on Saturdays.","img":"egalement.webp"},
+{"fr":"Évidemment","ar":"طبعاً / من الواضح","en":"Obviously","sfr":"Évidemment, je suis d'accord.","sar":"طبعاً، أنا موافق.","sen":"Obviously, I agree.","img":"evidemment.webp"},
+{"fr":"Énormément","ar":"بكثرة / كثيراً جداً","en":"Enormously / A lot","sfr":"Je travaille énormément.","sar":"أنا بشتغل كتير كتير.","sen":"I work enormously hard.","img":"enormement.webp"},
+{"fr":"Éventuellement","ar":"ربما / عند الاقتضاء","en":"Possibly / If necessary","sfr":"On peut éventuellement reporter le rendez-vous.","sar":"ممكن نأجّل الموعد إذا لزم الأمر.","sen":"We could possibly postpone the appointment.","img":"eventuellement.webp"},
+{"fr":"Expressément","ar":"عن قصد وبشكل صريح","en":"Explicitly / Deliberately","sfr":"Je te l'ai expressément demandé.","sar":"طلبت منك هالشي بشكل صريح.","sen":"I explicitly asked you to do that.","img":"expressement.webp"},
+{"fr":"Extérieurement","ar":"من الخارج / ظاهرياً","en":"Outwardly","sfr":"Extérieurement, tout semble normal.","sar":"من الخارج، كل شي بيبدو طبيعي.","sen":"Outwardly, everything seems normal.","img":"exterieurement.webp"},
+{"fr":"Étrangement","ar":"بشكل غريب","en":"Strangely","sfr":"Il se comporte étrangement.","sar":"هو عم يتصرف بطريقة غريبة.","sen":"He is behaving strangely.","img":"etrangement.webp"},
+{"fr":"Éternellement","ar":"إلى الأبد","en":"Eternally / Forever","sfr":"Je te serai éternellement reconnaissant.","sar":"رح ضل ممنون إلك إلى الأبد.","sen":"I will be eternally grateful to you.","img":"eternellement.webp"},
+{"fr":"Énergiquement","ar":"بنشاط وحيوية","en":"Energetically","sfr":"Elle travaille énergiquement.","sar":"هي بتشتغل بنشاط وحيوية.","sen":"She works energetically.","img":"energiquement.webp"},
+{"fr":"Excessivement","ar":"بإفراط / بشكل مفرط","en":"Excessively","sfr":"Il parle excessivement fort.","sar":"هو بيحكي بصوت عالي بشكل مفرط.","sen":"He speaks excessively loudly.","img":"excessivement.webp"},
+{"fr":"Efficacement","ar":"بفعالية","en":"Effectively","sfr":"Il travaille efficacement.","sar":"هو بيشتغل بفعالية.","sen":"He works effectively.","img":"efficacement.webp"},
+{"fr":"Équitablement","ar":"بعدل وإنصاف","en":"Fairly","sfr":"Il faut traiter tout le monde équitablement.","sar":"لازم نتعامل مع الكل بعدل وإنصاف.","sen":"Everyone must be treated fairly.","img":"equitablement.webp"},
+{"fr":"Explicitement","ar":"بشكل صريح وواضح","en":"Explicitly","sfr":"Il a expliqué les règles explicitement.","sar":"شرح القواعد بشكل صريح وواضح.","sen":"He explained the rules explicitly.","img":"explicitement.webp"},
+{"fr":"En permanence","ar":"باستمرار / بشكل دائم","en":"Permanently / Constantly","sfr":"Il est en permanence au téléphone.","sar":"هو دايماً على التلفون.","sen":"He is constantly on the phone.","img":"en_permanence.webp"},
+{"fr":"En général","ar":"بشكل عام","en":"Generally","sfr":"En général, je prends le tram.","sar":"بشكل عام، بركب الترام.","sen":"Generally, I take the tram.","img":"en_general.webp"},
+{"fr":"En fait","ar":"في الواقع","en":"Actually / In fact","sfr":"En fait, je suis déjà prêt.","sar":"بالحقيقة، أنا جاهز من قبل.","sen":"In fact, I'm already ready.","img":"en_fait.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+731000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvF(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].F){st.c['adverbes'].F=[];save()} }
+function updAdvF(){
+ const add=[
+{fr:"Fournir un document",ar:"تقديم وثيقة",en:"Provide a document",sfr:"Je vais fournir le document demandé.",sar:"سأقدم الوثيقة المطلوبة.",sen:"I will provide the requested document.",img:"fournir_un_document.webp"},
+{"fr":"Facilement","ar":"بسهولة","en":"Easily","sfr":"Je comprends facilement cette leçon.","sar":"بفهم هالدرس بسهولة.","sen":"I understand this lesson easily.","img":"facilement.webp"},
+{"fr":"Fort","ar":"بقوة / بصوت عالٍ","en":"Loudly / Hard","sfr":"Il parle trop fort.","sar":"هو بيحكي بصوت عالي كتير.","sen":"He speaks too loudly.","img":"fort.webp"},
+{"fr":"Franchement","ar":"بصراحة","en":"Honestly / Frankly","sfr":"Franchement, je suis fatigué.","sar":"بصراحة، أنا تعبان.","sen":"Honestly, I'm tired.","img":"franchement.webp"},
+{"fr":"Finalement","ar":"في النهاية","en":"Finally / Eventually","sfr":"Finalement, j'ai accepté.","sar":"بالنهاية، وافقت.","sen":"In the end, I agreed.","img":"finalement.webp"},
+{"fr":"Follement","ar":"بجنون / بشدة","en":"Madly","sfr":"Elle est follement amoureuse.","sar":"هي واقعة بالحب بجنون.","sen":"She is madly in love.","img":"follement.webp"},
+{"fr":"Fidèlement","ar":"بإخلاص / بأمانة","en":"Faithfully","sfr":"Il travaille fidèlement depuis dix ans.","sar":"هو بيشتغل بإخلاص من عشر سنين.","sen":"He has worked faithfully for ten years.","img":"fidelement.webp"},
+{"fr":"Fortement","ar":"بقوة / بشدة","en":"Strongly","sfr":"Je suis fortement intéressé par ce travail.","sar":"أنا مهتم بهالشغل بشدة.","sen":"I am strongly interested in this job.","img":"fortement.webp"},
+{"fr":"Fièrement","ar":"بفخر","en":"Proudly","sfr":"Elle parle fièrement de son travail.","sar":"هي بتحكي بفخر عن شغلها.","sen":"She speaks proudly about her work.","img":"fierement.webp"},
+{"fr":"Furieusement","ar":"بغضب شديد / بعنف","en":"Furiously","sfr":"Il a réagi furieusement.","sar":"ردّ بغضب شديد.","sen":"He reacted furiously.","img":"furieusement.webp"},
+{"fr":"Financièrement","ar":"من الناحية المالية","en":"Financially","sfr":"Je suis financièrement indépendant.","sar":"أنا مستقل مادياً.","sen":"I am financially independent.","img":"financierement.webp"},
+{"fr":"Faiblement","ar":"بشكل ضعيف","en":"Weakly","sfr":"Il parle faiblement.","sar":"هو عم يحكي بصوت ضعيف.","sen":"He speaks weakly.","img":"faiblement.webp"},
+{"fr":"Fréquemment","ar":"بشكل متكرر","en":"Frequently","sfr":"Elle vient fréquemment ici.","sar":"هي بتجي هون بشكل متكرر.","sen":"She comes here frequently.","img":"frequemment.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+732000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvG(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].G){st.c['adverbes'].G=[];save()} }
+function updAdvG(){
+ const add=[
+{"fr":"Généralement","ar":"عادةً / بشكل عام","en":"Generally","sfr":"Je travaille généralement le matin.","sar":"عادةً بشتغل الصبح.","sen":"I generally work in the morning.","img":"generalement.webp"},
+{"fr":"Gentiment","ar":"بلطف","en":"Kindly / Nicely","sfr":"Elle m'a répondu gentiment.","sar":"ردّت عليّ بلطف.","sen":"She answered me kindly.","img":"gentiment.webp"},
+{"fr":"Gratuitement","ar":"مجاناً","en":"For free","sfr":"L'entrée est gratuite, on peut entrer gratuitement.","sar":"الدخول مجاني، فينا نفوت ببلاش.","sen":"Admission is free; we can enter for free.","img":"gratuitement.webp"},
+{"fr":"Globalement","ar":"بشكل عام","en":"Overall / Globally","sfr":"Globalement, tout va bien.","sar":"بشكل عام، كل شي تمام.","sen":"Overall, everything is fine.","img":"globalement.webp"},
+{"fr":"Gravement","ar":"بشكل خطير / بشدة","en":"Seriously / Severely","sfr":"Il est gravement malade.","sar":"هو مريض بشكل خطير.","sen":"He is seriously ill.","img":"gravement.webp"},
+{"fr":"Grâce à","ar":"بفضل","en":"Thanks to","sfr":"Grâce à toi, j'ai réussi.","sar":"بفضلك، نجحت.","sen":"Thanks to you, I succeeded.","img":"grace_a.webp"},
+{"fr":"Grosso modo","ar":"بشكل تقريبي / باختصار","en":"Roughly speaking","sfr":"Grosso modo, le travail dure deux heures.","sar":"بشكل تقريبي، الشغل بياخد ساعتين.","sen":"Roughly speaking, the work takes two hours.","img":"grosso_modo.webp"},
+{"fr":"Graduellement","ar":"تدريجياً","en":"Gradually","sfr":"La situation s'améliore graduellement.","sar":"الوضع عم يتحسن تدريجياً.","sen":"The situation is gradually improving.","img":"graduellement.webp"},
+{"fr":"Généreusement","ar":"بسخاء","en":"Generously","sfr":"Il m'a aidé généreusement.","sar":"ساعدني بسخاء.","sen":"He helped me generously.","img":"genereusement.webp"},
+{"fr":"Gaiement","ar":"بمرح / بسعادة","en":"Cheerfully","sfr":"Les enfants jouent gaiement.","sar":"الأطفال عم يلعبوا بمرح.","sen":"The children are playing cheerfully.","img":"gaiement.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+733000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvH(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].H){st.c['adverbes'].H=[];save()} }
+function updAdvH(){
+ const add=[
+{"fr":"Heureusement","ar":"لحسن الحظ","en":"Fortunately","sfr":"Heureusement, je suis arrivé à l'heure.","sar":"لحسن الحظ، وصلت بالوقت.","sen":"Fortunately, I arrived on time.","img":"heureusement.webp"},
+{"fr":"Honnêtement","ar":"بصراحة","en":"Honestly","sfr":"Honnêtement, je ne sais pas.","sar":"بصراحة، ما بعرف.","sen":"Honestly, I don't know.","img":"honnetement.webp"},
+{"fr":"Habituellement","ar":"عادةً","en":"Usually","sfr":"Habituellement, je prends le tram.","sar":"عادةً بركب الترام.","sen":"I usually take the tram.","img":"habituellement.webp"},
+{"fr":"Hâtivement","ar":"على عجل","en":"Hastily","sfr":"Il a répondu hâtivement.","sar":"جاوب على عجل.","sen":"He answered hastily.","img":"hativement.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+734000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvI(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].I){st.c['adverbes'].I=[];save()} }
+function updAdvI(){
+ const add=[
+{"fr":"Ici","ar":"هنا","en":"Here","sfr":"Je travaille ici.","sar":"أنا بشتغل هون.","sen":"I work here.","img":"ici.webp"},
+{"fr":"Immédiatement","ar":"فوراً","en":"Immediately","sfr":"Appelle-moi immédiatement.","sar":"اتصل فيني فوراً.","sen":"Call me immediately.","img":"immediatement.webp"},
+{"fr":"Incroyablement","ar":"بشكل لا يُصدّق","en":"Incredibly","sfr":"Il est incroyablement gentil.","sar":"هو لطيف بشكل لا يُصدّق.","sen":"He is incredibly kind.","img":"incroyablement.webp"},
+{"fr":"Inutilement","ar":"دون فائدة","en":"Needlessly","sfr":"Ne t'inquiète pas inutilement.","sar":"لا تقلق بلا داعي.","sen":"Don't worry needlessly.","img":"inutilement.webp"},
+{"fr":"Intérieurement","ar":"في داخله / داخلياً","en":"Inwardly","sfr":"Elle souriait intérieurement.","sar":"كانت عم تبتسم من جوا.","sen":"She was smiling inwardly.","img":"interieurement.webp"},
+{"fr":"Indirectement","ar":"بشكل غير مباشر","en":"Indirectly","sfr":"Il m'a répondu indirectement.","sar":"ردّ عليّ بطريقة غير مباشرة.","sen":"He answered me indirectly.","img":"indirectement.webp"},
+{"fr":"Inévitablement","ar":"حتماً / بشكل لا مفرّ منه","en":"Inevitably","sfr":"Tout change inévitablement.","sar":"كل شي بيتغيّر حتماً.","sen":"Everything inevitably changes.","img":"inevitablement.webp"},
+{"fr":"Intensément","ar":"بشدّة / بقوة","en":"Intensely","sfr":"Il travaille intensément.","sar":"هو بيشتغل بتركيز وشدّة.","sen":"He works intensely.","img":"intensement.webp"},
+{"fr":"Idéalement","ar":"من الأفضل / بشكل مثالي","en":"Ideally","sfr":"Idéalement, il faudrait partir tôt.","sar":"من الأفضل نطلع بكير.","sen":"Ideally, we should leave early.","img":"idealement.webp"},
+{"fr":"Inconsciemment","ar":"دون وعي","en":"Unconsciously","sfr":"Il le fait inconsciemment.","sar":"هو بيعمل هالشي من دون ما ينتبه.","sen":"He does it unconsciously.","img":"inconsciemment.webp"},
+{"fr":"Instinctivement","ar":"بشكل غريزي","en":"Instinctively","sfr":"J'ai instinctivement reculé.","sar":"رجعت لورا بشكل غريزي.","sen":"I instinctively stepped back.","img":"instinctivement.webp"},
+{"fr":"Indépendamment","ar":"بشكل مستقل","en":"Independently","sfr":"Elle travaille indépendamment.","sar":"هي بتشتغل بشكل مستقل.","sen":"She works independently.","img":"independamment.webp"},
+{"fr":"Infiniment","ar":"إلى ما لا نهاية / بشكل كبير جداً","en":"Infinitely","sfr":"Je te remercie infiniment.","sar":"بشكرك من كل قلبي.","sen":"Thank you very much.","img":"infiniment.webp"},
+{"fr":"Involontairement","ar":"دون قصد","en":"Unintentionally","sfr":"J'ai cassé le verre involontairement.","sar":"كسرت الكاسة من دون قصد.","sen":"I broke the glass unintentionally.","img":"involontairement.webp"},
+{"fr":"Irrégulièrement","ar":"بشكل غير منتظم","en":"Irregularly","sfr":"Il travaille irrégulièrement.","sar":"هو بيشتغل بشكل غير منتظم.","sen":"He works irregularly.","img":"irregulierement.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+735000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvJ(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].J){st.c['adverbes'].J=[];save()} }
+function updAdvJ(){
+ const add=[
+{fr:"J'ai besoin d'un accompagnement",ar:"أحتاج إلى مرافقة",en:"I need support",sfr:"J'ai besoin d'un accompagnement adapté à ma situation.",sar:"أحتاج إلى مرافقة مناسبة لوضعي.",sen:"I need support adapted to my situation.",img:"j_ai_besoin_d_un_accompagnement.webp"},
+{"fr":"Jamais","ar":"أبداً","en":"Never","sfr":"Je ne fume jamais.","sar":"أنا ما بدخّن أبداً.","sen":"I never smoke.","img":"jamais.webp"},
+{"fr":"Jadis","ar":"في الماضي / قديماً","en":"In the past / Formerly","sfr":"Jadis, les gens écrivaient des lettres.","sar":"زمان، كان الناس يكتبوا رسائل.","sen":"In the past, people used to write letters.","img":"jadis.webp"},
+{"fr":"Justement","ar":"بالضبط / تحديداً","en":"Exactly","sfr":"C'est justement ce que je cherche.","sar":"هاد بالضبط اللي عم دور عليه.","sen":"That's exactly what I'm looking for.","img":"justement.webp"},
+{"fr":"Jusque-là","ar":"حتى ذلك الوقت / حتى الآن","en":"Until then / So far","sfr":"Jusque-là, tout va bien.","sar":"لحد هلأ، كل شي تمام.","sen":"So far, everything is fine.","img":"jusque_la.webp"},
+{"fr":"Journellement","ar":"يومياً","en":"Daily","sfr":"Il prend ce médicament journellement.","sar":"هو بياخد هالدواء يومياً.","sen":"He takes this medicine daily.","img":"journellement.webp"},
+{"fr":"Joyeusement","ar":"بفرح / بسعادة","en":"Joyfully","sfr":"Les enfants chantent joyeusement.","sar":"الأطفال عم يغنّوا بفرح.","sen":"The children are singing joyfully.","img":"joyeusement.webp"},
+{"fr":"Juste","ar":"بالضبط / للتو بحسب السياق","en":"Just / Exactly","sfr":"Tu arrives juste à temps.","sar":"وصلت بالوقت تماماً.","sen":"You arrived just in time.","img":"juste.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+736000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvL(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].L){st.c['adverbes'].L=[];save()} }
+function updAdvL(){
+ const add=[
+{"fr":"Là","ar":"هناك","en":"There","sfr":"Je travaille là.","sar":"أنا بشتغل هنيك.","sen":"I work there.","img":"la.webp"},
+{"fr":"Lentement","ar":"ببطء","en":"Slowly","sfr":"Parle lentement, s'il te plaît.","sar":"احكي ببطء، لو سمحت.","sen":"Speak slowly, please.","img":"lentement.webp"},
+{"fr":"Loin","ar":"بعيداً","en":"Far","sfr":"J'habite loin d'ici.","sar":"أنا ساكن بعيد من هون.","sen":"I live far from here.","img":"loin.webp"},
+{"fr":"Longtemps","ar":"لفترة طويلة","en":"For a long time","sfr":"J'ai attendu longtemps.","sar":"نطرت وقت طويل.","sen":"I waited for a long time.","img":"longtemps.webp"},
+{"fr":"Largement","ar":"على نطاق واسع / إلى حد كبير","en":"Widely / Largely","sfr":"Il est largement connu.","sar":"هو معروف على نطاق واسع.","sen":"He is widely known.","img":"largement.webp"},
+{"fr":"Logiquement","ar":"منطقياً","en":"Logically","sfr":"Logiquement, tu as raison.","sar":"منطقياً، معك حق.","sen":"Logically, you are right.","img":"logiquement.webp"},
+{"fr":"Légèrement","ar":"قليلاً / بشكل خفيف","en":"Slightly / Lightly","sfr":"Il fait légèrement froid.","sar":"الجو بارد شوي.","sen":"It's slightly cold.","img":"legerement.webp"},
+{"fr":"Littéralement","ar":"حرفياً","en":"Literally","sfr":"Je suis littéralement épuisé.","sar":"أنا حرفياً منهك.","sen":"I'm literally exhausted.","img":"litteralement.webp"},
+{"fr":"Localement","ar":"محلياً","en":"Locally","sfr":"Ce produit est fabriqué localement.","sar":"هالمنتج مصنوع محلياً.","sen":"This product is made locally.","img":"localement.webp"},
+{"fr":"Librement","ar":"بحرية","en":"Freely","sfr":"Tu peux parler librement.","sar":"فيك تحكي بحرية.","sen":"You can speak freely.","img":"librement.webp"},
+{"fr":"Légitimement","ar":"بشكل مشروع / بحق","en":"Legitimately","sfr":"Il peut légitimement demander une explication.","sar":"من حقه يطلب تفسير.","sen":"He can legitimately ask for an explanation.","img":"legitimement.webp"},
+{"fr":"Longuement","ar":"بإسهاب / لمدة طويلة","en":"At length","sfr":"Nous avons discuté longuement.","sar":"ناقشنا الموضوع مطوّلاً.","sen":"We discussed it at length.","img":"longuement.webp"},
+{"fr":"Loin de là","ar":"بعيد كل البعد عن ذلك","en":"Far from it","sfr":"Ce n'est pas facile, loin de là.","sar":"هالشي مو سهل أبداً، بعيد كل البعد.","sen":"It's not easy, far from it.","img":"loin_de_la.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+737000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvM(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].M){st.c['adverbes'].M=[];save()} }
+function updAdvM(){
+ const add=[
+{fr:"Modifier le traitement",ar:"تغيير العلاج",en:"Change the treatment",sfr:"Le médecin a décidé de modifier le traitement.",sar:"قرر الطبيب تغيير العلاج.",sen:"The doctor decided to change the treatment.",img:"modifier_le_traitement.webp"},
+{"fr":"Mal","ar":"بشكل سيئ","en":"Badly","sfr":"Je dors mal.","sar":"أنا بنام بشكل سيئ.","sen":"I sleep badly.","img":"mal.webp"},
+{"fr":"Mieux","ar":"بشكل أفضل","en":"Better","sfr":"Je me sens mieux aujourd'hui.","sar":"حاسس حالي أحسن اليوم.","sen":"I feel better today.","img":"mieux.webp"},
+{"fr":"Maintenant","ar":"الآن","en":"Now","sfr":"Je dois partir maintenant.","sar":"لازم روح هلأ.","sen":"I have to leave now.","img":"maintenant.webp"},
+{"fr":"Moins","ar":"أقل","en":"Less","sfr":"Je travaille moins le dimanche.","sar":"بشتغل أقل يوم الأحد.","sen":"I work less on Sundays.","img":"moins.webp"},
+{"fr":"Même","ar":"حتى / أيضاً","en":"Even","sfr":"Même mon frère est venu.","sar":"حتى أخي إجا.","sen":"Even my brother came.","img":"meme.webp"},
+{"fr":"Malheureusement","ar":"للأسف","en":"Unfortunately","sfr":"Malheureusement, je ne peux pas venir.","sar":"للأسف، ما فيني إجي.","sen":"Unfortunately, I can't come.","img":"malheureusement.webp"},
+{"fr":"Majoritairement","ar":"في الغالب / بالأغلبية","en":"Mostly / Predominantly","sfr":"Les clients viennent majoritairement le matin.","sar":"أغلب الزبائن بيجوا الصبح.","sen":"Customers mostly come in the morning.","img":"majoritairement.webp"},
+{"fr":"Mieux encore","ar":"والأفضل من ذلك","en":"Better still","sfr":"Il est compétent, mieux encore, il est très expérimenté.","sar":"هو كفؤ، والأفضل من هيك عنده خبرة كبيرة.","sen":"He is competent; better still, he is very experienced.","img":"mieux_encore.webp"},
+{"fr":"Modérément","ar":"باعتدال","en":"Moderately","sfr":"Il faut manger modérément.","sar":"لازم ناكل باعتدال.","sen":"We should eat moderately.","img":"moderement.webp"},
+{"fr":"Mentalement","ar":"ذهنياً / عقلياً","en":"Mentally","sfr":"Je suis mentalement fatigué.","sar":"أنا تعبان ذهنياً.","sen":"I am mentally tired.","img":"mentalement.webp"},
+{"fr":"Matériellement","ar":"من الناحية المادية","en":"Materially / Financially","sfr":"Je ne peux pas matériellement accepter cette offre.","sar":"ما بقدر أقبل هالعرض من الناحية المادية.","sen":"I cannot accept this offer for practical or financial reasons.","img":"materiellement.webp"},
+{"fr":"Même pas","ar":"ولا حتى","en":"Not even","sfr":"Il ne m'a même pas appelé.","sar":"حتى ما اتصل فيني.","sen":"He didn't even call me.","img":"meme_pas.webp"},
+{"fr":"Moins souvent","ar":"بشكل أقل تكراراً","en":"Less often","sfr":"Je viens moins souvent ici.","sar":"صرت أجي لهون بشكل أقل.","sen":"I come here less often.","img":"moins_souvent.webp"},
+{"fr":"Mille fois","ar":"ألف مرة","en":"A thousand times","sfr":"Je te l'ai dit mille fois.","sar":"قلتلك هالشي ألف مرة.","sen":"I've told you a thousand times.","img":"mille_fois.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+738000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvN(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].N){st.c['adverbes'].N=[];save()} }
+function updAdvN(){
+ const add=[
+{"fr":"Naturellement","ar":"بطبيعة الحال","en":"Naturally","sfr":"Naturellement, je suis d'accord.","sar":"طبعاً، أنا موافق.","sen":"Naturally, I agree.","img":"naturellement.webp"},
+{"fr":"Normalement","ar":"عادةً / بشكل طبيعي","en":"Normally","sfr":"Normalement, je termine à 22 heures.","sar":"عادةً بخلّص الساعة عشرة بالليل.","sen":"Normally, I finish at 10 p.m.","img":"normalement.webp"},
+{"fr":"Notamment","ar":"خصوصاً / ولا سيّما","en":"Especially / In particular","sfr":"J'aime les fruits, notamment les pommes.","sar":"بحب الفواكه، وخصوصاً التفاح.","sen":"I like fruit, especially apples.","img":"notamment.webp"},
+{"fr":"Néanmoins","ar":"مع ذلك / رغم ذلك","en":"Nevertheless","sfr":"Il est fatigué, néanmoins il continue.","sar":"هو تعبان، ومع هيك بيكمل.","sen":"He is tired; nevertheless, he continues.","img":"neanmoins.webp"},
+{"fr":"Nettement","ar":"بوضوح / بشكل ملحوظ","en":"Clearly / Significantly","sfr":"Je vais nettement mieux.","sar":"صرت أحسن بشكل ملحوظ.","sen":"I'm feeling significantly better.","img":"nettement.webp"},
+{"fr":"Non","ar":"لا","en":"No / Not","sfr":"Je ne veux pas sortir, non merci.","sar":"ما بدي اطلع، لا شكراً.","sen":"I don't want to go out, no thanks.","img":"non.webp"},
+{"fr":"Nulle part","ar":"ولا مكان","en":"Nowhere","sfr":"Je ne trouve mes clés nulle part.","sar":"ما عم لاقي مفاتيحي ولا بمكان.","sen":"I can't find my keys anywhere.","img":"nulle_part.webp"},
+{"fr":"N'importe où","ar":"أي مكان","en":"Anywhere","sfr":"Tu peux t'asseoir n'importe où.","sar":"فيك تقعد بأي مكان.","sen":"You can sit anywhere.","img":"n_importe_ou.webp"},
+{"fr":"N'importe quand","ar":"أي وقت","en":"Anytime","sfr":"Tu peux m'appeler n'importe quand.","sar":"فيك تتصل فيني بأي وقت.","sen":"You can call me anytime.","img":"n_importe_quand.webp"},
+{"fr":"N'importe comment","ar":"بأي طريقة / كيفما كان","en":"Anyhow","sfr":"Ne fais pas ce travail n'importe comment.","sar":"لا تعمل هالشغل بأي طريقة عشوائية.","sen":"Don't do this job carelessly.","img":"n_importe_comment.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+739000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvO(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].O){st.c['adverbes'].O=[];save()} }
+function updAdvO(){
+ const add=[
+{"fr":"Oui","ar":"نعم","en":"Yes","sfr":"Oui, je comprends.","sar":"إي، فهمت.","sen":"Yes, I understand.","img":"oui.webp"},
+{"fr":"Officiellement","ar":"رسمياً","en":"Officially","sfr":"Il travaille officiellement ici.","sar":"هو بيشتغل هون بشكل رسمي.","sen":"He officially works here.","img":"officiellement.webp"},
+{"fr":"Obligatoirement","ar":"إلزامياً / بالضرورة","en":"Compulsorily / Necessarily","sfr":"Le casque doit obligatoirement être porté.","sar":"لازم ينلبس الخوذة بشكل إلزامي.","sen":"The helmet must be worn.","img":"obligatoirement.webp"},
+{"fr":"Occasionnellement","ar":"من حين لآخر","en":"Occasionally","sfr":"Je travaille occasionnellement le samedi.","sar":"أحياناً بشتغل يوم السبت.","sen":"I occasionally work on Saturdays.","img":"occasionnellement.webp"},
+{"fr":"Ouvertement","ar":"بصراحة / علناً","en":"Openly","sfr":"Il parle ouvertement de ses problèmes.","sar":"بيحكي بصراحة عن مشاكله.","sen":"He speaks openly about his problems.","img":"ouvertement.webp"},
+{"fr":"Ordinairement","ar":"عادةً","en":"Ordinarily","sfr":"Je prends ordinairement le tram.","sar":"عادةً بركب الترام.","sen":"I ordinarily take the tram.","img":"ordinairement.webp"},
+{"fr":"Originalement","ar":"بشكل أصلي","en":"Originally","sfr":"Ce bâtiment était originalement une école.","sar":"هالمبنى كان بالأصل مدرسة.","sen":"This building was originally a school.","img":"originalement.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+740000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvP(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].P){st.c['adverbes'].P=[];save()} }
+function updAdvP(){
+ const add=[
+{fr:"Prendre un médicament",ar:"تناول دواء",en:"Take medication",sfr:"Je prends ce médicament tous les jours.",sar:"أتناول هذا الدواء كل يوم.",sen:"I take this medicine every day.",img:"prendre_un_medicament.webp"},
+{"fr":"Parfois","ar":"أحياناً","en":"Sometimes","sfr":"Je travaille parfois le samedi.","sar":"أحياناً بشتغل يوم السبت.","sen":"I sometimes work on Saturdays.","img":"parfois.webp"},
+{"fr":"Partout","ar":"في كل مكان","en":"Everywhere","sfr":"Il y a des magasins partout.","sar":"في محلات بكل مكان.","sen":"There are shops everywhere.","img":"partout.webp"},
+{"fr":"Peut-être","ar":"ربما","en":"Maybe / Perhaps","sfr":"Peut-être qu'il viendra demain.","sar":"يمكن يجي بكرا.","sen":"Maybe he'll come tomorrow.","img":"peut_etre.webp"},
+{"fr":"Peu","ar":"قليلاً","en":"Little / Not much","sfr":"Je dors peu.","sar":"بنام شوي.","sen":"I sleep little.","img":"peu.webp"},
+{"fr":"Plus","ar":"أكثر","en":"More","sfr":"Je veux plus de temps.","sar":"بدي وقت أكتر.","sen":"I want more time.","img":"plus.webp"},
+{"fr":"Plutôt","ar":"بالأحرى / نوعاً ما","en":"Rather","sfr":"Je préfère plutôt rester chez moi.","sar":"بفضّل بالأحرى ضل بالبيت.","sen":"I'd rather stay home.","img":"plutot.webp"},
+{"fr":"Précisément","ar":"بالضبط","en":"Precisely","sfr":"C'est précisément ce que je cherche.","sar":"هاد بالضبط اللي عم دور عليه.","sen":"That's precisely what I'm looking for.","img":"precisement.webp"},
+{"fr":"Probablement","ar":"على الأرجح","en":"Probably","sfr":"Il viendra probablement demain.","sar":"على الأغلب رح يجي بكرا.","sen":"He will probably come tomorrow.","img":"probablement.webp"},
+{"fr":"Personnellement","ar":"شخصياً","en":"Personally","sfr":"Personnellement, je préfère le français.","sar":"أنا شخصياً بفضّل الفرنسي.","sen":"Personally, I prefer French.","img":"personnellement.webp"},
+{"fr":"Premièrement","ar":"أولاً","en":"Firstly","sfr":"Premièrement, il faut comprendre la règle.","sar":"أول شي لازم نفهم القاعدة.","sen":"Firstly, we must understand the rule.","img":"premierement.webp"},
+{"fr":"Principalement","ar":"بشكل أساسي","en":"Mainly","sfr":"Je travaille principalement le soir.","sar":"بشتغل بشكل أساسي بالمساء.","sen":"I mainly work in the evening.","img":"principalement.webp"},
+{"fr":"Parfaitement","ar":"تماماً / بشكل ممتاز","en":"Perfectly","sfr":"Je comprends parfaitement.","sar":"أنا فاهم تماماً.","sen":"I understand perfectly.","img":"parfaitement.webp"},
+{"fr":"Progressivement","ar":"تدريجياً","en":"Gradually","sfr":"La situation s'améliore progressivement.","sar":"الوضع عم يتحسن تدريجياً.","sen":"The situation is gradually improving.","img":"progressivement.webp"},
+{"fr":"Pratiquement","ar":"عملياً / تقريباً","en":"Practically / Almost","sfr":"J'ai pratiquement terminé.","sar":"تقريباً خلصت.","sen":"I've practically finished.","img":"pratiquement.webp"},
+{"fr":"Profondément","ar":"بعمق","en":"Deeply","sfr":"Il est profondément touché.","sar":"هو متأثر بعمق.","sen":"He is deeply moved.","img":"profondement.webp"},
+{"fr":"Publiquement","ar":"علناً","en":"Publicly","sfr":"Il a parlé publiquement de cette affaire.","sar":"حكى عن هالموضوع علناً.","sen":"He spoke publicly about this matter.","img":"publiquement.webp"},
+{"fr":"Poliment","ar":"بأدب","en":"Politely","sfr":"Il m'a répondu poliment.","sar":"ردّ عليّ بأدب.","sen":"He answered me politely.","img":"poliment.webp"},
+{"fr":"Le plus rapidement possible","ar":"بأسرع وقت ممكن","en":"As quickly as possible","sfr":"Répondez le plus rapidement possible.","sar":"ردّوا بأسرع وقت ممكن.","sen":"Reply as quickly as possible.","img":"le_plus_rapidement_possible.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+741000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvQ(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].Q){st.c['adverbes'].Q=[];save()} }
+function updAdvQ(){
+ const add=[
+{"fr":"Quand","ar":"متى","en":"When","sfr":"Quand arrives-tu ?","sar":"إمتى بتوصل؟","sen":"When are you arriving?","img":"quand.webp"},
+{"fr":"Quelquefois","ar":"أحياناً","en":"Sometimes","sfr":"Je vais quelquefois au cinéma.","sar":"أحياناً بروح عالسينما.","sen":"I sometimes go to the cinema.","img":"quelquefois.webp"},
+{"fr":"Quasiment","ar":"تقريباً / تقريباً بشكل تام","en":"Almost / Practically","sfr":"J'ai quasiment terminé.","sar":"تقريباً خلصت.","sen":"I've almost finished.","img":"quasiment.webp"},
+{"fr":"Quelque part","ar":"في مكان ما","en":"Somewhere","sfr":"Il doit être quelque part.","sar":"لازم يكون بمكان ما.","sen":"He must be somewhere.","img":"quelque_part.webp"},
+{"fr":"Qui sait ?","ar":"من يدري؟","en":"Who knows?","sfr":"Qui sait, peut-être demain.","sar":"مين بيعرف، يمكن بكرا.","sen":"Who knows, maybe tomorrow.","img":"qui_sait.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+742000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+function delAdvR(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].R){st.c['adverbes'].R=[];save()} }
+function updAdvR(){
+ const add=[
+{fr:"Renouveler mon traitement",ar:"تجديد علاجي",en:"Renew my treatment",sfr:"Je voudrais renouveler mon traitement.",sar:"أريد تجديد علاجي.",sen:"I would like to renew my treatment.",img:"renouveler_mon_traitement.webp"},
+{"fr":"Rapidement","ar":"بسرعة","en":"Quickly","sfr":"Il travaille rapidement.","sar":"هو بيشتغل بسرعة.","sen":"He works quickly.","img":"rapidement.webp"},
+{"fr":"Rarement","ar":"نادراً","en":"Rarely","sfr":"Je mange rarement au restaurant.","sar":"نادراً ما باكل بالمطعم.","sen":"I rarely eat at restaurants.","img":"rarement.webp"},
+{"fr":"Régulièrement","ar":"بانتظام","en":"Regularly","sfr":"Je fais du sport régulièrement.","sar":"بممارسة الرياضة بانتظام.","sen":"I exercise regularly.","img":"regulierement.webp"},
+{"fr":"Récemment","ar":"مؤخراً","en":"Recently","sfr":"J'ai récemment changé de travail.","sar":"غيّرت شغلي مؤخراً.","sen":"I recently changed jobs.","img":"recemment.webp"},
+{"fr":"Réellement","ar":"فعلياً / حقاً","en":"Really / Actually","sfr":"Est-ce réellement nécessaire ?","sar":"هل هالشي ضروري فعلاً؟","sen":"Is it really necessary?","img":"reellement.webp"},
+{"fr":"Rapidement après","ar":"بعد ذلك بسرعة","en":"Shortly afterwards","sfr":"Il est parti rapidement après la réunion.","sar":"غادر بسرعة بعد الاجتماع.","sen":"He left shortly after the meeting.","img":"rapidement_apres.webp"},
+{"fr":"Réciproquement","ar":"بالمثل / بشكل متبادل","en":"Reciprocally","sfr":"Je t'aide et tu m'aides réciproquement.","sar":"أنا بساعدك وإنت بتساعدني بالمقابل.","sen":"I help you, and you help me in return.","img":"reciproquement.webp"},
+{"fr":"Relativement","ar":"نسبياً","en":"Relatively","sfr":"Ce travail est relativement facile.","sar":"هالشغل سهل نسبياً.","sen":"This job is relatively easy.","img":"relativement.webp"},
+{"fr":"Respectivement","ar":"على التوالي","en":"Respectively","sfr":"Ils ont 20 et 25 ans, respectivement.","sar":"أعمارهم 20 و25 سنة، على التوالي.","sen":"They are 20 and 25 years old, respectively.","img":"respectivement.webp"}
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+743000+i;st.c['adverbes'][L].push(u)}});
+ save();}
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();delAdjP();updAdjP();delAdjR();updAdjR();delAdjS();updAdjS();delAdjT();updAdjT();updAdjT2();delAdjU();updAdjU();delAdjV();updAdjV();delAdjW();updAdjW();delAdjX();updAdjX();delAdjZ();updAdjZ();updAdjK2();updAdjK3();delAdvB();updAdvB();delAdvC();updAdvC();updAdvD();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();delAdjP();updAdjP();delAdjR();updAdjR();delAdjS();updAdjS();delAdjT();updAdjT();updAdjT2();delAdjU();updAdjU();delAdjV();updAdjV();delAdjW();updAdjW();delAdjX();updAdjX();delAdjZ();updAdjZ();updAdjK2();updAdjK3();delAdvB();updAdvB();delAdvC();updAdvC();updAdvD();delAdvD();updAdvD2();delAdvE();updAdvE();delAdvF();updAdvF();delAdvG();updAdvG();delAdvH();updAdvH();delAdvI();updAdvI();delAdvJ();updAdvJ();delAdvL();updAdvL();delAdvM();updAdvM();delAdvN();updAdvN();delAdvO();updAdvO();delAdvP();updAdvP();delAdvQ();updAdvQ();delAdvR();updAdvR();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
