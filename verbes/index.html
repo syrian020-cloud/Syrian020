@@ -6215,13 +6215,83 @@ function updAdjK2(){
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+680000+i;st.c['adjectifs'][L].push(u)}});
  save();}
 
+
+function updAdjK3(){
+ const add=[
+   {"fr": "Kaki", "ar": "كاكي، أخضر مائل للبني", "en": "Khaki", "sfr": "Il porte un pantalon kaki.", "sar": "هو لابس بنطلون كاكي.", "sen": "He is wearing khaki trousers.", "img": "kaki.webp"},
+   {"fr": "Kitsch", "ar": "مبتذل فنياً، مبالغ بالزخرفة", "en": "Tacky", "sfr": "Cette décoration est kitsch.", "sar": "هالديكور مبالغ فيه وذوقه مبتذل.", "sen": "This decoration is tacky.", "img": "kitsch.webp"},
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+690000+i;st.c['adjectifs'][L].push(u)}});
+ save();}
+
+function delAdvB(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].B){st.c['adverbes'].B=[];save()} }
+function updAdvB(){
+ const add=[
+   {"fr": "Bien", "ar": "جيداً", "en": "Well", "sfr": "Tu parles bien français.", "sar": "أنت بتحكي فرنسي بشكل جيد.", "sen": "You speak French well.", "img": "bien.webp"},
+   {"fr": "Beaucoup", "ar": "كثيراً", "en": "A lot / Much", "sfr": "Je travaille beaucoup.", "sar": "أنا بشتغل كتير.", "sen": "I work a lot.", "img": "beaucoup.webp"},
+   {"fr": "Bientôt", "ar": "قريباً", "en": "Soon", "sfr": "Je reviens bientôt.", "sar": "برجع قريباً.", "sen": "I'll be back soon.", "img": "bientot.webp"},
+   {"fr": "Bien sûr", "ar": "بالتأكيد", "en": "Of course", "sfr": "Bien sûr, je peux t'aider.", "sar": "أكيد، فيني ساعدك.", "sen": "Of course, I can help you.", "img": "bien_sur.webp"},
+   {"fr": "Brusquement", "ar": "بشكل مفاجئ", "en": "Suddenly", "sfr": "Il s'est arrêté brusquement.", "sar": "وقف فجأة.", "sen": "He stopped suddenly.", "img": "brusquement.webp"},
+   {"fr": "Bizarrement", "ar": "بشكل غريب", "en": "Strangely", "sfr": "Il se comporte bizarrement.", "sar": "هو عم يتصرف بطريقة غريبة.", "sen": "He is behaving strangely.", "img": "bizarrement.webp"},
+   {"fr": "Brièvement", "ar": "باختصار", "en": "Briefly", "sfr": "Explique-moi brièvement.", "sar": "اشرحلي باختصار.", "sen": "Explain it to me briefly.", "img": "brievement.webp"},
+   {"fr": "Bêtement", "ar": "بغباء", "en": "Stupidly", "sfr": "J'ai répondu bêtement.", "sar": "جاوبت بغباء.", "sen": "I answered stupidly.", "img": "betement.webp"},
+   {"fr": "Brutalement", "ar": "بعنف / بقسوة", "en": "Brutally", "sfr": "Il a fermé la porte brutalement.", "sar": "سكّر الباب بعنف.", "sen": "He slammed the door.", "img": "brutalement.webp"},
+   {"fr": "Beaucoup plus", "ar": "أكثر بكثير", "en": "Much more", "sfr": "Ce travail est beaucoup plus facile.", "sar": "هالشغل أسهل بكتير.", "sen": "This job is much easier.", "img": "beaucoup_plus.webp"},
+   {"fr": "Beaucoup moins", "ar": "أقل بكثير", "en": "Much less", "sfr": "Je travaille beaucoup moins aujourd'hui.", "sar": "أنا بشتغل أقل بكتير اليوم.", "sen": "I work much less today.", "img": "beaucoup_moins.webp"},
+   {"fr": "Bref", "ar": "باختصار", "en": "In short", "sfr": "Bref, je suis d'accord.", "sar": "باختصار، أنا موافق.", "sen": "In short, I agree.", "img": "bref.webp"},
+   {"fr": "Bientôt après", "ar": "بعد وقت قصير", "en": "Shortly afterwards", "sfr": "Il est parti et, bientôt après, elle est arrivée.", "sar": "هو مشي، وبعد وقت قصير وصلت هي.", "sen": "He left and shortly afterwards she arrived.", "img": "bientot_apres.webp"},
+   {"fr": "Bien mieux", "ar": "أفضل بكثير", "en": "Much better", "sfr": "Je me sens bien mieux aujourd'hui.", "sar": "حاسس حالي أحسن بكتير اليوم.", "sen": "I feel much better today.", "img": "bien_mieux.webp"},
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+700000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+
+function delAdvC(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].C){st.c['adverbes'].C=[];save()} }
+function updAdvC(){
+ const add=[
+   {"fr": "Comme", "ar": "مثل / كما", "en": "Like / As", "sfr": "Fais comme moi.", "sar": "اعمل متلي.", "sen": "Do like me.", "img": "comme.webp"},
+   {"fr": "Comment", "ar": "كيف", "en": "How", "sfr": "Comment ça va ?", "sar": "كيفك؟", "sen": "How are you?", "img": "comment.webp"},
+   {"fr": "Combien", "ar": "كم", "en": "How much / How many", "sfr": "Combien ça coûte ?", "sar": "قديش سعره؟", "sen": "How much does it cost?", "img": "combien.webp"},
+   {"fr": "Certainement", "ar": "بالتأكيد", "en": "Certainly", "sfr": "Il viendra certainement.", "sar": "أكيد رح يجي.", "sen": "He will certainly come.", "img": "certainement.webp"},
+   {"fr": "Cependant", "ar": "مع ذلك / رغم ذلك", "en": "However", "sfr": "Il est fatigué. Cependant, il continue.", "sar": "هو تعبان، ومع هيك عم يكمل.", "sen": "He is tired. However, he continues.", "img": "cependant.webp"},
+   {"fr": "Concrètement", "ar": "بشكل عملي / بصورة ملموسة", "en": "Concretely / In practice", "sfr": "Concrètement, que faut-il faire ?", "sar": "عملياً، شو لازم نعمل؟", "sen": "Concretely, what needs to be done?", "img": "concretement.webp"},
+   {"fr": "Couramment", "ar": "بطلاقة", "en": "Fluently", "sfr": "Elle parle couramment français.", "sar": "هي بتحكي فرنسي بطلاقة.", "sen": "She speaks French fluently.", "img": "couramment.webp"},
+   {"fr": "Correctement", "ar": "بشكل صحيح", "en": "Correctly", "sfr": "Tu as répondu correctement.", "sar": "جاوبت بشكل صحيح.", "sen": "You answered correctly.", "img": "correctement.webp"},
+   {"fr": "Complètement", "ar": "تماماً / كلياً", "en": "Completely", "sfr": "J'ai complètement oublié.", "sar": "نسيت تماماً.", "sen": "I completely forgot.", "img": "completement.webp"},
+   {"fr": "Constamment", "ar": "باستمرار", "en": "Constantly", "sfr": "Il se plaint constamment.", "sar": "هو بيشتكي باستمرار.", "sen": "He complains constantly.", "img": "constamment.webp"},
+   {"fr": "Contrairement", "ar": "على عكس", "en": "Contrary to", "sfr": "Contrairement à toi, je préfère rester ici.", "sar": "على عكسك، أنا بفضّل ضل هون.", "sen": "Unlike you, I prefer to stay here.", "img": "contrairement.webp"},
+   {"fr": "Certainement pas", "ar": "بالتأكيد لا", "en": "Certainly not", "sfr": "Certainement pas !", "sar": "أكيد لا!", "sen": "Certainly not!", "img": "certainement_pas.webp"},
+   {"fr": "Chèrement", "ar": "بثمن غالٍ", "en": "At a high price", "sfr": "Il a payé chèrement cette erreur.", "sar": "دفع ثمن هالغلطة غالي.", "sen": "He paid dearly for this mistake.", "img": "cherement.webp"},
+   {"fr": "Chaleureusement", "ar": "بحرارة / بودّ", "en": "Warmly", "sfr": "Elle m'a accueilli chaleureusement.", "sar": "استقبلتني بحرارة.", "sen": "She welcomed me warmly.", "img": "chaleureusement.webp"},
+   {"fr": "Clairement", "ar": "بوضوح", "en": "Clearly", "sfr": "Explique clairement ton problème.", "sar": "اشرح مشكلتك بوضوح.", "sen": "Explain your problem clearly.", "img": "clairement.webp"},
+   {"fr": "Calmement", "ar": "بهدوء", "en": "Calmly", "sfr": "Parle calmement.", "sar": "احكي بهدوء.", "sen": "Speak calmly.", "img": "calmement.webp"},
+   {"fr": "Curieusement", "ar": "بشكل غريب / على نحو يثير الاستغراب", "en": "Curiously", "sfr": "Curieusement, il n'a rien dit.", "sar": "الغريب إنه ما قال شي.", "sen": "Curiously, he said nothing.", "img": "curieusement.webp"},
+   {"fr": "Carrément", "ar": "تماماً / بشكل صريح", "en": "Absolutely / Flat-out", "sfr": "C'est carrément impossible !", "sar": "هالشي مستحيل تماماً!", "sen": "That's absolutely impossible!", "img": "carrement.webp"},
+   {"fr": "Collectivement", "ar": "بشكل جماعي", "en": "Collectively", "sfr": "Nous avons décidé collectivement.", "sar": "قررنا بشكل جماعي.", "sen": "We decided collectively.", "img": "collectivement.webp"},
+   {"fr": "Confortablement", "ar": "بشكل مريح", "en": "Comfortably", "sfr": "Je suis assis confortablement.", "sar": "أنا قاعد بشكل مريح.", "sen": "I am sitting comfortably.", "img": "confortablement.webp"},
+   {"fr": "Courageusement", "ar": "بشجاعة", "en": "Courageously", "sfr": "Elle a affronté le problème courageusement.", "sar": "واجهت المشكلة بشجاعة.", "sen": "She faced the problem courageously.", "img": "courageusement.webp"},
+   {"fr": "Continuellement", "ar": "بشكل متواصل", "en": "Continuously", "sfr": "Il travaille continuellement.", "sar": "هو بيشتغل بشكل متواصل.", "sen": "He works continuously.", "img": "continuellement.webp"},
+   {"fr": "Catégoriquement", "ar": "بشكل قاطع", "en": "Categorically", "sfr": "Il a catégoriquement refusé.", "sar": "رفض بشكل قاطع.", "sen": "He categorically refused.", "img": "categoriquement.webp"},
+   {"fr": "Continuer le traitement", "ar": "متابعة العلاج", "en": "Continue the treatment", "sfr": "Est-ce que je dois continuer le traitement ?", "sar": "هل يجب أن أستمر في العلاج؟", "sen": "Do I need to continue the treatment?", "img": "continuer_le_traitement.webp"},
+   {"fr": "Cesser immédiatement", "ar": "يتوقف فورًا", "en": "To stop immediately", "sfr": "Il faut cesser immédiatement cette activité.", "sar": "يجب التوقف عن هذا النشاط فورًا.", "sen": "This activity must stop immediately.", "img": "cesser_immediatement.webp"},
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+710000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+
+function updAdvD(){
+ const add=[
+   {"fr": "Directement", "ar": "مباشرةً", "en": "Directly", "sfr": "Va directement au travail.", "sar": "روح مباشرةً على الشغل.", "sen": "Go directly to work.", "img": "directement.webp"},
+   {"fr": "Difficilement", "ar": "بصعوبة", "en": "With difficulty", "sfr": "Il respire difficilement.", "sar": "هو عم يتنفس بصعوبة.", "sen": "He is breathing with difficulty.", "img": "difficilement.webp"},
+ ];
+ add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+720000+i;st.c['adverbes'][L].push(u)}});
+ save();}
+
 function updClean(){
  if(localStorage.getItem('verbes-clean1'))return;
  const keep={noms:1,adjectifs:1,adverbes:1};
  Object.keys(st.c||{}).forEach(k=>{if(!keep[k]&&!st.catsU.some(c=>c.id===k))delete st.c[k]});
  save();localStorage.setItem('verbes-clean1','1')}
 
-seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();delAdjP();updAdjP();delAdjR();updAdjR();delAdjS();updAdjS();delAdjT();updAdjT();updAdjT2();delAdjU();updAdjU();delAdjV();updAdjV();delAdjW();updAdjW();delAdjX();updAdjX();delAdjZ();updAdjZ();updAdjK2();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
+seed();seed2();seed3();seed4();seed5();seed6();fixFlags();updB1();updB2();updB3();updC1();updC2();updC3();updC4();updO1();updO2();updA1();updA2();updA3();updA4();updB4();updB5();updC5();updD1();updD2();updD3();updE1();updE2();updF1();updG1();updH1();updJKL1();updM1();updN1();updP1();updP2();updR1();updR2();updS1();updS2();updU1();updS3();updM2();updClean();updNoms();updAdj();updAdv();updAdv2();updAdv3();updAdv4();updNomsA();updNomsA2();updNomsA3();updNomsA4();updNomsA5();updNomsA6();updNomsB();updNomsB2();updNomsB3();updNomsB4();updNomsB5();updNomsB6();updNomsB7();updNomsB8();updNomsB9();updNomsB10();updNomsB11();delNomsB();updNomsC();updNomsC2();updNomsC3();updNomsC4();updNomsC5();updNomsC6();updNomsD();updNomsC7();updNomsR();updNomsJ();updNomsE();updNomsE2();updNomsE3();updNomsF();updNomsP();updNomsF2();updNomsD2();updNomsD3();updNomsD4();updNomsK();updNomsN();updNomsV();updNomsN2();updNomsV2();updNomsM();updNomsP2();updNomsS();updNomsM2();updNomsM3();updNomsR2();updNomsP3();updNomsR3();updNomsR4();updNomsS2();updNomsT();updNomsS3();updNomsS4();updNomsS5();updNomsT2();updNomsV3();updNomsT3();updNomsT4();updNomsU();updNomsH();updNomsL();updNomsV4();updNomsW();updNomsI();updNomsI2();updNomsJ2();updNomsC8();updNomsK2();updNomsL2();updNomsL3();updNomsM4();updNomsO();updNomsH2();updNomsH3();delNomsP();updNomsP4();updNomsP5();delNomsQ();updNomsQ();updNomsY();updNomsZ();updVYZ();delAdjA();updAdjA();updAdjA2();delAdjBC();updAdjB();updAdjC();delAdjDEF();updAdjD();updAdjE();updAdjF();delAdjGHI();updAdjG();updAdjH();updAdjI();delAdjJKLMN();updAdjJ();updAdjL();updAdjM();updAdjN();delAdjO();updAdjO();delAdjP();updAdjP();delAdjR();updAdjR();delAdjS();updAdjS();delAdjT();updAdjT();updAdjT2();delAdjU();updAdjU();delAdjV();updAdjV();delAdjW();updAdjW();delAdjX();updAdjX();delAdjZ();updAdjZ();updAdjK2();updAdjK3();delAdvB();updAdvB();delAdvC();updAdvC();updAdvD();fixLesionner();fixNomsC();fixImgs();fixJunk();applyTheme();applyLang();renderHome();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 </script>
 </body>
