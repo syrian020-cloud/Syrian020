@@ -1,5 +1,6 @@
 package com.syrian020.sa3a;
 
+import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.ContentValues;
@@ -161,6 +162,87 @@ public class AlarmSoundPlugin extends Plugin {
             call.resolve();
         } catch (Exception e) {
             call.reject("channel failed: " + e.getMessage(), e);
+        }
+    }
+
+    /* ---------- native alarm-clock scheduling (rings over lock screen) ---------- */
+
+    static void scheduleNativeOccurrence(Context ctx, int req, long at, int alarmId, String label) {
+        AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
+        if (am == null) return;
+        android.content.Intent i = new android.content.Intent(ctx, AlarmReceiver.class);
+        i.setAction("com.syrian020.sa3a.NATIVE_ALARM");
+        i.putExtra(AlarmReceiver.EXTRA_RING, alarmId);
+        i.putExtra("req", req);
+        i.putExtra("label", label);
+        android.app.PendingIntent op = android.app.PendingIntent.getBroadcast(
+                ctx, req, i, android.app.PendingIntent.FLAG_UPDATE_CURRENT | android.app.PendingIntent.FLAG_IMMUTABLE);
+        android.content.Intent show = new android.content.Intent(ctx, MainActivity.class);
+        android.app.PendingIntent showPi = android.app.PendingIntent.getActivity(
+                ctx, 0, show, android.app.PendingIntent.FLAG_UPDATE_CURRENT | android.app.PendingIntent.FLAG_IMMUTABLE);
+        am.setAlarmClock(new AlarmManager.AlarmClockInfo(at, showPi), op);
+        AlarmReceiver.ledger(ctx, req, at, alarmId, label);
+    }
+
+    @PluginMethod
+    public void scheduleNative(PluginCall call) {
+        Integer req = call.getInt("req");
+        Long at = call.getLong("at");
+        Integer alarmId = call.getInt("alarmId");
+        String label = call.getString("label", "");
+        if (req == null || at == null || alarmId == null) { call.reject("missing args"); return; }
+        try {
+            scheduleNativeOccurrence(getContext(), req, at, alarmId, label);
+            call.resolve();
+        } catch (Exception e) {
+            call.reject("schedule failed: " + e.getMessage(), e);
+        }
+    }
+
+    @PluginMethod
+    public void cancelNative(PluginCall call) {
+        Integer req = call.getInt("req");
+        if (req == null) { call.reject("missing req"); return; }
+        try {
+            Context ctx = getContext();
+            AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
+            android.content.Intent i = new android.content.Intent(ctx, AlarmReceiver.class);
+            i.setAction("com.syrian020.sa3a.NATIVE_ALARM");
+            android.app.PendingIntent op = android.app.PendingIntent.getBroadcast(
+                    ctx, req, i, android.app.PendingIntent.FLAG_UPDATE_CURRENT | android.app.PendingIntent.FLAG_IMMUTABLE);
+            if (am != null) am.cancel(op);
+            AlarmReceiver.removeOccurrence(ctx, req);
+            call.resolve();
+        } catch (Exception e) {
+            call.reject("cancel failed: " + e.getMessage(), e);
+        }
+    }
+
+    /** Reads and clears the alarm id the app was opened with (full-screen intent). */
+    private Integer pendingRingId = null;
+
+    @Override
+    protected void handleOnNewIntent(android.content.Intent intent) {
+        super.handleOnNewIntent(intent);
+        if (intent != null && intent.hasExtra(AlarmReceiver.EXTRA_RING))
+            pendingRingId = intent.getIntExtra(AlarmReceiver.EXTRA_RING, -1);
+    }
+
+    @PluginMethod
+    public void consumeRingIntent(PluginCall call) {
+        try {
+            android.content.Intent in = getActivity().getIntent();
+            JSObject ret = new JSObject();
+            if (pendingRingId != null) {
+                ret.put("alarmId", pendingRingId);
+                pendingRingId = null;
+            } else if (in != null && in.hasExtra(AlarmReceiver.EXTRA_RING)) {
+                ret.put("alarmId", in.getIntExtra(AlarmReceiver.EXTRA_RING, -1));
+                in.removeExtra(AlarmReceiver.EXTRA_RING);
+            }
+            call.resolve(ret);
+        } catch (Exception e) {
+            call.reject("intent failed: " + e.getMessage(), e);
         }
     }
 }

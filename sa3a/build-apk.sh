@@ -36,6 +36,7 @@ sed -i "s|<string name=\"title_activity_main\">.*</string>|<string name=\"title_
 PLUGIN_DIR="android/app/src/main/java/com/syrian020/sa3a"
 mkdir -p "$PLUGIN_DIR"
 cp native-plugins/AlarmSoundPlugin.java "$PLUGIN_DIR/"
+cp native-plugins/AlarmReceiver.java "$PLUGIN_DIR/"
 cp native-plugins/TtsPlugin.java "$PLUGIN_DIR/"
 cp native-plugins/Sa3aWallpaperService.java "$PLUGIN_DIR/"
 mkdir -p "android/app/src/main/java/com/syrian020/tts"
@@ -59,6 +60,21 @@ svc='''    <service android:name=".Sa3aWallpaperService" android:permission="and
     </service>
 '''
 s=s.replace('</application>',svc+'    </application>')
+open(p,'w').write(s)
+PY
+fi
+if [ -f "$MANIFEST" ] && ! grep -q 'AlarmReceiver' "$MANIFEST"; then
+  python3 - "$MANIFEST" <<'PY'
+import sys
+p=sys.argv[1];s=open(p).read()
+rcv='''    <receiver android:name=".AlarmReceiver" android:exported="true">
+        <intent-filter>
+            <action android:name="com.syrian020.sa3a.NATIVE_ALARM" />
+            <action android:name="android.intent.action.BOOT_COMPLETED" />
+        </intent-filter>
+    </receiver>
+'''
+s=s.replace('</application>',rcv+'    </application>')
 open(p,'w').write(s)
 PY
 fi
@@ -100,6 +116,8 @@ if [ -f "$MANIFEST" ]; then
     sed -i 's|<uses-permission|<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />\n    <uses-permission|' "$MANIFEST"
   grep -q 'USE_EXACT_ALARM' "$MANIFEST" || \
     sed -i 's|<uses-permission|<uses-permission android:name="android.permission.USE_EXACT_ALARM" />\n    <uses-permission|' "$MANIFEST"
+  grep -q 'USE_FULL_SCREEN_INTENT' "$MANIFEST" || \
+    sed -i 's|<uses-permission|<uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />\n    <uses-permission|' "$MANIFEST"
   grep -q 'android.permission.VIBRATE' "$MANIFEST" || \
     sed -i 's|<uses-permission|<uses-permission android:name="android.permission.VIBRATE" />\n    <uses-permission|' "$MANIFEST"
   grep -q 'ACCESS_FINE_LOCATION' "$MANIFEST" || \

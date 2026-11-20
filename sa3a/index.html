@@ -1805,11 +1805,24 @@ function nextTimes(a){
  }
  return out;
 }
+async function cancelNative(a){
+ if(!isCap()||!AS())return;
+ for(let i=0;i<7;i++)try{await AS().cancelNative({req:a.id*10+i})}catch(e){}
+}
 async function scheduleAlarm(a){
- const p=LN();if(!p||!a.on)return;
+ if(!a.on)return;
+ const times=nextTimes(a).slice(0,7);
+ if(isCap()&&AS()){
+  try{
+   await cancelNative(a);
+   for(let i=0;i<times.length;i++)
+    await AS().scheduleNative({req:a.id*10+i,at:times[i].getTime(),alarmId:a.id,label:(a.label||t('newAlarm'))+' '+pad(a.hh)+':'+pad(a.mm)});
+  }catch(e){console.warn('nativeSched',e)}
+ }
+ const p=LN();if(!p)return;
  try{
   await ensureChannel(a);
-  const times=nextTimes(a),list=times.slice(0,7).map((d,i)=>({
+  const list=times.map((d,i)=>({
    id:a.id*10+i,title:'⏰ '+(a.label||t('newAlarm')),
    body:pad(a.hh)+':'+pad(a.mm)+' — '+t('tabAlarms'),
    channelId:chId(a),sound:a.sound==='default'?undefined:TONE(a.sound).res,
@@ -1818,6 +1831,7 @@ async function scheduleAlarm(a){
  }catch(e){console.warn('sched',e)}
 }
 async function rescheduleAll(){
+ try{for(const a of st.alarms)await cancelNative(a)}catch(e){}
  const p=LN();if(!p)return;
  try{
   await p.requestPermissions();
@@ -2139,6 +2153,7 @@ $('edCancel').onclick=()=>$('editShade').classList.remove('on');
 $('edDel').onclick=async()=>{
  if(editing._lock){toast(t('ringLocked'));return}
  if(await confirmBox(t('confirmDel'))){
+  await cancelNative(editing);
   st.alarms=st.alarms.filter(x=>x.id!==editing.id);save();
   $('editShade').classList.remove('on');renderAlarms();await rescheduleAll();
  }};
@@ -3101,8 +3116,18 @@ if(CAP.Plugins&&CAP.Plugins.App){
   if(await confirmBox(t('exitConfirm')))CAP.Plugins.App.exitApp();
  });
  CAP.Plugins.App.addListener('appStateChange',s=>{
-  if(s.isActive){rescheduleAll();checkPerms();renderAlarms()}
+  if(s.isActive){consumeRing();rescheduleAll();checkPerms();renderAlarms()}
  });
+}
+async function consumeRing(){
+ if(!isCap()||!AS())return;
+ try{
+  const r=await AS().consumeRingIntent();
+  const id=r&&r.alarmId;
+  if(id==null)return;
+  const a=st.alarms.find(x=>x.id===id);
+  if(a)setTimeout(()=>{try{ring(a)}catch(e){}},300);
+ }catch(e){}
 }
 
 /* =============== SW (web only) =============== */
@@ -3112,6 +3137,7 @@ if(!isCap()&&'serviceWorker'in navigator)navigator.serviceWorker.register('sw.js
 applyTheme();applyLang();applyStyle();applyCapTheme();_updSpeakTitle();renderAlarms();tickClock();renderTimer();renderDock();
 loadCustomBlob().then(()=>{});
 syncPrefs();
+consumeRing();
 rescheduleAll();
 setInterval(renderAlarms,45000);
 </script>
