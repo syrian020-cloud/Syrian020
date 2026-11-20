@@ -2986,7 +2986,7 @@ function updNomsA(){
  {fr:"L'autonomie",ar:"الاستقلالية / الاعتماد على النفس",en:"Independence / Autonomy",sfr:"Ce travail me donne plus d'autonomie.",sar:"هالشغل بيعطيني استقلالية أكبر.",sen:"This job gives me more independence.",img:"l_autonomie.webp"},
  {fr:"L'aventure",ar:"المغامرة",en:"Adventure",sfr:"Voyager seul est une belle aventure.",sar:"السفر لحالك مغامرة حلوة.",sen:"Travelling alone is a wonderful adventure.",img:"l_aventure.webp"},
  ];
- st.c['noms']=st.c['noms']||{};st.c['noms'].A=st.c['noms'].A.filter(u=>u.usr);
+ st.c['noms']=st.c['noms']||{};st.c['noms'].A=(st.c['noms'].A||[]).filter(u=>u.usr);
  add.forEach((u,i)=>{const ex=st.c['noms'].A.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+i;st.c['noms'].A.push(u)}});
  save();}
 
@@ -3309,7 +3309,7 @@ function updNomsB(){
  {fr:"Le bas",ar:"الجزء السفلي / الأسفل",en:"Bottom / Lower part",sfr:"Mes chaussures sont en bas de l'escalier.",sar:"أحذيتي بأسفل الدرج.",sen:"My shoes are at the bottom of the stairs.",img:"le_bas.webp"},
  {fr:"La base",ar:"القاعدة / الأساس",en:"Base / Foundation",sfr:"La base de cette machine doit être solide.",sar:"قاعدة هالآلة لازم تكون متينة.",sen:"The base of this machine must be solid.",img:"la_base.webp"},
  ];
- st.c['noms']=st.c['noms']||{};st.c['noms'].B=st.c['noms'].B.filter(u=>u.usr);
+ st.c['noms']=st.c['noms']||{};st.c['noms'].B=(st.c['noms'].B||[]).filter(u=>u.usr);
  add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+25000+i;st.c['noms'].B.push(u)}});
  save();}
 
@@ -3664,7 +3664,7 @@ function updNomsB11(){
  add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+65000+i;st.c['noms'].B.push(u)}});
  save();}
 function updNomsC(){
- st.c['noms']=st.c['noms']||{};st.c['noms'].C=st.c['noms'].C.filter(u=>u.usr);
+ st.c['noms']=st.c['noms']||{};st.c['noms'].C=(st.c['noms'].C||[]).filter(u=>u.usr);
  const add=[
  {fr:"Le cabas",ar:"حقيبة تسوق كبيرة",en:"Shopping bag",sfr:"J'utilise un cabas pour faire mes courses.",sar:"بستخدم حقيبة تسوق كبيرة لحتى اشتري أغراض البيت.",sen:"I use a shopping bag to do my grocery shopping.",img:"le_cabas.webp"},
  {fr:"Le cabinet",ar:"مكتب مهني / عيادة",en:"Professional office",sfr:"Je travaille dans un cabinet médical.",sar:"بشتغل بعيادة طبية.",sen:"I work in a medical office.",img:"le_cabinet.webp"},
@@ -6060,7 +6060,7 @@ function updAdjC(){
  save();}
 
 function delAdjDEF(){
- if(st.c&&st.c['adjectifs']){['D','E','F'].forEach(L=>{st.c['adjectifs'][L]=st.c['adjectifs'][L].filter(u=>u.usr)});save()}
+ if(st.c&&st.c['adjectifs']){['D','E','F'].forEach(L=>{st.c['adjectifs'][L]=(st.c['adjectifs'][L]||[]).filter(u=>u.usr)});save()}
 }
 
 function updAdjD(){
@@ -6180,7 +6180,7 @@ function updAdjF(){
  save();}
 
 function delAdjGHI(){
- if(st.c&&st.c['adjectifs']){['G','H','I'].forEach(L=>{st.c['adjectifs'][L]=st.c['adjectifs'][L].filter(u=>u.usr)});save()}
+ if(st.c&&st.c['adjectifs']){['G','H','I'].forEach(L=>{st.c['adjectifs'][L]=(st.c['adjectifs'][L]||[]).filter(u=>u.usr)});save()}
 }
 
 function updAdjG(){
@@ -6253,7 +6253,7 @@ function updAdjI(){
  save();}
 
 function delAdjJKLMN(){
- if(st.c&&st.c['adjectifs']){['J','K','L','M','N'].forEach(L=>{st.c['adjectifs'][L]=st.c['adjectifs'][L].filter(u=>u.usr)});save()}
+ if(st.c&&st.c['adjectifs']){['J','K','L','M','N'].forEach(L=>{st.c['adjectifs'][L]=(st.c['adjectifs'][L]||[]).filter(u=>u.usr)});save()}
 }
 function updAdjJ(){
  const add=[
