@@ -411,7 +411,8 @@ function doSearch(q){
   const cn=ct[st.lang]||ct.fr||ct.ar||ct.id;
   Object.keys(store).forEach(k=>{(store[k]||[]).forEach(v=>{
    if(n>=MAX)return;
-   if(!(normFr(v.fr).startsWith(q)||normFr(v.ar).startsWith(q)||normFr(v.en).startsWith(q)))return;
+   const hit=s=>{const n=normFr(s);return n.startsWith(q)||n.split(/[\s\-'/()]+/).some(w=>w&&w.startsWith(q))};
+   if(!(hit(v.fr)||hit(v.ar)||hit(v.en)))return;
    n++;
    const d=document.createElement('div');d.className='sr';
    const f=document.createElement('div');f.className='f';f.textContent=v.fr||'';d.appendChild(f);
