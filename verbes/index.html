@@ -107,6 +107,15 @@ main{padding:.7rem;max-width:640px;margin:0 auto;padding-bottom:5rem}
 .toast{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);background:#222a;color:#fff;padding:.5rem 1.1rem;border-radius:20px;font-size:.85rem;z-index:99;display:none}
 .toast.on{display:block}
 /* ---- notebook (ProLang port) ---- */
+#srchOv{position:fixed;inset:0;z-index:500;background:var(--bg);display:none;flex-direction:column}
+#srchOv.show{display:flex}
+.srch-top{display:flex;gap:.5rem;align-items:center;padding:.6rem .8rem;border-bottom:1px solid var(--bd)}
+#srchIn{flex:1;padding:.55rem .8rem;border-radius:12px;border:1px solid var(--bd);background:var(--bg2);color:var(--txt);font-size:1rem;font-family:inherit}
+#srchRes{flex:1;overflow-y:auto;padding:.5rem .7rem}
+.sr{border-bottom:1px solid var(--bd);padding:.5rem .2rem;display:flex;flex-direction:column;gap:.1rem;cursor:pointer}
+.sr .f{font-weight:800}
+.sr .t{color:var(--dim);font-size:.85rem}
+.sr .w{color:var(--dim);font-size:.72rem}
 #noteModal{position:fixed;inset:0;z-index:600;background:#0e1330;display:none;flex-direction:column}
 #noteModal.show{display:flex}
 .note-topbar{display:flex;align-items:center;gap:.35rem;padding:.5rem .6rem;background:#131a3d;flex-wrap:wrap}
@@ -203,6 +212,7 @@ html[dir=rtl] .note-canvas-wrap.lined{background-image:linear-gradient(to left,t
 <button class="hbtn" id="backBtn">→</button>
 <button class="hbtn" id="settingsBtn">⋮</button>
 <div id="ttl"></div>
+<button class="hbtn" id="srchBtn">🔍</button>
 <button class="hbtn" id="muteBtn">🔇</button>
 <button class="hbtn" id="copyBtn" style="display:none" title="copy">📋</button>
 <button class="hbtn" id="themeBtn">🌙</button>
@@ -294,6 +304,10 @@ html[dir=rtl] .note-canvas-wrap.lined{background-image:linear-gradient(to left,t
   <div id="notePhraseBar"></div>
   <div id="noteWrap" class="note-canvas-wrap plain"><canvas id="noteCanvas"></canvas></div>
 </div>
+<div id="srchOv">
+<div class="srch-top"><button class="mini" id="srchBack">✕</button><input id="srchIn" dir="auto" autocomplete="off"></div>
+<div id="srchRes"></div>
+</div>
 <div class="toast" id="toast"></div>
 <script src="js/edge-tts.js"></script>
 <script>
@@ -382,6 +396,31 @@ $('themeBtn').onclick=()=>{st.theme=st.theme==='dark'?'light':'dark';save();appl
 $('langBtn').onclick=()=>{st.lang=LANGS[(LANGS.indexOf(st.lang)+1)%3];save();applyLang();render()};
 $('muteBtn').onclick=()=>{document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));stopSay()};
 $('backBtn').onclick=()=>{stopSay();if(curLetter){curLetter=null}else{curCat=null}renderHome()};
+/* ---- global search ---- */
+function openSearch(){$('srchOv').classList.add('show');$('srchIn').value='';doSearch('');setTimeout(()=>$('srchIn').focus(),60)}
+function closeSearch(){$('srchOv').classList.remove('show');stopSay()}
+$('srchBtn').onclick=openSearch;
+$('srchBack').onclick=closeSearch;
+$('srchIn').oninput=function(){doSearch(this.value)};
+function doSearch(q){
+ const res=$('srchRes');res.innerHTML='';
+ q=normFr(q);if(!q)return;
+ let n=0;const MAX=300;const rows=[];
+ catsList().forEach(ct=>{
+  const store=ct.id==='verbes'?st.v:(st.c[ct.id]||{});
+  const cn=ct[st.lang]||ct.fr||ct.ar||ct.id;
+  Object.keys(store).forEach(k=>{(store[k]||[]).forEach(v=>{
+   if(n>=MAX)return;
+   if(!(normFr(v.fr).startsWith(q)||normFr(v.ar).startsWith(q)||normFr(v.en).startsWith(q)))return;
+   n++;
+   const d=document.createElement('div');d.className='sr';
+   const f=document.createElement('div');f.className='f';f.textContent=v.fr||'';d.appendChild(f);
+   const tt=document.createElement('div');tt.className='t';tt.dir='auto';
+   tt.textContent=[v.ar,v.en].filter(Boolean).join(' — ');d.appendChild(tt);
+   const w=document.createElement('div');w.className='w';w.textContent=cn+' · '+k;d.appendChild(w);
+   d.onclick=()=>{closeSearch();curCat=ct.id;curLetter=k;renderLetter()};
+   res.appendChild(d)})})});
+ if(!n)res.innerHTML='<div id="empty">'+esc(t('nothing'))+'</div>'}
 function renderCats(){
  $('cats').style.display='';$('letters').style.display='none';$('lv').style.display='none';$('addFab').style.display='grid';$('pasteFab').style.display='none';$('backBtn').style.display='none';$('copyBtn').style.display='none';
  const g=$('cats');g.innerHTML='';
@@ -1426,6 +1465,7 @@ function render(){if(curLetter)renderLetter();else renderHome()}
 /* hardware back: letter → home, sheet → close, home → exit */
 try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
  CAP.Plugins.App.addListener('backButton',()=>{
+  if($('srchOv').classList.contains('show')){closeSearch();return}
   if($('noteModal').classList.contains('show')){closeNote();return}
   if($('vShade').classList.contains('on')){$('vShade').classList.remove('on');return}
   if($('pShade').classList.contains('on')){$('pShade').classList.remove('on');return}
