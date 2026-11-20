@@ -939,9 +939,7 @@ function renderManage(){
     const eb=document.createElement('button');eb.textContent='✏️';
     eb.onclick=()=>{phCtx={v,i};$('phTtl').textContent=t('phEdit');$('phSave').textContent=t('save');$('phCancel').textContent=t('cancel');
      $('phFr').value=p.fr||'';$('phAr').value=p.ar||'';$('phEn').value=p.en||'';$('phShade').classList.add('on')};
-    const db=document.createElement('button');db.textContent='🗑';
-    db.onclick=()=>{if(i<0){v.sfr=v.sar=v.sen=''}else{v.ph.splice(i,1);if(!v.ph.length)delete v.ph}save();renderManage()};
-    r.appendChild(tx);r.appendChild(eb);r.appendChild(db);pw.appendChild(r)});
+    r.appendChild(tx);r.appendChild(eb);pw.appendChild(r)});
    mid.appendChild(pw)}
   const da=document.createElement('button');da.className='mgphdel';da.textContent=t('mgDelPh');
   da.onclick=async()=>{if(confirm(t('delQ'))){const store=VD();store[curLetter]=(store[curLetter]||[]).filter(x=>x.id!==v.id);
