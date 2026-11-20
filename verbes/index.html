@@ -15,6 +15,8 @@ body{margin:0;font-family:system-ui,'Segoe UI',sans-serif;background:var(--bg);c
 #ttl{flex:1;font-size:1.15rem;font-weight:800;text-align:center}
 .hbtn{width:38px;height:38px;border-radius:12px;border:1px solid var(--bd);background:var(--card);color:var(--txt);font-size:1.15rem;display:grid;place-items:center;cursor:pointer;flex:none}
 .hbtn:active{filter:brightness(1.3)}
+#spdBtn{font-size:.8rem;font-weight:800}
+#spdBtn.slow{background:#f59e0b;border-color:#f59e0b;color:#fff}
 #backBtn{display:none}
 main{padding:.7rem;max-width:640px;margin:0 auto;padding-bottom:5rem}
 #letters{display:grid;grid-template-columns:repeat(4,1fr);gap:.55rem}
@@ -252,6 +254,7 @@ html[dir=rtl] .note-canvas-wrap.lined{background-image:linear-gradient(to left,t
 <header id="hdr">
 <button class="hbtn" id="backBtn">→</button>
 <button class="hbtn" id="settingsBtn">⋮</button>
+<button class="hbtn" id="spdBtn" title="speed">1x</button>
 <div id="ttl"></div>
 <button class="hbtn" id="srchBtn">🔍</button>
 <button class="hbtn" id="muteBtn">🔇</button>
@@ -388,11 +391,15 @@ const idb={d:null,open(){return this.d?Promise.resolve(this.d):new Promise((res,
 let sayTok=0;
 function stopSay(){sayTok++;try{if(window.EdgeTTS&&EdgeTTS.stop)EdgeTTS.stop()}catch(e){}try{if(isCap()&&CAP.Plugins.Tts&&CAP.Plugins.Tts.stop)CAP.Plugins.Tts.stop().catch(()=>{})}catch(e){}try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(e){}}
 const LGTAG={fr:'fr-FR',ar:'ar-SA',en:'en-US'};
+let sayRate=parseFloat(localStorage.getItem('say_rate')||'1')||1;
+const SPD_OPTS=[1,0.75,0.5];
+function spdLabel(r){return r===1?'1x':(r===0.75?'¾x':'½x')}
+function applySpd(){$('spdBtn').textContent=spdLabel(sayRate);$('spdBtn').classList.toggle('slow',sayRate<1)}
 function sayOnce(txt,lg){return new Promise(res=>{
  if(!txt)return res();
- if(window.EdgeTTS&&EdgeTTS.supported&&EdgeTTS.supported()){EdgeTTS.play((txt||'').slice(0,400),(lg||'fr').split('-')[0]).then(res,()=>res());return}
- if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:LGTAG[lg]||'fr-FR'}).catch(()=>{});setTimeout(res,Math.min(9000,600+txt.length*95));return}
- if(window.speechSynthesis){const u=new SpeechSynthesisUtterance(txt);u.lang=LGTAG[lg]||'fr-FR';u.onend=res;u.onerror=res;speechSynthesis.speak(u);return}
+ if(window.EdgeTTS&&EdgeTTS.supported&&EdgeTTS.supported()){try{EdgeTTS.speed=sayRate}catch(e){}EdgeTTS.play((txt||'').slice(0,400),(lg||'fr').split('-')[0]).then(res,()=>res());return}
+ if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:LGTAG[lg]||'fr-FR',rate:sayRate}).catch(()=>{});setTimeout(res,Math.min(9000,(600+txt.length*95)/Math.max(.4,sayRate)));return}
+ if(window.speechSynthesis){const u=new SpeechSynthesisUtterance(txt);u.lang=LGTAG[lg]||'fr-FR';u.rate=sayRate;u.onend=res;u.onerror=res;speechSynthesis.speak(u);return}
  res()})}
 function loopSpeak(rows,btn){
  rows=rows.filter(r=>r&&r.txt);if(!rows.length)return;
@@ -449,6 +456,7 @@ function applyLang(){document.documentElement.lang=st.lang;document.documentElem
 $('themeBtn').onclick=()=>{st.theme=st.theme==='dark'?'light':'dark';save();applyTheme()};
 $('langBtn').onclick=()=>{st.lang=LANGS[(LANGS.indexOf(st.lang)+1)%3];save();applyLang();render()};
 $('muteBtn').onclick=()=>{document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));stopSay()};
+applySpd();$('spdBtn').onclick=()=>{const i=SPD_OPTS.indexOf(sayRate);sayRate=SPD_OPTS[(i+1)%SPD_OPTS.length];localStorage.setItem('say_rate',sayRate);applySpd();toast(spdLabel(sayRate))};
 $('backBtn').onclick=()=>{stopSay();if(curLetter){curLetter=null;if(srFrom)openSearch(srFrom)}else{curCat=null}renderHome()};
 /* ---- global search ---- */
 let srFrom=null;

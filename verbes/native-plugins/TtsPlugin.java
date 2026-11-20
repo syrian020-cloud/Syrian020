@@ -33,7 +33,8 @@ public class TtsPlugin extends Plugin {
                 return;
             }
         }
-        tts.setSpeechRate(0.95f);
+        float rate = call.getFloat("rate", 0.95f);
+        tts.setSpeechRate(rate);
         tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "verbes_tts");
         call.resolve();
     }
