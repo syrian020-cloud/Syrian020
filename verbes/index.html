@@ -1488,11 +1488,7 @@ function rrLangsOf(items,n){const langs=[],main=gMainLang(n);
  items.forEach(m=>{Object.keys(m).forEach(k=>{if(m[k]&&langs.indexOf(k)<0)langs.push(k)})});
  langs.sort((a,b)=>(a===main?-1:0)-(b===main?-1:0));return langs}
 const rrDir=l=>(l==='ar'?'rtl':'ltr');
-const gspeak=(txt,lang,el)=>{
- if(el&&el.classList.contains('speaking')){el.classList.remove('speaking');stopSay();return}
- document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));
- stopSay();if(el)el.classList.add('speaking');const tok=sayTok;
- (async()=>{await sayOnce(txt,lang);if(tok===sayTok&&el)el.classList.remove('speaking')})()};
+const gspeak=(txt,lang,el)=>loopSpeak([{txt,lg:lang}],el);
 function gspeakOnce(txt,lang){
  if(window.EdgeTTS&&EdgeTTS.supported&&EdgeTTS.supported())return EdgeTTS.play((txt||'').slice(0,400),lang).catch(()=>{});
  return sayOnce(txt,lang)}
@@ -1605,13 +1601,13 @@ function startQuiz(n,qlang,alang){
   c.dir=lang==='ar'?'rtl':'ltr';c.textContent=c.dataset.text;return c};
  function onCard(card,item,lang,isQ){
   if(card.classList.contains('done'))return;
-  gspeakOnce(card.dataset.text,lang);
+  gspeak(card.dataset.text,lang,card);
   if(isQ){if(selFr)selFr.classList.remove('sel');selFr=card;card.classList.add('sel');return}
   if(!selFr){card.classList.add('sel');setTimeout(()=>card.classList.remove('sel'),600);return}
   if(selFr.dataset.pid===card.dataset.pid){correct++;quizTone(true);
    selFr.classList.remove('sel');selFr.classList.add('done');card.classList.add('done');solved++;
    window.__gNoteP=item.p;
-   speakPair(selFr.dataset.text,selFr.dataset.lang,card.dataset.text,card.dataset.lang,selFr,card);
+   loopSpeak([{txt:selFr.dataset.text,lg:selFr.dataset.lang},{txt:card.dataset.text,lg:card.dataset.lang}],card);
    selFr=null;setProg();
    if(solved===picks.length)setTimeout(()=>quizEnd(correct,wrong,n,qlang,alang),650)}
   else{wrong++;quizTone(false);card.classList.add('wrong');
@@ -1716,7 +1712,7 @@ function lzQuestion(){
  $('lzNextBtn').onclick=lzNext;
  $('lzAutoBtn').onclick=function(){lz.auto=!lz.auto;this.classList.toggle('on',lz.auto);
   if(lz.auto&&lz.answered)lzNext()};
- setTimeout(()=>{if(document.getElementById('quiz-overlay'))gspeakOnce(phTxt(p,pLang),pLang)},250)}
+ setTimeout(()=>{if(document.getElementById('quiz-overlay'))gspeak(phTxt(p,pLang),pLang,rp)},250)}
 function lzAnswer(tile,p){
  if(tile.dataset.done)return;
  const body=$('quiz-body');
@@ -1740,7 +1736,7 @@ function lzAnswer(tile,p){
    const span=b.parentNode.querySelector('span');
    b.onclick=()=>gspeak(span.textContent,b.dataset.lang,b)});
   const aLoopBtn=hero.querySelector('.lz-v-loop[data-lang="'+lz.lang+'"]');
-  if(aLoopBtn)gspeakOnce(phTxt(p,lz.lang),lz.lang)}
+  if(aLoopBtn)gspeak(phTxt(p,lz.lang),lz.lang,aLoopBtn)}
  lz.answered=true;
  clearTimeout(lz.timer);
  if(lz.auto)lz.timer=setTimeout(lzNext,5000)}
@@ -1800,7 +1796,7 @@ function ipQuestion(){
  $('ipNextBtn').onclick=ipNext;
  $('ipAutoBtn').onclick=function(){ip.auto=!ip.auto;this.classList.toggle('on',ip.auto);
   if(ip.auto&&ip.answered)ipNext()};
- setTimeout(()=>{if(document.getElementById('quiz-overlay'))gspeakOnce(phTxt(p,pLang),pLang)},250)}
+ setTimeout(()=>{if(document.getElementById('quiz-overlay'))gspeak(phTxt(p,pLang),pLang,rp)},250)}
 function ipAnswer(tile,p){
  if(tile.dataset.done)return;
  const body=$('quiz-body');
