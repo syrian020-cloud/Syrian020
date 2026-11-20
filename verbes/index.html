@@ -567,7 +567,7 @@ $('fDel').onclick=()=>{
  if(confirm(t('delQ'))){delFolder(foldEditId);$('fShade').classList.remove('on')}};
 function renderHome(){
  if(!curCat){renderCats();return}
- $('cats').style.display='none';$('letters').style.display='';$('lv').style.display='none';$('addFab').style.display=catFolders(curCat)?'grid':'none';$('pasteFab').style.display='none';$('backBtn').style.display='';$('copyBtn').style.display='grid';
+ $('cats').style.display='none';$('letters').style.display='';$('lv').style.display='none';$('addFab').style.display='grid';$('pasteFab').style.display=catFolders(curCat)?'none':'grid';$('backBtn').style.display='';$('copyBtn').style.display='grid';
  const g=$('letters');g.innerHTML='';g.classList.remove('twocol');
  const store=VD();
  const folders=catFolders(curCat);
@@ -705,7 +705,7 @@ $('vSave').onclick=async()=>{
   else store[curLetter].push(v)}
  if(pickedBlob){try{await idb.set('img_'+v.id,{blob:pickedBlob});delete v.img}catch(e){}}
  save();$('vShade').classList.remove('on');toast(t('saved'));renderLetter()};
-$('addFab').onclick=()=>{if(!curCat)openCatSheet(null);else if(!curLetter&&catFolders(curCat))openFolderSheet(null);else openSheet(null)};
+$('addFab').onclick=()=>{if(!curCat)openCatSheet(null);else if(!curLetter&&catFolders(curCat))openFolderSheet(null);else if(!curLetter)openPaste();else openSheet(null)};
 /* bulk paste */
 function parseBulk(txt){
  const L=txt.split(/\r?\n/),blocks=[];let cur=null,pend=[];
@@ -817,10 +817,11 @@ $('pAdd').onclick=async()=>{
  $('pShade').classList.remove('on');toast('⏳');let n=0;
  for(const pv of vs){
   const L=AZ.includes((pv.fr[0]||'').toUpperCase())?(pv.fr[0]||'').toUpperCase():curLetter;
+  if(!L)continue;
   const v={id:Date.now()+Math.floor(Math.random()*999)+n,fr:pv.fr,ar:pv.ar,en:pv.en,sfr:pv.sfr,sar:pv.sar,sen:pv.sen,ph:pv.ph,usr:1};
   const store=VD();store[L]=store[L]||[];if(store[L].some(x=>normFr(x.fr)===normFr(pv.fr)))continue;store[L].push(v);n++;
   if(pv.imgurl){const b=await fetchImgBlob(pv.imgurl);if(b){try{await idb.set('img_'+v.id,{blob:b})}catch(e){}}}}
- AZ.forEach(dedupeSort);save();toast('✓ '+n+' '+t('addedN'));renderLetter()};
+ AZ.forEach(dedupeSort);save();toast('✓ '+n+' '+t('addedN'));if(curLetter)renderLetter();else renderHome()};
 function toast(s){const x=$('toast');x.textContent=s;x.classList.add('on');clearTimeout(x._t);x._t=setTimeout(()=>x.classList.remove('on'),1800)}
 function copyText(s){if(navigator.clipboard&&navigator.clipboard.writeText)return navigator.clipboard.writeText(s);
  return new Promise((res,rej)=>{const ta=document.createElement('textarea');ta.value=s;ta.style.position='fixed';ta.style.opacity='0';
