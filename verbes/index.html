@@ -396,12 +396,14 @@ function applyLang(){document.documentElement.lang=st.lang;document.documentElem
 $('themeBtn').onclick=()=>{st.theme=st.theme==='dark'?'light':'dark';save();applyTheme()};
 $('langBtn').onclick=()=>{st.lang=LANGS[(LANGS.indexOf(st.lang)+1)%3];save();applyLang();render()};
 $('muteBtn').onclick=()=>{document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));stopSay()};
-$('backBtn').onclick=()=>{stopSay();if(curLetter){curLetter=null}else{curCat=null}renderHome()};
+$('backBtn').onclick=()=>{stopSay();if(curLetter){curLetter=null;if(srFrom)openSearch(srFrom)}else{curCat=null}renderHome()};
 /* ---- global search ---- */
-function openSearch(){$('srchOv').classList.add('show');$('srchIn').value='';doSearch('');setTimeout(()=>$('srchIn').focus(),60)}
-function closeSearch(){$('srchOv').classList.remove('show');stopSay()}
+let srFrom=null;
+function openSearch(keep){$('srchOv').classList.add('show');if(!keep||!keep.q){$('srchIn').value='';doSearch('')}else{$('srchIn').value=keep.q;doSearch(keep.q)}setTimeout(()=>$('srchIn').focus(),60)}
+function closeSearch(reset){$('srchOv').classList.remove('show');stopSay();if(reset)srFrom=null}
+$('srchBack').onclick=()=>closeSearch(1);
 $('srchBtn').onclick=openSearch;
-$('srchBack').onclick=closeSearch;
+
 $('srchIn').oninput=function(){doSearch(this.value)};
 function doSearch(q){
  const res=$('srchRes');res.innerHTML='';
@@ -420,7 +422,7 @@ function doSearch(q){
    const tt=document.createElement('div');tt.className='t';tt.dir='auto';
    tt.textContent=[v.ar,v.en].filter(Boolean).join(' — ');d.appendChild(tt);
    const w=document.createElement('div');w.className='w';w.textContent=cn+' · '+k;d.appendChild(w);
-   d.onclick=()=>{closeSearch();curCat=ct.id;curLetter=k;renderLetter();
+   d.onclick=()=>{srFrom={q:q};closeSearch();curCat=ct.id;curLetter=k;renderLetter();
     setTimeout(()=>{const card=document.querySelector('.vcard[data-vid="'+v.id+'"]');
      if(card){card.scrollIntoView({block:'center'});card.classList.add('hilite');
       setTimeout(()=>card.classList.remove('hilite'),2600)}},80)};
@@ -1477,7 +1479,7 @@ try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
   if($('sShade').classList.contains('on')){$('sShade').classList.remove('on');return}
   if($('cShade').classList.contains('on')){$('cShade').classList.remove('on');return}
   if(document.getElementById('quiz-overlay')||document.getElementById('rr-overlay')){closeGame();return}
-  if(curLetter){stopSay();curLetter=null;renderHome();return}
+  if(curLetter){stopSay();curLetter=null;if(srFrom)openSearch(srFrom);renderHome();return}
   if(curCat){curCat=null;renderHome();return}
   if(confirm(t('exitConfirm')))CAP.Plugins.App.exitApp()})}}catch(e){}
 /* ---- notebook (ProLang port) ---- */
