@@ -1383,8 +1383,7 @@ function speakPair(t1,l1,t2,l2,el1,el2){
  stopSay();
  if(el1)el1.classList.add('speaking');if(el2)el2.classList.add('speaking');
  const tok=sayTok;
- (async()=>{let i=0;
-  while(tok===sayTok){await sayOnce(i?t2:t1,(i?l2:l1)||'fr');i=1-i}
+ (async()=>{await sayOnce(t1,l1||'fr');if(tok!==sayTok)return;await sayOnce(t2,l2||'fr');
   if(el1)el1.classList.remove('speaking');if(el2)el2.classList.remove('speaking')})()}
 function quizTone(ok){
  try{const Ctx=window.AudioContext||window.webkitAudioContext;
@@ -1443,7 +1442,7 @@ function gPickLetter(g,cid){
 function gPickKind(g,cid,L){
  const items=(catStore(cid)[L]||[]);
  const hasS=items.some(v=>v.sfr&&(v.sar||v.sen));
- if(!hasS||g==='imgQuiz'){gLaunch(g,cid,L,'w');return}
+ if(!hasS){gLaunch(g,cid,L,'w');return}
  const body=$('quiz-body');if(!body)return;
  body.innerHTML='<div class="qz-langs"><h3 style="text-align:center;margin:0">'+esc(t('pickKind'))+'</h3>'+
   '<button class="btn" data-k="w">📝 '+esc(t('words'))+' — '+items.length+'</button>'+
@@ -1475,9 +1474,7 @@ function startQuiz(n,qlang,alang){
   c.dir=lang==='ar'?'rtl':'ltr';c.textContent=c.dataset.text;return c};
  function onCard(card,item,lang,isQ){
   if(card.classList.contains('done'))return;
-  const wasSpeaking=card.classList.contains('speaking');
-  gspeak(card.dataset.text,lang,card);
-  if(wasSpeaking)return;
+  gspeakOnce(card.dataset.text,lang);
   if(isQ){if(selFr)selFr.classList.remove('sel');selFr=card;card.classList.add('sel');return}
   if(!selFr){card.classList.add('sel');setTimeout(()=>card.classList.remove('sel'),600);return}
   if(selFr.dataset.pid===card.dataset.pid){correct++;quizTone(true);
@@ -1587,7 +1584,7 @@ function lzQuestion(){
  $('lzNextBtn').onclick=lzNext;
  $('lzAutoBtn').onclick=function(){lz.auto=!lz.auto;this.classList.toggle('on',lz.auto);
   if(lz.auto&&lz.answered)lzNext()};
- setTimeout(()=>{if(document.getElementById('quiz-overlay'))gspeak(phTxt(p,pLang),pLang,rp)},250)}
+ setTimeout(()=>{if(document.getElementById('quiz-overlay'))gspeakOnce(phTxt(p,pLang),pLang)},250)}
 function lzAnswer(tile,p){
  if(tile.dataset.done)return;
  const body=$('quiz-body');
@@ -1611,7 +1608,7 @@ function lzAnswer(tile,p){
    const span=b.parentNode.querySelector('span');
    b.onclick=()=>gspeak(span.textContent,b.dataset.lang,b)});
   const aLoopBtn=hero.querySelector('.lz-v-loop[data-lang="'+lz.lang+'"]');
-  if(aLoopBtn)gspeak(phTxt(p,lz.lang),lz.lang,aLoopBtn)}
+  if(aLoopBtn)gspeakOnce(phTxt(p,lz.lang),lz.lang)}
  lz.answered=true;
  clearTimeout(lz.timer);
  if(lz.auto)lz.timer=setTimeout(lzNext,5000)}
@@ -1671,7 +1668,7 @@ function ipQuestion(){
  $('ipNextBtn').onclick=ipNext;
  $('ipAutoBtn').onclick=function(){ip.auto=!ip.auto;this.classList.toggle('on',ip.auto);
   if(ip.auto&&ip.answered)ipNext()};
- setTimeout(()=>{if(document.getElementById('quiz-overlay'))gspeak(phTxt(p,pLang),pLang,rp)},250)}
+ setTimeout(()=>{if(document.getElementById('quiz-overlay'))gspeakOnce(phTxt(p,pLang),pLang)},250)}
 function ipAnswer(tile,p){
  if(tile.dataset.done)return;
  const body=$('quiz-body');
