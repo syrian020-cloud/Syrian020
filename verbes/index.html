@@ -744,6 +744,7 @@ function parseBulk(txt){
  return blocks.map(b=>{
   const seg=b.title.split(/\s*[–—]\s*|\s+-\s+/).map(s=>s.trim()).filter(Boolean);
   let lvl='';if(seg.length>3&&/^[ABC][12]$/i.test(seg[seg.length-1]))lvl=seg.pop().toUpperCase();
+  if(!lvl&&seg[0]){const pm=seg[0].match(/\(([ABC][12])\)/i);if(pm){lvl=pm[1].toUpperCase();seg[0]=seg[0].replace(/\s*\([ABC][12]\)/i,'').trim()}}
   const v={fr:seg[0]||'',ar:seg[1]||'',en:seg[2]||'',sfr:'',sar:'',sen:'',ph:[],imgurl:(b.imgs||[])[0]||''};
   if(lvl)v.lvl=lvl;
   const FSPLIT=/(?=🇫🇷|🇸🇾|🇪🇬|🇸🇦|🇦🇪|🇱🇧|🇯🇴|🇵🇸|🇮🇶|🇩🇿|🇲🇦|🇹🇳|🇺🇸|🇬🇧|🇨🇦|🇦🇺)/u;
@@ -837,7 +838,7 @@ $('pAdd').onclick=async()=>{
  for(const pv of vs){
   const L=foldMode?curLetter:(AZ.includes((pv.fr[0]||'').toUpperCase())?(pv.fr[0]||'').toUpperCase():curLetter);
   if(!L)continue;
-  const v={id:Date.now()+Math.floor(Math.random()*999)+n,fr:pv.fr,ar:pv.ar,en:pv.en,sfr:pv.sfr,sar:pv.sar,sen:pv.sen,ph:pv.ph,usr:1};
+  const v={id:Date.now()+Math.floor(Math.random()*999)+n,fr:pv.fr,ar:pv.ar,en:pv.en,sfr:pv.sfr,sar:pv.sar,sen:pv.sen,ph:pv.ph,lvl:pv.lvl,usr:1};
   const store=VD();store[L]=store[L]||[];if(store[L].some(x=>normFr(x.fr)===normFr(pv.fr)))continue;store[L].push(v);n++;
   if(pv.imgurl){const b=await fetchImgBlob(pv.imgurl);if(b){try{await idb.set('img_'+v.id,{blob:b})}catch(e){}}}}
  AZ.forEach(dedupeSort);save();toast('✓ '+n+' '+t('addedN'));if(curLetter)renderLetter();else renderHome()};
