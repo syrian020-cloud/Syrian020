@@ -532,11 +532,11 @@ $('vSave').onclick=async()=>{
  const fr=$('fVerb').value.trim();if(!fr){toast('!');return}
  const v={id:editId||Date.now()+Math.floor(Math.random()*999),fr,
   ar:$('fAr').value.trim(),en:$('fEn').value.trim(),
-  sfr:$('fSfr').value.trim(),sar:$('fSar').value.trim(),sen:$('fSen').value.trim()};
- if(editId){const old=verbOf(curLetter,editId);if(old&&old.img)v.img=old.img}
+  sfr:$('fSfr').value.trim(),sar:$('fSar').value.trim(),sen:$('fSen').value.trim(),usr:1};
+ if(editId){const old=verbOf(curLetter,editId);if(old&&old.img)v.img=old.img;if(old&&old.ph)v.ph=old.ph}
  const store=VD();store[curLetter]=store[curLetter]||[];
  if(editId){store[curLetter]=store[curLetter].map(x=>x.id===editId?v:x)}
- else{const dup=store[curLetter].find(x=>normFr(x.fr)===normFr(fr));if(dup){v.id=dup.id;if(dup.img)v.img=dup.img;store[curLetter]=store[curLetter].map(x=>x.id===dup.id?v:x)}
+ else{const dup=store[curLetter].find(x=>normFr(x.fr)===normFr(fr));if(dup){v.id=dup.id;if(dup.img)v.img=dup.img;if(dup.ph)v.ph=dup.ph;store[curLetter]=store[curLetter].map(x=>x.id===dup.id?v:x)}
   else store[curLetter].push(v)}
  if(pickedBlob){try{await idb.set('img_'+v.id,{blob:pickedBlob});delete v.img}catch(e){}}
  save();$('vShade').classList.remove('on');toast(t('saved'));renderLetter()};
@@ -650,7 +650,7 @@ $('pAdd').onclick=async()=>{
  $('pShade').classList.remove('on');toast('⏳');let n=0;
  for(const pv of vs){
   const L=AZ.includes((pv.fr[0]||'').toUpperCase())?(pv.fr[0]||'').toUpperCase():curLetter;
-  const v={id:Date.now()+Math.floor(Math.random()*999)+n,fr:pv.fr,ar:pv.ar,en:pv.en,sfr:pv.sfr,sar:pv.sar,sen:pv.sen,ph:pv.ph};
+  const v={id:Date.now()+Math.floor(Math.random()*999)+n,fr:pv.fr,ar:pv.ar,en:pv.en,sfr:pv.sfr,sar:pv.sar,sen:pv.sen,ph:pv.ph,usr:1};
   const store=VD();store[L]=store[L]||[];if(store[L].some(x=>normFr(x.fr)===normFr(pv.fr)))continue;store[L].push(v);n++;
   if(pv.imgurl){const b=await fetchImgBlob(pv.imgurl);if(b){try{await idb.set('img_'+v.id,{blob:b})}catch(e){}}}}
  AZ.forEach(dedupeSort);save();toast('✓ '+n+' '+t('addedN'));renderLetter()};
@@ -2499,7 +2499,7 @@ function updNomsA(){
  {fr:"L'autonomie",ar:"الاستقلالية / الاعتماد على النفس",en:"Independence / Autonomy",sfr:"Ce travail me donne plus d'autonomie.",sar:"هالشغل بيعطيني استقلالية أكبر.",sen:"This job gives me more independence.",img:"l_autonomie.webp"},
  {fr:"L'aventure",ar:"المغامرة",en:"Adventure",sfr:"Voyager seul est une belle aventure.",sar:"السفر لحالك مغامرة حلوة.",sen:"Travelling alone is a wonderful adventure.",img:"l_aventure.webp"},
  ];
- st.c['noms']=st.c['noms']||{};st.c['noms'].A=[];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].A=st.c['noms'].A.filter(u=>u.usr);
  add.forEach((u,i)=>{const ex=st.c['noms'].A.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+i;st.c['noms'].A.push(u)}});
  save();}
 
@@ -2822,7 +2822,7 @@ function updNomsB(){
  {fr:"Le bas",ar:"الجزء السفلي / الأسفل",en:"Bottom / Lower part",sfr:"Mes chaussures sont en bas de l'escalier.",sar:"أحذيتي بأسفل الدرج.",sen:"My shoes are at the bottom of the stairs.",img:"le_bas.webp"},
  {fr:"La base",ar:"القاعدة / الأساس",en:"Base / Foundation",sfr:"La base de cette machine doit être solide.",sar:"قاعدة هالآلة لازم تكون متينة.",sen:"The base of this machine must be solid.",img:"la_base.webp"},
  ];
- st.c['noms']=st.c['noms']||{};st.c['noms'].B=[];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].B=st.c['noms'].B.filter(u=>u.usr);
  add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+25000+i;st.c['noms'].B.push(u)}});
  save();}
 
@@ -3177,7 +3177,7 @@ function updNomsB11(){
  add.forEach((u,i)=>{const ex=st.c['noms'].B.find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+65000+i;st.c['noms'].B.push(u)}});
  save();}
 function updNomsC(){
- st.c['noms']=st.c['noms']||{};st.c['noms'].C=[];
+ st.c['noms']=st.c['noms']||{};st.c['noms'].C=st.c['noms'].C.filter(u=>u.usr);
  const add=[
  {fr:"Le cabas",ar:"حقيبة تسوق كبيرة",en:"Shopping bag",sfr:"J'utilise un cabas pour faire mes courses.",sar:"بستخدم حقيبة تسوق كبيرة لحتى اشتري أغراض البيت.",sen:"I use a shopping bag to do my grocery shopping.",img:"le_cabas.webp"},
  {fr:"Le cabinet",ar:"مكتب مهني / عيادة",en:"Professional office",sfr:"Je travaille dans un cabinet médical.",sar:"بشتغل بعيادة طبية.",sen:"I work in a medical office.",img:"le_cabinet.webp"},
@@ -5218,7 +5218,7 @@ function updNomsH3(){
  save();}
 
 function delNomsP(){
- if(st.c&&st.c['noms']&&st.c['noms'].P){st.c['noms'].P=[];save();}
+ if(st.c&&st.c['noms']&&st.c['noms'].P){st.c['noms'].P=st.c['noms'].P.filter(u=>u.usr);save();}
 }
 function updNomsP4(){
  const add=[
@@ -5346,7 +5346,7 @@ function updNomsP5(){
  save();}
 
 function delNomsQ(){
- if(st.c&&st.c['noms']&&st.c['noms'].Q){st.c['noms'].Q=[];save();}
+ if(st.c&&st.c['noms']&&st.c['noms'].Q){st.c['noms'].Q=st.c['noms'].Q.filter(u=>u.usr);save();}
 }
 function updNomsQ(){
  const add=[
@@ -5406,7 +5406,7 @@ function updVYZ(){
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^se /,'').charAt(0).toUpperCase();const ex=(st.v[L]||[]).find(x=>normFr(x.fr)===normFr(u.fr));if(!ex){u.id=Date.now()+420000+i;st.v[L]=st.v[L]||[];st.v[L].push(u)}});
  save();}
 function delAdjA(){
- if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].A){st.c['adjectifs'].A=[];save();}
+ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].A){st.c['adjectifs'].A=st.c['adjectifs'].A.filter(u=>u.usr);save();}
 }
 function updAdjA(){
  const add=[
@@ -5477,7 +5477,7 @@ function updAdjA2(){
  save();}
 function delAdjBC(){
  if(st.c&&st.c['adjectifs']){
-  if(st.c['adjectifs'].B){st.c['adjectifs'].B=[];save()}
+  if(st.c['adjectifs'].B){st.c['adjectifs'].B=st.c['adjectifs'].B.filter(u=>u.usr);save()}
   if(st.c['adjectifs'].C){const a=st.c['adjectifs'].C;const n=a.filter(u=>u.fr!=="Chaleureux");if(n.length!==a.length){st.c['adjectifs'].C=n;save()}}
  }
 }
@@ -5573,7 +5573,7 @@ function updAdjC(){
  save();}
 
 function delAdjDEF(){
- if(st.c&&st.c['adjectifs']){['D','E','F'].forEach(L=>{st.c['adjectifs'][L]=[]});save()}
+ if(st.c&&st.c['adjectifs']){['D','E','F'].forEach(L=>{st.c['adjectifs'][L]=st.c['adjectifs'][L].filter(u=>u.usr)});save()}
 }
 
 function updAdjD(){
@@ -5693,7 +5693,7 @@ function updAdjF(){
  save();}
 
 function delAdjGHI(){
- if(st.c&&st.c['adjectifs']){['G','H','I'].forEach(L=>{st.c['adjectifs'][L]=[]});save()}
+ if(st.c&&st.c['adjectifs']){['G','H','I'].forEach(L=>{st.c['adjectifs'][L]=st.c['adjectifs'][L].filter(u=>u.usr)});save()}
 }
 
 function updAdjG(){
@@ -5766,7 +5766,7 @@ function updAdjI(){
  save();}
 
 function delAdjJKLMN(){
- if(st.c&&st.c['adjectifs']){['J','K','L','M','N'].forEach(L=>{st.c['adjectifs'][L]=[]});save()}
+ if(st.c&&st.c['adjectifs']){['J','K','L','M','N'].forEach(L=>{st.c['adjectifs'][L]=st.c['adjectifs'][L].filter(u=>u.usr)});save()}
 }
 function updAdjJ(){
  const add=[
@@ -5884,7 +5884,7 @@ function updAdjN(){
  save();}
 
 function delAdjO(){
- if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].O){st.c['adjectifs'].O=[];save()}
+ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].O){st.c['adjectifs'].O=st.c['adjectifs'].O.filter(u=>u.usr);save()}
 }
 function updAdjO(){
  const add=[
@@ -5909,7 +5909,7 @@ function updAdjO(){
  save();}
 
 function delAdjP(){
- if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].P){st.c['adjectifs'].P=[];save()}
+ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].P){st.c['adjectifs'].P=st.c['adjectifs'].P.filter(u=>u.usr);save()}
 }
 function updAdjP(){
  const add=[
@@ -5970,7 +5970,7 @@ function updAdjP(){
  save();}
 
 function delAdjR(){
- if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].R){st.c['adjectifs'].R=[];save()}
+ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].R){st.c['adjectifs'].R=st.c['adjectifs'].R.filter(u=>u.usr);save()}
 }
 function updAdjR(){
  const add=[
@@ -6034,7 +6034,7 @@ function updAdjR(){
  save();}
 
 function delAdjS(){
- if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].S){st.c['adjectifs'].S=[];save()}
+ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].S){st.c['adjectifs'].S=st.c['adjectifs'].S.filter(u=>u.usr);save()}
 }
 function updAdjS(){
  const add=[
@@ -6087,7 +6087,7 @@ function updAdjS(){
  save();}
 
 function delAdjT(){
- if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].T){st.c['adjectifs'].T=[];save()}
+ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].T){st.c['adjectifs'].T=st.c['adjectifs'].T.filter(u=>u.usr);save()}
 }
 function updAdjT(){
  const add=[
@@ -6136,7 +6136,7 @@ function updAdjT2(){
  save();}
 
 
-function delAdjU(){ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].U){st.c['adjectifs'].U=[];save()} }
+function delAdjU(){ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].U){st.c['adjectifs'].U=st.c['adjectifs'].U.filter(u=>u.usr);save()} }
 function updAdjU(){
  const add=[
    {"fr": "Utile", "ar": "مفيد", "en": "Useful", "sfr": "Cette application est utile.", "sar": "هالتطبيق مفيد.", "sen": "This application is useful.", "img": "utile.webp"},
@@ -6158,7 +6158,7 @@ function updAdjU(){
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+630000+i;st.c['adjectifs'][L].push(u)}});
  save();}
 
-function delAdjV(){ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].V){st.c['adjectifs'].V=[];save()} }
+function delAdjV(){ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].V){st.c['adjectifs'].V=st.c['adjectifs'].V.filter(u=>u.usr);save()} }
 function updAdjV(){
  const add=[
    {"fr": "Vrai / Vraie", "ar": "حقيقي / صحيح", "en": "True", "sfr": "C'est une histoire vraie.", "sar": "هاي قصة حقيقية.", "sen": "It's a true story.", "img": "vrai_vraie.webp"},
@@ -6210,7 +6210,7 @@ function updAdjV(){
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+640000+i;st.c['adjectifs'][L].push(u)}});
  save();}
 
-function delAdjW(){ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].W){st.c['adjectifs'].W=[];save()} }
+function delAdjW(){ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].W){st.c['adjectifs'].W=st.c['adjectifs'].W.filter(u=>u.usr);save()} }
 function updAdjW(){
  const add=[
    {"fr": "Water-resistant", "ar": "مقاوم للماء", "en": "Water-resistant", "sfr": "Cette montre est water-resistant.", "sar": "هالساعة مقاومة للماء.", "sen": "This watch is water-resistant.", "img": "water_resistant.webp"},
@@ -6218,7 +6218,7 @@ function updAdjW(){
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+650000+i;st.c['adjectifs'][L].push(u)}});
  save();}
 
-function delAdjX(){ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].X){st.c['adjectifs'].X=[];save()} }
+function delAdjX(){ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].X){st.c['adjectifs'].X=st.c['adjectifs'].X.filter(u=>u.usr);save()} }
 function updAdjX(){
  const add=[
    {"fr": "Xénophobe", "ar": "كاره للأجانب", "en": "Xenophobic", "sfr": "Il a des idées xénophobes.", "sar": "عنده أفكار معادية للأجانب.", "sen": "He has xenophobic ideas.", "img": "xenophobe.webp"},
@@ -6227,7 +6227,7 @@ function updAdjX(){
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+660000+i;st.c['adjectifs'][L].push(u)}});
  save();}
 
-function delAdjZ(){ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].Z){st.c['adjectifs'].Z=[];save()} }
+function delAdjZ(){ if(st.c&&st.c['adjectifs']&&st.c['adjectifs'].Z){st.c['adjectifs'].Z=st.c['adjectifs'].Z.filter(u=>u.usr);save()} }
 function updAdjZ(){
  const add=[
    {"fr": "Zélé / Zélée", "ar": "متحمّس ومجتهد", "en": "Zealous", "sfr": "C'est un employé zélé.", "sar": "هاد موظف مجتهد ومتحمّس بشغله.", "sen": "He is a zealous employee.", "img": "zele_zelee.webp"},
@@ -6254,7 +6254,7 @@ function updAdjK3(){
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adjectifs'][L]=st.c['adjectifs'][L]||[];if(!st.c['adjectifs'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+690000+i;st.c['adjectifs'][L].push(u)}});
  save();}
 
-function delAdvB(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].B){st.c['adverbes'].B=[];save()} }
+function delAdvB(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].B){st.c['adverbes'].B=st.c['adverbes'].B.filter(u=>u.usr);save()} }
 function updAdvB(){
  const add=[
    {"fr": "Bien", "ar": "جيداً", "en": "Well", "sfr": "Tu parles bien français.", "sar": "أنت بتحكي فرنسي بشكل جيد.", "sen": "You speak French well.", "img": "bien.webp"},
@@ -6275,7 +6275,7 @@ function updAdvB(){
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+700000+i;st.c['adverbes'][L].push(u)}});
  save();}
 
-function delAdvC(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].C){st.c['adverbes'].C=[];save()} }
+function delAdvC(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].C){st.c['adverbes'].C=st.c['adverbes'].C.filter(u=>u.usr);save()} }
 function updAdvC(){
  const add=[
    {"fr": "Comme", "ar": "مثل / كما", "en": "Like / As", "sfr": "Fais comme moi.", "sar": "اعمل متلي.", "sen": "Do like me.", "img": "comme.webp"},
@@ -6315,7 +6315,7 @@ function updAdvD(){
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\')\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+720000+i;st.c['adverbes'][L].push(u)}});
  save();}
 
-function delAdvD(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].D){st.c['adverbes'].D=[];save()} }
+function delAdvD(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].D){st.c['adverbes'].D=st.c['adverbes'].D.filter(u=>u.usr);save()} }
 function updAdvD2(){
  const add=[
 {fr:"Demander un aménagement",ar:"طلب تكييف",en:"Request an adjustment",sfr:"Je souhaite demander un aménagement de travail.",sar:"أريد طلب تكييف في العمل.",sen:"I would like to request a work adjustment.",img:"demander_un_amenagement.webp"},
@@ -6346,7 +6346,7 @@ function updAdvD2(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+730000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvE(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].E){st.c['adverbes'].E=[];save()} }
+function delAdvE(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].E){st.c['adverbes'].E=st.c['adverbes'].E.filter(u=>u.usr);save()} }
 function updAdvE(){
  const add=[
 {fr:"Entrée dans le logement",ar:"دخول السكن",en:"Moving in",sfr:"La date d'entrée dans le logement est fixée.",sar:"تم تحديد تاريخ دخول السكن.",sen:"The move-in date is set.",img:"entree_dans_le_logement.webp"},
@@ -6374,7 +6374,7 @@ function updAdvE(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+731000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvF(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].F){st.c['adverbes'].F=[];save()} }
+function delAdvF(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].F){st.c['adverbes'].F=st.c['adverbes'].F.filter(u=>u.usr);save()} }
 function updAdvF(){
  const add=[
 {fr:"Fournir un document",ar:"تقديم وثيقة",en:"Provide a document",sfr:"Je vais fournir le document demandé.",sar:"سأقدم الوثيقة المطلوبة.",sen:"I will provide the requested document.",img:"fournir_un_document.webp"},
@@ -6393,7 +6393,7 @@ function updAdvF(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+732000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvG(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].G){st.c['adverbes'].G=[];save()} }
+function delAdvG(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].G){st.c['adverbes'].G=st.c['adverbes'].G.filter(u=>u.usr);save()} }
 function updAdvG(){
  const add=[
 {"fr":"Généralement","ar":"عادةً / بشكل عام","en":"Generally","sfr":"Je travaille généralement le matin.","sar":"عادةً بشتغل الصبح.","sen":"I generally work in the morning.","img":"generalement.webp"},
@@ -6409,7 +6409,7 @@ function updAdvG(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+733000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvH(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].H){st.c['adverbes'].H=[];save()} }
+function delAdvH(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].H){st.c['adverbes'].H=st.c['adverbes'].H.filter(u=>u.usr);save()} }
 function updAdvH(){
  const add=[
 {"fr":"Heureusement","ar":"لحسن الحظ","en":"Fortunately","sfr":"Heureusement, je suis arrivé à l'heure.","sar":"لحسن الحظ، وصلت بالوقت.","sen":"Fortunately, I arrived on time.","img":"heureusement.webp"},
@@ -6419,7 +6419,7 @@ function updAdvH(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+734000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvI(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].I){st.c['adverbes'].I=[];save()} }
+function delAdvI(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].I){st.c['adverbes'].I=st.c['adverbes'].I.filter(u=>u.usr);save()} }
 function updAdvI(){
  const add=[
 {"fr":"Ici","ar":"هنا","en":"Here","sfr":"Je travaille ici.","sar":"أنا بشتغل هون.","sen":"I work here.","img":"ici.webp"},
@@ -6440,7 +6440,7 @@ function updAdvI(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+735000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvJ(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].J){st.c['adverbes'].J=[];save()} }
+function delAdvJ(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].J){st.c['adverbes'].J=st.c['adverbes'].J.filter(u=>u.usr);save()} }
 function updAdvJ(){
  const add=[
 {fr:"J'ai besoin d'un accompagnement",ar:"أحتاج إلى مرافقة",en:"I need support",sfr:"J'ai besoin d'un accompagnement adapté à ma situation.",sar:"أحتاج إلى مرافقة مناسبة لوضعي.",sen:"I need support adapted to my situation.",img:"j_ai_besoin_d_un_accompagnement.webp"},
@@ -6454,7 +6454,7 @@ function updAdvJ(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+736000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvL(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].L){st.c['adverbes'].L=[];save()} }
+function delAdvL(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].L){st.c['adverbes'].L=st.c['adverbes'].L.filter(u=>u.usr);save()} }
 function updAdvL(){
  const add=[
 {"fr":"Là","ar":"هناك","en":"There","sfr":"Je travaille là.","sar":"أنا بشتغل هنيك.","sen":"I work there.","img":"la.webp"},
@@ -6473,7 +6473,7 @@ function updAdvL(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+737000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvM(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].M){st.c['adverbes'].M=[];save()} }
+function delAdvM(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].M){st.c['adverbes'].M=st.c['adverbes'].M.filter(u=>u.usr);save()} }
 function updAdvM(){
  const add=[
 {fr:"Modifier le traitement",ar:"تغيير العلاج",en:"Change the treatment",sfr:"Le médecin a décidé de modifier le traitement.",sar:"قرر الطبيب تغيير العلاج.",sen:"The doctor decided to change the treatment.",img:"modifier_le_traitement.webp"},
@@ -6494,7 +6494,7 @@ function updAdvM(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+738000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvN(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].N){st.c['adverbes'].N=[];save()} }
+function delAdvN(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].N){st.c['adverbes'].N=st.c['adverbes'].N.filter(u=>u.usr);save()} }
 function updAdvN(){
  const add=[
 {"fr":"Naturellement","ar":"بطبيعة الحال","en":"Naturally","sfr":"Naturellement, je suis d'accord.","sar":"طبعاً، أنا موافق.","sen":"Naturally, I agree.","img":"naturellement.webp"},
@@ -6510,7 +6510,7 @@ function updAdvN(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+739000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvO(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].O){st.c['adverbes'].O=[];save()} }
+function delAdvO(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].O){st.c['adverbes'].O=st.c['adverbes'].O.filter(u=>u.usr);save()} }
 function updAdvO(){
  const add=[
 {"fr":"Oui","ar":"نعم","en":"Yes","sfr":"Oui, je comprends.","sar":"إي، فهمت.","sen":"Yes, I understand.","img":"oui.webp"},
@@ -6523,7 +6523,7 @@ function updAdvO(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+740000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvP(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].P){st.c['adverbes'].P=[];save()} }
+function delAdvP(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].P){st.c['adverbes'].P=st.c['adverbes'].P.filter(u=>u.usr);save()} }
 function updAdvP(){
  const add=[
 {fr:"Prendre un médicament",ar:"تناول دواء",en:"Take medication",sfr:"Je prends ce médicament tous les jours.",sar:"أتناول هذا الدواء كل يوم.",sen:"I take this medicine every day.",img:"prendre_un_medicament.webp"},
@@ -6548,7 +6548,7 @@ function updAdvP(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+741000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvQ(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].Q){st.c['adverbes'].Q=[];save()} }
+function delAdvQ(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].Q){st.c['adverbes'].Q=st.c['adverbes'].Q.filter(u=>u.usr);save()} }
 function updAdvQ(){
  const add=[
 {"fr":"Quand","ar":"متى","en":"When","sfr":"Quand arrives-tu ?","sar":"إمتى بتوصل؟","sen":"When are you arriving?","img":"quand.webp"},
@@ -6559,7 +6559,7 @@ function updAdvQ(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+742000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvR(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].R){st.c['adverbes'].R=[];save()} }
+function delAdvR(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].R){st.c['adverbes'].R=st.c['adverbes'].R.filter(u=>u.usr);save()} }
 function updAdvR(){
  const add=[
 {fr:"Renouveler mon traitement",ar:"تجديد علاجي",en:"Renew my treatment",sfr:"Je voudrais renouveler mon traitement.",sar:"أريد تجديد علاجي.",sen:"I would like to renew my treatment.",img:"renouveler_mon_traitement.webp"},
@@ -6575,7 +6575,7 @@ function updAdvR(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+743000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvS(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].S){st.c['adverbes'].S=[];save()} }
+function delAdvS(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].S){st.c['adverbes'].S=st.c['adverbes'].S.filter(u=>u.usr);save()} }
 function updAdvS(){
  const add=[
 {"fr":"Souvent","ar":"غالباً / كثيراً","en":"Often","sfr":"Je viens souvent ici.","sar":"بجي لهون كتير.","sen":"I often come here.","img":"souvent.webp"},
@@ -6598,7 +6598,7 @@ function updAdvS(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+744000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvT(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].T){st.c['adverbes'].T=[];save()} }
+function delAdvT(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].T){st.c['adverbes'].T=st.c['adverbes'].T.filter(u=>u.usr);save()} }
 function updAdvT(){
  const add=[
 {fr:"Tolérer le traitement",ar:"تحمل العلاج",en:"Tolerate the treatment",sfr:"Je tolère bien le traitement.",sar:"أتحمل العلاج بشكل جيد.",sen:"I tolerate the treatment well.",img:"tolerer_le_traitement.webp"},
@@ -6615,7 +6615,7 @@ function updAdvT(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+745000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvU(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].U){st.c['adverbes'].U=[];save()} }
+function delAdvU(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].U){st.c['adverbes'].U=st.c['adverbes'].U.filter(u=>u.usr);save()} }
 function updAdvU(){
  const add=[
 {"fr":"Uniquement","ar":"فقط / حصراً","en":"Only / Solely","sfr":"Ce service est uniquement disponible en ligne.","sar":"هالخدمة متوفرة حصراً على الإنترنت.","sen":"This service is only available online.","img":"uniquement.webp"},
@@ -6625,7 +6625,7 @@ function updAdvU(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+746000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delAdvV(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].V){st.c['adverbes'].V=[];save()} }
+function delAdvV(){ if(st.c&&st.c['adverbes']&&st.c['adverbes'].V){st.c['adverbes'].V=st.c['adverbes'].V.filter(u=>u.usr);save()} }
 function updAdvV(){
  const add=[
 {"fr":"Vraiment","ar":"حقاً / فعلاً","en":"Really","sfr":"Tu es vraiment gentil.","sar":"إنت فعلاً لطيف.","sen":"You are really kind.","img":"vraiment.webp"},
@@ -6639,7 +6639,7 @@ function updAdvV(){
  ];
  add.forEach((u,i)=>{const L=normFr(u.fr).replace(/^(le|la|les|l\'|un|une|des|du|de la|de l\'|d\'|au|aux)\s+/,'').charAt(0).toUpperCase();st.c['adverbes'][L]=st.c['adverbes'][L]||[];if(!st.c['adverbes'][L].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+747000+i;st.c['adverbes'][L].push(u)}});
  save();}
-function delGramPrepositions(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["prepositions"]){st.c["grammaticaux"]["prepositions"]=[];save()} }
+function delGramPrepositions(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["prepositions"]){st.c["grammaticaux"]["prepositions"]=st.c["grammaticaux"]["prepositions"].filter(u=>u.usr);save()} }
 function updGramPrepositions(){
  const add=[
 {"fr":"À","ar":"في / إلى / عند","en":"At / To","sfr":"Je vais à Paris.","sar":"أنا رايح على باريس.","sen":"I'm going to Paris.","img":"a.webp"},
@@ -6705,7 +6705,7 @@ function updGramPrepositions(){
  st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="prepositions";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
  add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+748000+i;st.c["grammaticaux"][F].push(u)}});
  save();}
-function delGramPronoms(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["pronoms"]){st.c["grammaticaux"]["pronoms"]=[];save()} }
+function delGramPronoms(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["pronoms"]){st.c["grammaticaux"]["pronoms"]=st.c["grammaticaux"]["pronoms"].filter(u=>u.usr);save()} }
 function updGramPronoms(){
  const add=[
 {"fr":"Je","ar":"أنا","en":"I","sfr":"Je travaille aujourd'hui.","sar":"أنا بشتغل اليوم.","sen":"I am working today.","img":"je.webp"},
@@ -6786,7 +6786,7 @@ function updGramPronoms2(){
  st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="pronoms";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
  add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+752000+i;st.c["grammaticaux"][F].push(u)}});
  save();}
-function delGramArticles(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["articles"]){st.c["grammaticaux"]["articles"]=[];save()} }
+function delGramArticles(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["articles"]){st.c["grammaticaux"]["articles"]=st.c["grammaticaux"]["articles"].filter(u=>u.usr);save()} }
 function updGramArticles(){
  const add=[
 {"fr":"Le","ar":"الـ (للمذكر المفرد)","en":"The","sfr":"Le livre est intéressant.","sar":"الكتاب ممتع.","sen":"The book is interesting.","img":"le.webp"},
@@ -6808,7 +6808,7 @@ function updGramArticles(){
  st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="articles";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
  add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+750000+i;st.c["grammaticaux"][F].push(u)}});
  save();}
-function delGramConjonctions(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["conjonctions"]){st.c["grammaticaux"]["conjonctions"]=[];save()} }
+function delGramConjonctions(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["conjonctions"]){st.c["grammaticaux"]["conjonctions"]=st.c["grammaticaux"]["conjonctions"].filter(u=>u.usr);save()} }
 function updGramConjonctions(){
  const add=[
 {"fr":"Et","ar":"و","en":"And","sfr":"J'aime le café et le thé.","sar":"بحب القهوة والشاي.","sen":"I like coffee and tea.","img":"et.webp"},
@@ -6886,7 +6886,7 @@ function updGramConjonctions2(){
  st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="conjonctions";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
  add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+753000+i;st.c["grammaticaux"][F].push(u)}});
  save();}
-function delGramDeterminants(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["determinants"]){st.c["grammaticaux"]["determinants"]=[];save()} }
+function delGramDeterminants(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["determinants"]){st.c["grammaticaux"]["determinants"]=st.c["grammaticaux"]["determinants"].filter(u=>u.usr);save()} }
 function updGramDeterminants(){
  const add=[
 {"fr":"Chaque","ar":"كلّ (للمفرد)","en":"Each / Every","sfr":"Chaque jour, j'apprends le français.","sar":"كل يوم بتعلّم الفرنسي.","sen":"Every day, I learn French.","img":"chaque.webp"},
@@ -6916,7 +6916,7 @@ function updGramDeterminants(){
  st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="determinants";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
  add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+754000+i;st.c["grammaticaux"][F].push(u)}});
  save();}
-function delGramInterrogatifs(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["interrogatifs"]){st.c["grammaticaux"]["interrogatifs"]=[];save()} }
+function delGramInterrogatifs(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["interrogatifs"]){st.c["grammaticaux"]["interrogatifs"]=st.c["grammaticaux"]["interrogatifs"].filter(u=>u.usr);save()} }
 function updGramInterrogatifs(){
  const add=[
 {"fr":"Qui","ar":"مَن","en":"Who","sfr":"Qui est cette personne ?","sar":"مين هالشخص؟","sen":"Who is this person?","img":"qui.webp"},
@@ -6949,7 +6949,7 @@ function updGramInterrogatifs(){
  st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="interrogatifs";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
  add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+755000+i;st.c["grammaticaux"][F].push(u)}});
  save();}
-function delGramNegation(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["negation"]){st.c["grammaticaux"]["negation"]=[];save()} }
+function delGramNegation(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["negation"]){st.c["grammaticaux"]["negation"]=st.c["grammaticaux"]["negation"].filter(u=>u.usr);save()} }
 function updGramNegation(){
  const add=[
 {"fr":"Ne... pas","ar":"لا / ليس","en":"Not","sfr":"Je ne travaille pas aujourd'hui.","sar":"أنا ما بشتغل اليوم.","sen":"I am not working today.","img":"ne_pas.webp"},
@@ -6973,7 +6973,7 @@ function updGramNegation2(){
  st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="negation";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
  add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+757000+i;st.c["grammaticaux"][F].push(u)}});
  save();}
-function delGramDemonstratifs(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["demonstratifs"]){st.c["grammaticaux"]["demonstratifs"]=[];save()} }
+function delGramDemonstratifs(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["demonstratifs"]){st.c["grammaticaux"]["demonstratifs"]=st.c["grammaticaux"]["demonstratifs"].filter(u=>u.usr);save()} }
 function updGramDemonstratifs(){
  const add=[
 {"fr":"Ce","ar":"هذا (قبل اسم مذكر)","en":"This / That","sfr":"Ce livre est intéressant.","sar":"هالكتاب ممتع.","sen":"This book is interesting.","img":"ce.webp"},
@@ -6993,7 +6993,7 @@ function updGramDemonstratifs(){
  st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="demonstratifs";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
  add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+758000+i;st.c["grammaticaux"][F].push(u)}});
  save();}
-function delGramPossessifs(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["possessifs"]){st.c["grammaticaux"]["possessifs"]=[];save()} }
+function delGramPossessifs(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["possessifs"]){st.c["grammaticaux"]["possessifs"]=st.c["grammaticaux"]["possessifs"].filter(u=>u.usr);save()} }
 function updGramPossessifs(){
  const add=[
 {"fr":"Mon","ar":"لي / خاصتي (مذكر مفرد)","en":"My","sfr":"Mon téléphone est neuf.","sar":"تلفوني جديد.","sen":"My phone is new.","img":"mon.webp"},
@@ -7034,7 +7034,7 @@ function updGramPossessifs(){
  st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="possessifs";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
  add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+759000+i;st.c["grammaticaux"][F].push(u)}});
  save();}
-function delGramQuantificateurs(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["quantificateurs"]){st.c["grammaticaux"]["quantificateurs"]=[];save()} }
+function delGramQuantificateurs(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["quantificateurs"]){st.c["grammaticaux"]["quantificateurs"]=st.c["grammaticaux"]["quantificateurs"].filter(u=>u.usr);save()} }
 function updGramQuantificateurs(){
  const add=[
 {"fr":"Beaucoup de","ar":"الكثير من","en":"A lot of / Much / Many","sfr":"J'ai beaucoup de travail.","sar":"عندي شغل كتير.","sen":"I have a lot of work.","img":"beaucoup_de.webp"},
@@ -7055,7 +7055,7 @@ function updGramQuantificateurs(){
  st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="quantificateurs";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
  add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+760000+i;st.c["grammaticaux"][F].push(u)}});
  save();}
-function delGramInterjections(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["interjections"]){st.c["grammaticaux"]["interjections"]=[];save()} }
+function delGramInterjections(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["interjections"]){st.c["grammaticaux"]["interjections"]=st.c["grammaticaux"]["interjections"].filter(u=>u.usr);save()} }
 function updGramInterjections(){
  const add=[
 {"fr":"Oh !","ar":"أوه!","en":"Oh!","sfr":"Oh ! C'est magnifique !","sar":"أوه! هالشي رائع!","sen":"Oh! That's magnificent!","img":"oh.webp"},
@@ -7075,7 +7075,7 @@ function updGramInterjections(){
  st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="interjections";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
  add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+761000+i;st.c["grammaticaux"][F].push(u)}});
  save();}
-function delGramComparaison(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["comparaison"]){st.c["grammaticaux"]["comparaison"]=[];save()} }
+function delGramComparaison(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["comparaison"]){st.c["grammaticaux"]["comparaison"]=st.c["grammaticaux"]["comparaison"].filter(u=>u.usr);save()} }
 function updGramComparaison(){
  const add=[
 {"fr":"Plus... que","ar":"أكثر من","en":"More... than","sfr":"Cette voiture est plus rapide que l'autre.","sar":"هالسيارة أسرع من التانية.","sen":"This car is faster than the other one.","img":"plus_que.webp"},
@@ -7093,7 +7093,7 @@ function updGramComparaison(){
  st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="comparaison";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
  add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+762000+i;st.c["grammaticaux"][F].push(u)}});
  save();}
-function delGramInsistance(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["insistance"]){st.c["grammaticaux"]["insistance"]=[];save()} }
+function delGramInsistance(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["insistance"]){st.c["grammaticaux"]["insistance"]=st.c["grammaticaux"]["insistance"].filter(u=>u.usr);save()} }
 function updGramInsistance(){
  const add=[
 {"fr":"Très","ar":"جداً","en":"Very","sfr":"Ce travail est très difficile.","sar":"هالشغل صعب كتير.","sen":"This job is very difficult.","img":"tres.webp"},
@@ -7113,7 +7113,7 @@ function updGramInsistance(){
  st.c["grammaticaux"]=st.c["grammaticaux"]||{};const F="insistance";st.c["grammaticaux"][F]=st.c["grammaticaux"][F]||[];
  add.forEach((u,i)=>{if(!st.c["grammaticaux"][F].find(x=>normFr(x.fr)===normFr(u.fr))){u.id=Date.now()+763000+i;st.c["grammaticaux"][F].push(u)}});
  save();}
-function delGramOrdre(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["ordre"]){st.c["grammaticaux"]["ordre"]=[];save()} }
+function delGramOrdre(){ if(st.c&&st.c["grammaticaux"]&&st.c["grammaticaux"]["ordre"]){st.c["grammaticaux"]["ordre"]=st.c["grammaticaux"]["ordre"].filter(u=>u.usr);save()} }
 function updGramOrdre(){
  const add=[
 {"fr":"D'abord","ar":"أولاً","en":"First / First of all","sfr":"D'abord, je prends mon petit-déjeuner.","sar":"أول شي، بتناول الفطور.","sen":"First, I have breakfast.","img":"d_abord.webp"},
