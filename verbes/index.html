@@ -1885,6 +1885,18 @@ function woCheck(p,text,words){
  else{wo.wrong++;ansEl.classList.add('bad');
   const cor=document.createElement('div');cor.className='wo-w bad';cor.style.width='100%';cor.style.textAlign='center';
   cor.textContent=text;ansEl.parentNode.insertBefore(cor,ansEl.nextSibling)}
+ const map=phMapS(p);
+ const ver=document.createElement('div');ver.className='lz-verdict '+(ok?'ok':'bad');
+ ver.style.border='1.5px solid var(--bd)';ver.style.borderRadius='16px';ver.style.marginTop='.4rem';ver.style.height='auto';
+ let html='<div class="lz-face">'+(ok?'😄':'😢')+'</div>';
+ Object.keys(map).forEach(li=>{const txt=map[li];
+  if(txt)html+='<div class="lz-v-line"><span class="'+(li===wo.lang?'lz-v-fr':'lz-v-tr')+'" dir="'+rrDir(li)+'">'+esc(txt)+'</span>'+
+   '<button class="lz-v-loop" data-lang="'+li+'">🔁</button></div>'});
+ ver.innerHTML=html;
+ ansEl.parentNode.appendChild(ver);
+ ver.querySelectorAll('.lz-v-loop').forEach(b=>{
+  const span=b.parentNode.querySelector('span');
+  b.onclick=()=>gspeak(span.textContent,b.dataset.lang,b)});
  stopSay();
  const rp=$('woReplay');if(rp)gspeak(text,wo.lang,rp);
  clearTimeout(wo.timer);
