@@ -833,8 +833,9 @@ $('sFile').onchange=async e=>{
 $('pAdd').onclick=async()=>{
  const vs=parseBulk($('pTa').value);if(!vs.length){toast(t('nothing'));return}
  $('pShade').classList.remove('on');toast('⏳');let n=0;
+ const foldMode=!!catFolders(curCat);
  for(const pv of vs){
-  const L=AZ.includes((pv.fr[0]||'').toUpperCase())?(pv.fr[0]||'').toUpperCase():curLetter;
+  const L=foldMode?curLetter:(AZ.includes((pv.fr[0]||'').toUpperCase())?(pv.fr[0]||'').toUpperCase():curLetter);
   if(!L)continue;
   const v={id:Date.now()+Math.floor(Math.random()*999)+n,fr:pv.fr,ar:pv.ar,en:pv.en,sfr:pv.sfr,sar:pv.sar,sen:pv.sen,ph:pv.ph,usr:1};
   const store=VD();store[L]=store[L]||[];if(store[L].some(x=>normFr(x.fr)===normFr(pv.fr)))continue;store[L].push(v);n++;
