@@ -119,6 +119,24 @@ main{padding:.7rem;max-width:640px;margin:0 auto;padding-bottom:5rem}
 .sr .f{font-weight:800}
 .sr .t{color:var(--dim);font-size:.85rem}
 .sr .w{color:var(--dim);font-size:.72rem}
+#mgOv{position:fixed;inset:0;z-index:500;background:var(--bg);display:none;flex-direction:column}
+#mgOv.show{display:flex}
+#mgList{flex:1;overflow-y:auto;padding:.5rem .7rem}
+.mgw{border:1px solid var(--bd);border-radius:12px;padding:.5rem;margin-bottom:.6rem;background:var(--card)}
+.mgtop{display:flex;gap:.6rem;align-items:flex-start}
+.mgimg{width:64px;height:64px;border-radius:10px;background:var(--bg2);border:1.5px dashed var(--bd);flex:none;cursor:pointer;display:grid;place-items:center;font-size:1.3rem;color:var(--dim);overflow:hidden}
+.mgimg img{width:100%;height:100%;object-fit:cover}
+.mgmid{flex:1;min-width:0}
+.mgname{font-weight:800;font-size:.95rem}
+.mglv{display:flex;gap:.25rem;margin-top:.3rem;flex-wrap:wrap}
+.mglv button{padding:.15rem .5rem;border-radius:8px;border:1.5px solid var(--bd);background:var(--bg2);color:var(--dim);font-size:.7rem;font-weight:800;cursor:pointer}
+.mglv button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.mgph{margin-top:.4rem;border-top:1px dashed var(--bd);padding-top:.35rem}
+.mgphr{display:flex;align-items:center;gap:.3rem;padding:.18rem 0;font-size:.78rem}
+.mgphr .pt{flex:1;min-width:0}
+.mgphr .pt small{color:var(--dim)}
+.mgphr button{background:none;border:none;cursor:pointer;font-size:.85rem;padding:.1rem .25rem}
+.mgphdel{margin-top:.3rem;width:100%;padding:.3rem;border-radius:8px;border:1.5px solid #f8717155;background:none;color:#f87171;font-size:.72rem;font-weight:700;cursor:pointer}
 #noteModal{position:fixed;inset:0;z-index:600;background:#0e1330;display:none;flex-direction:column}
 #noteModal.show{display:flex}
 .note-topbar{display:flex;align-items:center;gap:.35rem;padding:.5rem .6rem;background:#131a3d;flex-wrap:wrap}
@@ -236,6 +254,7 @@ html[dir=rtl] .note-canvas-wrap.lined{background-image:linear-gradient(to left,t
 <button class="hbtn" id="srchBtn">🔍</button>
 <button class="hbtn" id="muteBtn">🔇</button>
 <button class="hbtn" id="copyBtn" style="display:none" title="copy">📋</button>
+<button class="hbtn" id="mgBtn" style="display:none" title="manage">🖼️</button>
 <button class="hbtn" id="themeBtn">🌙</button>
 <button class="hbtn" id="langBtn">🌐</button>
 </header>
@@ -329,6 +348,18 @@ html[dir=rtl] .note-canvas-wrap.lined{background-image:linear-gradient(to left,t
 <div class="srch-top"><button class="mini" id="srchBack">✕</button><input id="srchIn" dir="auto" autocomplete="off"></div>
 <div id="srchRes"></div>
 </div>
+<div id="mgOv">
+<div class="srch-top"><button class="mini" id="mgBack">✕</button><div id="mgTtl" style="flex:1;font-weight:800;text-align:center"></div></div>
+<div id="mgList"></div>
+</div>
+<input type="file" id="mgImgIn" accept="image/*" hidden>
+<div class="shade" id="phShade"><div class="sheet">
+<h3 id="phTtl"></h3>
+<div class="fld"><input id="phFr" dir="ltr" placeholder="Français"></div>
+<div class="fld"><input id="phAr" dir="rtl" placeholder="العربية"></div>
+<div class="fld"><input id="phEn" dir="ltr" placeholder="English"></div>
+<div class="brow"><button class="bbtn sec" id="phCancel"></button><button class="bbtn pri" id="phSave"></button></div>
+</div></div>
 <div class="toast" id="toast"></div>
 <script src="js/edge-tts.js"></script>
 <script>
@@ -337,9 +368,9 @@ const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const CAP=window.Capacitor||{};const isCap=()=>!!(CAP.isNativePlatform&&CAP.isNativePlatform());
 const LANGS=['ar','en','fr'],LANGICON={ar:'🇸🇾',en:'🇺🇸',fr:'🇫🇷'};
 const T={
-ar:{name:'Wordpro',verbs:'فعل',add:'أضف فعلًا',edit:'عدّل الفعل',delQ:'حذف هذا الفعل؟',verb:'الفعل (فرنسي)',arM:'المعنى بالعربي',enM:'English meaning',sfr:'جملة فرنسية',sar:'جملة بالعربي',sen:'English sentence',img:'صورة (اختياري)',save:'حفظ',cancel:'إلغاء',empty:'لا أفعال بعد — اضغط ＋ لإضافة فعل',saved:'✓ حُفظ',letters:'الحروف A–Z',paste:'لصق نص',pasteHint:'الصق النص بهذا الشكل — رقم ثم «فعل – عربي – إنجليزي» ثم الجمل بأعلامها أو بترتيب فرنسي/عربي/إنجليزي. روابط الصور تُجلب تلقائيًا إن أمكن.',addAll:'أضف الكل',addedN:'فعلًا أُضيف',nothing:'لم يُعثر على أفعال في النص',copyTpl:'📋 10 عبارات',copyTpl1:'📄 جملة واحدة',copyTpl2:'📊 مع المستوى',tplCopied:'✓ نُسخ النموذج — الصقه في أي ذكاء اصطناعي',items:'عنصر',settings:'الإعدادات',export:'📤 تصدير كل بيانات التطبيق',import:'📥 استيراد بيانات',exported:'✓ تم التصدير',imported:'✓ تم الاستيراد — جارٍ التحديث',addCat:'أضف تصنيفًا',catEdit:'✎ تعديل',catDel:'🗑 حذف',edgeVoice:'🎙️ أصوات الكلام Edge',games:'الألعاب',pickGame:'اختر اللعبة',pickSection:'اختر القسم',pickLetter:'اختر الحرف',quiz:'لعبة التوصيل 🧩',quizChooseLang:'اختر لغة المطابقة',quizReplay:'إعادة اللعب',quizExit:'خروج',quizNoPhrases:'لا توجد عناصر كافية للّعبة',quizScore:'النتيجة',listenQuiz:'لعبة الاستماع 🎧',listenReplay:'🔊 إعادة الاستماع',gNext:'التالي',autoNext:'تلقائي',rrTitle:'لعبة اقرأ وانطق 🗣',rrPickLang:'اختر لغة التدريب',rrModeT:'طريقة التدريب',rrModeL:'👂 استمع 5× ثم انطق',rrModeR:'📖 اقرأ وانطق مباشرة',rrListenN:'👂 استمع',rrYourTurn:'🎤 دورك — انطق الآن',rrHear:'🔊 استمع',rrSkip:'تخطي الاستماع',rrWell:'أحسنت! 🎉',rrResume:'↩ متابعة التدريب',rrNew:'🔄 بدء من جديد',rrSlow:'🐢 انطق ببطء',pickKind:'كلمات أم عبارات؟',words:'الكلمات',sentences:'العبارات',imgQuiz:'لعبة الصور 🖼',ipPickLang:'اختر لغة النطق',wordOrder:'لعبة رتّب الكلمات 🔤',woTap:'كبّس الكلمات بالترتيب لتكوين الجملة',hearPick:'استمع واكتشف 👂',hpHear:'ماذا تسمع؟',hpCheck:'تحقق',exitConfirm:'الخروج من التطبيق؟',struct:'طريقة تنظيم المحتوى',azL:'🔤 حروف أبجدية',foldL:'🗂 مجلدات بأسماء',addFolder:'أضف مجلدًا',foldName:'اسم المجلد',lvl:'المستوى',noteL:'ملاحظة'},
-en:{name:'Wordpro',verbs:'verbs',add:'Add a verb',edit:'Edit verb',delQ:'Delete this verb?',verb:'Verb (French)',arM:'Arabic meaning',enM:'English meaning',sfr:'French sentence',sar:'Arabic sentence',sen:'English sentence',img:'Image (optional)',save:'Save',cancel:'Cancel',empty:'No verbs yet — tap ＋ to add one',saved:'✓ Saved',letters:'Letters A–Z',paste:'Paste text',pasteHint:'Paste text like: number, then «verb – ar – en», then sentences with flags or in fr/ar/en order. Image URLs are fetched when possible.',addAll:'Add all',addedN:'verbs added',nothing:'No verbs found in the text',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 sentence',copyTpl2:'📊 With level',tplCopied:'✓ Template copied — paste it into any AI',items:'items',settings:'Settings',export:'📤 Export all app data',import:'📥 Import data',exported:'✓ Exported',imported:'✓ Imported — reloading',addCat:'Add a category',catEdit:'✎ Edit',catDel:'🗑 Delete',edgeVoice:'🎙️ Edge speech voices',games:'Games',pickGame:'Choose a game',pickSection:'Choose a section',pickLetter:'Choose a letter',quiz:'Matching game 🧩',quizChooseLang:'Choose the match language',quizReplay:'Play again',quizExit:'Exit',quizNoPhrases:'Not enough items for the game',quizScore:'Score',listenQuiz:'Listening game 🎧',listenReplay:'🔊 Listen again',gNext:'Next',autoNext:'Auto',rrTitle:'Read & Repeat game 🗣',rrPickLang:'Choose the training language',rrModeT:'Training mode',rrModeL:'👂 Listen 5× then repeat',rrModeR:'📖 Read & repeat directly',rrListenN:'👂 Listen',rrYourTurn:'🎤 Your turn — speak now',rrHear:'🔊 Listen',rrSkip:'Skip listening',rrWell:'Well done! 🎉',rrResume:'↩ Resume training',rrNew:'🔄 Start over',rrSlow:'🐢 Speak slowly',pickKind:'Words or sentences?',words:'Words',sentences:'Sentences',imgQuiz:'Picture game 🖼',ipPickLang:'Choose the spoken language',wordOrder:'Word order game 🔤',woTap:'Tap the words in order to build the sentence',hearPick:'Listen & pick 👂',hpHear:'What do you hear?',hpCheck:'Check',exitConfirm:'Exit the app?',struct:'Content layout',azL:'🔤 Alphabet',foldL:'🗂 Named folders',addFolder:'Add a folder',foldName:'Folder name',lvl:'Level',noteL:'Note'},
-fr:{name:'Wordpro',verbs:'verbes',add:'Ajouter un verbe',edit:'Modifier le verbe',delQ:'Supprimer ce verbe ?',verb:'Verbe (français)',arM:'Sens en arabe',enM:'Sens en anglais',sfr:'Phrase en français',sar:'Phrase en arabe',sen:'Phrase en anglais',img:'Image (optionnel)',save:'Enregistrer',cancel:'Annuler',empty:'Pas encore de verbes — touchez ＋',saved:'✓ Enregistré',letters:'Lettres A–Z',paste:'Coller du texte',pasteHint:'Collez le texte : numéro, puis «verbe – ar – en», puis les phrases avec drapeaux ou dans l’ordre fr/ar/en. Les images sont récupérées si possible.',addAll:'Tout ajouter',addedN:'verbes ajoutés',nothing:'Aucun verbe trouvé dans le texte',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 phrase',copyTpl2:'📊 Avec niveau',tplCopied:'✓ Modèle copié — collez-le dans une IA',items:'éléments',settings:'Paramètres',export:'📤 Exporter toutes les données',import:'📥 Importer des données',exported:'✓ Exporté',imported:'✓ Importé — rechargement',addCat:'Ajouter une catégorie',catEdit:'✎ Modifier',catDel:'🗑 Supprimer',edgeVoice:'🎙️ Voix Edge',games:'Les jeux',pickGame:'Choisis un jeu',pickSection:'Choisis une section',pickLetter:'Choisis une lettre',quiz:'Jeu d’association 🧩',quizChooseLang:'Choisis la langue',quizReplay:'Rejouer',quizExit:'Quitter',quizNoPhrases:'Pas assez d’éléments',quizScore:'Score',listenQuiz:'Jeu d’écoute 🎧',listenReplay:'🔊 Réécouter',gNext:'Suivant',autoNext:'Auto',rrTitle:'Jeu Lis et répète 🗣',rrPickLang:'Choisis la langue d’entraînement',rrModeT:'Mode d’entraînement',rrModeL:'👂 Écoute 5× puis répète',rrModeR:'📖 Lis et répète directement',rrListenN:'👂 Écoute',rrYourTurn:'🎤 À toi — répète',rrHear:'🔊 Écouter',rrSkip:'Passer l’écoute',rrWell:'Bravo ! 🎉',rrResume:'↩ Continuer l’entraînement',rrNew:'🔄 Recommencer',rrSlow:'🐢 Lecture lente',pickKind:'Mots ou phrases ?',words:'Les mots',sentences:'Les phrases',imgQuiz:'Jeu des images 🖼',ipPickLang:'Choisis la langue parlée',wordOrder:'Jeu de mots mélangés 🔤',woTap:'Touche les mots dans l’ordre pour former la phrase',hearPick:'Écoute et choisis 👂',hpHear:'Qu’entends-tu ?',hpCheck:'Vérifier',exitConfirm:'Quitter l’application ?',struct:'Organisation du contenu',azL:'🔤 Alphabet',foldL:'🗂 Dossiers nommés',addFolder:'Ajouter un dossier',foldName:'Nom du dossier',lvl:'Niveau',noteL:'Remarque'}};
+ar:{name:'Wordpro',verbs:'فعل',add:'أضف فعلًا',edit:'عدّل الفعل',delQ:'حذف هذا الفعل؟',verb:'الفعل (فرنسي)',arM:'المعنى بالعربي',enM:'English meaning',sfr:'جملة فرنسية',sar:'جملة بالعربي',sen:'English sentence',img:'صورة (اختياري)',save:'حفظ',cancel:'إلغاء',empty:'لا أفعال بعد — اضغط ＋ لإضافة فعل',saved:'✓ حُفظ',letters:'الحروف A–Z',paste:'لصق نص',pasteHint:'الصق النص بهذا الشكل — رقم ثم «فعل – عربي – إنجليزي» ثم الجمل بأعلامها أو بترتيب فرنسي/عربي/إنجليزي. روابط الصور تُجلب تلقائيًا إن أمكن.',addAll:'أضف الكل',addedN:'فعلًا أُضيف',nothing:'لم يُعثر على أفعال في النص',copyTpl:'📋 10 عبارات',copyTpl1:'📄 جملة واحدة',copyTpl2:'📊 مع المستوى',tplCopied:'✓ نُسخ النموذج — الصقه في أي ذكاء اصطناعي',items:'عنصر',settings:'الإعدادات',export:'📤 تصدير كل بيانات التطبيق',import:'📥 استيراد بيانات',exported:'✓ تم التصدير',imported:'✓ تم الاستيراد — جارٍ التحديث',addCat:'أضف تصنيفًا',catEdit:'✎ تعديل',catDel:'🗑 حذف',edgeVoice:'🎙️ أصوات الكلام Edge',games:'الألعاب',pickGame:'اختر اللعبة',pickSection:'اختر القسم',pickLetter:'اختر الحرف',quiz:'لعبة التوصيل 🧩',quizChooseLang:'اختر لغة المطابقة',quizReplay:'إعادة اللعب',quizExit:'خروج',quizNoPhrases:'لا توجد عناصر كافية للّعبة',quizScore:'النتيجة',listenQuiz:'لعبة الاستماع 🎧',listenReplay:'🔊 إعادة الاستماع',gNext:'التالي',autoNext:'تلقائي',rrTitle:'لعبة اقرأ وانطق 🗣',rrPickLang:'اختر لغة التدريب',rrModeT:'طريقة التدريب',rrModeL:'👂 استمع 5× ثم انطق',rrModeR:'📖 اقرأ وانطق مباشرة',rrListenN:'👂 استمع',rrYourTurn:'🎤 دورك — انطق الآن',rrHear:'🔊 استمع',rrSkip:'تخطي الاستماع',rrWell:'أحسنت! 🎉',rrResume:'↩ متابعة التدريب',rrNew:'🔄 بدء من جديد',rrSlow:'🐢 انطق ببطء',pickKind:'كلمات أم عبارات؟',words:'الكلمات',sentences:'العبارات',imgQuiz:'لعبة الصور 🖼',ipPickLang:'اختر لغة النطق',wordOrder:'لعبة رتّب الكلمات 🔤',woTap:'كبّس الكلمات بالترتيب لتكوين الجملة',hearPick:'استمع واكتشف 👂',hpHear:'ماذا تسمع؟',hpCheck:'تحقق',exitConfirm:'الخروج من التطبيق؟',struct:'طريقة تنظيم المحتوى',azL:'🔤 حروف أبجدية',foldL:'🗂 مجلدات بأسماء',addFolder:'أضف مجلدًا',foldName:'اسم المجلد',lvl:'المستوى',noteL:'ملاحظة',mgTitle:'📷 الصور والعبارات',mgAddImg:'أضف صورة',mgReplace:'🖼 استبدال الصورة',mgDelImg:'🗑 حذف الصورة',mgDelPh:'حذف كل العبارات',phEdit:'✏️ تعديل العبارة'},
+en:{name:'Wordpro',verbs:'verbs',add:'Add a verb',edit:'Edit verb',delQ:'Delete this verb?',verb:'Verb (French)',arM:'Arabic meaning',enM:'English meaning',sfr:'French sentence',sar:'Arabic sentence',sen:'English sentence',img:'Image (optional)',save:'Save',cancel:'Cancel',empty:'No verbs yet — tap ＋ to add one',saved:'✓ Saved',letters:'Letters A–Z',paste:'Paste text',pasteHint:'Paste text like: number, then «verb – ar – en», then sentences with flags or in fr/ar/en order. Image URLs are fetched when possible.',addAll:'Add all',addedN:'verbs added',nothing:'No verbs found in the text',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 sentence',copyTpl2:'📊 With level',tplCopied:'✓ Template copied — paste it into any AI',items:'items',settings:'Settings',export:'📤 Export all app data',import:'📥 Import data',exported:'✓ Exported',imported:'✓ Imported — reloading',addCat:'Add a category',catEdit:'✎ Edit',catDel:'🗑 Delete',edgeVoice:'🎙️ Edge speech voices',games:'Games',pickGame:'Choose a game',pickSection:'Choose a section',pickLetter:'Choose a letter',quiz:'Matching game 🧩',quizChooseLang:'Choose the match language',quizReplay:'Play again',quizExit:'Exit',quizNoPhrases:'Not enough items for the game',quizScore:'Score',listenQuiz:'Listening game 🎧',listenReplay:'🔊 Listen again',gNext:'Next',autoNext:'Auto',rrTitle:'Read & Repeat game 🗣',rrPickLang:'Choose the training language',rrModeT:'Training mode',rrModeL:'👂 Listen 5× then repeat',rrModeR:'📖 Read & repeat directly',rrListenN:'👂 Listen',rrYourTurn:'🎤 Your turn — speak now',rrHear:'🔊 Listen',rrSkip:'Skip listening',rrWell:'Well done! 🎉',rrResume:'↩ Resume training',rrNew:'🔄 Start over',rrSlow:'🐢 Speak slowly',pickKind:'Words or sentences?',words:'Words',sentences:'Sentences',imgQuiz:'Picture game 🖼',ipPickLang:'Choose the spoken language',wordOrder:'Word order game 🔤',woTap:'Tap the words in order to build the sentence',hearPick:'Listen & pick 👂',hpHear:'What do you hear?',hpCheck:'Check',exitConfirm:'Exit the app?',struct:'Content layout',azL:'🔤 Alphabet',foldL:'🗂 Named folders',addFolder:'Add a folder',foldName:'Folder name',lvl:'Level',noteL:'Note',mgTitle:'📷 Images & phrases',mgAddImg:'Add image',mgReplace:'🖼 Replace image',mgDelImg:'🗑 Delete image',mgDelPh:'Delete all phrases',phEdit:'✏️ Edit phrase'},
+fr:{name:'Wordpro',verbs:'verbes',add:'Ajouter un verbe',edit:'Modifier le verbe',delQ:'Supprimer ce verbe ?',verb:'Verbe (français)',arM:'Sens en arabe',enM:'Sens en anglais',sfr:'Phrase en français',sar:'Phrase en arabe',sen:'Phrase en anglais',img:'Image (optionnel)',save:'Enregistrer',cancel:'Annuler',empty:'Pas encore de verbes — touchez ＋',saved:'✓ Enregistré',letters:'Lettres A–Z',paste:'Coller du texte',pasteHint:'Collez le texte : numéro, puis «verbe – ar – en», puis les phrases avec drapeaux ou dans l’ordre fr/ar/en. Les images sont récupérées si possible.',addAll:'Tout ajouter',addedN:'verbes ajoutés',nothing:'Aucun verbe trouvé dans le texte',copyTpl:'📋 10 phrases',copyTpl1:'📄 1 phrase',copyTpl2:'📊 Avec niveau',tplCopied:'✓ Modèle copié — collez-le dans une IA',items:'éléments',settings:'Paramètres',export:'📤 Exporter toutes les données',import:'📥 Importer des données',exported:'✓ Exporté',imported:'✓ Importé — rechargement',addCat:'Ajouter une catégorie',catEdit:'✎ Modifier',catDel:'🗑 Supprimer',edgeVoice:'🎙️ Voix Edge',games:'Les jeux',pickGame:'Choisis un jeu',pickSection:'Choisis une section',pickLetter:'Choisis une lettre',quiz:'Jeu d’association 🧩',quizChooseLang:'Choisis la langue',quizReplay:'Rejouer',quizExit:'Quitter',quizNoPhrases:'Pas assez d’éléments',quizScore:'Score',listenQuiz:'Jeu d’écoute 🎧',listenReplay:'🔊 Réécouter',gNext:'Suivant',autoNext:'Auto',rrTitle:'Jeu Lis et répète 🗣',rrPickLang:'Choisis la langue d’entraînement',rrModeT:'Mode d’entraînement',rrModeL:'👂 Écoute 5× puis répète',rrModeR:'📖 Lis et répète directement',rrListenN:'👂 Écoute',rrYourTurn:'🎤 À toi — répète',rrHear:'🔊 Écouter',rrSkip:'Passer l’écoute',rrWell:'Bravo ! 🎉',rrResume:'↩ Continuer l’entraînement',rrNew:'🔄 Recommencer',rrSlow:'🐢 Lecture lente',pickKind:'Mots ou phrases ?',words:'Les mots',sentences:'Les phrases',imgQuiz:'Jeu des images 🖼',ipPickLang:'Choisis la langue parlée',wordOrder:'Jeu de mots mélangés 🔤',woTap:'Touche les mots dans l’ordre pour former la phrase',hearPick:'Écoute et choisis 👂',hpHear:'Qu’entends-tu ?',hpCheck:'Vérifier',exitConfirm:'Quitter l’application ?',struct:'Organisation du contenu',azL:'🔤 Alphabet',foldL:'🗂 Dossiers nommés',addFolder:'Ajouter un dossier',foldName:'Nom du dossier',lvl:'Niveau',noteL:'Remarque',mgTitle:'📷 Images et phrases',mgAddImg:'Ajouter une image',mgReplace:'🖼 Remplacer l’image',mgDelImg:'🗑 Supprimer l’image',mgDelPh:'Supprimer toutes les phrases',phEdit:'✏️ Modifier la phrase'}};
 const t=k=>T[st.lang][k];
 let st={};
 try{st=JSON.parse(localStorage.getItem('verbes')||'{}')}catch(e){st={}}
@@ -449,7 +480,7 @@ function doSearch(q){
    res.appendChild(d)})})});
  if(!n)res.innerHTML='<div id="empty">'+esc(t('nothing'))+'</div>'}
 function renderCats(){
- $('cats').style.display='';$('letters').style.display='none';$('lv').style.display='none';$('addFab').style.display='grid';$('pasteFab').style.display='none';$('backBtn').style.display='none';$('copyBtn').style.display='none';
+ $('cats').style.display='';$('letters').style.display='none';$('lv').style.display='none';$('addFab').style.display='grid';$('pasteFab').style.display='none';$('backBtn').style.display='none';$('copyBtn').style.display='none';$('mgBtn').style.display='none';
  const g=$('cats');g.innerHTML='';
  catsList().forEach(ct=>{
   const store=ct.id==='verbes'?st.v:(st.c[ct.id]||{});
@@ -587,7 +618,7 @@ $('fDel').onclick=()=>{
  if(confirm(t('delQ'))){delFolder(foldEditId);$('fShade').classList.remove('on')}};
 function renderHome(){
  if(!curCat){renderCats();return}
- $('cats').style.display='none';$('letters').style.display='';$('lv').style.display='none';$('addFab').style.display='grid';$('pasteFab').style.display=catFolders(curCat)?'none':'grid';$('backBtn').style.display='';$('copyBtn').style.display='grid';
+ $('cats').style.display='none';$('letters').style.display='';$('lv').style.display='none';$('addFab').style.display='grid';$('pasteFab').style.display=catFolders(curCat)?'none':'grid';$('backBtn').style.display='';$('copyBtn').style.display='grid';$('mgBtn').style.display='none';
  const g=$('letters');g.innerHTML='';g.classList.remove('twocol');
  const store=VD();
  const folders=catFolders(curCat);
@@ -619,7 +650,7 @@ const normFr=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u
 function dedupeSort(L){const store=VD();const seen=new Set();const list=(store[L]||[]).filter(v=>{const k=normFr(v.fr);if(!k||seen.has(k))return false;seen.add(k);return true});
  list.sort((a,b)=>normFr(a.fr).localeCompare(normFr(b.fr),'fr'));store[L]=list}
 function renderLetter(){
- $('letters').style.display='none';$('lv').style.display='';$('addFab').style.display='grid';$('pasteFab').style.display='grid';$('backBtn').style.display='';$('copyBtn').style.display='grid';
+ $('letters').style.display='none';$('lv').style.display='';$('addFab').style.display='grid';$('pasteFab').style.display='grid';$('backBtn').style.display='';$('copyBtn').style.display='grid';$('mgBtn').style.display='';
  const box=$('lv');box.innerHTML='';
  dedupeSort(curLetter);save();const store=VD();const list=store[curLetter]||[];
  if(!list.length){box.innerHTML='<div id="empty">'+esc(t('empty'))+'</div>';return}
@@ -866,6 +897,72 @@ function copyPage(){
  if(!list.length){toast(t('nothing'));return}
  copyText(list.map(itemText).join('\n\n')).then(()=>toast('✓ '+list.length+' '+t('items')),()=>toast('✗'))}
 $('copyBtn').onclick=e=>{e.stopPropagation();copyPage()};
+/* ---- manage images/phrases overlay ---- */
+let mgImgFor=null,phCtx=null;
+function openManage(){$('mgTtl').textContent=(curLetter||'')+' · '+t('mgTitle');renderManage();$('mgOv').classList.add('show')}
+$('mgBtn').onclick=e=>{e.stopPropagation();openManage()};
+$('mgBack').onclick=()=>{$('mgOv').classList.remove('show');renderLetter()};
+function renderManage(){
+ const box=$('mgList'),sc=box.scrollTop;box.innerHTML='';
+ const list=VD()[curLetter]||[];
+ if(!list.length){box.innerHTML='<div id="empty">'+esc(t('empty'))+'</div>';return}
+ list.forEach(v=>{
+  const w=document.createElement('div');w.className='mgw';
+  const top=document.createElement('div');top.className='mgtop';
+  const th=document.createElement('div');th.className='mgimg';th.textContent='＋';let hasImg=false;
+  const fill=u=>{hasImg=!!u;th.innerHTML='';if(u){const im=document.createElement('img');im.src=u;th.appendChild(im)}else th.textContent='＋'};
+  if(v.img)fill('img/'+v.img);
+  else idb.get('img_'+v.id).then(r=>{if(r&&r.blob)fill(URL.createObjectURL(r.blob));else if(v.imgurl)fill(v.imgurl)}).catch(()=>{if(v.imgurl)fill(v.imgurl)});
+  th.onclick=e=>{e.stopPropagation();
+   if(!hasImg){mgImgFor=v.id;$('mgImgIn').click()}
+   else showMiniMenu([
+    {label:t('mgReplace'),fn:()=>{mgImgFor=v.id;$('mgImgIn').click()}},
+    {label:t('mgDelImg'),danger:true,fn:async()=>{try{await idb.del('img_'+v.id)}catch(e2){}delete v.img;delete v.imgurl;save();renderManage()}}],th)};
+  top.appendChild(th);
+  const mid=document.createElement('div');mid.className='mgmid';
+  const nm=document.createElement('div');nm.className='mgname';nm.dir='auto';nm.textContent=v.fr||'';mid.appendChild(nm);
+  const lv=document.createElement('div');lv.className='mglv';
+  ['A1','A2','B1','B2','C1','C2'].forEach(x=>{const b=document.createElement('button');b.textContent=x;
+   if(v.lvl===x)b.classList.add('on');
+   b.onclick=()=>{v.lvl=v.lvl===x?undefined:x;save();lv.querySelectorAll('button').forEach(y=>y.classList.toggle('on',y.textContent===v.lvl))};
+   lv.appendChild(b)});
+  mid.appendChild(lv);
+  const phs=v.ph&&v.ph.length?v.ph.map((p,i)=>({p,i})):(v.sfr||v.sar||v.sen?[{p:{fr:v.sfr,ar:v.sar,en:v.sen},i:-1}]:[]);
+  if(phs.length){
+   const pw=document.createElement('div');pw.className='mgph';
+   phs.forEach(({p,i})=>{
+    const r=document.createElement('div');r.className='mgphr';
+    const tx=document.createElement('div');tx.className='pt';tx.dir='auto';
+    tx.textContent=p.fr||p.ar||p.en||'—';
+    const sm=document.createElement('small');sm.textContent=' '+[p.ar,p.en].filter(Boolean).join(' — ');tx.appendChild(sm);
+    const eb=document.createElement('button');eb.textContent='✏️';
+    eb.onclick=()=>{phCtx={v,i};$('phTtl').textContent=t('phEdit');$('phSave').textContent=t('save');$('phCancel').textContent=t('cancel');
+     $('phFr').value=p.fr||'';$('phAr').value=p.ar||'';$('phEn').value=p.en||'';$('phShade').classList.add('on')};
+    const db=document.createElement('button');db.textContent='🗑';
+    db.onclick=()=>{if(i<0){v.sfr=v.sar=v.sen=''}else{v.ph.splice(i,1);if(!v.ph.length)delete v.ph}save();renderManage()};
+    r.appendChild(tx);r.appendChild(eb);r.appendChild(db);pw.appendChild(r)});
+   const da=document.createElement('button');da.className='mgphdel';da.textContent='🗑 '+t('mgDelPh');
+   da.onclick=()=>{if(confirm(t('delQ'))){delete v.ph;v.sfr=v.sar=v.sen='';save();renderManage()}};
+   pw.appendChild(da);mid.appendChild(pw)}
+  top.appendChild(mid);w.appendChild(top);box.appendChild(w)});
+ box.scrollTop=sc}
+$('mgImgIn').onchange=e=>{
+ const f=e.target.files[0];e.target.value='';if(!f||!mgImgFor)return;
+ const img=new Image();img.onload=()=>{
+  const S=160,c=document.createElement('canvas');c.width=c.height=S;
+  const m=Math.min(img.width,img.height);
+  c.getContext('2d').drawImage(img,(img.width-m)/2,(img.height-m)/2,m,m,0,0,S,S);
+  c.toBlob(async b=>{const v=verbOf(curLetter,mgImgFor);
+   if(v){delete v.img;delete v.imgurl;save()}
+   try{await idb.set('img_'+mgImgFor,{blob:b})}catch(e2){}renderManage()},'image/jpeg',.82)};
+ img.src=URL.createObjectURL(f)};
+$('phSave').onclick=()=>{
+ if(phCtx){const{v,i}=phCtx,o={fr:$('phFr').value.trim(),ar:$('phAr').value.trim(),en:$('phEn').value.trim()};
+  if(i<0){v.sfr=o.fr;v.sar=o.ar;v.sen=o.en}
+  else if(v.ph&&v.ph[i])v.ph[i]=o;
+  save()}
+ $('phShade').classList.remove('on');renderManage()};
+$('phCancel').onclick=()=>$('phShade').classList.remove('on');
 /* seed letter A */
 function seed(){
  if(localStorage.getItem('verbes-seeded'))return;
@@ -1501,6 +1598,8 @@ function render(){if(curLetter)renderLetter();else renderHome()}
 /* hardware back: letter → home, sheet → close, home → exit */
 try{if(isCap()&&CAP.Plugins.App&&CAP.Plugins.App.addListener){
  CAP.Plugins.App.addListener('backButton',()=>{
+  if($('mgOv').classList.contains('show')){$('mgOv').classList.remove('show');renderLetter();return}
+  if($('phShade').classList.contains('on')){$('phShade').classList.remove('on');return}
   if($('srchOv').classList.contains('show')){closeSearch();return}
   if($('noteModal').classList.contains('show')){closeNote();return}
   if($('vShade').classList.contains('on')){$('vShade').classList.remove('on');return}
