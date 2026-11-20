@@ -192,8 +192,8 @@ html[dir=rtl] .note-canvas-wrap.lined{background-image:linear-gradient(to left,t
 .lz-v-loop{flex:none;width:30px;height:30px;border-radius:50%;border:none;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff}
 .lz-v-loop.speaking{animation:lzPulse 1s infinite}
 .ip-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;width:100%}
-.ip-tile{border:2px solid var(--bd);background:var(--card);border-radius:16px;overflow:hidden;cursor:pointer;aspect-ratio:1;display:flex;align-items:center;justify-content:center;transition:all .15s;color:var(--txt);font-weight:700}
-.ip-tile img{width:100%;height:100%;object-fit:cover;display:block}
+.ip-tile{border:2px solid var(--bd);background:#fff;border-radius:16px;overflow:hidden;cursor:pointer;aspect-ratio:1.15;display:flex;align-items:center;justify-content:center;transition:all .15s;color:var(--txt);font-weight:700}
+.ip-tile img{width:100%;height:100%;object-fit:contain;display:block;padding:6px}
 .ip-tile.ok{border-color:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.4)}
 .ip-tile.bad{border-color:#ef4444;animation:qzShake .45s;opacity:.55}
 </style>
