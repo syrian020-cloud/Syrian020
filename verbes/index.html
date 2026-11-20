@@ -791,7 +791,9 @@ function parseBulk(txt){
   const v={fr:seg[0]||'',ar:seg[1]||'',en:seg[2]||'',sfr:'',sar:'',sen:'',ph:[],imgurl:(b.imgs||[])[0]||''};
   if(lvl)v.lvl=lvl;
   const FSPLIT=/(?=🇫🇷|🇸🇾|🇪🇬|🇸🇦|🇦🇪|🇱🇧|🇯🇴|🇵🇸|🇮🇶|🇩🇿|🇲🇦|🇹🇳|🇺🇸|🇬🇧|🇨🇦|🇦🇺)/u;
-  const used={};(b.lines||[]).forEach(l=>{const t={fr:'',ar:'',en:'',n:0};l.split(FSPLIT).map(x=>x.trim()).filter(Boolean).forEach(p=>{const f=flagOf(p);if(f){t[f]=(t[f]?t[f]+' ':'')+p.replace(/^\S+\s*/,'').trim();t.n++}});
+  const used={};
+  const tparts=v.en.split(FSPLIT).map(x=>x.trim()).filter(Boolean);
+  if(tparts.some(p=>flagOf(p))){const txt=[];tparts.forEach(p=>{const f=flagOf(p);if(f){const s=p.replace(/^\S+\s*/,'').trim();v['s'+f]=s;used[f]=1}else txt.push(p)});v.en=txt.join(' ').trim()}(b.lines||[]).forEach(l=>{const t={fr:'',ar:'',en:'',n:0};l.split(FSPLIT).map(x=>x.trim()).filter(Boolean).forEach(p=>{const f=flagOf(p);if(f){t[f]=(t[f]?t[f]+' ':'')+p.replace(/^\S+\s*/,'').trim();t.n++}});
    if(t.n>=2){v.ph.push(t);if(!v.sfr)v.sfr=t.fr;if(!v.sar)v.sar=t.ar;if(!v.sen)v.sen=t.en;['fr','ar','en'].forEach(f=>{if(t[f])used[f]=1})}
    else l.split(FSPLIT).forEach(p=>{const f=flagOf(p.trim());if(f){const s=p.trim().replace(/^\S+\s*/,'').trim();v['s'+f]=(v['s'+f]?v['s'+f]+' ':'')+s;used[f]=1}})});
   const rest=(b.lines||[]).filter(l=>!flagOf(l));
