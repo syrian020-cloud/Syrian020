@@ -1323,8 +1323,10 @@ function undoNote(){if(!noteCtx||!noteUndo.length)return;const c=$('noteCanvas')
 function redoNote(){if(!noteCtx||!noteRedo.length)return;const c=$('noteCanvas');noteUndo.push(noteCtx.getImageData(0,0,c.width,c.height));noteRestore(noteRedo.pop());updNoteHist()}
 function setNoteSize(n){noteSize=Math.min(16,Math.max(1,n));$('noteSize').value=noteSize}
 function setupNoteCanvas(){const c=$('noteCanvas');noteCtx=c.getContext('2d');const dpr=window.devicePixelRatio||1;const w=c.clientWidth||600,hh=c.clientHeight||400;c.width=Math.max(1,w*dpr);c.height=Math.max(1,hh*dpr);noteCtx.setTransform(1,0,0,1,0,0);noteCtx.scale(dpr,dpr);noteCtx.lineCap='round';noteCtx.lineJoin='round'}
-function openNote(v,btn){noteKey='note_'+v.id;noteBtn=btn;$('noteModal').classList.add('show');const bar=$('notePhraseBar');bar.innerHTML='';
- const rows=[{txt:v.fr,lg:'fr'},{txt:v.ar,lg:'ar'},{txt:v.en,lg:'en'},{txt:v.sfr,lg:'fr'},{txt:v.sar,lg:'ar'},{txt:v.sen,lg:'en'}];
+function openNote(v,btn){noteKey='note_'+(v.id||'scratch');noteBtn=btn;$('noteModal').classList.add('show');const bar=$('notePhraseBar');bar.innerHTML='';
+ const rows=(v.fr===undefined&&v.s!==undefined)
+  ?[{txt:v.s,lg:v.lg||'fr'},{txt:v.a,lg:'ar'},{txt:v.e,lg:'en'}]
+  :[{txt:v.fr,lg:'fr'},{txt:v.ar,lg:'ar'},{txt:v.en,lg:'en'},{txt:v.sfr,lg:'fr'},{txt:v.sar,lg:'ar'},{txt:v.sen,lg:'en'}];
  rows.forEach(r=>{if(!r.txt)return;const card=document.createElement('div');card.className='note-phrase-card';if(r.lg==='ar')card.classList.add('ar');
   const sp=document.createElement('span');sp.textContent=r.txt;card.appendChild(sp);
   const lo=document.createElement('button');lo.className='note-loop';lo.textContent='🔁';lo.onclick=e=>{e.stopPropagation();loopSpeak([r],lo)};card.appendChild(lo);bar.appendChild(card)});
@@ -1403,17 +1405,20 @@ function gamePairPicker(n,title){
   pairs.map(p=>'<button class="btn" data-q="'+p.q+'" data-a="'+p.a+'">'+
    gFlag(p.q)+' '+p.q.toUpperCase()+' – '+gFlag(p.a)+' '+p.a.toUpperCase()+' — '+p.n+'</button>').join('')+'</div>'}
 function closeGame(){
+ window.__gNoteP=null;
  stopSay();clearTimeout(lz.timer);if(ip)clearTimeout(ip.timer);
  document.querySelectorAll('#quiz-overlay,#rr-overlay').forEach(o=>o.remove())}
 /* ---- games folder: pick game -> section -> letter ---- */
 function gOvShell(){
  const ov=document.createElement('div');ov.id='quiz-overlay';ov.className='qz-ov';
  ov.innerHTML='<div class="qz-top"><button class="mini" id="quiz-exit">✕</button>'+
+  '<button class="mini" id="quiz-note">📔</button>'+
   '<div class="qz-prog" id="quiz-progress"></div></div>'+
   '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>'+
   '<input type="file" id="lzImgInput" accept="image/*" style="display:none">';
  document.body.appendChild(ov);
  $('quiz-exit').onclick=closeGame;
+ $('quiz-note').onclick=function(){openNote(window.__gNoteP||{id:'scratch',s:''},this)};
  return $('quiz-body')}
 function openGames(){
  closeGame();
@@ -1449,7 +1454,7 @@ function gPickKind(g,cid,L){
   '<button class="btn" data-k="s">💬 '+esc(t('sentences'))+' — '+items.filter(v=>v.sfr&&(v.sar||v.sen)).length+'</button></div>';
  body.querySelectorAll('button[data-k]').forEach(b=>{b.onclick=()=>gLaunch(g,cid,L,b.dataset.k)})}
 function gLaunch(g,cid,L,kind){
- const ph=(catStore(cid)[L]||[]).map(v=>kind==='s'?{s:v.sfr,a:v.sar,e:v.sen,lg:'fr',img:v.img}:{s:v.fr,a:v.ar,e:v.en,lg:'fr',img:v.img})
+ const ph=(catStore(cid)[L]||[]).map(v=>kind==='s'?{id:v.id,s:v.sfr,a:v.sar,e:v.sen,lg:'fr',img:v.img}:{id:v.id,s:v.fr,a:v.ar,e:v.en,lg:'fr',img:v.img})
   .filter(p=>p.s&&Object.keys(phMapS(p)).length>=2);
  const n={id:'g_'+cid+'_'+L+'_'+(kind||'w'),ph};
  if(g==='quiz')openQuiz(n);else if(g==='listenQuiz')openListen(n);else if(g==='imgQuiz')openImgQuiz(n);else openReadRepeat(n)}
@@ -1479,6 +1484,7 @@ function startQuiz(n,qlang,alang){
   if(!selFr){card.classList.add('sel');setTimeout(()=>card.classList.remove('sel'),600);return}
   if(selFr.dataset.pid===card.dataset.pid){correct++;quizTone(true);
    selFr.classList.remove('sel');selFr.classList.add('done');card.classList.add('done');solved++;
+   window.__gNoteP=item.p;
    speakPair(selFr.dataset.text,selFr.dataset.lang,card.dataset.text,card.dataset.lang,selFr,card);
    selFr=null;setProg();
    if(solved===picks.length)setTimeout(()=>quizEnd(correct,wrong,n,qlang,alang),650)}
@@ -1564,7 +1570,7 @@ function lzStart(){
 function lzQuestion(){
  const body=$('quiz-body');
  if(!body||!document.getElementById('quiz-overlay'))return;
- const p=lz.qs[lz.idx];
+ const p=lz.qs[lz.idx];window.__gNoteP=p;
  const others=lz.pool.filter(x=>x!==p);
  let opts=quizShuffle(others).slice(0,3);opts.push(p);opts=quizShuffle(opts);
  body.innerHTML='<div class="lz-stage">'+
@@ -1649,7 +1655,7 @@ function openImgQuiz(n){
 function ipQuestion(){
  const body=$('quiz-body');
  if(!body||!document.getElementById('quiz-overlay'))return;
- const p=ip.qs[ip.idx];
+ const p=ip.qs[ip.idx];window.__gNoteP=p;
  const others=ip.pool.filter(x=>x!==p);
  const k=Math.min(4,ip.pool.length);
  let opts=quizShuffle(others).slice(0,k-1);opts.push(p);opts=quizShuffle(opts);
@@ -1725,10 +1731,12 @@ function openReadRepeat(n){
  if(!items.length){toast(t('quizNoPhrases'));return}
  const ov=document.createElement('div');ov.id='rr-overlay';ov.className='qz-ov';
  ov.innerHTML='<div class="qz-top"><button class="mini" id="rr-exit">✕</button>'+
+  '<button class="mini" id="rr-note">📔</button>'+
   '<div class="qz-prog" id="rr-prog">'+esc(t('rrTitle'))+'</div></div>'+
   '<div id="rr-body" style="display:flex;flex:1;flex-direction:column;overflow:auto"></div>';
  document.body.appendChild(ov);
  $('rr-exit').onclick=closeRR;
+ $('rr-note').onclick=function(){openNote(window.__gNoteP||{id:'scratch',s:''},this)};
  const body=$('rr-body');
  const langs=rrLangsOf(items,n);
  function start(lang,mode,idx,cnt){rr={l:n,items,lang,mode,i:idx,count:cnt||0,listenTok:0};rrSave();rrShow()}
@@ -1757,6 +1765,7 @@ function rrShow(){
  rrStopVoice();
  if(rr.i>=rr.items.length){rrEnd();return}
  const m=rr.items[rr.i],text=m[rr.lang]||'';
+ window.__gNoteP={id:'rr_'+rr.i,s:text,lg:rr.lang,a:m.ar,e:m.en};
  const trans=Object.keys(m).filter(k=>k!==rr.lang&&m[k])
   .map(k=>'<div class="rr-tr" dir="'+rrDir(k)+'">'+esc(gFlag(k)+' '+m[k])+'</div>').join('');
  const wordsHtml=(text||'').split(/\s+/).filter(Boolean).map(w=>'<span class="rr-w">'+esc(w)+'</span>').join(' ');
