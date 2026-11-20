@@ -1488,7 +1488,11 @@ function rrLangsOf(items,n){const langs=[],main=gMainLang(n);
  items.forEach(m=>{Object.keys(m).forEach(k=>{if(m[k]&&langs.indexOf(k)<0)langs.push(k)})});
  langs.sort((a,b)=>(a===main?-1:0)-(b===main?-1:0));return langs}
 const rrDir=l=>(l==='ar'?'rtl':'ltr');
-const gspeak=(txt,lang,el)=>loopSpeak([{txt,lg:lang}],el);
+const gspeak=(txt,lang,el)=>{
+ if(el&&el.classList.contains('speaking')){el.classList.remove('speaking');stopSay();return}
+ document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));
+ stopSay();if(el)el.classList.add('speaking');const tok=sayTok;
+ (async()=>{await sayOnce(txt,lang);if(tok===sayTok&&el)el.classList.remove('speaking')})()};
 function gspeakOnce(txt,lang){
  if(window.EdgeTTS&&EdgeTTS.supported&&EdgeTTS.supported())return EdgeTTS.play((txt||'').slice(0,400),lang).catch(()=>{});
  return sayOnce(txt,lang)}
