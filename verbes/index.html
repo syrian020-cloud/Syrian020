@@ -1972,6 +1972,18 @@ function hpCheck(p){
  else{hp.wrong++;hp.sel.classList.add('bad');
   body.querySelectorAll('.hp-tile[data-ok="1"]').forEach(x=>x.classList.add('ok'))}
  $('hpCheck').disabled=true;
+ const map=phMapS(p);
+ const ver=document.createElement('div');ver.className='lz-verdict '+(ok?'ok':'bad');
+ ver.style.border='1.5px solid var(--bd)';ver.style.borderRadius='16px';ver.style.marginTop='.4rem';ver.style.height='auto';ver.style.width='100%';
+ let html='<div class="lz-face">'+(ok?'😄':'😢')+'</div>';
+ Object.keys(map).forEach(li=>{const txt=map[li];
+  if(txt)html+='<div class="lz-v-line"><span class="'+(li===hp.lang?'lz-v-fr':'lz-v-tr')+'" dir="'+rrDir(li)+'">'+esc(txt)+'</span>'+
+   '<button class="lz-v-loop" data-lang="'+li+'">🔁</button></div>'});
+ ver.innerHTML=html;
+ body.querySelector('.lz-stage').appendChild(ver);
+ ver.querySelectorAll('.lz-v-loop').forEach(b=>{
+  const span=b.parentNode.querySelector('span');
+  b.onclick=()=>gspeak(span.textContent,b.dataset.lang,b)});
  stopSay();
  const rp=$('hpReplay');if(rp)gspeak(phTxt(p,hp.lang),hp.lang,rp);
  clearTimeout(hp.timer);
