@@ -951,7 +951,7 @@ async function scheduleReminders(a){
     const b=nidBase(a.id);const list=[];
     offs.forEach((o,i)=>{
       const at=when-o;
-      if(at>Date.now()+15e3)list.push({id:b+i,title:t('notifTitle'),body:bodies[i](a.title),channelId:'tempo-alerts-v2',sound:'tempo_alert',schedule:{at:new Date(at)}});
+      if(at>Date.now()+15e3)list.push({id:b+i,title:t('notifTitle'),body:bodies[i](a.title),channelId:'tempo-alerts-v2',sound:'tempo_alert',schedule:{at:new Date(at),allowWhileIdle:true}});
     });
     if(list.length)await p.schedule({notifications:list});
   }catch(e){console.error('schedule',e);}
@@ -1021,7 +1021,7 @@ $('#apptRingSnooze').onclick=()=>{
   const a=ringAppt;stopApptRing();
   if(a&&LN()){
     try{const b=nidBase(a.id)+9;
-      LN().schedule({notifications:[{id:b,title:t('notifTitle'),body:t('notifBody0')(a.title),channelId:'tempo-alerts-v2',sound:'tempo_alert',schedule:{at:new Date(Date.now()+10*60e3)}}]});}catch(e){}
+      LN().schedule({notifications:[{id:b,title:t('notifTitle'),body:t('notifBody0')(a.title),channelId:'tempo-alerts-v2',sound:'tempo_alert',schedule:{at:new Date(Date.now()+10*60e3),allowWhileIdle:true}}]});}catch(e){}
   }
 };
 /* fallback: check due reminders every 30s while this page is open */

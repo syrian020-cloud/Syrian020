@@ -1813,7 +1813,7 @@ async function scheduleAlarm(a){
    id:a.id*10+i,title:'⏰ '+(a.label||t('newAlarm')),
    body:pad(a.hh)+':'+pad(a.mm)+' — '+t('tabAlarms'),
    channelId:chId(a),sound:a.sound==='default'?undefined:TONE(a.sound).res,
-   schedule:{at:d},extra:{alarmId:a.id}}));
+   schedule:{at:d,allowWhileIdle:true},extra:{alarmId:a.id}}));
   if(list.length)await p.schedule({notifications:list});
  }catch(e){console.warn('sched',e)}
 }
@@ -1857,6 +1857,16 @@ setInterval(()=>{
 function slotsNow(){
  const d=new Date(),hh=d.getHours(),mm=d.getMinutes(),wd=d.getDay(),key=d.toDateString()+hh+':'+mm;
  return st.alarms.filter(a=>a.on&&a.hh===hh&&a.mm===mm&&(a.days&&a.days.length?a.days.includes(wd):true)&&a._fired!==key);
+}
+function slotsMissed(){
+ const now=Date.now(),d=new Date(),wd=d.getDay(),key=d.toDateString();
+ return st.alarms.filter(a=>{
+  if(!a.on||(a.days&&a.days.length&&!a.days.includes(wd)))return false;
+  if(a._fired===key+a.hh+':'+a.mm)return false;
+  const t=new Date();t.setHours(a.hh,a.mm,0,0);
+  const diff=now-t.getTime();
+  return diff>60000&&diff<=6*60000;
+ });
 }
 function ring(a){
  const key=new Date().toDateString()+a.hh+':'+a.mm;
@@ -1954,6 +1964,7 @@ function tickClock(){
  $('ds').textContent=':'+pad(ss);
  $('ddate').textContent=dateStr;
  for(const a of slotsNow())ring(a);
+ if(!$('ringShade').classList.contains('on'))for(const a of slotsMissed())ring(a);
  checkTimer();
 }
 setInterval(tickClock,250);
@@ -2891,7 +2902,7 @@ function renderTimer(){
 async function scheduleTimerNotif(){
  const p=LN();if(!p)return;
  try{await ensureChannel({sound:'beep'});
-  await p.schedule({notifications:[{id:7777,title:'⏱️ '+t('tabTimer'),body:t('timerDone'),channelId:'sa3a_beep',sound:'sa3a_beep',schedule:{at:new Date(st.timer.end)}}]});
+  await p.schedule({notifications:[{id:7777,title:'⏱️ '+t('tabTimer'),body:t('timerDone'),channelId:'sa3a_beep',sound:'sa3a_beep',schedule:{at:new Date(st.timer.end),allowWhileIdle:true}}]});
  }catch(e){}}
 $('tGo').onclick=async()=>{
  if(st.timer.running){

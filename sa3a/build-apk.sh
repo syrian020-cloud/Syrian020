@@ -98,6 +98,8 @@ MANIFEST="android/app/src/main/AndroidManifest.xml"
 if [ -f "$MANIFEST" ]; then
   grep -q 'SCHEDULE_EXACT_ALARM' "$MANIFEST" || \
     sed -i 's|<uses-permission|<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />\n    <uses-permission|' "$MANIFEST"
+  grep -q 'USE_EXACT_ALARM' "$MANIFEST" || \
+    sed -i 's|<uses-permission|<uses-permission android:name="android.permission.USE_EXACT_ALARM" />\n    <uses-permission|' "$MANIFEST"
   grep -q 'android.permission.VIBRATE' "$MANIFEST" || \
     sed -i 's|<uses-permission|<uses-permission android:name="android.permission.VIBRATE" />\n    <uses-permission|' "$MANIFEST"
   grep -q 'ACCESS_FINE_LOCATION' "$MANIFEST" || \
