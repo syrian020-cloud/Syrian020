@@ -443,7 +443,7 @@ const catFolders=cid=>{
 const isBuiltinFold=(cid,fid)=>cid==='grammaticaux'&&GRAM_FOLDERS.some(f=>f.id===fid);
 const foldListRef=cid=>{if(cid==='grammaticaux')return st.foldX[cid]=st.foldX[cid]||[];const cu=st.catsU.find(x=>x.id===cid);return cu?(cu.folders=cu.folders||[]):[]};
 function applyTheme(){document.documentElement.dataset.theme=st.theme;$('themeBtn').textContent=st.theme==='dark'?'🌙':'☀️'}
-function applyLang(){document.documentElement.lang=st.lang;document.documentElement.dir=st.lang==='ar'?'rtl':'ltr';$('langBtn').textContent=LANGICON[st.lang];$('ttl').textContent=(st.lang==='ar'?'🔤 ':'🔤 ')+t('name');$('backBtn').textContent=st.lang==='ar'?'→':'←'}
+function applyLang(){document.documentElement.lang=st.lang;document.documentElement.dir=st.lang==='ar'?'rtl':'ltr';$('langBtn').textContent=LANGICON[st.lang];$('ttl').textContent=t('name');$('backBtn').textContent=st.lang==='ar'?'→':'←'}
 $('themeBtn').onclick=()=>{st.theme=st.theme==='dark'?'light':'dark';save();applyTheme()};
 $('langBtn').onclick=()=>{st.lang=LANGS[(LANGS.indexOf(st.lang)+1)%3];save();applyLang();render()};
 $('muteBtn').onclick=()=>{document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));stopSay()};
