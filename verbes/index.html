@@ -42,6 +42,8 @@ main{padding:.7rem;max-width:640px;margin:0 auto;padding-bottom:5rem}
 #letters.twocol{grid-template-columns:repeat(2,1fr)}
 .letsub{aspect-ratio:auto;min-height:60px;flex-direction:row;justify-content:flex-start;gap:.5rem;font-size:.82rem;font-weight:700;padding:.55rem .65rem;text-align:start;line-height:1.2}
 .letsub .fic{font-size:1.4rem;flex:none}
+.letsub .addfb{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;min-width:30px;border-radius:9px;background:var(--acc);color:#fff;font-size:1.05rem}
+.letsub .fimg{width:28px;height:28px;border-radius:8px;object-fit:cover;flex:none}
 .vcard{background:var(--card);border:1.5px solid var(--bd);border-radius:16px;padding:.6rem .65rem;margin-bottom:.6rem}
 .vtop{display:flex;align-items:center;gap:.55rem}
 .vimg{width:72px;height:72px;border-radius:14px;object-fit:cover;flex:none;border:1px solid var(--bd)}
@@ -217,6 +219,7 @@ html[dir=rtl] .note-canvas-wrap.lined{background-image:linear-gradient(to left,t
 <div class="fld"><input id="fFr" dir="ltr" placeholder="Nom du dossier"></div>
 <div class="fld"><input id="fAr" dir="rtl" placeholder="اسم المجلد"></div>
 <div class="fld"><input id="fEn" dir="ltr" placeholder="Folder name"></div>
+<input type="file" id="foldImgIn" accept="image/*" hidden>
 <div class="brow"><button class="bbtn sec" id="fDel" style="display:none">🗑</button><button class="bbtn sec" id="fCancel"></button><button class="bbtn pri" id="fSave"></button></div>
 </div></div>
 <div class="shade" id="sShade"><div class="sheet">
@@ -345,7 +348,12 @@ let curCat=null,curLetter=null;
 const VD=()=>curCat==='verbes'?st.v:(st.c[curCat]=st.c[curCat]||{});
 const catsList=()=>CATS.filter(c=>!st.catDel.includes(c.id)).map(c=>Object.assign({},c,st.catEd[c.id]||{})).concat(st.catsU);
 const isBuiltin=id=>CATS.some(c=>c.id===id);
-const catFolders=cid=>{if(cid==='grammaticaux')return GRAM_FOLDERS;const cu=st.catsU.find(x=>x.id===cid);return cu&&cu.mode==='folders'?(cu.folders=cu.folders||[]):null};
+const catFolders=cid=>{
+ st.foldEd=st.foldEd||{};st.foldDel=st.foldDel||{};st.foldX=st.foldX||{};
+ if(cid==='grammaticaux')return GRAM_FOLDERS.filter(f=>!st.foldDel[f.id]).map(f=>st.foldEd[f.id]?Object.assign({},f,st.foldEd[f.id]):f).concat(st.foldX[cid]||[]);
+ const cu=st.catsU.find(x=>x.id===cid);return cu&&cu.mode==='folders'?(cu.folders=cu.folders||[]):null};
+const isBuiltinFold=(cid,fid)=>cid==='grammaticaux'&&GRAM_FOLDERS.some(f=>f.id===fid);
+const foldListRef=cid=>{if(cid==='grammaticaux')return st.foldX[cid]=st.foldX[cid]||[];const cu=st.catsU.find(x=>x.id===cid);return cu?(cu.folders=cu.folders||[]):[]};
 function applyTheme(){document.documentElement.dataset.theme=st.theme;$('themeBtn').textContent=st.theme==='dark'?'🌙':'☀️'}
 function applyLang(){document.documentElement.lang=st.lang;document.documentElement.dir=st.lang==='ar'?'rtl':'ltr';$('langBtn').textContent=LANGICON[st.lang];$('ttl').textContent=(st.lang==='ar'?'🔤 ':'🔤 ')+t('name');$('backBtn').textContent=st.lang==='ar'?'→':'←'}
 $('themeBtn').onclick=()=>{st.theme=st.theme==='dark'?'light':'dark';save();applyTheme()};
@@ -449,7 +457,28 @@ $('cSave').onclick=async()=>{
  const id=catEditId||st.catsU[st.catsU.length-1].id;
  if(catPicked){try{await idb.set('cat_'+id,{blob:catPicked})}catch(e){}}
  save();$('cShade').classList.remove('on');toast(t('saved'));renderCats()};
-let foldEditId=null;
+let foldEditId=null,foldImgFor=null;
+function openFoldMenu(f,btn){
+ showMiniMenu([
+  {label:t('catEdit'),fn:()=>openFolderSheet(f)},
+  {label:'🖼 '+t('img'),fn:()=>{foldImgFor=f.id;$('foldImgIn').click()}},
+  {label:t('catDel'),danger:true,fn:()=>{if(confirm(t('delQ')))delFolder(f.id)}}
+ ],btn)}
+function delFolder(fid){
+ const cid=curCat;
+ if(isBuiltinFold(cid,fid))st.foldDel[fid]=1;
+ else{const lst=foldListRef(cid),i=lst.findIndex(x=>x.id===fid);if(i>-1)lst.splice(i,1)}
+ const store=VD();if(store[fid])delete store[fid];
+ idb.del('fold_'+fid).catch(()=>{});
+ save();renderHome()}
+$('foldImgIn').onchange=e=>{
+ const f=e.target.files[0];e.target.value='';if(!f||!foldImgFor)return;
+ const img=new Image();img.onload=()=>{
+  const S=160,c=document.createElement('canvas');c.width=c.height=S;
+  const m=Math.min(img.width,img.height);
+  c.getContext('2d').drawImage(img,(img.width-m)/2,(img.height-m)/2,m,m,0,0,S,S);
+  c.toBlob(async b=>{try{await idb.set('fold_'+foldImgFor,{blob:b})}catch(e2){}renderHome()},'image/jpeg',.82)};
+ img.src=URL.createObjectURL(f)};
 function openFolderSheet(f){
  foldEditId=f?f.id:null;
  $('fTtl').textContent=f?t('edit'):t('addFolder');$('fSave').textContent=t('save');$('fCancel').textContent=t('cancel');$('fDel').style.display=f?'':'none';
@@ -457,17 +486,17 @@ function openFolderSheet(f){
  $('fShade').classList.add('on')}
 $('fCancel').onclick=()=>$('fShade').classList.remove('on');
 $('fSave').onclick=()=>{
- const cu=st.catsU.find(x=>x.id===curCat);if(!cu)return;cu.folders=cu.folders||[];
+ st.foldEd=st.foldEd||{};st.foldX=st.foldX||{};
  const ic=$('fIc').value.trim()||'📁',fr=$('fFr').value.trim(),ar=$('fAr').value.trim(),en=$('fEn').value.trim();
  if(!fr&&!ar&&!en){toast('!');return}
- if(foldEditId){const f=cu.folders.find(x=>x.id===foldEditId);if(f)Object.assign(f,{ic,fr,ar,en})}
- else cu.folders.push({id:'f_'+Date.now(),ic,fr,ar,en});
+ if(foldEditId){
+  if(isBuiltinFold(curCat,foldEditId))st.foldEd[foldEditId]={ic,fr,ar,en};
+  else{const f=foldListRef(curCat).find(x=>x.id===foldEditId);if(f)Object.assign(f,{ic,fr,ar,en})}}
+ else foldListRef(curCat).push({id:'f_'+Date.now(),ic,fr,ar,en});
  save();$('fShade').classList.remove('on');renderHome()};
 $('fDel').onclick=()=>{
- const cu=st.catsU.find(x=>x.id===curCat);if(!cu||!foldEditId)return;
- cu.folders=(cu.folders||[]).filter(x=>x.id!==foldEditId);
- const store=VD();if(store[foldEditId])delete store[foldEditId];
- save();$('fShade').classList.remove('on');renderHome()};
+ if(!foldEditId)return;
+ if(confirm(t('delQ'))){delFolder(foldEditId);$('fShade').classList.remove('on')}};
 function renderHome(){
  if(!curCat){renderCats();return}
  $('cats').style.display='none';$('letters').style.display='';$('lv').style.display='none';$('addFab').style.display='none';$('pasteFab').style.display='none';$('backBtn').style.display='';$('copyBtn').style.display='grid';
@@ -480,14 +509,17 @@ function renderHome(){
    const n=(store[f.id]||[]).length;
    const d=document.createElement('div');d.className='let letsub'+(n?'':' empty');
    const fic=document.createElement('span');fic.className='fic';fic.textContent=f.ic;d.appendChild(fic);
+   idb.get('fold_'+f.id).then(r=>{if(r&&r.blob){const im=document.createElement('img');im.className='fimg';im.src=URL.createObjectURL(r.blob);fic.replaceWith(im)}}).catch(()=>{});
    const nm=document.createElement('span');nm.textContent=f[st.lang]||f.fr;d.appendChild(nm);
    if(n){const cn=document.createElement('span');cn.className='cnt';cn.textContent=n;d.appendChild(cn)}
-   if(curCat!=='grammaticaux'){const eb=document.createElement('button');eb.className='mini';eb.textContent='✎';eb.style.cssText='margin-inline-start:auto;flex:none';eb.onclick=e=>{e.stopPropagation();openFolderSheet(f)};d.appendChild(eb)}
+   const eb=document.createElement('button');eb.className='mini';eb.textContent='⋮';eb.style.cssText='margin-inline-start:auto;flex:none';
+   eb.onclick=e=>{e.stopPropagation();openFoldMenu(f,eb)};d.appendChild(eb);
    d.onclick=()=>{curLetter=f.id;renderLetter()};
    g.appendChild(d)});
-  if(curCat!=='grammaticaux'){const d=document.createElement('div');d.className='let letsub';d.style.borderStyle='dashed';
-   d.innerHTML='<span class="fic">＋</span><span>'+esc(t('addFolder'))+'</span>';
-   d.onclick=()=>openFolderSheet(null);g.appendChild(d)}
+  const d=document.createElement('div');d.className='let letsub';d.style.borderStyle='dashed';
+  const pl=document.createElement('span');pl.className='fic addfb';pl.textContent='＋';d.appendChild(pl);
+  const lb=document.createElement('span');lb.textContent=t('addFolder');d.appendChild(lb);
+  d.onclick=()=>openFolderSheet(null);g.appendChild(d);
   return}
  AZ.forEach(L=>{
   const n=(store[L]||[]).length;
@@ -1469,7 +1501,7 @@ function openGames(){
   [['🧩','quiz'],['🎧','listenQuiz'],['🗣','rrTitle'],['🖼','imgQuiz']].map(x=>'<button class="btn" data-g="'+x[1]+'">'+x[0]+' '+esc(t(x[1]))+'</button>').join('')+'</div>';
  body.querySelectorAll('button[data-g]').forEach(b=>{b.onclick=()=>gPickCat(b.dataset.g)})}
 const catStore=id=>id==='verbes'?st.v:(st.c[id]||{});
-const catCount=id=>{const s=catStore(id);return Object.keys(s).reduce((a,L)=>a+(s[L]||[]).length,0)};
+const catCount=id=>{const s=catStore(id),cf=catFolders(id);return Object.keys(s).filter(L=>!cf||cf.some(f=>f.id===L)).reduce((a,L)=>a+(s[L]||[]).length,0)};
 function gPickCat(g){
  const body=$('quiz-body');if(!body)return;
  $('quiz-progress').textContent=t('games');
