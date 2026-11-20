@@ -49,6 +49,7 @@ main{padding:.7rem;max-width:640px;margin:0 auto;padding-bottom:5rem}
 .vcard{background:var(--card);border:1.5px solid var(--bd);border-radius:16px;padding:.6rem .65rem;margin-bottom:.6rem}
 .cvhead{display:flex;align-items:center;gap:.45rem;margin-bottom:.5rem}
 .cvnum{flex:none;min-width:26px;height:26px;padding:0 6px;border-radius:8px;background:var(--bg2);border:1px solid var(--bd);display:grid;place-items:center;font-size:.8rem;font-weight:800}
+.cvside{flex:none;display:flex;flex-direction:column;align-items:center;gap:.3rem}
 .cvtit{flex:1;min-width:0;font-weight:800;font-size:.95rem;line-height:1.25}
 .cvtit .cvtr{font-weight:600;color:var(--dim);font-size:.88em}
 .cvlvl{flex:none;padding:.18rem .5rem;border-radius:8px;font-size:.72rem;font-weight:900;color:#fff}
@@ -557,7 +558,8 @@ function renderLetter(){
  list.forEach((v,vi)=>{
   const c=document.createElement('div');c.className='vcard';
   const hd=document.createElement('div');hd.className='cvhead';
-  const nu=document.createElement('span');nu.className='cvnum';nu.textContent=(vi+1)+'.';hd.appendChild(nu);
+  const side=document.createElement('div');side.className='cvside';
+  const nu=document.createElement('span');nu.className='cvnum';nu.textContent=(vi+1)+'.';side.appendChild(nu);
   const tit=document.createElement('div');tit.className='cvtit';
   const vf=document.createElement('span');vf.className='vf w';vf.textContent=v.fr||'';let vlast=0;
   vf.onclick=e=>{e.stopPropagation();const now=Date.now();
@@ -570,7 +572,8 @@ function renderLetter(){
   hd.appendChild(tit);
   if(v.lvl){const lb=document.createElement('span');lb.className='cvlvl '+v.lvl;lb.textContent=v.lvl;hd.appendChild(lb)}
   const mn=document.createElement('button');mn.className='cvmini';mn.textContent='⋮';
-  mn.onclick=e=>{e.stopPropagation();openVerbMenu(v,mn,store)};hd.appendChild(mn);
+  mn.onclick=e=>{e.stopPropagation();openVerbMenu(v,mn,store)};side.appendChild(mn);
+  hd.appendChild(side);
   c.appendChild(hd);
   const img=document.createElement('img');img.className='cvimg';img.alt='';
   if(v.img){img.src='img/'+v.img}
