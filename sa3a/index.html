@@ -1018,14 +1018,20 @@ function startQuiz(n,qlang,alang){
    selFr.classList.remove('sel');selFr.classList.add('done');card.classList.add('done');solved++;
    speakPair(selFr.dataset.text,selFr.dataset.lang,card.dataset.text,card.dataset.lang,selFr,card);
    selFr=null;setProg();
-   if(solved===picks.length)setTimeout(()=>quizEnd(correct,wrong,n,qlang,alang),650)}
+   if(solved===picks.length)setTimeout(()=>quizEnd(correct,wrong,n,qlang,alang),650);
+   else if(!cols.querySelector('.qz-card:not(.done)'))setTimeout(deal,700)}
   else{wrong++;quizTone(false);card.classList.add('wrong');
    setTimeout(()=>card.classList.remove('wrong'),520);
    if(selFr){selFr.classList.remove('sel');selFr=null}}}
- const frOrder=quizShuffle(picks),tgOrder=quizShuffle(picks);
- for(let i=0;i<picks.length;i++){
-  const f=mkCard(frOrder[i],frOrder[i].q);f.onclick=()=>onCard(f,frOrder[i],f.dataset.lang,true);cols.appendChild(f);
-  const g=mkCard(tgOrder[i],tgOrder[i].a);g.onclick=()=>onCard(g,tgOrder[i],g.dataset.lang,false);cols.appendChild(g)}}
+ const B=8;let cursor=0;
+ function deal(){
+  cols.innerHTML='';selFr=null;
+  const batch=picks.slice(cursor,cursor+B);cursor+=batch.length;
+  const frOrder=quizShuffle(batch),tgOrder=quizShuffle(batch);
+  for(let i=0;i<batch.length;i++){
+   const f=mkCard(frOrder[i],frOrder[i].q);f.onclick=()=>onCard(f,frOrder[i],f.dataset.lang,true);cols.appendChild(f);
+   const g=mkCard(tgOrder[i],tgOrder[i].a);g.onclick=()=>onCard(g,tgOrder[i],g.dataset.lang,false);cols.appendChild(g)}}
+ deal()}
 function quizEnd(correct,wrong,n,qlang,alang){
  stopSay();
  const total=correct+wrong,pct=total?Math.round(correct/total*100):100;
