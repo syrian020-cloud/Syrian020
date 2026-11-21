@@ -1917,9 +1917,9 @@ function ring(a){
  const enTod=hr<12?'in the morning':hr<17?'in the afternoon':'in the evening';
  const enTime=mn?'It is '+h12+' '+(mn<10?'oh '+mn:''+mn)+' '+enTod:'It is '+h12+" o'clock "+enTod;
  const wtxt={
-  fr:'Bonjour ! '+frTimeDaily(hr,mn)+'. Nous sommes '+wd+' '+dayN+' '+mo+". C'est l'heure de se réveiller ! Bonne journée et bon courage !",
-  ar:'صباح الخير! الساعة '+h12+(mn?' و '+mn+' دقيقة':' تمامًا')+(hr<12?' صباحًا. ':' مساءً. ')+'اليوم '+wd+'، '+dayN+' '+mo+'. حان وقت الاستيقاظ! أتمنى لك نهارًا سعيدًا، وبالتوفيق!',
-  en:'Good morning! '+enTime+'. Today is '+wd+', '+mo+' '+enOrd(dayN)+". It's time to wake up! Have a great day, and good luck!"};
+  fr:(hr<18?'Bonjour ! ':'Bonsoir ! ')+frTimeDaily(hr,mn)+'. Nous sommes '+wd+' '+dayN+' '+mo+". C'est l'heure de votre alarme !"+(hr<12?" Bonne journée et bon courage !":" Excellente journée !"),
+  ar:(hr<12?'صباح الخير! ':'مساء الخير! ')+'الساعة '+h12+(mn?' و '+mn+' دقيقة':' تمامًا')+(hr<12?' صباحًا. ':' مساءً. ')+'اليوم '+wd+'، '+dayN+' '+mo+'. '+(hr<12?'حان وقت الاستيقاظ! أتمنى لك نهارًا سعيدًا، وبالتوفيق!':'حان وقت التنبيه! أتمنى لك يومًا سعيدًا!'),
+  en:(hr<12?'Good morning! ':hr<17?'Good afternoon! ':'Good evening! ')+enTime+'. Today is '+wd+', '+mo+' '+enOrd(dayN)+". Your alarm is ringing!"+(hr<12?" Have a great day, and good luck!":"")};
  (async()=>{for(let i=0;i<3&&ringCard._sp&&$('ringShade').classList.contains('on');i++){await sayOnce(wtxt[wl],wl)}ringCard._sp=false})()
  if(!a.days||!a.days.length){a.on=false;save();renderAlarms();rescheduleAll()}
 }
