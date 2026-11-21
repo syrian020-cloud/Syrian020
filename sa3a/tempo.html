@@ -314,9 +314,7 @@ body:not(.light) .toast{background:#2a2e55}
           <button data-lang="en">EN</button>
         </div>
         <button class="icon-btn" id="btn-theme" title="☀️/🌙">🌙</button>
-        <button class="icon-btn" id="btn-menu" title="⋮">⋮</button>
       </div>
-      <div class="menuwrap"><div class="menu hidden" id="top-menu"></div></div>
     </header>
 
     <div id="hdrart"></div>
@@ -1545,35 +1543,6 @@ function importData(){
   inp.click();
 }
 
-/* ==================== top menu ==================== */
-async function renderMenu(){
-  const m=$('#top-menu');
-  let notifOn=false;
-  const p=LN();
-  if(p){try{const r=await p.checkPermissions();notifOn=r&&r.display==='granted';}catch(e){}}
-  else if('Notification' in window)notifOn=Notification.permission==='granted';
-  m.innerHTML=`
-    <button data-tm="export">${t('menuExport')}</button>
-    <button data-tm="expsel">${t('menuExpSel')}</button>
-    <button data-tm="import">${t('menuImport')}</button>
-    <button data-tm="voice">${t('menuVoice')}</button>
-    <button data-tm="plan">${t('menuPlan')}</button>
-    <button data-tm="notif">${notifOn?t('menuNotifOn'):t('menuNotifOff')}</button>`;
-  m.querySelectorAll('[data-tm]').forEach(b=>b.onclick=async()=>{
-    m.classList.add('hidden');
-    const k=b.dataset.tm;
-    if(k==='export')exportData();
-    else if(k==='expsel')enterSelectMode();
-    else if(k==='import')importData();
-    else if(k==='plan')openPlan();
-    else if(k==='voice'&&window.EdgeTTS)window.EdgeTTS.openSettings();
-    else if(k==='notif'){
-      if(p){try{await p.requestPermissions();await rescheduleAll();renderMenu();}catch(e){}}
-      else if('Notification' in window){try{await Notification.requestPermission();}catch(e){}}
-    }
-  });
-}
-
 /* ==================== selection export ==================== */
 function enterSelectMode(){
   if(!appts.length){toast(t('selNone'));return;}
@@ -1833,7 +1802,7 @@ function renderAll(){applyLang();
 /* ==================== events ==================== */
 document.querySelectorAll('.langs button').forEach(b=>b.onclick=()=>{
   lang=b.dataset.lang;try{localStorage.setItem(LS_LANG,lang);const s=JSON.parse(localStorage.getItem('sa3a')||'{}');s.lang=lang;localStorage.setItem('sa3a',JSON.stringify(s));}catch(e){}
-  if(view==='detail')renderDetail();else if(view==='plan')renderPlan();else renderAll();renderMenu();
+  if(view==='detail')renderDetail();else if(view==='plan')renderPlan();else renderAll();
 });
 $('#btn-plan').onclick=()=>openPlan();
 $('#q').addEventListener('input',e=>{query=e.target.value;renderList();});
@@ -1867,10 +1836,9 @@ $('#list').addEventListener('click',e=>{
     renderList();renderSelBar();return;}
   openDetail(card.dataset.id);
 });
-$('#btn-menu').onclick=async e=>{e.stopPropagation();await renderMenu();$('#top-menu').classList.toggle('hidden');};
 $('#btn-theme').onclick=()=>applyTheme(document.body.classList.contains('light')?'dark':'light');
 document.addEventListener('click',e=>{
-  if(!e.target.closest('.menuwrap')&&!e.target.closest('#top-menu')&&!e.target.closest('#btn-menu'))
+  if(!e.target.closest('.menuwrap'))
     document.querySelectorAll('.menu').forEach(m=>m.classList.add('hidden'));
 });
 $('#ov-form').addEventListener('click',e=>{if(e.target.id==='ov-form')$('#ov-form').classList.add('hidden');});
@@ -1898,7 +1866,7 @@ if(window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.App){
 setInterval(()=>{if(view==='list'){renderNext();renderList();}},60000);
 
 /* ==================== init ==================== */
-load();renderAll();renderMenu();
+load();renderAll();
 if('serviceWorker' in navigator&&!isCap()){try{navigator.serviceWorker.register('sw-tempo.js');}catch(e){}}
 rescheduleAll();
 if(location.hash==='#plan')openPlan();
