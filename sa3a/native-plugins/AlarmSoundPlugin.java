@@ -167,7 +167,7 @@ public class AlarmSoundPlugin extends Plugin {
 
     /* ---------- native alarm-clock scheduling (rings over lock screen) ---------- */
 
-    static void scheduleNativeOccurrence(Context ctx, int req, long at, int alarmId, String label) {
+    static void scheduleNativeOccurrence(Context ctx, int req, long at, int alarmId, String label, String sound, boolean vib) {
         AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
         if (am == null) return;
         android.content.Intent i = new android.content.Intent(ctx, AlarmReceiver.class);
@@ -175,13 +175,15 @@ public class AlarmSoundPlugin extends Plugin {
         i.putExtra(AlarmReceiver.EXTRA_RING, alarmId);
         i.putExtra("req", req);
         i.putExtra("label", label);
+        i.putExtra("sound", sound);
+        i.putExtra("vib", vib);
         android.app.PendingIntent op = android.app.PendingIntent.getBroadcast(
                 ctx, req, i, android.app.PendingIntent.FLAG_UPDATE_CURRENT | android.app.PendingIntent.FLAG_IMMUTABLE);
         android.content.Intent show = new android.content.Intent(ctx, MainActivity.class);
         android.app.PendingIntent showPi = android.app.PendingIntent.getActivity(
                 ctx, 0, show, android.app.PendingIntent.FLAG_UPDATE_CURRENT | android.app.PendingIntent.FLAG_IMMUTABLE);
         am.setAlarmClock(new AlarmManager.AlarmClockInfo(at, showPi), op);
-        AlarmReceiver.ledger(ctx, req, at, alarmId, label);
+        AlarmReceiver.ledger(ctx, req, at, alarmId, label, sound, vib);
     }
 
     @PluginMethod
@@ -190,9 +192,11 @@ public class AlarmSoundPlugin extends Plugin {
         Long at = call.getLong("at");
         Integer alarmId = call.getInt("alarmId");
         String label = call.getString("label", "");
+        String sound = call.getString("sound", "");
+        boolean vib = call.getBoolean("vib", true);
         if (req == null || at == null || alarmId == null) { call.reject("missing args"); return; }
         try {
-            scheduleNativeOccurrence(getContext(), req, at, alarmId, label);
+            scheduleNativeOccurrence(getContext(), req, at, alarmId, label, sound, vib);
             call.resolve();
         } catch (Exception e) {
             call.reject("schedule failed: " + e.getMessage(), e);
@@ -226,6 +230,19 @@ public class AlarmSoundPlugin extends Plugin {
         super.handleOnNewIntent(intent);
         if (intent != null && intent.hasExtra(AlarmReceiver.EXTRA_RING))
             pendingRingId = intent.getIntExtra(AlarmReceiver.EXTRA_RING, -1);
+    }
+
+    @PluginMethod
+    public void stopNativeRing(PluginCall call) {
+        AlarmRingService.stopRing(getContext());
+        call.resolve();
+    }
+
+    @PluginMethod
+    public void nativeRingState(PluginCall call) {
+        JSObject ret = new JSObject();
+        ret.put("alarmId", AlarmRingService.ringingId);
+        call.resolve(ret);
     }
 
     @PluginMethod

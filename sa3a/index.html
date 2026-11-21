@@ -1805,6 +1805,10 @@ function nextTimes(a){
  }
  return out;
 }
+function nativeSound(a){
+ if(a.sound==='custom')return(st.custom&&st.custom.uri)||'';
+ if(a.sound&&a.sound!=='default'){const f=TONE(a.sound).file;return f?('asset:'+f):''}
+ return ''}
 async function cancelNative(a){
  if(!isCap()||!AS())return;
  for(let i=0;i<7;i++)try{await AS().cancelNative({req:a.id*10+i})}catch(e){}
@@ -1816,7 +1820,7 @@ async function scheduleAlarm(a){
   try{
    await cancelNative(a);
    for(let i=0;i<times.length;i++)
-    await AS().scheduleNative({req:a.id*10+i,at:times[i].getTime(),alarmId:a.id,label:(a.label||t('newAlarm'))+' '+pad(a.hh)+':'+pad(a.mm)});
+    await AS().scheduleNative({req:a.id*10+i,at:times[i].getTime(),alarmId:a.id,label:(a.label||t('newAlarm'))+' '+pad(a.hh)+':'+pad(a.mm),sound:nativeSound(a),vib:a.vib!==false});
   }catch(e){console.warn('nativeSched',e)}
  }
  const p=LN();if(!p)return;
@@ -1890,8 +1894,11 @@ function ring(a){
  $('ringLabel').textContent=a.label||t('newAlarm');
  $('ringStop').textContent=t('ringSolve');$('ringSnooze').textContent=t('ringSnooze');
  $('ringShade').classList.add('on');
- const au=$('ringAudio');au.src=soundURL(a);au.loop=true;au.play().catch(()=>{});
- clearInterval(ringCard._vi);if(a.vib!==false&&navigator.vibrate){const vib=()=>{if(!$('ringShade').classList.contains('on')){clearInterval(ringCard._vi);navigator.vibrate(0);return}navigator.vibrate([600,300,600,300])};vib();ringCard._vi=setInterval(vib,1800)}
+ const startAV=()=>{const au=$('ringAudio');au.src=soundURL(a);au.loop=true;au.play().catch(()=>{});
+  clearInterval(ringCard._vi);if(a.vib!==false&&navigator.vibrate){const vib=()=>{if(!$('ringShade').classList.contains('on')){clearInterval(ringCard._vi);navigator.vibrate(0);return}navigator.vibrate([600,300,600,300])};vib();ringCard._vi=setInterval(vib,1800)}};
+ if(isCap()&&AS()&&AS().nativeRingState)
+  AS().nativeRingState().then(r=>{if(!(r&&r.alarmId===a.id))startAV()}).catch(()=>startAV());
+ else startAV();
  ringCard._sp=true;const d=new Date(),hr=d.getHours(),mn=d.getMinutes(),h12=hr%12||12;
  const wl=st.lang==='ar'?'ar':st.lang==='fr'?'fr':'en';
  const loc=wl==='ar'?'ar':wl==='fr'?'fr-FR':'en-US';
@@ -1908,7 +1915,8 @@ function ring(a){
  (async()=>{for(let i=0;i<3&&ringCard._sp&&$('ringShade').classList.contains('on');i++){await sayOnce(wtxt[wl],wl)}ringCard._sp=false})()
  if(!a.days||!a.days.length){a.on=false;save();renderAlarms();rescheduleAll()}
 }
-function stopRing(){$('ringShade').classList.remove('on');ringCard._sp=false;stopSay();const au=$('ringAudio');au.pause();au.src='';clearInterval(ringCard._vi);navigator.vibrate&&navigator.vibrate(0)}
+function stopRing(){$('ringShade').classList.remove('on');ringCard._sp=false;stopSay();const au=$('ringAudio');au.pause();au.src='';clearInterval(ringCard._vi);navigator.vibrate&&navigator.vibrate(0);
+ try{if(isCap()&&AS()&&AS().stopNativeRing)AS().stopNativeRing()}catch(e){}}
 function startChallenge(){
  const all=[];const walk=ks=>ks.forEach(k=>{if(k.t==='l'&&gPool(k).length>=2)all.push(k);else if(k.kids)walk(k.kids)});
  walk(st.lessons);

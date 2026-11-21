@@ -37,6 +37,7 @@ PLUGIN_DIR="android/app/src/main/java/com/syrian020/sa3a"
 mkdir -p "$PLUGIN_DIR"
 cp native-plugins/AlarmSoundPlugin.java "$PLUGIN_DIR/"
 cp native-plugins/AlarmReceiver.java "$PLUGIN_DIR/"
+cp native-plugins/AlarmRingService.java "$PLUGIN_DIR/"
 cp native-plugins/TtsPlugin.java "$PLUGIN_DIR/"
 cp native-plugins/Sa3aWallpaperService.java "$PLUGIN_DIR/"
 mkdir -p "android/app/src/main/java/com/syrian020/tts"
@@ -75,6 +76,16 @@ rcv='''    <receiver android:name=".AlarmReceiver" android:exported="true">
     </receiver>
 '''
 s=s.replace('</application>',rcv+'    </application>')
+open(p,'w').write(s)
+PY
+fi
+if [ -f "$MANIFEST" ] && ! grep -q 'AlarmRingService' "$MANIFEST"; then
+  python3 - "$MANIFEST" <<'PY'
+import sys
+p=sys.argv[1];s=open(p).read()
+svc='''    <service android:name=".AlarmRingService" android:exported="false" android:foregroundServiceType="mediaPlayback" />
+'''
+s=s.replace('</application>',svc+'    </application>')
 open(p,'w').write(s)
 PY
 fi
@@ -120,6 +131,12 @@ if [ -f "$MANIFEST" ]; then
     sed -i 's|<uses-permission|<uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />\n    <uses-permission|' "$MANIFEST"
   grep -q 'android.permission.VIBRATE' "$MANIFEST" || \
     sed -i 's|<uses-permission|<uses-permission android:name="android.permission.VIBRATE" />\n    <uses-permission|' "$MANIFEST"
+  grep -q 'FOREGROUND_SERVICE_MEDIA_PLAYBACK' "$MANIFEST" || \
+    sed -i 's|<uses-permission|<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />\n    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />\n    <uses-permission|' "$MANIFEST"
+  grep -q 'android.permission.WAKE_LOCK' "$MANIFEST" || \
+    sed -i 's|<uses-permission|<uses-permission android:name="android.permission.WAKE_LOCK" />\n    <uses-permission|' "$MANIFEST"
+  grep -q 'android.permission.POST_NOTIFICATIONS' "$MANIFEST" || \
+    sed -i 's|<uses-permission|<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />\n    <uses-permission|' "$MANIFEST"
   grep -q 'ACCESS_FINE_LOCATION' "$MANIFEST" || \
     sed -i 's|<uses-permission|<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />\n    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />\n    <uses-permission|' "$MANIFEST"
 fi
