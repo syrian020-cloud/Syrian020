@@ -167,7 +167,7 @@ public class AlarmSoundPlugin extends Plugin {
 
     /* ---------- native alarm-clock scheduling (rings over lock screen) ---------- */
 
-    static void scheduleNativeOccurrence(Context ctx, int req, long at, int alarmId, String label, String sound, boolean vib) {
+    static void scheduleNativeOccurrence(Context ctx, int req, long at, long alarmId, String label, String sound, boolean vib) {
         AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
         if (am == null) return;
         android.content.Intent i = new android.content.Intent(ctx, AlarmReceiver.class);
@@ -190,7 +190,7 @@ public class AlarmSoundPlugin extends Plugin {
     public void scheduleNative(PluginCall call) {
         Integer req = call.getInt("req");
         Long at = call.getLong("at");
-        Integer alarmId = call.getInt("alarmId");
+        Long alarmId = call.getLong("alarmId");
         String label = call.getString("label", "");
         String sound = call.getString("sound", "");
         boolean vib = call.getBoolean("vib", true);
@@ -223,13 +223,13 @@ public class AlarmSoundPlugin extends Plugin {
     }
 
     /** Reads and clears the alarm id the app was opened with (full-screen intent). */
-    private Integer pendingRingId = null;
+    private Long pendingRingId = null;
 
     @Override
     protected void handleOnNewIntent(android.content.Intent intent) {
         super.handleOnNewIntent(intent);
         if (intent != null && intent.hasExtra(AlarmReceiver.EXTRA_RING))
-            pendingRingId = intent.getIntExtra(AlarmReceiver.EXTRA_RING, -1);
+            pendingRingId = intent.getLongExtra(AlarmReceiver.EXTRA_RING, -1);
     }
 
     @PluginMethod
@@ -286,7 +286,7 @@ public class AlarmSoundPlugin extends Plugin {
                 ret.put("alarmId", pendingRingId);
                 pendingRingId = null;
             } else if (in != null && in.hasExtra(AlarmReceiver.EXTRA_RING)) {
-                ret.put("alarmId", in.getIntExtra(AlarmReceiver.EXTRA_RING, -1));
+                ret.put("alarmId", in.getLongExtra(AlarmReceiver.EXTRA_RING, -1));
                 in.removeExtra(AlarmReceiver.EXTRA_RING);
             }
             call.resolve(ret);

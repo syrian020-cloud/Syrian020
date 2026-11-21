@@ -31,7 +31,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         }
         if (!"com.syrian020.sa3a.NATIVE_ALARM".equals(action)) return;
 
-        int alarmId = intent.getIntExtra(EXTRA_RING, -1);
+        long alarmId = intent.getLongExtra(EXTRA_RING, -1);
         String label = intent.getStringExtra("label");
         if (label == null) label = "";
 
@@ -59,7 +59,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     }
 
     /** Fallback when the ring service can't be started: full-screen intent only. */
-    private void postFullScreen(Context ctx, int alarmId, String label) {
+    private void postFullScreen(Context ctx, long alarmId, String label) {
         NotificationManager nm = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
         if (nm == null) return;
         if (Build.VERSION.SDK_INT >= 26) {
@@ -72,7 +72,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         Intent open = new Intent(ctx, MainActivity.class);
         open.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         open.putExtra(EXTRA_RING, alarmId);
-        PendingIntent fullScreen = PendingIntent.getActivity(ctx, alarmId, open,
+        PendingIntent fullScreen = PendingIntent.getActivity(ctx, (int)(Math.abs(alarmId) % 1000000), open,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         Notification n = new Notification.Builder(ctx, Build.VERSION.SDK_INT >= 26 ? CHANNEL : null)
                 .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
@@ -85,15 +85,15 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setAutoCancel(true)
                 .setOngoing(true)
                 .build();
-        nm.notify(900000 + Math.max(0, alarmId), n);
+        nm.notify(900000 + (int)(Math.abs(alarmId) % 100000), n);
     }
 
     /** Persist every scheduled occurrence so alarms survive reboot. */
-    static void ledger(Context ctx, int req, long at, int alarmId, String label, String sound, boolean vib) {
+    static void ledger(Context ctx, int req, long at, long alarmId, String label, String sound, boolean vib) {
         SharedPreferences p = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
         SharedPreferences.Editor e = p.edit();
         e.putLong("t_" + req, at);
-        e.putInt("i_" + req, alarmId);
+        e.putLong("i_" + req, alarmId);
         e.putString("l_" + req, label == null ? "" : label);
         e.putString("s_" + req, sound == null ? "" : sound);
         e.putBoolean("v_" + req, vib);
@@ -116,7 +116,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             int req = Integer.parseInt(k.substring(2));
             long at = p.getLong(k, -1);
             if (at <= now) { removeOccurrence(ctx, req); continue; }
-            AlarmSoundPlugin.scheduleNativeOccurrence(ctx, req, at, p.getInt("i_" + req, 0),
+            AlarmSoundPlugin.scheduleNativeOccurrence(ctx, req, at, p.getLong("i_" + req, 0),
                     p.getString("l_" + req, ""), p.getString("s_" + req, ""), p.getBoolean("v_" + req, true));
         }
         if (am != null) { /* am used inside scheduleNativeOccurrence */ }

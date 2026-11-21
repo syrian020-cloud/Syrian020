@@ -3142,6 +3142,11 @@ async function consumeRing(){
   const r=await AS().consumeRingIntent();
   const id=r&&r.alarmId;
   if(id==null)return;
+  if(id<0){ // tempo appointment: hand off to its ring screen
+   const b=-id-1,ap=tempoAppts().find(x=>tempoNidBase(x.id)===b);
+   try{await AS().stopNativeRing()}catch(e){}
+   if(ap){tempoRing(ap.id);return}
+  }
   const a=st.alarms.find(x=>x.id===id);
   if(a)setTimeout(()=>{try{ring(a)}catch(e){}},300);
  }catch(e){}

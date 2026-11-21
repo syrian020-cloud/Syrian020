@@ -924,7 +924,10 @@ function toggleCueLoopAll(btn,i){
 function LN(){return window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.LocalNotifications;}
 function nidBase(id){let h=0;for(const c of id)h=(h*31+c.charCodeAt(0))%1000000;return h*10;}
 async function cancelReminders(a){
-  const p=LN();if(!p)return;
+  const p=LN();
+  try{const AS=window.Capacitor&&Capacitor.Plugins&&Capacitor.Plugins.AlarmSound;
+    if(AS&&AS.cancelNative)await AS.cancelNative({req:nidBase(a.id)+4});}catch(e){}
+  if(!p)return;
   try{const b=nidBase(a.id);await p.cancel({notifications:[{id:b},{id:b+1},{id:b+2},{id:b+3}]});}catch(e){}
 }
 async function ensureChannel(){
@@ -954,6 +957,10 @@ async function scheduleReminders(a){
       if(at>Date.now()+15e3)list.push({id:b+i,title:t('notifTitle'),body:bodies[i](a.title),channelId:'tempo-alerts-v2',sound:'tempo_alert',schedule:{at:new Date(at),allowWhileIdle:true}});
     });
     if(list.length)await p.schedule({notifications:list});
+    try{const AS=window.Capacitor&&Capacitor.Plugins&&Capacitor.Plugins.AlarmSound;
+      if(AS&&AS.scheduleNative)
+        await AS.scheduleNative({req:b+4,at:when,alarmId:-(b+1),label:a.title||t('notifTitle'),sound:'asset:sounds/alarm_beep.mp3',vib:true});
+    }catch(e){}
   }catch(e){console.error('schedule',e);}
 }
 try{

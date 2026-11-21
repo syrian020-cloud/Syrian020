@@ -32,7 +32,7 @@ public class AlarmRingService extends Service {
 
     static final String ACTION_RING = "com.syrian020.sa3a.RING";
     static final String ACTION_STOP = "com.syrian020.sa3a.STOP_RING";
-    static volatile int ringingId = -1;
+    static volatile long ringingId = Long.MIN_VALUE;
 
     private MediaPlayer mp;
     private Vibrator vib;
@@ -48,7 +48,7 @@ public class AlarmRingService extends Service {
             shutdown();
             return START_NOT_STICKY;
         }
-        int alarmId = intent.getIntExtra(AlarmReceiver.EXTRA_RING, -1);
+        long alarmId = intent.getLongExtra(AlarmReceiver.EXTRA_RING, -1);
         String label = intent.getStringExtra("label");
         if (label == null || label.isEmpty()) label = "Alarm";
         String sound = intent.getStringExtra("sound");
@@ -63,7 +63,7 @@ public class AlarmRingService extends Service {
         return START_STICKY;
     }
 
-    private void postForeground(int alarmId, String label) {
+    private void postForeground(long alarmId, String label) {
         NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= 26) {
             NotificationChannel ch = new NotificationChannel(AlarmReceiver.CHANNEL, "Sa3a Alarms", NotificationManager.IMPORTANCE_HIGH);
@@ -76,12 +76,12 @@ public class AlarmRingService extends Service {
         Intent open = new Intent(this, MainActivity.class);
         open.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         open.putExtra(AlarmReceiver.EXTRA_RING, alarmId);
-        PendingIntent fullScreen = PendingIntent.getActivity(this, alarmId, open,
+        PendingIntent fullScreen = PendingIntent.getActivity(this, (int)(Math.abs(alarmId) % 1000000), open,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
         Intent stop = new Intent(this, AlarmRingService.class);
         stop.setAction(ACTION_STOP);
-        PendingIntent stopPi = PendingIntent.getService(this, alarmId + 1, stop,
+        PendingIntent stopPi = PendingIntent.getService(this, (int)(Math.abs(alarmId) % 1000000) + 1, stop,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
         Notification n = new Notification.Builder(this, Build.VERSION.SDK_INT >= 26 ? AlarmReceiver.CHANNEL : null)
@@ -96,7 +96,7 @@ public class AlarmRingService extends Service {
                 .addAction(0, "⏹ إيقاف · Stop · Arrêter", stopPi)
                 .build();
 
-        int nid = 900000 + Math.max(0, alarmId);
+        int nid = 900000 + (int)(Math.abs(alarmId) % 100000);
         try {
             if (Build.VERSION.SDK_INT >= 29)
                 startForeground(nid, n, ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK);
@@ -159,7 +159,7 @@ public class AlarmRingService extends Service {
     }
 
     private void shutdown() {
-        ringingId = -1;
+        ringingId = Long.MIN_VALUE;
         handler.removeCallbacksAndMessages(null);
         try { if (mp != null) { mp.stop(); mp.release(); } } catch (Exception ignored) { }
         mp = null;
@@ -173,7 +173,7 @@ public class AlarmRingService extends Service {
 
     /** Called by the plugin when the user dismisses/snoozes in the UI. */
     static void stopRing(Context ctx) {
-        if (ringingId < 0) return;
+        if (ringingId == Long.MIN_VALUE) return;
         Intent i = new Intent(ctx, AlarmRingService.class);
         i.setAction(ACTION_STOP);
         try { ctx.startService(i); } catch (Exception ignored) { }
