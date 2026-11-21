@@ -20,6 +20,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     static final String PREFS = "sa3a_native_alarms";
     static final String CHANNEL = "sa3a_fullscreen";
+    static final String CHANNEL_FB = "sa3a_fullscreen_fb";
     static final String EXTRA_RING = "sa3a_ring";
 
     @Override
@@ -58,13 +59,19 @@ public class AlarmReceiver extends BroadcastReceiver {
         if (!started) postFullScreen(ctx, alarmId, label);
     }
 
-    /** Fallback when the ring service can't be started: full-screen intent only. */
+    /** Fallback when the ring service can't be started: loud full-screen alert. */
     private void postFullScreen(Context ctx, long alarmId, String label) {
         NotificationManager nm = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
         if (nm == null) return;
         if (Build.VERSION.SDK_INT >= 26) {
-            NotificationChannel ch = new NotificationChannel(CHANNEL, "Sa3a Alarms", NotificationManager.IMPORTANCE_HIGH);
-            ch.setSound(null, null);
+            NotificationChannel ch = new NotificationChannel(CHANNEL_FB, "Sa3a Alarm Alerts", NotificationManager.IMPORTANCE_HIGH);
+            android.media.AudioAttributes attr = new android.media.AudioAttributes.Builder()
+                    .setUsage(android.media.AudioAttributes.USAGE_ALARM)
+                    .setContentType(android.media.AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .build();
+            ch.setSound(android.provider.Settings.System.DEFAULT_ALARM_ALERT_URI, attr);
+            ch.enableVibration(true);
+            ch.setVibrationPattern(new long[]{0, 600, 300, 600, 300});
             ch.setBypassDnd(true);
             ch.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
             nm.createNotificationChannel(ch);
@@ -74,7 +81,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         open.putExtra(EXTRA_RING, alarmId);
         PendingIntent fullScreen = PendingIntent.getActivity(ctx, (int)(Math.abs(alarmId) % 1000000), open,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-        Notification n = new Notification.Builder(ctx, Build.VERSION.SDK_INT >= 26 ? CHANNEL : null)
+        Notification n = new Notification.Builder(ctx, Build.VERSION.SDK_INT >= 26 ? CHANNEL_FB : null)
                 .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
                 .setContentTitle(label.isEmpty() ? "Alarm" : label)
                 .setContentText("⏰")

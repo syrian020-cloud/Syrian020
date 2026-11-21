@@ -937,10 +937,16 @@ async function ensureChannel(){
     importance:5,visibility:1,lights:true,vibration:true,sound:'tempo_alert'});}catch(e){}
 }
 async function scheduleReminders(a){
-  const p=LN();if(!p)return;
   await cancelReminders(a);
   if(a.status!=='upcoming')return;
   const when=apptTime(a);if(!when||when<=Date.now())return;
+  const b=nidBase(a.id);
+  // native loud ring — independent of notification permission
+  try{const AS=window.Capacitor&&Capacitor.Plugins&&Capacitor.Plugins.AlarmSound;
+    if(AS&&AS.scheduleNative)
+      await AS.scheduleNative({req:b+4,at:when,alarmId:-(b+1),label:a.title||t('notifTitle'),sound:'asset:sounds/alarm_beep.mp3',vib:true});
+  }catch(e){}
+  const p=LN();if(!p)return;
   try{
     const perm=await p.requestPermissions();
     if(!perm||perm.display!=='granted')return;
@@ -951,16 +957,12 @@ async function scheduleReminders(a){
     await ensureChannel();
     const offs=[0,2*3600e3,12*3600e3,24*3600e3];
     const bodies=[t('notifBody0'),t('notifBody2'),t('notifBody12'),t('notifBody24')];
-    const b=nidBase(a.id);const list=[];
+    const list=[];
     offs.forEach((o,i)=>{
       const at=when-o;
       if(at>Date.now()+15e3)list.push({id:b+i,title:t('notifTitle'),body:bodies[i](a.title),channelId:'tempo-alerts-v2',sound:'tempo_alert',schedule:{at:new Date(at),allowWhileIdle:true}});
     });
     if(list.length)await p.schedule({notifications:list});
-    try{const AS=window.Capacitor&&Capacitor.Plugins&&Capacitor.Plugins.AlarmSound;
-      if(AS&&AS.scheduleNative)
-        await AS.scheduleNative({req:b+4,at:when,alarmId:-(b+1),label:a.title||t('notifTitle'),sound:'asset:sounds/alarm_beep.mp3',vib:true});
-    }catch(e){}
   }catch(e){console.error('schedule',e);}
 }
 try{

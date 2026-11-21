@@ -134,8 +134,34 @@ public class AlarmRingService extends Service {
         } catch (Exception e) {
             try { if (mp != null) mp.release(); } catch (Exception ignored) { }
             mp = null;
+            // last resorts: plain MediaPlayer on the system alarm tone, then Ringtone
+            try {
+                mp = new MediaPlayer();
+                mp.setAudioAttributes(new AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_ALARM)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                        .build());
+                mp.setDataSource(this, Settings.System.DEFAULT_ALARM_ALERT_URI);
+                mp.setLooping(true);
+                mp.prepare();
+                mp.start();
+            } catch (Exception e2) {
+                try { if (mp != null) mp.release(); } catch (Exception ignored) { }
+                mp = null;
+                try {
+                    android.media.Ringtone r = android.media.RingtoneManager.getRingtone(
+                            this, Settings.System.DEFAULT_ALARM_ALERT_URI);
+                    if (r != null) {
+                        if (Build.VERSION.SDK_INT >= 28)
+                            r.setLooping(true);
+                        r.play();
+                        ringtone = r;
+                    }
+                } catch (Exception ignored) { }
+            }
         }
     }
+    private android.media.Ringtone ringtone;
 
     private void startVibrate(boolean on) {
         if (!on) return;
@@ -163,6 +189,8 @@ public class AlarmRingService extends Service {
         handler.removeCallbacksAndMessages(null);
         try { if (mp != null) { mp.stop(); mp.release(); } } catch (Exception ignored) { }
         mp = null;
+        try { if (ringtone != null) { ringtone.stop(); } } catch (Exception ignored) { }
+        ringtone = null;
         try { if (vib != null) vib.cancel(); } catch (Exception ignored) { }
         vib = null;
         try { if (wl != null && wl.isHeld()) wl.release(); } catch (Exception ignored) { }

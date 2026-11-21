@@ -186,11 +186,28 @@ public class AlarmSoundPlugin extends Plugin {
         AlarmReceiver.ledger(ctx, req, at, alarmId, label, sound, vib);
     }
 
+    /** Reads a numeric arg no matter how the JSON bridge stored it (Integer/Long/Double). */
+    private static Long numLong(PluginCall call, String name) {
+        Long v = call.getLong(name);
+        if (v != null) return v;
+        Double d = call.getDouble(name);
+        return d == null ? null : d.longValue();
+    }
+
+    private static Integer numInt(PluginCall call, String name) {
+        Integer v = call.getInt(name);
+        if (v != null) return v;
+        Double d = call.getDouble(name);
+        if (d != null) return d.intValue();
+        Long l = call.getLong(name);
+        return l == null ? null : l.intValue();
+    }
+
     @PluginMethod
     public void scheduleNative(PluginCall call) {
-        Integer req = call.getInt("req");
-        Long at = call.getLong("at");
-        Long alarmId = call.getLong("alarmId");
+        Integer req = numInt(call, "req");
+        Long at = numLong(call, "at");
+        Long alarmId = numLong(call, "alarmId");
         String label = call.getString("label", "");
         String sound = call.getString("sound", "");
         boolean vib = call.getBoolean("vib", true);
@@ -205,7 +222,7 @@ public class AlarmSoundPlugin extends Plugin {
 
     @PluginMethod
     public void cancelNative(PluginCall call) {
-        Integer req = call.getInt("req");
+        Integer req = numInt(call, "req");
         if (req == null) { call.reject("missing req"); return; }
         try {
             Context ctx = getContext();
