@@ -233,6 +233,38 @@ public class AlarmSoundPlugin extends Plugin {
     }
 
     @PluginMethod
+    public void nativeDebug(PluginCall call) {
+        Context ctx = getContext();
+        JSObject ret = new JSObject();
+        try {
+            if (Build.VERSION.SDK_INT >= 31) {
+                AlarmManager am = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
+                ret.put("canSchedule", am.canScheduleExactAlarms());
+            } else ret.put("canSchedule", true);
+            NotificationManager nm = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+            ret.put("notif", nm.areNotificationsEnabled());
+            if (Build.VERSION.SDK_INT >= 34) ret.put("fsi", nm.canUseFullScreenIntent());
+            else ret.put("fsi", true);
+            android.content.SharedPreferences p = ctx.getSharedPreferences(AlarmReceiver.PREFS, Context.MODE_PRIVATE);
+            int n = 0; long next = -1;
+            for (java.util.Map.Entry<String, ?> e : p.getAll().entrySet()) {
+                if (!e.getKey().startsWith("t_")) continue;
+                n++;
+                long at = (Long) e.getValue();
+                if (at > System.currentTimeMillis() && (next < 0 || at < next)) next = at;
+            }
+            ret.put("native", n);
+            ret.put("nextAt", next);
+            ret.put("ringing", AlarmRingService.ringingId);
+            ret.put("sdk", Build.VERSION.SDK_INT);
+        } catch (Exception e) {
+            call.reject("debug failed: " + e.getMessage(), e);
+            return;
+        }
+        call.resolve(ret);
+    }
+
+    @PluginMethod
     public void stopNativeRing(PluginCall call) {
         AlarmRingService.stopRing(getContext());
         call.resolve();

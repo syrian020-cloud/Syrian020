@@ -52,6 +52,9 @@ public class AlarmReceiver extends BroadcastReceiver {
             else ctx.startService(svc);
             started = true;
         } catch (Exception ignored) { }
+        if (!started) {
+            try { ctx.startService(svc); started = true; } catch (Exception ignored) { }
+        }
         if (!started) postFullScreen(ctx, alarmId, label);
     }
 
