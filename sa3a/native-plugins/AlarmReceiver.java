@@ -46,10 +46,43 @@ public class AlarmReceiver extends BroadcastReceiver {
         svc.putExtra("label", label);
         svc.putExtra("sound", intent.getStringExtra("sound"));
         svc.putExtra("vib", intent.getBooleanExtra("vib", true));
+        boolean started = false;
         try {
             if (Build.VERSION.SDK_INT >= 26) ctx.startForegroundService(svc);
             else ctx.startService(svc);
+            started = true;
         } catch (Exception ignored) { }
+        if (!started) postFullScreen(ctx, alarmId, label);
+    }
+
+    /** Fallback when the ring service can't be started: full-screen intent only. */
+    private void postFullScreen(Context ctx, int alarmId, String label) {
+        NotificationManager nm = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (nm == null) return;
+        if (Build.VERSION.SDK_INT >= 26) {
+            NotificationChannel ch = new NotificationChannel(CHANNEL, "Sa3a Alarms", NotificationManager.IMPORTANCE_HIGH);
+            ch.setSound(null, null);
+            ch.setBypassDnd(true);
+            ch.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+            nm.createNotificationChannel(ch);
+        }
+        Intent open = new Intent(ctx, MainActivity.class);
+        open.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        open.putExtra(EXTRA_RING, alarmId);
+        PendingIntent fullScreen = PendingIntent.getActivity(ctx, alarmId, open,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        Notification n = new Notification.Builder(ctx, Build.VERSION.SDK_INT >= 26 ? CHANNEL : null)
+                .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
+                .setContentTitle(label.isEmpty() ? "Alarm" : label)
+                .setContentText("⏰")
+                .setCategory(Notification.CATEGORY_ALARM)
+                .setPriority(Notification.PRIORITY_MAX)
+                .setFullScreenIntent(fullScreen, true)
+                .setContentIntent(fullScreen)
+                .setAutoCancel(true)
+                .setOngoing(true)
+                .build();
+        nm.notify(900000 + Math.max(0, alarmId), n);
     }
 
     /** Persist every scheduled occurrence so alarms survive reboot. */
