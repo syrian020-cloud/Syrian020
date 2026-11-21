@@ -1778,7 +1778,7 @@ function openQuiz(n){
 function startQuiz(n,qlang,alang){
  const pool=gPool(n).filter(p=>{const m=phMapS(p);return m[qlang]&&m[alang]});
  if(!pool.length){toast(t('quizNoPhrases'));return}
- const picks=quizShuffle(pool).slice(0,20).map((p,i)=>({p,id:i,q:qlang,a:alang}));
+ const picks=quizShuffle(pool).map((p,i)=>({p,id:i,q:qlang,a:alang}));
  const body=$('quiz-body');if(!body)return;
  body.innerHTML='<div class="qz-flags"><div class="qz-flag">'+gFlag(qlang)+'</div><div class="qz-flag">'+gFlag(alang)+'</div></div>'+
   '<div class="qz-cols" id="quiz-cols"></div>';
