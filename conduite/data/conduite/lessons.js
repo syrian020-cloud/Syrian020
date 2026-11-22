@@ -1837,6 +1837,398 @@ window.CONDUITE_FOLDERS = [
             "note": "📋 قواعد قانونية: في مصابين؟ اتصل بالشرطة والطوارئ قبل تعبئة الاستمارة · بدون إصابات: استمارة ورقية أو تطبيق e-constat · لا توقّع معلومات غير صحيحة · أرسل التصريح للتأمين خلال المهلة (عادة 5 أيام عمل) · إذا ظهر وجع بعد الحادث: راجع الطبيب وبلّغ التأمين. (المصدر: Service-Public)"
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "القيادة ليلاً وفي الأنفاق",
+          "fr": "Conduite de nuit et dans les tunnels",
+          "en": "Night and tunnel driving"
+        },
+        "img": "data/conduite/img/l21-1.webp",
+        "phrases": [
+          {
+            "fr": "Je conduis sur une route sombre la nuit.",
+            "ar": "أنا بسوق على طريق مظلم بالليل.",
+            "en": "I drive on a dark road at night",
+            "img": "data/conduite/img/l21-1.webp"
+          },
+          {
+            "fr": "J'utilise les feux de croisement la nuit.",
+            "ar": "أنا بستخدم الأضوية المنخفضة بالليل.",
+            "en": "I use dipped headlights at night",
+            "img": "data/conduite/img/l21-2.webp"
+          },
+          {
+            "fr": "J'utilise les feux de route lorsque la route est sombre et dégagée.",
+            "ar": "أنا بستخدم الأضوية العالية لما يكون الطريق مظلم وفاضي.",
+            "en": "I use high beams when the road is dark and clear",
+            "img": "data/conduite/img/l21-3.webp"
+          },
+          {
+            "fr": "Je passe en feux de croisement lorsqu'un véhicule arrive en face.",
+            "ar": "أنا بحوّل للأضوية المنخفضة لما تقرب سيارة من الاتجاه المقابل.",
+            "en": "I switch to dipped headlights when a vehicle approaches from the opposite direction",
+            "img": "data/conduite/img/l21-4.webp"
+          },
+          {
+            "fr": "Je réduis l'éblouissement des phares des véhicules derrière moi.",
+            "ar": "أنا بخفف إزعاج أضوية السيارات اللي وراي.",
+            "en": "I reduce the glare from headlights behind me",
+            "img": "data/conduite/img/l21-5.webp"
+          },
+          {
+            "fr": "J'utilise la position anti-éblouissement du rétroviseur intérieur.",
+            "ar": "أنا بستخدم وضعية منع الإبهار بالمرآة الداخلية.",
+            "en": "I use the anti-glare setting on the interior mirror",
+            "img": "data/conduite/img/l21-6.webp"
+          },
+          {
+            "fr": "Je réduis la luminosité du tableau de bord la nuit.",
+            "ar": "أنا بخفّض إضاءة لوحة العدادات بالليل.",
+            "en": "I dim the dashboard brightness at night",
+            "img": "data/conduite/img/l21-7.webp"
+          },
+          {
+            "fr": "Je repère le panneau d'entrée du tunnel.",
+            "ar": "أنا بتعرّف على إشارة مدخل النفق.",
+            "en": "I identify the tunnel entrance sign",
+            "img": "data/conduite/img/l21-8.webp"
+          },
+          {
+            "fr": "J'allume les feux de croisement avant d'entrer dans le tunnel.",
+            "ar": "أنا بشغّل الأضوية المنخفضة قبل ما فوت على النفق.",
+            "en": "I switch on dipped headlights before entering the tunnel",
+            "img": "data/conduite/img/l21-9.webp",
+            "note": "💡 بالنفق: الأضوية المنخفضة إجبارية، التزم بإشارات النفق وحدود السرعة."
+          },
+          {
+            "fr": "Je reste dans ma voie à l'intérieur du tunnel.",
+            "ar": "أنا بلتزم بمساري جوّا النفق.",
+            "en": "I stay in my lane inside the tunnel",
+            "img": "data/conduite/img/l21-10.webp"
+          },
+          {
+            "fr": "Je surveille les panneaux de signalisation électroniques dans le tunnel.",
+            "ar": "أنا براقب إشارات المرور الإلكترونية جوّا النفق.",
+            "en": "I watch the electronic traffic signs inside the tunnel",
+            "img": "data/conduite/img/l21-11.webp"
+          },
+          {
+            "fr": "Je repère l'issue de secours dans le tunnel.",
+            "ar": "أنا بتعرّف على مخرج الطوارئ جوّا النفق.",
+            "en": "I identify the emergency exit inside the tunnel",
+            "img": "data/conduite/img/l21-12.webp"
+          },
+          {
+            "fr": "Je m'adapte à la lumière en sortant du tunnel.",
+            "ar": "أنا بتأقلم مع الضوء لما أطلع من النفق.",
+            "en": "I adjust to the light when leaving the tunnel",
+            "img": "data/conduite/img/l21-13.webp"
+          },
+          {
+            "fr": "Je m'arrête dans une niche de sécurité si nécessaire.",
+            "ar": "أنا بوقف بمكان مخصص للطوارئ إذا لزم الأمر.",
+            "en": "I stop in an emergency bay if necessary",
+            "img": "data/conduite/img/l21-14.webp",
+            "note": "⚠️ لا تتوقف ولا ترجع للخلف جوّا النفق إلا للضرورة القصوى أو بتوجيه المختصين. إذا تعطلت السيارة: شغّل أضوية التحذير واتبع تعليمات الطوارئ."
+          },
+          {
+            "fr": "J'utilise le téléphone d'urgence dans le tunnel.",
+            "ar": "أنا بستخدم هاتف الطوارئ الموجود بالنفق.",
+            "en": "I use the emergency telephone inside the tunnel",
+            "img": "data/conduite/img/l21-15.webp"
+          },
+          {
+            "fr": "Je repère les équipements de lutte contre l'incendie.",
+            "ar": "أنا بتعرّف على مكان معدات مكافحة الحريق.",
+            "en": "I locate the firefighting equipment",
+            "img": "data/conduite/img/l21-16.webp"
+          },
+          {
+            "fr": "Je suis les panneaux d'évacuation en cas de danger.",
+            "ar": "أنا بتبع إشارات الإخلاء إذا صار في خطر.",
+            "en": "I follow the evacuation signs if there is danger",
+            "img": "data/conduite/img/l21-17.webp"
+          },
+          {
+            "fr": "Je sors du tunnel par l'issue de secours si on me le demande.",
+            "ar": "أنا بطلع من النفق عبر مخرج الطوارئ إذا طلبوا مني.",
+            "en": "I leave the tunnel through the emergency exit if instructed to do so",
+            "img": "data/conduite/img/l21-18.webp",
+            "note": "🔥 إذا صار حريق: غادر السيارة فوراً واتبع إشارات الإخلاء، ولا تحاول ترجع لها."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "إشارات المرور في الشوارع الفرنسية",
+          "fr": "Panneaux de signalisation routière",
+          "en": "Road signs"
+        },
+        "img": "data/conduite/img/l22-1.webp",
+        "phrases": [
+          {
+            "fr": "Je fais attention au virage dangereux à droite.",
+            "ar": "أنا بنتبه للمنعطف الخطير باتجاه اليمين.",
+            "en": "I watch out for the dangerous bend to the right",
+            "img": "data/conduite/img/l22-1.webp",
+            "note": "عندما أرى الإشارة، أستعد للمنعطف وأختار سرعة مناسبة قبل الوصول إليه. 🔺 دليل الأشكال: مثلث أحمر = تحذير خطر · دائرة حمراء = منع أو تحديد · دائرة زرقاء = أمر إلزامي · مربع أزرق/أخضر = معلومات · لوحة صفراء = تغيير مؤقت (أشغال)."
+          },
+          {
+            "fr": "Je fais attention à la succession de virages, le premier à gauche.",
+            "ar": "أنا بنتبه لسلسلة منعطفات، أول واحد عاليسار.",
+            "en": "I watch out for a series of bends, the first to the left",
+            "img": "data/conduite/img/l22-2.webp",
+            "note": "عندما يكون الطريق مليئاً بالمنعطفات المتتالية، أحافظ على سرعة مناسبة ولا أفترض أن المنعطف الأول هو الأخير."
+          },
+          {
+            "fr": "Je fais attention au rétrécissement de la chaussée des deux côtés.",
+            "ar": "أنا بنتبه إنو الطريق عم يضيق من الجهتين.",
+            "en": "I watch out for the road narrowing on both sides",
+            "img": "data/conduite/img/l22-3.webp",
+            "note": "أستعد للمساحة الأضيق وأنتبه للسيارات القادمة من الاتجاه المعاكس."
+          },
+          {
+            "fr": "Je fais attention au rétrécissement de la chaussée par la droite.",
+            "ar": "أنا بنتبه إنو الطريق عم يضيق من اليمين.",
+            "en": "I watch out for the road narrowing on the right",
+            "img": "data/conduite/img/l22-4.webp",
+            "note": "أراقب المساحة المتبقية على يميني وأنتبه إلى السيارات المجاورة."
+          },
+          {
+            "fr": "Je fais attention à la chaussée glissante.",
+            "ar": "أنا بنتبه لأنو الطريق زلق.",
+            "en": "I watch out for the slippery road",
+            "img": "data/conduite/img/l22-5.webp",
+            "note": "أخفف السرعة وأتجنب الفرملة أو تغيير الاتجاه بشكل مفاجئ."
+          },
+          {
+            "fr": "Je fais attention aux projections de gravillons.",
+            "ar": "أنا بنتبه لاحتمال تطاير الحصى.",
+            "en": "I watch out for loose stones being thrown up",
+            "img": "data/conduite/img/l22-6.webp",
+            "note": "أترك مسافة أكبر عن السيارة أمامي وأتجنب تجاوز السيارات على طريق مليء بالحصى."
+          },
+          {
+            "fr": "Je fais attention au passage d'animaux sauvages.",
+            "ar": "أنا بنتبه لاحتمال عبور حيوانات برية.",
+            "en": "I watch out for wild animals crossing",
+            "img": "data/conduite/img/l22-7.webp",
+            "note": "أراقب جانبي الطريق، خصوصاً في المناطق الريفية والغابات، وأكون مستعداً للتوقف."
+          },
+          {
+            "fr": "Je fais attention au passage d'enfants.",
+            "ar": "أنا بنتبه لاحتمال عبور أطفال.",
+            "en": "I watch out for children crossing",
+            "img": "data/conduite/img/l22-8.webp",
+            "note": "أخفف السرعة وأراقب الأرصفة ومداخل المدارس ومواقف الحافلات."
+          },
+          {
+            "fr": "Je fais attention au débouché de cyclistes.",
+            "ar": "أنا بنتبه لاحتمال دخول دراجات على الطريق.",
+            "en": "I watch out for cyclists entering the road",
+            "img": "data/conduite/img/l22-9.webp",
+            "note": "أنتبه إلى ممرات الدراجات والتقاطعات وأتجنب الاقتراب المفاجئ من راكبي الدراجات."
+          },
+          {
+            "fr": "Je fais attention aux feux tricolores.",
+            "ar": "أنا بنتبه لوجود إشارات ضوئية قدامي.",
+            "en": "I watch out for traffic lights ahead",
+            "img": "data/conduite/img/l22-10.webp",
+            "note": "أستعد لاحتمال التوقف وأراقب الإشارة وحركة السيارات أمامي."
+          },
+          {
+            "fr": "Je ne m'engage pas dans cette rue.",
+            "ar": "أنا ما بفوت بهالشارع.",
+            "en": "I do not enter this street",
+            "img": "data/conduite/img/l22-11.webp",
+            "note": "عندما أرى الإشارة عند مدخل شارع، لا أدخل منه بالسيارة؛ فهي تمنع الدخول من هذا الاتجاه."
+          },
+          {
+            "fr": "Je ne circule pas dans cette rue dans les deux sens.",
+            "ar": "أنا ما بسوق بهالشارع بالاتجاهين.",
+            "en": "I do not drive along this street in either direction",
+            "img": "data/conduite/img/l22-12.webp",
+            "note": "عندما تكون الإشارة عند مدخل طريق مغلق أمام حركة المركبات من الاتجاهين."
+          },
+          {
+            "fr": "Je ne tourne pas à gauche.",
+            "ar": "أنا ما بلفّ عاليسار.",
+            "en": "I do not turn left",
+            "img": "data/conduite/img/l22-13.webp",
+            "note": "عند التقاطع الذي توجد فيه الإشارة، أختار اتجاهاً آخر مسموحاً."
+          },
+          {
+            "fr": "Je ne tourne pas à droite.",
+            "ar": "أنا ما بلفّ عاليمين.",
+            "en": "I do not turn right",
+            "img": "data/conduite/img/l22-14.webp",
+            "note": "لا أنعطف يميناً عند التقاطع الذي تنطبق عليه الإشارة."
+          },
+          {
+            "fr": "Je ne fais pas demi-tour.",
+            "ar": "أنا ما بعمل دوران حتى أرجع بالاتجاه المعاكس.",
+            "en": "I do not make a U-turn",
+            "img": "data/conduite/img/l22-15.webp",
+            "note": "عندما أرى الإشارة، لا أقوم بالدوران للعودة من نفس الطريق."
+          },
+          {
+            "fr": "Je ne dépasse pas les autres véhicules.",
+            "ar": "أنا ما بتجاوز السيارات التانية.",
+            "en": "I do not overtake other vehicles",
+            "img": "data/conduite/img/l22-16.webp",
+            "note": "ألتزم بعدم التجاوز ضمن الجزء الذي تسري عليه الإشارة، مع الانتباه إلى أي لوحات إضافية تحدد الاستثناءات."
+          },
+          {
+            "fr": "Je ne dépasse pas 30 kilomètres par heure.",
+            "ar": "أنا ما بتجاوز سرعة 30 كيلومتر بالساعة.",
+            "en": "I do not exceed 30 kilometres per hour",
+            "img": "data/conduite/img/l22-17.webp",
+            "note": "أحافظ على سرعة لا تتجاوز الرقم المحدد حتى نهاية التحديد أو ظهور إشارة أخرى تنظم السرعة."
+          },
+          {
+            "fr": "Je ne stationne pas ici.",
+            "ar": "أنا ما بصفّ سيارتي هون.",
+            "en": "I do not park here",
+            "img": "data/conduite/img/l22-18.webp",
+            "note": "لا أترك السيارة مركونة في المكان الذي تنطبق عليه الإشارة. انتبه: هذه الإشارة تختلف عن منع التوقف والوقوف معاً."
+          },
+          {
+            "fr": "Je ne m'arrête pas et je ne stationne pas ici.",
+            "ar": "أنا ما بوقف ولا بصفّ سيارتي هون.",
+            "en": "I do not stop or park here",
+            "img": "data/conduite/img/l22-19.webp",
+            "note": "لا أتوقف في هذا المكان، حتى للتوقف العادي، إلا إذا فرضت حالة طارئة ذلك. ⚠️ فرق مهم: «Stationnement interdit» (خط أحمر واحد مائل) = ممنوع ركن السيارة لكن التوقف القصير ممكن، بينما «Arrêt et stationnement interdits» (خطّين متقاطعين) = ممنوع التوقف والركن معاً."
+          },
+          {
+            "fr": "Je ne circule pas à pied dans cette zone.",
+            "ar": "أنا ما بمشي بهالمنطقة إذا كنت من المشاة.",
+            "en": "I do not walk in this area",
+            "img": "data/conduite/img/l22-20.webp",
+            "note": "أعرف أن هذا المسار أو الطريق غير مسموح للمشاة."
+          },
+          {
+            "fr": "Je continue obligatoirement tout droit.",
+            "ar": "أنا لازم كمّل إلى الأمام.",
+            "en": "I must continue straight ahead",
+            "img": "data/conduite/img/l22-21.webp",
+            "note": "أتابع إلى الأمام ولا أختار الانعطاف يميناً أو يساراً عند الموضع الذي تسري عليه الإشارة."
+          },
+          {
+            "fr": "Je prends obligatoirement la direction à droite.",
+            "ar": "أنا لازم آخد اتجاه اليمين.",
+            "en": "I must turn right",
+            "img": "data/conduite/img/l22-22.webp",
+            "note": "أختار المسار الذي يسمح لي بالانعطاف إلى اليمين."
+          },
+          {
+            "fr": "Je prends obligatoirement la direction à gauche.",
+            "ar": "أنا لازم آخد اتجاه اليسار.",
+            "en": "I must turn left",
+            "img": "data/conduite/img/l22-23.webp",
+            "note": "ألتزم باتجاه اليسار ولا أتابع مستقيماً إذا كانت الإشارة تنطبق على مساري."
+          },
+          {
+            "fr": "Je contourne l'obstacle par la droite.",
+            "ar": "أنا لازم أتجاوز العائق من اليمين.",
+            "en": "I must pass the obstacle on the right",
+            "img": "data/conduite/img/l22-24.webp",
+            "note": "عندما توجد جزيرة مرورية أو عائق، أتبّع الجهة التي تشير إليها اللوحة."
+          },
+          {
+            "fr": "Je réserve cette piste aux cycles.",
+            "ar": "أنا بعرف إنو هالمسار مخصص للدراجات.",
+            "en": "I recognize that this lane is reserved for cycles",
+            "img": "data/conduite/img/l22-25.webp",
+            "note": "إذا كنت أقود سيارة، لا أدخل مسار الدراجات المخصص لها."
+          },
+          {
+            "fr": "Je reconnais le chemin obligatoire pour les piétons.",
+            "ar": "أنا بتعرّف على الممر المخصص للمشاة.",
+            "en": "I recognize the path reserved for pedestrians",
+            "img": "data/conduite/img/l22-26.webp",
+            "note": "أعرف أن المسار مخصص للمشاة وليس للسيارات."
+          },
+          {
+            "fr": "Je repère un parking.",
+            "ar": "أنا بتعرّف على موقف سيارات.",
+            "en": "I identify a car park",
+            "img": "data/conduite/img/l22-27.webp",
+            "note": "أتبع الإشارة للوصول إلى مكان مخصص لركن السيارة."
+          },
+          {
+            "fr": "Je circule dans le sens unique indiqué.",
+            "ar": "أنا بسوق باتجاه السير الواحد المحدد.",
+            "en": "I drive in the indicated one-way direction",
+            "img": "data/conduite/img/l22-28.webp",
+            "note": "ألتزم باتجاه السهم ولا أدخل الشارع من الجهة المعاكسة."
+          },
+          {
+            "fr": "Je sais que cette rue est une impasse.",
+            "ar": "أنا بعرف إنو هالشارع مسدود وما إلو مخرج للسيارات.",
+            "en": "I know this street is a dead end",
+            "img": "data/conduite/img/l22-29.webp",
+            "note": "أنتبه قبل الدخول، لأن الطريق لا يؤدي إلى مخرج آخر للسيارات."
+          },
+          {
+            "fr": "Je repère le passage pour piétons.",
+            "ar": "أنا بتعرّف على ممر عبور المشاة.",
+            "en": "I identify the pedestrian crossing",
+            "img": "data/conduite/img/l22-30.webp",
+            "note": "أراقب المشاة وأستعد لإعطائهم الأولوية عند عبورهم أو استعدادهم للعبور وفق قواعد المرور."
+          },
+          {
+            "fr": "Je repère une station-service.",
+            "ar": "أنا بتعرّف على محطة وقود.",
+            "en": "I identify a petrol station",
+            "img": "data/conduite/img/l22-31.webp",
+            "note": "أتبع الإشارة للعثور على محطة للتزود بالوقود."
+          },
+          {
+            "fr": "Je repère un hôpital.",
+            "ar": "أنا بتعرّف على مستشفى.",
+            "en": "I identify a hospital",
+            "img": "data/conduite/img/l22-32.webp",
+            "note": "أتبع الاتجاهات للوصول إلى المستشفى، وأنتبه إلى الهدوء وعدم استعمال المنبه دون ضرورة قربه."
+          },
+          {
+            "fr": "Je repère un poste d'appel d'urgence.",
+            "ar": "أنا بتعرّف على هاتف الطوارئ.",
+            "en": "I identify an emergency telephone",
+            "img": "data/conduite/img/l22-33.webp",
+            "note": "أستخدمه لطلب المساعدة عند الطوارئ على الطرق التي توفر هذه الخدمة."
+          },
+          {
+            "fr": "Je fais attention aux travaux sur la route.",
+            "ar": "أنا بنتبه لوجود أشغال على الطريق.",
+            "en": "I watch out for roadworks",
+            "img": "data/conduite/img/l22-34.webp",
+            "note": "أخفف السرعة وأنتبه للعمال والآليات والتغييرات في الطريق."
+          },
+          {
+            "fr": "Je suis la déviation indiquée.",
+            "ar": "أنا بتبع التحويلة المحددة.",
+            "en": "I follow the indicated detour",
+            "img": "data/conduite/img/l22-35.webp",
+            "note": "أتبع الأسهم واللوحات المؤقتة بدلاً من متابعة الطريق المغلق."
+          },
+          {
+            "fr": "Je fais attention à la voie rétrécie à cause des travaux.",
+            "ar": "أنا بنتبه إنو المسار ضاق بسبب الأشغال.",
+            "en": "I watch out for the lane narrowed by roadworks",
+            "img": "data/conduite/img/l22-36.webp",
+            "note": "أضبط سرعة السيارة وأتبع خطوط المسارات المؤقتة."
+          },
+          {
+            "fr": "Je ne m'engage pas sur cette route barrée.",
+            "ar": "أنا ما بفوت بهالطريق المسكّر.",
+            "en": "I do not enter this closed road",
+            "img": "data/conduite/img/l22-37.webp",
+            "note": "أبحث عن طريق بديل وأتبع إشارة التحويلة. 📋 خلاصة حفظ الإشارات: مثلث بإطار أحمر = استعد لخطر · دائرة بإطار أحمر = احترم المنع · دائرة زرقاء = التزم بالأمر · مربع أزرق = استفد من الخدمة · لوحة صفراء = اتبع التغيير المؤقت."
+          }
+        ]
       }
     ]
   }
