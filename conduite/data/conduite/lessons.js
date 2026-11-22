@@ -2630,6 +2630,267 @@ window.CONDUITE_FOLDERS = [
             "note": "بتدل على وجود مرافق مهيّأة لتسهيل الوصول والاستعمال، مثل بعض المواقف أو دورات المياه. لازم أنتبه للرمز المحدد حتى أعرف أي مرفق متاح. Légifrance +1"
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "نهاية الطريق السريع وألوان لوحات الاتجاهات",
+          "fr": "Fin d'autoroute et couleurs des panneaux",
+          "en": "Motorway end and direction sign colours"
+        },
+        "img": "data/conduite/img/l27-1.webp",
+        "phrases": [
+          {
+            "fr": "Je commence à circuler sur une autoroute et je respecte les règles spécifiques à ce type de route.",
+            "ar": "أنا ببلّش أسوق على الأوتوروت وبلتزم بقواعد الطريق السريع الخاصة.",
+            "en": "I am entering a motorway and I follow its specific traffic rules.",
+            "img": "data/conduite/img/l27-1.webp",
+            "note": "بداية مقطع أوتوروت — من هون بتبدأ قواعد الطريق السريع الخاصة."
+          },
+          {
+            "fr": "Je quitte l'autoroute et je respecte les nouvelles limitations et les panneaux de la route suivante.",
+            "ar": "أنا بطلع من الأوتوروت وبلتزم بحدود السرعة والإشارات الجديدة بالطريق اللي بعده.",
+            "en": "I leave the motorway and follow the speed limits and signs on the next road.",
+            "img": "data/conduite/img/l27-2.webp",
+            "note": "نهاية الأوتوروت — مو نهاية الطريق؛ انتقلت لطريق بقواعد مختلفة."
+          },
+          {
+            "fr": "Je circule sur une route réservée aux véhicules à moteur autorisés.",
+            "ar": "أنا بسوق على طريق مخصّص للمركبات الآلية المسموح إلها.",
+            "en": "I am driving on a road reserved for authorized motor vehicles.",
+            "img": "data/conduite/img/l27-3.webp",
+            "note": "طريق مخصّص للسيارات — مو بالضرورة أوتوروت، بيمنع المشاة والدراجات حسب التنظيم."
+          },
+          {
+            "fr": "Je quitte la route réservée aux automobiles et je m'adapte aux règles de la route suivante.",
+            "ar": "أنا بطلع من الطريق المخصّص للسيارات وبتأقلم مع قواعد الطريق الجديد.",
+            "en": "I leave the road reserved for motor vehicles and adapt to the rules of the next road.",
+            "img": "data/conduite/img/l27-4.webp",
+            "note": "نهاية الطريق المخصّص للسيارات — راقب الإشارات الجديدة."
+          },
+          {
+            "fr": "Je suis les indications bleues pour rejoindre ma destination par l'autoroute.",
+            "ar": "أنا بتبع اللوحات الزرقا حتى أوصل لوجهتي عن طريق الأوتوروت.",
+            "en": "I follow the blue signs to reach my destination via the motorway.",
+            "img": "data/conduite/img/l27-5.webp",
+            "note": "الأزرق = اتجاهات الأوتوروت. اقرأ المدينة ورقم الطريق والمسافة والسهم."
+          },
+          {
+            "fr": "Je suis les indications vertes pour rejoindre la ville ou l'itinéraire indiqué.",
+            "ar": "أنا بتبع اللوحات الخضرا حتى أوصل للمدينة أو للطريق المحدد.",
+            "en": "I follow the green signs to reach the indicated city or route.",
+            "img": "data/conduite/img/l27-6.webp",
+            "note": "الأخضر = وجهات رئيسية وقد يظهر على مخارج الأوتوروت."
+          },
+          {
+            "fr": "Je lis les indications blanches pour choisir la route qui mène à ma destination.",
+            "ar": "أنا بقرأ اللوحات البيضا حتى اختار الطريق اللي بيوصلني لوجهتي.",
+            "en": "I read the white signs to choose the road leading to my destination.",
+            "img": "data/conduite/img/l27-7.webp",
+            "note": "الأبيض = طرق عادية ومحلية."
+          },
+          {
+            "fr": "Je suis la déviation jaune pour contourner la route fermée ou les travaux.",
+            "ar": "أنا بتبع التحويلة الصفرا حتى أتجاوز الطريق المسكّر أو الأشغال.",
+            "en": "I follow the yellow diversion signs to avoid the closed road or roadworks.",
+            "img": "data/conduite/img/l27-8.webp",
+            "note": "الأصفر = تحويلات واتجاهات مؤقتة للأشغال. 📋 خلاصة: أزرق=أوتوروت، أخضر=وجهات رئيسية، أبيض=طرق عادية، أصفر=مؤقت. هاي ألوان لوحات الاتجاهات مو إشارات الخطر والمنع."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "إشارات الأنفاق وارتفاع المركبات والقيود",
+          "fr": "Tunnels, gabarits et restrictions",
+          "en": "Tunnels, vehicle limits and restrictions"
+        },
+        "img": "data/conduite/img/l28-1.webp",
+        "phrases": [
+          {
+            "fr": "Je ralentis si nécessaire et je respecte les règles de circulation dans le tunnel.",
+            "ar": "أنا بخفف السرعة إذا لزم الأمر، وبلتزم بقواعد السير داخل النفق.",
+            "en": "I slow down if necessary and follow the traffic rules inside the tunnel.",
+            "img": "data/conduite/img/l28-1.webp",
+            "note": "بداية نفق C111 — راقب الإشارات الضوئية وشغّل الأضوية المناسبة وحافظ على المسافة."
+          },
+          {
+            "fr": "Je sors du tunnel et je m'adapte aux conditions de circulation à l'extérieur.",
+            "ar": "أنا بطلع من النفق وبنتبه لظروف الطريق خارج النفق.",
+            "en": "I leave the tunnel and adapt to the road conditions outside.",
+            "img": "data/conduite/img/l28-2.webp",
+            "note": "نهاية نفق C112 — الضوء والطقس قد يتغيران؛ لا تسرّع فجأة."
+          },
+          {
+            "fr": "Je vérifie la hauteur de mon véhicule avant de passer sous ce panneau.",
+            "ar": "أنا بتأكد من ارتفاع سيارتي قبل ما مرّ من تحت هالإشارة.",
+            "en": "I check my vehicle's height before passing under this sign.",
+            "img": "data/conduite/img/l28-3.webp",
+            "note": "أقصى ارتفاع مسموح — إذا سيارتك مع الحمولة أعلى، ممنوع المرور."
+          },
+          {
+            "fr": "Je vérifie la largeur totale de mon véhicule avant de m'engager.",
+            "ar": "أنا بتأكد من العرض الكامل لسيارتي قبل ما فوت.",
+            "en": "I check the total width of my vehicle before entering.",
+            "img": "data/conduite/img/l28-4.webp",
+            "note": "أقصى عرض مسموح — احسب المرايا والحمولة ضمن القياس."
+          },
+          {
+            "fr": "Je vérifie la longueur totale de mon véhicule avant de passer.",
+            "ar": "أنا بتأكد من الطول الكامل لمركبتي قبل ما مرّ من هالمكان.",
+            "en": "I check the total length of my vehicle before passing.",
+            "img": "data/conduite/img/l28-5.webp",
+            "note": "B10a — ممنوع المركبات الأطول من الرقم، مهم للشاحنات والمقطورات."
+          },
+          {
+            "fr": "Je vérifie le poids autorisé de mon véhicule avant de m'engager.",
+            "ar": "أنا بتأكد من الوزن المسموح لمركبتي قبل ما فوت.",
+            "en": "I check my vehicle's permitted weight before entering.",
+            "img": "data/conduite/img/l28-6.webp",
+            "note": "B13 — ممنوع المركبات التي يتجاوز وزنها الإجمالي الرقم المكتوب (مثلاً 3,5t)."
+          },
+          {
+            "fr": "Je vérifie la charge sur chaque essieu de mon véhicule.",
+            "ar": "أنا بتأكد من الوزن المحمول على كل محور من محاور مركبتي.",
+            "en": "I check the weight carried by each axle of my vehicle.",
+            "img": "data/conduite/img/l28-7.webp",
+            "note": "B13a — ممنوع إذا الوزن على أحد المحاور أكبر من الرقم؛ مهم للشاحنات الثقيلة."
+          },
+          {
+            "fr": "Je ne circule pas ici avec un véhicule transportant des marchandises explosives ou facilement inflammables lorsque cette interdiction s'applique.",
+            "ar": "أنا ما بمرّ من هون بمركبة تحمل مواد متفجرة أو سريعة الاشتعال إذا هالمنع بينطبق عليها.",
+            "en": "I do not drive here with a vehicle carrying explosive or highly flammable goods when this restriction applies.",
+            "img": "data/conduite/img/l28-8.webp",
+            "note": "B18a — يمنع مركبات المواد المتفجرة/القابلة للاشتعال حسب نوع المادة وكميتها."
+          },
+          {
+            "fr": "Je respecte cette interdiction si mon véhicule transporte des marchandises susceptibles de polluer les eaux.",
+            "ar": "أنا بلتزم بهالمنع إذا مركبتي عم تنقل مواد ممكن تلوّث المياه.",
+            "en": "I follow this restriction if my vehicle carries goods that could pollute water.",
+            "img": "data/conduite/img/l28-9.webp",
+            "note": "B18b — يمنع مركبات المواد الملوثة للمياه."
+          },
+          {
+            "fr": "Je n'utilise pas mon klaxon dans cette zone, sauf en cas de nécessité absolue.",
+            "ar": "أنا ما بستعمل زمور السيارة بهالمنطقة، إلا بحالة الضرورة المطلقة.",
+            "en": "I do not use my horn in this area except in cases of absolute necessity.",
+            "img": "data/conduite/img/l28-10.webp",
+            "note": "B16 — ممنوع المنبّه إلا للتحذير من خطر مباشر. 📋 مراجعة: B10a طول · B11 عرض · B12 ارتفاع · B13 وزن إجمالي · B13a وزن على المحور · B18a متفجرات · B18b ملوثات · B16 منبّه."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "مسافة رد الفعل والفرملة والتوقف",
+          "fr": "Distances de réaction, freinage et arrêt",
+          "en": "Reaction, braking and stopping distances"
+        },
+        "img": "data/conduite/img/l29-1.webp",
+        "phrases": [
+          {
+            "fr": "Je parcours une distance pendant le temps où je réagis avant de freiner.",
+            "ar": "أنا بقطع مسافة خلال الوقت اللي بحتاجه حتى انتبه للخطر وأقرر أضغط على الفرامل.",
+            "en": "I travel a distance while reacting before braking.",
+            "img": "data/conduite/img/l29-1.webp",
+            "note": "مسافة رد الفعل = ما تقطعه السيارة بين رؤية الخطر والضغط على الفرامل."
+          },
+          {
+            "fr": "Mon temps de réaction est généralement d'environ une seconde dans des conditions normales.",
+            "ar": "زمن رد فعلي غالباً حوالي ثانية واحدة بالظروف الطبيعية.",
+            "en": "My reaction time is generally about one second under normal conditions.",
+            "img": "data/conduite/img/l29-2.webp",
+            "note": "زمن رد الفعل ≈ ثانية واحدة؛ التعب والكحول والمشتتات يطوّلوه."
+          },
+          {
+            "fr": "Je parcours une distance entre le début du freinage et l'arrêt complet du véhicule.",
+            "ar": "أنا بقطع مسافة من لحظة ما بلّش أفرمل لحد ما توقف السيارة تماماً.",
+            "en": "I travel a distance from the moment I start braking until the vehicle stops completely.",
+            "img": "data/conduite/img/l29-3.webp",
+            "note": "مسافة الفرملة تبدأ مع الضغط على الفرامل وتتأثر بالسرعة والطريق والإطارات."
+          },
+          {
+            "fr": "Je tiens compte de la distance de réaction et de la distance de freinage pour m'arrêter à temps.",
+            "ar": "أنا بحسب مسافة رد الفعل ومسافة الفرملة حتى أقدر وقف بوقتي.",
+            "en": "I take both reaction distance and braking distance into account to stop in time.",
+            "img": "data/conduite/img/l29-4.webp",
+            "note": "⭐ معادلة الامتحان: مسافة التوقف = مسافة رد الفعل + مسافة الفرملة."
+          },
+          {
+            "fr": "Je sais que si je double ma vitesse, ma distance de freinage est multipliée environ par quatre.",
+            "ar": "أنا بعرف إنو إذا ضاعفت سرعتي، مسافة الفرملة بتصير تقريباً أربعة أضعاف على نفس الطريق وبنفس الظروف.",
+            "en": "I know that if I double my speed, my braking distance becomes approximately four times longer under the same conditions.",
+            "img": "data/conduite/img/l29-5.webp",
+            "note": "قاعدة مهمة: ضعف السرعة (50→100) = مسافة فرملة ×4 تقريباً، ومسافة رد الفعل ×2."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "مسافة الأمان ومتابعة السيارة الأمامية",
+          "fr": "Distance de sécurité",
+          "en": "Safety distance"
+        },
+        "img": "data/conduite/img/l30-1.webp",
+        "phrases": [
+          {
+            "fr": "Je garde une distance de sécurité suffisante avec le véhicule qui me précède.",
+            "ar": "أنا بحافظ على مسافة أمان كافية بيني وبين السيارة اللي قدامي.",
+            "en": "I keep a sufficient safety distance from the vehicle in front of me.",
+            "img": "data/conduite/img/l30-1.webp",
+            "note": "اترك مسافة تسمح بالفرملة إذا توقفت السيارة الأمامية فجأة؛ تتأثر بالسرعة والطقس."
+          },
+          {
+            "fr": "Je laisse au moins deux secondes entre le passage du véhicule devant moi et mon passage au même point.",
+            "ar": "أنا بترك ثانيتين على الأقل بين مرور السيارة اللي قدامي ومروري من نفس النقطة.",
+            "en": "I leave at least two seconds between the vehicle ahead passing a point and my vehicle passing the same point.",
+            "img": "data/conduite/img/l30-2.webp",
+            "note": "قاعدة الثانيتين: عدّ «واحد وعشرين، اثنين وعشرين» بعد مرور السيارة الأمامية من علامة ثابتة؛ إذا وصلت قبلها فالمسافة غير كافية."
+          },
+          {
+            "fr": "J'augmente ma distance de sécurité lorsque la chaussée est mouillée.",
+            "ar": "أنا بزيد مسافة الأمان لما يكون الطريق مبلول.",
+            "en": "I increase my safety distance when the road is wet.",
+            "img": "data/conduite/img/l30-3.webp",
+            "note": "الطريق المبلول يزيد مسافة الفرملة — زِد المسافة."
+          },
+          {
+            "fr": "Je ralentis et j'augmente la distance qui me sépare du véhicule devant moi.",
+            "ar": "أنا بخفف السرعة وبزيد المسافة بيني وبين السيارة اللي قدامي.",
+            "en": "I slow down and increase the distance between my vehicle and the one ahead.",
+            "img": "data/conduite/img/l30-4.webp",
+            "note": "بالضباب قد لا تنتبه لفرملة الأمامي إلا متأخراً — زِد المسافة وخفف السرعة."
+          },
+          {
+            "fr": "Je garde une grande distance derrière le camion pour mieux voir la route.",
+            "ar": "أنا بترك مسافة كبيرة ورا الشاحنة حتى شوف الطريق بشكل أفضل.",
+            "en": "I keep a large distance behind the truck so I can see the road better.",
+            "img": "data/conduite/img/l30-5.webp",
+            "note": "الشاحنة تحجب الرؤية — مسافة أكبر = رؤية أفضل ووقت أكثر للتصرف."
+          },
+          {
+            "fr": "Je respecte la distance de sécurité indiquée dans le tunnel.",
+            "ar": "أنا بلتزم بمسافة الأمان المحددة داخل النفق.",
+            "en": "I maintain the safety distance required inside the tunnel.",
+            "img": "data/conduite/img/l30-6.webp",
+            "note": "بعض الأنفاق فيها لوحات/أضواء لضبط المسافة؛ عند الزحام اترك مسافة كافية."
+          },
+          {
+            "fr": "Je laisse suffisamment d'espace derrière la moto.",
+            "ar": "أنا بترك مسافة كافية ورا الدراجة النارية.",
+            "en": "I leave enough space behind the motorcycle.",
+            "img": "data/conduite/img/l30-7.webp",
+            "note": "الدراجة قد تفرمل أو تغيّر اتجاهها فجأة — لا تلتصق بها."
+          },
+          {
+            "fr": "Je maintiens une distance de sécurité correspondant à au moins deux secondes.",
+            "ar": "أنا بحافظ على مسافة أمان تعادل ثانيتين على الأقل.",
+            "en": "I maintain a safety distance of at least two seconds.",
+            "img": "data/conduite/img/l30-8.webp",
+            "note": "⭐ حساب تقريبي: المسافة بالمتر ≈ السرعة÷10 × 6. مثال: 130 كم/س → 13×6 = 78 متراً خلال ثانيتين."
+          }
+        ]
       }
     ]
   }
