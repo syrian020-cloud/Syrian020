@@ -1716,14 +1716,26 @@
   }
 
   function ensureConduiteFolders() {
-    if (localStorage.getItem('conduite_seeded')) return;
+    const SEED_V = '2';
+    if (localStorage.getItem('conduite_seed_v') === SEED_V) return;
+    const seededIds = JSON.parse(localStorage.getItem('conduite_seed_ids') || '[]');
+    const oldTitles = ['تعلّم قيادة السيارة خطوة بخطوة', 'الدراجة الكهربائية', 'مواقف حقيقية في فرنسا'];
+    for (let i = LESSONS.length - 1; i >= 0; i--) {
+      const it = LESSONS[i];
+      const t = it.title && (typeof it.title === 'string' ? it.title : (it.title.ar || ''));
+      if (seededIds.includes(it.id) || (it.type === 'folder' && oldTitles.includes(t))) LESSONS.splice(i, 1);
+    }
+    localStorage.setItem('conduite_seed_v', SEED_V);
     localStorage.setItem('conduite_seeded', '1');
+    const newIds = [];
     (window.CONDUITE_FOLDERS || []).forEach(f => {
       const folder = { type: 'folder', id: nextId(), icon: f.icon || '', title: f.title, image: f.img || f.image || '',
         lessons: (f.lessons || []).map(l => ({ id: nextId(), type: 'lesson', title: l.title, image: l.img || l.image || '', note: l.note || null,
           phrases: (l.phrases || []).map(p => ({ fr: p.fr || '', ar: p.ar || '', en: p.en || '', image: p.img || l.img || f.img || '' })) })) };
+      newIds.push(folder.id);
       LESSONS.push(folder);
     });
+    localStorage.setItem('conduite_seed_ids', JSON.stringify(newIds));
     saveLessons();
   }
 
