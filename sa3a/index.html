@@ -448,7 +448,6 @@ nav button.on{color:var(--acc)}
     <div id="clockWrap"><img id="flagDeco" src="flag.png" alt=""><svg id="analog" viewBox="0 0 300 300"></svg>
     <div id="digital"><div class="dtime"><span id="dh">00</span><span class="sec" id="ds">:00</span></div><div class="ddate" id="ddate"></div><div id="nextAl"></div></div></div>
     <button id="speakBtn">🔊</button>
-    <div id="speakCap"></div>
     <div id="timeRead"></div>
     <div id="learnFold"></div>
   </section>
@@ -2129,8 +2128,6 @@ function speakTime(){
  if(st.lang==='ar'){lang='ar-SA';const alt=arTimeDaily(h,m);txt='الساعة الآن '+arNum(h12)+(m?' و '+arNum(m)+' دقيقة':' تمامًا')+(h<12?' صباحًا':' مساءً')+(alt?'. أي '+alt:'')}
  else if(st.lang==='fr'){lang='fr-FR';txt=m?frTimeFormal(h,m)+'. '+frTimeDaily(h,m):frTimeDaily(h,m)}
  else{lang='en-US';const alt=(m===15||m===30||m>30)?enTimeDaily(h,m):'';txt='The time is '+h12+' '+(m?(m<10?'oh '+m:''+m):'o clock')+(h<12?' AM':' PM')+(alt?'. Or '+alt:'')}
- const cap=$('speakCap');
- cap.textContent=txt;cap.dir=st.lang==='ar'?'rtl':'ltr';cap.classList.add('on');clearTimeout(cap._t);cap._t=setTimeout(()=>cap.classList.remove('on'),12000);
  if(window.EdgeTTS&&EdgeTTS.supported&&EdgeTTS.supported()){stopSay();EdgeTTS.play(txt,st.lang==='ar'?'ar':st.lang==='fr'?'fr':'en').catch(()=>{});return}
  if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:lang}).catch(()=>toast('!'));return}
  try{if('speechSynthesis' in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang=lang;speechSynthesis.speak(u)}}catch(e){toast('!')}
