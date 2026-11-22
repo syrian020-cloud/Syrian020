@@ -22,7 +22,7 @@ window.CONDUITE_FOLDERS = [
       "fr": "Je déverrouille la voiture avec la télécommande.",
       "ar": "أنا بفتح قفل السيارة بالريموت.",
       "en": "I unlock the car with the remote.",
-      "img": "data/conduite/img/s01-2.jpg"
+      "img": "data/conduite/img/s01-1.jpg"
      },
      {
       "fr": "J'ouvre la portière du conducteur.",
@@ -46,7 +46,7 @@ window.CONDUITE_FOLDERS = [
       "fr": "Je ferme ma portière.",
       "ar": "أنا بسكّر باب السيارة.",
       "en": "I close my door.",
-      "img": "data/conduite/img/s01-4.jpg"
+      "img": "data/conduite/img/s01-2.jpg"
      }
     ]
    },
@@ -62,31 +62,31 @@ window.CONDUITE_FOLDERS = [
       "fr": "Je règle mon siège.",
       "ar": "أنا بظبط مقعد السائق.",
       "en": "I adjust my seat.",
-      "img": "data/conduite/img/s02-2.jpg"
+      "img": "data/conduite/img/s02-1.jpg"
      },
      {
       "fr": "Je règle la hauteur du volant.",
       "ar": "أنا بظبط ارتفاع المقود.",
       "en": "I adjust the steering wheel height.",
-      "img": "data/conduite/img/s02-3.jpg"
+      "img": "data/conduite/img/s02-2.jpg"
      },
      {
       "fr": "Je règle le rétroviseur intérieur.",
       "ar": "أنا بظبط المراية الداخلية.",
       "en": "I adjust the interior rear-view mirror.",
-      "img": "data/conduite/img/s02-4.jpg"
+      "img": "data/conduite/img/s02-3.jpg"
      },
      {
       "fr": "Je règle les rétroviseurs extérieurs.",
       "ar": "أنا بظبط المرايات الجانبية.",
       "en": "I adjust the side mirrors.",
-      "img": "data/conduite/img/s02-6.jpg"
+      "img": "data/conduite/img/s02-4.jpg"
      },
      {
       "fr": "J'attache ma ceinture de sécurité.",
       "ar": "أنا بربط حزام الأمان.",
       "en": "I fasten my seat belt.",
-      "img": "data/conduite/img/s02-7.jpg"
+      "img": "data/conduite/img/s02-5.jpg"
      }
     ]
    },
@@ -114,25 +114,25 @@ window.CONDUITE_FOLDERS = [
       "fr": "Je repère la pédale d'accélérateur.",
       "ar": "أنا بتعرّف على دواسة البنزين.",
       "en": "I identify the accelerator pedal.",
-      "img": "data/conduite/img/s03-3.jpg"
+      "img": "data/conduite/img/s03-2.jpg"
      },
      {
       "fr": "Je repère le levier de vitesses.",
       "ar": "أنا بتعرّف على عصا الغيارات.",
       "en": "I identify the gear stick.",
-      "img": "data/conduite/img/s03-4.jpg"
+      "img": "data/conduite/img/s03-3.jpg"
      },
      {
       "fr": "Je repère le frein de stationnement.",
       "ar": "أنا بتعرّف على فرامل اليد.",
       "en": "I identify the parking brake.",
-      "img": "data/conduite/img/s03-5.jpg"
+      "img": "data/conduite/img/s03-4.jpg"
      },
      {
       "fr": "Je vérifie le tableau de bord.",
       "ar": "أنا بتفقد لوحة العدادات.",
       "en": "I check the dashboard.",
-      "img": "data/conduite/img/s03-6.jpg"
+      "img": "data/conduite/img/s03-1.jpg"
      }
     ]
    },
@@ -148,31 +148,31 @@ window.CONDUITE_FOLDERS = [
       "fr": "J'insère la clé dans le contact.",
       "ar": "أنا بدخل المفتاح بمكان التشغيل.",
       "en": "I insert the key into the ignition.",
-      "img": "data/conduite/img/s04-2.jpg"
+      "img": "data/conduite/img/s04-1.jpg"
      },
      {
       "fr": "Je mets le contact.",
       "ar": "أنا بشغّل كهرباء السيارة.",
       "en": "I turn on the ignition.",
-      "img": "data/conduite/img/s04-3.jpg"
+      "img": "data/conduite/img/s04-2.jpg"
      },
      {
       "fr": "J'appuie sur la pédale de frein.",
       "ar": "أنا بكبس على دواسة الفرامل.",
       "en": "I press the brake pedal.",
-      "img": "data/conduite/img/s04-4.jpg"
+      "img": "data/conduite/img/s04-3.jpg"
      },
      {
       "fr": "Je démarre le moteur.",
       "ar": "أنا بشغّل المحرك.",
       "en": "I start the engine.",
-      "img": "data/conduite/img/s04-5.jpg"
+      "img": "data/conduite/img/s04-6.jpg"
      },
      {
       "fr": "Je vérifie les voyants du tableau de bord.",
       "ar": "أنا بتأكد من لمبات التحذير بلوحة العدادات.",
       "en": "I check the dashboard warning lights.",
-      "img": "data/conduite/img/s04-6.jpg"
+      "img": "data/conduite/img/s04-5.jpg"
      }
     ],
     "note": {
@@ -193,7 +193,7 @@ window.CONDUITE_FOLDERS = [
       "fr": "J'appuie sur la pédale d'embrayage.",
       "ar": "أنا بكبس على دواسة الكلتش.",
       "en": "I press the clutch pedal.",
-      "img": "data/conduite/img/s05-2.jpg"
+      "img": "data/conduite/img/s05-1.jpg"
      },
      {
       "fr": "Je passe la première vitesse.",
@@ -223,7 +223,7 @@ window.CONDUITE_FOLDERS = [
       "fr": "Je vérifie mon angle mort.",
       "ar": "أنا بتأكد من المنطقة العمياء بلف راسي شوي.",
       "en": "I check my blind spot.",
-      "img": "data/conduite/img/s05-6.jpg"
+      "img": "data/conduite/img/s05-5.jpg"
      }
     ]
    },
@@ -239,49 +239,49 @@ window.CONDUITE_FOLDERS = [
       "fr": "Je relâche progressivement l'embrayage.",
       "ar": "أنا برفع رجلي عن الكلتش شوي شوي.",
       "en": "I gradually release the clutch.",
-      "img": "data/conduite/img/s06-2.jpg"
+      "img": "data/conduite/img/s06-7.jpg"
      },
      {
       "fr": "J'appuie doucement sur l'accélérateur.",
       "ar": "أنا بكبس بنعومة على البنزين.",
       "en": "I gently press the accelerator.",
-      "img": "data/conduite/img/s06-2.jpg"
+      "img": "data/conduite/img/s06-4.jpg"
      },
      {
       "fr": "Je commence à avancer.",
       "ar": "أنا ببلّش اتحرك لقدّام.",
       "en": "I start moving forward.",
-      "img": "data/conduite/img/s06-3.jpg"
+      "img": "data/conduite/img/s06-1.jpg"
      },
      {
       "fr": "Je tiens le volant correctement.",
       "ar": "أنا بمسك المقود بطريقة صحيحة.",
       "en": "I hold the steering wheel correctly.",
-      "img": "data/conduite/img/s06-4.jpg"
+      "img": "data/conduite/img/s06-2.jpg"
      },
      {
       "fr": "J'accélère progressivement.",
       "ar": "أنا بزيد السرعة شوي شوي.",
       "en": "I gradually accelerate.",
-      "img": "data/conduite/img/s06-5.jpg"
+      "img": "data/conduite/img/s06-4.jpg"
      },
      {
       "fr": "Je ralentis.",
       "ar": "أنا بخفف السرعة.",
       "en": "I slow down.",
-      "img": "data/conduite/img/s06-6.jpg"
+      "img": "data/conduite/img/s06-5.jpg"
      },
      {
       "fr": "Je freine doucement.",
       "ar": "أنا بكبس على الفرامل بهدوء.",
       "en": "I brake gently.",
-      "img": "data/conduite/img/s06-7.jpg"
+      "img": "data/conduite/img/s06-5.jpg"
      },
      {
       "fr": "Je change de vitesse.",
       "ar": "أنا بغيّر الغيار.",
       "en": "I change gear.",
-      "img": "data/conduite/img/s06-8.jpg"
+      "img": "data/conduite/img/s06-3.jpg"
      }
     ]
    },
@@ -297,31 +297,31 @@ window.CONDUITE_FOLDERS = [
       "fr": "Je tourne à droite.",
       "ar": "أنا بلف لليمين.",
       "en": "I turn right.",
-      "img": "data/conduite/img/s07-2.jpg"
+      "img": "data/conduite/img/s07-1.jpg"
      },
      {
       "fr": "Je tourne à gauche.",
       "ar": "أنا بلف لليسار.",
       "en": "I turn left.",
-      "img": "data/conduite/img/s07-3.jpg"
+      "img": "data/conduite/img/s07-5.jpg"
      },
      {
       "fr": "Je change de voie.",
       "ar": "أنا بغيّر مساري.",
       "en": "I change lanes.",
-      "img": "data/conduite/img/s07-4.jpg"
+      "img": "data/conduite/img/s07-2.jpg"
      },
      {
       "fr": "Je dépasse le véhicule devant moi.",
       "ar": "أنا بتجاوز السيارة اللي قدامي.",
       "en": "I overtake the vehicle in front of me.",
-      "img": "data/conduite/img/s07-5.jpg"
+      "img": "data/conduite/img/s07-6.jpg"
      },
      {
       "fr": "Je me rabats sur ma voie.",
       "ar": "أنا برجع لمساري.",
       "en": "I move back into my lane.",
-      "img": "data/conduite/img/s07-7.jpg"
+      "img": "data/conduite/img/s07-3.jpg"
      },
      {
       "fr": "Je m'engage dans le rond-point.",
@@ -333,7 +333,7 @@ window.CONDUITE_FOLDERS = [
       "fr": "Je sors du rond-point.",
       "ar": "أنا بطلع من الدوار.",
       "en": "I exit the roundabout.",
-      "img": "data/conduite/img/s07-9.jpg"
+      "img": "data/conduite/img/s07-8.jpg"
      }
     ]
    },
@@ -349,43 +349,43 @@ window.CONDUITE_FOLDERS = [
       "fr": "J'allume les feux.",
       "ar": "أنا بشغّل ضو السيارة.",
       "en": "I turn on the lights.",
-      "img": "data/conduite/img/s08-2.jpg"
+      "img": "data/conduite/img/s08-1.jpg"
      },
      {
       "fr": "J'allume les feux de croisement.",
       "ar": "أنا بشغّل الضو الواطي.",
       "en": "I turn on the low-beam headlights.",
-      "img": "data/conduite/img/s08-2.jpg"
+      "img": "data/conduite/img/s08-1.jpg"
      },
      {
       "fr": "J'allume les feux de route.",
       "ar": "أنا بشغّل الضو العالي.",
       "en": "I turn on the high beams.",
-      "img": "data/conduite/img/s08-3.jpg"
+      "img": "data/conduite/img/s08-2.jpg"
      },
      {
       "fr": "J'active les essuie-glaces.",
       "ar": "أنا بشغّل ماسحات الزجاج.",
       "en": "I turn on the windshield wipers.",
-      "img": "data/conduite/img/s08-4.jpg"
+      "img": "data/conduite/img/s08-3.jpg"
      },
      {
       "fr": "J'allume les feux de détresse.",
       "ar": "أنا بشغّل الفلاشر.",
       "en": "I turn on the hazard lights.",
-      "img": "data/conduite/img/s08-5.jpg"
+      "img": "data/conduite/img/s08-4.jpg"
      },
      {
       "fr": "J'utilise le klaxon.",
       "ar": "أنا بستعمل زمور السيارة.",
       "en": "I use the car horn.",
-      "img": "data/conduite/img/s08-6.jpg"
+      "img": "data/conduite/img/s08-5.jpg"
      },
      {
       "fr": "J'active le désembuage.",
       "ar": "أنا بشغّل إزالة الضباب عن الزجاج.",
       "en": "I turn on the window defogger.",
-      "img": "data/conduite/img/s08-7.jpg"
+      "img": "data/conduite/img/s08-6.jpg"
      }
     ]
    },
@@ -401,43 +401,43 @@ window.CONDUITE_FOLDERS = [
       "fr": "Je m'arrête au feu rouge.",
       "ar": "أنا بوقف عند الإشارة الحمرا.",
       "en": "I stop at the red light.",
-      "img": "data/conduite/img/s09-2.jpg"
+      "img": "data/conduite/img/s09-1.jpg"
      },
      {
       "fr": "Je m'arrête au panneau STOP.",
       "ar": "أنا بوقف عند إشارة ستوب.",
       "en": "I stop at the STOP sign.",
-      "img": "data/conduite/img/s09-3.jpg"
+      "img": "data/conduite/img/s09-2.jpg"
      },
      {
       "fr": "Je laisse passer les piétons.",
       "ar": "أنا بسمح للمشاة يقطعوا الطريق.",
       "en": "I let pedestrians cross.",
-      "img": "data/conduite/img/s09-4.jpg"
+      "img": "data/conduite/img/s09-3.jpg"
      },
      {
       "fr": "Je cède le passage.",
       "ar": "أنا بعطي الأولوية.",
       "en": "I give way.",
-      "img": "data/conduite/img/s09-5.jpg"
+      "img": "data/conduite/img/s09-7.jpg"
      },
      {
       "fr": "Je garde une distance de sécurité.",
       "ar": "أنا بحافظ على مسافة أمان بيني وبين السيارة اللي قدامي.",
       "en": "I keep a safe distance.",
-      "img": "data/conduite/img/s09-6.jpg"
+      "img": "data/conduite/img/s09-4.jpg"
      },
      {
       "fr": "Je conduis sur l'autoroute.",
       "ar": "أنا بسوق على الأوتوستراد.",
       "en": "I drive on the motorway.",
-      "img": "data/conduite/img/s09-7.jpg"
+      "img": "data/conduite/img/s09-5.jpg"
      },
      {
       "fr": "Je ralentis avant le virage.",
       "ar": "أنا بخفف السرعة قبل المنعطف.",
       "en": "I slow down before the bend.",
-      "img": "data/conduite/img/s09-8.jpg"
+      "img": "data/conduite/img/s09-4.jpg"
      }
     ]
    },
@@ -453,37 +453,37 @@ window.CONDUITE_FOLDERS = [
       "fr": "Je cherche une place de stationnement.",
       "ar": "أنا بدوّر على مكان لركن السيارة.",
       "en": "I look for a parking space.",
-      "img": "data/conduite/img/s10-2.jpg"
+      "img": "data/conduite/img/s10-6.jpg"
      },
      {
       "fr": "Je m'arrête à côté de l'autre voiture.",
       "ar": "أنا بوقف جنب السيارة التانية.",
       "en": "I stop next to the other car.",
-      "img": "data/conduite/img/s10-3.jpg"
+      "img": "data/conduite/img/s10-1.jpg"
      },
      {
       "fr": "Je commence un créneau.",
       "ar": "أنا ببلّش الركن الموازي.",
       "en": "I start parallel parking.",
-      "img": "data/conduite/img/s10-4.jpg"
+      "img": "data/conduite/img/s10-1.jpg"
      },
      {
       "fr": "Je recule doucement.",
       "ar": "أنا برجع لورا بهدوء.",
       "en": "I reverse slowly.",
-      "img": "data/conduite/img/s10-5.jpg"
+      "img": "data/conduite/img/s10-2.jpg"
      },
      {
       "fr": "Je surveille les alentours du véhicule.",
       "ar": "أنا براقب كل الجهات حول السيارة.",
       "en": "I check all around the car.",
-      "img": "data/conduite/img/s10-6.jpg"
+      "img": "data/conduite/img/s10-7.jpg"
      },
      {
       "fr": "Je gare la voiture dans la place.",
       "ar": "أنا بركن السيارة بالمكان المخصص.",
       "en": "I park the car in the space.",
-      "img": "data/conduite/img/s10-7.jpg"
+      "img": "data/conduite/img/s10-4.jpg"
      }
     ]
    },
@@ -499,37 +499,37 @@ window.CONDUITE_FOLDERS = [
       "fr": "Je conduis sous la pluie.",
       "ar": "أنا بسوق تحت المطر.",
       "en": "I drive in the rain.",
-      "img": "data/conduite/img/s11-2.jpg"
+      "img": "data/conduite/img/s11-1.jpg"
      },
      {
       "fr": "Je conduis la nuit.",
       "ar": "أنا بسوق بالليل.",
       "en": "I drive at night.",
-      "img": "data/conduite/img/s11-3.jpg"
+      "img": "data/conduite/img/s11-6.jpg"
      },
      {
       "fr": "Je m'arrête à cause d'une panne.",
       "ar": "أنا بوقف بسبب عطل بالسيارة.",
       "en": "I stop because of a breakdown.",
-      "img": "data/conduite/img/s11-4.jpg"
+      "img": "data/conduite/img/s11-5.jpg"
      },
      {
       "fr": "J'allume les feux de détresse.",
       "ar": "أنا بشغّل أضواء التحذير.",
       "en": "I turn on the hazard lights.",
-      "img": "data/conduite/img/s11-5.jpg"
+      "img": "data/conduite/img/s11-2.jpg"
      },
      {
       "fr": "Je place le triangle de présignalisation lorsque c'est nécessaire et sans me mettre en danger.",
       "ar": "أنا بحط مثلث التحذير لما يكون ضروري وبمكان آمن.",
       "en": "I place the warning triangle when necessary and without putting myself in danger.",
-      "img": "data/conduite/img/s11-6.jpg"
+      "img": "data/conduite/img/s11-7.jpg"
      },
      {
       "fr": "J'appelle l'assistance.",
       "ar": "أنا بتصل بالمساعدة على الطريق.",
       "en": "I call roadside assistance.",
-      "img": "data/conduite/img/s11-7.jpg"
+      "img": "data/conduite/img/s11-3.jpg"
      }
     ]
    },
@@ -545,19 +545,19 @@ window.CONDUITE_FOLDERS = [
       "fr": "Je ralentis et je m'arrête.",
       "ar": "أنا بخفف السرعة وبوقف السيارة.",
       "en": "I slow down and stop.",
-      "img": "data/conduite/img/s12-2.jpg"
+      "img": "data/conduite/img/s12-5.jpg"
      },
      {
       "fr": "Je mets le levier sur P.",
       "ar": "أنا بحط ناقل الحركة على وضع P.",
       "en": "I shift into Park.",
-      "img": "data/conduite/img/s12-2.jpg"
+      "img": "data/conduite/img/s12-1.jpg"
      },
      {
       "fr": "Je serre le frein de stationnement.",
       "ar": "أنا بشد فرامل اليد.",
       "en": "I engage the parking brake.",
-      "img": "data/conduite/img/s12-3.jpg"
+      "img": "data/conduite/img/s12-2.jpg"
      },
      {
       "fr": "Je coupe le moteur.",
@@ -587,7 +587,7 @@ window.CONDUITE_FOLDERS = [
       "fr": "Je verrouille la voiture avec la télécommande.",
       "ar": "أنا بسكّر السيارة بالريموت.",
       "en": "I lock the car with the remote.",
-      "img": "data/conduite/img/s12-6.jpg"
+      "img": "data/conduite/img/s12-5.jpg"
      }
     ]
    }
