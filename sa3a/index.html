@@ -131,6 +131,25 @@ main{flex:1;overflow:auto;position:relative}
 #timeRead .tr-lg{font-weight:700;margin:8px 0 2px;opacity:.9}
 #timeRead .tr-r{display:flex;align-items:center;gap:8px;margin:2px 0;line-height:1.5}
 #timeRead .tr-r button{background:none;border:none;color:var(--acc);font-size:1.05rem;cursor:pointer;padding:2px;flex:none}
+#learnFold{margin-top:10px;width:min(94%,430px);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:1rem;font-weight:800;cursor:pointer;text-align:center;color:var(--acc)}
+#learnOv{position:fixed;inset:0;z-index:410;background:var(--bg);display:none;flex-direction:column}
+#learnOv.on{display:flex}
+#learnOv .loHead{display:flex;align-items:center;gap:10px;padding:calc(env(safe-area-inset-top,0px) + 10px) 14px 10px;border-bottom:1px solid var(--line);font-weight:800;font-size:1.05rem}
+#learnOv .loBody{flex:1;overflow-y:auto;padding:10px 12px 24px}
+.lr-notes{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:.88rem;line-height:1.8;margin-bottom:12px}
+.lr-notes b{color:var(--acc)}
+.lr-sec{font-weight:800;color:var(--acc);margin:14px 0 6px;font-size:.95rem}
+.lr-row{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 12px;margin-bottom:8px}
+.lr-rh{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.lr-t{font-family:'Orbitron',monospace;font-weight:700;color:var(--acc);font-size:1rem}
+.lr-rh button{margin-inline-start:auto;background:none;border:1px solid var(--line);border-radius:10px;color:var(--acc);font-size:.95rem;cursor:pointer;padding:2px 8px}
+.lr-rh button.speaking{color:var(--ok);border-color:var(--ok);animation:pulse 1.2s infinite}
+.lr-lg{display:flex;align-items:baseline;gap:6px;margin:3px 0;line-height:1.55;font-size:.9rem}
+.lr-lg .fl{flex:0 0 1.2rem}
+.lr-lg .rd{flex:1}
+.lr-lg .rd div{display:flex;align-items:center;gap:6px}
+.lr-lg .rd span{flex:1}
+.lr-lg button{background:none;border:none;color:var(--acc);font-size:.9rem;cursor:pointer;padding:1px 4px;flex:none}
 
 /* ---- weather ---- */
 #wxShade{align-items:stretch;background:var(--bg)}
@@ -431,6 +450,7 @@ nav button.on{color:var(--acc)}
     <button id="speakBtn">🔊</button>
     <div id="speakCap"></div>
     <div id="timeRead"></div>
+    <div id="learnFold"></div>
   </section>
   <section class="tabsec" id="sec-alarms">
     <div id="permBanner" style="display:none"></div>
@@ -519,6 +539,7 @@ nav button.on{color:var(--acc)}
   <div id="wxPhBody"></div>
 </div></div>
 <!-- lessons browser -->
+<div id="learnOv"><div class="loHead"><button class="hbtn" id="learnX">✕</button><span id="learnTitle"></span></div><div class="loBody" id="learnBody"></div></div>
 <div class="shade" id="lessonShade"><div class="sheet" id="lessonSheet">
   <div class="lsHead"><button id="lsBack">‹</button><div class="lb" id="lsPath"></div>
     <button id="lsAddF" title="folder">📁+</button><button id="lsAddL" title="lesson">📄+</button></div>
@@ -2082,7 +2103,8 @@ const ENN=['zero','one','two','three','four','five','six','seven','eight','nine'
 const ENT=['','','twenty','thirty','forty','fifty'];
 function enNum(n){if(n<20)return ENN[n];const t=Math.floor(n/10),u=n%10;return u?ENT[t]+'-'+ENN[u]:ENT[t]}
 /* second, traditional reading: "a quarter to eight" / «الثامنة إلا ربعاً» (fr via frTimeDaily) */
-const ARO=['','الأولى','الثانية','الثالثة','الرابعة','الخامسة','السادسة','السابعة','الثامنة','التاسعة','العاشرة','الحادية عشرة','الثانية عشرة'];
+const ARO=['','الواحدة','الثانية','الثالثة','الرابعة','الخامسة','السادسة','السابعة','الثامنة','التاسعة','العاشرة','الحادية عشرة','الثانية عشرة'];
+function arMin(n){if(n===15)return 'خمس عشرة';return arNum(n).replace(/^خمسة(?= |$)/,'خمس')}
 function enTimeDaily(h,m){
  const w=n=>n<20?ENN[n]:enNum(n),ampm=x=>x<12?' in the morning':x<17?' in the afternoon':' in the evening';
  const h12=h%12||12,nh12=(h+1)%24%12||12;
@@ -2097,7 +2119,7 @@ function arTimeDaily(h,m){
  if(m===15)return 'الساعة '+ARO[h12]+' والربع'+sfx;
  if(m===30)return 'الساعة '+ARO[h12]+' والنصف'+sfx;
  if(m>30){const nh12=(h+1)%24%12||12,sfx2=(h+1)%24<12?' صباحاً':' مساءً';
-  const rm=60-m,rmTxt=rm===1?'دقيقة واحدة':rm===2?'دقيقتين':arNum(rm)+' دقيقة';
+  const rm=60-m,rmTxt=rm===1?'دقيقة واحدة':rm===2?'دقيقتين':arMin(rm)+' دقيقة';
   return 'الساعة '+ARO[nh12]+(m===45?' إلا ربعاً':' إلا '+rmTxt)+sfx2}
  return ''}
 
@@ -2119,7 +2141,7 @@ function trReadings(h,m){
  const h12=h%12||12;
  const fr1=frTimeFormal(h,m);
  const fr2=m===0?(h===0?'Il est minuit pile':h===12?'Il est midi pile':'Il est '+frHeure(h12)+' pile'+(h>=17?' du soir':h>12?' de l’après-midi':' du matin')):frTimeDaily(h,m);
- const ar1='الساعة '+ARO[h12]+(m?' و'+arNum(m)+' دقيقة':'');
+ const ar1='الساعة '+ARO[h12]+(m?' و'+arMin(m)+' دقيقة':'');
  const ar2=m===0?'الساعة '+ARO[h12]+' تماماً':arTimeDaily(h,m);
  const en1=m?"It's "+enNum(h12)+' '+(m<10?'oh '+enNum(m):enNum(m)):"It's "+enNum(h12)+" o'clock";
  const en2=m===0?"It's exactly "+enNum(h12):(m===15||m===30||m>30?enTimeDaily(h,m):'');
@@ -2135,6 +2157,73 @@ function renderTimeRead(){
   html+='<div class="tr-r" dir="'+(lg==='ar'?'rtl':'ltr')+'"><span style="flex:1">'+(i+1)+'. '+esc(r)+'</span><button data-tr="'+lg+'|'+i+'">🔊</button></div>'});
  el.innerHTML=html;
  el.querySelectorAll('[data-tr]').forEach(b=>b.onclick=()=>{const[lg,i]=b.dataset.tr.split('|');const dd=new Date(),rr=trReadings(dd.getHours(),dd.getMinutes())[lg][+i];if(rr)sayOnce(rr,lg)})}
+/* ---- تعلم الساعة: generated readings for every quarter hour ---- */
+const ARO24=ARO.concat(['الثالثة عشرة','الرابعة عشرة','الخامسة عشرة','السادسة عشرة','السابعة عشرة','الثامنة عشرة','التاسعة عشرة','العشرون','الحادية والعشرون','الثانية والعشرون','الثالثة والعشرون']);
+const frDay=h=>h>=13&&h<=17?" de l'après-midi":h>=18?' du soir':'';
+function lrnFr(h,m){
+ const h12=h%12||12,nh=(h+1)%24,nh12=nh%12||12,hr=x=>' '+frNum(x)+' heure'+(x>1?'s':'');
+ const n1='Il est'+hr(h)+(m?' '+frNum(m):'');
+ let n2;
+ if(!m)n2=h===0?'Il est minuit':h===12?'Il est midi':h<12?'Il est'+hr(h)+' pile':'Il est'+hr(h12)+frDay(h);
+ else if(m===15||m===30){const part=m===15?'et quart':(h===0||h===12?'et demi':'et demie');
+  n2=(h===0||h===12)?('Il est '+(h===0?'minuit':'midi')+' '+part):('Il est'+hr(h12)+' '+part+frDay(h))}
+ else{const part=m===45?'le quart':frNum(60-m);
+  n2=(nh===0||nh===12)?('Il est '+(nh===0?'minuit':'midi')+' moins '+part):('Il est'+hr(nh12)+' moins '+part+(h===12?'':frDay(nh)))}
+ return[n1,n2]}
+function lrnAr(h,m){
+ const h12=h%12||12,nh=(h+1)%24,nh12=nh%12||12;
+ const S=h===0?'بعد منتصف الليل':h<12?'صباحاً':h===12?'ظهراً':h<17?'بعد الظهر':'مساءً';
+ const n1='الساعة '+(h===0?ARO[12]+(m?' و'+arMin(m)+' دقيقة بعد منتصف الليل':' منتصف الليل'):ARO24[h]+(m?' و'+arMin(m)+' دقيقة':'')+(h<=12?' '+S:''));
+ let n2;
+ if(!m)n2=h===0?'منتصف الليل تماماً':h===12?'منتصف النهار تماماً':'الساعة '+ARO[h12]+(h<=12?' تماماً ':' ')+S;
+ else if(m===15)n2='الساعة '+ARO[h12]+' والربع '+S;
+ else if(m===30)n2='الساعة '+ARO[h12]+' والنصف '+S;
+ else{const T=h===0?'بعد منتصف الليل':h===23?'ليلاً':nh<12?'صباحاً':nh===12?'ظهراً':nh<18?'بعد الظهر':'مساءً';
+  const rm=60-m,rmTxt=m===45?'ربعاً':rm===1?'دقيقة واحدة':rm===2?'دقيقتين':arMin(rm)+' دقيقة';
+  n2='الساعة '+ARO[nh12]+' إلا '+rmTxt+' '+T}
+ return[n1,n2]}
+function lrnEn(h,m){
+ const h12=h%12||12,nh12=(h+1)%24%12||12;
+ const n1="It's "+enNum(h12)+(m?' '+enNum(m):'')+' '+(h<12?'a.m.':'p.m.');
+ const day=h<12?' in the morning':h<18?' in the afternoon':h<22?' in the evening':' at night';
+ let n2;
+ if(!m)n2=h===0?"It's midnight":h===12?"It's noon":"It's "+enNum(h12)+" o'clock"+day;
+ else if(m===15)n2="It's a quarter past "+enNum(h12);
+ else if(m===30)n2="It's half past "+enNum(h12);
+ else n2="It's "+(m===45?'a quarter':enNum(60-m))+" to "+enNum(nh12);
+ return[n1,n2]}
+const LRN=[{f:lrnFr,fl:'🇫🇷',lg:'fr-FR'},{f:lrnAr,fl:'🇸🇦',lg:'ar-SA'},{f:lrnEn,fl:'🇺🇸',lg:'en-US'}];
+function renderLearn(){
+ $('learnFold').innerHTML='📂 '+esc({ar:'تعلم الساعة',fr:"Apprendre l'heure",en:'Learn the clock'}[st.lang]);
+ $('learnTitle').textContent={ar:'📂 تعلم الساعة — القراءتان بكل ربع ساعة',fr:"📂 L'heure — les deux lectures chaque quart d'heure",en:'📂 Learn the clock — both readings every quarter'}[st.lang];
+ const b=$('learnBody');b.innerHTML='';
+ const nt=document.createElement('div');nt.className='lr-notes';
+ nt.innerHTML='<b>et quart</b> = والربع · <b>et demie</b> = والنصف · <b>moins le quart</b> = إلا ربعاً · <b>pile</b> = تماماً · <b>minuit</b> = منتصف الليل · <b>midi</b> = منتصف النهار<br>'+
+  '00:00–05:45 منتصف الليل والفجر · 06:00–11:45 الصباح · 12:00–17:45 الظهر وبعد الظهر · 18:00–23:45 المساء والليل<br>'+
+  'بالفرنسية نظام 24 ساعة شائع بالمواعيد (14 h 30)، وبالكلام اليومي: deux heures et demie de l\'après-midi';
+ b.appendChild(nt);
+ [['00:00–05:45','منتصف الليل والفجر',0,5],['06:00–11:45','الصباح',6,11],['12:00–17:45','الظهر وبعد الظهر',12,17],['18:00–23:45','المساء والليل',18,23]].forEach(([rng,nm,h0,h1])=>{
+  const sh=document.createElement('div');sh.className='lr-sec';sh.textContent=rng+' — '+nm;b.appendChild(sh);
+  for(let h=h0;h<=h1;h++)for(const m of[0,15,30,45]){
+   const row=document.createElement('div');row.className='lr-row';
+   const rh=document.createElement('div');rh.className='lr-rh';
+   rh.innerHTML='<span class="lr-t">'+pad(h)+':'+pad(m)+'</span>';
+   const lb=document.createElement('button');lb.textContent='🔁';rh.appendChild(lb);row.appendChild(rh);
+   const rows=[];
+   LRN.forEach(({f,fl,lg})=>{
+    const[r1,r2]=f(h,m);rows.push({txt:r1,lg},{txt:r2,lg});
+    const d=document.createElement('div');d.className='lr-lg';d.dir=lg.startsWith('ar')?'rtl':'ltr';
+    d.innerHTML='<span class="fl">'+fl+'</span><span class="rd"></span>';
+    const rd=d.querySelector('.rd');
+    [r1,r2].forEach((rr,ii)=>{const dv=document.createElement('div');
+     dv.innerHTML='<span>'+(ii+1)+'. '+esc(rr)+'</span>';
+     const sb=document.createElement('button');sb.textContent='🔊';sb.onclick=()=>sayOnce(rr,lg);
+     dv.appendChild(sb);rd.appendChild(dv)});
+    row.appendChild(d)});
+   lb.onclick=()=>loopSpeak(rows,lb);
+   b.appendChild(row)}})}
+$('learnFold').onclick=()=>{renderLearn();$('learnOv').classList.add('on')};
+$('learnX').onclick=()=>{stopSay();document.querySelectorAll('#learnOv .speaking').forEach(x=>x.classList.remove('speaking'));$('learnOv').classList.remove('on')};
 
 
 /* ---- note pad (ProLang port) ---- */
@@ -3206,7 +3295,7 @@ function updHdr(){const tb=$('themeBtn');if(tb)tb.textContent=st.theme==='dark'?
 if(CAP.Plugins&&CAP.Plugins.App){
  CAP.Plugins.App.addListener('backButton',async()=>{
   if($('noteModal')&&$('noteModal').classList.contains('show')){closeNote();return}
-  for(const s of['ringShade','editShade','menuShade','cfShade','askShade','lsOptShade','phShade','tplShade','lessonShade'])if($(s).classList.contains('on')){if(s==='ringShade')stopRing();else if(s==='lessonShade'&&lsView==='lesson'){lsView='grid';renderLessons()}else if(s==='lessonShade'&&lsStack.length){lsStack.pop();renderLessons()}else $(s).classList.remove('on');return}
+  for(const s of['ringShade','editShade','menuShade','cfShade','askShade','lsOptShade','phShade','tplShade','lessonShade','learnOv'])if($(s).classList.contains('on')){if(s==='ringShade')stopRing();else if(s==='learnOv'){stopSay();document.querySelectorAll('#learnOv .speaking').forEach(x=>x.classList.remove('speaking'));$(s).classList.remove('on')}else if(s==='lessonShade'&&lsView==='lesson'){lsView='grid';renderLessons()}else if(s==='lessonShade'&&lsStack.length){lsStack.pop();renderLessons()}else $(s).classList.remove('on');return}
   if(calMonth>=0&&$('monthView').classList.contains('on')){calMonth=-1;renderYear();return}
   if(await confirmBox(t('exitConfirm')))CAP.Plugins.App.exitApp();
  });
