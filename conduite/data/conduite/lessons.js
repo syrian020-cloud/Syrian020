@@ -3465,6 +3465,323 @@ window.CONDUITE_FOLDERS = [
             "note": "الطريق المسموح: اتجاهان مفصولان بحاجز وسطي + مساران على الأقل بكل اتجاه + سرعة قصوى بين 70 و130 كم/س (أو أقل بقرار محلي). ممنوع على الطرق الأخرى حتى لو السيارات متوقفة."
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "التعامل مع الدراجات النارية على الطريق",
+          "fr": "Partager la route avec les motos",
+          "en": "Sharing the road with motorcycles"
+        },
+        "img": "data/conduite/img/l38-1.webp",
+        "phrases": [
+          {
+            "fr": "Je surveille mes rétroviseurs et je garde ma trajectoire.",
+            "ar": "أنا براقب مراياتي وبحافظ على مساري.",
+            "en": "I check my mirrors and maintain my lane.",
+            "img": "data/conduite/img/l38-1.webp",
+            "note": "إذا اقتربت دراجة نارية من الخلف، لا تغيّر مسارك فجأة ولا تفرمل دون سبب. راقب المرايا وحافظ على مسافة آمنة، واترك لها مجالاً للتجاوز عندما يكون ذلك آمناً وقانونياً."
+          },
+          {
+            "fr": "Je laisse suffisamment d'espace latéral lorsque je dépasse une moto.",
+            "ar": "أنا بترك مسافة جانبية كافية لما أتجاوز دراجة نارية.",
+            "en": "I leave enough lateral space when overtaking a motorcycle.",
+            "img": "data/conduite/img/l38-2.webp",
+            "note": "الدراجة النارية أكثر تأثراً بالهواء والاهتزازات والحفر، لذلك لا تمر بجانبها بشكل قريب. تأكد من إمكانية التجاوز بأمان، واستعمل الغماز، واحترم قواعد التجاوز."
+          },
+          {
+            "fr": "Je vérifie la présence des motos avant de franchir une intersection.",
+            "ar": "أنا بتأكد إذا في دراجات نارية قبل ما اجتاز التقاطع.",
+            "en": "I check for motorcycles before crossing an intersection.",
+            "img": "data/conduite/img/l38-3.webp",
+            "note": "لا تفترض أن الطريق خالٍ لمجرد أنك لم ترَ سيارة. الدراجة النارية قد تكون صغيرة وصعبة الرؤية، لذلك افحص الاتجاهين والنقاط العمياء، واحترم الأولوية والإشارات."
+          },
+          {
+            "fr": "Je vérifie qu'aucune moto n'arrive avant de m'engager dans le giratoire.",
+            "ar": "أنا بتأكد ما في دراجة نارية جاية قبل ما فوت عالدوار.",
+            "en": "I check that no motorcycle is approaching before entering the roundabout.",
+            "img": "data/conduite/img/l38-4.webp",
+            "note": "قبل دخول الدوار، راقب حركة السير من اليسار. لا تدخل أمام دراجة نارية قريبة، ولا تفترض أن سرعتها بطيئة بسبب حجمها."
+          },
+          {
+            "fr": "Je ne dépasse pas une moto à proximité d'un passage à niveau.",
+            "ar": "أنا ما بتجاوز دراجة نارية قرب ممر السكة الحديدية.",
+            "en": "I do not overtake a motorcycle near a railway crossing.",
+            "img": "data/conduite/img/l38-5.webp",
+            "note": "قد تفقد الدراجة توازنها عند عبور القضبان، خصوصاً إذا كانت مبللة. حتى لو كان التجاوز مسموحاً من حيث القاعدة العامة، الأفضل تأجيله حتى تتجاوز الدراجة السكة بأمان. Sécurité Routière."
+          },
+          {
+            "fr": "Je vérifie qu'aucune moto n'arrive en face avant de tourner à gauche.",
+            "ar": "أنا بتأكد ما في دراجة نارية جاية من المقابل قبل ما لف يسار.",
+            "en": "I check that no motorcycle is approaching before turning left.",
+            "img": "data/conduite/img/l38-6.webp",
+            "note": "عند الانعطاف يساراً، انتبه للدراجات النارية القادمة من الاتجاه المعاكس. لا تعتمد على تقدير المسافة وحده؛ فقد تكون سرعتها أعلى مما تتوقع."
+          },
+          {
+            "fr": "Je laisse davantage de distance avec une moto lorsqu'il pleut.",
+            "ar": "أنا بزيد مسافة الأمان مع الدراجة النارية وقت المطر.",
+            "en": "I increase my safety distance from a motorcycle when it rains.",
+            "img": "data/conduite/img/l38-7.webp",
+            "note": "الطريق المبلل يزيد خطر الانزلاق، وخاصة عند الفرملة أو المرور فوق خطوط الطريق المعدنية. تجنب الحركات المفاجئة واترك مساحة أكبر للدراجة."
+          },
+          {
+            "fr": "Je vérifie que le passager est correctement installé et équipé.",
+            "ar": "أنا بتأكد إن الراكب قاعد ومجهّز بطريقة صحيحة.",
+            "en": "I make sure the passenger is properly seated and equipped.",
+            "img": "data/conduite/img/l38-8.webp",
+            "note": "لا يجوز نقل راكب إلا إذا كانت الدراجة معتمدة لذلك. يجب أن يكون للراكب مقعد ومساند قدمين وتجهيزات الحماية اللازمة. وجود كلمة solo على وثيقة تسجيل الدراجة يعني أنها مخصصة لشخص واحد فقط. Sécurité."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "المركبات ذات الأولوية والطوارئ",
+          "fr": "Véhicules prioritaires et d'urgence",
+          "en": "Priority and emergency vehicles"
+        },
+        "img": "data/conduite/img/l39-1.webp",
+        "phrases": [
+          {
+            "fr": "Je facilite le passage de l'ambulance en intervention.",
+            "ar": "أنا بسهّل مرور سيارة الإسعاف خلال مهمتها الطارئة.",
+            "en": "I make way for the ambulance responding to an emergency.",
+            "img": "data/conduite/img/l39-1.webp",
+            "note": "لما تقترب سيارة إسعاف تستخدم أضواء زرقاء وصفارة خاصة، لازم أفسحلها الطريق بأمان، من دون مناورة مفاجئة أو تعريض المشاة والسائقين للخطر."
+          },
+          {
+            "fr": "Je laisse passer le camion de pompiers lorsqu'il est en intervention prioritaire.",
+            "ar": "أنا بفسح المجال لسيارة الإطفاء لما تكون بمهمة طارئة إلها أولوية.",
+            "en": "I let the fire engine pass when it is on a priority emergency call.",
+            "img": "data/conduite/img/l39-2.webp",
+            "note": "سيارة الإطفاء من المركبات ذات الأولوية عندما تستخدم إشاراتها الخاصة وفق القانون. لا تسد طريقها عند التقاطعات أو المداخل."
+          },
+          {
+            "fr": "Je facilite le passage de la police lorsqu'elle utilise ses avertisseurs spéciaux.",
+            "ar": "أنا بسهّل مرور سيارة الشرطة لما تستخدم إشارات الإنذار الخاصة فيها.",
+            "en": "I make way for the police vehicle when it uses its special warning signals.",
+            "img": "data/conduite/img/l39-3.webp",
+            "note": "مو كل سيارة شرطة عندها أولوية بمجرد أنها سيارة شرطة. لازم تكون في حالة تدخل مستعجل وتستخدم الإشارات الخاصة المطلوبة قانونياً."
+          },
+          {
+            "fr": "Je distingue un véhicule prioritaire d'une ambulance privée.",
+            "ar": "أنا بميّز بين مركبة إلها أولوية وسيارة إسعاف خاصة.",
+            "en": "I distinguish a priority vehicle from a private ambulance.",
+            "img": "data/conduite/img/l39-4.webp",
+            "note": "المهم جداً للامتحان:."
+          },
+          {
+            "fr": "Je reconnais les avertisseurs spéciaux des véhicules d'urgence.",
+            "ar": "أنا بتعرّف على إشارات الإنذار الخاصة بمركبات الطوارئ.",
+            "en": "I recognize the special warning signals of emergency vehicles.",
+            "img": "data/conduite/img/l39-5.webp",
+            "note": "* الأضواء الزرقاء الوامضة: Feux bleus."
+          },
+          {
+            "fr": "Je facilite le passage du véhicule prioritaire sans franchir le feu rouge dangereusement.",
+            "ar": "أنا بسهّل مرور مركبة الطوارئ من دون ما أقطع الإشارة الحمرا بطريقة خطيرة.",
+            "en": "I make way for the emergency vehicle without dangerously crossing the red light.",
+            "img": "data/conduite/img/l39-6.webp",
+            "note": "إذا كنت متوقفاً عند إشارة حمراء وسمعت صفارة مركبة ذات أولوية خلفك:."
+          },
+          {
+            "fr": "Je ralentis et je facilite le passage du véhicule d'urgence.",
+            "ar": "أنا بخفف السرعة وبسهّل مرور مركبة الطوارئ.",
+            "en": "I slow down and make way for the emergency vehicle.",
+            "img": "data/conduite/img/l39-7.webp",
+            "note": "إذا كان الطريق ضيقاً، خفف السرعة، وتوقف عند الحاجة بمكان آمن حتى تمر مركبة الطوارئ. لا تصعد على الرصيف بطريقة تعرض المشاة للخطر."
+          },
+          {
+            "fr": "Je ne profite pas du passage de l'ambulance pour la suivre.",
+            "ar": "أنا ما بستغل مرور سيارة الإسعاف حتى أمشي وراها وأتجاوز السيارات.",
+            "en": "I do not use the ambulance's passage to follow it and overtake traffic.",
+            "img": "data/conduite/img/l39-8.webp",
+            "note": "لا يجوز استغلال الطريق الذي تفسحه السيارات لمركبة الطوارئ حتى تمر خلفها. أنا كسائق عادي لازم أحافظ على مساري وأحترم إشارات المرور."
+          },
+          {
+            "fr": "Je respecte les gestes de l'agent qui règle la circulation.",
+            "ar": "أنا بلتزم بإشارات شرطي المرور اللي عم ينظّم السير.",
+            "en": "I obey the signals of the traffic officer.",
+            "img": "data/conduite/img/l39-9.webp",
+            "note": "تعليمات شرطي المرور تتقدم على:."
+          },
+          {
+            "fr": "Je cède le passage aux véhicules prioritaires qui annoncent leur approche.",
+            "ar": "أنا بفسح الطريق للمركبات ذات الأولوية لما تعلن اقترابها بإشاراتها الخاصة.",
+            "en": "I give way to priority vehicles when they announce their approach.",
+            "img": "data/conduite/img/l39-10.webp",
+            "note": "الامتحاني:."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "الإسعافات الأولية عند الحوادث",
+          "fr": "Premiers secours en cas d'accident",
+          "en": "First aid at accident scenes"
+        },
+        "img": "data/conduite/img/l40-1.webp",
+        "phrases": [
+          {
+            "fr": "Je sécurise les lieux de l'accident sans me mettre en danger.",
+            "ar": "أنا بأمّن مكان الحادث من دون ما عرّض حالي للخطر.",
+            "en": "I secure the accident scene without putting myself in danger.",
+            "img": "data/conduite/img/l40-1.webp",
+            "note": "* أولاً أتأكد أن المكان آمن إلي وللمصابين."
+          },
+          {
+            "fr": "J'appelle les secours et je donne des informations précises.",
+            "ar": "أنا بتصل بالإسعاف وبعطي معلومات دقيقة عن الحادث.",
+            "en": "I call the emergency services and give precise information.",
+            "img": "data/conduite/img/l40-2.webp",
+            "note": "الأرقام المهمة في فرنسا:."
+          },
+          {
+            "fr": "Je précise la route, le sens de circulation et le point kilométrique.",
+            "ar": "أنا بحدد اسم الطريق واتجاه السير ورقم الكيلومتر.",
+            "en": "I give the road name, direction of travel and kilometer marker.",
+            "img": "data/conduite/img/l40-3.webp",
+            "note": "لما أتصل بالطوارئ، لازم أوضح:."
+          },
+          {
+            "fr": "J'indique le nombre de victimes et leur état apparent.",
+            "ar": "أنا بذكر عدد المصابين وحالتهم الظاهرة.",
+            "en": "I report the number of casualties and their apparent condition.",
+            "img": "data/conduite/img/l40-4.webp",
+            "note": "أخبر موظف الطوارئ بعدد الأشخاص المصابين، وهل يوجد شخص فاقد للوعي أو ينزف أو لديه صعوبة في التنفس. لا تخمّن التشخيص الطبي."
+          },
+          {
+            "fr": "Je ne déplace pas une victime, sauf en cas de danger immédiat.",
+            "ar": "أنا ما بحرك المصاب إلا إذا كان في خطر مباشر على حياته.",
+            "en": "I do not move a casualty unless there is immediate danger.",
+            "img": "data/conduite/img/l40-5.webp",
+            "note": "بعد حادث سير، ممكن يكون عند المصاب إصابة بالرقبة أو العمود الفقري حتى لو ما كانت ظاهرة."
+          },
+          {
+            "fr": "Je ne retire pas le casque du motard accidenté.",
+            "ar": "أنا ما بنزع خوذة سائق الدراجة المصاب.",
+            "en": "I do not remove the helmet of an injured motorcyclist.",
+            "img": "data/conduite/img/l40-6.webp",
+            "note": "لا تحاول نزع الخوذة بنفسك؛ لأن حركة الرأس والرقبة ممكن تزيد الإصابة. اترك المهمة للمختصين، واتبع تعليمات موظف الطوارئ. الاستثناء هو وجود خطر مباشر لا يمكن تجنبه بطريقة أخرى."
+          },
+          {
+            "fr": "Je ne donne ni à boire ni à manger à la victime.",
+            "ar": "أنا ما بعطي المصاب لا مي ولا أكل.",
+            "en": "I do not give the casualty anything to drink or eat.",
+            "img": "data/conduite/img/l40-7.webp",
+            "note": "حتى لو طلب المصاب الماء، لا تعطيه طعاماً أو شراباً؛ فقد يحتاج إلى تدخل طبي أو تخدير، وقد يواجه صعوبة بالبلع."
+          },
+          {
+            "fr": "Je vérifie la respiration et je suis les instructions des secours.",
+            "ar": "أنا بتأكد من التنفس وبتبع تعليمات الإسعاف.",
+            "en": "I check breathing and follow the emergency services' instructions.",
+            "img": "data/conduite/img/l40-8.webp",
+            "note": "المهم:."
+          },
+          {
+            "fr": "Je commence le massage cardiaque si la victime ne respire pas normalement.",
+            "ar": "أنا ببلّش الضغطات الصدرية إذا المصاب ما عم يتنفس بشكل طبيعي.",
+            "en": "I start chest compressions if the casualty is not breathing normally.",
+            "img": "data/conduite/img/l40-9.webp",
+            "note": "* اتصل بـ 15 أو 112، أو اطلب من شخص الاتصال."
+          },
+          {
+            "fr": "Je demande un défibrillateur et je suis ses instructions vocales.",
+            "ar": "أنا بطلب جهاز إزالة الرجفان وبتبع تعليماته الصوتية.",
+            "en": "I ask for a defibrillator and follow its voice instructions.",
+            "img": "data/conduite/img/l40-10.webp",
+            "note": "* الجهاز يُستخدم عند الاشتباه بتوقف القلب."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "الإسعافات الأولية: الجروح والحروق",
+          "fr": "Secours: blessures et brûlures",
+          "en": "First aid: wounds and burns"
+        },
+        "img": "data/conduite/img/l41-1.webp",
+        "phrases": [
+          {
+            "fr": "Je comprime directement la plaie pour arrêter le saignement.",
+            "ar": "أنا بضغط مباشرة على الجرح حتى أوقف النزيف.",
+            "en": "I apply direct pressure to the wound to stop the bleeding.",
+            "img": "data/conduite/img/l41-1.webp",
+            "note": "إذا كان الدم غزيراً أو يتدفق باستمرار:."
+          },
+          {
+            "fr": "Je pose un pansement compressif après avoir contrôlé le saignement.",
+            "ar": "أنا بحط ضماد ضاغط بعد ما أسيطر على النزيف.",
+            "en": "I apply a pressure bandage after controlling the bleeding.",
+            "img": "data/conduite/img/l41-2.webp",
+            "note": "بعد السيطرة على النزيف بالضغط المباشر، يمكن استخدام ضماد ضاغط للمحافظة على الضغط وتحرير اليدين. إذا عاد النزيف، أواصل الضغط وأتبع تعليمات الطوارئ."
+          },
+          {
+            "fr": "Je ne retire jamais un objet planté dans une plaie grave.",
+            "ar": "أنا ما بنزع أبداً جسماً مغروساً داخل جرح خطير.",
+            "en": "I never remove an object embedded in a serious wound.",
+            "img": "data/conduite/img/l41-3.webp",
+            "note": "إذا كان هناك زجاج أو معدن أو سكين مغروس في جسم المصاب:."
+          },
+          {
+            "fr": "Je fais pencher la tête en avant et je pince le nez.",
+            "ar": "أنا بخلي الرأس يميل لقدّام وبضغط على الجزء الطري من الأنف.",
+            "en": "I lean the head forward and pinch the soft part of the nose.",
+            "img": "data/conduite/img/l41-4.webp",
+            "note": "* يجلس المصاب."
+          },
+          {
+            "fr": "Je refroidis immédiatement la brûlure avec de l'eau tempérée.",
+            "ar": "أنا ببرّد مكان الحرق فوراً بمي فاترة مائلة للبرودة.",
+            "en": "I immediately cool the burn with cool running water.",
+            "img": "data/conduite/img/l41-5.webp",
+            "note": "* أوقف مصدر الحرارة أولاً إذا كان ذلك آمناً."
+          },
+          {
+            "fr": "Je rince immédiatement la zone touchée et j'appelle les secours.",
+            "ar": "أنا بغسل المنطقة المصابة فوراً وبطلب الإسعاف.",
+            "en": "I immediately rinse the affected area and call emergency services.",
+            "img": "data/conduite/img/l41-6.webp",
+            "note": "* أحمي نفسي أولاً من المادة الكيميائية."
+          },
+          {
+            "fr": "Je ne frotte pas l'œil et je ne retire pas un objet planté.",
+            "ar": "أنا ما بفرك العين وما بنزع أي جسم مغروس فيها.",
+            "en": "I do not rub the eye or remove an embedded object.",
+            "img": "data/conduite/img/l41-7.webp",
+            "note": "* لا أفرك العين المصابة."
+          },
+          {
+            "fr": "Je laisse la plaie thoracique à l'air libre et j'appelle les secours.",
+            "ar": "أنا بترك جرح الصدر مكشوفاً وبطلب الإسعاف.",
+            "en": "I leave the chest wound exposed and call emergency services.",
+            "img": "data/conduite/img/l41-8.webp",
+            "note": "جرح الصدر النافذ قد يؤثر في التنفس. لا أضع ضماداً محكماً يغلق الجرح، ولا أضغط على جسم مغروس. أطلب الإسعاف فوراً وأتبع تعليماته، وأراقب التنفس والوعي. Formation continue."
+          },
+          {
+            "fr": "Je ne touche pas aux organes et je ne donne rien à boire.",
+            "ar": "أنا ما بلمس الأعضاء الداخلية وما بعطي المصاب شي يشربه.",
+            "en": "I do not touch internal organs or give the casualty anything to drink.",
+            "img": "data/conduite/img/l41-9.webp",
+            "note": "* لا أحاول إعادة أي عضو ظاهر إلى داخل البطن."
+          },
+          {
+            "fr": "Je ne retire pas les vêtements collés à la peau.",
+            "ar": "أنا ما بشيل الملابس الملتصقة بالجلد المحروق.",
+            "en": "I do not remove clothing stuck to burned skin.",
+            "img": "data/conduite/img/l41-10.webp",
+            "note": "إذا احترقت ملابس المصاب:."
+          },
+          {
+            "fr": "Je couvre la victime pour éviter qu'elle ne se refroidisse.",
+            "ar": "أنا بغطي المصاب حتى ما يبرد جسمه.",
+            "en": "I cover the casualty to prevent them from getting cold.",
+            "img": "data/conduite/img/l41-11.webp",
+            "note": "بعد الحادث، ممكن المصاب يفقد حرارة جسمه حتى لو كان الجو معتدلاً. غطّه ببطانية أو غطاء مناسب، من دون إعاقة التنفس أو تأخير الإسعاف."
+          }
+        ]
       }
     ]
   }
