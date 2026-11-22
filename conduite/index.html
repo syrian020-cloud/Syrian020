@@ -1716,7 +1716,7 @@
   }
 
   function ensureConduiteFolders() {
-    const SEED_V = '6';
+    const SEED_V = '7';
     if (localStorage.getItem('conduite_seed_v') === SEED_V) return;
     const seededIds = JSON.parse(localStorage.getItem('conduite_seed_ids') || '[]');
     const oldTitles = ['تعلّم قيادة السيارة خطوة بخطوة', 'الدراجة الكهربائية', 'مواقف حقيقية في فرنسا'];
@@ -1728,10 +1728,12 @@
     localStorage.setItem('conduite_seed_v', SEED_V);
     localStorage.setItem('conduite_seeded', '1');
     const newIds = [];
+    let seedId = nextId();
+    const nid = () => seedId++;
     const buildItem = it => {
-      if (it.type === 'folder') return { type: 'folder', id: nextId(), icon: it.icon || '', title: it.title, image: it.img || it.image || '', lessons: (it.lessons || []).map(buildItem),
+      if (it.type === 'folder') return { type: 'folder', id: nid(), icon: it.icon || '', title: it.title, image: it.img || it.image || '', lessons: (it.lessons || []).map(buildItem),
         phrases: (it.phrases || []).map(p => ({ fr: p.fr || '', ar: p.ar || '', en: p.en || '', image: p.img || it.img || '', note: p.note || null })) };
-      return { id: nextId(), type: 'lesson', title: it.title, image: it.img || it.image || '', note: it.note || null,
+      return { id: nid(), type: 'lesson', title: it.title, image: it.img || it.image || '', note: it.note || null,
         phrases: (it.phrases || []).map(p => ({ fr: p.fr || '', ar: p.ar || '', en: p.en || '', image: p.img || it.img || '', note: p.note || null })) };
     };
     (window.CONDUITE_FOLDERS || []).forEach(f => {
