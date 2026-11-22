@@ -2103,7 +2103,8 @@ const ENT=['','','twenty','thirty','forty','fifty'];
 function enNum(n){if(n<20)return ENN[n];const t=Math.floor(n/10),u=n%10;return u?ENT[t]+'-'+ENN[u]:ENT[t]}
 /* second, traditional reading: "a quarter to eight" / «الثامنة إلا ربعاً» (fr via frTimeDaily) */
 const ARO=['','الواحدة','الثانية','الثالثة','الرابعة','الخامسة','السادسة','السابعة','الثامنة','التاسعة','العاشرة','الحادية عشرة','الثانية عشرة'];
-function arMin(n){if(n===15)return 'خمس عشرة';return arNum(n).replace(/^خمسة(?= |$)/,'خمس')}
+const ARNF=['صفر','واحدة','اثنتان','ثلاث','أربع','خمس','ست','سبع','ثمان','تسع','عشر','إحدى عشرة','اثنتا عشرة','ثلاث عشرة','أربع عشرة','خمس عشرة','ست عشرة','سبع عشرة','ثمان عشرة','تسع عشرة'];
+function arMin(n){if(n<20)return ARNF[n];const t=Math.floor(n/10),u=n%10;return u?ARNF[u]+' و'+ART[t]:ART[t]}
 function enTimeDaily(h,m){
  const w=n=>n<20?ENN[n]:enNum(n),ampm=x=>x<12?' in the morning':x<17?' in the afternoon':' in the evening';
  const h12=h%12||12,nh12=(h+1)%24%12||12;
@@ -2143,8 +2144,10 @@ function trReadings(h,m){
  const en1=m?"It's "+enNum(h12)+' '+(m<10?'oh '+enNum(m):enNum(m)):"It's "+enNum(h12)+" o'clock";
  const en2=m===0?"It's exactly "+enNum(h12):(m===15||m===30||m>30?enTimeDaily(h,m):'');
  return {fr:[fr1,fr2],ar:[ar1,ar2],en:[en1,en2]}}
+const LEARN_TITLE={ar:'تعلم الساعة',fr:"Apprendre l'heure",en:'Learn the clock'};
 function renderTimeRead(){
  const el=$('timeRead');if(!el)return;
+ const lf=$('learnFold');if(lf)lf.textContent='📂 '+LEARN_TITLE[st.lang];
  const d=new Date(),h=d.getHours(),m=d.getMinutes(),R=trReadings(h,m);
  const tt={ar:'الوقت الحالي',en:'Current time',fr:'Heure actuelle'}[st.lang];
  let html='<div class="tr-t">'+tt+': '+pad(h)+':'+pad(m)+'</div>';
@@ -2191,7 +2194,7 @@ function lrnEn(h,m){
  return[n1,n2]}
 const LRN=[{f:lrnFr,fl:'🇫🇷',lg:'fr-FR'},{f:lrnAr,fl:'🇸🇦',lg:'ar-SA'},{f:lrnEn,fl:'🇺🇸',lg:'en-US'}];
 function renderLearn(){
- $('learnFold').innerHTML='📂 '+esc({ar:'تعلم الساعة',fr:"Apprendre l'heure",en:'Learn the clock'}[st.lang]);
+ $('learnFold').textContent='📂 '+LEARN_TITLE[st.lang];
  $('learnTitle').textContent={ar:'📂 تعلم الساعة — القراءتان بكل ربع ساعة',fr:"📂 L'heure — les deux lectures chaque quart d'heure",en:'📂 Learn the clock — both readings every quarter'}[st.lang];
  const b=$('learnBody');b.innerHTML='';
  const nt=document.createElement('div');nt.className='lr-notes';
