@@ -2229,6 +2229,407 @@ window.CONDUITE_FOLDERS = [
             "note": "أبحث عن طريق بديل وأتبع إشارة التحويلة. 📋 خلاصة حفظ الإشارات: مثلث بإطار أحمر = استعد لخطر · دائرة بإطار أحمر = احترم المنع · دائرة زرقاء = التزم بالأمر · مربع أزرق = استفد من الخدمة · لوحة صفراء = اتبع التغيير المؤقت."
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "إشارات الأولوية واللوحات الإضافية",
+          "fr": "Panneaux de priorité et panonceaux",
+          "en": "Priority signs and supplementary panels"
+        },
+        "img": "data/conduite/img/l23-1.webp",
+        "phrases": [
+          {
+            "fr": "Je fais attention à la priorité à droite.",
+            "ar": "أنا بنتبه للأولوية للسيارات الجاية من اليمين.",
+            "en": "I watch out for priority to the right",
+            "img": "data/conduite/img/l23-1.webp",
+            "note": "عند التقاطع، أعطي الأولوية للمركبات القادمة من اليمين، ما لم توجد إشارة أو قاعدة أخرى تغيّر الأولوية."
+          },
+          {
+            "fr": "Je cède le passage aux autres véhicules.",
+            "ar": "أنا بعطي الأولوية للسيارات التانية.",
+            "en": "I give way to other vehicles",
+            "img": "data/conduite/img/l23-2.webp",
+            "note": "أخفف السرعة وأترك المركبات الموجودة على الطريق ذي الأولوية تمر. أتوقف إذا كان ذلك ضرورياً."
+          },
+          {
+            "fr": "Je marque un arrêt obligatoire au STOP.",
+            "ar": "أنا بعمل توقف كامل وإجباري عند إشارة ستوب.",
+            "en": "I make a complete mandatory stop at the STOP sign",
+            "img": "data/conduite/img/l23-3.webp",
+            "note": "أتوقف تماماً عند خط التوقف، وإذا لم يوجد خط أتوقف عند المكان المناسب الذي يسمح برؤية الطريق دون تجاوز التقاطع."
+          },
+          {
+            "fr": "Je circule sur une route prioritaire.",
+            "ar": "أنا بسوق على طريق إله الأولوية.",
+            "en": "I am driving on a priority road",
+            "img": "data/conduite/img/l23-4.webp",
+            "note": "أعرف أن الطريق الذي أسير عليه له الأولوية عند التقاطعات، مع الانتباه للإشارات والضوابط الأخرى."
+          },
+          {
+            "fr": "Je remarque la fin de la route prioritaire.",
+            "ar": "أنا بلاحظ إنو أولوية الطريق انتهت.",
+            "en": "I notice that the priority road ends",
+            "img": "data/conduite/img/l23-5.webp",
+            "note": "بعد هذه الإشارة، لا أفترض أن لي الأولوية؛ أراقب إشارات التقاطع التالية."
+          },
+          {
+            "fr": "Je bénéficie de la priorité par rapport aux véhicules venant en sens inverse.",
+            "ar": "أنا إليّ الأولوية بالنسبة للسيارات الجاية من الاتجاه المعاكس.",
+            "en": "I have priority over vehicles coming from the opposite direction",
+            "img": "data/conduite/img/l23-6.webp",
+            "note": "أستفيد من الأولوية في الممر الضيق، لكن أتأكد من أن المرور آمن وخالٍ."
+          },
+          {
+            "fr": "Je cède le passage aux véhicules venant en sens inverse.",
+            "ar": "أنا بعطي الأولوية للسيارات الجاية من الاتجاه المقابل.",
+            "en": "I give way to vehicles coming from the opposite direction",
+            "img": "data/conduite/img/l23-7.webp",
+            "note": "أنتظر حتى تمر المركبات القادمة من الاتجاه المعاكس قبل دخول الممر الضيق."
+          },
+          {
+            "fr": "Je repère un carrefour à sens giratoire.",
+            "ar": "أنا بتعرّف على تقاطع دائري أو دوار.",
+            "en": "I identify a roundabout",
+            "img": "data/conduite/img/l23-8.webp",
+            "note": "أستعد للاقتراب من الدوار وأراقب إشارات الأولوية عند مدخله. وجود إشارة الدوار وحدها لا يعني دائماً أن الأولوية للمركبات داخله؛ أقرأ إشارات إعطاء الأولوية أيضاً."
+          },
+          {
+            "fr": "Je sais que le danger se trouve à 150 mètres.",
+            "ar": "أنا بعرف إنو الخطر بيبعد 150 متر.",
+            "en": "I know the danger is 150 metres ahead",
+            "img": "data/conduite/img/l23-9.webp",
+            "note": "أستعد للخطر من مسافة 150 متراً، وليس عند مكان اللوحة مباشرة."
+          },
+          {
+            "fr": "Je sais que l'interdiction commence dans 50 mètres.",
+            "ar": "أنا بعرف إنو المنع بيبدأ بعد 50 متر.",
+            "en": "I know the restriction begins in 50 metres",
+            "img": "data/conduite/img/l23-10.webp",
+            "note": "أجهّز نفسي لاحترام المنع عند الوصول إلى المسافة المحددة."
+          },
+          {
+            "fr": "Je sais que la réglementation s'applique sur deux kilomètres.",
+            "ar": "أنا بعرف إنو التنظيم بيستمر لمسافة كيلومترين.",
+            "en": "I know the regulation applies for two kilometres",
+            "img": "data/conduite/img/l23-11.webp",
+            "note": "ألتزم بالإشارة طوال المسافة المحددة، وليس عند نقطة واحدة فقط."
+          },
+          {
+            "fr": "Je sais que l'interdiction ne concerne pas les riverains.",
+            "ar": "أنا بعرف إنو المنع ما بيشمل سكان المنطقة.",
+            "en": "I know the restriction does not apply to local residents",
+            "img": "data/conduite/img/l23-12.webp",
+            "note": "لا أفترض أن الاستثناء يشملني؛ يجب أن أكون من الفئة المذكورة فعلاً."
+          },
+          {
+            "fr": "Je sais que les cyclistes bénéficient d'une exception.",
+            "ar": "أنا بعرف إنو في استثناء للدراجات.",
+            "en": "I know there is an exception for cyclists",
+            "img": "data/conduite/img/l23-13.webp",
+            "note": "إذا كنت أقود سيارة، أحترم المنع؛ وإذا كنت أركب دراجة، أتحقق من أن الاستثناء ينطبق على هذه الإشارة."
+          },
+          {
+            "fr": "Je respecte l'interdiction pendant les horaires indiqués.",
+            "ar": "أنا بحترم المنع خلال الساعات المحددة.",
+            "en": "I respect the restriction during the indicated hours",
+            "img": "data/conduite/img/l23-14.webp",
+            "note": "أقرأ الأوقات المكتوبة على اللوحة، وأطبق المنع خلال الفترة المحددة."
+          },
+          {
+            "fr": "Je respecte la réglementation les jours ouvrables.",
+            "ar": "أنا بحترم التنظيم بأيام العمل.",
+            "en": "I follow the restriction on working days",
+            "img": "data/conduite/img/l23-15.webp",
+            "note": "أنتبه إلى الأيام المحددة، ولا أفترض أن القاعدة تسري بالطريقة نفسها طوال الأسبوع."
+          },
+          {
+            "fr": "Je sais que l'interdiction commence ici et continue après le panneau.",
+            "ar": "أنا بعرف إنو المنع بيبدأ من هون وبيستمر بعد اللوحة.",
+            "en": "I know the restriction starts here and continues beyond the sign",
+            "img": "data/conduite/img/l23-16.webp",
+            "note": "أقرأ السهم واتجاهه لتحديد الجزء الذي يسري عليه التنظيم."
+          },
+          {
+            "fr": "Je repère la fin de la zone réglementée à cet endroit.",
+            "ar": "أنا بحدد نهاية المنطقة المنظمة عند هالمكان.",
+            "en": "I identify the end of the regulated area at this point",
+            "img": "data/conduite/img/l23-17.webp",
+            "note": "أقرأ السهم وموقعه بالنسبة للإشارة الرئيسية لأعرف أين تنتهي المنطقة."
+          },
+          {
+            "fr": "Je repère le tracé de la route prioritaire sur le schéma.",
+            "ar": "أنا بحدد اتجاه الطريق اللي إله الأولوية من المخطط.",
+            "en": "I identify the priority road's direction from the diagram",
+            "img": "data/conduite/img/l23-18.webp",
+            "note": "الخط العريض في المخطط يمثل الطريق الذي له الأولوية؛ أتبع شكل التقاطع لأعرف اتجاهه."
+          },
+          {
+            "fr": "Je vérifie si la limitation concerne une catégorie précise de véhicules.",
+            "ar": "أنا بتأكد إذا تحديد السرعة بيخص نوع معين من المركبات.",
+            "en": "I check whether the speed limit applies to a specific vehicle category",
+            "img": "data/conduite/img/l23-19.webp",
+            "note": "أقرأ رمز الشاحنة أو السيارة أو غيره حتى أعرف على مَن ينطبق التنظيم."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "إشارات الدراجات والحافلات والترام",
+          "fr": "Signalisation vélos, bus et tram",
+          "en": "Bike, bus and tram signs"
+        },
+        "img": "data/conduite/img/l24-1.webp",
+        "phrases": [
+          {
+            "fr": "Je ne circule pas sur la voie réservée aux bus, sauf si la signalisation m’y autorise.",
+            "ar": "أنا ما بسوق بمسار الحافلات المخصّص، إلا إذا كانت الإشارات بتسمحلي.",
+            "en": "I do not drive in the bus-only lane unless the signs allow me to",
+            "img": "data/conduite/img/l24-1.webp",
+            "note": "هذا المسار مخصّص للحافلات ووسائل النقل المحددة على اللوحة. ما بصير استخدمه بالسيارة لمجرد أنه فاضي؛ لازم أتبع اللوحات والعلامات الأرضية، لأن بعض المسارات تسمح أيضاً لفئات أخرى مثل الدراجات أو سيارات الأجرة."
+          },
+          {
+            "fr": "Je peux reprendre la voie normale après la fin de la voie réservée aux bus, en vérifiant que la manœuvre est sûre.",
+            "ar": "أنا فيني أرجع للمسار العادي بعد نهاية مسار الحافلات، بعد ما أتأكد إنو تغيير المسار آمن.",
+            "en": "I can return to the normal lane after the bus lane ends, once I have checked that it is safe",
+            "img": "data/conduite/img/l24-2.webp",
+            "note": "بتعلن نهاية المسار المخصّص للحافلات. قبل ما أندمج بالمسار العادي، بفحص المرايا والنقطة العمياء وبعطي الغماز."
+          },
+          {
+            "fr": "Je ralentis et je vérifie qu’aucun tramway n’arrive avant de traverser les rails.",
+            "ar": "أنا بخفف السرعة وبتأكد إنو ما في ترام جاي قبل ما اقطع السكة.",
+            "en": "I slow down and check that no tram is approaching before crossing the tracks",
+            "img": "data/conduite/img/l24-3.webp",
+            "note": "بتنبّهني إنو في سكة ترام لازم أقطعها. براقب الترام والإشارات الضوئية، وما بوقف فوق السكة. هالإشارة اسمها C20c بفرنسا. Légifrance +1"
+          },
+          {
+            "fr": "Je laisse passer le tramway lorsque la signalisation m’indique qu’il est prioritaire.",
+            "ar": "أنا بسمح للترام يمرّ أولاً لما الإشارات بتوضح إنو إلو الأولوية.",
+            "en": "I let the tram pass first when the signs indicate that it has priority",
+            "img": "data/conduite/img/l24-4.webp",
+            "note": "ممكن تلاقي لوحة مكتوب عليها «PRIORITÉ AU TRAMWAY» تحت إشارة عبور السكة. وقتها لازم أعطي الترام الأولوية. وما بفترض إنو كل ترام إلو الأولوية بنفس الظروف؛ بتبع الإشارات والضوئيات الموجودة. equipementsdelaroute.cerema.fr +1"
+          },
+          {
+            "fr": "Je vérifie qu’aucun bus n’arrive avant de traverser sa voie.",
+            "ar": "أنا بتأكد إنو ما في باص جاي قبل ما اقطع مساره.",
+            "en": "I check that no bus is approaching before crossing its lane",
+            "img": "data/conduite/img/l24-5.webp",
+            "note": "بتنبّهني لوجود مسار مخصص لمركبات النقل العام لازم أقطعه. براقب الحافلات وبعبر بحذر، وما بخلط بين عبور المسار وبين السماح إلي بالسير داخله. Légifrance +1"
+          },
+          {
+            "fr": "Je vérifie les deux sens avant de tourner ou de traverser une rue à double sens cyclable.",
+            "ar": "أنا بتطلع بالاتجاهين قبل ما لفّ أو اقطع شارع مسموح للدراجات تمشي فيه بالاتجاهين.",
+            "en": "I check both directions before turning or crossing a two-way cycle street",
+            "img": "data/conduite/img/l24-6.webp",
+            "note": "ممكن يكون الشارع باتجاه واحد للسيارات، لكن الدراجات مسموحلها تمشي بالاتجاه المعاكس. لذلك ما بطلع بس باتجاه السيارات؛ لازم انتبه كمان للدراجات القادمة من الجهة المعاكسة."
+          },
+          {
+            "fr": "Je roule à 20 km/h maximum et je laisse la priorité aux piétons.",
+            "ar": "أنا بسوق بسرعة ما بتتجاوز 20 كم بالساعة، وبعطي المشاة الأولوية.",
+            "en": "I drive at no more than 20 km/h and give priority to pedestrians",
+            "img": "data/conduite/img/l24-7.webp",
+            "note": "هاي منطقة مشتركة بين السيارات والدراجات والمشاة. السرعة القصوى فيها 20 كم/ساعة، والمشاة إلهم الأولوية وبيقدروا يستخدموا الطريق، مع مراعاة عدم تعريض الآخرين للخطر."
+          },
+          {
+            "fr": "Je ne dépasse pas 30 km/h dans cette zone.",
+            "ar": "أنا ما بتجاوز سرعة 30 كم بالساعة ضمن هالمنطقة.",
+            "en": "I do not exceed 30 km/h in this zone",
+            "img": "data/conduite/img/l24-8.webp",
+            "note": "هون مو مجرد تحديد سرعة على نقطة واحدة؛ هاي منطقة كاملة سرعتها القصوى 30 كم/ساعة. بضل ملتزم فيها لحد ما تظهر إشارة نهاية المنطقة أو تنظيم آخر يغيّر السرعة."
+          },
+          {
+            "fr": "Je n’entre pas dans cette zone avec ma voiture, sauf si la circulation y est autorisée.",
+            "ar": "أنا ما بفوت بسيارتي لهالمنطقة، إلا إذا كان مسموح لحركة السيارات فيها.",
+            "en": "I do not enter this area with my car unless vehicle access is permitted",
+            "img": "data/conduite/img/l24-9.webp",
+            "note": "المنطقة مخصّصة أساساً للمشاة. دخول السيارات بيكون مقيّداً، وقد يُسمح لفئات معينة مثل السكان أو التوصيل وفق اللوحات والقواعد المحلية. وبس يُسمح بالدخول، لازم أمشي بسرعة المشي تقريباً وأعطي المشاة الأولوية."
+          },
+          {
+            "fr": "Je peux retrouver les règles habituelles de circulation après la fin de l’aire piétonne.",
+            "ar": "أنا برجع لقواعد السير العادية بعد نهاية منطقة المشاة، مع الانتباه لباقي الإشارات.",
+            "en": "I can return to the usual traffic rules after the pedestrian area ends, while observing other signs",
+            "img": "data/conduite/img/l24-10.webp",
+            "note": "بتعلن نهاية المنطقة المخصّصة للمشاة. مو معناها إنو فيني أسرع مباشرة؛ لازم ضل ملتزم بحدود السرعة والإشارات الموجودة بالطريق."
+          },
+          {
+            "fr": "Je circule prudemment et je respecte les autres usagers de la voie verte.",
+            "ar": "أنا بسوق بحذر وبحترم باقي مستخدمي الطريق الأخضر.",
+            "en": "I travel carefully and respect the other users of the greenway",
+            "img": "data/conduite/img/l24-11.webp",
+            "note": "الطريق الأخضر مخصّص لحركة غير آلية، مثل المشاة والدراجات وبعض وسائل التنقل غير الآلية. السيارة العادية ما بتستخدمه كطريق للمرور."
+          },
+          {
+            "fr": "Je quitte la voie verte en restant attentif aux véhicules et aux autres usagers.",
+            "ar": "أنا بطلع من الطريق الأخضر وبنتبه للسيارات وباقي مستخدمي الطريق.",
+            "en": "I leave the greenway while watching for vehicles and other road users",
+            "img": "data/conduite/img/l24-12.webp",
+            "note": "بتشير إلى نهاية الطريق الأخضر. عند الخروج منه، انتبه للتقاطعات وحركة السيارات، واتبع إشارات الطريق الجديد."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "المسارات المحجوزة للسيارات المشتركة",
+          "fr": "Voies réservées au covoiturage",
+          "en": "Carpool lanes"
+        },
+        "img": "data/conduite/img/l25-1.webp",
+        "phrases": [
+          {
+            "fr": "Je vérifie si mon véhicule est autorisé avant d’emprunter cette voie.",
+            "ar": "أنا بتأكد إذا سيارتي مسموح إلها تستخدم هالمسار قبل ما فوت عليه.",
+            "en": "I check whether my vehicle is allowed before entering this lane",
+            "img": "data/conduite/img/l25-1.webp",
+            "note": "المعيّن الأبيض داخل اللوحة الزرقاء بيدل على مسار محجوز لفئات معينة، مثل السيارات التي فيها شخصان أو أكثر، والحافلات وسيارات الأجرة، حسب التنظيم واللوحات الإضافية. مو كل سيارة مسموحلها تستخدمه. Légifrance +1"
+          },
+          {
+            "fr": "Je peux utiliser cette voie si nous sommes au moins deux dans la voiture, conducteur compris, et si la signalisation l’autorise.",
+            "ar": "أنا فيني استخدم هالمسار إذا كنا شخصين على الأقل بالسيارة، مع احتساب السائق، وإذا الإشارات بتسمح.",
+            "en": "I can use this lane if there are at least two people in the car, including the driver, and the signs allow it",
+            "img": "data/conduite/img/l25-2.webp",
+            "note": "الرمز 2+ يعني وجود شخصين على الأقل داخل السيارة، والسائق محسوب. انتبه: بعض الطرق ممكن تشترط 3 أشخاص أو أكثر، لذلك لازم تقرأ اللوحة المرافقة. Légifrance +1"
+          },
+          {
+            "fr": "Je peux emprunter cette voie si nous sommes au moins trois dans le véhicule, conducteur compris.",
+            "ar": "أنا فيني استخدم هالمسار إذا كنا تلاتة أشخاص أو أكتر بالسيارة، والسائق محسوب.",
+            "en": "I can use this lane if there are at least three people in the vehicle, including the driver",
+            "img": "data/conduite/img/l25-3.webp",
+            "note": "إذا مكتوب 3+، لازم يكون في السيارة ثلاثة أشخاص على الأقل. وجود السائق وراكب واحد فقط ما بيكفي. Légifrance +1"
+          },
+          {
+            "fr": "Je quitte la voie réservée et je rejoins une voie normale lorsque cela est possible en sécurité.",
+            "ar": "أنا بطلع من المسار المحجوز وبرجع للمسار العادي لما يكون الانتقال آمن.",
+            "en": "I leave the reserved lane and return to a normal lane when it is safe",
+            "img": "data/conduite/img/l25-4.webp",
+            "note": "المعيّن الأبيض المشطوب بخط أحمر بيدل على نهاية المسار المحجوز. بعده بترجع قواعد السير العادية، مع الانتباه للخطوط والإشارات الأخرى. Légifrance +1"
+          },
+          {
+            "fr": "Je n’utilise cette voie que si mon véhicule fait partie des catégories autorisées et si la voie est activée.",
+            "ar": "أنا ما بستخدم هالمسار إلا إذا سيارتي من الفئات المسموح إلها، وكان المسار مفعّلاً.",
+            "en": "I use this lane only if my vehicle belongs to an authorized category and the lane is active",
+            "img": "data/conduite/img/l25-5.webp",
+            "note": "على بعض الطرق السريعة، المعيّن الأبيض المضيء فوق المسار بيعلن تفعيل المسار المحجوز. ممكن يكون التفعيل بأوقات الازدحام فقط. إذا كان مطفياً، ممكن يُسمح لجميع السيارات باستخدام المسار وفق الإشارات المعروضة. Ministères de la Transition +1"
+          },
+          {
+            "fr": "Je respecte les horaires indiqués sur le panneau avant d’utiliser cette voie.",
+            "ar": "أنا بلتزم بالأوقات والأيام المكتوبة على اللوحة قبل ما استخدم هالمسار.",
+            "en": "I follow the times and days shown on the sign before using this lane",
+            "img": "data/conduite/img/l25-6.webp",
+            "note": "اللوحة الإضافية ممكن تحدد ساعات وأيام حجز المسار. مثلاً، ممكن يكون محجوزاً بأوقات الذروة فقط. خارج هالأوقات، بتتبع التعليمات المكتوبة والإشارات الضوئية الموجودة."
+          },
+          {
+            "fr": "Je vérifie les catégories autorisées avant d’emprunter cette voie réservée.",
+            "ar": "أنا بتأكد من أنواع المركبات المسموح إلها قبل ما استخدم هالمسار المحجوز.",
+            "en": "I check which vehicle categories are allowed before using this reserved lane",
+            "img": "data/conduite/img/l25-7.webp",
+            "note": "بعض المسارات بتكون مخصصة للحافلات وسيارات الأجرة، وممكن تسمح أيضاً بالسيارات المشتركة أو فئات أخرى. ما بكفي أشوف رمز المعيّن وأفترض إنو سيارتي مسموح إلها؛ لازم أقرأ اللوحة الإضافية التي بتحدد الفئات المسموحة. Légifrance +1"
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "إشارات الطرق السريعة",
+          "fr": "Panneaux de l'autoroute",
+          "en": "Motorway signs"
+        },
+        "img": "data/conduite/img/l26-1.webp",
+        "phrases": [
+          {
+            "fr": "Je me prépare à prendre la sortie indiquée.",
+            "ar": "أنا بجهّز حالي لأطلع من المخرج المحدد.",
+            "en": "I prepare to take the indicated exit",
+            "img": "data/conduite/img/l26-1.webp",
+            "note": "بتدلّني على مخرج من الطريق السريع. براقب رقم المخرج والوجهة المكتوبة، وبنتقل للمسار المناسب بوقت كافٍ وبطريقة آمنة."
+          },
+          {
+            "fr": "Je sais que la sortie se trouve à la distance indiquée.",
+            "ar": "أنا بعرف إنو المخرج بيبعد عني المسافة المكتوبة على اللوحة.",
+            "en": "I know the exit is the distance shown on the sign",
+            "img": "data/conduite/img/l26-2.webp",
+            "note": "إذا مكتوب 2000 m، يعني المخرج بعد كيلومترين. هاللوحة بتعطيني وقت حتى أستعد، وما لازم أغيّر المسار فجأة."
+          },
+          {
+            "fr": "Je suis la direction indiquée pour rejoindre la sortie.",
+            "ar": "أنا بتبع الاتجاه والسهم المكتوبين حتى أوصل للمخرج.",
+            "en": "I follow the indicated direction and arrow to reach the exit",
+            "img": "data/conduite/img/l26-3.webp",
+            "note": "السهم بيوضح اتجاه المخرج أو المسار المؤدي إله. بقرأ اسم المدينة ورقم المخرج، وبنتبه إذا المخرج على اليمين أو اليسار."
+          },
+          {
+            "fr": "Je peux m’arrêter sur cette aire de repos pour faire une pause.",
+            "ar": "أنا فيني وقف بمنطقة الاستراحة حتى آخد قسط من الراحة.",
+            "en": "I can stop at this rest area to take a break",
+            "img": "data/conduite/img/l26-4.webp",
+            "note": "بتدلّ على منطقة مخصصة للتوقف والراحة، وغالباً فيها مواقف سيارات وطاولات أو أماكن للجلوس. مو شرط تلاقي فيها مطعم أو محطة وقود."
+          },
+          {
+            "fr": "Je peux rejoindre cette aire pour utiliser les services disponibles.",
+            "ar": "أنا فيني فوت على منطقة الخدمات حتى استفيد من الخدمات الموجودة فيها.",
+            "en": "I can enter this service area to use the available facilities",
+            "img": "data/conduite/img/l26-5.webp",
+            "note": "منطقة الخدمات عادةً بتوفر خدمات مثل الوقود والطعام ودورات المياه، وأحياناً شحن السيارات الكهربائية. اقرأ الرموز المرافقة لتعرف شو متوفر تحديداً. equipementsdelaroute.cerema.fr +1"
+          },
+          {
+            "fr": "Je peux utiliser les toilettes indiquées sur ce panneau.",
+            "ar": "أنا فيني استخدم دورات المياه المشار إلها بهاللوحة.",
+            "en": "I can use the toilets indicated by this sign",
+            "img": "data/conduite/img/l26-6.webp",
+            "note": "بتدل على وجود دورات مياه مفتوحة للعموم. ممكن تلاقيها ضمن منطقة خدمات أو استراحة. Légifrance +1"
+          },
+          {
+            "fr": "Je peux m’arrêter dans ce restaurant pour manger.",
+            "ar": "أنا فيني وقف بهالمطعم حتى آكل.",
+            "en": "I can stop at this restaurant to eat",
+            "img": "data/conduite/img/l26-7.webp",
+            "note": "بتدل على مطعم مفتوح سبعة أيام بالأسبوع. وجود الإشارة ما بيعني بالضرورة إنو المطعم مفتوح بهاللحظة؛ انتبه لأي معلومات إضافية عن ساعات العمل. Légifrance"
+          },
+          {
+            "fr": "Je peux recharger ma voiture électrique sur cette aire.",
+            "ar": "أنا فيني اشحن سيارتي الكهربائية بمنطقة الخدمات هاي.",
+            "en": "I can charge my electric car at this service area",
+            "img": "data/conduite/img/l26-8.webp",
+            "note": "بتدل على وجود محطة شحن للسيارات الكهربائية. قبل التوقف، انتبه لنوع الشاحن وتوفره، لأن الإشارة ما بتضمن إنو كل أنواع الشواحن متاحة. Légifrance"
+          },
+          {
+            "fr": "Je peux chercher un service de dépannage si mon véhicule tombe en panne.",
+            "ar": "أنا فيني دور على خدمة مساعدة وإصلاح إذا تعطلت سيارتي.",
+            "en": "I can look for a breakdown service if my vehicle stops working",
+            "img": "data/conduite/img/l26-9.webp",
+            "note": "بتدل على وجود خدمة إصلاح أو مساعدة للمركبات. إذا تعطلت على الأوتوروت، ما بوقف بمكان خطر لمجرد إني شفت هالإشارة؛ بتبع إجراءات السلامة وبطلب المساعدة من المكان الآمن. Légifrance"
+          },
+          {
+            "fr": "Je peux rejoindre cet hôtel pour passer la nuit.",
+            "ar": "أنا فيني روح لهالفندق حتى نام وأرتاح.",
+            "en": "I can go to this hotel to spend the night",
+            "img": "data/conduite/img/l26-10.webp",
+            "note": "بتدل على وجود فندق أو موتيل مفتوح سبعة أيام بالأسبوع، وقد يكون ضمن منطقة الخدمات أو قريباً منها. Légifrance"
+          },
+          {
+            "fr": "Je peux m’installer dans cet espace pour pique-niquer.",
+            "ar": "أنا فيني اقعد بهالمكان حتى آكل الأكل اللي معي.",
+            "en": "I can use this area to have a picnic",
+            "img": "data/conduite/img/l26-11.webp",
+            "note": "بتدل على مكان مجهّز للنزهة، وغالباً فيه طاولات ومقاعد. مو بالضرورة يكون فيه مطعم أو متجر. Légifrance +1"
+          },
+          {
+            "fr": "Je peux stationner ici, dans un parking équipé d’un système de vidéoprotection.",
+            "ar": "أنا فيني صفّ هون بموقف مجهّز بكاميرات مراقبة.",
+            "en": "I can park here in a car park equipped with video surveillance",
+            "img": "data/conduite/img/l26-12.webp",
+            "note": "بتشير إلى موقف سيارات مزوّد بنظام مراقبة بالفيديو. وجود الكاميرات ما بيعني إنو سيارتي محمية بشكل كامل من السرقة أو الضرر. Légifrance +1"
+          },
+          {
+            "fr": "Je peux utiliser les installations accessibles aux personnes à mobilité réduite.",
+            "ar": "أنا فيني استفيد من المرافق المهيّأة للأشخاص اللي عندهم صعوبة بالحركة.",
+            "en": "I can use the facilities adapted for people with reduced mobility",
+            "img": "data/conduite/img/l26-13.webp",
+            "note": "بتدل على وجود مرافق مهيّأة لتسهيل الوصول والاستعمال، مثل بعض المواقف أو دورات المياه. لازم أنتبه للرمز المحدد حتى أعرف أي مرفق متاح. Légifrance +1"
+          }
+        ]
       }
     ]
   }
