@@ -1716,7 +1716,7 @@
   }
 
   function ensureConduiteFolders() {
-    const SEED_V = '5';
+    const SEED_V = '6';
     if (localStorage.getItem('conduite_seed_v') === SEED_V) return;
     const seededIds = JSON.parse(localStorage.getItem('conduite_seed_ids') || '[]');
     const oldTitles = ['تعلّم قيادة السيارة خطوة بخطوة', 'الدراجة الكهربائية', 'مواقف حقيقية في فرنسا'];
@@ -1728,10 +1728,14 @@
     localStorage.setItem('conduite_seed_v', SEED_V);
     localStorage.setItem('conduite_seeded', '1');
     const newIds = [];
+    const buildItem = it => {
+      if (it.type === 'folder') return { type: 'folder', id: nextId(), icon: it.icon || '', title: it.title, image: it.img || it.image || '', lessons: (it.lessons || []).map(buildItem),
+        phrases: (it.phrases || []).map(p => ({ fr: p.fr || '', ar: p.ar || '', en: p.en || '', image: p.img || it.img || '', note: p.note || null })) };
+      return { id: nextId(), type: 'lesson', title: it.title, image: it.img || it.image || '', note: it.note || null,
+        phrases: (it.phrases || []).map(p => ({ fr: p.fr || '', ar: p.ar || '', en: p.en || '', image: p.img || it.img || '', note: p.note || null })) };
+    };
     (window.CONDUITE_FOLDERS || []).forEach(f => {
-      const folder = { type: 'folder', id: nextId(), icon: f.icon || '', title: f.title, image: f.img || f.image || '',
-        lessons: (f.lessons || []).map(l => ({ id: nextId(), type: 'lesson', title: l.title, image: l.img || l.image || '', note: l.note || null,
-          phrases: (l.phrases || []).map(p => ({ fr: p.fr || '', ar: p.ar || '', en: p.en || '', image: p.img || l.img || f.img || '', note: p.note || null })) })) };
+      const folder = buildItem({ ...f, type: 'folder' });
       newIds.push(folder.id);
       LESSONS.push(folder);
     });
@@ -1741,37 +1745,47 @@
 
   function nextId() {
     let max = 0;
-    LESSONS.forEach(it => {
-      if (it.id > max) max = it.id;
-      if (it.type === 'folder') (it.lessons || []).forEach(l => { if (l.id > max) max = l.id; });
-    });
+    const rec = items => (items || []).forEach(it => { if (it.id > max) max = it.id; if (it.type === 'folder') rec(it.lessons); });
+    rec(LESSONS);
     return max + 1;
   }
 
-  function findItem(id) { return LESSONS.find(it => it.id === id); }
+  function findItem(id) {
+    let out = null;
+    const rec = items => { for (const it of items) { if (it.id === id) { out = it; return true; } if (it.type === 'folder' && rec(it.lessons || [])) return true; } return false; };
+    rec(LESSONS); return out;
+  }
 
-  function findFolder(id) { return LESSONS.find(it => it.type === 'folder' && it.id === id); }
+  function findFolder(id) {
+    let out = null;
+    const rec = items => { for (const it of items) { if (it.type === 'folder') { if (it.id === id) { out = it; return true; } if (rec(it.lessons || [])) return true; } } return false; };
+    rec(LESSONS); return out;
+  }
+
+  function parentsOf(id) {
+    const chain = [];
+    const rec = items => { for (const it of items) { if (it.id === id) return true; if (it.type === 'folder' && rec(it.lessons || [])) { chain.unshift(it); return true; } } return false; };
+    rec(LESSONS); return chain;
+  }
 
   function findLesson(id) {
     const root = LESSONS.find(it => it.type === 'lesson' && it.id === id);
     if (root) return { lesson: root, parent: null };
-    for (let i = 0; i < LESSONS.length; i++) {
-      const f = LESSONS[i];
-      if (f.type === 'folder') {
-        const l = (f.lessons || []).find(x => x.id === id);
-        if (l) return { lesson: l, parent: f };
-      }
-    }
-    return null;
+    let out = null;
+    const rec = items => { for (const it of items) { if (it.type === 'folder') { const l = (it.lessons || []).find(x => x.id === id && ((x.type || 'lesson') === 'lesson' || (x.phrases || []).length)); if (l) { out = { lesson: l, parent: it }; return true; } if (rec(it.lessons || [])) return true; } } return false; };
+    rec(LESSONS); return out;
   }
 
   function getAllLessons() {
     const all = [];
-    LESSONS.forEach(it => {
-      if (it.type === 'lesson') all.push({ lesson: it, parent: null });
-      else if (it.type === 'folder') (it.lessons || []).forEach(l => all.push({ lesson: l, parent: it }));
-    });
+    const rec = (items, parent) => { items.forEach(it => { if ((it.type || 'lesson') === 'lesson' || (it.phrases || []).length) all.push({ lesson: it, parent }); if (it.type === 'folder') rec(it.lessons || [], it); }); };
+    rec(LESSONS, null);
     return all;
+  }
+
+  function removeById(id) {
+    const rec = items => { const i = items.findIndex(it => it.id === id); if (i !== -1) { items.splice(i, 1); return true; } return items.some(it => it.type === 'folder' && rec(it.lessons || [])); };
+    return rec(LESSONS);
   }
 
   const UI = {
@@ -3965,7 +3979,7 @@
     if (it.protected) { showToast(t('protected')); return; }
     if (!confirm(it.type === 'folder' ? t('deleteFolderConfirm') : t('deleteConfirm'))) return;
     await deleteItemMedia(it);
-    LESSONS = LESSONS.filter(x => x.id !== id);
+    removeById(id);
     saveLessons();
     showToast(t('deleted'));
     go({ name: 'home' }, false);
@@ -4477,6 +4491,24 @@
     let folderLessonIdx = 0;
     const lessonsHtml = (folder.lessons || []).map(l => {
       folderLessonIdx++;
+      if (l.type === 'folder' && (l.phrases || []).length) return `<div class="card lesson-card" data-route='${JSON.stringify({ name: 'lesson', lesson: l.id })}'>
+        ${cardThumb(l, folderLessonIdx)}
+        <div class="card-body">
+          <div class="card-title">${esc(title(l.title))}</div>
+          <div class="card-sub">${(l.phrases || []).length} ${t('phrases')}</div>
+        </div>
+        ${menuBtn(l, 'lesson')}
+        <div class="chev">${chevron()}</div>
+      </div>`;
+      if (l.type === 'folder') return `<div class="card lesson-card" data-route='${JSON.stringify({ name: 'folder', folder: l.id })}'>
+        ${cardThumb(l, folderLessonIdx)}
+        <div class="card-body">
+          <div class="card-title">${esc(title(l.title))}</div>
+          <div class="card-sub">${(l.lessons || []).length} ${t('lessonsCount')}</div>
+        </div>
+        ${menuBtn(l, 'folder')}
+        <div class="chev">${chevron()}</div>
+      </div>`;
       return `<div class="card lesson-card" data-route='${JSON.stringify({ name: 'lesson', lesson: l.id })}'>
         ${cardThumb(l, folderLessonIdx)}
         <div class="card-body">
@@ -4506,9 +4538,9 @@
     if (!found) { go({ name: 'home' }); return; }
     const { lesson, parent } = found;
     let breadcrumb = `<button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button>`;
-    if (parent) {
-      breadcrumb += `<span>›</span><button data-route='${JSON.stringify({ name: 'folder', folder: parent.id })}'>${esc(title(parent.title))}</button>`;
-    }
+    parentsOf(lessonId).filter(x => x.type === 'folder').forEach(p => {
+      breadcrumb += `<span>›</span><button data-route='${JSON.stringify({ name: 'folder', folder: p.id })}'>${esc(title(p.title))}</button>`;
+    });
     breadcrumb += `<span>›</span><span>${esc(title(lesson.title))}</span>`;
     const html = `<div class="breadcrumb">${breadcrumb}</div>
       <div class="lesson-head"><h2>${t('lessonLabel')}: ${esc(title(lesson.title))}</h2>
