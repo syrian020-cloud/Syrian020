@@ -4610,6 +4610,287 @@ window.CONDUITE_FOLDERS = [
             "note": "الحافلة مركبة كبيرة وقد تحجب جزءاً من الرؤية أمامك. لا تقترب منها، واحترم إشارات النفق وقواعده."
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "التوقف والركن وفتح الأبواب",
+          "fr": "Arrêt, stationnement et ouverture des portières",
+          "en": "Stopping, parking and car doors"
+        },
+        "img": "data/conduite/img/l53-1.webp",
+        "phrases": [
+          {
+            "fr": "Je distingue l'arrêt du stationnement.",
+            "ar": "أنا بميّز بين التوقف المؤقت والركن.",
+            "en": "I distinguish stopping from parking.",
+            "img": "data/conduite/img/l53-1.webp",
+            "note": "Arrêt = توقف مؤقت مع بقاء السائق مستعداً للسير · Stationnement = ركن السيارة وتركها."
+          },
+          {
+            "fr": "Je m'arrête dans un endroit autorisé pour faire descendre un passager.",
+            "ar": "أنا بوقف بمكان مسموح حتى نزّل الراكب.",
+            "en": "I stop in an authorized place to let a passenger out.",
+            "img": "data/conduite/img/l53-2.webp",
+            "note": "لا تتوقف بمكان يمنع الوقوف أو يسبب خطراً أو يعيق المرور."
+          },
+          {
+            "fr": "Je stationne à droite dans une rue à double sens.",
+            "ar": "أنا بركن على اليمين بشارع فيه اتجاهين.",
+            "en": "I park on the right in a two-way street.",
+            "img": "data/conduite/img/l53-3.webp",
+            "note": "داخل المناطق المبنية القاعدة العامة: الركن على الجانب الأيمن بالطريق ذي الاتجاهين."
+          },
+          {
+            "fr": "Je peux stationner à gauche ou à droite dans une rue à sens unique, si la signalisation l'autorise.",
+            "ar": "أنا ممكن أركن عاليمين أو اليسار بشارع اتجاه واحد، إذا الإشارات بتسمح.",
+            "en": "I can park on the left or right in a one-way street if the signs allow it.",
+            "img": "data/conduite/img/l53-4.webp",
+            "note": "بشارع اتجاه واحد يُسمح عموماً بالركن على الجانبين مع احترام التنظيم المحلي."
+          },
+          {
+            "fr": "Je ne stationne pas sur le trottoir sans autorisation.",
+            "ar": "أنا ما بركن على الرصيف بدون سماح.",
+            "en": "I do not park on the sidewalk without authorization.",
+            "img": "data/conduite/img/l53-5.webp",
+            "note": "الرصيف للمشاة — ممنوع إلا بتنظيم صريح."
+          },
+          {
+            "fr": "Je ne stationne pas sur un passage piéton.",
+            "ar": "أنا ما بركن فوق ممر المشاة.",
+            "en": "I do not park on a pedestrian crossing.",
+            "img": "data/conduite/img/l53-6.webp",
+            "note": "ممنوع الركن على ممر المشاة، ويُمنع التوقف أو الركن على أقل من 5 أمتار قبله."
+          },
+          {
+            "fr": "Je ne stationne pas près d'une intersection si je gêne la visibilité.",
+            "ar": "أنا ما بركن قرب تقاطع إذا رح أحجب الرؤية.",
+            "en": "I do not park near an intersection if I obstruct visibility.",
+            "img": "data/conduite/img/l53-7.webp",
+            "note": "الركن بحاجب الرؤية = ركن خطير."
+          },
+          {
+            "fr": "Je vérifie dans le rétroviseur et l'angle mort avant d'ouvrir ma portière.",
+            "ar": "أنا بتأكد بالمراية وبالنقطة العمياء قبل ما افتح باب السيارة.",
+            "en": "I check the mirror and blind spot before opening my car door.",
+            "img": "data/conduite/img/l53-8.webp",
+            "note": "فتح الباب دون تأكد قد يسبب حادثاً — القانون يمنعه إذا شكّل خطراً."
+          },
+          {
+            "fr": "J'ouvre ma portière avec la main opposée pour mieux regarder derrière moi.",
+            "ar": "أنا بفتح الباب بإيدي المعاكسة حتى أقدر لفّ وأشوف وراي بشكل أفضل.",
+            "en": "I use my opposite hand to open the door so I can look behind me more easily.",
+            "img": "data/conduite/img/l53-9.webp",
+            "note": "طريقة Dutch Reach: اليد البعيدة تجعلك تلف وتنظر خلفك — لكنها لا تغني عن فحص المرايا."
+          },
+          {
+            "fr": "Je demande à mon passager de vérifier avant d'ouvrir sa portière.",
+            "ar": "أنا بطلب من الراكب يتأكد قبل ما يفتح الباب.",
+            "en": "I ask my passenger to check before opening the door.",
+            "img": "data/conduite/img/l53-10.webp",
+            "note": "كل شخص بالسيارة يجب أن يتأكد قبل فتح الباب — مو مسؤولية السائق وحده."
+          },
+          {
+            "fr": "Je vérifie la circulation avant de sortir de mon véhicule.",
+            "ar": "أنا بتأكد من حركة السير قبل ما انزل من السيارة.",
+            "en": "I check the traffic before getting out of my vehicle.",
+            "img": "data/conduite/img/l53-11.webp",
+            "note": "افحص المرايا والطريق وافتح الباب بحذر وانزل من الجهة الأأمن."
+          },
+          {
+            "fr": "Je serre le frein de stationnement et je sécurise mon véhicule avant de m'éloigner.",
+            "ar": "أنا بشد فرامل اليد وبأمّن السيارة قبل ما ابتعد عنها.",
+            "en": "I apply the parking brake and secure my vehicle before walking away.",
+            "img": "data/conduite/img/l53-12.webp",
+            "note": "قبل ترك السيارة: فرامل توقف + إطفاء المحرك + وضع P أو الغيار المناسب."
+          },
+          {
+            "fr": "Je sécurise mon véhicule lorsque je stationne dans une pente.",
+            "ar": "أنا بأمّن سيارتي لما بركن على طريق مائل.",
+            "en": "I secure my car when parking on a slope.",
+            "img": "data/conduite/img/l53-13.webp",
+            "note": "على المنحدر: فرامل توقف + غيار مناسب أو P + وجّه العجلات باتجاه الرصيف."
+          },
+          {
+            "fr": "Je ne quitte jamais mon véhicule sans avoir pris les précautions nécessaires.",
+            "ar": "أنا ما بترك السيارة قبل ما آخد احتياطات الأمان اللازمة.",
+            "en": "I never leave my vehicle without taking the necessary safety precautions.",
+            "img": "data/conduite/img/l53-14.webp",
+            "note": "القانون يفرض اتخاذ الاحتياطات قبل الابتعاد عن السيارة."
+          },
+          {
+            "fr": "Je ne stationne pas dans un virage où la visibilité est insuffisante.",
+            "ar": "أنا ما بركن بمنعطف الرؤية فيه ضعيفة.",
+            "en": "I do not park on a bend where visibility is insufficient.",
+            "img": "data/conduite/img/l53-15.webp",
+            "note": "الركن بمنعطف ضعيف الرؤية = ركن خطير."
+          },
+          {
+            "fr": "Je ne stationne pas sur une piste cyclable.",
+            "ar": "أنا ما بركن فوق مسار الدراجات.",
+            "en": "I do not park on a cycle path.",
+            "img": "data/conduite/img/l53-16.webp",
+            "note": "مسار الدراجات للدراجات فقط — الركن عليه يجبرهم على الخروج لمسار السيارات."
+          },
+          {
+            "fr": "Je ne stationne pas devant une entrée carrossable.",
+            "ar": "أنا ما بركن قدام مدخل السيارات أو الكراج.",
+            "en": "I do not park in front of a vehicle entrance.",
+            "img": "data/conduite/img/l53-17.webp",
+            "note": "لا تسد مدخل مرآب أو طريقاً خاصاً للمركبات."
+          },
+          {
+            "fr": "Je ne stationne pas sur une place réservée aux personnes handicapées sans autorisation.",
+            "ar": "أنا ما بركن بموقف مخصص لذوي الإعاقة بدون حق.",
+            "en": "I do not park in a disabled parking space without authorization.",
+            "img": "data/conduite/img/l53-18.webp",
+            "note": "مخصصة لحاملي Carte mobilité inclusion أو التصريح المعتمد."
+          },
+          {
+            "fr": "Je ne stationne pas sur un emplacement réservé aux bus.",
+            "ar": "أنا ما بركن بموقف مخصص للباصات.",
+            "en": "I do not park in a space reserved for buses.",
+            "img": "data/conduite/img/l53-19.webp",
+            "note": "لا تعرقل مكان توقف الحافلات أو سيارات الأجرة."
+          },
+          {
+            "fr": "Je ne stationne pas en double file.",
+            "ar": "أنا ما بركن جنب سيارة مركونة بطريقة بتسكر الطريق.",
+            "en": "I do not double-park.",
+            "img": "data/conduite/img/l53-20.webp",
+            "note": "الركن المزدوج يعرقل السير وقد يمنع سيارة من الخروج — ممنوع."
+          },
+          {
+            "fr": "Je reconnais un stationnement gênant, très gênant ou dangereux.",
+            "ar": "أنا بميّز بين الركن المزعج والركن المزعج جداً والركن الخطير.",
+            "en": "I distinguish obstructive, very obstructive and dangerous parking.",
+            "img": "data/conduite/img/l53-21.webp",
+            "note": "⭐ gênant = يعيق (درجة 2) · très gênant = إعاقة كبيرة مثل الرصيف/ذوي الإعاقة (درجة 4) · dangereux = خطر (درجة 4 + سحب 3 نقاط) · abusif = أكثر من المدة القانونية (درجة 2)."
+          },
+          {
+            "fr": "Je ne laisse pas mon véhicule stationné au même endroit pendant plus de sept jours.",
+            "ar": "أنا ما بترك سيارتي مركونة بنفس المكان أكتر من سبعة أيام.",
+            "en": "I do not leave my car parked in the same place for more than seven days.",
+            "img": "data/conduite/img/l53-22.webp",
+            "note": "ركن أكثر من 7 أيام بنفس المكان = ركن تعسفي (abusif)، إلا بمدة محلية أقصر."
+          },
+          {
+            "fr": "Je ne stationne pas à un endroit où mon véhicule cache un feu ou un panneau.",
+            "ar": "أنا ما بركن بمكان سيارتي فيه بتحجب إشارة ضوئية أو لوحة.",
+            "en": "I do not park where my vehicle hides a traffic light or sign.",
+            "img": "data/conduite/img/l53-23.webp",
+            "note": "حجب إشارة المرور = إعاقة شديدة ممنوعة."
+          },
+          {
+            "fr": "Je contrôle mes rétroviseurs, mon angle mort et je mets mon clignotant avant de repartir.",
+            "ar": "أنا بفحص المرايات والنقطة العمياء وبشغّل الغماز قبل ما أرجع للطريق.",
+            "en": "I check my mirrors and blind spot and signal before moving off.",
+            "img": "data/conduite/img/l53-24.webp",
+            "note": "قبل الخروج من الركن: مرايا + نقطة عمياء + غماز + أولوية للمارّة."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "أضواء السيارة وأنواعها",
+          "fr": "Les feux du véhicule",
+          "en": "Vehicle lights"
+        },
+        "img": "data/conduite/img/l54-1.webp",
+        "phrases": [
+          {
+            "fr": "J'allume les feux de position pour rendre mon véhicule visible.",
+            "ar": "أنا بشغّل أضواء الوضع حتى تكون سيارتي واضحة للآخرين.",
+            "en": "I turn on the position lights to make my vehicle visible.",
+            "img": "data/conduite/img/l54-1.webp",
+            "note": "تُظهر وجود السيارة لكنها لا تنير الطريق — لا تخلط بينها وبين أضوية التقابل."
+          },
+          {
+            "fr": "J'utilise les feux de croisement la nuit et lorsque la visibilité est réduite.",
+            "ar": "أنا بستعمل أضواء التقابل بالليل ولما تكون الرؤية ضعيفة.",
+            "en": "I use dipped headlights at night and when visibility is reduced.",
+            "img": "data/conduite/img/l54-2.webp",
+            "note": "تنير الطريق بدون إبهار — عند مقابلة سيارة أو السير خلفها أو بظروف رؤية ضعيفة."
+          },
+          {
+            "fr": "J'utilise les feux de route lorsque la route est sombre et que je ne risque pas d'éblouir les autres.",
+            "ar": "أنا بستعمل الضوء العالي لما يكون الطريق مظلم وما أعرّض الآخرين للإبهار.",
+            "en": "I use high beams when the road is dark and I will not dazzle others.",
+            "img": "data/conduite/img/l54-3.webp",
+            "note": "العالي للطرق المظلمة خارج المدينة — حوّل للمنخفض قبل إبهار أي سائق."
+          },
+          {
+            "fr": "Je passe aux feux de croisement avant d'éblouir le conducteur venant en face.",
+            "ar": "أنا بحوّل للضوء المنخفض قبل ما أعمّي السائق اللي جاي مقابلي.",
+            "en": "I switch to dipped headlights before dazzling the oncoming driver.",
+            "img": "data/conduite/img/l54-4.webp",
+            "note": "حوّل مبكراً — لا تنتظر حتى تقترب السيارة كثيراً."
+          },
+          {
+            "fr": "Je repasse aux feux de croisement lorsque je suis un véhicule de près.",
+            "ar": "أنا بحوّل للضوء المنخفض لما أمشي قريب من سيارة قدامي.",
+            "en": "I switch to dipped headlights when I follow a vehicle closely.",
+            "img": "data/conduite/img/l54-5.webp",
+            "note": "العالي ينعكس بمرايا السيارة الأمامية ويبهر سائقها."
+          },
+          {
+            "fr": "J'utilise les feux de brouillard avant en cas de brouillard, de neige ou de forte pluie.",
+            "ar": "أنا بستعمل أضوية الضباب الأمامية وقت الضباب أو الثلج أو المطر الغزير.",
+            "en": "I use front fog lights in fog, snow or heavy rain.",
+            "img": "data/conduite/img/l54-6.webp",
+            "note": "ضباب أمامي: بدلاً من أو مع أضوية التقابل بضباب/ثلج/مطر غزير."
+          },
+          {
+            "fr": "J'allume les feux de brouillard arrière uniquement en cas de brouillard ou de chute de neige.",
+            "ar": "أنا بشغّل أضوية الضباب الخلفية فقط وقت الضباب أو تساقط الثلج.",
+            "en": "I turn on the rear fog lights only in fog or snowfall.",
+            "img": "data/conduite/img/l54-7.webp",
+            "note": "⭐ ضباب خلفي قوي جداً: مسموح بضباب أو ثلج فقط — ممنوع بالمطر وحده، وأطفئه عند تحسن الرؤية."
+          },
+          {
+            "fr": "J'utilise les feux de croisement et, si nécessaire, les feux de brouillard avant.",
+            "ar": "أنا بستعمل الضوء المنخفض، وإذا لزم الأمر أضوية الضباب الأمامية.",
+            "en": "I use dipped headlights and, if necessary, front fog lights.",
+            "img": "data/conduite/img/l54-8.webp",
+            "note": "مطر غزير بدون ضباب: منخفض + ضباب أمامي مسموح، خلفي ممنوع."
+          },
+          {
+            "fr": "Je garde les feux nécessaires pour voir et être vu dans le tunnel.",
+            "ar": "أنا بخلي الأضوية اللازمة شغالة حتى شوف وينشاف وجودي داخل النفق.",
+            "en": "I keep the necessary lights on so I can see and be seen in the tunnel.",
+            "img": "data/conduite/img/l54-9.webp",
+            "note": "داخل النفق: أضوية التقابل إجبارية — لا تعتمد على ضوء النهار."
+          },
+          {
+            "fr": "J'utilise les feux de jour pour rendre mon véhicule visible pendant la journée.",
+            "ar": "أنا بستعمل أضوية النهار حتى تكون سيارتي واضحة خلال النهار.",
+            "en": "I use daytime running lights to make my car visible during the day.",
+            "img": "data/conduite/img/l54-10.webp",
+            "note": "أضوية النهار تجعل السيارة مرئية نهاراً لكنها قد لا تضيء الخلف — عند الظلام استخدم الأضوية المناسبة."
+          },
+          {
+            "fr": "J'allume les feux de recul lorsque je passe la marche arrière.",
+            "ar": "أنا بتشتغل عندي أضوية الرجوع للخلف لما بحط غيار الريوس.",
+            "en": "My reversing lights come on when I select reverse gear.",
+            "img": "data/conduite/img/l54-11.webp",
+            "note": "أضوية بيضاء تُظهر أن السيارة سترجع للخلف."
+          },
+          {
+            "fr": "J'allume les feux stop lorsque j'appuie sur la pédale de frein.",
+            "ar": "أنا بتشتغل عندي أضوية الفرامل لما أضغط على دعسة الفرامل.",
+            "en": "My brake lights come on when I press the brake pedal.",
+            "img": "data/conduite/img/l54-12.webp",
+            "note": "تحذر من خلفك — إذا تعطلت لازم إصلاحها فوراً."
+          },
+          {
+            "fr": "J'allume les feux de détresse pour signaler un danger ou une situation nécessitant d'avertir les autres.",
+            "ar": "أنا بشغّل أضوية التحذير حتى نبّه الآخرين لوجود خطر أو وضع يستدعي الانتباه.",
+            "en": "I turn on the hazard lights to warn others of danger or a situation requiring caution.",
+            "img": "data/conduite/img/l54-13.webp",
+            "note": "تعمل الغمازات الأربعة معاً: عطل، خطر، تباطؤ مفاجئ. 📋 جدول الحفظ: وضع=إظهار السيارة · منخفض=ليل وضعف رؤية · عالي=مظلم دون إبهار · ضباب أمامي=ضباب/ثلج/مطر غزير · ضباب خلفي=ضباب/ثلج فقط · نهار=مرئية نهاراً · رجوع=أبيض للخلف · فرامل=أحمر عند الفرملة · تحذير=خطر. مرجع: R416-5 إلى R416-8."
+          }
+        ]
       }
     ]
   }
