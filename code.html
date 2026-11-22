@@ -292,6 +292,25 @@ function speakLoop(text, btn){
   }
   nativePlay();
 }
+function speakOnce(text, btn){
+  if(!text) return;
+  stopSpeech();
+  var run = ++speechRun;
+  if(btn) btn.classList.add('speaking');
+  function done(){ if(run === speechRun && btn) btn.classList.remove('speaking'); }
+  var tts = nativeTTS();
+  if(tts){
+    tts.speak({ text: text, lang: 'fr-FR', rate: 0.95, queueStrategy: 1 }).then(done).catch(done);
+    return;
+  }
+  if(!('speechSynthesis' in window)){ done(); showToast('النطق غير مدعوم'); return; }
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = 'fr-FR'; u.rate = 0.92;
+  var v = pickVoice(); if(v) u.voice = v;
+  u.onend = done;
+  u.onerror = done;
+  window.speechSynthesis.speak(u);
+}
 
 /* ---------------- themes ---------------- */
 var THEMES = {
@@ -515,7 +534,7 @@ function renderQuiz(){
   var bn = document.getElementById('btn-next');
   if(bn) bn.onclick = function(){ submitAnswer(true); };
 
-  if(state.mode === 'exam') speakLoop(qText, speakBtn);
+  if(state.mode === 'exam') speakOnce(qText, speakBtn);
   startTimer();
 }
 
