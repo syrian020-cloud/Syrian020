@@ -1283,6 +1283,288 @@ window.CONDUITE_FOLDERS = [
             "note": "حدود السرعة العامة في فرنسا: 130 كم/س بظروف جيدة، 110 عند المطر وللسائقين الجدد منذ أقل من 3 سنوات، و50 عند رؤية أقل من 50 متراً. اتبع الإشارات إذا حددت سرعة أقل."
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "محطات الوقود والتزود بالبنزين والديزل",
+          "fr": "La station-service",
+          "en": "Petrol stations"
+        },
+        "img": "data/conduite/img/l17-1.webp",
+        "phrases": [
+          {
+            "fr": "Je repère l'entrée de la station-service.",
+            "ar": "أنا بتعرّف على مدخل محطة البنزين.",
+            "en": "I identify the petrol station entrance.",
+            "img": "data/conduite/img/l17-1.webp"
+          },
+          {
+            "fr": "Je lis les prix des différents carburants.",
+            "ar": "أنا بقرأ أسعار أنواع الوقود المختلفة.",
+            "en": "I read the prices of the different fuels.",
+            "img": "data/conduite/img/l17-2.webp"
+          },
+          {
+            "fr": "Je choisis la pompe à carburant qui me convient.",
+            "ar": "أنا بختار مضخة الوقود المناسبة إلي.",
+            "en": "I choose the right fuel pump for me.",
+            "img": "data/conduite/img/l17-3.webp"
+          },
+          {
+            "fr": "Je place ma voiture à côté de la pompe.",
+            "ar": "أنا بوقف سيارتي جنب المضخة.",
+            "en": "I position my car beside the pump.",
+            "img": "data/conduite/img/l17-4.webp"
+          },
+          {
+            "fr": "Je vérifie le type de gazole adapté à ma voiture.",
+            "ar": "أنا بتأكد من نوع الديزل المناسب لسيارتي.",
+            "en": "I check which type of diesel is suitable for my car.",
+            "img": "data/conduite/img/l17-5.webp"
+          },
+          {
+            "fr": "Je choisis le SP95-E10 si ma voiture est compatible.",
+            "ar": "أنا بختار بنزين SP95-E10 إذا سيارتي بتناسبه.",
+            "en": "I choose SP95-E10 petrol if my car is compatible.",
+            "img": "data/conduite/img/l17-6.webp"
+          },
+          {
+            "fr": "Je choisis le SP98 si ma voiture en a besoin.",
+            "ar": "أنا بختار بنزين SP98 إذا سيارتي بتحتاجه.",
+            "en": "I choose SP98 petrol if my car needs it.",
+            "img": "data/conduite/img/l17-7.webp"
+          },
+          {
+            "fr": "Je vérifie l'étiquette de carburant sur la trappe du réservoir.",
+            "ar": "أنا بتأكد من ملصق نوع الوقود على غطاء الخزان.",
+            "en": "I check the fuel label on the fuel flap.",
+            "img": "data/conduite/img/l17-8.webp"
+          },
+          {
+            "fr": "J'ouvre la trappe du réservoir.",
+            "ar": "أنا بفتح غطاء خزان الوقود.",
+            "en": "I open the fuel filler flap.",
+            "img": "data/conduite/img/l17-9.webp"
+          },
+          {
+            "fr": "Je dévisse le bouchon du réservoir.",
+            "ar": "أنا بفك غطاء الخزان.",
+            "en": "I unscrew the fuel cap.",
+            "img": "data/conduite/img/l17-10.webp"
+          },
+          {
+            "fr": "Je prends le pistolet à carburant.",
+            "ar": "أنا بمسك مسدس الوقود.",
+            "en": "I take the fuel nozzle.",
+            "img": "data/conduite/img/l17-11.webp"
+          },
+          {
+            "fr": "J'insère le pistolet dans l'ouverture du réservoir.",
+            "ar": "أنا بدخل مسدس الوقود بفتحة الخزان.",
+            "en": "I insert the nozzle into the fuel tank opening.",
+            "img": "data/conduite/img/l17-12.webp"
+          },
+          {
+            "fr": "J'appuie sur la gâchette du pistolet.",
+            "ar": "أنا بضغط على زناد مسدس الوقود.",
+            "en": "I squeeze the fuel nozzle trigger.",
+            "img": "data/conduite/img/l17-13.webp"
+          },
+          {
+            "fr": "Je surveille la quantité de carburant que je mets.",
+            "ar": "أنا براقب كمية الوقود اللي عم عبّيها.",
+            "en": "I monitor how much fuel I am pumping.",
+            "img": "data/conduite/img/l17-14.webp"
+          },
+          {
+            "fr": "Je m'arrête lorsque le pistolet se déclenche automatiquement.",
+            "ar": "أنا بوقف لما مسدس الوقود يفصل لحاله.",
+            "en": "I stop when the nozzle automatically clicks off.",
+            "img": "data/conduite/img/l17-15.webp"
+          },
+          {
+            "fr": "Je remets le pistolet à sa place.",
+            "ar": "أنا برجع مسدس الوقود لمكانه.",
+            "en": "I put the fuel nozzle back.",
+            "img": "data/conduite/img/l17-16.webp"
+          },
+          {
+            "fr": "Je revisse le bouchon du réservoir.",
+            "ar": "أنا برجع بلف غطاء الخزان وبسكّره.",
+            "en": "I screw the fuel cap back on.",
+            "img": "data/conduite/img/l17-17.webp"
+          },
+          {
+            "fr": "Je paie le carburant par carte bancaire.",
+            "ar": "أنا بدفع ثمن الوقود بالبطاقة البنكية.",
+            "en": "I pay for the fuel by bank card.",
+            "img": "data/conduite/img/l17-18.webp"
+          },
+          {
+            "fr": "Je demande un reçu pour le carburant.",
+            "ar": "أنا بطلب إيصال ثمن الوقود.",
+            "en": "I ask for a fuel receipt.",
+            "img": "data/conduite/img/l17-19.webp"
+          },
+          {
+            "fr": "Je vérifie le montant indiqué sur le reçu.",
+            "ar": "أنا بتأكد من المبلغ المكتوب على الإيصال.",
+            "en": "I check the amount shown on the receipt.",
+            "img": "data/conduite/img/l17-20.webp"
+          },
+          {
+            "fr": "Je quitte la station-service.",
+            "ar": "أنا بغادر محطة البنزين.",
+            "en": "I leave the petrol station.",
+            "img": "data/conduite/img/l17-21.webp"
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "القيادة في المطر والضباب والثلج",
+          "fr": "Conduire sous la pluie, le brouillard et la neige",
+          "en": "Driving in rain, fog and snow"
+        },
+        "img": "data/conduite/img/l18-1.webp",
+        "phrases": [
+          {
+            "fr": "Je remarque les premières gouttes de pluie.",
+            "ar": "أنا بلاحظ أول قطرات المطر.",
+            "en": "I notice the first raindrops.",
+            "img": "data/conduite/img/l18-1.webp"
+          },
+          {
+            "fr": "J'active les essuie-glaces avant.",
+            "ar": "أنا بشغّل ماسحات الزجاج الأمامي.",
+            "en": "I turn on the front windshield wipers.",
+            "img": "data/conduite/img/l18-2.webp"
+          },
+          {
+            "fr": "J'augmente la vitesse des essuie-glaces lorsque la pluie s'intensifie.",
+            "ar": "أنا بزيد سرعة المساحات لما المطر يقوى.",
+            "en": "I increase the wiper speed when the rain gets heavier.",
+            "img": "data/conduite/img/l18-3.webp"
+          },
+          {
+            "fr": "J'active le dégivrage de la lunette arrière.",
+            "ar": "أنا بشغّل مزيل الضباب عن الزجاج الخلفي.",
+            "en": "I turn on the rear window defroster.",
+            "img": "data/conduite/img/l18-4.webp"
+          },
+          {
+            "fr": "J'évite de rouler rapidement dans les flaques d'eau.",
+            "ar": "أنا بتجنب المرور بسرعة فوق تجمعات المي.",
+            "en": "I avoid driving quickly through puddles.",
+            "img": "data/conduite/img/l18-5.webp"
+          },
+          {
+            "fr": "Je dirige l'air vers le pare-brise pour éliminer la buée.",
+            "ar": "أنا بوجّه الهوا على الزجاج الأمامي حتى أزيل التكاثف.",
+            "en": "I direct air towards the windshield to clear condensation.",
+            "img": "data/conduite/img/l18-6.webp"
+          },
+          {
+            "fr": "Je remarque que la visibilité diminue à cause du brouillard.",
+            "ar": "أنا بلاحظ إنو الرؤية عم تضعف بسبب الضباب.",
+            "en": "I notice visibility decreasing because of the fog.",
+            "img": "data/conduite/img/l18-7.webp"
+          },
+          {
+            "fr": "J'allume les feux antibrouillard avant si nécessaire.",
+            "ar": "أنا بشغّل أضوية الضباب الأمامية إذا لزم الأمر.",
+            "en": "I switch on the front fog lights if necessary.",
+            "img": "data/conduite/img/l18-8.webp"
+          },
+          {
+            "fr": "J'allume le feu antibrouillard arrière lorsque le brouillard est dense.",
+            "ar": "أنا بشغّل ضو الضباب الخلفي لما يكون الضباب كثيف.",
+            "en": "I switch on the rear fog light when the fog is dense.",
+            "img": "data/conduite/img/l18-9.webp",
+            "note": "⚠️ ضو الضباب الخلفي فقط بالضباب أو الثلج الكثيف — مو بالمطر العادي لأنه بزعج السائقين وراك."
+          },
+          {
+            "fr": "Je suis les marquages au sol pour repérer ma voie.",
+            "ar": "أنا بتابع تخطيط الطريق حتى أعرف مساري.",
+            "en": "I follow the road markings to identify my lane.",
+            "img": "data/conduite/img/l18-10.webp"
+          },
+          {
+            "fr": "J'utilise les feux de croisement dans le brouillard.",
+            "ar": "أنا بستخدم الأضوية المنخفضة بالضباب.",
+            "en": "I use dipped headlights in fog.",
+            "img": "data/conduite/img/l18-11.webp"
+          },
+          {
+            "fr": "Je repère une chaussée couverte de neige.",
+            "ar": "أنا بلاحظ إنو الطريق مغطى بالثلج.",
+            "en": "I identify a snow-covered road.",
+            "img": "data/conduite/img/l18-12.webp"
+          },
+          {
+            "fr": "Je surveille la température extérieure.",
+            "ar": "أنا براقب درجة الحرارة الخارجية.",
+            "en": "I monitor the outside temperature.",
+            "img": "data/conduite/img/l18-13.webp"
+          },
+          {
+            "fr": "Je retire le givre du pare-brise.",
+            "ar": "أنا بشيل الجليد عن الزجاج الأمامي.",
+            "en": "I remove the frost from the windshield.",
+            "img": "data/conduite/img/l18-14.webp"
+          },
+          {
+            "fr": "Je dégivre les vitres latérales.",
+            "ar": "أنا بشيل الجليد عن الشبابيك الجانبية.",
+            "en": "I clear the ice from the side windows.",
+            "img": "data/conduite/img/l18-15.webp"
+          },
+          {
+            "fr": "Je monte les chaînes à neige si nécessaire.",
+            "ar": "أنا بركّب سلاسل الثلج على الدواليب إذا لزم الأمر.",
+            "en": "I fit snow chains when necessary.",
+            "img": "data/conduite/img/l18-16.webp"
+          },
+          {
+            "fr": "Je conduis doucement sur la chaussée verglacée.",
+            "ar": "أنا بسوق بهدوء على الطريق المجلّد.",
+            "en": "I drive gently on the icy road.",
+            "img": "data/conduite/img/l18-17.webp"
+          },
+          {
+            "fr": "Je laisse le système de contrôle de stabilité activé.",
+            "ar": "أنا بخلي نظام الثبات الإلكتروني شغّال.",
+            "en": "I leave the electronic stability control switched on.",
+            "img": "data/conduite/img/l18-18.webp"
+          },
+          {
+            "fr": "Je remarque le début du dérapage des pneus.",
+            "ar": "أنا بلاحظ بداية انزلاق الدواليب.",
+            "en": "I notice the tyres beginning to skid.",
+            "img": "data/conduite/img/l18-19.webp"
+          },
+          {
+            "fr": "Je garde mon calme en cas de dérapage.",
+            "ar": "أنا بحافظ على هدوئي إذا السيارة زحلقت.",
+            "en": "I stay calm if the car skids.",
+            "img": "data/conduite/img/l18-20.webp"
+          },
+          {
+            "fr": "J'évite de freiner brusquement.",
+            "ar": "أنا بتجنب الدعس المفاجئ على الفرامل.",
+            "en": "I avoid braking suddenly.",
+            "img": "data/conduite/img/l18-21.webp"
+          },
+          {
+            "fr": "Je garde autant que possible la maîtrise de la direction.",
+            "ar": "أنا بحاول حافظ على التحكم باتجاه السيارة قدر الإمكان.",
+            "en": "I try to maintain control of the car's direction.",
+            "img": "data/conduite/img/l18-22.webp",
+            "note": "📋 قواعد الجو السيّئ: مطر = خفف السرعة وزِد مسافة الأمان · ضباب = أضوية مناسبة · رؤية أقل من 50م = السرعة القصوى 50 كم/س · ثلج/جليد = قيادة هادئة بدون حركات مفاجئة. وإذا زحلقت السيارة: لا فرملة عنيفة، والتدريب مع مدرب مختص هو الأفضل."
+          }
+        ]
       }
     ]
   }
