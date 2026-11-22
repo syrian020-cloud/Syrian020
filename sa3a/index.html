@@ -2096,7 +2096,8 @@ function arTimeDaily(h,m){
  if(m===15)return 'الساعة '+ARO[h12]+' والربع'+sfx;
  if(m===30)return 'الساعة '+ARO[h12]+' والنصف'+sfx;
  if(m>30){const nh12=(h+1)%24%12||12,sfx2=(h+1)%24<12?' صباحاً':' مساءً';
-  return 'الساعة '+ARO[nh12]+(m===45?' إلا ربعاً':' إلا '+arNum(60-m)+' دقيقة')+sfx2}
+  const rm=60-m,rmTxt=rm===1?'دقيقة واحدة':rm===2?'دقيقتين':arNum(rm)+' دقيقة';
+  return 'الساعة '+ARO[nh12]+(m===45?' إلا ربعاً':' إلا '+rmTxt)+sfx2}
  return ''}
 
 function speakTime(){
@@ -2127,10 +2128,10 @@ function renderTimeRead(){
  const d=new Date(),h=d.getHours(),m=d.getMinutes(),R=trReadings(h,m);
  const tt={ar:'الوقت الحالي',en:'Current time',fr:'Heure actuelle'}[st.lang];
  let html='<div class="tr-t">'+tt+': '+pad(h)+':'+pad(m)+'</div>';
- [['fr','🇫🇷 Français – France'],['ar','🇸🇦 العربية الفصحى'],['en','🇺🇸 American English']].forEach(([lg,name])=>{
-  html+='<div class="tr-lg" dir="'+(lg==='ar'?'rtl':'ltr')+'">'+name+'</div>';
-  R[lg].forEach((r,i)=>{if(!r)return;
-   html+='<div class="tr-r" dir="'+(lg==='ar'?'rtl':'ltr')+'"><span style="flex:1">'+(i+1)+'. '+esc(r)+'</span><button data-tr="'+lg+'|'+i+'">🔊</button></div>'})});
+ const lg=st.lang,name={fr:'🇫🇷 Français – France',ar:'🇸🇦 العربية الفصحى',en:'🇺🇸 American English'}[lg];
+ html+='<div class="tr-lg" dir="'+(lg==='ar'?'rtl':'ltr')+'">'+name+'</div>';
+ R[lg].forEach((r,i)=>{if(!r)return;
+  html+='<div class="tr-r" dir="'+(lg==='ar'?'rtl':'ltr')+'"><span style="flex:1">'+(i+1)+'. '+esc(r)+'</span><button data-tr="'+lg+'|'+i+'">🔊</button></div>'});
  el.innerHTML=html;
  el.querySelectorAll('[data-tr]').forEach(b=>b.onclick=()=>{const[lg,i]=b.dataset.tr.split('|');const dd=new Date(),rr=trReadings(dd.getHours(),dd.getMinutes())[lg][+i];if(rr)sayOnce(rr,lg)})}
 
