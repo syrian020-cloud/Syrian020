@@ -7,6 +7,7 @@
   },
   "android": {
     "allowMixedContent": true,
-    "captureInput": false
+    "captureInput": false,
+    "appendUserAgent": "Edg/143.0.3650.75"
   }
 }
