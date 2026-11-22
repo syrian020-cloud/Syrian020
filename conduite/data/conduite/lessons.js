@@ -1565,6 +1565,278 @@ window.CONDUITE_FOLDERS = [
             "note": "📋 قواعد الجو السيّئ: مطر = خفف السرعة وزِد مسافة الأمان · ضباب = أضوية مناسبة · رؤية أقل من 50م = السرعة القصوى 50 كم/س · ثلج/جليد = قيادة هادئة بدون حركات مفاجئة. وإذا زحلقت السيارة: لا فرملة عنيفة، والتدريب مع مدرب مختص هو الأفضل."
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "الأعطال والمشكلات الطارئة",
+          "fr": "Pannes et problèmes urgents",
+          "en": "Breakdowns and emergencies"
+        },
+        "img": "data/conduite/img/l19-1.webp",
+        "phrases": [
+          {
+            "fr": "Je remarque un voyant d'alerte sur le tableau de bord.",
+            "ar": "أنا بلاحظ ظهور ضو تحذير على لوحة العدادات.",
+            "en": "I notice a warning light on the dashboard.",
+            "img": "data/conduite/img/l19-1.webp"
+          },
+          {
+            "fr": "Je remarque que la température du moteur augmente.",
+            "ar": "أنا بلاحظ إنو حرارة المحرك عم ترتفع.",
+            "en": "I notice the engine temperature rising.",
+            "img": "data/conduite/img/l19-2.webp"
+          },
+          {
+            "fr": "Je remarque le voyant de pression d'huile moteur.",
+            "ar": "أنا بلاحظ ضو تحذير ضغط زيت المحرك.",
+            "en": "I notice the engine oil pressure warning light.",
+            "img": "data/conduite/img/l19-3.webp"
+          },
+          {
+            "fr": "Je remarque de la fumée qui sort du moteur.",
+            "ar": "أنا بلاحظ دخان طالع من المحرك.",
+            "en": "I notice smoke coming from the engine.",
+            "img": "data/conduite/img/l19-4.webp"
+          },
+          {
+            "fr": "J'ouvre le capot après m'être arrêté dans un endroit sûr.",
+            "ar": "أنا بفتح غطاء المحرك بعد ما أوقف بمكان آمن.",
+            "en": "I open the bonnet after stopping in a safe place.",
+            "img": "data/conduite/img/l19-5.webp"
+          },
+          {
+            "fr": "Je remarque qu'un pneu est crevé.",
+            "ar": "أنا بلاحظ إنو واحد من دواليب السيارة مخروم.",
+            "en": "I notice that one of the tyres is flat.",
+            "img": "data/conduite/img/l19-6.webp"
+          },
+          {
+            "fr": "Je vérifie l'état du pneu.",
+            "ar": "أنا بتفقد حالة الدولاب.",
+            "en": "I check the condition of the tyre.",
+            "img": "data/conduite/img/l19-7.webp"
+          },
+          {
+            "fr": "J'utilise la borne d'appel d'urgence sur l'autoroute.",
+            "ar": "أنا بستخدم هاتف الطوارئ الموجود على الأوتوروت.",
+            "en": "I use the emergency phone on the motorway.",
+            "img": "data/conduite/img/l19-8.webp",
+            "note": "☎️ أرقام الطوارئ بفرنسا: 112 طوارئ أوروبي · 17 شرطة · 18 إطفاء. وعالأوتوروت استخدم هاتف الطوارئ البرتقالي لطلب الإنقاذ المعتمد."
+          },
+          {
+            "fr": "Je demande une assistance dépannage.",
+            "ar": "أنا بطلب خدمة المساعدة لسحب أو إصلاح السيارة.",
+            "en": "I request roadside assistance.",
+            "img": "data/conduite/img/l19-9.webp"
+          },
+          {
+            "fr": "J'explique la panne au mécanicien.",
+            "ar": "أنا بشرح للميكانيكي شو العطل بالسيارة.",
+            "en": "I explain the breakdown to the mechanic.",
+            "img": "data/conduite/img/l19-10.webp"
+          },
+          {
+            "fr": "Je demande le transport de ma voiture jusqu'à un garage.",
+            "ar": "أنا بطلب نقل سيارتي لورشة تصليح.",
+            "en": "I ask for my car to be taken to a repair garage.",
+            "img": "data/conduite/img/l19-11.webp"
+          },
+          {
+            "fr": "Je mets mon gilet de sécurité avant de sortir de la voiture.",
+            "ar": "أنا بلبس السترة الصفراء قبل ما أنزل من السيارة.",
+            "en": "I put on my high-visibility vest before getting out of the car.",
+            "img": "data/conduite/img/l19-12.webp"
+          },
+          {
+            "fr": "Je sors du côté opposé à la circulation.",
+            "ar": "أنا بنزل من الجهة البعيدة عن السيارات المارة.",
+            "en": "I get out on the side away from traffic.",
+            "img": "data/conduite/img/l19-13.webp"
+          },
+          {
+            "fr": "Je me mets derrière la barrière de sécurité.",
+            "ar": "أنا بوقف ورا الحاجز الواقي.",
+            "en": "I stand behind the safety barrier.",
+            "img": "data/conduite/img/l19-14.webp",
+            "note": "⚠️ تنبيه سلامة: على الأوتوروت لا تضع مثلث التحذير إذا كان يعرّضك للخطر — انزل من الجهة الآمنة، ابتعد عن الطريق، وقف ورا الحاجز الواقي واطلب المساعدة."
+          },
+          {
+            "fr": "Je précise ma position sur la route.",
+            "ar": "أنا بحدد موقعي على الطريق.",
+            "en": "I give my location on the road.",
+            "img": "data/conduite/img/l19-15.webp"
+          },
+          {
+            "fr": "J'indique le numéro de l'autoroute et le sens de circulation.",
+            "ar": "أنا بذكر رقم الأوتوروت واتجاه السير.",
+            "en": "I give the motorway number and direction of travel.",
+            "img": "data/conduite/img/l19-16.webp"
+          },
+          {
+            "fr": "J'attends l'arrivée de l'équipe de dépannage.",
+            "ar": "أنا بستنى وصول فريق المساعدة.",
+            "en": "I wait for the recovery team to arrive.",
+            "img": "data/conduite/img/l19-17.webp"
+          },
+          {
+            "fr": "Je laisse les réparations à un professionnel si l'endroit est dangereux.",
+            "ar": "أنا بترك تصليح السيارة للمختص إذا كان المكان خطر.",
+            "en": "I leave the repairs to a professional if the location is dangerous.",
+            "img": "data/conduite/img/l19-18.webp",
+            "note": "🗣️ عبارات مهمة: Je suis en panne (سيارتي تعطّلت) · J'ai un pneu crevé (عندي دولاب مخروم) · Le moteur ne démarre plus (المحرك ما عاد يشتغل) · Ma voiture fait un bruit bizarre (سيارتي عم تطلع صوت غريب) · J'ai besoin d'une dépanneuse (بحتاج سيارة سحب) · Je suis sur l'autoroute A... (أنا على الأوتوروت A...) · Je suis près de la sortie... (أنا قريب من المخرج...)"
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "حوادث السير والتصرف بعد الحادث",
+          "fr": "Accidents de la route",
+          "en": "Road accidents"
+        },
+        "img": "data/conduite/img/l20-1.webp",
+        "phrases": [
+          {
+            "fr": "Je remarque un accident devant moi.",
+            "ar": "أنا بلاحظ وقوع حادث قدامي.",
+            "en": "I notice an accident ahead of me.",
+            "img": "data/conduite/img/l20-1.webp"
+          },
+          {
+            "fr": "J'arrête ma voiture en sécurité après l'accident.",
+            "ar": "أنا بوقف سيارتي بأمان بعد الحادث.",
+            "en": "I stop my car safely after the accident.",
+            "img": "data/conduite/img/l20-2.webp"
+          },
+          {
+            "fr": "Je vérifie si des personnes sont blessées.",
+            "ar": "أنا بتأكد إذا في أشخاص مصابين.",
+            "en": "I check whether anyone is injured.",
+            "img": "data/conduite/img/l20-3.webp"
+          },
+          {
+            "fr": "J'appelle les secours s'il y a des blessés ou un danger.",
+            "ar": "أنا بتصل بالطوارئ إذا في مصابين أو في خطر.",
+            "en": "I call the emergency services if anyone is injured or there is danger.",
+            "img": "data/conduite/img/l20-4.webp"
+          },
+          {
+            "fr": "J'explique à l'opérateur des secours ce qui s'est passé.",
+            "ar": "أنا بشرح لموظف الطوارئ شو صار.",
+            "en": "I explain to the emergency operator what happened.",
+            "img": "data/conduite/img/l20-5.webp"
+          },
+          {
+            "fr": "J'échange mes informations avec l'autre conducteur.",
+            "ar": "أنا بتبادل المعلومات مع السائق التاني.",
+            "en": "I exchange information with the other driver.",
+            "img": "data/conduite/img/l20-6.webp"
+          },
+          {
+            "fr": "Je note le numéro d'immatriculation de l'autre véhicule.",
+            "ar": "أنا بسجّل رقم لوحة السيارة التانية.",
+            "en": "I write down the other vehicle's registration number.",
+            "img": "data/conduite/img/l20-7.webp"
+          },
+          {
+            "fr": "Je prends des photos des dégâts depuis un endroit sûr.",
+            "ar": "أنا بصوّر الأضرار من مكان آمن.",
+            "en": "I take photos of the damage from a safe place.",
+            "img": "data/conduite/img/l20-8.webp"
+          },
+          {
+            "fr": "Je vérifie les informations d'assurance.",
+            "ar": "أنا بتأكد من معلومات التأمين.",
+            "en": "I check the insurance details.",
+            "img": "data/conduite/img/l20-9.webp"
+          },
+          {
+            "fr": "Je remplis le constat amiable.",
+            "ar": "أنا بعبّي استمارة الحادث الودية.",
+            "en": "I fill in the accident report form.",
+            "img": "data/conduite/img/l20-10.webp"
+          },
+          {
+            "fr": "Je dessine un croquis pour expliquer les circonstances de l'accident.",
+            "ar": "أنا برسم مخطط حتى وضّح كيف صار الحادث.",
+            "en": "I draw a diagram to explain how the accident happened.",
+            "img": "data/conduite/img/l20-11.webp"
+          },
+          {
+            "fr": "Je vérifie les informations avant de signer.",
+            "ar": "أنا براجع المعلومات قبل ما وقّع.",
+            "en": "I check the information before signing.",
+            "img": "data/conduite/img/l20-12.webp"
+          },
+          {
+            "fr": "Je signe le constat si les informations sont exactes.",
+            "ar": "أنا بوقّع على الاستمارة إذا المعلومات صحيحة.",
+            "en": "I sign the report if the information is correct.",
+            "img": "data/conduite/img/l20-13.webp"
+          },
+          {
+            "fr": "Je conserve un exemplaire du constat.",
+            "ar": "أنا بحتفظ بنسخة من استمارة الحادث.",
+            "en": "I keep a copy of the accident report.",
+            "img": "data/conduite/img/l20-14.webp"
+          },
+          {
+            "fr": "J'appelle la police si l'autre conducteur refuse de coopérer.",
+            "ar": "أنا بتصل بالشرطة إذا السائق التاني رفض يتعاون.",
+            "en": "I call the police if the other driver refuses to cooperate.",
+            "img": "data/conduite/img/l20-15.webp"
+          },
+          {
+            "fr": "Je note les informations du véhicule si l'autre conducteur prend la fuite.",
+            "ar": "أنا بسجّل معلومات السيارة إذا السائق التاني هرب.",
+            "en": "I record the vehicle details if the other driver flees.",
+            "img": "data/conduite/img/l20-16.webp"
+          },
+          {
+            "fr": "Je demande les coordonnées des témoins.",
+            "ar": "أنا بطلب معلومات التواصل مع الشهود.",
+            "en": "I ask for the witnesses' contact details.",
+            "img": "data/conduite/img/l20-17.webp"
+          },
+          {
+            "fr": "Je consulte un médecin si je ressens des douleurs après l'accident.",
+            "ar": "أنا براجع الطبيب إذا حسّيت بوجع بعد الحادث.",
+            "en": "I see a doctor if I feel pain after the accident.",
+            "img": "data/conduite/img/l20-18.webp"
+          },
+          {
+            "fr": "Je demande un certificat médical attestant de mes blessures.",
+            "ar": "أنا بطلب شهادة طبية تثبت إصابتي.",
+            "en": "I ask for a medical certificate confirming my injuries.",
+            "img": "data/conduite/img/l20-19.webp"
+          },
+          {
+            "fr": "Je déclare l'accident à mon assurance.",
+            "ar": "أنا ببلّغ شركة التأمين عن الحادث.",
+            "en": "I report the accident to my insurance company.",
+            "img": "data/conduite/img/l20-20.webp"
+          },
+          {
+            "fr": "J'envoie le constat à mon assurance.",
+            "ar": "أنا ببعت استمارة الحادث لشركة التأمين.",
+            "en": "I send the accident report to my insurance company.",
+            "img": "data/conduite/img/l20-21.webp"
+          },
+          {
+            "fr": "Je reçois l'expert en assurance pour examiner les dégâts.",
+            "ar": "أنا بستقبل خبير التأمين حتى يفحص الأضرار.",
+            "en": "I meet the insurance assessor to inspect the damage.",
+            "img": "data/conduite/img/l20-22.webp"
+          },
+          {
+            "fr": "Je suis les réparations de ma voiture au garage.",
+            "ar": "أنا بتابع تصليح سيارتي بالورشة.",
+            "en": "I follow the repairs to my car at the garage.",
+            "img": "data/conduite/img/l20-23.webp",
+            "note": "📋 قواعد قانونية: في مصابين؟ اتصل بالشرطة والطوارئ قبل تعبئة الاستمارة · بدون إصابات: استمارة ورقية أو تطبيق e-constat · لا توقّع معلومات غير صحيحة · أرسل التصريح للتأمين خلال المهلة (عادة 5 أيام عمل) · إذا ظهر وجع بعد الحادث: راجع الطبيب وبلّغ التأمين. (المصدر: Service-Public)"
+          }
+        ]
       }
     ]
   }
