@@ -524,7 +524,7 @@
 <body>
 <header>
   <div class="header-inner">
-    <span class="logo"><img src="icon-192.png" alt="" class="logo-icon"> <span data-t="appName">Zeelang</span></span>
+    <span class="logo"><img src="icon-192.png" alt="" class="logo-icon"> <span data-t="appName">Conduite</span></span>
     <span class="spacer"></span>
     <div class="lang-switch">
       <button class="lang-btn" data-lang="ar">AR</button>
@@ -900,7 +900,7 @@
         await queue;
         if (failed) throw failed;
         const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
-        if (Share && Share.share) await Share.share({ title: 'Zeelang lessons', files: [uri], dialogTitle: 'Zeelang export' });
+        if (Share && Share.share) await Share.share({ title: 'Conduite lessons', files: [uri], dialogTitle: 'Conduite export' });
       }
     };
   }
@@ -1259,7 +1259,7 @@
         await Filesystem.writeFile({ path: filename, data: data, directory: dir, encoding: encoding });
         const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
         if (Share && Share.share) {
-          await Share.share({ title: 'Zeelang lessons', files: [uri], dialogTitle: 'Zeelang JSON' });
+          await Share.share({ title: 'Conduite lessons', files: [uri], dialogTitle: 'Conduite JSON' });
         }
         showToast(t('exportSuccess'));
         return;
@@ -1739,7 +1739,7 @@
 
   const UI = {
     appName: { ar: 'Conduite', en: 'Conduite', fr: 'Conduite' },
-    appTitle: { ar: 'Zeelang — فرنسي / عربي / إنجليزي', en: 'Zeelang — French / Arabic / English', fr: 'Zeelang — Français / Arabe / Anglais' },
+    appTitle: { ar: 'Conduite — فرنسي / عربي / إنجليزي', en: 'Conduite — French / Arabic / English', fr: 'Conduite — Français / Arabe / Anglais' },
     searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
     rateTitle: { ar: 'سرعة الصوت والفيديو', en: 'Audio & video speed', fr: 'Vitesse audio et vidéo' },
     voiceSettings: { ar: 'إعدادات الصوت', en: 'Voice settings', fr: 'Réglages de la voix' },
@@ -1913,7 +1913,7 @@
     lessonLabel: { ar: 'الدرس', en: 'Lesson', fr: 'Leçon' },
     folderLabel: { ar: 'المجلد', en: 'Folder', fr: 'Dossier' },
     emptyFolder: { ar: 'لا توجد دروس في هذا المجلد. أضف درساً جديداً.', en: 'No lessons in this folder. Add a new lesson.', fr: 'Aucune leçon dans ce dossier. Ajoutez-en une nouvelle.' },
-    footerText: { ar: 'Zeelang · ', en: 'Zeelang · ', fr: 'Zeelang · ' },
+    footerText: { ar: 'Conduite · ', en: 'Conduite · ', fr: 'Conduite · ' },
     footerLink: { ar: 'تطبيقاتي الأخرى', en: 'My other apps', fr: 'Mes autres applications' },
     heroTitle: { ar: 'تعلم الفرنسية', en: 'Learn French', fr: 'Apprenez le français' },
     heroSub: { ar: 'عبارات مترجمة إلى العربية والإنجليزية', en: 'Phrases translated into Arabic and English', fr: 'Phrases traduites en arabe et en anglais' },
@@ -2892,7 +2892,7 @@
         try {
           const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
           showToast(t('videoSaved'));
-          if (Share && Share.share) await Share.share({ title: 'Zeelang video', files: [uri], dialogTitle: 'Zeelang video' });
+          if (Share && Share.share) await Share.share({ title: 'Conduite video', files: [uri], dialogTitle: 'Conduite video' });
         } catch (e) { console.error('share video failed', e); showToast(e.message || 'Save failed'); }
       }
     };
