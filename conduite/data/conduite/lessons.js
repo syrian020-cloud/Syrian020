@@ -5323,6 +5323,330 @@ window.CONDUITE_FOLDERS = [
             "note": "طريق مبلول = تماسك أقل ومسافة فرملة أطول — انتبه لتجمع الماء."
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "أنظمة مساعدة الفرملة والثبات",
+          "fr": "Les systèmes d'aide au freinage",
+          "en": "Braking assist systems"
+        },
+        "img": "data/conduite/img/l58-1.webp",
+        "phrases": [
+          {
+            "fr": "Je bénéficie de l'AFU lorsque je freine très rapidement en situation d'urgence.",
+            "ar": "أنا بستفيد من نظام AFU لما بدعس على الفرامل بسرعة بحالة طارئة.",
+            "en": "I benefit from AFU when I brake very quickly in an emergency.",
+            "img": "data/conduite/img/l58-1.webp",
+            "note": "نظام AFU بيكتشف إنك عم تضغط على الفرامل بسرعة وكأنك بحالة طوارئ، وبيساعد على زيادة قوة الفرملة للوصول إلى أقصى فعالية ممكنة للنظام. * AFU اختصار لـ Aide au freinage d'urgence. * هو بيساعدني أقوّي الفرملة، لكنه ما بيقرر بدالي إذا لازم أفرمل. * ببعض السيارات ممكن تشتغل أضواء الخطر تلقائياً عند الفرملة الطارئة، حسب تجهيز السيارة. معلومة امتحانية: نظام AFU مختلف عن نظام الفرملة التلقائية AEB. APR +1"
+          },
+          {
+            "fr": "Je distingue l'AFU, qui renforce le freinage, de l'ABS, qui limite le blocage des roues.",
+            "ar": "أنا بميّز بين AFU اللي بيقوّي الفرملة وABS اللي بيحدّ من انغلاق العجلات.",
+            "en": "I distinguish AFU, which boosts braking, from ABS, which limits wheel lock.",
+            "img": "data/conduite/img/l58-2.webp",
+            "note": "| النظام | الوظيفة                            |\n| ------ | ---------------------------------- |\n| AFU    | بيزيد فعالية الفرملة بحالة الطوارئ |\n| ABS    | بيحدّ من انغلاق العجلات            |\n| ESP    | بيساعد على الحفاظ على مسار السيارة | احفظ هالفرق منيح، لأن ممكن يجيك سؤال يخلط بين وظائف الأنظمة الثلاثة. APR +1"
+          },
+          {
+            "fr": "Je reste vigilant même si mon véhicule possède un système de freinage automatique d'urgence.",
+            "ar": "أنا بضل منتبه حتى لو سيارتي فيها نظام فرملة تلقائية للطوارئ.",
+            "en": "I remain alert even if my vehicle has an automatic emergency braking system.",
+            "img": "data/conduite/img/l58-3.webp",
+            "note": "نظام AEB بيستخدم حساسات أو كاميرات حتى يكتشف خطر اصطدام محتمل أمام السيارة. إذا اكتشف خطراً: * ممكن يحذّرني بصوت أو ضوء. * ممكن يجهّز الفرامل. * ممكن يفرمل تلقائياً إذا استمر الخطر، حسب النظام والسيارة. الفرق الأساسي: AFU بيساعد على تقوية الفرملة اللي أنا بدأت فيها، أما AEB ممكن يبدأ الفرملة تلقائياً دون أن أضغط على الدواسة. Sécurité Routière +1"
+          },
+          {
+            "fr": "Je garde une trajectoire adaptée et je ne compte pas uniquement sur l'ESP.",
+            "ar": "أنا بحافظ على مساري وما بعتمد بس على نظام ESP.",
+            "en": "I maintain a suitable trajectory and do not rely only on ESP.",
+            "img": "data/conduite/img/l58-4.webp",
+            "note": "نظام ESP بيساعد السيارة تحافظ على مسارها إذا اكتشف بداية انزلاق أو فقدان السيطرة. * ممكن يفرمل عجلة أو أكثر بشكل منفصل. * ممكن يخفّف قوة المحرك. * بيساعد على تصحيح مسار السيارة ضمن حدود التماسك المتاح. مهم: ESP ما بيمنع كل الحوادث، وما بيقدر يتغلب على قوانين التماسك إذا كانت السرعة عالية جداً أو الطريق زلق بشكل كبير."
+          },
+          {
+            "fr": "Je limite l'accélération lorsque mes roues patinent sur une chaussée glissante.",
+            "ar": "أنا بخفّف التسارع لما عجلات سيارتي تصير تدور بمحلها على طريق زلق.",
+            "en": "I reduce acceleration when my wheels spin on a slippery road.",
+            "img": "data/conduite/img/l58-5.webp",
+            "note": "ASR هو نظام التحكم بالجرّ أو منع انزلاق العجلات أثناء التسارع. مثلاً لما حاول انطلق على الثلج أو طريق مبلول، ممكن العجلات تدور بسرعة بدون ما تدفع السيارة بشكل فعّال. النظام ممكن: * يخفّف قوة المحرك. * يفرمل العجلة اللي عم تدور بشكل زائد. * يساعد السيارة على الانطلاق بشكل أكثر استقراراً. تذكّر الفرق: * ASR: بيساعد أثناء التسارع. * ABS: بيساعد أثناء الفرملة. * ESP: بيساعد على الحفاظ على مسار السي…"
+          },
+          {
+            "fr": "Je bénéficie d'une répartition électronique de la force de freinage entre les roues.",
+            "ar": "أنا بستفيد من توزيع إلكتروني لقوة الفرملة بين عجلات السيارة.",
+            "en": "I benefit from electronic distribution of braking force between the wheels.",
+            "img": "data/conduite/img/l58-6.webp",
+            "note": "نظام EBD بيوزّع قوة الفرملة بين العجلات حسب ظروف السيارة، مثل الحمولة وتغيّر توزيع الوزن أثناء الفرملة. وظيفته تحسين فعالية الفرملة واستقرار السيارة. ممكن تلاقي أسماء مختلفة حسب الشركة المصنّعة: * EBD * EBV * REF Sécurité Routière +1"
+          },
+          {
+            "fr": "Je peux utiliser l'aide au démarrage en côte pour éviter le recul de mon véhicule.",
+            "ar": "أنا فيني استخدم مساعد الانطلاق على الطلعة حتى ما ترجع سيارتي لورا.",
+            "en": "I can use hill-start assist to prevent my vehicle from rolling backwards.",
+            "img": "data/conduite/img/l58-7.webp",
+            "note": "هالنظام بيساعدني لما بدي انطلق على طريق طالع. * بيحافظ على ضغط الفرامل لفترة قصيرة بعد ما أرفع رجلي عن دواسة الفرامل. * بيعطيني وقت انتقل للتسارع. * ممكن يكون موجود بالسيارات اليدوية والأوتوماتيكية، حسب التجهيز. ملاحظة: ما لازم أعتمد عليه كبديل عن استخدام الفرامل بشكل صحيح، ومدة عمله بتختلف حسب السيارة."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "ضغط الإطارات ونظام التعليق",
+          "fr": "TPMS et suspension",
+          "en": "Tire pressure and suspension"
+        },
+        "img": "data/conduite/img/l59-1.webp",
+        "phrases": [
+          {
+            "fr": "Je surveille la pression de mes pneus grâce au système TPMS.",
+            "ar": "أنا براقب ضغط دواليب سيارتي عن طريق نظام TPMS.",
+            "en": "I monitor my tire pressure using the TPMS.",
+            "img": "data/conduite/img/l59-1.webp",
+            "note": "TPMS اختصار لـ Tire Pressure Monitoring System، وبالفرنسية SSPP. وظيفته مراقبة ضغط الإطارات وتحذيري إذا صار في انخفاض مهم بالضغط. * ممكن يعرض ضغط كل إطار بشكل منفصل. * بعض الأنظمة بتعطيني تحذيراً فقط دون أرقام. * وجود النظام ما بيعني إني ما عاد بحاجة أفحص ضغط الإطارات يدوياً. النظام مطلوب في السيارات الجديدة المشمولة بالتنظيم الأوروبي. Eur-Lex +1"
+          },
+          {
+            "fr": "Je vérifie la pression de mes pneus lorsque le voyant TPMS s'allume.",
+            "ar": "أنا بفحص ضغط دواليب سيارتي لما تشتغل لمبة TPMS.",
+            "en": "I check my tire pressure when the TPMS warning light comes on.",
+            "img": "data/conduite/img/l59-2.webp",
+            "note": "إذا ظهرت العلامة الصفراء اللي شكلها مثل إطار وفي داخلها علامة تعجب: * بخفّف السرعة وبنتبه للطريق. * بوقف بمكان آمن إذا كان ذلك مناسباً. * بفحص الإطارات بحثاً عن تلف واضح. * بقيس الضغط وبضبطه حسب توصيات الشركة المصنّعة. * إذا في تلف أو فقدان سريع للهواء، ما بكمل القيادة بشكل عادي. انتبه: إذا كان الإطار شبه فارغ أو السيارة غير مستقرة، لازم توقف بأمان وما تتابع القيادة عليه."
+          },
+          {
+            "fr": "Je réinitialise le système TPMS après avoir réglé la pression des pneus, si le constructeur le demande.",
+            "ar": "أنا بعمل إعادة ضبط لنظام TPMS بعد ما ظبّط ضغط الدواليب، إذا الشركة المصنّعة بتطلب هالشي.",
+            "en": "I reset the TPMS after adjusting tire pressure if the manufacturer requires it.",
+            "img": "data/conduite/img/l59-3.webp",
+            "note": "بعض السيارات بتحتاج إعادة تعلّم أو معايرة النظام بعد ضبط الضغط أو تبديل الإطارات. * أولاً بضبط ضغط الإطارات حسب الملصق الموجود على السيارة. * بعدين بتبع تعليمات دليل السيارة لإعادة الضبط. * ما بعمل Reset قبل تصحيح الضغط؛ لأن هيك ممكن أخفي التحذير دون معالجة المشكلة. ملاحظة: مو كل أنظمة TPMS بتحتاج إعادة ضبط يدوية."
+          },
+          {
+            "fr": "Je contrôle la pression de mes pneus à froid, de préférence avant de prendre la route.",
+            "ar": "أنا بفحص ضغط دواليب سيارتي وهي باردة، ويفضّل قبل ما بلّش القيادة.",
+            "en": "I check my tire pressure when the tires are cold, preferably before driving.",
+            "img": "data/conduite/img/l59-4.webp",
+            "note": "ضغط الإطارات بيتغيّر مع الحرارة. * بفحص الضغط قبل رحلة طويلة. * ما بعتمد على رقم عام لكل السيارات. * بشوف الضغط الصحيح على ملصق السيارة، غالباً عند باب السائق أو غطاء خزان الوقود. * إذا قست الضغط بعد القيادة وكان مرتفعاً بسبب الحرارة، ما بفرّغ الهواء لمجرد إرجاعه إلى قيمة الضغط البارد. المصدر: دليل السلامة المرورية الفرنسي ينصح بمراقبة الضغط شهرياً وقبل الرحلات الطويلة. Sécurité Routière"
+          },
+          {
+            "fr": "J'adapte la pression des pneus à la charge de mon véhicule selon les indications du constructeur.",
+            "ar": "أنا بضبط ضغط الدواليب حسب حمولة السيارة وتعليمات الشركة المصنّعة.",
+            "en": "I adjust tire pressure according to the vehicle load and manufacturer's instructions.",
+            "img": "data/conduite/img/l59-5.webp",
+            "note": "بعض السيارات بتحدد ضغطين مختلفين: * Charge normale: حمولة عادية. * Pleine charge: السيارة محمّلة بالركاب والأمتعة. لما تكون السيارة محمّلة بالكامل، ممكن تحتاج ضغطاً أعلى حسب الملصق. لازم أتبع الأرقام المحددة للحمولة والمحور الأمامي والخلفي، وما أزيد الضغط من عندي."
+          },
+          {
+            "fr": "Je sais que certains véhicules utilisent des capteurs électroniques dans les roues.",
+            "ar": "أنا بعرف إن بعض السيارات فيها حساسات إلكترونية داخل العجلات.",
+            "en": "I know that some vehicles use electronic sensors inside the wheels.",
+            "img": "data/conduite/img/l59-6.webp",
+            "note": "في نوعين رئيسيين من أنظمة مراقبة الضغط: * TPMS direct: حساسات بتقيس الضغط مباشرة داخل العجلات. * TPMS indirect: النظام بيستنتج وجود نقص بالضغط من بيانات دوران العجلات، غالباً بالاعتماد على ABS. لهيك مو كل السيارات بتعرض رقم ضغط كل إطار على الشاشة."
+          },
+          {
+            "fr": "Je fais contrôler le système TPMS si son voyant signale un dysfonctionnement.",
+            "ar": "أنا بخلي نظام TPMS ينفحص إذا لمبته عم تشير لعطل بالنظام.",
+            "en": "I have the TPMS checked if its warning light indicates a system malfunction.",
+            "img": "data/conduite/img/l59-7.webp",
+            "note": "ممكن يكون السبب: * بطارية الحساس انتهى عمرها. * حساس تالف. * حساس غير مبرمج بعد تبديل العجلات. * خلل في استقبال الإشارات. بعض السيارات بتستخدم وميض اللمبة للدلالة على عطل بالنظام، وبعدها ممكن تبقى مضاءة، لكن طريقة التحذير بتختلف حسب السيارة. مهم: حتى لو النظام معطّل، لازم أتابع فحص ضغط الإطارات بنفسي. Légifrance +1"
+          },
+          {
+            "fr": "Je compte sur la suspension pour absorber les irrégularités de la route et améliorer la stabilité du véhicule.",
+            "ar": "أنا بعتمد على نظام التعليق ليمتص مطبّات الطريق ويساعد السيارة تحافظ على ثباتها.",
+            "en": "I rely on the suspension to absorb road bumps and help keep the vehicle stable.",
+            "img": "data/conduite/img/l59-8.webp",
+            "note": "نظام التعليق بيربط العجلات بهيكل السيارة وبيساعد على: * امتصاص الصدمات والمطبات. * المحافظة على تماس الإطارات مع الطريق. * تحسين الراحة والثبات. * المساعدة على التحكم بالسيارة. من أجزائه: * Les ressorts: النوابض. * Les amortisseurs: ممتصات الصدمات. * Les bras de suspension: أذرع التعليق."
+          },
+          {
+            "fr": "Je vérifie l'état des amortisseurs pour conserver une bonne tenue de route.",
+            "ar": "أنا بتأكد من حالة ممتصات الصدمات حتى حافظ على ثبات السيارة على الطريق.",
+            "en": "I check the shock absorbers to maintain good road handling.",
+            "img": "data/conduite/img/l59-9.webp",
+            "note": "وظيفة ممتصات الصدمات هي تخفيف اهتزاز النوابض والسيارة بعد المطبات. إذا كانت تالفة: * السيارة ممكن تضل تتأرجح بعد المطبات. * ممكن يضعف تماسك الإطارات. * ممكن تتأثر السيطرة على السيارة. * ممكن يصير تآكل غير طبيعي بالإطارات."
+          },
+          {
+            "fr": "Je fais contrôler mes amortisseurs si je remarque une fuite d'huile ou des rebonds anormaux.",
+            "ar": "أنا بخلي ممتصات الصدمات تنفحص إذا لاحظت تسرّب زيت أو ارتداد غير طبيعي بالسيارة.",
+            "en": "I have my shock absorbers checked if I notice an oil leak or unusual bouncing.",
+            "img": "data/conduite/img/l59-10.webp",
+            "note": "من العلامات المحتملة: * تسرّب الزيت من ممتص الصدمات. * اهتزاز وارتداد زائد بعد المطبات. * ضعف ثبات السيارة بالمنعطفات. * تآكل غير منتظم للإطارات. * أصوات غير طبيعية من نظام التعليق. مو كل صوت يعني تلف الممتصات، لذلك لازم فحصها عند مختص. Légifrance +1"
+          },
+          {
+            "fr": "Je sais que les ressorts soutiennent le poids du véhicule et absorbent les irrégularités de la route.",
+            "ar": "أنا بعرف إن النوابض بتحمل وزن السيارة وبتساعد على امتصاص اهتزازات الطريق.",
+            "en": "I know that springs support the vehicle's weight and absorb road irregularities.",
+            "img": "data/conduite/img/l59-11.webp",
+            "note": "النوابض بتساعد على: * دعم وزن السيارة. * امتصاص الصدمات. * الحفاظ على ارتفاع السيارة المناسب. إذا انكسر نابض، ممكن تنخفض جهة من السيارة أو يصدر صوت احتكاك، ويجب فحصه وإصلاحه."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "نظام التوجيه والمقود",
+          "fr": "La direction et le volant",
+          "en": "Steering system"
+        },
+        "img": "data/conduite/img/l60-1.webp",
+        "phrases": [
+          {
+            "fr": "Je tourne le volant pour orienter les roues directrices de mon véhicule.",
+            "ar": "أنا بلفّ المقود حتى وجّه العجلات الأمامية بسيارتي.",
+            "en": "I turn the steering wheel to direct my vehicle's steering wheels.",
+            "img": "data/conduite/img/l60-1.webp",
+            "note": "نظام التوجيه بيسمحلي أغيّر اتجاه السيارة. من أهم أجزائه: * Le volant: المقود. * La colonne de direction: عمود المقود. * La crémaillère de direction: علبة أو مسطرة التوجيه. * Les biellettes de direction: قضبان التوجيه. * Les rotules de direction: مفاصل التوجيه. أي خلل خطير بنظام التوجيه ممكن يسبب فقدان السيطرة على السيارة."
+          },
+          {
+            "fr": "Je tiens le volant fermement et je garde le contrôle de mon véhicule.",
+            "ar": "أنا بمسك المقود بشكل ثابت وبحافظ على السيطرة على سيارتي.",
+            "en": "I hold the steering wheel firmly and maintain control of my vehicle.",
+            "img": "data/conduite/img/l60-2.webp",
+            "note": "المقود هو الوسيلة الأساسية لتوجيه السيارة. لازم: * أمسكه بطريقة تسمحلي أتحكم بالسيارة. * ما أتركه أثناء القيادة. * أتجنب الحركات المفاجئة. * أعدّل وضعية المقعد والمقود قبل الانطلاق."
+          },
+          {
+            "fr": "Je tourne le volant plus facilement grâce à la direction assistée.",
+            "ar": "أنا بلفّ المقود بسهولة أكبر بفضل نظام التوجيه المعزّز.",
+            "en": "I turn the steering wheel more easily thanks to power steering.",
+            "img": "data/conduite/img/l60-3.webp",
+            "note": "التوجيه المعزّز بيخفّف القوة المطلوبة لتدوير المقود. في نوعين شائعين: * Direction assistée hydraulique: توجيه معزّز هيدروليكي، بيستخدم سائل وضغط هيدروليكي. * Direction assistée électrique (EPS): توجيه معزّز كهربائي، بيستخدم محركاً كهربائياً. بعض السيارات فيها نظام كهربائي، وبعضها هيدروليكي، وفي أنظمة كهربائية هيدروليكية أيضاً."
+          },
+          {
+            "fr": "Je m'arrête en sécurité si la direction devient soudainement très dure.",
+            "ar": "أنا بوقف بمكان آمن إذا صار المقود قاسي فجأة وبشكل كبير.",
+            "en": "I stop safely if the steering suddenly becomes very stiff.",
+            "img": "data/conduite/img/l60-4.webp",
+            "note": "إذا تعطّل التوجيه المعزّز، ممكن يصير المقود أصعب بالدوران، وخصوصاً على السرعات المنخفضة. * ممكن تضل السيارة قابلة للتوجيه، لكن بدها قوة أكبر. * إذا ظهر تحذير عطل أو تغيّر التوجيه بشكل واضح، لازم أفحص السيارة. * إذا صار التحكم صعب أو غير آمن، بوقف بمكان آمن وما بكمل القيادة. المساعدة بالتوجيه ما لازم تمنع السائق من الاحتفاظ بالتحكم عند حدوث عطل، وفق متطلبات نظام التوجيه. content.preventionbtp.fr +1"
+          },
+          {
+            "fr": "Je fais contrôler la direction si le volant tourne anormalement avant que les roues réagissent.",
+            "ar": "أنا بفحص نظام التوجيه إذا المقود بيلفّ بشكل زائد قبل ما تستجيب العجلات.",
+            "en": "I have the steering system checked if the steering wheel turns excessively before the wheels respond.",
+            "img": "data/conduite/img/l60-5.webp",
+            "note": "الـ Jeu dans la direction هو الفراغ أو الحركة الحرة بالمقود قبل ما تستجيب العجلات. إذا كان الفراغ كبيراً: * بتصير استجابة السيارة للتوجيه غير دقيقة. * بصير الحفاظ على المسار أصعب. * ممكن يكون في تآكل أو خلل بمفاصل أو أجزاء التوجيه. الفراغ الزائد عطل مهم وقد يشكّل خطراً على السلامة."
+          },
+          {
+            "fr": "Je fais vérifier mon véhicule s'il tire constamment à droite ou à gauche.",
+            "ar": "أنا بفحص سيارتي إذا عم تسحب باستمرار لليمين أو لليسار.",
+            "en": "I have my vehicle checked if it constantly pulls to the right or left.",
+            "img": "data/conduite/img/l60-6.webp",
+            "note": "ممكن يكون السبب: * اختلاف ضغط الإطارات. * خلل في ضبط زوايا العجلات. * مشكلة في الفرامل. * تلف بأحد أجزاء التعليق أو التوجيه. مو كل سحب سببه نظام التوجيه نفسه، لذلك لازم يتم فحص السيارة بشكل شامل."
+          },
+          {
+            "fr": "Je fais régler le parallélisme lorsque mes roues ne sont plus correctement alignées.",
+            "ar": "أنا بعمل ضبط زوايا العجلات لما ما تعود العجلات مضبوطة بشكل صحيح.",
+            "en": "I have the wheel alignment adjusted when my wheels are no longer properly aligned.",
+            "img": "data/conduite/img/l60-7.webp",
+            "note": "ضبط الزوايا بيساعد العجلات تحافظ على الاتجاه الصحيح أثناء القيادة. علامات وجود خلل: * تآكل غير منتظم للإطارات. * السيارة تسحب لجهة. * المقود مو مستقيم أثناء السير بخط مستقيم. * ضعف الثبات أو تغيّر استجابة التوجيه. معلومة مهمة: ضبط الزوايا مو نفسه موازنة العجلات (Équilibrage des roues)."
+          },
+          {
+            "fr": "Je fais contrôler mon véhicule si le volant vibre anormalement pendant la conduite.",
+            "ar": "أنا بفحص سيارتي إذا المقود عم يهتز بشكل غير طبيعي أثناء القيادة.",
+            "en": "I have my vehicle checked if the steering wheel vibrates abnormally while driving.",
+            "img": "data/conduite/img/l60-8.webp",
+            "note": "الاهتزاز ممكن يكون سببه: * عدم توازن العجلات. * تلف أو تشوه أحد الإطارات. * خلل في نظام التعليق. * مشكلة في الفرامل إذا ظهر الاهتزاز أثناء الفرملة. إذا كان الاهتزاز قوياً أو ظهر فجأة، بخفّف السرعة وبوقف بمكان آمن إذا لزم الأمر."
+          },
+          {
+            "fr": "Je règle la hauteur et la profondeur du volant avant de démarrer.",
+            "ar": "أنا بظبط ارتفاع المقود وقربه أو بعده قبل ما انطلق.",
+            "en": "I adjust the height and reach of the steering wheel before starting.",
+            "img": "data/conduite/img/l60-9.webp",
+            "note": "بعض السيارات بتسمح بتعديل: * La hauteur: ارتفاع المقود. * La profondeur: قرب المقود أو بعده. لازم أضبطه والسيارة متوقفة، حتى أقدر أوصل للدواسات وأتحكم بالمقود براحة، مع المحافظة على مسافة مناسبة من الوسادة الهوائية."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "الرؤية من داخل السيارة",
+          "fr": "La visibilité",
+          "en": "Visibility"
+        },
+        "img": "data/conduite/img/l61-1.webp",
+        "phrases": [
+          {
+            "fr": "Je dois avoir une bonne visibilité vers l'avant, la droite et la gauche.",
+            "ar": "لازم تكون عندي رؤية واضحة لقدّام ولليمين ولليسار.",
+            "en": "I must have good visibility to the front, right and left.",
+            "img": "data/conduite/img/l61-1.webp",
+            "note": "لازم يكون مجال الرؤية كافياً حتى أقدر أقود بأمان. * ما بحط أغراض بتحجب رؤيتي. * ما بعلّق أشياء كبيرة قدام الزجاج. * بتأكد إن المرايا والزجاج بحالة جيدة. * بضبط المقعد والمرايا قبل الانطلاق. القانون الفرنسي بيشترط أن مجال الرؤية يسمح للسائق بالقيادة بأمان. Légifrance"
+          },
+          {
+            "fr": "Je garde mon pare-brise propre et en bon état pour bien voir la route.",
+            "ar": "أنا بحافظ على الزجاج الأمامي نظيف وبحالة جيدة حتى شوف الطريق بوضوح.",
+            "en": "I keep my windshield clean and in good condition so I can see the road clearly.",
+            "img": "data/conduite/img/l61-2.webp",
+            "note": "الزجاج الأمامي مهم جداً للرؤية. لازم انتبه إلى: * الشقوق والكسور. * الأوساخ والدهون. * الخدوش اللي بتأثر على الرؤية. * الأشياء الملصقة على الزجاج واللي بتحجب مجال الرؤية. مو كل شق صغير يعني تلقائياً مخالفة؛ المهم مكان الضرر وحجمه وتأثيره على الرؤية، وفق القواعد المعمول فيها."
+          },
+          {
+            "fr": "Je garde les vitres latérales avant suffisamment transparentes.",
+            "ar": "أنا بحافظ على الزجاجين الجانبيين الأماميين شفافين بدرجة كافية.",
+            "en": "I keep the front side windows sufficiently transparent.",
+            "img": "data/conduite/img/l61-3.webp",
+            "note": "بالقانون الفرنسي، الزجاج الأمامي والزجاج الجانبي الأمامي لازم يسمحوا بمرور الضوء بنسبة لا تقل عن 70%. يعني ما بصير أركّب تظليل يمنع مرور الضوء بالنسبة المطلوبة. معلومة امتحانية: نسبة 70% تخص نفاذية الضوء، مو نسبة التعتيم. Légifrance +1"
+          },
+          {
+            "fr": "Je regarde dans le rétroviseur intérieur pour surveiller la circulation derrière moi.",
+            "ar": "أنا بتطلع بالمراية الداخلية حتى راقب حركة المرور وراي.",
+            "en": "I look in the interior rear-view mirror to monitor traffic behind me.",
+            "img": "data/conduite/img/l61-4.webp",
+            "note": "المراية الداخلية بتساعدني شوف المركبات خلف السيارة. بستخدمها: * قبل تخفيف السرعة. * قبل الفرملة. * قبل تغيير المسار. * قبل بعض المناورات. إذا كانت الرؤية للخلف غير ممكنة بسبب تصميم السيارة أو الحمولة، لازم أعتمد على المرايا الخارجية المناسبة."
+          },
+          {
+            "fr": "Je vérifie le rétroviseur gauche avant de changer de voie.",
+            "ar": "أنا بتأكد من المراية اليسرى قبل ما غيّر المسار.",
+            "en": "I check the left mirror before changing lanes.",
+            "img": "data/conduite/img/l61-5.webp",
+            "note": "بتساعدني أشوف المركبات الموجودة خلفي وعلى يساري. قبل تغيير المسار: * بتطلع بالمراية الداخلية. * بتطلع بالمراية اليسرى. * بتأكد من الزاوية غير المرئية بالنظر المباشر فوق الكتف. * بعطي إشارة وبغيّر المسار إذا كان آمناً."
+          },
+          {
+            "fr": "Je vérifie le rétroviseur droit avant de me rabattre vers la droite.",
+            "ar": "أنا بتأكد من المراية اليمين قبل ما ارجع للمسار اليميني.",
+            "en": "I check the right mirror before moving back into the right lane.",
+            "img": "data/conduite/img/l61-6.webp",
+            "note": "المراية اليمنى مهمة خصوصاً عند: * الرجوع إلى اليمين. * الركن. * تجاوز الدراجات بحذر. * مراقبة المركبات الموجودة بجانب السيارة. انتبه: المرايا ما بتكشف كل المناطق المحيطة بالسيارة؛ لذلك لازم أتحقق من الزاوية غير المرئية أيضاً."
+          },
+          {
+            "fr": "Je vérifie l'angle mort en tournant brièvement la tête avant de changer de voie.",
+            "ar": "أنا بتأكد من الزاوية العمياء بلف راسي لثانية قبل تغيير المسار.",
+            "en": "I briefly turn my head to check the blind spot before changing lanes.",
+            "img": "data/conduite/img/l61-7.webp",
+            "note": "الـ Angle mort هي منطقة ما بتظهر بشكل كافٍ بالمرايا. ممكن تكون فيها: * دراجة نارية. * دراجة هوائية. * سيارة موجودة بجانبك. * مركبة صغيرة. ما بكفي أتطلع بالمرايا فقط؛ لازم أتحقق من الزاوية العمياء قبل المناورة، مع إبقاء نظري على الطريق وعدم إطالة الالتفات."
+          },
+          {
+            "fr": "J'utilise les essuie-glaces pour garder une bonne visibilité lorsqu'il pleut.",
+            "ar": "أنا بستخدم ماسحات الزجاج حتى حافظ على رؤية واضحة وقت المطر.",
+            "en": "I use the windshield wipers to maintain good visibility when it rains.",
+            "img": "data/conduite/img/l61-8.webp",
+            "note": "الماسحات بتزيل الماء والأوساخ عن الزجاج الأمامي. فيها عادة سرعات مختلفة: * Intermittent: مسح متقطع. * Vitesse lente: سرعة بطيئة. * Vitesse rapide: سرعة سريعة. لازم تكون الشفرات بحالة جيدة، وما تترك خطوطاً أو مناطق غير ممسوحة تعيق الرؤية. القانون الفرنسي بيشترط وجود ماسحة فعالة وجهاز غسل للزجاج الأمامي. Légifrance +1"
+          },
+          {
+            "fr": "Je remplis le réservoir de lave-glace avec un liquide adapté à la saison.",
+            "ar": "أنا بعبي خزان ماء تنظيف الزجاج بسائل مناسب لفصل السنة.",
+            "en": "I fill the windshield washer reservoir with fluid suitable for the season.",
+            "img": "data/conduite/img/l61-9.webp",
+            "note": "سائل تنظيف الزجاج بيساعد على إزالة: * الغبار. * آثار الحشرات. * الأوساخ. * بقايا الطريق. بالشتاء بستخدم سائلاً مقاوماً للتجمد، حتى ما يتجمّد بالخزان أو الأنابيب. ما بخلط بين خزان سائل تنظيف الزجاج وخزان سائل التبريد أو الفرامل."
+          },
+          {
+            "fr": "J'active le désembuage pour retrouver une bonne visibilité à travers le pare-brise.",
+            "ar": "أنا بشغّل إزالة الضباب حتى ترجع الرؤية واضحة من الزجاج الأمامي.",
+            "en": "I activate the front defrost to restore clear visibility through the windshield.",
+            "img": "data/conduite/img/l61-10.webp",
+            "note": "الضباب بيتشكل بسبب تكاثف الرطوبة على الزجاج. لإزالته: * بوجّه الهواء نحو الزجاج الأمامي. * بشغّل المروحة. * بستخدم التكييف إذا كان متاحاً؛ فهو بيساعد على تجفيف الهواء. * بستخدم تدفئة مناسبة للزجاج. ما لازم انطلق إذا الضباب حاجب رؤيتي."
+          },
+          {
+            "fr": "J'active le dégivrage de la lunette arrière pour améliorer ma visibilité vers l'arrière.",
+            "ar": "أنا بشغّل تسخين الزجاج الخلفي حتى حسّن الرؤية لورا.",
+            "en": "I activate the rear window defroster to improve my rear visibility.",
+            "img": "data/conduite/img/l61-11.webp",
+            "note": "الخطوط الرفيعة الموجودة على الزجاج الخلفي هي أسلاك تسخين كهربائية. لما بشغّل الزر: * بتسخن الخطوط. * بيخف الضباب والتكاثف. * ممكن يذوب الجليد الخفيف حسب الظروف. انتبه: لا تكشط خطوط التسخين بأداة حادة، لأنها ممكن تتضرر."
+          },
+          {
+            "fr": "Je nettoie mes vitres et mes rétroviseurs avant de prendre la route.",
+            "ar": "أنا بنظّف زجاج سيارتي ومراياتها قبل ما اطلع عالطريق.",
+            "en": "I clean my windows and mirrors before driving.",
+            "img": "data/conduite/img/l61-12.webp",
+            "note": "قبل الانطلاق بتأكد من: * نظافة الزجاج الأمامي. * نظافة الزجاج الخلفي. * نظافة المرايا الخارجية والداخلية. * عدم وجود أغراض بتحجب الرؤية. * عمل الماسحات ونظام غسل الزجاج."
+          },
+          {
+            "fr": "Je réduis ma vitesse et j'augmente mes distances de sécurité lorsque la visibilité diminue.",
+            "ar": "أنا بخفّف السرعة وبزيد مسافة الأمان لما الرؤية تضعف.",
+            "en": "I reduce my speed and increase my safety distance when visibility decreases.",
+            "img": "data/conduite/img/l61-13.webp",
+            "note": "الرؤية ممكن تضعف بسبب: * الضباب. * المطر الغزير. * الثلج. * الزجاج المتسخ. * وهج الشمس. إذا ما عاد فيني شوف الطريق بشكل كافٍ، لازم خفّف السرعة أو أتوقف بمكان آمن إذا لزم الأمر. معلومة امتحانية: عند الضباب، إذا كانت الرؤية أقل من 50 متراً، السرعة القصوى هي 50 كم/ساعة على جميع الطرق، بما فيها الأوتوروت. Légifrance +1"
+          }
+        ]
       }
     ]
   }
