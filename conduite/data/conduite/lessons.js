@@ -3134,6 +3134,337 @@ window.CONDUITE_FOLDERS = [
             "note": "عند تجاوز شاحنة كبيرة:. عند تجاوز شاحنة كبيرة: تغيّر مفاجئ بضغط الهواء ثم رياح جانبية — حافظ على المسار وثبات المقود بدون حركات مفاجئة."
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "الحافلات المدرسية ومسارات الحافلات",
+          "fr": "Cars scolaires et voies de bus",
+          "en": "School buses and bus lanes"
+        },
+        "img": "data/conduite/img/l34-1.webp",
+        "phrases": [
+          {
+            "fr": "Je ralentis et je facilite le départ du bus lorsqu'il quitte son arrêt en agglomération.",
+            "ar": "أنا بخفف السرعة وبسهّل خروج الباص من المحطة داخل المناطق المبنية.",
+            "en": "I slow down and make it easier for the bus to leave its stop in built-up areas.",
+            "img": "data/conduite/img/l34-1.webp",
+            "note": "داخل المناطق المبنية في فرنسا (En agglomération)، يجب على السائقين إبطاء السرعة، والتوقف عند الضرورة، لتسهيل خروج مركبات النقل العام من محطاتها."
+          },
+          {
+            "fr": "Je ralentis fortement lorsque je dépasse un car scolaire à l'arrêt.",
+            "ar": "أنا بخفف السرعة بشكل كبير لما بتجاوز باص مدرسي واقف.",
+            "en": "I slow down significantly when overtaking a stopped school bus.",
+            "img": "data/conduite/img/l34-2.webp",
+            "note": "عندما تتوقف حافلة مدرسية ويكون الأطفال عم يصعدوا أو ينزلوا:."
+          },
+          {
+            "fr": "Je m'arrête pour laisser traverser les enfants lorsqu'ils sont engagés sur le passage piéton.",
+            "ar": "أنا بوقف وبترك الأطفال يعبروا لما يكونوا بلشوا يقطعوا ممر المشاة.",
+            "en": "I stop and let children cross when they have started crossing at the pedestrian crossing.",
+            "img": "data/conduite/img/l34-3.webp",
+            "note": "* الطفل قد يكون غير منتبه للسيارات."
+          },
+          {
+            "fr": "Je reste vigilant lorsqu'un autobus scolaire utilise ses feux de détresse.",
+            "ar": "أنا بضل منتبه لما الباص المدرسي يشغّل أضواء التحذير.",
+            "en": "I stay alert when a school bus uses its hazard lights.",
+            "img": "data/conduite/img/l34-4.webp",
+            "note": "أضواء التحذير الأربعة (Feux de détresse) تنبهك إلى وجود وضع يستدعي الحذر."
+          },
+          {
+            "fr": "Je ne suppose jamais qu'un enfant est visible derrière ou devant le car.",
+            "ar": "أنا ما بفترض إن الطفل ظاهر للسائق إذا كان قدام الباص أو وراه.",
+            "en": "I never assume that a child is visible in front of or behind the bus.",
+            "img": "data/conduite/img/l34-5.webp",
+            "note": "الحافلة المدرسية كبيرة ولها نقاط عمياء:."
+          },
+          {
+            "fr": "Je respecte la voie réservée aux bus et je ne l'utilise pas sans autorisation.",
+            "ar": "أنا بحترم مسار الباصات وما بفوت فيه من دون سماح.",
+            "en": "I respect the bus lane and do not use it without permission.",
+            "img": "data/conduite/img/l34-6.webp",
+            "note": "* كلمة BUS المرسومة على الطريق تعني أن المسار مخصص للحافلات."
+          },
+          {
+            "fr": "Je vérifie les panneaux pour savoir quels véhicules sont autorisés sur la voie réservée.",
+            "ar": "أنا بتأكد من اللوحات لأعرف أي مركبات مسموحلها تستخدم مسار الباصات.",
+            "en": "I check the signs to know which vehicles are allowed to use the reserved lane.",
+            "img": "data/conduite/img/l34-7.webp",
+            "note": "المسار قد يكون مخصصاً للحافلات فقط، أو يسمح أيضاً لفئات أخرى حسب اللوحات والقرار المحلي، مثل:."
+          },
+          {
+            "fr": "Je franchis la ligne discontinue uniquement pour accéder à la chaussée ou la quitter, lorsque c'est nécessaire et autorisé.",
+            "ar": "أنا بقطع الخط المتقطع بس للدخول للطريق أو الخروج منه، لما يكون هالشي ضرورياً ومسموحاً.",
+            "en": "I cross the dashed line only to enter or leave the carriageway when necessary and permitted.",
+            "img": "data/conduite/img/l34-8.webp",
+            "note": "وجود خط متقطع لا يعني أنه يمكنك استعمال مسار الحافلات للسير أو التجاوز."
+          },
+          {
+            "fr": "Je ne franchis pas une ligne continue pour entrer dans la voie réservée aux bus.",
+            "ar": "أنا ما بقطع الخط المتصل لأدخل بمسار الحافلات.",
+            "en": "I do not cross a solid line to enter the bus lane.",
+            "img": "data/conduite/img/l34-9.webp",
+            "note": "* الخط المتصل يمنع عبوره أو اجتيازه في الظروف العادية."
+          },
+          {
+            "fr": "Je vérifie les rétroviseurs et les angles morts avant de traverser une voie de bus pour tourner à droite.",
+            "ar": "أنا بفحص المرايات والنقطة العمياء قبل ما أقطع مسار الباصات لألف يمين.",
+            "en": "I check my mirrors and blind spots before crossing a bus lane to turn right.",
+            "img": "data/conduite/img/l34-10.webp",
+            "note": "إذا كان تخطيط الطريق يسمح بعبور مسار الحافلات من أجل الانعطاف:."
+          },
+          {
+            "fr": "Je ne circule pas et je ne dépasse pas les autres véhicules dans une voie réservée aux bus.",
+            "ar": "أنا ما بسوق ولا بتجاوز السيارات داخل مسار مخصص للباصات.",
+            "en": "I do not drive or overtake other vehicles in a bus-only lane.",
+            "img": "data/conduite/img/l34-11.webp",
+            "note": "إذا كان المسار محجوزاً لفئة معينة، لا يجوز لباقي المركبات استخدامه للسير العادي أو التجاوز."
+          },
+          {
+            "fr": "Je ne m'arrête pas et je ne stationne pas sur l'emplacement réservé à l'arrêt des autobus.",
+            "ar": "أنا ما بوقف وما بركن بمكان مخصص لوقوف الباصات.",
+            "en": "I do not stop or park in an area reserved for buses.",
+            "img": "data/conduite/img/l34-12.webp",
+            "note": "الخط الأصفر المتعرج عند موقف الحافلة يعني أن المكان مخصص لتوقف الحافلات التي تخدم المحطة."
+          },
+          {
+            "fr": "Je fais attention aux bus qui circulent en sens inverse sur leur voie réservée.",
+            "ar": "أنا بنتبه للباصات اللي بتمشي بعكس اتجاه سير السيارات ضمن مسارها المخصص.",
+            "en": "I watch for buses travelling in the opposite direction in their reserved lane.",
+            "img": "data/conduite/img/l34-13.webp",
+            "note": "بعض الشوارع ذات الاتجاه الواحد للسيارات تسمح للحافلات بالسير في الاتجاه المعاكس ضمن مسار مخصص."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "مسارات الدراجات والتعامل معها",
+          "fr": "Pistes cyclables et cyclistes",
+          "en": "Cycle lanes and cyclists"
+        },
+        "img": "data/conduite/img/l35-1.webp",
+        "phrases": [
+          {
+            "fr": "Je respecte la piste cyclable et je ne roule pas dessus avec ma voiture.",
+            "ar": "أنا بحترم مسار الدراجات وما بسوق سيارتي فوقه.",
+            "en": "I respect the cycle path and do not drive my car on it.",
+            "img": "data/conduite/img/l35-1.webp",
+            "note": "* Piste cyclable: مسار منفصل عن الطريق ومخصص للدراجات."
+          },
+          {
+            "fr": "Je laisse la bande cyclable libre pour les cyclistes.",
+            "ar": "أنا بخلي المسار المرسوم للدراجات فاضي لراكبي الدراجات.",
+            "en": "I keep the marked cycle lane clear for cyclists.",
+            "img": "data/conduite/img/l35-2.webp",
+            "note": "الفرق بين المصطلحين:."
+          },
+          {
+            "fr": "Je reconnais le panneau qui indique une piste cyclable obligatoire.",
+            "ar": "أنا بتعرف على الإشارة اللي بتدل على مسار دراجات إلزامي.",
+            "en": "I recognize the sign indicating a mandatory cycle path.",
+            "img": "data/conduite/img/l35-3.webp",
+            "note": "الإشارة الزرقاء الدائرية التي تحمل رمز الدراجة تعني أن المسار مخصص للدراجات ويجب على مستخدميه الالتزام به وفق تنظيم الطريق."
+          },
+          {
+            "fr": "Je ralentis lorsque la piste cyclable se termine et que les cyclistes rejoignent la chaussée.",
+            "ar": "أنا بخفف السرعة لما ينتهي مسار الدراجات وبيصير راكبو الدراجات يرجعوا للطريق.",
+            "en": "I slow down when the cycle path ends and cyclists rejoin the road.",
+            "img": "data/conduite/img/l35-4.webp",
+            "note": "عند نهاية مسار الدراجات:."
+          },
+          {
+            "fr": "Je laisse au moins un mètre de distance latérale pour dépasser un cycliste en agglomération.",
+            "ar": "أنا بترك متر واحد على الأقل بين سيارتي والدراجة لما بتجاوزها داخل المدينة.",
+            "en": "I leave at least one metre of lateral distance when overtaking a cyclist in a built-up area.",
+            "img": "data/conduite/img/l35-5.webp",
+            "note": "المسافة القانونية الدنيا عند تجاوز دراجة:."
+          },
+          {
+            "fr": "Je laisse au moins un mètre cinquante pour dépasser un cycliste hors agglomération.",
+            "ar": "أنا بترك متر ونص على الأقل لما بتجاوز دراجة خارج المدينة.",
+            "en": "I leave at least one and a half metres when overtaking a cyclist outside built-up areas.",
+            "img": "data/conduite/img/l35-6.webp",
+            "note": "احفظ الرقمين للامتحان:."
+          },
+          {
+            "fr": "Je vérifie la piste cyclable avant de tourner à droite et je laisse passer les cyclistes prioritaires.",
+            "ar": "أنا بتأكد من مسار الدراجات قبل ما ألف يمين، وبترك الدراجات اللي إلها أولوية تمرق.",
+            "en": "I check the cycle path before turning right and give way to cyclists who have priority.",
+            "img": "data/conduite/img/l35-7.webp",
+            "note": "هذه نقطة مهمة جداً في الامتحان:."
+          },
+          {
+            "fr": "Je vérifie qu'aucun cycliste n'arrive avant d'ouvrir ma portière.",
+            "ar": "أنا بتأكد ما في دراجة جاية قبل ما افتح باب السيارة.",
+            "en": "I check that no cyclist is approaching before opening my car door.",
+            "img": "data/conduite/img/l35-8.webp",
+            "note": "فتح الباب فجأة قد يسبب حادثاً خطيراً مع راكب دراجة."
+          },
+          {
+            "fr": "Je ne franchis pas une ligne continue pour dépasser un cycliste.",
+            "ar": "أنا ما بتجاوز دراجة بقطع خط متصل.",
+            "en": "I do not cross a solid line to overtake a cyclist.",
+            "img": "data/conduite/img/l35-9.webp",
+            "note": "هناك استثناء قانوني مهم في فرنسا: يمكن للسائق، في ظروف معينة، تجاوز دراجة مع اجتياز الخط المتصل أو التداخل معه جزئياً، بشرط أن تكون الرؤية كافية وألا يوجد خطر، وأن تتوفر شروط التجاوز الآمن."
+          },
+          {
+            "fr": "Je fais attention aux cyclistes qui peuvent arriver en sens inverse dans une rue à sens unique.",
+            "ar": "أنا بنتبه للدراجات اللي ممكن تجي بعكس اتجاه السيارات بشارع باتجاه واحد.",
+            "en": "I watch for cyclists who may approach from the opposite direction on a one-way street.",
+            "img": "data/conduite/img/l35-10.webp",
+            "note": "بعض الشوارع الفرنسية تسمح للدراجات بالسير بعكس اتجاه السيارات."
+          },
+          {
+            "fr": "Je laisse passer les cyclistes avant de quitter ma place de stationnement.",
+            "ar": "أنا بخلي الدراجات تمرق قبل ما أطلع من موقف سيارتي.",
+            "en": "I let cyclists pass before leaving my parking space.",
+            "img": "data/conduite/img/l35-11.webp",
+            "note": "عندما تخرج من موقف على جانب الطريق:."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "الدراجات والسكوترات الكهربائية",
+          "fr": "Vélos électriques et trottinettes",
+          "en": "E-bikes and e-scooters"
+        },
+        "img": "data/conduite/img/l36-1.webp",
+        "phrases": [
+          {
+            "fr": "Je pédale pour que le moteur de mon vélo électrique m'assiste.",
+            "ar": "أنا بدعس على الدواسات حتى يساعدني محرك الدراجة الكهربائية.",
+            "en": "I pedal to receive assistance from my electric bicycle's motor.",
+            "img": "data/conduite/img/l36-1.webp",
+            "note": "الدراجة الكهربائية العادية المساعدة (VAE) تُعامل قانونياً كالدراجة العادية إذا توفرت الشروط التالية:."
+          },
+          {
+            "fr": "Je ne dépasse jamais 25 kilomètres par heure avec ma trottinette électrique.",
+            "ar": "أنا ما بتجاوز سرعة 25 كيلومتر بالساعة بالسكوتر الكهربائي.",
+            "en": "I never exceed 25 kilometres per hour on my electric scooter.",
+            "img": "data/conduite/img/l36-2.webp",
+            "note": "* السرعة القصوى المسموح بها للسكوتر الكهربائي هي 25 كم/س."
+          },
+          {
+            "fr": "Je dois avoir au moins 14 ans pour conduire une trottinette électrique.",
+            "ar": "لازم يكون عمري 14 سنة على الأقل حتى سوق سكوتر كهربائي.",
+            "en": "I must be at least 14 years old to ride an electric scooter.",
+            "img": "data/conduite/img/l36-3.webp",
+            "note": "في فرنسا، الحد الأدنى للعمر هو 14 سنة."
+          },
+          {
+            "fr": "Je circule sur les pistes cyclables lorsqu'elles sont disponibles et autorisées.",
+            "ar": "أنا بسوق السكوتر على مسارات الدراجات لما تكون موجودة ومسموح استخدامها.",
+            "en": "I ride on cycle paths when they are available and permitted.",
+            "img": "data/conduite/img/l36-4.webp",
+            "note": "داخل المناطق المبنية:."
+          },
+          {
+            "fr": "Je porte un casque pour protéger ma tête en cas de chute.",
+            "ar": "أنا بلبس خوذة حتى أحمي راسي إذا وقعت.",
+            "en": "I wear a helmet to protect my head in case of a fall.",
+            "img": "data/conduite/img/l36-5.webp",
+            "note": "* داخل المدينة: الخوذة مو إلزامية بشكل عام، لكنها موصى بها بقوة."
+          },
+          {
+            "fr": "Je vérifie que ma trottinette électrique est assurée.",
+            "ar": "أنا بتأكد إن السكوتر الكهربائي عليه تأمين.",
+            "en": "I make sure that my electric scooter is insured.",
+            "img": "data/conduite/img/l36-6.webp",
+            "note": "السكوتر الكهربائي يُعتبر مركبة بمحرك (Véhicule terrestre à moteur)، ولذلك يحتاج إلى تأمين خاص للمسؤولية المدنية على الأقل."
+          },
+          {
+            "fr": "Je porte un casque à vélo même lorsque je suis adulte.",
+            "ar": "أنا بلبس خوذة لما بسوق دراجة حتى لو كنت بالغ.",
+            "en": "I wear a bicycle helmet even when I am an adult.",
+            "img": "data/conduite/img/l36-7.webp",
+            "note": "احفظ هذه القاعدة:."
+          },
+          {
+            "fr": "Je porte un gilet rétroréfléchissant lorsque je roule à vélo hors agglomération la nuit.",
+            "ar": "أنا بلبس سترة عاكسة لما بسوق دراجة خارج المدينة بالليل.",
+            "en": "I wear a reflective vest when cycling outside built-up areas at night.",
+            "img": "data/conduite/img/l36-8.webp",
+            "note": "بالنسبة للدراجة العادية:."
+          },
+          {
+            "fr": "Je ne porte pas d'écouteurs lorsque je conduis mon vélo ou ma trottinette électrique.",
+            "ar": "أنا ما بلبس سماعات بأذني لما بسوق الدراجة أو السكوتر الكهربائي.",
+            "en": "I do not wear earphones when riding my bicycle or electric scooter.",
+            "img": "data/conduite/img/l36-9.webp",
+            "note": "يُمنع استعمال:."
+          },
+          {
+            "fr": "Je ne consulte pas mon téléphone lorsque je conduis.",
+            "ar": "أنا ما بتطلع على تلفوني وأنا عم سوق.",
+            "en": "I do not look at my phone while riding.",
+            "img": "data/conduite/img/l36-10.webp",
+            "note": "* لا تمسك الهاتف أثناء القيادة."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "الدراجات النارية والسير بين الصفوف",
+          "fr": "Motos et circulation inter-files",
+          "en": "Motorcycles and lane filtering"
+        },
+        "img": "data/conduite/img/l37-1.webp",
+        "phrases": [
+          {
+            "fr": "Je porte un casque homologué et je l'attache correctement.",
+            "ar": "أنا بلبس خوذة معتمدة وبثبّتها منيح.",
+            "en": "I wear an approved helmet and fasten it properly",
+            "img": "data/conduite/img/l37-1.webp",
+            "note": "سائق الدراجة النارية والراكب خلفه لازم يلبسوا خوذة معتمدة ومثبتة بإحكام. الخوذة غير المثبتة بشكل صحيح ما بتوفر الحماية المطلوبة."
+          },
+          {
+            "fr": "Je porte des gants de moto certifiés CE.",
+            "ar": "أنا بلبس قفازات دراجة نارية معتمدة CE.",
+            "en": "I wear CE-certified motorcycle gloves",
+            "img": "data/conduite/img/l37-2.webp",
+            "note": "القفازات إلزامية للسائق والراكب، ولازم تكون مطابقة لمعايير معدات الحماية. عدم ارتدائها مخالفة، وقد تؤدي إلى غرامة وسحب نقطة من رخصة السائق."
+          },
+          {
+            "fr": "Je garde un gilet de haute visibilité dans ma moto.",
+            "ar": "أنا بخلي سترة عاكسة للرؤية العالية معي بالدراجة.",
+            "en": "I keep a high-visibility vest on my motorcycle",
+            "img": "data/conduite/img/l37-3.webp",
+            "note": "لازم يكون مع سائق الدراجة النارية سترة عاكسة، إما لابسها أو محفوظة بمكان مخصص بالدراجة. إذا اضطر يوقف بسبب عطل أو طارئ وطلع من الدراجة على الطريق أو بجانبه، لازم يلبسها."
+          },
+          {
+            "fr": "Je circule entre les files uniquement lorsque les conditions sont autorisées.",
+            "ar": "أنا بسير بين صفوف السيارات بس لما تكون الشروط القانونية متوفرة.",
+            "en": "I ride between lanes only when the legal conditions are met",
+            "img": "data/conduite/img/l37-4.webp",
+            "note": "المهم للامتحان: بفرنسا، السير بين صفوف السيارات مو ممنوع بشكل مطلق، لكنه مسموح ضمن شروط محددة منذ 11 يناير 2025: دراجات بعجلتين أو ثلاث بمحرك وعرض ≤1م؛ على الطرق السريعة والطرق باتجاهين مفصولين بحاجز وسطي وبمسارين على الأقل بكل اتجاه؛ عند كثافة المرور؛ بين المسارين الأقصى لليسار؛ بشرط كفاية المسافة بين السيارات؛ وممنوع عند الأشغال أو الثلج والجليد."
+          },
+          {
+            "fr": "Je ne dépasse pas 50 km/h en inter-files.",
+            "ar": "أنا ما بتجاوز سرعة 50 كم/ساعة وأنا ماشي بين الصفوف.",
+            "en": "I do not exceed 50 km/h when filtering between lanes",
+            "img": "data/conduite/img/l37-5.webp",
+            "note": "الحد الأقصى بين الصفوف 50 كم/س؛ إذا أحد الصفّين متوقف → 30 كم/س؛ ممنوع تجاوز دراجة نارية أخرى بين الصفوف؛ وإذا تحركت الصفوف فوق 50 كم/س لازم أرجع لمساري. المخالفة = غرامة فئة 4 وسحب 3 نقاط."
+          },
+          {
+            "fr": "Je garde une distance de sécurité derrière une moto.",
+            "ar": "أنا بحافظ على مسافة أمان خلف الدراجة النارية.",
+            "en": "I keep a safe distance behind a motorcycle",
+            "img": "data/conduite/img/l37-6.webp",
+            "note": "لا تقترب كثيراً من الدراجة النارية؛ قد تخفف أو تتوقف بسرعة — اترك مسافة كافية وزدها عند المطر أو ضعف الرؤية."
+          },
+          {
+            "fr": "Je pratique l'inter-files uniquement sur les routes autorisées.",
+            "ar": "أنا بسير بين الصفوف فقط على الطرق المسموح فيها قانونياً.",
+            "en": "I filter between lanes only on permitted roads",
+            "img": "data/conduite/img/l37-7.webp",
+            "note": "الطريق المسموح: اتجاهان مفصولان بحاجز وسطي + مساران على الأقل بكل اتجاه + سرعة قصوى بين 70 و130 كم/س (أو أقل بقرار محلي). ممنوع على الطرق الأخرى حتى لو السيارات متوقفة."
+          }
+        ]
       }
     ]
   }
