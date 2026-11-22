@@ -4325,6 +4325,291 @@ window.CONDUITE_FOLDERS = [
             "note": "علامة X حمراء أو حاجز أو أحمر وامض = ممنوع الدخول."
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "عبور السكك الحديدية",
+          "fr": "Passages à niveau",
+          "en": "Level crossings"
+        },
+        "img": "data/conduite/img/l50-1.webp",
+        "phrases": [
+          {
+            "fr": "Je ralentis à l’approche du passage à niveau.",
+            "ar": "أنا بخفّف السرعة لما بقرب من ممر السكة الحديدية.",
+            "en": "I slow down as I approach the railway crossing.",
+            "img": "data/conduite/img/l50-1.webp",
+            "note": "انتبه إلى إشارات التحذير التي تسبق السكة، وخفّف السرعة واستعد للتوقف."
+          },
+          {
+            "fr": "Je m’arrête dès que le feu rouge clignote.",
+            "ar": "أنا بوقف فوراً أول ما الضوء الأحمر يبلّش يومض.",
+            "en": "I stop as soon as the red light starts flashing.",
+            "img": "data/conduite/img/l50-2.webp",
+            "note": "الضوء الأحمر الوامض يعني توقفاً إلزامياً، حتى لو لم تشاهد القطار بعد. لا تتجاوز الإشارة أبداً."
+          },
+          {
+            "fr": "Je reste arrêté devant les barrières fermées.",
+            "ar": "أنا ببقى واقف قدام الحواجز المغلقة.",
+            "en": "I remain stopped in front of the closed barriers.",
+            "img": "data/conduite/img/l50-3.webp",
+            "note": "لا تمر من تحت الحاجز ولا تلتف حوله. وحتى إذا بدأ الحاجز بالارتفاع، انتظر فتحه بالكامل وانطفاء الضوء الأحمر قبل الانطلاق."
+          },
+          {
+            "fr": "Je ne m’engage que si je peux libérer complètement les voies ferrées.",
+            "ar": "أنا ما بفوت على السكة إلا إذا كنت متأكد إني بقدر أطلع من الجهة التانية بالكامل.",
+            "en": "I only enter if I can completely clear the railway tracks.",
+            "img": "data/conduite/img/l50-4.webp",
+            "note": "إذا كان هناك ازدحام بعد السكة، انتظر قبل الممر. لا تدخل إذا كان من الممكن أن تضطر للتوقف فوق القضبان. هذه قاعدة قانونية صريحة في المادة R422-3."
+          },
+          {
+            "fr": "Je vérifie qu’aucun train n’approche avant de traverser.",
+            "ar": "أنا بتأكد إنه ما في قطار جاي قبل ما أقطع السكة.",
+            "en": "I check that no train is approaching before crossing.",
+            "img": "data/conduite/img/l50-5.webp",
+            "note": "إذا لم توجد حواجز أو أضواء، تأكد من عدم اقتراب قطار قبل العبور. انتبه إلى الرؤية المحدودة، ولا تعتمد على سماع صوت القطار فقط."
+          },
+          {
+            "fr": "J’attends que le train soit passé et que le feu rouge s’éteigne.",
+            "ar": "أنا بستنى ليمرق القطار وينطفي الضوء الأحمر.",
+            "en": "I wait until the train has passed and the red light goes out.",
+            "img": "data/conduite/img/l50-6.webp",
+            "note": "قد يأتي قطار ثانٍ بعد الأول. لذلك لا تنطلق بمجرد مرور القطار الأول؛ انتظر انطفاء الضوء الأحمر وفتح الحواجز بالكامل."
+          },
+          {
+            "fr": "Je laisse toujours la priorité au train.",
+            "ar": "أنا دائماً بعطي الأولوية للقطار.",
+            "en": "I always give priority to the train.",
+            "img": "data/conduite/img/l50-7.webp",
+            "note": "قطار يسير بسرعة 90 كم/س قد يحتاج إلى نحو 800 متر حتى يتوقف. لا تحاول منافسته أو عبور السكة أمامه. Sécurité."
+          },
+          {
+            "fr": "Je fais sortir immédiatement tous les passagers du véhicule.",
+            "ar": "أنا بطلّع كل الركاب من السيارة فوراً.",
+            "en": "I immediately get all passengers out of the vehicle.",
+            "img": "data/conduite/img/l50-8.webp",
+            "note": "إذا تعطلت السيارة فوق السكة:."
+          },
+          {
+            "fr": "Je dégage le véhicule en enfonçant la barrière si nécessaire.",
+            "ar": "أنا بطلع السيارة من السكة بدفع الحاجز إذا لزم الأمر.",
+            "en": "I clear the vehicle by pushing through the barrier if necessary.",
+            "img": "data/conduite/img/l50-9.webp",
+            "note": "إذا كانت السيارة عالقة على السكة، والحاجز مغلق، ولا تستطيع الخروج بطريقة أخرى، فالحاجز مصمم ليكون قابلاً للكسر عند الضرورة. الأولوية لإخلاء السكة فوراً، وليس المحافظة على الحاجز. Sécurité."
+          },
+          {
+            "fr": "J’utilise le téléphone d’alerte pour signaler le danger.",
+            "ar": "أنا بستعمل هاتف الطوارئ البرتقالي لأبلّغ عن الخطر.",
+            "en": "I use the emergency phone to report the danger.",
+            "img": "data/conduite/img/l50-10.webp",
+            "note": "بعد إخلاء الأشخاص، استخدم هاتف الإنذار الموجود قرب الممر، أو اتصل بالرقم المكتوب على لوحة الممر. أخبرهم أن مركبة عالقة على القضبان."
+          },
+          {
+            "fr": "Je reste arrêté et je n’essaie pas de contourner la barrière.",
+            "ar": "أنا ببقى واقف وما بحاول التف حول الحاجز.",
+            "en": "I remain stopped and do not try to go around the barrier.",
+            "img": "data/conduite/img/l50-11.webp",
+            "note": "قد يكون هناك قطار ثانٍ قادم. انتظر حتى تنطفئ الإشارة الحمراء وترتفع الحواجز بالكامل. إذا استمر الإغلاق بشكل غير طبيعي، أبلغ الجهة المختصة باستخدام هاتف الطوارئ أو الرقم الموجود على اللوحة."
+          },
+          {
+            "fr": "Je respecte les consignes de l’agent chargé du passage à niveau.",
+            "ar": "أنا بلتزم بتعليمات الموظف المسؤول عن ممر السكة.",
+            "en": "I follow the instructions of the railway crossing officer.",
+            "img": "data/conduite/img/l50-12.webp",
+            "note": "إذا كان هناك موظف مختص ينظم العبور، اتبع تعليماته ولا تحاول عبور السكة قبل السماح لك."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "التعامل مع الترام",
+          "fr": "Le tramway",
+          "en": "Dealing with trams"
+        },
+        "img": "data/conduite/img/l51-1.webp",
+        "phrases": [
+          {
+            "fr": "Je laisse passer le tramway lorsqu’il est prioritaire.",
+            "ar": "أنا بترك الترام يمر لما تكون إله الأولوية.",
+            "en": "I let the tram pass when it has priority.",
+            "img": "data/conduite/img/l51-1.webp",
+            "note": "القاعدة العامة أن الترام له أولوية المرور على الطريق الحديدي، ما لم توجد إشارة أو تعليمات مخالفة من شرطي أو موظف ينظم السير. لا تفترض أن قاعدة الأولوية لليمين تمنحك الأولوية على الترام."
+          },
+          {
+            "fr": "Je ne m’engage pas si je risque de bloquer les voies du tramway.",
+            "ar": "أنا ما بفوت على التقاطع إذا ممكن أوقف وأسُد طريق الترام.",
+            "en": "I do not enter if I might block the tram tracks.",
+            "img": "data/conduite/img/l51-2.webp",
+            "note": "لا تدخل التقاطع إذا كان الازدحام أمامك سيجبرك على التوقف فوق السكة أو في مسار الترام. انتظر حتى تصبح المساحة المقابلة كافية."
+          },
+          {
+            "fr": "Je vérifie qu’aucun tramway n’approche avant de traverser les rails.",
+            "ar": "أنا بتأكد إنه ما في ترام جاي قبل ما أقطع السكة.",
+            "en": "I check that no tram is approaching before crossing the tracks.",
+            "img": "data/conduite/img/l51-3.webp",
+            "note": "انظر في الاتجاهين، وانتبه إلى أن الترام قد يكون هادئاً نسبياً. لا تعبر أمامه اعتماداً على تقدير خاطئ لسرعته."
+          },
+          {
+            "fr": "Je ne circule pas sur la voie réservée au tramway sans autorisation.",
+            "ar": "أنا ما بسوق فوق المسار المخصص للترام إذا ما كان مسموح.",
+            "en": "I do not drive on the tram-only track unless permitted.",
+            "img": "data/conduite/img/l51-4.webp",
+            "note": "بعض المسارات مخصصة للترام فقط، وبعضها يسمح بعبور المركبات أو استعمالها في ظروف محددة. اتبع العلامات والخطوط الأرضية."
+          },
+          {
+            "fr": "Je vérifie les deux directions avant de tourner près des voies du tramway.",
+            "ar": "أنا بتأكد من الاتجاهين قبل ما انعطف قرب سكة الترام.",
+            "en": "I check both directions before turning near tram tracks.",
+            "img": "data/conduite/img/l51-5.webp",
+            "note": "لا تنعطف أمام ترام قادم. انتظر حتى يمر، ثم أكمل المناورة عندما يصبح الطريق آمناً ومسموحاً."
+          },
+          {
+            "fr": "Je surveille le tramway dans mes rétroviseurs.",
+            "ar": "أنا براقب الترام بالمرايا.",
+            "en": "I watch the tram in my mirrors.",
+            "img": "data/conduite/img/l51-6.webp",
+            "note": "إذا كان الترام خلفك، لا تتوقف فجأة فوق مساره ولا تغيّر اتجاهك دون التأكد من سلامة المناورة. تذكّر أن الترام لا يستطيع الانحراف مثل السيارة."
+          },
+          {
+            "fr": "Je m’arrête lorsque le signal rouge m’interdit de franchir les voies.",
+            "ar": "أنا بوقف لما إشارة الأحمر تمنعني من عبور السكة.",
+            "en": "I stop when the red signal prohibits me from crossing the tracks.",
+            "img": "data/conduite/img/l51-7.webp",
+            "note": "توجد إشارات ضوئية خاصة بتنظيم عبور الترام. إذا ظهر الضوء الأحمر الوامض المخصص لعبور السكة، يجب التوقف وعدم العبور."
+          },
+          {
+            "fr": "Je respecte les indications de l’agent qui règle la circulation.",
+            "ar": "أنا بلتزم بتعليمات الشرطي اللي بينظم حركة السير.",
+            "en": "I follow the instructions of the officer directing traffic.",
+            "img": "data/conduite/img/l51-8.webp",
+            "note": "تعليمات شرطي المرور تتقدم على إشارات المرور العادية، ويجب اتباعها حتى لو كانت مختلفة عن الضوء أو اللوحة."
+          },
+          {
+            "fr": "Je respecte les feux qui régulent mon passage.",
+            "ar": "أنا بلتزم بإشارات المرور اللي بتنظم عبوري.",
+            "en": "I obey the traffic lights controlling my movement.",
+            "img": "data/conduite/img/l51-9.webp",
+            "note": "لا تعتمد على وجود الترام وحده لتحديد من يتحرك. اتبع الإشارة الموجهة لمسارك، ولا تدخل التقاطع إذا لم يكن الخروج منه متاحاً."
+          },
+          {
+            "fr": "Je vérifie les signalisations avant de traverser les voies du tramway.",
+            "ar": "أنا بتأكد من الإشارات قبل ما أقطع مسار الترام عند الدوار.",
+            "en": "I check the signs before crossing the tram tracks at the roundabout.",
+            "img": "data/conduite/img/l51-10.webp",
+            "note": "قد يمر الترام عبر الدوار أو بجانبه. لا تفترض أن أولوية السيارات داخل الدوار تلغي أولوية الترام؛ راقب إشارات تنظيم عبوره."
+          },
+          {
+            "fr": "Je vérifie l’arrivée du tramway avant de traverser ses voies.",
+            "ar": "أنا بتأكد من عدم اقتراب الترام قبل ما أقطع سكته.",
+            "en": "I check that no tram is approaching before crossing its tracks.",
+            "img": "data/conduite/img/l51-11.webp",
+            "note": "انتبه: أولوية المشاة على السيارات لا تعني أن المشاة لهم الأولوية نفسها أمام الترام. يجب الانتباه إلى الإشارات المخصصة للمشاة والترام وعدم العبور أمام ترام يقترب."
+          },
+          {
+            "fr": "Je ralentis et je surveille les passagers qui montent et descendent.",
+            "ar": "أنا بخفّف السرعة وبراقب الركاب اللي عم يطلعوا وينزلوا.",
+            "en": "I slow down and watch passengers boarding and getting off.",
+            "img": "data/conduite/img/l51-12.webp",
+            "note": "انتبه للركاب الذين قد يعبرون الطريق أمام الترام أو خلفه. لا تمر بسرعة قرب المحطة، ولا تتجاوز إذا كانت الرؤية غير كافية."
+          },
+          {
+            "fr": "Je ne dépasse pas le tramway si la manœuvre est dangereuse ou interdite.",
+            "ar": "أنا ما بتجاوز الترام إذا المناورة خطرة أو ممنوعة.",
+            "en": "I do not overtake the tram if the manoeuvre is dangerous or prohibited.",
+            "img": "data/conduite/img/l51-13.webp",
+            "note": "لا تتجاوز الترام بطريقة تحجب الرؤية أو تعرض الركاب والمشاة للخطر. اتبع خطوط الطريق والإشارات، وانتبه خصوصاً عند المحطات."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "الحافلات والنقل العام",
+          "fr": "Autobus et transports en commun",
+          "en": "Buses and public transport"
+        },
+        "img": "data/conduite/img/l52-1.webp",
+        "phrases": [
+          {
+            "fr": "Je ralentis et je surveille les passagers qui descendent du bus.",
+            "ar": "أنا بخفف السرعة وبراقب الركاب اللي عم ينزلوا من الباص.",
+            "en": "I slow down and watch the passengers getting off the bus.",
+            "img": "data/conduite/img/l52-1.webp",
+            "note": "عندما تتوقف الحافلة وينزل منها الركاب، خفّف السرعة وكن مستعداً للتوقف إذا ظهر أحدهم أمامك، خصوصاً الأطفال وكبار السن. لا تفترض أن الطريق أصبح آمناً لمجرد أن الحافلة متوقفة."
+          },
+          {
+            "fr": "Je ralentis parce que le bus peut cacher un piéton.",
+            "ar": "أنا بخفف السرعة لأن الباص ممكن يحجب عني رؤية أحد المشاة.",
+            "en": "I slow down because the bus may hide a pedestrian.",
+            "img": "data/conduite/img/l52-2.webp",
+            "note": "إذا كانت الحافلة تحجب الرصيف أو ممر المشاة، لا تتجاوزها بسرعة. قد يظهر شخص فجأة من أمامها أو خلفها."
+          },
+          {
+            "fr": "Je m'arrête si un piéton s'engage ou manifeste clairement son intention de traverser.",
+            "ar": "أنا بوقف إذا أحد المشاة بلّش يعبر أو أظهر بوضوح إنه بدّه يقطع الطريق.",
+            "en": "I stop if a pedestrian starts crossing or clearly shows an intention to cross.",
+            "img": "data/conduite/img/l52-3.webp",
+            "note": "في فرنسا، يجب إعطاء الأولوية للمشاة الذين يعبرون أو يبدون نية واضحة للعبور عند ممر المشاة. انتبه بشكل خاص عندما تكون الحافلة المتوقفة قريبة من الممر."
+          },
+          {
+            "fr": "Je reste attentif au bus et je facilite sa sortie lorsque les règles me le demandent.",
+            "ar": "أنا بضل منتبه للباص وبسهّل خروجه لما قواعد السير بتطلب مني ذلك.",
+            "en": "I watch the bus and make it easier for it to leave when the rules require me to.",
+            "img": "data/conduite/img/l52-4.webp",
+            "note": "داخل المناطق المبنية، يجب على السائقين تسهيل خروج الحافلات من مواقفها. لكن هذا لا يعني أن الحافلة تستطيع الدخول إلى الطريق دون التأكد من إمكانية ذلك بأمان."
+          },
+          {
+            "fr": "Je ne m'engage pas dans le carrefour sans avoir une visibilité suffisante.",
+            "ar": "أنا ما بفوت بالتقاطع إذا ما عندي رؤية كافية للطريق.",
+            "en": "I do not enter the intersection if I cannot see clearly enough.",
+            "img": "data/conduite/img/l52-5.webp",
+            "note": "لا تعتمد على حركة الحافلة لتقرر أن التقاطع آمن. قد تكون هناك سيارة أو دراجة أو مشاة لا تستطيع رؤيتهم."
+          },
+          {
+            "fr": "Je garde mes distances avec un bus qui tourne à droite.",
+            "ar": "أنا بحافظ على مسافة آمنة من الباص اللي عم ينعطف لليمين.",
+            "en": "I keep a safe distance from a bus turning right.",
+            "img": "data/conduite/img/l52-6.webp",
+            "note": "الحافلة الطويلة قد تحتاج إلى مساحة واسعة أثناء الانعطاف، وقد يتحرك الجزء الخلفي بطريقة تختلف عن مسار المقدمة. لا تحاول المرور بجانبها في المساحة الضيقة."
+          },
+          {
+            "fr": "Je ralentis et je laisse suffisamment d'espace au bus.",
+            "ar": "أنا بخفف السرعة وبترك مساحة كافية للباص.",
+            "en": "I slow down and leave enough space for the bus.",
+            "img": "data/conduite/img/l52-7.webp",
+            "note": "لا تدخل في مساحة ضيقة بين الحافلة والسيارات المتوقفة. انتظر حتى تمر الحافلة بأمان."
+          },
+          {
+            "fr": "Je ralentis et je facilite le croisement avec le bus.",
+            "ar": "أنا بخفف السرعة وبسهّل مرور الباص من الاتجاه المعاكس.",
+            "en": "I slow down and make it easier for the bus to pass.",
+            "img": "data/conduite/img/l52-8.webp",
+            "note": "إذا كان الشارع ضيقاً ولا توجد مساحة كافية لمرور المركبتين، قد تحتاج إلى التوقف في مكان آمن لإفساح المجال للحافلة."
+          },
+          {
+            "fr": "Je garde une distance de sécurité derrière l'autocar scolaire.",
+            "ar": "أنا بحافظ على مسافة أمان خلف حافلة المدرسة.",
+            "en": "I keep a safe distance behind the school bus.",
+            "img": "data/conduite/img/l52-9.webp",
+            "note": "قد تتوقف الحافلة فجأة لصعود الأطفال أو نزولهم. لا تقترب منها كثيراً، وراقب إشاراتها وحركة الطريق."
+          },
+          {
+            "fr": "Je ralentis fortement et je suis prêt à m'arrêter.",
+            "ar": "أنا بخفف السرعة بشكل كبير وبكون جاهز وقف.",
+            "en": "I slow down considerably and prepare to stop.",
+            "img": "data/conduite/img/l52-10.webp",
+            "note": "أضواء التحذير تنبّهك إلى وجود وضع يستدعي الحذر. انتبه للأطفال الذين قد يعبرون الطريق، ولا تتجاوز الحافلة دون التأكد من أن ذلك آمن ومسموح."
+          },
+          {
+            "fr": "Je garde mes distances et je respecte la vitesse dans le tunnel.",
+            "ar": "أنا بحافظ على مسافة الأمان وبحترم السرعة داخل النفق.",
+            "en": "I keep my distance and respect the speed limit inside the tunnel.",
+            "img": "data/conduite/img/l52-11.webp",
+            "note": "الحافلة مركبة كبيرة وقد تحجب جزءاً من الرؤية أمامك. لا تقترب منها، واحترم إشارات النفق وقواعده."
+          }
+        ]
       }
     ]
   }
