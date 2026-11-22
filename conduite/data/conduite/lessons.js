@@ -4891,6 +4891,438 @@ window.CONDUITE_FOLDERS = [
             "note": "تعمل الغمازات الأربعة معاً: عطل، خطر، تباطؤ مفاجئ. 📋 جدول الحفظ: وضع=إظهار السيارة · منخفض=ليل وضعف رؤية · عالي=مظلم دون إبهار · ضباب أمامي=ضباب/ثلج/مطر غزير · ضباب خلفي=ضباب/ثلج فقط · نهار=مرئية نهاراً · رجوع=أبيض للخلف · فرامل=أحمر عند الفرملة · تحذير=خطر. مرجع: R416-5 إلى R416-8."
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "رموز لوحة العدادات وتحذيراتها",
+          "fr": "Les voyants du tableau de bord",
+          "en": "Dashboard warning lights"
+        },
+        "img": "data/conduite/img/l55-1.webp",
+        "phrases": [
+          {
+            "fr": "Je m'arrête dès que possible en sécurité lorsque le voyant de pression d'huile reste allumé.",
+            "ar": "أنا بوقف بأقرب مكان آمن إذا ضل ضوء ضغط الزيت شغال.",
+            "en": "I stop as soon as safely possible if the oil pressure warning light stays on.",
+            "img": "data/conduite/img/l55-1.webp",
+            "note": "🔴 تحذير خطير: أوقف المحرك بمكان آمن ولا تتابع القيادة."
+          },
+          {
+            "fr": "Je m'arrête en sécurité si le moteur surchauffe.",
+            "ar": "أنا بوقف بمكان آمن إذا ارتفعت حرارة المحرك بشكل خطير.",
+            "en": "I stop safely if the engine overheats.",
+            "img": "data/conduite/img/l55-2.webp",
+            "note": "قد يكون نقص سائل تبريد — لا تفتح الغطاء والمحرك ساخن، خطر حروق."
+          },
+          {
+            "fr": "Je fais contrôler le système de charge si le voyant de batterie reste allumé moteur en marche.",
+            "ar": "أنا بفحص نظام شحن البطارية إذا ضل الضوء شغال والمحرك عم يشتغل.",
+            "en": "I have the charging system checked if the battery light stays on while the engine is running.",
+            "img": "data/conduite/img/l55-3.webp",
+            "note": "قد يكون الخلل بالمولد Alternateur أو نظام الشحن — مو بالضرورة البطارية نفسها."
+          },
+          {
+            "fr": "Je vérifie le frein de stationnement et le système de freinage.",
+            "ar": "أنا بتأكد من فرامل اليد ومن نظام الفرامل.",
+            "en": "I check the parking brake and the braking system.",
+            "img": "data/conduite/img/l55-4.webp",
+            "note": "قد يعني: فرامل يد مشدودة أو نقص سائل فرامل أو خلل — إذا بقي بعد تحريرها توقف بأمان."
+          },
+          {
+            "fr": "Je fais contrôler le système ABS si son voyant reste allumé.",
+            "ar": "أنا بفحص نظام منع انغلاق الفرامل إذا ضل ضوّه شغال.",
+            "en": "I have the ABS system checked if its warning light stays on.",
+            "img": "data/conduite/img/l55-5.webp",
+            "note": "الفرامل العادية قد تبقى تعمل لكن منع الانغلاق متوقف — خفف السرعة وافحص."
+          },
+          {
+            "fr": "Je ralentis si le voyant ESP clignote pendant une perte d'adhérence.",
+            "ar": "أنا بخفف السرعة إذا ضو ESP عم يومض وقت فقدان التماسك.",
+            "en": "I slow down if the ESP light flashes when grip is lost.",
+            "img": "data/conduite/img/l55-6.webp",
+            "note": "وميض = النظام يتدخل لاستعادة الثبات · ثابت = معطل — لا تعتمد عليه لتجاوز حدود التماسك."
+          },
+          {
+            "fr": "Je vérifie la pression de mes pneus lorsque le voyant s'allume.",
+            "ar": "أنا بفحص ضغط دواليب السيارة لما يضوي التحذير.",
+            "en": "I check my tire pressure when the warning light comes on.",
+            "img": "data/conduite/img/l55-7.webp",
+            "note": "افحص الضغط والدواليب باردة وفق ملصق السيارة أو دليلها."
+          },
+          {
+            "fr": "Je fais diagnostiquer le moteur si le voyant reste allumé.",
+            "ar": "أنا بفحص المحرك بجهاز تشخيص إذا ضل ضوء المحرك شغال.",
+            "en": "I have the engine diagnosed if the engine warning light stays on.",
+            "img": "data/conduite/img/l55-8.webp",
+            "note": "ثابت = خلل يحتاج فحصاً · يومض = خلل خطير، خفف الحمل وتوقف بأمان."
+          },
+          {
+            "fr": "Je fais le plein lorsque le voyant de réserve s'allume.",
+            "ar": "أنا بعبي بنزين أو مازوت لما يضوي ضوء الاحتياط.",
+            "en": "I refuel when the low fuel warning light comes on.",
+            "img": "data/conduite/img/l55-9.webp",
+            "note": "لا تنتظر حتى تتوقف السيارة — المسافة المتبقية تختلف حسب السيارة."
+          },
+          {
+            "fr": "Je fais vérifier le système d'airbags si le voyant reste allumé.",
+            "ar": "أنا بفحص نظام الوسائد الهوائية إذا ضل الضوء شغال.",
+            "en": "I have the airbag system checked if the warning light stays on.",
+            "img": "data/conduite/img/l55-10.webp",
+            "note": "قد لا تعمل الوسائد أو شد الأحزمة بشكل صحيح عند حادث."
+          },
+          {
+            "fr": "Je boucle ma ceinture de sécurité avant de démarrer.",
+            "ar": "أنا بربط حزام الأمان قبل ما انطلق.",
+            "en": "I fasten my seat belt before moving off.",
+            "img": "data/conduite/img/l55-11.webp",
+            "note": "إذا بقي الضوء أو صدر صوت تنبيه فأحد الركاب لم يربط الحزام."
+          },
+          {
+            "fr": "Je vérifie que toutes les portes sont bien fermées.",
+            "ar": "أنا بتأكد إنو كل أبواب السيارة مسكّرة منيح.",
+            "en": "I make sure all the car doors are properly closed.",
+            "img": "data/conduite/img/l55-12.webp",
+            "note": "قد يكون باب أو صندوق أمتعة غير مغلق — لا تنطلق قبل التأكد."
+          },
+          {
+            "fr": "J'attends l'extinction du voyant de préchauffage avant de démarrer si nécessaire.",
+            "ar": "أنا بستنى ضوء التسخين يطفي قبل تشغيل محرك الديزل إذا كانت السيارة بتطلب هالشي.",
+            "en": "I wait for the glow plug light to go out before starting if required.",
+            "img": "data/conduite/img/l55-13.webp",
+            "note": "خاص بالديزل: يضيء ثواني للتسخين ثم ينطفئ · إذا بقي أو ومض أثناء القيادة = خلل."
+          },
+          {
+            "fr": "Je respecte les consignes du constructeur si le filtre à particules est encrassé.",
+            "ar": "أنا بتبع تعليمات الشركة إذا فلتر الجسيمات صار مسدود أو متّسخ.",
+            "en": "I follow the manufacturer's instructions if the particulate filter is clogged.",
+            "img": "data/conduite/img/l55-14.webp",
+            "note": "فلتر الجسيمات بالديزل قد يحتاج تنظيفاً ذاتياً Régénération — لا تتجاهل التحذير."
+          },
+          {
+            "fr": "Je remplis le réservoir d'AdBlue lorsque le niveau est bas.",
+            "ar": "أنا بعبي خزان AdBlue لما يصير مستواه منخفض.",
+            "en": "I refill the AdBlue tank when its level is low.",
+            "img": "data/conduite/img/l55-15.webp",
+            "note": "AdBlue يقلل انبعاثات الديزل — إذا نفد قد تمنع السيارة إعادة تشغيل المحرك."
+          },
+          {
+            "fr": "Je fais contrôler la direction si le volant devient anormalement dur.",
+            "ar": "أنا بفحص نظام المقود إذا صار لفّه قاسياً بشكل غير طبيعي.",
+            "en": "I have the steering system checked if the steering wheel becomes unusually stiff.",
+            "img": "data/conduite/img/l55-16.webp",
+            "note": "خلل بالتوجيه المعزز — خفف السرعة وتوقف بأمان عند الضرورة."
+          },
+          {
+            "fr": "Je vérifie les feux de mon véhicule si le voyant d'ampoule s'allume.",
+            "ar": "أنا بفحص أضوية السيارة إذا ظهر تحذير عطل المصباح.",
+            "en": "I check my vehicle's lights if the bulb warning appears.",
+            "img": "data/conduite/img/l55-17.webp",
+            "note": "قد يكون مصباح فرامل أو تقابل أو إشارة أو لوحة تسجيل معطلاً."
+          },
+          {
+            "fr": "Je fais contrôler les plaquettes de frein lorsqu'un voyant d'usure apparaît.",
+            "ar": "أنا بفحص فحمات الفرامل إذا ظهر ضوء يدل على تآكلها.",
+            "en": "I have the brake pads checked when a wear warning appears.",
+            "img": "data/conduite/img/l55-18.webp",
+            "note": "حساس التآكل يحذر قبل فشل الفرامل — افحص واستبدل عند الحاجة."
+          },
+          {
+            "fr": "Je remplis le réservoir de lave-glace lorsque le niveau est insuffisant.",
+            "ar": "أنا بعبي خزان مي تنظيف الزجاج لما ينخفض مستواه.",
+            "en": "I refill the windshield washer fluid when the level is low.",
+            "img": "data/conduite/img/l55-19.webp",
+            "note": "حافظ على نظافة الزجاج لرؤية واضحة خاصة بالمطر."
+          },
+          {
+            "fr": "Je consulte le carnet d'entretien lorsque le voyant de maintenance apparaît.",
+            "ar": "أنا براجع دفتر صيانة السيارة لما يظهر رمز الصيانة.",
+            "en": "I check the service schedule when the maintenance light appears.",
+            "img": "data/conduite/img/l55-20.webp",
+            "note": "تذكير بصيانة دورية (زيت/فلاتر) — ليس عطلاً طارئاً لكن اعرف السبب."
+          },
+          {
+            "fr": "Je vérifie que mon clignotant fonctionne avant de changer de direction.",
+            "ar": "أنا بتأكد إنو الغماز شغال قبل ما أغيّر اتجاهي.",
+            "en": "I check that my turn signal works before changing direction.",
+            "img": "data/conduite/img/l55-21.webp",
+            "note": "سهم أخضر يومض — إذا ومض بسرعة غير طبيعية فمصباح إشارة معطل."
+          },
+          {
+            "fr": "Je vérifie que les feux de route ne risquent pas d'éblouir les autres.",
+            "ar": "أنا بتأكد إنو الضوء العالي ما عم يزعج أو يعمي السائقين الآخرين.",
+            "en": "I make sure the high beams do not dazzle other drivers.",
+            "img": "data/conduite/img/l55-22.webp",
+            "note": "🔵 الرمز الأزرق = الضوء العالي يعمل — حوّل للمنخفض عند مقابلة مركبة."
+          },
+          {
+            "fr": "Je vérifie que mes feux de croisement sont allumés lorsque les conditions l'exigent.",
+            "ar": "أنا بتأكد إنو الضوء المنخفض شغال لما ظروف الطريق بتطلبه.",
+            "en": "I make sure my dipped headlights are on when conditions require them.",
+            "img": "data/conduite/img/l55-23.webp",
+            "note": "🟢 الرمز الأخضر = أضوية التقابل تعمل."
+          },
+          {
+            "fr": "J'éteins les feux de brouillard avant lorsque je n'en ai plus besoin.",
+            "ar": "أنا بطفي أضوية الضباب الأمامية لما ما عاد أحتاجها.",
+            "en": "I switch off the front fog lights when I no longer need them.",
+            "img": "data/conduite/img/l55-24.webp",
+            "note": "ضباب أمامي 🟢 أخضر — لا تخلطه مع الخلفي البرتقالي."
+          },
+          {
+            "fr": "Je vérifie que les feux de brouillard arrière sont utilisés uniquement dans le brouillard ou sous la neige.",
+            "ar": "أنا بتأكد إني ما بستعمل ضوء الضباب الخلفي إلا بالضباب أو وقت تساقط الثلج.",
+            "en": "I make sure I use the rear fog lights only in fog or snowfall.",
+            "img": "data/conduite/img/l55-25.webp",
+            "note": "🟠 رمز برتقالي — أطفئه عند تحسن الرؤية حتى لا يزعج من خلفك."
+          },
+          {
+            "fr": "Je vérifie la vitesse programmée lorsque le régulateur est activé.",
+            "ar": "أنا بتأكد من السرعة المحددة لما شغّل مثبت السرعة.",
+            "en": "I check the set speed when cruise control is activated.",
+            "img": "data/conduite/img/l55-26.webp",
+            "note": "مثبت السرعة يحافظ على سرعة دون دعسة — لا يقود بدلاً منك، ابقَ مستعداً للفرملة."
+          },
+          {
+            "fr": "Je vérifie que le système Start and Stop fonctionne normalement.",
+            "ar": "أنا بتأكد إنو نظام إطفاء وتشغيل المحرك التلقائي شغال بشكل طبيعي.",
+            "en": "I check that the automatic Start and Stop system works normally.",
+            "img": "data/conduite/img/l55-27.webp",
+            "note": "يوقف المحرك تلقائياً عند التوقف ويعيده عند الانطلاق — يختلف حسب السيارة. 📋 ألوان لوحة العدادات: 🔴 أحمر=خطر/توقف فوري · 🟠 برتقالي=تحذير/فحص · 🟢 أخضر=وظيفة تعمل · 🔵 أزرق=ضوء عالي. اللون وحده لا يكفي — افهم الرمز وراجع دليل السيارة."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "إطارات السيارة وسلامتها",
+          "fr": "Les pneus",
+          "en": "Car tires"
+        },
+        "img": "data/conduite/img/l56-1.webp",
+        "phrases": [
+          {
+            "fr": "Je vérifie régulièrement la pression de mes pneus.",
+            "ar": "أنا بفحص ضغط دواليب سيارتي بشكل منتظم.",
+            "en": "I check my tire pressure regularly.",
+            "img": "data/conduite/img/l56-1.webp",
+            "note": "افحص الضغط والدواليب باردة — القيمة على ملصق باب السائق أو دليل السيارة، لا يوجد رقم موحد."
+          },
+          {
+            "fr": "Je regonfle mes pneus à la pression recommandée.",
+            "ar": "أنا بنفخ الدواليب للضغط الموصى فيه.",
+            "en": "I inflate my tires to the recommended pressure.",
+            "img": "data/conduite/img/l56-2.webp",
+            "note": "نقص الهواء: ضعف ثبات + استهلاك وقود أعلى + حرارة + تآكل وخطر تلف."
+          },
+          {
+            "fr": "Je corrige une pression trop élevée selon les recommandations du constructeur.",
+            "ar": "أنا بصحّح ضغط الهواء الزائد حسب تعليمات الشركة المصنّعة.",
+            "en": "I correct excessive tire pressure according to the manufacturer's recommendations.",
+            "img": "data/conduite/img/l56-3.webp",
+            "note": "الضغط الزائد يقلل مساحة التلامس ويسبب تآكلاً غير متوازن — لا تفرّغ عشوائياً."
+          },
+          {
+            "fr": "Je vérifie la profondeur des sculptures de mes pneus.",
+            "ar": "أنا بفحص عمق النقشة الموجودة على الدواليب.",
+            "en": "I check the tread depth of my tires.",
+            "img": "data/conduite/img/l56-4.webp",
+            "note": "⭐ الحد القانوني الأدنى لعمق النقشة: 1.6 مم بالأخاديد الرئيسية."
+          },
+          {
+            "fr": "Je remplace mon pneu lorsque la bande de roulement atteint le témoin d'usure légal.",
+            "ar": "أنا ببدّل الدولاب لما توصل النقشة لمؤشر التآكل القانوني.",
+            "en": "I replace my tire when the tread reaches the legal wear indicator.",
+            "img": "data/conduite/img/l56-5.webp",
+            "note": "مؤشر التآكل = نتوء صغير داخل الأخدود — وصول النقشة له = استبدال إلزامي."
+          },
+          {
+            "fr": "Je fais remplacer un pneu dont le flanc est profondément endommagé.",
+            "ar": "أنا ببدّل الدولاب إذا كان جنبه متضرر أو فيه تشققات عميقة.",
+            "en": "I replace a tire if its sidewall is deeply damaged.",
+            "img": "data/conduite/img/l56-6.webp",
+            "note": "تشققات عميقة أو ظهور خيوط = خطر انفجار — لا تصلحه بنفسك."
+          },
+          {
+            "fr": "Je ne roule pas avec un pneu qui présente une hernie.",
+            "ar": "أنا ما بسوق بدولاب فيه انتفاخ بجانبه.",
+            "en": "I do not drive with a tire that has a sidewall bulge.",
+            "img": "data/conduite/img/l56-7.webp",
+            "note": "الانتفاخ = تلف بالبنية الداخلية — خطر انفجار خاصة بالسرعات العالية."
+          },
+          {
+            "fr": "Je fais contrôler le parallélisme si mes pneus s'usent de façon irrégulière.",
+            "ar": "أنا بفحص ضبط زوايا العجلات إذا الدواليب عم تتآكل بشكل غير متساوٍ.",
+            "en": "I have the wheel alignment checked if my tires wear unevenly.",
+            "img": "data/conduite/img/l56-8.webp",
+            "note": "السبب قد يكون ضغط أو زوايا أو تعليق — لا تغيّر الدولاب دون معرفة السبب."
+          },
+          {
+            "fr": "Je fais contrôler mon pneu après avoir découvert un clou.",
+            "ar": "أنا بفحص الدولاب عند اكتشاف مسمار فيه.",
+            "en": "I have my tire checked after finding a nail in it.",
+            "img": "data/conduite/img/l56-9.webp",
+            "note": "لا تنزع المسمار مباشرة — افحص الضغط واستشر مختصاً."
+          },
+          {
+            "fr": "Je tiens fermement le volant et je ralentis progressivement sans freiner brusquement.",
+            "ar": "أنا بمسك المقود بقوة وبخفف السرعة تدريجياً من دون فرملة مفاجئة.",
+            "en": "I hold the steering wheel firmly and slow down gradually without braking sharply.",
+            "img": "data/conduite/img/l56-10.webp",
+            "note": "انفجار دولاب: أمسك المقود + ارفع رجلك عن الوقود تدريجياً + لا فرملة عنيفة + أضوية تحذير + توقف آمن."
+          },
+          {
+            "fr": "Je change ma roue uniquement dans un endroit sûr.",
+            "ar": "أنا ببدّل الدولاب بس بمكان آمن.",
+            "en": "I change my wheel only in a safe place.",
+            "img": "data/conduite/img/l56-11.webp",
+            "note": "على الأوتوروت لا تصلح على حافة الطريق — احتمِ خلف الحاجز واطلب المساعدة."
+          },
+          {
+            "fr": "Je vérifie la présence et l'état de ma roue de secours.",
+            "ar": "أنا بتأكد إنو عندي دولاب احتياطي وإنو حالته جيدة.",
+            "en": "I check that I have a spare wheel and that it is in good condition.",
+            "img": "data/conduite/img/l56-12.webp",
+            "note": "الاحتياطي مفيد لكنه ليس إلزامياً — بعض السيارات فيها عدة إصلاح بدلاً منه."
+          },
+          {
+            "fr": "Je respecte la vitesse et la distance limitées indiquées pour ma roue galette.",
+            "ar": "أنا بلتزم بالسرعة والمسافة المحددتين للدولاب الاحتياطي الصغير.",
+            "en": "I follow the speed and distance limits specified for my temporary spare tire.",
+            "img": "data/conduite/img/l56-13.webp",
+            "note": "الدولاب المؤقت galette: التزم بملصق السرعة والمسافة واستبدله بأسرع وقت."
+          },
+          {
+            "fr": "Je monte des pneus adaptés aux conditions hivernales.",
+            "ar": "أنا بركّب دواليب مناسبة لظروف الشتاء.",
+            "en": "I fit tires suitable for winter conditions.",
+            "img": "data/conduite/img/l56-14.webp",
+            "note": "ابحث عن علامة 3PMSF: جبل ثلاثي القمم + ندفة ثلج."
+          },
+          {
+            "fr": "Je monte les chaînes à neige lorsque la signalisation ou les conditions l'exigent.",
+            "ar": "أنا بركّب سلاسل الثلج لما الإشارات أو ظروف الطريق بتطلب ذلك.",
+            "en": "I fit snow chains when the signs or road conditions require them.",
+            "img": "data/conduite/img/l56-15.webp",
+            "note": "تُركّب على عجلات الدفع + سرعة منخفضة + انتبه للوحة B26 للتجهيزات الإلزامية."
+          },
+          {
+            "fr": "Je relâche doucement l'accélérateur et j'évite les gestes brusques.",
+            "ar": "أنا برفع رجلي عن البنزين بهدوء وبتجنب الحركات المفاجئة.",
+            "en": "I gently release the accelerator and avoid sudden movements.",
+            "img": "data/conduite/img/l56-16.webp",
+            "note": "انزلاق مائي Aquaplaning: ارفع الوقود بهدوء، لا مقود أو فرامل عنيفة."
+          },
+          {
+            "fr": "Je vérifie la date de fabrication de mes pneus.",
+            "ar": "أنا بفحص تاريخ تصنيع الدواليب.",
+            "en": "I check the manufacturing date of my tires.",
+            "img": "data/conduite/img/l56-17.webp",
+            "note": "رمز DOT: آخر 4 أرقام = أسبوع+سنة، مثال 2524 = الأسبوع 25 من 2024."
+          },
+          {
+            "fr": "Je monte des pneus compatibles sur un même essieu.",
+            "ar": "أنا بركّب دواليب متوافقة على نفس المحور.",
+            "en": "I fit compatible tires on the same axle.",
+            "img": "data/conduite/img/l56-18.webp",
+            "note": "⭐ على نفس المحور: تجانس بالأبعاد والبنية، وفرق عمق النقشة لا يتجاوز 5 مم."
+          },
+          {
+            "fr": "Je fais équilibrer mes roues lorsque je ressens des vibrations.",
+            "ar": "أنا بعمل موازنة للعجلات إذا حسّيت باهتزاز أثناء القيادة.",
+            "en": "I have my wheels balanced if I feel vibrations while driving.",
+            "img": "data/conduite/img/l56-19.webp",
+            "note": "عدم التوازن يسبب اهتزاز المقود بالسرعات العالية وتآكلاً غير منتظم."
+          },
+          {
+            "fr": "Je respecte les recommandations du constructeur pour permuter mes pneus.",
+            "ar": "أنا بتبع تعليمات الشركة لما بدي بدّل أماكن الدواليب.",
+            "en": "I follow the manufacturer's recommendations when rotating my tires.",
+            "img": "data/conduite/img/l56-20.webp",
+            "note": "تبديل الأماكن يوزّع التآكل — انتبه لاتجاه الدوران والدواليب المخصصة."
+          },
+          {
+            "fr": "Je respecte le sens de rotation indiqué sur le pneu.",
+            "ar": "أنا بحترم اتجاه الدوران المرسوم على الدولاب.",
+            "en": "I follow the rotation direction marked on the tire.",
+            "img": "data/conduite/img/l56-21.webp",
+            "note": "سهم Rotation على جانب الدولاب = اتجاه التركيب الصحيح."
+          },
+          {
+            "fr": "Je vérifie les équipements hivernaux obligatoires avant de circuler en zone montagneuse.",
+            "ar": "أنا بتأكد من تجهيزات الشتاء الإلزامية قبل ما سوق بالمناطق الجبلية.",
+            "en": "I check the required winter equipment before driving in mountainous areas.",
+            "img": "data/conduite/img/l56-22.webp",
+            "note": "⭐ Loi Montagne: 1 نوفمبر–31 مارس — 4 دواليب 3PMSF أو سلاسل/جوارب على عجلتين دافعتين · علامة M+S وحدها لم تعد كافية منذ نوفمبر 2024."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "نظام فرامل السيارة",
+          "fr": "Le système de freinage",
+          "en": "The braking system"
+        },
+        "img": "data/conduite/img/l57-1.webp",
+        "phrases": [
+          {
+            "fr": "Je freine avec la pédale de frein pour ralentir ou arrêter mon véhicule.",
+            "ar": "أنا بستخدم دواسة الفرامل لخفّف السرعة أو وقّف سيارتي.",
+            "en": "I use the brake pedal to slow down or stop my vehicle.",
+            "img": "data/conduite/img/l57-1.webp",
+            "note": "الفرامل تولّد احتكاكاً عند العجلات — أجزاؤها: دواسة، أقراص، فحمات، ملاقط."
+          },
+          {
+            "fr": "J'appuie sur la pédale de frein pour ralentir progressivement.",
+            "ar": "أنا بضغط على دواسة الفرامل لخفّف السرعة تدريجياً.",
+            "en": "I press the brake pedal to slow down gradually.",
+            "img": "data/conduite/img/l57-2.webp",
+            "note": "اضغط تدريجياً حسب حالة الطريق — تجنب المفاجئة إلا عند خطر."
+          },
+          {
+            "fr": "J'utilise le frein de stationnement pour immobiliser mon véhicule à l'arrêt.",
+            "ar": "أنا بستخدم فرامل التوقف حتى ثبّت سيارتي لما أوقف.",
+            "en": "I use the parking brake to keep my vehicle stationary.",
+            "img": "data/conduite/img/l57-3.webp",
+            "note": "يدوية أو كهربائية — لتثبيت السيارة واقفة خاصة على المنحدر، مو بديلاً عن دواسة الفرامل."
+          },
+          {
+            "fr": "Je garde une pression forte et continue sur la pédale de frein en cas de freinage d'urgence avec l'ABS.",
+            "ar": "أنا بخلي ضغطي قوي ومستمر على دواسة الفرامل بحالة الفرملة الطارئة بسيارة فيها ABS.",
+            "en": "I keep firm, continuous pressure on the brake pedal during emergency braking with ABS.",
+            "img": "data/conduite/img/l57-4.webp",
+            "note": "⭐ ABS يمنع انغلاق العجلات ويحافظ على التوجيه — لا يقصّر مسافة الفرملة · الاهتزاز بالدواسة طبيعي، لا ترفع رجلك."
+          },
+          {
+            "fr": "Je vérifie le niveau du liquide de frein dans son réservoir.",
+            "ar": "أنا بتأكد من مستوى سائل الفرامل بالخزان المخصص إله.",
+            "en": "I check the brake fluid level in its reservoir.",
+            "img": "data/conduite/img/l57-5.webp",
+            "note": "بين MIN و MAX — انخفاضه قد يعني تسريباً · استخدم النوع المحدد فقط."
+          },
+          {
+            "fr": "Je fais contrôler mes freins si la pédale devient anormale ou si j'entends un bruit inhabituel.",
+            "ar": "أنا بخلي الفرامل تنفحص إذا صارت الدواسة مو طبيعية أو سمعت صوت غريب.",
+            "en": "I have my brakes checked if the pedal feels abnormal or I hear an unusual noise.",
+            "img": "data/conduite/img/l57-6.webp",
+            "note": "علامات: دواسة طرية/قاسية، صرير، اهتزاز، سحب لجهة، تسرّب — لا تهملها."
+          },
+          {
+            "fr": "Je sais que la distance de freinage augmente avec la vitesse.",
+            "ar": "أنا بعرف إن مسافة الفرملة بتزيد كل ما زادت السرعة.",
+            "en": "I know that braking distance increases as speed increases.",
+            "img": "data/conduite/img/l57-7.webp",
+            "note": "⭐ مسافة التوقف = رد الفعل + الفرملة · تتأثر بالسرعة والطريق والدواليب والحمولة."
+          },
+          {
+            "fr": "Je réduis ma vitesse et j'augmente la distance de sécurité sur une chaussée mouillée.",
+            "ar": "أنا بخفّف سرعتي وبزيد مسافة الأمان لما الطريق يكون مبلول.",
+            "en": "I reduce my speed and increase my safety distance on a wet road.",
+            "img": "data/conduite/img/l57-8.webp",
+            "note": "طريق مبلول = تماسك أقل ومسافة فرملة أطول — انتبه لتجمع الماء."
+          }
+        ]
       }
     ]
   }
