@@ -3472,6 +3472,9 @@ function updHdr(){const tb=$('themeBtn');if(tb)tb.textContent=st.theme==='dark'?
 if(CAP.Plugins&&CAP.Plugins.App){
  CAP.Plugins.App.addListener('backButton',async()=>{
   if($('noteModal')&&$('noteModal').classList.contains('show')){closeNote();return}
+  if(document.getElementById('rr-overlay')){closeRR();return}
+  if(document.getElementById('quiz-overlay')){closeGame();return}
+  if(document.getElementById('gameHubOv')){document.getElementById('gameHubOv').remove();return}
   for(const s of['ringShade','editShade','menuShade','cfShade','askShade','lsOptShade','phShade','tplShade','lessonShade','learnOv','timePhOv'])if($(s).classList.contains('on')){if(s==='ringShade')stopRing();else if(s==='learnOv'||s==='timePhOv'){stopSay();document.querySelectorAll('#'+s+' .speaking').forEach(x=>x.classList.remove('speaking'));$(s).classList.remove('on')}else if(s==='lessonShade'&&lsView==='lesson'){lsView='grid';renderLessons()}else if(s==='lessonShade'&&lsStack.length){lsStack.pop();renderLessons()}else $(s).classList.remove('on');return}
   if(calMonth>=0&&$('monthView').classList.contains('on')){calMonth=-1;renderYear();return}
   if(await confirmBox(t('exitConfirm')))CAP.Plugins.App.exitApp();
