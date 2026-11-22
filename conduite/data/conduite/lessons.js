@@ -6319,6 +6319,485 @@ window.CONDUITE_FOLDERS = [
             "note": "أداة بتساعد على فك وربط مسامير أو صواميل العجلات، حسب نوع تثبيت العجلة."
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "أجزاء المقصورة الداخلية 1",
+          "fr": "L'intérieur de la voiture 1",
+          "en": "Car interior parts 1"
+        },
+        "img": "data/conduite/img/l69-1.webp",
+        "phrases": [
+          {
+            "fr": "Je tourne le volant pour changer de direction.",
+            "ar": "أنا بلفّ المقود حتى غيّر اتجاه السيارة.",
+            "en": "I turn the steering wheel to change direction.",
+            "img": "data/conduite/img/l69-1.webp",
+            "note": "من خلاله بتتحكم باتجاه السيارة يمين ويسار."
+          },
+          {
+            "fr": "Je regarde les informations sur le tableau de bord.",
+            "ar": "أنا بتطلع على المعلومات بلوحة القيادة.",
+            "en": "I look at the information on the dashboard.",
+            "img": "data/conduite/img/l69-2.webp",
+            "note": "الجزء الأمامي داخل السيارة، وبيضم العدادات والشاشات وأزرار التحكم."
+          },
+          {
+            "fr": "Je consulte le combiné d’instruments pendant la conduite.",
+            "ar": "أنا بتابع لوحة العدادات أثناء القيادة.",
+            "en": "I check the instrument cluster while driving.",
+            "img": "data/conduite/img/l69-3.webp",
+            "note": "بتعرض معلومات مثل السرعة، عدد دورات المحرك، الوقود، والتحذيرات."
+          },
+          {
+            "fr": "Je vérifie ma vitesse sur le compteur.",
+            "ar": "أنا بتأكد من سرعتي على عداد السرعة.",
+            "en": "I check my speed on the speedometer.",
+            "img": "data/conduite/img/l69-4.webp",
+            "note": "بيعرض سرعة السيارة، عادةً بالكيلومتر في الساعة (km/h)."
+          },
+          {
+            "fr": "Je surveille le compte-tours du moteur.",
+            "ar": "أنا براقب عداد دورات المحرك.",
+            "en": "I monitor the engine tachometer.",
+            "img": "data/conduite/img/l69-5.webp",
+            "note": "بيعرض عدد دورات المحرك في الدقيقة، وغالباً بتكون الوحدة × 1000 tr/min."
+          },
+          {
+            "fr": "Je règle mon siège conducteur avant de démarrer.",
+            "ar": "أنا بظبط مقعد السائق قبل ما انطلق.",
+            "en": "I adjust my driver's seat before setting off.",
+            "img": "data/conduite/img/l69-6.webp",
+            "note": "المقعد اللي بيجلس عليه السائق، ويمكن تعديل ارتفاعه وموقعه وظهره حسب السيارة."
+          },
+          {
+            "fr": "Je règle mon appuie-tête correctement.",
+            "ar": "أنا بظبط مسند الرأس بشكل صحيح.",
+            "en": "I adjust my head restraint correctly.",
+            "img": "data/conduite/img/l69-7.webp",
+            "note": "بيساعد على حماية الرأس والرقبة، خاصةً عند الاصطدام من الخلف."
+          },
+          {
+            "fr": "J’appuie doucement sur la pédale d’accélérateur.",
+            "ar": "أنا بضغط بلطف على دواسة البنزين.",
+            "en": "I gently press the accelerator pedal.",
+            "img": "data/conduite/img/l69-8.webp",
+            "note": "بتتحكم بزيادة طلب المحرك للطاقة، وبالتالي بتساعد على زيادة سرعة السيارة."
+          },
+          {
+            "fr": "J’appuie sur la pédale de frein pour ralentir.",
+            "ar": "أنا بضغط على دواسة الفرامل حتى خفف السرعة.",
+            "en": "I press the brake pedal to slow down.",
+            "img": "data/conduite/img/l69-9.webp",
+            "note": "بتستخدم لتخفيف سرعة السيارة أو إيقافها."
+          },
+          {
+            "fr": "J’appuie sur la pédale d’embrayage pour changer de vitesse.",
+            "ar": "أنا بضغط على دواسة الدبرياج حتى غيّر الغيار.",
+            "en": "I press the clutch pedal to change gear.",
+            "img": "data/conduite/img/l69-10.webp",
+            "note": "موجودة بالسيارات ذات ناقل الحركة اليدوي. * بتفصل المحرك مؤقتاً عن ناقل الحركة عند استعمالها. * السيارات الأوتوماتيكية عادةً ما فيها دواسة قابض."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "أجزاء المقصورة الداخلية 2",
+          "fr": "L'intérieur de la voiture 2",
+          "en": "Car interior parts 2"
+        },
+        "img": "data/conduite/img/l70-1.webp",
+        "phrases": [
+          {
+            "fr": "Je change de vitesse avec le levier de vitesses.",
+            "ar": "أنا بغيّر الغيار بواسطة عصا تبديل السرعات.",
+            "en": "I change gears using the gear lever.",
+            "img": "data/conduite/img/l70-1.webp",
+            "note": "بنستخدمه لاختيار السرعة المناسبة في السيارة اليدوية."
+          },
+          {
+            "fr": "Je sélectionne le mode de conduite avec le sélecteur automatique.",
+            "ar": "أنا بختار وضع القيادة بواسطة ناقل الحركة الأوتوماتيكي.",
+            "en": "I select the driving mode using the automatic gear selector.",
+            "img": "data/conduite/img/l70-2.webp",
+            "note": "P = Parking: وضع الوقوف. * R = Reverse: الرجوع للخلف. * N = Neutral: الوضع المحايد. * D = Drive: القيادة للأمام."
+          },
+          {
+            "fr": "Je serre le frein de stationnement lorsque je gare ma voiture.",
+            "ar": "أنا بشد فرامل التوقف لما بصفّ سيارتي.",
+            "en": "I apply the parking brake when I park my car.",
+            "img": "data/conduite/img/l70-3.webp",
+            "note": "بتثبت السيارة وهي متوقفة، وقد تكون يدوية أو كهربائية."
+          },
+          {
+            "fr": "J’active le frein de stationnement électrique.",
+            "ar": "أنا بفعّل فرامل التوقف الكهربائية.",
+            "en": "I activate the electronic parking brake.",
+            "img": "data/conduite/img/l70-4.webp",
+            "note": "زر أو مفتاح كهربائي بيشغّل فرامل التوقف بدلاً من الرافعة اليدوية التقليدية."
+          },
+          {
+            "fr": "Je consulte les informations sur l’écran multimédia.",
+            "ar": "أنا بتابع المعلومات على شاشة السيارة.",
+            "en": "I check the information on the multimedia screen.",
+            "img": "data/conduite/img/l70-5.webp",
+            "note": "ممكن تعرض الملاحة والموسيقى وإعدادات السيارة وكاميرا الرجوع للخلف."
+          },
+          {
+            "fr": "J’appuie sur le bouton de démarrage pour démarrer le moteur.",
+            "ar": "أنا بضغط على زر التشغيل حتى شغّل المحرك.",
+            "en": "I press the start button to start the engine.",
+            "img": "data/conduite/img/l70-6.webp",
+            "note": "بيُستخدم لتشغيل المحرك أو إيقافه في السيارات المجهزة بنظام التشغيل بالزر."
+          },
+          {
+            "fr": "Je mets la clé de contact dans le contacteur.",
+            "ar": "أنا بحط مفتاح السيارة بمكان تشغيل المحرك.",
+            "en": "I insert the ignition key into the ignition switch.",
+            "img": "data/conduite/img/l70-7.webp",
+            "note": "المفتاح التقليدي المستخدم لتشغيل السيارة، وبعض السيارات تستخدم مفتاحاً إلكترونياً بدلاً منه."
+          },
+          {
+            "fr": "Je baisse la vitre avec la commande électrique.",
+            "ar": "أنا بنزّل الشباك بواسطة زر التحكم الكهربائي.",
+            "en": "I lower the window using the electric control.",
+            "img": "data/conduite/img/l70-8.webp",
+            "note": "بتسمح بفتح وإغلاق نوافذ السيارة كهربائياً."
+          },
+          {
+            "fr": "Je pose mon bras sur l’accoudoir.",
+            "ar": "أنا بحط إيدي على مسند الذراع.",
+            "en": "I rest my arm on the armrest.",
+            "img": "data/conduite/img/l70-9.webp",
+            "note": "قطعة مريحة لدعم الذراع، وغالباً بتكون بين المقعدين الأماميين أو على الأبواب."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "أجزاء المحرك",
+          "fr": "Les pièces du moteur",
+          "en": "Engine parts"
+        },
+        "img": "data/conduite/img/l71-1.webp",
+        "phrases": [
+          {
+            "fr": "Le bloc moteur contient les cylindres du moteur.",
+            "ar": "كتلة المحرك بتحتوي على أسطوانات المحرك.",
+            "en": "The engine block contains the engine cylinders.",
+            "img": "data/conduite/img/l71-1.webp",
+            "note": "هي الهيكل الأساسي للمحرك، وبتتركب فيه أجزاء مهمة مثل الأسطوانات، وبتضم قنوات للزيت وسائل التبريد."
+          },
+          {
+            "fr": "Le piston se déplace dans le cylindre.",
+            "ar": "المكبس بيتحرك داخل الأسطوانة.",
+            "en": "The piston moves inside the cylinder.",
+            "img": "data/conduite/img/l71-2.webp",
+            "note": "الأسطوانة هي الحيّز اللي بيتحرك داخله المكبس صعوداً ونزولاً. وعدد الأسطوانات بيختلف حسب نوع المحرك."
+          },
+          {
+            "fr": "Le piston monte et descend dans le cylindre.",
+            "ar": "المكبس بيطلع وبينزل داخل الأسطوانة.",
+            "en": "The piston moves up and down inside the cylinder.",
+            "img": "data/conduite/img/l71-3.webp",
+            "note": "بياخد قوة احتراق خليط الهواء والوقود داخل الأسطوانة، وبينقلها إلى ذراع التوصيل."
+          },
+          {
+            "fr": "La bielle relie le piston au vilebrequin.",
+            "ar": "ذراع التوصيل بيربط المكبس بالعمود المرفقي.",
+            "en": "The connecting rod links the piston to the crankshaft.",
+            "img": "data/conduite/img/l71-4.webp",
+            "note": "بينقل حركة المكبس إلى العمود المرفقي، وبيساعد على تحويل الحركة صعوداً ونزولاً إلى حركة دورانية."
+          },
+          {
+            "fr": "Le vilebrequin transforme le mouvement des pistons en rotation.",
+            "ar": "العمود المرفقي بيحوّل حركة المكابس إلى حركة دورانية.",
+            "en": "The crankshaft converts piston movement into rotation.",
+            "img": "data/conduite/img/l71-5.webp",
+            "note": "قطعة أساسية بتحوّل الحركة الخطية للمكابس إلى دوران، وبتنقل الحركة إلى نظام نقل الحركة."
+          },
+          {
+            "fr": "La culasse ferme la partie supérieure des cylindres.",
+            "ar": "رأس المحرك بيسكّر الجزء العلوي من الأسطوانات.",
+            "en": "The cylinder head closes the upper part of the cylinders.",
+            "img": "data/conduite/img/l71-6.webp",
+            "note": "موجود فوق كتلة المحرك، وبيحتوي عادةً على الصمامات وممرات الهواء والعادم، حسب تصميم المحرك."
+          },
+          {
+            "fr": "La soupape contrôle l’entrée de l’air et la sortie des gaz.",
+            "ar": "الصمام بيتحكم بدخول الهواء وخروج غازات العادم.",
+            "en": "The valve controls air intake and exhaust gas flow.",
+            "img": "data/conduite/img/l71-7.webp",
+            "note": "في نوعين أساسيين: * La soupape d’admission: صمام السحب. * La soupape d’échappement: صمام العادم."
+          },
+          {
+            "fr": "L’arbre à cames commande l’ouverture des soupapes.",
+            "ar": "عمود الكامات بيتحكم بفتح الصمامات وإغلاقها.",
+            "en": "The camshaft controls the opening and closing of the valves.",
+            "img": "data/conduite/img/l71-8.webp",
+            "note": "بينظّم توقيت فتح وإغلاق الصمامات حتى يدخل الهواء أو خليط الهواء والوقود ويخرج العادم بالوقت المناسب."
+          },
+          {
+            "fr": "Les segments assurent l’étanchéité entre le piston et le cylindre.",
+            "ar": "حلقات المكبس بتساعد على منع تسرّب الضغط والزيت بين المكبس وجدار الأسطوانة.",
+            "en": "Piston rings help seal the space between the piston and cylinder.",
+            "img": "data/conduite/img/l71-9.webp",
+            "note": "حلقات معدنية رفيعة بتركب حول المكبس، وبتساعد على الحفاظ على الضغط وتنظيم الزيت داخل الأسطوانة."
+          },
+          {
+            "fr": "Le joint de culasse assure l’étanchéité entre le bloc moteur et la culasse.",
+            "ar": "حشية رأس المحرك بتمنع التسرّب بين كتلة المحرك ورأس المحرك.",
+            "en": "The head gasket seals the engine block and cylinder head.",
+            "img": "data/conduite/img/l71-10.webp",
+            "note": "بتحافظ على الإحكام بين القطعتين، وبتمنع اختلاط الزيت وسائل التبريد أو تسرّب ضغط الاحتراق."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "نظام الزيت والتبريد",
+          "fr": "Huile et refroidissement",
+          "en": "Oil and cooling system"
+        },
+        "img": "data/conduite/img/l72-1.webp",
+        "phrases": [
+          {
+            "fr": "La pompe à huile fait circuler l’huile dans le moteur.",
+            "ar": "مضخة الزيت بتوزّع الزيت وبتخلّيه يدور داخل المحرك.",
+            "en": "The oil pump circulates oil through the engine.",
+            "img": "data/conduite/img/l72-1.webp",
+            "note": "بتسحب الزيت من حوض الزيت وبتضخّه إلى الأجزاء المتحركة حتى يقلّ الاحتكاك بينها."
+          },
+          {
+            "fr": "L’huile moteur se trouve dans le carter d’huile lorsque le moteur est arrêté.",
+            "ar": "زيت المحرك بيتجمع بحوض الزيت لما يكون المحرك مطفّى.",
+            "en": "Engine oil collects in the oil sump when the engine is switched off.",
+            "img": "data/conduite/img/l72-2.webp",
+            "note": "موجود عادةً أسفل المحرك، وبيخزّن زيت المحرك. يُسمّى أيضاً Le carter inférieur في بعض السياقات."
+          },
+          {
+            "fr": "Je remplace le filtre à huile lors de la vidange.",
+            "ar": "أنا بغيّر فلتر الزيت وقت تبديل زيت المحرك.",
+            "en": "I replace the oil filter during an oil change.",
+            "img": "data/conduite/img/l72-3.webp",
+            "note": "بينقّي الزيت من الشوائب والجزيئات الصغيرة قبل وصوله إلى أجزاء المحرك."
+          },
+          {
+            "fr": "Je vérifie le niveau d’huile avec la jauge.",
+            "ar": "أنا بفحص مستوى الزيت بواسطة مقياس الزيت.",
+            "en": "I check the oil level using the dipstick.",
+            "img": "data/conduite/img/l72-4.webp",
+            "note": "مقياس يُستخدم لفحص كمية الزيت في المحرك، إذا كانت السيارة مجهّزة بمقياس يدوي. بعض السيارات تعرض المستوى إلكترونياً."
+          },
+          {
+            "fr": "Le radiateur refroidit le liquide de refroidissement.",
+            "ar": "الردياتير بيبرّد سائل التبريد.",
+            "en": "The radiator cools the coolant.",
+            "img": "data/conduite/img/l72-5.webp",
+            "note": "بيساعد على التخلص من حرارة سائل التبريد قبل رجوعه إلى المحرك."
+          },
+          {
+            "fr": "La pompe à eau fait circuler le liquide de refroidissement.",
+            "ar": "مضخة الماء بتخلّي سائل التبريد يدور بين المحرك والردياتير.",
+            "en": "The water pump circulates the coolant between the engine and radiator.",
+            "img": "data/conduite/img/l72-6.webp",
+            "note": "بتحافظ على دوران سائل التبريد ضمن الدارة. وقد تكون المضخة ميكانيكية أو كهربائية حسب السيارة."
+          },
+          {
+            "fr": "Le thermostat régule la circulation du liquide de refroidissement.",
+            "ar": "الثرموستات بينظّم مرور سائل التبريد حسب حرارة المحرك.",
+            "en": "The thermostat regulates coolant flow according to engine temperature.",
+            "img": "data/conduite/img/l72-7.webp",
+            "note": "بيساعد المحرك يوصل لدرجة حرارة التشغيل المناسبة ويحافظ عليها."
+          },
+          {
+            "fr": "Je vérifie le niveau du liquide de refroidissement dans le vase d’expansion.",
+            "ar": "أنا بفحص مستوى سائل التبريد بخزان التمدد.",
+            "en": "I check the coolant level in the expansion tank.",
+            "img": "data/conduite/img/l72-8.webp",
+            "note": "خزان بيستوعب تمدد سائل التبريد مع ارتفاع الحرارة، وبيساعد على الحفاظ على مستوى السائل ضمن النظام."
+          },
+          {
+            "fr": "Je vérifie le niveau du liquide de refroidissement lorsque le moteur est froid.",
+            "ar": "أنا بفحص مستوى سائل التبريد والمحرك بارد.",
+            "en": "I check the coolant level when the engine is cold.",
+            "img": "data/conduite/img/l72-9.webp",
+            "note": "سائل خاص بيمتص حرارة المحرك وبيساعد على حمايته من التجمد والتآكل. لا تفتح غطاء نظام التبريد والمحرك ساخن، لأن السائل ممكن يكون تحت ضغط ويسبب حروقاً خطيرة."
+          },
+          {
+            "fr": "Le ventilateur aide à refroidir le radiateur.",
+            "ar": "مروحة التبريد بتساعد على تبريد الردياتير.",
+            "en": "The cooling fan helps cool the radiator.",
+            "img": "data/conduite/img/l72-10.webp",
+            "note": "بتسحب أو تدفع الهواء عبر الردياتير، وبتكون مهمة خصوصاً لما تكون السيارة واقفة أو سرعتها منخفضة."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "نظام الوقود والهواء",
+          "fr": "Carburant et admission d'air",
+          "en": "Fuel and air system"
+        },
+        "img": "data/conduite/img/l73-1.webp",
+        "phrases": [
+          {
+            "fr": "Le réservoir de carburant contient l’essence ou le gazole.",
+            "ar": "خزان الوقود بيخزّن البنزين أو المازوت.",
+            "en": "The fuel tank stores petrol or diesel.",
+            "img": "data/conduite/img/l73-1.webp",
+            "note": "بيخزّن الوقود قبل ما ينتقل إلى المحرك. سعته بتختلف حسب السيارة."
+          },
+          {
+            "fr": "La pompe à carburant envoie le carburant vers le moteur.",
+            "ar": "مضخة الوقود بتوصل البنزين أو المازوت من الخزان للمحرك.",
+            "en": "The fuel pump sends fuel from the tank to the engine.",
+            "img": "data/conduite/img/l73-2.webp",
+            "note": "بتسحب الوقود من الخزان وبتوصله إلى نظام التغذية. وقد تكون كهربائية أو ميكانيكية حسب تصميم السيارة."
+          },
+          {
+            "fr": "Le filtre à carburant retient les impuretés présentes dans le carburant.",
+            "ar": "فلتر الوقود بيحجز الأوساخ والشوائب الموجودة بالبنزين أو المازوت.",
+            "en": "The fuel filter traps impurities in the fuel.",
+            "img": "data/conduite/img/l73-3.webp",
+            "note": "بينقّي الوقود قبل وصوله إلى أجزاء نظام الحقن. بعض محركات الديزل فيها أيضاً فاصل للماء."
+          },
+          {
+            "fr": "L’injecteur pulvérise le carburant dans le moteur.",
+            "ar": "الحاقن بيرشّ الوقود على شكل رذاذ دقيق داخل المحرك.",
+            "en": "The injector sprays fuel into the engine.",
+            "img": "data/conduite/img/l73-4.webp",
+            "note": "بيدخل كمية محسوبة من الوقود بوقت وضغط مناسبين. طريقة ومكان الحقن بيختلفوا حسب نوع المحرك."
+          },
+          {
+            "fr": "La pompe à injection fournit le carburant sous haute pression.",
+            "ar": "مضخة الحقن بتجهّز الوقود بضغط عالٍ حتى يوصل للحاقنات.",
+            "en": "The injection pump supplies fuel at high pressure.",
+            "img": "data/conduite/img/l73-5.webp",
+            "note": "مهمة خصوصاً في أنظمة الديزل، وبعض محركات البنزين ذات الحقن المباشر. مو كل السيارات عندها مضخة حقن منفصلة بنفس التصميم."
+          },
+          {
+            "fr": "Le filtre à air retient la poussière avant l’entrée dans le moteur.",
+            "ar": "فلتر الهواء بيمنع الغبار والأوساخ من الدخول للمحرك.",
+            "en": "The air filter prevents dust and dirt from entering the engine.",
+            "img": "data/conduite/img/l73-6.webp",
+            "note": "بينقّي الهواء قبل دخوله للمحرك، وبيحمي الأجزاء الداخلية من الغبار والجزيئات."
+          },
+          {
+            "fr": "Le filtre à air est placé dans son boîtier.",
+            "ar": "فلتر الهواء بيكون مركّب داخل علبته المخصّصة.",
+            "en": "The air filter is fitted inside its housing.",
+            "img": "data/conduite/img/l73-7.webp",
+            "note": "هي العلبة اللي بتحتوي على فلتر الهواء وبتوجّه الهواء نحو المحرك."
+          },
+          {
+            "fr": "L’air passe par la durite d’admission avant d’entrer dans le moteur.",
+            "ar": "الهواء بيمرّ عبر أنبوب السحب قبل ما يفوت على المحرك.",
+            "en": "Air passes through the intake hose before entering the engine.",
+            "img": "data/conduite/img/l73-8.webp",
+            "note": "بينقل الهواء من علبة الفلتر باتجاه المحرك أو الشاحن التوربيني، حسب تصميم السيارة."
+          },
+          {
+            "fr": "Le turbocompresseur augmente la quantité d’air envoyée au moteur.",
+            "ar": "التيربو بيضغط الهواء وبيزيد الكمية اللي بتدخل للمحرك.",
+            "en": "The turbocharger increases the amount of air supplied to the engine.",
+            "img": "data/conduite/img/l73-9.webp",
+            "note": "بيستخدم طاقة غازات العادم لتدوير توربين وضغط هواء السحب. مو موجود بكل السيارات."
+          },
+          {
+            "fr": "L’échangeur d’air refroidit l’air comprimé par le turbocompresseur.",
+            "ar": "مبرد هواء الشحن بيبرّد الهواء اللي ضغطه التيربو قبل ما يدخل للمحرك.",
+            "en": "The intercooler cools the air compressed by the turbocharger.",
+            "img": "data/conduite/img/l73-10.webp",
+            "note": "الهواء المضغوط بيكون ساخن، والمبرّد بيخفّض حرارته حتى تزيد كثافته، وبيساعد المحرك على العمل بكفاءة. مو كل محرك مزوّد بتيربو عنده نفس نوع المبرد."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "نظام الإشعال والكهرباء والعادم",
+          "fr": "Allumage, électricité et échappement",
+          "en": "Ignition, electrics and exhaust"
+        },
+        "img": "data/conduite/img/l74-1.webp",
+        "phrases": [
+          {
+            "fr": "La bougie d’allumage produit une étincelle dans le cylindre.",
+            "ar": "شمعة الإشعال بتولّد شرارة كهربائية داخل أسطوانة محرك البنزين.",
+            "en": "The spark plug produces an electric spark inside the petrol engine cylinder.",
+            "img": "data/conduite/img/l74-1.webp",
+            "note": "بتشعل خليط الهواء والوقود داخل محرك البنزين. محركات الديزل ما بتستخدم شمعة الإشعال نفسها."
+          },
+          {
+            "fr": "La bougie de préchauffage facilite le démarrage du moteur diesel à froid.",
+            "ar": "شمعة التسخين بتسهّل تشغيل محرك الديزل لما يكون بارد.",
+            "en": "The glow plug helps start a cold diesel engine.",
+            "img": "data/conduite/img/l74-2.webp",
+            "note": "بتسخّن منطقة الاحتراق لتسهيل تشغيل محرك الديزل، خصوصاً بدرجات الحرارة المنخفضة."
+          },
+          {
+            "fr": "La bobine d’allumage fournit la haute tension nécessaire à la bougie.",
+            "ar": "ملف الإشعال بيعطي شمعة الإشعال الجهد الكهربائي العالي اللازم لتوليد الشرارة.",
+            "en": "The ignition coil supplies the high voltage needed by the spark plug.",
+            "img": "data/conduite/img/l74-3.webp",
+            "note": "بيرفع الجهد الكهربائي حتى تقدر شمعة الإشعال تولّد الشرارة. يُستخدم في محركات البنزين."
+          },
+          {
+            "fr": "La batterie fournit l’électricité nécessaire au démarrage de la voiture.",
+            "ar": "البطارية بتوفّر الكهرباء اللازمة لتشغيل السيارة والأنظمة الكهربائية.",
+            "en": "The battery supplies electricity needed to start the car and power electrical systems.",
+            "img": "data/conduite/img/l74-4.webp",
+            "note": "بتخزّن الطاقة الكهربائية، وبتساعد على تشغيل المحرك وتشغيل الأنظمة الكهربائية. السيارات الكهربائية والهجينة ممكن تحتوي على بطاريات إضافية عالية الجهد."
+          },
+          {
+            "fr": "L’alternateur recharge la batterie lorsque le moteur tourne.",
+            "ar": "الدينامو بيولّد الكهرباء وبيساعد على شحن البطارية لما المحرك شغّال.",
+            "en": "The alternator generates electricity and helps recharge the battery while the engine is running.",
+            "img": "data/conduite/img/l74-5.webp",
+            "note": "بيغذّي الأنظمة الكهربائية بالطاقة وبيحافظ على شحن بطارية السيارة التقليدية."
+          },
+          {
+            "fr": "Le démarreur entraîne le moteur pour le faire démarrer.",
+            "ar": "السلف بيدوّر المحرك بالبداية حتى يشتغل لحاله.",
+            "en": "The starter motor turns the engine to start it.",
+            "img": "data/conduite/img/l74-6.webp",
+            "note": "بيستخدم كهرباء البطارية لتدوير المحرك عند بدء التشغيل. بالفرنسية يُقال له أيضاً Le moteur de démarrage."
+          },
+          {
+            "fr": "Le tuyau d’échappement évacue les gaz brûlés du moteur.",
+            "ar": "أنبوب العادم بيطلّع غازات الاحتراق لبرا السيارة.",
+            "en": "The exhaust pipe carries burnt gases out of the car.",
+            "img": "data/conduite/img/l74-7.webp",
+            "note": "بينقل غازات العادم من المحرك باتجاه مؤخرة السيارة عبر نظام العادم."
+          },
+          {
+            "fr": "Le catalyseur réduit les polluants présents dans les gaz d’échappement.",
+            "ar": "المحوّل الحفّاز بيقلّل المواد الملوّثة الموجودة بغازات العادم.",
+            "en": "The catalytic converter reduces pollutants in exhaust gases.",
+            "img": "data/conduite/img/l74-8.webp",
+            "note": "بيعالج بعض الغازات الضارة كيميائياً قبل خروجها من نظام العادم. موجود في سيارات كثيرة تعمل بالبنزين، وكذلك في بعض محركات الديزل."
+          },
+          {
+            "fr": "Le silencieux réduit le bruit produit par les gaz d’échappement.",
+            "ar": "كاتم الصوت بيخفّف صوت العادم الصادر من المحرك.",
+            "en": "The muffler reduces noise from the exhaust gases.",
+            "img": "data/conduite/img/l74-9.webp",
+            "note": "بيخفّف الضجيج الناتج عن خروج غازات العادم. مو هو نفسه المحوّل الحفّاز."
+          },
+          {
+            "fr": "Le filtre à particules retient les particules de suie des moteurs diesel.",
+            "ar": "فلتر جسيمات الديزل بيحبس جزيئات السخام الناتجة عن الاحتراق.",
+            "en": "The diesel particulate filter traps soot particles from diesel engines.",
+            "img": "data/conduite/img/l74-10.webp",
+            "note": "بيجمع جزيئات السخام، وبيرفع حرارته بعملية اسمها La régénération حتى يحرق جزءاً كبيراً من السخام المتراكم. يُستخدم في سيارات ديزل مجهّزة به."
+          }
+        ]
       }
     ]
   }
