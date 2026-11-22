@@ -123,6 +123,11 @@ main{flex:1;overflow:auto;position:relative}
 #speakBtn:active{background:var(--acc);transform:scale(.94)}
 #speakCap{margin-top:12px;font-size:1.05rem;color:var(--txt);font-weight:600;text-align:center;max-width:90%;min-height:1.3em;line-height:1.5;opacity:0;transition:opacity .3s}
 #speakCap.on{opacity:1}
+#timeRead{margin-top:14px;width:min(94%,430px);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:.92rem;text-align:left}
+#timeRead .tr-t{font-weight:700;text-align:center;margin-bottom:4px}
+#timeRead .tr-lg{font-weight:700;margin:8px 0 2px;opacity:.9}
+#timeRead .tr-r{display:flex;align-items:center;gap:8px;margin:2px 0;line-height:1.5}
+#timeRead .tr-r button{background:none;border:none;color:var(--acc);font-size:1.05rem;cursor:pointer;padding:2px;flex:none}
 
 /* ---- weather ---- */
 #wxShade{align-items:stretch;background:var(--bg)}
@@ -422,6 +427,7 @@ nav button.on{color:var(--acc)}
     <div id="digital"><div class="dtime"><span id="dh">00</span><span class="sec" id="ds">:00</span></div><div class="ddate" id="ddate"></div><div id="nextAl"></div></div></div>
     <button id="speakBtn">🔊</button>
     <div id="speakCap"></div>
+    <div id="timeRead"></div>
   </section>
   <section class="tabsec" id="sec-alarms">
     <div id="permBanner" style="display:none"></div>
@@ -1998,6 +2004,8 @@ function buildAnalog(){
 buildAnalog();
 function tickClock(){
  const d=new Date(),hh=d.getHours(),mm=d.getMinutes(),ss=d.getSeconds();
+ const trKey=hh*60+mm;
+ if(renderTimeRead._k!==trKey){renderTimeRead._k=trKey;renderTimeRead()}
  const aH=(hh%12)*30+mm*.5,aM=mm*6+ss*.1,aS=ss*6;
  $('hH').setAttribute('transform',`rotate(${aH} 150 150)`);
  $('hM').setAttribute('transform',`rotate(${aM} 150 150)`);
@@ -2102,6 +2110,27 @@ function speakTime(){
  try{if('speechSynthesis' in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang=lang;speechSynthesis.speak(u)}}catch(e){toast('!')}
 }$('speakBtn').onclick=speakTime;
 function _updSpeakTitle(){const b=$('speakBtn');if(b)b.title=t('speakTime')}
+/* trilingual time readings: numeric + traditional per language, auto-updated each minute */
+function trReadings(h,m){
+ const h12=h%12||12;
+ const fr1=frTimeFormal(h,m);
+ const fr2=m===0?(h===0?'Il est minuit pile':h===12?'Il est midi pile':'Il est '+frHeure(h12)+' pile'+(h>=17?' du soir':h>12?' de l’après-midi':' du matin')):frTimeDaily(h,m);
+ const ar1='الساعة '+ARO[h12]+(m?' و'+arNum(m)+' دقيقة':'');
+ const ar2=m===0?'الساعة '+ARO[h12]+' تماماً':arTimeDaily(h,m);
+ const en1=m?"It's "+enNum(h12)+' '+(m<10?'oh '+enNum(m):enNum(m)):"It's "+enNum(h12)+" o'clock";
+ const en2=m===0?"It's exactly "+enNum(h12):(m===15||m===30||m>30?enTimeDaily(h,m):'');
+ return {fr:[fr1,fr2],ar:[ar1,ar2],en:[en1,en2]}}
+function renderTimeRead(){
+ const el=$('timeRead');if(!el)return;
+ const d=new Date(),h=d.getHours(),m=d.getMinutes(),R=trReadings(h,m);
+ const tt={ar:'الوقت الحالي',en:'Current time',fr:'Heure actuelle'}[st.lang];
+ let html='<div class="tr-t">'+tt+': '+pad(h)+':'+pad(m)+'</div>';
+ [['fr','🇫🇷 Français – France'],['ar','🇸🇦 العربية الفصحى'],['en','🇺🇸 American English']].forEach(([lg,name])=>{
+  html+='<div class="tr-lg" dir="'+(lg==='ar'?'rtl':'ltr')+'">'+name+'</div>';
+  R[lg].forEach((r,i)=>{if(!r)return;
+   html+='<div class="tr-r" dir="'+(lg==='ar'?'rtl':'ltr')+'"><span style="flex:1">'+(i+1)+'. '+esc(r)+'</span><button data-tr="'+lg+'|'+i+'">🔊</button></div>'})});
+ el.innerHTML=html;
+ el.querySelectorAll('[data-tr]').forEach(b=>b.onclick=()=>{const[lg,i]=b.dataset.tr.split('|');const dd=new Date(),rr=trReadings(dd.getHours(),dd.getMinutes())[lg][+i];if(rr)sayOnce(rr,lg)})}
 
 
 /* ---- note pad (ProLang port) ---- */
@@ -3162,7 +3191,7 @@ function applyLang(){
  if(calMonth>=0)renderMonth();
  renderYear();
 }
-$('langBtn').onclick=()=>{st.lang=LANGS[(LANGS.indexOf(st.lang)+1)%3];save();try{localStorage.setItem('tempo_lang',st.lang)}catch(e){}applyLang()};
+$('langBtn').onclick=()=>{st.lang=LANGS[(LANGS.indexOf(st.lang)+1)%3];save();try{localStorage.setItem('tempo_lang',st.lang)}catch(e){}applyLang();renderTimeRead._k=-1};
 function applyTheme(){document.documentElement.dataset.theme=st.theme==='custom'?(st.custImg?'syria':'dark'):st.theme;
  const fd=$('flagDeco');if(fd)fd.src=(st.theme==='custom'&&st.custImg)?st.custImg:'flag.png';
  updHdr()}
