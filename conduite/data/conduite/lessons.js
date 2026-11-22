@@ -372,34 +372,10 @@ window.CONDUITE_FOLDERS = [
       "note": "السيارة الأوتوماتيكية"
      },
      {
-      "fr": "Je sélectionne la position D.",
-      "ar": "أنا بختار وضعية D.",
-      "en": "I select Drive.",
-      "img": "data/conduite/img/l05-12.webp"
-     },
-     {
-      "fr": "Je desserre le frein de stationnement.",
-      "ar": "أنا بفك فرامل الوقوف.",
-      "en": "I release the parking brake.",
-      "img": "data/conduite/img/l05-13.webp"
-     },
-     {
       "fr": "Je relâche progressivement la pédale de frein.",
       "ar": "أنا برفع رجلي شوي شوي عن الفرامل.",
       "en": "I gradually release the brake pedal.",
       "img": "data/conduite/img/l05-14.webp"
-     },
-     {
-      "fr": "Je commence à avancer.",
-      "ar": "أنا ببلّش اتحرك لقدّام.",
-      "en": "I start moving forward.",
-      "img": "data/conduite/img/l05-15.webp"
-     },
-     {
-      "fr": "J'appuie doucement sur l'accélérateur.",
-      "ar": "أنا بكبس شوي على البنزين.",
-      "en": "I gently press the accelerator.",
-      "img": "data/conduite/img/l05-16.webp"
      },
      {
       "fr": "J'augmente progressivement ma vitesse.",
