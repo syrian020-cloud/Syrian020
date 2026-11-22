@@ -635,6 +635,363 @@ window.CONDUITE_FOLDERS = [
             "note": "في الدوار الفرنسي أتحقق من إشارات المدخل — الأولوية ليست واحدة بكل الدوارات، وأختار مساري مسبقاً حسب المخرج."
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "أتعامل مع إشارات المرور",
+          "fr": "Je gère les feux de circulation",
+          "en": "I handle traffic lights"
+        },
+        "img": "data/conduite/img/l10-1.webp",
+        "phrases": [
+          {
+            "fr": "Je m'approche du feu tricolore.",
+            "ar": "أنا بقرب على إشارة المرور.",
+            "en": "I approach the traffic lights.",
+            "img": "data/conduite/img/l10-1.webp"
+          },
+          {
+            "fr": "Je m'arrête au feu rouge.",
+            "ar": "أنا بوقف عند الإشارة الحمرا.",
+            "en": "I stop at the red light.",
+            "img": "data/conduite/img/l10-2.webp"
+          },
+          {
+            "fr": "J'attends que le feu passe au vert.",
+            "ar": "أنا بستنى لحتى تصير الإشارة خضرا.",
+            "en": "I wait for the light to turn green.",
+            "img": "data/conduite/img/l10-3.webp"
+          },
+          {
+            "fr": "Je démarre lorsque le feu est vert et que la voie est libre.",
+            "ar": "أنا ببلّش أمشي لما تصير الإشارة خضرا ويكون الطريق فاضي وآمن.",
+            "en": "I move off when the light is green and the way is clear.",
+            "img": "data/conduite/img/l10-4.webp"
+          },
+          {
+            "fr": "Je fais attention au feu orange.",
+            "ar": "أنا بنتبه للإشارة البرتقالية.",
+            "en": "I pay attention to the amber light.",
+            "img": "data/conduite/img/l10-5.webp"
+          },
+          {
+            "fr": "Je m'arrête au feu orange, sauf si je ne peux pas le faire en sécurité.",
+            "ar": "أنا بوقف عند البرتقالي إذا فيني وقف بأمان، إلا إذا كان التوقف المفاجئ خطر.",
+            "en": "I stop at the amber light unless stopping safely is not possible.",
+            "img": "data/conduite/img/l10-6.webp"
+          },
+          {
+            "fr": "Je m'arrête avant la ligne d'arrêt.",
+            "ar": "أنا بوقف قبل خط التوقف.",
+            "en": "I stop before the stop line.",
+            "img": "data/conduite/img/l10-7.webp"
+          },
+          {
+            "fr": "Je vérifie que les piétons ont terminé de traverser.",
+            "ar": "أنا بتأكد إن المشاة خلصوا عبور قبل ما اتحرك.",
+            "en": "I make sure pedestrians have finished crossing.",
+            "img": "data/conduite/img/l10-8.webp"
+          },
+          {
+            "fr": "Je respecte le feu qui correspond à ma voie.",
+            "ar": "أنا بلتزم بالإشارة الخاصة بمساري.",
+            "en": "I obey the signal for my lane.",
+            "img": "data/conduite/img/l10-9.webp"
+          },
+          {
+            "fr": "Je ralentis et je redouble de vigilance au feu orange clignotant.",
+            "ar": "أنا بخفف السرعة وبنتبه أكتر عند الإشارة البرتقالية الوامضة.",
+            "en": "I slow down and take extra care at the flashing amber light.",
+            "img": "data/conduite/img/l10-10.webp"
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "أتعامل مع إشارات الأولوية",
+          "fr": "Je gère la priorité",
+          "en": "I handle priority signs"
+        },
+        "img": "data/conduite/img/l11-1.webp",
+        "phrases": [
+          {
+            "fr": "Je repère le panneau STOP.",
+            "ar": "أنا بتعرّف على إشارة ستوب.",
+            "en": "I identify the STOP sign.",
+            "img": "data/conduite/img/l11-1.webp"
+          },
+          {
+            "fr": "Je marque un arrêt complet au STOP.",
+            "ar": "أنا بوقف وقفة كاملة عند الستوب.",
+            "en": "I come to a complete stop at the STOP sign.",
+            "img": "data/conduite/img/l11-2.webp"
+          },
+          {
+            "fr": "Je regarde à gauche et à droite.",
+            "ar": "أنا بتطلع عاليمين واليسار.",
+            "en": "I look left and right.",
+            "img": "data/conduite/img/l11-3.webp"
+          },
+          {
+            "fr": "Je cède la priorité au véhicule venant de droite.",
+            "ar": "أنا بعطي الأولوية للسيارة الجاية من اليمين.",
+            "en": "I give way to the vehicle coming from the right.",
+            "img": "data/conduite/img/l11-4.webp"
+          },
+          {
+            "fr": "Je cède le passage.",
+            "ar": "أنا بعطي الأولوية.",
+            "en": "I give way.",
+            "img": "data/conduite/img/l11-5.webp"
+          },
+          {
+            "fr": "Je m'arrête si la circulation l'exige.",
+            "ar": "أنا بوقف إذا حركة السير بتتطلب هالشي.",
+            "en": "I stop if traffic conditions require it.",
+            "img": "data/conduite/img/l11-6.webp",
+            "note": "ملاحظة: STOP = وقفة كاملة؛ Cédez le passage = أولوية وقد لا يلزم الوقوف إذا الطريق فاضي؛ وأولوية اليمين تسري عند غياب أي إشارة."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "أتعامل مع المشاة وممرات العبور",
+          "fr": "Je gère les piétons et les passages",
+          "en": "I handle pedestrians and crossings"
+        },
+        "img": "data/conduite/img/l12-1.webp",
+        "phrases": [
+          {
+            "fr": "Je m'approche du passage piéton.",
+            "ar": "أنا بقرب على ممر المشاة.",
+            "en": "I approach the pedestrian crossing.",
+            "img": "data/conduite/img/l12-1.webp"
+          },
+          {
+            "fr": "Je laisse passer les piétons.",
+            "ar": "أنا بسمح للمشاة يقطعوا الطريق.",
+            "en": "I let pedestrians cross.",
+            "img": "data/conduite/img/l12-2.webp"
+          },
+          {
+            "fr": "J'attends que le passage piéton soit libre.",
+            "ar": "أنا بستنى لحتى يصير ممر المشاة فاضي.",
+            "en": "I wait until the pedestrian crossing is clear.",
+            "img": "data/conduite/img/l12-3.webp"
+          },
+          {
+            "fr": "Je fais attention aux cyclistes.",
+            "ar": "أنا بنتبه لراكبي الدراجات.",
+            "en": "I watch out for cyclists.",
+            "img": "data/conduite/img/l12-4.webp"
+          },
+          {
+            "fr": "Je vérifie la présence de piétons avant de tourner.",
+            "ar": "أنا بتأكد ما في مشاة قبل ما انعطف.",
+            "en": "I check for pedestrians before turning.",
+            "img": "data/conduite/img/l12-5.webp"
+          },
+          {
+            "fr": "Je laisse une distance latérale suffisante avec le cycliste.",
+            "ar": "أنا بترك مسافة جانبية كافية بيني وبين راكب الدراجة.",
+            "en": "I leave enough lateral space when passing a cyclist.",
+            "img": "data/conduite/img/l12-6.webp"
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "أتعامل مع التقاطعات",
+          "fr": "Je gère les intersections",
+          "en": "I handle intersections"
+        },
+        "img": "data/conduite/img/l13-1.webp",
+        "phrases": [
+          {
+            "fr": "Je m'approche d'une intersection.",
+            "ar": "أنا بقرب على تقاطع طرق.",
+            "en": "I approach an intersection.",
+            "img": "data/conduite/img/l13-1.webp"
+          },
+          {
+            "fr": "Je ralentis avant l'intersection.",
+            "ar": "أنا بخفف السرعة قبل التقاطع.",
+            "en": "I slow down before the intersection.",
+            "img": "data/conduite/img/l13-2.webp"
+          },
+          {
+            "fr": "Je surveille les véhicules qui arrivent des deux côtés.",
+            "ar": "أنا براقب السيارات الجاية من الجهتين.",
+            "en": "I watch for vehicles approaching from both sides.",
+            "img": "data/conduite/img/l13-3.webp"
+          },
+          {
+            "fr": "J'attends que l'intersection soit dégagée.",
+            "ar": "أنا بستنى لحتى يصير التقاطع آمن وفاضي.",
+            "en": "I wait until the intersection is clear.",
+            "img": "data/conduite/img/l13-4.webp"
+          },
+          {
+            "fr": "Je traverse l'intersection.",
+            "ar": "أنا بقطع التقاطع.",
+            "en": "I cross the intersection.",
+            "img": "data/conduite/img/l13-5.webp"
+          },
+          {
+            "fr": "Je suis la voie réservée à ma direction.",
+            "ar": "أنا بلتزم بالمسار المخصص للاتجاه اللي بدي روح عليه.",
+            "en": "I follow the lane assigned to my direction.",
+            "img": "data/conduite/img/l13-6.webp"
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "القيادة في المدينة والشوارع الفرنسية",
+          "fr": "La conduite en ville",
+          "en": "City driving"
+        },
+        "img": "data/conduite/img/l14-1.webp",
+        "phrases": [
+          {
+            "fr": "Je vérifie le panneau de sens unique.",
+            "ar": "أنا بتأكد من إشارة الطريق باتجاه واحد.",
+            "en": "I check the one-way street sign.",
+            "img": "data/conduite/img/l14-1.webp"
+          },
+          {
+            "fr": "Je roule dans le sens autorisé.",
+            "ar": "أنا بسوق باتجاه السير المسموح.",
+            "en": "I drive in the permitted direction.",
+            "img": "data/conduite/img/l14-2.webp"
+          },
+          {
+            "fr": "Je regarde les flèches peintes sur la chaussée.",
+            "ar": "أنا براقب الأسهم المرسومة على الطريق.",
+            "en": "I watch the arrows painted on the road.",
+            "img": "data/conduite/img/l14-3.webp"
+          },
+          {
+            "fr": "Je fais attention au bus arrêté à l'arrêt.",
+            "ar": "أنا بنتبه للباص الواقف عند المحطة.",
+            "en": "I watch out for the bus stopped at the bus stop.",
+            "img": "data/conduite/img/l14-4.webp"
+          },
+          {
+            "fr": "Je surveille le clignotant du bus avant son départ.",
+            "ar": "أنا براقب غماز الباص قبل ما يتحرك.",
+            "en": "I watch the bus's indicator before it pulls away.",
+            "img": "data/conduite/img/l14-5.webp"
+          },
+          {
+            "fr": "Je fais attention au tramway qui passe à côté de moi.",
+            "ar": "أنا بنتبه للترام اللي عم يمر جنبي.",
+            "en": "I watch out for the tram passing beside me.",
+            "img": "data/conduite/img/l14-6.webp"
+          },
+          {
+            "fr": "J'attends avant de traverser les voies du tramway.",
+            "ar": "أنا بستنى قبل ما أقطع سكة الترام.",
+            "en": "I wait before crossing the tram tracks.",
+            "img": "data/conduite/img/l14-7.webp"
+          },
+          {
+            "fr": "Je fais attention aux passagers qui descendent du tramway.",
+            "ar": "أنا بنتبه للركاب اللي عم ينزلوا من الترام.",
+            "en": "I watch out for passengers getting off the tram.",
+            "img": "data/conduite/img/l14-8.webp"
+          },
+          {
+            "fr": "Je repère la piste cyclable.",
+            "ar": "أنا بتعرّف على ممر الدراجات.",
+            "en": "I identify the cycle lane.",
+            "img": "data/conduite/img/l14-9.webp"
+          },
+          {
+            "fr": "J'attends que le vélo passe avant de traverser la piste cyclable.",
+            "ar": "أنا بستنى الدراجة تمر قبل ما أقطع ممرها.",
+            "en": "I wait for the bicycle to pass before crossing its lane.",
+            "img": "data/conduite/img/l14-10.webp"
+          },
+          {
+            "fr": "Je traverse la piste cyclable avec prudence.",
+            "ar": "أنا بقطع ممر الدراجات بحذر.",
+            "en": "I cross the cycle lane carefully.",
+            "img": "data/conduite/img/l14-11.webp"
+          },
+          {
+            "fr": "Je m'approche de l'entrée de la rue principale.",
+            "ar": "أنا بقرّب من مدخل الشارع الرئيسي.",
+            "en": "I approach the entrance to the main road.",
+            "img": "data/conduite/img/l14-12.webp"
+          },
+          {
+            "fr": "J'attends une occasion sûre pour m'engager sur la route principale.",
+            "ar": "أنا بستنى فرصة آمنة حتى فوت على الشارع الرئيسي.",
+            "en": "I wait for a safe opportunity to join the main road.",
+            "img": "data/conduite/img/l14-13.webp"
+          },
+          {
+            "fr": "Je m'engage sur la route principale lorsque la voie est libre.",
+            "ar": "أنا بفوت على الشارع الرئيسي لما يصير الطريق آمن.",
+            "en": "I join the main road when it is safe.",
+            "img": "data/conduite/img/l14-14.webp"
+          },
+          {
+            "fr": "Je m'engage dans la rue secondaire que j'ai choisie.",
+            "ar": "أنا بفوت على الشارع الفرعي اللي اخترته.",
+            "en": "I enter the side street I have chosen.",
+            "img": "data/conduite/img/l14-15.webp"
+          },
+          {
+            "fr": "Je vérifie que ma voiture peut passer dans la rue étroite.",
+            "ar": "أنا بتأكد إنو سيارتي بتقدر تمرق بالشارع الضيق.",
+            "en": "I check that my car can fit through the narrow street.",
+            "img": "data/conduite/img/l14-16.webp"
+          },
+          {
+            "fr": "Je reconnais l'ambulance grâce à ses feux bleus.",
+            "ar": "أنا بتعرّف على سيارة الإسعاف من أضويتها الزرق.",
+            "en": "I recognize the ambulance by its blue lights.",
+            "img": "data/conduite/img/l14-17.webp"
+          },
+          {
+            "fr": "Je facilite le passage de l'ambulance.",
+            "ar": "أنا بفسح الطريق لسيارة الإسعاف.",
+            "en": "I make way for the ambulance.",
+            "img": "data/conduite/img/l14-18.webp"
+          },
+          {
+            "fr": "Je surveille la voiture de police derrière moi.",
+            "ar": "أنا براقب سيارة الشرطة اللي وراي.",
+            "en": "I watch the police car behind me.",
+            "img": "data/conduite/img/l14-19.webp"
+          },
+          {
+            "fr": "Je facilite le passage du camion de pompiers.",
+            "ar": "أنا بفسح الطريق لسيارة الإطفاء.",
+            "en": "I make way for the fire engine.",
+            "img": "data/conduite/img/l14-20.webp"
+          },
+          {
+            "fr": "Je m'arrête dans un endroit sûr si nécessaire pour laisser passer le véhicule de secours.",
+            "ar": "أنا بوقف بمكان آمن إذا لزم الأمر حتى خلّي سيارة الطوارئ تمرق.",
+            "en": "I stop in a safe place if necessary to let the emergency vehicle pass.",
+            "img": "data/conduite/img/l14-21.webp"
+          },
+          {
+            "fr": "Je vérifie que la voie est libre avant de reprendre ma route.",
+            "ar": "أنا بتأكد إنو الطريق صار فاضي قبل ما كمّل سواقة.",
+            "en": "I check that the road is clear before continuing.",
+            "img": "data/conduite/img/l14-22.webp",
+            "note": "عند اقتراب مركبة ذات أضواء زرقاء وصفارة، يجب تسهيل مرورها بأمان. لا تقم بمناورة مفاجئة أو تتجاوز الإشارات بطريقة خطرة."
+          }
+        ]
       }
     ]
   }
