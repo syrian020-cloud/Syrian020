@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0b0f1f">
+<title>امتحان الكود الفرنسي</title>
+<link rel="manifest" href="manifest.json">
+<style>
+  :root {
+    --bg-primary: #0b0d1f;
+    --bg-secondary: #13162b;
+    --bg-tertiary: #1e213d;
+    --text-primary: #f0f1ff;
+    --text-secondary: #8c90b5;
+    --accent: #7b79ff;
+    --accent-hover: #5c5bdb;
+    --success: #00e676;
+    --gold: #ffc857;
+    --danger: #ff6b6b;
+    --border: rgba(255,255,255,0.08);
+    --radius: 18px;
+    --radius-sm: 12px;
+    --shadow-sm: 0 4px 14px rgba(0,0,0,0.25);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Noto Sans Arabic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  header { position: sticky; top: 0; z-index: 60; background: rgba(11,13,31,0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0.7rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  .logo { font-weight: 800; color: var(--accent); font-size: 1.05rem; white-space: nowrap; }
+  .spacer { flex: 1; }
+  .icon-btn { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 12px; padding: 0.45rem 0.65rem; font-size: 0.95rem; cursor: pointer; font-weight: 600; }
+  main { max-width: 760px; margin: 0 auto; padding: 0.9rem 0.9rem 3rem; }
+
+  .hero { background: linear-gradient(135deg, rgba(123,121,255,0.18), rgba(0,230,118,0.08)); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.25rem; margin-bottom: 0.9rem; }
+  .hero h1 { margin: 0 0 0.35rem; font-size: 1.2rem; }
+  .hero p { margin: 0; color: var(--text-secondary); font-size: 0.88rem; }
+
+  .card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; margin-bottom: 0.9rem; box-shadow: var(--shadow-sm); }
+  .mode-title { font-weight: 800; font-size: 1.05rem; margin-bottom: 0.3rem; }
+  .mode-desc { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.8rem; }
+  .big-btn { width: 100%; background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm); padding: 0.9rem; font-size: 1.05rem; font-weight: 800; cursor: pointer; font-family: inherit; }
+  .big-btn:hover { background: var(--accent-hover); }
+  .ghost-btn { width: 100%; background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.8rem; font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit; margin-top: 0.5rem; }
+  .ghost-btn:hover { border-color: var(--accent); }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.7rem 0; }
+  .filter-chip { background: var(--bg-tertiary); color: var(--text-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.75rem; font-size: 0.82rem; cursor: pointer; user-select: none; font-family: inherit; }
+  .filter-chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  .progress-wrap { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; }
+  .progress-info { font-size: 0.85rem; color: var(--text-secondary); white-space: nowrap; font-weight: 700; }
+  .timerbar { flex: 1; height: 8px; background: var(--bg-tertiary); border-radius: 999px; overflow: hidden; }
+  .timerbar > div { height: 100%; background: var(--success); border-radius: 999px; transition: width 0.2s linear; }
+  .timerbar > div.warn { background: var(--gold); }
+  .timerbar > div.danger { background: var(--danger); }
+  .score-pill { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 999px; padding: 0.2rem 0.7rem; font-size: 0.8rem; font-weight: 800; color: var(--gold); white-space: nowrap; }
+
+  .q-img { background: #fff; border-radius: var(--radius-sm); padding: 0.6rem; display: flex; justify-content: center; align-items: center; margin-bottom: 0.8rem; min-height: 110px; }
+  .q-img svg { max-width: 100%; height: auto; display: block; }
+
+  .q-label { font-size: 0.78rem; color: var(--accent); font-weight: 700; margin-bottom: 0.2rem; }
+  .q-fr { direction: ltr; text-align: left; font-size: 1.12rem; font-weight: 700; margin-bottom: 0.3rem; white-space: pre-wrap; font-family: "Segoe UI", Roboto, "Noto Sans", sans-serif; }
+  .q-ar { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.9rem; white-space: pre-wrap; }
+  .multi-hint { font-size: 0.78rem; color: var(--gold); margin-bottom: 0.6rem; font-weight: 700; }
+
+  .opt { width: 100%; display: flex; align-items: flex-start; gap: 0.6rem; direction: ltr; text-align: left; background: var(--bg-tertiary); color: var(--text-primary); border: 2px solid var(--border); border-radius: var(--radius-sm); padding: 0.7rem 0.8rem; margin-bottom: 0.5rem; cursor: pointer; font-family: inherit; font-size: 0.98rem; }
+  .opt .letter { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--text-secondary); color: var(--text-secondary); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; }
+  .opt .opt-fr { flex: 1; }
+  .opt .opt-ar { direction: rtl; text-align: right; flex: 1; color: var(--text-secondary); font-size: 0.85rem; align-self: center; }
+  .opt.sel { border-color: var(--accent); }
+  .opt.sel .letter { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .opt.correct { border-color: var(--success); }
+  .opt.correct .letter { background: var(--success); border-color: var(--success); color: #0b0d1f; }
+  .opt.wrong { border-color: var(--danger); }
+  .opt.wrong .letter { background: var(--danger); border-color: var(--danger); color: #fff; }
+  .opt.missed { border-color: var(--gold); border-style: dashed; }
+  .opt.missed .letter { border-color: var(--gold); color: var(--gold); }
+  .opt:disabled { cursor: default; }
+
+  .answer-bar { display: flex; gap: 0.5rem; margin-top: 0.7rem; }
+  .answer-bar button { flex: 1; }
+
+  .exp { margin-top: 0.9rem; border-top: 1px solid var(--border); padding-top: 0.8rem; }
+  .exp-label { font-size: 0.78rem; color: var(--gold); font-weight: 700; margin-bottom: 0.2rem; }
+  .exp-fr { direction: ltr; text-align: left; font-size: 0.92rem; margin-bottom: 0.25rem; }
+  .exp-ar { font-size: 0.88rem; color: var(--text-secondary); }
+  .verdict { text-align: center; font-weight: 800; font-size: 1.05rem; margin: 0.6rem 0 0; }
+  .verdict.ok { color: var(--success); }
+  .verdict.ko { color: var(--danger); }
+
+  .result-hero { text-align: center; padding: 1.6rem 1rem; }
+  .result-score { font-size: 3rem; font-weight: 900; }
+  .result-score.ok { color: var(--success); }
+  .result-score.ko { color: var(--danger); }
+  .result-sub { color: var(--text-secondary); margin-top: 0.3rem; }
+  .review-item { border-top: 1px solid var(--border); padding-top: 0.7rem; margin-top: 0.7rem; }
+  .review-item .badge { display: inline-block; font-size: 0.75rem; font-weight: 800; border-radius: 999px; padding: 0.1rem 0.6rem; margin-left: 0.3rem; }
+  .badge.ok { background: rgba(0,230,118,0.15); color: var(--success); }
+  .badge.ko { background: rgba(255,107,107,0.15); color: var(--danger); }
+  .mini { font-size: 0.8rem; color: var(--text-secondary); }
+
+  .toast { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.6rem 1.1rem; z-index: 100; opacity: 0; transition: opacity 0.2s; pointer-events: none; font-weight: 600; }
+  .toast.show { opacity: 1; }
+  footer { text-align: center; padding: 1.5rem 1rem; color: var(--text-secondary); font-size: 0.8rem; }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <span class="logo">Code de la route</span>
+    <span class="spacer"></span>
+    <button class="icon-btn" id="btn-stop" title="إيقاف الصوت">🔇</button>
+    <button class="icon-btn" id="btn-home" title="الرئيسية" style="display:none">🏠</button>
+  </div>
+</header>
+
+<main id="app"></main>
+<footer>تطبيق تدريب لامتحان الكود الفرنسي — أسئلة تدريبية مشابهة وليست البنك الرسمي</footer>
+<div class="toast" id="toast"></div>
+
+<script src="data/code1.js"></script>
+<script src="data/code2.js"></script>
+<script src="data/code3.js"></script>
+<script src="data/code4.js"></script>
+<script src="data/code5.js"></script>
+<script src="data/code6.js"></script>
+<script src="data/code7.js"></script>
+<script src="data/code8.js"></script>
+<script src="data/code9.js"></script>
+<script src="data/code10.js"></script>
+<script>
+(function(){
+'use strict';
+var DATA = window.CODE_DATA || [];
+var app = document.getElementById('app');
+var toast = document.getElementById('toast');
+var speechRun = 0;
+
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+function showToast(m){ toast.textContent = m; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 2000); }
+function shuffle(a){ var r = a.slice(); for(var i = r.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var t = r[i]; r[i] = r[j]; r[j] = t; } return r; }
+
+/* ---------------- SVG sign / diagram library ---------------- */
+var SIGNS = {
+  stop: '<svg viewBox="0 0 200 200" width="130"><polygon points="60,10 140,10 190,60 190,140 140,190 60,190 10,140 10,60" fill="#e4002b" stroke="#fff" stroke-width="8"/><text x="100" y="118" text-anchor="middle" font-size="42" font-weight="900" fill="#fff" font-family="Arial">STOP</text></svg>',
+  cedez: '<svg viewBox="0 0 200 190" width="130"><polygon points="100,180 10,20 190,20" fill="#fff" stroke="#e4002b" stroke-width="12"/><text x="100" y="70" text-anchor="middle" font-size="13" font-weight="800" fill="#000" font-family="Arial">CEDEZ LE</text><text x="100" y="88" text-anchor="middle" font-size="13" font-weight="800" fill="#000" font-family="Arial">PASSAGE</text></svg>',
+  sensinterdit: '<svg viewBox="0 0 200 200" width="130"><circle cx="100" cy="100" r="90" fill="#e4002b"/><rect x="30" y="84" width="140" height="32" fill="#fff"/></svg>',
+  accesinterdit: '<svg viewBox="0 0 200 200" width="130"><circle cx="100" cy="100" r="90" fill="#e4002b"/><circle cx="100" cy="100" r="70" fill="#fff"/></svg>',
+  priorite: '<svg viewBox="0 0 200 200" width="130"><rect x="25" y="25" width="150" height="150" fill="#fff" stroke="#000" stroke-width="4" transform="rotate(45 100 100)"/><rect x="52" y="52" width="96" height="96" fill="#ffc400" transform="rotate(45 100 100)"/></svg>',
+  finpriorite: '<svg viewBox="0 0 200 200" width="130"><rect x="25" y="25" width="150" height="150" fill="#fff" stroke="#000" stroke-width="4" transform="rotate(45 100 100)"/><rect x="52" y="52" width="96" height="96" fill="#ffc400" transform="rotate(45 100 100)"/><line x1="55" y1="145" x2="145" y2="55" stroke="#000" stroke-width="10"/></svg>',
+  nonpriorite: '<svg viewBox="0 0 200 200" width="130"><rect x="25" y="25" width="150" height="150" fill="#fff" stroke="#000" stroke-width="4" transform="rotate(45 100 100)"/><line x1="100" y1="60" x2="100" y2="140" stroke="#000" stroke-width="14"/><line x1="60" y1="100" x2="140" y2="100" stroke="#000" stroke-width="10"/></svg>',
+  parking: '<svg viewBox="0 0 200 200" width="130"><rect x="10" y="10" width="180" height="180" rx="12" fill="#0d5aa6"/><text x="100" y="145" text-anchor="middle" font-size="130" font-weight="900" fill="#fff" font-family="Arial">P</text></svg>',
+  stationinterdit: '<svg viewBox="0 0 200 200" width="130"><circle cx="100" cy="100" r="88" fill="#e4002b"/><circle cx="100" cy="100" r="70" fill="#0d5aa6"/><line x1="48" y1="48" x2="152" y2="152" stroke="#e4002b" stroke-width="14"/></svg>',
+  arretinterdit: '<svg viewBox="0 0 200 200" width="130"><circle cx="100" cy="100" r="88" fill="#e4002b"/><circle cx="100" cy="100" r="70" fill="#0d5aa6"/><line x1="45" y1="45" x2="155" y2="155" stroke="#e4002b" stroke-width="14"/><line x1="155" y1="45" x2="45" y2="155" stroke="#e4002b" stroke-width="14"/></svg>',
+  depassementinterdit: '<svg viewBox="0 0 200 200" width="130"><circle cx="100" cy="100" r="88" fill="#fff" stroke="#e4002b" stroke-width="14"/><rect x="42" y="70" width="45" height="60" rx="8" fill="#e4002b"/><rect x="113" y="70" width="45" height="60" rx="8" fill="#000"/></svg>',
+  pietons: '<svg viewBox="0 0 200 190" width="130"><polygon points="100,10 190,180 10,180" fill="#fff" stroke="#e4002b" stroke-width="12"/><circle cx="100" cy="70" r="12" fill="#000"/><line x1="100" y1="84" x2="100" y2="120" stroke="#000" stroke-width="9"/><line x1="78" y1="95" x2="122" y2="95" stroke="#000" stroke-width="9"/><line x1="100" y1="120" x2="80" y2="155" stroke="#000" stroke-width="9"/><line x1="100" y1="120" x2="122" y2="152" stroke="#000" stroke-width="9"/></svg>',
+  enfants: '<svg viewBox="0 0 200 190" width="130"><polygon points="100,10 190,180 10,180" fill="#fff" stroke="#e4002b" stroke-width="12"/><circle cx="82" cy="62" r="9" fill="#000"/><circle cx="118" cy="70" r="7" fill="#000"/><line x1="82" y1="72" x2="78" y2="108" stroke="#000" stroke-width="7"/><line x1="118" y1="78" x2="122" y2="108" stroke="#000" stroke-width="6"/><line x1="78" y1="108" x2="66" y2="140" stroke="#000" stroke-width="7"/><line x1="78" y1="108" x2="92" y2="138" stroke="#000" stroke-width="7"/><line x1="122" y1="108" x2="114" y2="136" stroke="#000" stroke-width="6"/><line x1="122" y1="108" x2="134" y2="136" stroke="#000" stroke-width="6"/></svg>',
+  travaux: '<svg viewBox="0 0 200 190" width="130"><polygon points="100,10 190,180 10,180" fill="#fff" stroke="#e4002b" stroke-width="12"/><polygon points="45,150 100,80 120,105 155,150" fill="#000"/><rect x="60" y="60" width="30" height="12" fill="#000"/></svg>',
+  virage: '<svg viewBox="0 0 200 190" width="130"><polygon points="100,10 190,180 10,180" fill="#fff" stroke="#e4002b" stroke-width="12"/><path d="M115 150 L115 100 L85 60" stroke="#000" stroke-width="16" fill="none"/><polygon points="85,60 72,84 100,80" fill="#000"/></svg>',
+  cassis: '<svg viewBox="0 0 200 190" width="130"><polygon points="100,10 190,180 10,180" fill="#fff" stroke="#e4002b" stroke-width="12"/><path d="M45 140 Q75 100 100 140 Q125 100 155 140" stroke="#000" stroke-width="14" fill="none"/></svg>',
+  feux: '<svg viewBox="0 0 200 190" width="130"><polygon points="100,10 190,180 10,180" fill="#fff" stroke="#e4002b" stroke-width="12"/><rect x="84" y="55" width="32" height="95" rx="14" fill="#000"/><circle cx="100" cy="75" r="10" fill="#e4002b"/><circle cx="100" cy="102" r="10" fill="#ffc400"/><circle cx="100" cy="129" r="10" fill="#00a550"/></svg>',
+  voieferree: '<svg viewBox="0 0 200 190" width="130"><polygon points="100,10 190,180 10,180" fill="#fff" stroke="#e4002b" stroke-width="12"/><rect x="70" y="70" width="60" height="50" rx="8" fill="#000"/><rect x="50" y="125" width="100" height="10" fill="#000"/><rect x="60" y="140" width="8" height="25" fill="#000"/><rect x="92" y="140" width="8" height="25" fill="#000"/><rect x="132" y="140" width="8" height="25" fill="#000"/></svg>',
+  autoroute: '<svg viewBox="0 0 200 200" width="130"><rect x="10" y="10" width="180" height="180" rx="12" fill="#0d5aa6"/><polygon points="32,180 80,180 90,120 52,120" fill="#fff"/><polygon points="120,180 168,180 148,120 110,120" fill="#fff"/><rect x="28" y="62" width="144" height="24" fill="#fff"/><line x1="28" y1="74" x2="172" y2="74" stroke="#0d5aa6" stroke-width="7"/><rect x="62" y="86" width="11" height="36" fill="#fff"/><rect x="128" y="86" width="11" height="36" fill="#fff"/></svg>',
+  passagepieton: '<svg viewBox="0 0 200 200" width="130"><rect x="10" y="10" width="180" height="180" rx="12" fill="#0d5aa6"/><polygon points="45,180 100,25 155,180" fill="#fff"/><circle cx="100" cy="60" r="9" fill="#0d5aa6"/><line x1="100" y1="70" x2="100" y2="118" stroke="#0d5aa6" stroke-width="8"/><line x1="82" y1="92" x2="118" y2="92" stroke="#0d5aa6" stroke-width="8"/><line x1="100" y1="118" x2="84" y2="160" stroke="#0d5aa6" stroke-width="8"/><line x1="100" y1="118" x2="118" y2="158" stroke="#0d5aa6" stroke-width="8"/></svg>',
+  pente: '<svg viewBox="0 0 200 190" width="130"><polygon points="100,10 190,180 10,180" fill="#fff" stroke="#e4002b" stroke-width="12"/><polygon points="30,150 170,150 170,60" fill="#000"/><text x="105" y="140" text-anchor="middle" font-size="34" font-weight="900" fill="#fff" font-family="Arial">10%</text></svg>',
+  verglas: '<svg viewBox="0 0 200 190" width="130"><polygon points="100,10 190,180 10,180" fill="#fff" stroke="#e4002b" stroke-width="12"/><g stroke="#000" stroke-width="8"><line x1="100" y1="55" x2="100" y2="145"/><line x1="62" y1="78" x2="138" y2="122"/><line x1="62" y1="122" x2="138" y2="78"/></g><line x1="40" y1="160" x2="160" y2="160" stroke="#000" stroke-width="9" stroke-dasharray="12 9"/></svg>',
+  animaux: '<svg viewBox="0 0 200 190" width="130"><polygon points="100,10 190,180 10,180" fill="#fff" stroke="#e4002b" stroke-width="12"/><ellipse cx="95" cy="110" rx="42" ry="24" fill="#000"/><rect x="60" y="120" width="8" height="30" fill="#000"/><rect x="120" y="120" width="8" height="30" fill="#000"/><rect x="130" y="88" width="14" height="26" fill="#000"/><line x1="136" y1="88" x2="146" y2="66" stroke="#000" stroke-width="7"/><line x1="142" y1="66" x2="152" y2="58" stroke="#000" stroke-width="5"/><line x1="142" y1="66" x2="150" y2="72" stroke="#000" stroke-width="5"/></svg>',
+  retrecit: '<svg viewBox="0 0 200 190" width="130"><polygon points="100,10 190,180 10,180" fill="#fff" stroke="#e4002b" stroke-width="12"/><path d="M70 150 L70 110 L80 80 L80 50" stroke="#000" stroke-width="13" fill="none"/><path d="M130 150 L130 50" stroke="#000" stroke-width="13" fill="none"/><polygon points="80,50 68,72 92,72" fill="#000" transform="rotate(180 80 61)"/><polygon points="130,50 118,72 142,72" fill="#000" transform="rotate(180 130 61)"/></svg>',
+  croisementdifficile: '<svg viewBox="0 0 200 190" width="130"><polygon points="100,10 190,180 10,180" fill="#fff" stroke="#e4002b" stroke-width="12"/><path d="M70 150 L70 110 L80 80 L80 50" stroke="#000" stroke-width="13" fill="none"/><path d="M130 150 L130 110 L120 80 L120 50" stroke="#000" stroke-width="13" fill="none"/></svg>',
+  giratoire: '<svg viewBox="0 0 200 200" width="130"><circle cx="100" cy="100" r="88" fill="#0d5aa6"/><g stroke="#fff" stroke-width="12" fill="none"><path d="M100 45 A55 55 0 0 1 148 100"/><path d="M148 100 A55 55 0 0 1 100 148"/><path d="M100 148 A55 55 0 0 1 52 100"/><path d="M52 100 A55 55 0 0 1 100 45"/></g><polygon points="148,100 132,92 136,110" fill="#fff"/><polygon points="100,148 108,132 92,136" fill="#fff"/><polygon points="52,100 68,108 64,90" fill="#fff"/><polygon points="100,45 92,61 108,57" fill="#fff"/></svg>',
+  sensunique: '<svg viewBox="0 0 200 200" width="130"><rect x="10" y="10" width="180" height="180" rx="12" fill="#0d5aa6"/><line x1="100" y1="155" x2="100" y2="50" stroke="#fff" stroke-width="22"/><polygon points="100,28 78,62 122,62" fill="#fff"/></svg>',
+  obligation_droite: '<svg viewBox="0 0 200 200" width="130"><circle cx="100" cy="100" r="90" fill="#0d5aa6"/><path d="M75 155 L75 95 L115 55" stroke="#fff" stroke-width="20" fill="none"/><polygon points="118,50 92,52 106,76" fill="#fff"/></svg>',
+  obligation_toutdroit: '<svg viewBox="0 0 200 200" width="130"><circle cx="100" cy="100" r="90" fill="#0d5aa6"/><line x1="100" y1="155" x2="100" y2="60" stroke="#fff" stroke-width="20"/><polygon points="100,40 80,72 120,72" fill="#fff"/></svg>',
+  obligation_gauche: '<svg viewBox="0 0 200 200" width="130"><circle cx="100" cy="100" r="90" fill="#0d5aa6"/><path d="M125 155 L125 95 L85 55" stroke="#fff" stroke-width="20" fill="none"/><polygon points="82,50 108,52 94,76" fill="#fff"/></svg>',
+  giratoire_obl: '<svg viewBox="0 0 200 200" width="130"><circle cx="100" cy="100" r="90" fill="#0d5aa6"/><g stroke="#fff" stroke-width="14" fill="none"><path d="M100 50 A50 50 0 0 1 143 100"/><path d="M143 100 A50 50 0 0 1 100 143"/><path d="M100 143 A50 50 0 0 1 57 100"/><path d="M57 100 A50 50 0 0 1 100 50"/></g><polygon points="143,100 128,93 131,110" fill="#fff"/></svg>',
+  passage_velo: '<svg viewBox="0 0 200 190" width="130"><polygon points="100,10 190,180 10,180" fill="#fff" stroke="#e4002b" stroke-width="12"/><circle cx="72" cy="130" r="20" fill="none" stroke="#000" stroke-width="8"/><circle cx="128" cy="130" r="20" fill="none" stroke="#000" stroke-width="8"/><path d="M72 130 L95 90 L128 130 M95 90 L112 90" stroke="#000" stroke-width="7" fill="none"/><line x1="95" y1="90" x2="85" y2="130" stroke="#000" stroke-width="7"/></svg>'
+};
+function limSign(n){
+  return '<svg viewBox="0 0 200 200" width="130"><circle cx="100" cy="100" r="88" fill="#fff" stroke="#e4002b" stroke-width="14"/><text x="100" y="132" text-anchor="middle" font-size="76" font-weight="900" fill="#000" font-family="Arial">' + n + '</text></svg>';
+}
+function finLimSign(n){
+  return '<svg viewBox="0 0 200 200" width="130"><circle cx="100" cy="100" r="88" fill="#fff" stroke="#666" stroke-width="6"/><text x="100" y="130" text-anchor="middle" font-size="68" font-weight="900" fill="#000" font-family="Arial">' + n + '</text><line x1="45" y1="155" x2="155" y2="45" stroke="#000" stroke-width="9"/></svg>';
+}
+function feuSign(color){
+  var r = color === 'rouge' ? '#e4002b' : '#5a0d16';
+  var o = color === 'orange' ? '#ffc400' : '#5a4a10';
+  var g = color === 'vert' ? '#00a550' : '#0d4528';
+  return '<svg viewBox="0 0 120 220" width="70"><rect x="20" y="10" width="80" height="200" rx="18" fill="#222"/><circle cx="60" cy="50" r="26" fill="' + r + '"/><circle cx="60" cy="110" r="26" fill="' + o + '"/><circle cx="60" cy="170" r="26" fill="' + g + '"/></svg>';
+}
+function carSvg(x, y, color, rot){
+  return '<g transform="translate(' + x + ',' + y + ') rotate(' + rot + ')"><rect x="-16" y="-30" width="32" height="60" rx="9" fill="' + color + '"/><rect x="-12" y="-18" width="24" height="14" rx="3" fill="rgba(255,255,255,0.35)"/><rect x="-12" y="8" width="24" height="10" rx="3" fill="rgba(255,255,255,0.25)"/></g>';
+}
+function arrowPath(d, color){
+  return '<path d="' + d + '" stroke="' + color + '" stroke-width="7" fill="none" marker-end="url(#arr-' + color.replace('#','') + ')"/>';
+}
+function diagCross(){
+  return '<defs><marker id="arr-fff" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#fff"/></marker></defs>'
+    + '<rect x="0" y="0" width="300" height="300" fill="#3e5f3e"/>'
+    + '<rect x="115" y="0" width="70" height="300" fill="#555"/>'
+    + '<rect x="0" y="115" width="300" height="70" fill="#555"/>'
+    + '<line x1="150" y1="0" x2="150" y2="115" stroke="#fff" stroke-width="3" stroke-dasharray="10 8"/>'
+    + '<line x1="150" y1="185" x2="150" y2="300" stroke="#fff" stroke-width="3" stroke-dasharray="10 8"/>'
+    + '<line x1="0" y1="150" x2="115" y2="150" stroke="#fff" stroke-width="3" stroke-dasharray="10 8"/>'
+    + '<line x1="185" y1="150" x2="300" y2="150" stroke="#fff" stroke-width="3" stroke-dasharray="10 8"/>';
+}
+var DIAGRAMS = {
+  prio_droite: '<svg viewBox="0 0 300 300" width="230">' + diagCross() + carSvg(128,262,'#1e90ff',180) + carSvg(240,172,'#ff8c00',90) + '<text x="128" y="296" text-anchor="middle" font-size="15" fill="#fff" font-family="Arial">VOUS</text><text x="240" y="215" text-anchor="middle" font-size="15" fill="#fff" font-family="Arial">X</text></svg>',
+  prio_droite_gauche: '<svg viewBox="0 0 300 300" width="230">' + diagCross() + carSvg(128,262,'#1e90ff',180) + carSvg(60,128,'#ff8c00',-90) + '<text x="128" y="296" text-anchor="middle" font-size="15" fill="#fff" font-family="Arial">VOUS</text><text x="60" y="90" text-anchor="middle" font-size="15" fill="#fff" font-family="Arial">X</text></svg>',
+  cedez_line: '<svg viewBox="0 0 300 300" width="230">' + diagCross() + '<line x1="115" y1="190" x2="185" y2="190" stroke="#fff" stroke-width="7" stroke-dasharray="14 10"/>' + carSvg(128,262,'#1e90ff',180) + carSvg(240,172,'#ff8c00',90) + '<text x="128" y="296" text-anchor="middle" font-size="15" fill="#fff" font-family="Arial">VOUS</text></svg>',
+  stop_line: '<svg viewBox="0 0 300 300" width="230">' + diagCross() + '<line x1="115" y1="190" x2="185" y2="190" stroke="#fff" stroke-width="10"/>' + carSvg(128,262,'#1e90ff',180) + carSvg(240,172,'#ff8c00',90) + '<text x="128" y="296" text-anchor="middle" font-size="15" fill="#fff" font-family="Arial">VOUS</text></svg>',
+  turn_left: '<svg viewBox="0 0 300 300" width="230">' + diagCross() + carSvg(128,262,'#1e90ff',180) + carSvg(172,40,'#ff8c00',0) + arrowPath('M128 240 L128 170 Q128 150 108 150 L60 150','#fff') + '<text x="128" y="296" text-anchor="middle" font-size="15" fill="#fff" font-family="Arial">VOUS</text><text x="172" y="34" text-anchor="middle" font-size="15" fill="#fff" font-family="Arial">X</text></svg>',
+  depassement: '<svg viewBox="0 0 300 300" width="230"><rect x="0" y="0" width="300" height="300" fill="#3e5f3e"/><rect x="40" y="0" width="220" height="300" fill="#555"/><line x1="150" y1="0" x2="150" y2="300" stroke="#fff" stroke-width="5"/>' + carSvg(85,200,'#ff8c00',0) + carSvg(85,262,'#1e90ff',0) + arrowPath('M95 250 L95 170','#fff') + '<text x="85" y="296" text-anchor="middle" font-size="15" fill="#fff" font-family="Arial">VOUS</text><text x="60" y="200" text-anchor="middle" font-size="13" fill="#fff" font-family="Arial">X</text></svg>'
+};
+
+/* ---------------- TTS ---------------- */
+function nativeTTS(){
+  if(window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) return window.Capacitor.Plugins.TextToSpeech;
+  return null;
+}
+function pickVoice(){
+  if(!('speechSynthesis' in window)) return null;
+  var voices = window.speechSynthesis.getVoices() || [];
+  return voices.filter(function(v){ return v.lang && v.lang.toLowerCase().indexOf('fr') === 0; })[0] || null;
+}
+function stopSpeech(){
+  speechRun++;
+  if(nativeTTS()) nativeTTS().stop();
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+  document.querySelectorAll('.icon-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+}
+function speakLoop(text, btn){
+  if(!text) return;
+  if(btn && btn.classList.contains('speaking')){ stopSpeech(); return; }
+  stopSpeech();
+  var run = ++speechRun;
+  if(btn) btn.classList.add('speaking');
+  function done(){ if(run === speechRun && btn) btn.classList.remove('speaking'); }
+  function nativePlay(){
+    var tts = nativeTTS(); if(!tts){ webPlay(); return; }
+    function next(){
+      if(run !== speechRun){ done(); return; }
+      tts.speak({ text: text, lang: 'fr-FR', rate: 0.95, queueStrategy: 1 }).then(function(){ setTimeout(next, 300); }).catch(function(){ setTimeout(next, 300); });
+    }
+    next();
+  }
+  function webPlay(){
+    if(!('speechSynthesis' in window)){ done(); showToast('النطق غير مدعوم'); return; }
+    function next(){
+      if(run !== speechRun){ done(); return; }
+      var u = new SpeechSynthesisUtterance(text);
+      u.lang = 'fr-FR'; u.rate = 0.92;
+      var v = pickVoice(); if(v) u.voice = v;
+      u.onend = function(){ setTimeout(next, 300); };
+      u.onerror = function(){ setTimeout(next, 300); };
+      window.speechSynthesis.speak(u);
+    }
+    next();
+  }
+  nativePlay();
+}
+
+/* ---------------- themes ---------------- */
+var THEMES = {
+  signalisation: 'الإشارات والعلامات',
+  priorites: 'الأولويات',
+  circulation: 'قواعد السير',
+  stationnement: 'الوقوف والتوقف',
+  vehicule: 'السيارة والميكانيك',
+  securite: 'السلامة',
+  usagers: 'مستخدمو الطريق',
+  conducteur: 'السائق والرخصة',
+  environnement: 'البيئة والاقتصاد',
+  secours: 'الإسعافات الأولية'
+};
+
+/* ---------------- state ---------------- */
+var state = {
+  screen: 'home',          // home | quiz | result
+  mode: 'train',           // train | exam
+  theme: '',
+  questions: [],
+  idx: 0,
+  selected: [],
+  answered: false,
+  results: [],             // {q, ok, picked}
+  timer: null,
+  timeLeft: 0,
+  examSeconds: 20
+};
+var stats = loadStats();
+
+function loadStats(){
+  try { return JSON.parse(localStorage.getItem('code_stats') || '{"answered":0,"correct":0,"exams":0,"passed":0,"wrongIds":[]}'); }
+  catch(e){ return {answered:0, correct:0, exams:0, passed:0, wrongIds:[]}; }
+}
+function saveStats(){ localStorage.setItem('code_stats', JSON.stringify(stats)); }
+function markWrong(id){
+  if(stats.wrongIds.indexOf(id) === -1) stats.wrongIds.push(id);
+}
+function unmarkWrong(id){
+  var i = stats.wrongIds.indexOf(id);
+  if(i !== -1) stats.wrongIds.splice(i, 1);
+}
+
+/* ---------------- render helpers ---------------- */
+function imgHtml(q){
+  if(!q.img) return '';
+  var s;
+  if(q.img.indexOf('lim') === 0 && SIGNS[q.img] === undefined){
+    var n = q.img.replace(/\D/g,'');
+    s = q.img.indexOf('fin') === 0 ? finLimSign(n) : limSign(n);
+  }
+  if(!s && q.img.indexOf('finlim') === 0){ s = finLimSign(q.img.replace(/\D/g,'')); }
+  if(!s && q.img.indexOf('feu_') === 0){ s = feuSign(q.img.slice(4)); }
+  if(!s) s = SIGNS[q.img] || DIAGRAMS[q.img];
+  if(!s) return '';
+  return '<div class="q-img">' + s + '</div>';
+}
+function optionLetters(i){ return 'ABCD'[i] || '?'; }
+
+/* ---------------- screens ---------------- */
+function render(){
+  stopSpeech();
+  if(state.screen === 'home') renderHome();
+  else if(state.screen === 'quiz') renderQuiz();
+  else renderResult();
+  document.getElementById('btn-home').style.display = state.screen === 'home' ? 'none' : '';
+}
+
+function renderHome(){
+  var byTheme = {};
+  DATA.forEach(function(q){ byTheme[q.theme] = (byTheme[q.theme] || 0) + 1; });
+  var chips = '<button class="filter-chip' + (state.theme === '' ? ' active' : '') + '" data-theme="">الكل (' + DATA.length + ')</button>';
+  Object.keys(THEMES).forEach(function(t){
+    if(byTheme[t]) chips += '<button class="filter-chip' + (state.theme === t ? ' active' : '') + '" data-theme="' + t + '">' + THEMES[t] + ' (' + byTheme[t] + ')</button>';
+  });
+  var wrongCount = stats.wrongIds.length;
+  var acc = stats.answered ? Math.round(stats.correct * 100 / stats.answered) : 0;
+  app.innerHTML =
+    '<div class="hero"><h1>امتحان الكود الفرنسي 🇫🇷🚗</h1>' +
+    '<p>تدريب على أسئلة code de la route بالفرنسي والعربي مع الصور. الامتحان الحقيقي: 40 سؤالاً والنجاح بـ 35 إجابة صحيحة.</p></div>' +
+
+    '<div class="card">' +
+      '<div class="mode-title">📝 وضع التدريب</div>' +
+      '<div class="mode-desc">أجب سؤالاً سؤالاً مع التصحيح الفوري والشرح بالفرنسي والعربي. اختر الموضوع:</div>' +
+      '<div class="filters">' + chips + '</div>' +
+      '<button class="big-btn" id="btn-train">ابدأ التدريب</button>' +
+      (wrongCount ? '<button class="ghost-btn" id="btn-mistakes">🔁 راجع أخطائي (' + wrongCount + ')</button>' : '') +
+    '</div>' +
+
+    '<div class="card">' +
+      '<div class="mode-title">⏱️ وضع الامتحان (examen blanc)</div>' +
+      '<div class="mode-desc">40 سؤالاً عشوائياً، 20 ثانية لكل سؤال، بلا تصحيح حتى النهاية. النجاح: 35/40 على الأقل.</div>' +
+      '<button class="big-btn" id="btn-exam">ابدأ الامتحان</button>' +
+    '</div>' +
+
+    '<div class="card mini">إحصائياتك: ' + stats.answered + ' سؤال مجاب · ' + acc + '% صحيحة · ' + stats.exams + ' امتحان · ' + stats.passed + ' ناجح</div>';
+
+  document.getElementById('btn-train').onclick = function(){ startQuiz('train'); };
+  document.getElementById('btn-exam').onclick = function(){ startQuiz('exam'); };
+  var bm = document.getElementById('btn-mistakes');
+  if(bm) bm.onclick = function(){ startMistakes(); };
+  document.querySelectorAll('.filter-chip').forEach(function(c){
+    c.onclick = function(){
+      state.theme = c.dataset.theme;
+      document.querySelectorAll('.filter-chip').forEach(function(x){ x.classList.remove('active'); });
+      c.classList.add('active');
+    };
+  });
+}
+
+function startQuiz(mode){
+  var pool = DATA;
+  if(mode === 'train' && state.theme) pool = DATA.filter(function(q){ return q.theme === state.theme; });
+  state.questions = shuffle(pool);
+  if(mode === 'exam') state.questions = state.questions.slice(0, Math.min(40, state.questions.length));
+  else state.questions = state.questions.slice(0, Math.min(50, state.questions.length));
+  state.mode = mode;
+  state.idx = 0;
+  state.results = [];
+  state.screen = 'quiz';
+  render();
+}
+function startMistakes(){
+  var ids = stats.wrongIds;
+  state.questions = DATA.filter(function(q){ return ids.indexOf(q.id) !== -1; });
+  if(!state.questions.length){ showToast('لا أخطاء مسجلة'); return; }
+  state.mode = 'train';
+  state.idx = 0;
+  state.results = [];
+  state.screen = 'quiz';
+  render();
+}
+
+function currentQ(){ return state.questions[state.idx]; }
+
+function startTimer(){
+  clearInterval(state.timer);
+  if(state.mode !== 'exam') return;
+  state.timeLeft = state.examSeconds;
+  state.timer = setInterval(function(){
+    state.timeLeft -= 0.2;
+    var bar = document.querySelector('.timerbar > div');
+    if(bar){
+      var pct = Math.max(0, state.timeLeft / state.examSeconds * 100);
+      bar.style.width = pct + '%';
+      bar.className = pct < 25 ? 'danger' : (pct < 50 ? 'warn' : '');
+    }
+    if(state.timeLeft <= 0){
+      clearInterval(state.timer);
+      submitAnswer(true);
+    }
+  }, 200);
+}
+
+function renderQuiz(){
+  var q = currentQ();
+  state.selected = [];
+  state.answered = false;
+  var multi = q.ok.length > 1;
+  var themeLabel = THEMES[q.theme] || q.theme;
+
+  app.innerHTML =
+    '<div class="progress-wrap">' +
+      '<span class="progress-info">' + (state.idx + 1) + ' / ' + state.questions.length + '</span>' +
+      (state.mode === 'exam' ? '<div class="timerbar"><div style="width:100%"></div></div>' : '') +
+      '<span class="score-pill">' + esc(themeLabel) + '</span>' +
+      '<button class="icon-btn" id="btn-speak" title="نطق السؤال">🔊</button>' +
+    '</div>' +
+    '<div class="card">' +
+      imgHtml(q) +
+      '<div class="q-label">السؤال</div>' +
+      '<div class="q-fr">' + esc(q.q) + '</div>' +
+      (q.qa ? '<div class="q-ar">' + esc(q.qa) + '</div>' : '') +
+      (multi ? '<div class="multi-hint">⚠️ عدة إجابات صحيحة ممكنة — اختر ثم اضغط "تأكيد"</div>' : '') +
+      '<div id="opts">' + q.opts.map(function(o, i){
+        return '<button class="opt" data-i="' + i + '">' +
+          '<span class="letter">' + optionLetters(i) + '</span>' +
+          '<span class="opt-fr">' + esc(o.f) + '</span>' +
+          (o.a ? '<span class="opt-ar">' + esc(o.a) + '</span>' : '') +
+        '</button>';
+      }).join('') + '</div>' +
+      '<div class="answer-bar">' +
+        (multi ? '<button class="big-btn" id="btn-validate" disabled>تأكيد</button>' : '') +
+        (state.mode === 'exam' ? '<button class="ghost-btn" id="btn-next">تخطي ⏭</button>' : '') +
+      '</div>' +
+      '<div id="after"></div>' +
+    '</div>';
+
+  document.getElementById('btn-speak').onclick = function(){
+    var t = q.q + '. ' + q.opts.map(function(o, i){ return 'Réponse ' + optionLetters(i) + '. ' + o.f; }).join(' ');
+    speakLoop(t, this);
+  };
+  document.querySelectorAll('.opt').forEach(function(b){
+    b.onclick = function(){ pickOption(+b.dataset.i, multi); };
+  });
+  var bv = document.getElementById('btn-validate');
+  if(bv) bv.onclick = function(){ submitAnswer(false); };
+  var bn = document.getElementById('btn-next');
+  if(bn) bn.onclick = function(){ submitAnswer(true); };
+
+  startTimer();
+}
+
+function pickOption(i, multi){
+  if(state.answered) return;
+  if(multi){
+    var p = state.selected.indexOf(i);
+    if(p === -1) state.selected.push(i); else state.selected.splice(p, 1);
+    document.querySelectorAll('.opt').forEach(function(b){
+      b.classList.toggle('sel', state.selected.indexOf(+b.dataset.i) !== -1);
+    });
+    document.getElementById('btn-validate').disabled = !state.selected.length;
+  } else {
+    state.selected = [i];
+    document.querySelectorAll('.opt').forEach(function(b){
+      b.classList.toggle('sel', +b.dataset.i === i);
+    });
+    submitAnswer(false);
+  }
+}
+
+function arraysEqual(a, b){
+  if(a.length !== b.length) return false;
+  var s = a.slice().sort(), t = b.slice().sort();
+  return s.every(function(v, i){ return v === t[i]; });
+}
+
+function submitAnswer(skipped){
+  if(state.answered) return;
+  state.answered = true;
+  clearInterval(state.timer);
+  var q = currentQ();
+  var correct = !skipped && arraysEqual(state.selected, q.ok);
+  state.results.push({ q: q, ok: correct, picked: state.selected.slice(), skipped: skipped });
+  stats.answered++;
+  if(correct){ stats.correct++; unmarkWrong(q.id); } else markWrong(q.id);
+  saveStats();
+
+  document.querySelectorAll('.opt').forEach(function(b){
+    var i = +b.dataset.i;
+    b.disabled = true;
+    var isOk = q.ok.indexOf(i) !== -1;
+    var wasPicked = state.selected.indexOf(i) !== -1;
+    b.classList.remove('sel');
+    if(isOk && wasPicked) b.classList.add('correct');
+    else if(isOk && !wasPicked) b.classList.add(state.mode === 'exam' ? 'correct' : 'missed');
+    else if(!isOk && wasPicked) b.classList.add('wrong');
+  });
+
+  if(state.mode === 'exam'){
+    nextQuestion();
+    return;
+  }
+
+  var last = state.idx === state.questions.length - 1;
+  document.getElementById('after').innerHTML =
+    '<div class="verdict ' + (correct ? 'ok' : 'ko') + '">' + (correct ? '✅ إجابة صحيحة' : '❌ إجابة خاطئة') + '</div>' +
+    (q.exp ? '<div class="exp"><div class="exp-label">الشرح — Explication</div>' +
+      '<div class="exp-fr">' + esc(q.exp) + '</div>' +
+      (q.expa ? '<div class="exp-ar">' + esc(q.expa) + '</div>' : '') +
+    '</div>' : '') +
+    '<div class="answer-bar"><button class="big-btn" id="btn-next2">' + (last ? 'النتيجة 🏁' : 'التالي ⏭') + '</button></div>';
+  document.getElementById('btn-next2').onclick = nextQuestion;
+}
+
+function nextQuestion(){
+  if(state.idx + 1 >= state.questions.length){
+    finishQuiz();
+  } else {
+    state.idx++;
+    renderQuiz();
+  }
+}
+
+function finishQuiz(){
+  clearInterval(state.timer);
+  if(state.mode === 'exam'){
+    stats.exams++;
+    var okCount = state.results.filter(function(r){ return r.ok; }).length;
+    if(okCount >= 35) stats.passed++;
+  }
+  saveStats();
+  state.screen = 'result';
+  render();
+}
+
+function renderResult(){
+  var okCount = state.results.filter(function(r){ return r.ok; }).length;
+  var total = state.results.length;
+  var exam = state.mode === 'exam';
+  var passed = !exam || okCount >= 35;
+  var wrongs = state.results.filter(function(r){ return !r.ok; });
+
+  var html =
+    '<div class="card result-hero">' +
+      '<div class="result-score ' + (passed ? 'ok' : 'ko') + '">' + okCount + ' / ' + total + '</div>' +
+      '<div class="result-sub">' + (exam ? (passed ? '🎉 ناجح! (الحد الأدنى 35/40)' : '😕 راسب — تحتاج 35 إجابة صحيحة') : (okCount === total ? 'ممتاز! كل الإجابات صحيحة' : 'أكمل التدريب لتحسين نتيجتك')) + '</div>' +
+    '</div>' +
+    '<div class="card">' +
+      '<button class="big-btn" id="btn-again">' + (exam ? 'امتحان جديد' : 'تدريب جديد') + '</button>' +
+      '<button class="ghost-btn" id="btn-gohome">🏠 الرئيسية</button>' +
+    '</div>';
+
+  if(wrongs.length){
+    html += '<div class="card"><div class="mode-title">مراجعة الأخطاء (' + wrongs.length + ')</div>';
+    wrongs.forEach(function(r, i){
+      var q = r.q;
+      html += '<div class="review-item">' +
+        '<span class="mini">' + esc(THEMES[q.theme] || q.theme) + '</span>' +
+        '<div class="q-fr" style="font-size:0.98rem">' + esc(q.q) + '</div>' +
+        (q.qa ? '<div class="q-ar">' + esc(q.qa) + '</div>' : '') +
+        '<div class="mini" style="direction:ltr;text-align:left">✔ ' + q.ok.map(function(i2){ return optionLetters(i2) + '. ' + esc(q.opts[i2].f); }).join(' &nbsp;·&nbsp; ') + '</div>' +
+        (q.exp ? '<div class="exp-ar" style="margin-top:0.3rem">' + esc(q.expa || q.exp) + '</div>' : '') +
+      '</div>';
+    });
+    html += '</div>';
+  }
+
+  app.innerHTML = html;
+  document.getElementById('btn-again').onclick = function(){
+    if(state.mode === 'exam') startQuiz('exam'); else startQuiz('train');
+  };
+  document.getElementById('btn-gohome').onclick = function(){ state.screen = 'home'; render(); };
+}
+
+document.getElementById('btn-stop').onclick = stopSpeech;
+document.getElementById('btn-home').onclick = function(){
+  clearInterval(state.timer);
+  state.screen = 'home';
+  render();
+};
+
+render();
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function(){});
+})();
+</script>
+</body>
+</html>
