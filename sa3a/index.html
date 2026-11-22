@@ -987,10 +987,12 @@ function openQuiz(n){
  closeGame();
  const ov=document.createElement('div');ov.id='quiz-overlay';ov.className='qz-ov';
  ov.innerHTML='<div class="qz-top"><button class="mini" id="quiz-exit">✕</button>'+
+  '<button class="mini" id="quiz-note">📔</button>'+
   '<div class="qz-prog" id="quiz-progress"></div></div>'+
   '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>';
  document.body.appendChild(ov);
  $('quiz-exit').onclick=closeGame;
+ $('quiz-note').onclick=function(){const p=window.__gNoteP;openNote('gnote_'+(p&&p.id||'scratch'),p||null,this)};
  const body=$('quiz-body');
  body.innerHTML=gamePairPicker(n,t('quizChooseLang'));
  body.querySelectorAll('button[data-q]').forEach(b=>{b.onclick=()=>startQuiz(n,b.dataset.q,b.dataset.a)})}
@@ -1017,6 +1019,7 @@ function startQuiz(n,qlang,alang){
   if(selFr.dataset.pid===card.dataset.pid){correct++;quizTone(true);
    selFr.classList.remove('sel');selFr.classList.add('done');card.classList.add('done');solved++;
    speakPair(selFr.dataset.text,selFr.dataset.lang,card.dataset.text,card.dataset.lang,selFr,card);
+   window.__gNoteP=item.p;
    selFr=null;setProg();
    if(solved===picks.length)setTimeout(()=>quizEnd(correct,wrong,n,qlang,alang),650);
    else if(!cols.querySelector('.qz-card:not(.done)'))setTimeout(deal,700)}
@@ -1099,11 +1102,13 @@ function openListen(n){
  lz.lesson=n;
  const ov=document.createElement('div');ov.id='quiz-overlay';ov.className='qz-ov';
  ov.innerHTML='<div class="qz-top"><button class="mini" id="quiz-exit">✕</button>'+
+  '<button class="mini" id="quiz-note">📔</button>'+
   '<div class="qz-prog" id="quiz-progress"></div></div>'+
   '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>'+
   '<input type="file" id="lzImgInput" accept="image/*" style="display:none">';
  document.body.appendChild(ov);
  $('quiz-exit').onclick=closeGame;
+ $('quiz-note').onclick=function(){const p=window.__gNoteP;openNote('gnote_'+(p&&p.id||'scratch'),p||null,this)};
  const body=$('quiz-body');
  body.innerHTML=gamePairPicker(n,t('quizChooseLang'));
  body.querySelectorAll('button[data-q]').forEach(b=>{b.onclick=()=>{lz.qlang=b.dataset.q;lz.lang=b.dataset.a;lzStart()}})}
@@ -1118,6 +1123,7 @@ function lzQuestion(){
  if(!body||!document.getElementById('quiz-overlay'))return;
  const p=lz.qs[lz.idx];
  const others=lz.pool.filter(x=>x!==p);
+ window.__gNoteP=p;
  let opts=quizShuffle(others).slice(0,3);opts.push(p);opts=quizShuffle(opts);
  body.innerHTML='<div class="lz-stage">'+
   '<div class="lz-hero '+lzHero.size+'" id="lzHero">'+lzHeroInner()+'</div>'+
@@ -1202,10 +1208,12 @@ function openReadRepeat(n){
  if(!items.length){toast(t('quizNoPhrases'));return}
  const ov=document.createElement('div');ov.id='rr-overlay';ov.className='qz-ov';
  ov.innerHTML='<div class="qz-top"><button class="mini" id="rr-exit">✕</button>'+
+  '<button class="mini" id="rr-note">📔</button>'+
   '<div class="qz-prog" id="rr-prog">'+esc(t('rrTitle'))+'</div></div>'+
   '<div id="rr-body" style="display:flex;flex:1;flex-direction:column;overflow:auto"></div>';
  document.body.appendChild(ov);
  $('rr-exit').onclick=closeRR;
+ $('rr-note').onclick=function(){const p=window.__gNoteP;openNote('gnote_'+(p&&p.id||'scratch'),p||null,this)};
  const body=$('rr-body');
  const langs=rrLangsOf(items,n);
  function start(lang,mode,idx,cnt){rr={l:n,items,lang,mode,i:idx,count:cnt||0,listenTok:0};rrSave();rrShow()}
@@ -1234,6 +1242,7 @@ function rrShow(){
  rrStopVoice();
  if(rr.i>=rr.items.length){rrEnd();return}
  const m=rr.items[rr.i],text=m[rr.lang]||'';
+ window.__gNoteP=m;
  const trans=Object.keys(m).filter(k=>k!==rr.lang&&m[k])
   .map(k=>'<div class="rr-tr" dir="'+rrDir(k)+'">'+esc(gFlag(k)+' '+m[k])+'</div>').join('');
  const wordsHtml=(text||'').split(/\s+/).filter(Boolean).map(w=>'<span class="rr-w">'+esc(w)+'</span>').join(' ');
