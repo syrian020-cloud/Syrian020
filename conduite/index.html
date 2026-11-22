@@ -1692,6 +1692,21 @@
   }
 
 
+  function migrateConduiteImages() {
+    const fix = v => (typeof v === 'string' && v.includes('data/conduite/img/') && v.endsWith('.jpg')) ? v.slice(0, -4) + '.webp' : v;
+    let changed = false;
+    const walk = it => {
+      for (const k of ['image', 'media', 'audio']) {
+        if (it[k] && fix(it[k]) !== it[k]) { it[k] = fix(it[k]); changed = true; }
+      }
+      (it.phrases || []).forEach(walk);
+      (it.lessons || []).forEach(walk);
+      (it.items || []).forEach(walk);
+    };
+    LESSONS.forEach(walk);
+    if (changed) saveLessons();
+  }
+
   function ensureConduiteFolders() {
     if (localStorage.getItem('conduite_seeded')) return;
     localStorage.setItem('conduite_seeded', '1');
@@ -6444,6 +6459,7 @@ EN: Maria, I’m out of cigarettes.`,
     applyCaptionSettings();
     ensureBuiltInLesson();
     ensureConduiteFolders();
+    migrateConduiteImages();
     go(parseHash(), false);
     loadEdgeVoicePrefs();
     if (nativeTTS()) checkNativeTTS();
