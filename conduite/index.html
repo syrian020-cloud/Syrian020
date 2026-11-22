@@ -915,7 +915,7 @@
 
   async function exportLessonsFull(kinds, list) {
     list = list || LESSONS;
-    const filename = 'zeek-full-' + new Date().toISOString().slice(0,10) + '.json';
+    const filename = 'convip-full-' + new Date().toISOString().slice(0,10) + '.json';
     showToast(t('exportPreparing'), 60000);
     try {
       const sink = createTextSink(filename, 'application/json');
@@ -1249,7 +1249,7 @@
 
   async function exportLessons(list) {
     const data = JSON.stringify(list || LESSONS, null, 2);
-    const filename = 'zeek-lessons-' + new Date().toISOString().slice(0,10) + '.json';
+    const filename = 'convip-lessons-' + new Date().toISOString().slice(0,10) + '.json';
     if (typeof Capacitor !== 'undefined' && Capacitor.Plugins && Capacitor.Plugins.Filesystem) {
       try {
         const { Filesystem, Share } = Capacitor.Plugins;
