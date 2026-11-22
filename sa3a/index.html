@@ -1932,9 +1932,9 @@ function ring(a){
  const enTod=hr<12?'in the morning':hr<17?'in the afternoon':'in the evening';
  const enTime=mn?'It is '+h12+' '+(mn<10?'oh '+mn:''+mn)+' '+enTod:'It is '+h12+" o'clock "+enTod;
  const wtxt={
-  fr:(hr<18?'Bonjour ! ':'Bonsoir ! ')+frTimeDaily(hr,mn)+'. Nous sommes '+wd+' '+dayN+' '+mo+". C'est l'heure de votre alarme !"+(hr<12?" Bonne journée et bon courage !":" Excellente journée !"),
-  ar:(hr<12?'صباح الخير! ':'مساء الخير! ')+'الساعة '+arNum(h12)+(mn?' و'+arNum(mn)+' دقيقة':' تمامًا')+(hr<12?' صباحًا. ':' مساءً. ')+'اليوم '+wd+'، '+dayN+' '+mo+'. '+(hr<12?'حان وقت الاستيقاظ! أتمنى لك نهارًا سعيدًا، وبالتوفيق!':'حان وقت التنبيه! أتمنى لك يومًا سعيدًا!'),
-  en:(hr<12?'Good morning! ':hr<17?'Good afternoon! ':'Good evening! ')+enTime+'. Today is '+wd+', '+mo+' '+enOrd(dayN)+". Your alarm is ringing!"+(hr<12?" Have a great day, and good luck!":"")};
+  fr:(hr<18?'Bonjour ! ':'Bonsoir ! ')+(mn?frTimeFormal(hr,mn)+'. '+frTimeDaily(hr,mn):frTimeDaily(hr,mn))+'. Nous sommes '+wd+' '+dayN+' '+mo+". C'est l'heure de votre alarme !"+(hr<12?" Bonne journée et bon courage !":" Excellente journée !"),
+  ar:(hr<12?'صباح الخير! ':'مساء الخير! ')+'الساعة '+arNum(h12)+(mn?' و'+arNum(mn)+' دقيقة':' تمامًا')+(hr<12?' صباحًا. ':' مساءً. ')+(arTimeDaily(hr,mn)?'أي '+arTimeDaily(hr,mn)+'. ':'')+'اليوم '+wd+'، '+dayN+' '+mo+'. '+(hr<12?'حان وقت الاستيقاظ! أتمنى لك نهارًا سعيدًا، وبالتوفيق!':'حان وقت التنبيه! أتمنى لك يومًا سعيدًا!'),
+  en:(hr<12?'Good morning! ':hr<17?'Good afternoon! ':'Good evening! ')+enTime+((mn===15||mn===30||mn>30)?'. Or '+enTimeDaily(hr,mn):'')+'. Today is '+wd+', '+mo+' '+enOrd(dayN)+". Your alarm is ringing!"+(hr<12?" Have a great day, and good luck!":"")};
  (async()=>{for(let i=0;i<3&&ringCard._sp&&$('ringShade').classList.contains('on');i++){await sayOnce(wtxt[wl],wl)}ringCard._sp=false})()
  if(!a.days||!a.days.length){a.on=false;save();renderAlarms();rescheduleAll()}
 }
@@ -2068,13 +2068,31 @@ function arNum(n){if(n<20)return ARN[n];const t=Math.floor(n/10),u=n%10;return u
 const ENN=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
 const ENT=['','','twenty','thirty','forty','fifty'];
 function enNum(n){if(n<20)return ENN[n];const t=Math.floor(n/10),u=n%10;return u?ENT[t]+'-'+ENN[u]:ENT[t]}
+/* second, traditional reading: "a quarter to eight" / «الثامنة إلا ربعاً» (fr via frTimeDaily) */
+const ARO=['','الأولى','الثانية','الثالثة','الرابعة','الخامسة','السادسة','السابعة','الثامنة','التاسعة','العاشرة','الحادية عشرة','الثانية عشرة'];
+function enTimeDaily(h,m){
+ const w=n=>n<20?ENN[n]:enNum(n),ampm=x=>x<12?' in the morning':x<17?' in the afternoon':' in the evening';
+ const h12=h%12||12,nh12=(h+1)%24%12||12;
+ if(!m)return "It's "+w(h12)+" o'clock"+ampm(h);
+ if(m===15)return "It's a quarter past "+w(h12)+ampm(h);
+ if(m===30)return "It's half past "+w(h12)+ampm(h);
+ if(m>30)return "It's "+(m===45?'a quarter':enNum(60-m))+" to "+w(nh12)+ampm((h+1)%24);
+ return "It's "+w(h12)+' '+enNum(m)+ampm(h)}
+function arTimeDaily(h,m){
+ if(!m)return '';
+ const h12=h%12||12,sfx=h<12?' صباحاً':' مساءً';
+ if(m===15)return 'الساعة '+ARO[h12]+' والربع'+sfx;
+ if(m===30)return 'الساعة '+ARO[h12]+' والنصف'+sfx;
+ if(m>30){const nh12=(h+1)%24%12||12,sfx2=(h+1)%24<12?' صباحاً':' مساءً';
+  return 'الساعة '+ARO[nh12]+(m===45?' إلا ربعاً':' إلا '+arNum(60-m)+' دقيقة')+sfx2}
+ return ''}
 
 function speakTime(){
  const d=new Date(),h=d.getHours(),m=d.getMinutes(),h12=h%12||12;
  let txt,lang;
- if(st.lang==='ar'){lang='ar-SA';txt='الساعة الآن '+h12+(m?' و '+m+' دقيقة':' تمامًا')+(h<12?' صباحًا':' مساءً')}
- else if(st.lang==='fr'){lang='fr-FR';txt=frTimeFormal(h,m)+'. '+frTimeDaily(h,m)}
- else{lang='en-US';txt='The time is '+h12+' '+(m?(m<10?'oh '+m:''+m):'o clock')+(h<12?' AM':' PM')}
+ if(st.lang==='ar'){lang='ar-SA';const alt=arTimeDaily(h,m);txt='الساعة الآن '+arNum(h12)+(m?' و '+arNum(m)+' دقيقة':' تمامًا')+(h<12?' صباحًا':' مساءً')+(alt?'. أي '+alt:'')}
+ else if(st.lang==='fr'){lang='fr-FR';txt=m?frTimeFormal(h,m)+'. '+frTimeDaily(h,m):frTimeDaily(h,m)}
+ else{lang='en-US';const alt=(m===15||m===30||m>30)?enTimeDaily(h,m):'';txt='The time is '+h12+' '+(m?(m<10?'oh '+m:''+m):'o clock')+(h<12?' AM':' PM')+(alt?'. Or '+alt:'')}
  const cap=$('speakCap');let ctxt;
  if(st.lang==='ar')ctxt='الساعة '+arNum(h12)+(m?' و'+arNum(m)+' دقيقة':' تمامًا')+(h<12?' صباحًا':' مساءً');
  else if(st.lang==='fr')ctxt=txt;
