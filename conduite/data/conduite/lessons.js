@@ -5647,6 +5647,678 @@ window.CONDUITE_FOLDERS = [
             "note": "الرؤية ممكن تضعف بسبب: * الضباب. * المطر الغزير. * الثلج. * الزجاج المتسخ. * وهج الشمس. إذا ما عاد فيني شوف الطريق بشكل كافٍ، لازم خفّف السرعة أو أتوقف بمكان آمن إذا لزم الأمر. معلومة امتحانية: عند الضباب، إذا كانت الرؤية أقل من 50 متراً، السرعة القصوى هي 50 كم/ساعة على جميع الطرق، بما فيها الأوتوروت. Légifrance +1"
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "أحزمة الأمان ومقاعد الأطفال",
+          "fr": "Ceintures de sécurité et sièges enfants",
+          "en": "Seat belts and child seats"
+        },
+        "img": "data/conduite/img/l62-1.webp",
+        "phrases": [
+          {
+            "fr": "Je porte toujours ma ceinture de sécurité lorsque je suis dans un véhicule.",
+            "ar": "أنا بلبس حزام الأمان دائماً لما أكون بالسيارة.",
+            "en": "I always wear my seat belt when I am in a vehicle.",
+            "img": "data/conduite/img/l62-1.webp",
+            "note": "حزام الأمان بيخفّف خطر الإصابة عند الفرملة القوية أو وقوع حادث. * لازم يكون الحزام مربوطاً بشكل صحيح. * لازم يمر الجزء السفلي على الحوض، مو على البطن. * الجزء العلوي لازم يمر على الصدر والكتف. * ما لازم يكون ملتوي أو مرتخٍ. قاعدة فرنسا: ارتداء حزام الأمان إلزامي للسائق والركاب في المقاعد المجهزة به، مع وجود استثناءات قانونية محددة."
+          },
+          {
+            "fr": "Je porte ma ceinture de sécurité même lorsque je suis assis à l'arrière.",
+            "ar": "أنا بلبس حزام الأمان حتى لو كنت قاعد بالمقعد الخلفي.",
+            "en": "I wear my seat belt even when I am sitting in the back seat.",
+            "img": "data/conduite/img/l62-2.webp",
+            "note": "المقعد الخلفي مو أكثر أماناً لدرجة تسمحلي أترك الحزام. وقت الحادث: * الراكب غير المربوط ممكن يندفع للأمام. * ممكن يصطدم بالركاب الآخرين. * ممكن يتعرض لإصابات خطيرة أو يسبب إصابات لغيره. معلومة امتحانية: الحزام مطلوب للراكب الأمامي والخلفي، وليس للسائق فقط."
+          },
+          {
+            "fr": "Je règle la hauteur de ma ceinture pour qu'elle passe correctement sur mon épaule.",
+            "ar": "أنا بظبط ارتفاع الحزام حتى يمر بشكل صحيح على كتفي.",
+            "en": "I adjust the belt height so it passes correctly over my shoulder.",
+            "img": "data/conduite/img/l62-3.webp",
+            "note": "بعض السيارات فيها قطعة لتعديل ارتفاع الحزام. لازم: * ما يمر الحزام على الرقبة. * ما ينزلق عن الكتف. * ما يكون تحت الذراع أو خلف الظهر. * يكون الجزء السفلي فوق الحوض. إذا الحزام مو مضبوط، ممكن تزيد خطورة الإصابة وقت الحادث."
+          },
+          {
+            "fr": "Je bénéficie du prétensionneur qui tend rapidement la ceinture lors d'un choc.",
+            "ar": "أنا بستفيد من شدّاد الحزام اللي بيشدّ الحزام بسرعة وقت الاصطدام.",
+            "en": "I benefit from the pretensioner, which rapidly tightens the seat belt during a collision.",
+            "img": "data/conduite/img/l62-4.webp",
+            "note": "الـ Prétensionneur بيشدّ الحزام بسرعة عند وقوع اصطدام معيّن، حتى يقلل ارتخاء الحزام ويحافظ على وضعية الراكب. * ممكن يشتغل مع الوسائد الهوائية. * بعد تفعيله، غالباً لازم يتم استبدال القطعة وفق تعليمات الشركة. * ما لازم أحاول إصلاحه بنفسي."
+          },
+          {
+            "fr": "Je bénéficie du limiteur d'effort qui réduit la pression exercée par la ceinture sur mon thorax lors d'un choc.",
+            "ar": "أنا بستفيد من محدّد قوة الحزام اللي بيخفّف الضغط على صدري وقت الاصطدام.",
+            "en": "I benefit from the load limiter, which reduces the pressure exerted by the belt on my chest during a collision.",
+            "img": "data/conduite/img/l62-5.webp",
+            "note": "بعد شدّ الحزام، ممكن تتولد قوة كبيرة على جسم الراكب. محدّد القوة بيسمح للحزام بإعطاء محسوب ضمن حدود التصميم، لتخفيف الضغط على الصدر. تذكّر الفرق: * Prétensionneur: بيشدّ الحزام بسرعة. * Limiteur d'effort: بيحدّ من القوة اللي بيطبقها الحزام على الجسم."
+          },
+          {
+            "fr": "J'installe mon enfant dans un siège auto homologué et adapté à sa morphologie.",
+            "ar": "أنا بحط طفلي بمقعد سيارة معتمد ومناسب لجسمه وحجمه.",
+            "en": "I place my child in an approved car seat suitable for their body size.",
+            "img": "data/conduite/img/l62-6.webp",
+            "note": "بفرنسا: * الطفل دون 10 سنوات لازم بشكل عام يجلس بالمقعد الخلفي. * لازم يستخدم مقعد أمان معتمداً ومناسباً لطوله وبنيته ووزنه. * ما بكفي يكون المقعد مناسباً لعمره فقط. * لازم أتأكد من تثبيته وربط الطفل بشكل صحيح. معلومة امتحانية: القاعدة هي مقعد خلفي ومقعد أمان مناسب، مع وجود استثناءات قانونية محددة."
+          },
+          {
+            "fr": "Je transporte mon bébé dos à la route aussi longtemps que le siège le permet.",
+            "ar": "أنا بنقل طفلي الرضيع ووجهه للخلف لأطول فترة بيسمح فيها مقعده.",
+            "en": "I transport my baby rear-facing for as long as the seat allows.",
+            "img": "data/conduite/img/l62-7.webp",
+            "note": "وضعية Dos à la route بتعني إن وجه الطفل بيكون باتجاه مؤخرة السيارة. هالوضعية بتساعد على حماية الرأس والرقبة عند الاصطدام الأمامي. * يُنصح بإبقائه بهالوضعية لأطول مدة يسمح فيها المقعد. * لازم أتبع حدود الطول والوزن المحددة من الشركة. * وفق معيار R129، النقل بوضعية مواجهة للخلف إلزامي حتى عمر 15 شهراً على الأقل."
+          },
+          {
+            "fr": "Je désactive l'airbag passager avant si j'installe un siège bébé dos à la route à l'avant.",
+            "ar": "أنا بعطّل الوسادة الهوائية للراكب الأمامي إذا حطيت مقعد رضيع مواجه للخلف قدّام.",
+            "en": "I deactivate the front passenger airbag if I install a rear-facing baby seat in the front.",
+            "img": "data/conduite/img/l62-8.webp",
+            "note": "تحذير مهم جداً ممنوع وضع مقعد طفل مواجه للخلف أمام وسادة هوائية أمامية فعّالة. لأن انتفاخ الوسادة الهوائية ممكن يضرب ظهر مقعد الطفل بقوة ويسبب إصابات خطيرة. إذا اضطررت لوضع المقعد الأمامي: * أتأكد أن المقعد مخصص للتركيب الأمامي. * أعطّل Airbag الراكب الأمامي. * أتأكد من ظهور إشارة تعطيل الوسادة الهوائية. * أتبع تعليمات السيارة ومقعد الطفل."
+          },
+          {
+            "fr": "Je fixe le siège enfant aux points d'ancrage ISOFIX prévus dans mon véhicule.",
+            "ar": "أنا بثبّت مقعد الطفل بنقاط التثبيت ISOFIX الموجودة بالسيارة.",
+            "en": "I attach the child seat to the ISOFIX anchor points in my vehicle.",
+            "img": "data/conduite/img/l62-9.webp",
+            "note": "ISOFIX هو نظام تثبيت لمقاعد الأطفال باستخدام نقاط معدنية موجودة بين قاعدة المقعد الخلفي ومسند الظهر. مميزاته: * بيسهّل تثبيت مقعد الطفل. * بيخفّف احتمال التركيب الخاطئ. * لازم أتأكد من تثبيت الوصلات بشكل صحيح. * بعض المقاعد بتحتاج نقطة دعم إضافية أو حزام تثبيت علوي Top Tether حسب التصميم. مو كل مقعد طفل مناسب لكل سيارة؛ لازم أتأكد من التوافق."
+          },
+          {
+            "fr": "Je choisis un siège homologué R129 adapté à la taille de mon enfant.",
+            "ar": "أنا بختار مقعد معتمد حسب معيار R129 ومناسب لطول طفلي.",
+            "en": "I choose an R129-approved seat suitable for my child's height.",
+            "img": "data/conduite/img/l62-10.webp",
+            "note": "معيار R129 هو معيار أوروبي لمقاعد الأطفال. * بيعتمد بشكل أساسي على طول الطفل. * بيشمل اختبارات حماية جانبية. * بيفرض وضعية مواجهة للخلف حتى عمر 15 شهراً على الأقل. * لازم أتبع نطاق الطول المحدد على ملصق المقعد. انتبه: R129 مو اسم نوع واحد من المقاعد، بل معيار اعتماد وسلامة."
+          },
+          {
+            "fr": "J'utilise un rehausseur adapté jusqu'à ce que la ceinture soit correctement positionnée sur mon enfant.",
+            "ar": "أنا بستخدم مقعد رافع مناسب لحد ما حزام الأمان يصير بمكانه الصحيح على جسم الطفل.",
+            "en": "I use a suitable booster seat until the seat belt fits my child correctly.",
+            "img": "data/conduite/img/l62-11.webp",
+            "note": "المقعد الرافع بيرفع الطفل حتى يصير حزام السيارة مناسباً لجسمه. لازم: * الجزء السفلي يمر فوق الحوض. * الجزء العلوي يمر فوق الكتف والصدر. * ما يمر الحزام على الرقبة أو البطن. بعض المقاعد فيها مسند ظهر لحماية وتوجيه الحزام بشكل أفضل."
+          },
+          {
+            "fr": "J'installe mon enfant à l'arrière du véhicule, sauf exception prévue par la réglementation.",
+            "ar": "أنا بحط طفلي بالمقعد الخلفي إلا إذا كانت حالته من الاستثناءات القانونية.",
+            "en": "I install my child in the rear of the vehicle unless a legal exception applies.",
+            "img": "data/conduite/img/l62-12.webp",
+            "note": "الطفل دون 10 سنوات مكانه الطبيعي بالمقاعد الخلفية. ممكن يجلس بالأمام في حالات محددة، منها: * إذا كان رضيعاً بمقعد مواجه للخلف مع تعطيل Airbag. * إذا ما في مقاعد خلفية. * إذا كانت المقاعد الخلفية غير صالحة للاستعمال مؤقتاً. * إذا كانت المقاعد الخلفية مشغولة بالكامل بأطفال دون 10 سنوات. * إذا لم تكن المقاعد الخلفية مجهزة بأحزمة أمان."
+          },
+          {
+            "fr": "Je vérifie que mon enfant de dix ans ou plus porte correctement sa ceinture de sécurité.",
+            "ar": "أنا بتأكد إن طفلي اللي عمره عشر سنوات أو أكتر لابس حزام الأمان بشكل صحيح.",
+            "en": "I check that my child aged ten or older wears the seat belt correctly.",
+            "img": "data/conduite/img/l62-13.webp",
+            "note": "حسب القاعدة الفرنسية: * من عمر 10 سنوات فما فوق، يمكن استخدام حزام السيارة العادي إذا كان مناسباً لجسم الطفل. * يمكنه الجلوس بالأمام أو الخلف. * يجب استعمال مقعد واحد لكل شخص. * إذا كان جسمه غير مناسب للحزام، يجب مراعاة الاستثناءات القانونية."
+          },
+          {
+            "fr": "Je porte ma ceinture pour respecter la loi et protéger ma vie.",
+            "ar": "أنا بلبس حزام الأمان حتى احترم القانون واحمي حياتي.",
+            "en": "I wear my seat belt to obey the law and protect my life.",
+            "img": "data/conduite/img/l62-14.webp",
+            "note": "بفرنسا، عدم ارتداء حزام الأمان مخالفة من الفئة الرابعة: * الغرامة الجزافية المعتادة: 135 يورو. * ممكن تصل الغرامة إلى 750 يورو وفق الإجراءات القانونية. * السائق غير المربوط ممكن يخسر 3 نقاط من رخصة القيادة. * السائق مسؤول عن التأكد من ربط الركاب القاصرين. أما الراكب البالغ غير المربوط، فهو يتحمل مسؤوليته عن مخالفته."
+          },
+          {
+            "fr": "Je transporte uniquement le nombre de passagers autorisé par la carte grise.",
+            "ar": "أنا بنقل عدد ركاب ما بيتجاوز العدد المسموح بوثيقة تسجيل السيارة.",
+            "en": "I carry only the number of passengers permitted by the vehicle registration document.",
+            "img": "data/conduite/img/l62-15.webp",
+            "note": "كل شخص لازم يكون بمقعد مخصص إله. * ممنوع شخصين يشتركوا بحزام واحد. * ما بصير أتجاوز عدد المقاعد المسجل بوثيقة السيارة. * الأطفال والرضّع محسوبين ضمن عدد الركاب."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "الوسائد الهوائية",
+          "fr": "Les airbags",
+          "en": "Airbags"
+        },
+        "img": "data/conduite/img/l63-1.webp",
+        "phrases": [
+          {
+            "fr": "Je sais que l’airbag frontal protège le conducteur et le passager avant en cas de choc.",
+            "ar": "أنا بعرف إنّ الوسادة الهوائية الأمامية بتحمي السائق والراكب الأمامي وقت الاصطدام.",
+            "en": "I know that the front airbag protects the driver and front passenger in a crash.",
+            "img": "data/conduite/img/l63-1.webp",
+            "note": "بتكون عادةً داخل المقود أمام السائق، وداخل لوحة القيادة أمام الراكب. * بتنتفخ بسرعة كبيرة عند بعض أنواع الاصطدامات، لتخفيف ارتطام الرأس والصدر. * مو بديل عن حزام الأمان؛ لازم نستخدم الحزام دائماً. * مو بكل حادث بتفتح الوسادة، لأن النظام بيحدد حسب شدة الاصطدام واتجاهه وظروفه."
+          },
+          {
+            "fr": "Je sais que les airbags latéraux protègent principalement le thorax et le bassin.",
+            "ar": "أنا بعرف إنّ الوسائد الجانبية بتحمي بشكل أساسي الصدر والحوض.",
+            "en": "I know that side airbags mainly protect the chest and pelvis.",
+            "img": "data/conduite/img/l63-2.webp",
+            "note": "ممكن تكون موجودة بجانب ظهر المقعد أو داخل الأبواب، حسب تصميم السيارة. * بتساعد على تقليل الإصابات عند الاصطدام الجانبي. * ما لازم نحط أغراض أو نركّب أغطية مقاعد بتعيق خروج الوسادة، إلا إذا كانت الأغطية معتمدة لهالنوع من المقاعد."
+          },
+          {
+            "fr": "Je sais que les airbags rideaux se déploient le long des vitres latérales.",
+            "ar": "أنا بعرف إنّ الوسائد الستائرية بتنفتح على طول الشبابيك الجانبية.",
+            "en": "I know that curtain airbags deploy along the side windows.",
+            "img": "data/conduite/img/l63-3.webp",
+            "note": "بتكون عادةً فوق الأبواب، ضمن سقف السيارة. * بتساعد على حماية رؤوس الركاب عند بعض الاصطدامات الجانبية أو حالات الانقلاب. * لازم ما نعلّق أغراض على أماكن خروجها."
+          },
+          {
+            "fr": "Je sais que l’airbag genoux peut protéger les jambes du conducteur.",
+            "ar": "أنا بعرف إنّ وسادة الركبة ممكن تحمي ساقَي السائق عند الاصطدام.",
+            "en": "I know that the knee airbag can protect the driver's legs in a crash.",
+            "img": "data/conduite/img/l63-4.webp",
+            "note": "بتكون غالباً أسفل لوحة القيادة، قرب ركبتي السائق. * مو موجودة بكل السيارات. * لازم ما نحط القدمين أو الأغراض بمكان خروجها."
+          },
+          {
+            "fr": "Je porte toujours ma ceinture de sécurité, même si ma voiture possède des airbags.",
+            "ar": "أنا دايماً بربط حزام الأمان، حتى لو سيارتي فيها وسائد هوائية.",
+            "en": "I always wear my seat belt, even if my car has airbags.",
+            "img": "data/conduite/img/l63-5.webp",
+            "note": "الوسادة الهوائية والحزام بيشتغلوا مع بعض كنظام حماية متكامل. * الحزام بيثبّت الجسم وبيخفف اندفاعه للأمام. * الوسادة بتساعد على تخفيف ارتطام الرأس والصدر. * فتح الوسادة بدون استخدام الحزام ممكن يزيد خطر الإصابة، خصوصاً إذا كان الشخص قريب كتير منها."
+          },
+          {
+            "fr": "Je désactive l’airbag passager avant lorsqu’un enfant est installé à l’avant dans un siège-auto dos à la route.",
+            "ar": "أنا بعطّل وسادة الراكب الأمامي الهوائية لما بحط طفل بالمقعد الأمامي بكرسي أطفال مواجه للخلف.",
+            "en": "I deactivate the front passenger airbag when a child is seated in a rear-facing child seat in the front.",
+            "img": "data/conduite/img/l63-6.webp",
+            "note": "إذا كان كرسي الطفل مواجه للخلف بالمقعد الأمامي، لازم تعطّل الوسادة الهوائية الأمامية للراكب. * إذا بقيت الوسادة مفعّلة، ممكن تدفع كرسي الطفل بقوة وتسبب إصابة خطيرة أو وفاة. * تعطيلها بيكون والسيارة متوقفة، وبحسب تعليمات الشركة المصنّعة. * بعد إزالة كرسي الطفل، أعد تفعيل الوسادة لحماية الراكب البالغ."
+          },
+          {
+            "fr": "Je vérifie que le témoin « PASSENGER AIRBAG OFF » est allumé lorsque l’airbag passager est désactivé.",
+            "ar": "أنا بتأكد إن ضوء «PASSENGER AIRBAG OFF» منوّر لما تكون وسادة الراكب معطّلة.",
+            "en": "I check that the “PASSENGER AIRBAG OFF” light is on when the passenger airbag is deactivated.",
+            "img": "data/conduite/img/l63-7.webp",
+            "note": "هالضوء بيدل عادةً إن وسادة الراكب الأمامي معطّلة. * إذا ركّبت كرسي طفل مواجه للخلف، لازم تتأكد من ظهور إشارة التعطيل حسب دليل السيارة. * لا تخلط بين ضوء التعطيل الطبيعي وضوء التحذير من وجود عطل بالنظام."
+          },
+          {
+            "fr": "Je fais contrôler rapidement le système si le voyant d’airbag indique une anomalie.",
+            "ar": "أنا بفحص نظام الوسائد الهوائية بسرعة إذا ضوء التحذير أشار لوجود عطل.",
+            "en": "I have the airbag system checked promptly if the warning light indicates a fault.",
+            "img": "data/conduite/img/l63-8.webp",
+            "note": "إذا ضوء Airbag بقي مضاءً أو ظهر تحذير عطل، ممكن يكون النظام ما عاد يشتغل بشكل صحيح. * لا تفترض إن الوسائد رح تفتح وقت الحادث. * لازم تفحص السيارة عند مختص، وما تحاول تصلّح النظام بنفسك. * إذا ظهر عطل بنظام تعطيل وسادة الراكب، لا تضع كرسي طفل مواجه للخلف بالمقعد الأمامي."
+          },
+          {
+            "fr": "Je règle mon siège pour garder une distance suffisante avec le volant et conserver les bras légèrement pliés.",
+            "ar": "أنا بظبط مقعدي حتى أترك مسافة كافية بيني وبين المقود، وتكون إيدي مثنية شوي.",
+            "en": "I adjust my seat to keep enough distance from the steering wheel and my arms slightly bent.",
+            "img": "data/conduite/img/l63-9.webp",
+            "note": "لا تقعد ملاصق للمقود. * لازم تكون قادر تتحكم بالمقود والدواسات، مع ترك مسافة مناسبة لفتح الوسادة الهوائية. * لا تعتمد على رقم واحد لكل السيارات؛ اتبع دليل السيارة وضبط وضعية القيادة المناسبة."
+          },
+          {
+            "fr": "Je ne place aucun objet sur le tableau de bord, devant la zone de déploiement de l’airbag.",
+            "ar": "أنا ما بحط أي غرض على الطبلون قدّام مكان خروج الوسادة الهوائية.",
+            "en": "I do not place any objects on the dashboard in front of the airbag deployment area.",
+            "img": "data/conduite/img/l63-10.webp",
+            "note": "لا تحط هاتفاً أو علبة أو أغراضاً ثقيلة فوق غطاء الوسادة. * لا تثبّت حوامل أو زينة على غطاء الوسادة الهوائية. * عند فتح الوسادة، ممكن الأغراض تتحول لأشياء خطيرة وتسبب إصابات."
+          },
+          {
+            "fr": "Je fais remplacer un airbag qui s’est déclenché par un professionnel.",
+            "ar": "أنا بخلي مختص يستبدل الوسادة الهوائية اللي فتحت بعد الحادث.",
+            "en": "I have a deployed airbag replaced by a professional.",
+            "img": "data/conduite/img/l63-11.webp",
+            "note": "الوسادة الهوائية بعد فتحها ما بترجع تشتغل مرة تانية. * لازم يفحص المختص مكوّنات النظام المتضررة ويستبدل القطع المطلوبة. * لا تشتري وسادة مستعملة؛ وفق Service Public، الوسادة الهوائية المركّبة بالسيارة لازم تكون جديدة، وتركيب وسادة مستعملة ممنوع."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "أنظمة حماية الركاب",
+          "fr": "La sécurité passive des occupants",
+          "en": "Passive occupant protection"
+        },
+        "img": "data/conduite/img/l64-1.webp",
+        "phrases": [
+          {
+            "fr": "Je sais que le prétensionneur tend rapidement la ceinture au début d’un choc.",
+            "ar": "أنا بعرف إنّ شدّاد الحزام بيشدّ الحزام بسرعة ببداية الاصطدام.",
+            "en": "I know that the pretensioner quickly tightens the seat belt at the beginning of a crash.",
+            "img": "data/conduite/img/l64-1.webp",
+            "note": "بيشتغل تلقائياً عند بعض أنواع الاصطدامات. * بيقلّل الفراغ بين الجسم والحزام. * بيساعد على تثبيت الجسم بالمقعد. * بعد تفعيله، ممكن يحتاج إلى استبدال عند مختص."
+          },
+          {
+            "fr": "Je sais que le limiteur d’effort réduit la pression exercée par la ceinture sur le thorax.",
+            "ar": "أنا بعرف إنّ محدّد القوة بيخفّف الضغط اللي بيعمله الحزام على الصدر وقت الاصطدام.",
+            "en": "I know that the load limiter reduces the pressure exerted by the seat belt on the chest.",
+            "img": "data/conduite/img/l64-2.webp",
+            "note": "بيعمل مع شدّاد الحزام ضمن نظام الحماية. * بيسمح للحزام بإرخاء مضبوط ومحدود تحت قوة معينة. * الهدف تخفيف الإصابات الناتجة عن ضغط الحزام على الصدر. * ما بيعني إن الحزام بيصير مرتخياً قبل الحادث."
+          },
+          {
+            "fr": "Je sais que la sécurité passive limite les blessures lorsque l’accident se produit.",
+            "ar": "أنا بعرف إنّ السلامة السلبية بتخفّف الإصابات لما يقع الحادث.",
+            "en": "I know that passive safety reduces injuries when a crash occurs.",
+            "img": "data/conduite/img/l64-3.webp",
+            "note": "من أمثلتها: * حزام الأمان. * الوسائد الهوائية. * شدّاد الحزام ومحدّد القوة. * هيكل السيارة ومقصورة الركاب المصممة لامتصاص طاقة الاصطدام."
+          },
+          {
+            "fr": "Je sais que la sécurité active aide à éviter les accidents.",
+            "ar": "أنا بعرف إنّ السلامة النشطة بتساعد على تجنّب الحوادث قبل وقوعها.",
+            "en": "I know that active safety helps prevent accidents before they happen.",
+            "img": "data/conduite/img/l64-4.webp",
+            "note": "من أمثلتها: * نظام منع انغلاق المكابح ABS. * نظام الثبات الإلكتروني ESP. * نظام الكبح التلقائي في حالات الطوارئ. * أنظمة التنبيه عند مغادرة المسار. الفرق المهم بالامتحان: * Sécurité active = تجنّب الحادث. * Sécurité passive = تخفيف الإصابات بعد وقوع الحادث."
+          },
+          {
+            "fr": "Je sais que les zones de déformation absorbent une partie de l’énergie du choc.",
+            "ar": "أنا بعرف إنّ مناطق التشوّه بالسيارة بتمتص جزء من طاقة الاصطدام.",
+            "en": "I know that crumple zones absorb part of the crash energy.",
+            "img": "data/conduite/img/l64-5.webp",
+            "note": "بتكون غالباً بمقدمة السيارة ومؤخرتها. * مصممة لتتشوّه بطريقة محسوبة عند الاصطدام. * بتساعد على تخفيف القوة المنتقلة إلى الركاب. * تشوّه مقدمة السيارة بعد حادث مو بالضرورة دليل على فشل نظام الحماية؛ أحياناً هاد هو التصميم المطلوب."
+          },
+          {
+            "fr": "Je sais que la cellule de sécurité protège l’espace réservé aux occupants.",
+            "ar": "أنا بعرف إنّ قفص الحماية بيحافظ قدر الإمكان على المساحة المخصصة للركاب.",
+            "en": "I know that the safety cell helps protect the space occupied by passengers.",
+            "img": "data/conduite/img/l64-6.webp",
+            "note": "مقصورة الركاب مصممة لتقاوم التشوّه قدر الإمكان. * الهدف تقليل دخول أجزاء السيارة إلى مكان جلوس الركاب. * بتشتغل مع مناطق امتصاص الصدمات وأحزمة الأمان والوسائد الهوائية."
+          },
+          {
+            "fr": "Je sais que l’appuie-tête aide à protéger ma tête et mon cou lors d’un choc arrière.",
+            "ar": "أنا بعرف إنّ مسند الرأس بيساعد على حماية راسي ورقبتي عند الاصطدام من الخلف.",
+            "en": "I know that the head restraint helps protect my head and neck in a rear-end collision.",
+            "img": "data/conduite/img/l64-7.webp",
+            "note": "بيساعد على تقليل حركة الرأس للخلف بالنسبة للجسم. * بيخفّف خطر إصابة الرقبة المعروفة باسم coup du lapin. * لازم يكون مضبوط حسب طول الشخص، مو بس للراحة."
+          },
+          {
+            "fr": "Je règle mon appuie-tête pour que sa partie supérieure arrive approximativement au niveau du sommet de ma tête.",
+            "ar": "أنا بظبط مسند الرأس بحيث يكون طرفه العلوي تقريباً بمستوى أعلى راسي.",
+            "en": "I adjust my head restraint so its upper edge is approximately level with the top of my head.",
+            "img": "data/conduite/img/l64-8.webp",
+            "note": "اضبط ارتفاعه بحيث يدعم الرأس بشكل مناسب. * قرّبه من مؤخرة الرأس قدر الإمكان من دون ما يدفع الرأس لوضعية غير مريحة. * لا تتركه منخفضاً كثيراً؛ لأن الرأس ممكن يتحرك فوقه وقت الاصطدام. * اتبع تعليمات الشركة المصنّعة للمقعد."
+          },
+          {
+            "fr": "Je vérifie que les appuie-tête arrière sont correctement réglés pour les passagers.",
+            "ar": "أنا بتأكد إنّ مساند الرأس الخلفية مضبوطة بشكل صحيح للركاب.",
+            "en": "I check that the rear head restraints are correctly adjusted for passengers.",
+            "img": "data/conduite/img/l64-9.webp",
+            "note": "مسند الرأس مهم للراكب الخلفي كمان، مو بس للسائق والراكب الأمامي. * لازم يكون مناسب لطول الشخص الجالس. * لا تنزّله أو تشيله إذا كان وجوده مطلوباً لحماية الراكب. * وجوده وحده ما بيكفي؛ لازم يكون مضبوطاً بشكل صحيح."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "وضعية الجلوس واستعمال الحزام",
+          "fr": "Position de conduite et ceinture",
+          "en": "Seating position and belt use"
+        },
+        "img": "data/conduite/img/l65-1.webp",
+        "phrases": [
+          {
+            "fr": "Je règle mon siège pour atteindre facilement les pédales.",
+            "ar": "أنا بظبط مقعدي حتى أوصل للدواسات بسهولة.",
+            "en": "I adjust my seat so I can easily reach the pedals.",
+            "img": "data/conduite/img/l65-1.webp",
+            "note": "لازم تقدر تضغط على الدواسات بشكل كامل من دون تمديد رجلك زيادة. * خلي ظهرك مسنود على ظهر المقعد. * لا تقعد قريب كتير من المقود ولا بعيد كتير. * لازم تقدر تتحكم بالسيارة براحة وثبات."
+          },
+          {
+            "fr": "Je garde le dossier suffisamment droit pour bien contrôler le volant.",
+            "ar": "أنا بخلي ظهر المقعد مستقيم بدرجة كافية حتى أتحكم بالمقود منيح.",
+            "en": "I keep the seatback upright enough to control the steering wheel properly.",
+            "img": "data/conduite/img/l65-2.webp",
+            "note": "لا ترجّع ظهر المقعد لورا بشكل مبالغ فيه. * لازم تضل كتافك قريبة من ظهر المقعد حتى تتحكم بالمقود. * الوضعية الصحيحة بتساعدك على الاستجابة بسرعة."
+          },
+          {
+            "fr": "Je garde mes pieds bien positionnés pour utiliser les pédales sans gêne.",
+            "ar": "أنا بخلي رجلي بمكان مناسب حتى أستخدم الدواسات من دون عرقلة.",
+            "en": "I keep my feet correctly positioned so I can use the pedals without obstruction.",
+            "img": "data/conduite/img/l65-3.webp",
+            "note": "بالسيارة اليدوية، استخدم القدم اليسرى للقابض (Embrayage)، واليمنى للفرامل والبنزين. * بالسيارة الأوتوماتيكية، استخدم القدم اليمنى للفرامل والبنزين. * لا تترك أي غرض على أرضية السيارة ممكن يعلق تحت الدواسات."
+          },
+          {
+            "fr": "Je place la sangle diagonale sur mon épaule et au milieu de ma poitrine.",
+            "ar": "أنا بحط الجزء المائل من الحزام فوق كتفي ووسط صدري.",
+            "en": "I position the diagonal belt across my shoulder and the middle of my chest.",
+            "img": "data/conduite/img/l65-4.webp",
+            "note": "لازم يمر الحزام فوق الكتف، مو تحت الإبط. * ما لازم يمر على الرقبة بطريقة خطيرة. * لازم يلامس الجسم بشكل صحيح، وما يكون ملتفاً."
+          },
+          {
+            "fr": "Je place la sangle basse sur mes hanches et non sur mon ventre.",
+            "ar": "أنا بحط الجزء السفلي من الحزام على عظام الحوض، مو فوق بطني.",
+            "en": "I position the lap belt over my hips, not over my stomach.",
+            "img": "data/conduite/img/l65-5.webp",
+            "note": "لازم يكون الجزء السفلي منخفضاً على عظام الحوض. * لا تتركه فوق البطن. * هالشي مهم خصوصاً للحوامل؛ الجزء السفلي لازم يمر تحت البطن وعلى مستوى الحوض قدر الإمكان. Sécurité Routière +1"
+          },
+          {
+            "fr": "Je vérifie que ma ceinture n’est pas vrillée.",
+            "ar": "أنا بتأكد إنّ حزام الأمان مو ملتوي.",
+            "en": "I check that my seat belt is not twisted.",
+            "img": "data/conduite/img/l65-6.webp",
+            "note": "لازم يكون الحزام مفروداً بشكل مسطّح على الجسم. * إذا كان ملتفاً، ممكن ما يوزّع قوة الاصطدام بشكل صحيح. * صحّح وضعه قبل الانطلاق."
+          },
+          {
+            "fr": "Je serre ma ceinture pour qu’elle soit bien ajustée contre mon corps.",
+            "ar": "أنا بشدّ الحزام حتى يكون قريب ومناسب لجسمي.",
+            "en": "I tighten my seat belt so it fits snugly against my body.",
+            "img": "data/conduite/img/l65-7.webp",
+            "note": "لا تترك فراغاً كبيراً بين الحزام وجسمك. * بعد ربط الحزام، اسحب الجزء المائل برفق لإزالة الارتخاء. * الحزام المرتخي ممكن يسمح للجسم بالاندفاع أكثر وقت الاصطدام."
+          },
+          {
+            "fr": "Je retire mon manteau très épais ou je l’ouvre pour bien ajuster ma ceinture.",
+            "ar": "أنا بشيل المعطف السميك جداً أو بفتحه حتى يثبت الحزام بشكل صحيح.",
+            "en": "I remove or open my very thick coat so the seat belt fits properly.",
+            "img": "data/conduite/img/l65-8.webp",
+            "note": "الملابس السميكة ممكن تعمل فراغاً بين الجسم والحزام. * الأفضل تخلي الحزام ملاصق لجسمك قدر الإمكان. * انتبه خصوصاً للأطفال بملابس الشتاء السميكة داخل كرسي السيارة."
+          },
+          {
+            "fr": "Je vérifie que la languette est bien enclenchée dans la boucle.",
+            "ar": "أنا بتأكد إنّ لسان الحزام دخل وثبت منيح بالقفل.",
+            "en": "I check that the belt tongue is properly locked into the buckle.",
+            "img": "data/conduite/img/l65-9.webp",
+            "note": "أدخل لسان الحزام حتى تسمع صوت التثبيت. * اسحب الحزام برفق للتأكد إنه مقفول. * لا تستخدم قفل حزام غير مخصص لمقعدك."
+          },
+          {
+            "fr": "Je n’utilise jamais de pince pour détendre ma ceinture de sécurité.",
+            "ar": "أنا ما بستعمل أبداً مشبك حتى أرخي حزام الأمان.",
+            "en": "I never use a clip to loosen my seat belt.",
+            "img": "data/conduite/img/l65-10.webp",
+            "note": "لا تستخدم مشابك أو أدوات تمنع الحزام من الالتصاق بالجسم. * لا تستعمل إضافات غير معتمدة لتغيير طريقة عمل الحزام. * هالأدوات ممكن تقلّل فعالية الحماية وقت الاصطدام. Sécurité Routière +1"
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "الأجزاء الخارجية للسيارة 1",
+          "fr": "Les parties extérieures 1",
+          "en": "Car exterior parts 1"
+        },
+        "img": "data/conduite/img/l66-1.webp",
+        "phrases": [
+          {
+            "fr": "Je connais la carrosserie de ma voiture.",
+            "ar": "أنا بعرف هيكل سيارتي الخارجي.",
+            "en": "I know my car's bodywork.",
+            "img": "data/conduite/img/l66-1.webp",
+            "note": "الهيكل الخارجي اللي بيشكّل جسم السيارة وبيغطي أجزاءها الداخلية."
+          },
+          {
+            "fr": "J’ouvre le capot de ma voiture.",
+            "ar": "أنا بفتح غطاء محرك سيارتي.",
+            "en": "I open my car's hood.",
+            "img": "data/conduite/img/l66-2.webp",
+            "note": "الغطاء الموجود بمقدمة السيارة، وتحته المحرك وأجزاء أخرى حسب تصميم السيارة."
+          },
+          {
+            "fr": "Je range mes affaires dans le coffre.",
+            "ar": "أنا بحط أغراضي بصندوق السيارة الخلفي.",
+            "en": "I put my belongings in the trunk.",
+            "img": "data/conduite/img/l66-3.webp",
+            "note": "المكان المخصص لوضع الحقائب والأغراض."
+          },
+          {
+            "fr": "Je vérifie le pare-chocs avant de ma voiture.",
+            "ar": "أنا بفحص المصد الأمامي بسيارتي.",
+            "en": "I check my car's front bumper.",
+            "img": "data/conduite/img/l66-4.webp",
+            "note": "القطعة الموجودة بمقدمة السيارة، وبتساعد على امتصاص جزء من طاقة الصدمات الخفيفة وحماية بعض المكونات."
+          },
+          {
+            "fr": "Je vérifie le pare-chocs arrière.",
+            "ar": "أنا بفحص المصد الخلفي.",
+            "en": "I check the rear bumper.",
+            "img": "data/conduite/img/l66-5.webp",
+            "note": "موجود بمؤخرة السيارة، وبيساعد على حماية أجزاء منها عند الصدمات."
+          },
+          {
+            "fr": "Je regarde l’aile de ma voiture.",
+            "ar": "أنا بتطلع على رفرف سيارتي.",
+            "en": "I look at my car's fender.",
+            "img": "data/conduite/img/l66-6.webp",
+            "note": "جزء من الهيكل بيحيط بمنطقة العجلة. بالفرنسية كلمة Aile هون تعني رفرف السيارة."
+          },
+          {
+            "fr": "J’ouvre la portière de ma voiture.",
+            "ar": "أنا بفتح باب سيارتي.",
+            "en": "I open my car door.",
+            "img": "data/conduite/img/l66-7.webp",
+            "note": "الباب اللي من خلاله منركب بالسيارة ومننزل منها."
+          },
+          {
+            "fr": "Je nettoie le toit de ma voiture.",
+            "ar": "أنا بنظّف سقف سيارتي.",
+            "en": "I clean my car's roof.",
+            "img": "data/conduite/img/l66-8.webp",
+            "note": "الجزء العلوي من جسم السيارة، وقد يكون معدنياً أو زجاجياً حسب الموديل."
+          },
+          {
+            "fr": "Je nettoie le pare-brise.",
+            "ar": "أنا بنظّف الزجاج الأمامي.",
+            "en": "I clean the windshield.",
+            "img": "data/conduite/img/l66-9.webp",
+            "note": "الزجاج الكبير الموجود أمام السائق والراكب الأمامي، وبيساعد على الرؤية."
+          },
+          {
+            "fr": "Je nettoie la lunette arrière.",
+            "ar": "أنا بنظّف الزجاج الخلفي.",
+            "en": "I clean the rear window.",
+            "img": "data/conduite/img/l66-10.webp",
+            "note": "الزجاج الموجود بمؤخرة السيارة، وغالباً بيحتوي على خطوط تسخين لإزالة الضباب أو الجليد."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "الأجزاء الخارجية للسيارة 2",
+          "fr": "Les parties extérieures 2",
+          "en": "Car exterior parts 2"
+        },
+        "img": "data/conduite/img/l67-1.webp",
+        "phrases": [
+          {
+            "fr": "Je règle mon rétroviseur extérieur.",
+            "ar": "أنا بظبط المراية الجانبية بسيارتي.",
+            "en": "I adjust my side mirror.",
+            "img": "data/conduite/img/l67-1.webp",
+            "note": "بتساعدني شوف السيارات الموجودة خلفي وعلى جانبي السيارة."
+          },
+          {
+            "fr": "Je regarde dans le rétroviseur intérieur.",
+            "ar": "أنا بتطلع بالمراية الداخلية.",
+            "en": "I look in the interior rear-view mirror.",
+            "img": "data/conduite/img/l67-2.webp",
+            "note": "بتسمحلي شوف الطريق والسيارات خلفي من خلال الزجاج الخلفي."
+          },
+          {
+            "fr": "Je tire sur la poignée pour ouvrir la portière.",
+            "ar": "أنا بسحب مقبض الباب حتى افتح الباب.",
+            "en": "I pull the handle to open the door.",
+            "img": "data/conduite/img/l67-3.webp",
+            "note": "المقبض اللي منستخدمه لفتح باب السيارة وإغلاقه."
+          },
+          {
+            "fr": "J’allume les phares avant.",
+            "ar": "أنا بشغّل المصابيح الأمامية.",
+            "en": "I turn on the front headlights.",
+            "img": "data/conduite/img/l67-4.webp",
+            "note": "المصابيح الموجودة بمقدمة السيارة، وبتساعد على إنارة الطريق حسب نوع الضوء المستخدم."
+          },
+          {
+            "fr": "Je vérifie les feux arrière.",
+            "ar": "أنا بفحص المصابيح الخلفية.",
+            "en": "I check the rear lights.",
+            "img": "data/conduite/img/l67-5.webp",
+            "note": "بتشمل أضواء خلفية مختلفة، مثل أضواء الموضع والفرامل والإشارات، بحسب تصميم السيارة."
+          },
+          {
+            "fr": "Je nettoie la calandre de ma voiture.",
+            "ar": "أنا بنظّف الشبك الأمامي بسيارتي.",
+            "en": "I clean my car's front grille.",
+            "img": "data/conduite/img/l67-6.webp",
+            "note": "الشبك الموجود بمقدمة السيارة، وبيسمح بمرور الهواء إلى أجزاء التبريد حسب تصميم السيارة."
+          },
+          {
+            "fr": "Je vérifie les essuie-glaces.",
+            "ar": "أنا بفحص ماسحات الزجاج.",
+            "en": "I check the windshield wipers.",
+            "img": "data/conduite/img/l67-7.webp",
+            "note": "بتحرّك على الزجاج لإزالة المطر والأوساخ، وبتساعدني حافظ على الرؤية."
+          },
+          {
+            "fr": "Je vérifie le bras d’essuie-glace.",
+            "ar": "أنا بفحص ذراع ماسحة الزجاج.",
+            "en": "I check the windshield wiper arm.",
+            "img": "data/conduite/img/l67-8.webp",
+            "note": "الذراع اللي بيثبّت شفرة المسّاحة وبيحرّكها على الزجاج."
+          },
+          {
+            "fr": "J’ouvre la trappe à carburant pour faire le plein.",
+            "ar": "أنا بفتح غطاء فتحة الوقود حتى عبّي بنزين أو مازوت.",
+            "en": "I open the fuel filler flap to refuel.",
+            "img": "data/conduite/img/l67-9.webp",
+            "note": "الغطاء الخارجي اللي منفتحه للوصول إلى فتحة تعبئة الوقود."
+          },
+          {
+            "fr": "Je regarde le tuyau d’échappement.",
+            "ar": "أنا بتطلع على أنبوب العادم.",
+            "en": "I look at the exhaust pipe.",
+            "img": "data/conduite/img/l67-10.webp",
+            "note": "الأنبوب اللي بتخرج منه غازات العادم الناتجة عن احتراق الوقود في محرك الاحتراق الداخلي."
+          },
+          {
+            "fr": "J’allume le clignotant avant de tourner.",
+            "ar": "أنا بشغّل الغماز قبل ما لف.",
+            "en": "I turn on the indicator before turning.",
+            "img": "data/conduite/img/l67-11.webp",
+            "note": "بيعطي إشارة للآخرين إنك بدك تنعطف أو تغيّر اتجاهك. موجود عادةً بالأمام والخلف وعلى الجوانب."
+          },
+          {
+            "fr": "Je vérifie que mes feux stop fonctionnent.",
+            "ar": "أنا بتأكد إن أضواء الفرامل شغّالة.",
+            "en": "I check that my brake lights work.",
+            "img": "data/conduite/img/l67-12.webp",
+            "note": "بيضوي باللون الأحمر لما تضغط على دواسة الفرامل، لينبّه السائقين اللي وراك."
+          },
+          {
+            "fr": "J’allume le feu de recul en passant la marche arrière.",
+            "ar": "أنا بشغّل ضوء الرجوع للخلف لما حط الغيار الخلفي.",
+            "en": "I switch on the reverse light when selecting reverse gear.",
+            "img": "data/conduite/img/l67-13.webp",
+            "note": "ضوء أبيض موجود بمؤخرة السيارة، وبيساعد على الرؤية وبيخبر الآخرين إن السيارة عم ترجع للخلف."
+          },
+          {
+            "fr": "J’utilise les feux antibrouillard lorsque les conditions le permettent.",
+            "ar": "أنا بستعمل أضواء الضباب لما ظروف الرؤية بتسمح وبتتطلب ذلك.",
+            "en": "I use fog lights when conditions allow and require them.",
+            "img": "data/conduite/img/l67-14.webp",
+            "note": "في أضواء ضباب أمامية وخلفية. * الأمامية بتساعد على تحسين الرؤية ببعض الظروف الصعبة. * الخلفية قوية جداً، وما لازم تستعملها بالمطر العادي لأنها ممكن تزعج السائقين خلفك."
+          },
+          {
+            "fr": "Je vérifie que ma plaque d’immatriculation est propre et lisible.",
+            "ar": "أنا بتأكد إن لوحة تسجيل سيارتي نظيفة ومقروءة.",
+            "en": "I check that my registration plate is clean and readable.",
+            "img": "data/conduite/img/l67-15.webp",
+            "note": "اللوحة اللي بتحمل رقم تسجيل السيارة، ولازم تكون واضحة وغير محجوبة."
+          },
+          {
+            "fr": "Je vérifie l’antenne de ma voiture.",
+            "ar": "أنا بفحص هوائي سيارتي.",
+            "en": "I check my car antenna.",
+            "img": "data/conduite/img/l67-16.webp",
+            "note": "بيُستخدم لاستقبال إشارات الراديو، وقد يكون تقليدياً أو مدمجاً بشكل زعنفة على السقف."
+          },
+          {
+            "fr": "J’ouvre le toit ouvrant de ma voiture.",
+            "ar": "أنا بفتح فتحة السقف بسيارتي.",
+            "en": "I open my car's sunroof.",
+            "img": "data/conduite/img/l67-17.webp",
+            "note": "فتحة زجاجية أو متحركة بالسقف، بتسمح بدخول الهواء والضوء. مو موجودة بكل السيارات."
+          },
+          {
+            "fr": "Je regarde l’aileron arrière de la voiture.",
+            "ar": "أنا بتطلع على الجناح الخلفي للسيارة.",
+            "en": "I look at the car's rear spoiler.",
+            "img": "data/conduite/img/l67-18.webp",
+            "note": "قطعة مركّبة بمؤخرة بعض السيارات، وبتساعد على تحسين الديناميكية الهوائية والثبات حسب تصميمها وسرعة السيارة."
+          },
+          {
+            "fr": "Je vérifie le bas de caisse de ma voiture.",
+            "ar": "أنا بفحص العتبة السفلية تحت أبواب السيارة.",
+            "en": "I check my car's rocker panel.",
+            "img": "data/conduite/img/l67-19.webp",
+            "note": "الجزء السفلي الممتد على جانب السيارة تحت الأبواب، وبيساهم ببنية الهيكل."
+          },
+          {
+            "fr": "Je baisse la vitre latérale.",
+            "ar": "أنا بنزّل زجاج الباب الجانبي.",
+            "en": "I lower the side window.",
+            "img": "data/conduite/img/l67-20.webp",
+            "note": "الزجاج الموجود بأبواب السيارة، ممكن يكون كهربائياً أو يدوياً حسب الموديل."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "العجلات وأجزاؤها",
+          "fr": "Les roues et les pneus",
+          "en": "Wheels and tire parts"
+        },
+        "img": "data/conduite/img/l68-1.webp",
+        "phrases": [
+          {
+            "fr": "Je vérifie les roues de ma voiture.",
+            "ar": "أنا بفحص عجلات سيارتي.",
+            "en": "I check my car's wheels.",
+            "img": "data/conduite/img/l68-1.webp",
+            "note": "العجلة هي المجموعة الكاملة التي تشمل الإطار والجنط، ومثبتة بمحور السيارة."
+          },
+          {
+            "fr": "Je vérifie l’état de mes pneus.",
+            "ar": "أنا بفحص حالة دواليب سيارتي.",
+            "en": "I check the condition of my tires.",
+            "img": "data/conduite/img/l68-2.webp",
+            "note": "الجزء المطاطي الملامس للطريق، وبيوفر التماسك أثناء القيادة والفرملة."
+          },
+          {
+            "fr": "Je nettoie les jantes de ma voiture.",
+            "ar": "أنا بنظّف جنوط سيارتي.",
+            "en": "I clean my car's rims.",
+            "img": "data/conduite/img/l68-3.webp",
+            "note": "الجزء المعدني اللي بيركب عليه الإطار. ممكن يكون من الألمنيوم أو الفولاذ."
+          },
+          {
+            "fr": "Je remplace l’enjoliveur abîmé.",
+            "ar": "أنا ببدّل غطاء الجنط المتضرر.",
+            "en": "I replace the damaged wheel cover.",
+            "img": "data/conduite/img/l68-4.webp",
+            "note": "غطاء تجميلي بيركب فوق الجنط، وغالباً بيكون مصنوعاً من البلاستيك."
+          },
+          {
+            "fr": "Je vérifie la valve du pneu.",
+            "ar": "أنا بفحص صمام الدولاب.",
+            "en": "I check the tire valve.",
+            "img": "data/conduite/img/l68-5.webp",
+            "note": "الصمام اللي من خلاله منعبّي الهواء بالإطار، وبيساعد على منع تسربه."
+          },
+          {
+            "fr": "Je remets le bouchon de valve après le gonflage.",
+            "ar": "أنا برجع غطاء الصمام بعد نفخ الدولاب.",
+            "en": "I put the valve cap back on after inflating the tire.",
+            "img": "data/conduite/img/l68-6.webp",
+            "note": "غطاء صغير بيحمي فتحة الصمام من الأوساخ والرطوبة."
+          },
+          {
+            "fr": "Je vérifie les écrous de roue.",
+            "ar": "أنا بفحص صواميل العجلة.",
+            "en": "I check the wheel nuts.",
+            "img": "data/conduite/img/l68-7.webp",
+            "note": "بتثبت العجلة بالسيارة. بعض السيارات تستخدم مسامير عجلات (Boulons de roue) بدل الصواميل."
+          },
+          {
+            "fr": "Je vérifie la roue de secours dans mon coffre.",
+            "ar": "أنا بتأكد من وجود العجلة الاحتياطية بصندوق السيارة.",
+            "en": "I check the spare wheel in my trunk.",
+            "img": "data/conduite/img/l68-8.webp",
+            "note": "عجلة إضافية تُستخدم مؤقتاً عند حدوث ثقب أو تلف بالإطار، إذا كانت السيارة مجهزة فيها."
+          },
+          {
+            "fr": "J’utilise le cric pour soulever la voiture.",
+            "ar": "أنا بستعمل رافعة السيارة حتى ارفعها.",
+            "en": "I use the car jack to lift the vehicle.",
+            "img": "data/conduite/img/l68-9.webp",
+            "note": "أداة بترفع السيارة عن الأرض لتغيير العجلة. لازم تنحط بنقطة الرفع المحددة من الشركة، وعلى أرض ثابتة ومستوية، مع تأمين السيارة حسب التعليمات."
+          },
+          {
+            "fr": "J’utilise la clé en croix pour desserrer les écrous de roue.",
+            "ar": "أنا بستعمل مفتاح العجلات لفك صواميل العجلة.",
+            "en": "I use the cross wrench to loosen the wheel nuts.",
+            "img": "data/conduite/img/l68-10.webp",
+            "note": "أداة بتساعد على فك وربط مسامير أو صواميل العجلات، حسب نوع تثبيت العجلة."
+          }
+        ]
       }
     ]
   }
