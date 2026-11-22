@@ -4,7 +4,7 @@ const FILES_TO_CACHE = [
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
-  './bienvenue-lesson.jpg',
+  './bienvenue-lesson.webp',
   './whatsapp-icon.png',
   './js/edge-tts.js',
   './fonts/simplified-arabic.ttf',
