@@ -4142,6 +4142,189 @@ window.CONDUITE_FOLDERS = [
             "note": "اتبع تعليمات الموظف الذي يستقبل المكالمة، ولا تنهِ الاتصال من تلقاء نفسك. Sécurité civile et gestion des."
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "التوقف الاضطراري على الأوتوروت",
+          "fr": "Arrêt d'urgence sur autoroute",
+          "en": "Emergency stop on the motorway"
+        },
+        "img": "data/conduite/img/l48-1.webp",
+        "phrases": [
+          {
+            "fr": "Je rejoins la bande d'arrêt d'urgence si je peux le faire sans danger.",
+            "ar": "أنا بحاول أوصل لحافة التوقف الاضطراري إذا بقدر أعمل هالشي بأمان.",
+            "en": "I move onto the emergency shoulder if I can do so safely.",
+            "img": "data/conduite/img/l48-1.webp",
+            "note": "إذا تعطلت السيارة، اخرج من مسار السير وتوقف على Bande d'arrêt d'urgence بدون مناورات مفاجئة."
+          },
+          {
+            "fr": "J'allume immédiatement mes feux de détresse.",
+            "ar": "أنا بشغّل أضواء التحذير الرباعية فوراً.",
+            "en": "I immediately switch on my hazard warning lights.",
+            "img": "data/conduite/img/l48-2.webp",
+            "note": "أضوية التحذير تنبّه السائقين الآخرين أن سيارتك متوقفة بسبب مشكلة."
+          },
+          {
+            "fr": "Je mets mon gilet de sécurité avant de sortir du véhicule.",
+            "ar": "أنا بلبس السترة العاكسة قبل ما انزل من السيارة.",
+            "en": "I put on my reflective safety vest before leaving the vehicle.",
+            "img": "data/conduite/img/l48-3.webp",
+            "note": "السترة لازم تكون بمكان سهل الوصول من داخل السيارة لارتدائها قبل النزول."
+          },
+          {
+            "fr": "Je sors du véhicule du côté opposé à la circulation.",
+            "ar": "أنا بنزل من جهة السيارة البعيدة عن حركة السير.",
+            "en": "I exit the vehicle on the side away from traffic.",
+            "img": "data/conduite/img/l48-4.webp",
+            "note": "انزل من الجهة اليمنى البعيدة عن السيارات المارة، وأخرج الركاب من نفس الجهة."
+          },
+          {
+            "fr": "Je me mets à l'abri derrière la glissière de sécurité.",
+            "ar": "أنا بروح وبحتمي خلف الحاجز المعدني.",
+            "en": "I take shelter behind the safety barrier.",
+            "img": "data/conduite/img/l48-5.webp",
+            "note": "لا تنتظر داخل السيارة على حافة الطريق — احتمِ أنت والركاب خلف الحاجز."
+          },
+          {
+            "fr": "Je rejoins la borne d'appel d'urgence la plus proche.",
+            "ar": "أنا بروح لأقرب عمود اتصال للطوارئ.",
+            "en": "I go to the nearest emergency call point.",
+            "img": "data/conduite/img/l48-6.webp",
+            "note": "أعمدة اتصال برتقالية كل ~2 كم على الأوتوروت لتحديد موقعك بسرعة — امشِ خلف الحاجز."
+          },
+          {
+            "fr": "Je ne traverse jamais les voies de circulation.",
+            "ar": "أنا ما بقطع أبداً مسارات الأوتوروت.",
+            "en": "I never cross the motorway lanes.",
+            "img": "data/conduite/img/l48-7.webp",
+            "note": "لا تعبر الطريق لعمود طوارئ بالجهة المقابلة — استخدم عمود جهتك فقط."
+          },
+          {
+            "fr": "Je ne pose pas le triangle si cela me met en danger.",
+            "ar": "أنا ما بحط مثلث التحذير إذا كان هالشي رح يعرّضني للخطر.",
+            "en": "I do not place the warning triangle if doing so would put me in danger.",
+            "img": "data/conduite/img/l48-8.webp",
+            "note": "⭐ للامتحان: على الأوتوروت لا تخاطر بوضع المثلث — سلامتك أهم."
+          },
+          {
+            "fr": "Je demande l'intervention d'un dépanneur agréé.",
+            "ar": "أنا بطلب تدخل شركة سحب وإصلاح معتمدة.",
+            "en": "I request assistance from an authorized breakdown service.",
+            "img": "data/conduite/img/l48-9.webp",
+            "note": "الإصلاح والسحب على الأوتوروت تتولاها شركات معتمدة فقط."
+          },
+          {
+            "fr": "Je ne tente pas de réparer mon véhicule sur la bande d'arrêt d'urgence.",
+            "ar": "أنا ما بحاول أصلّح سيارتي على حافة التوقف الاضطراري.",
+            "en": "I do not try to repair my car on the emergency shoulder.",
+            "img": "data/conduite/img/l48-10.webp",
+            "note": "لا تبدّل عجلة بجانب السيارات السريعة — انتظر المساعدة بمكان آمن. 📋 الترتيب: أضوية تحذير → حافة طوارئ → سترة → خروج جهة الراكب → خلف الحاجز → عمود SOS → سحب معتمد."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "القيادة داخل الأنفاق والطوارئ",
+          "fr": "Conduite en tunnel et urgences",
+          "en": "Tunnel driving and emergencies"
+        },
+        "img": "data/conduite/img/l49-1.webp",
+        "phrases": [
+          {
+            "fr": "J'allume mes feux de croisement avant d'entrer dans le tunnel.",
+            "ar": "أنا بشغّل أضوية التقابل قبل ما فوت على النفق.",
+            "en": "I switch on my dipped headlights before entering the tunnel.",
+            "img": "data/conduite/img/l49-1.webp",
+            "note": "شغّل أضوية التقابل حتى لو النفق مضاء جيداً."
+          },
+          {
+            "fr": "Je retire mes lunettes de soleil avant d'entrer dans le tunnel.",
+            "ar": "أنا بشيل النظارات الشمسية قبل ما فوت على النفق.",
+            "en": "I take off my sunglasses before entering the tunnel.",
+            "img": "data/conduite/img/l49-2.webp",
+            "note": "الانتقال من الضوء القوي للظلام قد يقلل الرؤية مؤقتاً."
+          },
+          {
+            "fr": "Je respecte la limitation de vitesse indiquée dans le tunnel.",
+            "ar": "أنا بلتزم بحد السرعة المكتوب داخل النفق.",
+            "en": "I follow the speed limit displayed inside the tunnel.",
+            "img": "data/conduite/img/l49-3.webp",
+            "note": "ما في سرعة ثابتة لكل الأنفاق — اتبع اللوحات (70 أو 80 أو 90)."
+          },
+          {
+            "fr": "Je garde une distance de sécurité suffisante avec le véhicule devant moi.",
+            "ar": "أنا بخلي مسافة أمان كافية بيني وبين السيارة اللي قدامي.",
+            "en": "I keep a sufficient safety distance from the vehicle ahead.",
+            "img": "data/conduite/img/l49-4.webp",
+            "note": "بعض الأنفاق فيها علامات زرقاء على الجدران — قد يُطلب ترك علامتين بينك وبين الأمامي."
+          },
+          {
+            "fr": "Je ne dépasse pas lorsque le dépassement est interdit.",
+            "ar": "أنا ما بتجاوز إذا التجاوز ممنوع.",
+            "en": "I do not overtake when overtaking is prohibited.",
+            "img": "data/conduite/img/l49-5.webp",
+            "note": "اتبع علامات المسارات داخل النفق ولا تغيّر مسارك فجأة."
+          },
+          {
+            "fr": "Je m'arrête obligatoirement au feu rouge clignotant.",
+            "ar": "أنا بوقف إجباري عند الضوء الأحمر الوامض.",
+            "en": "I must stop at the flashing red light.",
+            "img": "data/conduite/img/l49-6.webp",
+            "note": "الأحمر الوامض = دخول النفق ممنوع حتى بدون حاجز."
+          },
+          {
+            "fr": "J'allume mes feux de détresse et je m'arrête le plus à droite possible.",
+            "ar": "أنا بشغّل أضوية التحذير وبوقف على اليمين قدر الإمكان.",
+            "en": "I switch on my hazard lights and stop as far to the right as possible.",
+            "img": "data/conduite/img/l49-7.webp",
+            "note": "عند العطل داخل النفق: استخدم مكان التوقف المخصص إن وجد وأطفئ المحرك."
+          },
+          {
+            "fr": "Je contacte les secours avec la borne SOS du tunnel.",
+            "ar": "أنا بتصل بالطوارئ باستخدام هاتف SOS الموجود بالنفق.",
+            "en": "I contact emergency services using the tunnel SOS phone.",
+            "img": "data/conduite/img/l49-8.webp",
+            "note": "أماكن الطوارئ معلّمة بالبرتقالي — استخدم هاتف الطوارئ واتبع تعليمات المشغّل."
+          },
+          {
+            "fr": "Je quitte mon véhicule et je rejoins l'issue de secours la plus proche.",
+            "ar": "أنا بترك سيارتي وبروح لأقرب مخرج طوارئ.",
+            "en": "I leave my vehicle and go to the nearest emergency exit.",
+            "img": "data/conduite/img/l49-9.webp",
+            "note": "عند دخان أو حريق: أوقف السيارة وأطفئ المحرك وخذ الركاب لأقرب مخرج — لا تنتظر الإطفاء داخل السيارة."
+          },
+          {
+            "fr": "Je suis les flèches vertes vers la sortie de secours.",
+            "ar": "أنا بتبع الأسهم الخضراء باتجاه مخرج الطوارئ.",
+            "en": "I follow the green arrows towards the emergency exit.",
+            "img": "data/conduite/img/l49-10.webp",
+            "note": "الأسهم الخضراء تدل على أقرب مخرج آمن أو ممر إخلاء جانبي."
+          },
+          {
+            "fr": "Je ne retourne jamais vers mon véhicule pendant l'évacuation.",
+            "ar": "أنا ما برجع أبداً على سيارتي أثناء الإخلاء.",
+            "en": "I never return to my vehicle during evacuation.",
+            "img": "data/conduite/img/l49-11.webp",
+            "note": "لا ترجع لأخذ أغراض نسيتها — تابع لمكان آمن."
+          },
+          {
+            "fr": "Je ne fais ni marche arrière ni demi-tour dans le tunnel.",
+            "ar": "أنا ما برجع للخلف ولا بعمل دوران داخل النفق.",
+            "en": "I do not reverse or make a U-turn inside the tunnel.",
+            "img": "data/conduite/img/l49-12.webp",
+            "note": "حتى لو دخان أو ازدحام أمامك — لا ترجع ولا تدرن؛ اتبع إشارات الطوارئ."
+          },
+          {
+            "fr": "Je ne m'engage pas dans un tunnel fermé.",
+            "ar": "أنا ما بفوت على نفق مغلق.",
+            "en": "I do not enter a closed tunnel.",
+            "img": "data/conduite/img/l49-13.webp",
+            "note": "علامة X حمراء أو حاجز أو أحمر وامض = ممنوع الدخول."
+          }
+        ]
       }
     ]
   }
