@@ -992,6 +992,297 @@ window.CONDUITE_FOLDERS = [
             "note": "عند اقتراب مركبة ذات أضواء زرقاء وصفارة، يجب تسهيل مرورها بأمان. لا تقم بمناورة مفاجئة أو تتجاوز الإشارات بطريقة خطرة."
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "الوقوف والاصطفاف في الشوارع الفرنسية",
+          "fr": "Le stationnement",
+          "en": "Parking"
+        },
+        "img": "data/conduite/img/l15-1.webp",
+        "phrases": [
+          {
+            "fr": "Je cherche une place libre pour garer ma voiture.",
+            "ar": "أنا بدوّر على مكان فاضي لصفّ سيارتي.",
+            "en": "I look for an empty parking space.",
+            "img": "data/conduite/img/l15-1.webp"
+          },
+          {
+            "fr": "Je vérifie le panneau de stationnement.",
+            "ar": "أنا بتأكد من إشارة الوقوف.",
+            "en": "I check the parking sign.",
+            "img": "data/conduite/img/l15-2.webp"
+          },
+          {
+            "fr": "Je vérifie que la place est autorisée au stationnement.",
+            "ar": "أنا بتأكد إنو المكان مسموح فيه صفّ السيارات.",
+            "en": "I check that parking is allowed there.",
+            "img": "data/conduite/img/l15-3.webp"
+          },
+          {
+            "fr": "Je choisis une place adaptée à la taille de ma voiture.",
+            "ar": "أنا بختار مكان مناسب لحجم سيارتي.",
+            "en": "I choose a space that fits my car.",
+            "img": "data/conduite/img/l15-4.webp"
+          },
+          {
+            "fr": "Je place ma voiture parallèlement au véhicule devant la place.",
+            "ar": "أنا بحط سيارتي بمحاذاة السيارة اللي قدّام المكان.",
+            "en": "I position my car parallel to the vehicle in front of the space.",
+            "img": "data/conduite/img/l15-5.webp"
+          },
+          {
+            "fr": "Je commence à reculer pour entrer dans la place.",
+            "ar": "أنا ببلّش أرجع لورا حتى فوت بالمكان.",
+            "en": "I start reversing into the parking space.",
+            "img": "data/conduite/img/l15-6.webp"
+          },
+          {
+            "fr": "Je tourne le volant pendant la marche arrière.",
+            "ar": "أنا بلفّ المقود وأنا عم ارجع لورا.",
+            "en": "I turn the steering wheel while reversing.",
+            "img": "data/conduite/img/l15-7.webp"
+          },
+          {
+            "fr": "Je redresse ma voiture dans la place.",
+            "ar": "أنا بعدّل اتجاه سيارتي جوّا المكان.",
+            "en": "I straighten my car inside the space.",
+            "img": "data/conduite/img/l15-8.webp"
+          },
+          {
+            "fr": "Je place ma voiture au milieu de la place.",
+            "ar": "أنا بحط سيارتي بنص مكان الوقوف.",
+            "en": "I position my car in the middle of the parking space.",
+            "img": "data/conduite/img/l15-9.webp"
+          },
+          {
+            "fr": "Je m'approche d'une place de stationnement en bataille.",
+            "ar": "أنا بقرّب من مكان الوقوف العمودي.",
+            "en": "I approach a perpendicular parking space.",
+            "img": "data/conduite/img/l15-10.webp"
+          },
+          {
+            "fr": "Je rentre dans la place en marche avant.",
+            "ar": "أنا بفوت على المكان من الأمام.",
+            "en": "I drive forward into the parking space.",
+            "img": "data/conduite/img/l15-11.webp"
+          },
+          {
+            "fr": "Je rentre dans la place en marche arrière.",
+            "ar": "أنا بفوت على المكان بالرجوع لورا.",
+            "en": "I reverse into the parking space.",
+            "img": "data/conduite/img/l15-12.webp"
+          },
+          {
+            "fr": "Je vérifie que ma voiture est bien entre les lignes.",
+            "ar": "أنا بتأكد إنو سيارتي جوّا خطوط المكان.",
+            "en": "I check that my car is within the lines.",
+            "img": "data/conduite/img/l15-13.webp"
+          },
+          {
+            "fr": "J'active le frein de stationnement.",
+            "ar": "أنا بفعّل فرامل الوقوف.",
+            "en": "I apply the parking brake.",
+            "img": "data/conduite/img/l15-14.webp"
+          },
+          {
+            "fr": "Je passe la première vitesse en stationnant dans une montée.",
+            "ar": "أنا بحط الغيار الأول لما أصفّ على طلعة.",
+            "en": "I engage first gear when parking uphill.",
+            "img": "data/conduite/img/l15-15.webp",
+            "note": "سيارة يدوية"
+          },
+          {
+            "fr": "Je passe la marche arrière en stationnant dans une descente.",
+            "ar": "أنا بحط غيار الرجوع لما أصفّ على نزلة.",
+            "en": "I engage reverse gear when parking downhill.",
+            "img": "data/conduite/img/l15-16.webp",
+            "note": "سيارة يدوية"
+          },
+          {
+            "fr": "Je mets le levier sur P.",
+            "ar": "أنا بحط ناقل الحركة على وضعية P.",
+            "en": "I put the gear selector in P.",
+            "img": "data/conduite/img/l15-17.webp",
+            "note": "سيارة أوتوماتيكية"
+          },
+          {
+            "fr": "J'éteins le moteur.",
+            "ar": "أنا بطفي المحرك.",
+            "en": "I switch off the engine.",
+            "img": "data/conduite/img/l15-18.webp"
+          },
+          {
+            "fr": "J'ouvre la portière après avoir vérifié qu'aucun cycliste n'arrive.",
+            "ar": "أنا بفتح الباب بعد ما بتأكد إنو ما في دراجة جاية.",
+            "en": "I open the door after checking that no cyclist is approaching.",
+            "img": "data/conduite/img/l15-19.webp"
+          },
+          {
+            "fr": "Je verrouille ma voiture après être descendu.",
+            "ar": "أنا بسكّر سيارتي بعد ما أنزل منها.",
+            "en": "I lock my car after getting out.",
+            "img": "data/conduite/img/l15-20.webp",
+            "note": "عند الوقوف على منحدر، استخدم فرامل الوقوف دائماً، واتبع تعليمات مدربك ودليل السيارة بشأن وضع ناقل الحركة واتجاه العجلات."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "القيادة على الطريق السريع في فرنسا",
+          "fr": "La conduite sur l'autoroute",
+          "en": "Motorway driving"
+        },
+        "img": "data/conduite/img/l16-1.webp",
+        "phrases": [
+          {
+            "fr": "Je repère l'entrée de l'autoroute.",
+            "ar": "أنا بتعرّف على مدخل الأوتوروت.",
+            "en": "I identify the motorway entrance.",
+            "img": "data/conduite/img/l16-1.webp"
+          },
+          {
+            "fr": "Je m'engage sur la voie d'accélération.",
+            "ar": "أنا بفوت على مسار التسارع.",
+            "en": "I enter the acceleration lane.",
+            "img": "data/conduite/img/l16-2.webp"
+          },
+          {
+            "fr": "J'accélère sur la voie d'accélération.",
+            "ar": "أنا بزيد سرعتي على مسار التسارع.",
+            "en": "I accelerate on the acceleration lane.",
+            "img": "data/conduite/img/l16-3.webp"
+          },
+          {
+            "fr": "Je surveille les véhicules sur l'autoroute avant de m'insérer.",
+            "ar": "أنا براقب السيارات على الأوتوروت قبل ما اندمج معها.",
+            "en": "I watch the motorway traffic before merging.",
+            "img": "data/conduite/img/l16-4.webp"
+          },
+          {
+            "fr": "Je m'insère dans la circulation.",
+            "ar": "أنا باندَمج مع حركة السير.",
+            "en": "I merge into traffic.",
+            "img": "data/conduite/img/l16-5.webp"
+          },
+          {
+            "fr": "Je circule sur la voie de droite.",
+            "ar": "أنا بسوق بالمسار اليمين.",
+            "en": "I drive in the right-hand lane.",
+            "img": "data/conduite/img/l16-6.webp"
+          },
+          {
+            "fr": "Je surveille les limitations de vitesse.",
+            "ar": "أنا براقب حدود السرعة المسموحة.",
+            "en": "I watch the speed limits.",
+            "img": "data/conduite/img/l16-7.webp"
+          },
+          {
+            "fr": "J'adapte ma vitesse aux conditions de circulation.",
+            "ar": "أنا بظبط سرعة السيارة حسب ظروف الطريق.",
+            "en": "I adjust my speed to the traffic conditions.",
+            "img": "data/conduite/img/l16-8.webp"
+          },
+          {
+            "fr": "Je garde une distance de sécurité suffisante à grande vitesse.",
+            "ar": "أنا بحافظ على مسافة أمان كافية وقت السرعة العالية.",
+            "en": "I maintain a sufficient safety distance at high speed.",
+            "img": "data/conduite/img/l16-9.webp"
+          },
+          {
+            "fr": "Je respecte la vitesse affichée sur les panneaux électroniques.",
+            "ar": "أنا بلتزم بالسرعة المكتوبة على اللوحات الإلكترونية.",
+            "en": "I obey the speed displayed on electronic signs.",
+            "img": "data/conduite/img/l16-10.webp"
+          },
+          {
+            "fr": "Je réduis ma vitesse lorsque la chaussée est mouillée.",
+            "ar": "أنا بخفف السرعة لما الطريق تكون مبلولة.",
+            "en": "I reduce my speed when the road is wet.",
+            "img": "data/conduite/img/l16-11.webp"
+          },
+          {
+            "fr": "Je vérifie quelle voie je dois prendre.",
+            "ar": "أنا بتأكد أي مسار لازم آخد.",
+            "en": "I check which lane I need to take.",
+            "img": "data/conduite/img/l16-12.webp"
+          },
+          {
+            "fr": "J'utilise la voie de gauche pour dépasser.",
+            "ar": "أنا بستخدم المسار اليسار حتى أتجاوز.",
+            "en": "I use the left lane to overtake.",
+            "img": "data/conduite/img/l16-13.webp"
+          },
+          {
+            "fr": "Je dépasse le camion qui me précède.",
+            "ar": "أنا بتجاوز الشاحنة اللي قدامي.",
+            "en": "I overtake the truck in front of me.",
+            "img": "data/conduite/img/l16-14.webp"
+          },
+          {
+            "fr": "Je reviens sur la voie de droite après avoir dépassé en toute sécurité.",
+            "ar": "أنا برجع للمسار اليمين بعد ما خلّص التجاوز بأمان.",
+            "en": "I return to the right lane after overtaking safely.",
+            "img": "data/conduite/img/l16-15.webp"
+          },
+          {
+            "fr": "Je cherche le numéro de la sortie que je dois prendre.",
+            "ar": "أنا بدوّر على رقم المخرج اللي لازم آخده.",
+            "en": "I look for the exit number I need.",
+            "img": "data/conduite/img/l16-16.webp"
+          },
+          {
+            "fr": "Je me prépare à quitter l'autoroute.",
+            "ar": "أنا بستعد حتى أطلع من الأوتوروت.",
+            "en": "I prepare to leave the motorway.",
+            "img": "data/conduite/img/l16-17.webp"
+          },
+          {
+            "fr": "Je prends la voie de décélération.",
+            "ar": "أنا بفوت على مسار تخفيف السرعة.",
+            "en": "I enter the deceleration lane.",
+            "img": "data/conduite/img/l16-18.webp"
+          },
+          {
+            "fr": "Je ralentis dans la voie de sortie.",
+            "ar": "أنا بخفف السرعة ضمن مسار الخروج.",
+            "en": "I slow down in the exit lane.",
+            "img": "data/conduite/img/l16-19.webp"
+          },
+          {
+            "fr": "Je continue ma route après avoir quitté l'autoroute.",
+            "ar": "أنا بكمل طريقي بعد ما أطلع من الأوتوروت.",
+            "en": "I continue my journey after leaving the motorway.",
+            "img": "data/conduite/img/l16-20.webp"
+          },
+          {
+            "fr": "Je cherche une aire de repos.",
+            "ar": "أنا بدوّر على منطقة استراحة.",
+            "en": "I look for a rest area.",
+            "img": "data/conduite/img/l16-21.webp"
+          },
+          {
+            "fr": "Je me dirige vers une aire de services.",
+            "ar": "أنا بتوجّه لمنطقة الخدمات.",
+            "en": "I head towards a service area.",
+            "img": "data/conduite/img/l16-22.webp"
+          },
+          {
+            "fr": "Je gare ma voiture sur le parking de l'aire de repos.",
+            "ar": "أنا بصفّ سيارتي بموقف منطقة الاستراحة.",
+            "en": "I park my car in the rest area's car park.",
+            "img": "data/conduite/img/l16-23.webp"
+          },
+          {
+            "fr": "Je fais une pause avant de reprendre la route.",
+            "ar": "أنا باخد استراحة قبل ما كمّل الطريق.",
+            "en": "I take a break before continuing my journey.",
+            "img": "data/conduite/img/l16-24.webp",
+            "note": "حدود السرعة العامة في فرنسا: 130 كم/س بظروف جيدة، 110 عند المطر وللسائقين الجدد منذ أقل من 3 سنوات، و50 عند رؤية أقل من 50 متراً. اتبع الإشارات إذا حددت سرعة أقل."
+          }
+        ]
       }
     ]
   }
