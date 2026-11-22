@@ -1,0 +1,12 @@
+{
+  "appId": "com.syrian020.conduite",
+  "appName": "Conduite",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": false
+  }
+}
