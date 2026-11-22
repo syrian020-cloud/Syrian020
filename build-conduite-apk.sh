@@ -59,4 +59,16 @@ fi
 cd android
 ./gradlew $GRADLE_INIT assembleDebug
 
+
+# Repack without the 16KB per-entry alignment padding (~13MB waste) and re-sign
+APK=app/build/outputs/apk/debug/app-debug.apk
+if [ -f "$APK" ]; then
+  BTOOLS=$(ls -d "$ANDROID_HOME"/build-tools/*/ | tail -1)
+  TMPD=$(mktemp -d)
+  (cd "$TMPD" && unzip -qo "$ROOT/android/$APK" && rm -rf META-INF && zip -q -r -n ".arsc" repacked.apk .)
+  "${BTOOLS}zipalign" -f -z -p 4 "$TMPD/repacked.apk" "$TMPD/aligned.apk"
+  "${BTOOLS}apksigner" sign --ks "$HOME/.android/debug.keystore" --ks-pass pass:android --out "$APK" "$TMPD/aligned.apk" 2>/dev/null || true
+  rm -rf "$TMPD"
+fi
+
 echo "Conduite APK ready at: android/app/build/outputs/apk/debug/app-debug.apk"
