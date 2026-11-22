@@ -1716,7 +1716,7 @@
   }
 
   function ensureConduiteFolders() {
-    const SEED_V = '2';
+    const SEED_V = '3';
     if (localStorage.getItem('conduite_seed_v') === SEED_V) return;
     const seededIds = JSON.parse(localStorage.getItem('conduite_seed_ids') || '[]');
     const oldTitles = ['تعلّم قيادة السيارة خطوة بخطوة', 'الدراجة الكهربائية', 'مواقف حقيقية في فرنسا'];
@@ -1731,7 +1731,7 @@
     (window.CONDUITE_FOLDERS || []).forEach(f => {
       const folder = { type: 'folder', id: nextId(), icon: f.icon || '', title: f.title, image: f.img || f.image || '',
         lessons: (f.lessons || []).map(l => ({ id: nextId(), type: 'lesson', title: l.title, image: l.img || l.image || '', note: l.note || null,
-          phrases: (l.phrases || []).map(p => ({ fr: p.fr || '', ar: p.ar || '', en: p.en || '', image: p.img || l.img || f.img || '' })) })) };
+          phrases: (l.phrases || []).map(p => ({ fr: p.fr || '', ar: p.ar || '', en: p.en || '', image: p.img || l.img || f.img || '', note: p.note || null })) })) };
       newIds.push(folder.id);
       LESSONS.push(folder);
     });
@@ -4327,7 +4327,7 @@
       ${p.audio ? (isIDBMedia(p.audio) ? `<div class="phrase-media audio-holder media-placeholder" data-media-ref="${esc(p.audio)}" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}"></div>` : `<div class="phrase-media audio-holder ${aspectClassFor(getVideoAspect(p.audio))}" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}" data-media-ref="${esc(p.audio)}">${audioHTML(toWebUrl(p.audio), p.audio)}</div>`) : ''}
       <div class="phrase-top">
         <div class="lines">
-          ${p.note ? `<div class="line x" style="opacity:.8">${esc(p.note)}</div>` : ''}
+          ${p.note ? `<div class="line x" style="opacity:.85;font-size:0.82em;background:var(--bg-secondary);border-radius:8px;padding:0.3rem 0.5rem;margin-top:0.35rem;">📝 ${esc(p.note)}</div>` : ''}
           ${phraseLangs(p).map(l => `<div class="line ${['fr','ar','en'].includes(l) ? l : 'x'}" data-lang="${l}" dir="${(l === 'ar' || RTL_LANGS[l]) ? 'rtl' : 'ltr'}">${wordSpans(p[l], l)}<button class="loop-lang" data-lang="${l}" title="🔁 ${l.toUpperCase()}">🔁</button></div>`).join('')}
           ${(p._subs || []).map(s => `<div class="line x" style="opacity:.65;font-size:.85em">${esc(s)}</div>`).join('')}
         </div>
