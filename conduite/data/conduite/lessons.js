@@ -3782,6 +3782,366 @@ window.CONDUITE_FOLDERS = [
             "note": "بعد الحادث، ممكن المصاب يفقد حرارة جسمه حتى لو كان الجو معتدلاً. غطّه ببطانية أو غطاء مناسب، من دون إعاقة التنفس أو تأخير الإسعاف."
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "الاختناق والإسعاف",
+          "fr": "L'étouffement et les secours",
+          "en": "Choking and first aid"
+        },
+        "img": "data/conduite/img/l42-1.webp",
+        "phrases": [
+          {
+            "fr": "Je reconnais les signes d'un étouffement.",
+            "ar": "أنا بتعرّف على علامات الاختناق.",
+            "en": "I recognize the signs of choking.",
+            "img": "data/conduite/img/l42-1.webp",
+            "note": "من علامات الاختناق:."
+          },
+          {
+            "fr": "Je encourage la victime à tousser.",
+            "ar": "أنا بشجّع المصاب على السعال.",
+            "en": "I encourage the person to cough.",
+            "img": "data/conduite/img/l42-2.webp",
+            "note": "إذا كان الشخص قادراً على الكلام والتنفس والسعال:."
+          },
+          {
+            "fr": "Je donne jusqu'à cinq claques entre les omoplates.",
+            "ar": "أنا بعطي لحد خمس ضربات بين لوحي الكتف.",
+            "en": "I give up to five back blows between the shoulder blades.",
+            "img": "data/conduite/img/l42-3.webp",
+            "note": "إذا كان الاختناق كاملاً والشخص واعياً:."
+          },
+          {
+            "fr": "Je réalise des compressions abdominales si les claques dans le dos échouent.",
+            "ar": "أنا بعمل ضغطات بطنية إذا ضربات الظهر ما نجحت.",
+            "en": "I perform abdominal thrusts if back blows fail.",
+            "img": "data/conduite/img/l42-4.webp",
+            "note": "إذا لم تنجح ضربات الظهر:."
+          },
+          {
+            "fr": "Je réalise des compressions thoraciques adaptées si les compressions abdominales sont impossibles.",
+            "ar": "أنا بعمل ضغطات صدرية مناسبة إذا الضغطات البطنية مو ممكنة.",
+            "en": "I perform adapted chest thrusts if abdominal thrusts are not possible.",
+            "img": "data/conduite/img/l42-5.webp",
+            "note": "إذا كانت المصابة حاملاً، أو كان الشخص لديه سمنة شديدة بحيث لا يمكن إحاطة البطن بالذراعين، نستخدم الضغطات الصدرية بدلاً من البطنية، بعد فشل ضربات الظهر."
+          },
+          {
+            "fr": "Je place le nourrisson à plat ventre sur mon avant-bras et je soutiens sa tête.",
+            "ar": "أنا بحط الرضيع على بطنه فوق ساعدي وبسند راسه.",
+            "en": "I place the infant face down on my forearm and support the head.",
+            "img": "data/conduite/img/l42-6.webp",
+            "note": "إذا كان الرضيع يعاني من اختناق كامل:."
+          },
+          {
+            "fr": "Je commence la réanimation si la victime perd connaissance et ne respire pas normalement.",
+            "ar": "أنا ببلّش الإنعاش إذا المصاب فقد الوعي وما عم يتنفس بشكل طبيعي.",
+            "en": "I start CPR if the person becomes unconscious and is not breathing normally.",
+            "img": "data/conduite/img/l42-7.webp",
+            "note": "* أرافق المصاب إلى الأرض بحذر."
+          },
+          {
+            "fr": "Je surveille la victime et je demande un avis médical.",
+            "ar": "أنا براقب المصاب وبطلب استشارة طبية.",
+            "en": "I monitor the person and seek medical advice.",
+            "img": "data/conduite/img/l42-8.webp",
+            "note": "حتى لو رجع الشخص يتنفس بشكل طبيعي:."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "النوبات والأمراض الطارئة",
+          "fr": "Crises et malaises",
+          "en": "Seizures and medical emergencies"
+        },
+        "img": "data/conduite/img/l43-1.webp",
+        "phrases": [
+          {
+            "fr": "Je protège la personne pendant sa crise d'épilepsie.",
+            "ar": "أنا بحمي الشخص أثناء نوبة الصرع.",
+            "en": "I protect the person during an epileptic seizure.",
+            "img": "data/conduite/img/l43-1.webp",
+            "note": "* أبعد الأشياء الخطيرة من حوله."
+          },
+          {
+            "fr": "Je ne bloque pas les mouvements de la victime.",
+            "ar": "أنا ما بمسك إيدين ورجلين المصاب حتى أوقف حركاته.",
+            "en": "I do not restrain the person's movements.",
+            "img": "data/conduite/img/l43-2.webp",
+            "note": "لا تحاول تثبيت جسم المصاب أو الضغط على ذراعيه ورجليه. هذا قد يسبب إصابات إضافية ولا يوقف النوبة."
+          },
+          {
+            "fr": "Je note l'heure de début et la durée de la crise.",
+            "ar": "أنا بسجل وقت بداية النوبة وقديش استمرت.",
+            "en": "I record when the seizure starts and how long it lasts.",
+            "img": "data/conduite/img/l43-3.webp",
+            "note": "معظم نوبات التشنج تنتهي خلال أقل من خمس دقائق. إذا استمرت أكثر من خمس دقائق، أتصل فوراً بالرقم 15 أو 112. وكذلك إذا تكررت النوبات من دون أن يستعيد الشخص وعيه بينها. LFCE: Ligue Française contre l'."
+          },
+          {
+            "fr": "Je mets la victime en position latérale de sécurité après les convulsions si elle respire normalement.",
+            "ar": "أنا بحط المصاب بوضعية الأمان الجانبية بعد انتهاء التشنجات إذا كان عم يتنفس بشكل طبيعي.",
+            "en": "I place the person in the recovery position after the convulsions if they are breathing normally.",
+            "img": "data/conduite/img/l43-4.webp",
+            "note": "بعد توقف التشنجات:."
+          },
+          {
+            "fr": "Je demande à la personne de s'asseoir et je la rassure.",
+            "ar": "أنا بطلب من الشخص يقعد وبحاول طمّنه.",
+            "en": "I ask the person to sit down and reassure them.",
+            "img": "data/conduite/img/l43-5.webp",
+            "note": "إذا قال الشخص إنه يشعر بدوخة أو تعب مفاجئ:."
+          },
+          {
+            "fr": "Je vérifie si la personne réagit quand je lui parle.",
+            "ar": "أنا بتأكد إذا الشخص عم يستجيب لما بحكي معه.",
+            "en": "I check whether the person responds when I speak to them.",
+            "img": "data/conduite/img/l43-6.webp",
+            "note": "إذا سقط الشخص وفقد وعيه:."
+          },
+          {
+            "fr": "Je prends au sérieux une douleur dans la poitrine et j'appelle le SAMU.",
+            "ar": "أنا باخد ألم الصدر بجدية وبتصل بالإسعاف الطبي.",
+            "en": "I take chest pain seriously and call emergency medical services.",
+            "img": "data/conduite/img/l43-7.webp",
+            "note": "ألم الصدر ممكن يكون علامة على مشكلة قلبية خطيرة، خصوصاً إذا ترافق مع:."
+          },
+          {
+            "fr": "Je laisse la personne dans la position où elle respire le mieux.",
+            "ar": "أنا بخلي الشخص بالوضعية اللي بيقدر يتنفس فيها أحسن شي.",
+            "en": "I let the person stay in the position in which they breathe best.",
+            "img": "data/conduite/img/l43-8.webp",
+            "note": "* أساعده على الجلوس إذا كان ذلك يريحه."
+          },
+          {
+            "fr": "Je reconnais les signes d'un AVC et j'appelle immédiatement le 15.",
+            "ar": "أنا بتعرف على علامات الجلطة الدماغية وبتصل فوراً بالـ 15.",
+            "en": "I recognize the signs of a stroke and immediately call emergency services.",
+            "img": "data/conduite/img/l43-9.webp",
+            "note": "قاعدة FAST."
+          },
+          {
+            "fr": "Je reconnais les signes possibles d'une hypoglycémie.",
+            "ar": "أنا بتعرف على العلامات المحتملة لانخفاض السكر بالدم.",
+            "en": "I recognize the possible signs of low blood sugar.",
+            "img": "data/conduite/img/l43-10.webp",
+            "note": "من العلامات المحتملة:."
+          },
+          {
+            "fr": "Je surveille constamment la conscience et la respiration de la victime.",
+            "ar": "أنا براقب وعي المصاب وتنفسه بشكل مستمر.",
+            "en": "I continuously monitor the casualty's consciousness and breathing.",
+            "img": "data/conduite/img/l43-11.webp",
+            "note": "لا أترك المصاب وحده. إذا تغير تنفسه أو فقد وعيه أو ظهرت أعراض جديدة، أبلغ موظف الطوارئ فوراً وأتبع تعليماته."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "حوادث المشاة والأطفال",
+          "fr": "Piétons et enfants",
+          "en": "Pedestrians and children"
+        },
+        "img": "data/conduite/img/l44-1.webp",
+        "phrases": [
+          {
+            "fr": "Je ralentis et je m’arrête si l’enfant veut traverser.",
+            "ar": "أنا بخفّف السرعة وبوقف إذا الطفل بدّه يقطع الطريق.",
+            "en": "I slow down and stop if the child wants to cross.",
+            "img": "data/conduite/img/l44-1.webp",
+            "note": "الأطفال ممكن يغيّروا اتجاههم فجأة أو يركضوا نحو الطريق. لا تعتمد على أنهم سينتظرون، وخفّف السرعة واستعد للتوقف."
+          },
+          {
+            "fr": "Je ralentis fortement près des voitures stationnées.",
+            "ar": "أنا بخفّف السرعة كتير قرب السيارات المركونة.",
+            "en": "I slow down considerably near parked cars.",
+            "img": "data/conduite/img/l44-2.webp",
+            "note": "السيارة المركونة ممكن تحجب عنك رؤية طفل. خليك مستعد توقف فوراً، ولا تمر بسرعة بين السيارات المتوقفة."
+          },
+          {
+            "fr": "Je laisse passer le piéton qui souhaite traverser.",
+            "ar": "أنا بترك المشاة يقطعوا إذا بدهن يعبروا.",
+            "en": "I let pedestrians cross when they intend to do so.",
+            "img": "data/conduite/img/l44-3.webp",
+            "note": "في فرنسا، يجب إعطاء الأولوية للمشاة الذين يعبرون أو يُظهرون بوضوح رغبتهم في العبور عند ممر المشاة، حتى لو لم يبدأوا العبور بعد."
+          },
+          {
+            "fr": "Je ralentis et je laisse passer le piéton si nécessaire.",
+            "ar": "أنا بخفّف السرعة وبسمح للمشاة يقطعوا إذا لزم الأمر.",
+            "en": "I slow down and let the pedestrian cross if necessary.",
+            "img": "data/conduite/img/l44-4.webp",
+            "note": "حتى لو لم يكن الشخص على ممر مشاة، يجب أن تتصرف بحذر وتمنع وقوع الخطر. وقد تكون له الأولوية قانونياً إذا كان يعبر أو يُظهر بوضوح نيته في العبور وفق شروط قانون السير."
+          },
+          {
+            "fr": "Je ralentis et je surveille les enfants autour du car.",
+            "ar": "أنا بخفّف السرعة وبراقب الأطفال حول الباص المدرسي.",
+            "en": "I slow down and watch for children around the school bus.",
+            "img": "data/conduite/img/l44-5.webp",
+            "note": "قد يظهر طفل أمام الحافلة أو خلفها فجأة. لا تتجاوز بسرعة، وانتبه بشكل خاص عند صعود الأطفال ونزولهم."
+          },
+          {
+            "fr": "Je m’arrête et je laisse le temps à la personne de traverser.",
+            "ar": "أنا بوقف وبعطي الشخص وقت كافي ليقطع.",
+            "en": "I stop and give the person enough time to cross.",
+            "img": "data/conduite/img/l44-6.webp",
+            "note": "لا تستعمل المنبه ولا تضغط على الشخص ليستعجل. انتظر حتى ينتهي من العبور بأمان."
+          },
+          {
+            "fr": "Je m’arrête et je facilite son passage.",
+            "ar": "أنا بوقف وبسهّل عليه عبور الطريق.",
+            "en": "I stop and make it easier for them to cross.",
+            "img": "data/conduite/img/l44-7.webp",
+            "note": "أعطِ الأولوية للمشاة الذين يعبرون أو يبدون رغبتهم في العبور، وانتبه إلى أن بعض الأشخاص يحتاجون وقتاً أطول."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "التصرف بعد وقوع حادث",
+          "fr": "Réagir après un accident",
+          "en": "Acting after an accident"
+        },
+        "img": "data/conduite/img/l45-1.webp",
+        "phrases": [
+          {
+            "fr": "Je m’arrête immédiatement après l’accident.",
+            "ar": "أنا بوقف فوراً بعد الحادث.",
+            "en": "I stop immediately after the accident.",
+            "img": "data/conduite/img/l45-1.webp",
+            "note": "إذا صدمت شخصاً أو اصطدمت بمركبة، لا تتابع القيادة وكأن شيئاً لم يحدث. توقف بأمان، ولا تعرّض الآخرين لخطر إضافي."
+          },
+          {
+            "fr": "Je sécurise les lieux sans me mettre en danger.",
+            "ar": "أنا بأمّن مكان الحادث من دون ما عرّض حالي للخطر.",
+            "en": "I secure the accident scene without putting myself in danger.",
+            "img": "data/conduite/img/l45-2.webp",
+            "note": "* شغّل أضواء التحذير الرباعية."
+          },
+          {
+            "fr": "J’appelle le 112 ou le 15 pour demander de l’aide.",
+            "ar": "أنا بتصل على 112 أو 15 لطلب المساعدة.",
+            "en": "I call 112 or 15 to request help.",
+            "img": "data/conduite/img/l45-3.webp",
+            "note": "أعطِ خدمات الطوارئ:."
+          },
+          {
+            "fr": "Je reste sur place et j’attends les secours.",
+            "ar": "أنا ببقى بمكان الحادث وبستنى الإسعاف.",
+            "en": "I stay at the scene and wait for emergency services.",
+            "img": "data/conduite/img/l45-4.webp",
+            "note": "لا تغادر مكان الحادث بعد إصابة شخص. مغادرة المكان بقصد التهرب من المسؤولية قد تُعتبر Délit de fuite، وهي جريمة خطيرة."
+          },
+          {
+            "fr": "Je ne déplace pas la victime, sauf en cas de danger immédiat.",
+            "ar": "أنا ما بحرك المصاب إلا إذا كان في خطر مباشر.",
+            "en": "I do not move the injured person unless there is immediate danger.",
+            "img": "data/conduite/img/l45-5.webp",
+            "note": "لا تحاول رفع المصاب أو إجلاسه أو نقله إلى سيارتك من دون ضرورة. قد تكون لديه إصابة في العمود الفقري. اتبع تعليمات خدمات الطوارئ وراقب تنفسه ووعيه."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "التعامل مع حوادث السيارات والدراجات",
+          "fr": "Accidents de voitures et de vélos",
+          "en": "Car and bike accidents"
+        },
+        "img": "data/conduite/img/l46-1.webp",
+        "phrases": [
+          {
+            "fr": "Je m’arrête sans créer un danger pour la circulation.",
+            "ar": "أنا بوقف من دون ما أسبّب خطر لحركة السير.",
+            "en": "I stop without creating a danger for traffic.",
+            "img": "data/conduite/img/l46-1.webp",
+            "note": "إذا كنت طرفاً بالحادث، يجب أن تتوقف بأسرع وقت ممكن وبطريقة آمنة. إذا كان الحادث مادياً فقط، أعطِ الأطراف الأخرى هويتك وعنوانك. وإذا كان فيه مصابون، أبلغ الشرطة أو الدرك أيضاً. Légifrance."
+          },
+          {
+            "fr": "Je vérifie l’état du cycliste et j’appelle les secours si nécessaire.",
+            "ar": "أنا بتأكد من حالة راكب الدراجة وبطلب الإسعاف إذا لزم الأمر.",
+            "en": "I check the cyclist's condition and call emergency services if necessary.",
+            "img": "data/conduite/img/l46-2.webp",
+            "note": "لا تفترض أن راكب الدراجة بخير حتى لو كان واقفاً. اسأله عن حالته، واطلب المساعدة عند وجود إصابة أو شك بإصابة."
+          },
+          {
+            "fr": "Je ne retire pas le casque du motard blessé.",
+            "ar": "أنا ما بشيل الخوذة عن سائق الدراجة النارية المصاب.",
+            "en": "I do not remove the injured motorcyclist's helmet.",
+            "img": "data/conduite/img/l46-3.webp",
+            "note": "لا تحاول نزع الخوذة؛ فقد تؤدي الحركة إلى تفاقم إصابة الرقبة أو العمود الفقري. اتصل بالطوارئ واتبع تعليماتهم."
+          },
+          {
+            "fr": "Je signale le nombre exact de victimes aux secours.",
+            "ar": "أنا بخبّر الإسعاف عن العدد الدقيق للمصابين.",
+            "en": "I tell emergency services the exact number of injured people.",
+            "img": "data/conduite/img/l46-4.webp",
+            "note": "لا تكتفِ بقول «هناك مصابون». حاول تحديد عدد الأشخاص وحالتهم: واعون، فاقدو الوعي، يتنفسون، لديهم نزيف، أو عالقون داخل السيارة. لا تعرّض نفسك للخطر للوصول إليهم."
+          },
+          {
+            "fr": "Je ne tente pas de sortir la victime du véhicule.",
+            "ar": "أنا ما بحاول طلّع المصاب من السيارة بالقوة.",
+            "en": "I do not try to pull the injured person out of the vehicle.",
+            "img": "data/conduite/img/l46-5.webp",
+            "note": "لا تسحب المصاب من السيارة، فقد تكون لديه إصابة في الرقبة أو الظهر. اتصل بالطوارئ واذكر أن الشخص عالق. الاستثناء هو وجود خطر مباشر مثل حريق أو خطر انفجار، ولا تتدخل إلا بما تسمح به سلامتك وقدرتك."
+          },
+          {
+            "fr": "Je m’éloigne du véhicule et j’alerte les secours.",
+            "ar": "أنا ببتعد عن السيارة وبخبر الطوارئ.",
+            "en": "I move away from the vehicle and alert emergency services.",
+            "img": "data/conduite/img/l46-6.webp",
+            "note": "إذا ظهر دخان أو نار، ابتعد أنت والركاب والمصابون عن الخطر إذا أمكن من دون تعريضهم لخطر أكبر. لا تدخّن قرب الحادث، ولا تفتح غطاء المحرك إذا كان هناك حريق تحته."
+          },
+          {
+            "fr": "Je préserve les traces de l’accident autant que possible.",
+            "ar": "أنا بحافظ على آثار الحادث قد ما بقدر.",
+            "en": "I preserve the accident evidence as much as possible.",
+            "img": "data/conduite/img/l46-7.webp",
+            "note": "عند وجود مصابين، تجنّب تغيير وضع المركبات أو إزالة آثار الحادث، ما دام ذلك لا يعرّض حركة المرور للخطر. هذه الآثار قد تساعد الشرطة على تحديد ظروف الحادث والمسؤوليات. Légifrance."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "شرح الحادث لخدمات الطوارئ",
+          "fr": "Décrire l'accident aux secours",
+          "en": "Describing the accident to emergency services"
+        },
+        "img": "data/conduite/img/l47-1.webp",
+        "phrases": [
+          {
+            "fr": "Je précise combien de véhicules sont impliqués.",
+            "ar": "أنا بوضح قديش في سيارات ومركبات مشاركة بالحادث.",
+            "en": "I explain how many vehicles are involved.",
+            "img": "data/conduite/img/l47-1.webp",
+            "note": "اذكر عدد السيارات والدراجات والشاحنات والحافلات المتضررة أو المشاركة بالحادث."
+          },
+          {
+            "fr": "Je précise si les victimes sont conscientes et si elles respirent.",
+            "ar": "أنا بوضح إذا المصابين واعيين وإذا عم يتنفسوا.",
+            "en": "I explain whether the victims are conscious and breathing.",
+            "img": "data/conduite/img/l47-2.webp",
+            "note": "لا تشخّص الإصابة بنفسك. صف ما تراه بوضوح، مثل وجود نزيف أو فقدان وعي أو صعوبة تنفس."
+          },
+          {
+            "fr": "Je signale qu’une personne est coincée dans le véhicule.",
+            "ar": "أنا بخبرهم إن في شخص محشور داخل السيارة.",
+            "en": "I report that someone is trapped inside the vehicle.",
+            "img": "data/conduite/img/l47-3.webp",
+            "note": "هذه معلومة مهمة جداً حتى يرسلوا فرق الإنقاذ المناسبة."
+          },
+          {
+            "fr": "Je réponds aux questions et je ne raccroche pas le premier.",
+            "ar": "أنا بجاوب على الأسئلة وما بسكّر الخط قبل ما يطلبوا مني.",
+            "en": "I answer the questions and do not hang up first.",
+            "img": "data/conduite/img/l47-4.webp",
+            "note": "اتبع تعليمات الموظف الذي يستقبل المكالمة، ولا تنهِ الاتصال من تلقاء نفسك. Sécurité civile et gestion des."
+          }
+        ]
       }
     ]
   }
