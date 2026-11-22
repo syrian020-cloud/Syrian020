@@ -131,11 +131,11 @@ main{flex:1;overflow:auto;position:relative}
 #timeRead .tr-lg{font-weight:700;margin:8px 0 2px;opacity:.9}
 #timeRead .tr-r{display:flex;align-items:center;gap:8px;margin:2px 0;line-height:1.5}
 #timeRead .tr-r button{background:none;border:none;color:var(--acc);font-size:1.05rem;cursor:pointer;padding:2px;flex:none}
-#learnFold{margin-top:10px;width:min(94%,430px);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:1rem;font-weight:800;cursor:pointer;text-align:center;color:var(--acc)}
-#learnOv{position:fixed;inset:0;z-index:410;background:var(--bg);display:none;flex-direction:column}
-#learnOv.on{display:flex}
-#learnOv .loHead{display:flex;align-items:center;gap:10px;padding:calc(env(safe-area-inset-top,0px) + 10px) 14px 10px;border-bottom:1px solid var(--line);font-weight:800;font-size:1.05rem}
-#learnOv .loBody{flex:1;overflow-y:auto;padding:10px 12px 24px}
+#learnFold,#timePhFold{margin-top:10px;width:min(94%,430px);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:1rem;font-weight:800;cursor:pointer;text-align:center;color:var(--acc)}
+#learnOv,#timePhOv{position:fixed;inset:0;z-index:410;background:var(--bg);display:none;flex-direction:column}
+#learnOv.on,#timePhOv.on{display:flex}
+#learnOv .loHead,#timePhOv .loHead{display:flex;align-items:center;gap:10px;padding:calc(env(safe-area-inset-top,0px) + 10px) 14px 10px;border-bottom:1px solid var(--line);font-weight:800;font-size:1.05rem}
+#learnOv .loBody,#timePhOv .loBody{flex:1;overflow-y:auto;padding:10px 12px 24px}
 .lr-notes{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:.88rem;line-height:1.8;margin-bottom:12px}
 .lr-notes b{color:var(--acc)}
 .lr-sec{font-weight:800;color:var(--acc);margin:14px 0 6px;font-size:.95rem}
@@ -304,7 +304,7 @@ audio.lmed{max-height:none}
 .btn.primary{background:linear-gradient(135deg,var(--acc),var(--acc2));border:none;color:#fff}
 .btn:disabled{opacity:.4}
 .hidden{display:none}
-.qz-ov{position:fixed;inset:0;z-index:400;background:var(--bg);display:flex;flex-direction:column;overflow-y:auto;overflow-x:hidden;padding:.9rem .75rem;box-sizing:border-box}
+.qz-ov{position:fixed;inset:0;z-index:420;background:var(--bg);display:flex;flex-direction:column;overflow-y:auto;overflow-x:hidden;padding:.9rem .75rem;box-sizing:border-box}
 .qz-top{display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem}
 .qz-prog{font-weight:800;font-size:1.05rem}
 .qz-flags{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.55rem;direction:ltr;margin-bottom:.5rem}
@@ -450,6 +450,7 @@ nav button.on{color:var(--acc)}
     <button id="speakBtn">🔊</button>
     <div id="timeRead"></div>
     <div id="learnFold"></div>
+    <div id="timePhFold"></div>
   </section>
   <section class="tabsec" id="sec-alarms">
     <div id="permBanner" style="display:none"></div>
@@ -539,6 +540,7 @@ nav button.on{color:var(--acc)}
 </div></div>
 <!-- lessons browser -->
 <div id="learnOv"><div class="loHead"><button class="hbtn" id="learnX">✕</button><span id="learnTitle"></span></div><div class="loBody" id="learnBody"></div></div>
+<div id="timePhOv"><div class="loHead"><button class="hbtn" id="timePhX">✕</button><span id="timePhTitle"></span></div><div class="loBody" id="timePhBody"></div></div>
 <div class="shade" id="lessonShade"><div class="sheet" id="lessonSheet">
   <div class="lsHead"><button id="lsBack">‹</button><div class="lb" id="lsPath"></div>
     <button id="lsAddF" title="folder">📁+</button><button id="lsAddL" title="lesson">📄+</button></div>
@@ -1011,6 +1013,8 @@ function gSources(){
  for(let h=0;h<24;h++)for(const m of[0,15,30,45]){const f=lrnFr(h,m),a=lrnAr(h,m),e=lrnEn(h,m);
   cph.push({s:f[0],lg:'fr',a:a[0],e:e[0]});cph.push({s:f[1],lg:'fr',a:a[1],e:e[1]})}
  if(cph.length)out.push({label:'📂 '+LEARN_TITLE[st.lang],node:{id:'lrn',t:'l',n:LEARN_TITLE[st.lang],ph:cph}});
+ const tph=[];(typeof TIMEPH!=='undefined'?TIMEPH:[]).forEach(c=>(c.rows||[]).forEach(r=>{if(r[0]&&r[1])tph.push({s:r[0],lg:'fr',a:r[1],e:r[2]||''})}));
+ if(tph.length)out.push({label:'🗣️ '+TIMEPH_TITLE[st.lang],node:{id:'timeph',t:'l',n:TIMEPH_TITLE[st.lang],ph:tph}});
  return out}
 function gameSrcPick(body,go){
  const srcs=gSources();
@@ -1255,7 +1259,7 @@ function rrStopVoice(){if(rr)rr.listenTok++;stopSay();if(window.EdgeTTS)EdgeTTS.
 function closeRR(){rrSave();rrStopVoice();
  const ov=document.getElementById('rr-overlay');if(ov)ov.remove();rr=null;
  }
-function openReadRepeat(n){
+function openReadRepeat(n,direct){
  closeGame();
  const ov=document.createElement('div');ov.id='rr-overlay';ov.className='qz-ov';
  ov.innerHTML='<div class="qz-top"><button class="mini" id="rr-exit">✕</button>'+
@@ -1290,7 +1294,7 @@ function openReadRepeat(n){
     return '<button class="btn" data-lang="'+g+'">'+gFlag(g)+' '+g.toUpperCase()+' — '+c+'</button>'}).join('')+'</div>';
   body.querySelectorAll('button[data-lang]').forEach(b=>{b.onclick=()=>modePick(b.dataset.lang)})}
  pickers()}
- gameSrcPick(body,useNode)}
+ if(direct)useNode(n);else gameSrcPick(body,useNode)}
 function rrShow(){
  const body=$('rr-body');
  if(!rr||!body)return;
@@ -2173,10 +2177,11 @@ const LEARN_TITLE={ar:'تعلم الساعة',fr:"Apprendre l'heure",en:'Learn t
 function renderTimeRead(){
  const el=$('timeRead');if(!el)return;
  const lf=$('learnFold');if(lf)lf.textContent='📂 '+LEARN_TITLE[st.lang];
+ const tpf=$('timePhFold');if(tpf)tpf.textContent='🗣️ '+TIMEPH_TITLE[st.lang];
  const d=new Date(),h=d.getHours(),m=d.getMinutes(),R=trReadings(h,m);
  const tt={ar:'الوقت الحالي',en:'Current time',fr:'Heure actuelle'}[st.lang];
  let html='<div class="tr-t">'+tt+': '+pad(h)+':'+pad(m)+'</div>';
- const lg=st.lang,name={fr:'🇫🇷 Français – France',ar:'🇸🇦 العربية الفصحى',en:'🇺🇸 American English'}[lg];
+ const lg=st.lang,name={fr:'🇫🇷 Français – France',ar:'🇸🇾 العربية الفصحى',en:'🇺🇸 American English'}[lg];
  html+='<div class="tr-lg" dir="'+(lg==='ar'?'rtl':'ltr')+'">'+name+'</div>';
  R[lg].forEach((r,i)=>{if(!r)return;
   html+='<div class="tr-r" dir="'+(lg==='ar'?'rtl':'ltr')+'"><span style="flex:1">'+(i+1)+'. '+esc(r)+'</span><button data-tr="'+lg+'|'+i+'">🔊</button></div>'});
@@ -2217,7 +2222,7 @@ function lrnEn(h,m){
  else if(m===30)n2="It's half past "+enNum(h12);
  else n2="It's "+(m===45?'a quarter':enNum(60-m))+" to "+enNum(nh12);
  return[n1,n2]}
-const LRN=[{f:lrnFr,fl:'🇫🇷',lg:'fr-FR'},{f:lrnAr,fl:'🇸🇦',lg:'ar-SA'},{f:lrnEn,fl:'🇺🇸',lg:'en-US'}];
+const LRN=[{f:lrnFr,fl:'🇫🇷',lg:'fr-FR'},{f:lrnAr,fl:'🇸🇾',lg:'ar-SA'},{f:lrnEn,fl:'🇺🇸',lg:'en-US'}];
 function renderLearn(){
  $('learnFold').textContent='📂 '+LEARN_TITLE[st.lang];
  $('learnTitle').textContent={ar:'📂 تعلم الساعة — القراءتان بكل ربع ساعة',fr:"📂 L'heure — les deux lectures chaque quart d'heure",en:'📂 Learn the clock — both readings every quarter'}[st.lang];
@@ -2249,6 +2254,57 @@ function renderLearn(){
    b.appendChild(row)}})}
 $('learnFold').onclick=()=>{renderLearn();$('learnOv').classList.add('on')};
 $('learnX').onclick=()=>{stopSay();document.querySelectorAll('#learnOv .speaking').forEach(x=>x.classList.remove('speaking'));$('learnOv').classList.remove('on')};
+
+/* ---- time phrases folder ---- */
+const TIMEPH=[
+{t:{fr:'❓ Demander l’heure',ar:'❓ السؤال عن الوقت',en:'❓ Asking the time'},rows:[
+ ['Quelle heure est-il ?','كم الساعة؟','What time is it?'],
+ ['Vous avez l’heure, s’il vous plaît ?','هل يمكن أن تخبرني بالوقت من فضلك؟','Could you tell me the time, please?'],
+ ['Tu as l’heure ?','هل تعرف كم الساعة؟','Do you have the time?'],
+ ['Il est quelle heure ?','كم الساعة؟','What time is it?'],
+ ['Vous pouvez me donner l’heure ?','هل يمكنك إخباري بالوقت؟','Can you tell me the time?']]},
+{t:{fr:'⏰ Demander l’heure de quelque chose',ar:'⏰ السؤال عن وقت شيء معين',en:'⏰ Asking the time of something'},rows:[
+ ['À quelle heure commence le travail ?','في أي ساعة يبدأ العمل؟','What time does work start?'],
+ ['À quelle heure finit le travail ?','في أي ساعة ينتهي العمل؟','What time does work finish?'],
+ ['À quelle heure ouvre le magasin ?','في أي ساعة يفتح المتجر؟','What time does the shop open?'],
+ ['À quelle heure ferme le magasin ?','في أي ساعة يغلق المتجر؟','What time does the shop close?'],
+ ['À quelle heure part le tram ?','في أي ساعة ينطلق الترام؟','What time does the tram leave?'],
+ ['À quelle heure arrive le bus ?','في أي ساعة تصل الحافلة؟','What time does the bus arrive?'],
+ ['À quelle heure est le rendez-vous ?','في أي ساعة الموعد؟','What time is the appointment?']]},
+{t:{fr:'🕗 Dire l’heure',ar:'🕗 الإجابة عن الوقت',en:'🕗 Saying the time'},rows:[
+ ['Il est huit heures.','الساعة الثامنة.',"It's eight o'clock."],
+ ['Il est huit heures et quart.','الساعة الثامنة والربع.',"It's a quarter past eight."],
+ ['Il est huit heures et demie.','الساعة الثامنة والنصف.',"It's half past eight."],
+ ['Il est neuf heures moins le quart.','الساعة التاسعة إلا ربعاً.',"It's a quarter to nine."],
+ ['Il est midi.','الساعة الثانية عشرة ظهراً.',"It's noon."],
+ ['Il est minuit.','الساعة الثانية عشرة منتصف الليل.',"It's midnight."]]},
+{t:{fr:'💬 Questions utiles',ar:'💬 أسئلة إضافية مفيدة',en:'💬 Useful extra questions'},rows:[
+ ['Est-ce que tu sais quelle heure il est ?','هل تعرف كم الساعة؟','Do you know what time it is?'],
+ ['Tu peux répéter l’heure, s’il te plaît ?','هل يمكنك إعادة ذكر الوقت من فضلك؟','Can you repeat the time, please?']]}];
+const TIMEPH_TITLE={ar:'كيف تسأل عن الساعة؟',fr:'Comment demander l’heure ?',en:'How to ask the time?'};
+function renderTimePh(){
+ $('timePhTitle').textContent='🗣️ '+TIMEPH_TITLE[st.lang];
+ const b=$('timePhBody');b.innerHTML='';let pi=0;
+ TIMEPH.forEach(sec=>{
+  const sh=document.createElement('div');sh.className='lr-sec';sh.textContent=sec.t[st.lang]||sec.t.en;b.appendChild(sh);
+  sec.rows.forEach(r=>{
+   const row=document.createElement('div');row.className='lr-row';
+   const rh=document.createElement('div');rh.className='lr-rh';
+   const pb=document.createElement('button');pb.textContent='🗣';
+   const ph={s:r[0],lg:'fr',a:r[1],e:r[2]};
+   pb.onclick=()=>openReadRepeat({id:'tp'+(pi++),t:'l',n:r[0],ph:[ph]},true);
+   rh.appendChild(pb);row.appendChild(rh);
+   [['🇫🇷',r[0],'fr-FR','ltr'],['🇸🇾',r[1],'ar-SA','rtl'],['🇺🇸',r[2],'en-US','ltr']].forEach(([fl,txt,code,dir])=>{
+    if(!txt)return;
+    const d=document.createElement('div');d.className='lr-lg';d.dir=dir;
+    d.innerHTML='<span class="fl">'+fl+'</span><span class="rd"></span>';
+    const rd=d.querySelector('.rd');const dv=document.createElement('div');
+    dv.innerHTML='<span>'+esc(txt)+'</span>';
+    const sb=document.createElement('button');sb.textContent='🔊';sb.onclick=()=>sayOnce(txt,code);
+    dv.appendChild(sb);rd.appendChild(dv);row.appendChild(d)});
+   b.appendChild(row)})})}
+$('timePhFold').onclick=()=>{renderTimePh();$('timePhOv').classList.add('on')};
+$('timePhX').onclick=()=>{stopSay();document.querySelectorAll('#timePhOv .speaking').forEach(x=>x.classList.remove('speaking'));$('timePhOv').classList.remove('on')};
 
 
 /* ---- note pad (ProLang port) ---- */
@@ -3320,7 +3376,7 @@ function updHdr(){const tb=$('themeBtn');if(tb)tb.textContent=st.theme==='dark'?
 if(CAP.Plugins&&CAP.Plugins.App){
  CAP.Plugins.App.addListener('backButton',async()=>{
   if($('noteModal')&&$('noteModal').classList.contains('show')){closeNote();return}
-  for(const s of['ringShade','editShade','menuShade','cfShade','askShade','lsOptShade','phShade','tplShade','lessonShade','learnOv'])if($(s).classList.contains('on')){if(s==='ringShade')stopRing();else if(s==='learnOv'){stopSay();document.querySelectorAll('#learnOv .speaking').forEach(x=>x.classList.remove('speaking'));$(s).classList.remove('on')}else if(s==='lessonShade'&&lsView==='lesson'){lsView='grid';renderLessons()}else if(s==='lessonShade'&&lsStack.length){lsStack.pop();renderLessons()}else $(s).classList.remove('on');return}
+  for(const s of['ringShade','editShade','menuShade','cfShade','askShade','lsOptShade','phShade','tplShade','lessonShade','learnOv','timePhOv'])if($(s).classList.contains('on')){if(s==='ringShade')stopRing();else if(s==='learnOv'||s==='timePhOv'){stopSay();document.querySelectorAll('#'+s+' .speaking').forEach(x=>x.classList.remove('speaking'));$(s).classList.remove('on')}else if(s==='lessonShade'&&lsView==='lesson'){lsView='grid';renderLessons()}else if(s==='lessonShade'&&lsStack.length){lsStack.pop();renderLessons()}else $(s).classList.remove('on');return}
   if(calMonth>=0&&$('monthView').classList.contains('on')){calMonth=-1;renderYear();return}
   if(await confirmBox(t('exitConfirm')))CAP.Plugins.App.exitApp();
  });
