@@ -11,7 +11,8 @@ rm -rf www
 mkdir -p www/data
 
 cp data/* www/data/
-cp manifest.json icon-192.png icon-512.png sw.js www/
+cp manifest-code.json www/manifest.json
+cp icon-code-192.png icon-code-512.png sw.js www/
 cp code.html www/index.html
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
@@ -38,7 +39,7 @@ fi
 npx cap sync android
 
 # Sync the PWA icon into the Android mipmap launcher icons
-ICON_SRC="$ROOT/icon-512.png"
+ICON_SRC="$ROOT/icon-code-512.png"
 MIPMAP="$ROOT/android/app/src/main/res"
 if [ -f "$ICON_SRC" ] && command -v convert >/dev/null 2>&1; then
   mkdir -p "$MIPMAP/mipmap-mdpi" "$MIPMAP/mipmap-hdpi" "$MIPMAP/mipmap-xhdpi" "$MIPMAP/mipmap-xxhdpi" "$MIPMAP/mipmap-xxxhdpi"
