@@ -2891,6 +2891,249 @@ window.CONDUITE_FOLDERS = [
             "note": "⭐ حساب تقريبي: المسافة بالمتر ≈ السرعة÷10 × 6. مثال: 130 كم/س → 13×6 = 78 متراً خلال ثانيتين."
           }
         ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "السرعة القانونية والرادارات",
+          "fr": "Limitations de vitesse et radars",
+          "en": "Speed limits and radars"
+        },
+        "img": "data/conduite/img/l31-1.webp",
+        "phrases": [
+          {
+            "fr": "Je roule généralement à 50 km/h maximum en agglomération.",
+            "ar": "أنا بسوق عادةً بسرعة ما بتتجاوز 50 كم بالساعة داخل المدينة.",
+            "en": "I usually drive at a maximum of 50 km/h in built-up areas.",
+            "img": "data/conduite/img/l31-1.webp",
+            "note": "القاعدة العامة داخل التجمعات السكنية: 50 كم/س ما لم تحدد اللوحات سرعة أدنى (مثل 30 ببعض الشوارع)."
+          },
+          {
+            "fr": "Je ne dépasse généralement pas 80 km/h sur une route à double sens sans séparateur central.",
+            "ar": "أنا عادةً ما بتجاوز 80 كم بالساعة على طريق باتجاهين من دون فاصل وسطي.",
+            "en": "I generally do not exceed 80 km/h on a two-way road without a central divider.",
+            "img": "data/conduite/img/l31-2.webp",
+            "note": "الحد العام هو 80 كم/ساعة. ممكن لبعض الطرق أن يكون الحد فيها 90 كم/ساعة بقرار محلي مع وجود اللوحات المناسبة."
+          },
+          {
+            "fr": "Je peux rouler jusqu’à 110 km/h sur une route à chaussées séparées, sauf indication contraire.",
+            "ar": "أنا فيني سوق لحد 110 كم بالساعة على طريق مفصول الاتجاهات، إلا إذا في إشارة بتحدد غير هيك.",
+            "en": "I can drive up to 110 km/h on a divided road, unless otherwise indicated.",
+            "img": "data/conduite/img/l31-3.webp",
+            "note": "الحد العام لهالنوع من الطرق هو 110 كم/ساعة، بشرط وجود فصل مادي بين اتجاهي السير."
+          },
+          {
+            "fr": "Je ne dépasse pas 130 km/h sur autoroute lorsque les conditions sont normales.",
+            "ar": "أنا ما بتجاوز 130 كم بالساعة على الأوتوروت لما تكون الظروف طبيعية.",
+            "en": "I do not exceed 130 km/h on the motorway in normal conditions.",
+            "img": "data/conduite/img/l31-4.webp",
+            "note": "الحد العام للأوتوروت هو 130 كم/ساعة، لكن ممكن يكون أقل بسبب الإشارات أو الطقس أو نوع المركبة."
+          },
+          {
+            "fr": "Je ne dépasse pas 110 km/h sur autoroute par temps de pluie.",
+            "ar": "أنا ما بتجاوز 110 كم بالساعة على الأوتوروت وقت المطر.",
+            "en": "I do not exceed 110 km/h on the motorway in rainy weather.",
+            "img": "data/conduite/img/l31-5.webp",
+            "note": "لما يكون المطر نازلاً، الحد الأقصى العام على الأوتوروت بينخفض من 130 إلى 110 كم/ساعة."
+          },
+          {
+            "fr": "Je ne dépasse pas 50 km/h lorsque la visibilité est inférieure à 50 mètres.",
+            "ar": "أنا ما بتجاوز 50 كم بالساعة لما تكون الرؤية أقل من 50 متر.",
+            "en": "I do not exceed 50 km/h when visibility is less than 50 metres.",
+            "img": "data/conduite/img/l31-6.webp",
+            "note": "هاي قاعدة مهمة جداً: إذا الرؤية أقل من 50 متراً بسبب الضباب أو أي ظرف آخر، الحد الأقصى بيصير 50 كم/ساعة على جميع الطرق، حتى الأوتوروت. Service."
+          },
+          {
+            "fr": "Je ne dépasse pas 100 km/h sur une route à chaussées séparées par temps de pluie.",
+            "ar": "أنا ما بتجاوز 100 كم بالساعة على طريق مفصول الاتجاهات وقت المطر.",
+            "en": "I do not exceed 100 km/h on a divided road in rainy weather.",
+            "img": "data/conduite/img/l31-7.webp",
+            "note": "إذا الطريق فيه فاصل وسطي بين الاتجاهين، السرعة العامة 110 بالظروف العادية، وبتنخفض إلى 100 وقت المطر."
+          },
+          {
+            "fr": "Je respecte la limitation indiquée, qui peut être de 90 km/h sur ce type de route.",
+            "ar": "أنا بلتزم بالسرعة المكتوبة، واللي ممكن تكون 90 كم بالساعة على هالنوع من الطرق.",
+            "en": "I follow the posted speed limit, which may be 90 km/h on this type of road.",
+            "img": "data/conduite/img/l31-8.webp",
+            "note": "بعض الطرق خارج المدينة فيها مساران أو أكثر بنفس الاتجاه. ممكن تكون السرعة المسموحة 90 كم/ساعة، لكن لازم تنتبه للوحات؛ مو كل طريق فيه مسارين سرعته 90 تلقائياً. Service."
+          },
+          {
+            "fr": "Je ne dépasse pas 80 km/h sur cette route par temps de pluie.",
+            "ar": "أنا ما بتجاوز 80 كم بالساعة على هالطريق وقت المطر.",
+            "en": "I do not exceed 80 km/h on this road in rainy weather.",
+            "img": "data/conduite/img/l31-9.webp",
+            "note": "على مقطع طريق فيه مساران على الأقل بالاتجاه نفسه، الحد الأقصى وقت المطر هو 80 كم/ساعة، مع مراعاة أي لوحة تحدد سرعة أقل. Service Public."
+          },
+          {
+            "fr": "Je respecte les limitations spécifiques à mon permis probatoire.",
+            "ar": "أنا بلتزم بحدود السرعة الخاصة برخصة القيادة التجريبية تبعي.",
+            "en": "I follow the speed limits specific to my probationary driving licence.",
+            "img": "data/conduite/img/l31-10.webp",
+            "note": "خلال فترة الرخصة التجريبية، السرعات القصوى العامة هي:."
+          },
+          {
+            "fr": "Je respecte la vitesse maximale indiquée sur le panneau.",
+            "ar": "أنا بلتزم بالسرعة القصوى المكتوبة على اللوحة.",
+            "en": "I follow the maximum speed shown on the sign.",
+            "img": "data/conduite/img/l31-11.webp",
+            "note": "إذا كنت على طريق سرعته العامة 80 وظهرت لوحة 70، لازم ما أتجاوز 70. الإشارة المحددة للطريق هي اللي بتوجّهني."
+          },
+          {
+            "fr": "Je ralentis avant le virage et j’adapte ma vitesse à sa difficulté.",
+            "ar": "أنا بخفف السرعة قبل المنعطف وبختار سرعة مناسبة لدرجة صعوبته.",
+            "en": "I slow down before the bend and adapt my speed to its difficulty.",
+            "img": "data/conduite/img/l31-12.webp",
+            "note": "حتى لو كنت تحت الحد القانوني، ممكن تكون سرعتي عالية وخطرة بالنسبة للمنعطف. لذلك بخفف قبل ما أدخل فيه."
+          },
+          {
+            "fr": "Je respecte la limitation de vitesse, même en l’absence de radar.",
+            "ar": "أنا بلتزم بالسرعة المحددة حتى لو ما في رادار.",
+            "en": "I respect the speed limit, even when there is no speed camera.",
+            "img": "data/conduite/img/l31-13.webp",
+            "note": "الرادار يقيس سرعة السيارة، ثم تُطرح من السرعة المقاسة نسبة سماح تقنية لصالح السائق. هذه النسبة ليست إذناً بتجاوز السرعة!."
+          },
+          {
+            "fr": "Je vérifie ma vitesse sur le compteur et je ne dépasse jamais la limitation.",
+            "ar": "أنا براقب سرعتي على عداد السيارة وما بتجاوز السرعة المحددة.",
+            "en": "I check my speed on the dashboard and never exceed the speed limit.",
+            "img": "data/conduite/img/l31-14.webp",
+            "note": "* Compteur de vitesse: عداد السرعة داخل السيارة."
+          },
+          {
+            "fr": "Je sais qu'un excès de vitesse peut entraîner une amende et un retrait de points.",
+            "ar": "أنا بعرف إن تجاوز السرعة ممكن يسبب غرامة وسحب نقاط من رخصتي.",
+            "en": "I know that speeding can result in a fine and loss of licence points.",
+            "img": "data/conduite/img/l31-15.webp",
+            "note": "– الغرامات الأساسية في فرنسا:."
+          },
+          {
+            "fr": "Je ralentis immédiatement lorsque je constate que ma vitesse est excessive.",
+            "ar": "أنا بخفف السرعة فوراً لما انتبه إن سرعتي عالية زيادة.",
+            "en": "I slow down immediately when I realize I am driving too fast.",
+            "img": "data/conduite/img/l31-16.webp",
+            "note": "في فرنسا، تجاوز السرعة بـ 50 كم/ساعة أو أكثر يُعد جريمة جنحية (Délit)، وليس مجرد مخالفة بسيطة."
+          },
+          {
+            "fr": "Je n'utilise pas de détecteur de radar dans ma voiture.",
+            "ar": "أنا ما بستعمل جهاز كشف الرادار بسيارتي.",
+            "en": "I do not use a radar detector in my car.",
+            "img": "data/conduite/img/l31-17.webp",
+            "note": "في فرنسا، حيازة أو نقل أو استعمال جهاز كشف الرادار ممنوع."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "سرعة المركبات الخاصة",
+          "fr": "Véhicules spéciaux et leurs vitesses",
+          "en": "Special vehicles' speeds"
+        },
+        "img": "data/conduite/img/l32-1.webp",
+        "phrases": [
+          {
+            "fr": "Je sais que les poids lourds sont soumis à des limitations de vitesse spécifiques.",
+            "ar": "أنا بعرف إن الشاحنات الكبيرة إلها حدود سرعة خاصة.",
+            "en": "I know that heavy goods vehicles have specific speed limits.",
+            "img": "data/conduite/img/l32-1.webp",
+            "note": "بالنسبة للشاحنات والمركبات التي يتجاوز وزنها الإجمالي المسموح به 3.5 طن، القواعد العامة هي:."
+          },
+          {
+            "fr": "Je réduis ma vitesse lorsque je conduis avec une remorque.",
+            "ar": "أنا بخفف سرعتي لما بسوق سيارة ومعها مقطورة.",
+            "en": "I reduce my speed when driving with a trailer.",
+            "img": "data/conduite/img/l32-2.webp",
+            "note": "مو كل سيارة تسحب مقطورة عندها نفس حدود السرعة؛ لازم ننتبه إلى الوزن الإجمالي المسموح للمجموعة (PTRA) وتصنيف المركبة واللوحات."
+          },
+          {
+            "fr": "Je respecte les limitations de vitesse des autobus et des autocars.",
+            "ar": "أنا بلتزم بحدود السرعة الخاصة بالباصات والحافلات.",
+            "en": "I respect the speed limits for buses and coaches.",
+            "img": "data/conduite/img/l32-3.webp",
+            "note": "تختلف السرعة حسب نوع الحافلة ووزنها وطبيعة الطريق:."
+          },
+          {
+            "fr": "Je garde une distance de sécurité avec les camions qui transportent des matières dangereuses.",
+            "ar": "أنا بحافظ على مسافة أمان مع الشاحنات اللي بتنقل مواد خطرة.",
+            "en": "I keep a safe distance from trucks carrying dangerous materials.",
+            "img": "data/conduite/img/l32-4.webp",
+            "note": "بعض الشاحنات التي تنقل مواد خطرة وتزيد كتلتها عن 12 طناً تخضع لحدود خاصة:."
+          },
+          {
+            "fr": "Je vérifie le poids autorisé de mon véhicule et de ma remorque.",
+            "ar": "أنا بتأكد من الوزن المسموح لسيارتي وللمقطورة.",
+            "en": "I check the permitted weight of my car and trailer.",
+            "img": "data/conduite/img/l32-5.webp",
+            "note": "في الامتحان قد تلاحظ هذين الاختصارين:."
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "title": {
+          "ar": "الشاحنات والنقاط العمياء",
+          "fr": "Poids lourds et angles morts",
+          "en": "Trucks and blind spots"
+        },
+        "img": "data/conduite/img/l33-1.webp",
+        "phrases": [
+          {
+            "fr": "Je reste visible dans les rétroviseurs du camion et j'évite ses angles morts.",
+            "ar": "أنا بحاول ضل ظاهر بمرايات الشاحنة وبتجنب نقاطها العمياء.",
+            "en": "I stay visible in the truck's mirrors and avoid its blind spots.",
+            "img": "data/conduite/img/l33-1.webp",
+            "note": "الشاحنة الكبيرة عندها نقاط عمياء، يعني أماكن ما بيقدر السائق يشوفها بالمرايا."
+          },
+          {
+            "fr": "Je ne me place jamais à droite d'un camion qui va tourner à droite.",
+            "ar": "أنا ما بوقف أبداً على يمين شاحنة ناوية تلف يمين.",
+            "en": "I never position myself to the right of a truck that is about to turn right.",
+            "img": "data/conduite/img/l33-2.webp",
+            "note": "عندما تنعطف الشاحنة يميناً:."
+          },
+          {
+            "fr": "Je dépasse un camion uniquement si j'ai une visibilité suffisante et une distance de sécurité suffisante.",
+            "ar": "أنا بتجاوز الشاحنة بس إذا عندي رؤية واضحة ومسافة كافية وآمنة.",
+            "en": "I overtake a truck only when I have sufficient visibility and enough safe distance.",
+            "img": "data/conduite/img/l33-3.webp",
+            "note": "قبل التجاوز:."
+          },
+          {
+            "fr": "Je garde une distance de sécurité suffisante derrière le camion.",
+            "ar": "أنا بحافظ على مسافة أمان كافية خلف الشاحنة.",
+            "en": "I keep a sufficient safety distance behind the truck.",
+            "img": "data/conduite/img/l33-4.webp",
+            "note": "* الشاحنة الكبيرة قد تحجب عنك رؤية الطريق أمامها."
+          },
+          {
+            "fr": "Je repère les panneaux « Attention angles morts » sur les camions et les bus.",
+            "ar": "أنا بنتبه لملصقات «انتبه، نقاط عمياء» الموجودة على الشاحنات والباصات.",
+            "en": "I look for the “Blind spots” warning signs on trucks and buses.",
+            "img": "data/conduite/img/l33-5.webp",
+            "note": "في فرنسا، المركبات التي يتجاوز وزنها الإجمالي المسموح به وهي محمّلة 3.5 أطنان، يجب أن تحمل علامات تحذير من النقاط العمياء على الجانبين والخلف، مع استثناءات قانونية محددة."
+          },
+          {
+            "fr": "Je laisse une distance suffisante entre mon véhicule et le camion qui me précède.",
+            "ar": "أنا بترك مسافة كافية بين سيارتي والشاحنة اللي قدامي.",
+            "en": "I leave enough distance between my car and the truck ahead.",
+            "img": "data/conduite/img/l33-6.webp",
+            "note": "في قانون السير الفرنسي توجد قاعدة خاصة: المركبات التي يتجاوز وزنها الإجمالي المسموح به 3.5 أطنان، أو التي يزيد طولها على 7 أمتار، يجب أن تحافظ خارج المناطق المبنية على مسافة لا تقل عن 50 متراً عن المركبة المماثلة التي تسير أمامها، وفق شروط المادة القانونية. قاعدة خاصة: المركبات >3.5 طن أو >7 أمتار تترك 50 متراً على الأقل خلف مركبة مماثلة خارج المناطق المبنية — وهي غير ملزمة للسيارات الصغيرة."
+          },
+          {
+            "fr": "Je sais que les poids lourds ne peuvent pas emprunter la voie la plus à gauche sur une route à trois voies.",
+            "ar": "أنا بعرف إن الشاحنات الثقيلة ممنوع تستخدم المسار الموجود أقصى اليسار بطريق فيه ثلاثة مسارات.",
+            "en": "I know that heavy goods vehicles cannot use the far-left lane on a three-lane road.",
+            "img": "data/conduite/img/l33-7.webp",
+            "note": "المركبات التي يتجاوز وزنها 3.5 أطنان أو طولها 7 أمتار لا يجوز لها استعمال المسار الأيسر الأقصى على الطرق التي تضم ثلاثة مسارات أو أكثر في الاتجاه نفسه، وفق القاعدة القانونية."
+          },
+          {
+            "fr": "Je tiens fermement le volant lorsque je dépasse un camion par vent fort.",
+            "ar": "أنا بمسك المقود بثبات لما بتجاوز شاحنة، خصوصاً إذا في رياح قوية.",
+            "en": "I hold the steering wheel firmly when overtaking a truck, especially in strong winds.",
+            "img": "data/conduite/img/l33-8.webp",
+            "note": "عند تجاوز شاحنة كبيرة:. عند تجاوز شاحنة كبيرة: تغيّر مفاجئ بضغط الهواء ثم رياح جانبية — حافظ على المسار وثبات المقود بدون حركات مفاجئة."
+          }
+        ]
       }
     ]
   }
