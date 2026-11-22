@@ -587,6 +587,7 @@ nav button.on{color:var(--acc)}
   <div class="ico">⏰</div>
   <div class="rtc" id="ringTime"></div>
   <div class="rlb" id="ringLabel"></div>
+  <div id="ringSay" style="font-size:.95rem;opacity:.85;margin:8px 4px 0;line-height:1.6;max-height:7em;overflow-y:auto"></div>
   <div class="rowbtns"><button class="b ghost" id="ringSnooze"></button><button class="b primary" id="ringStop"></button></div>
 </div></div>
 <input type="file" id="filePick" accept="audio/*" hidden>
@@ -1935,10 +1936,11 @@ function ring(a){
   fr:(hr<18?'Bonjour ! ':'Bonsoir ! ')+(mn?frTimeFormal(hr,mn)+'. '+frTimeDaily(hr,mn):frTimeDaily(hr,mn))+'. Nous sommes '+wd+' '+dayN+' '+mo+". C'est l'heure de votre alarme !"+(hr<12?" Bonne journée et bon courage !":" Excellente journée !"),
   ar:(hr<12?'صباح الخير! ':'مساء الخير! ')+'الساعة '+arNum(h12)+(mn?' و'+arNum(mn)+' دقيقة':' تمامًا')+(hr<12?' صباحًا. ':' مساءً. ')+(arTimeDaily(hr,mn)?'أي '+arTimeDaily(hr,mn)+'. ':'')+'اليوم '+wd+'، '+dayN+' '+mo+'. '+(hr<12?'حان وقت الاستيقاظ! أتمنى لك نهارًا سعيدًا، وبالتوفيق!':'حان وقت التنبيه! أتمنى لك يومًا سعيدًا!'),
   en:(hr<12?'Good morning! ':hr<17?'Good afternoon! ':'Good evening! ')+enTime+((mn===15||mn===30||mn>30)?'. Or '+enTimeDaily(hr,mn):'')+'. Today is '+wd+', '+mo+' '+enOrd(dayN)+". Your alarm is ringing!"+(hr<12?" Have a great day, and good luck!":"")};
+ const rs=$('ringSay');if(rs){rs.textContent=wtxt[wl];rs.dir=wl==='ar'?'rtl':'ltr'}
  (async()=>{for(let i=0;i<3&&ringCard._sp&&$('ringShade').classList.contains('on');i++){await sayOnce(wtxt[wl],wl)}ringCard._sp=false})()
  if(!a.days||!a.days.length){a.on=false;save();renderAlarms();rescheduleAll()}
 }
-function stopRing(){$('ringShade').classList.remove('on');ringCard._sp=false;stopSay();const au=$('ringAudio');au.pause();au.src='';clearInterval(ringCard._vi);navigator.vibrate&&navigator.vibrate(0);
+function stopRing(){$('ringShade').classList.remove('on');const rs=$('ringSay');if(rs)rs.textContent='';ringCard._sp=false;stopSay();const au=$('ringAudio');au.pause();au.src='';clearInterval(ringCard._vi);navigator.vibrate&&navigator.vibrate(0);
  try{if(isCap()&&AS()&&AS().stopNativeRing)AS().stopNativeRing()}catch(e){}}
 function startChallenge(){
  const all=[];const walk=ks=>ks.forEach(k=>{if(k.t==='l'&&gPool(k).length>=2)all.push(k);else if(k.kids)walk(k.kids)});
@@ -2093,11 +2095,8 @@ function speakTime(){
  if(st.lang==='ar'){lang='ar-SA';const alt=arTimeDaily(h,m);txt='الساعة الآن '+arNum(h12)+(m?' و '+arNum(m)+' دقيقة':' تمامًا')+(h<12?' صباحًا':' مساءً')+(alt?'. أي '+alt:'')}
  else if(st.lang==='fr'){lang='fr-FR';txt=m?frTimeFormal(h,m)+'. '+frTimeDaily(h,m):frTimeDaily(h,m)}
  else{lang='en-US';const alt=(m===15||m===30||m>30)?enTimeDaily(h,m):'';txt='The time is '+h12+' '+(m?(m<10?'oh '+m:''+m):'o clock')+(h<12?' AM':' PM')+(alt?'. Or '+alt:'')}
- const cap=$('speakCap');let ctxt;
- if(st.lang==='ar')ctxt='الساعة '+arNum(h12)+(m?' و'+arNum(m)+' دقيقة':' تمامًا')+(h<12?' صباحًا':' مساءً');
- else if(st.lang==='fr')ctxt=txt;
- else ctxt='It is '+enNum(h12)+(m?' '+enNum(m):" o'clock")+(h<12?' in the morning':h<17?' in the afternoon':' in the evening');
- cap.textContent=ctxt;cap.classList.add('on');clearTimeout(cap._t);cap._t=setTimeout(()=>cap.classList.remove('on'),9000);
+ const cap=$('speakCap');
+ cap.textContent=txt;cap.dir=st.lang==='ar'?'rtl':'ltr';cap.classList.add('on');clearTimeout(cap._t);cap._t=setTimeout(()=>cap.classList.remove('on'),12000);
  if(window.EdgeTTS&&EdgeTTS.supported&&EdgeTTS.supported()){stopSay();EdgeTTS.play(txt,st.lang==='ar'?'ar':st.lang==='fr'?'fr':'en').catch(()=>{});return}
  if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:lang}).catch(()=>toast('!'));return}
  try{if('speechSynthesis' in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang=lang;speechSynthesis.speak(u)}}catch(e){toast('!')}
