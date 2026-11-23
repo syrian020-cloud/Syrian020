@@ -42,6 +42,16 @@ npx cap sync android
 sed -i 's/namespace "com[^"]*"/namespace "com.syrian020.delf"/; s/applicationId "com[^"]*"/applicationId "com.syrian020.delf"/' android/app/build.gradle
 sed -i 's|<string name="app_name">[^<]*</string>|<string name="app_name">DELF B1</string>|' android/app/src/main/res/values/strings.xml
 
+# Ensure MainActivity lives in the delf package
+mkdir -p android/app/src/main/java/com/syrian020/delf
+printf 'package com.syrian020.delf;
+
+import com.getcapacitor.BridgeActivity;
+
+public class MainActivity extends BridgeActivity {}
+' > android/app/src/main/java/com/syrian020/delf/MainActivity.java
+find android/app/src/main/java -name "MainActivity.java" ! -path "*syrian020/delf*" -delete
+
 # Sync the PWA icon into the Android mipmap launcher icons
 ICON_SRC="$ROOT/icon-delf-512.png"
 MIPMAP="$ROOT/android/app/src/main/res"
