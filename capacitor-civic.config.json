@@ -1,6 +1,6 @@
 {
   "appId": "com.syrian020.civique",
-  "appName": "Civique FR",
+  "appName": "Nationalité",
   "webDir": "www",
   "server": {
     "androidScheme": "https"

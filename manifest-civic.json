@@ -1,6 +1,6 @@
 {
-  "name": "Examen civique",
-  "short_name": "Civique",
+  "name": "Examen civique — Nationalité",
+  "short_name": "Nationalité",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#0b0f1f",
