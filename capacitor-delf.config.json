@@ -1,0 +1,13 @@
+{
+  "appId": "com.syrian020.delf",
+  "appName": "DELF B1",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": false,
+    "appendUserAgent": "Edg/143.0.3650.75"
+  }
+}
