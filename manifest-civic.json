@@ -1,0 +1,21 @@
+{
+  "name": "Examen civique",
+  "short_name": "Civique",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0b0f1f",
+  "theme_color": "#3a5bb0",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-civic-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-civic-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
