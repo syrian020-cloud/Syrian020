@@ -38,6 +38,10 @@ fi
 
 npx cap sync android
 
+# Force app identity (cap sync does not always rewrite these)
+sed -i 's/namespace "com[^"]*"/namespace "com.syrian020.delf"/; s/applicationId "com[^"]*"/applicationId "com.syrian020.delf"/' android/app/build.gradle
+sed -i 's|<string name="app_name">[^<]*</string>|<string name="app_name">DELF B1</string>|' android/app/src/main/res/values/strings.xml
+
 # Sync the PWA icon into the Android mipmap launcher icons
 ICON_SRC="$ROOT/icon-delf-512.png"
 MIPMAP="$ROOT/android/app/src/main/res"
