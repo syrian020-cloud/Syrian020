@@ -2228,7 +2228,7 @@ function renderTimeRead(){
  const d=new Date(),h=d.getHours(),m=d.getMinutes(),R=trReadings(h,m);
  const tt={ar:'الوقت الحالي',en:'Current time',fr:'Heure actuelle'}[st.lang];
  let html='<div class="tr-t">'+tt+': '+pad(h)+':'+pad(m)+'</div>';
- const lg=st.lang,name={fr:'🇫🇷 Français – France',ar:'🇸🇾 العربية الفصحى',en:'🇺🇸 American English'}[lg];
+ const lg=st.lang,name={fr:'🇫🇷 Français – France',ar:'🇸🇾 العربية',en:'🇺🇸 American English'}[lg];
  html+='<div class="tr-lg" dir="'+(lg==='ar'?'rtl':'ltr')+'">'+name+'</div>';
  R[lg].forEach((r,i)=>{if(!r)return;
   html+='<div class="tr-r" dir="'+(lg==='ar'?'rtl':'ltr')+'"><span style="flex:1">'+(i+1)+'. '+esc(r)+'</span><button data-tr="'+lg+'|'+i+'">🔊</button></div>'});
