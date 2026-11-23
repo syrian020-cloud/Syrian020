@@ -47,6 +47,12 @@
   .icon-btn { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 12px; padding: 0.45rem 0.65rem; font-size: 0.95rem; cursor: pointer; font-weight: 600; transition: transform .12s, border-color .12s; }
   .icon-btn:active { transform: scale(0.94); }
   .icon-btn.speaking { background: var(--success); color: #0a0e1e; border-color: var(--success); }
+  .info-overlay { position: fixed; inset: 0; z-index: 120; background: rgba(5,8,20,0.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); display: flex; align-items: flex-end; justify-content: center; animation: fadein .18s ease; }
+  .info-sheet { width: 100%; max-width: 760px; max-height: 82vh; overflow-y: auto; background: linear-gradient(160deg, var(--bg-secondary), #151a36); border: 1px solid var(--border); border-bottom: none; border-radius: 20px 20px 0 0; padding: 1.1rem 1.1rem 1.4rem; box-shadow: var(--shadow); }
+  .info-sheet h3 { margin: 0 0 0.4rem; font-size: 1.02rem; font-weight: 900; display: flex; align-items: center; gap: 0.45rem; }
+  .info-sheet .info-fr { direction: ltr; text-align: left; font-size: 0.92rem; line-height: 1.55; margin: 0.55rem 0 0.4rem; }
+  .info-sheet .info-ar { direction: rtl; text-align: right; font-size: 0.92rem; line-height: 1.6; color: #ffd9a0; border-top: 1px dashed var(--border); padding-top: 0.5rem; margin-top: 0.35rem; }
+  .info-sheet .info-note { color: var(--text-secondary); font-size: 0.8rem; margin: 0.6rem 0; }
   main { max-width: 760px; margin: 0 auto; padding: 0.9rem 0.9rem 3rem; animation: fadein .25s ease; }
   @keyframes fadein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
@@ -889,6 +895,7 @@ function renderQuiz(){
       (state.mode === 'exam' ? '<div class="timerbar"><div style="width:100%"></div></div>' : '') +
       '<span class="score-pill">' + esc(themeLabel) + '</span>' +
       '<button class="icon-btn" id="btn-speak" title="نطق السؤال">🔊</button>' +
+      '<button class="icon-btn" id="btn-search" title="بحث Google">✨</button>' +
     '</div>' +
     '<div class="card">' +
       imgHtml(q) +
@@ -917,6 +924,34 @@ function renderQuiz(){
   var speakBtn = document.getElementById('btn-speak');
   var qText = q.q + '. ' + q.opts.map(function(o, i){ return 'Réponse ' + optionLetters(i) + '. ' + o.f; }).join(' ');
   speakBtn.onclick = function(){ speakLoop(qText, this); };
+  document.getElementById('btn-search').onclick = function(){
+    var old = document.getElementById('info-overlay');
+    if(old) old.remove();
+    var ov = document.createElement('div');
+    ov.className = 'info-overlay';
+    ov.id = 'info-overlay';
+    var expHtml = '';
+    if(q.exp || q.expa){
+      expHtml = (q.exp ? '<div class="info-fr">' + esc(q.exp) + '</div>' : '') +
+                (q.expa ? '<div class="info-ar">' + esc(q.expa) + '</div>' : '');
+    } else {
+      expHtml = '<div class="info-note">لا يوجد شرح مفصّل لهذا السؤال — استخدم بحث Google لمزيد من المعلومات.</div>';
+    }
+    ov.innerHTML =
+      '<div class="info-sheet">' +
+        '<h3>✨ معلومات عن هذا السؤال <span style="font-weight:600;color:var(--text-secondary);font-size:0.8rem">· ' + esc(themeLabel) + '</span></h3>' +
+        expHtml +
+        '<button class="big-btn" id="info-google" style="margin-top:0.9rem">🔎 بحث أعمق في Google عن هذا السؤال</button>' +
+        '<button class="ghost-btn" id="info-close">إغلاق</button>' +
+      '</div>';
+    document.body.appendChild(ov);
+    ov.onclick = function(e){ if(e.target === ov) ov.remove(); };
+    document.getElementById('info-close').onclick = function(){ ov.remove(); };
+    document.getElementById('info-google').onclick = function(){
+      var query = q.q + ' code de la route';
+      window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_system');
+    };
+  };
   document.querySelectorAll('.opt').forEach(function(b){
     b.onclick = function(){ pickOption(+b.dataset.i, multi); };
   });
