@@ -948,7 +948,7 @@ function renderQuiz(){
     ov.onclick = function(e){ if(e.target === ov) ov.remove(); };
     document.getElementById('info-close').onclick = function(){ ov.remove(); };
     document.getElementById('info-google').onclick = function(){
-      var query = q.q + ' code de la route';
+      var query = q.q + (q.qa ? ' ' + q.qa : '') + ' code de la route شرح';
       window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_system');
     };
   };
