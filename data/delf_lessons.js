@@ -4839,6 +4839,963 @@ window.DELF_LESSONS = {
         }
       ],
       "ids": []
+    },
+    {
+      "id": "b1-e10",
+      "icon": "🏠",
+      "fr": "Écrit 10 — Le logement et la vie en appartement",
+      "ar": "كتابة 10 — السكن والحياة في الشقة",
+      "consigne": {
+        "f": "Vous participez à un forum sur le logement. Vous écrivez un texte pour présenter les avantages et les inconvénients de la vie en appartement et expliquer quel type de logement vous préférez.",
+        "a": "أنت تشارك في منتدى حول السكن. اكتب نصاً تشرح فيه إيجابيات وسلبيات العيش في شقة، وتوضح أي نوع من السكن بتفضّل."
+      },
+      "phr": [
+        {
+          "f": "Le logement est un élément essentiel pour avoir une vie stable et confortable.",
+          "a": "السكن عنصر أساسي حتى تكون حياتنا مستقرة ومريحة.",
+          "e": "Housing is essential for having a stable and comfortable life."
+        },
+        {
+          "f": "Aujourd'hui, beaucoup de personnes préfèrent vivre dans un appartement en ville.",
+          "a": "اليوم، كثير من الأشخاص بيفضّلوا يعيشوا بشقة داخل المدينة.",
+          "e": "Today, many people prefer living in an apartment in the city."
+        },
+        {
+          "f": "Ce choix présente plusieurs avantages, notamment la proximité des commerces et des transports publics.",
+          "a": "هالاختيار إله عدة إيجابيات، وخاصة القرب من المحلات والمواصلات العامة.",
+          "e": "This choice has several advantages, especially being close to shops and public transport."
+        },
+        {
+          "f": "Il est également plus facile de se rendre au travail ou à l'école lorsqu'on habite en ville.",
+          "a": "كمان بيكون أسهل نروح على العمل أو المدرسة لما نسكن بالمدينة.",
+          "e": "It is also easier to get to work or school when living in the city."
+        },
+        {
+          "f": "Cependant, les loyers sont parfois très élevés, surtout dans les grandes villes.",
+          "a": "لكن الإيجارات أحياناً بتكون مرتفعة جداً، وخاصة بالمدن الكبيرة.",
+          "e": "However, rents are sometimes very high, especially in large cities."
+        },
+        {
+          "f": "Certaines personnes doivent consacrer une grande partie de leur salaire au logement.",
+          "a": "بعض الأشخاص بيضطروا يخصصوا جزء كبير من راتبهم للسكن.",
+          "e": "Some people have to spend a large part of their salary on housing."
+        },
+        {
+          "f": "Un autre problème est le bruit causé par les voisins ou la circulation.",
+          "a": "مشكلة تانية هي الضجيج الناتج عن الجيران أو حركة المرور.",
+          "e": "Another problem is noise caused by neighbours or traffic."
+        },
+        {
+          "f": "En revanche, vivre à la campagne permet souvent de profiter du calme et de la nature.",
+          "a": "بالمقابل، العيش بالريف بيسمح غالباً بالاستمتاع بالهدوء والطبيعة.",
+          "e": "On the other hand, living in the countryside often allows people to enjoy peace and nature."
+        },
+        {
+          "f": "Mais il peut être difficile de se déplacer sans voiture dans certaines régions.",
+          "a": "لكن ممكن يكون التنقل صعب بدون سيارة ببعض المناطق.",
+          "e": "But it can be difficult to travel without a car in some areas."
+        },
+        {
+          "f": "À mon avis, un bon logement doit être propre, bien situé et adapté aux besoins de ses habitants.",
+          "a": "برأيي، السكن الجيد لازم يكون نظيف وموقعه مناسب ويلبّي احتياجات سكانه.",
+          "e": "In my opinion, good housing should be clean, well located and suitable for its residents' needs."
+        },
+        {
+          "f": "Je préfère vivre dans un appartement confortable, proche des transports et des services essentiels.",
+          "a": "أنا بفضّل العيش بشقة مريحة وقريبة من المواصلات والخدمات الأساسية.",
+          "e": "I prefer living in a comfortable apartment close to transport and essential services."
+        },
+        {
+          "f": "Pour conclure, avoir un logement adapté est très important pour améliorer sa qualité de vie et se sentir en sécurité.",
+          "a": "بالخلاصة، وجود سكن مناسب مهم جداً لتحسين جودة الحياة والشعور بالأمان.",
+          "e": "To conclude, having suitable accommodation is very important for improving quality of life and feeling safe.\n\nالموضوع 10"
+        },
+        {
+          "f": "Le logement",
+          "a": "السكن",
+          "e": "Housing",
+          "voc": 1
+        },
+        {
+          "f": "Le loyer",
+          "a": "الإيجار",
+          "e": "Rent",
+          "voc": 1
+        },
+        {
+          "f": "Un appartement",
+          "a": "شقة",
+          "e": "Apartment",
+          "voc": 1
+        },
+        {
+          "f": "Un propriétaire",
+          "a": "مالك العقار",
+          "e": "Landlord",
+          "voc": 1
+        },
+        {
+          "f": "Un locataire",
+          "a": "مستأجر",
+          "e": "Tenant",
+          "voc": 1
+        },
+        {
+          "f": "Les charges",
+          "a": "التكاليف الإضافية",
+          "e": "Service charges",
+          "voc": 1
+        },
+        {
+          "f": "Le voisinage",
+          "a": "الجوار",
+          "e": "Neighbourhood",
+          "voc": 1
+        },
+        {
+          "f": "Un logement confortable",
+          "a": "سكن مريح",
+          "e": "Comfortable accommodation",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e11",
+      "icon": "🚇",
+      "fr": "Écrit 11 — Les transports et les déplacements",
+      "ar": "كتابة 11 — المواصلات والتنقّل",
+      "consigne": {
+        "f": "Vous participez à un forum sur les transports. Vous écrivez un texte pour présenter les avantages et les inconvénients des transports publics et expliquer pourquoi il est important de les développer.",
+        "a": "أنت تشارك في منتدى حول المواصلات. اكتب نصاً تذكر فيه إيجابيات وسلبيات المواصلات العامة، وتشرح لماذا من المهم تطويرها."
+      },
+      "phr": [
+        {
+          "f": "Les transports occupent une place importante dans notre vie quotidienne.",
+          "a": "المواصلات إلها مكانة مهمة بحياتنا اليومية.",
+          "e": "Transport plays an important role in our daily lives."
+        },
+        {
+          "f": "Chaque jour, de nombreuses personnes utilisent le bus, le tramway ou le train pour se déplacer.",
+          "a": "كل يوم، كثير من الأشخاص بيستخدموا الباص أو الترام أو القطار للتنقل.",
+          "e": "Every day, many people use buses, trams or trains to get around."
+        },
+        {
+          "f": "Les transports publics permettent de se rendre au travail, à l'école ou à ses rendez-vous.",
+          "a": "المواصلات العامة بتساعدنا نوصل للشغل أو المدرسة أو مواعيدنا.",
+          "e": "Public transport allows us to get to work, school or appointments."
+        },
+        {
+          "f": "Leur principal avantage est qu'ils coûtent souvent moins cher que l'utilisation d'une voiture personnelle.",
+          "a": "أهم ميزة إلها إنها غالباً أرخص من استخدام سيارة خاصة.",
+          "e": "Their main advantage is that they are often cheaper than using a private car."
+        },
+        {
+          "f": "De plus, ils permettent de réduire le nombre de voitures dans les villes.",
+          "a": "بالإضافة لذلك، بتساعد على تقليل عدد السيارات بالمدن.",
+          "e": "Moreover, they help reduce the number of cars in cities."
+        },
+        {
+          "f": "Cela contribue à diminuer la pollution de l'air et les embouteillages.",
+          "a": "هالشي بيساعد على تقليل تلوث الهواء والازدحام المروري.",
+          "e": "This helps reduce air pollution and traffic jams."
+        },
+        {
+          "f": "Cependant, les transports publics présentent aussi quelques inconvénients.",
+          "a": "لكن المواصلات العامة إلها كمان بعض السلبيات.",
+          "e": "However, public transport also has some disadvantages."
+        },
+        {
+          "f": "Les bus et les trains peuvent être en retard, surtout pendant les heures de pointe.",
+          "a": "الباصات والقطارات ممكن تتأخر، وخاصة بأوقات الازدحام.",
+          "e": "Buses and trains can be late, especially during rush hours."
+        },
+        {
+          "f": "Parfois, il y a trop de voyageurs et les véhicules sont très remplis.",
+          "a": "أحياناً بيكون في ركاب كتير ووسائل النقل بتكون مزدحمة جداً.",
+          "e": "Sometimes there are too many passengers and the vehicles are very crowded."
+        },
+        {
+          "f": "À mon avis, les villes devraient investir davantage dans les transports publics et améliorer la qualité des services.",
+          "a": "برأيي، لازم المدن تستثمر أكثر بالمواصلات العامة وتحسّن جودة الخدمات.",
+          "e": "In my opinion, cities should invest more in public transport and improve the quality of services."
+        },
+        {
+          "f": "Il faudrait également proposer des horaires plus réguliers et des tarifs accessibles à tous.",
+          "a": "ومن الضروري كمان توفير مواعيد أكثر انتظاماً وأسعار مناسبة للجميع.",
+          "e": "It would also be necessary to offer more regular schedules and affordable fares for everyone."
+        },
+        {
+          "f": "Pour conclure, les transports publics sont indispensables pour faciliter les déplacements et protéger l'environnement.",
+          "a": "بالخلاصة، المواصلات العامة ضرورية لتسهيل التنقل وحماية البيئة.",
+          "e": "To conclude, public transport is essential for making travel easier and protecting the environment.\n\nالموضوع 11"
+        },
+        {
+          "f": "Les transports publics",
+          "a": "المواصلات العامة",
+          "e": "Public transport",
+          "voc": 1
+        },
+        {
+          "f": "Le tramway",
+          "a": "الترام",
+          "e": "Tram",
+          "voc": 1
+        },
+        {
+          "f": "Le trajet",
+          "a": "الرحلة أو الطريق",
+          "e": "Journey",
+          "voc": 1
+        },
+        {
+          "f": "Les embouteillages",
+          "a": "الازدحام المروري",
+          "e": "Traffic jams",
+          "voc": 1
+        },
+        {
+          "f": "Les heures de pointe",
+          "a": "أوقات الذروة",
+          "e": "Rush hours",
+          "voc": 1
+        },
+        {
+          "f": "Le retard",
+          "a": "التأخير",
+          "e": "Delay",
+          "voc": 1
+        },
+        {
+          "f": "Un abonnement",
+          "a": "اشتراك",
+          "e": "Pass / Membership",
+          "voc": 1
+        },
+        {
+          "f": "La pollution",
+          "a": "التلوث",
+          "e": "Pollution",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e12",
+      "icon": "🌍",
+      "fr": "Écrit 12 — L'environnement et le changement climatique",
+      "ar": "كتابة 12 — البيئة والتغير المناخي",
+      "consigne": {
+        "f": "Vous participez à un forum sur l'environnement. Vous expliquez pourquoi il est important de protéger la planète et vous proposez des solutions pour réduire la pollution.",
+        "a": "أنت تشارك بمنتدى عن البيئة. اشرح ليش من المهم نحمي كوكب الأرض، واقترح حلول لتقليل التلوث."
+      },
+      "phr": [
+        {
+          "f": "Aujourd'hui, la protection de l'environnement est devenue un sujet très important dans notre société.",
+          "a": "اليوم، حماية البيئة صارت موضوع مهم جداً بمجتمعنا.",
+          "e": "Today, protecting the environment has become a very important issue in our society."
+        },
+        {
+          "f": "Le changement climatique, la pollution et la disparition de certaines espèces représentent de grands problèmes pour notre planète.",
+          "a": "التغير المناخي والتلوث واختفاء بعض أنواع الحيوانات والنباتات بيشكّلوا مشاكل كبيرة لكوكبنا.",
+          "e": "Climate change, pollution and the disappearance of certain species are major problems for our planet."
+        },
+        {
+          "f": "Chaque année, les températures augmentent et les phénomènes météorologiques deviennent parfois plus violents.",
+          "a": "كل سنة درجات الحرارة عم ترتفع، والظواهر الجوية أحياناً عم تصير أقوى.",
+          "e": "Every year, temperatures rise and weather events sometimes become more severe."
+        },
+        {
+          "f": "À mon avis, nous devons tous prendre conscience de cette situation et changer certaines habitudes.",
+          "a": "برأيي، لازم كلنا ننتبه لهالوضع ونغيّر بعض عاداتنا.",
+          "e": "In my opinion, we must all become aware of this situation and change some habits."
+        },
+        {
+          "f": "Tout d'abord, il est important de réduire l'utilisation du plastique, car il pollue les océans et menace les animaux.",
+          "a": "أول شي، من المهم نقلل استخدام البلاستيك لأنه بيلوّث المحيطات وبيهدد الحيوانات.",
+          "e": "First, it is important to reduce plastic use because it pollutes the oceans and threatens animals."
+        },
+        {
+          "f": "Nous pouvons utiliser des sacs réutilisables et éviter les emballages inutiles lorsque nous faisons nos courses.",
+          "a": "فينا نستخدم أكياس قابلة لإعادة الاستخدام ونتجنب التغليف غير الضروري وقت التسوق.",
+          "e": "We can use reusable bags and avoid unnecessary packaging when shopping."
+        },
+        {
+          "f": "Ensuite, le tri des déchets permet de recycler le papier, le verre et certains objets en plastique.",
+          "a": "كمان فرز النفايات بيساعد على إعادة تدوير الورق والزجاج وبعض الأشياء البلاستيكية.",
+          "e": "Next, sorting waste makes it possible to recycle paper, glass and certain plastic items."
+        },
+        {
+          "f": "Il faudrait également économiser l'eau et l'électricité à la maison, par exemple en éteignant les lumières inutiles.",
+          "a": "ولازم كمان نوفر المي والكهربا بالبيت، مثلاً نطفي الأضواء اللي ما إلها ضرورة.",
+          "e": "We should also save water and electricity at home, for example by switching off unnecessary lights."
+        },
+        {
+          "f": "Pour les petits déplacements, nous pouvons marcher, faire du vélo ou utiliser les transports en commun.",
+          "a": "للمشاوير القصيرة، فينا نمشي أو نستخدم الدراجة أو المواصلات العامة.",
+          "e": "For short journeys, we can walk, cycle or use public transport."
+        },
+        {
+          "f": "Les gouvernements ont aussi un rôle essentiel à jouer dans la protection de l'environnement.",
+          "a": "الحكومات كمان إلها دور أساسي بحماية البيئة.",
+          "e": "Governments also have an essential role to play in protecting the environment."
+        },
+        {
+          "f": "Ils devraient développer les énergies renouvelables, protéger les forêts et encourager les entreprises à réduire leurs déchets.",
+          "a": "لازم يطوّروا مصادر الطاقة المتجددة، ويحافظوا على الغابات، ويشجعوا الشركات تقلل نفاياتها.",
+          "e": "They should develop renewable energy, protect forests and encourage companies to reduce their waste."
+        },
+        {
+          "f": "Il est également nécessaire de sensibiliser les enfants à l'environnement dès leur plus jeune âge.",
+          "a": "ومن الضروري كمان نعلّم الأطفال أهمية البيئة من عمر صغير.",
+          "e": "It is also necessary to raise children's awareness of the environment from an early age."
+        },
+        {
+          "f": "En effet, les nouvelles générations doivent comprendre que leurs actions peuvent avoir des conséquences sur l'avenir de la planète.",
+          "a": "لأن الأجيال الجديدة لازم تفهم إن تصرفاتها ممكن تأثر على مستقبل كوكب الأرض.",
+          "e": "Indeed, younger generations must understand that their actions can affect the future of the planet."
+        },
+        {
+          "f": "Pour conclure, protéger l'environnement est une responsabilité collective et chacun peut agir à son niveau.",
+          "a": "بالخلاصة، حماية البيئة مسؤولية جماعية، وكل شخص فيه يعمل شي حسب قدرته.",
+          "e": "To conclude, protecting the environment is a shared responsibility, and everyone can do their part.\n\nعدد الكلمات الفرنسية: أكثر من 160 كلمة تقريباً، دون احتساب الترجمة.\n\nالموضوع 12"
+        },
+        {
+          "f": "L'environnement",
+          "a": "البيئة",
+          "e": "Environment",
+          "voc": 1
+        },
+        {
+          "f": "Le changement climatique",
+          "a": "التغير المناخي",
+          "e": "Climate change",
+          "voc": 1
+        },
+        {
+          "f": "La pollution",
+          "a": "التلوث",
+          "e": "Pollution",
+          "voc": 1
+        },
+        {
+          "f": "Les déchets",
+          "a": "النفايات",
+          "e": "Waste",
+          "voc": 1
+        },
+        {
+          "f": "Le recyclage",
+          "a": "إعادة التدوير",
+          "e": "Recycling",
+          "voc": 1
+        },
+        {
+          "f": "Les énergies renouvelables",
+          "a": "الطاقات المتجددة",
+          "e": "Renewable energy",
+          "voc": 1
+        },
+        {
+          "f": "Économiser l'eau",
+          "a": "توفير المياه",
+          "e": "Save water",
+          "voc": 1
+        },
+        {
+          "f": "Protéger la planète",
+          "a": "حماية الكوكب",
+          "e": "Protect the planet",
+          "voc": 1
+        },
+        {
+          "f": "Les transports en commun",
+          "a": "المواصلات العامة",
+          "e": "Public transport",
+          "voc": 1
+        },
+        {
+          "f": "La responsabilité collective",
+          "a": "المسؤولية الجماعية",
+          "e": "Shared responsibility",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e13",
+      "icon": "📱",
+      "fr": "Écrit 13 — Internet et les réseaux sociaux",
+      "ar": "كتابة 13 — الإنترنت ووسائل التواصل الاجتماعي",
+      "consigne": {
+        "f": "Vous participez à un forum sur Internet et les réseaux sociaux. Vous présentez leurs avantages et leurs inconvénients et donnez votre opinion sur leur utilisation dans la vie quotidienne.",
+        "a": "أنت بتشارك بمنتدى عن الإنترنت ووسائل التواصل الاجتماعي. اذكر إيجابياتها وسلبياتها، واعطِ رأيك باستخدامها بالحياة اليومية."
+      },
+      "phr": [
+        {
+          "f": "Aujourd'hui, Internet et les réseaux sociaux occupent une place très importante dans notre vie quotidienne.",
+          "a": "اليوم، الإنترنت ووسائل التواصل الاجتماعي إلهم مكانة كبيرة بحياتنا اليومية.",
+          "e": "Today, the Internet and social networks play a very important role in our daily lives."
+        },
+        {
+          "f": "Grâce à Internet, nous pouvons communiquer avec des personnes qui vivent dans d'autres villes ou dans d'autres pays.",
+          "a": "بفضل الإنترنت، فينا نتواصل مع أشخاص عايشين بمدن أو بلدان تانية.",
+          "e": "Thanks to the Internet, we can communicate with people who live in other cities or countries."
+        },
+        {
+          "f": "Les réseaux sociaux permettent également de partager des photos, des vidéos et des informations avec nos amis et notre famille.",
+          "a": "وسائل التواصل الاجتماعي بتسمح لنا نشارك الصور والفيديوهات والمعلومات مع أصدقائنا وعيلتنا.",
+          "e": "Social networks also allow us to share photos, videos and information with friends and family."
+        },
+        {
+          "f": "Un autre avantage est que nous pouvons apprendre beaucoup de choses grâce aux sites éducatifs et aux vidéos en ligne.",
+          "a": "ومن إيجابياتها كمان إننا فينا نتعلم أشياء كتيرة من خلال المواقع التعليمية والفيديوهات على الإنترنت.",
+          "e": "Another advantage is that we can learn many things through educational websites and online videos."
+        },
+        {
+          "f": "Par exemple, les étudiants peuvent suivre des cours à distance et améliorer leurs connaissances dans plusieurs domaines.",
+          "a": "مثلاً، الطلاب فيهم يتابعوا دروس عن بُعد ويطوّروا معلوماتهم بمجالات مختلفة.",
+          "e": "For example, students can take online courses and improve their knowledge in several fields."
+        },
+        {
+          "f": "Internet facilite aussi la recherche d'emploi, car de nombreuses entreprises publient leurs offres sur leurs sites.",
+          "a": "الإنترنت بيسهّل كمان البحث عن عمل، لأن شركات كتيرة بتنشر عروض العمل على مواقعها.",
+          "e": "The Internet also makes job hunting easier because many companies publish vacancies on their websites."
+        },
+        {
+          "f": "Cependant, les réseaux sociaux présentent certains inconvénients qu'il ne faut pas ignorer.",
+          "a": "لكن وسائل التواصل الاجتماعي إلها بعض السلبيات اللي ما لازم نتجاهلها.",
+          "e": "However, social networks have some disadvantages that should not be ignored."
+        },
+        {
+          "f": "Certaines personnes passent plusieurs heures devant leur téléphone et oublient leurs responsabilités quotidiennes.",
+          "a": "بعض الأشخاص بيقضوا ساعات طويلة قدام تلفوناتهم وبينسوا مسؤولياتهم اليومية.",
+          "e": "Some people spend several hours on their phones and forget their daily responsibilities."
+        },
+        {
+          "f": "Cette habitude peut avoir des conséquences négatives sur le sommeil, la concentration et les relations familiales.",
+          "a": "هالعادة ممكن يكون إلها تأثير سلبي على النوم والتركيز والعلاقات العائلية.",
+          "e": "This habit can have negative effects on sleep, concentration and family relationships."
+        },
+        {
+          "f": "De plus, toutes les informations publiées sur Internet ne sont pas fiables, et certaines peuvent être fausses.",
+          "a": "بالإضافة لذلك، مو كل المعلومات المنشورة على الإنترنت موثوقة، وبعضها ممكن يكون كاذب.",
+          "e": "Moreover, not all information published online is reliable, and some of it may be false."
+        },
+        {
+          "f": "Il faut donc vérifier les sources avant de partager une information avec d'autres personnes.",
+          "a": "لذلك لازم نتأكد من المصادر قبل ما نشارك أي معلومة مع أشخاص تانيين.",
+          "e": "We must therefore check sources before sharing information with other people."
+        },
+        {
+          "f": "À mon avis, Internet est un outil très utile, à condition de l'utiliser de manière raisonnable et responsable.",
+          "a": "برأيي، الإنترنت أداة مفيدة جداً، بشرط نستخدمها بطريقة معتدلة ومسؤولة.",
+          "e": "In my opinion, the Internet is a very useful tool, provided that we use it reasonably and responsibly."
+        },
+        {
+          "f": "Je pense qu'il est préférable de limiter le temps passé sur les réseaux sociaux et de consacrer plus de temps aux activités réelles.",
+          "a": "برأيي، الأفضل نحدد الوقت اللي منقضيه على وسائل التواصل ونخصص وقت أكتر للأنشطة بالحياة الواقعية.",
+          "e": "I think it is better to limit time spent on social networks and devote more time to real-life activities."
+        },
+        {
+          "f": "Pour conclure, Internet offre de nombreuses possibilités, mais nous devons apprendre à l'utiliser intelligemment.",
+          "a": "بالخلاصة، الإنترنت بيقدم فرص وإمكانيات كتيرة، بس لازم نتعلم كيف نستخدمه بذكاء.",
+          "e": "To conclude, the Internet offers many opportunities, but we must learn to use it wisely.\n\nعدد الكلمات الفرنسية: أكثر من 160 كلمة تقريباً، دون احتساب الترجمات.\n\nالموضوع 13"
+        },
+        {
+          "f": "Internet",
+          "a": "الإنترنت",
+          "e": "Internet",
+          "voc": 1
+        },
+        {
+          "f": "Les réseaux sociaux",
+          "a": "وسائل التواصل الاجتماعي",
+          "e": "Social networks",
+          "voc": 1
+        },
+        {
+          "f": "Partager",
+          "a": "يشارك",
+          "e": "To share",
+          "voc": 1
+        },
+        {
+          "f": "Communiquer",
+          "a": "يتواصل",
+          "e": "To communicate",
+          "voc": 1
+        },
+        {
+          "f": "Un avantage",
+          "a": "إيجابية / ميزة",
+          "e": "An advantage",
+          "voc": 1
+        },
+        {
+          "f": "Un inconvénient",
+          "a": "سلبية",
+          "e": "A disadvantage",
+          "voc": 1
+        },
+        {
+          "f": "Les informations",
+          "a": "المعلومات",
+          "e": "Information",
+          "voc": 1
+        },
+        {
+          "f": "Une source fiable",
+          "a": "مصدر موثوق",
+          "e": "A reliable source",
+          "voc": 1
+        },
+        {
+          "f": "La concentration",
+          "a": "التركيز",
+          "e": "Concentration",
+          "voc": 1
+        },
+        {
+          "f": "Utiliser de manière responsable",
+          "a": "يستخدم بمسؤولية",
+          "e": "Use responsibly",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e14",
+      "icon": "👨‍👩‍👧",
+      "fr": "Écrit 14 — La famille et les relations sociales",
+      "ar": "كتابة 14 — العائلة والعلاقات الاجتماعية",
+      "consigne": {
+        "f": "Vous participez à un forum sur la famille et les relations sociales. Vous expliquez pourquoi les relations familiales et amicales sont importantes et vous donnez des conseils pour les préserver.",
+        "a": "أنت بتشارك بمنتدى عن العائلة والعلاقات الاجتماعية. اشرح ليش العلاقات العائلية وعلاقات الصداقة مهمة، وقدّم نصائح للحفاظ عليها."
+      },
+      "phr": [
+        {
+          "f": "La famille et les amis occupent une place essentielle dans la vie de chaque personne.",
+          "a": "العيلة والأصدقاء إلهم مكانة أساسية بحياة كل إنسان.",
+          "e": "Family and friends play an essential role in everyone's life."
+        },
+        {
+          "f": "Ils nous accompagnent dans les moments difficiles et partagent avec nous les moments de bonheur.",
+          "a": "بيوقفوا معنا بالأوقات الصعبة وبيشاركوا معنا لحظات الفرح.",
+          "e": "They support us during difficult times and share happy moments with us."
+        },
+        {
+          "f": "Grâce à notre famille, nous pouvons recevoir de l'amour, du soutien et des conseils lorsque nous avons des problèmes.",
+          "a": "بفضل عيلتنا، فينا نحصل على المحبة والدعم والنصائح لما نواجه مشاكل.",
+          "e": "Thanks to our family, we can receive love, support and advice when we have problems."
+        },
+        {
+          "f": "Les amis sont également importants, car ils nous permettent de sortir, de discuter et de découvrir de nouvelles activités.",
+          "a": "الأصدقاء كمان مهمين، لأنهم بيساعدونا نطلع ونتحدث ونتعرف على نشاطات جديدة.",
+          "e": "Friends are also important because they allow us to go out, talk and discover new activities."
+        },
+        {
+          "f": "Cependant, il n'est pas toujours facile de garder de bonnes relations avec les autres.",
+          "a": "لكن مو دائماً سهل نحافظ على علاقات جيدة مع الآخرين.",
+          "e": "However, it is not always easy to maintain good relationships with others."
+        },
+        {
+          "f": "Le travail, les études et les responsabilités quotidiennes peuvent parfois nous empêcher de passer suffisamment de temps avec nos proches.",
+          "a": "الشغل والدراسة والمسؤوليات اليومية ممكن أحياناً تمنعنا نقضي وقت كافي مع الأشخاص القريبين منا.",
+          "e": "Work, studies and daily responsibilities can sometimes prevent us from spending enough time with our loved ones."
+        },
+        {
+          "f": "De plus, les malentendus et les disputes peuvent créer des problèmes entre les membres d'une famille ou entre amis.",
+          "a": "بالإضافة لذلك، سوء الفهم والخلافات ممكن يسببوا مشاكل بين أفراد العيلة أو بين الأصدقاء.",
+          "e": "Moreover, misunderstandings and arguments can create problems between family members or friends."
+        },
+        {
+          "f": "À mon avis, la communication est la clé d'une relation saine et durable.",
+          "a": "برأيي، التواصل هو مفتاح العلاقة الصحية والمستمرة.",
+          "e": "In my opinion, communication is the key to a healthy and lasting relationship."
+        },
+        {
+          "f": "Il est important d'écouter les autres, de respecter leurs opinions et d'essayer de comprendre leurs sentiments.",
+          "a": "من المهم نسمع للآخرين ونحترم آراءهم ونحاول نفهم مشاعرهم.",
+          "e": "It is important to listen to others, respect their opinions and try to understand their feelings."
+        },
+        {
+          "f": "Il faut également apprendre à reconnaître ses erreurs et à demander pardon lorsque l'on a blessé quelqu'un.",
+          "a": "لازم كمان نتعلم نعترف بأخطائنا ونطلب السماح لما نجرح حدا.",
+          "e": "We must also learn to admit our mistakes and apologize when we have hurt someone."
+        },
+        {
+          "f": "Même lorsque nous sommes très occupés, nous pouvons prendre quelques minutes pour appeler nos parents ou envoyer un message à nos amis.",
+          "a": "حتى لو كنا مشغولين كتير، فينا نخصص كم دقيقة لنتصل بأهلنا أو نبعت رسالة لأصدقائنا.",
+          "e": "Even when we are very busy, we can take a few minutes to call our parents or send a message to our friends."
+        },
+        {
+          "f": "Organiser un repas en famille ou une sortie entre amis est aussi une bonne manière de renforcer les relations.",
+          "a": "تنظيم وجبة مع العيلة أو طلعة مع الأصدقاء كمان طريقة جيدة لتقوية العلاقات.",
+          "e": "Organizing a family meal or an outing with friends is also a good way to strengthen relationships."
+        },
+        {
+          "f": "Je pense qu'il ne faut pas attendre les occasions spéciales pour montrer aux personnes que nous les aimons.",
+          "a": "برأيي، ما لازم نستنى المناسبات الخاصة حتى نعبّر للناس عن محبتنا إلهم.",
+          "e": "I think we should not wait for special occasions to show people that we love them."
+        },
+        {
+          "f": "Pour conclure, les relations humaines sont précieuses et nous devons faire des efforts pour les protéger et les développer.",
+          "a": "بالخلاصة، العلاقات الإنسانية ثمينة ولازم نبذل جهد حتى نحافظ عليها ونطوّرها.",
+          "e": "To conclude, human relationships are precious, and we must make an effort to protect and develop them.\n\nالنص الفرنسي يتجاوز الحد الأدنى المطلوب في امتحان DELF B1، وهو 160 كلمة تقريباً.\n\nالموضوع 14"
+        },
+        {
+          "f": "La famille",
+          "a": "العائلة",
+          "e": "Family",
+          "voc": 1
+        },
+        {
+          "f": "Les proches",
+          "a": "الأشخاص المقرّبون",
+          "e": "Loved ones",
+          "voc": 1
+        },
+        {
+          "f": "Le soutien",
+          "a": "الدعم",
+          "e": "Support",
+          "voc": 1
+        },
+        {
+          "f": "Une relation durable",
+          "a": "علاقة مستمرة",
+          "e": "A lasting relationship",
+          "voc": 1
+        },
+        {
+          "f": "La confiance",
+          "a": "الثقة",
+          "e": "Trust",
+          "voc": 1
+        },
+        {
+          "f": "Le respect",
+          "a": "الاحترام",
+          "e": "Respect",
+          "voc": 1
+        },
+        {
+          "f": "Un malentendu",
+          "a": "سوء فهم",
+          "e": "Misunderstanding",
+          "voc": 1
+        },
+        {
+          "f": "Une dispute",
+          "a": "خلاف",
+          "e": "Argument",
+          "voc": 1
+        },
+        {
+          "f": "Demander pardon",
+          "a": "يطلب السماح",
+          "e": "To apologize",
+          "voc": 1
+        },
+        {
+          "f": "Renforcer les relations",
+          "a": "يقوّي العلاقات",
+          "e": "Strengthen relationships",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e15",
+      "icon": "🎨",
+      "fr": "Écrit 15 — Les loisirs et le temps libre",
+      "ar": "كتابة 15 — الهوايات ووقت الفراغ",
+      "consigne": {
+        "f": "Vous participez à un forum sur les loisirs. Vous expliquez pourquoi il est important d'avoir des activités pendant son temps libre et vous présentez vos loisirs préférés.",
+        "a": "أنت بتشارك بمنتدى عن الهوايات. اشرح ليش من المهم يكون عند الإنسان نشاطات بوقت فراغه، واحكي عن هواياتك المفضلة."
+      },
+      "phr": [
+        {
+          "f": "Dans notre vie quotidienne, nous sommes souvent occupés par le travail, les études et les responsabilités familiales.",
+          "a": "بحياتنا اليومية، غالباً منكون مشغولين بالشغل والدراسة والمسؤوليات العائلية.",
+          "e": "In our daily lives, we are often busy with work, studies and family responsibilities."
+        },
+        {
+          "f": "C'est pourquoi il est important de réserver du temps pour les loisirs et les activités que nous aimons.",
+          "a": "ولهيك من المهم نخصص وقت للهوايات والنشاطات اللي منحبها.",
+          "e": "That is why it is important to make time for hobbies and activities we enjoy."
+        },
+        {
+          "f": "Les loisirs nous permettent de nous détendre, de réduire le stress et d'oublier les problèmes pendant quelques heures.",
+          "a": "الهوايات بتساعدنا نرتاح ونخفف التوتر وننسى المشاكل لبضع ساعات.",
+          "e": "Hobbies allow us to relax, reduce stress and forget our problems for a few hours."
+        },
+        {
+          "f": "Certaines personnes préfèrent faire du sport, tandis que d'autres aiment lire, cuisiner ou regarder des films.",
+          "a": "في أشخاص بيفضلوا ممارسة الرياضة، بينما غيرهم بيحبوا القراءة أو الطبخ أو مشاهدة الأفلام.",
+          "e": "Some people prefer playing sports, while others enjoy reading, cooking or watching films."
+        },
+        {
+          "f": "Personnellement, j'aime beaucoup apprendre de nouvelles langues, car cela me permet de découvrir d'autres cultures.",
+          "a": "بالنسبة إلي، بحب كتير أتعلم لغات جديدة، لأن هالشي بيسمحلي اكتشف ثقافات تانية.",
+          "e": "Personally, I really enjoy learning new languages because it allows me to discover other cultures."
+        },
+        {
+          "f": "J'aime également écouter de la musique et regarder des vidéos éducatives pendant mon temps libre.",
+          "a": "وبحب كمان اسمع الموسيقى واحضر فيديوهات تعليمية بوقت فراغي.",
+          "e": "I also enjoy listening to music and watching educational videos in my free time."
+        },
+        {
+          "f": "Je pense que les activités culturelles sont très utiles, car elles nous permettent d'apprendre tout en nous amusant.",
+          "a": "برأيي، النشاطات الثقافية مفيدة جداً لأنها بتخلينا نتعلم ونستمتع بنفس الوقت.",
+          "e": "I think cultural activities are very useful because they allow us to learn while having fun."
+        },
+        {
+          "f": "Faire du sport est aussi une excellente manière de rester en bonne santé et de rencontrer de nouvelles personnes.",
+          "a": "ممارسة الرياضة كمان طريقة ممتازة حتى نحافظ على صحتنا ونتعرف على أشخاص جدد.",
+          "e": "Playing sports is also an excellent way to stay healthy and meet new people."
+        },
+        {
+          "f": "Cependant, certaines personnes passent trop de temps devant la télévision ou leur téléphone au lieu de pratiquer une activité.",
+          "a": "لكن بعض الأشخاص بيقضوا وقت طويل قدام التلفزيون أو الموبايل بدل ما يمارسوا نشاط مفيد.",
+          "e": "However, some people spend too much time watching television or using their phones instead of doing an activity."
+        },
+        {
+          "f": "Cette habitude peut réduire les occasions de bouger, de sortir et de communiquer avec les autres.",
+          "a": "هالعادة ممكن تقلل فرص الحركة والخروج والتواصل مع الآخرين.",
+          "e": "This habit can reduce opportunities to move, go out and communicate with others."
+        },
+        {
+          "f": "À mon avis, chacun devrait choisir une activité adaptée à ses goûts, à son âge et à son budget.",
+          "a": "برأيي، كل شخص لازم يختار نشاط مناسب لذوقه وعمره وميزانيته.",
+          "e": "In my opinion, everyone should choose an activity suited to their tastes, age and budget."
+        },
+        {
+          "f": "Il n'est pas nécessaire de dépenser beaucoup d'argent pour profiter de son temps libre.",
+          "a": "مو ضروري نصرف مصاري كتير حتى نستمتع بوقت فراغنا.",
+          "e": "It is not necessary to spend a lot of money to enjoy our free time."
+        },
+        {
+          "f": "Par exemple, nous pouvons marcher dans un parc, lire un livre à la bibliothèque ou faire du vélo.",
+          "a": "مثلاً، فينا نتمشى بحديقة أو نقرأ كتاب بالمكتبة أو نركب الدراجة.",
+          "e": "For example, we can walk in a park, read a book at the library or ride a bicycle."
+        },
+        {
+          "f": "Pour conclure, les loisirs sont indispensables pour avoir une vie équilibrée et se sentir mieux au quotidien.",
+          "a": "بالخلاصة، الهوايات ضرورية حتى تكون حياتنا متوازنة ونحس بحال أفضل كل يوم.",
+          "e": "To conclude, hobbies are essential for having a balanced life and feeling better every day.\n\nالنص الفرنسي يتجاوز 160 كلمة تقريباً، دون احتساب الترجمات.\n\nالموضوع 15"
+        },
+        {
+          "f": "Les loisirs",
+          "a": "الهوايات والأنشطة الترفيهية",
+          "e": "Leisure activities",
+          "voc": 1
+        },
+        {
+          "f": "Le temps libre",
+          "a": "وقت الفراغ",
+          "e": "Free time",
+          "voc": 1
+        },
+        {
+          "f": "Se détendre",
+          "a": "يسترخي",
+          "e": "To relax",
+          "voc": 1
+        },
+        {
+          "f": "Réduire le stress",
+          "a": "يخفف التوتر",
+          "e": "Reduce stress",
+          "voc": 1
+        },
+        {
+          "f": "Une activité culturelle",
+          "a": "نشاط ثقافي",
+          "e": "Cultural activity",
+          "voc": 1
+        },
+        {
+          "f": "Pratiquer un sport",
+          "a": "يمارس رياضة",
+          "e": "To play a sport",
+          "voc": 1
+        },
+        {
+          "f": "Rencontrer de nouvelles personnes",
+          "a": "يتعرف على أشخاص جدد",
+          "e": "Meet new people",
+          "voc": 1
+        },
+        {
+          "f": "Une vie équilibrée",
+          "a": "حياة متوازنة",
+          "e": "A balanced life",
+          "voc": 1
+        },
+        {
+          "f": "Une bibliothèque",
+          "a": "مكتبة",
+          "e": "Library",
+          "voc": 1
+        },
+        {
+          "f": "Profiter de son temps libre",
+          "a": "يستمتع بوقت فراغه",
+          "e": "Enjoy one's free time",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e16",
+      "icon": "✈️",
+      "fr": "Écrit 16 — Les voyages et les vacances",
+      "ar": "كتابة 16 — السفر والعطلات",
+      "consigne": {
+        "f": "Vous participez à un forum sur les voyages. Vous expliquez pourquoi les voyages sont importants, présentez leurs avantages et leurs inconvénients et donnez votre opinion.",
+        "a": "أنت بتشارك بمنتدى عن السفر. اشرح ليش السفر مهم، واذكر إيجابياته وسلبياته، واعطِ رأيك."
+      },
+      "phr": [
+        {
+          "f": "Voyager est une activité très appréciée par de nombreuses personnes, car elle permet de découvrir de nouveaux endroits et de changer de quotidien.",
+          "a": "السفر نشاط بيحبه كتير من الناس، لأنه بيسمحلهم يكتشفوا أماكن جديدة ويغيّروا روتين حياتهم.",
+          "e": "Traveling is an activity enjoyed by many people because it allows them to discover new places and change their daily routine."
+        },
+        {
+          "f": "Personnellement, je pense que les voyages sont une excellente occasion de se reposer et d'enrichir ses connaissances.",
+          "a": "بالنسبة إلي، بشوف إن السفر فرصة ممتازة للراحة وزيادة المعرفة.",
+          "e": "Personally, I think traveling is an excellent opportunity to rest and broaden one's knowledge."
+        },
+        {
+          "f": "Lorsque nous visitons un autre pays, nous pouvons découvrir sa culture, sa cuisine, ses traditions et son histoire.",
+          "a": "لما نزور بلد تاني، فينا نتعرف على ثقافته وأكلاته وتقاليده وتاريخه.",
+          "e": "When we visit another country, we can discover its culture, food, traditions and history."
+        },
+        {
+          "f": "Les voyages nous permettent également de rencontrer des personnes différentes et de pratiquer des langues étrangères.",
+          "a": "السفر بيسمحلنا كمان نتعرف على أشخاص مختلفين ونمارس لغات أجنبية.",
+          "e": "Traveling also allows us to meet different people and practise foreign languages."
+        },
+        {
+          "f": "Un autre avantage est que les vacances nous aident à oublier le stress du travail et les problèmes quotidiens.",
+          "a": "ومن إيجابيات السفر كمان إن العطلات بتساعدنا ننسى ضغط الشغل ومشاكل الحياة اليومية.",
+          "e": "Another advantage is that holidays help us forget work stress and everyday problems."
+        },
+        {
+          "f": "Nous pouvons profiter de la nature, visiter des monuments historiques ou passer du temps avec notre famille.",
+          "a": "فينا نستمتع بالطبيعة ونزور المعالم التاريخية أو نقضي وقت مع عيلتنا.",
+          "e": "We can enjoy nature, visit historical monuments or spend time with our family."
+        },
+        {
+          "f": "Cependant, voyager peut parfois coûter cher, surtout lorsque nous choisissons des destinations très touristiques.",
+          "a": "لكن السفر ممكن أحياناً يكون مكلف، وخاصة لما نختار وجهات سياحية غالية.",
+          "e": "However, traveling can sometimes be expensive, especially when we choose very popular tourist destinations."
+        },
+        {
+          "f": "Il faut payer le transport, l'hébergement, les repas et parfois les activités proposées aux touristes.",
+          "a": "لازم ندفع تكاليف المواصلات والإقامة والوجبات وأحياناً النشاطات المخصصة للسياح.",
+          "e": "We have to pay for transport, accommodation, meals and sometimes activities offered to tourists."
+        },
+        {
+          "f": "De plus, les longs trajets peuvent être fatigants et les changements de programme peuvent créer des difficultés.",
+          "a": "بالإضافة لذلك، الرحلات الطويلة ممكن تكون متعبة، وتغيير البرامج ممكن يسبب صعوبات.",
+          "e": "Moreover, long journeys can be tiring, and changes in plans can create difficulties."
+        },
+        {
+          "f": "Pour éviter ces problèmes, il est préférable de préparer son voyage à l'avance et de comparer les prix.",
+          "a": "حتى نتجنب هالمشاكل، الأفضل نخطط للسفر من قبل ونقارن الأسعار.",
+          "e": "To avoid these problems, it is better to plan the trip in advance and compare prices."
+        },
+        {
+          "f": "Il est également important de réserver son logement et de vérifier les documents nécessaires avant le départ.",
+          "a": "ومن المهم كمان نحجز مكان الإقامة ونتأكد من الوثائق المطلوبة قبل السفر.",
+          "e": "It is also important to book accommodation and check the necessary documents before departure."
+        },
+        {
+          "f": "À mon avis, il n'est pas nécessaire de partir très loin pour passer de bonnes vacances.",
+          "a": "برأيي، مو ضروري نسافر لمكان بعيد حتى نقضي عطلة حلوة.",
+          "e": "In my opinion, it is not necessary to travel far away to have a good holiday."
+        },
+        {
+          "f": "Nous pouvons aussi découvrir de beaux endroits dans notre propre région ou visiter des villes proches de chez nous.",
+          "a": "فينا كمان نكتشف أماكن جميلة بمنطقتنا أو نزور مدن قريبة من مكان سكننا.",
+          "e": "We can also discover beautiful places in our own region or visit cities near where we live."
+        },
+        {
+          "f": "Pour conclure, voyager est une expérience enrichissante qui nous permet de nous ouvrir au monde et de créer de beaux souvenirs.",
+          "a": "بالخلاصة، السفر تجربة غنية ومفيدة بتخلينا ننفتح على العالم ونصنع ذكريات جميلة.",
+          "e": "To conclude, traveling is an enriching experience that allows us to open ourselves to the world and create wonderful memories.\n\nالنص الفرنسي يتجاوز الحد الأدنى المطلوب في DELF B1 (160 كلمة تقريباً). لا تُحسب الترجمات ضمن العدد.\n\nالموضوع 16"
+        },
+        {
+          "f": "Voyager",
+          "a": "يسافر",
+          "e": "To travel",
+          "voc": 1
+        },
+        {
+          "f": "Un voyage",
+          "a": "رحلة",
+          "e": "A trip",
+          "voc": 1
+        },
+        {
+          "f": "Les vacances",
+          "a": "العطلة",
+          "e": "Holidays",
+          "voc": 1
+        },
+        {
+          "f": "Une destination",
+          "a": "وجهة",
+          "e": "Destination",
+          "voc": 1
+        },
+        {
+          "f": "L'hébergement",
+          "a": "الإقامة",
+          "e": "Accommodation",
+          "voc": 1
+        },
+        {
+          "f": "Réserver",
+          "a": "يحجز",
+          "e": "To book",
+          "voc": 1
+        },
+        {
+          "f": "Un monument historique",
+          "a": "معلم تاريخي",
+          "e": "Historical monument",
+          "voc": 1
+        },
+        {
+          "f": "Les traditions",
+          "a": "التقاليد",
+          "e": "Traditions",
+          "voc": 1
+        },
+        {
+          "f": "À l'avance",
+          "a": "مسبقاً",
+          "e": "In advance",
+          "voc": 1
+        },
+        {
+          "f": "Un souvenir",
+          "a": "ذكرى",
+          "e": "A memory",
+          "voc": 1
+        }
+      ],
+      "ids": []
     }
   ]
 };
