@@ -14911,6 +14911,1176 @@ window.DELF_LESSONS = {
         }
       ],
       "ids": []
+    },
+    {
+      "id": "b1-l13",
+      "icon": "🤝",
+      "fr": "Lettre 13 — Devenir coordinateur de projets bénévoles",
+      "ar": "رسالة 13 — أن تصبح منسّقاً لمشاريع تطوعية",
+      "consigne": {
+        "f": "Une association caritative recherche un coordinateur de projets bénévole pour organiser des événements et collecter des fonds. Vous avez participé à plusieurs actions de bénévolat et vous souhaitez vous impliquer davantage.",
+        "a": "جمعية خيرية تبحث عن منسّق مشاريع متطوّع لتنظيم الفعاليات وجمع التبرعات. سبق أن شاركتَ في عدة أنشطة تطوعية، وترغب في المشاركة بشكل أكبر. — المطلوب منك: — تكتب رسالة إلى الجمعية حتى: — تعبّر عن اهتمامك بالمنصب. — تطلب معلومات وتفاصيل إضافية. — تتحدث عن تجاربك التطوعية. — تشرح دوافعك ورغبتك بالمساعدة. — المطلوب: 160 كلمة على الأقل. — 💡 انتبه للفرق بين: Je participe à une action. = أشارك في نشاط. J’ai participé à une action. = شاركت في نشاط. Je souhaite participer à une action. = أرغب بالمشاركة في نشاط. استخدام الماضي والحاضر والمستقبل القريب أو صيغة الرغبة بشكل صحيح يساعدك على تنويع الأزمنة في كتابة B1."
+      },
+      "phr": [
+        {
+          "f": "Je vous écris pour exprimer mon intérêt pour le poste de coordinateur de projets bénévoles.",
+          "a": "أكتب إليكم لأعبّر عن اهتمامي بمنصب منسّق المشاريع التطوعية.",
+          "e": "I am writing to express my interest in the volunteer project coordinator position."
+        },
+        {
+          "f": "Je souhaite m’impliquer davantage dans les actions humanitaires.",
+          "a": "أرغب بالمشاركة بشكل أكبر في الأعمال الإنسانية.",
+          "e": "I would like to become more involved in humanitarian activities."
+        },
+        {
+          "f": "J’ai déjà participé à plusieurs actions de bénévolat.",
+          "a": "سبق وشاركت بعدة أنشطة تطوعية.",
+          "e": "I have already taken part in several volunteer activities."
+        },
+        {
+          "f": "J’ai aidé des personnes qui avaient besoin de soutien.",
+          "a": "ساعدت أشخاصاً كانوا بحاجة إلى الدعم.",
+          "e": "I helped people who needed support."
+        },
+        {
+          "f": "Je trouve que le bénévolat est une activité très importante.",
+          "a": "أرى أن العمل التطوعي نشاط مهم جداً.",
+          "e": "I think volunteering is a very important activity."
+        },
+        {
+          "f": "J’aime aider les autres sans attendre de récompense.",
+          "a": "أحب مساعدة الآخرين دون انتظار مقابل.",
+          "e": "I like helping others without expecting a reward."
+        },
+        {
+          "f": "Je suis motivé et prêt à prendre des responsabilités.",
+          "a": "أنا متحمّس ومستعد لتحمّل المسؤوليات.",
+          "e": "I am motivated and ready to take responsibility."
+        },
+        {
+          "f": "Je sais travailler en équipe et organiser des activités.",
+          "a": "أعرف كيف أعمل ضمن فريق وأنظّم الأنشطة.",
+          "e": "I know how to work in a team and organize activities."
+        },
+        {
+          "f": "J’ai participé à la distribution de nourriture aux familles défavorisées.",
+          "a": "شاركت بتوزيع الطعام على العائلات المحتاجة.",
+          "e": "I took part in distributing food to disadvantaged families."
+        },
+        {
+          "f": "Cette expérience m’a beaucoup appris.",
+          "a": "هذه التجربة علّمتني الكثير.",
+          "e": "This experience taught me a lot."
+        },
+        {
+          "f": "Je voudrais contribuer à améliorer la vie des personnes en difficulté.",
+          "a": "أريد أن أساهم في تحسين حياة الأشخاص الذين يواجهون صعوبات.",
+          "e": "I would like to help improve the lives of people in difficulty."
+        },
+        {
+          "f": "Je peux aider à organiser des événements et des campagnes de collecte de fonds.",
+          "a": "يمكنني المساعدة في تنظيم الفعاليات وحملات جمع التبرعات.",
+          "e": "I can help organize events and fundraising campaigns."
+        },
+        {
+          "f": "Je suis une personne sérieuse, responsable et dynamique.",
+          "a": "أنا شخص جدي ومسؤول ونشيط.",
+          "e": "I am a serious, responsible and energetic person."
+        },
+        {
+          "f": "Je suis capable de communiquer facilement avec les autres.",
+          "a": "أستطيع التواصل بسهولة مع الآخرين.",
+          "e": "I can communicate easily with others."
+        },
+        {
+          "f": "J’aimerais connaître les missions exactes de ce poste.",
+          "a": "أود معرفة المهام المحددة لهذا المنصب.",
+          "e": "I would like to know the exact duties of this position."
+        },
+        {
+          "f": "Pourriez-vous me donner plus de détails sur les horaires ?",
+          "a": "هل يمكنكم إعطائي تفاصيل أكثر عن أوقات العمل؟",
+          "e": "Could you give me more details about the schedule?"
+        },
+        {
+          "f": "Je voudrais également savoir si une formation est prévue.",
+          "a": "أود أيضاً أن أعرف إذا كان هناك تدريب مُقرّر.",
+          "e": "I would also like to know whether training is planned."
+        },
+        {
+          "f": "Je serais heureux de mettre mes compétences au service de votre association.",
+          "a": "سأكون سعيداً بوضع مهاراتي في خدمة جمعيتكم.",
+          "e": "I would be happy to put my skills at your association's service."
+        },
+        {
+          "f": "Je suis disponible pour participer à une rencontre.",
+          "a": "أنا متاح للمشاركة في لقاء.",
+          "e": "I am available to attend a meeting."
+        },
+        {
+          "f": "Je vous remercie pour votre attention et dans l’attente de votre réponse.",
+          "a": "أشكركم على اهتمامكم، وبانتظار ردكم.",
+          "e": "Thank you for your attention. I look forward to your reply."
+        },
+        {
+          "f": "Une association caritative",
+          "a": "جمعية خيرية",
+          "e": "Charity organization",
+          "voc": 1
+        },
+        {
+          "f": "Un bénévole",
+          "a": "متطوّع",
+          "e": "Volunteer",
+          "voc": 1
+        },
+        {
+          "f": "Le bénévolat",
+          "a": "العمل التطوعي",
+          "e": "Volunteering",
+          "voc": 1
+        },
+        {
+          "f": "Un coordinateur",
+          "a": "منسّق",
+          "e": "Coordinator",
+          "voc": 1
+        },
+        {
+          "f": "Une action solidaire",
+          "a": "نشاط تضامني",
+          "e": "Solidarity action",
+          "voc": 1
+        },
+        {
+          "f": "Une collecte de fonds",
+          "a": "جمع التبرعات",
+          "e": "Fundraising",
+          "voc": 1
+        },
+        {
+          "f": "Un événement",
+          "a": "فعالية",
+          "e": "Event",
+          "voc": 1
+        },
+        {
+          "f": "Une personne défavorisée",
+          "a": "شخص محتاج",
+          "e": "Disadvantaged person",
+          "voc": 1
+        },
+        {
+          "f": "S’impliquer",
+          "a": "يشارك وينخرط",
+          "e": "To get involved",
+          "voc": 1
+        },
+        {
+          "f": "Soutenir",
+          "a": "يدعم",
+          "e": "To support",
+          "voc": 1
+        },
+        {
+          "f": "Aider",
+          "a": "يساعد",
+          "e": "To help",
+          "voc": 1
+        },
+        {
+          "f": "Une responsabilité",
+          "a": "مسؤولية",
+          "e": "Responsibility",
+          "voc": 1
+        },
+        {
+          "f": "Une mission",
+          "a": "مهمة",
+          "e": "Task",
+          "voc": 1
+        },
+        {
+          "f": "Une compétence",
+          "a": "مهارة",
+          "e": "Skill",
+          "voc": 1
+        },
+        {
+          "f": "Une rencontre",
+          "a": "لقاء",
+          "e": "Meeting",
+          "voc": 1
+        },
+        {
+          "f": "Au sein de votre association",
+          "a": "ضمن جمعيتكم",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Grâce à mon expérience",
+          "a": "بفضل خبرتي",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Je souhaite m’impliquer davantage",
+          "a": "أرغب بالمشاركة بشكل أكبر",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Mettre mes compétences au service de…",
+          "a": "وضع مهاراتي في خدمة..",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Les personnes en difficulté",
+          "a": "الأشخاص الذين يواجهون صعوبات",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une campagne de collecte de fonds",
+          "a": "حملة لجمع التبرعات",
+          "e": "",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l14",
+      "icon": "🧁",
+      "fr": "Lettre 14 — Devenir pâtissier",
+      "ar": "رسالة 14 — أن تصبح حلوانياً",
+      "consigne": {
+        "f": "Une célèbre pâtisserie de votre ville cherche un nouveau pâtissier pour créer des recettes originales. Vous adorez cuisiner et vous avez souvent préparé des desserts pour votre famille et vos amis. Vous rêvez de devenir pâtissier mais aussi de perfectionner vos compétences et de réaliser votre passion pour la pâtisserie.",
+        "a": "محل حلويات مشهور في مدينتك يبحث عن حلواني جديد لابتكار وصفات مميزة. أنت تحب الطبخ، وغالباً ما حضرت الحلويات لعائلتك وأصدقائك. تحلم بأن تصبح حلوانياً، وأن تطوّر مهاراتك وتحقق شغفك بصناعة الحلويات. — المطلوب: — اكتب رسالة إلى صاحب محل الحلويات من أجل: — التعبير عن اهتمامك بالوظيفة. — التحدث عن تجاربك في تحضير الحلويات. — تقديم أفكارك ووصفاتك الجديدة. — 160 كلمة على الأقل. — 💡 انتبه لهذه التراكيب: معلومة لغوية: كلمة pâtisserie تعني صناعة الحلويات، وقد تعني أيضاً محل الحلويات حسب السياق."
+      },
+      "phr": [
+        {
+          "f": "Je vous écris pour exprimer mon intérêt pour le poste de pâtissier.",
+          "a": "أكتب إليكم لأعبّر عن اهتمامي بوظيفة حلواني.",
+          "e": "I am writing to express my interest in the pastry chef position."
+        },
+        {
+          "f": "Depuis mon enfance, je suis passionné par la pâtisserie.",
+          "a": "منذ طفولتي وأنا شغوف بصناعة الحلويات.",
+          "e": "I have been passionate about pastry-making since childhood."
+        },
+        {
+          "f": "J’adore préparer des gâteaux et des desserts.",
+          "a": "أحب تحضير الكعك والحلويات.",
+          "e": "I love preparing cakes and desserts."
+        },
+        {
+          "f": "Je prépare souvent des desserts pour ma famille et mes amis.",
+          "a": "غالباً ما أحضّر الحلويات لعائلتي وأصدقائي.",
+          "e": "I often prepare desserts for my family and friends."
+        },
+        {
+          "f": "J’aime découvrir de nouvelles recettes.",
+          "a": "أحب اكتشاف وصفات جديدة.",
+          "e": "I enjoy discovering new recipes."
+        },
+        {
+          "f": "Je voudrais développer mes compétences dans ce domaine.",
+          "a": "أود تطوير مهاراتي في هذا المجال.",
+          "e": "I would like to develop my skills in this field."
+        },
+        {
+          "f": "Je suis créatif et j’aime essayer de nouvelles idées.",
+          "a": "أنا شخص مبدع وأحب تجربة أفكار جديدة.",
+          "e": "I am creative and enjoy trying new ideas."
+        },
+        {
+          "f": "Je sais préparer plusieurs sortes de gâteaux.",
+          "a": "أعرف تحضير أنواع عديدة من الكعك.",
+          "e": "I know how to prepare several kinds of cakes."
+        },
+        {
+          "f": "Je fais particulièrement attention à la qualité des ingrédients.",
+          "a": "أهتم بشكل خاص بجودة المكونات.",
+          "e": "I pay particular attention to the quality of the ingredients."
+        },
+        {
+          "f": "Pour moi, la présentation des desserts est très importante.",
+          "a": "بالنسبة إلي، طريقة تقديم الحلويات مهمة جداً.",
+          "e": "For me, the presentation of desserts is very important."
+        },
+        {
+          "f": "J’aime mélanger les saveurs et créer des recettes originales.",
+          "a": "أحب مزج النكهات وابتكار وصفات مميزة.",
+          "e": "I like combining flavors and creating original recipes."
+        },
+        {
+          "f": "Je pourrais proposer de nouveaux desserts à vos clients.",
+          "a": "يمكنني اقتراح حلويات جديدة لزبائنكم.",
+          "e": "I could suggest new desserts to your customers."
+        },
+        {
+          "f": "Je suis capable de travailler sous pression.",
+          "a": "أستطيع العمل تحت الضغط.",
+          "e": "I can work under pressure."
+        },
+        {
+          "f": "Je suis une personne sérieuse, organisée et motivée.",
+          "a": "أنا شخص جدي ومنظّم ومتحمّس.",
+          "e": "I am a serious, organized and motivated person."
+        },
+        {
+          "f": "Je respecte les règles d’hygiène et de sécurité.",
+          "a": "أحترم قواعد النظافة والسلامة.",
+          "e": "I follow hygiene and safety rules."
+        },
+        {
+          "f": "Je voudrais apprendre auprès de professionnels expérimentés.",
+          "a": "أود التعلم على أيدي محترفين لديهم خبرة.",
+          "e": "I would like to learn from experienced professionals."
+        },
+        {
+          "f": "Ce poste serait une excellente occasion de progresser.",
+          "a": "هذه الوظيفة ستكون فرصة ممتازة للتطور.",
+          "e": "This position would be an excellent opportunity to improve."
+        },
+        {
+          "f": "Je serais heureux de mettre ma créativité au service de votre pâtisserie.",
+          "a": "سأكون سعيداً بوضع إبداعي في خدمة محل الحلويات الخاص بكم.",
+          "e": "I would be happy to use my creativity in your pastry shop."
+        },
+        {
+          "f": "Je serais disponible pour un entretien à votre convenance.",
+          "a": "أنا متاح لإجراء مقابلة في الوقت الذي يناسبكم.",
+          "e": "I would be available for an interview at your convenience."
+        },
+        {
+          "f": "Je vous remercie de l’attention portée à ma candidature.",
+          "a": "أشكركم على الاهتمام بطلب توظيفي.",
+          "e": "Thank you for considering my application."
+        },
+        {
+          "f": "Être passionné par",
+          "a": "يكون شغوفاً بـ",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Avoir de l’expérience en",
+          "a": "لديه خبرة في",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Développer ses compétences",
+          "a": "تطوير المهارات",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Créer des recettes originales",
+          "a": "ابتكار وصفات مميزة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Accorder de l’importance à",
+          "a": "يعطي أهمية لـ",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Grâce à mon expérience",
+          "a": "بفضل خبرتي",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Je souhaiterais rejoindre votre équipe",
+          "a": "أود الانضمام إلى فريقكم",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "J’aime préparer…",
+          "a": "أحب تحضير…",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "J’ai appris à préparer…",
+          "a": "تعلمت تحضير…",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Je voudrais apprendre…",
+          "a": "أود أن أتعلم…",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Je pourrais proposer…",
+          "a": "يمكنني أن أقترح…",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Je souhaiterais développer…",
+          "a": "أود تطوير…",
+          "e": "",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l15",
+      "icon": "🎓",
+      "fr": "Lettre 15 — Devenir formateur en entreprise",
+      "ar": "رسالة 15 — أن تصبح مدرّباً في شركة",
+      "consigne": {
+        "f": "Vous avez lu une annonce pour un poste de formateur en entreprise qui correspond à vos compétences. Vous avez plusieurs années d’expérience dans l’enseignement et vous êtes passionné par le partage des connaissances. Ce poste vous permettrait d’apporter votre expertise et de contribuer au développement des employés de cette entreprise.",
+        "a": "قرأت إعلاناً عن وظيفة مدرّب في شركة تتناسب مع مهاراتك. لديك عدة سنوات من الخبرة في مجال التعليم، وأنت شغوف بمشاركة المعرفة. هذه الوظيفة ستسمح لك بتقديم خبرتك والمساهمة في تطوير موظفي الشركة. — المطلوب منك: — اكتب رسالة إلى مسؤول الشركة من أجل: — التعبير عن اهتمامك بالوظيفة. — شرح خبرتك المهنية بالتفصيل. — الحديث عن خبرتك في مجال التدريب والتعليم. — المطلوب: 160 كلمة على الأقل. — 💡 انتبه للفرق بين هذه الكلمات: مثال: Je forme les employés. = أنا أدرّب الموظفين. Je me forme régulièrement. = أتلقى تدريباً بشكل منتظم."
+      },
+      "phr": [
+        {
+          "f": "Je vous écris pour exprimer mon intérêt pour le poste de formateur en entreprise.",
+          "a": "أكتب إليكم لأعبّر عن اهتمامي بوظيفة مدرّب في الشركة.",
+          "e": "I am writing to express my interest in the corporate trainer position."
+        },
+        {
+          "f": "J’ai plusieurs années d’expérience dans le domaine de l’enseignement.",
+          "a": "لدي عدة سنوات من الخبرة في مجال التعليم.",
+          "e": "I have several years of experience in teaching."
+        },
+        {
+          "f": "J’aime partager mes connaissances avec les autres.",
+          "a": "أحب مشاركة معرفتي مع الآخرين.",
+          "e": "I enjoy sharing my knowledge with others."
+        },
+        {
+          "f": "Je suis passionné par la formation et le développement professionnel.",
+          "a": "أنا شغوف بالتدريب والتطوير المهني.",
+          "e": "I am passionate about training and professional development."
+        },
+        {
+          "f": "J’ai déjà travaillé avec des personnes de différents niveaux.",
+          "a": "سبق أن عملت مع أشخاص من مستويات مختلفة.",
+          "e": "I have already worked with people of different levels."
+        },
+        {
+          "f": "J’ai appris à préparer des cours adaptés aux besoins des participants.",
+          "a": "تعلمت تحضير دروس مناسبة لاحتياجات المشاركين.",
+          "e": "I learned to prepare lessons adapted to participants' needs."
+        },
+        {
+          "f": "Je sais expliquer des sujets complexes de manière simple.",
+          "a": "أعرف كيف أشرح المواضيع المعقدة بطريقة بسيطة.",
+          "e": "I know how to explain complex subjects simply."
+        },
+        {
+          "f": "Je suis capable de travailler avec une équipe.",
+          "a": "أستطيع العمل مع فريق.",
+          "e": "I am able to work with a team."
+        },
+        {
+          "f": "J’aime encourager les participants à poser des questions.",
+          "a": "أحب تشجيع المشاركين على طرح الأسئلة.",
+          "e": "I like encouraging participants to ask questions."
+        },
+        {
+          "f": "Je sais utiliser différents outils pédagogiques.",
+          "a": "أعرف استخدام أدوات تعليمية مختلفة.",
+          "e": "I know how to use different teaching tools."
+        },
+        {
+          "f": "Je peux organiser des séances de formation efficaces.",
+          "a": "يمكنني تنظيم جلسات تدريب فعّالة.",
+          "e": "I can organize effective training sessions."
+        },
+        {
+          "f": "Mon objectif est d’aider les employés à améliorer leurs compétences.",
+          "a": "هدفي مساعدة الموظفين على تحسين مهاراتهم.",
+          "e": "My goal is to help employees improve their skills."
+        },
+        {
+          "f": "Je suis une personne patiente, sérieuse et organisée.",
+          "a": "أنا شخص صبور وجدي ومنظّم.",
+          "e": "I am patient, serious and organized."
+        },
+        {
+          "f": "Je sais écouter les besoins des autres.",
+          "a": "أعرف كيف أستمع إلى احتياجات الآخرين.",
+          "e": "I know how to listen to other people's needs."
+        },
+        {
+          "f": "Je voudrais contribuer au développement de votre entreprise.",
+          "a": "أود المساهمة في تطوير شركتكم.",
+          "e": "I would like to contribute to the development of your company."
+        },
+        {
+          "f": "Je suis toujours prêt à apprendre de nouvelles méthodes.",
+          "a": "أنا دائماً مستعد لتعلّم أساليب جديدة.",
+          "e": "I am always ready to learn new methods."
+        },
+        {
+          "f": "Je pense que la formation est essentielle pour réussir professionnellement.",
+          "a": "أعتقد أن التدريب ضروري للنجاح المهني.",
+          "e": "I think training is essential for professional success."
+        },
+        {
+          "f": "Ce poste représente une excellente occasion de mettre mon expérience en pratique.",
+          "a": "تمثل هذه الوظيفة فرصة ممتازة لتطبيق خبرتي عملياً.",
+          "e": "This position represents an excellent opportunity to put my experience into practice."
+        },
+        {
+          "f": "Je serais ravi de rejoindre votre équipe.",
+          "a": "سأكون سعيداً جداً بالانضمام إلى فريقكم.",
+          "e": "I would be delighted to join your team."
+        },
+        {
+          "f": "Je reste à votre disposition pour un entretien.",
+          "a": "أنا جاهز لإجراء مقابلة.",
+          "e": "I remain available for an interview."
+        },
+        {
+          "f": "Avoir de l’expérience dans…",
+          "a": "لديه خبرة في..",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Partager ses connaissances",
+          "a": "مشاركة المعرفة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Mettre son expérience au service de…",
+          "a": "وضع خبرته في خدمة..",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Développer ses compétences",
+          "a": "تطوير المهارات",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Être capable de…",
+          "a": "أن يكون قادراً على..",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Au cours de mon parcours professionnel",
+          "a": "خلال مسيرتي المهنية",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Faciliter l’apprentissage",
+          "a": "تسهيل التعلّم",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Former",
+          "a": "يدرّب",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Se former",
+          "a": "يتدرّب / يتلقى تدريباً",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un formateur",
+          "a": "مدرّب",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un apprenant",
+          "a": "متعلّم",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une formation",
+          "a": "دورة تدريبية",
+          "e": "",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l16",
+      "icon": "⚽",
+      "fr": "Lettre 16 — Organiser une journée sportive en entreprise",
+      "ar": "رسالة 16 — تنظيم يوم رياضي في الشركة",
+      "consigne": {
+        "f": "Vous travaillez dans une entreprise francophone. Vous aimeriez organiser une journée sportive pour renforcer les relations entre les employés.\n\nVous écrivez un courriel au responsable du personnel pour lui présenter votre projet. Vous lui expliquez le déroulement de la journée et les avantages de cet événement pour les employés.",
+        "a": "أنت تعمل في شركة ناطقة بالفرنسية، وترغب بتنظيم يوم رياضي لتعزيز العلاقات بين الموظفين. — تكتب بريداً إلكترونياً إلى مسؤول الموظفين لتعرض عليه مشروعك، وتشرح له كيف سيمرّ هذا اليوم وما الفوائد التي سيحققها للموظفين. — المطلوب: — تقديم فكرة اليوم الرياضي. — شرح الأنشطة والبرنامج. — توضيح فوائد النشاط للموظفين. — إقناع المسؤول بالموافقة على المشروع. — المطلوب: 160 كلمة على الأقل. — 💡 في هذا الموضوع نستخدم كثيراً صيغة الشرط لتقديم الاقتراحات بطريقة مهذبة. مثال: Nous pourrions organiser une journée sportive. يمكننا تنظيم يوم رياضي. هذه الصيغة ممتازة في رسائل DELF B1 عند تقديم مشروع أو اقتراح."
+      },
+      "phr": [
+        {
+          "f": "Je vous écris pour vous proposer un projet de journée sportive au sein de notre entreprise.",
+          "a": "أكتب إليكم لأقترح مشروع يوم رياضي داخل شركتنا.",
+          "e": "I am writing to propose a sports day project within our company."
+        },
+        {
+          "f": "Cette journée aurait pour objectif de renforcer les relations entre les employés.",
+          "a": "سيكون هدف هذا اليوم تعزيز العلاقات بين الموظفين.",
+          "e": "The aim of this day would be to strengthen relationships between employees."
+        },
+        {
+          "f": "Je pense que le sport est un excellent moyen de créer des liens.",
+          "a": "أعتقد أن الرياضة وسيلة ممتازة لبناء العلاقات.",
+          "e": "I think sport is an excellent way to build connections."
+        },
+        {
+          "f": "Nous pourrions organiser plusieurs activités sportives.",
+          "a": "يمكننا تنظيم عدة أنشطة رياضية.",
+          "e": "We could organize several sports activities."
+        },
+        {
+          "f": "Par exemple, nous pourrions proposer un tournoi de football.",
+          "a": "على سبيل المثال، يمكننا تنظيم بطولة كرة قدم.",
+          "e": "For example, we could organize a football tournament."
+        },
+        {
+          "f": "Nous pourrions également organiser une compétition de volleyball.",
+          "a": "يمكننا أيضاً تنظيم مسابقة للكرة الطائرة.",
+          "e": "We could also organize a volleyball competition."
+        },
+        {
+          "f": "Les employés pourraient participer en équipes.",
+          "a": "يمكن للموظفين المشاركة ضمن فرق.",
+          "e": "Employees could participate in teams."
+        },
+        {
+          "f": "Chaque équipe serait composée de plusieurs collègues.",
+          "a": "سيتكوّن كل فريق من عدة زملاء.",
+          "e": "Each team would consist of several colleagues."
+        },
+        {
+          "f": "La journée commencerait à neuf heures du matin.",
+          "a": "سيبدأ اليوم في الساعة التاسعة صباحاً.",
+          "e": "The day would begin at nine in the morning."
+        },
+        {
+          "f": "Après les activités sportives, nous organiserions un déjeuner collectif.",
+          "a": "بعد الأنشطة الرياضية، سننظم وجبة غداء جماعية.",
+          "e": "After the sports activities, we would organize a group lunch."
+        },
+        {
+          "f": "Cet événement permettrait aux employés de mieux se connaître.",
+          "a": "سيسمح هذا الحدث للموظفين بالتعرّف على بعضهم بشكل أفضل.",
+          "e": "This event would allow employees to get to know each other better."
+        },
+        {
+          "f": "Il favoriserait l’esprit d’équipe et la solidarité.",
+          "a": "سيعزز روح الفريق والتضامن.",
+          "e": "It would promote team spirit and solidarity."
+        },
+        {
+          "f": "Le sport est également bénéfique pour la santé.",
+          "a": "الرياضة مفيدة أيضاً للصحة.",
+          "e": "Sport is also beneficial for health."
+        },
+        {
+          "f": "Cette activité permettrait de réduire le stress au travail.",
+          "a": "سيسمح هذا النشاط بتخفيف التوتر في العمل.",
+          "e": "This activity would help reduce stress at work."
+        },
+        {
+          "f": "Les employés pourraient passer un moment agréable ensemble.",
+          "a": "سيتمكن الموظفون من قضاء وقت ممتع معاً.",
+          "e": "Employees could spend an enjoyable time together."
+        },
+        {
+          "f": "Nous pourrions prévoir des activités adaptées à tous les niveaux.",
+          "a": "يمكننا إعداد أنشطة مناسبة لجميع المستويات.",
+          "e": "We could plan activities suitable for all levels."
+        },
+        {
+          "f": "Il serait important de respecter les capacités de chacun.",
+          "a": "من المهم احترام قدرات كل شخص.",
+          "e": "It would be important to respect everyone's abilities."
+        },
+        {
+          "f": "Je suis convaincu que cette initiative aurait des effets positifs sur l’ambiance de travail.",
+          "a": "أنا مقتنع بأن هذه المبادرة سيكون لها تأثير إيجابي على أجواء العمل.",
+          "e": "I am convinced this initiative would have positive effects on the work atmosphere."
+        },
+        {
+          "f": "Je serais heureux de participer à l’organisation de cet événement.",
+          "a": "سأكون سعيداً بالمشاركة في تنظيم هذا الحدث.",
+          "e": "I would be happy to help organize this event."
+        },
+        {
+          "f": "J’espère que vous accepterez cette proposition.",
+          "a": "أتمنى أن توافقوا على هذا الاقتراح.",
+          "e": "I hope you will accept this proposal."
+        },
+        {
+          "f": "Je vous propose de…",
+          "a": "أقترح عليكم أن..",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Cette initiative aurait pour objectif de…",
+          "a": "تهدف هذه المبادرة إلى..",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Tout d’abord",
+          "a": "أولاً",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Ensuite",
+          "a": "بعد ذلك",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "De plus",
+          "a": "بالإضافة إلى ذلك",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "En effet",
+          "a": "في الواقع",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Cela permettrait de…",
+          "a": "هذا سيسمح بـ..",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Je suis convaincu que…",
+          "a": "أنا مقتنع بأن..",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "J’espère que vous accepterez…",
+          "a": "أتمنى أن توافقوا..",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Nous pouvons organiser.",
+          "a": "يمكننا أن ننظم.",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Nous pourrions organiser.",
+          "a": "يمكننا أن ننظم / نقترح تنظيم.",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Cette journée permettrait de…",
+          "a": "هذا اليوم سيسمح بـ...",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Je voudrais proposer…",
+          "a": "أود أن أقترح...",
+          "e": "",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l17",
+      "icon": "✉️",
+      "fr": "Lettre 17 — Mettre en place un système de correspondance entre deux écoles de langues",
+      "ar": "رسالة 17 — نظام مراسلة بين مدرستين",
+      "consigne": {
+        "f": "Vous étudiez dans une école de langues en France. Vous aimeriez mettre en place un système de correspondance avec une autre école de langue.\n\nVous écrivez un courriel au directeur de l’école pour lui présenter votre projet. Vous expliquez comment vous imaginez réaliser cette correspondance et les avantages que cette initiative aura pour les étudiants.",
+        "a": "أنت تدرس في مدرسة لتعليم اللغات في فرنسا، وترغب بإنشاء نظام مراسلة مع مدرسة لغات أخرى. — تكتب بريداً إلكترونياً إلى مدير المدرسة لتعرض عليه مشروعك، وتشرح كيف تتصور تنفيذ هذا التبادل، وما الفوائد التي سيحققها للطلاب. — المطلوب منك: — تقديم فكرة مشروع المراسلة. — شرح كيفية تنفيذه. — توضيح فوائده للطلاب. — إقناع المدير بأهمية هذه المبادرة. — المطلوب: 160 كلمة على الأقل. — 💡 نستخدم صيغة الشرط عند تقديم مشروع أو اقتراح بطريقة مهذبة. مثال ممتاز: Ce projet permettrait aux étudiants d'améliorer leur français. هذا المشروع سيسمح للطلاب بتحسين لغتهم الفرنسية."
+      },
+      "phr": [
+        {
+          "f": "Je vous écris pour vous présenter une idée de projet éducatif.",
+          "a": "أكتب إليكم لأعرض عليكم فكرة مشروع تعليمي.",
+          "e": "I am writing to present an educational project idea."
+        },
+        {
+          "f": "Je souhaiterais mettre en place un système de correspondance avec une autre école.",
+          "a": "أود إنشاء نظام مراسلة مع مدرسة أخرى.",
+          "e": "I would like to set up a correspondence system with another school."
+        },
+        {
+          "f": "Ce projet permettrait aux étudiants de communiquer avec des jeunes étrangers.",
+          "a": "سيسمح هذا المشروع للطلاب بالتواصل مع شباب أجانب.",
+          "e": "This project would allow students to communicate with young people from abroad."
+        },
+        {
+          "f": "Les étudiants pourraient échanger des lettres et des courriels.",
+          "a": "يمكن للطلاب تبادل الرسائل والبريد الإلكتروني.",
+          "e": "Students could exchange letters and emails."
+        },
+        {
+          "f": "Ils pourraient également organiser des appels vidéo.",
+          "a": "يمكنهم أيضاً تنظيم مكالمات فيديو.",
+          "e": "They could also organize video calls."
+        },
+        {
+          "f": "Chaque étudiant aurait un correspondant dans l’autre école.",
+          "a": "سيكون لكل طالب مراسل في المدرسة الأخرى.",
+          "e": "Each student would have a pen pal at the other school."
+        },
+        {
+          "f": "Les participants pourraient présenter leur pays et leur culture.",
+          "a": "يمكن للمشاركين التعريف ببلدهم وثقافتهم.",
+          "e": "Participants could introduce their country and culture."
+        },
+        {
+          "f": "Cette initiative permettrait de pratiquer la langue étrangère.",
+          "a": "ستسمح هذه المبادرة بممارسة اللغة الأجنبية.",
+          "e": "This initiative would allow students to practise the foreign language."
+        },
+        {
+          "f": "Les étudiants pourraient améliorer leur expression écrite.",
+          "a": "يمكن للطلاب تحسين مهارات التعبير الكتابي.",
+          "e": "Students could improve their written expression."
+        },
+        {
+          "f": "Ils pourraient aussi développer leurs compétences orales.",
+          "a": "يمكنهم أيضاً تطوير مهاراتهم الشفهية.",
+          "e": "They could also develop their speaking skills."
+        },
+        {
+          "f": "Ce projet serait une excellente occasion de découvrir d’autres cultures.",
+          "a": "سيكون هذا المشروع فرصة ممتازة لاكتشاف ثقافات أخرى.",
+          "e": "This project would be an excellent opportunity to discover other cultures."
+        },
+        {
+          "f": "Nous pourrions commencer par un échange de messages chaque semaine.",
+          "a": "يمكننا البدء بتبادل الرسائل كل أسبوع.",
+          "e": "We could start by exchanging messages every week."
+        },
+        {
+          "f": "Ensuite, nous pourrions organiser des rencontres en ligne.",
+          "a": "بعد ذلك، يمكننا تنظيم لقاءات عبر الإنترنت.",
+          "e": "Then, we could organize online meetings."
+        },
+        {
+          "f": "Les enseignants pourraient accompagner les étudiants pendant ce projet.",
+          "a": "يمكن للمدرسين مرافقة الطلاب خلال هذا المشروع.",
+          "e": "Teachers could support students throughout this project."
+        },
+        {
+          "f": "Chaque groupe pourrait préparer une présentation sur sa ville.",
+          "a": "يمكن لكل مجموعة تحضير عرض عن مدينتها.",
+          "e": "Each group could prepare a presentation about its city."
+        },
+        {
+          "f": "Les étudiants gagneraient en confiance en parlant avec des étrangers.",
+          "a": "سيكتسب الطلاب ثقة أكبر عند التحدث مع الأجانب.",
+          "e": "Students would gain confidence by speaking with foreigners."
+        },
+        {
+          "f": "Cette expérience serait très enrichissante pour tous les participants.",
+          "a": "ستكون هذه التجربة مفيدة وغنية جداً لجميع المشاركين.",
+          "e": "This experience would be very rewarding for all participants."
+        },
+        {
+          "f": "Elle permettrait également de créer des liens d’amitié.",
+          "a": "ستسمح أيضاً بتكوين روابط صداقة.",
+          "e": "It would also make it possible to build friendships."
+        },
+        {
+          "f": "Je suis convaincu que ce projet motiverait davantage les étudiants.",
+          "a": "أنا مقتنع بأن هذا المشروع سيحفّز الطلاب أكثر.",
+          "e": "I am convinced this project would motivate students more."
+        },
+        {
+          "f": "Je serais heureux de participer à la réalisation de cette initiative.",
+          "a": "سأكون سعيداً بالمشاركة في تنفيذ هذه المبادرة.",
+          "e": "I would be happy to take part in carrying out this initiative."
+        },
+        {
+          "f": "Mettre en place un projet",
+          "a": "إنشاء مشروع",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Échanger avec quelqu’un",
+          "a": "يتبادل الحديث أو الرسائل مع شخص",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Avoir un correspondant",
+          "a": "يكون لديه صديق بالمراسلة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Pratiquer une langue étrangère",
+          "a": "ممارسة لغة أجنبية",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Améliorer ses compétences",
+          "a": "تحسين مهاراته",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Découvrir une autre culture",
+          "a": "اكتشاف ثقافة أخرى",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Cette initiative permettrait de…",
+          "a": "هذه المبادرة ستسمح بـ..",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Je suis convaincu que…",
+          "a": "أنا مقتنع بأن..",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Nous organisons un échange.",
+          "a": "نحن ننظم تبادلاً.",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Nous pourrions organiser un échange.",
+          "a": "يمكننا تنظيم تبادل.",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Les étudiants apprennent.",
+          "a": "الطلاب يتعلمون.",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Les étudiants pourraient apprendre.",
+          "a": "يمكن للطلاب أن يتعلموا.",
+          "e": "",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l18",
+      "icon": "🛋️",
+      "fr": "Lettre 18 — Donner son avis sur la création d’une salle de détente en entreprise",
+      "ar": "رسالة 18 — غرفة استراحة في الشركة",
+      "consigne": {
+        "f": "Courriel : De : p.fournier@lux.com Objet : salle de détente Bonjour à tous, Nous voulons créer une salle de détente avec des canapés, des télés et des consoles de jeux vidéo dans la petite salle inoccupée du deuxième étage. Est-ce que vous pensez que c’est une bonne idée ? Est-ce que vous allez l’utiliser ? Pourquoi ? J’attends votre réponse. Merci. Le responsable du personnel",
+        "a": "مرحباً بالجميع، — نريد إنشاء غرفة استراحة تحتوي على أرائك وتلفزيونات وأجهزة ألعاب فيديو، في الغرفة الصغيرة غير المستخدمة بالطابق الثاني. — هل تعتقدون أن هذه فكرة جيدة؟ هل ستستخدمون هذه الغرفة؟ ولماذا؟ — أنتظر ردكم. شكراً. — مسؤول الموظفين. — المطلوب منك: — تكتب رسالة إلى مسؤول الموظفين: — تجيب عن أسئلته. — تعطي رأيك حول الفكرة. — تشرح هل ستستخدم الغرفة ولماذا. — تذكر الإيجابيات والسلبيات إن وجدت. — المطلوب: 160 كلمة على الأقل. — 💡 لا تكتفِ بقول رأيك، بل اشرح السبب. مثال ضعيف: Je suis pour cette idée. أنا مع هذه الفكرة. مثال أفضل: Je suis pour cette idée parce qu’elle permettrait aux employés de réduire leur stress et de mieux communiquer. أنا مع هذه الفكرة لأنها ستسمح للموظفين بتخفيف التوتر والتواصل بشكل أفضل."
+      },
+      "phr": [
+        {
+          "f": "Je pense que c’est une très bonne idée de créer une salle de détente.",
+          "a": "أعتقد أن إنشاء غرفة استراحة فكرة جيدة جداً.",
+          "e": "I think creating a relaxation room is a very good idea."
+        },
+        {
+          "f": "Les employés ont besoin d’un endroit pour se reposer pendant les pauses.",
+          "a": "الموظفون بحاجة إلى مكان للراحة خلال الاستراحات.",
+          "e": "Employees need a place to rest during breaks."
+        },
+        {
+          "f": "Cette salle permettrait de réduire le stress au travail.",
+          "a": "هذه الغرفة ستساعد على تخفيف ضغط العمل.",
+          "e": "This room would help reduce stress at work."
+        },
+        {
+          "f": "Nous pourrions discuter avec nos collègues dans un environnement agréable.",
+          "a": "يمكننا التحدث مع زملائنا في جو مريح.",
+          "e": "We could talk with our colleagues in a pleasant environment."
+        },
+        {
+          "f": "J’utiliserais cette salle pendant ma pause déjeuner.",
+          "a": "سأستخدم هذه الغرفة خلال استراحة الغداء.",
+          "e": "I would use this room during my lunch break."
+        },
+        {
+          "f": "Les canapés permettraient aux employés de se reposer confortablement.",
+          "a": "ستسمح الأرائك للموظفين بالراحة بشكل مريح.",
+          "e": "The sofas would allow employees to rest comfortably."
+        },
+        {
+          "f": "Les jeux vidéo pourraient être une activité amusante.",
+          "a": "يمكن أن تكون ألعاب الفيديو نشاطاً ممتعاً.",
+          "e": "Video games could be an entertaining activity."
+        },
+        {
+          "f": "Cette initiative favoriserait les relations entre les collègues.",
+          "a": "هذه المبادرة ستعزز العلاقات بين الزملاء.",
+          "e": "This initiative would improve relationships between colleagues."
+        },
+        {
+          "f": "Elle permettrait également de créer un meilleur esprit d’équipe.",
+          "a": "ستساعد أيضاً على خلق روح فريق أفضل.",
+          "e": "It would also help create better team spirit."
+        },
+        {
+          "f": "Cependant, il faut éviter que les employés passent trop de temps à jouer.",
+          "a": "مع ذلك، يجب تجنب أن يقضي الموظفون وقتاً طويلاً في اللعب.",
+          "e": "However, we must prevent employees from spending too much time playing."
+        },
+        {
+          "f": "Il est important de respecter les horaires de travail.",
+          "a": "من المهم احترام أوقات العمل.",
+          "e": "It is important to respect working hours."
+        },
+        {
+          "f": "Certains employés préféreraient peut-être lire ou écouter de la musique.",
+          "a": "قد يفضّل بعض الموظفين القراءة أو الاستماع إلى الموسيقى.",
+          "e": "Some employees might prefer reading or listening to music."
+        },
+        {
+          "f": "À mon avis, il faudrait proposer plusieurs activités.",
+          "a": "برأيي، يجب تقديم أنشطة متنوعة.",
+          "e": "In my opinion, several activities should be offered."
+        },
+        {
+          "f": "Nous pourrions installer quelques magazines et des livres.",
+          "a": "يمكننا وضع بعض المجلات والكتب.",
+          "e": "We could put out some magazines and books."
+        },
+        {
+          "f": "Il serait préférable de créer un espace calme et confortable.",
+          "a": "من الأفضل إنشاء مساحة هادئة ومريحة.",
+          "e": "It would be better to create a quiet and comfortable space."
+        },
+        {
+          "f": "Cette salle serait utile pour améliorer le bien-être des employés.",
+          "a": "ستكون هذه الغرفة مفيدة لتحسين رفاهية الموظفين.",
+          "e": "This room would be useful for improving employees' well-being."
+        },
+        {
+          "f": "Je suis certain que beaucoup de collègues apprécieraient cette initiative.",
+          "a": "أنا متأكد أن الكثير من الزملاء سيقدّرون هذه المبادرة.",
+          "e": "I am sure many colleagues would appreciate this initiative."
+        },
+        {
+          "f": "Je suis favorable à ce projet.",
+          "a": "أنا مؤيد لهذا المشروع.",
+          "e": "I support this project."
+        },
+        {
+          "f": "Il faudrait simplement établir quelques règles d’utilisation.",
+          "a": "يجب فقط وضع بعض قواعد الاستخدام.",
+          "e": "We would simply need to establish a few rules for using it."
+        },
+        {
+          "f": "Merci de prendre en considération notre avis.",
+          "a": "شكراً لأخذ رأينا بعين الاعتبار.",
+          "e": "Thank you for taking our opinion into consideration."
+        },
+        {
+          "f": "À mon avis",
+          "a": "برأيي",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Selon moi",
+          "a": "حسب رأيي",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Personnellement",
+          "a": "شخصياً",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Je pense que",
+          "a": "أعتقد أن",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Je trouve que",
+          "a": "أرى أن",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Je suis favorable à",
+          "a": "أنا مؤيد لـ",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Je suis contre",
+          "a": "أنا ضد",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Cependant",
+          "a": "مع ذلك",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "En revanche",
+          "a": "بالمقابل",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "D’un côté",
+          "a": "من جهة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "D’un autre côté",
+          "a": "من جهة أخرى",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Pour conclure",
+          "a": "في الختام",
+          "e": "",
+          "voc": 1
+        }
+      ],
+      "ids": []
     }
   ]
 };
