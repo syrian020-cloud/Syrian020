@@ -2965,6 +2965,478 @@ window.DELF_LESSONS = {
     "d1097",
     "d1098"
    ]
+  },
+  {
+   "id": "b1-13",
+   "icon": "🚫",
+   "fr": "Négation et pronoms avancés",
+   "ar": "النفي والضمائر المتقدمة",
+   "phr": [
+    {
+     "f": "Je ne travaille plus le samedi.",
+     "a": "ما عدت اشتغل يوم السبت",
+     "e": "I no longer work on Saturdays."
+    },
+    {
+     "f": "Il n'a rien mangé aujourd'hui.",
+     "a": "ما أكل ولا شي اليوم",
+     "e": "He ate nothing today."
+    },
+    {
+     "f": "Je ne connais personne ici.",
+     "a": "ما بعرف حدا هون",
+     "e": "I know nobody here."
+    },
+    {
+     "f": "Elle ne fume que cinq cigarettes.",
+     "a": "ما بتدخن إلا خمسة",
+     "e": "She only smokes five cigarettes."
+    },
+    {
+     "f": "Je le lui donne demain.",
+     "a": "بعطيها ياه بكرا",
+     "e": "I give it to her tomorrow."
+    },
+    {
+     "f": "Tu parles de ton projet ? Oui, j'en parle.",
+     "a": "بتحكي عن مشروعك؟ إيه عم احكي عنه",
+     "e": "Are you talking about your project? Yes, I am."
+    },
+    {
+     "f": "En lisant, on apprend vite.",
+     "a": "بالقراءة الواحد بيتعلم بسرعة",
+     "e": "By reading, one learns fast."
+    },
+    {
+     "f": "J'en ai deux à la maison.",
+     "a": "عندي اتنين منن بالبيت",
+     "e": "I have two of them at home."
+    },
+    {
+     "f": "Il m'a dit qu'il avait déjà mangé.",
+     "a": "قالي إنه كان أكل قبل",
+     "e": "He told me he had already eaten."
+    },
+    {
+     "f": "Avant de partir, j'avais écrit la lettre.",
+     "a": "قبل ما روح كنت كتبت الرسالة",
+     "e": "Before leaving I had written the letter."
+    }
+   ],
+   "ids": [
+    "d6001",
+    "d6002",
+    "d6003",
+    "d6004",
+    "d6005",
+    "d6006",
+    "d6007",
+    "d6008",
+    "d6009",
+    "d6010"
+   ]
+  },
+  {
+   "id": "b1-14",
+   "icon": "⏰",
+   "fr": "Temps avancés : gérondif, plus-que-parfait",
+   "ar": "الأزمنة المتقدمة",
+   "phr": [
+    {
+     "f": "Quand j'aurai fini, je t'appellerai.",
+     "a": "لما خلص رح خبرك",
+     "e": "When I finish I will call you."
+    },
+    {
+     "f": "Il travaille en écoutant de la musique.",
+     "a": "بيشتغل وهو عم يسمع موسيقى",
+     "e": "He works while listening to music."
+    },
+    {
+     "f": "J'aurais dû être médecin.",
+     "a": "كان لازم صير دكتور",
+     "e": "I should have been a doctor."
+    },
+    {
+     "f": "Si j'avais su, je serais venu plus tôt.",
+     "a": "لو كنت عرفت كنت إجيت بدري",
+     "e": "If I had known I would have come earlier."
+    },
+    {
+     "f": "Elle était partie avant mon arrivée.",
+     "a": "كانت راحت قبل ما وصل",
+     "e": "She had left before I arrived."
+    },
+    {
+     "f": "Dès que tu arrives, appelle-moi.",
+     "a": "أول ما توصل خبرني",
+     "e": "As soon as you arrive call me."
+    },
+    {
+     "f": "Il part tandis que je reste.",
+     "a": "هو رايح وأنا بضل",
+     "e": "He leaves while I stay."
+    },
+    {
+     "f": "Avant qu'il parte, dis-lui la vérité.",
+     "a": "قبل ما يروح قلله الصدق",
+     "e": "Before he leaves tell him the truth."
+    }
+   ],
+   "ids": [
+    "d6011",
+    "d6012",
+    "d6013",
+    "d6014",
+    "d6015",
+    "d6016",
+    "d6017",
+    "d6018",
+    "d6019",
+    "d6020"
+   ]
+  },
+  {
+   "id": "b1-15",
+   "icon": "🔗",
+   "fr": "Subjonctif et relatifs — approfondi",
+   "ar": "السوبجونكتيف والموصولات — تعميق",
+   "phr": [
+    {
+     "f": "Il faut que tu fasses attention.",
+     "a": "لازم تنتبه",
+     "e": "You have to pay attention."
+    },
+    {
+     "f": "Je ne crois pas qu'il dise la vérité.",
+     "a": "ما بظن بيحكي الصدق",
+     "e": "I do not think he tells the truth."
+    },
+    {
+     "f": "Bien qu'il soit malade, il travaille.",
+     "a": "رغم إنه مريض بيشتغل",
+     "e": "Although he is sick he works."
+    },
+    {
+     "f": "C'est la meilleure chose que j'ai faite.",
+     "a": "أحسن شي عملته",
+     "e": "It is the best thing I did."
+    },
+    {
+     "f": "La ville où je suis né est petite.",
+     "a": "المدينة اللي اتولدت فيها صغيرة",
+     "e": "The city where I was born is small."
+    },
+    {
+     "f": "C'est le livre dont je t'ai parlé.",
+     "a": "هاد الكتاب اللي حكيتلك عنه",
+     "e": "This is the book I told you about."
+    },
+    {
+     "f": "L'homme qui parle est mon voisin.",
+     "a": "الرجال اللي عم يحكي جاري",
+     "e": "The man speaking is my neighbour."
+    },
+    {
+     "f": "Il est possible qu'il soit en retard.",
+     "a": "ممكن يتأخر",
+     "e": "It is possible he will be late."
+    }
+   ],
+   "ids": [
+    "d6021",
+    "d6022",
+    "d6023",
+    "d6024",
+    "d6025",
+    "d6026",
+    "d6027",
+    "d6028",
+    "d6029",
+    "d6030"
+   ]
+  },
+  {
+   "id": "b1-16",
+   "icon": "💼",
+   "fr": "Vocabulaire du travail et de la vie",
+   "ar": "مفردات العمل والحياة",
+   "phr": [
+    {
+     "f": "Elle cherche un emploi depuis un mois.",
+     "a": "عم تدور عشغل من شهر",
+     "e": "She has been looking for a job for a month."
+    },
+    {
+     "f": "Le loyer a augmenté cette année.",
+     "a": "الإيجار ارتفع هالسنة",
+     "e": "The rent went up this year."
+    },
+    {
+     "f": "J'ai un entretien demain matin.",
+     "a": "عندي مقابلة عمل بكرا الصبح",
+     "e": "I have a job interview tomorrow morning."
+    },
+    {
+     "f": "Il télétravaille deux jours par semaine.",
+     "a": "بيشتغل عن بعد يومين بالأسبوع",
+     "e": "He works from home two days a week."
+    },
+    {
+     "f": "On économise pour acheter une voiture.",
+     "a": "عم نوفر مصاري لنشتري سيارة",
+     "e": "We are saving money to buy a car."
+    },
+    {
+     "f": "La réunion est reportée à lundi.",
+     "a": "الاجتماع اتأجل للاثنين",
+     "e": "The meeting is postponed to Monday."
+    },
+    {
+     "f": "J'ai réservé une table pour quatre.",
+     "a": "حجزت طاولة لأربعة",
+     "e": "I booked a table for four."
+    },
+    {
+     "f": "Les employés sont en grève aujourd'hui.",
+     "a": "الموظفين مضربين اليوم",
+     "e": "The employees are on strike today."
+    }
+   ],
+   "ids": [
+    "d6031",
+    "d6032",
+    "d6033",
+    "d6034",
+    "d6035",
+    "d6036",
+    "d6037",
+    "d6038",
+    "d6039",
+    "d6040",
+    "d6041",
+    "d6042",
+    "d6043",
+    "d6044",
+    "d6045",
+    "d6046",
+    "d6047",
+    "d6048",
+    "d6049",
+    "d6050"
+   ]
+  },
+  {
+   "id": "b1-17",
+   "icon": "📰",
+   "fr": "Textes de lecture complets",
+   "ar": "نصوص قراءة كاملة",
+   "phr": [
+    {
+     "f": "« L'eau sera coupée jeudi de 9h à 17h. »",
+     "a": "المي رح تنقطع الخميس من 9 ل5",
+     "e": "\"The water will be cut Thursday from 9 to 5.\""
+    },
+    {
+     "f": "« Le poste est déjà pourvu. »",
+     "a": "المنصب انحجز",
+     "e": "\"The position is already filled.\""
+    },
+    {
+     "f": "« Entrée gratuite le premier dimanche du mois. »",
+     "a": "الدخول ببلاش أول أحد بالشهر",
+     "e": "\"Free entry the first Sunday of the month.\""
+    },
+    {
+     "f": "« Le métro est interrompu entre deux stations. »",
+     "a": "المترو متوقف بين محطتين",
+     "e": "\"The metro is interrupted between two stations.\""
+    },
+    {
+     "f": "« Veuillez emballer vos affaires avant jeudi. »",
+     "a": "الرجاء تغليف أغراضكم قبل الخميس",
+     "e": "\"Please pack your things before Thursday.\""
+    },
+    {
+     "f": "« Inscription obligatoire à l'accueil. »",
+     "a": "التسجيل إجباري بالاستقبال",
+     "e": "\"Registration required at the front desk.\""
+    },
+    {
+     "f": "« Le colis sera déposé au point relais. »",
+     "a": "الطرد رح ينحط بنقطة الاستلام",
+     "e": "\"The parcel will be left at the pickup point.\""
+    },
+    {
+     "f": "« Expérience souhaitée mais non obligatoire. »",
+     "a": "الخبرة مطلوبة بس مش إجبارية",
+     "e": "\"Experience preferred but not required.\""
+    }
+   ],
+   "ids": [
+    "d7001",
+    "d7002",
+    "d7003",
+    "d7004",
+    "d7005",
+    "d7006",
+    "d7007",
+    "d7008",
+    "d7009",
+    "d7010",
+    "d7011",
+    "d7012",
+    "d7013",
+    "d7014",
+    "d7015"
+   ]
+  },
+  {
+   "id": "b1-18",
+   "icon": "🎙️",
+   "fr": "Scènes de dialogue à écouter",
+   "ar": "مشاهد حوارية للاستماع",
+   "phr": [
+    {
+     "f": "« Mon colis devait arriver hier. »",
+     "a": "طردي كان مفروض يوصل مبارح",
+     "e": "\"My parcel was supposed to arrive yesterday.\""
+    },
+    {
+     "f": "« J'aimerais prendre rendez-vous. »",
+     "a": "بدي اخد موعد",
+     "e": "\"I would like to make an appointment.\""
+    },
+    {
+     "f": "« On devrait y aller ce week-end. »",
+     "a": "لازم نروح نهاية الأسبوع",
+     "e": "\"We should go this weekend.\""
+    },
+    {
+     "f": "« Votre train est annulé en raison de la grève. »",
+     "a": "قطاركم ملغي بسبب الإضراب",
+     "e": "\"Your train is cancelled due to the strike.\""
+    },
+    {
+     "f": "« L'équipe est sympa mais le trajet est long. »",
+     "a": "الفريق لطيف بس الطريق طويل",
+     "e": "\"The team is nice but the commute is long.\""
+    },
+    {
+     "f": "« J'ai réservé une chambre au nom de Dubois. »",
+     "a": "حجزت أوضة باسم دوبوا",
+     "e": "\"I booked a room under the name Dubois.\""
+    },
+    {
+     "f": "« Je voudrais signaler une fuite d'eau. »",
+     "a": "بدي بلّغ عن تسريب مي",
+     "e": "\"I would like to report a water leak.\""
+    },
+    {
+     "f": "« On a gagné 2-1 hier soir ! »",
+     "a": "فزنا 2-1 مبارح بالليل!",
+     "e": "\"We won 2-1 last night!\""
+    }
+   ],
+   "ids": [
+    "d7016",
+    "d7017",
+    "d7018",
+    "d7019",
+    "d7020",
+    "d7021",
+    "d7022",
+    "d7023",
+    "d7024",
+    "d7025",
+    "d7026",
+    "d7027",
+    "d7028",
+    "d7029",
+    "d7030"
+   ]
+  },
+  {
+   "id": "b1-19",
+   "icon": "📝",
+   "fr": "Écrire et parler — les formules",
+   "ar": "الكتابة والتحدث — الصيغ",
+   "phr": [
+    {
+     "f": "Madame, Monsieur, je vous écris pour...",
+     "a": "سيدتي سيدي، عم اكتبلكن مشان...",
+     "e": "Dear Sir or Madam, I am writing to..."
+    },
+    {
+     "f": "Veuillez agréer mes salutations distinguées.",
+     "a": "تفضلوا بقبول فائق الاحترام",
+     "e": "Please accept my distinguished regards."
+    },
+    {
+     "f": "D'abord... ensuite... enfin.",
+     "a": "أول شي... بعدين... أخيراً",
+     "e": "First... then... finally."
+    },
+    {
+     "f": "Je vous prie de bien vouloir m'excuser.",
+     "a": "بتمنى تتكرمو وتسامحوني",
+     "e": "I kindly ask you to excuse me."
+    },
+    {
+     "f": "Selon moi, c'est la meilleure solution.",
+     "a": "برأيي هاد أحسن حل",
+     "e": "In my opinion it is the best solution."
+    },
+    {
+     "f": "Eh bien, laissez-moi réfléchir.",
+     "a": "يعني، خلوني فكر",
+     "e": "Well, let me think."
+    },
+    {
+     "f": "D'une part... d'autre part...",
+     "a": "من جهة... ومن جهة تانية...",
+     "e": "On one hand... on the other hand..."
+    },
+    {
+     "f": "Pour conclure, je dirais que oui.",
+     "a": "للختام بقول إيه",
+     "e": "To conclude I would say yes."
+    },
+    {
+     "f": "Sur cette image, on voit une famille.",
+     "a": "بهالصورة منشوف عيلة",
+     "e": "In this picture we see a family."
+    },
+    {
+     "f": "Je propose que nous partions tôt.",
+     "a": "بقترح نطلع بدري",
+     "e": "I suggest we leave early."
+    }
+   ],
+   "ids": [
+    "d7031",
+    "d7032",
+    "d7033",
+    "d7034",
+    "d7035",
+    "d7036",
+    "d7037",
+    "d7038",
+    "d7039",
+    "d7040",
+    "d7041",
+    "d7042",
+    "d7043",
+    "d7044",
+    "d7045",
+    "d7046",
+    "d7047",
+    "d7048",
+    "d7049",
+    "d7050",
+    "d7051",
+    "d7052"
+   ]
   }
  ]
 };
