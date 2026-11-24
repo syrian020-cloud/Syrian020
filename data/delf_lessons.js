@@ -5311,6 +5311,114 @@ window.DELF_LESSONS={
     }
    ],
    "ids": []
+  },
+  {
+   "id": "a2-77",
+   "icon": "🎬",
+   "fr": "Une sortie au cinéma",
+   "ar": "نزهة إلى السينما",
+   "phr": [
+    {
+     "f": "Samedi dernier, je suis allé au cinéma avec mon ami.",
+     "a": "يوم السبت الماضي، ذهبت إلى السينما مع صديقي.",
+     "e": "Last Saturday, I went to the cinema with my friend."
+    },
+    {
+     "f": "Nous avons choisi un film comique.",
+     "a": "اخترنا فيلماً كوميدياً.",
+     "e": "We chose a comedy film."
+    },
+    {
+     "f": "Le film commençait à huit heures du soir.",
+     "a": "بدأ الفيلم الساعة الثامنة مساءً.",
+     "e": "The film started at eight o’clock in the evening."
+    },
+    {
+     "f": "Nous avons acheté du pop-corn et des boissons.",
+     "a": "اشترينا الفشار والمشروبات.",
+     "e": "We bought popcorn and drinks."
+    },
+    {
+     "f": "La salle était grande et confortable.",
+     "a": "كانت القاعة كبيرة ومريحة.",
+     "e": "The cinema hall was large and comfortable."
+    },
+    {
+     "f": "Le film était très drôle et intéressant.",
+     "a": "كان الفيلم مضحكاً وممتعاً جداً.",
+     "e": "The film was very funny and interesting."
+    },
+    {
+     "f": "Nous avons beaucoup ri pendant le film.",
+     "a": "ضحكنا كثيراً أثناء الفيلم.",
+     "e": "We laughed a lot during the film."
+    },
+    {
+     "f": "Après le cinéma, nous sommes allés boire un café.",
+     "a": "بعد السينما، ذهبنا لشرب القهوة.",
+     "e": "After the cinema, we went to have coffee."
+    },
+    {
+     "f": "J’ai passé une excellente soirée avec mon ami.",
+     "a": "قضيت أمسية رائعة مع صديقي.",
+     "e": "I had a wonderful evening with my friend."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-78",
+   "icon": "✈️",
+   "fr": "Un voyage à l’étranger",
+   "ar": "رحلة إلى الخارج",
+   "phr": [
+    {
+     "f": "L’année dernière, j’ai voyagé à l’étranger avec ma famille.",
+     "a": "في العام الماضي، سافرت إلى الخارج مع عائلتي.",
+     "e": "Last year, I travelled abroad with my family."
+    },
+    {
+     "f": "Nous avons choisi de visiter l’Italie.",
+     "a": "اخترنا زيارة إيطاليا.",
+     "e": "We chose to visit Italy."
+    },
+    {
+     "f": "Nous sommes partis en avion.",
+     "a": "سافرنا بالطائرة.",
+     "e": "We travelled by plane."
+    },
+    {
+     "f": "Le voyage était très agréable.",
+     "a": "كانت الرحلة ممتعة جداً.",
+     "e": "The journey was very pleasant."
+    },
+    {
+     "f": "Nous avons visité plusieurs monuments célèbres.",
+     "a": "زرنا عدة معالم مشهورة.",
+     "e": "We visited several famous monuments."
+    },
+    {
+     "f": "Nous avons aussi goûté des plats italiens.",
+     "a": "تذوقنا أيضاً أطباقاً إيطالية.",
+     "e": "We also tasted Italian dishes."
+    },
+    {
+     "f": "Les habitants étaient gentils et accueillants.",
+     "a": "كان السكان لطفاء ومرحبين.",
+     "e": "The people were kind and welcoming."
+    },
+    {
+     "f": "Nous avons pris beaucoup de photos.",
+     "a": "التقطنا الكثير من الصور.",
+     "e": "We took many pictures."
+    },
+    {
+     "f": "J’aimerais visiter ce pays une deuxième fois.",
+     "a": "أود زيارة هذا البلد مرة ثانية.",
+     "e": "I would like to visit this country a second time."
+    }
+   ],
+   "ids": []
   }
  ],
  "b1": [
