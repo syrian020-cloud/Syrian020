@@ -4547,6 +4547,324 @@ window.DELF_LESSONS = {
         }
       ],
       "ids": []
+    },
+    {
+      "id": "b1-t5",
+      "icon": "🏠",
+      "fr": "Thème 5 — Le logement",
+      "ar": "موضوع 5 — السكن والحياة في الشقة",
+      "phr": [
+        {
+          "f": "Je suis actuellement à la recherche d'un appartement à louer.",
+          "a": "أنا حالياً عم دوّر على شقة للإيجار.",
+          "e": "I'm currently looking for an apartment to rent."
+        },
+        {
+          "f": "Je voudrais trouver un logement qui correspond à mon budget.",
+          "a": "بدي لاقي سكن بيتناسب مع ميزانيتي.",
+          "e": "I'd like to find accommodation that fits my budget."
+        },
+        {
+          "f": "Le montant du loyer est un critère important dans mon choix.",
+          "a": "قيمة الإيجار عامل مهم باختياري.",
+          "e": "The rent amount is an important factor in my choice."
+        },
+        {
+          "f": "Je préfère habiter dans un quartier calme et bien desservi.",
+          "a": "بفضّل اسكن بحي هادي وفيه مواصلات جيدة.",
+          "e": "I prefer living in a quiet neighborhood with good transport links."
+        },
+        {
+          "f": "Il est important d'avoir des commerces à proximité.",
+          "a": "من المهم يكون في محلات قريبة من السكن.",
+          "e": "It's important to have shops nearby."
+        },
+        {
+          "f": "J'aimerais vivre dans un appartement lumineux et bien isolé.",
+          "a": "بتمنى اسكن بشقة فيها ضو وعزلها جيد.",
+          "e": "I'd like to live in a bright, well-insulated apartment."
+        },
+        {
+          "f": "Avant de louer un logement, il faut vérifier son état général.",
+          "a": "قبل استئجار سكن، لازم نتأكد من حالته العامة.",
+          "e": "Before renting accommodation, we should check its general condition."
+        },
+        {
+          "f": "Le propriétaire m'a demandé plusieurs documents pour constituer mon dossier.",
+          "a": "صاحب البيت طلب مني عدة أوراق لتجهيز ملف الإيجار.",
+          "e": "The landlord asked me for several documents to prepare my application."
+        },
+        {
+          "f": "J'ai préparé mes justificatifs de revenus et mes pièces d'identité.",
+          "a": "جهزت إثباتات الدخل وأوراق الهوية.",
+          "e": "I prepared my proof of income and identity documents."
+        },
+        {
+          "f": "Le contrat de location précise les droits et les obligations du locataire.",
+          "a": "عقد الإيجار بيوضح حقوق وواجبات المستأجر.",
+          "e": "The rental agreement specifies the tenant's rights and responsibilities."
+        },
+        {
+          "f": "Avant de signer, je prends le temps de lire toutes les conditions.",
+          "a": "قبل ما وقّع، باخد وقتي لحتى اقرأ كل الشروط.",
+          "e": "Before signing, I take the time to read all the conditions."
+        },
+        {
+          "f": "Le dépôt de garantie est généralement demandé au début de la location.",
+          "a": "غالباً بيطلبوا مبلغ ضمان ببداية الإيجار.",
+          "e": "A security deposit is generally required at the beginning of a tenancy."
+        },
+        {
+          "f": "Je dois également prévoir les charges en plus du loyer.",
+          "a": "لازم كمان احسب المصاريف الإضافية فوق الإيجار.",
+          "e": "I also have to budget for additional charges besides the rent."
+        },
+        {
+          "f": "Les factures d'électricité et de chauffage peuvent coûter cher.",
+          "a": "فواتير الكهرباء والتدفئة ممكن تكون غالية.",
+          "e": "Electricity and heating bills can be expensive."
+        },
+        {
+          "f": "Je préfère comparer plusieurs offres avant de prendre une décision.",
+          "a": "بفضّل قارن بين عدة عروض قبل ما آخد قرار.",
+          "e": "I prefer comparing several offers before making a decision."
+        },
+        {
+          "f": "J'ai visité un appartement qui m'a beaucoup plu.",
+          "a": "زرت شقة عجبتني كتير.",
+          "e": "I visited an apartment that I really liked."
+        },
+        {
+          "f": "Cependant, le loyer dépassait légèrement mon budget.",
+          "a": "بس الإيجار كان أعلى شوي من ميزانيتي.",
+          "e": "However, the rent was slightly above my budget."
+        },
+        {
+          "f": "Il faut parfois faire des compromis pour trouver un logement adapté.",
+          "a": "أحياناً لازم نتنازل عن بعض الأمور لحتى نلاقي سكن مناسب.",
+          "e": "Sometimes you have to make compromises to find suitable accommodation."
+        },
+        {
+          "f": "Une fois installé, je souhaite aménager mon appartement à mon goût.",
+          "a": "بعد ما استقر، بدي رتّب شقتي على ذوقي.",
+          "e": "Once I'm settled, I want to decorate my apartment to my taste."
+        },
+        {
+          "f": "J'ai acheté quelques meubles pour rendre mon logement plus confortable.",
+          "a": "اشتريت كم قطعة أثاث لحتى خلي بيتي أريح.",
+          "e": "I bought some furniture to make my home more comfortable."
+        },
+        {
+          "f": "Je veille à garder mon appartement propre et bien rangé.",
+          "a": "بحرص خلي شقتي نظيفة ومرتبة.",
+          "e": "I make sure to keep my apartment clean and tidy."
+        },
+        {
+          "f": "Je respecte les horaires de tranquillité pour ne pas déranger les voisins.",
+          "a": "بحترم أوقات الهدوء لحتى ما أزعج الجيران.",
+          "e": "I respect quiet hours so as not to disturb the neighbors."
+        },
+        {
+          "f": "En cas de problème, je contacte rapidement le propriétaire.",
+          "a": "إذا صار في مشكلة، بتواصل بسرعة مع صاحب البيت.",
+          "e": "If there's a problem, I quickly contact the landlord."
+        },
+        {
+          "f": "Une fuite d'eau doit être réparée le plus rapidement possible.",
+          "a": "تسرّب المي لازم يتصلّح بأسرع وقت ممكن.",
+          "e": "A water leak must be repaired as quickly as possible."
+        },
+        {
+          "f": "Les voisins doivent faire preuve de respect les uns envers les autres.",
+          "a": "لازم الجيران يحترموا بعضن.",
+          "e": "Neighbors should show respect for one another."
+        },
+        {
+          "f": "Je trouve qu'un bon voisinage améliore la qualité de vie.",
+          "a": "برأيي العلاقة الجيدة مع الجيران بتحسّن جودة الحياة.",
+          "e": "I think good relations with neighbors improve quality of life."
+        },
+        {
+          "f": "Certains immeubles disposent d'un local pour ranger les vélos.",
+          "a": "بعض البنايات فيها غرفة مخصصة لحفظ الدراجات.",
+          "e": "Some apartment buildings have a room for storing bicycles."
+        },
+        {
+          "f": "Il est préférable de signaler rapidement les problèmes dans les parties communes.",
+          "a": "الأفضل نبلّغ بسرعة عن المشاكل بالأماكن المشتركة بالبناية.",
+          "e": "It's better to report problems in shared areas quickly."
+        },
+        {
+          "f": "Pour moi, se sentir chez soi est essentiel pour être heureux.",
+          "a": "بالنسبة إلي، إنك تحس حالك ببيتك شي أساسي لتكون مرتاح وسعيد.",
+          "e": "For me, feeling at home is essential to being happy."
+        },
+        {
+          "f": "J'espère trouver un logement stable où je pourrai construire mon avenir.",
+          "a": "بتمنى لاقي سكن مستقر أقدر إبني فيه مستقبلي.",
+          "e": "I hope to find stable accommodation where I can build my future."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-t6",
+      "icon": "🚊",
+      "fr": "Thème 6 — Les transports",
+      "ar": "موضوع 6 — المواصلات والتنقّل",
+      "phr": [
+        {
+          "f": "J'utilise les transports en commun pour me déplacer en ville.",
+          "a": "بستعمل وسائل النقل العامة لحتى تنقّل بالمدينة.",
+          "e": "I use public transport to get around the city."
+        },
+        {
+          "f": "Je prends généralement le tramway pour aller au travail.",
+          "a": "عادةً بركب الترام لحتى روح على الشغل.",
+          "e": "I usually take the tram to go to work."
+        },
+        {
+          "f": "Il faut parfois changer de ligne pour arriver à destination.",
+          "a": "أحياناً لازم نغيّر الخط لحتى نوصل لوجهتنا.",
+          "e": "Sometimes you have to change lines to reach your destination."
+        },
+        {
+          "f": "Je consulte les horaires avant de quitter la maison.",
+          "a": "بتفقد مواعيد الرحلات قبل ما أطلع من البيت.",
+          "e": "I check the schedules before leaving home."
+        },
+        {
+          "f": "Le tramway est parfois en retard à cause des travaux.",
+          "a": "أحياناً الترام بيتأخر بسبب الأشغال.",
+          "e": "The tram is sometimes delayed because of construction work."
+        },
+        {
+          "f": "Je préfère partir un peu plus tôt pour éviter d'arriver en retard.",
+          "a": "بفضّل اطلع أبكر بشوي لحتى ما اتأخر.",
+          "e": "I prefer leaving a little earlier to avoid being late."
+        },
+        {
+          "f": "Aux heures de pointe, les transports sont souvent bondés.",
+          "a": "بأوقات الذروة، وسائل النقل غالباً بتكون مزدحمة كتير.",
+          "e": "During rush hour, public transport is often crowded."
+        },
+        {
+          "f": "Il est parfois difficile de trouver une place assise.",
+          "a": "أحياناً بيكون صعب نلاقي مكان نقعد فيه.",
+          "e": "Sometimes it's difficult to find a seat."
+        },
+        {
+          "f": "Je laisse ma place aux personnes âgées et aux personnes qui en ont besoin.",
+          "a": "بترك مكاني لكبار السن وللأشخاص اللي بحاجة يقعدوا.",
+          "e": "I give up my seat to elderly people and those who need it."
+        },
+        {
+          "f": "Il faut valider son ticket avant de monter dans le tramway.",
+          "a": "لازم نمرّر التذكرة على جهاز التحقق قبل ما نركب الترام.",
+          "e": "You have to validate your ticket before getting on the tram."
+        },
+        {
+          "f": "Un abonnement mensuel peut être plus économique si l'on voyage souvent.",
+          "a": "الاشتراك الشهري ممكن يكون أوفر إذا كنا بنستخدم المواصلات كتير.",
+          "e": "A monthly pass can be cheaper if you travel frequently."
+        },
+        {
+          "f": "J'ai oublié de renouveler mon abonnement de transport.",
+          "a": "نسيت جدّد اشتراكي بالمواصلات.",
+          "e": "I forgot to renew my transport pass."
+        },
+        {
+          "f": "En cas de contrôle, il faut présenter un titre de transport valable.",
+          "a": "وقت التفتيش، لازم نبرز تذكرة أو اشتراك صالح.",
+          "e": "In case of an inspection, you must show a valid travel ticket."
+        },
+        {
+          "f": "Les agents peuvent donner des renseignements aux voyageurs.",
+          "a": "الموظفين ممكن يعطوا معلومات للمسافرين.",
+          "e": "Staff members can provide information to passengers."
+        },
+        {
+          "f": "Je vérifie toujours la direction du tramway avant de monter.",
+          "a": "دايماً بتأكد من اتجاه الترام قبل ما اركب.",
+          "e": "I always check the direction of the tram before getting on."
+        },
+        {
+          "f": "Cette ligne dessert plusieurs quartiers importants de la ville.",
+          "a": "هالخط بيمر بعدة أحياء مهمة بالمدينة.",
+          "e": "This line serves several important neighborhoods in the city."
+        },
+        {
+          "f": "En cas de perturbation, je cherche un autre moyen de transport.",
+          "a": "إذا صار في اضطراب بالمواصلات، بدوّر على وسيلة نقل تانية.",
+          "e": "In case of disruption, I look for another means of transport."
+        },
+        {
+          "f": "Les grèves peuvent entraîner des changements dans les horaires.",
+          "a": "الإضرابات ممكن تسبب تغييرات بمواعيد الرحلات.",
+          "e": "Strikes can lead to changes in schedules."
+        },
+        {
+          "f": "Je consulte l'application pour connaître l'état du trafic.",
+          "a": "بفتح التطبيق لحتى أعرف وضع حركة المواصلات.",
+          "e": "I check the app to find out the traffic conditions."
+        },
+        {
+          "f": "Lorsque la météo est agréable, je préfère me déplacer à vélo.",
+          "a": "لما يكون الطقس حلو، بفضّل تنقّل بالدراجة.",
+          "e": "When the weather is nice, I prefer getting around by bicycle."
+        },
+        {
+          "f": "Le vélo est un moyen de transport économique et écologique.",
+          "a": "الدراجة وسيلة نقل اقتصادية وصديقة للبيئة.",
+          "e": "Cycling is an economical and environmentally friendly means of transport."
+        },
+        {
+          "f": "Il faut porter un casque pour mieux se protéger à vélo.",
+          "a": "لازم نلبس خوذة لحتى نحمي حالنا بشكل أفضل على الدراجة.",
+          "e": "You should wear a helmet to protect yourself better when cycling."
+        },
+        {
+          "f": "Les automobilistes doivent respecter les limitations de vitesse.",
+          "a": "لازم سائقي السيارات يلتزموا بحدود السرعة.",
+          "e": "Motorists must respect speed limits."
+        },
+        {
+          "f": "Il est dangereux d'utiliser son téléphone portable en conduisant.",
+          "a": "استخدام الموبايل أثناء القيادة أمر خطير.",
+          "e": "Using a mobile phone while driving is dangerous."
+        },
+        {
+          "f": "Je préfère éviter les embouteillages en choisissant un autre itinéraire.",
+          "a": "بفضّل أتجنب الازدحام باختيار طريق تاني.",
+          "e": "I prefer avoiding traffic jams by choosing another route."
+        },
+        {
+          "f": "Le stationnement est parfois difficile dans le centre-ville.",
+          "a": "ركن السيارة أحياناً بيكون صعب بوسط المدينة.",
+          "e": "Parking is sometimes difficult in the city center."
+        },
+        {
+          "f": "Les transports publics permettent de réduire le nombre de voitures en circulation.",
+          "a": "المواصلات العامة بتساعد على تقليل عدد السيارات بالشوارع.",
+          "e": "Public transport helps reduce the number of cars on the road."
+        },
+        {
+          "f": "Il est important de rendre les transports accessibles à tout le monde.",
+          "a": "من المهم نخلي المواصلات متاحة للجميع.",
+          "e": "It's important to make transport accessible to everyone."
+        },
+        {
+          "f": "Les déplacements quotidiens peuvent être fatigants lorsqu'ils sont trop longs.",
+          "a": "التنقلات اليومية ممكن تكون متعبة لما تكون طويلة كتير.",
+          "e": "Daily commutes can be tiring when they are too long."
+        },
+        {
+          "f": "À mon avis, améliorer les transports en commun est essentiel pour l'avenir des villes.",
+          "a": "برأيي، تطوير المواصلات العامة ضروري لمستقبل المدن.",
+          "e": "In my opinion, improving public transport is essential for the future of cities."
+        }
+      ],
+      "ids": []
     }
   ]
 };
