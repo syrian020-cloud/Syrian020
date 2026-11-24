@@ -1260,7 +1260,7 @@ function renderLesson(){
   }
   var cards = ls.phr.map(function(p, i){
     return '<div class="slide-card">' +
-      '<div class="slide-head"><span class="slide-num">' + (p.voc ? '📖 كلمة مهمة' : (i + 1) + ' / ' + ls.phr.length) + '</span></div>' +
+      '<div class="slide-head"><span class="slide-num">' + (p.mod ? '✍️ النموذج الكامل' : (p.voc ? '📖 كلمة مهمة' : (i + 1) + ' / ' + ls.phr.length)) + '</span></div>' +
       (p.f ? '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="' + i + '" data-lang="fr-FR">🇫🇷</button> ' + esc(p.f) + '</div>' : '') +
       (p.a ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-i="' + i + '" data-lang="ar-SY">🇸🇾</button> ' + esc(p.a) + '</div>' : '') +
       (p.e ? '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="' + i + '" data-lang="en-US">🇺🇸</button> ' + esc(p.e) + '</div>' : '') +

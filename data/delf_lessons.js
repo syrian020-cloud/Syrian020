@@ -16081,6 +16081,985 @@ window.DELF_LESSONS = {
         }
       ],
       "ids": []
+    },
+    {
+      "id": "b1-l19",
+      "icon": "📱",
+      "fr": "Essai 19 — Les réseaux sociaux",
+      "ar": "مقال 19 — وسائل التواصل الاجتماعي",
+      "consigne": {
+        "f": "Les réseaux sociaux",
+        "a": "الموضوع: وسائل التواصل الاجتماعي — اكتب نصاً لا يقل عن 160 كلمة تعبّر فيه عن رأيك، مع ذكر الإيجابيات والسلبيات وأمثلة من حياتك."
+      },
+      "phr": [
+        {
+          "f": "Les réseaux sociaux occupent une place importante dans notre vie.",
+          "a": "تحتل وسائل التواصل الاجتماعي مكانة مهمة في حياتنا.",
+          "e": "Social media plays an important role in our lives."
+        },
+        {
+          "f": "Beaucoup de personnes utilisent les réseaux sociaux chaque jour.",
+          "a": "يستخدم الكثير من الأشخاص وسائل التواصل الاجتماعي كل يوم.",
+          "e": "Many people use social media every day."
+        },
+        {
+          "f": "Ils permettent de communiquer avec nos amis et notre famille.",
+          "a": "تسمح لنا بالتواصل مع أصدقائنا وعائلتنا.",
+          "e": "They allow us to communicate with our friends and family."
+        },
+        {
+          "f": "On peut partager des photos et des vidéos.",
+          "a": "يمكننا مشاركة الصور ومقاطع الفيديو.",
+          "e": "We can share photos and videos."
+        },
+        {
+          "f": "Les réseaux sociaux présentent plusieurs avantages.",
+          "a": "لوسائل التواصل الاجتماعي عدة إيجابيات.",
+          "e": "Social media has several advantages."
+        },
+        {
+          "f": "Cependant, ils présentent aussi des inconvénients.",
+          "a": "ومع ذلك، لديها أيضاً سلبيات.",
+          "e": "However, they also have disadvantages."
+        },
+        {
+          "f": "Certaines personnes passent trop de temps devant leur téléphone.",
+          "a": "يقضي بعض الأشخاص وقتاً طويلاً جداً أمام هواتفهم.",
+          "e": "Some people spend too much time on their phones."
+        },
+        {
+          "f": "Cela peut provoquer une dépendance.",
+          "a": "هذا قد يسبب الإدمان.",
+          "e": "This can cause addiction."
+        },
+        {
+          "f": "Il faut protéger sa vie privée.",
+          "a": "يجب حماية الحياة الخاصة.",
+          "e": "We must protect our privacy."
+        },
+        {
+          "f": "À mon avis, il faut utiliser les réseaux sociaux avec modération.",
+          "a": "في رأيي، يجب استخدام وسائل التواصل الاجتماعي باعتدال.",
+          "e": "In my opinion, we should use social media in moderation."
+        },
+        {
+          "f": "Aujourd'hui, les réseaux sociaux occupent une place importante dans notre vie quotidienne.",
+          "a": "اليوم، تحتل وسائل التواصل الاجتماعي مكانة مهمة في حياتنا اليومية.",
+          "e": "Today, social media plays an important role in our daily lives.",
+          "mod": 1
+        },
+        {
+          "f": "À mon avis, ils présentent plusieurs avantages. Tout d'abord, ils permettent de communiquer facilement avec nos amis et notre famille. De plus, nous pouvons partager des photos, regarder des vidéos et découvrir de nouvelles informations.",
+          "a": "في رأيي، لديها عدة إيجابيات. أولاً، تسمح لنا بالتواصل بسهولة مع أصدقائنا وعائلتنا. بالإضافة إلى ذلك، يمكننا مشاركة الصور ومشاهدة الفيديوهات واكتشاف معلومات جديدة.",
+          "e": "In my opinion, it has several advantages. First of all, it allows us to communicate easily with our friends and family. In addition, we can share photos, watch videos and discover new information.",
+          "mod": 1
+        },
+        {
+          "f": "Cependant, les réseaux sociaux ont aussi des inconvénients. Certaines personnes passent beaucoup de temps sur leur téléphone et oublient leurs activités quotidiennes. Cela peut provoquer des problèmes de sommeil et une dépendance.",
+          "a": "ومع ذلك، لوسائل التواصل الاجتماعي سلبيات أيضاً. يقضي بعض الأشخاص وقتاً طويلاً على هواتفهم وينسون أنشطتهم اليومية. وهذا قد يسبب مشكلات في النوم والإدمان.",
+          "e": "However, social media also has disadvantages. Some people spend too much time on their phones and forget their daily activities. This can cause sleeping problems and addiction.",
+          "mod": 1
+        },
+        {
+          "f": "Personnellement, je pense qu'il ne faut pas supprimer les réseaux sociaux, mais il est important de limiter leur utilisation. Par exemple, nous pouvons éviter d'utiliser notre téléphone pendant les repas et avant de dormir.",
+          "a": "شخصياً، أعتقد أنه لا يجب حذف وسائل التواصل الاجتماعي، ولكن من المهم الحد من استخدامها. على سبيل المثال، يمكننا تجنب استخدام الهاتف أثناء تناول الطعام وقبل النوم.",
+          "e": "Personally, I think we should not delete social media, but it is important to limit its use. For example, we can avoid using our phones during meals and before going to sleep.",
+          "mod": 1
+        },
+        {
+          "f": "Pour conclure, les réseaux sociaux sont utiles, mais nous devons les utiliser avec modération.",
+          "a": "في الختام، وسائل التواصل الاجتماعي مفيدة، ولكن يجب علينا استخدامها باعتدال.",
+          "e": "To conclude, social media is useful, but we should use it in moderation.",
+          "mod": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l20",
+      "icon": "💻",
+      "fr": "Essai 20 — Le télétravail est-il une bonne solution pour l'avenir ?",
+      "ar": "مقال 20 — العمل عن بُعد — هل هو حل جيد للمستقبل؟",
+      "consigne": {
+        "f": "Le télétravail est-il une bonne solution pour l'avenir ?",
+        "a": "الموضوع: العمل عن بُعد — هل هو حل جيد للمستقبل؟ — اكتب نصاً لا يقل عن 160 كلمة تعبّر فيه عن رأيك، مع ذكر الإيجابيات والسلبيات وأمثلة من حياتك."
+      },
+      "phr": [
+        {
+          "f": "Le télétravail présente plusieurs avantages.",
+          "a": "العمل عن بُعد له عدة إيجابيات.",
+          "e": "Remote work has several advantages."
+        },
+        {
+          "f": "On peut travailler dans un environnement plus calme.",
+          "a": "يمكن للمرء العمل في بيئة أكثر هدوءاً.",
+          "e": "We can work in a quieter environment."
+        },
+        {
+          "f": "Il permet de passer plus de temps avec sa famille.",
+          "a": "يسمح بقضاء وقت أطول مع العائلة.",
+          "e": "It allows us to spend more time with our family."
+        },
+        {
+          "f": "Cependant, il peut créer un sentiment de solitude.",
+          "a": "ومع ذلك، قد يسبب شعوراً بالوحدة.",
+          "e": "However, it can create a feeling of loneliness."
+        },
+        {
+          "f": "Il est parfois difficile de séparer le travail et la vie personnelle.",
+          "a": "من الصعب أحياناً الفصل بين العمل والحياة الشخصية.",
+          "e": "It is sometimes difficult to separate work from personal life."
+        },
+        {
+          "f": "Tout le monde ne peut pas travailler à distance.",
+          "a": "ليس بإمكان الجميع العمل عن بُعد.",
+          "e": "Not everyone can work remotely."
+        },
+        {
+          "f": "Il est important de trouver un bon équilibre.",
+          "a": "من المهم إيجاد توازن جيد.",
+          "e": "It is important to find a good balance."
+        },
+        {
+          "f": "Aujourd'hui, le télétravail devient de plus en plus populaire dans de nombreuses entreprises. Certaines personnes pensent que c'est une bonne solution pour l'avenir.",
+          "a": "اليوم، أصبح العمل عن بُعد أكثر انتشاراً في العديد من الشركات. يعتقد بعض الأشخاص أنه حل جيد للمستقبل.",
+          "e": "Today, remote work is becoming increasingly popular in many companies. Some people think it is a good solution for the future.",
+          "mod": 1
+        },
+        {
+          "f": "À mon avis, le télétravail présente plusieurs avantages. Tout d'abord, il permet de gagner du temps parce qu'on n'a pas besoin de se déplacer chaque jour pour aller au bureau. De plus, on peut passer plus de temps avec sa famille et mieux organiser son emploi du temps.",
+          "a": "في رأيي، للعمل عن بُعد عدة إيجابيات. أولاً، يسمح بتوفير الوقت لأننا لسنا بحاجة إلى التنقل يومياً للذهاب إلى المكتب. بالإضافة إلى ذلك، يمكننا قضاء وقت أطول مع عائلتنا وتنظيم جدولنا الزمني بشكل أفضل.",
+          "e": "In my opinion, remote work has several advantages. First of all, it saves time because we do not need to travel to the office every day. In addition, we can spend more time with our family and organize our schedules better.",
+          "mod": 1
+        },
+        {
+          "f": "Cependant, cette façon de travailler présente aussi des inconvénients. Par exemple, certaines personnes peuvent se sentir seules à la maison. Il est également parfois difficile de séparer la vie professionnelle de la vie personnelle.",
+          "a": "ومع ذلك، فإن طريقة العمل هذه لها سلبيات أيضاً. على سبيل المثال، قد يشعر بعض الأشخاص بالوحدة في المنزل. ومن الصعب أحياناً الفصل بين الحياة المهنية والحياة الشخصية.",
+          "e": "However, this way of working also has disadvantages. For example, some people may feel lonely at home. It is also sometimes difficult to separate professional life from personal life.",
+          "mod": 1
+        },
+        {
+          "f": "Personnellement, je pense que le télétravail est une bonne solution, mais il ne doit pas être obligatoire. Chaque personne doit pouvoir choisir la méthode qui lui convient le mieux.",
+          "a": "شخصياً، أعتقد أن العمل عن بُعد حل جيد، ولكن لا يجب أن يكون إجبارياً. يجب أن يكون لكل شخص الحق في اختيار الطريقة التي تناسبه أكثر.",
+          "e": "Personally, I think remote work is a good solution, but it should not be compulsory. Everyone should be able to choose the method that suits them best.",
+          "mod": 1
+        },
+        {
+          "f": "Pour conclure, le télétravail peut améliorer notre qualité de vie, à condition de trouver un bon équilibre entre le travail et la vie personnelle.",
+          "a": "في الختام، يمكن للعمل عن بُعد تحسين جودة حياتنا، بشرط إيجاد توازن جيد بين العمل والحياة الشخصية.",
+          "e": "To conclude, remote work can improve our quality of life, provided that we find a good balance between work and personal life.",
+          "mod": 1
+        },
+        {
+          "f": "Le télétravail.",
+          "a": "العمل عن بُعد.",
+          "e": "Remote work.",
+          "voc": 1
+        },
+        {
+          "f": "Travailler à domicile.",
+          "a": "العمل من المنزل.",
+          "e": "To work from home.",
+          "voc": 1
+        },
+        {
+          "f": "Un ordinateur portable.",
+          "a": "حاسوب محمول.",
+          "e": "A laptop.",
+          "voc": 1
+        },
+        {
+          "f": "Gagner du temps.",
+          "a": "توفير الوقت.",
+          "e": "Save time.",
+          "voc": 1
+        },
+        {
+          "f": "Éviter les déplacements.",
+          "a": "تجنب التنقلات.",
+          "e": "Avoid commuting.",
+          "voc": 1
+        },
+        {
+          "f": "L'équilibre entre la vie professionnelle et la vie personnelle.",
+          "a": "التوازن بين الحياة المهنية والحياة الشخصية.",
+          "e": "Work-life balance.",
+          "voc": 1
+        },
+        {
+          "f": "Se sentir isolé.",
+          "a": "الشعور بالعزلة.",
+          "e": "To feel isolated.",
+          "voc": 1
+        },
+        {
+          "f": "Être plus productif.",
+          "a": "أن يكون أكثر إنتاجية.",
+          "e": "To be more productive.",
+          "voc": 1
+        },
+        {
+          "f": "Organiser son emploi du temps.",
+          "a": "تنظيم جدول الوقت.",
+          "e": "Organize one's schedule.",
+          "voc": 1
+        },
+        {
+          "f": "Avoir plus de liberté.",
+          "a": "امتلاك حرية أكبر.",
+          "e": "Have more freedom.",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l21",
+      "icon": "🚗",
+      "fr": "Essai 21 — Faut-il interdire les voitures dans les centres-villes ?",
+      "ar": "مقال 21 — منع السيارات من وسط المدن",
+      "consigne": {
+        "f": "Faut-il interdire les voitures dans les centres-villes ?",
+        "a": "الموضوع: منع السيارات من وسط المدن — اكتب نصاً لا يقل عن 160 كلمة تعبّر فيه عن رأيك، مع ذكر الإيجابيات والسلبيات وأمثلة من حياتك."
+      },
+      "phr": [
+        {
+          "f": "Les voitures provoquent beaucoup de pollution dans les grandes villes.",
+          "a": "تسبب السيارات الكثير من التلوث في المدن الكبيرة.",
+          "e": "Cars cause a lot of pollution in big cities."
+        },
+        {
+          "f": "Les embouteillages font perdre beaucoup de temps.",
+          "a": "الازدحامات المرورية تجعلنا نخسر الكثير من الوقت.",
+          "e": "Traffic jams waste a lot of time."
+        },
+        {
+          "f": "Interdire les voitures permettrait de réduire la pollution.",
+          "a": "إن منع السيارات من شأنه أن يقلل التلوث.",
+          "e": "Banning cars would help reduce pollution."
+        },
+        {
+          "f": "Les habitants pourraient utiliser les transports en commun.",
+          "a": "يمكن للسكان استخدام وسائل النقل العام.",
+          "e": "Residents could use public transportation."
+        },
+        {
+          "f": "Les personnes âgées ont parfois besoin de leur voiture.",
+          "a": "يحتاج كبار السن أحياناً إلى سياراتهم.",
+          "e": "Elderly people sometimes need their cars."
+        },
+        {
+          "f": "Il faut trouver une solution pour tout le monde.",
+          "a": "يجب إيجاد حل يناسب الجميع.",
+          "e": "We must find a solution for everyone."
+        },
+        {
+          "f": "Aujourd'hui, la circulation automobile est un problème important dans les grandes villes. Certaines personnes pensent qu'il faut interdire les voitures dans les centres-villes.",
+          "a": "اليوم، تشكل حركة السيارات مشكلة مهمة في المدن الكبيرة. يعتقد بعض الأشخاص أنه يجب منع السيارات في مراكز المدن.",
+          "e": "Today, car traffic is an important problem in big cities. Some people think that cars should be banned from city centers.",
+          "mod": 1
+        },
+        {
+          "f": "À mon avis, cette idée présente plusieurs avantages. Tout d'abord, cela permettrait de réduire la pollution de l'air et de protéger l'environnement. De plus, il y aurait moins d'embouteillages et les habitants pourraient profiter de rues plus calmes et plus agréables.",
+          "a": "في رأيي، لهذه الفكرة عدة إيجابيات. أولاً، من شأن ذلك أن يسمح بتقليل تلوث الهواء وحماية البيئة. بالإضافة إلى ذلك، ستقل الازدحامات المرورية وسيتمكن السكان من الاستمتاع بشوارع أكثر هدوءاً وراحة.",
+          "e": "In my opinion, this idea has several advantages. First of all, it would help reduce air pollution and protect the environment. In addition, there would be fewer traffic jams, and residents could enjoy quieter and more pleasant streets.",
+          "mod": 1
+        },
+        {
+          "f": "Cependant, cette décision pourrait créer des difficultés pour certaines personnes. Par exemple, les personnes âgées ou les familles avec de jeunes enfants ont parfois besoin d'utiliser leur voiture. De plus, tout le monde n'habite pas près des transports en commun.",
+          "a": "ومع ذلك، قد يسبب هذا القرار صعوبات لبعض الأشخاص. على سبيل المثال، يحتاج كبار السن أو العائلات التي لديها أطفال صغار أحياناً إلى استخدام سياراتهم. بالإضافة إلى ذلك، لا يسكن الجميع بالقرب من وسائل النقل العام.",
+          "e": "However, this decision could create difficulties for some people. For example, elderly people or families with young children sometimes need to use their cars. Moreover, not everyone lives close to public transportation.",
+          "mod": 1
+        },
+        {
+          "f": "Personnellement, je pense qu'il ne faut pas interdire complètement les voitures. Il serait préférable de limiter leur circulation et de développer les transports en commun, les pistes cyclables et les espaces réservés aux piétons.",
+          "a": "شخصياً، أعتقد أنه لا يجب منع السيارات بشكل كامل. سيكون من الأفضل الحد من حركتها وتطوير وسائل النقل العام ومسارات الدراجات والمساحات المخصصة للمشاة.",
+          "e": "Personally, I think cars should not be completely banned. It would be better to limit their traffic and develop public transportation, bicycle lanes and pedestrian areas.",
+          "mod": 1
+        },
+        {
+          "f": "Pour conclure, nous devons trouver un équilibre entre la protection de l'environnement et les besoins des habitants.",
+          "a": "في الختام، يجب علينا إيجاد توازن بين حماية البيئة واحتياجات السكان.",
+          "e": "To conclude, we must find a balance between protecting the environment and meeting the needs of residents.",
+          "mod": 1
+        },
+        {
+          "f": "Une voiture.",
+          "a": "سيارة.",
+          "e": "A car.",
+          "voc": 1
+        },
+        {
+          "f": "Le centre-ville.",
+          "a": "وسط المدينة.",
+          "e": "City center.",
+          "voc": 1
+        },
+        {
+          "f": "La circulation.",
+          "a": "حركة المرور.",
+          "e": "Traffic.",
+          "voc": 1
+        },
+        {
+          "f": "Les embouteillages.",
+          "a": "الازدحامات المرورية.",
+          "e": "Traffic jams.",
+          "voc": 1
+        },
+        {
+          "f": "La pollution de l'air.",
+          "a": "تلوث الهواء.",
+          "e": "Air pollution.",
+          "voc": 1
+        },
+        {
+          "f": "Les transports en commun.",
+          "a": "وسائل النقل العام.",
+          "e": "Public transportation.",
+          "voc": 1
+        },
+        {
+          "f": "Les piétons.",
+          "a": "المشاة.",
+          "e": "Pedestrians.",
+          "voc": 1
+        },
+        {
+          "f": "Une piste cyclable.",
+          "a": "مسار للدراجات.",
+          "e": "A bicycle lane.",
+          "voc": 1
+        },
+        {
+          "f": "Réduire la pollution.",
+          "a": "تقليل التلوث.",
+          "e": "Reduce pollution.",
+          "voc": 1
+        },
+        {
+          "f": "Protéger l'environnement.",
+          "a": "حماية البيئة.",
+          "e": "Protect the environment.",
+          "voc": 1
+        },
+        {
+          "f": "Se déplacer facilement.",
+          "a": "التنقل بسهولة.",
+          "e": "Get around easily.",
+          "voc": 1
+        },
+        {
+          "f": "Un moyen de transport.",
+          "a": "وسيلة نقل.",
+          "e": "A means of transportation.",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l22",
+      "icon": "🎓",
+      "fr": "Essai 22 — Faut-il rendre les études universitaires gratuites pour tous ?",
+      "ar": "مقال 22 — مجانية الدراسة الجامعية للجميع",
+      "consigne": {
+        "f": "Faut-il rendre les études universitaires gratuites pour tous ?",
+        "a": "الموضوع: مجانية الدراسة الجامعية للجميع — اكتب نصاً لا يقل عن 160 كلمة تعبّر فيه عن رأيك، مع ذكر الإيجابيات والسلبيات وأمثلة من حياتك."
+      },
+      "phr": [
+        {
+          "f": "L'éducation est un droit fondamental pour tous.",
+          "a": "التعليم حق أساسي للجميع.",
+          "e": "Education is a fundamental right for everyone."
+        },
+        {
+          "f": "Certains étudiants n'ont pas les moyens de payer leurs études.",
+          "a": "بعض الطلاب لا يملكون القدرة المالية على دفع تكاليف دراستهم.",
+          "e": "Some students cannot afford to pay for their studies."
+        },
+        {
+          "f": "Les études gratuites permettent de donner les mêmes chances à tout le monde.",
+          "a": "تسمح الدراسة المجانية بمنح الفرص نفسها للجميع.",
+          "e": "Free education gives everyone equal opportunities."
+        },
+        {
+          "f": "Les étudiants peuvent se concentrer davantage sur leurs études.",
+          "a": "يستطيع الطلاب التركيز بشكل أكبر على دراستهم.",
+          "e": "Students can focus more on their studies."
+        },
+        {
+          "f": "Cependant, les universités ont besoin de moyens financiers.",
+          "a": "ومع ذلك، تحتاج الجامعات إلى موارد مالية.",
+          "e": "However, universities need financial resources."
+        },
+        {
+          "f": "L'État devrait aider les étudiants qui ont des difficultés financières.",
+          "a": "ينبغي للدولة مساعدة الطلاب الذين يواجهون صعوبات مالية.",
+          "e": "The government should help students who have financial difficulties."
+        },
+        {
+          "f": "Aujourd'hui, les études universitaires coûtent parfois très cher. Certaines personnes pensent qu'elles devraient être gratuites pour tous les étudiants.",
+          "a": "اليوم، تكلف الدراسات الجامعية أحياناً مبالغ كبيرة. يعتقد بعض الأشخاص أنه يجب أن تكون مجانية لجميع الطلاب.",
+          "e": "Today, university studies are sometimes very expensive. Some people think they should be free for all students.",
+          "mod": 1
+        },
+        {
+          "f": "À mon avis, cette idée est très intéressante. Tout d'abord, chaque personne devrait avoir le droit de faire des études, quelle que soit sa situation financière. En effet, certains jeunes abandonnent leurs études parce que leurs familles n'ont pas assez d'argent.",
+          "a": "في رأيي، هذه الفكرة مهمة جداً. أولاً، يجب أن يكون لكل شخص الحق في متابعة الدراسة، بغض النظر عن وضعه المالي. في الواقع، يترك بعض الشباب دراستهم لأن عائلاتهم لا تملك المال الكافي.",
+          "e": "In my opinion, this idea is very interesting. First of all, everyone should have the right to study, regardless of their financial situation. In fact, some young people give up their studies because their families do not have enough money.",
+          "mod": 1
+        },
+        {
+          "f": "De plus, la gratuité des études permettrait de donner les mêmes chances à tous les étudiants. Ils pourraient choisir leur métier selon leurs compétences et leurs intérêts, et non selon leur situation économique.",
+          "a": "بالإضافة إلى ذلك، تسمح مجانية الدراسة بمنح الفرص نفسها لجميع الطلاب. ويمكنهم اختيار مهنتهم وفقاً لمهاراتهم واهتماماتهم، وليس وفقاً لوضعهم الاقتصادي.",
+          "e": "Furthermore, free education would give all students equal opportunities. They could choose their profession according to their skills and interests, rather than their financial situation.",
+          "mod": 1
+        },
+        {
+          "f": "Cependant, les universités ont besoin d'argent pour payer les enseignants, acheter du matériel et améliorer les bâtiments. C'est pourquoi l'État devrait participer au financement des universités.",
+          "a": "ومع ذلك، تحتاج الجامعات إلى المال لدفع رواتب المدرسين وشراء المعدات وتحسين المباني. ولهذا السبب، ينبغي للدولة المشاركة في تمويل الجامعات.",
+          "e": "However, universities need money to pay teachers, buy equipment and improve buildings. That is why the government should help finance universities.",
+          "mod": 1
+        },
+        {
+          "f": "Personnellement, je pense que les études universitaires devraient être gratuites ou au moins moins chères pour les étudiants qui ont des difficultés financières.",
+          "a": "شخصياً، أعتقد أن الدراسات الجامعية يجب أن تكون مجانية، أو على الأقل أقل تكلفة بالنسبة للطلاب الذين يواجهون صعوبات مالية.",
+          "e": "Personally, I think university studies should be free, or at least less expensive for students who have financial difficulties.",
+          "mod": 1
+        },
+        {
+          "f": "Pour conclure, l'éducation est essentielle pour l'avenir des jeunes et pour le développement de la société.",
+          "a": "في الختام، التعليم ضروري لمستقبل الشباب ولتطور المجتمع.",
+          "e": "To conclude, education is essential for the future of young people and for the development of society.",
+          "mod": 1
+        },
+        {
+          "f": "Les études universitaires.",
+          "a": "الدراسات الجامعية.",
+          "e": "University studies.",
+          "voc": 1
+        },
+        {
+          "f": "L'université.",
+          "a": "الجامعة.",
+          "e": "University.",
+          "voc": 1
+        },
+        {
+          "f": "Les frais de scolarité.",
+          "a": "الرسوم الدراسية.",
+          "e": "Tuition fees.",
+          "voc": 1
+        },
+        {
+          "f": "Un étudiant.",
+          "a": "طالب جامعي.",
+          "e": "A university student.",
+          "voc": 1
+        },
+        {
+          "f": "Une bourse d'études.",
+          "a": "منحة دراسية.",
+          "e": "A scholarship.",
+          "voc": 1
+        },
+        {
+          "f": "Les études supérieures.",
+          "a": "التعليم العالي.",
+          "e": "Higher education.",
+          "voc": 1
+        },
+        {
+          "f": "Avoir accès à l'éducation.",
+          "a": "الحصول على التعليم.",
+          "e": "Have access to education.",
+          "voc": 1
+        },
+        {
+          "f": "Les difficultés financières.",
+          "a": "الصعوبات المالية.",
+          "e": "Financial difficulties.",
+          "voc": 1
+        },
+        {
+          "f": "Réussir ses études.",
+          "a": "النجاح في الدراسة.",
+          "e": "Succeed in one's studies.",
+          "voc": 1
+        },
+        {
+          "f": "L'égalité des chances.",
+          "a": "تكافؤ الفرص.",
+          "e": "Equal opportunities.",
+          "voc": 1
+        },
+        {
+          "f": "Payer les frais universitaires.",
+          "a": "دفع الرسوم الجامعية.",
+          "e": "Pay university fees.",
+          "voc": 1
+        },
+        {
+          "f": "L'avenir professionnel.",
+          "a": "المستقبل المهني.",
+          "e": "Professional future.",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l23",
+      "icon": "🏙️",
+      "fr": "Essai 23 — Est-il préférable de vivre en ville ou à la campagne ?",
+      "ar": "مقال 23 — العيش في المدينة أم في الريف",
+      "consigne": {
+        "f": "Est-il préférable de vivre en ville ou à la campagne ?",
+        "a": "الموضوع: العيش في المدينة أم في الريف — اكتب نصاً لا يقل عن 160 كلمة تعبّر فيه عن رأيك، مع ذكر الإيجابيات والسلبيات وأمثلة من حياتك."
+      },
+      "phr": [
+        {
+          "f": "La vie en ville offre beaucoup de possibilités.",
+          "a": "توفر الحياة في المدينة الكثير من الفرص.",
+          "e": "City life offers many opportunities."
+        },
+        {
+          "f": "On trouve facilement des magasins, des écoles et des hôpitaux.",
+          "a": "نجد بسهولة المتاجر والمدارس والمستشفيات.",
+          "e": "It is easy to find shops, schools and hospitals."
+        },
+        {
+          "f": "La vie à la campagne est généralement plus calme.",
+          "a": "الحياة في الريف أكثر هدوءاً بشكل عام.",
+          "e": "Life in the countryside is generally quieter."
+        },
+        {
+          "f": "On peut profiter de la nature et de l'air frais.",
+          "a": "يمكن الاستمتاع بالطبيعة والهواء النقي.",
+          "e": "We can enjoy nature and fresh air."
+        },
+        {
+          "f": "En ville, il y a souvent des embouteillages et de la pollution.",
+          "a": "يوجد غالباً ازدحام مروري وتلوث في المدينة.",
+          "e": "There are often traffic jams and pollution in the city."
+        },
+        {
+          "f": "À la campagne, les transports en commun sont parfois limités.",
+          "a": "في الريف، تكون وسائل النقل العام محدودة أحياناً.",
+          "e": "Public transportation is sometimes limited in the countryside."
+        },
+        {
+          "f": "Le choix dépend des besoins et du mode de vie de chacun.",
+          "a": "يعتمد الاختيار على احتياجات كل شخص ونمط حياته.",
+          "e": "The choice depends on everyone's needs and lifestyle."
+        },
+        {
+          "f": "Aujourd'hui, beaucoup de personnes se demandent s'il est préférable de vivre en ville ou à la campagne. Chaque endroit présente des avantages et des inconvénients.",
+          "a": "اليوم، يتساءل الكثير من الأشخاص عما إذا كان من الأفضل العيش في المدينة أم في الريف. لكل مكان إيجابياته وسلبياته.",
+          "e": "Today, many people wonder whether it is better to live in the city or in the countryside. Each place has advantages and disadvantages.",
+          "mod": 1
+        },
+        {
+          "f": "D'un côté, la vie en ville est pratique. On trouve facilement des magasins, des écoles, des hôpitaux et des transports en commun. De plus, il y a généralement plus de possibilités de travail et de loisirs.",
+          "a": "من جهة، الحياة في المدينة عملية. نجد بسهولة المتاجر والمدارس والمستشفيات ووسائل النقل العام. بالإضافة إلى ذلك، توجد عادة فرص عمل وأنشطة ترفيهية أكثر.",
+          "e": "On the one hand, city life is convenient. It is easy to find shops, schools, hospitals and public transportation. Moreover, there are generally more job opportunities and leisure activities.",
+          "mod": 1
+        },
+        {
+          "f": "D'un autre côté, la vie à la campagne est plus calme et moins stressante. On peut profiter de la nature, respirer de l'air frais et avoir une maison avec un jardin. Cependant, il est parfois difficile de trouver un emploi ou de se déplacer sans voiture.",
+          "a": "ومن جهة أخرى، الحياة في الريف أكثر هدوءاً وأقل توتراً. يمكننا الاستمتاع بالطبيعة واستنشاق الهواء النقي وامتلاك منزل مع حديقة. ومع ذلك، من الصعب أحياناً العثور على عمل أو التنقل دون سيارة.",
+          "e": "On the other hand, life in the countryside is quieter and less stressful. We can enjoy nature, breathe fresh air and have a house with a garden. However, it is sometimes difficult to find a job or travel without a car.",
+          "mod": 1
+        },
+        {
+          "f": "Personnellement, je préfère vivre à la campagne parce que j'aime le calme et la nature. Je pense que c'est un environnement agréable pour une famille. Toutefois, il est important d'avoir des commerces et des services à proximité.",
+          "a": "شخصياً، أفضل العيش في الريف لأنني أحب الهدوء والطبيعة. أعتقد أنه مكان مريح للعائلة. ومع ذلك، من المهم وجود المحلات والخدمات بالقرب منا.",
+          "e": "Personally, I prefer living in the countryside because I love peace and nature. I think it is a pleasant environment for a family. However, it is important to have shops and services nearby.",
+          "mod": 1
+        },
+        {
+          "f": "Pour conclure, les deux modes de vie ont des avantages, mais le meilleur choix dépend des préférences et des besoins de chaque personne.",
+          "a": "في الختام، لكل من نمطي الحياة إيجابيات، لكن الاختيار الأفضل يعتمد على تفضيلات واحتياجات كل شخص.",
+          "e": "To conclude, both lifestyles have advantages, but the best choice depends on each person's preferences and needs.",
+          "mod": 1
+        },
+        {
+          "f": "La ville.",
+          "a": "المدينة.",
+          "e": "The city.",
+          "voc": 1
+        },
+        {
+          "f": "La campagne.",
+          "a": "الريف.",
+          "e": "The countryside.",
+          "voc": 1
+        },
+        {
+          "f": "Un quartier calme.",
+          "a": "حي هادئ.",
+          "e": "A quiet neighborhood.",
+          "voc": 1
+        },
+        {
+          "f": "Les espaces verts.",
+          "a": "المساحات الخضراء.",
+          "e": "Green spaces.",
+          "voc": 1
+        },
+        {
+          "f": "Le coût de la vie.",
+          "a": "تكلفة المعيشة.",
+          "e": "Cost of living.",
+          "voc": 1
+        },
+        {
+          "f": "Les moyens de transport.",
+          "a": "وسائل النقل.",
+          "e": "Means of transportation.",
+          "voc": 1
+        },
+        {
+          "f": "Les commerces de proximité.",
+          "a": "المحلات التجارية القريبة.",
+          "e": "Local shops.",
+          "voc": 1
+        },
+        {
+          "f": "Le bruit.",
+          "a": "الضجيج.",
+          "e": "Noise.",
+          "voc": 1
+        },
+        {
+          "f": "La tranquillité.",
+          "a": "الهدوء.",
+          "e": "Peace and quiet.",
+          "voc": 1
+        },
+        {
+          "f": "La qualité de vie.",
+          "a": "جودة الحياة.",
+          "e": "Quality of life.",
+          "voc": 1
+        },
+        {
+          "f": "Être proche de la nature.",
+          "a": "أن يكون قريباً من الطبيعة.",
+          "e": "Be close to nature.",
+          "voc": 1
+        },
+        {
+          "f": "Trouver un emploi.",
+          "a": "العثور على عمل.",
+          "e": "Find a job.",
+          "voc": 1
+        },
+        {
+          "f": "Les possibilités professionnelles.",
+          "a": "الفرص المهنية.",
+          "e": "Career opportunities.",
+          "voc": 1
+        },
+        {
+          "f": "Se déplacer facilement.",
+          "a": "التنقل بسهولة.",
+          "e": "Get around easily.",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l24",
+      "icon": "🌍",
+      "fr": "Essai 24 — Faut-il voyager pour découvrir d'autres cultures ?",
+      "ar": "مقال 24 — السفر لاكتشاف ثقافات أخرى",
+      "consigne": {
+        "f": "Faut-il voyager pour découvrir d'autres cultures ?",
+        "a": "الموضوع: السفر لاكتشاف ثقافات أخرى — اكتب نصاً لا يقل عن 160 كلمة تعبّر فيه عن رأيك، مع ذكر الإيجابيات والسلبيات وأمثلة من حياتك."
+      },
+      "phr": [
+        {
+          "f": "Voyager permet de découvrir de nouveaux pays.",
+          "a": "يسمح السفر باكتشاف بلدان جديدة.",
+          "e": "Traveling allows us to discover new countries."
+        },
+        {
+          "f": "On peut rencontrer des personnes de différentes cultures.",
+          "a": "يمكننا التعرف على أشخاص من ثقافات مختلفة.",
+          "e": "We can meet people from different cultures."
+        },
+        {
+          "f": "Chaque pays possède ses propres traditions.",
+          "a": "لكل بلد تقاليده الخاصة.",
+          "e": "Every country has its own traditions."
+        },
+        {
+          "f": "Le voyage nous aide à devenir plus ouverts d'esprit.",
+          "a": "يساعدنا السفر على أن نصبح أكثر انفتاحاً في التفكير.",
+          "e": "Traveling helps us become more open-minded."
+        },
+        {
+          "f": "On peut apprendre beaucoup de choses en découvrant le monde.",
+          "a": "يمكننا تعلم الكثير من الأشياء من خلال اكتشاف العالم.",
+          "e": "We can learn a lot by discovering the world."
+        },
+        {
+          "f": "Cependant, voyager peut coûter cher.",
+          "a": "ومع ذلك، قد يكون السفر مكلفاً.",
+          "e": "However, traveling can be expensive."
+        },
+        {
+          "f": "Il est possible de découvrir d'autres cultures sans voyager loin.",
+          "a": "من الممكن اكتشاف ثقافات أخرى دون السفر إلى أماكن بعيدة.",
+          "e": "It is possible to discover other cultures without traveling far."
+        },
+        {
+          "f": "À mon avis, voyager est une excellente façon d'apprendre.",
+          "a": "في رأيي، السفر طريقة ممتازة للتعلم.",
+          "e": "In my opinion, traveling is an excellent way to learn."
+        },
+        {
+          "f": "Aujourd'hui, beaucoup de personnes aiment voyager pour découvrir de nouveaux pays et de nouvelles cultures. Mais est-il vraiment nécessaire de voyager pour connaître le monde ?",
+          "a": "اليوم، يحب الكثير من الأشخاص السفر لاكتشاف بلدان وثقافات جديدة. ولكن هل من الضروري حقاً السفر من أجل معرفة العالم؟",
+          "e": "Today, many people enjoy traveling to discover new countries and cultures. But is it really necessary to travel to understand the world?",
+          "mod": 1
+        },
+        {
+          "f": "À mon avis, voyager présente de nombreux avantages. Tout d'abord, cela permet de découvrir les traditions, les habitudes et les modes de vie d'autres peuples. De plus, on peut rencontrer de nouvelles personnes et apprendre des langues étrangères. C'est aussi une excellente occasion de sortir de sa routine quotidienne.",
+          "a": "في رأيي، للسفر فوائد كثيرة. أولاً، يسمح لنا باكتشاف تقاليد وعادات وأنماط حياة الشعوب الأخرى. بالإضافة إلى ذلك، يمكننا التعرف على أشخاص جدد وتعلم لغات أجنبية. كما أنها فرصة ممتازة للخروج من الروتين اليومي.",
+          "e": "In my opinion, traveling has many advantages. First of all, it allows us to discover the traditions, habits and lifestyles of other people. Moreover, we can meet new people and learn foreign languages. It is also an excellent opportunity to get away from our daily routine.",
+          "mod": 1
+        },
+        {
+          "f": "Cependant, les voyages peuvent coûter cher et tout le monde n'a pas les moyens de partir à l'étranger. Heureusement, on peut aussi découvrir d'autres cultures grâce aux livres, aux films et à Internet.",
+          "a": "ومع ذلك، قد تكون الرحلات مكلفة، وليس لدى الجميع الإمكانيات المادية للسفر إلى الخارج. ولحسن الحظ، يمكننا أيضاً اكتشاف ثقافات أخرى من خلال الكتب والأفلام والإنترنت.",
+          "e": "However, traveling can be expensive, and not everyone can afford to go abroad. Fortunately, we can also discover other cultures through books, films and the Internet.",
+          "mod": 1
+        },
+        {
+          "f": "Personnellement, j'aime voyager parce que chaque voyage est une nouvelle expérience. Je pense que cela nous aide à mieux comprendre les autres et à respecter leurs différences.",
+          "a": "شخصياً، أحب السفر لأن كل رحلة تمثل تجربة جديدة. أعتقد أن ذلك يساعدنا على فهم الآخرين بشكل أفضل واحترام اختلافاتهم.",
+          "e": "Personally, I love traveling because every trip is a new experience. I think it helps us understand others better and respect their differences.",
+          "mod": 1
+        },
+        {
+          "f": "Pour conclure, voyager n'est pas obligatoire, mais c'est une expérience très enrichissante qui nous permet d'élargir nos connaissances et de découvrir le monde autrement.",
+          "a": "في الختام، السفر ليس أمراً إجبارياً، لكنه تجربة غنية ومفيدة جداً تسمح لنا بتوسيع معارفنا واكتشاف العالم بطريقة مختلفة.",
+          "e": "To conclude, traveling is not compulsory, but it is a very enriching experience that allows us to broaden our knowledge and discover the world in a different way.",
+          "mod": 1
+        },
+        {
+          "f": "Voyager.",
+          "a": "يسافر.",
+          "e": "To travel.",
+          "voc": 1
+        },
+        {
+          "f": "Découvrir une nouvelle culture.",
+          "a": "اكتشاف ثقافة جديدة.",
+          "e": "Discover a new culture.",
+          "voc": 1
+        },
+        {
+          "f": "Les traditions.",
+          "a": "التقاليد.",
+          "e": "Traditions.",
+          "voc": 1
+        },
+        {
+          "f": "Les coutumes.",
+          "a": "العادات.",
+          "e": "Customs.",
+          "voc": 1
+        },
+        {
+          "f": "Les habitants.",
+          "a": "السكان.",
+          "e": "Local residents.",
+          "voc": 1
+        },
+        {
+          "f": "Un pays étranger.",
+          "a": "بلد أجنبي.",
+          "e": "A foreign country.",
+          "voc": 1
+        },
+        {
+          "f": "Une expérience enrichissante.",
+          "a": "تجربة غنية ومفيدة.",
+          "e": "An enriching experience.",
+          "voc": 1
+        },
+        {
+          "f": "Apprendre une langue étrangère.",
+          "a": "تعلم لغة أجنبية.",
+          "e": "Learn a foreign language.",
+          "voc": 1
+        },
+        {
+          "f": "Élargir ses connaissances.",
+          "a": "توسيع المعارف.",
+          "e": "Broaden one's knowledge.",
+          "voc": 1
+        },
+        {
+          "f": "Respecter les différences culturelles.",
+          "a": "احترام الاختلافات الثقافية.",
+          "e": "Respect cultural differences.",
+          "voc": 1
+        },
+        {
+          "f": "Les souvenirs inoubliables.",
+          "a": "الذكريات التي لا تُنسى.",
+          "e": "Unforgettable memories.",
+          "voc": 1
+        },
+        {
+          "f": "Le tourisme.",
+          "a": "السياحة.",
+          "e": "Tourism.",
+          "voc": 1
+        },
+        {
+          "f": "Le coût du voyage.",
+          "a": "تكلفة السفر.",
+          "e": "Cost of travel.",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l25",
+      "icon": "🤝",
+      "fr": "Essai — Devenir coordinateur de projets bénévoles",
+      "ar": "مقال — منسّق مشاريع تطوعية",
+      "consigne": {
+        "f": "Pourquoi souhaitez-vous devenir coordinateur de projets bénévoles ?",
+        "a": "لماذا ترغب في أن تصبح منسّقاً لمشاريع تطوعية؟ — اكتب نصاً لا يقل عن 160 كلمة تعبّر فيه عن رأيك، مع ذكر الإيجابيات والسلبيات وأمثلة من حياتك."
+      },
+      "phr": [
+        {
+          "f": "À mon avis, le bénévolat est très important dans notre société.",
+          "a": "برأيي، العمل التطوعي مهم جدًا في مجتمعنا.",
+          "e": "In my opinion, volunteering is very important in our society."
+        },
+        {
+          "f": "Cela permet d'aider les autres et de créer des liens sociaux.",
+          "a": "هذا يسمح بمساعدة الآخرين وبناء علاقات اجتماعية.",
+          "e": "It allows us to help others and build social connections."
+        },
+        {
+          "f": "Il est essentiel de bien organiser le travail en équipe.",
+          "a": "من الضروري تنظيم العمل الجماعي بشكل جيد.",
+          "e": "It is essential to organize teamwork properly."
+        },
+        {
+          "f": "Même si cette activité demande beaucoup de temps, elle apporte une grande satisfaction.",
+          "a": "رغم أن هذا النشاط يتطلب وقتًا طويلًا، فإنه يمنح شعورًا كبيرًا بالرضا.",
+          "e": "Even though this activity requires a lot of time, it brings great satisfaction."
+        },
+        {
+          "f": "Je souhaite devenir coordinateur de projets bénévoles parce que j'aime aider les autres et participer à des activités utiles pour la société.",
+          "a": "أرغب في أن أصبح منسّقًا للمشاريع التطوعية لأنني أحب مساعدة الآخرين والمشاركة في أنشطة مفيدة للمجتمع.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "Tout d'abord, le bénévolat est une excellente occasion de rencontrer de nouvelles personnes et de découvrir différentes cultures. Il permet également de développer des compétences importantes, comme la communication, l'organisation et le travail en équipe.",
+          "a": "أولًا، يُعتبر العمل التطوعي فرصة ممتازة للتعرّف على أشخاص جدد واكتشاف ثقافات مختلفة. كما أنه يسمح بتطوير مهارات مهمة مثل التواصل والتنظيم والعمل الجماعي.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "Ensuite, je pense qu'un coordinateur doit être responsable, patient et capable de résoudre les problèmes. Son rôle consiste à organiser les activités, répartir les tâches entre les bénévoles et s'assurer que chaque projet se déroule dans de bonnes conditions.",
+          "a": "ثانيًا، أعتقد أن المنسّق يجب أن يكون مسؤولًا وصبورًا وقادرًا على حل المشكلات. وتتمثل مهمته في تنظيم الأنشطة وتوزيع المهام بين المتطوعين والتأكد من سير كل مشروع في ظروف جيدة.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "De plus, j'aimerais participer à des projets qui aident les personnes âgées, les enfants et les familles en difficulté.",
+          "a": "بالإضافة إلى ذلك، أود المشاركة في مشاريع تساعد كبار السن والأطفال والعائلات التي تعاني من صعوبات.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "Bien sûr, ce travail demande du temps et beaucoup d'efforts. Cependant, je pense que voir les résultats de son travail et rendre les autres heureux est une grande récompense.",
+          "a": "بالطبع، يتطلب هذا العمل وقتًا وجهدًا كبيرين. ومع ذلك، أعتقد أن رؤية نتائج العمل وإسعاد الآخرين يُعتبر مكافأة كبيرة.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "Pour conclure, devenir coordinateur de projets bénévoles serait pour moi une expérience enrichissante, aussi bien sur le plan personnel que professionnel.",
+          "a": "في الختام، سيكون العمل منسّقًا للمشاريع التطوعية بالنسبة لي تجربة غنية ومفيدة، سواء على المستوى الشخصي أو المهني.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "",
+          "a": "الموضوع التالي رقم 15: نتابع بنفس المنهج: المفردات بالفرنسية والعربية والإنجليزية، التعابير B1، ثم إنتاج كتابي وترجمته.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "Le bénévolat",
+          "a": "العمل التطوعي",
+          "e": "Volunteering",
+          "voc": 1
+        },
+        {
+          "f": "Un bénévole",
+          "a": "متطوّع",
+          "e": "A volunteer",
+          "voc": 1
+        },
+        {
+          "f": "Une association",
+          "a": "جمعية",
+          "e": "An association",
+          "voc": 1
+        },
+        {
+          "f": "Organiser un projet",
+          "a": "ينظّم مشروعًا",
+          "e": "To organize a project",
+          "voc": 1
+        },
+        {
+          "f": "Travailler en équipe",
+          "a": "يعمل ضمن فريق",
+          "e": "To work as a team",
+          "voc": 1
+        },
+        {
+          "f": "Aider les personnes dans le besoin",
+          "a": "يساعد الأشخاص المحتاجين",
+          "e": "To help people in need",
+          "voc": 1
+        },
+        {
+          "f": "Prendre des responsabilités",
+          "a": "يتحمّل المسؤوليات",
+          "e": "To take responsibility",
+          "voc": 1
+        },
+        {
+          "f": "Développer ses compétences",
+          "a": "يطوّر مهاراته",
+          "e": "To develop one's skills",
+          "voc": 1
+        },
+        {
+          "f": "Participer à une action solidaire",
+          "a": "يشارك في نشاط تضامني",
+          "e": "To participate in a charitable action",
+          "voc": 1
+        }
+      ],
+      "ids": []
     }
   ]
 };
