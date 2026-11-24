@@ -6773,6 +6773,960 @@ window.DELF_LESSONS = {
         }
       ],
       "ids": []
+    },
+    {
+      "id": "b1-t20",
+      "icon": "🦺",
+      "fr": "Thème 20 — La santé au travail et la sécurité",
+      "ar": "موضوع 20 — الصحة والسلامة في العمل",
+      "phr": [
+        {
+          "f": "La sécurité au travail est importante pour tous les employés.",
+          "a": "السلامة بالشغل مهمة لكل الموظفين.",
+          "e": "Workplace safety is important for all employees."
+        },
+        {
+          "f": "Chaque salarié doit respecter les consignes de sécurité.",
+          "a": "لازم كل موظف يلتزم بتعليمات السلامة.",
+          "e": "Every employee must follow safety instructions."
+        },
+        {
+          "f": "Mon responsable nous a expliqué les règles de sécurité.",
+          "a": "المسؤول شرحلنا قواعد السلامة.",
+          "e": "My supervisor explained the safety rules to us."
+        },
+        {
+          "f": "Je porte des chaussures de sécurité pendant mon travail.",
+          "a": "بلبس أحذية السلامة خلال الشغل.",
+          "e": "I wear safety shoes while working."
+        },
+        {
+          "f": "Le port des équipements de protection est obligatoire.",
+          "a": "ارتداء معدات الحماية إجباري.",
+          "e": "Wearing protective equipment is compulsory."
+        },
+        {
+          "f": "Il faut porter des gants pour manipuler certains produits.",
+          "a": "لازم نلبس قفازات عند التعامل مع بعض المواد.",
+          "e": "We must wear gloves when handling certain products."
+        },
+        {
+          "f": "Je fais attention lorsque je déplace des charges lourdes.",
+          "a": "بنتبه لما انقل أغراض تقيلة.",
+          "e": "I am careful when moving heavy loads."
+        },
+        {
+          "f": "Il est préférable de plier les genoux pour soulever un objet lourd.",
+          "a": "الأفضل نثني الركب لما نرفع غرض تقيل.",
+          "e": "It is better to bend your knees when lifting a heavy object."
+        },
+        {
+          "f": "Une mauvaise posture peut provoquer des douleurs au dos.",
+          "a": "وضعية الجسم الغلط ممكن تسبب وجع بالظهر.",
+          "e": "Poor posture can cause back pain."
+        },
+        {
+          "f": "Je prends quelques minutes pour me reposer lorsque je suis fatigué.",
+          "a": "باخد كم دقيقة راحة لما كون تعبان.",
+          "e": "I take a few minutes to rest when I am tired."
+        },
+        {
+          "f": "Il est important de signaler toute situation dangereuse.",
+          "a": "من المهم نبلّغ عن أي وضع ممكن يسبب خطر.",
+          "e": "It is important to report any dangerous situation."
+        },
+        {
+          "f": "J’ai remarqué que le sol était glissant près de la machine.",
+          "a": "لاحظت إن الأرض كانت مزحلقة جنب الآلة.",
+          "e": "I noticed that the floor was slippery near the machine."
+        },
+        {
+          "f": "J’ai immédiatement prévenu mon responsable.",
+          "a": "خبّرت المسؤول فوراً.",
+          "e": "I immediately informed my supervisor."
+        },
+        {
+          "f": "Il faut garder les passages libres pour éviter les accidents.",
+          "a": "لازم نخلي الممرات فاضية حتى نتجنب الحوادث.",
+          "e": "We must keep walkways clear to prevent accidents."
+        },
+        {
+          "f": "En cas d’urgence, il faut suivre les consignes d’évacuation.",
+          "a": "بحالة الطوارئ، لازم نتبع تعليمات الإخلاء.",
+          "e": "In an emergency, we must follow evacuation instructions."
+        },
+        {
+          "f": "Chaque employé doit connaître l’emplacement des sorties de secours.",
+          "a": "لازم كل موظف يعرف وين موجودة مخارج الطوارئ.",
+          "e": "Every employee must know where the emergency exits are."
+        },
+        {
+          "f": "J’ai suivi une formation sur la prévention des risques professionnels.",
+          "a": "حضرت تدريب عن الوقاية من مخاطر العمل.",
+          "e": "I attended training on preventing workplace risks."
+        },
+        {
+          "f": "Cette formation m’a appris à réagir en cas d’accident.",
+          "a": "هالتدريب علّمني كيف اتصرف إذا وقع حادث.",
+          "e": "This training taught me how to react in case of an accident."
+        },
+        {
+          "f": "Un collègue s’est blessé pendant son service.",
+          "a": "أحد زملائي انصاب خلال دوامه.",
+          "e": "A colleague got injured during his shift."
+        },
+        {
+          "f": "Il faut déclarer un accident du travail rapidement.",
+          "a": "لازم نصرّح عن حادث العمل بسرعة.",
+          "e": "A workplace accident must be reported quickly."
+        },
+        {
+          "f": "J’ai consulté un médecin après mon accident.",
+          "a": "راجعت طبيب بعد الحادث اللي صار معي.",
+          "e": "I saw a doctor after my accident."
+        },
+        {
+          "f": "Le médecin m’a prescrit un arrêt de travail.",
+          "a": "الطبيب عطاني إجازة مرضية عن العمل.",
+          "e": "The doctor prescribed sick leave."
+        },
+        {
+          "f": "Le bruit des machines peut nuire à l’audition.",
+          "a": "ضجيج الآلات ممكن يضر السمع.",
+          "e": "Machine noise can damage hearing."
+        },
+        {
+          "f": "Je porte un casque antibruit dans les zones bruyantes.",
+          "a": "بلبس واقي للأذنين بالمناطق اللي فيها ضجيج.",
+          "e": "I wear ear protection in noisy areas."
+        },
+        {
+          "f": "Il faut éviter de travailler trop longtemps sans faire de pause.",
+          "a": "لازم نتجنب الشغل لفترة طويلة من دون استراحة.",
+          "e": "We should avoid working for too long without taking a break."
+        },
+        {
+          "f": "La fatigue peut augmenter le risque d’accident.",
+          "a": "التعب ممكن يزيد احتمال وقوع حادث.",
+          "e": "Fatigue can increase the risk of an accident."
+        },
+        {
+          "f": "Si une machine fonctionne mal, je dois arrêter de l’utiliser.",
+          "a": "إذا الآلة ما عم تشتغل بشكل صحيح، لازم أوقف استخدامها.",
+          "e": "If a machine is not working properly, I must stop using it."
+        },
+        {
+          "f": "Je ne dois jamais réparer une machine sans autorisation.",
+          "a": "ما لازم أصلّح آلة من دون إذن.",
+          "e": "I must never repair a machine without authorization."
+        },
+        {
+          "f": "Un environnement de travail propre réduit les risques d’accident.",
+          "a": "مكان العمل النظيف بيقلل مخاطر الحوادث.",
+          "e": "A clean working environment reduces the risk of accidents."
+        },
+        {
+          "f": "La prévention est essentielle pour protéger la santé des salariés.",
+          "a": "الوقاية ضرورية حتى نحافظ على صحة الموظفين.",
+          "e": "Prevention is essential to protect employees’ health."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-t21",
+      "icon": "⚖️",
+      "fr": "Thème 21 — Les droits au travail",
+      "ar": "موضوع 21 — الحقوق والمسؤوليات في العمل",
+      "phr": [
+        {
+          "f": "Chaque salarié possède des droits et des obligations.",
+          "a": "كل موظف إله حقوق وعليه واجبات.",
+          "e": "Every employee has rights and obligations."
+        },
+        {
+          "f": "Avant de commencer un emploi, je dois signer un contrat de travail.",
+          "a": "قبل ما بلّش شغل، لازم وقّع عقد عمل.",
+          "e": "Before starting a job, I have to sign an employment contract."
+        },
+        {
+          "f": "Mon contrat précise mes horaires et mes missions.",
+          "a": "عقدي بيحدد أوقات دوامي والمهام المطلوبة مني.",
+          "e": "My contract specifies my working hours and duties."
+        },
+        {
+          "f": "Je dois respecter les horaires fixés par mon employeur.",
+          "a": "لازم التزم بمواعيد الدوام اللي حددها صاحب العمل.",
+          "e": "I must respect the working hours set by my employer."
+        },
+        {
+          "f": "Si je suis en retard, je dois prévenir mon responsable.",
+          "a": "إذا تأخرت، لازم خبّر مسؤولي.",
+          "e": "If I am late, I must inform my supervisor."
+        },
+        {
+          "f": "Mon employeur doit me fournir les moyens nécessaires pour travailler.",
+          "a": "صاحب العمل لازم يوفّرلي الأدوات اللازمة للشغل.",
+          "e": "My employer must provide me with the necessary tools to work."
+        },
+        {
+          "f": "Je reçois une fiche de paie chaque mois.",
+          "a": "بستلم قسيمة راتب كل شهر.",
+          "e": "I receive a payslip every month."
+        },
+        {
+          "f": "Je vérifie que les heures supplémentaires sont correctement payées.",
+          "a": "بتأكد إن ساعات العمل الإضافية مدفوعة بشكل صحيح.",
+          "e": "I check that overtime hours are paid correctly."
+        },
+        {
+          "f": "Le salaire doit être versé à la date prévue.",
+          "a": "لازم ينزل الراتب بالموعد المحدد.",
+          "e": "The salary must be paid on the scheduled date."
+        },
+        {
+          "f": "Si je constate une erreur sur ma fiche de paie, je contacte le service des ressources humaines.",
+          "a": "إذا لاحظت خطأ بقسيمة راتبي، بتواصل مع قسم الموارد البشرية.",
+          "e": "If I notice an error on my payslip, I contact the human resources department."
+        },
+        {
+          "f": "Les salariés ont droit à des congés payés.",
+          "a": "الموظفين إلهم حق بإجازات مدفوعة.",
+          "e": "Employees are entitled to paid leave."
+        },
+        {
+          "f": "Je dois demander mes congés suffisamment à l’avance.",
+          "a": "لازم أطلب إجازتي قبل بوقت كافي.",
+          "e": "I must request my leave sufficiently in advance."
+        },
+        {
+          "f": "Mon responsable doit confirmer les dates de mes vacances.",
+          "a": "لازم مسؤولي يأكدلي مواعيد إجازتي.",
+          "e": "My supervisor must confirm my holiday dates."
+        },
+        {
+          "f": "En cas de maladie, je dois informer mon employeur rapidement.",
+          "a": "بحالة المرض، لازم خبّر صاحب العمل بسرعة.",
+          "e": "In case of illness, I must inform my employer quickly."
+        },
+        {
+          "f": "Je dois transmettre mon arrêt de travail dans les délais prévus.",
+          "a": "لازم أرسل شهادة التوقف عن العمل ضمن المهلة المحددة.",
+          "e": "I must submit my sick leave certificate within the required time."
+        },
+        {
+          "f": "L’employeur doit respecter la durée légale du travail.",
+          "a": "صاحب العمل لازم يحترم مدة العمل القانونية.",
+          "e": "The employer must respect the legal working hours."
+        },
+        {
+          "f": "Les pauses permettent aux salariés de récupérer pendant la journée.",
+          "a": "الاستراحات بتساعد الموظفين يستعيدوا نشاطهم خلال النهار.",
+          "e": "Breaks allow employees to recover during the day."
+        },
+        {
+          "f": "Je peux demander un entretien pour parler de mes conditions de travail.",
+          "a": "فيني اطلب اجتماع حتى ناقش ظروف شغلي.",
+          "e": "I can request a meeting to discuss my working conditions."
+        },
+        {
+          "f": "Je souhaite obtenir des explications concernant cette décision.",
+          "a": "بدي أحصل على توضيحات بخصوص هالقرار.",
+          "e": "I would like to receive explanations about this decision."
+        },
+        {
+          "f": "Je dois traiter mes collègues avec respect.",
+          "a": "لازم عامل زملائي باحترام.",
+          "e": "I must treat my colleagues with respect."
+        },
+        {
+          "f": "La discrimination est interdite dans le monde du travail.",
+          "a": "التمييز ممنوع بعالم الشغل.",
+          "e": "Discrimination is prohibited in the workplace."
+        },
+        {
+          "f": "Aucun salarié ne devrait être victime de harcèlement.",
+          "a": "ما لازم أي موظف يتعرض للمضايقة أو التحرش.",
+          "e": "No employee should be a victim of harassment."
+        },
+        {
+          "f": "Si je rencontre un problème, je peux en parler à mon représentant du personnel.",
+          "a": "إذا واجهت مشكلة، فيني احكي مع ممثل الموظفين.",
+          "e": "If I have a problem, I can speak to my staff representative."
+        },
+        {
+          "f": "Je dois respecter la confidentialité des informations de l’entreprise.",
+          "a": "لازم حافظ على سرية معلومات الشركة.",
+          "e": "I must respect the confidentiality of company information."
+        },
+        {
+          "f": "Mon employeur ne peut pas modifier librement toutes les conditions de mon contrat.",
+          "a": "صاحب العمل ما فيه يغيّر كل شروط عقدي على كيفه.",
+          "e": "My employer cannot freely change all the terms of my contract."
+        },
+        {
+          "f": "Je peux demander une copie de mon contrat si je l’ai perdue.",
+          "a": "فيني اطلب نسخة من عقدي إذا ضيّعتها.",
+          "e": "I can request a copy of my contract if I have lost it."
+        },
+        {
+          "f": "À la fin de mon contrat, je dois recevoir les documents de fin de contrat.",
+          "a": "بنهاية عقدي، لازم استلم أوراق نهاية العمل.",
+          "e": "At the end of my contract, I must receive my end-of-employment documents."
+        },
+        {
+          "f": "Je dois lire attentivement les documents avant de les signer.",
+          "a": "لازم اقرأ الأوراق منيح قبل ما وقّعها.",
+          "e": "I must read the documents carefully before signing them."
+        },
+        {
+          "f": "Si mes droits ne sont pas respectés, je peux demander conseil à un organisme compétent.",
+          "a": "إذا ما تم احترام حقوقي، فيني اطلب استشارة من جهة مختصة.",
+          "e": "If my rights are not respected, I can seek advice from a competent organization."
+        },
+        {
+          "f": "Connaître ses droits permet de mieux se défendre dans le monde professionnel.",
+          "a": "معرفة حقوقنا بتساعدنا ندافع عن حالنا بشكل أفضل بمجال العمل.",
+          "e": "Knowing your rights helps you defend yourself better in the workplace."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-t22",
+      "icon": "🤝",
+      "fr": "Thème 22 — Les conflits au travail",
+      "ar": "موضوع 22 — الخلافات والمشاكل في العمل",
+      "phr": [
+        {
+          "f": "J’ai rencontré quelques difficultés avec un collègue.",
+          "a": "واجهت بعض الصعوبات مع زميل بالشغل.",
+          "e": "I have experienced some difficulties with a colleague."
+        },
+        {
+          "f": "Nous ne sommes pas toujours d’accord sur la manière de travailler.",
+          "a": "مو دايماً منتفق على طريقة الشغل.",
+          "e": "We do not always agree on how to work."
+        },
+        {
+          "f": "Je préfère discuter calmement plutôt que de me disputer.",
+          "a": "بفضّل نحكي بهدوء بدل ما نتخانق.",
+          "e": "I prefer discussing things calmly rather than arguing."
+        },
+        {
+          "f": "Je pense qu’il y a eu un malentendu entre nous.",
+          "a": "بعتقد صار في سوء تفاهم بيناتنا.",
+          "e": "I think there has been a misunderstanding between us."
+        },
+        {
+          "f": "Ce n’était pas mon intention de te vexer.",
+          "a": "ما كان قصدي زعّلك.",
+          "e": "I didn't mean to upset you."
+        },
+        {
+          "f": "J’aimerais que nous trouvions une solution ensemble.",
+          "a": "بتمنى نلاقي حل سوا.",
+          "e": "I would like us to find a solution together."
+        },
+        {
+          "f": "Je n’ai pas apprécié la manière dont tu m’as parlé.",
+          "a": "ما عجبني الأسلوب اللي حكيت معي فيه.",
+          "e": "I didn't appreciate the way you spoke to me."
+        },
+        {
+          "f": "Je souhaite être traité avec respect comme les autres employés.",
+          "a": "بدي ينحكى معي باحترام متل باقي الموظفين.",
+          "e": "I want to be treated with respect like the other employees."
+        },
+        {
+          "f": "J’ai l’impression que mes efforts ne sont pas reconnus.",
+          "a": "عندي إحساس إنو جهودي مو عم تنقدّر.",
+          "e": "I feel that my efforts are not being recognized."
+        },
+        {
+          "f": "Je fais mon travail sérieusement, mais j’ai besoin de plus de soutien.",
+          "a": "بعمل شغلي بجدية، بس بحتاج دعم أكتر.",
+          "e": "I do my job seriously, but I need more support."
+        },
+        {
+          "f": "Mon responsable m’a reproché une erreur que je n’avais pas commise.",
+          "a": "مسؤولي لامني على غلطة أنا ما عملتها.",
+          "e": "My supervisor blamed me for a mistake I hadn't made."
+        },
+        {
+          "f": "Je voudrais expliquer ma version des faits.",
+          "a": "بدي اشرح وجهة نظري واللي صار من طرفي.",
+          "e": "I would like to explain my side of the story."
+        },
+        {
+          "f": "Je préfère vérifier les informations avant de tirer des conclusions.",
+          "a": "بفضّل أتأكد من المعلومات قبل ما نحكم على الموضوع.",
+          "e": "I prefer checking the information before drawing conclusions."
+        },
+        {
+          "f": "Il est important d’écouter les deux parties avant de prendre une décision.",
+          "a": "من المهم نسمع للطرفين قبل ما ناخد قرار.",
+          "e": "It is important to listen to both sides before making a decision."
+        },
+        {
+          "f": "Je voudrais organiser un entretien avec mon responsable.",
+          "a": "بدي رتّب اجتماع مع مسؤولي.",
+          "e": "I would like to arrange a meeting with my supervisor."
+        },
+        {
+          "f": "Pendant cet entretien, je pourrai expliquer les difficultés que je rencontre.",
+          "a": "خلال هالاجتماع، رح أقدر اشرح الصعوبات اللي عم واجهها.",
+          "e": "During this meeting, I will be able to explain the difficulties I am facing."
+        },
+        {
+          "f": "La communication permet souvent d’éviter les conflits.",
+          "a": "التواصل غالباً بيساعدنا نتجنب الخلافات.",
+          "e": "Communication often helps us avoid conflicts."
+        },
+        {
+          "f": "Je ne veux pas créer de tensions dans l’équipe.",
+          "a": "ما بدي أعمل توتر ضمن فريق العمل.",
+          "e": "I don't want to create tension within the team."
+        },
+        {
+          "f": "Nous devons mieux répartir les tâches entre les employés.",
+          "a": "لازم نوزّع المهام بين الموظفين بطريقة أفضل.",
+          "e": "We need to distribute tasks among employees more fairly."
+        },
+        {
+          "f": "Certains collègues ne respectent pas toujours les consignes.",
+          "a": "بعض الزملاء مو دايماً بيلتزموا بالتعليمات.",
+          "e": "Some colleagues do not always follow the instructions."
+        },
+        {
+          "f": "Cette situation complique le travail de toute l’équipe.",
+          "a": "هالوضع بيصعّب الشغل على الفريق كله.",
+          "e": "This situation makes the whole team's work more difficult."
+        },
+        {
+          "f": "J’ai signalé le problème afin qu’une solution soit trouvée.",
+          "a": "بلّغت عن المشكلة حتى يلاقوا حل إلها.",
+          "e": "I reported the problem so that a solution could be found."
+        },
+        {
+          "f": "Je ne souhaite pas accuser quelqu’un sans avoir de preuves.",
+          "a": "ما بدي اتهم حدا من دون ما يكون عندي دليل.",
+          "e": "I don't want to accuse anyone without having evidence."
+        },
+        {
+          "f": "Si le problème continue, je demanderai l’aide d’un représentant du personnel.",
+          "a": "إذا استمرت المشكلة، رح اطلب مساعدة ممثل الموظفين.",
+          "e": "If the problem continues, I will ask a staff representative for help."
+        },
+        {
+          "f": "Il faut éviter de répondre sous le coup de la colère.",
+          "a": "لازم نتجنب الرد وقت نكون معصّبين.",
+          "e": "We should avoid responding in anger."
+        },
+        {
+          "f": "Même en cas de désaccord, chacun doit rester professionnel.",
+          "a": "حتى لو اختلفنا، لازم كل واحد يحافظ على مهنيته.",
+          "e": "Even when we disagree, everyone must remain professional."
+        },
+        {
+          "f": "J’accepte les remarques lorsqu’elles sont justifiées et constructives.",
+          "a": "بتقبل الملاحظات لما تكون بمحله وهدفها تحسين الشغل.",
+          "e": "I accept feedback when it is justified and constructive."
+        },
+        {
+          "f": "En revanche, je n’accepte pas les insultes ni les humiliations.",
+          "a": "بالمقابل، ما بقبل الإهانات ولا التقليل من كرامتي.",
+          "e": "However, I do not accept insults or humiliation."
+        },
+        {
+          "f": "Après notre discussion, la situation s’est progressivement améliorée.",
+          "a": "بعد ما حكينا، الوضع بلّش يتحسن شوي شوي.",
+          "e": "After our discussion, the situation gradually improved."
+        },
+        {
+          "f": "Un bon environnement de travail repose sur le respect et la confiance.",
+          "a": "بيئة العمل الجيدة بتقوم على الاحترام والثقة.",
+          "e": "A good working environment is based on respect and trust."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-t23",
+      "icon": "💼",
+      "fr": "Thème 23 — Les entretiens et l'évolution",
+      "ar": "موضوع 23 — مقابلات العمل والتطور المهني",
+      "phr": [
+        {
+          "f": "Je suis convoqué à un entretien d’embauche la semaine prochaine.",
+          "a": "عندي مقابلة عمل الأسبوع الجاي.",
+          "e": "I have a job interview next week."
+        },
+        {
+          "f": "Je voudrais bien me préparer avant de rencontrer le recruteur.",
+          "a": "بدي حضّر حالي منيح قبل ما قابل مسؤول التوظيف.",
+          "e": "I would like to prepare well before meeting the recruiter."
+        },
+        {
+          "f": "Pouvez-vous me présenter votre parcours professionnel ?",
+          "a": "فيك تخبرني عن مسيرتك المهنية؟",
+          "e": "Could you tell me about your professional background?"
+        },
+        {
+          "f": "J’ai acquis de l’expérience dans le domaine de la préparation de commandes.",
+          "a": "اكتسبت خبرة بمجال تحضير الطلبات.",
+          "e": "I gained experience in order preparation."
+        },
+        {
+          "f": "J’ai également travaillé dans l’emballage et le conditionnement.",
+          "a": "كمان اشتغلت بالتغليف والتوضيب.",
+          "e": "I also worked in packaging and packing."
+        },
+        {
+          "f": "Je suis capable de travailler seul ou en équipe.",
+          "a": "بقدر اشتغل لحالي أو ضمن فريق.",
+          "e": "I can work independently or as part of a team."
+        },
+        {
+          "f": "Je suis une personne sérieuse, ponctuelle et motivée.",
+          "a": "أنا شخص جدي وملتزم بالمواعيد وعندي حافز للشغل.",
+          "e": "I am serious, punctual, and motivated."
+        },
+        {
+          "f": "J’apprends rapidement lorsque l’on m’explique les tâches.",
+          "a": "بتعلّم بسرعة لما حدا يشرحلي المهام.",
+          "e": "I learn quickly when someone explains the tasks to me."
+        },
+        {
+          "f": "Je sais m’adapter à différents environnements de travail.",
+          "a": "بعرف تأقلم مع بيئات عمل مختلفة.",
+          "e": "I can adapt to different working environments."
+        },
+        {
+          "f": "Mon principal point fort est ma capacité d’adaptation.",
+          "a": "أهم نقطة قوة عندي هي قدرتي على التأقلم.",
+          "e": "My main strength is my ability to adapt."
+        },
+        {
+          "f": "Je cherche toujours à améliorer mes compétences.",
+          "a": "دايماً بحاول طوّر مهاراتي.",
+          "e": "I always try to improve my skills."
+        },
+        {
+          "f": "J’aimerais suivre une formation pour progresser dans mon métier.",
+          "a": "بتمنى تابع تدريب حتى أتطور بمجال شغلي.",
+          "e": "I would like to take a training course to improve in my profession."
+        },
+        {
+          "f": "Je souhaite obtenir un poste avec davantage de responsabilités.",
+          "a": "بتمنى احصل على منصب فيه مسؤوليات أكتر.",
+          "e": "I would like to get a position with more responsibilities."
+        },
+        {
+          "f": "Mon objectif est de construire une carrière stable.",
+          "a": "هدفي أبني مسيرة مهنية مستقرة.",
+          "e": "My goal is to build a stable career."
+        },
+        {
+          "f": "Je suis prêt à apprendre de nouvelles méthodes de travail.",
+          "a": "أنا مستعد اتعلم طرق جديدة بالشغل.",
+          "e": "I am ready to learn new working methods."
+        },
+        {
+          "f": "Pourquoi souhaitez-vous rejoindre notre entreprise ?",
+          "a": "ليش حابب تنضم لشركتنا؟",
+          "e": "Why would you like to join our company?"
+        },
+        {
+          "f": "Votre entreprise correspond à mes objectifs professionnels.",
+          "a": "شركتكم بتناسب أهدافي المهنية.",
+          "e": "Your company matches my professional goals."
+        },
+        {
+          "f": "Je recherche un emploi qui me permette d’évoluer.",
+          "a": "عم دور على شغل يخليني أتطور وأتقدم.",
+          "e": "I am looking for a job that allows me to develop."
+        },
+        {
+          "f": "Je préfère un poste qui offre des possibilités de formation.",
+          "a": "بفضّل وظيفة بتوفر فرص للتدريب.",
+          "e": "I prefer a position that offers training opportunities."
+        },
+        {
+          "f": "Je voudrais savoir quelles sont les possibilités d’évolution dans ce poste.",
+          "a": "بدي أعرف شو فرص التطور بهالوظيفة.",
+          "e": "I would like to know what career development opportunities this position offers."
+        },
+        {
+          "f": "Quelles seront mes principales responsabilités ?",
+          "a": "شو رح تكون مسؤولياتي الأساسية؟",
+          "e": "What will my main responsibilities be?"
+        },
+        {
+          "f": "Est-ce que ce poste nécessite une expérience particulière ?",
+          "a": "هل هالوظيفة بتحتاج خبرة معينة؟",
+          "e": "Does this position require specific experience?"
+        },
+        {
+          "f": "Je suis disponible pour commencer dès que possible.",
+          "a": "فيني بلّش بأقرب وقت ممكن.",
+          "e": "I am available to start as soon as possible."
+        },
+        {
+          "f": "Je peux travailler en horaires du matin ou de l’après-midi.",
+          "a": "فيني اشتغل بالدوام الصباحي أو بعد الظهر.",
+          "e": "I can work morning or afternoon shifts."
+        },
+        {
+          "f": "Je voudrais connaître le salaire proposé pour ce poste.",
+          "a": "بدي أعرف الراتب المعروض لهالوظيفة.",
+          "e": "I would like to know the salary offered for this position."
+        },
+        {
+          "f": "Je vous remercie de m’avoir reçu pour cet entretien.",
+          "a": "بشكركم على استقبالكم إلي بهالمقابلة.",
+          "e": "Thank you for meeting with me for this interview."
+        },
+        {
+          "f": "Je reste à votre disposition pour toute information complémentaire.",
+          "a": "أنا جاهز إذا احتجتوا أي معلومات إضافية.",
+          "e": "I remain available if you need any additional information."
+        },
+        {
+          "f": "J’espère avoir l’occasion de rejoindre votre équipe.",
+          "a": "بتمنى تجيني الفرصة حتى انضم لفريقكم.",
+          "e": "I hope to have the opportunity to join your team."
+        },
+        {
+          "f": "Après plusieurs années d’expérience, j’aimerais accéder à un poste supérieur.",
+          "a": "بعد عدة سنين من الخبرة، بتمنى انتقل لمنصب أعلى.",
+          "e": "After several years of experience, I would like to move into a higher position."
+        },
+        {
+          "f": "La formation continue est essentielle pour réussir sa carrière professionnelle.",
+          "a": "التدريب المستمر ضروري حتى ننجح بمسيرتنا المهنية.",
+          "e": "Continuous training is essential for professional success."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-t24",
+      "icon": "📚",
+      "fr": "Thème 24 — La formation pour adultes",
+      "ar": "موضوع 24 — البحث عن تدريب والدراسة للكبار",
+      "phr": [
+        {
+          "f": "Je souhaite suivre une formation pour améliorer mes compétences professionnelles.",
+          "a": "بدي تابع تدريب حتى طوّر مهاراتي المهنية.",
+          "e": "I want to take a course to improve my professional skills."
+        },
+        {
+          "f": "Je cherche une formation adaptée à mon niveau de français.",
+          "a": "عم دور على تدريب مناسب لمستواي باللغة الفرنسية.",
+          "e": "I am looking for a course suited to my level of French."
+        },
+        {
+          "f": "Est-ce que cette formation est ouverte aux adultes ?",
+          "a": "هل هالتدريب متاح للكبار؟",
+          "e": "Is this course open to adults?"
+        },
+        {
+          "f": "Je voudrais connaître les conditions d’admission.",
+          "a": "بدي أعرف شروط القبول.",
+          "e": "I would like to know the admission requirements."
+        },
+        {
+          "f": "Quels documents dois-je fournir pour m’inscrire ?",
+          "a": "شو الأوراق اللي لازم قدّمها حتى سجّل؟",
+          "e": "What documents do I need to provide to register?"
+        },
+        {
+          "f": "La formation commence au début du mois prochain.",
+          "a": "التدريب بيبلّش ببداية الشهر الجاي.",
+          "e": "The course starts at the beginning of next month."
+        },
+        {
+          "f": "Les inscriptions sont ouvertes jusqu’à la fin de la semaine.",
+          "a": "التسجيل مفتوح لحتى نهاية الأسبوع.",
+          "e": "Registration is open until the end of the week."
+        },
+        {
+          "f": "Je dois passer un test pour évaluer mon niveau.",
+          "a": "لازم قدّم اختبار حتى يقيّموا مستواي.",
+          "e": "I have to take a test to assess my level."
+        },
+        {
+          "f": "Cette formation comprend des cours théoriques et pratiques.",
+          "a": "هالتدريب فيه دروس نظرية وتطبيقية.",
+          "e": "This course includes theoretical and practical lessons."
+        },
+        {
+          "f": "Je préfère apprendre en pratiquant plutôt qu’en étudiant uniquement la théorie.",
+          "a": "بفضّل اتعلم من خلال التطبيق بدل ما ادرس النظريات بس.",
+          "e": "I prefer learning through practice rather than studying only theory."
+        },
+        {
+          "f": "Les cours ont lieu trois fois par semaine.",
+          "a": "الدروس بتنعمل ثلاث مرات بالأسبوع.",
+          "e": "Classes take place three times a week."
+        },
+        {
+          "f": "Est-ce que les cours sont disponibles à distance ?",
+          "a": "هل الدروس متوفرة عن بُعد؟",
+          "e": "Are the classes available remotely?"
+        },
+        {
+          "f": "Je peux suivre cette formation tout en continuant à travailler.",
+          "a": "فيني تابع هالتدريب وبنفس الوقت ضل اشتغل.",
+          "e": "I can take this course while continuing to work."
+        },
+        {
+          "f": "Il est important de bien organiser son emploi du temps.",
+          "a": "من المهم ننظّم وقتنا بشكل منيح.",
+          "e": "It is important to organize your schedule properly."
+        },
+        {
+          "f": "Je voudrais savoir si cette formation est rémunérée.",
+          "a": "بدي أعرف إذا هالتدريب مدفوع الأجر.",
+          "e": "I would like to know whether this training is paid."
+        },
+        {
+          "f": "Certaines formations peuvent être financées par le CPF.",
+          "a": "في تدريبات ممكن يتم تمويلها عن طريق حساب التدريب الشخصي CPF.",
+          "e": "Some training courses can be funded through the CPF."
+        },
+        {
+          "f": "Je voudrais vérifier si cette formation est éligible au CPF.",
+          "a": "بدي أتأكد إذا هالتدريب مؤهل للتمويل عن طريق CPF.",
+          "e": "I would like to check whether this course is eligible for CPF funding."
+        },
+        {
+          "f": "Mon conseiller peut m’aider à trouver une formation adaptée.",
+          "a": "المستشار تبعي ممكن يساعدني لاقي تدريب مناسب.",
+          "e": "My adviser can help me find a suitable course."
+        },
+        {
+          "f": "Je me suis renseigné auprès de plusieurs centres de formation.",
+          "a": "استفسرت من عدة مراكز تدريب.",
+          "e": "I made inquiries at several training centers."
+        },
+        {
+          "f": "Le programme de formation correspond à mes objectifs professionnels.",
+          "a": "برنامج التدريب مناسب لأهدافي المهنية.",
+          "e": "The training program matches my professional goals."
+        },
+        {
+          "f": "Je souhaite obtenir un diplôme reconnu en France.",
+          "a": "بدي احصل على شهادة معترف فيها بفرنسا.",
+          "e": "I want to obtain a diploma recognized in France."
+        },
+        {
+          "f": "À la fin de la formation, les participants passent un examen.",
+          "a": "بنهاية التدريب، المشاركين بيقدّموا امتحان.",
+          "e": "At the end of the course, participants take an exam."
+        },
+        {
+          "f": "Si je réussis l’examen, je recevrai une attestation ou un diplôme.",
+          "a": "إذا نجحت بالامتحان، رح استلم شهادة إثبات أو دبلوم.",
+          "e": "If I pass the exam, I will receive a certificate or diploma."
+        },
+        {
+          "f": "J’ai besoin de plus de temps pour assimiler certaines notions.",
+          "a": "بحتاج وقت أكتر حتى استوعب بعض المفاهيم.",
+          "e": "I need more time to understand certain concepts."
+        },
+        {
+          "f": "Je n’hésite pas à poser des questions lorsque je ne comprends pas.",
+          "a": "ما بتردد اسأل لما ما افهم شي.",
+          "e": "I do not hesitate to ask questions when I do not understand."
+        },
+        {
+          "f": "Les formateurs nous accompagnent tout au long de la formation.",
+          "a": "المدربين بيرافقونا وبيساعدونا طوال فترة التدريب.",
+          "e": "The trainers support us throughout the course."
+        },
+        {
+          "f": "J’ai effectué un stage pour mettre en pratique mes connaissances.",
+          "a": "عملت تدريب عملي حتى طبّق المعلومات اللي تعلمتها.",
+          "e": "I completed an internship to put my knowledge into practice."
+        },
+        {
+          "f": "Cette expérience m’a permis de mieux comprendre le métier.",
+          "a": "هالتجربة ساعدتني افهم المهنة بشكل أفضل.",
+          "e": "This experience helped me understand the profession better."
+        },
+        {
+          "f": "Même si les études sont parfois difficiles, je reste motivé.",
+          "a": "حتى لو الدراسة صعبة أحياناً، بضل عندي حماس كمل.",
+          "e": "Even though studying is sometimes difficult, I remain motivated."
+        },
+        {
+          "f": "Apprendre tout au long de sa vie permet de saisir de nouvelles opportunités.",
+          "a": "التعلّم المستمر خلال الحياة بيساعدنا نستفيد من فرص جديدة.",
+          "e": "Lifelong learning helps us take advantage of new opportunities."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-t25",
+      "icon": "🏢",
+      "fr": "Thème 25 — France Travail",
+      "ar": "موضوع 25 — الإجراءات لدى France Travail",
+      "phr": [
+        {
+          "f": "Je me suis inscrit auprès de France Travail pour rechercher un emploi.",
+          "a": "سجلت عند France Travail حتى دور على شغل.",
+          "e": "I registered with France Travail to look for a job."
+        },
+        {
+          "f": "Je dois actualiser ma situation chaque mois.",
+          "a": "لازم حدّث وضعيتي كل شهر.",
+          "e": "I have to update my situation every month."
+        },
+        {
+          "f": "J’ai oublié de faire mon actualisation à temps.",
+          "a": "نسيت حدّث وضعيتي بالوقت المحدد.",
+          "e": "I forgot to update my status on time."
+        },
+        {
+          "f": "Je voudrais vérifier si mon inscription est toujours active.",
+          "a": "بدي أتأكد إذا تسجيلي لسه فعّال.",
+          "e": "I would like to check whether my registration is still active."
+        },
+        {
+          "f": "J’ai reçu un message de mon conseiller.",
+          "a": "وصلتني رسالة من المستشار تبعي.",
+          "e": "I received a message from my adviser."
+        },
+        {
+          "f": "Mon conseiller m’a proposé un rendez-vous pour faire le point sur ma situation.",
+          "a": "المستشار اقترح عليّ موعد حتى نراجع وضعيتي.",
+          "e": "My adviser suggested an appointment to review my situation."
+        },
+        {
+          "f": "Je voudrais reporter mon rendez-vous à une autre date.",
+          "a": "بدي أجّل موعدي لتاريخ تاني.",
+          "e": "I would like to reschedule my appointment."
+        },
+        {
+          "f": "Je ne pourrai pas être présent à cause d’un problème personnel.",
+          "a": "ما رح أقدر احضر بسبب ظرف شخصي.",
+          "e": "I will not be able to attend because of a personal matter."
+        },
+        {
+          "f": "Est-ce que je peux effectuer cette démarche en ligne ?",
+          "a": "فيني أعمل هالإجراء عن طريق الإنترنت؟",
+          "e": "Can I complete this procedure online?"
+        },
+        {
+          "f": "J’ai téléchargé les documents demandés depuis mon espace personnel.",
+          "a": "نزّلت الأوراق المطلوبة من حسابي الشخصي.",
+          "e": "I downloaded the requested documents from my personal account."
+        },
+        {
+          "f": "Je dois transmettre mon contrat de travail à mon conseiller.",
+          "a": "لازم ابعت عقد العمل للمستشار تبعي.",
+          "e": "I have to send my employment contract to my adviser."
+        },
+        {
+          "f": "J’ai retrouvé un emploi après plusieurs semaines de recherche.",
+          "a": "لقيت شغل بعد عدة أسابيع من البحث.",
+          "e": "I found a job after several weeks of searching."
+        },
+        {
+          "f": "Je dois déclarer la reprise de mon activité professionnelle.",
+          "a": "لازم صرّح إني رجعت اشتغل.",
+          "e": "I have to report that I have resumed working."
+        },
+        {
+          "f": "Je travaille actuellement à temps partiel.",
+          "a": "حالياً عم اشتغل بدوام جزئي.",
+          "e": "I am currently working part-time."
+        },
+        {
+          "f": "Je voudrais savoir si je peux cumuler mon salaire avec certaines allocations.",
+          "a": "بدي أعرف إذا فيني اجمع بين راتبي وبعض المساعدات.",
+          "e": "I would like to know whether I can combine my salary with certain benefits."
+        },
+        {
+          "f": "Mes revenus ont changé depuis ma reprise du travail.",
+          "a": "دخلي تغيّر من وقت ما رجعت للشغل.",
+          "e": "My income has changed since I returned to work."
+        },
+        {
+          "f": "Je souhaite connaître les aides auxquelles je peux avoir droit.",
+          "a": "بدي أعرف شو المساعدات اللي ممكن يكون إلي حق فيها.",
+          "e": "I would like to know which benefits I may be entitled to."
+        },
+        {
+          "f": "Mon conseiller m’a orienté vers une formation professionnelle.",
+          "a": "المستشار وجّهني نحو تدريب مهني.",
+          "e": "My adviser directed me towards vocational training."
+        },
+        {
+          "f": "Cette formation pourrait améliorer mes chances de trouver un emploi stable.",
+          "a": "هالتدريب ممكن يزيد فرصي بالحصول على شغل مستقر.",
+          "e": "This training could improve my chances of finding a stable job."
+        },
+        {
+          "f": "Je dois participer aux ateliers proposés par mon agence.",
+          "a": "لازم شارك بالورشات اللي بيقدمها المركز.",
+          "e": "I have to attend the workshops offered by my agency."
+        },
+        {
+          "f": "J’ai besoin d’aide pour améliorer mon CV.",
+          "a": "بحتاج مساعدة حتى حسّن سيرتي الذاتية.",
+          "e": "I need help improving my CV."
+        },
+        {
+          "f": "Je souhaite préparer une lettre de motivation adaptée à chaque offre.",
+          "a": "بدي حضّر رسالة تحفيزية مناسبة لكل إعلان وظيفة.",
+          "e": "I want to prepare a cover letter tailored to each job offer."
+        },
+        {
+          "f": "Je consulte régulièrement les offres d’emploi sur le site.",
+          "a": "بتابع إعلانات الوظائف على الموقع بشكل منتظم.",
+          "e": "I regularly check job vacancies on the website."
+        },
+        {
+          "f": "J’ai envoyé plusieurs candidatures, mais je n’ai pas encore reçu de réponse.",
+          "a": "بعت عدة طلبات توظيف، بس لسه ما وصلني أي رد.",
+          "e": "I have sent several applications, but I have not received a reply yet."
+        },
+        {
+          "f": "Je voudrais signaler un changement dans ma situation personnelle.",
+          "a": "بدي بلّغ عن تغيير بوضعيتي الشخصية.",
+          "e": "I would like to report a change in my personal situation."
+        },
+        {
+          "f": "En cas d’absence, je dois respecter les règles de déclaration.",
+          "a": "بحالة الغياب، لازم التزم بقواعد التصريح عن الغياب.",
+          "e": "In case of absence, I must follow the reporting rules."
+        },
+        {
+          "f": "Je préfère contacter mon conseiller avant de prendre une décision.",
+          "a": "بفضّل تواصل مع المستشار قبل ما آخد أي قرار.",
+          "e": "I prefer to contact my adviser before making a decision."
+        },
+        {
+          "f": "Je n’ai pas bien compris les démarches à suivre.",
+          "a": "ما فهمت منيح الإجراءات اللي لازم اتبعها.",
+          "e": "I did not fully understand the steps I need to follow."
+        },
+        {
+          "f": "Pourriez-vous m’expliquer la procédure étape par étape ?",
+          "a": "ممكن تشرحولي الإجراءات خطوة بخطوة؟",
+          "e": "Could you explain the procedure to me step by step?"
+        },
+        {
+          "f": "Je souhaite rester en contact avec mon conseiller afin de suivre l’évolution de mon dossier.",
+          "a": "بدي ضل على تواصل مع المستشار حتى تابع تطورات ملفي.",
+          "e": "I would like to stay in contact with my adviser to follow the progress of my application."
+        }
+      ],
+      "ids": []
     }
   ]
 };
