@@ -2710,6 +2710,2607 @@ window.DELF_LESSONS={
     }
    ],
    "ids": []
+  },
+  {
+   "id": "a2-28",
+   "icon": "🎉",
+   "fr": "Un week-end intéressant",
+   "ar": "عطلة نهاية أسبوع ممتعة",
+   "phr": [
+    {
+     "f": "Le week-end dernier, j'ai passé un très bon moment avec mes amis.",
+     "a": "في عطلة نهاية الأسبوع الماضية قضيت وقتاً ممتعاً جداً مع أصدقائي.",
+     "e": "Last weekend, I had a very good time with my friends."
+    },
+    {
+     "f": "Samedi matin, nous sommes allés au marché.",
+     "a": "صباح يوم السبت ذهبنا إلى السوق.",
+     "e": "On Saturday morning, we went to the market."
+    },
+    {
+     "f": "Nous avons acheté des fruits et des légumes.",
+     "a": "اشترينا الفواكه والخضروات.",
+     "e": "We bought fruit and vegetables."
+    },
+    {
+     "f": "Ensuite, nous avons pris un café dans un petit restaurant.",
+     "a": "بعد ذلك شربنا القهوة في مطعم صغير.",
+     "e": "Then, we had coffee in a small restaurant."
+    },
+    {
+     "f": "L'après-midi, nous avons fait une promenade dans un parc.",
+     "a": "بعد الظهر قمنا بنزهة في حديقة.",
+     "e": "In the afternoon, we went for a walk in a park."
+    },
+    {
+     "f": "Le soir, nous avons regardé un film à la maison.",
+     "a": "في المساء شاهدنا فيلماً في المنزل.",
+     "e": "In the evening, we watched a film at home."
+    },
+    {
+     "f": "Dimanche, j'ai rendu visite à mes parents.",
+     "a": "يوم الأحد زرت والديّ.",
+     "e": "On Sunday, I visited my parents."
+    },
+    {
+     "f": "Nous avons déjeuné ensemble et beaucoup discuté.",
+     "a": "تناولنا الغداء معاً وتحدثنا كثيراً.",
+     "e": "We had lunch together and talked a lot."
+    },
+    {
+     "f": "C'était un week-end agréable et reposant.",
+     "a": "كانت عطلة نهاية أسبوع ممتعة ومريحة.",
+     "e": "It was a pleasant and relaxing weekend."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-29",
+   "icon": "👶",
+   "fr": "Mon enfance",
+   "ar": "طفولتي",
+   "phr": [
+    {
+     "f": "Quand j'étais petit, je vivais dans une petite ville.",
+     "a": "عندما كنت صغيراً، كنت أعيش في مدينة صغيرة.",
+     "e": "When I was little, I lived in a small town."
+    },
+    {
+     "f": "J'habitais avec mes parents et mes frères.",
+     "a": "كنت أسكن مع والديّ وإخوتي.",
+     "e": "I lived with my parents and my brothers."
+    },
+    {
+     "f": "J'allais à l'école tous les matins.",
+     "a": "كنت أذهب إلى المدرسة كل صباح.",
+     "e": "I went to school every morning."
+    },
+    {
+     "f": "Après l'école, je jouais avec mes amis.",
+     "a": "بعد المدرسة كنت ألعب مع أصدقائي.",
+     "e": "After school, I played with my friends."
+    },
+    {
+     "f": "Nous aimions jouer au football dans la rue.",
+     "a": "كنا نحب لعب كرة القدم في الشارع.",
+     "e": "We liked playing football in the street."
+    },
+    {
+     "f": "Pendant les vacances, je visitais souvent mes grands-parents.",
+     "a": "خلال العطلات كنت أزور جدي وجدتي كثيراً.",
+     "e": "During the holidays, I often visited my grandparents."
+    },
+    {
+     "f": "Ma famille était toujours près de moi.",
+     "a": "كانت عائلتي دائماً بجانبي.",
+     "e": "My family was always close to me."
+    },
+    {
+     "f": "J'avais une enfance heureuse et simple.",
+     "a": "كانت طفولتي سعيدة وبسيطة.",
+     "e": "I had a happy and simple childhood."
+    },
+    {
+     "f": "Aujourd'hui, ces souvenirs me rendent très heureux.",
+     "a": "اليوم تجعلني هذه الذكريات سعيداً جداً.",
+     "e": "Today, these memories make me very happy."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-30",
+   "icon": "🤝",
+   "fr": "Une rencontre intéressante",
+   "ar": "لقاء مثير للاهتمام",
+   "phr": [
+    {
+     "f": "La semaine dernière, j'ai rencontré une personne très sympathique.",
+     "a": "في الأسبوع الماضي تعرفت على شخص لطيف جداً.",
+     "e": "Last week, I met a very friendly person."
+    },
+    {
+     "f": "Je l'ai rencontré dans un café près de chez moi.",
+     "a": "التقيت به في مقهى بالقرب من منزلي.",
+     "e": "I met him in a café near my home."
+    },
+    {
+     "f": "Il était assis à côté de moi.",
+     "a": "كان جالساً بجانبي.",
+     "e": "He was sitting next to me."
+    },
+    {
+     "f": "Nous avons commencé à discuter ensemble.",
+     "a": "بدأنا نتحدث معاً.",
+     "e": "We started talking together."
+    },
+    {
+     "f": "Il venait d'un autre pays et parlait plusieurs langues.",
+     "a": "كان قادماً من بلد آخر ويتحدث عدة لغات.",
+     "e": "He came from another country and spoke several languages."
+    },
+    {
+     "f": "Nous avons parlé de nos voyages, de notre travail et de nos familles.",
+     "a": "تحدثنا عن رحلاتنا وعملنا وعائلاتنا.",
+     "e": "We talked about our travels, our work and our families."
+    },
+    {
+     "f": "Nous avons échangé nos numéros de téléphone.",
+     "a": "تبادلنا أرقام هواتفنا.",
+     "e": "We exchanged phone numbers."
+    },
+    {
+     "f": "Depuis ce jour, nous sommes devenus amis.",
+     "a": "منذ ذلك اليوم أصبحنا صديقين.",
+     "e": "Since that day, we have become friends."
+    },
+    {
+     "f": "C'était une très belle rencontre.",
+     "a": "كان لقاءً جميلاً جداً.",
+     "e": "It was a very nice meeting."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-31",
+   "icon": "🍽️",
+   "fr": "Mon dernier restaurant",
+   "ar": "آخر مطعم زرته",
+   "phr": [
+    {
+     "f": "Samedi dernier, je suis allé dans un restaurant avec ma famille.",
+     "a": "يوم السبت الماضي ذهبت إلى مطعم مع عائلتي.",
+     "e": "Last Saturday, I went to a restaurant with my family."
+    },
+    {
+     "f": "Le restaurant était situé au centre-ville.",
+     "a": "كان المطعم يقع في وسط المدينة.",
+     "e": "The restaurant was located in the city centre."
+    },
+    {
+     "f": "L'endroit était très propre et agréable.",
+     "a": "كان المكان نظيفاً ومريحاً جداً.",
+     "e": "The place was very clean and pleasant."
+    },
+    {
+     "f": "Le serveur était gentil et accueillant.",
+     "a": "كان النادل لطيفاً ومرحباً.",
+     "e": "The waiter was kind and welcoming."
+    },
+    {
+     "f": "J'ai commandé une pizza et une salade.",
+     "a": "طلبت بيتزا وسلطة.",
+     "e": "I ordered a pizza and a salad."
+    },
+    {
+     "f": "Ma famille a choisi d'autres plats délicieux.",
+     "a": "اختارت عائلتي أطباقاً لذيذة أخرى.",
+     "e": "My family chose other delicious dishes."
+    },
+    {
+     "f": "La nourriture était excellente et les prix étaient raisonnables.",
+     "a": "كان الطعام ممتازاً والأسعار معقولة.",
+     "e": "The food was excellent and the prices were reasonable."
+    },
+    {
+     "f": "Après le repas, nous avons bu un café.",
+     "a": "بعد الطعام شربنا القهوة.",
+     "e": "After the meal, we drank coffee."
+    },
+    {
+     "f": "J'ai beaucoup aimé ce restaurant et je voudrais y retourner.",
+     "a": "أعجبني هذا المطعم كثيراً وأريد العودة إليه.",
+     "e": "I really liked this restaurant and I would like to go back."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-32",
+   "icon": "⚽",
+   "fr": "Une activité sportive",
+   "ar": "نشاط رياضي",
+   "phr": [
+    {
+     "f": "Le mois dernier, j'ai commencé une nouvelle activité sportive.",
+     "a": "في الشهر الماضي بدأت نشاطاً رياضياً جديداً.",
+     "e": "Last month, I started a new sports activity."
+    },
+    {
+     "f": "Je me suis inscrit dans une salle de sport près de chez moi.",
+     "a": "سجلت في صالة رياضية بالقرب من منزلي.",
+     "e": "I signed up at a gym near my home."
+    },
+    {
+     "f": "Je vais à la salle trois fois par semaine.",
+     "a": "أذهب إلى النادي ثلاث مرات في الأسبوع.",
+     "e": "I go to the gym three times a week."
+    },
+    {
+     "f": "Je fais du sport pendant une heure.",
+     "a": "أمارس الرياضة لمدة ساعة.",
+     "e": "I exercise for one hour."
+    },
+    {
+     "f": "Je fais du vélo et je cours sur un tapis roulant.",
+     "a": "أركب الدراجة وأركض على جهاز المشي.",
+     "e": "I ride a bicycle and run on a treadmill."
+    },
+    {
+     "f": "Le sport me donne beaucoup d'énergie.",
+     "a": "تمنحني الرياضة الكثير من الطاقة.",
+     "e": "Sport gives me a lot of energy."
+    },
+    {
+     "f": "J'ai aussi rencontré de nouvelles personnes.",
+     "a": "تعرفت أيضاً على أشخاص جدد.",
+     "e": "I also met new people."
+    },
+    {
+     "f": "Maintenant, je me sens mieux et plus actif.",
+     "a": "الآن أشعر أنني أفضل وأكثر نشاطاً.",
+     "e": "Now I feel better and more active."
+    },
+    {
+     "f": "Je voudrais continuer cette activité régulièrement.",
+     "a": "أريد الاستمرار في هذا النشاط بانتظام.",
+     "e": "I would like to continue this activity regularly."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-33",
+   "icon": "🏙️",
+   "fr": "Une visite dans une ville",
+   "ar": "زيارة مدينة",
+   "phr": [
+    {
+     "f": "Le mois dernier, j'ai visité une nouvelle ville avec un ami.",
+     "a": "في الشهر الماضي زرت مدينة جديدة مع صديق.",
+     "e": "Last month, I visited a new city with a friend."
+    },
+    {
+     "f": "Nous sommes partis tôt le matin en train.",
+     "a": "انطلقنا في الصباح الباكر بالقطار.",
+     "e": "We left early in the morning by train."
+    },
+    {
+     "f": "La ville était très belle et très animée.",
+     "a": "كانت المدينة جميلة جداً ومليئة بالحياة.",
+     "e": "The city was very beautiful and lively."
+    },
+    {
+     "f": "Nous avons visité des monuments historiques et des musées.",
+     "a": "زرنا المعالم التاريخية والمتاحف.",
+     "e": "We visited historical monuments and museums."
+    },
+    {
+     "f": "Nous avons aussi découvert de petites rues et de beaux magasins.",
+     "a": "اكتشفنا أيضاً شوارع صغيرة ومحلات جميلة.",
+     "e": "We also discovered small streets and beautiful shops."
+    },
+    {
+     "f": "À midi, nous avons mangé dans un restaurant local.",
+     "a": "عند الظهر تناولنا الطعام في مطعم محلي.",
+     "e": "At noon, we ate at a local restaurant."
+    },
+    {
+     "f": "Après le déjeuner, nous avons pris des photos dans un joli parc.",
+     "a": "بعد الغداء التقطنا الصور في حديقة جميلة.",
+     "e": "After lunch, we took pictures in a lovely park."
+    },
+    {
+     "f": "Les habitants étaient très gentils et accueillants.",
+     "a": "كان السكان لطفاء ومرحبين جداً.",
+     "e": "The residents were very kind and welcoming."
+    },
+    {
+     "f": "J'ai beaucoup aimé cette visite et j'espère revenir bientôt.",
+     "a": "أحببت هذه الزيارة كثيراً وآمل أن أعود قريباً.",
+     "e": "I really enjoyed this visit and I hope to come back soon."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-34",
+   "icon": "✉️",
+   "fr": "Inviter un ami",
+   "ar": "دعوة صديق",
+   "phr": [
+    {
+     "f": "Salut Paul, j'organise une petite fête samedi prochain.",
+     "a": "مرحباً بول، أنظم حفلة صغيرة يوم السبت القادم.",
+     "e": "Hi Paul, I'm organizing a small party next Saturday."
+    },
+    {
+     "f": "Je voudrais t'inviter chez moi.",
+     "a": "أود دعوتك إلى منزلي.",
+     "e": "I would like to invite you to my home."
+    },
+    {
+     "f": "La fête commencera à sept heures du soir.",
+     "a": "ستبدأ الحفلة الساعة السابعة مساءً.",
+     "e": "The party will start at seven in the evening."
+    },
+    {
+     "f": "Mes amis et ma famille seront présents.",
+     "a": "سيكون أصدقائي وعائلتي حاضرين.",
+     "e": "My friends and family will be there."
+    },
+    {
+     "f": "Nous allons manger, écouter de la musique et danser.",
+     "a": "سوف نأكل ونستمع إلى الموسيقى ونرقص.",
+     "e": "We are going to eat, listen to music and dance."
+    },
+    {
+     "f": "Tu peux venir avec ta famille si tu veux.",
+     "a": "يمكنك الحضور مع عائلتك إذا أردت.",
+     "e": "You can come with your family if you want."
+    },
+    {
+     "f": "J'espère que tu pourras venir.",
+     "a": "أتمنى أن تتمكن من الحضور.",
+     "e": "I hope you can come."
+    },
+    {
+     "f": "Réponds-moi bientôt !",
+     "a": "أجبني قريباً!",
+     "e": "Reply to me soon!"
+    },
+    {
+     "f": "À bientôt !",
+     "a": "أراك قريباً!",
+     "e": "See you soon!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-35",
+   "icon": "🙏",
+   "fr": "Remercier un ami",
+   "ar": "شكر صديق",
+   "phr": [
+    {
+     "f": "Salut Marie, je voudrais te remercier pour ton invitation.",
+     "a": "مرحباً ماري، أود أن أشكرك على دعوتك.",
+     "e": "Hi Marie, I would like to thank you for your invitation."
+    },
+    {
+     "f": "J'ai passé une excellente soirée chez toi.",
+     "a": "قضيت أمسية رائعة في منزلك.",
+     "e": "I had a wonderful evening at your house."
+    },
+    {
+     "f": "La fête était très bien organisée.",
+     "a": "كانت الحفلة منظمة بشكل جيد جداً.",
+     "e": "The party was very well organized."
+    },
+    {
+     "f": "La nourriture était délicieuse.",
+     "a": "كان الطعام لذيذاً.",
+     "e": "The food was delicious."
+    },
+    {
+     "f": "J'ai beaucoup aimé la musique et l'ambiance.",
+     "a": "أحببت الموسيقى والأجواء كثيراً.",
+     "e": "I really liked the music and the atmosphere."
+    },
+    {
+     "f": "J'ai aussi rencontré de nouvelles personnes.",
+     "a": "تعرفت أيضاً على أشخاص جدد.",
+     "e": "I also met new people."
+    },
+    {
+     "f": "Merci beaucoup pour ce beau moment.",
+     "a": "شكراً جزيلاً على هذه اللحظة الجميلة.",
+     "e": "Thank you very much for this wonderful time."
+    },
+    {
+     "f": "J'espère te revoir bientôt.",
+     "a": "أتمنى أن أراك مجدداً قريباً.",
+     "e": "I hope to see you again soon."
+    },
+    {
+     "f": "À bientôt !",
+     "a": "أراك قريباً!",
+     "e": "See you soon!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-36",
+   "icon": "🙇",
+   "fr": "S'excuser",
+   "ar": "الاعتذار",
+   "phr": [
+    {
+     "f": "Salut Paul, je suis désolé de ne pas être venu hier.",
+     "a": "مرحباً بول، أنا آسف لأنني لم آتِ أمس.",
+     "e": "Hi Paul, I'm sorry I didn't come yesterday."
+    },
+    {
+     "f": "J'avais un problème personnel.",
+     "a": "كانت لدي مشكلة شخصية.",
+     "e": "I had a personal problem."
+    },
+    {
+     "f": "Je n'ai pas pu quitter la maison.",
+     "a": "لم أستطع مغادرة المنزل.",
+     "e": "I couldn't leave the house."
+    },
+    {
+     "f": "Je sais que tu m'attendais.",
+     "a": "أعلم أنك كنت تنتظرني.",
+     "e": "I know you were waiting for me."
+    },
+    {
+     "f": "Je suis vraiment désolé pour cette situation.",
+     "a": "أنا آسف حقاً على هذا الموقف.",
+     "e": "I'm really sorry about this situation."
+    },
+    {
+     "f": "J'espère que tu peux me comprendre.",
+     "a": "أتمنى أن تتفهمني.",
+     "e": "I hope you can understand me."
+    },
+    {
+     "f": "Je voudrais te voir ce week-end.",
+     "a": "أود رؤيتك في عطلة نهاية الأسبوع هذه.",
+     "e": "I would like to see you this weekend."
+    },
+    {
+     "f": "Nous pourrions prendre un café ensemble.",
+     "a": "يمكننا أن نشرب القهوة معاً.",
+     "e": "We could have a coffee together."
+    },
+    {
+     "f": "Encore une fois, excuse-moi.",
+     "a": "أعتذر منك مرة أخرى.",
+     "e": "Once again, forgive me."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-37",
+   "icon": "🎊",
+   "fr": "Féliciter quelqu'un",
+   "ar": "تهنئة شخص",
+   "phr": [
+    {
+     "f": "Salut Ahmed, j'ai appris une très bonne nouvelle.",
+     "a": "مرحباً أحمد، علمت خبراً جيداً جداً.",
+     "e": "Hi Ahmed, I heard some very good news."
+    },
+    {
+     "f": "J'ai appris que tu as trouvé un nouveau travail.",
+     "a": "علمت أنك وجدت عملاً جديداً.",
+     "e": "I heard that you found a new job."
+    },
+    {
+     "f": "Je suis très heureux pour toi.",
+     "a": "أنا سعيد جداً من أجلك.",
+     "e": "I'm very happy for you."
+    },
+    {
+     "f": "Tu as beaucoup travaillé pour obtenir ce poste.",
+     "a": "لقد عملت كثيراً للحصول على هذه الوظيفة.",
+     "e": "You worked very hard to get this position."
+    },
+    {
+     "f": "Tu mérites vraiment cette réussite.",
+     "a": "أنت تستحق هذا النجاح حقاً.",
+     "e": "You really deserve this success."
+    },
+    {
+     "f": "Je te souhaite beaucoup de bonheur et de réussite.",
+     "a": "أتمنى لك الكثير من السعادة والنجاح.",
+     "e": "I wish you lots of happiness and success."
+    },
+    {
+     "f": "J'espère fêter cette bonne nouvelle avec toi bientôt.",
+     "a": "أتمنى أن نحتفل بهذا الخبر السعيد معاً قريباً.",
+     "e": "I hope to celebrate this good news with you soon."
+    },
+    {
+     "f": "Encore toutes mes félicitations !",
+     "a": "أقدم لك تهانيّ مرة أخرى!",
+     "e": "Congratulations once again!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-38",
+   "icon": "ℹ️",
+   "fr": "Demander des informations",
+   "ar": "طلب معلومات",
+   "phr": [
+    {
+     "f": "Bonjour, je vous écris pour demander des informations sur vos cours de français.",
+     "a": "مرحباً، أكتب إليكم لطلب معلومات حول دروس اللغة الفرنسية لديكم.",
+     "e": "Hello, I am writing to ask for information about your French courses."
+    },
+    {
+     "f": "Je voudrais apprendre le français pour améliorer mon niveau.",
+     "a": "أود تعلم اللغة الفرنسية لتحسين مستواي.",
+     "e": "I would like to learn French to improve my level."
+    },
+    {
+     "f": "Quels sont les jours et les horaires des cours ?",
+     "a": "ما هي أيام ومواعيد الدروس؟",
+     "e": "What are the days and times of the classes?"
+    },
+    {
+     "f": "Combien coûte l'inscription ?",
+     "a": "كم تبلغ تكلفة التسجيل؟",
+     "e": "How much does registration cost?"
+    },
+    {
+     "f": "Est-ce que les cours sont pour les débutants ?",
+     "a": "هل الدروس مخصصة للمبتدئين؟",
+     "e": "Are the classes for beginners?"
+    },
+    {
+     "f": "Je voudrais aussi connaître la durée de la formation.",
+     "a": "أود أيضاً معرفة مدة الدورة التدريبية.",
+     "e": "I would also like to know the duration of the course."
+    },
+    {
+     "f": "Merci d'avance pour votre réponse.",
+     "a": "شكراً مقدماً على ردكم.",
+     "e": "Thank you in advance for your reply."
+    },
+    {
+     "f": "Dans l'attente de votre réponse, je vous souhaite une bonne journée.",
+     "a": "بانتظار ردكم، أتمنى لكم يوماً سعيداً.",
+     "e": "I look forward to your reply. Have a nice day."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-39",
+   "icon": "🚫",
+   "fr": "Refuser une invitation",
+   "ar": "رفض دعوة",
+   "phr": [
+    {
+     "f": "Salut Marie, merci beaucoup pour ton invitation.",
+     "a": "مرحباً ماري، شكراً جزيلاً على دعوتك.",
+     "e": "Hi Marie, thank you very much for your invitation."
+    },
+    {
+     "f": "Je suis très content que tu aies pensé à moi.",
+     "a": "أنا سعيد جداً لأنك فكرت بي.",
+     "e": "I'm very happy that you thought of me."
+    },
+    {
+     "f": "Malheureusement, je ne peux pas venir samedi soir.",
+     "a": "للأسف، لا أستطيع الحضور مساء السبت.",
+     "e": "Unfortunately, I can't come on Saturday evening."
+    },
+    {
+     "f": "J'ai déjà un rendez-vous avec ma famille.",
+     "a": "لدي موعد مسبق مع عائلتي.",
+     "e": "I already have an appointment with my family."
+    },
+    {
+     "f": "Je suis vraiment désolé.",
+     "a": "أنا آسف حقاً.",
+     "e": "I'm really sorry."
+    },
+    {
+     "f": "J'espère que tu vas passer une bonne soirée.",
+     "a": "أتمنى أن تقضي أمسية جميلة.",
+     "e": "I hope you have a lovely evening."
+    },
+    {
+     "f": "Nous pouvons nous voir la semaine prochaine.",
+     "a": "يمكننا أن نلتقي في الأسبوع القادم.",
+     "e": "We can meet next week."
+    },
+    {
+     "f": "Merci encore pour ton invitation.",
+     "a": "شكراً مرة أخرى على دعوتك.",
+     "e": "Thanks again for your invitation."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-40",
+   "icon": "✅",
+   "fr": "Accepter une invitation",
+   "ar": "قبول دعوة",
+   "phr": [
+    {
+     "f": "Salut Paul, merci beaucoup pour ton invitation.",
+     "a": "مرحباً بول، شكراً جزيلاً على دعوتك.",
+     "e": "Hi Paul, thank you very much for your invitation."
+    },
+    {
+     "f": "Je suis très heureux de participer à ta fête.",
+     "a": "أنا سعيد جداً بالمشاركة في حفلتك.",
+     "e": "I'm very happy to attend your party."
+    },
+    {
+     "f": "Bien sûr, je serai présent samedi soir.",
+     "a": "بالتأكيد، سأكون حاضراً مساء السبت.",
+     "e": "Of course, I will be there on Saturday evening."
+    },
+    {
+     "f": "Je viendrai vers sept heures.",
+     "a": "سأأتي حوالي الساعة السابعة.",
+     "e": "I will come around seven o'clock."
+    },
+    {
+     "f": "Je peux apporter un gâteau ou une boisson.",
+     "a": "يمكنني إحضار كعكة أو مشروب.",
+     "e": "I can bring a cake or a drink."
+    },
+    {
+     "f": "J'ai hâte de retrouver tous nos amis.",
+     "a": "أتطلع إلى لقاء جميع أصدقائنا.",
+     "e": "I can't wait to see all our friends again."
+    },
+    {
+     "f": "Nous allons passer une excellente soirée.",
+     "a": "سنقضي أمسية رائعة.",
+     "e": "We are going to have a wonderful evening."
+    },
+    {
+     "f": "À samedi ! Merci encore.",
+     "a": "أراك يوم السبت! شكراً مرة أخرى.",
+     "e": "See you on Saturday! Thanks again."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-41",
+   "icon": "📅",
+   "fr": "Proposer une sortie",
+   "ar": "اقتراح نزهة",
+   "phr": [
+    {
+     "f": "Salut Ahmed, j'espère que tu vas bien.",
+     "a": "مرحباً أحمد، أتمنى أن تكون بخير.",
+     "e": "Hi Ahmed, I hope you are doing well."
+    },
+    {
+     "f": "Je voudrais te proposer une sortie ce week-end.",
+     "a": "أود أن أقترح عليك نزهة في عطلة نهاية الأسبوع.",
+     "e": "I would like to suggest going out this weekend."
+    },
+    {
+     "f": "Nous pourrions aller au cinéma samedi soir.",
+     "a": "يمكننا الذهاب إلى السينما مساء السبت.",
+     "e": "We could go to the cinema on Saturday evening."
+    },
+    {
+     "f": "Après le film, nous pouvons manger dans un restaurant.",
+     "a": "بعد الفيلم يمكننا تناول الطعام في مطعم.",
+     "e": "After the movie, we can eat at a restaurant."
+    },
+    {
+     "f": "Il y a un nouveau restaurant près du centre-ville.",
+     "a": "يوجد مطعم جديد بالقرب من وسط المدينة.",
+     "e": "There is a new restaurant near the city centre."
+    },
+    {
+     "f": "Nous pouvons aussi inviter quelques amis.",
+     "a": "يمكننا أيضاً دعوة بعض الأصدقاء.",
+     "e": "We can also invite some friends."
+    },
+    {
+     "f": "Je pense que nous allons passer un bon moment.",
+     "a": "أعتقد أننا سنقضي وقتاً ممتعاً.",
+     "e": "I think we will have a good time."
+    },
+    {
+     "f": "Dis-moi si tu es disponible.",
+     "a": "أخبرني إذا كنت متفرغاً.",
+     "e": "Let me know if you are available."
+    },
+    {
+     "f": "J'attends ta réponse avec impatience.",
+     "a": "أنتظر ردك بفارغ الصبر.",
+     "e": "I look forward to your reply."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-42",
+   "icon": "📣",
+   "fr": "Annoncer une bonne nouvelle",
+   "ar": "إعلان خبر سعيد",
+   "phr": [
+    {
+     "f": "Salut Marie, j'ai une très bonne nouvelle à t'annoncer.",
+     "a": "مرحباً ماري، لدي خبر سعيد جداً أريد أن أخبرك به.",
+     "e": "Hi Marie, I have some very good news to tell you."
+    },
+    {
+     "f": "J'ai réussi mon examen de français.",
+     "a": "نجحت في امتحان اللغة الفرنسية.",
+     "e": "I passed my French exam."
+    },
+    {
+     "f": "J'ai beaucoup travaillé pour obtenir ce résultat.",
+     "a": "عملت كثيراً للحصول على هذه النتيجة.",
+     "e": "I worked very hard to get this result."
+    },
+    {
+     "f": "J'étais très stressé avant l'examen.",
+     "a": "كنت متوتراً جداً قبل الامتحان.",
+     "e": "I was very stressed before the exam."
+    },
+    {
+     "f": "Mais finalement, tout s'est bien passé.",
+     "a": "لكن في النهاية سار كل شيء على ما يرام.",
+     "e": "But finally, everything went well."
+    },
+    {
+     "f": "Je suis très heureux et fier de moi.",
+     "a": "أنا سعيد جداً وفخور بنفسي.",
+     "e": "I am very happy and proud of myself."
+    },
+    {
+     "f": "Je voudrais fêter cette réussite avec toi.",
+     "a": "أود الاحتفال بهذا النجاح معك.",
+     "e": "I would like to celebrate this success with you."
+    },
+    {
+     "f": "J'espère te voir bientôt.",
+     "a": "أتمنى رؤيتك قريباً.",
+     "e": "I hope to see you soon."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-43",
+   "icon": "🔔",
+   "fr": "Informer d'un changement",
+   "ar": "الإخبار بتغيير",
+   "phr": [
+    {
+     "f": "Salut Paul, je voudrais t'informer d'un changement important.",
+     "a": "مرحباً بول، أود إخبارك بتغيير مهم.",
+     "e": "Hi Paul, I would like to inform you about an important change."
+    },
+    {
+     "f": "J'ai changé de travail récemment.",
+     "a": "غيّرت عملي مؤخراً.",
+     "e": "I recently changed jobs."
+    },
+    {
+     "f": "Maintenant, je travaille dans une nouvelle entreprise.",
+     "a": "الآن أعمل في شركة جديدة.",
+     "e": "Now I work in a new company."
+    },
+    {
+     "f": "Mon nouveau travail est près de chez moi.",
+     "a": "عملي الجديد قريب من منزلي.",
+     "e": "My new job is near my home."
+    },
+    {
+     "f": "Mes horaires sont meilleurs qu'avant.",
+     "a": "ساعات عملي أفضل من السابق.",
+     "e": "My working hours are better than before."
+    },
+    {
+     "f": "Mes nouveaux collègues sont très gentils.",
+     "a": "زملائي الجدد لطفاء جداً.",
+     "e": "My new colleagues are very kind."
+    },
+    {
+     "f": "Je suis content de ce changement.",
+     "a": "أنا سعيد بهذا التغيير.",
+     "e": "I am happy with this change."
+    },
+    {
+     "f": "J'espère que nous pourrons nous voir bientôt.",
+     "a": "أتمنى أن نتمكن من اللقاء قريباً.",
+     "e": "I hope we can meet soon."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-44",
+   "icon": "🏠",
+   "fr": "Écrire à un propriétaire",
+   "ar": "مراسلة صاحب منزل",
+   "phr": [
+    {
+     "f": "Bonjour Monsieur, je vous écris au sujet de votre appartement.",
+     "a": "مرحباً سيدي، أكتب إليكم بخصوص شقتكم.",
+     "e": "Hello Sir, I am writing to you about your apartment."
+    },
+    {
+     "f": "J'ai vu votre annonce sur Internet.",
+     "a": "رأيت إعلانكم على الإنترنت.",
+     "e": "I saw your advertisement on the Internet."
+    },
+    {
+     "f": "Je suis intéressé par votre logement.",
+     "a": "أنا مهتم بمنزلكم.",
+     "e": "I am interested in your accommodation."
+    },
+    {
+     "f": "Je voudrais connaître le prix du loyer.",
+     "a": "أود معرفة سعر الإيجار.",
+     "e": "I would like to know the rental price."
+    },
+    {
+     "f": "Est-ce que l'appartement est meublé ?",
+     "a": "هل الشقة مفروشة؟",
+     "e": "Is the apartment furnished?"
+    },
+    {
+     "f": "Combien de chambres y a-t-il ?",
+     "a": "كم عدد غرف النوم الموجودة؟",
+     "e": "How many bedrooms are there?"
+    },
+    {
+     "f": "Je voudrais aussi organiser une visite.",
+     "a": "أود أيضاً تحديد موعد للزيارة.",
+     "e": "I would also like to arrange a viewing."
+    },
+    {
+     "f": "Merci d'avance pour votre réponse.",
+     "a": "شكراً مقدماً على ردكم.",
+     "e": "Thank you in advance for your reply."
+    },
+    {
+     "f": "Cordialement.",
+     "a": "مع خالص التحية.",
+     "e": "Kind regards."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-45",
+   "icon": "💼",
+   "fr": "Écrire à un collègue",
+   "ar": "مراسلة زميل في العمل",
+   "phr": [
+    {
+     "f": "Salut Marc, j'espère que tu vas bien.",
+     "a": "مرحباً مارك، أتمنى أن تكون بخير.",
+     "e": "Hi Marc, I hope you are doing well."
+    },
+    {
+     "f": "Je t'écris pour parler de notre travail.",
+     "a": "أكتب إليك للتحدث عن عملنا.",
+     "e": "I am writing to talk about our work."
+    },
+    {
+     "f": "J'ai terminé le projet que nous avons commencé lundi.",
+     "a": "أنهيت المشروع الذي بدأناه يوم الاثنين.",
+     "e": "I finished the project that we started on Monday."
+    },
+    {
+     "f": "J'ai préparé tous les documents nécessaires.",
+     "a": "جهزت جميع المستندات الضرورية.",
+     "e": "I prepared all the necessary documents."
+    },
+    {
+     "f": "Je voudrais te demander de vérifier le travail.",
+     "a": "أود أن أطلب منك مراجعة العمل.",
+     "e": "I would like to ask you to check the work."
+    },
+    {
+     "f": "Si tu as des questions, tu peux m'appeler.",
+     "a": "إذا كانت لديك أسئلة، يمكنك الاتصال بي.",
+     "e": "If you have any questions, you can call me."
+    },
+    {
+     "f": "Merci beaucoup pour ton aide.",
+     "a": "شكراً جزيلاً على مساعدتك.",
+     "e": "Thank you very much for your help."
+    },
+    {
+     "f": "À demain au bureau !",
+     "a": "أراك غداً في المكتب!",
+     "e": "See you tomorrow at the office!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-46",
+   "icon": "🎈",
+   "fr": "Organiser une fête",
+   "ar": "تنظيم حفلة",
+   "phr": [
+    {
+     "f": "Le mois prochain, je vais organiser une fête chez moi.",
+     "a": "في الشهر القادم سأقيم حفلة في منزلي.",
+     "e": "Next month, I am going to organize a party at my home."
+    },
+    {
+     "f": "Je voudrais inviter tous mes amis.",
+     "a": "أود دعوة جميع أصدقائي.",
+     "e": "I would like to invite all my friends."
+    },
+    {
+     "f": "La fête aura lieu samedi soir.",
+     "a": "ستقام الحفلة مساء يوم السبت.",
+     "e": "The party will take place on Saturday evening."
+    },
+    {
+     "f": "Nous allons préparer des plats délicieux.",
+     "a": "سوف نحضّر أطباقاً لذيذة.",
+     "e": "We are going to prepare delicious dishes."
+    },
+    {
+     "f": "Je vais acheter des boissons et un grand gâteau.",
+     "a": "سأشتري المشروبات وكعكة كبيرة.",
+     "e": "I am going to buy drinks and a big cake."
+    },
+    {
+     "f": "Nous allons écouter de la musique et danser.",
+     "a": "سوف نستمع إلى الموسيقى ونرقص.",
+     "e": "We are going to listen to music and dance."
+    },
+    {
+     "f": "Je vais aussi décorer la maison avec des ballons.",
+     "a": "سأزيّن المنزل أيضاً بالبالونات.",
+     "e": "I am also going to decorate the house with balloons."
+    },
+    {
+     "f": "J'espère que tout le monde va passer une bonne soirée.",
+     "a": "أتمنى أن يقضي الجميع أمسية جميلة.",
+     "e": "I hope everyone will have a good evening."
+    },
+    {
+     "f": "ثم عربي",
+     "a": "ثم إنجليزي",
+     "e": "."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-47",
+   "icon": "🛠️",
+   "fr": "Demander un service",
+   "ar": "طلب خدمة",
+   "phr": [
+    {
+     "f": "Bonjour Ahmed, j’espère que tu vas bien.",
+     "a": "مرحباً أحمد، أتمنى أن تكون بخير.",
+     "e": "Hello Ahmed, I hope you are doing well."
+    },
+    {
+     "f": "Je t’écris parce que j’ai besoin de ton aide.",
+     "a": "أكتب إليك لأنني بحاجة إلى مساعدتك.",
+     "e": "I’m writing to you because I need your help."
+    },
+    {
+     "f": "Je vais déménager samedi prochain.",
+     "a": "سأنتقل إلى منزل جديد يوم السبت القادم.",
+     "e": "I’m going to move next Saturday."
+    },
+    {
+     "f": "J’ai beaucoup de cartons à transporter.",
+     "a": "لدي الكثير من الصناديق لنقلها.",
+     "e": "I have many boxes to carry."
+    },
+    {
+     "f": "Est-ce que tu peux m’aider ?",
+     "a": "هل يمكنك مساعدتي؟",
+     "e": "Can you help me?"
+    },
+    {
+     "f": "Nous commencerons à neuf heures du matin.",
+     "a": "سنبدأ الساعة التاسعة صباحاً.",
+     "e": "We will start at nine o’clock in the morning."
+    },
+    {
+     "f": "Je vais préparer le déjeuner pour nous.",
+     "a": "سأحضّر الغداء لنا.",
+     "e": "I will prepare lunch for us."
+    },
+    {
+     "f": "Je te remercie beaucoup pour ton aide.",
+     "a": "أشكرك كثيراً على مساعدتك.",
+     "e": "Thank you very much for your help."
+    },
+    {
+     "f": "À bientôt et bonne journée !",
+     "a": "أراك قريباً، وأتمنى لك يوماً سعيداً!",
+     "e": "See you soon, and have a nice day!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-48",
+   "icon": "🏆",
+   "fr": "Féliciter un ami pour son travail",
+   "ar": "تهنئة صديق بحصوله على عمل",
+   "phr": [
+    {
+     "f": "Bonjour mon ami, comment vas-tu ?",
+     "a": "مرحباً يا صديقي، كيف حالك؟",
+     "e": "Hello my friend, how are you?"
+    },
+    {
+     "f": "J’ai appris que tu as trouvé un nouveau travail.",
+     "a": "علمت أنك وجدت عملاً جديداً.",
+     "e": "I heard that you found a new job."
+    },
+    {
+     "f": "Je suis très heureux pour toi.",
+     "a": "أنا سعيد جداً من أجلك.",
+     "e": "I am very happy for you."
+    },
+    {
+     "f": "C’est une très bonne nouvelle !",
+     "a": "هذا خبر رائع!",
+     "e": "This is very good news!"
+    },
+    {
+     "f": "Je sais que tu as beaucoup travaillé pour obtenir ce poste.",
+     "a": "أعلم أنك عملت كثيراً للحصول على هذه الوظيفة.",
+     "e": "I know you worked hard to get this position."
+    },
+    {
+     "f": "J’espère que tu vas aimer ton nouveau travail.",
+     "a": "أتمنى أن تحب عملك الجديد.",
+     "e": "I hope you will enjoy your new job."
+    },
+    {
+     "f": "Je te souhaite beaucoup de réussite.",
+     "a": "أتمنى لك الكثير من النجاح.",
+     "e": "I wish you lots of success."
+    },
+    {
+     "f": "Nous devons fêter cette bonne nouvelle ensemble.",
+     "a": "يجب أن نحتفل بهذا الخبر السعيد معاً.",
+     "e": "We must celebrate this good news together."
+    },
+    {
+     "f": "Félicitations encore et à bientôt !",
+     "a": "ألف مبروك مرة أخرى وإلى اللقاء قريباً!",
+     "e": "Congratulations again and see you soon!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-49",
+   "icon": "🏖️",
+   "fr": "Une journée à la plage",
+   "ar": "يوم على الشاطئ",
+   "phr": [
+    {
+     "f": "Dimanche dernier, je suis allé à la plage avec ma famille.",
+     "a": "يوم الأحد الماضي، ذهبت إلى الشاطئ مع عائلتي.",
+     "e": "Last Sunday, I went to the beach with my family."
+    },
+    {
+     "f": "Nous sommes partis tôt le matin.",
+     "a": "انطلقنا في الصباح الباكر.",
+     "e": "We left early in the morning."
+    },
+    {
+     "f": "Il faisait beau et il y avait beaucoup de soleil.",
+     "a": "كان الطقس جميلاً وكانت الشمس ساطعة.",
+     "e": "The weather was nice and it was very sunny."
+    },
+    {
+     "f": "Nous avons nagé dans la mer.",
+     "a": "سبحنا في البحر.",
+     "e": "We swam in the sea."
+    },
+    {
+     "f": "Ensuite, nous avons joué au ballon sur la plage.",
+     "a": "بعد ذلك، لعبنا بالكرة على الشاطئ.",
+     "e": "Then, we played ball on the beach."
+    },
+    {
+     "f": "À midi, nous avons mangé des sandwichs.",
+     "a": "عند الظهر، تناولنا شطائر.",
+     "e": "At noon, we ate sandwiches."
+    },
+    {
+     "f": "Nous avons aussi pris beaucoup de photos.",
+     "a": "كما التقطنا الكثير من الصور.",
+     "e": "We also took many photos."
+    },
+    {
+     "f": "J’ai passé une très belle journée avec ma famille.",
+     "a": "قضيت يوماً جميلاً جداً مع عائلتي.",
+     "e": "I had a very nice day with my family."
+    },
+    {
+     "f": "Je voudrais retourner à la plage bientôt.",
+     "a": "أود العودة إلى الشاطئ قريباً.",
+     "e": "I would like to go back to the beach soon."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-50",
+   "icon": "🏘️",
+   "fr": "Une visite chez un ami",
+   "ar": "زيارة عند صديق",
+   "phr": [
+    {
+     "f": "Hier, j’ai rendu visite à mon ami Karim.",
+     "a": "أمس، زرت صديقي كريم.",
+     "e": "Yesterday, I visited my friend Karim."
+    },
+    {
+     "f": "Il habite dans un appartement près du centre-ville.",
+     "a": "يسكن في شقة بالقرب من وسط المدينة.",
+     "e": "He lives in an apartment near the city center."
+    },
+    {
+     "f": "Il m’a accueilli avec un grand sourire.",
+     "a": "استقبلني بابتسامة كبيرة.",
+     "e": "He welcomed me with a big smile."
+    },
+    {
+     "f": "Nous avons bu du café et parlé de notre travail.",
+     "a": "شربنا القهوة وتحدثنا عن عملنا.",
+     "e": "We drank coffee and talked about our work."
+    },
+    {
+     "f": "Ensuite, nous avons regardé un film.",
+     "a": "بعد ذلك، شاهدنا فيلماً.",
+     "e": "Then, we watched a movie."
+    },
+    {
+     "f": "Sa famille était très gentille avec moi.",
+     "a": "كانت عائلته لطيفة جداً معي.",
+     "e": "His family was very kind to me."
+    },
+    {
+     "f": "Je suis resté chez lui pendant trois heures.",
+     "a": "بقيت عنده لمدة ثلاث ساعات.",
+     "e": "I stayed at his house for three hours."
+    },
+    {
+     "f": "J’étais très content de cette visite.",
+     "a": "كنت سعيداً جداً بهذه الزيارة.",
+     "e": "I was very happy with this visit."
+    },
+    {
+     "f": "Nous avons décidé de nous revoir bientôt.",
+     "a": "قررنا أن نلتقي مرة أخرى قريباً.",
+     "e": "We decided to meet again soon."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-51",
+   "icon": "🛍️",
+   "fr": "Faire du shopping",
+   "ar": "الذهاب للتسوق",
+   "phr": [
+    {
+     "f": "Samedi dernier, je suis allé faire du shopping avec mon ami.",
+     "a": "يوم السبت الماضي، ذهبت للتسوق مع صديقي.",
+     "e": "Last Saturday, I went shopping with my friend."
+    },
+    {
+     "f": "Nous sommes allés dans un grand centre commercial.",
+     "a": "ذهبنا إلى مركز تجاري كبير.",
+     "e": "We went to a large shopping mall."
+    },
+    {
+     "f": "Il y avait beaucoup de magasins et de personnes.",
+     "a": "كان هناك الكثير من المحلات والناس.",
+     "e": "There were many shops and people."
+    },
+    {
+     "f": "J’ai acheté un pantalon et deux chemises.",
+     "a": "اشتريت بنطالاً وقميصين.",
+     "e": "I bought a pair of trousers and two shirts."
+    },
+    {
+     "f": "Mon ami a acheté une nouvelle paire de chaussures.",
+     "a": "اشترى صديقي حذاءً جديداً.",
+     "e": "My friend bought a new pair of shoes."
+    },
+    {
+     "f": "Les prix étaient intéressants.",
+     "a": "كانت الأسعار مناسبة.",
+     "e": "The prices were reasonable."
+    },
+    {
+     "f": "Après les achats, nous avons mangé dans un restaurant.",
+     "a": "بعد التسوق، تناولنا الطعام في مطعم.",
+     "e": "After shopping, we ate at a restaurant."
+    },
+    {
+     "f": "Nous avons passé un très bon moment ensemble.",
+     "a": "قضينا وقتاً ممتعاً جداً معاً.",
+     "e": "We had a very good time together."
+    },
+    {
+     "f": "J’aime faire du shopping avec mes amis.",
+     "a": "أحب الذهاب للتسوق مع أصدقائي.",
+     "e": "I like going shopping with my friends."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-52",
+   "icon": "🍲",
+   "fr": "Mon plat préféré",
+   "ar": "طبقي المفضل",
+   "phr": [
+    {
+     "f": "Mon plat préféré est le poulet avec du riz.",
+     "a": "طبقي المفضل هو الدجاج مع الأرز.",
+     "e": "My favorite dish is chicken with rice."
+    },
+    {
+     "f": "J’aime beaucoup ce plat parce qu’il est délicieux.",
+     "a": "أحب هذا الطبق كثيراً لأنه لذيذ.",
+     "e": "I really like this dish because it is delicious."
+    },
+    {
+     "f": "Ma mère le prépare souvent à la maison.",
+     "a": "تحضّره أمي كثيراً في المنزل.",
+     "e": "My mother often prepares it at home."
+    },
+    {
+     "f": "Elle utilise du poulet, du riz et des épices.",
+     "a": "تستخدم الدجاج والأرز والبهارات.",
+     "e": "She uses chicken, rice and spices."
+    },
+    {
+     "f": "La préparation est simple et rapide.",
+     "a": "طريقة تحضيره بسيطة وسريعة.",
+     "e": "The preparation is simple and quick."
+    },
+    {
+     "f": "Nous mangeons souvent ce plat en famille.",
+     "a": "غالباً ما نأكل هذا الطبق مع العائلة.",
+     "e": "We often eat this dish as a family."
+    },
+    {
+     "f": "J’aime aussi le préparer avec ma mère.",
+     "a": "أحب أيضاً تحضيره مع أمي.",
+     "e": "I also like preparing it with my mother."
+    },
+    {
+     "f": "C’est un plat spécial pour moi.",
+     "a": "إنه طبق مميز بالنسبة لي.",
+     "e": "It is a special dish for me."
+    },
+    {
+     "f": "Je pourrais manger ce plat tous les jours !",
+     "a": "يمكنني تناول هذا الطبق كل يوم!",
+     "e": "I could eat this dish every day!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-53",
+   "icon": "🌧️",
+   "fr": "Une journée de pluie",
+   "ar": "يوم ممطر",
+   "phr": [
+    {
+     "f": "Hier, il a beaucoup plu toute la journée.",
+     "a": "أمس، هطلت الأمطار كثيراً طوال اليوم.",
+     "e": "Yesterday, it rained a lot all day."
+    },
+    {
+     "f": "Je suis resté à la maison parce qu’il faisait mauvais.",
+     "a": "بقيت في المنزل لأن الطقس كان سيئاً.",
+     "e": "I stayed at home because the weather was bad."
+    },
+    {
+     "f": "Le matin, j’ai préparé un bon petit-déjeuner.",
+     "a": "في الصباح، حضرت فطوراً لذيذاً.",
+     "e": "In the morning, I prepared a nice breakfast."
+    },
+    {
+     "f": "Ensuite, j’ai regardé la télévision.",
+     "a": "بعد ذلك، شاهدت التلفاز.",
+     "e": "Then, I watched television."
+    },
+    {
+     "f": "J’ai aussi lu un livre pendant une heure.",
+     "a": "قرأت أيضاً كتاباً لمدة ساعة.",
+     "e": "I also read a book for an hour."
+    },
+    {
+     "f": "L’après-midi, j’ai appelé un ami.",
+     "a": "بعد الظهر، اتصلت بصديق.",
+     "e": "In the afternoon, I called a friend."
+    },
+    {
+     "f": "Nous avons parlé de nos projets pour le week-end.",
+     "a": "تحدثنا عن خططنا لعطلة نهاية الأسبوع.",
+     "e": "We talked about our plans for the weekend."
+    },
+    {
+     "f": "Même si le temps était mauvais, j’ai passé une bonne journée.",
+     "a": "رغم أن الطقس كان سيئاً، قضيت يوماً جميلاً.",
+     "e": "Even though the weather was bad, I had a good day."
+    },
+    {
+     "f": "J’espère qu’il fera beau demain.",
+     "a": "أتمنى أن يكون الطقس جميلاً غداً.",
+     "e": "I hope the weather will be nice tomorrow."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-54",
+   "icon": "🌳",
+   "fr": "Une journée au parc",
+   "ar": "يوم في الحديقة",
+   "phr": [
+    {
+     "f": "Dimanche dernier, je suis allé au parc avec mes amis.",
+     "a": "يوم الأحد الماضي، ذهبت إلى الحديقة مع أصدقائي.",
+     "e": "Last Sunday, I went to the park with my friends."
+    },
+    {
+     "f": "Il faisait beau et le soleil brillait.",
+     "a": "كان الطقس جميلاً وكانت الشمس مشرقة.",
+     "e": "The weather was nice and the sun was shining."
+    },
+    {
+     "f": "Nous avons marché pendant trente minutes.",
+     "a": "مشينا لمدة ثلاثين دقيقة.",
+     "e": "We walked for thirty minutes."
+    },
+    {
+     "f": "Ensuite, nous nous sommes assis sous un arbre.",
+     "a": "بعد ذلك، جلسنا تحت شجرة.",
+     "e": "Then, we sat under a tree."
+    },
+    {
+     "f": "Nous avons mangé des sandwichs et bu du jus.",
+     "a": "أكلنا الشطائر وشربنا العصير.",
+     "e": "We ate sandwiches and drank juice."
+    },
+    {
+     "f": "Après le déjeuner, nous avons joué au football.",
+     "a": "بعد الغداء، لعبنا كرة القدم.",
+     "e": "After lunch, we played football."
+    },
+    {
+     "f": "Il y avait beaucoup d’enfants dans le parc.",
+     "a": "كان هناك الكثير من الأطفال في الحديقة.",
+     "e": "There were many children in the park."
+    },
+    {
+     "f": "J’ai pris quelques photos avec mes amis.",
+     "a": "التقطت بعض الصور مع أصدقائي.",
+     "e": "I took some pictures with my friends."
+    },
+    {
+     "f": "C’était une journée agréable et amusante.",
+     "a": "كان يوماً جميلاً وممتعاً.",
+     "e": "It was a pleasant and fun day."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-55",
+   "icon": "💼",
+   "fr": "Mon premier jour de travail",
+   "ar": "أول يوم لي في العمل",
+   "phr": [
+    {
+     "f": "Lundi dernier, j’ai commencé un nouveau travail.",
+     "a": "يوم الاثنين الماضي، بدأت عملاً جديداً.",
+     "e": "Last Monday, I started a new job."
+    },
+    {
+     "f": "J’étais un peu nerveux le matin.",
+     "a": "كنت متوتراً قليلاً في الصباح.",
+     "e": "I was a little nervous in the morning."
+    },
+    {
+     "f": "Je suis arrivé au bureau à huit heures.",
+     "a": "وصلت إلى المكتب الساعة الثامنة.",
+     "e": "I arrived at the office at eight o’clock."
+    },
+    {
+     "f": "Mon responsable m’a accueilli gentiment.",
+     "a": "استقبلني مديري بلطف.",
+     "e": "My manager welcomed me kindly."
+    },
+    {
+     "f": "Il m’a présenté à mes nouveaux collègues.",
+     "a": "عرّفني على زملائي الجدد.",
+     "e": "He introduced me to my new colleagues."
+    },
+    {
+     "f": "Ils étaient tous très sympathiques.",
+     "a": "كانوا جميعاً لطفاء جداً.",
+     "e": "They were all very friendly."
+    },
+    {
+     "f": "J’ai appris beaucoup de nouvelles choses.",
+     "a": "تعلمت الكثير من الأشياء الجديدة.",
+     "e": "I learned many new things."
+    },
+    {
+     "f": "À midi, j’ai déjeuné avec mes collègues.",
+     "a": "عند الظهر، تناولت الغداء مع زملائي.",
+     "e": "At noon, I had lunch with my colleagues."
+    },
+    {
+     "f": "Je suis rentré chez moi très content.",
+     "a": "عدت إلى المنزل سعيداً جداً.",
+     "e": "I returned home very happy."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-56",
+   "icon": "🚌",
+   "fr": "Un problème dans les transports",
+   "ar": "مشكلة في المواصلات",
+   "phr": [
+    {
+     "f": "Hier matin, j’ai eu un problème dans le métro.",
+     "a": "صباح أمس، واجهت مشكلة في المترو.",
+     "e": "Yesterday morning, I had a problem on the metro."
+    },
+    {
+     "f": "Le métro était en retard.",
+     "a": "كان المترو متأخراً.",
+     "e": "The metro was late."
+    },
+    {
+     "f": "Il y avait beaucoup de personnes à la station.",
+     "a": "كان هناك الكثير من الأشخاص في المحطة.",
+     "e": "There were many people at the station."
+    },
+    {
+     "f": "J’ai attendu pendant vingt minutes.",
+     "a": "انتظرت لمدة عشرين دقيقة.",
+     "e": "I waited for twenty minutes."
+    },
+    {
+     "f": "J’étais inquiet parce que j’avais un rendez-vous important.",
+     "a": "كنت قلقاً لأن لدي موعداً مهماً.",
+     "e": "I was worried because I had an important appointment."
+    },
+    {
+     "f": "Finalement, j’ai pris le bus.",
+     "a": "في النهاية، استقلت الحافلة.",
+     "e": "Finally, I took the bus."
+    },
+    {
+     "f": "Je suis arrivé avec un peu de retard.",
+     "a": "وصلت متأخراً قليلاً.",
+     "e": "I arrived a little late."
+    },
+    {
+     "f": "Heureusement, mon responsable a compris la situation.",
+     "a": "لحسن الحظ، تفهّم مديري الموقف.",
+     "e": "Fortunately, my manager understood the situation."
+    },
+    {
+     "f": "J’espère que cela ne se reproduira pas.",
+     "a": "أتمنى ألا يتكرر ذلك.",
+     "e": "I hope this will not happen again."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-57",
+   "icon": "🎁",
+   "fr": "Un cadeau pour un ami",
+   "ar": "هدية لصديق",
+   "phr": [
+    {
+     "f": "La semaine dernière, c’était l’anniversaire de mon ami.",
+     "a": "في الأسبوع الماضي، كان عيد ميلاد صديقي.",
+     "e": "Last week, it was my friend's birthday."
+    },
+    {
+     "f": "Je voulais lui acheter un cadeau spécial.",
+     "a": "أردت أن أشتري له هدية مميزة.",
+     "e": "I wanted to buy him a special gift."
+    },
+    {
+     "f": "Je suis allé dans un magasin du centre-ville.",
+     "a": "ذهبت إلى متجر في وسط المدينة.",
+     "e": "I went to a shop in the city center."
+    },
+    {
+     "f": "J’ai acheté une belle montre.",
+     "a": "اشتريت ساعة جميلة.",
+     "e": "I bought a beautiful watch."
+    },
+    {
+     "f": "Le cadeau n’était pas très cher.",
+     "a": "لم تكن الهدية غالية جداً.",
+     "e": "The gift was not very expensive."
+    },
+    {
+     "f": "Le soir, je suis allé chez lui.",
+     "a": "في المساء، ذهبت إلى منزله.",
+     "e": "In the evening, I went to his house."
+    },
+    {
+     "f": "Il était très heureux de recevoir mon cadeau.",
+     "a": "كان سعيداً جداً بتلقي هديتي.",
+     "e": "He was very happy to receive my gift."
+    },
+    {
+     "f": "Nous avons mangé un gâteau et pris des photos.",
+     "a": "أكلنا قالب حلوى والتقطنا الصور.",
+     "e": "We ate a cake and took pictures."
+    },
+    {
+     "f": "C’était une très belle soirée.",
+     "a": "كانت أمسية جميلة جداً.",
+     "e": "It was a very nice evening."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-58",
+   "icon": "🔧",
+   "fr": "Une panne de voiture",
+   "ar": "عطل في السيارة",
+   "phr": [
+    {
+     "f": "Samedi dernier, je suis parti en voiture avec ma famille.",
+     "a": "يوم السبت الماضي، انطلقت بالسيارة مع عائلتي.",
+     "e": "Last Saturday, I went by car with my family."
+    },
+    {
+     "f": "Nous voulions visiter une nouvelle ville.",
+     "a": "كنا نريد زيارة مدينة جديدة.",
+     "e": "We wanted to visit a new city."
+    },
+    {
+     "f": "Soudain, la voiture est tombée en panne.",
+     "a": "فجأة، تعطلت السيارة.",
+     "e": "Suddenly, the car broke down."
+    },
+    {
+     "f": "Nous étions sur une route loin de la ville.",
+     "a": "كنا على طريق بعيد عن المدينة.",
+     "e": "We were on a road far from the city."
+    },
+    {
+     "f": "J’ai appelé un mécanicien pour demander de l’aide.",
+     "a": "اتصلت بميكانيكي لطلب المساعدة.",
+     "e": "I called a mechanic to ask for help."
+    },
+    {
+     "f": "Il est arrivé après trente minutes.",
+     "a": "وصل بعد ثلاثين دقيقة.",
+     "e": "He arrived after thirty minutes."
+    },
+    {
+     "f": "Il a réparé la voiture rapidement.",
+     "a": "أصلح السيارة بسرعة.",
+     "e": "He repaired the car quickly."
+    },
+    {
+     "f": "Nous avons continué notre voyage.",
+     "a": "أكملنا رحلتنا.",
+     "e": "We continued our journey."
+    },
+    {
+     "f": "Malgré ce problème, nous avons passé une bonne journée.",
+     "a": "رغم هذه المشكلة، قضينا يوماً جميلاً.",
+     "e": "Despite this problem, we had a good day."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-59",
+   "icon": "🩺",
+   "fr": "Une visite chez le médecin",
+   "ar": "زيارة عند الطبيب",
+   "phr": [
+    {
+     "f": "La semaine dernière, je ne me sentais pas bien.",
+     "a": "في الأسبوع الماضي، لم أكن أشعر أنني بخير.",
+     "e": "Last week, I was not feeling well."
+    },
+    {
+     "f": "J’avais mal à la tête et à la gorge.",
+     "a": "كان رأسي وحلقي يؤلمانني.",
+     "e": "I had a headache and a sore throat."
+    },
+    {
+     "f": "J’ai décidé de prendre un rendez-vous chez le médecin.",
+     "a": "قررت حجز موعد عند الطبيب.",
+     "e": "I decided to make an appointment with the doctor."
+    },
+    {
+     "f": "Le médecin m’a reçu à dix heures du matin.",
+     "a": "استقبلني الطبيب الساعة العاشرة صباحاً.",
+     "e": "The doctor saw me at ten o’clock in the morning."
+    },
+    {
+     "f": "Il m’a posé quelques questions sur ma santé.",
+     "a": "طرح عليّ بعض الأسئلة عن صحتي.",
+     "e": "He asked me some questions about my health."
+    },
+    {
+     "f": "Ensuite, il m’a examiné.",
+     "a": "بعد ذلك، فحصني.",
+     "e": "Then, he examined me."
+    },
+    {
+     "f": "Il m’a donné des médicaments et des conseils.",
+     "a": "أعطاني أدوية وبعض النصائح.",
+     "e": "He gave me medicine and some advice."
+    },
+    {
+     "f": "Je suis rentré chez moi pour me reposer.",
+     "a": "عدت إلى المنزل لكي أرتاح.",
+     "e": "I went home to rest."
+    },
+    {
+     "f": "Après quelques jours, je me suis senti mieux.",
+     "a": "بعد بضعة أيام، شعرت بتحسن.",
+     "e": "After a few days, I felt better."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-60",
+   "icon": "🗣️",
+   "fr": "Apprendre une nouvelle langue",
+   "ar": "تعلّم لغة جديدة",
+   "phr": [
+    {
+     "f": "Depuis quelques mois, j’apprends le français.",
+     "a": "منذ بضعة أشهر، أتعلم اللغة الفرنسية.",
+     "e": "I have been learning French for a few months."
+    },
+    {
+     "f": "Je veux parler français avec confiance.",
+     "a": "أريد أن أتحدث الفرنسية بثقة.",
+     "e": "I want to speak French with confidence."
+    },
+    {
+     "f": "Je prends des cours deux fois par semaine.",
+     "a": "أحضر دروساً مرتين في الأسبوع.",
+     "e": "I take classes twice a week."
+    },
+    {
+     "f": "Chaque jour, j’apprends de nouveaux mots.",
+     "a": "كل يوم أتعلم كلمات جديدة.",
+     "e": "Every day, I learn new words."
+    },
+    {
+     "f": "J’écoute aussi des vidéos en français.",
+     "a": "أستمع أيضاً إلى فيديوهات باللغة الفرنسية.",
+     "e": "I also listen to videos in French."
+    },
+    {
+     "f": "Parfois, je fais des erreurs quand je parle.",
+     "a": "أحياناً أرتكب أخطاء عندما أتحدث.",
+     "e": "Sometimes, I make mistakes when I speak."
+    },
+    {
+     "f": "Mais je continue à pratiquer chaque jour.",
+     "a": "لكنني أواصل التدريب كل يوم.",
+     "e": "But I continue to practise every day."
+    },
+    {
+     "f": "Mon professeur est gentil et patient.",
+     "a": "أستاذي لطيف وصبور.",
+     "e": "My teacher is kind and patient."
+    },
+    {
+     "f": "J’espère parler français très bien bientôt.",
+     "a": "أتمنى أن أتحدث الفرنسية بشكل جيد جداً قريباً.",
+     "e": "I hope to speak French very well soon."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-61",
+   "icon": "🏡",
+   "fr": "Mon voisin",
+   "ar": "جاري",
+   "phr": [
+    {
+     "f": "J’ai un nouveau voisin depuis deux semaines.",
+     "a": "لدي جار جديد منذ أسبوعين.",
+     "e": "I have had a new neighbor for two weeks."
+    },
+    {
+     "f": "Il s’appelle Pierre et il habite dans l’appartement à côté du mien.",
+     "a": "اسمه بيير ويسكن في الشقة المجاورة لشقتي.",
+     "e": "His name is Pierre and he lives in the apartment next to mine."
+    },
+    {
+     "f": "Il est très gentil et sympathique.",
+     "a": "إنه لطيف وودود جداً.",
+     "e": "He is very kind and friendly."
+    },
+    {
+     "f": "Nous nous sommes rencontrés dans l’escalier.",
+     "a": "التقينا في درج المبنى.",
+     "e": "We met in the staircase."
+    },
+    {
+     "f": "Nous avons parlé pendant quelques minutes.",
+     "a": "تحدثنا لبضع دقائق.",
+     "e": "We talked for a few minutes."
+    },
+    {
+     "f": "Il m’a invité à prendre un café chez lui.",
+     "a": "دعاني لشرب القهوة في منزله.",
+     "e": "He invited me to have coffee at his home."
+    },
+    {
+     "f": "Nous avons parlé de notre quartier et de notre travail.",
+     "a": "تحدثنا عن حينا وعن عملنا.",
+     "e": "We talked about our neighborhood and our work."
+    },
+    {
+     "f": "Je suis content d’avoir un voisin aussi gentil.",
+     "a": "أنا سعيد لأن لدي جاراً لطيفاً كهذا.",
+     "e": "I am happy to have such a kind neighbor."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-62",
+   "icon": "📱",
+   "fr": "Perdre son téléphone",
+   "ar": "فقدان الهاتف",
+   "phr": [
+    {
+     "f": "Hier, j’ai perdu mon téléphone dans le bus.",
+     "a": "أمس، أضعت هاتفي في الحافلة.",
+     "e": "Yesterday, I lost my phone on the bus."
+    },
+    {
+     "f": "J’étais très inquiet parce que j’avais beaucoup de photos dedans.",
+     "a": "كنت قلقاً جداً لأن لدي الكثير من الصور فيه.",
+     "e": "I was very worried because I had many photos on it."
+    },
+    {
+     "f": "J’ai cherché mon téléphone dans mon sac.",
+     "a": "بحثت عن هاتفي في حقيبتي.",
+     "e": "I looked for my phone in my bag."
+    },
+    {
+     "f": "Mais je ne l’ai pas trouvé.",
+     "a": "لكنني لم أجده.",
+     "e": "But I didn't find it."
+    },
+    {
+     "f": "J’ai appelé le service des objets trouvés.",
+     "a": "اتصلت بمكتب الأشياء المفقودة.",
+     "e": "I called the lost property office."
+    },
+    {
+     "f": "Heureusement, une personne avait trouvé mon téléphone.",
+     "a": "لحسن الحظ، كان أحد الأشخاص قد وجد هاتفي.",
+     "e": "Fortunately, someone had found my phone."
+    },
+    {
+     "f": "Je suis allé le récupérer le lendemain.",
+     "a": "ذهبت لاستعادته في اليوم التالي.",
+     "e": "I went to get it back the next day."
+    },
+    {
+     "f": "J’étais très heureux et j’ai remercié cette personne.",
+     "a": "كنت سعيداً جداً وشكرت ذلك الشخص.",
+     "e": "I was very happy and thanked that person."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-63",
+   "icon": "💍",
+   "fr": "Une invitation à un mariage",
+   "ar": "دعوة إلى حفل زفاف",
+   "phr": [
+    {
+     "f": "Le mois dernier, j’ai reçu une invitation à un mariage.",
+     "a": "في الشهر الماضي، تلقيت دعوة إلى حفل زفاف.",
+     "e": "Last month, I received an invitation to a wedding."
+    },
+    {
+     "f": "C’était le mariage de mon meilleur ami.",
+     "a": "كان حفل زفاف أعز أصدقائي.",
+     "e": "It was my best friend's wedding."
+    },
+    {
+     "f": "La cérémonie avait lieu samedi soir.",
+     "a": "أقيم الحفل مساء يوم السبت.",
+     "e": "The ceremony took place on Saturday evening."
+    },
+    {
+     "f": "J’ai acheté un beau cadeau pour les mariés.",
+     "a": "اشتريت هدية جميلة للعروسين.",
+     "e": "I bought a beautiful gift for the newlyweds."
+    },
+    {
+     "f": "J’ai mis une belle chemise et un pantalon noir.",
+     "a": "ارتديت قميصاً جميلاً وبنطالاً أسود.",
+     "e": "I wore a nice shirt and black trousers."
+    },
+    {
+     "f": "Il y avait beaucoup d’invités et de musique.",
+     "a": "كان هناك الكثير من المدعوين والموسيقى.",
+     "e": "There were many guests and music."
+    },
+    {
+     "f": "Nous avons dansé et mangé ensemble.",
+     "a": "رقصنا وتناولنا الطعام معاً.",
+     "e": "We danced and ate together."
+    },
+    {
+     "f": "Les mariés étaient très heureux.",
+     "a": "كان العروسان سعيدين جداً.",
+     "e": "The newlyweds were very happy."
+    },
+    {
+     "f": "J’ai passé une soirée inoubliable.",
+     "a": "قضيت أمسية لا تُنسى.",
+     "e": "I had an unforgettable evening."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-64",
+   "icon": "🛒",
+   "fr": "Un problème avec un achat",
+   "ar": "مشكلة مع عملية شراء",
+   "phr": [
+    {
+     "f": "La semaine dernière, j’ai acheté un ordinateur dans un magasin.",
+     "a": "في الأسبوع الماضي، اشتريت حاسوباً من متجر.",
+     "e": "Last week, I bought a computer from a shop."
+    },
+    {
+     "f": "Mais à la maison, j’ai remarqué un problème.",
+     "a": "لكنني لاحظت مشكلة عندما وصلت إلى المنزل.",
+     "e": "But at home, I noticed a problem."
+    },
+    {
+     "f": "L’ordinateur ne fonctionnait pas correctement.",
+     "a": "لم يكن الحاسوب يعمل بشكل صحيح.",
+     "e": "The computer was not working properly."
+    },
+    {
+     "f": "J’étais très déçu parce qu’il était neuf.",
+     "a": "كنت محبطاً جداً لأنه كان جديداً.",
+     "e": "I was very disappointed because it was new."
+    },
+    {
+     "f": "Le lendemain, je suis retourné au magasin.",
+     "a": "في اليوم التالي، عدت إلى المتجر.",
+     "e": "The next day, I went back to the shop."
+    },
+    {
+     "f": "J’ai expliqué le problème au vendeur.",
+     "a": "شرحت المشكلة للبائع.",
+     "e": "I explained the problem to the salesperson."
+    },
+    {
+     "f": "Il a vérifié l’ordinateur et il a compris le problème.",
+     "a": "فحص الحاسوب وفهم المشكلة.",
+     "e": "He checked the computer and understood the problem."
+    },
+    {
+     "f": "Il m’a proposé un nouvel ordinateur.",
+     "a": "عرض عليّ حاسوباً جديداً.",
+     "e": "He offered me a new computer."
+    },
+    {
+     "f": "J’étais satisfait de la solution.",
+     "a": "كنت راضياً عن الحل.",
+     "e": "I was satisfied with the solution."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-65",
+   "icon": "👨‍👧",
+   "fr": "Une activité avec les enfants",
+   "ar": "نشاط مع الأطفال",
+   "phr": [
+    {
+     "f": "Dimanche dernier, j’ai passé la journée avec mes enfants.",
+     "a": "يوم الأحد الماضي، قضيت اليوم مع أطفالي.",
+     "e": "Last Sunday, I spent the day with my children."
+    },
+    {
+     "f": "Nous sommes allés dans un grand parc.",
+     "a": "ذهبنا إلى حديقة كبيرة.",
+     "e": "We went to a large park."
+    },
+    {
+     "f": "Il faisait beau et les enfants étaient très contents.",
+     "a": "كان الطقس جميلاً وكان الأطفال سعداء جداً.",
+     "e": "The weather was nice and the children were very happy."
+    },
+    {
+     "f": "Ils ont joué au ballon et couru dans le jardin.",
+     "a": "لعبوا بالكرة وركضوا في الحديقة.",
+     "e": "They played with a ball and ran in the park."
+    },
+    {
+     "f": "Ensuite, nous avons mangé des sandwichs.",
+     "a": "بعد ذلك، تناولنا الشطائر.",
+     "e": "Then, we ate sandwiches."
+    },
+    {
+     "f": "Nous avons aussi pris des photos ensemble.",
+     "a": "التقطنا أيضاً صوراً معاً.",
+     "e": "We also took pictures together."
+    },
+    {
+     "f": "Les enfants ont beaucoup aimé cette sortie.",
+     "a": "أحب الأطفال هذه النزهة كثيراً.",
+     "e": "The children really enjoyed this outing."
+    },
+    {
+     "f": "Je suis heureux de passer du temps avec ma famille.",
+     "a": "أنا سعيد بقضاء الوقت مع عائلتي.",
+     "e": "I am happy to spend time with my family."
+    },
+    {
+     "f": "Nous voulons refaire cette activité bientôt.",
+     "a": "نريد تكرار هذا النشاط قريباً.",
+     "e": "We want to do this activity again soon."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-66",
+   "icon": "🔑",
+   "fr": "Un nouveau logement",
+   "ar": "مسكن جديد",
+   "phr": [
+    {
+     "f": "Le mois dernier, j’ai déménagé dans un nouvel appartement.",
+     "a": "في الشهر الماضي، انتقلت إلى شقة جديدة.",
+     "e": "Last month, I moved into a new apartment."
+    },
+    {
+     "f": "Il se trouve près du centre-ville.",
+     "a": "تقع بالقرب من وسط المدينة.",
+     "e": "It is located near the city center."
+    },
+    {
+     "f": "L’appartement est grand, propre et lumineux.",
+     "a": "الشقة كبيرة ونظيفة ومضيئة.",
+     "e": "The apartment is large, clean and bright."
+    },
+    {
+     "f": "Il y a deux chambres et un grand salon.",
+     "a": "فيها غرفتا نوم وغرفة جلوس كبيرة.",
+     "e": "There are two bedrooms and a large living room."
+    },
+    {
+     "f": "J’ai acheté quelques meubles pour la maison.",
+     "a": "اشتريت بعض الأثاث للمنزل.",
+     "e": "I bought some furniture for the home."
+    },
+    {
+     "f": "Mes amis m’ont aidé à transporter les cartons.",
+     "a": "ساعدني أصدقائي في نقل الصناديق.",
+     "e": "My friends helped me carry the boxes."
+    },
+    {
+     "f": "Les voisins sont très gentils.",
+     "a": "الجيران لطفاء جداً.",
+     "e": "The neighbors are very kind."
+    },
+    {
+     "f": "Je me sens bien dans mon nouveau logement.",
+     "a": "أشعر بالراحة في مسكني الجديد.",
+     "e": "I feel good in my new home."
+    },
+    {
+     "f": "J’espère rester ici pendant longtemps.",
+     "a": "أتمنى أن أبقى هنا لفترة طويلة.",
+     "e": "I hope to stay here for a long time."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-67",
+   "icon": "⛰️",
+   "fr": "Une excursion à la montagne",
+   "ar": "رحلة إلى الجبل",
+   "phr": [
+    {
+     "f": "Le week-end dernier, je suis allé à la montagne avec mes amis.",
+     "a": "في عطلة نهاية الأسبوع الماضية، ذهبت إلى الجبل مع أصدقائي.",
+     "e": "Last weekend, I went to the mountains with my friends."
+    },
+    {
+     "f": "Nous sommes partis tôt le matin en voiture.",
+     "a": "انطلقنا بالسيارة في الصباح الباكر.",
+     "e": "We left early in the morning by car."
+    },
+    {
+     "f": "Le paysage était magnifique et l’air était très frais.",
+     "a": "كان المنظر رائعاً والهواء منعشاً جداً.",
+     "e": "The scenery was beautiful and the air was very fresh."
+    },
+    {
+     "f": "Nous avons marché pendant deux heures.",
+     "a": "مشينا لمدة ساعتين.",
+     "e": "We walked for two hours."
+    },
+    {
+     "f": "Ensuite, nous avons fait une petite pause.",
+     "a": "بعد ذلك، أخذنا استراحة قصيرة.",
+     "e": "Then, we took a short break."
+    },
+    {
+     "f": "Nous avons mangé des sandwichs et bu de l’eau.",
+     "a": "أكلنا الشطائر وشربنا الماء.",
+     "e": "We ate sandwiches and drank water."
+    },
+    {
+     "f": "J’ai pris beaucoup de photos de la nature.",
+     "a": "التقطت الكثير من الصور للطبيعة.",
+     "e": "I took many pictures of nature."
+    },
+    {
+     "f": "Nous étions fatigués, mais très heureux.",
+     "a": "كنا متعبين، لكننا كنا سعداء جداً.",
+     "e": "We were tired, but very happy."
+    },
+    {
+     "f": "J’aimerais refaire cette excursion l’année prochaine.",
+     "a": "أود تكرار هذه الرحلة في العام القادم.",
+     "e": "I would like to do this trip again next year."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-68",
+   "icon": "🍽️",
+   "fr": "Un repas entre collègues",
+   "ar": "وجبة مع زملاء العمل",
+   "phr": [
+    {
+     "f": "Vendredi dernier, j’ai déjeuné avec mes collègues.",
+     "a": "يوم الجمعة الماضي، تناولت الغداء مع زملائي في العمل.",
+     "e": "Last Friday, I had lunch with my colleagues."
+    },
+    {
+     "f": "Nous sommes allés dans un restaurant près du bureau.",
+     "a": "ذهبنا إلى مطعم بالقرب من المكتب.",
+     "e": "We went to a restaurant near the office."
+    },
+    {
+     "f": "Le restaurant était agréable et calme.",
+     "a": "كان المطعم جميلاً وهادئاً.",
+     "e": "The restaurant was pleasant and quiet."
+    },
+    {
+     "f": "J’ai commandé du poulet avec des légumes.",
+     "a": "طلبت الدجاج مع الخضروات.",
+     "e": "I ordered chicken with vegetables."
+    },
+    {
+     "f": "Mes collègues ont choisi des plats différents.",
+     "a": "اختار زملائي أطباقاً مختلفة.",
+     "e": "My colleagues chose different dishes."
+    },
+    {
+     "f": "Nous avons parlé de notre travail et de nos vacances.",
+     "a": "تحدثنا عن عملنا وعن عطلاتنا.",
+     "e": "We talked about our work and our holidays."
+    },
+    {
+     "f": "L’ambiance était très sympathique.",
+     "a": "كان الجو ودياً جداً.",
+     "e": "The atmosphere was very friendly."
+    },
+    {
+     "f": "Après le repas, nous sommes retournés au bureau.",
+     "a": "بعد تناول الطعام، عدنا إلى المكتب.",
+     "e": "After the meal, we returned to the office."
+    },
+    {
+     "f": "J’ai beaucoup apprécié ce moment avec mes collègues.",
+     "a": "استمتعت كثيراً بهذا الوقت مع زملائي.",
+     "e": "I really enjoyed this time with my colleagues."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-69",
+   "icon": "🎆",
+   "fr": "Une fête de fin d’année",
+   "ar": "حفلة نهاية السنة",
+   "phr": [
+    {
+     "f": "La semaine dernière, nous avons organisé une fête de fin d’année.",
+     "a": "في الأسبوع الماضي، نظمنا حفلة بمناسبة نهاية السنة.",
+     "e": "Last week, we organized an end-of-year party."
+    },
+    {
+     "f": "La fête a eu lieu dans une grande salle.",
+     "a": "أُقيمت الحفلة في قاعة كبيرة.",
+     "e": "The party took place in a large hall."
+    },
+    {
+     "f": "J’ai invité mes amis et mes collègues.",
+     "a": "دعوت أصدقائي وزملائي في العمل.",
+     "e": "I invited my friends and colleagues."
+    },
+    {
+     "f": "Nous avons préparé beaucoup de nourriture et de boissons.",
+     "a": "حضّرنا الكثير من الطعام والمشروبات.",
+     "e": "We prepared lots of food and drinks."
+    },
+    {
+     "f": "Il y avait de la musique et une bonne ambiance.",
+     "a": "كانت هناك موسيقى وأجواء جميلة.",
+     "e": "There was music and a great atmosphere."
+    },
+    {
+     "f": "Tout le monde a dansé et chanté.",
+     "a": "رقص الجميع وغنّوا.",
+     "e": "Everyone danced and sang."
+    },
+    {
+     "f": "Nous avons pris des photos pour garder de beaux souvenirs.",
+     "a": "التقطنا صوراً للاحتفاظ بذكريات جميلة.",
+     "e": "We took pictures to keep beautiful memories."
+    },
+    {
+     "f": "La soirée s’est terminée très tard.",
+     "a": "انتهت السهرة في وقت متأخر جداً.",
+     "e": "The evening ended very late."
+    },
+    {
+     "f": "C’était une fête magnifique et inoubliable.",
+     "a": "كانت حفلة رائعة ولا تُنسى.",
+     "e": "It was a wonderful and unforgettable party."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-70",
+   "icon": "🚆",
+   "fr": "Un voyage en train",
+   "ar": "رحلة بالقطار",
+   "phr": [
+    {
+     "f": "Le mois dernier, j’ai voyagé en train avec ma famille.",
+     "a": "في الشهر الماضي، سافرت بالقطار مع عائلتي.",
+     "e": "Last month, I travelled by train with my family."
+    },
+    {
+     "f": "Nous sommes partis de Paris le matin.",
+     "a": "انطلقنا من باريس في الصباح.",
+     "e": "We left Paris in the morning."
+    },
+    {
+     "f": "Le voyage a duré environ trois heures.",
+     "a": "استغرقت الرحلة حوالي ثلاث ساعات.",
+     "e": "The journey lasted about three hours."
+    },
+    {
+     "f": "Le train était confortable et propre.",
+     "a": "كان القطار مريحاً ونظيفاً.",
+     "e": "The train was comfortable and clean."
+    },
+    {
+     "f": "J’ai regardé les paysages par la fenêtre.",
+     "a": "شاهدت المناظر الطبيعية من النافذة.",
+     "e": "I watched the scenery through the window."
+    },
+    {
+     "f": "Nous avons aussi mangé quelque chose pendant le voyage.",
+     "a": "تناولنا أيضاً شيئاً من الطعام أثناء الرحلة.",
+     "e": "We also ate something during the journey."
+    },
+    {
+     "f": "À notre arrivée, nous avons visité le centre-ville.",
+     "a": "عند وصولنا، زرنا وسط المدينة.",
+     "e": "When we arrived, we visited the city center."
+    },
+    {
+     "f": "C’était un voyage agréable et reposant.",
+     "a": "كانت رحلة ممتعة ومريحة.",
+     "e": "It was a pleasant and relaxing journey."
+    },
+    {
+     "f": "Je préfère voyager en train parce que c’est pratique.",
+     "a": "أفضل السفر بالقطار لأنه عملي ومريح.",
+     "e": "I prefer travelling by train because it is convenient."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-71",
+   "icon": "📵",
+   "fr": "Une journée sans Internet",
+   "ar": "يوم بدون إنترنت",
+   "phr": [
+    {
+     "f": "Hier, je n’avais pas de connexion Internet à la maison.",
+     "a": "أمس، لم يكن لدي اتصال بالإنترنت في المنزل.",
+     "e": "Yesterday, I had no Internet connection at home."
+    },
+    {
+     "f": "Au début, j’étais un peu énervé.",
+     "a": "في البداية، كنت منزعجاً قليلاً.",
+     "e": "At first, I was a little annoyed."
+    },
+    {
+     "f": "Je ne pouvais pas regarder de vidéos ni utiliser les réseaux sociaux.",
+     "a": "لم أستطع مشاهدة الفيديوهات أو استخدام وسائل التواصل الاجتماعي.",
+     "e": "I couldn't watch videos or use social media."
+    },
+    {
+     "f": "Alors, j’ai décidé de faire autre chose.",
+     "a": "لذلك، قررت أن أفعل شيئاً آخر.",
+     "e": "So, I decided to do something else."
+    },
+    {
+     "f": "J’ai rangé ma chambre et nettoyé la maison.",
+     "a": "رتبت غرفتي ونظفت المنزل.",
+     "e": "I tidied my room and cleaned the house."
+    },
+    {
+     "f": "Ensuite, j’ai lu un livre pendant une heure.",
+     "a": "بعد ذلك، قرأت كتاباً لمدة ساعة.",
+     "e": "Then, I read a book for an hour."
+    },
+    {
+     "f": "Le soir, j’ai joué à un jeu avec ma famille.",
+     "a": "في المساء، لعبت لعبة مع عائلتي.",
+     "e": "In the evening, I played a game with my family."
+    },
+    {
+     "f": "Finalement, j’ai passé une très bonne journée.",
+     "a": "في النهاية، قضيت يوماً جميلاً جداً.",
+     "e": "In the end, I had a very good day."
+    },
+    {
+     "f": "J’ai compris que je pouvais profiter de mon temps sans Internet.",
+     "a": "أدركت أنني أستطيع الاستمتاع بوقتي دون إنترنت.",
+     "e": "I realized that I could enjoy my time without the Internet."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-72",
+   "icon": "🤲",
+   "fr": "Aider une personne",
+   "ar": "مساعدة شخص",
+   "phr": [
+    {
+     "f": "Hier, j’ai aidé une personne âgée dans la rue.",
+     "a": "أمس، ساعدت شخصاً مسناً في الشارع.",
+     "e": "Yesterday, I helped an elderly person in the street."
+    },
+    {
+     "f": "Elle avait beaucoup de sacs et elle était fatiguée.",
+     "a": "كان معها الكثير من الأكياس وكانت متعبة.",
+     "e": "She had many bags and she was tired."
+    },
+    {
+     "f": "Je lui ai proposé mon aide.",
+     "a": "عرضت عليها مساعدتي.",
+     "e": "I offered her my help."
+    },
+    {
+     "f": "Je l’ai aidée à porter ses sacs.",
+     "a": "ساعدتها في حمل أكياسها.",
+     "e": "I helped her carry her bags."
+    },
+    {
+     "f": "Nous avons marché ensemble jusqu’à son immeuble.",
+     "a": "مشينا معاً حتى بنايتها.",
+     "e": "We walked together to her building."
+    },
+    {
+     "f": "Elle m’a remercié avec un grand sourire.",
+     "a": "شكرتني بابتسامة كبيرة.",
+     "e": "She thanked me with a big smile."
+    },
+    {
+     "f": "J’étais très content de pouvoir l’aider.",
+     "a": "كنت سعيداً جداً لأنني استطعت مساعدتها.",
+     "e": "I was very happy that I could help her."
+    },
+    {
+     "f": "Pour moi, aider les autres est très important.",
+     "a": "بالنسبة لي، مساعدة الآخرين أمر مهم جداً.",
+     "e": "For me, helping others is very important."
+    },
+    {
+     "f": "Il faut toujours être gentil avec les personnes qui ont besoin d’aide.",
+     "a": "يجب دائماً أن نكون لطفاء مع الأشخاص الذين يحتاجون إلى المساعدة.",
+     "e": "We should always be kind to people who need help."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-73",
+   "icon": "📝",
+   "fr": "Mon premier cours de français",
+   "ar": "أول درس لي في اللغة الفرنسية",
+   "phr": [
+    {
+     "f": "La semaine dernière, j’ai suivi mon premier cours de français.",
+     "a": "في الأسبوع الماضي، حضرت أول درس لي في اللغة الفرنسية.",
+     "e": "Last week, I attended my first French lesson."
+    },
+    {
+     "f": "J’étais un peu stressé avant le cours.",
+     "a": "كنت متوتراً قليلاً قبل الدرس.",
+     "e": "I was a little nervous before the lesson."
+    },
+    {
+     "f": "Le professeur était très gentil et patient.",
+     "a": "كان الأستاذ لطيفاً وصبوراً جداً.",
+     "e": "The teacher was very kind and patient."
+    },
+    {
+     "f": "Il nous a appris les premières phrases en français.",
+     "a": "علّمنا الجمل الأولى باللغة الفرنسية.",
+     "e": "He taught us the first sentences in French."
+    },
+    {
+     "f": "Nous avons appris à nous présenter.",
+     "a": "تعلمنا كيف نعرّف عن أنفسنا.",
+     "e": "We learned how to introduce ourselves."
+    },
+    {
+     "f": "J’ai rencontré plusieurs nouveaux étudiants.",
+     "a": "تعرفت على عدة طلاب جدد.",
+     "e": "I met several new students."
+    },
+    {
+     "f": "Nous avons parlé et fait quelques exercices.",
+     "a": "تحدثنا وقمنا ببعض التمارين.",
+     "e": "We spoke and did some exercises."
+    },
+    {
+     "f": "Le cours était intéressant et amusant.",
+     "a": "كان الدرس ممتعاً ومثيراً للاهتمام.",
+     "e": "The lesson was interesting and fun."
+    },
+    {
+     "f": "Je suis motivé pour continuer à apprendre le français.",
+     "a": "لدي حماس لمواصلة تعلم اللغة الفرنسية.",
+     "e": "I am motivated to continue learning French."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-74",
+   "icon": "📚",
+   "fr": "Un retard à un rendez-vous",
+   "ar": "التأخر عن موعد",
+   "phr": [
+    {
+     "f": "Hier, j’avais un rendez-vous important avec un ami.",
+     "a": "أمس، كان لدي موعد مهم مع صديق.",
+     "e": "Yesterday, I had an important appointment with a friend."
+    },
+    {
+     "f": "Nous devions nous retrouver à trois heures.",
+     "a": "كان من المفترض أن نلتقي الساعة الثالثة.",
+     "e": "We were supposed to meet at three o’clock."
+    },
+    {
+     "f": "Mais j’ai raté le bus.",
+     "a": "لكنني فاتتني الحافلة.",
+     "e": "But I missed the bus."
+    },
+    {
+     "f": "Ensuite, il y avait beaucoup de circulation.",
+     "a": "بعد ذلك، كانت هناك حركة مرور كثيفة.",
+     "e": "Then, there was a lot of traffic."
+    },
+    {
+     "f": "J’ai appelé mon ami pour lui expliquer la situation.",
+     "a": "اتصلت بصديقي لأشرح له الوضع.",
+     "e": "I called my friend to explain the situation."
+    },
+    {
+     "f": "Je lui ai présenté mes excuses.",
+     "a": "قدمت له اعتذاري.",
+     "e": "I apologized to him."
+    },
+    {
+     "f": "Je suis arrivé avec vingt minutes de retard.",
+     "a": "وصلت متأخراً عشرين دقيقة.",
+     "e": "I arrived twenty minutes late."
+    },
+    {
+     "f": "Heureusement, mon ami ne s’est pas fâché.",
+     "a": "لحسن الحظ، لم يغضب صديقي.",
+     "e": "Fortunately, my friend did not get angry."
+    },
+    {
+     "f": "La prochaine fois, je partirai plus tôt.",
+     "a": "في المرة القادمة، سأخرج في وقت أبكر.",
+     "e": "Next time, I will leave earlier."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-75",
+   "icon": "🎓",
+   "fr": "Une journée au musée",
+   "ar": "يوم في المتحف",
+   "phr": [
+    {
+     "f": "Samedi dernier, j’ai visité un musée avec ma famille.",
+     "a": "يوم السبت الماضي، زرت متحفاً مع عائلتي.",
+     "e": "Last Saturday, I visited a museum with my family."
+    },
+    {
+     "f": "Le musée se trouve au centre de la ville.",
+     "a": "يقع المتحف في وسط المدينة.",
+     "e": "The museum is located in the city center."
+    },
+    {
+     "f": "Nous sommes arrivés à dix heures du matin.",
+     "a": "وصلنا الساعة العاشرة صباحاً.",
+     "e": "We arrived at ten o’clock in the morning."
+    },
+    {
+     "f": "Il y avait beaucoup de tableaux et de photos.",
+     "a": "كان هناك الكثير من اللوحات والصور.",
+     "e": "There were many paintings and photographs."
+    },
+    {
+     "f": "J’ai découvert l’histoire de cette ville.",
+     "a": "اكتشفت تاريخ هذه المدينة.",
+     "e": "I discovered the history of this city."
+    },
+    {
+     "f": "Ma famille a beaucoup aimé cette visite.",
+     "a": "أحبّت عائلتي هذه الزيارة كثيراً.",
+     "e": "My family really enjoyed this visit."
+    },
+    {
+     "f": "Nous avons pris quelques photos souvenirs.",
+     "a": "التقطنا بعض الصور التذكارية.",
+     "e": "We took some souvenir photos."
+    },
+    {
+     "f": "Ensuite, nous avons bu un café dans un petit restaurant.",
+     "a": "بعد ذلك، شربنا القهوة في مطعم صغير.",
+     "e": "Then, we had coffee in a small restaurant."
+    },
+    {
+     "f": "C’était une journée intéressante et agréable.",
+     "a": "كان يوماً ممتعاً ومثيراً للاهتمام.",
+     "e": "It was an interesting and pleasant day."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-76",
+   "icon": "⌚",
+   "fr": "Un cadeau reçu",
+   "ar": "هدية تلقيتها",
+   "phr": [
+    {
+     "f": "Pour mon anniversaire, j’ai reçu un cadeau spécial.",
+     "a": "في عيد ميلادي، تلقيت هدية مميزة.",
+     "e": "For my birthday, I received a special gift."
+    },
+    {
+     "f": "C’était un cadeau de mon frère.",
+     "a": "كانت هدية من أخي.",
+     "e": "It was a gift from my brother."
+    },
+    {
+     "f": "Il m’a offert une belle montre.",
+     "a": "أهداني ساعة جميلة.",
+     "e": "He gave me a beautiful watch."
+    },
+    {
+     "f": "J’étais très surpris et heureux.",
+     "a": "كنت متفاجئاً وسعيداً جداً.",
+     "e": "I was very surprised and happy."
+    },
+    {
+     "f": "Je voulais acheter cette montre depuis longtemps.",
+     "a": "كنت أريد شراء هذه الساعة منذ وقت طويل.",
+     "e": "I had wanted to buy this watch for a long time."
+    },
+    {
+     "f": "Mon frère connaissait très bien mes goûts.",
+     "a": "كان أخي يعرف ذوقي جيداً.",
+     "e": "My brother knew my taste very well."
+    },
+    {
+     "f": "Je l’ai remercié avec un grand sourire.",
+     "a": "شكرته بابتسامة كبيرة.",
+     "e": "I thanked him with a big smile."
+    },
+    {
+     "f": "Depuis ce jour, je porte cette montre tous les jours.",
+     "a": "منذ ذلك اليوم، أرتدي هذه الساعة كل يوم.",
+     "e": "Since that day, I wear this watch every day."
+    },
+    {
+     "f": "C’est un cadeau que je n’oublierai jamais.",
+     "a": "إنها هدية لن أنساها أبداً.",
+     "e": "It is a gift I will never forget."
+    }
+   ],
+   "ids": []
   }
  ],
  "b1": [
