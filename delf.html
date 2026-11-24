@@ -1254,16 +1254,16 @@ function renderLesson(){
   if(ls.consigne){
     consigne = '<div class="slide-card consigne-card">' +
       '<div class="slide-head"><span class="slide-num">📝 المطلوب بالامتحان</span></div>' +
-      '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="-1" data-lang="fr-FR">🇫🇷</button> ' + esc(ls.consigne.f) + '</div>' +
-      '<div class="phr-line" dir="rtl"><button class="flag-btn" data-i="-1" data-lang="ar-SY">🇸🇾</button> ' + esc(ls.consigne.a) + '</div>' +
+      (ls.consigne.f ? '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="-1" data-lang="fr-FR">🇫🇷</button> ' + esc(ls.consigne.f) + '</div>' : '') +
+      (ls.consigne.a ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-i="-1" data-lang="ar-SY">🇸🇾</button> ' + esc(ls.consigne.a) + '</div>' : '') +
     '</div>';
   }
   var cards = ls.phr.map(function(p, i){
     return '<div class="slide-card">' +
       '<div class="slide-head"><span class="slide-num">' + (p.voc ? '📖 كلمة مهمة' : (i + 1) + ' / ' + ls.phr.length) + '</span></div>' +
-      '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="' + i + '" data-lang="fr-FR">🇫🇷</button> ' + esc(p.f) + '</div>' +
-      '<div class="phr-line" dir="rtl"><button class="flag-btn" data-i="' + i + '" data-lang="ar-SY">🇸🇾</button> ' + esc(p.a) + '</div>' +
-      '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="' + i + '" data-lang="en-US">🇺🇸</button> ' + esc(p.e) + '</div>' +
+      (p.f ? '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="' + i + '" data-lang="fr-FR">🇫🇷</button> ' + esc(p.f) + '</div>' : '') +
+      (p.a ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-i="' + i + '" data-lang="ar-SY">🇸🇾</button> ' + esc(p.a) + '</div>' : '') +
+      (p.e ? '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="' + i + '" data-lang="en-US">🇺🇸</button> ' + esc(p.e) + '</div>' : '') +
     '</div>';
   }).join('');
   app.innerHTML =

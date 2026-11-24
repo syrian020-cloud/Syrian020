@@ -12813,6 +12813,1280 @@ window.DELF_LESSONS = {
         }
       ],
       "ids": []
+    },
+    {
+      "id": "b1-l1",
+      "icon": "✉️",
+      "fr": "Lettre 1 — Le télétravail : avantages et inconvénients",
+      "ar": "رسالة 1 — العمل عن بُعد: إيجابيات وسلبيات",
+      "consigne": {
+        "f": "",
+        "a": "ترد على صديقتك Cynthia، وتعطي رأيك في العمل عن بُعد، وتحكي عن تجربتك الشخصية. — 💡 نصيحتي احفظ العبارات، وليس النص كلمة بكلمة. هيك بتقدر تستخدم نفس الجمل بمواضيع أخرى في الامتحان."
+      },
+      "phr": [
+        {
+          "f": "🇫🇷 Salut Cynthia, merci pour ton message.\n\n🇸🇾 مرحباً سينثيا، شكراً على رسالتك.\n\n🇺🇸 Hi Cynthia, thanks for your message.",
+          "a": "Salut Cynthia, merci pour ton message.",
+          "e": "مرحباً سينثيا، شكراً على رسالتك."
+        },
+        {
+          "f": "🇫🇷 Je suis content d’avoir de tes nouvelles.\n\n🇸🇾 أنا سعيد بسماع أخبارك.\n\n🇺🇸 I'm happy to hear from you.",
+          "a": "Je suis content d’avoir de tes nouvelles.",
+          "e": "أنا سعيد بسماع أخبارك."
+        },
+        {
+          "f": "🇫🇷 À mon avis, le télétravail présente beaucoup d’avantages.\n\n🇸🇾 برأيي، العمل عن بُعد إلو كتير إيجابيات.\n\n🇺🇸 In my opinion, remote work has many advantages.",
+          "a": "À mon avis, le télétravail présente beaucoup d’avantages.",
+          "e": "برأيي، العمل عن بُعد إلو كتير إيجابيات."
+        },
+        {
+          "f": "🇫🇷 Tout d’abord, il permet de gagner du temps.\n\n🇸🇾 أول شي، بيسمح لنا نوفر الوقت.\n\n🇺🇸 First of all, it allows us to save time.",
+          "a": "Tout d’abord, il permet de gagner du temps.",
+          "e": "أول شي، بيسمح لنا نوفر الوقت."
+        },
+        {
+          "f": "🇫🇷 On n’a pas besoin de prendre les transports pour aller au travail.\n\n🇸🇾 ما منحتاج نستخدم المواصلات لنروح عالشغل.\n\n🇺🇸 We don't need to use public transport to go to work.",
+          "a": "On n’a pas besoin de prendre les transports pour aller au travail.",
+          "e": "ما منحتاج نستخدم المواصلات لنروح عالشغل."
+        },
+        {
+          "f": "🇫🇷 On peut aussi économiser de l’argent sur les déplacements.\n\n🇸🇾 كمان فينا نوفر مصاري المواصلات.\n\n🇺🇸 We can also save money on transportation.",
+          "a": "On peut aussi économiser de l’argent sur les déplacements.",
+          "e": "كمان فينا نوفر مصاري المواصلات."
+        },
+        {
+          "f": "🇫🇷 De plus, on peut travailler dans un environnement calme.\n\n🇸🇾 بالإضافة لهالشي، فينا نشتغل بجو هادئ.\n\n🇺🇸 Moreover, we can work in a quiet environment.",
+          "a": "De plus, on peut travailler dans un environnement calme.",
+          "e": "بالإضافة لهالشي، فينا نشتغل بجو هادئ."
+        },
+        {
+          "f": "🇫🇷 Cela permet de mieux se concentrer et d’être plus efficace.\n\n🇸🇾 هالشي بيساعدنا نركز بشكل أفضل ونكون أكتر إنتاجية.\n\n🇺🇸 This helps us concentrate better and be more efficient.",
+          "a": "Cela permet de mieux se concentrer et d’être plus efficace.",
+          "e": "هالشي بيساعدنا نركز بشكل أفضل ونكون أكتر إنتاجية."
+        },
+        {
+          "f": "🇫🇷 Cependant, le télétravail présente aussi quelques inconvénients.\n\n🇸🇾 لكن العمل عن بُعد إلو كمان بعض السلبيات.\n\n🇺🇸 However, remote work also has some disadvantages.",
+          "a": "Cependant, le télétravail présente aussi quelques inconvénients.",
+          "e": "لكن العمل عن بُعد إلو كمان بعض السلبيات."
+        },
+        {
+          "f": "🇫🇷 Par exemple, on peut se sentir seul à la maison.\n\n🇸🇾 مثلاً، ممكن نحس بالوحدة بالبيت.\n\n🇺🇸 For example, we may feel lonely at home.",
+          "a": "Par exemple, on peut se sentir seul à la maison.",
+          "e": "مثلاً، ممكن نحس بالوحدة بالبيت."
+        },
+        {
+          "f": "🇫🇷 On ne voit pas ses collègues et on communique moins avec eux.\n\n🇸🇾 ما منشوف زملاءنا بالشغل وبيصير تواصلنا معهم أقل.\n\n🇺🇸 We don't see our colleagues and communicate less with them.",
+          "a": "On ne voit pas ses collègues et on communique moins avec eux.",
+          "e": "ما منشوف زملاءنا بالشغل وبيصير تواصلنا معهم أقل."
+        },
+        {
+          "f": "🇫🇷 Personnellement, j’ai déjà travaillé à distance pendant quelques jours.\n\n🇸🇾 بالنسبة إلي، سبق واشتغلت عن بُعد لعدة أيام.\n\n🇺🇸 Personally, I have already worked remotely for a few days.",
+          "a": "Personnellement, j’ai déjà travaillé à distance pendant quelques jours.",
+          "e": "بالنسبة إلي، سبق واشتغلت عن بُعد لعدة أيام."
+        },
+        {
+          "f": "🇫🇷 Au début, j’avais quelques difficultés à organiser mon temps.\n\n🇸🇾 بالبداية، واجهت بعض الصعوبات بتنظيم وقتي.\n\n🇺🇸 At first, I had some difficulties organizing my time.",
+          "a": "Au début, j’avais quelques difficultés à organiser mon temps.",
+          "e": "بالبداية، واجهت بعض الصعوبات بتنظيم وقتي."
+        },
+        {
+          "f": "🇫🇷 Mais avec une bonne organisation, j’ai réussi à travailler efficacement.\n\n🇸🇾 لكن مع التنظيم الجيد، قدرت اشتغل بفعالية.\n\n🇺🇸 But with good organization, I managed to work efficiently.",
+          "a": "Mais avec une bonne organisation, j’ai réussi à travailler efficacement.",
+          "e": "لكن مع التنظيم الجيد، قدرت اشتغل بفعالية."
+        },
+        {
+          "f": "🇫🇷 Je pense qu’il est important de séparer la vie professionnelle et la vie personnelle.\n\n🇸🇾 بعتقد إنه من المهم نفصل بين الحياة المهنية والحياة الشخصية.\n\n🇺🇸 I think it is important to separate professional and personal life.",
+          "a": "Je pense qu’il est important de séparer la vie professionnelle et la vie personnelle.",
+          "e": "بعتقد إنه من المهم نفصل بين الحياة المهنية والحياة الشخصية."
+        },
+        {
+          "f": "🇫🇷 Pour conclure, je pense que le télétravail est une bonne solution si on sait bien s’organiser.\n\n🇸🇾 بالنهاية، بعتقد إن العمل عن بُعد حل جيد إذا عرفنا ننظم وقتنا بشكل منيح.\n\n🇺🇸 To conclude, I think remote work is a good solution if we know how to organize ourselves.",
+          "a": "Pour conclure, je pense que le télétravail est une bonne solution si on sait bien s’organiser.",
+          "e": "بالنهاية، بعتقد إن العمل عن بُعد حل جيد إذا عرفنا ننظم وقتنا بشكل منيح."
+        },
+        {
+          "f": "🇫🇷 J’espère que mes conseils t’aideront à prendre la bonne décision.\n\n🇸🇾 بتمنى نصائحي تساعدك تاخدي القرار المناسب.\n\n🇺🇸 I hope my advice will help you make the right decision.",
+          "a": "J’espère que mes conseils t’aideront à prendre la bonne décision.",
+          "e": "بتمنى نصائحي تساعدك تاخدي القرار المناسب."
+        },
+        {
+          "f": "🇫🇷 À bientôt ! Prends soin de toi.\n\n🇸🇾 إلى اللقاء! ديري بالك على حالك.\n\n🇺🇸 See you soon! Take care.",
+          "a": "À bientôt ! Prends soin de toi.",
+          "e": "إلى اللقاء! ديري بالك على حالك."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l2",
+      "icon": "✉️",
+      "fr": "Lettre 2 — Améliorer mon français",
+      "ar": "رسالة 2 — تحسين لغتي الفرنسية",
+      "consigne": {
+        "f": "",
+        "a": "صديقتك Léa تريد تحسين لغتها الفرنسية من أجل العمل. تسألك عن فاعلية الدروس عبر الإنترنت، وتطلب منك نصائح لتتقدم بسرعة. يجب أن تحكي لها عن تجربتك في تعلم لغة أجنبية وتعطيها نصائح عملية."
+      },
+      "phr": [
+        {
+          "f": "🇫🇷 Bonjour Léa, merci pour ton message.\n\n🇸🇾 مرحباً ليا، شكراً على رسالتك.\n\n🇺🇸 Hello Léa, thank you for your message.",
+          "a": "Bonjour Léa, merci pour ton message.",
+          "e": "مرحباً ليا، شكراً على رسالتك."
+        },
+        {
+          "f": "🇫🇷 Je suis content que tu veuilles améliorer ton français.\n\n🇸🇾 أنا سعيد إنك بدك تحسّني لغتك الفرنسية.\n\n🇺🇸 I'm happy that you want to improve your French.",
+          "a": "Je suis content que tu veuilles améliorer ton français.",
+          "e": "أنا سعيد إنك بدك تحسّني لغتك الفرنسية."
+        },
+        {
+          "f": "🇫🇷 À mon avis, apprendre une langue étrangère demande du temps et de la patience.\n\n🇸🇾 برأيي، تعلم لغة أجنبية بده وقت وصبر.\n\n🇺🇸 In my opinion, learning a foreign language requires time and patience.",
+          "a": "À mon avis, apprendre une langue étrangère demande du temps et de la patience.",
+          "e": "برأيي، تعلم لغة أجنبية بده وقت وصبر."
+        },
+        {
+          "f": "🇫🇷 Personnellement, j’apprends le français depuis quelque temps.\n\n🇸🇾 بالنسبة إلي، أنا عم أتعلم الفرنسية من فترة.\n\n🇺🇸 Personally, I have been learning French for some time.",
+          "a": "Personnellement, j’apprends le français depuis quelque temps.",
+          "e": "بالنسبة إلي، أنا عم أتعلم الفرنسية من فترة."
+        },
+        {
+          "f": "🇫🇷 Au début, j’avais beaucoup de difficultés à comprendre les conversations.\n\n🇸🇾 بالبداية، كان عندي صعوبة كبيرة بفهم المحادثات.\n\n🇺🇸 At first, I had a lot of difficulty understanding conversations.",
+          "a": "Au début, j’avais beaucoup de difficultés à comprendre les conversations.",
+          "e": "بالبداية، كان عندي صعوبة كبيرة بفهم المحادثات."
+        },
+        {
+          "f": "🇫🇷 Je ne connaissais pas assez de vocabulaire et j’avais peur de faire des erreurs.\n\n🇸🇾 ما كنت بعرف مفردات كافية، وكنت خايف أغلط.\n\n🇺🇸 I didn't know enough vocabulary and I was afraid of making mistakes.",
+          "a": "Je ne connaissais pas assez de vocabulaire et j’avais peur de faire des erreurs.",
+          "e": "ما كنت بعرف مفردات كافية، وكنت خايف أغلط."
+        },
+        {
+          "f": "🇫🇷 Pour progresser, j’ai décidé d’étudier un peu chaque jour.\n\n🇸🇾 حتى أتطور، قررت أدرس شوي كل يوم.\n\n🇺🇸 To improve, I decided to study a little every day.",
+          "a": "Pour progresser, j’ai décidé d’étudier un peu chaque jour.",
+          "e": "حتى أتطور، قررت أدرس شوي كل يوم."
+        },
+        {
+          "f": "🇫🇷 Je regarde des vidéos en français avec des sous-titres.\n\n🇸🇾 بحضر فيديوهات بالفرنسي مع ترجمة مكتوبة.\n\n🇺🇸 I watch videos in French with subtitles.",
+          "a": "Je regarde des vidéos en français avec des sous-titres.",
+          "e": "بحضر فيديوهات بالفرنسي مع ترجمة مكتوبة."
+        },
+        {
+          "f": "🇫🇷 J’écoute aussi des podcasts et des émissions de radio.\n\n🇸🇾 كمان بسمع بودكاست وبرامج إذاعية.\n\n🇺🇸 I also listen to podcasts and radio programs.",
+          "a": "J’écoute aussi des podcasts et des émissions de radio.",
+          "e": "كمان بسمع بودكاست وبرامج إذاعية."
+        },
+        {
+          "f": "🇫🇷 Je pense que les cours en ligne sont très utiles.\n\n🇸🇾 بعتقد إن الدروس عبر الإنترنت مفيدة جداً.\n\n🇺🇸 I think online courses are very useful.",
+          "a": "Je pense que les cours en ligne sont très utiles.",
+          "e": "بعتقد إن الدروس عبر الإنترنت مفيدة جداً."
+        },
+        {
+          "f": "🇫🇷 Ils permettent d’apprendre à son rythme et de choisir ses horaires.\n\n🇸🇾 بتسمح لنا نتعلم حسب سرعتنا ونختار أوقات الدراسة.\n\n🇺🇸 They allow us to learn at our own pace and choose our schedules.",
+          "a": "Ils permettent d’apprendre à son rythme et de choisir ses horaires.",
+          "e": "بتسمح لنا نتعلم حسب سرعتنا ونختار أوقات الدراسة."
+        },
+        {
+          "f": "🇫🇷 Cependant, il est important de pratiquer régulièrement avec d’autres personnes.\n\n🇸🇾 لكن من المهم نتدرب باستمرار مع أشخاص تانيين.\n\n🇺🇸 However, it is important to practice regularly with other people.",
+          "a": "Cependant, il est important de pratiquer régulièrement avec d’autres personnes.",
+          "e": "لكن من المهم نتدرب باستمرار مع أشخاص تانيين."
+        },
+        {
+          "f": "🇫🇷 Je te conseille de parler français avec tes collègues et tes amis.\n\n🇸🇾 بنصحك تحكي بالفرنسي مع زملائك وأصدقائك.\n\n🇺🇸 I advise you to speak French with your colleagues and friends.",
+          "a": "Je te conseille de parler français avec tes collègues et tes amis.",
+          "e": "بنصحك تحكي بالفرنسي مع زملائك وأصدقائك."
+        },
+        {
+          "f": "🇫🇷 Tu peux également lire des livres simples et des articles sur Internet.\n\n🇸🇾 كمان فيك تقرئي كتب سهلة ومقالات على الإنترنت.\n\n🇺🇸 You can also read simple books and articles online.",
+          "a": "Tu peux également lire des livres simples et des articles sur Internet.",
+          "e": "كمان فيك تقرئي كتب سهلة ومقالات على الإنترنت."
+        },
+        {
+          "f": "🇫🇷 Il est également utile de noter les nouveaux mots dans un cahier.\n\n🇸🇾 كمان من المفيد تكتبي الكلمات الجديدة بدفتر.\n\n🇺🇸 It is also useful to write new words in a notebook.",
+          "a": "Il est également utile de noter les nouveaux mots dans un cahier.",
+          "e": "كمان من المفيد تكتبي الكلمات الجديدة بدفتر."
+        },
+        {
+          "f": "🇫🇷 N’aie pas peur de faire des erreurs, car elles font partie de l’apprentissage.\n\n🇸🇾 لا تخافي من ارتكاب الأخطاء، لأنها جزء من عملية التعلم.\n\n🇺🇸 Don't be afraid of making mistakes because they are part of learning.",
+          "a": "N’aie pas peur de faire des erreurs, car elles font partie de l’apprentissage.",
+          "e": "لا تخافي من ارتكاب الأخطاء، لأنها جزء من عملية التعلم."
+        },
+        {
+          "f": "🇫🇷 Le plus important est de rester motivée et de ne jamais abandonner.\n\n🇸🇾 الأهم إنك تحافظي على حماسك وما تستسلمي أبداً.\n\n🇺🇸 The most important thing is to stay motivated and never give up.",
+          "a": "Le plus important est de rester motivée et de ne jamais abandonner.",
+          "e": "الأهم إنك تحافظي على حماسك وما تستسلمي أبداً."
+        },
+        {
+          "f": "🇫🇷 Je suis sûr que tu vas faire beaucoup de progrès avec le temps.\n\n🇸🇾 أنا متأكد إنك رح تتقدمي كتير مع الوقت.\n\n🇺🇸 I'm sure you will make a lot of progress over time.",
+          "a": "Je suis sûr que tu vas faire beaucoup de progrès avec le temps.",
+          "e": "أنا متأكد إنك رح تتقدمي كتير مع الوقت."
+        },
+        {
+          "f": "🇫🇷 Bon courage pour tes études et à bientôt !\n\n🇸🇾 بالتوفيق بدراستك وإلى اللقاء!\n\n🇺🇸 Good luck with your studies and see you soon!",
+          "a": "Bon courage pour tes études et à bientôt !",
+          "e": "بالتوفيق بدراستك وإلى اللقاء!"
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l3",
+      "icon": "✉️",
+      "fr": "Lettre 3 — Le télétravail à temps plein",
+      "ar": "رسالة 3 — العمل عن بُعد بدوام كامل",
+      "consigne": {
+        "f": "",
+        "a": "صديقك Xavier أرسل لك رسالة، ويخبرك أن شركته تسمح له بالعمل عن بُعد طوال الأسبوع. لكنه متردد لأنه يحب رؤية زملائه في المكتب. عليك أن: تعطيه رأيك. تتحدث عن تجربتك الشخصية. تذكر إيجابيات العمل عن بُعد وسلبياته. — 💡 نصيحة للامتحان انتبه للفرق بين الموضوع الأول والثالث: الأول عن العمل عن بُعد يومين بالأسبوع، والثالث عن العمل عن بُعد طوال الوقت."
+      },
+      "phr": [
+        {
+          "f": "🇫🇷 Salut Xavier, merci pour ton message.\n\n🇸🇾 مرحباً كزافييه، شكراً على رسالتك.\n\n🇺🇸 Hi Xavier, thanks for your message.",
+          "a": "Salut Xavier, merci pour ton message.",
+          "e": "مرحباً كزافييه، شكراً على رسالتك."
+        },
+        {
+          "f": "🇫🇷 Je comprends parfaitement ton hésitation concernant le télétravail.\n\n🇸🇾 بفهم تماماً ترددك بخصوص العمل عن بُعد.\n\n🇺🇸 I completely understand your hesitation about remote work.",
+          "a": "Je comprends parfaitement ton hésitation concernant le télétravail.",
+          "e": "بفهم تماماً ترددك بخصوص العمل عن بُعد."
+        },
+        {
+          "f": "🇫🇷 À mon avis, travailler à distance présente plusieurs avantages.\n\n🇸🇾 برأيي، العمل عن بُعد إلو عدة إيجابيات.\n\n🇺🇸 In my opinion, working remotely has several advantages.",
+          "a": "À mon avis, travailler à distance présente plusieurs avantages.",
+          "e": "برأيي، العمل عن بُعد إلو عدة إيجابيات."
+        },
+        {
+          "f": "🇫🇷 Tout d’abord, on gagne beaucoup de temps chaque jour.\n\n🇸🇾 أولاً، منوفر وقت كتير كل يوم.\n\n🇺🇸 First of all, we save a lot of time every day.",
+          "a": "Tout d’abord, on gagne beaucoup de temps chaque jour.",
+          "e": "أولاً، منوفر وقت كتير كل يوم."
+        },
+        {
+          "f": "🇫🇷 On n’a plus besoin de prendre les transports pour aller au bureau.\n\n🇸🇾 ما عاد في حاجة نستخدم المواصلات لنروح عالمكتب.\n\n🇺🇸 We no longer need to use public transport to go to the office.",
+          "a": "On n’a plus besoin de prendre les transports pour aller au bureau.",
+          "e": "ما عاد في حاجة نستخدم المواصلات لنروح عالمكتب."
+        },
+        {
+          "f": "🇫🇷 On peut également économiser de l’argent sur les déplacements et les repas.\n\n🇸🇾 كمان فينا نوفر مصاري المواصلات والوجبات.\n\n🇺🇸 We can also save money on transportation and meals.",
+          "a": "On peut également économiser de l’argent sur les déplacements et les repas.",
+          "e": "كمان فينا نوفر مصاري المواصلات والوجبات."
+        },
+        {
+          "f": "🇫🇷 De plus, on peut organiser son travail plus librement.\n\n🇸🇾 بالإضافة لهالشي، فينا ننظم شغلنا بحرية أكبر.\n\n🇺🇸 Moreover, we can organize our work more freely.",
+          "a": "De plus, on peut organiser son travail plus librement.",
+          "e": "بالإضافة لهالشي، فينا ننظم شغلنا بحرية أكبر."
+        },
+        {
+          "f": "🇫🇷 On travaille souvent dans un environnement plus calme.\n\n🇸🇾 غالباً منشتغل بجو أهدأ.\n\n🇺🇸 We often work in a quieter environment.",
+          "a": "On travaille souvent dans un environnement plus calme.",
+          "e": "غالباً منشتغل بجو أهدأ."
+        },
+        {
+          "f": "🇫🇷 Cependant, le télétravail à temps plein peut aussi présenter des inconvénients.\n\n🇸🇾 لكن العمل عن بُعد طوال الوقت ممكن يكون إلو سلبيات كمان.\n\n🇺🇸 However, full-time remote work can also have disadvantages.",
+          "a": "Cependant, le télétravail à temps plein peut aussi présenter des inconvénients.",
+          "e": "لكن العمل عن بُعد طوال الوقت ممكن يكون إلو سلبيات كمان."
+        },
+        {
+          "f": "🇫🇷 Par exemple, on peut se sentir isolé et manquer de contacts humains.\n\n🇸🇾 مثلاً، ممكن نحس بالعزلة ونفتقد التواصل مع الناس.\n\n🇺🇸 For example, we may feel isolated and miss human contact.",
+          "a": "Par exemple, on peut se sentir isolé et manquer de contacts humains.",
+          "e": "مثلاً، ممكن نحس بالعزلة ونفتقد التواصل مع الناس."
+        },
+        {
+          "f": "🇫🇷 Il est parfois difficile de séparer le travail et la vie personnelle.\n\n🇸🇾 أحياناً بيكون صعب نفصل بين الشغل والحياة الشخصية.\n\n🇺🇸 Sometimes it is difficult to separate work and personal life.",
+          "a": "Il est parfois difficile de séparer le travail et la vie personnelle.",
+          "e": "أحياناً بيكون صعب نفصل بين الشغل والحياة الشخصية."
+        },
+        {
+          "f": "🇫🇷 Personnellement, je préfère avoir un contact direct avec mes collègues.\n\n🇸🇾 بالنسبة إلي، بفضّل يكون عندي تواصل مباشر مع زملائي.\n\n🇺🇸 Personally, I prefer having direct contact with my colleagues.",
+          "a": "Personnellement, je préfère avoir un contact direct avec mes collègues.",
+          "e": "بالنسبة إلي، بفضّل يكون عندي تواصل مباشر مع زملائي."
+        },
+        {
+          "f": "🇫🇷 J’aime discuter avec eux et partager des idées pendant la journée.\n\n🇸🇾 بحب أحكي معهم ونتبادل الأفكار خلال النهار.\n\n🇺🇸 I like talking with them and sharing ideas during the day.",
+          "a": "J’aime discuter avec eux et partager des idées pendant la journée.",
+          "e": "بحب أحكي معهم ونتبادل الأفكار خلال النهار."
+        },
+        {
+          "f": "🇫🇷 Je pense que le travail en équipe permet de mieux communiquer.\n\n🇸🇾 بعتقد إن العمل الجماعي بيساعدنا نتواصل بشكل أفضل.\n\n🇺🇸 I think teamwork helps us communicate better.",
+          "a": "Je pense que le travail en équipe permet de mieux communiquer.",
+          "e": "بعتقد إن العمل الجماعي بيساعدنا نتواصل بشكل أفضل."
+        },
+        {
+          "f": "🇫🇷 Cependant, travailler à la maison peut être une bonne solution si l’on sait s’organiser.\n\n🇸🇾 مع هيك، الشغل من البيت ممكن يكون حل جيد إذا عرفنا ننظم حالنا.\n\n🇺🇸 However, working from home can be a good solution if we know how to organize ourselves.",
+          "a": "Cependant, travailler à la maison peut être une bonne solution si l’on sait s’organiser.",
+          "e": "مع هيك، الشغل من البيت ممكن يكون حل جيد إذا عرفنا ننظم حالنا."
+        },
+        {
+          "f": "🇫🇷 Je te conseille d’essayer cette organisation pendant quelques semaines.\n\n🇸🇾 بنصحك تجرب هالنظام لعدة أسابيع.\n\n🇺🇸 I advise you to try this arrangement for a few weeks.",
+          "a": "Je te conseille d’essayer cette organisation pendant quelques semaines.",
+          "e": "بنصحك تجرب هالنظام لعدة أسابيع."
+        },
+        {
+          "f": "🇫🇷 Tu pourras ensuite décider si cette façon de travailler te convient.\n\n🇸🇾 وبعدها فيك تقرر إذا طريقة الشغل هاي مناسبة إلك.\n\n🇺🇸 You can then decide whether this way of working suits you.",
+          "a": "Tu pourras ensuite décider si cette façon de travailler te convient.",
+          "e": "وبعدها فيك تقرر إذا طريقة الشغل هاي مناسبة إلك."
+        },
+        {
+          "f": "🇫🇷 Pour conclure, je pense qu’il faut trouver un bon équilibre entre le bureau et la maison.\n\n🇸🇾 بالنهاية، بعتقد إنه لازم نلاقي توازناً جيداً بين المكتب والبيت.\n\n🇺🇸 To conclude, I think we need to find a good balance between the office and home.",
+          "a": "Pour conclure, je pense qu’il faut trouver un bon équilibre entre le bureau et la maison.",
+          "e": "بالنهاية، بعتقد إنه لازم نلاقي توازناً جيداً بين المكتب والبيت."
+        },
+        {
+          "f": "🇫🇷 J’espère que mes conseils t’aideront à faire ton choix.\n\n🇸🇾 بتمنى نصائحي تساعدك تاخد قرارك.\n\n🇺🇸 I hope my advice will help you make your choice.",
+          "a": "J’espère que mes conseils t’aideront à faire ton choix.",
+          "e": "بتمنى نصائحي تساعدك تاخد قرارك."
+        },
+        {
+          "f": "🇫🇷 À bientôt et bon courage !\n\n🇸🇾 إلى اللقاء وبالتوفيق!\n\n🇺🇸 See you soon and good luck!",
+          "a": "À bientôt et bon courage !",
+          "e": "إلى اللقاء وبالتوفيق!"
+        },
+        {
+          "f": "À distance",
+          "a": "عن بُعد",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "À temps plein",
+          "a": "بدوام كامل",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un avantage",
+          "a": "إيجابية",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un inconvénient",
+          "a": "سلبية",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Se sentir isolé",
+          "a": "يشعر بالعزلة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Économiser",
+          "a": "يوفّر",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "S'organiser",
+          "a": "ينظّم نفسه",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un équilibre",
+          "a": "توازن",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Les collègues",
+          "a": "الزملاء",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Le contact humain",
+          "a": "التواصل الإنساني",
+          "e": "",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l4",
+      "icon": "✉️",
+      "fr": "Lettre 4 — Réussir une réunion d'équipe",
+      "ar": "رسالة 4 — النجاح في إدارة اجتماع عمل",
+      "consigne": {
+        "f": "",
+        "a": "صديقك Antoine سيقود اجتماع فريق العمل لأول مرة، وهو يشعر بالتوتر. يريد منك نصائح حول: كيف يتحدث أمام المشاركين. كيف يجذب انتباههم. كيف ينظم الاجتماع. مشاركة تجربتك الشخصية وإبداء رأيك."
+      },
+      "phr": [
+        {
+          "f": "🇫🇷 Bonjour Antoine, merci pour ton message.\n\n🇸🇾 مرحباً أنطوان، شكراً على رسالتك.\n\n🇺🇸 Hello Antoine, thank you for your message.",
+          "a": "Bonjour Antoine, merci pour ton message.",
+          "e": "مرحباً أنطوان، شكراً على رسالتك."
+        },
+        {
+          "f": "🇫🇷 Je comprends que tu sois un peu stressé avant cette première réunion.\n\n🇸🇾 بفهم إنك متوتر شوي قبل هالاجتماع الأول.\n\n🇺🇸 I understand that you are a little stressed before this first meeting.",
+          "a": "Je comprends que tu sois un peu stressé avant cette première réunion.",
+          "e": "بفهم إنك متوتر شوي قبل هالاجتماع الأول."
+        },
+        {
+          "f": "🇫🇷 À mon avis, bien préparer une réunion est très important.\n\n🇸🇾 برأيي، التحضير الجيد للاجتماع مهم جداً.\n\n🇺🇸 In my opinion, preparing a meeting well is very important.",
+          "a": "À mon avis, bien préparer une réunion est très important.",
+          "e": "برأيي، التحضير الجيد للاجتماع مهم جداً."
+        },
+        {
+          "f": "🇫🇷 Tout d’abord, je te conseille de préparer un plan précis.\n\n🇸🇾 أولاً، بنصحك تحضّر خطة واضحة.\n\n🇺🇸 First of all, I advise you to prepare a clear plan.",
+          "a": "Tout d’abord, je te conseille de préparer un plan précis.",
+          "e": "أولاً، بنصحك تحضّر خطة واضحة."
+        },
+        {
+          "f": "🇫🇷 Tu dois savoir quels sujets tu souhaites aborder.\n\n🇸🇾 لازم تعرف شو المواضيع اللي بدك تناقشها.\n\n🇺🇸 You need to know which topics you want to discuss.",
+          "a": "Tu dois savoir quels sujets tu souhaites aborder.",
+          "e": "لازم تعرف شو المواضيع اللي بدك تناقشها."
+        },
+        {
+          "f": "🇫🇷 Il est également important de préparer les documents nécessaires.\n\n🇸🇾 كمان من المهم تحضّر المستندات الضرورية.\n\n🇺🇸 It is also important to prepare the necessary documents.",
+          "a": "Il est également important de préparer les documents nécessaires.",
+          "e": "كمان من المهم تحضّر المستندات الضرورية."
+        },
+        {
+          "f": "🇫🇷 Commence la réunion en saluant tous les participants.\n\n🇸🇾 ابدأ الاجتماع بالترحيب بجميع المشاركين.\n\n🇺🇸 Start the meeting by greeting all the participants.",
+          "a": "Commence la réunion en saluant tous les participants.",
+          "e": "ابدأ الاجتماع بالترحيب بجميع المشاركين."
+        },
+        {
+          "f": "🇫🇷 Présente ensuite les objectifs de la réunion.\n\n🇸🇾 بعدين اشرح أهداف الاجتماع.\n\n🇺🇸 Then present the objectives of the meeting.",
+          "a": "Présente ensuite les objectifs de la réunion.",
+          "e": "بعدين اشرح أهداف الاجتماع."
+        },
+        {
+          "f": "🇫🇷 Parle clairement et utilise des phrases simples.\n\n🇸🇾 احكي بوضوح واستعمل جملاً بسيطة.\n\n🇺🇸 Speak clearly and use simple sentences.",
+          "a": "Parle clairement et utilise des phrases simples.",
+          "e": "احكي بوضوح واستعمل جملاً بسيطة."
+        },
+        {
+          "f": "🇫🇷 Essaie de regarder les participants lorsque tu leur parles.\n\n🇸🇾 حاول تطالع بالمشاركين لما تحكي معهم.\n\n🇺🇸 Try to look at the participants when you speak to them.",
+          "a": "Essaie de regarder les participants lorsque tu leur parles.",
+          "e": "حاول تطالع بالمشاركين لما تحكي معهم."
+        },
+        {
+          "f": "🇫🇷 Cela montre que tu es sûr de toi et que tu es intéressé par leur opinion.\n\n🇸🇾 هالشي بيبين إنك واثق من حالك ومهتم بآرائهم.\n\n🇺🇸 This shows that you are confident and interested in their opinions.",
+          "a": "Cela montre que tu es sûr de toi et que tu es intéressé par leur opinion.",
+          "e": "هالشي بيبين إنك واثق من حالك ومهتم بآرائهم."
+        },
+        {
+          "f": "🇫🇷 Il faut aussi laisser les autres exprimer leurs idées.\n\n🇸🇾 كمان لازم تترك الآخرين يعبّروا عن أفكارهم.\n\n🇺🇸 You should also let others express their ideas.",
+          "a": "Il faut aussi laisser les autres exprimer leurs idées.",
+          "e": "كمان لازم تترك الآخرين يعبّروا عن أفكارهم."
+        },
+        {
+          "f": "🇫🇷 N'hésite pas à poser des questions pour encourager la discussion.\n\n🇸🇾 لا تتردد بطرح الأسئلة لتشجيع النقاش.\n\n🇺🇸 Don't hesitate to ask questions to encourage discussion.",
+          "a": "N'hésite pas à poser des questions pour encourager la discussion.",
+          "e": "لا تتردد بطرح الأسئلة لتشجيع النقاش."
+        },
+        {
+          "f": "🇫🇷 Personnellement, je pense qu'une bonne communication est essentielle au travail.\n\n🇸🇾 بالنسبة إلي، بعتقد إن التواصل الجيد أساسي بالعمل.\n\n🇺🇸 Personally, I think good communication is essential at work.",
+          "a": "Personnellement, je pense qu'une bonne communication est essentielle au travail.",
+          "e": "بالنسبة إلي، بعتقد إن التواصل الجيد أساسي بالعمل."
+        },
+        {
+          "f": "🇫🇷 J'ai déjà participé à plusieurs réunions avec mes collègues.\n\n🇸🇾 سبق وشاركت بعدة اجتماعات مع زملائي.\n\n🇺🇸 I have already participated in several meetings with my colleagues.",
+          "a": "J'ai déjà participé à plusieurs réunions avec mes collègues.",
+          "e": "سبق وشاركت بعدة اجتماعات مع زملائي."
+        },
+        {
+          "f": "🇫🇷 Au début, je n'osais pas beaucoup prendre la parole.\n\n🇸🇾 بالبداية، ما كنت أتجرأ أحكي كتير.\n\n🇺🇸 At first, I didn't dare to speak much.",
+          "a": "Au début, je n'osais pas beaucoup prendre la parole.",
+          "e": "بالبداية، ما كنت أتجرأ أحكي كتير."
+        },
+        {
+          "f": "🇫🇷 Mais avec le temps, j'ai appris à exprimer mes idées plus facilement.\n\n🇸🇾 لكن مع الوقت، تعلمت عبّر عن أفكاري بسهولة أكبر.\n\n🇺🇸 But over time, I learned to express my ideas more easily.",
+          "a": "Mais avec le temps, j'ai appris à exprimer mes idées plus facilement.",
+          "e": "لكن مع الوقت، تعلمت عبّر عن أفكاري بسهولة أكبر."
+        },
+        {
+          "f": "🇫🇷 Il est normal de faire quelques erreurs lorsqu'on commence.\n\n🇸🇾 من الطبيعي نرتكب بعض الأخطاء لما نبدأ.\n\n🇺🇸 It is normal to make a few mistakes when starting.",
+          "a": "Il est normal de faire quelques erreurs lorsqu'on commence.",
+          "e": "من الطبيعي نرتكب بعض الأخطاء لما نبدأ."
+        },
+        {
+          "f": "🇫🇷 Pour conclure, reste calme, sois bien préparé et fais confiance à tes capacités.\n\n🇸🇾 بالنهاية، خليك هادئ ومحضّر منيح وواثق بقدراتك.\n\n🇺🇸 To conclude, stay calm, be well prepared and trust your abilities.",
+          "a": "Pour conclure, reste calme, sois bien préparé et fais confiance à tes capacités.",
+          "e": "بالنهاية، خليك هادئ ومحضّر منيح وواثق بقدراتك."
+        },
+        {
+          "f": "🇫🇷 Je suis sûr que ta réunion se passera très bien.\n\n🇸🇾 أنا متأكد إن اجتماعك رح يمشي بشكل ممتاز.\n\n🇺🇸 I'm sure your meeting will go very well.",
+          "a": "Je suis sûr que ta réunion se passera très bien.",
+          "e": "أنا متأكد إن اجتماعك رح يمشي بشكل ممتاز."
+        },
+        {
+          "f": "🇫🇷 Bon courage et à bientôt !\n\n🇸🇾 بالتوفيق وإلى اللقاء!\n\n🇺🇸 Good luck and see you soon!",
+          "a": "Bon courage et à bientôt !",
+          "e": "بالتوفيق وإلى اللقاء!"
+        },
+        {
+          "f": "Une réunion",
+          "a": "اجتماع",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un participant",
+          "a": "مشارك",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Prendre la parole",
+          "a": "يتحدث / يأخذ الكلمة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Attirer l'attention",
+          "a": "يجذب الانتباه",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Exprimer ses idées",
+          "a": "يعبّر عن أفكاره",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Faire confiance",
+          "a": "يثق",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un objectif",
+          "a": "هدف",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un document",
+          "a": "مستند",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une discussion",
+          "a": "نقاش",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Être sûr de soi",
+          "a": "يكون واثقاً من نفسه",
+          "e": "",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l5",
+      "icon": "✉️",
+      "fr": "Lettre 5 — Conseils pour un entretien d'embauche",
+      "ar": "رسالة 5 — نصائح لمقابلة عمل",
+      "consigne": {
+        "f": "",
+        "a": "صديقتك Samira عندها أول مقابلة عمل الأسبوع القادم، وهي متوترة وخائفة من الأسئلة. تريد منك أن: تخبرها إذا سبق لك إجراء مقابلة عمل. تحكي عن تجربتك. تشرح كيف حضرت للمقابلة. تعطيها نصائح للاستعداد. — 💡 نصيحة للامتحان احفظ خصوصاً العبارات 7 إلى 18؛ فهي مفيدة أيضاً لمواضيع البحث عن عمل، السيرة الذاتية، والتواصل المهني."
+      },
+      "phr": [
+        {
+          "f": "🇫🇷 Salut Samira, merci pour ton message.\n\n🇸🇾 مرحباً سميرة، شكراً على رسالتك.\n\n🇺🇸 Hi Samira, thanks for your message.",
+          "a": "Salut Samira, merci pour ton message.",
+          "e": "مرحباً سميرة، شكراً على رسالتك."
+        },
+        {
+          "f": "🇫🇷 Je comprends que tu sois stressée avant ton premier entretien d'embauche.\n\n🇸🇾 بفهم إنك متوترة قبل أول مقابلة عمل إلك.\n\n🇺🇸 I understand that you are stressed before your first job interview.",
+          "a": "Je comprends que tu sois stressée avant ton premier entretien d'embauche.",
+          "e": "بفهم إنك متوترة قبل أول مقابلة عمل إلك."
+        },
+        {
+          "f": "🇫🇷 Ne t'inquiète pas, c'est tout à fait normal.\n\n🇸🇾 لا تقلقي، هالشي طبيعي تماماً.\n\n🇺🇸 Don't worry, this is completely normal.",
+          "a": "Ne t'inquiète pas, c'est tout à fait normal.",
+          "e": "لا تقلقي، هالشي طبيعي تماماً."
+        },
+        {
+          "f": "🇫🇷 Personnellement, j'ai déjà passé plusieurs entretiens d'embauche.\n\n🇸🇾 بالنسبة إلي، سبق وعملت عدة مقابلات عمل.\n\n🇺🇸 Personally, I have already had several job interviews.",
+          "a": "Personnellement, j'ai déjà passé plusieurs entretiens d'embauche.",
+          "e": "بالنسبة إلي، سبق وعملت عدة مقابلات عمل."
+        },
+        {
+          "f": "🇫🇷 Au début, j'étais très nerveux et j'avais peur de faire des erreurs.\n\n🇸🇾 بالبداية، كنت متوتر كتير وخايف أرتكب أخطاء.\n\n🇺🇸 At first, I was very nervous and afraid of making mistakes.",
+          "a": "Au début, j'étais très nerveux et j'avais peur de faire des erreurs.",
+          "e": "بالبداية، كنت متوتر كتير وخايف أرتكب أخطاء."
+        },
+        {
+          "f": "🇫🇷 Certaines questions étaient difficiles, surtout celles concernant mes expériences professionnelles.\n\n🇸🇾 بعض الأسئلة كانت صعبة، خصوصاً الأسئلة المتعلقة بخبراتي المهنية.\n\n🇺🇸 Some questions were difficult, especially those about my professional experience.",
+          "a": "Certaines questions étaient difficiles, surtout celles concernant mes expériences professionnelles.",
+          "e": "بعض الأسئلة كانت صعبة، خصوصاً الأسئلة المتعلقة بخبراتي المهنية."
+        },
+        {
+          "f": "🇫🇷 Pour me préparer, j'ai commencé par chercher des informations sur l'entreprise.\n\n🇸🇾 حتى حضّر حالي، بلشت بالبحث عن معلومات عن الشركة.\n\n🇺🇸 To prepare myself, I started by looking for information about the company.",
+          "a": "Pour me préparer, j'ai commencé par chercher des informations sur l'entreprise.",
+          "e": "حتى حضّر حالي، بلشت بالبحث عن معلومات عن الشركة."
+        },
+        {
+          "f": "🇫🇷 J'ai également relu mon CV et préparé une présentation personnelle.\n\n🇸🇾 كمان راجعت سيرتي الذاتية وحضّرت تعريفاً عن نفسي.\n\n🇺🇸 I also reviewed my CV and prepared a personal introduction.",
+          "a": "J'ai également relu mon CV et préparé une présentation personnelle.",
+          "e": "كمان راجعت سيرتي الذاتية وحضّرت تعريفاً عن نفسي."
+        },
+        {
+          "f": "🇫🇷 Je me suis entraîné à répondre aux questions les plus fréquentes.\n\n🇸🇾 تدربت على الإجابة عن الأسئلة الأكثر شيوعاً.\n\n🇺🇸 I practiced answering the most common questions.",
+          "a": "Je me suis entraîné à répondre aux questions les plus fréquentes.",
+          "e": "تدربت على الإجابة عن الأسئلة الأكثر شيوعاً."
+        },
+        {
+          "f": "🇫🇷 Par exemple, on peut te demander de parler de tes qualités et de tes défauts.\n\n🇸🇾 مثلاً، ممكن يطلبوا منك تحكي عن نقاط قوتك وضعفك.\n\n🇺🇸 For example, they may ask you to talk about your strengths and weaknesses.",
+          "a": "Par exemple, on peut te demander de parler de tes qualités et de tes défauts.",
+          "e": "مثلاً، ممكن يطلبوا منك تحكي عن نقاط قوتك وضعفك."
+        },
+        {
+          "f": "🇫🇷 On peut aussi te demander pourquoi tu souhaites travailler dans cette entreprise.\n\n🇸🇾 وممكن كمان يسألوك ليش بدك تشتغلي بهالشركة.\n\n🇺🇸 They may also ask why you want to work for this company.",
+          "a": "On peut aussi te demander pourquoi tu souhaites travailler dans cette entreprise.",
+          "e": "وممكن كمان يسألوك ليش بدك تشتغلي بهالشركة."
+        },
+        {
+          "f": "🇫🇷 Je te conseille de préparer des réponses simples et précises.\n\n🇸🇾 بنصحك تحضّري إجابات بسيطة وواضحة.\n\n🇺🇸 I advise you to prepare simple and precise answers.",
+          "a": "Je te conseille de préparer des réponses simples et précises.",
+          "e": "بنصحك تحضّري إجابات بسيطة وواضحة."
+        },
+        {
+          "f": "🇫🇷 Il est important de parler clairement et de rester calme.\n\n🇸🇾 من المهم تحكي بوضوح وتضلي هادئة.\n\n🇺🇸 It is important to speak clearly and remain calm.",
+          "a": "Il est important de parler clairement et de rester calme.",
+          "e": "من المهم تحكي بوضوح وتضلي هادئة."
+        },
+        {
+          "f": "🇫🇷 N'oublie pas de porter des vêtements propres et adaptés au poste.\n\n🇸🇾 لا تنسي تلبسي ملابس نظيفة ومناسبة للوظيفة.\n\n🇺🇸 Don't forget to wear clean clothes suitable for the position.",
+          "a": "N'oublie pas de porter des vêtements propres et adaptés au poste.",
+          "e": "لا تنسي تلبسي ملابس نظيفة ومناسبة للوظيفة."
+        },
+        {
+          "f": "🇫🇷 Essaie d'arriver dix ou quinze minutes avant l'heure prévue.\n\n🇸🇾 حاولي توصلي قبل الموعد بعشر أو خمس عشرة دقيقة.\n\n🇺🇸 Try to arrive ten or fifteen minutes before the scheduled time.",
+          "a": "Essaie d'arriver dix ou quinze minutes avant l'heure prévue.",
+          "e": "حاولي توصلي قبل الموعد بعشر أو خمس عشرة دقيقة."
+        },
+        {
+          "f": "🇫🇷 Pendant l'entretien, regarde ton interlocuteur et écoute attentivement ses questions.\n\n🇸🇾 أثناء المقابلة، تطلعي بالشخص اللي عم يحكي معك واسمعي أسئلته بانتباه.\n\n🇺🇸 During the interview, look at the person speaking to you and listen carefully to their questions.",
+          "a": "Pendant l'entretien, regarde ton interlocuteur et écoute attentivement ses questions.",
+          "e": "أثناء المقابلة، تطلعي بالشخص اللي عم يحكي معك واسمعي أسئلته بانتباه."
+        },
+        {
+          "f": "🇫🇷 Si tu ne comprends pas une question, demande poliment de la répéter.\n\n🇸🇾 إذا ما فهمتي سؤال، اطلبي بأدب إنه يعيده.\n\n🇺🇸 If you don't understand a question, politely ask for it to be repeated.",
+          "a": "Si tu ne comprends pas une question, demande poliment de la répéter.",
+          "e": "إذا ما فهمتي سؤال، اطلبي بأدب إنه يعيده."
+        },
+        {
+          "f": "🇫🇷 N'aie pas peur de parler de tes compétences et de tes motivations.\n\n🇸🇾 لا تخافي تحكي عن مهاراتك ودوافعك.\n\n🇺🇸 Don't be afraid to talk about your skills and motivation.",
+          "a": "N'aie pas peur de parler de tes compétences et de tes motivations.",
+          "e": "لا تخافي تحكي عن مهاراتك ودوافعك."
+        },
+        {
+          "f": "🇫🇷 Pour conclure, reste naturelle et montre que tu es motivée.\n\n🇸🇾 بالنهاية، كوني على طبيعتك وبيّني إن عندك رغبة وحماس للعمل.\n\n🇺🇸 To conclude, be natural and show that you are motivated.",
+          "a": "Pour conclure, reste naturelle et montre que tu es motivée.",
+          "e": "بالنهاية، كوني على طبيعتك وبيّني إن عندك رغبة وحماس للعمل."
+        },
+        {
+          "f": "🇫🇷 Je suis sûr que tu vas réussir ton entretien.\n\n🇸🇾 أنا متأكد إنك رح تنجحي بمقابلتك.\n\n🇺🇸 I'm sure you will succeed in your interview.",
+          "a": "Je suis sûr que tu vas réussir ton entretien.",
+          "e": "أنا متأكد إنك رح تنجحي بمقابلتك."
+        },
+        {
+          "f": "🇫🇷 Bon courage et tiens-moi au courant !\n\n🇸🇾 بالتوفيق وخبريني شو بصير معك!\n\n🇺🇸 Good luck and keep me informed!",
+          "a": "Bon courage et tiens-moi au courant !",
+          "e": "بالتوفيق وخبريني شو بصير معك!"
+        },
+        {
+          "f": "Un entretien d'embauche",
+          "a": "مقابلة عمل",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un candidat",
+          "a": "مرشح",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une entreprise",
+          "a": "شركة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un poste",
+          "a": "منصب وظيفي",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Les compétences",
+          "a": "المهارات",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Les qualités",
+          "a": "نقاط القوة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Les défauts",
+          "a": "نقاط الضعف",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Les motivations",
+          "a": "الدوافع",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Se préparer",
+          "a": "يستعد",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Être ponctuel",
+          "a": "الالتزام بالموعد",
+          "e": "",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l6",
+      "icon": "✉️",
+      "fr": "Lettre 6 — Les problèmes de sommeil",
+      "ar": "رسالة 6 — مشاكل النوم",
+      "consigne": {
+        "f": "",
+        "a": "صديقتك Giovanna تعاني من صعوبة في النوم منذ عدة أسابيع بسبب ضغط العمل. أصبحت متعبة وعصبية. تريد منك: أن تحكي لها عن تجربتك مع مشاكل النوم. أن تخبرها ماذا فعلت لحل المشكلة. أن تقدم لها نصائح لتحسين نومها. — 💡 نصيحة للامتحان احفظ عبارات النصائح، خصوصاً: Je te conseille de... Essaie de... Il est préférable de... Il est important de... هذه التراكيب ستفيدك في مواضيع كثيرة في DELF B1."
+      },
+      "phr": [
+        {
+          "f": "🇫🇷 Bonjour Giovanna, merci pour ton message.\n\n🇸🇾 مرحباً جيوفانا، شكراً على رسالتك.\n\n🇺🇸 Hello Giovanna, thank you for your message.",
+          "a": "Bonjour Giovanna, merci pour ton message.",
+          "e": "مرحباً جيوفانا، شكراً على رسالتك."
+        },
+        {
+          "f": "🇫🇷 Je suis désolé d'apprendre que tu as des problèmes de sommeil.\n\n🇸🇾 أنا آسف لما عرفت إنك عم تعاني من مشاكل بالنوم.\n\n🇺🇸 I'm sorry to hear that you are having sleeping problems.",
+          "a": "Je suis désolé d'apprendre que tu as des problèmes de sommeil.",
+          "e": "أنا آسف لما عرفت إنك عم تعاني من مشاكل بالنوم."
+        },
+        {
+          "f": "🇫🇷 Je comprends parfaitement ta situation, car le stress peut avoir des conséquences sur notre santé.\n\n🇸🇾 بفهم وضعك تماماً، لأن التوتر ممكن يأثر على صحتنا.\n\n🇺🇸 I completely understand your situation because stress can affect our health.",
+          "a": "Je comprends parfaitement ta situation, car le stress peut avoir des conséquences sur notre santé.",
+          "e": "بفهم وضعك تماماً، لأن التوتر ممكن يأثر على صحتنا."
+        },
+        {
+          "f": "🇫🇷 Personnellement, j'ai déjà eu des difficultés à dormir pendant certaines périodes.\n\n🇸🇾 بالنسبة إلي، سبق وعانيت من صعوبة بالنوم خلال بعض الفترات.\n\n🇺🇸 Personally, I have already had difficulty sleeping during certain periods.",
+          "a": "Personnellement, j'ai déjà eu des difficultés à dormir pendant certaines périodes.",
+          "e": "بالنسبة إلي، سبق وعانيت من صعوبة بالنوم خلال بعض الفترات."
+        },
+        {
+          "f": "🇫🇷 J'étais souvent fatigué pendant la journée et j'avais du mal à me concentrer.\n\n🇸🇾 كنت غالباً تعبان خلال النهار وكان عندي صعوبة بالتركيز.\n\n🇺🇸 I was often tired during the day and had difficulty concentrating.",
+          "a": "J'étais souvent fatigué pendant la journée et j'avais du mal à me concentrer.",
+          "e": "كنت غالباً تعبان خلال النهار وكان عندي صعوبة بالتركيز."
+        },
+        {
+          "f": "🇫🇷 J'ai compris qu'il était important de changer certaines habitudes.\n\n🇸🇾 فهمت إنه من المهم أغيّر بعض العادات.\n\n🇺🇸 I understood that it was important to change some habits.",
+          "a": "J'ai compris qu'il était important de changer certaines habitudes.",
+          "e": "فهمت إنه من المهم أغيّر بعض العادات."
+        },
+        {
+          "f": "🇫🇷 Tout d'abord, je te conseille de te coucher à la même heure chaque soir.\n\n🇸🇾 أول شي، بنصحك تنامي بنفس الوقت كل ليلة.\n\n🇺🇸 First of all, I advise you to go to bed at the same time every night.",
+          "a": "Tout d'abord, je te conseille de te coucher à la même heure chaque soir.",
+          "e": "أول شي، بنصحك تنامي بنفس الوقت كل ليلة."
+        },
+        {
+          "f": "🇫🇷 Essaie également de te réveiller à une heure régulière.\n\n🇸🇾 حاولي كمان تصحي بوقت منتظم.\n\n🇺🇸 Also try to wake up at a regular time.",
+          "a": "Essaie également de te réveiller à une heure régulière.",
+          "e": "حاولي كمان تصحي بوقت منتظم."
+        },
+        {
+          "f": "🇫🇷 Il est préférable d'éviter le café et le thé le soir.\n\n🇸🇾 من الأفضل تتجنبي القهوة والشاي بالمساء.\n\n🇺🇸 It is better to avoid coffee and tea in the evening.",
+          "a": "Il est préférable d'éviter le café et le thé le soir.",
+          "e": "من الأفضل تتجنبي القهوة والشاي بالمساء."
+        },
+        {
+          "f": "🇫🇷 Évite aussi d'utiliser ton téléphone juste avant de dormir.\n\n🇸🇾 تجنبي كمان استخدام الموبايل قبل النوم مباشرة.\n\n🇺🇸 Also avoid using your phone just before sleeping.",
+          "a": "Évite aussi d'utiliser ton téléphone juste avant de dormir.",
+          "e": "تجنبي كمان استخدام الموبايل قبل النوم مباشرة."
+        },
+        {
+          "f": "🇫🇷 Tu peux lire un livre ou écouter de la musique calme.\n\n🇸🇾 فيك تقرئي كتاب أو تسمعي موسيقى هادئة.\n\n🇺🇸 You can read a book or listen to calm music.",
+          "a": "Tu peux lire un livre ou écouter de la musique calme.",
+          "e": "فيك تقرئي كتاب أو تسمعي موسيقى هادئة."
+        },
+        {
+          "f": "🇫🇷 Il est important de dormir dans une chambre calme et bien aérée.\n\n🇸🇾 من المهم تنامي بغرفة هادئة وجيدة التهوية.\n\n🇺🇸 It is important to sleep in a quiet and well-ventilated room.",
+          "a": "Il est important de dormir dans une chambre calme et bien aérée.",
+          "e": "من المهم تنامي بغرفة هادئة وجيدة التهوية."
+        },
+        {
+          "f": "🇫🇷 Je te conseille également de faire une petite promenade pendant la journée.\n\n🇸🇾 بنصحك كمان تعملي مشوار مشي قصير خلال النهار.\n\n🇺🇸 I also advise you to take a short walk during the day.",
+          "a": "Je te conseille également de faire une petite promenade pendant la journée.",
+          "e": "بنصحك كمان تعملي مشوار مشي قصير خلال النهار."
+        },
+        {
+          "f": "🇫🇷 Le sport peut aider à réduire le stress et à améliorer le sommeil.\n\n🇸🇾 الرياضة ممكن تساعد على تخفيف التوتر وتحسين النوم.\n\n🇺🇸 Exercise can help reduce stress and improve sleep.",
+          "a": "Le sport peut aider à réduire le stress et à améliorer le sommeil.",
+          "e": "الرياضة ممكن تساعد على تخفيف التوتر وتحسين النوم."
+        },
+        {
+          "f": "🇫🇷 Essaie de ne pas penser aux problèmes du travail avant de te coucher.\n\n🇸🇾 حاولي ما تفكري بمشاكل الشغل قبل ما تنامي.\n\n🇺🇸 Try not to think about work problems before going to bed.",
+          "a": "Essaie de ne pas penser aux problèmes du travail avant de te coucher.",
+          "e": "حاولي ما تفكري بمشاكل الشغل قبل ما تنامي."
+        },
+        {
+          "f": "🇫🇷 Tu peux aussi parler de tes difficultés avec une personne de confiance.\n\n🇸🇾 كمان فيك تحكي عن مشاكلك مع شخص بتثقي فيه.\n\n🇺🇸 You can also talk about your difficulties with someone you trust.",
+          "a": "Tu peux aussi parler de tes difficultés avec une personne de confiance.",
+          "e": "كمان فيك تحكي عن مشاكلك مع شخص بتثقي فيه."
+        },
+        {
+          "f": "🇫🇷 Si tes problèmes continuent, je te conseille de consulter un médecin.\n\n🇸🇾 إذا استمرت مشاكلك، بنصحك تزوري طبيب.\n\n🇺🇸 If your problems continue, I advise you to see a doctor.",
+          "a": "Si tes problèmes continuent, je te conseille de consulter un médecin.",
+          "e": "إذا استمرت مشاكلك، بنصحك تزوري طبيب."
+        },
+        {
+          "f": "🇫🇷 Il pourra comprendre la cause de tes difficultés et te proposer une solution adaptée.\n\n🇸🇾 بيقدر يفهم سبب الصعوبات اللي عندك ويقترح عليك حلاً مناسباً.\n\n🇺🇸 He can understand the cause of your difficulties and suggest a suitable solution.",
+          "a": "Il pourra comprendre la cause de tes difficultés et te proposer une solution adaptée.",
+          "e": "بيقدر يفهم سبب الصعوبات اللي عندك ويقترح عليك حلاً مناسباً."
+        },
+        {
+          "f": "🇫🇷 Pour conclure, prends soin de toi et essaie de réduire ton stress.\n\n🇸🇾 بالنهاية، اهتمي بحالك وحاولي تخففي التوتر.\n\n🇺🇸 To conclude, take care of yourself and try to reduce your stress.",
+          "a": "Pour conclure, prends soin de toi et essaie de réduire ton stress.",
+          "e": "بالنهاية، اهتمي بحالك وحاولي تخففي التوتر."
+        },
+        {
+          "f": "🇫🇷 J'espère que tu retrouveras rapidement un sommeil réparateur.\n\n🇸🇾 بتمنى ترجعي تنامي بشكل مريح قريباً.\n\n🇺🇸 I hope you will soon get restful sleep again.",
+          "a": "J'espère que tu retrouveras rapidement un sommeil réparateur.",
+          "e": "بتمنى ترجعي تنامي بشكل مريح قريباً."
+        },
+        {
+          "f": "🇫🇷 Bon courage et à bientôt !\n\n🇸🇾 بالتوفيق وإلى اللقاء!\n\n🇺🇸 Good luck and see you soon!",
+          "a": "Bon courage et à bientôt !",
+          "e": "بالتوفيق وإلى اللقاء!"
+        },
+        {
+          "f": "Le sommeil",
+          "a": "النوم",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "L'insomnie",
+          "a": "الأرق",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Être fatigué",
+          "a": "يكون متعباً",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Se coucher",
+          "a": "يذهب للنوم",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Se réveiller",
+          "a": "يستيقظ",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Le stress",
+          "a": "التوتر",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une habitude",
+          "a": "عادة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une promenade",
+          "a": "نزهة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Se détendre",
+          "a": "يسترخي",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un sommeil réparateur",
+          "a": "نوم مريح ومنعش",
+          "e": "",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l7",
+      "icon": "✉️",
+      "fr": "Lettre 7 — Le repas de fin d'année avec les collègues",
+      "ar": "رسالة 7 — وجبة نهاية السنة مع الزملاء",
+      "consigne": {
+        "f": "",
+        "a": "صديقك Johan يعمل في شركة جديدة، وهو مسؤول عن فريق العمل، لكنه أصغر شخص بين زملائه. الشركة ستنظم وجبة عشاء بمناسبة نهاية السنة، وهو متردد لأنه سيقابل زملاءه خارج إطار العمل. عليك أن: تحكي له عن تجربة سابقة مع زملائك. تصف شعورك خلال المناسبة. تعطيه نصائح للتعامل مع زملائه. — 💡 نصيحة للامتحان هذا الموضوع مفيد أيضاً عند الكتابة عن الصداقة، الاندماج في العمل، والتعرف على أشخاص جدد."
+      },
+      "phr": [
+        {
+          "f": "🇫🇷 Bonjour Johan, merci pour ton message.\n\n🇸🇾 مرحباً يوهان، شكراً على رسالتك.\n\n🇺🇸 Hello Johan, thank you for your message.",
+          "a": "Bonjour Johan, merci pour ton message.",
+          "e": "مرحباً يوهان، شكراً على رسالتك."
+        },
+        {
+          "f": "🇫🇷 Je comprends parfaitement ta situation.\n\n🇸🇾 بفهم وضعك تماماً.\n\n🇺🇸 I completely understand your situation.",
+          "a": "Je comprends parfaitement ta situation.",
+          "e": "بفهم وضعك تماماً."
+        },
+        {
+          "f": "🇫🇷 C'est normal d'être un peu stressé lorsqu'on arrive dans une nouvelle entreprise.\n\n🇸🇾 من الطبيعي الواحد يتوتر شوي لما يبدأ بشركة جديدة.\n\n🇺🇸 It's normal to feel a little stressed when starting at a new company.",
+          "a": "C'est normal d'être un peu stressé lorsqu'on arrive dans une nouvelle entreprise.",
+          "e": "من الطبيعي الواحد يتوتر شوي لما يبدأ بشركة جديدة."
+        },
+        {
+          "f": "🇫🇷 Personnellement, j'ai déjà participé à un repas avec mes collègues.\n\n🇸🇾 بالنسبة إلي، سبق وشاركت بوجبة طعام مع زملائي.\n\n🇺🇸 Personally, I have already attended a meal with my colleagues.",
+          "a": "Personnellement, j'ai déjà participé à un repas avec mes collègues.",
+          "e": "بالنسبة إلي، سبق وشاركت بوجبة طعام مع زملائي."
+        },
+        {
+          "f": "🇫🇷 Au début, je ne connaissais pas très bien les autres employés.\n\n🇸🇾 بالبداية، ما كنت بعرف الموظفين التانيين منيح.\n\n🇺🇸 At first, I didn't know the other employees very well.",
+          "a": "Au début, je ne connaissais pas très bien les autres employés.",
+          "e": "بالبداية، ما كنت بعرف الموظفين التانيين منيح."
+        },
+        {
+          "f": "🇫🇷 J'avais un peu peur de ne pas trouver de sujets de conversation.\n\n🇸🇾 كنت خايف شوي ما لاقي مواضيع للحكي.\n\n🇺🇸 I was a little afraid of not finding topics to talk about.",
+          "a": "J'avais un peu peur de ne pas trouver de sujets de conversation.",
+          "e": "كنت خايف شوي ما لاقي مواضيع للحكي."
+        },
+        {
+          "f": "🇫🇷 Cependant, j'ai décidé de participer pour mieux connaître mes collègues.\n\n🇸🇾 مع هيك، قررت شارك حتى اتعرف على زملائي بشكل أفضل.\n\n🇺🇸 However, I decided to participate to get to know my colleagues better.",
+          "a": "Cependant, j'ai décidé de participer pour mieux connaître mes collègues.",
+          "e": "مع هيك، قررت شارك حتى اتعرف على زملائي بشكل أفضل."
+        },
+        {
+          "f": "🇫🇷 Finalement, j'ai passé une très bonne soirée.\n\n🇸🇾 بالنهاية، قضيت سهرة كتير حلوة.\n\n🇺🇸 Finally, I had a very nice evening.",
+          "a": "Finalement, j'ai passé une très bonne soirée.",
+          "e": "بالنهاية، قضيت سهرة كتير حلوة."
+        },
+        {
+          "f": "🇫🇷 Nous avons discuté de différents sujets et nous avons beaucoup ri.\n\n🇸🇾 حكينا بمواضيع مختلفة وضحكنا كتير.\n\n🇺🇸 We talked about different subjects and laughed a lot.",
+          "a": "Nous avons discuté de différents sujets et nous avons beaucoup ri.",
+          "e": "حكينا بمواضيع مختلفة وضحكنا كتير."
+        },
+        {
+          "f": "🇫🇷 J'ai découvert que mes collègues étaient sympathiques et ouverts.\n\n🇸🇾 اكتشفت إن زملائي كانوا لطفاء ومنفتحين.\n\n🇺🇸 I discovered that my colleagues were friendly and open.",
+          "a": "J'ai découvert que mes collègues étaient sympathiques et ouverts.",
+          "e": "اكتشفت إن زملائي كانوا لطفاء ومنفتحين."
+        },
+        {
+          "f": "🇫🇷 Je te conseille donc d'accepter cette invitation.\n\n🇸🇾 لذلك بنصحك تقبل هالدعوة.\n\n🇺🇸 So I advise you to accept this invitation.",
+          "a": "Je te conseille donc d'accepter cette invitation.",
+          "e": "لذلك بنصحك تقبل هالدعوة."
+        },
+        {
+          "f": "🇫🇷 C'est une excellente occasion de mieux connaître ton équipe.\n\n🇸🇾 هاي فرصة ممتازة حتى تتعرف على فريقك بشكل أفضل.\n\n🇺🇸 It's an excellent opportunity to get to know your team better.",
+          "a": "C'est une excellente occasion de mieux connaître ton équipe.",
+          "e": "هاي فرصة ممتازة حتى تتعرف على فريقك بشكل أفضل."
+        },
+        {
+          "f": "🇫🇷 Essaie de discuter avec plusieurs collègues, pas seulement avec les personnes que tu connais déjà.\n\n🇸🇾 حاول تحكي مع عدة زملاء، مو بس مع الأشخاص اللي بتعرفهم من قبل.\n\n🇺🇸 Try to talk with several colleagues, not only the people you already know.",
+          "a": "Essaie de discuter avec plusieurs collègues, pas seulement avec les personnes que tu connais déjà.",
+          "e": "حاول تحكي مع عدة زملاء، مو بس مع الأشخاص اللي بتعرفهم من قبل."
+        },
+        {
+          "f": "🇫🇷 Tu peux leur poser des questions sur leurs loisirs et leurs expériences.\n\n🇸🇾 فيك تسألهم عن هواياتهم وتجاربهم.\n\n🇺🇸 You can ask them about their hobbies and experiences.",
+          "a": "Tu peux leur poser des questions sur leurs loisirs et leurs expériences.",
+          "e": "فيك تسألهم عن هواياتهم وتجاربهم."
+        },
+        {
+          "f": "🇫🇷 N'hésite pas à participer aux conversations et à sourire.\n\n🇸🇾 لا تتردد بالمشاركة بالمحادثات والابتسام.\n\n🇺🇸 Don't hesitate to join conversations and smile.",
+          "a": "N'hésite pas à participer aux conversations et à sourire.",
+          "e": "لا تتردد بالمشاركة بالمحادثات والابتسام."
+        },
+        {
+          "f": "🇫🇷 Il est important de rester naturel et de ne pas essayer de jouer un rôle.\n\n🇸🇾 من المهم تكون على طبيعتك وما تحاول تتصنع شخصية غير شخصيتك.\n\n🇺🇸 It's important to be natural and not try to pretend to be someone else.",
+          "a": "Il est important de rester naturel et de ne pas essayer de jouer un rôle.",
+          "e": "من المهم تكون على طبيعتك وما تحاول تتصنع شخصية غير شخصيتك."
+        },
+        {
+          "f": "🇫🇷 Ne pense pas trop à ton âge, car l'ambiance est plus importante que la différence d'âge.\n\n🇸🇾 لا تفكر كتير بعمرك، لأن الجو العام أهم من فرق العمر.\n\n🇺🇸 Don't think too much about your age because the atmosphere is more important than the age difference.",
+          "a": "Ne pense pas trop à ton âge, car l'ambiance est plus importante que la différence d'âge.",
+          "e": "لا تفكر كتير بعمرك، لأن الجو العام أهم من فرق العمر."
+        },
+        {
+          "f": "🇫🇷 Ces moments permettent de renforcer les relations entre les collègues.\n\n🇸🇾 هاللحظات بتساعد على تقوية العلاقات بين الزملاء.\n\n🇺🇸 These moments help strengthen relationships between colleagues.",
+          "a": "Ces moments permettent de renforcer les relations entre les collègues.",
+          "e": "هاللحظات بتساعد على تقوية العلاقات بين الزملاء."
+        },
+        {
+          "f": "🇫🇷 Pour conclure, profite de cette soirée et essaie de passer un bon moment.\n\n🇸🇾 بالنهاية، استمتع بهالسهرة وحاول تقضي وقت حلو.\n\n🇺🇸 To conclude, enjoy the evening and try to have a good time.",
+          "a": "Pour conclure, profite de cette soirée et essaie de passer un bon moment.",
+          "e": "بالنهاية، استمتع بهالسهرة وحاول تقضي وقت حلو."
+        },
+        {
+          "f": "🇫🇷 Je suis sûr que cette expérience sera positive pour toi.\n\n🇸🇾 أنا متأكد إن هالتجربة رح تكون إيجابية بالنسبة إلك.\n\n🇺🇸 I'm sure this experience will be positive for you.",
+          "a": "Je suis sûr que cette expérience sera positive pour toi.",
+          "e": "أنا متأكد إن هالتجربة رح تكون إيجابية بالنسبة إلك."
+        },
+        {
+          "f": "🇫🇷 À bientôt et bon courage !\n\n🇸🇾 إلى اللقاء وبالتوفيق!\n\n🇺🇸 See you soon and good luck!",
+          "a": "À bientôt et bon courage !",
+          "e": "إلى اللقاء وبالتوفيق!"
+        },
+        {
+          "f": "Un repas",
+          "a": "وجبة طعام",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un collègue",
+          "a": "زميل عمل",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une invitation",
+          "a": "دعوة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une entreprise",
+          "a": "شركة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une équipe",
+          "a": "فريق",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une soirée",
+          "a": "سهرة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Faire connaissance",
+          "a": "يتعارف",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Participer",
+          "a": "يشارك",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une ambiance",
+          "a": "أجواء",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Renforcer les relations",
+          "a": "يقوي العلاقات",
+          "e": "",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l8",
+      "icon": "✉️",
+      "fr": "Lettre 8 — Le bruit au travail",
+      "ar": "رسالة 8 — الضجيج في العمل",
+      "consigne": {
+        "f": "",
+        "a": "صديقتك Isa تعاني من الضجيج في المكتب. أحد زملائها يتحدث بصوت مرتفع على الهاتف، كما تسمع أصوات السيارات من الخارج، وهذا يجعلها متوترة وغير قادرة على التركيز. عليك أن: تحكي لها عن تجربتك مع الضجيج في العمل. تعبّر عن رأيك. تقترح عليها حلولاً عملية. — 💡 نصيحة للامتحان احفظ هذه التراكيب الأربعة لأنها مفيدة في مواضيع المشكلات والحلول: Je te conseille de… Tu peux… Il est important de… Si la situation ne change pas…"
+      },
+      "phr": [
+        {
+          "f": "🇫🇷 Salut Isa, merci pour ton message.\n\n🇸🇾 مرحباً إيزا، شكراً على رسالتك.\n\n🇺🇸 Hi Isa, thanks for your message.",
+          "a": "Salut Isa, merci pour ton message.",
+          "e": "مرحباً إيزا، شكراً على رسالتك."
+        },
+        {
+          "f": "🇫🇷 Je comprends parfaitement ton problème.\n\n🇸🇾 بفهم مشكلتك تماماً.\n\n🇺🇸 I completely understand your problem.",
+          "a": "Je comprends parfaitement ton problème.",
+          "e": "بفهم مشكلتك تماماً."
+        },
+        {
+          "f": "🇫🇷 Le bruit au travail peut être très désagréable.\n\n🇸🇾 الضجيج في العمل ممكن يكون مزعج جداً.\n\n🇺🇸 Noise at work can be very unpleasant.",
+          "a": "Le bruit au travail peut être très désagréable.",
+          "e": "الضجيج في العمل ممكن يكون مزعج جداً."
+        },
+        {
+          "f": "🇫🇷 Il est parfois difficile de se concentrer dans un environnement bruyant.\n\n🇸🇾 أحياناً بيكون صعب نركز ببيئة مليانة ضجيج.\n\n🇺🇸 Sometimes it is difficult to concentrate in a noisy environment.",
+          "a": "Il est parfois difficile de se concentrer dans un environnement bruyant.",
+          "e": "أحياناً بيكون صعب نركز ببيئة مليانة ضجيج."
+        },
+        {
+          "f": "🇫🇷 Personnellement, j'ai déjà travaillé dans un endroit où il y avait beaucoup de bruit.\n\n🇸🇾 بالنسبة إلي، سبق واشتغلت بمكان كان فيه ضجيج كتير.\n\n🇺🇸 Personally, I have already worked somewhere that was very noisy.",
+          "a": "Personnellement, j'ai déjà travaillé dans un endroit où il y avait beaucoup de bruit.",
+          "e": "بالنسبة إلي، سبق واشتغلت بمكان كان فيه ضجيج كتير."
+        },
+        {
+          "f": "🇫🇷 Certains collègues parlaient fort pendant leur travail.\n\n🇸🇾 بعض الزملاء كانوا يحكوا بصوت عالي أثناء العمل.\n\n🇺🇸 Some colleagues spoke loudly while working.",
+          "a": "Certains collègues parlaient fort pendant leur travail.",
+          "e": "بعض الزملاء كانوا يحكوا بصوت عالي أثناء العمل."
+        },
+        {
+          "f": "🇫🇷 Cela me dérangeait et m'empêchait de bien travailler.\n\n🇸🇾 هالشي كان يزعجني ويمنعني من الشغل بشكل جيد.\n\n🇺🇸 It bothered me and prevented me from working properly.",
+          "a": "Cela me dérangeait et m'empêchait de bien travailler.",
+          "e": "هالشي كان يزعجني ويمنعني من الشغل بشكل جيد."
+        },
+        {
+          "f": "🇫🇷 J'avais souvent du mal à rester concentré.\n\n🇸🇾 غالباً كان عندي صعوبة بالحفاظ على تركيزي.\n\n🇺🇸 I often had difficulty staying focused.",
+          "a": "J'avais souvent du mal à rester concentré.",
+          "e": "غالباً كان عندي صعوبة بالحفاظ على تركيزي."
+        },
+        {
+          "f": "🇫🇷 À mon avis, il est important de respecter le calme au bureau.\n\n🇸🇾 برأيي، من المهم نحافظ على الهدوء بالمكتب.\n\n🇺🇸 In my opinion, it is important to respect quietness in the office.",
+          "a": "À mon avis, il est important de respecter le calme au bureau.",
+          "e": "برأيي، من المهم نحافظ على الهدوء بالمكتب."
+        },
+        {
+          "f": "🇫🇷 Je te conseille de parler calmement avec ton collègue.\n\n🇸🇾 بنصحك تحكي بهدوء مع زميلك.\n\n🇺🇸 I advise you to speak calmly with your colleague.",
+          "a": "Je te conseille de parler calmement avec ton collègue.",
+          "e": "بنصحك تحكي بهدوء مع زميلك."
+        },
+        {
+          "f": "🇫🇷 Explique-lui que le bruit t'empêche de te concentrer.\n\n🇸🇾 اشرحي له إن الضجيج بيمنعك من التركيز.\n\n🇺🇸 Explain to him that the noise prevents you from concentrating.",
+          "a": "Explique-lui que le bruit t'empêche de te concentrer.",
+          "e": "اشرحي له إن الضجيج بيمنعك من التركيز."
+        },
+        {
+          "f": "🇫🇷 Tu peux lui demander de parler moins fort au téléphone.\n\n🇸🇾 فيك تطلبي منه يحكي بصوت أخف على الهاتف.\n\n🇺🇸 You can ask him to speak more quietly on the phone.",
+          "a": "Tu peux lui demander de parler moins fort au téléphone.",
+          "e": "فيك تطلبي منه يحكي بصوت أخف على الهاتف."
+        },
+        {
+          "f": "🇫🇷 Si la situation ne change pas, tu peux en parler à ton responsable.\n\n🇸🇾 إذا ما تغير الوضع، فيك تحكي مع مسؤولك بالعمل.\n\n🇺🇸 If the situation doesn't change, you can talk to your manager.",
+          "a": "Si la situation ne change pas, tu peux en parler à ton responsable.",
+          "e": "إذا ما تغير الوضع، فيك تحكي مع مسؤولك بالعمل."
+        },
+        {
+          "f": "🇫🇷 Il serait également possible de changer de place dans le bureau.\n\n🇸🇾 كمان ممكن تغيّري مكان جلوسك بالمكتب.\n\n🇺🇸 It might also be possible to change your seat in the office.",
+          "a": "Il serait également possible de changer de place dans le bureau.",
+          "e": "كمان ممكن تغيّري مكان جلوسك بالمكتب."
+        },
+        {
+          "f": "🇫🇷 Tu peux utiliser des écouteurs pour réduire les bruits extérieurs, si cela est autorisé.\n\n🇸🇾 فيك تستخدمي سماعات لتخفيف الأصوات الخارجية، إذا كان هالشي مسموح.\n\n🇺🇸 You can use headphones to reduce outside noise, if this is allowed.",
+          "a": "Tu peux utiliser des écouteurs pour réduire les bruits extérieurs, si cela est autorisé.",
+          "e": "فيك تستخدمي سماعات لتخفيف الأصوات الخارجية، إذا كان هالشي مسموح."
+        },
+        {
+          "f": "🇫🇷 Il est important de trouver une solution qui convient à tout le monde.\n\n🇸🇾 من المهم نلاقي حلاً مناسباً للجميع.\n\n🇺🇸 It is important to find a solution that suits everyone.",
+          "a": "Il est important de trouver une solution qui convient à tout le monde.",
+          "e": "من المهم نلاقي حلاً مناسباً للجميع."
+        },
+        {
+          "f": "🇫🇷 Il faut éviter les conflits et essayer de communiquer avec respect.\n\n🇸🇾 لازم نتجنب الخلافات ونحاول نتواصل باحترام.\n\n🇺🇸 We should avoid conflicts and try to communicate respectfully.",
+          "a": "Il faut éviter les conflits et essayer de communiquer avec respect.",
+          "e": "لازم نتجنب الخلافات ونحاول نتواصل باحترام."
+        },
+        {
+          "f": "🇫🇷 Un environnement calme permet de travailler plus efficacement.\n\n🇸🇾 بيئة العمل الهادئة بتسمح لنا نشتغل بفعالية أكبر.\n\n🇺🇸 A quiet working environment allows us to work more efficiently.",
+          "a": "Un environnement calme permet de travailler plus efficacement.",
+          "e": "بيئة العمل الهادئة بتسمح لنا نشتغل بفعالية أكبر."
+        },
+        {
+          "f": "🇫🇷 Pour conclure, n'hésite pas à expliquer ton problème et à demander de l'aide.\n\n🇸🇾 بالنهاية، لا تترددي بشرح مشكلتك وطلب المساعدة.\n\n🇺🇸 To conclude, don't hesitate to explain your problem and ask for help.",
+          "a": "Pour conclure, n'hésite pas à expliquer ton problème et à demander de l'aide.",
+          "e": "بالنهاية، لا تترددي بشرح مشكلتك وطلب المساعدة."
+        },
+        {
+          "f": "🇫🇷 J'espère que tu trouveras rapidement une solution.\n\n🇸🇾 بتمنى تلاقي حلاً للمشكلة قريباً.\n\n🇺🇸 I hope you find a solution soon.",
+          "a": "J'espère que tu trouveras rapidement une solution.",
+          "e": "بتمنى تلاقي حلاً للمشكلة قريباً."
+        },
+        {
+          "f": "🇫🇷 Bon courage et à bientôt !\n\n🇸🇾 بالتوفيق وإلى اللقاء!\n\n🇺🇸 Good luck and see you soon!",
+          "a": "Bon courage et à bientôt !",
+          "e": "بالتوفيق وإلى اللقاء!"
+        },
+        {
+          "f": "Le bruit",
+          "a": "الضجيج",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Bruyant",
+          "a": "مزعج / كثير الضجيج",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Se concentrer",
+          "a": "يركز",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un collègue",
+          "a": "زميل",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Parler fort",
+          "a": "يتحدث بصوت مرتفع",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Le calme",
+          "a": "الهدوء",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Déranger",
+          "a": "يزعج",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un responsable",
+          "a": "مسؤول",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un environnement",
+          "a": "بيئة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Trouver une solution",
+          "a": "يجد حلاً",
+          "e": "",
+          "voc": 1
+        }
+      ],
+      "ids": []
     }
   ]
 };
