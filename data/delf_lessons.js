@@ -5796,6 +5796,1752 @@ window.DELF_LESSONS = {
         }
       ],
       "ids": []
+    },
+    {
+      "id": "b1-e17",
+      "icon": "🤖",
+      "fr": "Écrit 17 — La technologie et les nouvelles inventions",
+      "ar": "كتابة 17 — التكنولوجيا والاختراعات الحديثة",
+      "consigne": {
+        "f": "Vous participez à un forum sur les nouvelles technologies. Vous présentez les avantages et les inconvénients des nouvelles inventions dans la vie quotidienne et vous donnez votre opinion.",
+        "a": "أنت بتشارك بمنتدى عن التكنولوجيا الحديثة. اذكر إيجابيات وسلبيات الاختراعات الجديدة بالحياة اليومية، واعطِ رأيك."
+      },
+      "phr": [
+        {
+          "f": "Aujourd'hui, la technologie occupe une place de plus en plus importante dans notre société.",
+          "a": "اليوم، التكنولوجيا عم تاخد مكانة أكبر وأكبر بمجتمعنا.",
+          "e": "Today, technology is playing an increasingly important role in our society."
+        },
+        {
+          "f": "Les téléphones portables, les ordinateurs et les appareils intelligents font désormais partie de notre vie quotidienne.",
+          "a": "الموبايلات والحواسيب والأجهزة الذكية صارت جزء من حياتنا اليومية.",
+          "e": "Mobile phones, computers and smart devices have become part of our daily lives."
+        },
+        {
+          "f": "Grâce aux nouvelles technologies, nous pouvons communiquer rapidement avec des personnes qui habitent loin de chez nous.",
+          "a": "بفضل التكنولوجيا الحديثة، فينا نتواصل بسرعة مع أشخاص ساكنين بعيد عنا.",
+          "e": "Thanks to new technologies, we can communicate quickly with people who live far away."
+        },
+        {
+          "f": "Elles nous permettent également de travailler à distance, de suivre des formations et d'effectuer certaines démarches administratives en ligne.",
+          "a": "كمان بتسمحلنا نشتغل عن بُعد ونتابع دورات تدريبية وننجز بعض المعاملات الإدارية عبر الإنترنت.",
+          "e": "They also allow us to work remotely, take training courses and complete certain administrative procedures online."
+        },
+        {
+          "f": "Dans le domaine de la médecine, les nouvelles inventions permettent aux professionnels de mieux détecter certaines maladies et d'améliorer les traitements.",
+          "a": "بمجال الطب، الاختراعات الحديثة بتساعد المختصين على اكتشاف بعض الأمراض بشكل أفضل وتحسين العلاجات.",
+          "e": "In medicine, new inventions help professionals detect certain illnesses more effectively and improve treatments."
+        },
+        {
+          "f": "Dans les écoles, les outils numériques peuvent aussi faciliter l'apprentissage et rendre les cours plus intéressants.",
+          "a": "بالمدارس، الأدوات الرقمية ممكن كمان تسهّل التعلم وتخلي الدروس أكثر تشويقاً.",
+          "e": "In schools, digital tools can also make learning easier and lessons more interesting."
+        },
+        {
+          "f": "Cependant, le développement de la technologie présente aussi des inconvénients.",
+          "a": "لكن تطور التكنولوجيا إله كمان سلبيات.",
+          "e": "However, technological development also has disadvantages."
+        },
+        {
+          "f": "Certaines personnes deviennent dépendantes de leur téléphone et passent trop de temps devant les écrans.",
+          "a": "بعض الأشخاص بيصيروا مدمنين على موبايلاتهم وبيقضوا وقت طويل قدام الشاشات.",
+          "e": "Some people become dependent on their phones and spend too much time in front of screens."
+        },
+        {
+          "f": "Cela peut provoquer des problèmes de sommeil, réduire la concentration et diminuer les contacts humains.",
+          "a": "هالشي ممكن يسبب مشاكل بالنوم ويقلل التركيز والتواصل المباشر بين الناس.",
+          "e": "This can cause sleep problems, reduce concentration and decrease face-to-face contact."
+        },
+        {
+          "f": "Un autre problème concerne la protection des données personnelles et les risques liés aux arnaques sur Internet.",
+          "a": "في مشكلة تانية بتتعلق بحماية البيانات الشخصية ومخاطر عمليات الاحتيال على الإنترنت.",
+          "e": "Another problem concerns the protection of personal data and the risks of online scams."
+        },
+        {
+          "f": "Il faut donc apprendre à protéger ses informations et éviter de partager des données confidentielles avec des inconnus.",
+          "a": "لذلك لازم نتعلم نحمي معلوماتنا ونتجنب مشاركة البيانات السرية مع أشخاص ما منعرفهم.",
+          "e": "We must therefore learn to protect our information and avoid sharing confidential data with strangers."
+        },
+        {
+          "f": "À mon avis, nous ne devons pas refuser le progrès technologique, car il apporte de nombreuses solutions utiles.",
+          "a": "برأيي، ما لازم نرفض التطور التكنولوجي لأنه بيقدم حلول مفيدة كتيرة.",
+          "e": "In my opinion, we should not reject technological progress because it provides many useful solutions."
+        },
+        {
+          "f": "En revanche, il est essentiel d'utiliser ces outils avec modération et de ne pas oublier les activités dans la vie réelle.",
+          "a": "بالمقابل، من الضروري نستخدم هالأدوات باعتدال وما ننسى النشاطات بالحياة الواقعية.",
+          "e": "On the other hand, it is essential to use these tools in moderation and not forget real-life activities."
+        },
+        {
+          "f": "Pour conclure, la technologie peut améliorer notre qualité de vie si nous l'utilisons de manière intelligente et responsable.",
+          "a": "بالخلاصة، التكنولوجيا ممكن تحسّن جودة حياتنا إذا استخدمناها بذكاء ومسؤولية.",
+          "e": "To conclude, technology can improve our quality of life if we use it intelligently and responsibly.\n\nالنص الفرنسي يتجاوز 160 كلمة تقريباً، دون احتساب الترجمات.\n\nالموضوع 17"
+        },
+        {
+          "f": "La technologie",
+          "a": "التكنولوجيا",
+          "e": "Technology",
+          "voc": 1
+        },
+        {
+          "f": "Une invention",
+          "a": "اختراع",
+          "e": "An invention",
+          "voc": 1
+        },
+        {
+          "f": "Le progrès",
+          "a": "التقدم",
+          "e": "Progress",
+          "voc": 1
+        },
+        {
+          "f": "Un appareil intelligent",
+          "a": "جهاز ذكي",
+          "e": "Smart device",
+          "voc": 1
+        },
+        {
+          "f": "Le numérique",
+          "a": "المجال الرقمي",
+          "e": "Digital technology",
+          "voc": 1
+        },
+        {
+          "f": "Travailler à distance",
+          "a": "يعمل عن بُعد",
+          "e": "Work remotely",
+          "voc": 1
+        },
+        {
+          "f": "Les données personnelles",
+          "a": "البيانات الشخصية",
+          "e": "Personal data",
+          "voc": 1
+        },
+        {
+          "f": "Une arnaque",
+          "a": "عملية احتيال",
+          "e": "A scam",
+          "voc": 1
+        },
+        {
+          "f": "La dépendance",
+          "a": "الإدمان / الاعتماد",
+          "e": "Addiction / Dependence",
+          "voc": 1
+        },
+        {
+          "f": "Avec modération",
+          "a": "باعتدال",
+          "e": "In moderation",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e18",
+      "icon": "📖",
+      "fr": "Écrit 18 — L'éducation et l'importance de l'apprentissage",
+      "ar": "كتابة 18 — التعليم وأهمية التعلّم",
+      "consigne": {
+        "f": "Vous participez à un forum sur l'éducation. Vous expliquez pourquoi il est important d'étudier tout au long de la vie et vous donnez votre opinion sur les différentes méthodes d'apprentissage.",
+        "a": "أنت بتشارك بمنتدى عن التعليم. اشرح ليش من المهم الإنسان يضل يتعلم طول حياته، واعطِ رأيك بطرق التعلم المختلفة."
+      },
+      "phr": [
+        {
+          "f": "L'éducation joue un rôle essentiel dans la vie de chaque personne et dans le développement de la société.",
+          "a": "التعليم إله دور أساسي بحياة كل إنسان وبتطور المجتمع.",
+          "e": "Education plays an essential role in every person's life and in the development of society."
+        },
+        {
+          "f": "Grâce aux études, les enfants et les adultes peuvent acquérir des connaissances et développer leurs compétences.",
+          "a": "بفضل الدراسة، الأطفال والكبار فيهم يكتسبوا معلومات ويطوّروا مهاراتهم.",
+          "e": "Through education, children and adults can gain knowledge and develop their skills."
+        },
+        {
+          "f": "L'école permet aux jeunes d'apprendre à lire, à écrire, à compter et à réfléchir de manière indépendante.",
+          "a": "المدرسة بتسمح للشباب يتعلموا القراءة والكتابة والحساب والتفكير بشكل مستقل.",
+          "e": "School allows young people to learn to read, write, count and think independently."
+        },
+        {
+          "f": "Elle les prépare également à leur future vie professionnelle et les aide à mieux comprendre le monde qui les entoure.",
+          "a": "وكمان بتحضّرهم لحياتهم المهنية بالمستقبل وبتساعدهم يفهموا العالم اللي حواليهم بشكل أفضل.",
+          "e": "It also prepares them for their future working lives and helps them better understand the world around them."
+        },
+        {
+          "f": "Cependant, l'apprentissage ne doit pas s'arrêter à la fin des études scolaires.",
+          "a": "لكن التعلّم ما لازم يوقف بعد انتهاء الدراسة المدرسية.",
+          "e": "However, learning should not stop when school education ends."
+        },
+        {
+          "f": "Aujourd'hui, le monde du travail évolue rapidement et de nombreux métiers demandent de nouvelles compétences.",
+          "a": "اليوم، عالم العمل عم يتغير بسرعة، ومهن كتيرة صارت تتطلب مهارات جديدة.",
+          "e": "Today, the world of work is changing quickly, and many jobs require new skills."
+        },
+        {
+          "f": "C'est pourquoi les adultes doivent parfois suivre des formations pour améliorer leurs connaissances ou trouver un meilleur emploi.",
+          "a": "ولهيك الكبار أحياناً لازم يتابعوا دورات تدريبية حتى يطوّروا معلوماتهم أو يلاقوا وظيفة أفضل.",
+          "e": "That is why adults sometimes need to take training courses to improve their knowledge or find a better job."
+        },
+        {
+          "f": "Il existe plusieurs méthodes pour apprendre, comme les cours en classe, les formations à distance et les vidéos éducatives.",
+          "a": "في عدة طرق للتعلم، مثل الدروس بالصف والدورات عن بُعد والفيديوهات التعليمية.",
+          "e": "There are several ways to learn, such as classroom lessons, distance learning and educational videos."
+        },
+        {
+          "f": "Les cours en classe permettent aux élèves de poser des questions directement et de communiquer avec leurs enseignants.",
+          "a": "الدروس بالصف بتسمح للطلاب يطرحوا أسئلتهم مباشرة ويتواصلوا مع أساتذتهم.",
+          "e": "Classroom lessons allow students to ask questions directly and communicate with their teachers."
+        },
+        {
+          "f": "En revanche, les formations en ligne offrent plus de liberté, car chacun peut étudier à son propre rythme.",
+          "a": "بالمقابل، الدورات عبر الإنترنت بتوفر حرية أكبر، لأن كل شخص فيه يدرس حسب سرعته ووقته.",
+          "e": "On the other hand, online courses offer more freedom because everyone can study at their own pace."
+        },
+        {
+          "f": "À mon avis, il est important de choisir une méthode adaptée à ses besoins, à son niveau et à ses disponibilités.",
+          "a": "برأيي، من المهم نختار طريقة مناسبة لاحتياجاتنا ومستوانا والوقت المتاح إلنا.",
+          "e": "In my opinion, it is important to choose a method suited to our needs, level and availability."
+        },
+        {
+          "f": "Je pense également qu'il faut être motivé, organiser son temps et pratiquer régulièrement pour progresser.",
+          "a": "وبعتقد كمان إنه لازم يكون عندنا حافز وننظم وقتنا ونتدرب باستمرار حتى نتقدم.",
+          "e": "I also think we need to stay motivated, organize our time and practise regularly to make progress."
+        },
+        {
+          "f": "Même quelques minutes d'apprentissage chaque jour peuvent nous aider à améliorer nos connaissances.",
+          "a": "حتى لو خصصنا بضع دقائق للتعلم كل يوم، ممكن هالشي يساعدنا نحسّن معلوماتنا.",
+          "e": "Even a few minutes of learning every day can help us improve our knowledge."
+        },
+        {
+          "f": "Pour conclure, apprendre tout au long de la vie est une excellente manière de progresser, de gagner en confiance et de saisir de nouvelles opportunités.",
+          "a": "بالخلاصة، الاستمرار بالتعلم طول الحياة طريقة ممتازة حتى نتطور ونزيد ثقتنا بنفسنا ونستفيد من فرص جديدة.",
+          "e": "To conclude, lifelong learning is an excellent way to progress, gain confidence and take advantage of new opportunities.\n\nالنص الفرنسي يتجاوز 160 كلمة تقريباً، دون احتساب الترجمات.\n\nالموضوع 18"
+        },
+        {
+          "f": "L'éducation",
+          "a": "التعليم",
+          "e": "Education",
+          "voc": 1
+        },
+        {
+          "f": "L'apprentissage",
+          "a": "التعلّم",
+          "e": "Learning",
+          "voc": 1
+        },
+        {
+          "f": "Acquérir des connaissances",
+          "a": "يكتسب المعرفة",
+          "e": "Gain knowledge",
+          "voc": 1
+        },
+        {
+          "f": "Les compétences",
+          "a": "المهارات",
+          "e": "Skills",
+          "voc": 1
+        },
+        {
+          "f": "Une formation",
+          "a": "دورة تدريبية",
+          "e": "Training course",
+          "voc": 1
+        },
+        {
+          "f": "La formation à distance",
+          "a": "التعليم عن بُعد",
+          "e": "Distance learning",
+          "voc": 1
+        },
+        {
+          "f": "Le rythme",
+          "a": "الوتيرة",
+          "e": "Pace",
+          "voc": 1
+        },
+        {
+          "f": "Être motivé",
+          "a": "يكون عنده حافز",
+          "e": "Be motivated",
+          "voc": 1
+        },
+        {
+          "f": "Progresser",
+          "a": "يتقدم",
+          "e": "To make progress",
+          "voc": 1
+        },
+        {
+          "f": "Tout au long de la vie",
+          "a": "طوال الحياة",
+          "e": "Throughout life",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e19",
+      "icon": "⚖️",
+      "fr": "Écrit 19 — L'égalité entre les femmes et les hommes",
+      "ar": "كتابة 19 — المساواة بين المرأة والرجل",
+      "consigne": {
+        "f": "Vous participez à un forum sur l'égalité entre les femmes et les hommes. Vous expliquez pourquoi cette égalité est importante et proposez des solutions pour améliorer la situation dans la société.",
+        "a": "أنت بتشارك بمنتدى عن المساواة بين المرأة والرجل. اشرح ليش هالمساواة مهمة، واقترح حلول لتحسين الوضع بالمجتمع."
+      },
+      "phr": [
+        {
+          "f": "L'égalité entre les femmes et les hommes est un sujet important dans notre société actuelle.",
+          "a": "المساواة بين المرأة والرجل موضوع مهم بمجتمعنا اليوم.",
+          "e": "Equality between women and men is an important issue in our society today."
+        },
+        {
+          "f": "Chaque personne devrait avoir les mêmes droits et les mêmes chances, quel que soit son sexe.",
+          "a": "لازم كل إنسان يكون عنده نفس الحقوق ونفس الفرص، بغض النظر عن جنسه.",
+          "e": "Everyone should have the same rights and opportunities, regardless of gender."
+        },
+        {
+          "f": "Dans le domaine de l'éducation, les filles et les garçons doivent pouvoir accéder aux mêmes possibilités d'apprentissage.",
+          "a": "بمجال التعليم، لازم البنات والشباب تكون عندهم نفس فرص التعلم.",
+          "e": "In education, girls and boys should have access to the same learning opportunities."
+        },
+        {
+          "f": "À l'école, chacun doit être encouragé à choisir les études qui correspondent à ses intérêts et à ses capacités.",
+          "a": "بالمدرسة، لازم نشجع كل شخص يختار الدراسة اللي بتناسب اهتماماته وقدراته.",
+          "e": "At school, everyone should be encouraged to choose studies that match their interests and abilities."
+        },
+        {
+          "f": "Dans le monde du travail, les femmes et les hommes devraient recevoir un salaire égal pour un travail de même valeur.",
+          "a": "بعالم العمل، لازم المرأة والرجل يحصلوا على أجر متساوي مقابل عمل بنفس القيمة.",
+          "e": "In the workplace, women and men should receive equal pay for work of equal value."
+        },
+        {
+          "f": "Pourtant, certaines femmes rencontrent encore des difficultés pour accéder à des postes à responsabilités.",
+          "a": "ومع هيك، بعض النساء لسا بيواجهوا صعوبات للوصول لمناصب فيها مسؤوليات كبيرة.",
+          "e": "Yet some women still face difficulties accessing positions of responsibility."
+        },
+        {
+          "f": "Elles peuvent également subir des discriminations ou des différences de salaire dans certaines entreprises.",
+          "a": "وممكن كمان يتعرضوا للتمييز أو لاختلاف الرواتب ببعض الشركات.",
+          "e": "They may also experience discrimination or pay differences in some companies."
+        },
+        {
+          "f": "Il est donc nécessaire de lutter contre les préjugés et de respecter les compétences de chaque personne.",
+          "a": "لذلك من الضروري نحارب الأحكام المسبقة ونحترم مهارات كل شخص.",
+          "e": "It is therefore necessary to fight prejudice and respect everyone's abilities."
+        },
+        {
+          "f": "La répartition des tâches à la maison est également un élément important de cette égalité.",
+          "a": "توزيع المسؤوليات بالبيت كمان عنصر مهم من عناصر المساواة.",
+          "e": "Sharing household responsibilities is also an important part of equality."
+        },
+        {
+          "f": "Les tâches ménagères et l'éducation des enfants ne devraient pas être uniquement la responsabilité des femmes.",
+          "a": "شغل البيت وتربية الأطفال ما لازم يكونوا مسؤولية المرأة وحدها.",
+          "e": "Housework and raising children should not be the responsibility of women alone."
+        },
+        {
+          "f": "Les hommes et les femmes peuvent partager ces responsabilités selon leur situation et leur disponibilité.",
+          "a": "الرجال والنساء فيهم يتقاسموا هالمسؤوليات حسب ظروفهم والوقت المتاح عندهم.",
+          "e": "Men and women can share these responsibilities according to their circumstances and availability."
+        },
+        {
+          "f": "À mon avis, l'éducation joue un rôle essentiel pour faire évoluer les mentalités dès l'enfance.",
+          "a": "برأيي، التعليم إله دور أساسي بتغيير طريقة التفكير من مرحلة الطفولة.",
+          "e": "In my opinion, education plays an essential role in changing attitudes from childhood."
+        },
+        {
+          "f": "Les écoles, les familles et les entreprises doivent encourager le respect, la coopération et l'égalité des chances.",
+          "a": "لازم المدارس والعائلات والشركات تشجع الاحترام والتعاون وتكافؤ الفرص.",
+          "e": "Schools, families and companies should encourage respect, cooperation and equal opportunities."
+        },
+        {
+          "f": "Pour conclure, une société plus juste est une société dans laquelle chaque personne peut réaliser ses projets sans être victime de discrimination.",
+          "a": "بالخلاصة، المجتمع الأكثر عدلاً هو المجتمع اللي بيقدر فيه كل إنسان يحقق طموحاته بدون ما يتعرض للتمييز.",
+          "e": "To conclude, a fairer society is one in which everyone can achieve their goals without experiencing discrimination.\n\nالنص الفرنسي يتجاوز الحد الأدنى المطلوب في DELF B1، وهو 160 كلمة تقريباً، دون احتساب الترجمات.\n\nالموضوع 19"
+        },
+        {
+          "f": "L'égalité",
+          "a": "المساواة",
+          "e": "Equality",
+          "voc": 1
+        },
+        {
+          "f": "Les droits",
+          "a": "الحقوق",
+          "e": "Rights",
+          "voc": 1
+        },
+        {
+          "f": "Les mêmes chances",
+          "a": "نفس الفرص",
+          "e": "Equal opportunities",
+          "voc": 1
+        },
+        {
+          "f": "Le salaire",
+          "a": "الراتب",
+          "e": "Salary",
+          "voc": 1
+        },
+        {
+          "f": "Les responsabilités",
+          "a": "المسؤوليات",
+          "e": "Responsibilities",
+          "voc": 1
+        },
+        {
+          "f": "La discrimination",
+          "a": "التمييز",
+          "e": "Discrimination",
+          "voc": 1
+        },
+        {
+          "f": "Les préjugés",
+          "a": "الأحكام المسبقة",
+          "e": "Prejudice",
+          "voc": 1
+        },
+        {
+          "f": "Les tâches ménagères",
+          "a": "الأعمال المنزلية",
+          "e": "Housework",
+          "voc": 1
+        },
+        {
+          "f": "La coopération",
+          "a": "التعاون",
+          "e": "Cooperation",
+          "voc": 1
+        },
+        {
+          "f": "Une société juste",
+          "a": "مجتمع عادل",
+          "e": "A fair society",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e20",
+      "icon": "🤲",
+      "fr": "Écrit 20 — La solidarité et le bénévolat",
+      "ar": "كتابة 20 — التضامن والعمل التطوعي",
+      "consigne": {
+        "f": "Vous participez à un forum sur la solidarité. Vous expliquez pourquoi il est important d'aider les personnes en difficulté et vous présentez les avantages du bénévolat.",
+        "a": "أنت بتشارك بمنتدى عن التضامن. اشرح ليش من المهم نساعد الأشخاص اللي بيمرّوا بظروف صعبة، واحكي عن فوائد العمل التطوعي."
+      },
+      "phr": [
+        {
+          "f": "La solidarité est une valeur essentielle qui permet aux personnes de vivre ensemble dans une société plus humaine.",
+          "a": "التضامن قيمة أساسية بتساعد الناس يعيشوا مع بعض بمجتمع أكثر إنسانية.",
+          "e": "Solidarity is an essential value that allows people to live together in a more humane society."
+        },
+        {
+          "f": "Dans notre vie quotidienne, certaines personnes rencontrent des difficultés financières, familiales ou professionnelles.",
+          "a": "بحياتنا اليومية، في أشخاص بيواجهوا صعوبات مادية أو عائلية أو مهنية.",
+          "e": "In our daily lives, some people face financial, family or professional difficulties."
+        },
+        {
+          "f": "Il peut s'agir de personnes âgées, de familles pauvres, de personnes sans logement ou de personnes isolées.",
+          "a": "ممكن يكونوا أشخاص كبار بالعمر، أو عائلات فقيرة، أو أشخاص بلا سكن، أو أشخاص عايشين بوحدة.",
+          "e": "They may be elderly people, poor families, homeless people or people who are isolated."
+        },
+        {
+          "f": "À mon avis, nous ne devons pas rester indifférents face à leurs problèmes.",
+          "a": "برأيي، ما لازم نضل غير مبالين بمشاكلهم.",
+          "e": "In my opinion, we should not remain indifferent to their problems."
+        },
+        {
+          "f": "Même un petit geste peut améliorer la journée d'une personne et lui donner de l'espoir.",
+          "a": "حتى التصرف البسيط ممكن يحسّن يوم شخص ويعطيه أمل.",
+          "e": "Even a small gesture can improve someone's day and give them hope."
+        },
+        {
+          "f": "Par exemple, nous pouvons donner des vêtements, préparer des repas ou aider une personne âgée à faire ses courses.",
+          "a": "مثلاً، فينا نتبرع بالملابس أو نحضّر وجبات طعام أو نساعد شخص كبير بالعمر بالتسوق.",
+          "e": "For example, we can donate clothes, prepare meals or help an elderly person with shopping."
+        },
+        {
+          "f": "Le bénévolat est une excellente manière de participer à la vie de la communauté sans attendre de salaire en échange.",
+          "a": "العمل التطوعي طريقة ممتازة للمشاركة بحياة المجتمع بدون ما ننتظر راتب مقابل هالعمل.",
+          "e": "Volunteering is an excellent way to take part in community life without expecting a salary in return."
+        },
+        {
+          "f": "Les bénévoles peuvent travailler dans des associations, des centres sociaux ou des organisations humanitaires.",
+          "a": "المتطوعين فيهم يشتغلوا بجمعيات أو مراكز اجتماعية أو منظمات إنسانية.",
+          "e": "Volunteers can work in associations, community centers or humanitarian organizations."
+        },
+        {
+          "f": "Ils peuvent distribuer de la nourriture, accompagner des personnes malades ou organiser des activités pour les enfants.",
+          "a": "فيهم يوزعوا الطعام أو يرافقوا أشخاص مرضى أو ينظموا نشاطات للأطفال.",
+          "e": "They can distribute food, support sick people or organize activities for children."
+        },
+        {
+          "f": "Le bénévolat présente également des avantages pour les personnes qui choisissent de s'engager.",
+          "a": "العمل التطوعي إله فوائد كمان للأشخاص اللي بيقرروا يشاركوا فيه.",
+          "e": "Volunteering also has benefits for people who choose to get involved."
+        },
+        {
+          "f": "Il permet de rencontrer de nouvelles personnes, de développer ses compétences et d'acquérir de l'expérience.",
+          "a": "بيسمح للشخص يتعرف على ناس جدد ويطوّر مهاراته ويكتسب خبرة.",
+          "e": "It allows people to meet new people, develop their skills and gain experience."
+        },
+        {
+          "f": "Il peut aussi aider les personnes étrangères à pratiquer la langue du pays et à mieux s'intégrer dans la société.",
+          "a": "وممكن كمان يساعد الأشخاص الأجانب على ممارسة لغة البلد والاندماج بشكل أفضل بالمجتمع.",
+          "e": "It can also help foreigners practise the country's language and integrate better into society."
+        },
+        {
+          "f": "Cependant, il est important de bien organiser les activités bénévoles afin de respecter les besoins des personnes aidées.",
+          "a": "لكن من المهم تنظيم النشاطات التطوعية بشكل جيد حتى نحترم احتياجات الأشخاص اللي عم نساعدهم.",
+          "e": "However, it is important to organize volunteer activities properly in order to respect the needs of the people being helped."
+        },
+        {
+          "f": "Pour conclure, je pense que chacun peut contribuer à une société plus solidaire, même avec peu de temps et de moyens.",
+          "a": "بالخلاصة، بعتقد إن كل شخص فيه يساهم ببناء مجتمع أكثر تضامناً، حتى لو كان عنده وقت وإمكانيات محدودة.",
+          "e": "To conclude, I believe everyone can contribute to a more supportive society, even with little time and limited resources.\n\nالنص الفرنسي يتجاوز 160 كلمة تقريباً، دون احتساب الترجمات.\n\nالموضوع 20"
+        },
+        {
+          "f": "La solidarité",
+          "a": "التضامن",
+          "e": "Solidarity",
+          "voc": 1
+        },
+        {
+          "f": "Le bénévolat",
+          "a": "العمل التطوعي",
+          "e": "Volunteering",
+          "voc": 1
+        },
+        {
+          "f": "Un bénévole",
+          "a": "متطوع",
+          "e": "A volunteer",
+          "voc": 1
+        },
+        {
+          "f": "Une association",
+          "a": "جمعية",
+          "e": "Association",
+          "voc": 1
+        },
+        {
+          "f": "Une personne en difficulté",
+          "a": "شخص يمر بظروف صعبة",
+          "e": "A person in difficulty",
+          "voc": 1
+        },
+        {
+          "f": "Faire un don",
+          "a": "يتبرع",
+          "e": "To make a donation",
+          "voc": 1
+        },
+        {
+          "f": "Aider les autres",
+          "a": "يساعد الآخرين",
+          "e": "Help others",
+          "voc": 1
+        },
+        {
+          "f": "S'engager",
+          "a": "يلتزم / يشارك",
+          "e": "To get involved",
+          "voc": 1
+        },
+        {
+          "f": "Acquérir de l'expérience",
+          "a": "يكتسب خبرة",
+          "e": "Gain experience",
+          "voc": 1
+        },
+        {
+          "f": "La communauté",
+          "a": "المجتمع المحلي",
+          "e": "Community",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e21",
+      "icon": "🔐",
+      "fr": "Écrit 21 — La sécurité et la vie en société",
+      "ar": "كتابة 21 — الأمن والحياة في المجتمع",
+      "consigne": {
+        "f": "Vous participez à un forum sur la sécurité dans les villes. Vous expliquez pourquoi la sécurité est importante et proposez des solutions pour améliorer la vie dans les quartiers.",
+        "a": "أنت بتشارك بمنتدى عن الأمن بالمدن. اشرح ليش الأمن مهم، واقترح حلول لتحسين الحياة بالأحياء السكنية."
+      },
+      "phr": [
+        {
+          "f": "La sécurité est un élément essentiel pour vivre tranquillement dans une ville ou dans un quartier.",
+          "a": "الأمن عنصر أساسي حتى نعيش براحة واطمئنان بمدينة أو بحي سكني.",
+          "e": "Safety is essential for living peacefully in a city or neighborhood."
+        },
+        {
+          "f": "Chaque personne souhaite pouvoir sortir de chez elle, se promener et utiliser les transports publics sans avoir peur.",
+          "a": "كل شخص بيتمنى يقدر يطلع من بيته ويتمشى ويستخدم المواصلات العامة بدون خوف.",
+          "e": "Everyone wants to be able to leave home, go for a walk and use public transport without fear."
+        },
+        {
+          "f": "Pourtant, dans certains quartiers, les habitants rencontrent des problèmes comme les vols, les dégradations et les comportements dangereux.",
+          "a": "لكن ببعض الأحياء، السكان بيواجهوا مشاكل مثل السرقة والتخريب والتصرفات الخطيرة.",
+          "e": "However, in some neighborhoods, residents face problems such as theft, vandalism and dangerous behavior."
+        },
+        {
+          "f": "Ces situations peuvent créer un sentiment d'insécurité et empêcher les habitants de profiter de leur quartier.",
+          "a": "هالمواقف ممكن تخلق شعور بعدم الأمان وتمنع السكان من الاستمتاع بحيّهم.",
+          "e": "These situations can create a feeling of insecurity and prevent residents from enjoying their neighborhood."
+        },
+        {
+          "f": "À mon avis, il est important que les autorités prennent des mesures pour améliorer la sécurité.",
+          "a": "برأيي، من المهم إن الجهات المسؤولة تتخذ إجراءات لتحسين الأمن.",
+          "e": "In my opinion, it is important for the authorities to take measures to improve safety."
+        },
+        {
+          "f": "Tout d'abord, il faudrait améliorer l'éclairage des rues, des parkings et des espaces publics.",
+          "a": "أول شي، لازم نحسّن الإنارة بالشوارع ومواقف السيارات والأماكن العامة.",
+          "e": "First, street lighting, parking areas and public spaces should be improved."
+        },
+        {
+          "f": "Un bon éclairage permet aux habitants de se déplacer plus facilement le soir et peut réduire certains risques.",
+          "a": "الإنارة الجيدة بتساعد السكان يتنقلوا بسهولة أكبر بالليل وممكن تقلل بعض المخاطر.",
+          "e": "Good lighting allows residents to move around more easily at night and can reduce certain risks."
+        },
+        {
+          "f": "Il serait également utile de renforcer la présence des agents de sécurité dans les endroits où les problèmes sont fréquents.",
+          "a": "ومن المفيد كمان تعزيز وجود عناصر الأمن بالأماكن اللي بتتكرر فيها المشاكل.",
+          "e": "It would also be useful to increase the presence of security officers in places where problems occur frequently."
+        },
+        {
+          "f": "Cependant, la sécurité ne dépend pas uniquement de la police ou des autorités locales.",
+          "a": "لكن الأمن ما بيعتمد بس على الشرطة أو السلطات المحلية.",
+          "e": "However, safety does not depend only on the police or local authorities."
+        },
+        {
+          "f": "Les habitants ont aussi une responsabilité et doivent respecter les règles de la vie en communauté.",
+          "a": "السكان كمان عندهم مسؤولية، ولازم يحترموا قواعد العيش المشترك.",
+          "e": "Residents also have a responsibility and must respect the rules of community life."
+        },
+        {
+          "f": "Par exemple, il faut éviter de faire du bruit pendant la nuit, de jeter des déchets dans la rue ou de dégrader les équipements publics.",
+          "a": "مثلاً، لازم نتجنب إزعاج الناس بالليل، ورمي النفايات بالشارع، وتخريب الممتلكات العامة.",
+          "e": "For example, we should avoid making noise at night, throwing rubbish in the street or damaging public facilities."
+        },
+        {
+          "f": "Il est également important de dialoguer avec ses voisins et de signaler les situations dangereuses aux services concernés.",
+          "a": "ومن المهم كمان نحكي مع جيراننا ونبلّغ الجهات المختصة عن المواقف الخطيرة.",
+          "e": "It is also important to communicate with neighbors and report dangerous situations to the relevant services."
+        },
+        {
+          "f": "Les associations locales peuvent organiser des activités pour rapprocher les habitants et renforcer les relations entre eux.",
+          "a": "الجمعيات المحلية فيا تنظم نشاطات لتقريب السكان من بعض وتقوية العلاقات بينهم.",
+          "e": "Local associations can organize activities to bring residents closer together and strengthen their relationships."
+        },
+        {
+          "f": "Pour conclure, une ville agréable est une ville où les habitants se sentent en sécurité, se respectent et participent à la vie collective.",
+          "a": "بالخلاصة، المدينة المريحة هي المدينة اللي بيحس فيها السكان بالأمان، وبيحترموا بعض، وبيشاركوا بالحياة الجماعية.",
+          "e": "To conclude, a pleasant city is one where residents feel safe, respect one another and participate in community life.\n\nالنص الفرنسي يتجاوز الحد الأدنى المطلوب في DELF B1، وهو 160 كلمة تقريباً، دون احتساب الترجمات.\n\nالموضوع 21"
+        },
+        {
+          "f": "La sécurité",
+          "a": "الأمن",
+          "e": "Safety",
+          "voc": 1
+        },
+        {
+          "f": "Le sentiment d'insécurité",
+          "a": "الشعور بعدم الأمان",
+          "e": "Feeling of insecurity",
+          "voc": 1
+        },
+        {
+          "f": "Un quartier",
+          "a": "حي سكني",
+          "e": "Neighborhood",
+          "voc": 1
+        },
+        {
+          "f": "Les autorités",
+          "a": "السلطات",
+          "e": "Authorities",
+          "voc": 1
+        },
+        {
+          "f": "Le vol",
+          "a": "السرقة",
+          "e": "Theft",
+          "voc": 1
+        },
+        {
+          "f": "Les dégradations",
+          "a": "التخريب",
+          "e": "Vandalism",
+          "voc": 1
+        },
+        {
+          "f": "L'éclairage public",
+          "a": "الإنارة العامة",
+          "e": "Street lighting",
+          "voc": 1
+        },
+        {
+          "f": "Les espaces publics",
+          "a": "الأماكن العامة",
+          "e": "Public spaces",
+          "voc": 1
+        },
+        {
+          "f": "Les règles de vie",
+          "a": "قواعد الحياة",
+          "e": "Rules of living",
+          "voc": 1
+        },
+        {
+          "f": "La vie en communauté",
+          "a": "العيش المشترك",
+          "e": "Community life",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e22",
+      "icon": "🏡",
+      "fr": "Écrit 22 — Le travail à distance et le télétravail",
+      "ar": "كتابة 22 — العمل عن بُعد والعمل من المنزل",
+      "consigne": {
+        "f": "Vous participez à un forum sur le télétravail. Vous présentez ses avantages et ses inconvénients et expliquez si vous préférez travailler à distance ou dans une entreprise.",
+        "a": "أنت بتشارك بمنتدى عن العمل عن بُعد. اذكر إيجابياته وسلبياته، واشرح إذا كنت بتفضّل تشتغل من البيت أو داخل الشركة."
+      },
+      "phr": [
+        {
+          "f": "Depuis quelques années, le télétravail se développe de plus en plus dans de nombreuses entreprises.",
+          "a": "من كم سنة، العمل عن بُعد عم ينتشر بشكل أكبر بشركات كتيرة.",
+          "e": "In recent years, remote working has become increasingly common in many companies."
+        },
+        {
+          "f": "Grâce aux nouvelles technologies, certains employés peuvent effectuer leurs tâches professionnelles depuis leur domicile.",
+          "a": "بفضل التكنولوجيا الحديثة، بعض الموظفين فيهم ينجزوا مهامهم المهنية من البيت.",
+          "e": "Thanks to new technologies, some employees can carry out their professional tasks from home."
+        },
+        {
+          "f": "Cette organisation présente plusieurs avantages, aussi bien pour les salariés que pour les employeurs.",
+          "a": "هالطريقة إلها عدة إيجابيات، سواء للموظفين أو لأصحاب العمل.",
+          "e": "This arrangement has several advantages for both employees and employers."
+        },
+        {
+          "f": "Tout d'abord, les personnes qui travaillent à distance peuvent économiser du temps en évitant les déplacements quotidiens.",
+          "a": "أول شي، الأشخاص اللي بيشتغلوا عن بُعد فيهم يوفروا وقت لأنهم ما بيضطروا يتنقلوا كل يوم.",
+          "e": "First, people who work remotely can save time by avoiding daily commutes."
+        },
+        {
+          "f": "Elles dépensent également moins d'argent pour le carburant, les transports publics ou les repas à l'extérieur.",
+          "a": "وكمان بيصرفوا مصاري أقل على الوقود والمواصلات العامة والوجبات برا البيت.",
+          "e": "They also spend less money on fuel, public transport or meals outside the home."
+        },
+        {
+          "f": "Un autre avantage est que les salariés peuvent parfois mieux organiser leur journée et passer davantage de temps avec leur famille.",
+          "a": "ومن الإيجابيات كمان إن الموظفين أحياناً بيقدروا ينظموا يومهم بشكل أفضل ويقضوا وقت أكتر مع عيلتهم.",
+          "e": "Another advantage is that employees can sometimes organize their day better and spend more time with their family."
+        },
+        {
+          "f": "Cependant, le télétravail présente aussi des inconvénients qu'il faut prendre en considération.",
+          "a": "لكن العمل عن بُعد إله كمان سلبيات لازم ناخدها بعين الاعتبار.",
+          "e": "However, remote working also has disadvantages that must be taken into consideration."
+        },
+        {
+          "f": "Certaines personnes peuvent se sentir seules parce qu'elles ne rencontrent pas régulièrement leurs collègues.",
+          "a": "بعض الأشخاص ممكن يحسوا بالوحدة لأنهم ما بيلتقوا بزملائهم بشكل منتظم.",
+          "e": "Some people may feel lonely because they do not meet their colleagues regularly."
+        },
+        {
+          "f": "Il peut également être difficile de séparer la vie professionnelle de la vie personnelle lorsqu'on travaille à la maison.",
+          "a": "وممكن كمان يكون صعب نفصل بين الحياة المهنية والشخصية لما نشتغل بالبيت.",
+          "e": "It can also be difficult to separate professional life from personal life when working from home."
+        },
+        {
+          "f": "Par exemple, les enfants, les tâches ménagères ou les bruits peuvent parfois empêcher de se concentrer.",
+          "a": "مثلاً، الأطفال أو أعمال المنزل أو الضجيج ممكن أحياناً يمنعوا الشخص من التركيز.",
+          "e": "For example, children, household chores or noise can sometimes make it difficult to concentrate."
+        },
+        {
+          "f": "De plus, tous les métiers ne permettent pas de travailler à distance, notamment les emplois dans les usines, les magasins et les restaurants.",
+          "a": "بالإضافة لذلك، مو كل المهن بتسمح بالعمل عن بُعد، وخاصة الوظائف بالمصانع والمحلات والمطاعم.",
+          "e": "Moreover, not all jobs can be done remotely, especially jobs in factories, shops and restaurants."
+        },
+        {
+          "f": "À mon avis, le télétravail est une bonne solution pour les métiers qui peuvent être exercés depuis un ordinateur.",
+          "a": "برأيي، العمل عن بُعد حل جيد للمهن اللي ممكن تنعمل باستخدام الكمبيوتر.",
+          "e": "In my opinion, remote working is a good solution for jobs that can be done using a computer."
+        },
+        {
+          "f": "Toutefois, je pense qu'il est préférable de garder un contact régulier avec ses collègues et de respecter des horaires précis.",
+          "a": "ومع هيك، بعتقد إنه الأفضل نحافظ على التواصل المنتظم مع الزملاء ونلتزم بمواعيد عمل محددة.",
+          "e": "However, I think it is better to maintain regular contact with colleagues and follow fixed working hours."
+        },
+        {
+          "f": "Pour conclure, le télétravail offre plus de flexibilité, mais il doit être bien organisé pour être efficace.",
+          "a": "بالخلاصة، العمل عن بُعد بيعطي مرونة أكبر، لكن لازم يكون منظم بشكل جيد حتى يكون فعّال.",
+          "e": "To conclude, remote working offers greater flexibility, but it must be well organized to be effective.\n\nالنص الفرنسي يتجاوز الحد الأدنى المطلوب في DELF B1، وهو 160 كلمة تقريباً، دون احتساب الترجمات.\n\nالموضوع 22"
+        },
+        {
+          "f": "Le télétravail",
+          "a": "العمل عن بُعد",
+          "e": "Remote working",
+          "voc": 1
+        },
+        {
+          "f": "Le domicile",
+          "a": "المنزل",
+          "e": "Home",
+          "voc": 1
+        },
+        {
+          "f": "Un salarié",
+          "a": "موظف",
+          "e": "Employee",
+          "voc": 1
+        },
+        {
+          "f": "Un employeur",
+          "a": "صاحب العمل",
+          "e": "Employer",
+          "voc": 1
+        },
+        {
+          "f": "Les déplacements",
+          "a": "التنقلات",
+          "e": "Commuting",
+          "voc": 1
+        },
+        {
+          "f": "Économiser du temps",
+          "a": "يوفر الوقت",
+          "e": "Save time",
+          "voc": 1
+        },
+        {
+          "f": "La vie professionnelle",
+          "a": "الحياة المهنية",
+          "e": "Professional life",
+          "voc": 1
+        },
+        {
+          "f": "La vie personnelle",
+          "a": "الحياة الشخصية",
+          "e": "Personal life",
+          "voc": 1
+        },
+        {
+          "f": "Un collègue",
+          "a": "زميل عمل",
+          "e": "Colleague",
+          "voc": 1
+        },
+        {
+          "f": "La flexibilité",
+          "a": "المرونة",
+          "e": "Flexibility",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e23",
+      "icon": "📉",
+      "fr": "Écrit 23 — Le chômage et les difficultés à trouver un emploi",
+      "ar": "كتابة 23 — البطالة وصعوبات إيجاد العمل",
+      "consigne": {
+        "f": "Vous participez à un forum sur le chômage. Vous expliquez pourquoi il est parfois difficile de trouver un emploi et vous proposez des solutions pour aider les personnes sans travail.",
+        "a": "أنت بتشارك بمنتدى عن البطالة. اشرح ليش أحياناً بيكون صعب نلاقي شغل، واقترح حلول لمساعدة الأشخاص العاطلين عن العمل."
+      },
+      "phr": [
+        {
+          "f": "Aujourd'hui, le chômage est un problème important dans de nombreux pays, notamment chez les jeunes et les personnes sans expérience professionnelle.",
+          "a": "اليوم، البطالة مشكلة مهمة ببلدان كتيرة، وخاصة عند الشباب والأشخاص اللي ما عندهم خبرة مهنية.",
+          "e": "Today, unemployment is an important problem in many countries, especially among young people and those without work experience."
+        },
+        {
+          "f": "Trouver un emploi peut être difficile, même pour les personnes qui ont étudié et obtenu un diplôme.",
+          "a": "إيجاد شغل ممكن يكون صعب، حتى للأشخاص اللي درسوا وحصلوا على شهادة.",
+          "e": "Finding a job can be difficult, even for people who have studied and obtained a diploma."
+        },
+        {
+          "f": "La première difficulté est le manque d'offres d'emploi dans certains secteurs professionnels.",
+          "a": "أول صعوبة هي قلة فرص العمل ببعض المجالات المهنية.",
+          "e": "The first difficulty is the lack of job offers in certain professional sectors."
+        },
+        {
+          "f": "De nombreuses entreprises demandent plusieurs années d'expérience, ce qui représente un obstacle pour les débutants.",
+          "a": "شركات كتيرة بتطلب عدة سنوات من الخبرة، وهالشي بيشكل عائق للأشخاص المبتدئين.",
+          "e": "Many companies require several years of experience, which is an obstacle for beginners."
+        },
+        {
+          "f": "De plus, certaines personnes ne possèdent pas les qualifications ou les compétences recherchées par les employeurs.",
+          "a": "بالإضافة لذلك، بعض الأشخاص ما عندهم المؤهلات أو المهارات اللي أصحاب العمل عم يدوروا عليها.",
+          "e": "Moreover, some people do not have the qualifications or skills that employers are looking for."
+        },
+        {
+          "f": "Pour les étrangers, la maîtrise de la langue du pays peut également rendre la recherche d'emploi plus compliquée.",
+          "a": "بالنسبة للأجانب، إتقان لغة البلد ممكن كمان يخلي البحث عن عمل أصعب.",
+          "e": "For foreigners, mastering the country's language can also make job hunting more difficult."
+        },
+        {
+          "f": "Le chômage a des conséquences négatives sur la vie quotidienne, car les personnes sans emploi peuvent rencontrer des difficultés financières.",
+          "a": "البطالة إلها نتائج سلبية على الحياة اليومية، لأن الأشخاص اللي ما عندهم شغل ممكن يواجهوا صعوبات مادية.",
+          "e": "Unemployment has negative consequences on daily life because people without jobs may face financial difficulties."
+        },
+        {
+          "f": "Cette situation peut aussi provoquer du stress, une perte de confiance en soi et parfois un sentiment d'isolement.",
+          "a": "هالوضع ممكن يسبب التوتر وفقدان الثقة بالنفس، وأحياناً الشعور بالعزلة.",
+          "e": "This situation can also cause stress, a loss of self-confidence and sometimes a feeling of isolation."
+        },
+        {
+          "f": "À mon avis, il est essentiel d'aider les personnes au chômage à retrouver une activité professionnelle.",
+          "a": "برأيي، من الضروري نساعد الأشخاص العاطلين عن العمل حتى يرجعوا يلاقوا فرصة مهنية.",
+          "e": "In my opinion, it is essential to help unemployed people find work again."
+        },
+        {
+          "f": "Tout d'abord, les organismes spécialisés peuvent proposer des formations adaptées aux besoins du marché du travail.",
+          "a": "أول شي، الجهات المختصة فيهم يقدموا دورات تدريبية مناسبة لاحتياجات سوق العمل.",
+          "e": "First, specialized organizations can offer training suited to the needs of the job market."
+        },
+        {
+          "f": "Ces formations permettent d'acquérir de nouvelles compétences et d'améliorer les chances de trouver un emploi.",
+          "a": "هالدورات بتساعد الشخص يكتسب مهارات جديدة ويحسّن فرصه بالحصول على عمل.",
+          "e": "These courses help people acquire new skills and improve their chances of finding a job."
+        },
+        {
+          "f": "Les entreprises devraient également donner davantage de possibilités aux débutants, notamment grâce aux stages et aux contrats d'apprentissage.",
+          "a": "كمان لازم الشركات تعطي فرص أكتر للمبتدئين، وخاصة من خلال التدريب العملي وعقود التعلّم المهني.",
+          "e": "Companies should also offer more opportunities to beginners, particularly through internships and apprenticeship contracts."
+        },
+        {
+          "f": "Il est également important de préparer un bon CV, de rédiger une lettre de motivation et de s'entraîner aux entretiens d'embauche.",
+          "a": "ومن المهم كمان تحضير سيرة ذاتية جيدة، وكتابة رسالة تحفيزية، والتدرب على مقابلات العمل.",
+          "e": "It is also important to prepare a good CV, write a cover letter and practise job interviews."
+        },
+        {
+          "f": "Les personnes qui cherchent un emploi doivent rester motivées, consulter régulièrement les offres et ne pas abandonner après quelques refus.",
+          "a": "الأشخاص اللي عم يدوروا على شغل لازم يحافظوا على حماسهم، ويتابعوا عروض العمل بانتظام، وما يستسلموا بعد كم رفض.",
+          "e": "People looking for work should stay motivated, check job offers regularly and not give up after a few rejections."
+        },
+        {
+          "f": "Pour conclure, le chômage est une difficulté sérieuse, mais la formation, l'accompagnement et l'expérience peuvent aider chacun à construire son avenir professionnel.",
+          "a": "بالخلاصة، البطالة صعوبة جدية، لكن التدريب والمرافقة واكتساب الخبرة ممكن يساعدوا كل شخص يبني مستقبله المهني.",
+          "e": "To conclude, unemployment is a serious difficulty, but training, support and experience can help everyone build their professional future.\n\nعدد كلمات النص الفرنسي: أكثر من 200 كلمة، دون احتساب الترجمات.\n\nالموضوع 23"
+        },
+        {
+          "f": "Le chômage",
+          "a": "البطالة",
+          "e": "Unemployment",
+          "voc": 1
+        },
+        {
+          "f": "Un demandeur d'emploi",
+          "a": "باحث عن عمل",
+          "e": "Job seeker",
+          "voc": 1
+        },
+        {
+          "f": "Une offre d'emploi",
+          "a": "عرض عمل",
+          "e": "Job offer",
+          "voc": 1
+        },
+        {
+          "f": "L'expérience professionnelle",
+          "a": "الخبرة المهنية",
+          "e": "Work experience",
+          "voc": 1
+        },
+        {
+          "f": "Les qualifications",
+          "a": "المؤهلات",
+          "e": "Qualifications",
+          "voc": 1
+        },
+        {
+          "f": "Le marché du travail",
+          "a": "سوق العمل",
+          "e": "Job market",
+          "voc": 1
+        },
+        {
+          "f": "Une formation",
+          "a": "دورة تدريبية",
+          "e": "Training",
+          "voc": 1
+        },
+        {
+          "f": "Un entretien d'embauche",
+          "a": "مقابلة عمل",
+          "e": "Job interview",
+          "voc": 1
+        },
+        {
+          "f": "Une lettre de motivation",
+          "a": "رسالة تحفيزية",
+          "e": "Cover letter",
+          "voc": 1
+        },
+        {
+          "f": "Un refus",
+          "a": "رفض",
+          "e": "Rejection",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e24",
+      "icon": "📋",
+      "fr": "Écrit 24 — Les droits et les devoirs des salariés",
+      "ar": "كتابة 24 — حقوق وواجبات الموظفين",
+      "consigne": {
+        "f": "Vous participez à un forum sur la vie professionnelle. Vous expliquez quels sont les droits et les devoirs des salariés et pourquoi il est important de les respecter.",
+        "a": "أنت بتشارك بمنتدى عن الحياة المهنية. اشرح شو هي حقوق وواجبات الموظفين، وليش من المهم احترامها."
+      },
+      "phr": [
+        {
+          "f": "Dans le monde du travail, chaque salarié possède des droits, mais il doit également respecter certaines obligations.",
+          "a": "بعالم العمل، كل موظف عنده حقوق، لكن لازم كمان يلتزم ببعض الواجبات.",
+          "e": "In the world of work, every employee has rights, but must also respect certain obligations."
+        },
+        {
+          "f": "Ces règles permettent d'assurer de bonnes conditions de travail et de maintenir de bonnes relations entre les employés et les employeurs.",
+          "a": "هالقواعد بتساعد على تأمين ظروف عمل جيدة والحفاظ على علاقات منيحة بين الموظفين وأصحاب العمل.",
+          "e": "These rules help ensure good working conditions and maintain good relationships between employees and employers."
+        },
+        {
+          "f": "Tout d'abord, les salariés ont le droit de recevoir un salaire en échange de leur travail.",
+          "a": "أول شي، الموظفين من حقهم يحصلوا على راتب مقابل شغلهم.",
+          "e": "First, employees have the right to receive a salary in exchange for their work."
+        },
+        {
+          "f": "Ils ont également droit à des congés payés, à des pauses et à des périodes de repos conformément à la loi.",
+          "a": "ومن حقهم كمان يحصلوا على إجازات مدفوعة واستراحات وفترات راحة حسب القانون.",
+          "e": "They are also entitled to paid leave, breaks and rest periods in accordance with the law."
+        },
+        {
+          "f": "Un autre droit important concerne la sécurité et la santé sur le lieu de travail.",
+          "a": "ومن الحقوق المهمة كمان السلامة والصحة بمكان العمل.",
+          "e": "Another important right concerns safety and health in the workplace."
+        },
+        {
+          "f": "L'employeur doit fournir les équipements nécessaires et prendre des mesures pour éviter les accidents professionnels.",
+          "a": "صاحب العمل لازم يوفر المعدات الضرورية ويتخذ إجراءات لتجنب حوادث العمل.",
+          "e": "The employer must provide the necessary equipment and take measures to prevent workplace accidents."
+        },
+        {
+          "f": "Les salariés doivent aussi être traités avec respect, sans discrimination ni harcèlement.",
+          "a": "ولازم كمان يتم التعامل مع الموظفين باحترام، بدون تمييز أو مضايقات.",
+          "e": "Employees must also be treated with respect, without discrimination or harassment."
+        },
+        {
+          "f": "Cependant, les employés ont plusieurs devoirs qu'ils doivent respecter pendant leurs heures de travail.",
+          "a": "لكن الموظفين عليهم كمان عدة واجبات لازم يلتزموا فيها خلال ساعات العمل.",
+          "e": "However, employees also have several duties that they must respect during working hours."
+        },
+        {
+          "f": "Ils doivent arriver à l'heure, respecter les horaires et prévenir leur responsable en cas de retard ou d'absence.",
+          "a": "لازم يوصلوا بالوقت، ويلتزموا بمواعيد الدوام، ويخبروا المسؤول إذا تأخروا أو غابوا.",
+          "e": "They must arrive on time, respect working hours and inform their manager in case of lateness or absence."
+        },
+        {
+          "f": "Ils doivent également effectuer leurs tâches sérieusement et respecter les consignes de sécurité données par l'entreprise.",
+          "a": "ولازم كمان ينجزوا مهامهم بجدية ويلتزموا بتعليمات السلامة اللي بتعطيها الشركة.",
+          "e": "They must also perform their tasks seriously and follow the safety instructions given by the company."
+        },
+        {
+          "f": "Le respect des collègues est également essentiel pour créer une bonne ambiance au travail.",
+          "a": "احترام الزملاء كمان ضروري لخلق جو عمل جيد.",
+          "e": "Respecting colleagues is also essential to creating a good atmosphere at work."
+        },
+        {
+          "f": "À mon avis, un salarié doit connaître ses droits afin de pouvoir se défendre en cas de problème.",
+          "a": "برأيي، لازم الموظف يعرف حقوقه حتى يقدر يدافع عن نفسه إذا واجه مشكلة.",
+          "e": "In my opinion, an employee must know their rights so they can defend themselves if a problem arises."
+        },
+        {
+          "f": "En même temps, il doit prendre ses responsabilités et respecter les règles de son entreprise.",
+          "a": "وبنفس الوقت، لازم يتحمل مسؤولياته ويلتزم بقواعد الشركة اللي بيشتغل فيها.",
+          "e": "At the same time, they must take responsibility and respect the rules of their company."
+        },
+        {
+          "f": "Si les droits et les devoirs sont respectés des deux côtés, les conflits peuvent être évités plus facilement.",
+          "a": "إذا الطرفين احترموا الحقوق والواجبات، ممكن نتجنب الخلافات بشكل أسهل.",
+          "e": "If both sides respect rights and duties, conflicts can be avoided more easily."
+        },
+        {
+          "f": "Pour conclure, je pense qu'un environnement professionnel juste et respectueux dépend de la coopération entre les salariés et les employeurs.",
+          "a": "بالخلاصة، بعتقد إن بيئة العمل العادلة والمحترمة بتعتمد على التعاون بين الموظفين وأصحاب العمل.",
+          "e": "To conclude, I believe that a fair and respectful working environment depends on cooperation between employees and employers.\n\nعدد كلمات النص الفرنسي: أكثر من 200 كلمة، دون احتساب الترجمات.\n\nالموضوع 24"
+        },
+        {
+          "f": "Un salarié",
+          "a": "موظف",
+          "e": "Employee",
+          "voc": 1
+        },
+        {
+          "f": "Un employeur",
+          "a": "صاحب العمل",
+          "e": "Employer",
+          "voc": 1
+        },
+        {
+          "f": "Un salaire",
+          "a": "راتب",
+          "e": "Salary",
+          "voc": 1
+        },
+        {
+          "f": "Les congés payés",
+          "a": "إجازات مدفوعة",
+          "e": "Paid leave",
+          "voc": 1
+        },
+        {
+          "f": "Une pause",
+          "a": "استراحة",
+          "e": "Break",
+          "voc": 1
+        },
+        {
+          "f": "Les conditions de travail",
+          "a": "ظروف العمل",
+          "e": "Working conditions",
+          "voc": 1
+        },
+        {
+          "f": "La sécurité",
+          "a": "السلامة",
+          "e": "Safety",
+          "voc": 1
+        },
+        {
+          "f": "Une obligation",
+          "a": "واجب",
+          "e": "Obligation",
+          "voc": 1
+        },
+        {
+          "f": "Le responsable",
+          "a": "المسؤول",
+          "e": "Manager",
+          "voc": 1
+        },
+        {
+          "f": "Le harcèlement",
+          "a": "المضايقة",
+          "e": "Harassment",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e25",
+      "icon": "🚫",
+      "fr": "Écrit 25 — La discrimination au travail",
+      "ar": "كتابة 25 — التمييز في العمل",
+      "consigne": {
+        "f": "Vous écrivez un message sur un forum pour parler de la discrimination au travail. Expliquez ses conséquences et proposez des solutions pour lutter contre ce problème.",
+        "a": "اكتب مشاركة بمنتدى لتحكي عن التمييز في العمل. اشرح نتائجه واقترح حلول لمواجهة هالمشكلة."
+      },
+      "phr": [
+        {
+          "f": "La discrimination au travail est un problème sérieux qui existe encore dans de nombreuses entreprises.",
+          "a": "التمييز بالعمل مشكلة جدية ولسه موجودة بشركات كتيرة.",
+          "e": "Discrimination at work is a serious problem that still exists in many companies."
+        },
+        {
+          "f": "Elle peut toucher différentes personnes, quels que soient leur âge, leur origine, leur situation familiale ou leur handicap.",
+          "a": "ممكن يتعرض إلها أشخاص مختلفين، مهما كان عمرهم أو أصلهم أو وضعهم العائلي أو إعاقتهم.",
+          "e": "It can affect different people, regardless of their age, origin, family situation or disability."
+        },
+        {
+          "f": "Par exemple, certains candidats peuvent être refusés simplement à cause de leur nom, de leur accent ou de leur nationalité.",
+          "a": "مثلاً، ممكن يتم رفض بعض المتقدمين لمجرد اسمهم أو لهجتهم أو جنسيتهم.",
+          "e": "For example, some applicants may be rejected simply because of their name, accent or nationality."
+        },
+        {
+          "f": "D'autres salariés peuvent recevoir un salaire moins élevé ou avoir moins de possibilités de promotion sans raison professionnelle valable.",
+          "a": "وموظفين تانيين ممكن يحصلوا على راتب أقل أو فرص ترقية أقل بدون سبب مهني مقبول.",
+          "e": "Other employees may receive a lower salary or have fewer promotion opportunities without a valid professional reason."
+        },
+        {
+          "f": "Cette situation est injuste, car chaque personne doit être évaluée selon ses compétences, son expérience et la qualité de son travail.",
+          "a": "هالوضع غير عادل، لأن كل شخص لازم يتم تقييمه حسب مهاراته وخبرته وجودة شغله.",
+          "e": "This situation is unfair because everyone should be evaluated according to their skills, experience and quality of work."
+        },
+        {
+          "f": "La discrimination peut avoir des conséquences négatives sur la vie professionnelle et personnelle des victimes.",
+          "a": "التمييز ممكن يكون إله نتائج سلبية على الحياة المهنية والشخصية للأشخاص المتضررين.",
+          "e": "Discrimination can have negative consequences on the professional and personal lives of victims."
+        },
+        {
+          "f": "Les personnes concernées peuvent perdre confiance en elles et avoir peur de chercher un nouvel emploi.",
+          "a": "الأشخاص المتضررين ممكن يفقدوا ثقتهم بنفسهم ويصير عندهم خوف من البحث عن شغل جديد.",
+          "e": "Those affected may lose confidence in themselves and become afraid of looking for a new job."
+        },
+        {
+          "f": "Elles peuvent également ressentir du stress, de la tristesse et un sentiment d'exclusion.",
+          "a": "وممكن كمان يشعروا بالتوتر والحزن والإقصاء.",
+          "e": "They may also experience stress, sadness and a feeling of exclusion."
+        },
+        {
+          "f": "À mon avis, toutes les entreprises doivent garantir les mêmes chances à chaque candidat et à chaque salarié.",
+          "a": "برأيي، لازم كل الشركات تضمن نفس الفرص لكل شخص بيتقدم لوظيفة ولكل موظف.",
+          "e": "In my opinion, all companies must guarantee equal opportunities to every applicant and employee."
+        },
+        {
+          "f": "Tout d'abord, il est important de sensibiliser les responsables et les employés au respect des différences.",
+          "a": "أول شي، من المهم توعية المسؤولين والموظفين بضرورة احترام الاختلافات.",
+          "e": "First, it is important to raise awareness among managers and employees about respecting differences."
+        },
+        {
+          "f": "Les entreprises devraient organiser des formations pour expliquer les règles contre la discrimination et encourager l'égalité.",
+          "a": "لازم الشركات تنظم دورات توضح القواعد اللي بتمنع التمييز وتشجع المساواة.",
+          "e": "Companies should organize training sessions to explain anti-discrimination rules and encourage equality."
+        },
+        {
+          "f": "Il faut également mettre en place un système permettant aux victimes de signaler les comportements injustes sans avoir peur des représailles.",
+          "a": "ولازم كمان يكون في نظام بيسمح للمتضررين بالإبلاغ عن التصرفات الظالمة بدون ما يخافوا من الانتقام.",
+          "e": "A system must also be established to allow victims to report unfair behavior without fear of retaliation."
+        },
+        {
+          "f": "Les responsables doivent prendre chaque plainte au sérieux et chercher des solutions rapidement.",
+          "a": "لازم المسؤولين ياخدوا كل شكوى بجدية ويدوروا على حلول بسرعة.",
+          "e": "Managers must take every complaint seriously and look for solutions quickly."
+        },
+        {
+          "f": "Enfin, les recrutements et les promotions doivent être basés sur des critères objectifs et professionnels.",
+          "a": "وأخيراً، لازم التوظيف والترقيات يعتمدوا على معايير موضوعية ومهنية.",
+          "e": "Finally, recruitment and promotions must be based on objective and professional criteria."
+        },
+        {
+          "f": "Pour conclure, chacun mérite d'être respecté au travail, et la diversité doit être considérée comme une richesse pour la société.",
+          "a": "بالخلاصة، كل شخص بيستحق الاحترام بالعمل، ولازم نعتبر التنوع مصدر غنى للمجتمع.",
+          "e": "To conclude, everyone deserves respect at work, and diversity should be considered an asset to society.\n\nعدد كلمات النص الفرنسي: أكثر من 200 كلمة، دون احتساب الترجمات.\n\nالموضوع 25"
+        },
+        {
+          "f": "La discrimination",
+          "a": "التمييز",
+          "e": "Discrimination",
+          "voc": 1
+        },
+        {
+          "f": "L'égalité",
+          "a": "المساواة",
+          "e": "Equality",
+          "voc": 1
+        },
+        {
+          "f": "L'origine",
+          "a": "الأصل",
+          "e": "Origin",
+          "voc": 1
+        },
+        {
+          "f": "Le handicap",
+          "a": "الإعاقة",
+          "e": "Disability",
+          "voc": 1
+        },
+        {
+          "f": "Les compétences",
+          "a": "المهارات",
+          "e": "Skills",
+          "voc": 1
+        },
+        {
+          "f": "Une promotion",
+          "a": "ترقية",
+          "e": "Promotion",
+          "voc": 1
+        },
+        {
+          "f": "Une victime",
+          "a": "ضحية",
+          "e": "Victim",
+          "voc": 1
+        },
+        {
+          "f": "L'exclusion",
+          "a": "الإقصاء",
+          "e": "Exclusion",
+          "voc": 1
+        },
+        {
+          "f": "Une plainte",
+          "a": "شكوى",
+          "e": "Complaint",
+          "voc": 1
+        },
+        {
+          "f": "Les représailles",
+          "a": "الانتقام",
+          "e": "Retaliation",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e26",
+      "icon": "🗣️",
+      "fr": "Écrit 26 — L'apprentissage des langues étrangères",
+      "ar": "كتابة 26 — تعلّم اللغات الأجنبية",
+      "consigne": {
+        "f": "Vous participez à un forum sur l'apprentissage des langues étrangères. Expliquez pourquoi il est important d'apprendre une autre langue et présentez les méthodes qui peuvent aider à progresser.",
+        "a": "أنت بتشارك بمنتدى عن تعلّم اللغات الأجنبية. اشرح ليش تعلّم لغة تانية مهم، واذكر الطرق اللي ممكن تساعد على التطور."
+      },
+      "phr": [
+        {
+          "f": "Aujourd'hui, apprendre une langue étrangère est devenu très important dans notre société.",
+          "a": "اليوم، تعلّم لغة أجنبية صار مهم جداً بمجتمعنا.",
+          "e": "Today, learning a foreign language has become very important in our society."
+        },
+        {
+          "f": "Grâce aux langues, nous pouvons communiquer avec des personnes de différents pays et découvrir de nouvelles cultures.",
+          "a": "بفضل اللغات، فينا نتواصل مع أشخاص من بلدان مختلفة ونتعرف على ثقافات جديدة.",
+          "e": "Thanks to languages, we can communicate with people from different countries and discover new cultures."
+        },
+        {
+          "f": "La connaissance d'une langue étrangère peut également faciliter la recherche d'un emploi et offrir de meilleures possibilités professionnelles.",
+          "a": "معرفة لغة أجنبية ممكن كمان تسهّل البحث عن عمل وتوفر فرص مهنية أفضل.",
+          "e": "Knowing a foreign language can also make it easier to find a job and offer better career opportunities."
+        },
+        {
+          "f": "Par exemple, en France, parler français est essentiel pour effectuer des démarches administratives, trouver un logement et s'intégrer dans la société.",
+          "a": "مثلاً، بفرنسا، التحدث بالفرنسي ضروري لإنجاز المعاملات الإدارية وإيجاد سكن والاندماج بالمجتمع.",
+          "e": "For example, in France, speaking French is essential for administrative procedures, finding accommodation and integrating into society."
+        },
+        {
+          "f": "Cependant, apprendre une nouvelle langue demande du temps, de la patience et beaucoup de pratique.",
+          "a": "لكن تعلّم لغة جديدة بده وقت وصبر وممارسة كتيرة.",
+          "e": "However, learning a new language requires time, patience and a lot of practice."
+        },
+        {
+          "f": "Certaines personnes ont des difficultés à mémoriser le vocabulaire, à comprendre les conversations ou à prononcer correctement les mots.",
+          "a": "بعض الأشخاص بيلاقوا صعوبة بحفظ المفردات وفهم المحادثات أو لفظ الكلمات بشكل صحيح.",
+          "e": "Some people find it difficult to memorize vocabulary, understand conversations or pronounce words correctly."
+        },
+        {
+          "f": "À mon avis, la meilleure méthode consiste à apprendre un peu chaque jour plutôt que d'étudier plusieurs heures une seule fois par semaine.",
+          "a": "برأيي، أفضل طريقة هي نتعلم شوي كل يوم بدل ما ندرس ساعات طويلة مرة وحدة بالأسبوع.",
+          "e": "In my opinion, the best method is to learn a little every day rather than studying for several hours only once a week."
+        },
+        {
+          "f": "Il est utile de lire des textes simples, d'écouter des podcasts et de regarder des vidéos dans la langue que l'on souhaite apprendre.",
+          "a": "من المفيد نقرأ نصوص بسيطة ونسمع بودكاست ونحضر فيديوهات باللغة اللي بدنا نتعلمها.",
+          "e": "It is useful to read simple texts, listen to podcasts and watch videos in the language we want to learn."
+        },
+        {
+          "f": "Il faut également apprendre les expressions courantes, car elles sont souvent utilisées dans les conversations de la vie quotidienne.",
+          "a": "ولازم كمان نتعلم العبارات الشائعة لأنها بتنستخدم كتير بالمحادثات اليومية.",
+          "e": "We should also learn common expressions because they are often used in everyday conversations."
+        },
+        {
+          "f": "Une autre solution consiste à parler régulièrement avec des personnes qui maîtrisent déjà cette langue.",
+          "a": "وفي طريقة تانية، وهي نحكي بانتظام مع أشخاص بيتقنوا هاللغة.",
+          "e": "Another solution is to speak regularly with people who already know the language well."
+        },
+        {
+          "f": "Même si nous faisons des erreurs, il ne faut pas avoir honte, car les erreurs font partie du processus d'apprentissage.",
+          "a": "حتى لو ارتكبنا أخطاء، ما لازم نخجل، لأن الأخطاء جزء من عملية التعلّم.",
+          "e": "Even if we make mistakes, we should not feel ashamed because mistakes are part of the learning process."
+        },
+        {
+          "f": "Les applications mobiles peuvent aussi être utiles pour réviser le vocabulaire, travailler la grammaire et améliorer la prononciation.",
+          "a": "تطبيقات الموبايل ممكن كمان تكون مفيدة لمراجعة المفردات ودراسة القواعد وتحسين اللفظ.",
+          "e": "Mobile applications can also be useful for reviewing vocabulary, studying grammar and improving pronunciation."
+        },
+        {
+          "f": "Il est préférable de fixer des objectifs réalistes, par exemple apprendre dix nouveaux mots par jour ou pratiquer la conversation pendant quinze minutes.",
+          "a": "الأفضل نحط أهداف واقعية، مثلاً نتعلم عشر كلمات جديدة باليوم أو نتدرب على المحادثة لمدة ربع ساعة.",
+          "e": "It is better to set realistic goals, such as learning ten new words a day or practising conversation for fifteen minutes."
+        },
+        {
+          "f": "Pour rester motivé, il faut constater ses progrès et ne pas se comparer constamment aux autres.",
+          "a": "حتى نحافظ على حماسنا، لازم نلاحظ تطورنا وما نقارن حالنا بالآخرين طول الوقت.",
+          "e": "To stay motivated, we should notice our progress and avoid constantly comparing ourselves with others."
+        },
+        {
+          "f": "Pour conclure, apprendre une langue étrangère ouvre de nombreuses portes, mais la réussite dépend surtout de la régularité et de la motivation.",
+          "a": "بالخلاصة، تعلّم لغة أجنبية بيفتح أبواب كتيرة، لكن النجاح بيعتمد بشكل أساسي على الاستمرار والحماس.",
+          "e": "To conclude, learning a foreign language opens many doors, but success mainly depends on consistency and motivation.\n\nعدد كلمات النص الفرنسي: أكثر من 200 كلمة، دون احتساب الترجمات.\n\nالموضوع 26"
+        },
+        {
+          "f": "Une langue étrangère",
+          "a": "لغة أجنبية",
+          "e": "Foreign language",
+          "voc": 1
+        },
+        {
+          "f": "Apprendre",
+          "a": "يتعلّم",
+          "e": "To learn",
+          "voc": 1
+        },
+        {
+          "f": "Communiquer",
+          "a": "يتواصل",
+          "e": "To communicate",
+          "voc": 1
+        },
+        {
+          "f": "Le vocabulaire",
+          "a": "المفردات",
+          "e": "Vocabulary",
+          "voc": 1
+        },
+        {
+          "f": "La prononciation",
+          "a": "اللفظ",
+          "e": "Pronunciation",
+          "voc": 1
+        },
+        {
+          "f": "La grammaire",
+          "a": "القواعد",
+          "e": "Grammar",
+          "voc": 1
+        },
+        {
+          "f": "La conversation",
+          "a": "المحادثة",
+          "e": "Conversation",
+          "voc": 1
+        },
+        {
+          "f": "Faire des erreurs",
+          "a": "يرتكب أخطاء",
+          "e": "To make mistakes",
+          "voc": 1
+        },
+        {
+          "f": "Les progrès",
+          "a": "التقدّم",
+          "e": "Progress",
+          "voc": 1
+        },
+        {
+          "f": "La motivation",
+          "a": "الحافز",
+          "e": "Motivation",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e27",
+      "icon": "📝",
+      "fr": "Écrit 27 — Les examens et le stress scolaire",
+      "ar": "كتابة 27 — الامتحانات والتوتر الدراسي",
+      "consigne": {
+        "f": "Vous participez à un forum destiné aux étudiants. Vous expliquez pourquoi les examens provoquent du stress et vous donnez des conseils pour mieux se préparer.",
+        "a": "أنت بتشارك بمنتدى مخصص للطلاب. اشرح ليش الامتحانات بتسبب التوتر، وقدّم نصائح للتحضير إلها بشكل أفضل."
+      },
+      "phr": [
+        {
+          "f": "Les examens occupent une place importante dans la vie des élèves et des étudiants.",
+          "a": "الامتحانات إلها مكانة مهمة بحياة التلاميذ والطلاب.",
+          "e": "Exams play an important role in the lives of pupils and students."
+        },
+        {
+          "f": "Ils permettent d'évaluer les connaissances et de vérifier si les étudiants ont bien compris les cours.",
+          "a": "هي بتسمح بتقييم المعلومات والتأكد إذا الطلاب فهموا الدروس بشكل جيد.",
+          "e": "They make it possible to assess knowledge and check whether students have understood their lessons."
+        },
+        {
+          "f": "Cependant, beaucoup de personnes ressentent du stress avant et pendant les examens, surtout lorsqu'elles ont peur d'échouer.",
+          "a": "لكن أشخاص كتير بيحسوا بالتوتر قبل الامتحانات وخلالها، وخاصة لما بيخافوا من الرسوب.",
+          "e": "However, many people feel stressed before and during exams, especially when they are afraid of failing."
+        },
+        {
+          "f": "Cette pression peut être liée aux attentes des parents, au manque de préparation ou à la peur de ne pas obtenir de bons résultats.",
+          "a": "هالضغط ممكن يكون بسبب توقعات الأهل أو قلة التحضير أو الخوف من عدم الحصول على نتائج جيدة.",
+          "e": "This pressure may be related to parents' expectations, lack of preparation or fear of not getting good results."
+        },
+        {
+          "f": "Le stress peut avoir des effets négatifs sur la concentration, le sommeil et la confiance en soi.",
+          "a": "التوتر ممكن يكون إله تأثيرات سلبية على التركيز والنوم والثقة بالنفس.",
+          "e": "Stress can have negative effects on concentration, sleep and self-confidence."
+        },
+        {
+          "f": "Certains étudiants ont même des difficultés à se souvenir des informations qu'ils ont apprises pendant les révisions.",
+          "a": "بعض الطلاب حتى بيلاقوا صعوبة بتذكّر المعلومات اللي درسوها خلال المراجعة.",
+          "e": "Some students even have difficulty remembering information they learned while revising."
+        },
+        {
+          "f": "À mon avis, une bonne organisation est la première étape pour réduire le stress avant un examen.",
+          "a": "برأيي، التنظيم الجيد هو أول خطوة لتخفيف التوتر قبل الامتحان.",
+          "e": "In my opinion, good organization is the first step towards reducing stress before an exam."
+        },
+        {
+          "f": "Il est préférable de préparer un programme de révision plusieurs semaines à l'avance et de répartir les matières sur plusieurs jours.",
+          "a": "الأفضل نجهّز برنامج مراجعة قبل الامتحان بعدة أسابيع ونوزع المواد على عدة أيام.",
+          "e": "It is better to prepare a revision schedule several weeks in advance and spread the subjects over several days."
+        },
+        {
+          "f": "Il ne faut pas attendre la dernière nuit pour étudier toutes les leçons, car cela augmente la fatigue et l'inquiétude.",
+          "a": "ما لازم ننتظر لآخر ليلة لندرس كل الدروس، لأن هالشي بيزيد التعب والقلق.",
+          "e": "We should not wait until the last night to study all the lessons because this increases tiredness and anxiety."
+        },
+        {
+          "f": "Il est également important de faire des pauses régulières afin de reposer son esprit et de mieux retenir les informations.",
+          "a": "ومن المهم كمان ناخد استراحات منتظمة حتى نريح عقلنا ونحفظ المعلومات بشكل أفضل.",
+          "e": "It is also important to take regular breaks to rest our minds and remember information better."
+        },
+        {
+          "f": "Dormir suffisamment, manger équilibré et pratiquer une activité physique peuvent aussi aider à diminuer le stress.",
+          "a": "النوم الكافي والأكل المتوازن وممارسة نشاط رياضي ممكن كمان يساعدوا على تخفيف التوتر.",
+          "e": "Getting enough sleep, eating a balanced diet and doing physical activity can also help reduce stress."
+        },
+        {
+          "f": "Avant l'examen, il est conseillé de lire attentivement les consignes et de commencer par les questions les plus faciles.",
+          "a": "قبل الامتحان، من الأفضل نقرأ التعليمات بعناية ونبدأ بالأسئلة الأسهل.",
+          "e": "Before the exam, it is advisable to read the instructions carefully and start with the easiest questions."
+        },
+        {
+          "f": "Il faut aussi bien gérer son temps pour pouvoir répondre à toutes les questions sans se précipiter.",
+          "a": "ولازم كمان ننظم وقتنا بشكل جيد حتى نقدر نجاوب على كل الأسئلة بدون استعجال.",
+          "e": "We must also manage our time well so that we can answer all the questions without rushing."
+        },
+        {
+          "f": "Enfin, les enseignants et les parents doivent encourager les étudiants au lieu de leur mettre trop de pression.",
+          "a": "وأخيراً، لازم المدرسين والأهل يشجعوا الطلاب بدل ما يحطوا عليهم ضغط كبير.",
+          "e": "Finally, teachers and parents should encourage students instead of putting too much pressure on them."
+        },
+        {
+          "f": "Pour conclure, les examens sont importants, mais ils ne déterminent pas toute la valeur d'une personne ni son avenir.",
+          "a": "بالخلاصة، الامتحانات مهمة، لكنها ما بتحدد قيمة الإنسان كلها ولا مستقبله بالكامل.",
+          "e": "To conclude, exams are important, but they do not determine a person's entire worth or future.\n\nعدد كلمات النص الفرنسي: أكثر من 200 كلمة، دون احتساب الترجمات.\n\nالموضوع 27"
+        },
+        {
+          "f": "Un examen",
+          "a": "امتحان",
+          "e": "Exam",
+          "voc": 1
+        },
+        {
+          "f": "Le stress",
+          "a": "التوتر",
+          "e": "Stress",
+          "voc": 1
+        },
+        {
+          "f": "Échouer",
+          "a": "يرسب",
+          "e": "To fail",
+          "voc": 1
+        },
+        {
+          "f": "Réussir",
+          "a": "ينجح",
+          "e": "To succeed",
+          "voc": 1
+        },
+        {
+          "f": "La concentration",
+          "a": "التركيز",
+          "e": "Concentration",
+          "voc": 1
+        },
+        {
+          "f": "Les révisions",
+          "a": "المراجعة",
+          "e": "Revision",
+          "voc": 1
+        },
+        {
+          "f": "Un programme",
+          "a": "برنامج",
+          "e": "Schedule",
+          "voc": 1
+        },
+        {
+          "f": "Une pause",
+          "a": "استراحة",
+          "e": "Break",
+          "voc": 1
+        },
+        {
+          "f": "Les consignes",
+          "a": "التعليمات",
+          "e": "Instructions",
+          "voc": 1
+        },
+        {
+          "f": "Les résultats",
+          "a": "النتائج",
+          "e": "Results",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e28",
+      "icon": "🏛️",
+      "fr": "Écrit 28 — Les activités culturelles et les musées",
+      "ar": "كتابة 28 — الأنشطة الثقافية والمتاحف",
+      "consigne": {
+        "f": "Vous participez à un forum sur la culture. Vous expliquez pourquoi les activités culturelles et les musées sont importants et vous donnez votre opinion sur leur accès au public.",
+        "a": "أنت بتشارك بمنتدى عن الثقافة. اشرح ليش الأنشطة الثقافية والمتاحف مهمة، واعطِ رأيك بإمكانية وصول الناس إلها."
+      },
+      "phr": [
+        {
+          "f": "La culture occupe une place importante dans notre société, car elle nous permet de découvrir le monde et de mieux comprendre les autres.",
+          "a": "الثقافة إلها مكانة مهمة بمجتمعنا، لأنها بتسمح إلنا نكتشف العالم ونفهم الآخرين بشكل أفضل.",
+          "e": "Culture plays an important role in our society because it allows us to discover the world and better understand others."
+        },
+        {
+          "f": "Les musées, les expositions, les concerts et les spectacles sont des activités qui enrichissent notre vie quotidienne.",
+          "a": "المتاحف والمعارض والحفلات والعروض هي أنشطة بتغني حياتنا اليومية.",
+          "e": "Museums, exhibitions, concerts and shows are activities that enrich our daily lives."
+        },
+        {
+          "f": "Grâce aux musées, nous pouvons découvrir l'histoire, les traditions et les œuvres artistiques de différentes civilisations.",
+          "a": "بفضل المتاحف، فينا نتعرف على التاريخ والتقاليد والأعمال الفنية لحضارات مختلفة.",
+          "e": "Thanks to museums, we can discover the history, traditions and artistic works of different civilizations."
+        },
+        {
+          "f": "Ces lieux permettent également aux jeunes d'apprendre de nouvelles choses en dehors de l'école et des livres.",
+          "a": "هالأماكن بتسمح كمان للشباب يتعلموا أشياء جديدة خارج المدرسة والكتب.",
+          "e": "These places also allow young people to learn new things outside school and books."
+        },
+        {
+          "f": "Personnellement, je pense que les activités culturelles sont essentielles, car elles développent la curiosité et l'ouverture d'esprit.",
+          "a": "شخصياً، بعتقد إن الأنشطة الثقافية ضرورية لأنها بتنمّي الفضول والانفتاح الفكري.",
+          "e": "Personally, I think cultural activities are essential because they develop curiosity and open-mindedness."
+        },
+        {
+          "f": "Elles offrent aussi l'occasion de rencontrer d'autres personnes et de partager des expériences intéressantes.",
+          "a": "وهي كمان بتوفر فرصة للتعرف على أشخاص تانيين ومشاركة تجارب ممتعة.",
+          "e": "They also offer an opportunity to meet other people and share interesting experiences."
+        },
+        {
+          "f": "Cependant, certaines personnes visitent rarement les musées et les lieux culturels à cause du prix des billets.",
+          "a": "لكن بعض الأشخاص نادراً ما بيزوروا المتاحف والأماكن الثقافية بسبب سعر التذاكر.",
+          "e": "However, some people rarely visit museums and cultural places because of ticket prices."
+        },
+        {
+          "f": "D'autres personnes pensent qu'elles n'ont pas assez de temps ou ne trouvent pas ces activités intéressantes.",
+          "a": "وأشخاص تانيين بيعتقدوا إنه ما عندهم وقت كافي أو ما بيلاقوا هالأنشطة ممتعة.",
+          "e": "Other people think they do not have enough time or do not find these activities interesting."
+        },
+        {
+          "f": "À mon avis, les établissements culturels devraient être accessibles à tous, quel que soit le niveau de revenu.",
+          "a": "برأيي، لازم المؤسسات الثقافية تكون متاحة للجميع، مهما كان مستوى دخلهم.",
+          "e": "In my opinion, cultural institutions should be accessible to everyone, regardless of income."
+        },
+        {
+          "f": "Les musées pourraient proposer des journées gratuites ou des réductions pour les étudiants, les familles et les personnes à faibles revenus.",
+          "a": "المتاحف ممكن تقدم أيام مجانية أو تخفيضات للطلاب والعائلات والأشخاص اللي دخلهم محدود.",
+          "e": "Museums could offer free days or discounts for students, families and people with low incomes."
+        },
+        {
+          "f": "Les écoles devraient également organiser régulièrement des sorties pour permettre aux élèves de découvrir le patrimoine culturel de leur région.",
+          "a": "ولازم المدارس كمان تنظم رحلات بشكل منتظم حتى يتعرف الطلاب على التراث الثقافي بمنطقتهم.",
+          "e": "Schools should also regularly organize trips to help pupils discover the cultural heritage of their region."
+        },
+        {
+          "f": "Les nouvelles technologies peuvent aussi rendre la culture plus accessible grâce aux visites virtuelles et aux expositions en ligne.",
+          "a": "التكنولوجيا الحديثة ممكن كمان تخلي الثقافة متاحة بشكل أكبر من خلال الجولات الافتراضية والمعارض عبر الإنترنت.",
+          "e": "New technologies can also make culture more accessible through virtual tours and online exhibitions."
+        },
+        {
+          "f": "Il est important de soutenir les artistes locaux et de participer aux événements organisés dans les villes et les quartiers.",
+          "a": "من المهم ندعم الفنانين المحليين ونشارك بالفعاليات اللي بتنظم بالمدن والأحياء.",
+          "e": "It is important to support local artists and take part in events organized in cities and neighborhoods."
+        },
+        {
+          "f": "Même les petites activités culturelles peuvent nous apprendre quelque chose et nous aider à mieux connaître notre environnement.",
+          "a": "حتى الأنشطة الثقافية الصغيرة ممكن تعلمنا شي جديد وتساعدنا نفهم محيطنا بشكل أفضل.",
+          "e": "Even small cultural activities can teach us something and help us better understand our surroundings."
+        },
+        {
+          "f": "Pour conclure, la culture ne doit pas être réservée à une partie de la population, mais doit être accessible au plus grand nombre.",
+          "a": "بالخلاصة، الثقافة لازم ما تكون مخصصة لفئة معينة من الناس، بل لازم تكون متاحة لأكبر عدد ممكن من الأشخاص.",
+          "e": "To conclude, culture should not be reserved for one part of the population, but should be accessible to as many people as possible.\n\nعدد كلمات النص الفرنسي: أكثر من 200 كلمة، دون احتساب الترجمات.\n\nالموضوع 28"
+        },
+        {
+          "f": "La culture",
+          "a": "الثقافة",
+          "e": "Culture",
+          "voc": 1
+        },
+        {
+          "f": "Un musée",
+          "a": "متحف",
+          "e": "Museum",
+          "voc": 1
+        },
+        {
+          "f": "Une exposition",
+          "a": "معرض",
+          "e": "Exhibition",
+          "voc": 1
+        },
+        {
+          "f": "Une œuvre artistique",
+          "a": "عمل فني",
+          "e": "Artwork",
+          "voc": 1
+        },
+        {
+          "f": "Le patrimoine",
+          "a": "التراث",
+          "e": "Heritage",
+          "voc": 1
+        },
+        {
+          "f": "Une civilisation",
+          "a": "حضارة",
+          "e": "Civilization",
+          "voc": 1
+        },
+        {
+          "f": "Une visite virtuelle",
+          "a": "جولة افتراضية",
+          "e": "Virtual tour",
+          "voc": 1
+        },
+        {
+          "f": "Un billet",
+          "a": "تذكرة",
+          "e": "Ticket",
+          "voc": 1
+        },
+        {
+          "f": "Une réduction",
+          "a": "تخفيض",
+          "e": "Discount",
+          "voc": 1
+        },
+        {
+          "f": "Accessible à tous",
+          "a": "متاح للجميع",
+          "e": "Accessible to everyone",
+          "voc": 1
+        }
+      ],
+      "ids": []
     }
   ]
 };
