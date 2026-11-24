@@ -168,6 +168,10 @@
   .phr-line:last-child { border-bottom: none; }
   .phr-line[dir="ltr"] { text-align: left; }
   .phr-line[dir="rtl"] { text-align: right; }
+  .flag-btn { font-size: 1.3rem; background: none; border: none; cursor: pointer; padding: 0 0.3rem 0 0; line-height: 1; vertical-align: middle; transition: transform .15s, filter .15s; }
+  .phr-line[dir="rtl"] .flag-btn { padding: 0 0 0 0.3rem; }
+  .flag-btn:active { transform: scale(0.9); }
+  .flag-btn.speaking { transform: scale(1.2); filter: drop-shadow(0 0 6px rgba(76,175,125,0.9)); }
   .slide-nav .big-btn { flex: 1; }
   .slide-nav .ghost-btn { flex: 1; margin-top: 0; }
 </style>
@@ -553,8 +557,10 @@ function edgeGEC(){
   return Promise.resolve(eHexLE(cs[0]) + eHexLE(cs[1]) + '-' + eHexBE(digest));
 }
 function edgeVoice(){ return localStorage.getItem('edge_voice') || 'fr-FR-DeniseNeural'; }
-function edgeTTS(text){
-  var voice = edgeVoice(), key = voice + '|' + text;
+var EDGE_VOICE_FOR = { 'ar-SY': 'ar-SY-AmanyNeural', 'en-US': 'en-US-JennyNeural' };
+function ttsVoiceFor(lang){ return (lang && lang !== 'fr-FR' && EDGE_VOICE_FOR[lang]) || edgeVoice(); }
+function edgeTTS(text, lang){
+  var voice = ttsVoiceFor(lang), key = voice + '|' + text;
   if(edgeCache[key]) return Promise.resolve(edgeCache[key]);
   if(edgePending[key]) return edgePending[key];
   edgePending[key] = edgeGEC().then(function(gec){
@@ -577,7 +583,7 @@ function edgeTTS(text){
         ws.send('X-RequestId:' + reqId + '\r\nContent-Type:application/json; charset=utf-8\r\nPath:speech.config\r\n\r\n' +
           '{"context":{"synthesis":{"audio":{"metadataoptions":{"sentenceBoundaryEnabled":"false","wordBoundaryEnabled":"false"},"outputFormat":"audio-24khz-48kbitrate-mono-mp3"}}}}');
         var body = String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        var ssml = '<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="fr-FR"><voice name="' + voice + '"><prosody pitch="+0Hz" rate="-12%" volume="+0%">' + body + '</prosody></voice></speak>';
+        var ssml = '<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="' + voice.slice(0,5) + '"><voice name="' + voice + '"><prosody pitch="+0Hz" rate="-12%" volume="+0%">' + body + '</prosody></voice></speak>';
         ws.send('X-RequestId:' + reqId + '\r\nContent-Type:application/ssml+xml\r\nX-Timestamp:' + new Date().toISOString() + '\r\nPath:ssml\r\n\r\n' + ssml);
       };
       ws.onmessage = function(ev){
@@ -609,19 +615,21 @@ function nativeTTS(){
   if(window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) return window.Capacitor.Plugins.TextToSpeech;
   return null;
 }
-function pickVoice(){
+function pickVoice(lang){
   if(!('speechSynthesis' in window)) return null;
+  var pre = (lang || 'fr').slice(0, 2);
   var voices = window.speechSynthesis.getVoices() || [];
-  return voices.filter(function(v){ return v.lang && v.lang.toLowerCase().indexOf('fr') === 0; })[0] || null;
+  return voices.filter(function(v){ return v.lang && v.lang.toLowerCase().indexOf(pre) === 0; })[0] || null;
 }
 function stopSpeech(){
   speechRun++;
   if(edgeAudio){ try{ edgeAudio.pause(); edgeAudio.src = ''; }catch(e){} edgeAudio = null; }
   if(nativeTTS()) nativeTTS().stop();
   if('speechSynthesis' in window) window.speechSynthesis.cancel();
-  document.querySelectorAll('.icon-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  document.querySelectorAll('.icon-btn.speaking, .flag-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
 }
-function speakLoop(text, btn){
+function speakLoop(text, btn, lang){
+  lang = lang || 'fr-FR';
   if(!text) return;
   if(btn && btn.classList.contains('speaking')){ stopSpeech(); return; }
   stopSpeech();
@@ -632,7 +640,7 @@ function speakLoop(text, btn){
     var tts = nativeTTS(); if(!tts){ webPlay(); return; }
     function next(){
       if(run !== speechRun){ done(); return; }
-      tts.speak({ text: text, lang: 'fr-FR', rate: 0.85, queueStrategy: 1 }).then(function(){ setTimeout(next, 300); }).catch(function(){ setTimeout(next, 300); });
+      tts.speak({ text: text, lang: lang, rate: 0.85, queueStrategy: 1 }).then(function(){ setTimeout(next, 300); }).catch(function(){ setTimeout(next, 300); });
     }
     next();
   }
@@ -641,16 +649,17 @@ function speakLoop(text, btn){
     function next(){
       if(run !== speechRun){ done(); return; }
       var u = new SpeechSynthesisUtterance(text);
-      u.lang = 'fr-FR'; u.rate = 0.85;
-      var v = pickVoice(); if(v) u.voice = v;
+      u.lang = lang; u.rate = 0.85;
+      var v = pickVoice(lang); if(v) u.voice = v;
       u.onend = function(){ setTimeout(next, 300); };
       u.onerror = function(){ setTimeout(next, 300); };
       window.speechSynthesis.speak(u);
     }
     next();
   }
-  if(edgeVoice() !== 'device'){
-    edgeTTS(text).then(function(blob){
+  var ev = ttsVoiceFor(lang);
+  if(ev !== 'device'){
+    edgeTTS(text, lang).then(function(blob){
       if(run !== speechRun) return;
       if(blob){ edgePlay(blob, true, run, null); }
       else nativePlay();
@@ -659,14 +668,16 @@ function speakLoop(text, btn){
   }
   nativePlay();
 }
-function speakOnce(text, btn){
+function speakOnce(text, btn, lang){
+  lang = lang || 'fr-FR';
   if(!text) return;
   stopSpeech();
   var run = ++speechRun;
   if(btn) btn.classList.add('speaking');
   function done(){ if(run === speechRun && btn) btn.classList.remove('speaking'); }
-  if(edgeVoice() !== 'device'){
-    edgeTTS(text).then(function(blob){
+  var ev = ttsVoiceFor(lang);
+  if(ev !== 'device'){
+    edgeTTS(text, lang).then(function(blob){
       if(run !== speechRun) return;
       if(blob){ edgePlay(blob, false, run, done); }
       else deviceOnce();
@@ -677,13 +688,13 @@ function speakOnce(text, btn){
   function deviceOnce(){
     var tts = nativeTTS();
     if(tts){
-      tts.speak({ text: text, lang: 'fr-FR', rate: 0.85, queueStrategy: 1 }).then(done).catch(done);
+      tts.speak({ text: text, lang: lang, rate: 0.85, queueStrategy: 1 }).then(done).catch(done);
       return;
     }
     if(!('speechSynthesis' in window)){ done(); showToast('النطق غير مدعوم'); return; }
     var u = new SpeechSynthesisUtterance(text);
-    u.lang = 'fr-FR'; u.rate = 0.85;
-    var v = pickVoice(); if(v) u.voice = v;
+    u.lang = lang; u.rate = 0.85;
+    var v = pickVoice(lang); if(v) u.voice = v;
     u.onend = done;
     u.onerror = done;
     window.speechSynthesis.speak(u);
@@ -1238,11 +1249,10 @@ function renderLesson(){
   var nq = DATA.filter(function(q){ return ls.ids.indexOf(q.id) !== -1; }).length;
   var cards = ls.phr.map(function(p, i){
     return '<div class="slide-card">' +
-      '<div class="slide-head"><span class="slide-num">' + (i + 1) + ' / ' + ls.phr.length + '</span>' +
-      '<button class="icon-btn slide-speak" data-i="' + i + '" title="نطق">🔊</button></div>' +
-      '<div class="phr-line" dir="ltr">🇫🇷 ' + esc(p.f) + '</div>' +
-      '<div class="phr-line" dir="rtl">🇸🇾 ' + esc(p.a) + '</div>' +
-      '<div class="phr-line" dir="ltr">🇺🇸 ' + esc(p.e) + '</div>' +
+      '<div class="slide-head"><span class="slide-num">' + (i + 1) + ' / ' + ls.phr.length + '</span></div>' +
+      '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="' + i + '" data-lang="fr-FR">🇫🇷</button> ' + esc(p.f) + '</div>' +
+      '<div class="phr-line" dir="rtl"><button class="flag-btn" data-i="' + i + '" data-lang="ar-SY">🇸🇾</button> ' + esc(p.a) + '</div>' +
+      '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="' + i + '" data-lang="en-US">🇺🇸</button> ' + esc(p.e) + '</div>' +
     '</div>';
   }).join('');
   app.innerHTML =
@@ -1258,8 +1268,12 @@ function renderLesson(){
       '<button class="big-btn" id="btn-lfinish" style="margin-top:0.4rem">✅ أنهيت الدرس — تدرّب (' + nq + ' سؤالاً)</button>' +
     '</div>';
   document.getElementById('btn-lback2').onclick = function(){ enterScreen('lessons'); };
-  document.querySelectorAll('.slide-speak').forEach(function(b){
-    b.onclick = function(){ speakOnce(ls.phr[+b.dataset.i].f, this); };
+  document.querySelectorAll('.flag-btn').forEach(function(b){
+    b.onclick = function(){
+      var p = ls.phr[+b.dataset.i];
+      var t = b.dataset.lang === 'ar-SY' ? p.a : (b.dataset.lang === 'en-US' ? p.e : p.f);
+      speakLoop(t, this, b.dataset.lang);
+    };
   });
   document.getElementById('btn-lfinish').onclick = function(){
     stats.lessons[ls.id] = 1;
