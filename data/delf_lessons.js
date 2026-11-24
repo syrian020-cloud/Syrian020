@@ -4865,6 +4865,483 @@ window.DELF_LESSONS = {
         }
       ],
       "ids": []
+    },
+    {
+      "id": "b1-t8",
+      "icon": "🌱",
+      "fr": "Thème 8 — L'environnement",
+      "ar": "موضوع 8 — البيئة والتغير المناخي",
+      "phr": [
+        {
+          "f": "La protection de l'environnement est devenue une priorité mondiale.",
+          "a": "حماية البيئة صارت أولوية على مستوى العالم.",
+          "e": "Protecting the environment has become a global priority."
+        },
+        {
+          "f": "Le changement climatique représente un défi important pour notre planète.",
+          "a": "التغير المناخي بيشكّل تحدي كبير لكوكبنا.",
+          "e": "Climate change represents a major challenge for our planet."
+        },
+        {
+          "f": "Les températures augmentent progressivement dans plusieurs régions du monde.",
+          "a": "درجات الحرارة عم ترتفع تدريجياً بمناطق كتيرة من العالم.",
+          "e": "Temperatures are gradually rising in many regions of the world."
+        },
+        {
+          "f": "Les périodes de sécheresse deviennent de plus en plus fréquentes.",
+          "a": "فترات الجفاف عم تصير أكثر تكراراً.",
+          "e": "Periods of drought are becoming more frequent."
+        },
+        {
+          "f": "Certaines régions connaissent des inondations à cause des fortes pluies.",
+          "a": "بعض المناطق عم تتعرض لفيضانات بسبب الأمطار الغزيرة.",
+          "e": "Some regions experience floods because of heavy rainfall."
+        },
+        {
+          "f": "La pollution de l'air peut avoir des conséquences sur la santé.",
+          "a": "تلوث الهوا ممكن يكون إله تأثيرات على الصحة.",
+          "e": "Air pollution can have consequences for health."
+        },
+        {
+          "f": "Les grandes villes produisent une quantité importante de pollution.",
+          "a": "المدن الكبيرة بتنتج كميات كبيرة من التلوث.",
+          "e": "Large cities produce significant amounts of pollution."
+        },
+        {
+          "f": "Les voitures sont une source importante d'émissions de gaz à effet de serre.",
+          "a": "السيارات مصدر مهم لانبعاثات الغازات الدفيئة.",
+          "e": "Cars are a major source of greenhouse gas emissions."
+        },
+        {
+          "f": "Utiliser les transports en commun permet de réduire les émissions polluantes.",
+          "a": "استخدام المواصلات العامة بيساعد على تقليل الانبعاثات الملوّثة.",
+          "e": "Using public transport helps reduce polluting emissions."
+        },
+        {
+          "f": "Il est préférable de marcher ou de faire du vélo pour les petits trajets.",
+          "a": "الأفضل نمشي أو نستخدم الدراجة للمشاوير القصيرة.",
+          "e": "It's better to walk or cycle for short journeys."
+        },
+        {
+          "f": "Le tri des déchets facilite le recyclage des matériaux.",
+          "a": "فرز النفايات بيسهّل إعادة تدوير المواد.",
+          "e": "Sorting waste makes recycling materials easier."
+        },
+        {
+          "f": "Il faut jeter chaque déchet dans la poubelle appropriée.",
+          "a": "لازم نحط كل نوع من النفايات بسلة المهملات المناسبة.",
+          "e": "We should put each type of waste in the appropriate bin."
+        },
+        {
+          "f": "Le plastique met beaucoup de temps à se dégrader dans la nature.",
+          "a": "البلاستيك بياخد وقت طويل لحتى يتحلل بالطبيعة.",
+          "e": "Plastic takes a long time to break down in nature."
+        },
+        {
+          "f": "Je préfère utiliser des sacs réutilisables lorsque je fais mes courses.",
+          "a": "بفضّل استخدم أكياس قابلة لإعادة الاستخدام لما روح أتسوق.",
+          "e": "I prefer using reusable bags when I go shopping."
+        },
+        {
+          "f": "Il est important de limiter notre consommation de plastique.",
+          "a": "من المهم نخفف استهلاكنا للبلاستيك.",
+          "e": "It's important to limit our plastic consumption."
+        },
+        {
+          "f": "L'eau potable est une ressource précieuse qu'il faut préserver.",
+          "a": "مي الشرب مورد ثمين لازم نحافظ عليه.",
+          "e": "Drinking water is a precious resource that we must protect."
+        },
+        {
+          "f": "Je ferme le robinet pendant que je me brosse les dents.",
+          "a": "بسكّر الحنفية وأنا عم فرشي سناني.",
+          "e": "I turn off the tap while brushing my teeth."
+        },
+        {
+          "f": "Il ne faut pas gaspiller l'eau, surtout pendant les périodes de sécheresse.",
+          "a": "ما لازم نهدر المي، خصوصاً بفترات الجفاف.",
+          "e": "We shouldn't waste water, especially during droughts."
+        },
+        {
+          "f": "Les énergies renouvelables peuvent remplacer progressivement les énergies fossiles.",
+          "a": "الطاقات المتجددة ممكن تحل تدريجياً محل مصادر الطاقة الأحفورية.",
+          "e": "Renewable energy can gradually replace fossil fuels."
+        },
+        {
+          "f": "Les panneaux solaires permettent de produire de l'électricité grâce au soleil.",
+          "a": "الألواح الشمسية بتسمح بإنتاج الكهرباء من ضوء الشمس.",
+          "e": "Solar panels make it possible to produce electricity from sunlight."
+        },
+        {
+          "f": "L'isolation des bâtiments permet de réduire la consommation d'énergie.",
+          "a": "عزل المباني بيساعد على تقليل استهلاك الطاقة.",
+          "e": "Building insulation helps reduce energy consumption."
+        },
+        {
+          "f": "Les forêts jouent un rôle essentiel dans l'équilibre de la planète.",
+          "a": "الغابات إلها دور أساسي بتوازن كوكبنا.",
+          "e": "Forests play an essential role in the planet's balance."
+        },
+        {
+          "f": "La déforestation menace de nombreuses espèces animales.",
+          "a": "إزالة الغابات بتهدد أنواع كتيرة من الحيوانات.",
+          "e": "Deforestation threatens many animal species."
+        },
+        {
+          "f": "La biodiversité doit être protégée pour les générations futures.",
+          "a": "لازم نحمي التنوع البيولوجي للأجيال القادمة.",
+          "e": "Biodiversity must be protected for future generations."
+        },
+        {
+          "f": "Chacun peut contribuer à la protection de la nature par des gestes simples.",
+          "a": "كل شخص فيه يساهم بحماية الطبيعة من خلال تصرفات بسيطة.",
+          "e": "Everyone can help protect nature through simple actions."
+        },
+        {
+          "f": "Les entreprises doivent également réduire leur impact sur l'environnement.",
+          "a": "الشركات كمان لازم تخفف تأثيرها على البيئة.",
+          "e": "Companies must also reduce their environmental impact."
+        },
+        {
+          "f": "Les gouvernements doivent mettre en place des mesures efficaces contre la pollution.",
+          "a": "لازم الحكومات تطبّق إجراءات فعالة لمكافحة التلوث.",
+          "e": "Governments must introduce effective measures against pollution."
+        },
+        {
+          "f": "L'éducation à l'environnement devrait commencer dès le plus jeune âge.",
+          "a": "التوعية البيئية لازم تبدأ من عمر صغير.",
+          "e": "Environmental education should begin at an early age."
+        },
+        {
+          "f": "Si nous changeons nos habitudes, nous pouvons avoir un impact positif.",
+          "a": "إذا غيّرنا عاداتنا، فينا نترك تأثير إيجابي.",
+          "e": "If we change our habits, we can have a positive impact."
+        },
+        {
+          "f": "Protéger la planète aujourd'hui, c'est préparer un avenir meilleur.",
+          "a": "حماية كوكبنا اليوم تعني إننا عم نجهّز لمستقبل أفضل.",
+          "e": "Protecting the planet today means preparing for a better future."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-t9",
+      "icon": "💻",
+      "fr": "Thème 9 — Les nouvelles technologies",
+      "ar": "موضوع 9 — التكنولوجيا والإنترنت",
+      "phr": [
+        {
+          "f": "J'utilise Internet tous les jours pour chercher des informations et communiquer avec mes amis.",
+          "a": "بستخدم الإنترنت كل يوم حتى دور على معلومات واتواصل مع رفقاتي.",
+          "e": "I use the Internet every day to search for information and communicate with my friends."
+        },
+        {
+          "f": "Les nouvelles technologies facilitent notre vie quotidienne.",
+          "a": "التكنولوجيا الحديثة بتسهّل حياتنا اليومية.",
+          "e": "New technologies make our daily lives easier."
+        },
+        {
+          "f": "Je préfère faire mes achats en ligne parce que c'est plus pratique.",
+          "a": "بفضّل اشتري أونلاين لأن هالشي أسهل وأريح.",
+          "e": "I prefer shopping online because it is more convenient."
+        },
+        {
+          "f": "Il faut choisir un mot de passe difficile à deviner.",
+          "a": "لازم نختار كلمة مرور صعب حدا يتوقّعها.",
+          "e": "You should choose a password that is difficult to guess."
+        },
+        {
+          "f": "Je change régulièrement mes mots de passe pour protéger mes comptes.",
+          "a": "بغيّر كلمات المرور بشكل منتظم حتى أحمي حساباتي.",
+          "e": "I regularly change my passwords to protect my accounts."
+        },
+        {
+          "f": "Le téléchargement de fichiers peut prendre plusieurs minutes.",
+          "a": "تنزيل الملفات ممكن ياخد عدة دقائق.",
+          "e": "Downloading files can take several minutes."
+        },
+        {
+          "f": "Ma connexion Internet est trop lente pour regarder des vidéos.",
+          "a": "اتصال الإنترنت عندي بطيء كتير لدرجة ما بقدر احضر فيديوهات بشكل مريح.",
+          "e": "My Internet connection is too slow to watch videos."
+        },
+        {
+          "f": "Je sauvegarde mes photos pour ne pas les perdre.",
+          "a": "بحفظ نسخة احتياطية من صوري مشان ما ضيّعها.",
+          "e": "I back up my photos so I don't lose them."
+        },
+        {
+          "f": "Il est important de protéger ses informations personnelles sur Internet.",
+          "a": "من المهم نحمي معلوماتنا الشخصية على الإنترنت.",
+          "e": "It is important to protect our personal information online."
+        },
+        {
+          "f": "Je ne partage jamais mes coordonnées bancaires sur un site inconnu.",
+          "a": "ما بشارك أبداً معلومات حسابي البنكي على موقع ما بعرفه.",
+          "e": "I never share my bank details on an unfamiliar website."
+        },
+        {
+          "f": "Les réseaux sociaux permettent de rester en contact avec les personnes qui vivent loin.",
+          "a": "مواقع التواصل الاجتماعي بتخلّينا نضل على تواصل مع الناس اللي عايشين بعيد عنا.",
+          "e": "Social media allows us to stay in touch with people who live far away."
+        },
+        {
+          "f": "Cependant, il ne faut pas passer trop de temps devant un écran.",
+          "a": "مع هيك، ما لازم نقضي وقت طويل قدام الشاشة.",
+          "e": "However, we shouldn't spend too much time in front of a screen."
+        },
+        {
+          "f": "Certaines informations publiées sur Internet sont fausses.",
+          "a": "في معلومات منشورة على الإنترنت بتكون كاذبة.",
+          "e": "Some information published online is false."
+        },
+        {
+          "f": "Avant de partager une information, je vérifie sa source.",
+          "a": "قبل ما شارك أي معلومة، بتأكد من مصدرها.",
+          "e": "Before sharing information, I check its source."
+        },
+        {
+          "f": "Les fausses nouvelles peuvent influencer l'opinion des gens.",
+          "a": "الأخبار الكاذبة ممكن تأثّر على آراء الناس.",
+          "e": "Fake news can influence people's opinions."
+        },
+        {
+          "f": "Grâce aux applications, je peux apprendre une langue étrangère plus facilement.",
+          "a": "بفضل التطبيقات، فيني اتعلّم لغة أجنبية بطريقة أسهل.",
+          "e": "Thanks to apps, I can learn a foreign language more easily."
+        },
+        {
+          "f": "Les cours en ligne permettent d'étudier depuis chez soi.",
+          "a": "الدروس أونلاين بتسمح للواحد يدرس من بيته.",
+          "e": "Online courses allow people to study from home."
+        },
+        {
+          "f": "Je participe parfois à des réunions en visioconférence.",
+          "a": "أحياناً بشارك باجتماعات عن طريق مكالمات الفيديو.",
+          "e": "I sometimes take part in video conferences."
+        },
+        {
+          "f": "L'intelligence artificielle peut nous aider à accomplir certaines tâches.",
+          "a": "الذكاء الاصطناعي ممكن يساعدنا ننجز بعض المهام.",
+          "e": "Artificial intelligence can help us complete certain tasks."
+        },
+        {
+          "f": "Pourtant, il faut toujours vérifier les réponses données par l'intelligence artificielle.",
+          "a": "مع هيك، لازم دايماً نتأكد من صحة الأجوبة اللي بيعطينا ياها الذكاء الاصطناعي.",
+          "e": "Nevertheless, we should always check the answers given by artificial intelligence."
+        },
+        {
+          "f": "La technologie évolue tellement vite que nous devons nous adapter.",
+          "a": "التكنولوجيا عم تتطور بسرعة كبيرة، ولهيك لازم نتأقلم معها.",
+          "e": "Technology is evolving so quickly that we have to adapt."
+        },
+        {
+          "f": "Les personnes âgées peuvent avoir des difficultés à utiliser certains appareils numériques.",
+          "a": "كبار السن ممكن يواجهوا صعوبة باستخدام بعض الأجهزة الرقمية.",
+          "e": "Older people may have difficulty using certain digital devices."
+        },
+        {
+          "f": "Il existe des formations pour apprendre à utiliser les outils informatiques.",
+          "a": "في دورات تدريبية لنتعلّم كيف نستخدم أدوات الكمبيوتر.",
+          "e": "There are training courses to learn how to use computer tools."
+        },
+        {
+          "f": "La cybersécurité est devenue un sujet très important.",
+          "a": "الأمن السيبراني صار موضوع مهم جداً.",
+          "e": "Cybersecurity has become a very important topic."
+        },
+        {
+          "f": "Il faut se méfier des courriels qui demandent des informations confidentielles.",
+          "a": "لازم ننتبه من رسائل البريد الإلكتروني اللي بتطلب معلومات سرّية.",
+          "e": "We should be careful with emails that ask for confidential information."
+        },
+        {
+          "f": "J'ai oublié mon mot de passe, alors j'ai dû le réinitialiser.",
+          "a": "نسيت كلمة المرور، ولهيك اضطرّيت غيّرها وأعمل كلمة جديدة.",
+          "e": "I forgot my password, so I had to reset it."
+        },
+        {
+          "f": "Mon téléphone portable me permet de gérer mes rendez-vous et mes activités.",
+          "a": "موبايلي بيساعدني نظّم مواعيدي ونشاطاتي.",
+          "e": "My mobile phone allows me to manage my appointments and activities."
+        },
+        {
+          "f": "Même si les technologies sont utiles, elles ne remplacent pas les relations humaines.",
+          "a": "حتى لو التكنولوجيا مفيدة، ما بتعوّض عن العلاقات الإنسانية.",
+          "e": "Even though technology is useful, it cannot replace human relationships."
+        },
+        {
+          "f": "À mon avis, les enfants doivent apprendre à utiliser Internet de manière responsable.",
+          "a": "برأيي، لازم الأطفال يتعلّموا يستخدموا الإنترنت بطريقة مسؤولة.",
+          "e": "In my opinion, children should learn to use the Internet responsibly."
+        },
+        {
+          "f": "À l'avenir, les nouvelles technologies auront probablement une place encore plus importante dans notre société.",
+          "a": "بالمستقبل، غالباً رح يكون للتكنولوجيا الحديثة دور أكبر بحياتنا ومجتمعنا.",
+          "e": "In the future, new technologies will probably play an even more important role in our society."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-t10",
+      "icon": "🤝",
+      "fr": "Thème 10 — Le travail",
+      "ar": "موضوع 10 — العمل والعلاقات المهنية",
+      "phr": [
+        {
+          "f": "Je pense que le travail est important pour avoir une vie stable et indépendante.",
+          "a": "برأيي، الشغل مهم حتى يكون عند الإنسان حياة مستقرة ومستقلة.",
+          "e": "I think work is important for having a stable and independent life."
+        },
+        {
+          "f": "Il est essentiel d'entretenir de bonnes relations avec ses collègues.",
+          "a": "من الضروري نحافظ على علاقات منيحة مع زملائنا بالشغل.",
+          "e": "It is essential to maintain good relationships with colleagues."
+        },
+        {
+          "f": "Je préfère travailler dans une équipe où chacun respecte les autres.",
+          "a": "بفضّل اشتغل ضمن فريق كل شخص فيه بيحترم التاني.",
+          "e": "I prefer working in a team where everyone respects one another."
+        },
+        {
+          "f": "Mon responsable m'a expliqué les tâches que je devais effectuer.",
+          "a": "المسؤول عني شرحلي المهام اللي كان لازم نفّذها.",
+          "e": "My supervisor explained the tasks I had to carry out."
+        },
+        {
+          "f": "Lorsque je ne comprends pas une consigne, je demande des explications.",
+          "a": "لما ما بفهم تعليمات الشغل، بطلب توضيح.",
+          "e": "When I don't understand an instruction, I ask for an explanation."
+        },
+        {
+          "f": "Il faut respecter les horaires et arriver à l'heure au travail.",
+          "a": "لازم نحترم أوقات الدوام ونوصل عالشغل بالوقت المحدد.",
+          "e": "We must respect working hours and arrive at work on time."
+        },
+        {
+          "f": "Mon équipe organise une réunion chaque semaine pour faire le point sur le travail.",
+          "a": "فريقي بينظّم اجتماع كل أسبوع حتى نراجع سير العمل.",
+          "e": "My team organizes a meeting every week to review the work."
+        },
+        {
+          "f": "Je fais de mon mieux pour terminer mes tâches dans les délais.",
+          "a": "بعمل كل جهدي حتى خلّص مهامي بالوقت المطلوب.",
+          "e": "I do my best to finish my tasks on time."
+        },
+        {
+          "f": "Quand il y a beaucoup de travail, nous devons bien nous organiser.",
+          "a": "لما يكون في شغل كتير، لازم ننظّم حالنا منيح.",
+          "e": "When there is a lot of work, we have to organize ourselves properly."
+        },
+        {
+          "f": "Une bonne communication permet d'éviter les malentendus.",
+          "a": "التواصل الجيد بيساعدنا نتجنّب سوء الفهم.",
+          "e": "Good communication helps us avoid misunderstandings."
+        },
+        {
+          "f": "Si je fais une erreur, je préfère la reconnaître et la corriger.",
+          "a": "إذا غلطت، بفضّل اعترف بغلطتي وصلّحها.",
+          "e": "If I make a mistake, I prefer to admit it and correct it."
+        },
+        {
+          "f": "Il est important de recevoir des conseils pour améliorer son travail.",
+          "a": "من المهم نتلقى نصائح حتى نحسّن شغلنا.",
+          "e": "It is important to receive advice to improve our work."
+        },
+        {
+          "f": "Mon collègue m'a aidé lorsque j'ai rencontré une difficulté.",
+          "a": "زميلي ساعدني لما واجهت صعوبة بالشغل.",
+          "e": "My colleague helped me when I faced a difficulty."
+        },
+        {
+          "f": "Je trouve que le respect est indispensable dans un environnement professionnel.",
+          "a": "بشوف إن الاحترام ضروري جداً ببيئة العمل.",
+          "e": "I think respect is essential in a professional environment."
+        },
+        {
+          "f": "Les conflits au travail doivent être réglés calmement.",
+          "a": "الخلافات بالشغل لازم تنحل بهدوء.",
+          "e": "Conflicts at work should be resolved calmly."
+        },
+        {
+          "f": "Un bon responsable doit écouter les besoins de son équipe.",
+          "a": "المسؤول الجيد لازم يسمع احتياجات فريقه.",
+          "e": "A good manager must listen to the needs of their team."
+        },
+        {
+          "f": "J'aimerais avoir davantage de responsabilités dans mon poste.",
+          "a": "بتمنى يكون عندي مسؤوليات أكبر بوظيفتي.",
+          "e": "I would like to have more responsibilities in my position."
+        },
+        {
+          "f": "La formation professionnelle permet de développer de nouvelles compétences.",
+          "a": "التدريب المهني بيساعدنا نطوّر مهارات جديدة.",
+          "e": "Professional training helps us develop new skills."
+        },
+        {
+          "f": "J'apprends plus rapidement lorsque quelqu'un me montre comment faire.",
+          "a": "بتعلّم بشكل أسرع لما حدا يفرجيني كيف لازم أعمل الشي.",
+          "e": "I learn faster when someone shows me how to do something."
+        },
+        {
+          "f": "Il est parfois difficile de trouver un équilibre entre le travail et la vie personnelle.",
+          "a": "أحياناً بيكون صعب نوفّق بين الشغل والحياة الشخصية.",
+          "e": "It is sometimes difficult to balance work and personal life."
+        },
+        {
+          "f": "Les pauses sont nécessaires pour éviter une fatigue excessive.",
+          "a": "الاستراحات ضرورية حتى نتجنّب التعب الزائد.",
+          "e": "Breaks are necessary to avoid excessive fatigue."
+        },
+        {
+          "f": "Chaque employé doit respecter les règles de sécurité.",
+          "a": "كل موظف لازم يلتزم بقواعد السلامة.",
+          "e": "Every employee must follow safety rules."
+        },
+        {
+          "f": "Avant de commencer une nouvelle tâche, je vérifie que j'ai bien compris les consignes.",
+          "a": "قبل ما بلّش مهمة جديدة، بتأكد إني فهمت التعليمات منيح.",
+          "e": "Before starting a new task, I make sure I have understood the instructions."
+        },
+        {
+          "f": "Mon contrat précise mes horaires, mon salaire et mes responsabilités.",
+          "a": "عقد العمل بيحدّد ساعات دوامي وراتبي ومسؤولياتي.",
+          "e": "My contract specifies my working hours, salary and responsibilities."
+        },
+        {
+          "f": "Je souhaite évoluer professionnellement et acquérir de l'expérience.",
+          "a": "بتمنى أتقدّم بمسيرتي المهنية واكتسب خبرة.",
+          "e": "I want to develop professionally and gain experience."
+        },
+        {
+          "f": "Même si le travail est parfois difficile, il faut rester motivé.",
+          "a": "حتى لو الشغل صعب أحياناً، لازم نضل متحمّسين.",
+          "e": "Even if work is sometimes difficult, we must stay motivated."
+        },
+        {
+          "f": "Les heures supplémentaires doivent être organisées dans le respect de la réglementation.",
+          "a": "ساعات العمل الإضافية لازم تكون منظّمة حسب القوانين.",
+          "e": "Overtime must be organized in accordance with regulations."
+        },
+        {
+          "f": "Je voudrais discuter avec mon responsable de mes possibilités d'évolution.",
+          "a": "بدي ناقش مع مسؤولي فرص تطوّري بالشغل.",
+          "e": "I would like to discuss my opportunities for career development with my manager."
+        },
+        {
+          "f": "Un environnement de travail agréable améliore la motivation des employés.",
+          "a": "بيئة العمل المريحة بتحسّن حماس الموظفين ورغبتهم بالشغل.",
+          "e": "A pleasant working environment improves employees' motivation."
+        },
+        {
+          "f": "À mon avis, réussir professionnellement ne signifie pas seulement gagner de l'argent, mais aussi se sentir utile et respecté.",
+          "a": "برأيي، النجاح المهني مو بس إنك تكسب مصاري، كمان إنك تحس إنك شخص إلك قيمة والناس بتحترمك.",
+          "e": "In my opinion, professional success does not only mean earning money, but also feeling useful and respected."
+        }
+      ],
+      "ids": []
     }
   ]
 };
