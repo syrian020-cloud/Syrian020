@@ -141,6 +141,29 @@
   .toast { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.6rem 1.1rem; z-index: 100; opacity: 0; transition: opacity 0.2s; pointer-events: none; font-weight: 700; }
   .toast.show { opacity: 1; }
   footer { text-align: center; padding: 1.5rem 1rem; color: var(--text-secondary); font-size: 0.78rem; }
+
+  .lvl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.55rem; margin: 0.7rem 0 0.2rem; }
+  .lvl-btn { background: var(--bg-tertiary); border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 0.75rem 0.4rem; cursor: pointer; text-align: center; font-family: inherit; color: var(--text-primary); transition: transform .12s, border-color .12s; }
+  .lvl-btn:active { transform: scale(0.96); }
+  .lvl-btn.active { border-color: var(--accent); background: rgba(124,58,237,0.16); }
+  .lvl-btn .lvl-icon { font-size: 1.4rem; display: block; }
+  .lvl-btn .lvl-name { font-size: 0.8rem; font-weight: 800; display: block; margin-top: 0.25rem; }
+  .lvl-btn .lvl-sub { font-size: 0.68rem; color: var(--text-secondary); display: block; margin-top: 0.15rem; }
+  .lesson-item { display: flex; align-items: center; gap: 0.7rem; background: var(--bg-tertiary); border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 0.7rem 0.75rem; margin-bottom: 0.55rem; cursor: pointer; transition: transform .12s, border-color .12s; }
+  .lesson-item:active { transform: scale(0.98); }
+  .lesson-item.done { border-color: rgba(0,230,118,0.4); }
+  .lesson-item .li-icon { width: 38px; height: 38px; flex-shrink: 0; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; background: rgba(124,58,237,0.18); }
+  .lesson-item .li-body { flex: 1; min-width: 0; }
+  .lesson-item .li-fr { direction: ltr; text-align: left; font-size: 0.88rem; font-weight: 800; }
+  .lesson-item .li-ar { font-size: 0.76rem; color: var(--text-secondary); margin-top: 0.15rem; }
+  .lesson-item .li-meta { font-size: 0.68rem; color: var(--text-secondary); margin-top: 0.2rem; }
+  .lesson-item .li-check { flex-shrink: 0; font-size: 1.1rem; }
+  .slide-card { background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.25); border-radius: 16px; padding: 1rem 1.05rem; margin-bottom: 0.9rem; }
+  .slide-fr { direction: ltr; text-align: left; font-size: 1.05rem; font-weight: 800; line-height: 1.55; margin-bottom: 0.55rem; }
+  .slide-ar { font-size: 0.92rem; color: var(--text-secondary); border-top: 1px dashed var(--border); padding-top: 0.55rem; line-height: 1.75; }
+  .slide-nav { display: flex; gap: 0.5rem; }
+  .slide-nav .big-btn { flex: 1; }
+  .slide-nav .ghost-btn { flex: 1; margin-top: 0; }
 </style>
 </head>
 <body>
@@ -163,10 +186,17 @@
 <script src="data/delf3.js"></script>
 <script src="data/delf4.js"></script>
 <script src="data/delf5.js"></script>
+<script src="data/delf_lessons.js"></script>
 <script>
 (function(){
 'use strict';
 var DATA = window.CODE_DATA || [];
+var LESSONS = window.DELF_LESSONS || {};
+var LEVELS = {
+  a1: {icon:'🅰️', name:'A1 مبتدئ', fr:'Débutant'},
+  a2: {icon:'🅱️', name:'A2 أساسي', fr:'Élémentaire'},
+  b1: {icon:'🎓', name:'B1 متوسط', fr:'Intermédiaire'}
+};
 var app = document.getElementById('app');
 var toast = document.getElementById('toast');
 var speechRun = 0;
@@ -710,7 +740,10 @@ var THEME_META = {
 
 /* ---------------- state ---------------- */
 var state = {
-  screen: 'home',          // home | quiz | result
+  screen: 'home',          // home | quiz | result | lessons | lesson
+  level: 'a1',
+  lessonId: null,
+  slideIdx: 0,
   mode: 'train',           // train | exam
   theme: '',
   questions: [],
@@ -727,8 +760,12 @@ var state = {
 var stats = loadStats();
 
 function loadStats(){
-  try { return JSON.parse(localStorage.getItem('delf_stats') || '{"answered":0,"correct":0,"exams":0,"passed":0,"wrongIds":[]}'); }
-  catch(e){ return {answered:0, correct:0, exams:0, passed:0, wrongIds:[]}; }
+  try {
+    var st = JSON.parse(localStorage.getItem('delf_stats') || '{"answered":0,"correct":0,"exams":0,"passed":0,"wrongIds":[],"lessons":{}}');
+    if(!st.lessons) st.lessons = {};
+    return st;
+  }
+  catch(e){ return {answered:0, correct:0, exams:0, passed:0, wrongIds:[], lessons:{}}; }
 }
 function saveStats(){ localStorage.setItem('delf_stats', JSON.stringify(stats)); }
 function markWrong(id){
@@ -760,6 +797,8 @@ function render(){
   stopSpeech();
   if(state.screen === 'home') renderHome();
   else if(state.screen === 'quiz') renderQuiz();
+  else if(state.screen === 'lessons') renderLessons();
+  else if(state.screen === 'lesson') renderLesson();
   else renderResult();
   document.getElementById('btn-home').style.display = state.screen === 'home' ? 'none' : '';
 }
@@ -807,6 +846,22 @@ function renderHome(){
       '<div class="mode-title">⏱️ وضع الامتحان <span class="mini">examen blanc</span></div>' +
       '<div class="mode-desc">40 سؤالاً عشوائياً، 45 دقيقة إجمالاً، بلا تصحيح حتى النهاية. النجاح: 32/40 على الأقل.</div>' +
       '<button class="big-btn" id="btn-exam">ابدأ الامتحان</button>' +
+    '</div>' +
+
+    '<div class="card">' +
+      '<div class="mode-title">📚 وضع الدروس <span class="mini">leçons</span></div>' +
+      '<div class="mode-desc">دروس مرتبة لكل مستوى — شرح فرنسي/عربي ثم تمارين الدرس. التقدم: ' + lessonProgress() + '</div>' +
+      '<div class="lvl-grid">' +
+        Object.keys(LEVELS).map(function(l){
+          var m = LEVELS[l], n = (LESSONS[l] || []).length;
+          var done = (LESSONS[l] || []).filter(function(ls){ return stats.lessons[ls.id]; }).length;
+          return '<button class="lvl-btn" data-lvl="' + l + '">' +
+            '<span class="lvl-icon">' + m.icon + '</span>' +
+            '<span class="lvl-name">' + m.name + '</span>' +
+            '<span class="lvl-sub">' + m.fr + ' · ' + done + '/' + n + ' درس</span>' +
+          '</button>';
+        }).join('') +
+      '</div>' +
     '</div>';
 
   document.getElementById('btn-train').onclick = function(){ startQuiz('train'); };
@@ -821,11 +876,14 @@ function renderHome(){
       renderHome();
     };
   });
+  document.querySelectorAll('.lvl-btn').forEach(function(b){
+    b.onclick = function(){ state.level = b.dataset.lvl; state.screen = 'lessons'; render(); };
+  });
 }
 
-function startQuiz(mode){
-  var pool = DATA;
-  if(mode === 'train' && state.theme) pool = DATA.filter(function(q){ return q.theme === state.theme; });
+function startQuiz(mode, poolOverride){
+  var pool = poolOverride || DATA;
+  if(!poolOverride && mode === 'train' && state.theme) pool = DATA.filter(function(q){ return q.theme === state.theme; });
   state.questions = shuffle(pool);
   if(mode === 'exam'){ state.questions = state.questions.slice(0, Math.min(40, state.questions.length)); state.examEndsAt = 0; }
   else state.questions = state.questions.slice(0, Math.min(50, state.questions.length));
@@ -1099,6 +1157,122 @@ function renderResult(){
     if(state.mode === 'exam') startQuiz('exam'); else startQuiz('train');
   };
   document.getElementById('btn-gohome').onclick = function(){ state.screen = 'home'; render(); };
+}
+
+
+/* ---------------- lessons mode ---------------- */
+function lessonProgress(){
+  var done = 0, total = 0;
+  Object.keys(LESSONS).forEach(function(l){
+    LESSONS[l].forEach(function(ls){ total++; if(stats.lessons[ls.id]) done++; });
+  });
+  return done + ' / ' + total + ' درساً مكتملاً';
+}
+function currentLesson(){
+  var list = LESSONS[state.level] || [];
+  for(var i = 0; i < list.length; i++) if(list[i].id === state.lessonId) return list[i];
+  return null;
+}
+function renderLessons(){
+  var m = LEVELS[state.level];
+  var list = LESSONS[state.level] || [];
+  var items = list.map(function(ls, i){
+    var done = stats.lessons[ls.id];
+    var nq = DATA.filter(function(q){ return ls.ids.indexOf(q.id) !== -1; }).length;
+    return '<div class="lesson-item' + (done ? ' done' : '') + '" data-id="' + ls.id + '">' +
+      '<span class="li-icon">' + ls.icon + '</span>' +
+      '<span class="li-body">' +
+        '<div class="li-fr">' + (i + 1) + '. ' + esc(ls.fr) + '</div>' +
+        '<div class="li-ar">' + esc(ls.ar) + '</div>' +
+        '<div class="li-meta">' + ls.slides.length + ' شرائح · ' + nq + ' سؤالاً' + (done ? ' · ✅ مكتمل' : '') + '</div>' +
+      '</span>' +
+      '<span class="li-check">' + (done ? '✅' : '▶️') + '</span>' +
+    '</div>';
+  }).join('');
+  app.innerHTML =
+    '<div class="progress-wrap">' +
+      '<button class="icon-btn" id="btn-lback" title="رجوع">🔙</button>' +
+      '<span class="score-pill">📚 وضع الدروس</span>' +
+    '</div>' +
+    '<div class="lvl-grid">' +
+      Object.keys(LEVELS).map(function(l){
+        var lm = LEVELS[l], n = (LESSONS[l] || []).length;
+        var done = (LESSONS[l] || []).filter(function(ls){ return stats.lessons[ls.id]; }).length;
+        return '<button class="lvl-btn' + (state.level === l ? ' active' : '') + '" data-lvl="' + l + '">' +
+          '<span class="lvl-icon">' + lm.icon + '</span>' +
+          '<span class="lvl-name">' + lm.name + '</span>' +
+          '<span class="lvl-sub">' + lm.fr + ' · ' + done + '/' + n + '</span>' +
+        '</button>';
+      }).join('') +
+    '</div>' +
+    '<div class="card" style="margin-top:0.7rem"><div class="mode-title">' + m.icon + ' دروس مستوى ' + m.name + '</div>' +
+    '<div class="mode-desc">افتح الدرس، اقرأ الشرح، ثم تدرّب على أسئلته.</div></div>' +
+    items;
+  document.getElementById('btn-lback').onclick = function(){ state.screen = 'home'; render(); };
+  document.querySelectorAll('.lvl-btn').forEach(function(b){
+    b.onclick = function(){ state.level = b.dataset.lvl; renderLessons(); };
+  });
+  document.querySelectorAll('.lesson-item').forEach(function(c){
+    c.onclick = function(){ state.lessonId = c.dataset.id; state.slideIdx = 0; state.screen = 'lesson'; render(); };
+  });
+}
+function renderLesson(){
+  var ls = currentLesson();
+  if(!ls){ state.screen = 'lessons'; render(); return; }
+  var n = ls.slides.length;
+  var last = state.slideIdx === n - 1;
+  var sl = ls.slides[state.slideIdx];
+  var nq = DATA.filter(function(q){ return ls.ids.indexOf(q.id) !== -1; }).length;
+  app.innerHTML =
+    '<div class="progress-wrap">' +
+      '<button class="icon-btn" id="btn-lback2" title="الدروس">🔙</button>' +
+      '<span class="progress-info">' + (state.slideIdx + 1) + ' / ' + n + '</span>' +
+      '<div class="timerbar"><div style="width:' + Math.round((state.slideIdx + 1) * 100 / n) + '%"></div></div>' +
+      '<span class="score-pill">' + ls.icon + ' ' + esc(ls.ar) + '</span>' +
+      '<button class="icon-btn" id="btn-lspeak" title="نطق">🔊</button>' +
+    '</div>' +
+    '<div class="card">' +
+      '<div class="mode-title">' + ls.icon + ' ' + esc(ls.fr) + '</div>' +
+      '<div class="slide-card">' +
+        '<div class="slide-fr">' + esc(sl.f) + '</div>' +
+        '<div class="slide-ar">' + esc(sl.a) + '</div>' +
+      '</div>' +
+      '<div class="slide-nav">' +
+        (state.slideIdx > 0 ? '<button class="ghost-btn" id="btn-lprev">السابق ⏮</button>' : '') +
+        (last ? '<button class="big-btn" id="btn-lfinish">✅ أنهيت الدرس</button>'
+              : '<button class="big-btn" id="btn-lnext">التالي ⏭</button>') +
+      '</div>' +
+    '</div>';
+  document.getElementById('btn-lback2').onclick = function(){ state.screen = 'lessons'; render(); };
+  document.getElementById('btn-lspeak').onclick = function(){ speakOnce(sl.f, this); };
+  var bp = document.getElementById('btn-lprev');
+  if(bp) bp.onclick = function(){ state.slideIdx--; renderLesson(); };
+  var bn = document.getElementById('btn-lnext');
+  if(bn) bn.onclick = function(){ state.slideIdx++; renderLesson(); };
+  var bf = document.getElementById('btn-lfinish');
+  if(bf) bf.onclick = function(){
+    stats.lessons[ls.id] = 1;
+    saveStats();
+    app.innerHTML =
+      '<div class="card result-hero">' +
+        '<div class="result-score ok">✅</div>' +
+        '<div class="result-sub">أنهيت درس «' + esc(ls.ar) + '» — الآن تدرّب على ' + nq + ' سؤالاً</div>' +
+      '</div>' +
+      '<div class="card">' +
+        '<button class="big-btn" id="btn-lquiz">📝 تدرّب على هذا الدرس (' + nq + ' سؤالاً)</button>' +
+        '<button class="ghost-btn" id="btn-llist">📚 لائحة الدروس</button>' +
+      '</div>';
+    document.getElementById('btn-lquiz').onclick = function(){
+      var pool = DATA.filter(function(q){ return ls.ids.indexOf(q.id) !== -1; });
+      state.mode = 'train';
+      state.questions = shuffle(pool);
+      state.idx = 0;
+      state.results = [];
+      state.screen = 'quiz';
+      render();
+    };
+    document.getElementById('btn-llist').onclick = function(){ state.screen = 'lessons'; render(); };
+  };
 }
 
 document.getElementById('btn-stop').onclick = stopSpeech;
