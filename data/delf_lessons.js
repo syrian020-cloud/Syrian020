@@ -17584,6 +17584,236 @@ window.DELF_LESSONS = {
         }
       ],
       "ids": []
+    },
+    {
+      "id": "b1-o2",
+      "icon": "🏃",
+      "fr": "Oral 2 — Faut-il faire du sport régulièrement ?",
+      "ar": "شفهي 2 — هل يجب ممارسة الرياضة بانتظام؟",
+      "consigne": {
+        "f": "Faut-il faire du sport régulièrement ?",
+        "a": "هل يجب ممارسة الرياضة بانتظام؟ — موضوع نقاش للإنتاج الشفهي: قدّم الموضوع، اذكر الإيجابيات والسلبيات، ثم أعطِ رأيك الشخصي."
+      },
+      "phr": [
+        {
+          "f": "Aujourd'hui, le sport occupe une place importante dans notre vie quotidienne.",
+          "a": "اليوم، تحتل الرياضة مكانة مهمة في حياتنا اليومية.",
+          "e": "Today, sport plays an important role in our daily lives."
+        },
+        {
+          "f": "De plus en plus de personnes font du sport pour rester en bonne santé.",
+          "a": "يمارس عدد متزايد من الأشخاص الرياضة للحفاظ على صحتهم.",
+          "e": "More and more people exercise to stay healthy."
+        },
+        {
+          "f": "Cependant, certaines personnes n'ont pas assez de temps pour pratiquer une activité sportive.",
+          "a": "لكن بعض الأشخاص ليس لديهم وقت كافٍ لممارسة نشاط رياضي.",
+          "e": "However, some people do not have enough time to do sports."
+        },
+        {
+          "f": "Tout d'abord, le sport est bon pour la santé physique et mentale.",
+          "a": "أولًا، الرياضة مفيدة للصحة الجسدية والنفسية.",
+          "e": "First of all, sport is good for physical and mental health."
+        },
+        {
+          "f": "Il permet de réduire le stress et d'améliorer la qualité du sommeil.",
+          "a": "يساعد على تقليل التوتر وتحسين جودة النوم.",
+          "e": "It helps reduce stress and improve sleep quality."
+        },
+        {
+          "f": "Le sport permet également de rencontrer de nouvelles personnes et de travailler en équipe.",
+          "a": "تسمح الرياضة أيضًا بالتعرّف على أشخاص جدد والعمل ضمن فريق.",
+          "e": "Sport also allows us to meet new people and work as a team."
+        },
+        {
+          "f": "Cependant, certaines activités sportives peuvent coûter cher.",
+          "a": "لكن بعض الأنشطة الرياضية قد تكون مكلفة.",
+          "e": "However, some sports activities can be expensive."
+        },
+        {
+          "f": "Il faut parfois payer un abonnement à une salle de sport.",
+          "a": "يجب أحيانًا دفع اشتراك في صالة رياضية.",
+          "e": "Sometimes you have to pay for a gym membership."
+        },
+        {
+          "f": "De plus, une mauvaise pratique sportive peut provoquer des blessures.",
+          "a": "بالإضافة إلى ذلك، قد تؤدي ممارسة الرياضة بطريقة خاطئة إلى الإصابات.",
+          "e": "Moreover, exercising incorrectly can cause injuries."
+        },
+        {
+          "f": "Personnellement, je pense que tout le monde devrait pratiquer une activité physique régulièrement.",
+          "a": "شخصيًا، أعتقد أن على الجميع ممارسة نشاط بدني بانتظام.",
+          "e": "Personally, I think everyone should exercise regularly."
+        },
+        {
+          "f": "Il n'est pas nécessaire de faire du sport pendant plusieurs heures par jour.",
+          "a": "ليس من الضروري ممارسة الرياضة لساعات طويلة يوميًا.",
+          "e": "It is not necessary to exercise for several hours every day."
+        },
+        {
+          "f": "Même une simple marche de trente minutes peut être bénéfique pour la santé.",
+          "a": "حتى المشي لمدة ثلاثين دقيقة يمكن أن يكون مفيدًا للصحة.",
+          "e": "Even a simple thirty-minute walk can be beneficial for your health."
+        },
+        {
+          "f": "Quel sport préférez-vous pratiquer ?",
+          "a": "ما الرياضة التي تفضّل ممارستها؟",
+          "e": "Which sport do you prefer to practise?",
+          "qa": 1
+        },
+        {
+          "f": "Je préfère la marche et la natation parce que ces activités sont bonnes pour la santé et permettent de se détendre.",
+          "a": "أفضل المشي والسباحة لأن هذين النشاطين مفيدان للصحة ويسمحان بالاسترخاء.",
+          "e": "I prefer walking and swimming because these activities are good for your health and help you relax.",
+          "qa": 1
+        },
+        {
+          "f": "Pourquoi certaines personnes ne font-elles pas de sport ?",
+          "a": "لماذا لا يمارس بعض الأشخاص الرياضة؟",
+          "e": "Why don't some people exercise?",
+          "qa": 1
+        },
+        {
+          "f": "Certaines personnes manquent de temps à cause du travail et des responsabilités familiales. D'autres préfèrent se reposer pendant leur temps libre.",
+          "a": "بعض الأشخاص لا يملكون وقتًا كافيًا بسبب العمل والمسؤوليات العائلية. وآخرون يفضّلون الراحة خلال أوقات فراغهم.",
+          "e": "Some people lack time because of work and family responsibilities. Others prefer to relax during their free time.",
+          "qa": 1
+        },
+        {
+          "f": "Est-ce que les enfants doivent faire du sport à l'école ?",
+          "a": "هل يجب على الأطفال ممارسة الرياضة في المدرسة؟",
+          "e": "Should children do sports at school?",
+          "qa": 1
+        },
+        {
+          "f": "Oui, je pense que le sport est très important pour les enfants. Il améliore leur santé, leur confiance en eux et leur esprit d'équipe.",
+          "a": "نعم، أعتقد أن الرياضة مهمة جدًا للأطفال. فهي تحسّن صحتهم وثقتهم بأنفسهم وروح العمل الجماعي لديهم.",
+          "e": "Yes, I think sport is very important for children. It improves their health, self-confidence and teamwork.",
+          "qa": 1
+        },
+        {
+          "f": "Pensez-vous que le sport devrait être obligatoire à l'école ? Pourquoi ?",
+          "a": "هل تعتقد أن الرياضة يجب أن تكون إلزامية في المدرسة؟ ولماذا؟",
+          "e": "Do you think sports should be compulsory at school? Why?",
+          "qa": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-o3",
+      "icon": "🌍",
+      "fr": "Oral 3 — Faut-il apprendre une langue étrangère ?",
+      "ar": "شفهي 3 — هل يجب تعلّم لغة أجنبية؟",
+      "consigne": {
+        "f": "Faut-il apprendre une langue étrangère ?",
+        "a": "هل يجب تعلّم لغة أجنبية؟ — موضوع نقاش للإنتاج الشفهي: قدّم الموضوع، اذكر الإيجابيات والسلبيات، ثم أعطِ رأيك الشخصي."
+      },
+      "phr": [
+        {
+          "f": "Aujourd'hui, apprendre une langue étrangère est devenu très important dans notre société.",
+          "a": "اليوم، أصبح تعلّم لغة أجنبية أمرًا مهمًا جدًا في مجتمعنا.",
+          "e": "Today, learning a foreign language has become very important in our society."
+        },
+        {
+          "f": "Grâce aux langues, nous pouvons communiquer avec des personnes de différents pays.",
+          "a": "بفضل اللغات، يمكننا التواصل مع أشخاص من بلدان مختلفة.",
+          "e": "Thanks to languages, we can communicate with people from different countries."
+        },
+        {
+          "f": "Beaucoup de personnes apprennent une nouvelle langue pour travailler, étudier ou voyager.",
+          "a": "يتعلم الكثير من الأشخاص لغة جديدة من أجل العمل أو الدراسة أو السفر.",
+          "e": "Many people learn a new language to work, study or travel."
+        },
+        {
+          "f": "Tout d'abord, apprendre une langue étrangère permet de trouver plus facilement un emploi.",
+          "a": "أولًا، يسمح تعلّم لغة أجنبية بإيجاد عمل بسهولة أكبر.",
+          "e": "First of all, learning a foreign language makes it easier to find a job."
+        },
+        {
+          "f": "Cela permet également de découvrir de nouvelles cultures et de rencontrer de nouvelles personnes.",
+          "a": "يسمح ذلك أيضًا باكتشاف ثقافات جديدة والتعرّف على أشخاص جدد.",
+          "e": "It also allows us to discover new cultures and meet new people."
+        },
+        {
+          "f": "De plus, parler plusieurs langues peut améliorer la confiance en soi.",
+          "a": "بالإضافة إلى ذلك، يمكن للتحدث بعدة لغات أن يعزز الثقة بالنفس.",
+          "e": "Moreover, speaking several languages can improve self-confidence."
+        },
+        {
+          "f": "Cependant, apprendre une langue demande beaucoup de temps et de patience.",
+          "a": "لكن تعلّم لغة يحتاج إلى الكثير من الوقت والصبر.",
+          "e": "However, learning a language requires a lot of time and patience."
+        },
+        {
+          "f": "Certaines personnes ont des difficultés à comprendre la grammaire et la prononciation.",
+          "a": "يواجه بعض الأشخاص صعوبة في فهم القواعد والنطق.",
+          "e": "Some people have difficulty understanding grammar and pronunciation."
+        },
+        {
+          "f": "Il faut pratiquer régulièrement pour progresser et ne pas oublier ce qu'on a appris.",
+          "a": "يجب الممارسة بانتظام للتقدم وعدم نسيان ما تعلمناه.",
+          "e": "You need to practise regularly to improve and not forget what you have learned."
+        },
+        {
+          "f": "Personnellement, je pense qu'apprendre une langue étrangère est indispensable aujourd'hui.",
+          "a": "شخصيًا، أعتقد أن تعلّم لغة أجنبية أصبح ضروريًا اليوم.",
+          "e": "Personally, I think learning a foreign language is essential today."
+        },
+        {
+          "f": "À mon avis, il vaut mieux apprendre une langue progressivement, en pratiquant un peu chaque jour.",
+          "a": "برأيي، من الأفضل تعلّم اللغة تدريجيًا من خلال الممارسة قليلًا كل يوم.",
+          "e": "In my opinion, it is better to learn a language gradually by practising a little every day."
+        },
+        {
+          "f": "Il ne faut pas avoir peur de faire des erreurs, car elles font partie de l'apprentissage.",
+          "a": "يجب ألا نخاف من ارتكاب الأخطاء، لأنها جزء من عملية التعلّم.",
+          "e": "We should not be afraid of making mistakes because they are part of learning."
+        },
+        {
+          "f": "Pourquoi apprenez-vous le français ?",
+          "a": "لماذا تتعلم اللغة الفرنسية؟",
+          "e": "Why are you learning French?",
+          "qa": 1
+        },
+        {
+          "f": "J'apprends le français parce que je souhaite mieux communiquer avec les autres, trouver de nouvelles opportunités professionnelles et vivre plus facilement en France.",
+          "a": "أتعلم الفرنسية لأنني أرغب في التواصل بشكل أفضل مع الآخرين، وإيجاد فرص مهنية جديدة، والعيش بسهولة أكبر في فرنسا.",
+          "e": "I am learning French because I want to communicate better with others, find new job opportunities and live more easily in France.",
+          "qa": 1
+        },
+        {
+          "f": "Quelle est la meilleure façon d'apprendre une langue étrangère ?",
+          "a": "ما أفضل طريقة لتعلّم لغة أجنبية؟",
+          "e": "What is the best way to learn a foreign language?",
+          "qa": 1
+        },
+        {
+          "f": "Je pense qu'il faut écouter des conversations, regarder des films, lire des textes et surtout parler avec d'autres personnes.",
+          "a": "أعتقد أنه يجب الاستماع إلى المحادثات ومشاهدة الأفلام وقراءة النصوص، والأهم من ذلك التحدث مع الآخرين.",
+          "e": "I think we should listen to conversations, watch films, read texts and, above all, speak with other people.",
+          "qa": 1
+        },
+        {
+          "f": "Est-il possible d'apprendre une langue à tout âge ?",
+          "a": "هل من الممكن تعلّم لغة في أي عمر؟",
+          "e": "Is it possible to learn a language at any age?",
+          "qa": 1
+        },
+        {
+          "f": "Oui, bien sûr. Je pense qu'on peut apprendre une nouvelle langue à tout âge. Il faut simplement être motivé et pratiquer régulièrement.",
+          "a": "نعم، بالتأكيد. أعتقد أنه يمكن تعلّم لغة جديدة في أي عمر. كل ما نحتاج إليه هو الحافز والممارسة المنتظمة.",
+          "e": "Yes, of course. I think we can learn a new language at any age. We simply need motivation and regular practice.",
+          "qa": 1
+        },
+        {
+          "f": "Est-ce qu'il est préférable d'apprendre une langue à l'école ou dans le pays où elle est parlée ? Pourquoi ?",
+          "a": "هل من الأفضل تعلّم اللغة في المدرسة أم في البلد الذي تُتحدث فيه؟ ولماذا؟",
+          "e": "Is it better to learn a language at school or in the country where it is spoken? Why?",
+          "qa": 1
+        }
+      ],
+      "ids": []
     }
   ]
 };
