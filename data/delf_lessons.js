@@ -14087,6 +14087,830 @@ window.DELF_LESSONS = {
         }
       ],
       "ids": []
+    },
+    {
+      "id": "b1-l9",
+      "icon": "🗣️",
+      "fr": "Lettre 9 — Apprendre une nouvelle langue",
+      "ar": "رسالة 9 — تعلّم لغة جديدة",
+      "consigne": {
+        "f": "",
+        "a": "صديقك Sam سيأتي ليعيش في مدينتك. سيعمل صباحاً في رعاية الأطفال، وسيكون حراً بعد الظهر. يريد أن يستغل وقت فراغه لتعلّم اللغة. عليك أن تعبّر عن فرحتك برؤيته مجدداً، وتقترح عليه أنشطة في مدينتك تساعده على تعلّم اللغة."
+      },
+      "phr": [
+        {
+          "f": "Salut Sam, quelle bonne nouvelle !",
+          "a": "مرحباً سام، يا لها من أخبار حلوة!",
+          "e": "Hi Sam, what wonderful news!"
+        },
+        {
+          "f": "Je suis très heureux de savoir que tu vas venir vivre dans ma ville.",
+          "a": "أنا مبسوط كتير لما عرفت إنك رح تجي تعيش بمدينتي.",
+          "e": "I'm very happy to hear that you're coming to live in my city."
+        },
+        {
+          "f": "Cela me fera vraiment plaisir de te revoir.",
+          "a": "رح كون مبسوط كتير لما شوفك من جديد.",
+          "e": "I'll be really happy to see you again."
+        },
+        {
+          "f": "Tu vas découvrir une ville agréable et intéressante.",
+          "a": "رح تكتشف مدينة حلوة وممتعة.",
+          "e": "You're going to discover a pleasant and interesting city."
+        },
+        {
+          "f": "Tu peux profiter de tes après-midis pour apprendre la langue.",
+          "a": "فيك تستغل فترة بعد الظهر لتتعلم اللغة.",
+          "e": "You can make the most of your afternoons to learn the language."
+        },
+        {
+          "f": "Je te conseille de suivre des cours de français.",
+          "a": "بنصحك تحضر دروس باللغة الفرنسية.",
+          "e": "I advise you to take French lessons."
+        },
+        {
+          "f": "Il existe des associations qui organisent des cours pour les étrangers.",
+          "a": "في جمعيات بتنظّم دروس للأجانب.",
+          "e": "There are associations that organize classes for foreigners."
+        },
+        {
+          "f": "Tu pourrais aussi participer à un groupe de conversation.",
+          "a": "فيك كمان تشارك بمجموعة للمحادثة.",
+          "e": "You could also join a conversation group."
+        },
+        {
+          "f": "C'est une bonne occasion de parler avec des habitants.",
+          "a": "هاي فرصة منيحة لتحكي مع سكان المدينة.",
+          "e": "It's a good opportunity to speak with local people."
+        },
+        {
+          "f": "Tu peux aller à la bibliothèque pour lire des livres en français.",
+          "a": "فيك تروح عالمكتبة وتقرأ كتب بالفرنسي.",
+          "e": "You can go to the library to read books in French."
+        },
+        {
+          "f": "Regarder des films en français peut également t'aider.",
+          "a": "مشاهدة الأفلام بالفرنسي ممكن تساعدك كمان.",
+          "e": "Watching films in French can also help you."
+        },
+        {
+          "f": "N'hésite pas à participer aux activités culturelles.",
+          "a": "لا تتردد بالمشاركة بالأنشطة الثقافية.",
+          "e": "Don't hesitate to take part in cultural activities."
+        },
+        {
+          "f": "Tu pourrais visiter les musées et les monuments de la ville.",
+          "a": "فيك تزور المتاحف والمعالم الموجودة بالمدينة.",
+          "e": "You could visit the city's museums and monuments."
+        },
+        {
+          "f": "Tu rencontreras de nouvelles personnes et tu te feras des amis.",
+          "a": "رح تتعرف على أشخاص جدد وتكوّن صداقات.",
+          "e": "You'll meet new people and make friends."
+        },
+        {
+          "f": "Plus tu parleras, plus tu progresseras.",
+          "a": "كل ما حكيت أكتر، كل ما تحسّنت أكتر.",
+          "e": "The more you speak, the more you'll improve."
+        },
+        {
+          "f": "Je peux t'accompagner au début si tu le souhaites.",
+          "a": "فيني رافقك بالبداية إذا بتحب.",
+          "e": "I can accompany you at first if you like."
+        },
+        {
+          "f": "Nous pourrons aussi visiter la ville ensemble.",
+          "a": "وفينا كمان نستكشف المدينة سوا.",
+          "e": "We can also explore the city together."
+        },
+        {
+          "f": "Je suis sûr que tu vas rapidement t'adapter.",
+          "a": "أنا متأكد إنك رح تتأقلم بسرعة.",
+          "e": "I'm sure you'll adapt quickly."
+        },
+        {
+          "f": "Le plus important est de pratiquer régulièrement.",
+          "a": "أهم شي تمارس اللغة بشكل منتظم.",
+          "e": "The most important thing is to practise regularly."
+        },
+        {
+          "f": "J'ai hâte de te retrouver et de passer du temps avec toi.",
+          "a": "متحمّس شوفك من جديد ونقضي وقت سوا.",
+          "e": "I can't wait to see you again and spend time with you."
+        },
+        {
+          "f": "À très bientôt, mon ami !",
+          "a": "بشوفك عن قريب يا صديقي!",
+          "e": "See you very soon, my friend!"
+        },
+        {
+          "f": "Une association",
+          "a": "جمعية",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un groupe de conversation",
+          "a": "مجموعة محادثة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une bibliothèque",
+          "a": "مكتبة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une activité culturelle",
+          "a": "نشاط ثقافي",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "S'adapter",
+          "a": "يتأقلم",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Progresser",
+          "a": "يتقدّم / يتحسّن",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Se faire des amis",
+          "a": "يكوّن صداقات",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un habitant",
+          "a": "أحد سكان المدينة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un après-midi",
+          "a": "فترة بعد الظهر",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Pratiquer",
+          "a": "يمارس",
+          "e": "",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l10",
+      "icon": "🏢",
+      "fr": "Lettre 10 — Le stage en entreprise",
+      "ar": "رسالة 10 — التدريب في شركة",
+      "consigne": {
+        "f": "",
+        "a": "أنت متدرب منذ بضعة أسابيع في شركة في فرنسا. اكتب رسالة إلى صديقك المقرّب تشرح له فيها ماذا تفعل في الشركة، وتعطيه رأيك بهذا النوع من الخبرة. — 💡 لا تكتفِ بوصف الشركة؛ اذكر أيضاً المهام التي تقوم بها، وما تعلمته، ورأيك الشخصي في تجربة التدريب."
+      },
+      "phr": [
+        {
+          "f": "Salut mon ami, comment vas-tu ?",
+          "a": "مرحباً يا صديقي، كيفك؟",
+          "e": "Hi my friend, how are you?"
+        },
+        {
+          "f": "Je t'écris pour te parler de mon nouveau stage en entreprise.",
+          "a": "عم أكتبلك حتى خبرك عن تدريبي الجديد بالشركة.",
+          "e": "I'm writing to tell you about my new internship."
+        },
+        {
+          "f": "Cela fait quelques semaines que j'ai commencé ce stage en France.",
+          "a": "صارلي كم أسبوع بلّشت هالتدريب بفرنسا.",
+          "e": "I started this internship in France a few weeks ago."
+        },
+        {
+          "f": "Je travaille dans une entreprise qui se trouve près de chez moi.",
+          "a": "بشتغل بشركة موجودة بالقرب من بيتي.",
+          "e": "I work in a company located near my home."
+        },
+        {
+          "f": "Mes journées commencent généralement à huit heures du matin.",
+          "a": "عادةً بيبدأ يوم عملي الساعة تمانية الصبح.",
+          "e": "My working days usually start at eight in the morning."
+        },
+        {
+          "f": "Je découvre progressivement le fonctionnement de l'entreprise.",
+          "a": "عم اتعرّف تدريجياً على طريقة عمل الشركة.",
+          "e": "I'm gradually discovering how the company works."
+        },
+        {
+          "f": "Je participe à différentes activités avec mes collègues.",
+          "a": "بشارك بأنشطة ومهام مختلفة مع زملائي.",
+          "e": "I take part in different activities with my colleagues."
+        },
+        {
+          "f": "Mon travail consiste à préparer et à organiser des commandes.",
+          "a": "شغلي هو تحضير الطلبيات وتنظيمها.",
+          "e": "My job consists of preparing and organizing orders."
+        },
+        {
+          "f": "J'apprends à utiliser de nouveaux outils et de nouvelles machines.",
+          "a": "عم اتعلم استخدم أدوات وآلات جديدة.",
+          "e": "I'm learning to use new tools and machines."
+        },
+        {
+          "f": "Au début, certaines tâches étaient difficiles pour moi.",
+          "a": "بالبداية، كانت بعض المهام صعبة عليّ.",
+          "e": "At first, some tasks were difficult for me."
+        },
+        {
+          "f": "Heureusement, mes collègues m'aident beaucoup.",
+          "a": "لحسن الحظ، زملائي بيساعدوني كتير.",
+          "e": "Fortunately, my colleagues help me a lot."
+        },
+        {
+          "f": "Ils prennent le temps de m'expliquer mon travail.",
+          "a": "بيخصصوا وقت حتى يشرحولي شغلي.",
+          "e": "They take the time to explain my work to me."
+        },
+        {
+          "f": "Mon responsable est également très gentil et patient.",
+          "a": "المسؤول عني كمان لطيف وصبور كتير.",
+          "e": "My supervisor is also very kind and patient."
+        },
+        {
+          "f": "Grâce à cette expérience, j'améliore mes compétences professionnelles.",
+          "a": "بفضل هالتجربة، عم طوّر مهاراتي المهنية.",
+          "e": "Thanks to this experience, I'm improving my professional skills."
+        },
+        {
+          "f": "Je pratique aussi le français chaque jour avec mes collègues.",
+          "a": "كمان عم مارس اللغة الفرنسية كل يوم مع زملائي.",
+          "e": "I also practise French every day with my colleagues."
+        },
+        {
+          "f": "Ce stage me permet de mieux comprendre le monde du travail.",
+          "a": "هالتدريب بيساعدني أفهم عالم العمل بشكل أفضل.",
+          "e": "This internship helps me better understand the world of work."
+        },
+        {
+          "f": "Je pense que cette expérience est très enrichissante.",
+          "a": "برأيي، هالتجربة مفيدة جداً وبتضيفلي كتير.",
+          "e": "I think this experience is very rewarding."
+        },
+        {
+          "f": "Elle permet d'acquérir de l'expérience et de devenir plus autonome.",
+          "a": "بتسمح للشخص يكتسب خبرة ويصير أكثر اعتماداً على نفسه.",
+          "e": "It allows you to gain experience and become more independent."
+        },
+        {
+          "f": "Je conseille à tous les jeunes de faire un stage s'ils en ont la possibilité.",
+          "a": "بنصح كل الشباب يعملوا تدريب إذا أتيحتلهم الفرصة.",
+          "e": "I advise all young people to do an internship if they have the opportunity."
+        },
+        {
+          "f": "J'espère que ce stage m'aidera à trouver un emploi à l'avenir.",
+          "a": "بتمنى هالتدريب يساعدني لاقي شغل بالمستقبل.",
+          "e": "I hope this internship will help me find a job in the future."
+        },
+        {
+          "f": "Voilà, je voulais partager cette expérience avec toi. À bientôt !",
+          "a": "هيك حبيت شاركك هالتجربة. بشوفك قريب!",
+          "e": "So, I wanted to share this experience with you. See you soon!"
+        },
+        {
+          "f": "Un stage",
+          "a": "تدريب",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une entreprise",
+          "a": "شركة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un stagiaire",
+          "a": "متدرب",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un collègue",
+          "a": "زميل",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Un responsable",
+          "a": "مسؤول",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une tâche",
+          "a": "مهمة",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Une commande",
+          "a": "طلبية",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Les compétences",
+          "a": "المهارات",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "L'expérience professionnelle",
+          "a": "الخبرة المهنية",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Le monde du travail",
+          "a": "عالم العمل",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Acquérir",
+          "a": "يكتسب",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Autonome",
+          "a": "مستقل / يعتمد على نفسه",
+          "e": "",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l11",
+      "icon": "🌍",
+      "fr": "Lettre 11 — Participer à un projet humanitaire",
+      "ar": "رسالة 11 — المشاركة في مشروع إنساني",
+      "consigne": {
+        "f": "",
+        "a": "خلال فصل الصيف، تشارك في مشروع إنساني في بلد ناطق بالفرنسية. اكتب رسالة إلى أحد أفراد عائلتك تخبره فيها عن: البلد الذي ذهبت إليه، ظروف إقامتك، المهام التي تقوم بها، ورأيك في هذه التجربة الإنسانية."
+      },
+      "phr": [
+        {
+          "f": "Salut ma famille, j'espère que vous allez bien.",
+          "a": "مرحباً عائلتي، بتمنى تكونوا بخير.",
+          "e": "Hello my family, I hope you are doing well."
+        },
+        {
+          "f": "Je vous écris pour vous raconter une expérience exceptionnelle que je vis actuellement.",
+          "a": "عم أكتبلكم حتى خبركم عن تجربة استثنائية عم عيشها حالياً.",
+          "e": "I'm writing to tell you about an exceptional experience I'm currently having."
+        },
+        {
+          "f": "Cet été, j'ai décidé de participer à un projet humanitaire à l'étranger.",
+          "a": "هالصيف قررت شارك بمشروع إنساني خارج البلاد.",
+          "e": "This summer, I decided to participate in a humanitarian project abroad."
+        },
+        {
+          "f": "Je suis actuellement dans un pays francophone où je découvre une nouvelle culture.",
+          "a": "أنا حالياً ببلد ناطق بالفرنسية وعم اكتشف ثقافة جديدة.",
+          "e": "I'm currently in a French-speaking country where I'm discovering a new culture."
+        },
+        {
+          "f": "Nous sommes logés dans un centre réservé aux bénévoles.",
+          "a": "ساكنين بمركز مخصص للمتطوعين.",
+          "e": "We are staying in a center reserved for volunteers."
+        },
+        {
+          "f": "Les conditions de vie sont simples, mais l'ambiance est très agréable.",
+          "a": "ظروف المعيشة بسيطة، لكن الأجواء كتير حلوة.",
+          "e": "Living conditions are simple, but the atmosphere is very pleasant."
+        },
+        {
+          "f": "Chaque matin, nous nous réunissons pour organiser notre travail.",
+          "a": "كل صباح منجتمع حتى ننظم شغلنا.",
+          "e": "Every morning, we meet to organize our work."
+        },
+        {
+          "f": "Nous aidons les familles qui ont besoin de soutien.",
+          "a": "منساعد العائلات اللي بحاجة للمساعدة.",
+          "e": "We help families who need support."
+        },
+        {
+          "f": "Nous distribuons des vêtements, de la nourriture et des produits de première nécessité.",
+          "a": "منوزع ملابس وطعام ومواد أساسية.",
+          "e": "We distribute clothes, food and essential products."
+        },
+        {
+          "f": "Nous participons également à des activités éducatives pour les enfants.",
+          "a": "كمان منشارك بأنشطة تعليمية للأطفال.",
+          "e": "We also participate in educational activities for children."
+        },
+        {
+          "f": "Notre objectif est d'améliorer les conditions de vie des habitants.",
+          "a": "هدفنا نحسّن ظروف معيشة السكان.",
+          "e": "Our goal is to improve the living conditions of local people."
+        },
+        {
+          "f": "Au début, j'avais quelques difficultés à communiquer avec les habitants.",
+          "a": "بالبداية، واجهت بعض الصعوبات بالتواصل مع السكان.",
+          "e": "At first, I had some difficulties communicating with the local people."
+        },
+        {
+          "f": "Mais progressivement, je me suis habitué à leur mode de vie.",
+          "a": "لكن تدريجياً، تعودت على أسلوب حياتهم.",
+          "e": "But gradually, I got used to their way of life."
+        },
+        {
+          "f": "J'ai rencontré des personnes formidables qui m'ont beaucoup appris.",
+          "a": "تعرفت على أشخاص رائعين علموني أشياء كتيرة.",
+          "e": "I met wonderful people who taught me a lot."
+        },
+        {
+          "f": "Cette expérience m'a permis de découvrir une autre réalité.",
+          "a": "هالتجربة سمحتلي اكتشف واقعاً مختلفاً.",
+          "e": "This experience allowed me to discover a different reality."
+        },
+        {
+          "f": "J'ai compris l'importance de la solidarité et de l'entraide.",
+          "a": "فهمت أهمية التضامن ومساعدة بعضنا البعض.",
+          "e": "I understood the importance of solidarity and mutual help."
+        },
+        {
+          "f": "Je pense que chacun peut contribuer à améliorer la société.",
+          "a": "بعتقد إن كل شخص بيقدر يساهم بتحسين المجتمع.",
+          "e": "I think everyone can contribute to improving society."
+        },
+        {
+          "f": "Même les petits gestes peuvent faire une grande différence.",
+          "a": "حتى التصرفات الصغيرة ممكن تعمل فرق كبير.",
+          "e": "Even small actions can make a big difference."
+        },
+        {
+          "f": "Je suis très heureux d'avoir participé à ce projet.",
+          "a": "أنا سعيد كتير إني شاركت بهالمشروع.",
+          "e": "I'm very happy to have participated in this project."
+        },
+        {
+          "f": "Je garderai de merveilleux souvenirs de cette expérience.",
+          "a": "رح احتفظ بذكريات رائعة من هالتجربة.",
+          "e": "I will keep wonderful memories of this experience."
+        },
+        {
+          "f": "J'espère vous raconter tous les détails à mon retour.",
+          "a": "بتمنى خبركم كل التفاصيل لما أرجع.",
+          "e": "I hope to tell you all the details when I return."
+        },
+        {
+          "f": "Je vous embrasse très fort et à bientôt !",
+          "a": "ببعتلكم كتير بوسات، وبشوفكم قريباً!",
+          "e": "Sending you lots of love and see you soon!"
+        },
+        {
+          "f": "Humanitaire",
+          "a": "إنساني",
+          "e": "Humanitarian",
+          "voc": 1
+        },
+        {
+          "f": "Un bénévole",
+          "a": "متطوع",
+          "e": "Volunteer",
+          "voc": 1
+        },
+        {
+          "f": "La solidarité",
+          "a": "التضامن",
+          "e": "Solidarity",
+          "voc": 1
+        },
+        {
+          "f": "L'entraide",
+          "a": "المساعدة المتبادلة",
+          "e": "Mutual help",
+          "voc": 1
+        },
+        {
+          "f": "Un projet",
+          "a": "مشروع",
+          "e": "Project",
+          "voc": 1
+        },
+        {
+          "f": "Un habitant",
+          "a": "أحد السكان",
+          "e": "Resident",
+          "voc": 1
+        },
+        {
+          "f": "Distribuer",
+          "a": "يوزع",
+          "e": "To distribute",
+          "voc": 1
+        },
+        {
+          "f": "Les besoins",
+          "a": "الاحتياجات",
+          "e": "Needs",
+          "voc": 1
+        },
+        {
+          "f": "Les conditions de vie",
+          "a": "ظروف المعيشة",
+          "e": "Living conditions",
+          "voc": 1
+        },
+        {
+          "f": "S'engager",
+          "a": "يلتزم / ينخرط",
+          "e": "To get involved",
+          "voc": 1
+        },
+        {
+          "f": "Une expérience enrichissante",
+          "a": "تجربة مفيدة ومثرية",
+          "e": "Rewarding experience",
+          "voc": 1
+        },
+        {
+          "f": "À l'étranger",
+          "a": "في الخارج",
+          "e": "Abroad",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l12",
+      "icon": "🗺️",
+      "fr": "Lettre 12 — Travailler dans le domaine du tourisme",
+      "ar": "رسالة 12 — العمل في مجال السياحة",
+      "consigne": {
+        "f": "Vous avez toujours rêvé de travailler dans le domaine du tourisme. Votre ville cherche des guides touristiques pour offrir l'opportunité de partager l'histoire et la culture locales avec les visiteurs.",
+        "a": "لطالما حلمت بالعمل في مجال السياحة. مدينتك تبحث عن مرشدين سياحيين لإتاحة الفرصة لمشاركة تاريخ المدينة وثقافتها المحلية مع الزوار. المطلوب: تكتب رسالة إلى مسؤول الوكالة السياحية تعبّر فيها عن اهتمامك بالعمل، وتحكي عن خبرتك في مجال السياحة، وتوضّح مهاراتك ودوافعك. — 💡 ابدأ الرسالة بتحية رسمية (Madame, Monsieur)، وضّح سبب كتابتك من أول فقرة، اذكر خبرتك ومهاراتك، استخدم أدوات الربط (De plus, En effet, C'est pourquoi)، ولا تنسَ الخاتمة الرسمية. التزم بـ160 كلمة على الأقل."
+      },
+      "phr": [
+        {
+          "f": "Je vous écris pour vous faire part de mon intérêt pour le poste de guide touristique.",
+          "a": "أكتب إليكم لأعبّر عن اهتمامي بوظيفة مرشد سياحي.",
+          "e": "I am writing to express my interest in the tourist guide position."
+        },
+        {
+          "f": "Depuis longtemps, je rêve de travailler dans le domaine du tourisme.",
+          "a": "من زمان وأنا بحلم اشتغل بمجال السياحة.",
+          "e": "I have long dreamed of working in tourism."
+        },
+        {
+          "f": "Je suis passionné par l'histoire et la culture de ma ville.",
+          "a": "أنا شغوف بتاريخ وثقافة مدينتي.",
+          "e": "I am passionate about the history and culture of my city."
+        },
+        {
+          "f": "J'aime rencontrer de nouvelles personnes et découvrir d'autres cultures.",
+          "a": "بحب اتعرف على أشخاص جدد واكتشف ثقافات مختلفة.",
+          "e": "I enjoy meeting new people and discovering other cultures."
+        },
+        {
+          "f": "Je connais très bien les monuments historiques de ma région.",
+          "a": "بعرف المعالم التاريخية بمنطقتي بشكل جيد جداً.",
+          "e": "I know the historical monuments in my region very well."
+        },
+        {
+          "f": "Je peux présenter les lieux touristiques aux visiteurs.",
+          "a": "فيني عرّف الزوار على الأماكن السياحية.",
+          "e": "I can introduce tourist attractions to visitors."
+        },
+        {
+          "f": "J'ai déjà accompagné des touristes pendant leurs visites.",
+          "a": "سبق ورافقت سياح خلال جولاتهم.",
+          "e": "I have already accompanied tourists during their visits."
+        },
+        {
+          "f": "Cette expérience m'a permis de développer mes compétences en communication.",
+          "a": "هالتجربة ساعدتني طوّر مهارات التواصل عندي.",
+          "e": "This experience helped me develop my communication skills."
+        },
+        {
+          "f": "Je parle français et anglais.",
+          "a": "بحكي فرنسي وإنجليزي.",
+          "e": "I speak French and English."
+        },
+        {
+          "f": "Je suis capable de communiquer avec des personnes de différentes nationalités.",
+          "a": "بقدر تواصل مع أشخاص من جنسيات مختلفة.",
+          "e": "I can communicate with people of different nationalities."
+        },
+        {
+          "f": "Je suis une personne sérieuse, dynamique et organisée.",
+          "a": "أنا شخص جدي ونشيط ومنظّم.",
+          "e": "I am a serious, energetic and organized person."
+        },
+        {
+          "f": "J'aime travailler en équipe et aider les autres.",
+          "a": "بحب اشتغل ضمن فريق وساعد الآخرين.",
+          "e": "I enjoy working in a team and helping others."
+        },
+        {
+          "f": "Je sais expliquer les informations de manière simple et claire.",
+          "a": "بعرف اشرح المعلومات بطريقة بسيطة وواضحة.",
+          "e": "I know how to explain information simply and clearly."
+        },
+        {
+          "f": "Je peux préparer des visites adaptées aux besoins des touristes.",
+          "a": "فيني حضّر جولات مناسبة لاحتياجات السياح.",
+          "e": "I can prepare tours adapted to tourists' needs."
+        },
+        {
+          "f": "Je voudrais faire découvrir les traditions locales aux visiteurs.",
+          "a": "حابب عرّف الزوار على العادات والتقاليد المحلية.",
+          "e": "I would like to introduce local traditions to visitors."
+        },
+        {
+          "f": "Je pense que le tourisme est important pour l'économie de notre ville.",
+          "a": "بعتقد إن السياحة مهمة لاقتصاد مدينتنا.",
+          "e": "I think tourism is important for our city's economy."
+        },
+        {
+          "f": "Ce travail me permettrait de partager mes connaissances avec les autres.",
+          "a": "هالعمل بيسمحلي شارك معلوماتي ومعرفتي مع الآخرين.",
+          "e": "This job would allow me to share my knowledge with others."
+        },
+        {
+          "f": "Je suis disponible pour participer à une formation si nécessaire.",
+          "a": "أنا متاح للمشاركة بدورة تدريبية إذا كان ذلك ضرورياً.",
+          "e": "I am available to take part in training if necessary."
+        },
+        {
+          "f": "Je serais heureux de rejoindre votre équipe.",
+          "a": "سأكون سعيداً بالانضمام إلى فريقكم.",
+          "e": "I would be happy to join your team."
+        },
+        {
+          "f": "Je reste à votre disposition pour un entretien.",
+          "a": "أنا جاهز لأي مقابلة في الوقت الذي يناسبكم.",
+          "e": "I remain available for an interview."
+        },
+        {
+          "f": "Dans l'attente de votre réponse, je vous remercie de votre attention.",
+          "a": "بانتظار ردكم، بشكركم على اهتمامكم.",
+          "e": "I look forward to your reply and thank you for your attention."
+        },
+        {
+          "f": "Je vous prie d'agréer, Madame, Monsieur, mes salutations distinguées.",
+          "a": "تفضلوا بقبول فائق الاحترام والتقدير.",
+          "e": "Yours faithfully."
+        },
+        {
+          "f": "Le tourisme",
+          "a": "السياحة",
+          "e": "Tourism",
+          "voc": 1
+        },
+        {
+          "f": "Un guide touristique",
+          "a": "مرشد سياحي",
+          "e": "Tour guide",
+          "voc": 1
+        },
+        {
+          "f": "Un visiteur",
+          "a": "زائر",
+          "e": "Visitor",
+          "voc": 1
+        },
+        {
+          "f": "Un touriste",
+          "a": "سائح",
+          "e": "Tourist",
+          "voc": 1
+        },
+        {
+          "f": "Une agence touristique",
+          "a": "وكالة سياحية",
+          "e": "Travel agency",
+          "voc": 1
+        },
+        {
+          "f": "Un monument historique",
+          "a": "معلم تاريخي",
+          "e": "Historical monument",
+          "voc": 1
+        },
+        {
+          "f": "Le patrimoine",
+          "a": "التراث",
+          "e": "Heritage",
+          "voc": 1
+        },
+        {
+          "f": "La culture locale",
+          "a": "الثقافة المحلية",
+          "e": "Local culture",
+          "voc": 1
+        },
+        {
+          "f": "Une visite guidée",
+          "a": "جولة مع مرشد",
+          "e": "Guided tour",
+          "voc": 1
+        },
+        {
+          "f": "Accompagner",
+          "a": "يرافق",
+          "e": "To accompany",
+          "voc": 1
+        },
+        {
+          "f": "Faire découvrir",
+          "a": "يعرّف على",
+          "e": "To introduce",
+          "voc": 1
+        },
+        {
+          "f": "Une compétence",
+          "a": "مهارة",
+          "e": "Skill",
+          "voc": 1
+        },
+        {
+          "f": "La communication",
+          "a": "التواصل",
+          "e": "Communication",
+          "voc": 1
+        },
+        {
+          "f": "Une candidature",
+          "a": "طلب توظيف",
+          "e": "Application",
+          "voc": 1
+        },
+        {
+          "f": "Être passionné par",
+          "a": "شغوف بـ",
+          "e": "To be passionate about",
+          "voc": 1
+        },
+        {
+          "f": "Je vous écris pour…",
+          "a": "أكتب إليكم من أجل…",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Faire part de mon intérêt",
+          "a": "التعبير عن اهتمامي",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Grâce à mon expérience",
+          "a": "بفضل خبرتي",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "De plus",
+          "a": "بالإضافة إلى ذلك",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "En effet",
+          "a": "في الواقع",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "C'est pourquoi",
+          "a": "ولهذا السبب",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Je serais heureux de…",
+          "a": "سأكون سعيداً بـ…",
+          "e": "",
+          "voc": 1
+        },
+        {
+          "f": "Je reste à votre disposition",
+          "a": "أبقى تحت تصرفكم",
+          "e": "",
+          "voc": 1
+        }
+      ],
+      "ids": []
     }
   ]
 };
