@@ -1052,6 +1052,706 @@ window.DELF_LESSONS={
     "d4071",
     "d4072"
    ]
+  },
+  {
+   "id": "a1-16",
+   "icon": "🙋",
+   "fr": "Se présenter",
+   "ar": "التعريف بالنفس",
+   "phr": [
+    {
+     "f": "Bonjour ! Je m'appelle Ahmed. J'ai 25 ans. Je suis syrien et j'habite à Paris. Je parle arabe et un peu français. Je suis étudiant. J'aime le sport et la musique.",
+     "a": "مرحباً! اسمي أحمد. عمري 25 سنة. أنا سوري وأسكن في باريس. أتحدث العربية والقليل من الفرنسية. أنا طالب. أحب الرياضة والموسيقى.",
+     "e": "Hello! My name is Ahmed. I am 25 years old. I am Syrian and I live in Paris. I speak Arabic and a little French. I am a student. I like sports and music."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-17",
+   "icon": "👨‍👩‍👧",
+   "fr": "Ma famille",
+   "ar": "عائلتي",
+   "phr": [
+    {
+     "f": "J'ai une petite famille. Nous sommes cinq personnes : mon père, ma mère, mes deux frères et moi. Mon père travaille et ma mère est à la maison. J'aime beaucoup ma famille.",
+     "a": "لدي عائلة صغيرة. نحن خمسة أشخاص: أبي وأمي وأخواي وأنا. أبي يعمل وأمي في المنزل. أحب عائلتي كثيراً.",
+     "e": "I have a small family. There are five of us: my father, my mother, my two brothers and me. My father works and my mother stays at home. I love my family very much."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-18",
+   "icon": "⏰",
+   "fr": "Ma journée",
+   "ar": "يومي",
+   "phr": [
+    {
+     "f": "Je me réveille à sept heures. Je prends mon petit-déjeuner et je vais au travail. À midi, je mange avec mes amis. Le soir, je regarde la télévision et je me couche à dix heures.",
+     "a": "أستيقظ الساعة السابعة. أتناول فطوري وأذهب إلى العمل. عند الظهر آكل مع أصدقائي. في المساء أشاهد التلفاز وأنام الساعة العاشرة.",
+     "e": "I wake up at seven o'clock. I have breakfast and go to work. At noon, I eat with my friends. In the evening, I watch television and go to bed at ten."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-19",
+   "icon": "🏠",
+   "fr": "Ma maison",
+   "ar": "بيتي",
+   "phr": [
+    {
+     "f": "J'habite dans un petit appartement à Paris. Il y a deux chambres, un salon, une cuisine et une salle de bains. Mon appartement est calme et confortable.",
+     "a": "أسكن في شقة صغيرة في باريس. يوجد غرفتا نوم وغرفة جلوس ومطبخ وحمام. شقتي هادئة ومريحة.",
+     "e": "I live in a small apartment in Paris. There are two bedrooms, a living room, a kitchen and a bathroom. My apartment is quiet and comfortable."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-20",
+   "icon": "🎨",
+   "fr": "Mes loisirs",
+   "ar": "هواياتي",
+   "phr": [
+    {
+     "f": "Pendant mon temps libre, j'aime écouter de la musique, regarder des films et faire du sport. Le week-end, je sors avec mes amis. J'aime beaucoup mon temps libre.",
+     "a": "في وقت فراغي، أحب الاستماع إلى الموسيقى ومشاهدة الأفلام وممارسة الرياضة. في عطلة نهاية الأسبوع أخرج مع أصدقائي. أحب وقت فراغي كثيراً.",
+     "e": "In my free time, I like listening to music, watching films and doing sports. At the weekend, I go out with my friends. I really enjoy my free time."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-21",
+   "icon": "🍕",
+   "fr": "Mon plat préféré",
+   "ar": "الطعام المفضل",
+   "phr": [
+    {
+     "f": "Mon plat préféré est la pizza. J'aime aussi manger du poulet, du riz et des légumes. Je préfère manger à la maison avec ma famille. La nourriture est très importante pour moi.",
+     "a": "طعامي المفضل هو البيتزا. أحب أيضاً تناول الدجاج والأرز والخضروات. أفضل تناول الطعام في المنزل مع عائلتي. الطعام مهم جداً بالنسبة لي.",
+     "e": "My favourite dish is pizza. I also like eating chicken, rice and vegetables. I prefer eating at home with my family. Food is very important to me."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-22",
+   "icon": "🛒",
+   "fr": "Faire les courses",
+   "ar": "التسوق",
+   "phr": [
+    {
+     "f": "Le samedi, je vais au supermarché avec ma famille. J'achète du pain, du lait, des fruits et des légumes. J'aime faire les courses parce que c'est agréable.",
+     "a": "يوم السبت أذهب إلى السوبرماركت مع عائلتي. أشتري الخبز والحليب والفواكه والخضروات. أحب التسوق لأنه ممتع.",
+     "e": "On Saturday, I go to the supermarket with my family. I buy bread, milk, fruit and vegetables. I like shopping because it is enjoyable."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-23",
+   "icon": "🌅",
+   "fr": "Mon week-end",
+   "ar": "عطلة نهاية الأسبوع",
+   "phr": [
+    {
+     "f": "Le week-end, je me repose à la maison. Le samedi, je fais les courses et je rencontre mes amis. Le dimanche, je regarde un film et je prépare la semaine.",
+     "a": "في عطلة نهاية الأسبوع أرتاح في المنزل. يوم السبت أتسوق وألتقي أصدقائي. يوم الأحد أشاهد فيلماً وأحضّر للأسبوع.",
+     "e": "At the weekend, I relax at home. On Saturday, I go shopping and meet my friends. On Sunday, I watch a film and prepare for the week."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-24",
+   "icon": "🏙️",
+   "fr": "Ma ville",
+   "ar": "مدينتي",
+   "phr": [
+    {
+     "f": "J'habite à Paris. C'est une grande et belle ville. Il y a des magasins, des restaurants, des parcs et des musées. J'aime ma ville parce qu'elle est intéressante.",
+     "a": "أسكن في باريس. إنها مدينة كبيرة وجميلة. يوجد فيها متاجر ومطاعم وحدائق ومتاحف. أحب مدينتي لأنها ممتعة.",
+     "e": "I live in Paris. It is a big and beautiful city. There are shops, restaurants, parks and museums. I like my city because it is interesting."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-25",
+   "icon": "☀️",
+   "fr": "Le temps",
+   "ar": "الطقس",
+   "phr": [
+    {
+     "f": "Aujourd'hui, il fait beau et il y a du soleil. J'aime le printemps parce qu'il ne fait ni trop chaud ni trop froid. En hiver, il fait froid et je porte un manteau.",
+     "a": "اليوم الطقس جميل والشمس مشرقة. أحب الربيع لأنه ليس حاراً جداً ولا بارداً جداً. في الشتاء يكون الجو بارداً وأرتدي معطفاً.",
+     "e": "Today, the weather is nice and sunny. I like spring because it is neither too hot nor too cold. In winter, it is cold and I wear a coat."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-26",
+   "icon": "👫",
+   "fr": "Mon meilleur ami",
+   "ar": "صديقي المفضل",
+   "phr": [
+    {
+     "f": "Mon meilleur ami s'appelle Ali. Il a 26 ans et il habite à Paris. Il est gentil et sympathique. Nous aimons jouer au football et regarder des films ensemble.",
+     "a": "صديقي المفضل اسمه علي. عمره 26 سنة ويسكن في باريس. إنه لطيف وودود. نحب لعب كرة القدم ومشاهدة الأفلام معاً.",
+     "e": "My best friend is called Ali. He is 26 years old and lives in Paris. He is kind and friendly. We like playing football and watching films together."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-27",
+   "icon": "🎂",
+   "fr": "Mon anniversaire",
+   "ar": "عيد ميلادي",
+   "phr": [
+    {
+     "f": "Le mois dernier, j'ai fêté mon anniversaire avec ma famille et mes amis. Nous avons mangé un gâteau et écouté de la musique. J'ai reçu de beaux cadeaux. C'était une très belle journée.",
+     "a": "في الشهر الماضي احتفلت بعيد ميلادي مع عائلتي وأصدقائي. تناولنا كعكة واستمعنا إلى الموسيقى. تلقيت هدايا جميلة. كان يوماً جميلاً جداً.",
+     "e": "Last month, I celebrated my birthday with my family and friends. We ate a cake and listened to music. I received beautiful presents. It was a very nice day."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-28",
+   "icon": "🍽️",
+   "fr": "Au restaurant",
+   "ar": "في المطعم",
+   "phr": [
+    {
+     "f": "Hier soir, je suis allé au restaurant avec mon ami. J'ai commandé une pizza et un jus d'orange. Le repas était délicieux et le service était très bon. Nous avons passé une bonne soirée.",
+     "a": "مساء أمس ذهبت إلى المطعم مع صديقي. طلبت بيتزا وعصير برتقال. كان الطعام لذيذاً والخدمة جيدة جداً. قضينا أمسية جميلة.",
+     "e": "Last night, I went to a restaurant with my friend. I ordered a pizza and an orange juice. The meal was delicious and the service was very good. We had a nice evening."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-29",
+   "icon": "🩺",
+   "fr": "Chez le médecin",
+   "ar": "زيارة الطبيب",
+   "phr": [
+    {
+     "f": "Hier, je suis allé chez le médecin parce que j'avais mal à la tête. Le médecin m'a examiné et m'a donné des médicaments. Maintenant, je vais mieux.",
+     "a": "أمس ذهبت إلى الطبيب لأن رأسي كان يؤلمني. فحصني الطبيب وأعطاني أدوية. الآن أشعر بتحسن.",
+     "e": "Yesterday, I went to the doctor because I had a headache. The doctor examined me and gave me some medicine. Now I feel better."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-30",
+   "icon": "🚇",
+   "fr": "Les transports",
+   "ar": "وسائل النقل",
+   "phr": [
+    {
+     "f": "Pour aller au travail, je prends le métro tous les matins. C'est rapide et pratique. Parfois, je prends le bus. Je préfère le métro parce qu'il est moins lent.",
+     "a": "للذهاب إلى العمل أستقل المترو كل صباح. إنه سريع وعملي. أحياناً أستقل الحافلة. أفضل المترو لأنه أقل بطئاً.",
+     "e": "To go to work, I take the metro every morning. It is fast and convenient. Sometimes, I take the bus. I prefer the metro because it is less slow."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-31",
+   "icon": "🏖️",
+   "fr": "Les vacances",
+   "ar": "العطلة",
+   "phr": [
+    {
+     "f": "L'été dernier, je suis parti en vacances avec ma famille. Nous sommes allés à la mer pendant une semaine. Nous avons nagé, pris des photos et visité de beaux endroits. C'était magnifique !",
+     "a": "في الصيف الماضي ذهبت في عطلة مع عائلتي. ذهبنا إلى البحر لمدة أسبوع. سبحنا والتقطنا الصور وزرنا أماكن جميلة. كانت العطلة رائعة!",
+     "e": "Last summer, I went on holiday with my family. We went to the seaside for a week. We swam, took photos and visited beautiful places. It was wonderful!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-32",
+   "icon": "📚",
+   "fr": "Apprendre le français",
+   "ar": "تعلم اللغة الفرنسية",
+   "phr": [
+    {
+     "f": "J'apprends le français depuis quelques mois. J'étudie à la maison et je regarde des vidéos en français. Je veux parler français avec les gens et trouver un bon travail.",
+     "a": "أتعلم اللغة الفرنسية منذ بضعة أشهر. أدرس في المنزل وأشاهد فيديوهات باللغة الفرنسية. أريد التحدث بالفرنسية مع الناس وإيجاد عمل جيد.",
+     "e": "I have been learning French for a few months. I study at home and watch videos in French. I want to speak French with people and find a good job."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-33",
+   "icon": "💼",
+   "fr": "Mon travail",
+   "ar": "العمل",
+   "phr": [
+    {
+     "f": "Je travaille dans un magasin. Je commence à huit heures et je termine à cinq heures. J'aime mon travail parce que mes collègues sont sympathiques.",
+     "a": "أعمل في متجر. أبدأ الساعة الثامنة وأنتهي الساعة الخامسة. أحب عملي لأن زملائي ودودون.",
+     "e": "I work in a shop. I start at eight o'clock and finish at five. I like my job because my colleagues are friendly."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-34",
+   "icon": "✉️",
+   "fr": "Un message à un ami",
+   "ar": "رسالة إلى صديق",
+   "phr": [
+    {
+     "f": "Salut Paul ! Comment vas-tu ? Je t'invite chez moi samedi à 18 heures. Nous allons manger ensemble et regarder un film. J'espère que tu peux venir. À bientôt !",
+     "a": "مرحباً بول! كيف حالك؟ أدعوك إلى منزلي يوم السبت الساعة السادسة مساءً. سنتناول الطعام معاً ونشاهد فيلماً. أتمنى أن تستطيع المجيء. أراك قريباً!",
+     "e": "Hi Paul! How are you? I invite you to my house on Saturday at 6 p.m. We are going to eat together and watch a film. I hope you can come. See you soon!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-35",
+   "icon": "🙏",
+   "fr": "Un message de remerciement",
+   "ar": "رسالة شكر",
+   "phr": [
+    {
+     "f": "Bonjour Marie, merci beaucoup pour ton invitation. J'ai passé une très bonne journée chez toi. Le repas était délicieux. J'espère te revoir bientôt. À bientôt !",
+     "a": "مرحباً ماري، شكراً جزيلاً على دعوتك. قضيت يوماً جميلاً جداً في منزلك. كان الطعام لذيذاً. أتمنى رؤيتك قريباً. إلى اللقاء!",
+     "e": "Hello Marie, thank you very much for your invitation. I had a very nice day at your house. The food was delicious. I hope to see you again soon. See you soon!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-36",
+   "icon": "🎉",
+   "fr": "Une invitation à une fête",
+   "ar": "دعوة إلى حفلة",
+   "phr": [
+    {
+     "f": "Salut Ahmed ! Je fais une fête samedi soir chez moi. La fête commence à 19 heures. Il y aura de la musique et de bons repas. J'espère que tu peux venir !",
+     "a": "مرحباً أحمد! سأقيم حفلة مساء السبت في منزلي. تبدأ الحفلة الساعة السابعة مساءً. ستكون هناك موسيقى وطعام لذيذ. أتمنى أن تستطيع المجيء!",
+     "e": "Hi Ahmed! I'm having a party at my house on Saturday evening. The party starts at 7 p.m. There will be music and good food. I hope you can come!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-37",
+   "icon": "🙇",
+   "fr": "S'excuser",
+   "ar": "الاعتذار عن موعد",
+   "phr": [
+    {
+     "f": "Bonjour Paul, je suis désolé, mais je ne peux pas venir demain. Je suis malade et je dois rester à la maison. Est-ce qu'on peut se voir samedi prochain ? Merci de ta compréhension.",
+     "a": "مرحباً بول، أنا آسف، لكن لا أستطيع المجيء غداً. أنا مريض ويجب أن أبقى في المنزل. هل يمكننا أن نلتقي يوم السبت القادم؟ شكراً لتفهمك.",
+     "e": "Hello Paul, I'm sorry, but I can't come tomorrow. I'm sick and I have to stay home. Can we meet next Saturday? Thank you for your understanding."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-38",
+   "icon": "👕",
+   "fr": "Acheter des vêtements",
+   "ar": "شراء ملابس",
+   "phr": [
+    {
+     "f": "Samedi dernier, je suis allé dans un magasin de vêtements. J'ai acheté un pantalon, deux chemises et une veste. Les vêtements étaient beaux et pas chers. Je suis très content de mes achats.",
+     "a": "يوم السبت الماضي ذهبت إلى متجر ملابس. اشتريت بنطالاً وقميصين وسترة. كانت الملابس جميلة ورخيصة. أنا سعيد جداً بمشترياتي.",
+     "e": "Last Saturday, I went to a clothing store. I bought a pair of trousers, two shirts and a jacket. The clothes were nice and inexpensive. I'm very happy with my purchases."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-39",
+   "icon": "🎬",
+   "fr": "Aller au cinéma",
+   "ar": "الذهاب إلى السينما",
+   "phr": [
+    {
+     "f": "Hier soir, je suis allé au cinéma avec mes amis. Nous avons regardé un film amusant. Le film était intéressant et les acteurs étaient excellents. Après le film, nous avons pris un café.",
+     "a": "مساء أمس ذهبت إلى السينما مع أصدقائي. شاهدنا فيلماً ممتعاً. كان الفيلم مشوقاً والممثلون ممتازين. بعد الفيلم تناولنا القهوة.",
+     "e": "Last night, I went to the cinema with my friends. We watched a funny film. The film was interesting and the actors were excellent. After the film, we had coffee."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-40",
+   "icon": "🌳",
+   "fr": "Une journée au parc",
+   "ar": "يوم في الحديقة",
+   "phr": [
+    {
+     "f": "Dimanche dernier, je suis allé au parc avec ma famille. Nous avons marché, joué au ballon et pris des photos. Il faisait beau et il y avait du soleil. Nous avons passé un bon moment ensemble.",
+     "a": "يوم الأحد الماضي ذهبت إلى الحديقة مع عائلتي. مشينا ولعبنا بالكرة والتقطنا الصور. كان الطقس جميلاً وكانت الشمس مشرقة. قضينا وقتاً ممتعاً معاً.",
+     "e": "Last Sunday, I went to the park with my family. We walked, played ball and took photos. The weather was nice and sunny. We had a good time together."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-41",
+   "icon": "📱",
+   "fr": "Acheter un nouveau téléphone",
+   "ar": "شراء هاتف جديد",
+   "phr": [
+    {
+     "f": "La semaine dernière, j'ai acheté un nouveau téléphone portable. Il est noir et très joli. Il a un bon appareil photo et une grande mémoire. Je suis très content de mon nouveau téléphone.",
+     "a": "في الأسبوع الماضي اشتريت هاتفاً محمولاً جديداً. لونه أسود وجميل جداً. لديه كاميرا جيدة وذاكرة كبيرة. أنا سعيد جداً بهاتفي الجديد.",
+     "e": "Last week, I bought a new mobile phone. It is black and very nice. It has a good camera and a large memory. I'm very happy with my new phone."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-42",
+   "icon": "🏘️",
+   "fr": "Rendre visite à un ami",
+   "ar": "زيارة صديق",
+   "phr": [
+    {
+     "f": "Hier, j'ai rendu visite à mon ami Karim. Nous avons parlé, bu du café et regardé la télévision. Sa maison est très belle. J'ai passé un excellent après-midi avec lui.",
+     "a": "أمس زرت صديقي كريم. تحدثنا وشربنا القهوة وشاهدنا التلفاز. منزله جميل جداً. قضيت معه فترة بعد الظهر رائعة.",
+     "e": "Yesterday, I visited my friend Karim. We talked, drank coffee and watched television. His house is very beautiful. I had a wonderful afternoon with him."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-43",
+   "icon": "🧺",
+   "fr": "Aller au marché",
+   "ar": "الذهاب إلى السوق",
+   "phr": [
+    {
+     "f": "Ce matin, je suis allé au marché avec ma mère. Nous avons acheté des fruits, des légumes et du fromage. Les produits étaient frais et bons. J'aime beaucoup ce marché.",
+     "a": "هذا الصباح ذهبت إلى السوق مع أمي. اشترينا الفواكه والخضروات والجبن. كانت المنتجات طازجة وجيدة. أحب هذا السوق كثيراً.",
+     "e": "This morning, I went to the market with my mother. We bought fruit, vegetables and cheese. The products were fresh and good. I really like this market."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-44",
+   "icon": "🏋️",
+   "fr": "Un nouveau loisir",
+   "ar": "هواية جديدة",
+   "phr": [
+    {
+     "f": "Depuis deux semaines, je fais du sport dans une salle de sport. Je vais à la salle trois fois par semaine. Je fais du vélo et je cours. J'aime cette activité parce qu'elle est bonne pour la santé.",
+     "a": "منذ أسبوعين أمارس الرياضة في نادٍ رياضي. أذهب إلى النادي ثلاث مرات في الأسبوع. أركب الدراجة وأركض. أحب هذا النشاط لأنه مفيد للصحة.",
+     "e": "For two weeks, I have been exercising at a gym. I go to the gym three times a week. I ride a bike and run. I like this activity because it is good for my health."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-45",
+   "icon": "👩",
+   "fr": "Décrire une personne",
+   "ar": "وصف شخص",
+   "phr": [
+    {
+     "f": "Ma sœur s'appelle Sara. Elle a 22 ans. Elle est grande, gentille et intelligente. Elle aime lire des livres et écouter de la musique. Je l'aime beaucoup.",
+     "a": "أختي اسمها سارة. عمرها 22 سنة. هي طويلة ولطيفة وذكية. تحب قراءة الكتب والاستماع إلى الموسيقى. أحبها كثيراً.",
+     "e": "My sister's name is Sara. She is 22 years old. She is tall, kind and intelligent. She likes reading books and listening to music. I love her very much."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-46",
+   "icon": "🚉",
+   "fr": "À la gare",
+   "ar": "في محطة القطار",
+   "phr": [
+    {
+     "f": "Hier matin, je suis allé à la gare pour acheter un billet de train. Je veux aller à Lyon samedi prochain. Le voyage dure deux heures. Je suis très content de ce voyage.",
+     "a": "صباح أمس ذهبت إلى محطة القطار لشراء تذكرة. أريد الذهاب إلى ليون يوم السبت القادم. تستغرق الرحلة ساعتين. أنا سعيد جداً بهذه الرحلة.",
+     "e": "Yesterday morning, I went to the train station to buy a ticket. I want to go to Lyon next Saturday. The journey takes two hours. I am very happy about this trip."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-47",
+   "icon": "📖",
+   "fr": "À la bibliothèque",
+   "ar": "في المكتبة",
+   "phr": [
+    {
+     "f": "Aujourd'hui, je suis allé à la bibliothèque. J'ai emprunté deux livres et un magazine. J'aime lire pendant mon temps libre. La bibliothèque est calme et agréable.",
+     "a": "اليوم ذهبت إلى المكتبة. استعرت كتابين ومجلة. أحب القراءة في وقت فراغي. المكتبة هادئة ومريحة.",
+     "e": "Today, I went to the library. I borrowed two books and a magazine. I like reading in my free time. The library is quiet and pleasant."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-48",
+   "icon": "🌧️",
+   "fr": "Une journée de pluie",
+   "ar": "يوم ممطر",
+   "phr": [
+    {
+     "f": "Hier, il a beaucoup plu. Je suis resté à la maison toute la journée. J'ai regardé un film, préparé le dîner et écouté de la musique. J'ai passé une journée tranquille.",
+     "a": "أمس هطلت الأمطار كثيراً. بقيت في المنزل طوال اليوم. شاهدت فيلماً وحضّرت العشاء واستمتعت بالموسيقى. قضيت يوماً هادئاً.",
+     "e": "Yesterday, it rained a lot. I stayed at home all day. I watched a film, prepared dinner and listened to music. I had a quiet day."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-49",
+   "icon": "🏛️",
+   "fr": "Visiter un musée",
+   "ar": "زيارة متحف",
+   "phr": [
+    {
+     "f": "Samedi dernier, j'ai visité un musée avec mon ami. Nous avons vu de belles peintures et des photos anciennes. Le musée était très intéressant. J'ai beaucoup aimé cette visite.",
+     "a": "يوم السبت الماضي زرت متحفاً مع صديقي. شاهدنا لوحات جميلة وصوراً قديمة. كان المتحف ممتعاً جداً. أحببت هذه الزيارة كثيراً.",
+     "e": "Last Saturday, I visited a museum with my friend. We saw beautiful paintings and old photos. The museum was very interesting. I really enjoyed this visit."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-50",
+   "icon": "🏖️",
+   "fr": "Une journée à la plage",
+   "ar": "يوم في الشاطئ",
+   "phr": [
+    {
+     "f": "Dimanche dernier, je suis allé à la plage avec mes amis. Nous avons nagé dans la mer et joué au volley-ball. Il faisait très chaud. Nous avons mangé ensemble et pris beaucoup de photos.",
+     "a": "يوم الأحد الماضي ذهبت إلى الشاطئ مع أصدقائي. سبحنا في البحر ولعبنا الكرة الطائرة. كان الجو حاراً جداً. تناولنا الطعام معاً والتقطنا الكثير من الصور.",
+     "e": "Last Sunday, I went to the beach with my friends. We swam in the sea and played volleyball. It was very hot. We ate together and took many photos."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-51",
+   "icon": "🎁",
+   "fr": "Un cadeau pour un ami",
+   "ar": "هدية لصديق",
+   "phr": [
+    {
+     "f": "La semaine dernière, c'était l'anniversaire de mon ami. Je lui ai acheté un beau cadeau. C'était un livre et une montre. Il était très heureux et m'a remercié.",
+     "a": "في الأسبوع الماضي كان عيد ميلاد صديقي. اشتريت له هدية جميلة. كانت كتاباً وساعة. كان سعيداً جداً وشكرني.",
+     "e": "Last week, it was my friend's birthday. I bought him a beautiful present. It was a book and a watch. He was very happy and thanked me."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-52",
+   "icon": "👔",
+   "fr": "Une journée au travail",
+   "ar": "يوم في العمل",
+   "phr": [
+    {
+     "f": "Hier, j'ai passé une journée chargée au travail. J'ai commencé à huit heures et j'ai terminé à dix-sept heures. J'ai travaillé avec mes collègues. Le soir, je suis rentré à la maison pour me reposer.",
+     "a": "أمس قضيت يوماً مزدحماً في العمل. بدأت الساعة الثامنة وانتهيت الساعة الخامسة مساءً. عملت مع زملائي. في المساء عدت إلى المنزل لأرتاح.",
+     "e": "Yesterday, I had a busy day at work. I started at eight and finished at five p.m. I worked with my colleagues. In the evening, I returned home to rest."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-53",
+   "icon": "🛏️",
+   "fr": "Ma chambre",
+   "ar": "وصف غرفتي",
+   "phr": [
+    {
+     "f": "Ma chambre est petite mais confortable. Il y a un lit, une armoire, un bureau et une fenêtre. J'aime ma chambre parce qu'elle est calme. Je fais mes devoirs et je lis des livres dans ma chambre.",
+     "a": "غرفتي صغيرة لكنها مريحة. يوجد فيها سرير وخزانة ومكتب ونافذة. أحب غرفتي لأنها هادئة. أؤدي واجباتي وأقرأ الكتب في غرفتي.",
+     "e": "My bedroom is small but comfortable. There is a bed, a wardrobe, a desk and a window. I like my bedroom because it is quiet. I do my homework and read books in my room."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-54",
+   "icon": "🧳",
+   "fr": "Un voyage avec des amis",
+   "ar": "رحلة مع الأصدقاء",
+   "phr": [
+    {
+     "f": "Le mois dernier, je suis parti en voyage avec mes amis. Nous sommes allés dans une belle ville. Nous avons visité des monuments, mangé au restaurant et pris des photos. C'était un voyage magnifique.",
+     "a": "في الشهر الماضي ذهبت في رحلة مع أصدقائي. ذهبنا إلى مدينة جميلة. زرنا المعالم وتناولنا الطعام في المطعم والتقطنا الصور. كانت رحلة رائعة.",
+     "e": "Last month, I went on a trip with my friends. We went to a beautiful city. We visited monuments, ate at a restaurant and took photos. It was a wonderful trip."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-55",
+   "icon": "🌟",
+   "fr": "Mes projets pour l'avenir",
+   "ar": "خططي للمستقبل",
+   "phr": [
+    {
+     "f": "Dans le futur, je veux améliorer mon français et trouver un bon travail. Je voudrais aussi voyager et visiter plusieurs pays. Je vais étudier tous les jours pour réaliser mes rêves.",
+     "a": "في المستقبل أريد تحسين لغتي الفرنسية وإيجاد عمل جيد. أود أيضاً السفر وزيارة عدة بلدان. سأدرس كل يوم لتحقيق أحلامي.",
+     "e": "In the future, I want to improve my French and find a good job. I would also like to travel and visit several countries. I will study every day to achieve my dreams."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-56",
+   "icon": "✉️",
+   "fr": "Raconter ses vacances",
+   "ar": "رسالة إلى صديق عن عطلة",
+   "phr": [
+    {
+     "f": "Salut Paul ! Je suis en vacances à Marseille avec ma famille. Il fait beau et chaud. Nous allons à la plage et nous visitons la ville. Je passe de très bonnes vacances. À bientôt !",
+     "a": "مرحباً بول! أنا في عطلة في مارسيليا مع عائلتي. الطقس جميل وحار. نذهب إلى الشاطئ ونزور المدينة. أقضي عطلة رائعة. أراك قريباً!",
+     "e": "Hi Paul! I am on holiday in Marseille with my family. The weather is nice and hot. We go to the beach and visit the city. I am having a very good holiday. See you soon!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-57",
+   "icon": "🍎",
+   "fr": "Acheter de la nourriture",
+   "ar": "شراء الطعام",
+   "phr": [
+    {
+     "f": "Ce matin, je suis allé au supermarché. J'ai acheté du pain, du lait, des œufs et des pommes. Le magasin était grand et propre. Je suis rentré chez moi à midi.",
+     "a": "هذا الصباح ذهبت إلى السوبرماركت. اشتريت الخبز والحليب والبيض والتفاح. كان المتجر كبيراً ونظيفاً. عدت إلى المنزل عند الظهر.",
+     "e": "This morning, I went to the supermarket. I bought bread, milk, eggs and apples. The shop was big and clean. I returned home at noon."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-58",
+   "icon": "⚽",
+   "fr": "Mon sport préféré",
+   "ar": "الرياضة المفضلة",
+   "phr": [
+    {
+     "f": "Mon sport préféré est le football. Je joue au football avec mes amis le week-end. Nous jouons dans un parc près de chez moi. Le sport est bon pour la santé et j'aime beaucoup cette activité.",
+     "a": "رياضتي المفضلة هي كرة القدم. ألعب كرة القدم مع أصدقائي في عطلة نهاية الأسبوع. نلعب في حديقة قريبة من منزلي. الرياضة مفيدة للصحة وأنا أحب هذا النشاط كثيراً.",
+     "e": "My favourite sport is football. I play football with my friends at the weekend. We play in a park near my home. Sport is good for health and I really enjoy this activity."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-59",
+   "icon": "🛫",
+   "fr": "À l'aéroport",
+   "ar": "الذهاب إلى المطار",
+   "phr": [
+    {
+     "f": "Hier, je suis allé à l'aéroport avec ma famille. Nous avons pris l'avion pour visiter un autre pays. Nous sommes arrivés deux heures avant le départ. J'aime beaucoup voyager en avion.",
+     "a": "أمس ذهبت إلى المطار مع عائلتي. استقللنا الطائرة لزيارة بلد آخر. وصلنا قبل موعد الإقلاع بساعتين. أحب السفر بالطائرة كثيراً.",
+     "e": "Yesterday, I went to the airport with my family. We took a plane to visit another country. We arrived two hours before departure. I really like travelling by plane."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-60",
+   "icon": "🌄",
+   "fr": "Mon dimanche",
+   "ar": "يوم الأحد",
+   "phr": [
+    {
+     "f": "Le dimanche, je me lève tard. Je prends mon petit-déjeuner avec ma famille. Ensuite, je fais une promenade et je regarde la télévision. Le soir, je prépare mes affaires pour le lundi.",
+     "a": "يوم الأحد أستيقظ متأخراً. أتناول الفطور مع عائلتي. بعد ذلك أذهب في نزهة وأشاهد التلفاز. في المساء أحضّر أغراضي ليوم الاثنين.",
+     "e": "On Sundays, I get up late. I have breakfast with my family. Then I go for a walk and watch television. In the evening, I prepare my things for Monday."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-61",
+   "icon": "🏘️",
+   "fr": "Visiter une nouvelle ville",
+   "ar": "زيارة مدينة جديدة",
+   "phr": [
+    {
+     "f": "Le week-end dernier, j'ai visité Bordeaux avec mon ami. La ville est très belle et les rues sont propres. Nous avons visité le centre-ville et mangé dans un restaurant. J'aimerais retourner dans cette ville.",
+     "a": "في عطلة نهاية الأسبوع الماضية زرت بوردو مع صديقي. المدينة جميلة جداً والشوارع نظيفة. زرنا وسط المدينة وتناولنا الطعام في مطعم. أود العودة إلى هذه المدينة.",
+     "e": "Last weekend, I visited Bordeaux with my friend. The city is very beautiful and the streets are clean. We visited the city centre and ate in a restaurant. I would like to return to this city."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-62",
+   "icon": "📵",
+   "fr": "Perdre son téléphone",
+   "ar": "فقدان الهاتف",
+   "phr": [
+    {
+     "f": "Hier, j'ai perdu mon téléphone dans le bus. J'étais très inquiet parce que j'avais beaucoup de photos et de contacts. Heureusement, un homme a trouvé mon téléphone et me l'a rendu. J'étais très heureux.",
+     "a": "أمس فقدت هاتفي في الحافلة. كنت قلقاً جداً لأن لدي الكثير من الصور وجهات الاتصال. لحسن الحظ وجد رجل هاتفي وأعاده إليّ. كنت سعيداً جداً.",
+     "e": "Yesterday, I lost my phone on the bus. I was very worried because I had many photos and contacts. Fortunately, a man found my phone and returned it to me. I was very happy."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-63",
+   "icon": "🏫",
+   "fr": "À l'école",
+   "ar": "يوم في المدرسة",
+   "phr": [
+    {
+     "f": "Je vais à l'école du lundi au vendredi. J'étudie le français, les mathématiques et l'anglais. Mon professeur est gentil et patient. J'aime apprendre de nouvelles choses avec mes camarades.",
+     "a": "أذهب إلى المدرسة من الاثنين إلى الجمعة. أدرس الفرنسية والرياضيات والإنجليزية. أستاذي لطيف وصبور. أحب تعلم أشياء جديدة مع زملائي.",
+     "e": "I go to school from Monday to Friday. I study French, mathematics and English. My teacher is kind and patient. I like learning new things with my classmates."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-64",
+   "icon": "🏡",
+   "fr": "Parler de son logement",
+   "ar": "رسالة إلى صديق عن منزلك",
+   "phr": [
+    {
+     "f": "Salut Marie ! J'habite dans un appartement au centre-ville. Il est petit mais très confortable. Il y a deux chambres et un grand salon. J'aime mon appartement parce qu'il est près des magasins et du métro.",
+     "a": "مرحباً ماري! أسكن في شقة في وسط المدينة. إنها صغيرة لكنها مريحة جداً. يوجد غرفتا نوم وغرفة جلوس كبيرة. أحب شقتي لأنها قريبة من المتاجر والمترو.",
+     "e": "Hi Marie! I live in an apartment in the city centre. It is small but very comfortable. There are two bedrooms and a large living room. I like my apartment because it is near shops and the metro."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-65",
+   "icon": "🎊",
+   "fr": "Une fête en famille",
+   "ar": "حفلة عائلية",
+   "phr": [
+    {
+     "f": "Dimanche dernier, nous avons organisé une fête en famille. Mes parents, mes frères et mes sœurs étaient présents. Nous avons préparé un bon repas et écouté de la musique. Tout le monde était heureux.",
+     "a": "يوم الأحد الماضي نظمنا حفلة عائلية. كان والداي وإخوتي وأخواتي حاضرين. حضّرنا وجبة لذيذة واستمعنا إلى الموسيقى. كان الجميع سعداء.",
+     "e": "Last Sunday, we organized a family party. My parents, brothers and sisters were there. We prepared a good meal and listened to music. Everyone was happy."
+    }
+   ],
+   "ids": []
   }
  ],
  "a2": [
