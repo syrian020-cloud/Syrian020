@@ -164,6 +164,10 @@
   .slide-nav { display: flex; gap: 0.5rem; }
   .slide-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.45rem; }
   .slide-num { font-size: 0.7rem; font-weight: 800; color: var(--gold); background: rgba(255,200,87,0.12); border: 1px solid rgba(255,200,87,0.3); border-radius: 999px; padding: 0.15rem 0.55rem; }
+  .phr-line { padding: 0.3rem 0.15rem; font-size: 0.93rem; line-height: 1.55; border-bottom: 1px dashed rgba(255,255,255,0.07); }
+  .phr-line:last-child { border-bottom: none; }
+  .phr-line[dir="ltr"] { text-align: left; }
+  .phr-line[dir="rtl"] { text-align: right; }
   .slide-nav .big-btn { flex: 1; }
   .slide-nav .ghost-btn { flex: 1; margin-top: 0; }
 </style>
@@ -1196,7 +1200,7 @@ function renderLessons(){
       '<span class="li-body">' +
         '<div class="li-fr">' + (i + 1) + '. ' + esc(ls.fr) + '</div>' +
         '<div class="li-ar">' + esc(ls.ar) + '</div>' +
-        '<div class="li-meta">' + ls.slides.length + ' شرائح · ' + nq + ' سؤالاً' + (done ? ' · ✅ مكتمل' : '') + '</div>' +
+        '<div class="li-meta">' + ls.phr.length + ' جملة · ' + nq + ' سؤالاً' + (done ? ' · ✅ مكتمل' : '') + '</div>' +
       '</span>' +
       '<span class="li-check">' + (done ? '✅' : '▶️') + '</span>' +
     '</div>';
@@ -1232,19 +1236,20 @@ function renderLesson(){
   var ls = currentLesson();
   if(!ls){ state.screen = 'lessons'; render(); return; }
   var nq = DATA.filter(function(q){ return ls.ids.indexOf(q.id) !== -1; }).length;
-  var cards = ls.slides.map(function(sl, i){
+  var cards = ls.phr.map(function(p, i){
     return '<div class="slide-card">' +
-      '<div class="slide-head"><span class="slide-num">' + (i + 1) + ' / ' + ls.slides.length + '</span>' +
-      '<button class="icon-btn slide-speak" data-i="' + i + '" title="نطق">\U0001F50A</button></div>' +
-      '<div class="slide-fr">' + esc(sl.f) + '</div>' +
-      '<div class="slide-ar">' + esc(sl.a) + '</div>' +
+      '<div class="slide-head"><span class="slide-num">' + (i + 1) + ' / ' + ls.phr.length + '</span>' +
+      '<button class="icon-btn slide-speak" data-i="' + i + '" title="نطق">🔊</button></div>' +
+      '<div class="phr-line" dir="ltr">🇫🇷 ' + esc(p.f) + '</div>' +
+      '<div class="phr-line" dir="rtl">🇸🇾 ' + esc(p.a) + '</div>' +
+      '<div class="phr-line" dir="ltr">🇺🇸 ' + esc(p.e) + '</div>' +
     '</div>';
   }).join('');
   app.innerHTML =
     '<div class="progress-wrap">' +
-      '<button class="icon-btn" id="btn-lback2" title="الدروس">\U0001F519</button>' +
+      '<button class="icon-btn" id="btn-lback2" title="الدروس">🔙</button>' +
       '<span class="score-pill">' + ls.icon + ' ' + esc(ls.ar) + '</span>' +
-      '<span class="progress-info">' + ls.slides.length + ' شرائح · ' + nq + ' سؤالاً</span>' +
+      '<span class="progress-info">' + ls.phr.length + ' جملة · ' + nq + ' سؤالاً</span>' +
     '</div>' +
     '<div class="card">' +
       '<div class="mode-title">' + ls.icon + ' ' + esc(ls.fr) + '</div>' +
@@ -1254,7 +1259,7 @@ function renderLesson(){
     '</div>';
   document.getElementById('btn-lback2').onclick = function(){ enterScreen('lessons'); };
   document.querySelectorAll('.slide-speak').forEach(function(b){
-    b.onclick = function(){ speakOnce(ls.slides[+b.dataset.i].f, this); };
+    b.onclick = function(){ speakOnce(ls.phr[+b.dataset.i].f, this); };
   });
   document.getElementById('btn-lfinish').onclick = function(){
     stats.lessons[ls.id] = 1;
