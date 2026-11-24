@@ -3916,5 +3916,331 @@ window.DELF_LESSONS = {
     ]
   }
 
+,
+
+  {
+    "id": "b1-t1",
+    "icon": "💼",
+    "fr": "Thème 1 — La recherche d'emploi",
+    "ar": "موضوع 1 — البحث عن عمل",
+    "phr": [
+      {
+        "f": "Je suis actuellement à la recherche d'un emploi stable.",
+        "a": "أنا حالياً عم دوّر على شغل مستقر.",
+        "e": "I'm currently looking for a stable job."
+      },
+      {
+        "f": "J'aimerais travailler dans une entreprise qui offre de bonnes conditions de travail.",
+        "a": "بتمنى اشتغل بشركة بتوفر ظروف عمل جيدة.",
+        "e": "I'd like to work for a company that offers good working conditions."
+      },
+      {
+        "f": "J'ai déjà acquis une certaine expérience professionnelle.",
+        "a": "عندي بالفعل خبرة مهنية معينة.",
+        "e": "I have already gained some professional experience."
+      },
+      {
+        "f": "Je suis capable de travailler seul ou en équipe.",
+        "a": "بقدر اشتغل لحالي أو ضمن فريق.",
+        "e": "I'm able to work alone or as part of a team."
+      },
+      {
+        "f": "Je m'adapte facilement aux nouvelles situations.",
+        "a": "بتأقلم بسهولة مع الظروف الجديدة.",
+        "e": "I adapt easily to new situations."
+      },
+      {
+        "f": "Je consulte régulièrement les offres d'emploi sur Internet.",
+        "a": "بتفقد عروض العمل بانتظام على الإنترنت.",
+        "e": "I regularly check job vacancies online."
+      },
+      {
+        "f": "J'ai préparé mon CV afin de postuler à plusieurs entreprises.",
+        "a": "حضرت سيرتي الذاتية لحتى قدّم على عدة شركات.",
+        "e": "I prepared my CV to apply to several companies."
+      },
+      {
+        "f": "Il est important de bien présenter ses compétences.",
+        "a": "من المهم الواحد يعرض مهاراته بطريقة جيدة.",
+        "e": "It's important to present your skills well."
+      },
+      {
+        "f": "J'ai été contacté par un responsable du recrutement.",
+        "a": "تواصل معي مسؤول التوظيف.",
+        "e": "I was contacted by a recruitment officer."
+      },
+      {
+        "f": "Il m'a proposé un entretien pour discuter du poste.",
+        "a": "عرض عليّ مقابلة لحتى نحكي عن الوظيفة.",
+        "e": "He offered me an interview to discuss the position."
+      },
+      {
+        "f": "Avant l'entretien, je me suis renseigné sur l'entreprise.",
+        "a": "قبل المقابلة، جمعت معلومات عن الشركة.",
+        "e": "Before the interview, I researched the company."
+      },
+      {
+        "f": "Je voudrais connaître les horaires et les missions du poste.",
+        "a": "بدي أعرف أوقات الدوام والمهام المطلوبة بالوظيفة.",
+        "e": "I'd like to know the working hours and job responsibilities."
+      },
+      {
+        "f": "Le salaire est important, mais l'ambiance de travail compte aussi.",
+        "a": "الراتب مهم، بس جو العمل كمان إله أهمية.",
+        "e": "Salary is important, but the working atmosphere matters too."
+      },
+      {
+        "f": "Je préfère avoir un contrat à durée indéterminée.",
+        "a": "بفضّل يكون عندي عقد عمل غير محدد المدة.",
+        "e": "I prefer having a permanent employment contract."
+      },
+      {
+        "f": "Je suis motivé et prêt à apprendre de nouvelles choses.",
+        "a": "عندي حماس ومستعد اتعلم أشياء جديدة.",
+        "e": "I'm motivated and ready to learn new things."
+      },
+      {
+        "f": "Même si je manque d'expérience, je suis prêt à faire des efforts.",
+        "a": "حتى لو خبرتي قليلة، أنا مستعد ابذل جهد.",
+        "e": "Even if I lack experience, I'm ready to make an effort."
+      },
+      {
+        "f": "Je pense que la ponctualité est essentielle dans le monde professionnel.",
+        "a": "برأيي الالتزام بالمواعيد ضروري بعالم الشغل.",
+        "e": "I think punctuality is essential in the professional world."
+      },
+      {
+        "f": "Il faut respecter les consignes de sécurité au travail.",
+        "a": "لازم نلتزم بتعليمات السلامة بالشغل.",
+        "e": "We must follow safety instructions at work."
+      },
+      {
+        "f": "Je fais toujours de mon mieux pour terminer mes tâches à temps.",
+        "a": "دايماً ببذل جهدي لحتى خلّص مهامي بالوقت المحدد.",
+        "e": "I always do my best to finish my tasks on time."
+      },
+      {
+        "f": "Lorsqu'un problème apparaît, j'essaie de trouver une solution.",
+        "a": "لما بتظهر مشكلة، بحاول لاقي حل.",
+        "e": "When a problem arises, I try to find a solution."
+      },
+      {
+        "f": "Je n'hésite pas à demander de l'aide lorsque c'est nécessaire.",
+        "a": "ما بتردد أطلب المساعدة لما يكون هالشي ضروري.",
+        "e": "I don't hesitate to ask for help when necessary."
+      },
+      {
+        "f": "Une bonne communication facilite le travail en équipe.",
+        "a": "التواصل الجيد بيسهّل العمل ضمن الفريق.",
+        "e": "Good communication makes teamwork easier."
+      },
+      {
+        "f": "Il est parfois difficile de trouver un emploi sans expérience.",
+        "a": "أحياناً بيكون صعب تلاقي شغل بدون خبرة.",
+        "e": "Sometimes it's difficult to find a job without experience."
+      },
+      {
+        "f": "Certaines entreprises demandent des qualifications particulières.",
+        "a": "بعض الشركات بتطلب مؤهلات معينة.",
+        "e": "Some companies require specific qualifications."
+      },
+      {
+        "f": "Une formation professionnelle peut améliorer mes chances de trouver un emploi.",
+        "a": "التدريب المهني ممكن يحسّن فرصي بالحصول على شغل.",
+        "e": "Vocational training can improve my chances of finding a job."
+      },
+      {
+        "f": "Je souhaite développer mes compétences au fil du temps.",
+        "a": "بتمنى طوّر مهاراتي مع مرور الوقت.",
+        "e": "I want to develop my skills over time."
+      },
+      {
+        "f": "Je suis disponible pour commencer dès que possible.",
+        "a": "أنا جاهز بلّش بأقرب وقت ممكن.",
+        "e": "I'm available to start as soon as possible."
+      },
+      {
+        "f": "J'aimerais avoir davantage de responsabilités à l'avenir.",
+        "a": "بتمنى يكون عندي مسؤوليات أكتر بالمستقبل.",
+        "e": "I'd like to have more responsibilities in the future."
+      },
+      {
+        "f": "Pour moi, un bon emploi doit offrir des possibilités d'évolution.",
+        "a": "بالنسبة إلي، الشغل الجيد لازم يوفر فرص للتطور.",
+        "e": "For me, a good job should offer opportunities for advancement."
+      },
+      {
+        "f": "Mon objectif est de construire une carrière professionnelle durable.",
+        "a": "هدفي أبني مسيرة مهنية مستقرة وطويلة الأمد.",
+        "e": "My goal is to build a lasting professional career."
+      }
+    ],
+    "ids": []
+  },
+  {
+    "id": "b1-t2",
+    "icon": "🇫🇷",
+    "fr": "Thème 2 — La vie en France et l'intégration",
+    "ar": "موضوع 2 — الحياة في فرنسا والاندماج",
+    "phr": [
+      {
+        "f": "Je vis en France depuis deux ans.",
+        "a": "أنا عايش بفرنسا من سنتين.",
+        "e": "I have been living in France for two years."
+      },
+      {
+        "f": "L'intégration demande du temps et de la patience.",
+        "a": "الاندماج بدو وقت وصبر.",
+        "e": "Integration takes time and patience."
+      },
+      {
+        "f": "J'ai suivi des cours de français à la mairie.",
+        "a": "حضرت دروس فرنسي بالبلدية.",
+        "e": "I took French classes at the town hall."
+      },
+      {
+        "f": "Il est important de connaître les valeurs de la République.",
+        "a": "من المهم الواحد يعرف قيم الجمهورية.",
+        "e": "It is important to know the values of the Republic."
+      },
+      {
+        "f": "La laïcité sépare la religion de l'État.",
+        "a": "العلمانية بتفصل الدين عن الدولة.",
+        "e": "Secularism separates religion from the state."
+      },
+      {
+        "f": "Je participe aux activités de mon quartier.",
+        "a": "بشارك بنشاطات حيّي.",
+        "e": "I take part in my neighbourhood's activities."
+      },
+      {
+        "f": "Les voisins m'ont accueilli chaleureusement.",
+        "a": "الجيران استقبلوني بحرارة.",
+        "e": "The neighbours welcomed me warmly."
+      },
+      {
+        "f": "Je respecte les règles de vie en France.",
+        "a": "بحترم قواعد العيش بفرنسا.",
+        "e": "I respect the rules of life in France."
+      },
+      {
+        "f": "Il faut saluer les gens quand on entre dans un magasin.",
+        "a": "لازم تحيي العالم لما تفوت عالمحل.",
+        "e": "You should greet people when you enter a shop."
+      },
+      {
+        "f": "Dire « bonjour » et « merci » fait partie de la politesse.",
+        "a": "قول «bonjour» و«merci» من الأدب.",
+        "e": "Saying 'hello' and 'thank you' is part of politeness."
+      },
+      {
+        "f": "J'ai appris à faire la queue aux guichets.",
+        "a": "اتعلمت وقّف بالطابور عالشبابيك.",
+        "e": "I learned to queue at the counters."
+      },
+      {
+        "f": "Les administrations françaises demandent beaucoup de documents.",
+        "a": "الإدارات الفرنسية بتطلب أوراق كتير.",
+        "e": "French administrations require a lot of paperwork."
+      },
+      {
+        "f": "J'ai ouvert un compte bancaire dès mon arrivée.",
+        "a": "فتحت حساب بنكي من أول ما وصلت.",
+        "e": "I opened a bank account as soon as I arrived."
+      },
+      {
+        "f": "La carte Vitale sert pour la sécurité sociale.",
+        "a": "بطاقة فيتال بتخدم للضمان الاجتماعي.",
+        "e": "The Vitale card is used for social security."
+      },
+      {
+        "f": "J'ai signé le contrat d'engagement républicain.",
+        "a": "وقعت عقد الالتزام الجمهوري.",
+        "e": "I signed the republican commitment contract."
+      },
+      {
+        "f": "Les cours de civisme m'ont beaucoup aidé.",
+        "a": "دروس التربية المدنية ساعدتني كتير.",
+        "e": "Civics classes helped me a lot."
+      },
+      {
+        "f": "Je parle français tous les jours pour progresser.",
+        "a": "بحكي فرنسي كل يوم لحتى تحسن.",
+        "e": "I speak French every day to improve."
+      },
+      {
+        "f": "Regarder la télévision française m'aide à apprendre.",
+        "a": "مشاهدة التلفزيون الفرنسي بتساعدني اتعلم.",
+        "e": "Watching French TV helps me learn."
+      },
+      {
+        "f": "Je lis le journal pour comprendre l'actualité.",
+        "a": "بقرا الجرنال لحتى افهم الأخبار.",
+        "e": "I read the newspaper to understand the news."
+      },
+      {
+        "f": "Les associations sont utiles pour rencontrer des gens.",
+        "a": "الجمعيات مفيدة لحتى الواحد يتعرف عالعالم.",
+        "e": "Associations are useful for meeting people."
+      },
+      {
+        "f": "J'ai fait du bénévolat à la Croix-Rouge.",
+        "a": "عملت تطوع بالصليب الأحمر.",
+        "e": "I volunteered with the Red Cross."
+      },
+      {
+        "f": "Mes enfants sont scolarisés à l'école publique.",
+        "a": "ولادي مداومين بالمدرسة الحكومية.",
+        "e": "My children attend public school."
+      },
+      {
+        "f": "L'école est gratuite et obligatoire en France.",
+        "a": "المدرسة ببلاش وإلزامية بفرنسا.",
+        "e": "School is free and compulsory in France."
+      },
+      {
+        "f": "Je vote pour la première fois cette année.",
+        "a": "رح صوّت أول مرة هالسنة.",
+        "e": "I am voting for the first time this year."
+      },
+      {
+        "f": "J'ai appris les symboles de la République : Marianne, le coq, le drapeau tricolore.",
+        "a": "اتعلمت رموز الجمهورية: ماريان، الديك، العلم الثلاثي.",
+        "e": "I learned the symbols of the Republic: Marianne, the rooster, the tricolour flag."
+      },
+      {
+        "f": "La devise de la France est « Liberté, Égalité, Fraternité ».",
+        "a": "شعار فرنسا هو «حرية، مساواة، إخاء».",
+        "e": "France's motto is 'Liberty, Equality, Fraternity'."
+      },
+      {
+        "f": "Je me sens de plus en plus intégré dans la société française.",
+        "a": "حاس حالي اندمجت أكتر فأكتر بالمجتمع الفرنسي.",
+        "e": "I feel more and more integrated into French society."
+      },
+      {
+        "f": "Parler la langue est la clé de l'intégration.",
+        "a": "حكاية اللغة هي مفتاح الاندماج.",
+        "e": "Speaking the language is the key to integration."
+      },
+      {
+        "f": "Je respecte la diversité des cultures en France.",
+        "a": "بحترم تنوع الثقافات بفرنسا.",
+        "e": "I respect the diversity of cultures in France."
+      },
+      {
+        "f": "La France est devenue ma deuxième patrie.",
+        "a": "فرنسا صارت وطني الثاني.",
+        "e": "France has become my second homeland."
+      },
+      {
+        "f": "Je suis fier de ma progression en français.",
+        "a": "أنا فخور بتقدمي بالفرنسي.",
+        "e": "I'm proud of my progress in French."
+      }
+    ],
+    "ids": []
+  }
+
  ]
 };

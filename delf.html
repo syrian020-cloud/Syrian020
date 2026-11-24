@@ -1214,7 +1214,7 @@ function renderLessons(){
       '<span class="li-body">' +
         '<div class="li-fr">' + (i + 1) + '. ' + esc(ls.fr) + '</div>' +
         '<div class="li-ar">' + esc(ls.ar) + '</div>' +
-        '<div class="li-meta">' + ls.phr.length + ' جملة · ' + nq + ' سؤالاً' + (done ? ' · ✅ مكتمل' : '') + '</div>' +
+        '<div class="li-meta">' + ls.phr.length + ' جملة' + (nq ? ' · ' + nq + ' سؤالاً' : '') + (done ? ' · ✅ مكتمل' : '') + '</div>' +
       '</span>' +
       '<span class="li-check">' + (done ? '✅' : '▶️') + '</span>' +
     '</div>';
@@ -1262,13 +1262,13 @@ function renderLesson(){
     '<div class="progress-wrap">' +
       '<button class="icon-btn" id="btn-lback2" title="الدروس">🔙</button>' +
       '<span class="score-pill">' + ls.icon + ' ' + esc(ls.ar) + '</span>' +
-      '<span class="progress-info">' + ls.phr.length + ' جملة · ' + nq + ' سؤالاً</span>' +
+      '<span class="progress-info">' + ls.phr.length + ' جملة' + (nq ? ' · ' + nq + ' سؤالاً' : '') + '</span>' +
     '</div>' +
     '<div class="card">' +
       '<div class="mode-title">' + ls.icon + ' ' + esc(ls.fr) + '</div>' +
       '<div class="mode-desc">اقرأ الشرح كاملاً بالفرنسي والعربي — استمع لكل شريحة بالزر 🔊 ثم تدرّب.</div>' +
       cards +
-      '<button class="big-btn" id="btn-lfinish" style="margin-top:0.4rem">✅ أنهيت الدرس — تدرّب (' + nq + ' سؤالاً)</button>' +
+      '<button class="big-btn" id="btn-lfinish" style="margin-top:0.4rem">✅ أنهيت الدرس' + (nq ? ' — تدرّب (' + nq + ' سؤالاً)' : '') + '</button>' +
     '</div>';
   document.getElementById('btn-lback2').onclick = function(){ enterScreen('lessons'); };
   document.querySelectorAll('.flag-btn').forEach(function(b){
@@ -1284,13 +1284,13 @@ function renderLesson(){
     app.innerHTML =
       '<div class="card result-hero">' +
         '<div class="result-score ok">✅</div>' +
-        '<div class="result-sub">أنهيت درس «' + esc(ls.ar) + '» — الآن تدرّب على ' + nq + ' سؤالاً</div>' +
+        '<div class="result-sub">أنهيت درس «' + esc(ls.ar) + '»' + (nq ? ' — الآن تدرّب على ' + nq + ' سؤالاً' : '') + '</div>' +
       '</div>' +
       '<div class="card">' +
-        '<button class="big-btn" id="btn-lquiz">📝 تدرّب على هذا الدرس (' + nq + ' سؤالاً)</button>' +
+        (nq ? '<button class="big-btn" id="btn-lquiz">📝 تدرّب على هذا الدرس (' + nq + ' سؤالاً)</button>' : '') +
         '<button class="ghost-btn" id="btn-llist">📚 لائحة الدروس</button>' +
       '</div>';
-    document.getElementById('btn-lquiz').onclick = function(){
+    if(nq) document.getElementById('btn-lquiz').onclick = function(){
       var pool = DATA.filter(function(q){ return ls.ids.indexOf(q.id) !== -1; });
       state.mode = 'train';
       state.questions = shuffle(pool);
