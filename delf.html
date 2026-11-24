@@ -209,6 +209,21 @@
   .dg-plus.dim { opacity: .35; }
   .dg-sub { min-height: 1.6rem; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
   .dg-skip { color: var(--gold); text-decoration: underline; cursor: pointer; }
+  /* ---------- دفتر الألعاب ---------- */
+  #nb-ov { position: fixed; inset: 0; z-index: 4500; display: none; flex-direction: column; background: #f3f4f6; }
+  #nb-ov.show { display: flex; }
+  .nb-top { display: flex; align-items: center; gap: 0.3rem; padding: 0.45rem 0.4rem; background: #fff; border-bottom: 1px solid #e5e7eb; flex-wrap: wrap; }
+  .nb-title { font-weight: 800; font-size: 0.95rem; color: #111827; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 40vw; }
+  .nb-icon { width: 2.15rem; height: 2.15rem; flex: 0 0 auto; border-radius: 50%; border: 1px solid #e5e7eb; background: #fff; color: #6d28d9; font-size: 1.05rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; font-family: inherit; }
+  .nb-icon.active { background: #6d28d9; color: #fff; border-color: #6d28d9; }
+  .nb-icon:disabled { opacity: 0.35; }
+  .nb-icon.danger { color: #e53935; }
+  .nb-dot { width: 2rem; height: 2rem; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1px #d1d5db; cursor: pointer; }
+  .nb-dot.active { box-shadow: 0 0 0 3px #6d28d9; }
+  .nb-phrase { padding: 0.5rem 0.7rem; background: #eef2ff; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem; color: #111827; font-weight: 700; text-align: center; max-height: 5rem; overflow-y: auto; }
+  .nb-wrap { flex: 1; min-height: 0; position: relative; background: #fff; }
+  .nb-wrap.lined { background-color: #fffdf5; background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(2.2rem - 1px), #9fc5e8 calc(2.2rem - 1px), #9fc5e8 2.2rem); }
+  #nb-canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
   .slide-nav .ghost-btn { flex: 1; margin-top: 0; }
 </style>
 </head>
@@ -1398,16 +1413,204 @@ function dgClose(){
   if(ov) ov.remove();
   dgM = dgL = dgR = null;
 }
+var nbPhr = '';
 function dgOverlay(title){
   dgClose();
   var ov = document.createElement('div');
   ov.className = 'dg-ov'; ov.id = 'dg-overlay';
   ov.innerHTML = '<div class="dg-top"><button class="icon-btn" id="dg-exit" title="خروج">✕</button>' +
+    '<button class="icon-btn" id="dg-note" title="الدفتر 📓">📓</button>' +
     '<div class="dg-prog" id="dg-prog">' + esc(title) + '</div></div>' +
     '<div id="dg-body" style="display:flex;flex:1;flex-direction:column;overflow:auto"></div>';
   document.body.appendChild(ov);
   document.getElementById('dg-exit').onclick = dgClose;
+  var ls = currentLesson();
+  document.getElementById('dg-note').onclick = function(){ nbOpen(ls ? ls.id : 'x', nbPhr); };
   return document.getElementById('dg-body');
+}
+
+/* ===== الدفتر داخل الألعاب 📓 — رسم محفوظ لكل درس ===== */
+var nbKey = null, nbCtx = null, nbDraw = false, nbErase = false, nbHl = false,
+    nbColor = '#111827', nbSize = 3, nbUndo = [], nbRedo = [];
+function nbOv(){
+  var ov = document.getElementById('nb-ov');
+  if(ov) return ov;
+  ov = document.createElement('div');
+  ov.id = 'nb-ov';
+  ov.innerHTML = '<div class="nb-top">' +
+    '<button class="nb-icon danger" id="nb-x" title="إغلاق">✕</button>' +
+    '<span class="nb-title">📓 الدفتر</span>' +
+    '<button class="nb-icon" id="nb-pen" title="قلم">✏️</button>' +
+    '<button class="nb-icon" id="nb-hl" title="تظليل">🖍️</button>' +
+    '<button class="nb-icon" id="nb-erase" title="ممحاة">🧽</button>' +
+    '<button class="nb-dot" id="nb-c1" data-c="#111827" style="background:#111827"></button>' +
+    '<button class="nb-dot" id="nb-c2" data-c="#dc2626" style="background:#dc2626"></button>' +
+    '<button class="nb-dot" id="nb-c3" data-c="#2563eb" style="background:#2563eb"></button>' +
+    '<button class="nb-dot" id="nb-c4" data-c="#059669" style="background:#059669"></button>' +
+    '<button class="nb-icon" id="nb-thin" title="أرفع">−</button>' +
+    '<button class="nb-icon" id="nb-thick" title="أسمك">+</button>' +
+    '<button class="nb-icon" id="nb-undo" title="تراجع">↩️</button>' +
+    '<button class="nb-icon" id="nb-redo" title="إعادة">↪️</button>' +
+    '<button class="nb-icon" id="nb-paper" title="ورق مسطّر">📄</button>' +
+    '<button class="nb-icon danger" id="nb-clear" title="مسح الكل">🗑️</button>' +
+    '<button class="nb-icon" id="nb-save" title="حفظ">💾</button>' +
+  '</div>' +
+  '<div class="nb-phrase" id="nb-phrase"></div>' +
+  '<div class="nb-wrap" id="nb-wrap"><canvas id="nb-canvas"></canvas></div>';
+  document.body.appendChild(ov);
+  document.getElementById('nb-x').onclick = nbClose;
+  document.getElementById('nb-pen').onclick = function(){ nbTool('pen'); };
+  document.getElementById('nb-hl').onclick = function(){ nbTool('hl'); };
+  document.getElementById('nb-erase').onclick = function(){ nbTool('erase'); };
+  document.getElementById('nb-thin').onclick = function(){ nbSetSize(nbSize - 1); };
+  document.getElementById('nb-thick').onclick = function(){ nbSetSize(nbSize + 1); };
+  document.getElementById('nb-undo').onclick = nbUndoDo;
+  document.getElementById('nb-redo').onclick = nbRedoDo;
+  document.getElementById('nb-clear').onclick = nbClear;
+  document.getElementById('nb-save').onclick = nbSave;
+  document.getElementById('nb-paper').onclick = function(){
+    var w = document.getElementById('nb-wrap');
+    w.classList.toggle('lined');
+    this.classList.toggle('active', w.classList.contains('lined'));
+  };
+  ov.querySelectorAll('.nb-dot').forEach(function(b){
+    b.onclick = function(){
+      nbColor = b.dataset.c;
+      ov.querySelectorAll('.nb-dot').forEach(function(x){ x.classList.toggle('active', x === b); });
+      nbTool('pen');
+    };
+  });
+  var cv = document.getElementById('nb-canvas');
+  cv.addEventListener('mousedown', nbStart);
+  cv.addEventListener('mousemove', nbMove);
+  cv.addEventListener('mouseup', nbEnd);
+  cv.addEventListener('mouseleave', nbEnd);
+  cv.addEventListener('touchstart', nbStart, {passive: false});
+  cv.addEventListener('touchmove', nbMove, {passive: false});
+  cv.addEventListener('touchend', nbEnd);
+  return ov;
+}
+function nbTool(t){
+  nbErase = t === 'erase'; nbHl = t === 'hl';
+  document.getElementById('nb-pen').classList.toggle('active', t === 'pen');
+  document.getElementById('nb-hl').classList.toggle('active', t === 'hl');
+  document.getElementById('nb-erase').classList.toggle('active', t === 'erase');
+}
+function nbSetSize(n){ nbSize = Math.min(16, Math.max(1, n)); }
+function nbSetup(){
+  var cv = document.getElementById('nb-canvas');
+  nbCtx = cv.getContext('2d');
+  var dpr = window.devicePixelRatio || 1;
+  cv.width = Math.max(1, (cv.clientWidth || 600) * dpr);
+  cv.height = Math.max(1, (cv.clientHeight || 400) * dpr);
+  nbCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  nbCtx.lineCap = 'round'; nbCtx.lineJoin = 'round';
+}
+function nbSnap(){
+  if(!nbCtx) return;
+  var cv = document.getElementById('nb-canvas');
+  nbUndo.push(nbCtx.getImageData(0, 0, cv.width, cv.height));
+  if(nbUndo.length > 30) nbUndo.shift();
+  nbRedo = [];
+  document.getElementById('nb-undo').disabled = !nbUndo.length;
+  document.getElementById('nb-redo').disabled = true;
+}
+function nbRestore(img){
+  nbCtx.save();
+  nbCtx.setTransform(1, 0, 0, 1, 0, 0);
+  nbCtx.globalCompositeOperation = 'source-over';
+  nbCtx.globalAlpha = 1;
+  nbCtx.clearRect(0, 0, img.width, img.height);
+  nbCtx.putImageData(img, 0, 0);
+  nbCtx.restore();
+}
+function nbUndoDo(){
+  if(!nbCtx || !nbUndo.length) return;
+  var cv = document.getElementById('nb-canvas');
+  nbRedo.push(nbCtx.getImageData(0, 0, cv.width, cv.height));
+  nbRestore(nbUndo.pop());
+  document.getElementById('nb-undo').disabled = !nbUndo.length;
+  document.getElementById('nb-redo').disabled = !nbRedo.length;
+}
+function nbRedoDo(){
+  if(!nbCtx || !nbRedo.length) return;
+  var cv = document.getElementById('nb-canvas');
+  nbUndo.push(nbCtx.getImageData(0, 0, cv.width, cv.height));
+  nbRestore(nbRedo.pop());
+  document.getElementById('nb-undo').disabled = !nbUndo.length;
+  document.getElementById('nb-redo').disabled = !nbRedo.length;
+}
+function nbClear(){
+  if(!nbCtx) return;
+  nbSnap();
+  var cv = document.getElementById('nb-canvas');
+  var dpr = window.devicePixelRatio || 1;
+  nbCtx.clearRect(0, 0, cv.width / dpr, cv.height / dpr);
+}
+function nbSave(){
+  if(!nbCtx || !nbKey) return;
+  try{ localStorage.setItem('delf_note_' + nbKey, document.getElementById('nb-canvas').toDataURL('image/png')); }catch(e){}
+  showToast('✓ انحفظ الدفتر');
+  nbClose();
+}
+function nbPos(e){
+  var cv = document.getElementById('nb-canvas');
+  var r = cv.getBoundingClientRect();
+  var cx = e.touches ? e.touches[0].clientX : e.clientX;
+  var cy = e.touches ? e.touches[0].clientY : e.clientY;
+  return {x: cx - r.left, y: cy - r.top};
+}
+function nbStart(e){
+  if(!nbCtx) return;
+  e.preventDefault();
+  nbSnap();
+  nbDraw = true;
+  var p = nbPos(e);
+  nbCtx.beginPath();
+  nbCtx.moveTo(p.x, p.y);
+  nbCtx.globalCompositeOperation = nbErase ? 'destination-out' : 'source-over';
+  nbCtx.globalAlpha = nbHl ? 0.35 : 1;
+  nbCtx.lineCap = nbHl ? 'square' : 'round';
+  nbCtx.strokeStyle = nbColor;
+  nbCtx.lineWidth = nbErase ? nbSize * 4 : (nbHl ? nbSize * 3 : nbSize);
+}
+function nbMove(e){
+  if(!nbDraw || !nbCtx) return;
+  e.preventDefault();
+  var p = nbPos(e);
+  nbCtx.lineTo(p.x, p.y);
+  nbCtx.stroke();
+}
+function nbEnd(){ nbDraw = false; }
+function nbOpen(key, phrase){
+  var ov = nbOv();
+  nbKey = key;
+  ov.classList.add('show');
+  var pb = document.getElementById('nb-phrase');
+  if(phrase){ pb.textContent = phrase; pb.style.display = ''; }
+  else pb.style.display = 'none';
+  nbUndo = []; nbRedo = [];
+  setTimeout(function(){
+    nbSetup();
+    var cv = document.getElementById('nb-canvas');
+    var dpr = window.devicePixelRatio || 1;
+    nbCtx.clearRect(0, 0, cv.width / dpr, cv.height / dpr);
+    var saved = null;
+    try{ saved = localStorage.getItem('delf_note_' + key); }catch(e){}
+    if(saved){
+      var img = new Image();
+      img.onload = function(){ nbCtx.drawImage(img, 0, 0, cv.width / dpr, cv.height / dpr); };
+      img.src = saved;
+    }
+    nbTool('pen');
+    document.getElementById('nb-undo').disabled = true;
+    document.getElementById('nb-redo').disabled = true;
+  }, 60);
+}
+function nbClose(){
+  var ov = document.getElementById('nb-ov');
+  if(ov) ov.classList.remove('show');
+  nbKey = null; nbCtx = null; nbDraw = false;
 }
 
 /* ===== لعبة التوصيل 🧩 — 8 أزواج بكل جولة ===== */
@@ -1421,6 +1624,7 @@ function openDgMatch(ls){
 function dgMatchRound(){
   var body = document.getElementById('dg-body'); if(!body || !dgM) return;
   var batch = dgM.pool.splice(0, Math.min(8, dgM.pool.length));
+  nbPhr = batch.map(function(p){ return p.f; }).join(' · ');
   var qs = shuffle(batch.map(function(p, i){ return {pair: i, t: p.f, side: 'q'}; }));
   var as = shuffle(batch.map(function(p, i){ return {pair: i, t: p.a, side: 'a'}; }));
   dgM.deck = qs.concat(as);
@@ -1486,6 +1690,7 @@ function dgListenQ(){
   stopSpeech();
   if(dgL.i >= dgL.pool.length){ dgListenEnd(); return; }
   var p = dgL.pool[dgL.i];
+  nbPhr = p.f;
   var others = shuffle(dgL.all.filter(function(x){ return x !== p; }));
   var nOpts = Math.min(3, others.length);
   var opts = shuffle([p.f].concat(others.slice(0, nOpts).map(function(x){ return x.f; })));
@@ -1538,6 +1743,7 @@ function dgRRShow(){
   stopSpeech();
   if(dgR.i >= dgR.pool.length){ dgRREnd(); return; }
   var p = dgR.pool[dgR.i];
+  nbPhr = p.f;
   document.getElementById('dg-prog').textContent = '🗣️ اقرأ وكرّر — ' + (dgR.i + 1) + '/' + dgR.pool.length;
   body.innerHTML = '<div class="dg-stage">' +
     '<div class="dg-text" dir="ltr">' + esc(p.f) + '</div>' +
