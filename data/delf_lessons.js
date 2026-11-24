@@ -3974,6 +3974,871 @@ window.DELF_LESSONS = {
         }
       ],
       "ids": []
+    },
+    {
+      "id": "b1-e2",
+      "icon": "🤝",
+      "fr": "Écrit 2 — L'intégration des étrangers",
+      "ar": "كتابة 2 — اندماج الأجانب في المجتمع",
+      "consigne": {
+        "f": "Vous participez à un forum sur l'intégration des étrangers en France. Vous écrivez un texte pour expliquer pourquoi l'intégration est importante et donner des conseils aux nouveaux arrivants.",
+        "a": "أنت تشارك في منتدى حول اندماج الأجانب في فرنسا. اكتب نصاً تشرح فيه لماذا الاندماج مهم، وقدّم نصائح للقادمين الجدد."
+      },
+      "phr": [
+        {
+          "f": "Aujourd'hui, l'intégration des étrangers est un sujet important dans la société française.",
+          "a": "اليوم، اندماج الأجانب موضوع مهم بالمجتمع الفرنسي.",
+          "e": "Today, the integration of foreigners is an important topic in French society."
+        },
+        {
+          "f": "Beaucoup de personnes viennent en France pour travailler, étudier ou commencer une nouvelle vie.",
+          "a": "كتير أشخاص بيجوا على فرنسا حتى يشتغلوا أو يدرسوا أو يبلّشوا حياة جديدة.",
+          "e": "Many people come to France to work, study or start a new life."
+        },
+        {
+          "f": "Cependant, il n'est pas toujours facile de s'adapter à un nouveau pays.",
+          "a": "لكن مو دائماً سهل التأقلم مع بلد جديد.",
+          "e": "However, it is not always easy to adapt to a new country."
+        },
+        {
+          "f": "La première difficulté est souvent l'apprentissage de la langue française.",
+          "a": "أول صعوبة غالباً هي تعلّم اللغة الفرنسية.",
+          "e": "The first difficulty is often learning the French language."
+        },
+        {
+          "f": "Sans connaître la langue, il est difficile de trouver un travail et de communiquer avec les autres.",
+          "a": "بدون معرفة اللغة، بيكون صعب نلاقي شغل ونتواصل مع الآخرين.",
+          "e": "Without knowing the language, it is difficult to find a job and communicate with others."
+        },
+        {
+          "f": "À mon avis, suivre des cours de français est donc une très bonne solution.",
+          "a": "برأيي، حضور دروس اللغة الفرنسية هو حل جيد جداً.",
+          "e": "In my opinion, attending French classes is therefore a very good solution."
+        },
+        {
+          "f": "Il est également important de rencontrer des habitants et de participer aux activités locales.",
+          "a": "ومن المهم كمان نتعرّف على السكان ونشارك بالأنشطة المحلية.",
+          "e": "It is also important to meet local residents and take part in local activities."
+        },
+        {
+          "f": "Les associations peuvent aider les nouveaux arrivants dans leurs démarches et leur vie quotidienne.",
+          "a": "الجمعيات ممكن تساعد الوافدين الجدد بمعاملاتهم وحياتهم اليومية.",
+          "e": "Associations can help newcomers with their procedures and daily lives."
+        },
+        {
+          "f": "Il faut aussi respecter les lois, les traditions et les différences culturelles.",
+          "a": "لازم كمان نحترم القوانين والتقاليد والاختلافات الثقافية.",
+          "e": "We must also respect laws, traditions and cultural differences."
+        },
+        {
+          "f": "Cependant, l'intégration ne dépend pas seulement des étrangers, car la société doit également faire preuve d'ouverture et de solidarité.",
+          "a": "لكن الاندماج ما بيعتمد بس على الأجانب، لأن المجتمع كمان لازم يكون منفتح ومتضامن.",
+          "e": "However, integration does not depend only on foreigners, because society must also show openness and solidarity."
+        },
+        {
+          "f": "Pour conclure, je pense que l'intégration demande du temps, des efforts et du respect des deux côtés.",
+          "a": "بالخلاصة، بعتقد إن الاندماج بده وقت وجهد واحترام من الطرفين.",
+          "e": "To conclude, I think integration requires time, effort and mutual respect."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e3",
+      "icon": "🔎",
+      "fr": "Écrit 3 — La recherche d'emploi",
+      "ar": "كتابة 3 — البحث عن عمل",
+      "consigne": {
+        "f": "Vous participez à un forum consacré à l'emploi. Vous écrivez un texte pour raconter votre expérience dans la recherche d'un travail et donner des conseils aux personnes qui cherchent un emploi.",
+        "a": "أنت تشارك في منتدى حول العمل. اكتب نصاً لتحكي فيه عن تجربتك بالبحث عن عمل، وتقدّم نصائح للأشخاص الذين يبحثون عن وظيفة."
+      },
+      "phr": [
+        {
+          "f": "Trouver un emploi est une étape importante dans la vie de chaque personne.",
+          "a": "إيجاد عمل خطوة مهمة بحياة كل إنسان.",
+          "e": "Finding a job is an important step in everyone's life."
+        },
+        {
+          "f": "Aujourd'hui, la recherche d'emploi peut être difficile, surtout pour les personnes qui manquent d'expérience.",
+          "a": "اليوم، البحث عن عمل ممكن يكون صعب، وخاصة للأشخاص اللي ما عندهم خبرة.",
+          "e": "Today, looking for a job can be difficult, especially for people who lack experience."
+        },
+        {
+          "f": "Lorsque j'ai commencé à chercher un travail, j'ai envoyé plusieurs candidatures à différentes entreprises.",
+          "a": "لما بلّشت أبحث عن عمل، أرسلت عدة طلبات توظيف لشركات مختلفة.",
+          "e": "When I started looking for a job, I sent several applications to different companies."
+        },
+        {
+          "f": "J'ai également préparé un CV pour présenter mes compétences et mes expériences professionnelles.",
+          "a": "كمان حضرت سيرة ذاتية حتى أقدّم مهاراتي وخبراتي المهنية.",
+          "e": "I also prepared a CV to present my skills and professional experience."
+        },
+        {
+          "f": "Au début, je n'ai pas reçu beaucoup de réponses, ce qui m'a parfois découragé.",
+          "a": "بالبداية ما وصلني ردود كثيرة، وهذا الشي أحياناً أحبطني.",
+          "e": "At first, I did not receive many replies, which sometimes discouraged me."
+        },
+        {
+          "f": "Cependant, j'ai décidé de continuer mes recherches et de ne pas abandonner.",
+          "a": "لكن قررت تابع البحث وما استسلم.",
+          "e": "However, I decided to continue my search and not give up."
+        },
+        {
+          "f": "J'ai utilisé des sites Internet spécialisés pour consulter les offres d'emploi.",
+          "a": "استخدمت مواقع إنترنت متخصصة حتى أطلع على عروض العمل.",
+          "e": "I used specialized websites to look at job offers."
+        },
+        {
+          "f": "J'ai aussi demandé des conseils à mes amis et à des professionnels.",
+          "a": "كمان طلبت نصائح من أصدقائي ومن أشخاص عندهم خبرة مهنية.",
+          "e": "I also asked my friends and professionals for advice."
+        },
+        {
+          "f": "À mon avis, il est important de préparer chaque entretien sérieusement.",
+          "a": "برأيي، من المهم التحضير لكل مقابلة عمل بجدية.",
+          "e": "In my opinion, it is important to prepare seriously for every job interview."
+        },
+        {
+          "f": "Il faut être ponctuel, bien présenter ses qualités et montrer sa motivation.",
+          "a": "لازم نلتزم بالموعد، ونوضح صفاتنا الجيدة، ونبيّن رغبتنا بالعمل.",
+          "e": "We must be punctual, present our qualities well and show our motivation."
+        },
+        {
+          "f": "Pour conclure, chercher un emploi demande de la patience, de l'organisation et de la persévérance.",
+          "a": "بالخلاصة، البحث عن عمل بده صبر وتنظيم ومثابرة.",
+          "e": "To conclude, looking for a job requires patience, organization and perseverance."
+        },
+        {
+          "f": "Un CV",
+          "a": "سيرة ذاتية",
+          "e": "A CV",
+          "voc": 1
+        },
+        {
+          "f": "Une candidature",
+          "a": "طلب توظيف",
+          "e": "An application",
+          "voc": 1
+        },
+        {
+          "f": "Un entretien d'embauche",
+          "a": "مقابلة عمل",
+          "e": "A job interview",
+          "voc": 1
+        },
+        {
+          "f": "Une offre d'emploi",
+          "a": "عرض عمل",
+          "e": "A job offer",
+          "voc": 1
+        },
+        {
+          "f": "Les compétences",
+          "a": "المهارات",
+          "e": "Skills",
+          "voc": 1
+        },
+        {
+          "f": "La persévérance",
+          "a": "المثابرة",
+          "e": "Perseverance",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e4",
+      "icon": "🏢",
+      "fr": "Écrit 4 — Le monde du travail",
+      "ar": "كتابة 4 — عالم العمل والحياة المهنية",
+      "consigne": {
+        "f": "Vous participez à un forum sur le monde du travail. Vous écrivez un texte pour expliquer l'importance du travail dans la vie quotidienne, présenter ses avantages et ses inconvénients et donner votre opinion.",
+        "a": "أنت تشارك في منتدى حول عالم العمل. اكتب نصاً تشرح فيه أهمية العمل بالحياة اليومية، وتذكر إيجابياته وسلبياته، وتعطي رأيك الشخصي."
+      },
+      "phr": [
+        {
+          "f": "Le travail occupe une place importante dans la vie de chaque personne.",
+          "a": "العمل إله مكانة مهمة بحياة كل إنسان.",
+          "e": "Work plays an important role in everyone's life."
+        },
+        {
+          "f": "Il permet de gagner de l'argent, de devenir indépendant et de réaliser ses projets.",
+          "a": "بيسمح لنا نكسب المال ونصير مستقلين ونحقق مشاريعنا.",
+          "e": "It allows us to earn money, become independent and achieve our goals."
+        },
+        {
+          "f": "Grâce au travail, nous pouvons également développer nos compétences et acquérir de l'expérience.",
+          "a": "بفضل العمل، فينا كمان نطوّر مهاراتنا ونكتسب خبرة.",
+          "e": "Thanks to work, we can also develop our skills and gain experience."
+        },
+        {
+          "f": "Dans une entreprise, il est important d'avoir de bonnes relations avec ses collègues.",
+          "a": "بالشركة، من المهم تكون عنا علاقات جيدة مع زملائنا.",
+          "e": "In a company, it is important to have good relationships with colleagues."
+        },
+        {
+          "f": "Le respect et la communication permettent d'éviter de nombreux conflits.",
+          "a": "الاحترام والتواصل بيساعدوا على تجنّب الكثير من الخلافات.",
+          "e": "Respect and communication help prevent many conflicts."
+        },
+        {
+          "f": "Cependant, le travail peut parfois être fatigant et stressant.",
+          "a": "لكن العمل ممكن أحياناً يكون متعب ومسبّب للتوتر.",
+          "e": "However, work can sometimes be tiring and stressful."
+        },
+        {
+          "f": "Certaines personnes doivent travailler pendant de longues heures et ont peu de temps libre.",
+          "a": "بعض الأشخاص بيضطروا يشتغلوا ساعات طويلة وما بيكون عندهم وقت فراغ كافي.",
+          "e": "Some people have to work long hours and have little free time."
+        },
+        {
+          "f": "Il est donc essentiel de trouver un équilibre entre la vie professionnelle et la vie personnelle.",
+          "a": "لذلك من الضروري نلاقي توازن بين الحياة المهنية والحياة الشخصية.",
+          "e": "It is therefore essential to find a balance between professional and personal life."
+        },
+        {
+          "f": "Les employeurs doivent aussi respecter les droits des salariés et garantir de bonnes conditions de travail.",
+          "a": "لازم أصحاب العمل كمان يحترموا حقوق الموظفين ويضمنوا ظروف عمل جيدة.",
+          "e": "Employers must also respect employees' rights and guarantee good working conditions."
+        },
+        {
+          "f": "À mon avis, un bon travail n'est pas seulement un travail bien payé, mais aussi un travail qui respecte les employés.",
+          "a": "برأيي، العمل الجيد مو بس العمل اللي راتبه مرتفع، وإنما كمان العمل اللي بيحترم الموظفين.",
+          "e": "In my opinion, a good job is not only one that pays well, but also one that respects employees."
+        },
+        {
+          "f": "Pour conclure, le travail est nécessaire pour construire son avenir, mais il ne faut pas oublier sa santé et sa famille.",
+          "a": "بالخلاصة، العمل ضروري لبناء المستقبل، لكن ما لازم ننسى صحتنا وعائلتنا.",
+          "e": "To conclude, work is necessary to build our future, but we must not forget our health and family."
+        },
+        {
+          "f": "Le salarié",
+          "a": "الموظف",
+          "e": "Employee",
+          "voc": 1
+        },
+        {
+          "f": "L'employeur",
+          "a": "صاحب العمل",
+          "e": "Employer",
+          "voc": 1
+        },
+        {
+          "f": "Les conditions de travail",
+          "a": "ظروف العمل",
+          "e": "Working conditions",
+          "voc": 1
+        },
+        {
+          "f": "Le salaire",
+          "a": "الراتب",
+          "e": "Salary",
+          "voc": 1
+        },
+        {
+          "f": "Les collègues",
+          "a": "الزملاء",
+          "e": "Colleagues",
+          "voc": 1
+        },
+        {
+          "f": "La vie professionnelle",
+          "a": "الحياة المهنية",
+          "e": "Professional life",
+          "voc": 1
+        },
+        {
+          "f": "L'équilibre",
+          "a": "التوازن",
+          "e": "Balance",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e5",
+      "icon": "🎓",
+      "fr": "Écrit 5 — L'éducation et les études",
+      "ar": "كتابة 5 — التعليم والدراسة",
+      "consigne": {
+        "f": "Vous participez à un forum sur l'éducation. Vous écrivez un texte pour expliquer pourquoi les études sont importantes, présenter les avantages de l'éducation et donner votre opinion sur l'apprentissage tout au long de la vie.",
+        "a": "أنت تشارك في منتدى حول التعليم. اكتب نصاً تشرح فيه لماذا الدراسة مهمة، وتذكر فوائد التعليم، وتعطي رأيك حول التعلّم المستمر طوال الحياة."
+      },
+      "phr": [
+        {
+          "f": "L'éducation joue un rôle essentiel dans la vie de chaque personne.",
+          "a": "التعليم إله دور أساسي بحياة كل إنسان.",
+          "e": "Education plays an essential role in everyone's life."
+        },
+        {
+          "f": "Grâce aux études, nous pouvons acquérir des connaissances et développer nos compétences.",
+          "a": "بفضل الدراسة، فينا نكتسب المعرفة ونطوّر مهاراتنا.",
+          "e": "Through education, we can gain knowledge and develop our skills."
+        },
+        {
+          "f": "L'école permet aux enfants d'apprendre à lire, à écrire et à communiquer.",
+          "a": "المدرسة بتسمح للأطفال يتعلّموا القراءة والكتابة والتواصل.",
+          "e": "School allows children to learn how to read, write and communicate."
+        },
+        {
+          "f": "Les études peuvent également aider les jeunes à trouver un bon emploi à l'avenir.",
+          "a": "الدراسة ممكن كمان تساعد الشباب يلاقوا وظيفة جيدة بالمستقبل.",
+          "e": "Education can also help young people find a good job in the future."
+        },
+        {
+          "f": "Aujourd'hui, il est important de continuer à apprendre même après avoir terminé ses études.",
+          "a": "اليوم، من المهم نتابع التعلّم حتى بعد ما نخلّص دراستنا.",
+          "e": "Today, it is important to continue learning even after finishing our studies."
+        },
+        {
+          "f": "En effet, le monde du travail évolue rapidement et demande de nouvelles compétences.",
+          "a": "لأن عالم العمل عم يتطور بسرعة وبيتطلب مهارات جديدة.",
+          "e": "Indeed, the world of work is changing quickly and requires new skills."
+        },
+        {
+          "f": "Les formations professionnelles permettent aux adultes d'apprendre un métier ou de changer de carrière.",
+          "a": "التدريبات المهنية بتسمح للكبار يتعلّموا مهنة أو يغيّروا مجال عملهم.",
+          "e": "Vocational training allows adults to learn a profession or change careers."
+        },
+        {
+          "f": "Cependant, certaines personnes rencontrent des difficultés pour financer leurs études.",
+          "a": "لكن بعض الأشخاص بيواجهوا صعوبات بتأمين تكاليف دراستهم.",
+          "e": "However, some people have difficulties financing their studies."
+        },
+        {
+          "f": "D'autres ont des responsabilités familiales ou professionnelles qui leur laissent peu de temps pour étudier.",
+          "a": "وغيرهم عندهم مسؤوليات عائلية أو مهنية وما بيبقى عندهم وقت كافي للدراسة.",
+          "e": "Others have family or professional responsibilities that leave them little time to study."
+        },
+        {
+          "f": "À mon avis, chacun devrait avoir la possibilité d'étudier et de développer ses capacités, quel que soit son âge.",
+          "a": "برأيي، لازم يكون عند كل شخص فرصة للدراسة وتطوير قدراته مهما كان عمره.",
+          "e": "In my opinion, everyone should have the opportunity to study and develop their abilities, whatever their age."
+        },
+        {
+          "f": "Pour conclure, l'éducation est un investissement important qui peut améliorer notre avenir et notre qualité de vie.",
+          "a": "بالخلاصة، التعليم استثمار مهم ممكن يحسّن مستقبلنا وجودة حياتنا.",
+          "e": "To conclude, education is an important investment that can improve our future and quality of life."
+        },
+        {
+          "f": "L'éducation",
+          "a": "التعليم",
+          "e": "Education",
+          "voc": 1
+        },
+        {
+          "f": "Les connaissances",
+          "a": "المعارف",
+          "e": "Knowledge",
+          "voc": 1
+        },
+        {
+          "f": "Les compétences",
+          "a": "المهارات",
+          "e": "Skills",
+          "voc": 1
+        },
+        {
+          "f": "Une formation",
+          "a": "تدريب",
+          "e": "Training",
+          "voc": 1
+        },
+        {
+          "f": "Un diplôme",
+          "a": "شهادة",
+          "e": "Diploma",
+          "voc": 1
+        },
+        {
+          "f": "Apprendre tout au long de la vie",
+          "a": "التعلّم مدى الحياة",
+          "e": "Lifelong learning",
+          "voc": 1
+        },
+        {
+          "f": "Financer les études",
+          "a": "تمويل الدراسة",
+          "e": "Finance education",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e6",
+      "icon": "📚",
+      "fr": "Écrit 6 — La formation professionnelle",
+      "ar": "كتابة 6 — التدريب المهني والتكوين",
+      "consigne": {
+        "f": "Vous participez à un forum consacré à la formation professionnelle. Vous écrivez un texte pour expliquer les avantages de la formation pour les adultes et donner votre opinion sur la possibilité de changer de métier à tout âge.",
+        "a": "أنت تشارك في منتدى حول التدريب المهني. اكتب نصاً تشرح فيه فوائد التدريب للكبار، وتعطي رأيك حول إمكانية تغيير المهنة في أي عمر."
+      },
+      "phr": [
+        {
+          "f": "Aujourd'hui, la formation professionnelle est devenue très importante dans le monde du travail.",
+          "a": "اليوم، صار التدريب المهني مهم جداً بعالم العمل.",
+          "e": "Today, vocational training has become very important in the world of work."
+        },
+        {
+          "f": "Elle permet aux personnes d'apprendre un métier et d'acquérir de nouvelles compétences.",
+          "a": "بيسمح للأشخاص يتعلّموا مهنة ويكتسبوا مهارات جديدة.",
+          "e": "It allows people to learn a profession and acquire new skills."
+        },
+        {
+          "f": "Certaines personnes choisissent de suivre une formation pour trouver leur premier emploi.",
+          "a": "بعض الأشخاص بيختاروا يتابعوا تدريب حتى يلاقوا أول وظيفة إلهم.",
+          "e": "Some people choose to take a course to find their first job."
+        },
+        {
+          "f": "D'autres souhaitent changer de métier parce qu'ils ne sont plus satisfaits de leur situation professionnelle.",
+          "a": "وغيرهم بيحبوا يغيّروا مهنتهم لأنهم ما عادوا راضين عن وضعهم المهني.",
+          "e": "Others want to change careers because they are no longer satisfied with their professional situation."
+        },
+        {
+          "f": "Grâce à une formation, il est possible de découvrir un nouveau domaine et de développer ses capacités.",
+          "a": "بفضل التدريب، فينا نكتشف مجال جديد ونطوّر قدراتنا.",
+          "e": "Through training, it is possible to discover a new field and develop our abilities."
+        },
+        {
+          "f": "En France, il existe plusieurs possibilités pour se former, notamment dans les centres de formation.",
+          "a": "بفرنسا، في عدة فرص للتدريب، وخاصة بمراكز التكوين.",
+          "e": "In France, there are several training opportunities, particularly in training centres."
+        },
+        {
+          "f": "Certaines formations peuvent être financées par des dispositifs d'aide à la formation.",
+          "a": "بعض الدورات ممكن يتم تمويلها من خلال برامج المساعدة على التدريب.",
+          "e": "Some courses can be funded through training support schemes."
+        },
+        {
+          "f": "Cependant, reprendre des études à l'âge adulte n'est pas toujours facile.",
+          "a": "لكن الرجوع للدراسة بعمر كبير مو دائماً سهل.",
+          "e": "However, returning to education as an adult is not always easy."
+        },
+        {
+          "f": "Il faut organiser son temps entre le travail, la famille et les études.",
+          "a": "لازم ننظّم وقتنا بين العمل والعائلة والدراسة.",
+          "e": "We have to organize our time between work, family and studies."
+        },
+        {
+          "f": "À mon avis, il n'est jamais trop tard pour apprendre quelque chose de nouveau et améliorer sa situation professionnelle.",
+          "a": "برأيي، ما في عمر متأخر حتى نتعلّم شي جديد ونحسّن وضعنا المهني.",
+          "e": "In my opinion, it is never too late to learn something new and improve one's professional situation."
+        },
+        {
+          "f": "Pour conclure, la formation professionnelle représente une excellente occasion de progresser, de gagner en confiance et de construire un meilleur avenir.",
+          "a": "بالخلاصة، التدريب المهني بيمثّل فرصة ممتازة للتطور وزيادة الثقة بالنفس وبناء مستقبل أفضل.",
+          "e": "To conclude, vocational training is an excellent opportunity to progress, gain confidence and build a better future."
+        },
+        {
+          "f": "La formation professionnelle",
+          "a": "التدريب المهني",
+          "e": "Vocational training",
+          "voc": 1
+        },
+        {
+          "f": "Un centre de formation",
+          "a": "مركز تدريب",
+          "e": "Training centre",
+          "voc": 1
+        },
+        {
+          "f": "Acquérir des compétences",
+          "a": "اكتساب مهارات",
+          "e": "Acquire skills",
+          "voc": 1
+        },
+        {
+          "f": "Changer de métier",
+          "a": "تغيير المهنة",
+          "e": "Change careers",
+          "voc": 1
+        },
+        {
+          "f": "Financer une formation",
+          "a": "تمويل تدريب",
+          "e": "Fund a course",
+          "voc": 1
+        },
+        {
+          "f": "Les dispositifs d'aide",
+          "a": "برامج المساعدة",
+          "e": "Support schemes",
+          "voc": 1
+        },
+        {
+          "f": "Améliorer sa situation",
+          "a": "تحسين الوضع",
+          "e": "Improve one's situation",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e7",
+      "icon": "❤️",
+      "fr": "Écrit 7 — La santé et le bien-être",
+      "ar": "كتابة 7 — الصحة والرفاهية",
+      "consigne": {
+        "f": "Vous participez à un forum sur la santé. Vous écrivez un texte pour expliquer comment prendre soin de sa santé, présenter les habitudes qui permettent de rester en bonne forme et donner votre opinion.",
+        "a": "أنت تشارك في منتدى حول الصحة. اكتب نصاً تشرح فيه كيف يمكن الاهتمام بالصحة، وتذكر العادات التي تساعد على البقاء بصحة جيدة، وتعطي رأيك الشخصي."
+      },
+      "phr": [
+        {
+          "f": "La santé est l'une des choses les plus importantes dans notre vie.",
+          "a": "الصحة من أهم الأشياء بحياتنا.",
+          "e": "Health is one of the most important things in our lives."
+        },
+        {
+          "f": "Pour rester en bonne santé, il est nécessaire d'adopter de bonnes habitudes au quotidien.",
+          "a": "حتى نحافظ على صحتنا، من الضروري نتبع عادات جيدة بحياتنا اليومية.",
+          "e": "To stay healthy, it is necessary to adopt good habits every day."
+        },
+        {
+          "f": "Tout d'abord, il faut manger équilibré et éviter de consommer trop de produits gras et sucrés.",
+          "a": "أولاً، لازم نتناول طعام متوازن ونتجنب الإكثار من الأطعمة الدسمة والسكريات.",
+          "e": "First of all, we should eat a balanced diet and avoid consuming too many fatty and sugary products."
+        },
+        {
+          "f": "Il est également important de boire suffisamment d'eau pendant la journée.",
+          "a": "ومن المهم كمان نشرب كمية كافية من الماء خلال النهار.",
+          "e": "It is also important to drink enough water during the day."
+        },
+        {
+          "f": "Faire du sport régulièrement permet de renforcer le corps et de réduire le stress.",
+          "a": "ممارسة الرياضة بانتظام بتساعد على تقوية الجسم وتخفيف التوتر.",
+          "e": "Exercising regularly helps strengthen the body and reduce stress."
+        },
+        {
+          "f": "La marche est une activité simple qui convient à beaucoup de personnes.",
+          "a": "المشي نشاط بسيط ومناسب لكثير من الأشخاص.",
+          "e": "Walking is a simple activity that suits many people."
+        },
+        {
+          "f": "Le sommeil joue aussi un rôle essentiel dans notre bien-être.",
+          "a": "النوم كمان إله دور أساسي براحتنا وصحتنا.",
+          "e": "Sleep also plays an essential role in our well-being."
+        },
+        {
+          "f": "Il faut essayer de dormir suffisamment et de respecter des horaires réguliers.",
+          "a": "لازم نحاول ننام وقت كافي ونحافظ على مواعيد نوم منتظمة.",
+          "e": "We should try to get enough sleep and maintain regular sleeping times."
+        },
+        {
+          "f": "De plus, il est conseillé de consulter un médecin régulièrement et de ne pas négliger les problèmes de santé.",
+          "a": "بالإضافة لذلك، يُنصح بمراجعة الطبيب بانتظام وعدم إهمال المشاكل الصحية.",
+          "e": "Moreover, it is advisable to see a doctor regularly and not neglect health problems."
+        },
+        {
+          "f": "Cependant, le stress lié au travail et aux responsabilités peut parfois avoir des effets négatifs sur la santé.",
+          "a": "لكن التوتر الناتج عن العمل والمسؤوليات ممكن أحياناً يأثر سلباً على الصحة.",
+          "e": "However, stress related to work and responsibilities can sometimes have negative effects on health."
+        },
+        {
+          "f": "À mon avis, prendre soin de sa santé doit être une priorité pour tout le monde.",
+          "a": "برأيي، الاهتمام بالصحة لازم يكون أولوية عند الجميع.",
+          "e": "In my opinion, taking care of one's health should be a priority for everyone."
+        },
+        {
+          "f": "Pour conclure, une bonne alimentation, une activité physique régulière et un sommeil suffisant contribuent à une meilleure qualité de vie.",
+          "a": "بالخلاصة، التغذية الجيدة والنشاط البدني المنتظم والنوم الكافي بيساهموا بتحسين جودة الحياة.",
+          "e": "To conclude, a good diet, regular physical activity and enough sleep contribute to a better quality of life."
+        },
+        {
+          "f": "La santé",
+          "a": "الصحة",
+          "e": "Health",
+          "voc": 1
+        },
+        {
+          "f": "Le bien-être",
+          "a": "الرفاهية",
+          "e": "Well-being",
+          "voc": 1
+        },
+        {
+          "f": "Une alimentation équilibrée",
+          "a": "تغذية متوازنة",
+          "e": "Balanced diet",
+          "voc": 1
+        },
+        {
+          "f": "L'activité physique",
+          "a": "النشاط البدني",
+          "e": "Physical activity",
+          "voc": 1
+        },
+        {
+          "f": "Le sommeil",
+          "a": "النوم",
+          "e": "Sleep",
+          "voc": 1
+        },
+        {
+          "f": "Le stress",
+          "a": "التوتر",
+          "e": "Stress",
+          "voc": 1
+        },
+        {
+          "f": "Consulter un médecin",
+          "a": "مراجعة الطبيب",
+          "e": "See a doctor",
+          "voc": 1
+        },
+        {
+          "f": "La qualité de vie",
+          "a": "جودة الحياة",
+          "e": "Quality of life",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e8",
+      "icon": "🍽️",
+      "fr": "Écrit 8 — L'alimentation",
+      "ar": "كتابة 8 — التغذية والعادات الغذائية",
+      "consigne": {
+        "f": "Vous participez à un forum sur l'alimentation. Vous écrivez un texte pour expliquer l'importance d'une alimentation équilibrée, présenter les habitudes alimentaires des Français et donner votre opinion sur la nourriture faite maison.",
+        "a": "أنت تشارك في منتدى حول التغذية. اكتب نصاً تشرح فيه أهمية الغذاء المتوازن، وتتحدث عن العادات الغذائية عند الفرنسيين، وتعطي رأيك حول الطعام المحضّر في المنزل."
+      },
+      "phr": [
+        {
+          "f": "L'alimentation joue un rôle essentiel dans notre santé et notre vie quotidienne.",
+          "a": "التغذية إلها دور أساسي بصحتنا وحياتنا اليومية.",
+          "e": "Food plays an essential role in our health and daily lives."
+        },
+        {
+          "f": "Aujourd'hui, de nombreuses personnes font attention à ce qu'elles mangent.",
+          "a": "اليوم، كثير من الأشخاص بينتبهوا للأكل اللي بيتناولوه.",
+          "e": "Today, many people pay attention to what they eat."
+        },
+        {
+          "f": "Une alimentation équilibrée permet de garder une bonne santé et d'avoir suffisamment d'énergie.",
+          "a": "التغذية المتوازنة بتساعدنا نحافظ على صحة جيدة ويكون عنا طاقة كافية.",
+          "e": "A balanced diet helps us stay healthy and have enough energy."
+        },
+        {
+          "f": "Il est conseillé de manger des fruits, des légumes et des aliments variés.",
+          "a": "يُنصح بتناول الفواكه والخضراوات وأطعمة متنوعة.",
+          "e": "It is advisable to eat fruit, vegetables and a variety of foods."
+        },
+        {
+          "f": "Il faut également éviter de consommer trop de sucre, de sel et de produits transformés.",
+          "a": "لازم كمان نتجنب الإكثار من السكر والملح والأطعمة المصنّعة.",
+          "e": "We should also avoid consuming too much sugar, salt and processed food."
+        },
+        {
+          "f": "En France, beaucoup de familles prennent le temps de préparer leurs repas à la maison.",
+          "a": "بفرنسا، كثير من العائلات بتخصص وقت لتحضير وجباتها بالبيت.",
+          "e": "In France, many families take time to prepare their meals at home."
+        },
+        {
+          "f": "Cependant, certaines personnes préfèrent acheter des plats préparés parce qu'elles manquent de temps.",
+          "a": "لكن بعض الأشخاص بيفضّلوا يشتروا وجبات جاهزة لأن ما عندهم وقت كافي.",
+          "e": "However, some people prefer buying ready-made meals because they lack time."
+        },
+        {
+          "f": "Les repas faits maison sont souvent plus économiques et permettent de choisir les ingrédients.",
+          "a": "الوجبات المحضّرة بالبيت غالباً أوفر وبتسمح لنا نختار المكونات.",
+          "e": "Homemade meals are often more economical and allow us to choose the ingredients."
+        },
+        {
+          "f": "De plus, cuisiner en famille peut être une activité agréable qui rapproche les personnes.",
+          "a": "بالإضافة لذلك، الطبخ مع العائلة ممكن يكون نشاط ممتع وبيقرّب أفراد الأسرة من بعضهم.",
+          "e": "Moreover, cooking with family can be an enjoyable activity that brings people closer together."
+        },
+        {
+          "f": "À mon avis, il est préférable de préparer ses repas soi-même chaque fois que cela est possible.",
+          "a": "برأيي، من الأفضل نحضّر وجباتنا بأنفسنا كلما كان ذلك ممكناً.",
+          "e": "In my opinion, it is better to prepare our own meals whenever possible."
+        },
+        {
+          "f": "Il faut aussi apprendre aux enfants à manger sainement dès leur plus jeune âge.",
+          "a": "لازم كمان نعلّم الأطفال يتناولوا طعام صحي من عمر صغير.",
+          "e": "We should also teach children to eat healthily from an early age."
+        },
+        {
+          "f": "Pour conclure, bien manger est une habitude importante qui contribue à prévenir certains problèmes de santé et à améliorer notre qualité de vie.",
+          "a": "بالخلاصة، الأكل الصحي عادة مهمة بتساعد على الوقاية من بعض المشاكل الصحية وتحسين جودة حياتنا.",
+          "e": "To conclude, eating well is an important habit that helps prevent certain health problems and improve our quality of life."
+        },
+        {
+          "f": "L'alimentation",
+          "a": "التغذية",
+          "e": "Nutrition",
+          "voc": 1
+        },
+        {
+          "f": "Une alimentation équilibrée",
+          "a": "تغذية متوازنة",
+          "e": "Balanced diet",
+          "voc": 1
+        },
+        {
+          "f": "Les légumes",
+          "a": "الخضراوات",
+          "e": "Vegetables",
+          "voc": 1
+        },
+        {
+          "f": "Les fruits",
+          "a": "الفواكه",
+          "e": "Fruits",
+          "voc": 1
+        },
+        {
+          "f": "Les produits transformés",
+          "a": "المنتجات المصنّعة",
+          "e": "Processed foods",
+          "voc": 1
+        },
+        {
+          "f": "Les plats préparés",
+          "a": "الوجبات الجاهزة",
+          "e": "Ready-made meals",
+          "voc": 1
+        },
+        {
+          "f": "Les repas faits maison",
+          "a": "الوجبات المنزلية",
+          "e": "Homemade meals",
+          "voc": 1
+        },
+        {
+          "f": "Les ingrédients",
+          "a": "المكونات",
+          "e": "Ingredients",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-e9",
+      "icon": "🏃",
+      "fr": "Écrit 9 — Le sport",
+      "ar": "كتابة 9 — الرياضة والأنشطة البدنية",
+      "consigne": {
+        "f": "Vous participez à un forum consacré au sport. Vous écrivez un texte pour expliquer les avantages de la pratique sportive, présenter les difficultés rencontrées par certaines personnes et donner votre opinion sur l'importance du sport dans la vie quotidienne.",
+        "a": "أنت تشارك في منتدى مخصص للرياضة. اكتب نصاً تشرح فيه فوائد ممارسة الرياضة، وتتحدث عن الصعوبات التي يواجهها بعض الأشخاص، وتعطي رأيك حول أهمية الرياضة بالحياة اليومية."
+      },
+      "phr": [
+        {
+          "f": "Aujourd'hui, le sport occupe une place importante dans notre société.",
+          "a": "اليوم، الرياضة إلها مكانة مهمة بمجتمعنا.",
+          "e": "Today, sport plays an important role in our society."
+        },
+        {
+          "f": "De nombreuses personnes pratiquent une activité physique pour rester en bonne santé.",
+          "a": "كثير من الأشخاص بيمارسوا نشاط بدني حتى يحافظوا على صحتهم.",
+          "e": "Many people do physical activity to stay healthy."
+        },
+        {
+          "f": "Le sport permet de renforcer les muscles et d'améliorer la condition physique.",
+          "a": "الرياضة بتساعد على تقوية العضلات وتحسين اللياقة البدنية.",
+          "e": "Sport helps strengthen muscles and improve physical fitness."
+        },
+        {
+          "f": "Il contribue également à réduire le stress et à améliorer le moral.",
+          "a": "كمان بيساعد على تخفيف التوتر وتحسين الحالة النفسية.",
+          "e": "It also helps reduce stress and improve mood."
+        },
+        {
+          "f": "Certaines personnes préfèrent aller à la salle de sport, tandis que d'autres choisissent de marcher ou de faire du vélo.",
+          "a": "بعض الأشخاص بيفضّلوا يروحوا على النادي الرياضي، بينما غيرهم بيختاروا المشي أو ركوب الدراجة.",
+          "e": "Some people prefer going to the gym, while others choose walking or cycling."
+        },
+        {
+          "f": "Le sport collectif permet aussi de rencontrer de nouvelles personnes et de développer l'esprit d'équipe.",
+          "a": "الرياضة الجماعية بتسمح كمان بالتعرّف على أشخاص جدد وتنمية روح الفريق.",
+          "e": "Team sports also allow people to meet new people and develop team spirit."
+        },
+        {
+          "f": "Cependant, certaines personnes n'ont pas assez de temps pour faire du sport régulièrement.",
+          "a": "لكن بعض الأشخاص ما عندهم وقت كافي لممارسة الرياضة بانتظام.",
+          "e": "However, some people do not have enough time to exercise regularly."
+        },
+        {
+          "f": "D'autres trouvent que les abonnements aux salles de sport sont trop chers.",
+          "a": "وغيرهم بيلاقوا إن اشتراكات النوادي الرياضية غالية جداً.",
+          "e": "Others find gym memberships too expensive."
+        },
+        {
+          "f": "Pourtant, il est possible de pratiquer des activités gratuites, comme la marche dans un parc.",
+          "a": "ومع هيك، فينا نمارس أنشطة مجانية، مثل المشي بالحديقة.",
+          "e": "Nevertheless, it is possible to do free activities, such as walking in a park."
+        },
+        {
+          "f": "À mon avis, il n'est pas nécessaire de pratiquer un sport difficile pour rester en forme.",
+          "a": "برأيي، مو ضروري نمارس رياضة صعبة حتى نحافظ على لياقتنا.",
+          "e": "In my opinion, it is not necessary to practise a difficult sport to stay fit."
+        },
+        {
+          "f": "Le plus important est de bouger régulièrement et de choisir une activité adaptée à ses capacités.",
+          "a": "الأهم هو نتحرك بانتظام ونختار نشاط يناسب قدراتنا.",
+          "e": "The most important thing is to move regularly and choose an activity suited to our abilities."
+        },
+        {
+          "f": "Pour conclure, le sport est bénéfique pour le corps et l'esprit, et chacun devrait essayer de rester actif à son rythme.",
+          "a": "بالخلاصة، الرياضة مفيدة للجسم والعقل، ولازم كل شخص يحاول يضل نشيط حسب قدرته.",
+          "e": "To conclude, sport is beneficial for the body and mind, and everyone should try to stay active at their own pace."
+        },
+        {
+          "f": "Le sport",
+          "a": "الرياضة",
+          "e": "Sport",
+          "voc": 1
+        },
+        {
+          "f": "Une activité physique",
+          "a": "نشاط بدني",
+          "e": "Physical activity",
+          "voc": 1
+        },
+        {
+          "f": "La condition physique",
+          "a": "اللياقة البدنية",
+          "e": "Physical fitness",
+          "voc": 1
+        },
+        {
+          "f": "La salle de sport",
+          "a": "النادي الرياضي",
+          "e": "Gym",
+          "voc": 1
+        },
+        {
+          "f": "Un abonnement",
+          "a": "اشتراك",
+          "e": "Membership",
+          "voc": 1
+        },
+        {
+          "f": "L'esprit d'équipe",
+          "a": "روح الفريق",
+          "e": "Team spirit",
+          "voc": 1
+        },
+        {
+          "f": "Rester en forme",
+          "a": "المحافظة على اللياقة",
+          "e": "Stay fit",
+          "voc": 1
+        },
+        {
+          "f": "À son rythme",
+          "a": "حسب وتيرته",
+          "e": "At one's own pace",
+          "voc": 1
+        }
+      ],
+      "ids": []
     }
   ]
 };
