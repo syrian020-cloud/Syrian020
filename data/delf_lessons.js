@@ -3438,5 +3438,483 @@ window.DELF_LESSONS = {
     "d7052"
    ]
   }
+,
+
+  {
+    "id": "b1-20",
+    "icon": "🔗",
+    "fr": "Les pronoms doubles",
+    "ar": "الضمائر المزدوجة",
+    "phr": [
+      {
+        "f": "Je le lui donne.",
+        "a": "بعطيه ياه.",
+        "e": "I give it to him."
+      },
+      {
+        "f": "Elle le leur apporte.",
+        "a": "جايبته لهم.",
+        "e": "She brings it to them."
+      },
+      {
+        "f": "Tu me l'envoies ?",
+        "a": "بتبعتلي ياه؟",
+        "e": "Will you send it to me?"
+      },
+      {
+        "f": "Il y en a beaucoup.",
+        "a": "في منه كتير.",
+        "e": "There is a lot of it."
+      },
+      {
+        "f": "Je lui en parle.",
+        "a": "بحكيله عنه.",
+        "e": "I talk to him about it."
+      },
+      {
+        "f": "On me l'a dit.",
+        "a": "قالولي ياه.",
+        "e": "I was told that."
+      },
+      {
+        "f": "Donne-le-moi !",
+        "a": "عطيني ياه!",
+        "e": "Give it to me!"
+      },
+      {
+        "f": "Je te la prête.",
+        "a": "بسلفك ياها.",
+        "e": "I lend it to you."
+      },
+      {
+        "f": "Il nous en reste deux.",
+        "a": "ضل عنا منه اتنين.",
+        "e": "We have two left."
+      },
+      {
+        "f": "L'ordre : me/te/nous/vous + le/la/les + lui/leur + y + en.",
+        "a": "الترتيب: me/te ثم le/la ثم lui/leur ثم y ثم en.",
+        "e": "Order: me/te + le/la + lui/leur + y + en."
+      }
+    ],
+    "ids": [
+      "d8001",
+      "d8002",
+      "d8003",
+      "d8004",
+      "d8005",
+      "d8006"
+    ]
+  },
+  {
+    "id": "b1-21",
+    "icon": "🗞️",
+    "fr": "Passif et discours rapporté",
+    "ar": "المبني للمجهول والكلام المنقول",
+    "phr": [
+      {
+        "f": "La lettre a été envoyée hier.",
+        "a": "الرسالة انبعتت مبارح.",
+        "e": "The letter was sent yesterday."
+      },
+      {
+        "f": "Le repas est préparé par le chef.",
+        "a": "الأكل محضّر من الشيف.",
+        "e": "The meal is prepared by the chef."
+      },
+      {
+        "f": "On m'a dit que tu étais là.",
+        "a": "قالولي إنك كنت هون.",
+        "e": "I was told you were here."
+      },
+      {
+        "f": "Il a dit qu'il viendrait.",
+        "a": "قال إنه رح ييجي.",
+        "e": "He said he would come."
+      },
+      {
+        "f": "Elle a demandé si j'étais libre.",
+        "a": "سألت إذا كنت فاضي.",
+        "e": "She asked if I was free."
+      },
+      {
+        "f": "Il m'a dit d'attendre.",
+        "a": "قالي استنى.",
+        "e": "He told me to wait."
+      },
+      {
+        "f": "Cette loi sera votée demain.",
+        "a": "هالقانون رح يتصوت عليه بكرا.",
+        "e": "This law will be voted on tomorrow."
+      },
+      {
+        "f": "Le présent devient l'imparfait, le futur devient le conditionnel.",
+        "a": "الحاضر بيصير imparfait والمستقبل بيصير conditionnel.",
+        "e": "Present becomes imperfect, future becomes conditional."
+      }
+    ],
+    "ids": [
+      "d8007",
+      "d8008",
+      "d8009",
+      "d8010",
+      "d8011",
+      "d8012",
+      "d8027",
+      "d8028"
+    ]
+  },
+  {
+    "id": "b1-22",
+    "icon": "🎯",
+    "fr": "Subjonctif : approfondissement",
+    "ar": "السوبجونكتيف — تعميق",
+    "phr": [
+      {
+        "f": "Bien qu'il soit tard, on continue.",
+        "a": "رغم إنه متأخر منكمل.",
+        "e": "Although it is late, we continue."
+      },
+      {
+        "f": "Il est possible qu'elle soit malade.",
+        "a": "ممكن تكون مريضة.",
+        "e": "It is possible she is sick."
+      },
+      {
+        "f": "Je doute qu'il ait raison.",
+        "a": "بشك معه حق.",
+        "e": "I doubt he is right."
+      },
+      {
+        "f": "Pour qu'il vienne, il faut partir tôt.",
+        "a": "مشان ييجي لازم نطلع بدري.",
+        "e": "For him to come, we must leave early."
+      },
+      {
+        "f": "Afin que tout le monde comprenne, il parle lentement.",
+        "a": "مشان الكل يفهم بيحكي ببطء.",
+        "e": "So everyone understands, he speaks slowly."
+      },
+      {
+        "f": "Quoiqu'il pleuve, je sors.",
+        "a": "رغم المطر أنا طالع.",
+        "e": "Even though it rains, I go out."
+      },
+      {
+        "f": "Que tu viennes ou pas, je pars.",
+        "a": "سواء إجيت ولا لا أنا رايح.",
+        "e": "Whether you come or not, I'm leaving."
+      },
+      {
+        "f": "Je suis content que tu sois venu.",
+        "a": "مبسوط إنك إجيت.",
+        "e": "I'm glad you came."
+      },
+      {
+        "f": "Mais : je suis sûr qu'il viendra (indicatif).",
+        "a": "بس: متأكد رح ييجي (indicatif مش subjonctif).",
+        "e": "But: I'm sure he will come (indicative)."
+      }
+    ],
+    "ids": [
+      "d8013",
+      "d8014",
+      "d8015",
+      "d8016",
+      "d8017",
+      "d8018",
+      "d8019",
+      "d8020",
+      "d8021",
+      "d8022",
+      "d8023",
+      "d8024",
+      "d8025",
+      "d8026",
+      "d8029",
+      "d8030"
+    ]
+  },
+  {
+    "id": "b1-23",
+    "icon": "🌍",
+    "fr": "Vocabulaire : environnement, tech, santé",
+    "ar": "مفردات: بيئة وتكنولوجيا وصحة",
+    "phr": [
+      {
+        "f": "Il faut protéger l'environnement.",
+        "a": "لازم نحمي البيئة.",
+        "e": "We must protect the environment."
+      },
+      {
+        "f": "On recycle les bouteilles en plastique.",
+        "a": "منعمل تدوير لقواري البلاستيك.",
+        "e": "We recycle plastic bottles."
+      },
+      {
+        "f": "Les voitures polluent l'air.",
+        "a": "السيارات بتلوث الهوا.",
+        "e": "Cars pollute the air."
+      },
+      {
+        "f": "J'ai téléchargé l'application.",
+        "a": "نزلت التطبيق.",
+        "e": "I downloaded the app."
+      },
+      {
+        "f": "J'ai oublié mon mot de passe.",
+        "a": "نسيت كلمة السر.",
+        "e": "I forgot my password."
+      },
+      {
+        "f": "Connecte-toi au Wi-Fi.",
+        "a": "اتصل بالواي فاي.",
+        "e": "Connect to Wi-Fi."
+      },
+      {
+        "f": "Je ne me sens pas en forme.",
+        "a": "ما حاس حالي منيح.",
+        "e": "I don't feel well."
+      },
+      {
+        "f": "Le médecin m'a donné une ordonnance.",
+        "a": "الدكتور عطاني وصفة.",
+        "e": "The doctor gave me a prescription."
+      },
+      {
+        "f": "J'ai mal à la tête depuis hier.",
+        "a": "عم يوجعني راسي من مبارح.",
+        "e": "My head has been hurting since yesterday."
+      },
+      {
+        "f": "J'ai honte de mon erreur.",
+        "a": "خجلان من غلطتي.",
+        "e": "I'm ashamed of my mistake."
+      }
+    ],
+    "ids": [
+      "d8031",
+      "d8032",
+      "d8033",
+      "d8034",
+      "d8035",
+      "d8036",
+      "d8037",
+      "d8038",
+      "d8039",
+      "d8040",
+      "d8041",
+      "d8042",
+      "d8043",
+      "d8044",
+      "d8045",
+      "d8046",
+      "d8047",
+      "d8048",
+      "d8049",
+      "d8050"
+    ]
+  },
+  {
+    "id": "b1-24",
+    "icon": "📰",
+    "fr": "Lecture : textes longs",
+    "ar": "قراءة: نصوص طويلة",
+    "phr": [
+      {
+        "f": "Lisez d'abord les questions, puis le texte.",
+        "a": "اقرأ الأسئلة أول شي بعدين النص.",
+        "e": "Read the questions first, then the text."
+      },
+      {
+        "f": "Cherchez les mots-clés dans le texte.",
+        "a": "دور على الكلمات المفتاحية بالنص.",
+        "e": "Look for keywords in the text."
+      },
+      {
+        "f": "« Charges comprises » veut dire tout inclus.",
+        "a": "«charges comprises» يعني كل شي شامل.",
+        "e": "'Charges included' means all-inclusive."
+      },
+      {
+        "f": "« À partir de » marque le début d'une date.",
+        "a": "«à partir de» بتعلّم بداية التاريخ.",
+        "e": "'From' marks the start date."
+      },
+      {
+        "f": "« Suite à » veut dire « à cause de ».",
+        "a": "«suite à» يعني «بسبب».",
+        "e": "'Following' means 'because of'."
+      },
+      {
+        "f": "« Merci de vous munir de » = apportez.",
+        "a": "«merci de vous munir de» يعني «جيب معك».",
+        "e": "'Please bring' = bring."
+      },
+      {
+        "f": "Repérez qui écrit, à qui, et pourquoi.",
+        "a": "حدد مين كاتب، لمين، وليش.",
+        "e": "Identify who writes, to whom, and why."
+      },
+      {
+        "f": "Le ton : officiel, amical ou publicitaire ?",
+        "a": "النبرة: رسمية، صداقة، ولا إعلانية؟",
+        "e": "The tone: official, friendly or advertising?"
+      }
+    ],
+    "ids": [
+      "d8051",
+      "d8052",
+      "d8053",
+      "d8054",
+      "d8055",
+      "d8056",
+      "d8057",
+      "d8058",
+      "d8059",
+      "d8060",
+      "d8061",
+      "d8062",
+      "d8063",
+      "d8064",
+      "d8065"
+    ]
+  },
+  {
+    "id": "b1-25",
+    "icon": "🎧",
+    "fr": "Écoute : dialogues du quotidien",
+    "ar": "استماع: محادثات يومية",
+    "phr": [
+      {
+        "f": "Écoutez une première fois pour l'idée générale.",
+        "a": "اسمع أول مرة للفكرة العامة.",
+        "e": "Listen once for the general idea."
+      },
+      {
+        "f": "La deuxième écoute : notez les détails.",
+        "a": "السمعة التانية: سجل التفاصيل.",
+        "e": "Second listen: note the details."
+      },
+      {
+        "f": "« Il s'allume mais le tambour ne tourne pas. »",
+        "a": "«بتضوي بس الحلة ما بتلف.»",
+        "e": "'It turns on but the drum doesn't spin.'"
+      },
+      {
+        "f": "« Passer de 4 à 6 personnes. »",
+        "a": "«من 4 ل6 أشخاص.»",
+        "e": "'From 4 to 6 people.'"
+      },
+      {
+        "f": "« Charges comprises » = le prix final.",
+        "a": "«شامل المصاريف» = السعر النهائي.",
+        "e": "'Charges included' = final price."
+      },
+      {
+        "f": "« Ça fait vingt minutes que j'attends. »",
+        "a": "«صارلي عشرين دقيقة مستني.»",
+        "e": "'I've been waiting twenty minutes.'"
+      },
+      {
+        "f": "« Elle est maintenue » = elle n'est pas annulée.",
+        "a": "«قائمة» = مش ملغية.",
+        "e": "'Maintained' = not cancelled."
+      },
+      {
+        "f": "Attention aux chiffres et aux heures !",
+        "a": "انتبه للأرقام والساعات!",
+        "e": "Watch out for numbers and times!"
+      }
+    ],
+    "ids": [
+      "d8066",
+      "d8067",
+      "d8068",
+      "d8069",
+      "d8070",
+      "d8071",
+      "d8072",
+      "d8073",
+      "d8074",
+      "d8075",
+      "d8076",
+      "d8077",
+      "d8078",
+      "d8079",
+      "d8080"
+    ]
+  },
+  {
+    "id": "b1-26",
+    "icon": "✉️",
+    "fr": "Écriture formelle et oral structuré",
+    "ar": "الكتابة الرسمية والتحدث المنظم",
+    "phr": [
+      {
+        "f": "Je vous écris pour vous informer que...",
+        "a": "عم اكتبلكن مشان اخبركن إنه...",
+        "e": "I am writing to inform you that..."
+      },
+      {
+        "f": "Dans l'attente de votre réponse...",
+        "a": "بانتظار ردكم...",
+        "e": "Awaiting your reply..."
+      },
+      {
+        "f": "Je reste à votre disposition.",
+        "a": "أنا بخدمتكم.",
+        "e": "I remain at your disposal."
+      },
+      {
+        "f": "Veuillez trouver ci-joint mon CV.",
+        "a": "الرجاء تلاقو مرفق سيرتي.",
+        "e": "Please find my CV attached."
+      },
+      {
+        "f": "Premièrement... deuxièmement... enfin.",
+        "a": "أولاً... ثانياً... أخيراً.",
+        "e": "Firstly... secondly... finally."
+      },
+      {
+        "f": "En résumé, c'est une bonne idée.",
+        "a": "باختصار، فكرة منيحة.",
+        "e": "In short, it's a good idea."
+      },
+      {
+        "f": "Effectivement, c'est exact.",
+        "a": "بالضبط، صحيح.",
+        "e": "Indeed, that's right."
+      },
+      {
+        "f": "Bref, parlons d'autre chose.",
+        "a": "باختصار، خلونا نحكي بشي تاني.",
+        "e": "Anyway, let's talk about something else."
+      }
+    ],
+    "ids": [
+      "d8081",
+      "d8082",
+      "d8083",
+      "d8084",
+      "d8085",
+      "d8086",
+      "d8087",
+      "d8088",
+      "d8089",
+      "d8090",
+      "d8091",
+      "d8092",
+      "d8093",
+      "d8094",
+      "d8095",
+      "d8096",
+      "d8097",
+      "d8098",
+      "d8099",
+      "d8100"
+    ]
+  }
+
  ]
 };
