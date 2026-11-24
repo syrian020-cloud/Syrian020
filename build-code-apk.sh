@@ -38,6 +38,15 @@ fi
 
 npx cap sync android
 
+# Force app identity (cap sync does not always rewrite these)
+sed -i 's/namespace "com[^"]*"/namespace "com.syrian020.code"/; s/applicationId "com[^"]*"/applicationId "com.syrian020.code"/' android/app/build.gradle
+sed -i 's|<string name="app_name">[^<]*</string>|<string name="app_name">CodeRoute</string>|' android/app/src/main/res/values/strings.xml
+
+# Ensure MainActivity lives in the code package
+mkdir -p android/app/src/main/java/com/syrian020/code
+printf 'package com.syrian020.code;\n\nimport com.getcapacitor.BridgeActivity;\n\npublic class MainActivity extends BridgeActivity {}\n' > android/app/src/main/java/com/syrian020/code/MainActivity.java
+find android/app/src/main/java -name "MainActivity.java" ! -path "*syrian020/code*" -delete
+
 # Sync the PWA icon into the Android mipmap launcher icons
 ICON_SRC="$ROOT/icon-code-512.png"
 MIPMAP="$ROOT/android/app/src/main/res"
