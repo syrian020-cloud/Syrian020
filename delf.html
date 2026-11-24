@@ -175,6 +175,40 @@
   .flag-btn:active { transform: scale(0.9); }
   .flag-btn.speaking { transform: scale(1.2); filter: drop-shadow(0 0 6px rgba(76,175,125,0.9)); }
   .slide-nav .big-btn { flex: 1; }
+  .dg-bar { display: flex; gap: 0.5rem; margin-bottom: 0.9rem; }
+  .dg-bar .dg-btn { flex: 1; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 14px; padding: 0.55rem 0.3rem; color: var(--text-primary); font-size: 0.85rem; font-weight: 800; cursor: pointer; font-family: inherit; }
+  .dg-bar .dg-btn:active { transform: scale(0.96); }
+  .dg-ov { position: fixed; inset: 0; z-index: 4000; background: var(--bg-primary); display: flex; flex-direction: column; overflow-y: auto; overflow-x: hidden; padding: 0.9rem 0.75rem; }
+  .dg-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; }
+  .dg-prog { font-weight: 800; font-size: 1.05rem; }
+  .dg-flags { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; direction: ltr; margin-bottom: 0.5rem; }
+  .dg-flag { text-align: center; font-size: 1.4rem; }
+  .dg-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem 0.55rem; align-content: start; direction: ltr; }
+  .dg-card { border: 2px solid var(--border); border-radius: 18px; padding: 0.85rem 0.7rem; background: var(--bg-tertiary); color: var(--text-primary); cursor: pointer; font-size: 0.95rem; line-height: 1.5; text-align: center; user-select: none; overflow-wrap: anywhere; display: flex; align-items: center; justify-content: center; transition: transform .15s; font-family: inherit; }
+  .dg-card:active { transform: scale(0.97); }
+  .dg-card.sel { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold); transform: scale(1.02); }
+  .dg-card.done { background: linear-gradient(135deg,#22c55e,#16a34a); border-color: transparent; color: #fff; pointer-events: none; }
+  .dg-card.wrong { animation: dgShake .45s; border-color: #e0245e; background: #e0245e; color: #fff; }
+  @keyframes dgShake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-7px)} 75%{transform:translateX(7px)} }
+  .dg-langs { display: flex; flex-direction: column; gap: 0.9rem; max-width: 340px; margin: auto; width: 100%; }
+  .dg-end { margin: auto; text-align: center; }
+  .dg-pct { font-size: 4.2rem; font-weight: 800; line-height: 1; }
+  .dg-stage { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; width: 100%; max-width: 480px; margin: 0 auto; }
+  .dg-hero { width: 100%; height: 96px; border-radius: 18px; border: 1.5px solid var(--border); background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-size: 2.4rem; }
+  .dg-loop { width: 62px; height: 62px; border-radius: 50%; border: none; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; box-shadow: 0 4px 14px rgba(124,58,237,0.4); }
+  .dg-loop.speaking { animation: dgPulse 1s infinite; }
+  @keyframes dgPulse { 0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.55)} 50%{box-shadow:0 0 0 9px rgba(124,58,237,0)} }
+  .dg-tile { border: 2px solid var(--border); background: var(--bg-tertiary); border-radius: 16px; padding: 0.7rem 0.6rem; font-size: 0.95rem; font-weight: 700; cursor: pointer; text-align: center; min-height: 52px; display: flex; align-items: center; justify-content: center; color: var(--text-primary); line-height: 1.4; transition: all .15s; width: 100%; font-family: inherit; }
+  .dg-tile.ok { border-color: #22c55e; background: rgba(34,197,94,.13); }
+  .dg-tile.bad { border-color: #ef4444; background: rgba(239,68,68,.1); animation: dgShake .45s; }
+  .dg-tile.dim { opacity: .45; pointer-events: none; }
+  .dg-text { font-size: 1.15rem; font-weight: 800; text-align: center; line-height: 1.7; }
+  .dg-tr { color: var(--text-secondary); text-align: center; font-size: 0.95rem; margin-top: 0.35rem; }
+  .dg-count { font-size: 1.6rem; font-weight: 800; color: var(--gold); }
+  .dg-plus { width: 62px; height: 62px; border-radius: 50%; border: none; font-size: 1.9rem; font-weight: 800; cursor: pointer; background: linear-gradient(135deg,#22c55e,#16a34a); color: #fff; }
+  .dg-plus.dim { opacity: .35; }
+  .dg-sub { min-height: 1.6rem; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+  .dg-skip { color: var(--gold); text-decoration: underline; cursor: pointer; }
   .slide-nav .ghost-btn { flex: 1; margin-top: 0; }
 </style>
 </head>
@@ -1285,11 +1319,19 @@ function renderLesson(){
     '<div class="card">' +
       '<div class="mode-title">' + ls.icon + ' ' + esc(ls.fr) + '</div>' +
       '<div class="mode-desc">اقرأ الشرح كاملاً — استمع لكل شريحة بعلمها 🔊، اضغط أي كلمة لتنطقها loop، وضغطتين عليها لتبحث عنها في Google.</div>' +
+      '<div class="dg-bar">' +
+        '<button class="dg-btn" id="dg-bmatch">🧩 توصيل</button>' +
+        '<button class="dg-btn" id="dg-blisten">🎧 اختبار سمعي</button>' +
+        '<button class="dg-btn" id="dg-brr">🗣️ اقرأ وكرّر</button>' +
+      '</div>' +
       consigne +
       cards +
       '<button class="big-btn" id="btn-lfinish" style="margin-top:0.4rem">✅ أنهيت الدرس' + (nq ? ' — تدرّب (' + nq + ' سؤالاً)' : '') + '</button>' +
     '</div>';
   document.getElementById('btn-lback2').onclick = function(){ enterScreen('lessons'); };
+  document.getElementById('dg-bmatch').onclick = function(){ openDgMatch(ls); };
+  document.getElementById('dg-blisten').onclick = function(){ openDgListen(ls); };
+  document.getElementById('dg-brr').onclick = function(){ openDgRR(ls); };
   document.querySelectorAll('.flag-btn').forEach(function(b){
     b.onclick = function(){
       var p = +b.dataset.i >= 0 ? ls.phr[+b.dataset.i] : ls.consigne;
@@ -1342,6 +1384,192 @@ document.getElementById('btn-home').onclick = function(){
   render();
 };
 document.getElementById('btn-back').onclick = function(){ history.back(); };
+
+/* ---------------- ألعاب الدرس (ProLang) ---------------- */
+var dgM = null, dgL = null, dgR = null;
+function dgItems(ls){
+  var a = ls.phr.filter(function(p){ return p.f && p.a; });
+  if(ls.consigne && ls.consigne.f) a.unshift({f: ls.consigne.f, a: ls.consigne.a, e: ''});
+  return a;
+}
+function dgClose(){
+  stopSpeech();
+  var ov = document.getElementById('dg-overlay');
+  if(ov) ov.remove();
+  dgM = dgL = dgR = null;
+}
+function dgOverlay(title){
+  dgClose();
+  var ov = document.createElement('div');
+  ov.className = 'dg-ov'; ov.id = 'dg-overlay';
+  ov.innerHTML = '<div class="dg-top"><button class="icon-btn" id="dg-exit" title="خروج">✕</button>' +
+    '<div class="dg-prog" id="dg-prog">' + esc(title) + '</div></div>' +
+    '<div id="dg-body" style="display:flex;flex:1;flex-direction:column;overflow:auto"></div>';
+  document.body.appendChild(ov);
+  document.getElementById('dg-exit').onclick = dgClose;
+  return document.getElementById('dg-body');
+}
+
+/* ===== لعبة التوصيل 🧩 — 8 أزواج بكل جولة ===== */
+function openDgMatch(ls){
+  var items = dgItems(ls).filter(function(p){ return p.f && p.a; });
+  if(items.length < 2){ showToast('لا يوجد عبارات كافية للعبة'); return; }
+  dgOverlay('لعبة التوصيل 🧩');
+  dgM = { pool: shuffle(items), total: items.length, solved: 0, wrong: 0, sel: null, busy: false, deck: [] };
+  dgMatchRound();
+}
+function dgMatchRound(){
+  var body = document.getElementById('dg-body'); if(!body || !dgM) return;
+  var batch = dgM.pool.splice(0, Math.min(8, dgM.pool.length));
+  var qs = shuffle(batch.map(function(p, i){ return {pair: i, t: p.f, side: 'q'}; }));
+  var as = shuffle(batch.map(function(p, i){ return {pair: i, t: p.a, side: 'a'}; }));
+  dgM.deck = qs.concat(as);
+  dgM.sel = null; dgM.busy = false;
+  document.getElementById('dg-prog').textContent = '🧩 التوصيل — ' + dgM.solved + '/' + dgM.total;
+  body.innerHTML = '<div class="dg-flags"><div class="dg-flag">🇫🇷</div><div class="dg-flag">🇸🇾</div></div>' +
+    '<div class="dg-cols"><div style="display:flex;flex-direction:column;gap:.55rem">' +
+      qs.map(function(c){ return '<button class="dg-card" dir="ltr" data-i="' + dgM.deck.indexOf(c) + '">' + esc(c.t) + '</button>'; }).join('') +
+    '</div><div style="display:flex;flex-direction:column;gap:.55rem">' +
+      as.map(function(c){ return '<button class="dg-card" dir="rtl" data-i="' + dgM.deck.indexOf(c) + '">' + esc(c.t) + '</button>'; }).join('') +
+    '</div></div>';
+  body.querySelectorAll('.dg-card').forEach(function(b){
+    b.onclick = function(){
+      if(!dgM || dgM.busy || b.classList.contains('done')) return;
+      var c = dgM.deck[+b.dataset.i];
+      if(dgM.sel === c){ b.classList.remove('sel'); dgM.sel = null; return; }
+      if(!dgM.sel){ dgM.sel = c; b.classList.add('sel'); return; }
+      var first = dgM.sel, firstEl = body.querySelector('[data-i="' + dgM.deck.indexOf(first) + '"]');
+      if(first.side === c.side){
+        firstEl.classList.remove('sel'); dgM.sel = c; b.classList.add('sel'); return;
+      }
+      if(first.pair === c.pair){
+        dgM.sel = null; dgM.solved++;
+        b.classList.add('done'); firstEl.classList.add('done');
+        playFeedback(true);
+        document.getElementById('dg-prog').textContent = '🧩 التوصيل — ' + dgM.solved + '/' + dgM.total;
+        if(body.querySelectorAll('.dg-card:not(.done)').length === 0){
+          setTimeout(function(){ if(dgM) dgM.pool.length ? dgMatchRound() : dgMatchEnd(); }, 600);
+        }
+      } else {
+        dgM.busy = true; dgM.wrong++;
+        b.classList.add('wrong'); firstEl.classList.add('wrong');
+        playFeedback(false);
+        setTimeout(function(){
+          b.classList.remove('wrong', 'sel'); firstEl.classList.remove('wrong', 'sel');
+          if(dgM){ dgM.sel = null; dgM.busy = false; }
+        }, 600);
+      }
+    };
+  });
+}
+function dgMatchEnd(){
+  var body = document.getElementById('dg-body'); if(!body || !dgM) return;
+  body.innerHTML = '<div class="dg-end"><div class="dg-pct">🧩</div>' +
+    '<h3>' + dgM.solved + '/' + dgM.total + ' زوج · ' + dgM.wrong + ' خطأ</h3>' +
+    '<div class="dg-langs"><button class="big-btn" id="dg-again">🔁 العب مرة أخرى</button>' +
+    '<button class="ghost-btn" id="dg-out">✕ خروج</button></div></div>';
+  var ls = currentLesson();
+  document.getElementById('dg-again').onclick = function(){ openDgMatch(ls); };
+  document.getElementById('dg-out').onclick = dgClose;
+}
+
+/* ===== اختبار سمعي 🎧 — كل عبارات الدرس ===== */
+function openDgListen(ls){
+  var items = dgItems(ls).filter(function(p){ return p.f; });
+  if(items.length < 2){ showToast('لا يوجد عبارات كافية للاختبار'); return; }
+  dgOverlay('اختبار سمعي 🎧');
+  dgL = { pool: shuffle(items), all: items, i: 0, ok: 0, wrong: 0 };
+  dgListenQ();
+}
+function dgListenQ(){
+  var body = document.getElementById('dg-body'); if(!body || !dgL) return;
+  stopSpeech();
+  if(dgL.i >= dgL.pool.length){ dgListenEnd(); return; }
+  var p = dgL.pool[dgL.i];
+  var others = shuffle(dgL.all.filter(function(x){ return x !== p; }));
+  var nOpts = Math.min(3, others.length);
+  var opts = shuffle([p.f].concat(others.slice(0, nOpts).map(function(x){ return x.f; })));
+  document.getElementById('dg-prog').textContent = '🎧 سمعي — ' + (dgL.i + 1) + '/' + dgL.pool.length + ' · ✅ ' + dgL.ok;
+  body.innerHTML = '<div class="dg-stage"><div class="dg-hero">🎧</div>' +
+    '<button class="dg-loop" id="dg-play" title="استمع">🔊</button>' +
+    '<div class="dg-sub">اسمع الجملة واختر العبارة الصحيحة</div>' +
+    opts.map(function(t){ return '<button class="dg-tile" dir="ltr" data-t="' + esc(t) + '">' + esc(t) + '</button>'; }).join('') +
+    '<button class="ghost-btn" id="dg-skip2" style="margin-top:.4rem">⏭ تخطي</button></div>';
+  var play = document.getElementById('dg-play');
+  play.onclick = function(){ speakLoop(p.f, play, 'fr-FR'); };
+  speakLoop(p.f, play, 'fr-FR');
+  body.querySelectorAll('.dg-tile').forEach(function(b){
+    b.onclick = function(){
+      if(!dgL || b.classList.contains('dim')) return;
+      if(b.dataset.t === p.f){
+        b.classList.add('ok'); playFeedback(true); dgL.ok++; dgL.i++;
+        body.querySelectorAll('.dg-tile').forEach(function(x){ if(x !== b) x.classList.add('dim'); });
+        setTimeout(dgListenQ, 800);
+      } else {
+        b.classList.add('bad'); playFeedback(false); dgL.wrong++;
+        setTimeout(function(){ b.classList.add('dim'); b.classList.remove('bad'); }, 500);
+      }
+    };
+  });
+  document.getElementById('dg-skip2').onclick = function(){ dgL.i++; dgListenQ(); };
+}
+function dgListenEnd(){
+  var body = document.getElementById('dg-body'); if(!body || !dgL) return;
+  var pct = Math.round(100 * dgL.ok / dgL.pool.length);
+  body.innerHTML = '<div class="dg-end"><div class="dg-pct">' + pct + '%</div>' +
+    '<h3>🎧 ' + dgL.ok + '/' + dgL.pool.length + ' صحيحة · ' + dgL.wrong + ' خطأ</h3>' +
+    '<div class="dg-langs"><button class="big-btn" id="dg-again2">🔁 أعد الاختبار</button>' +
+    '<button class="ghost-btn" id="dg-out2">✕ خروج</button></div></div>';
+  var ls = currentLesson();
+  document.getElementById('dg-again2').onclick = function(){ openDgListen(ls); };
+  document.getElementById('dg-out2').onclick = dgClose;
+}
+
+/* ===== اقرأ وكرّر 🗣️ — استمع وكرّر حتى 5 ===== */
+function openDgRR(ls){
+  var items = dgItems(ls).filter(function(p){ return p.f; });
+  if(!items.length){ showToast('لا يوجد عبارات في الدرس'); return; }
+  dgOverlay('اقرأ وكرّر 🗣️');
+  dgR = { pool: items, i: 0, count: 0 };
+  dgRRShow();
+}
+function dgRRShow(){
+  var body = document.getElementById('dg-body'); if(!body || !dgR) return;
+  stopSpeech();
+  if(dgR.i >= dgR.pool.length){ dgRREnd(); return; }
+  var p = dgR.pool[dgR.i];
+  document.getElementById('dg-prog').textContent = '🗣️ اقرأ وكرّر — ' + (dgR.i + 1) + '/' + dgR.pool.length;
+  body.innerHTML = '<div class="dg-stage">' +
+    '<div class="dg-text" dir="ltr">' + esc(p.f) + '</div>' +
+    (p.a ? '<div class="dg-tr" dir="rtl">🇸🇾 ' + esc(p.a) + '</div>' : '') +
+    (p.e ? '<div class="dg-tr" dir="ltr">🇺🇸 ' + esc(p.e) + '</div>' : '') +
+    '<div style="display:flex;gap:1.1rem;align-items:center;margin-top:.4rem">' +
+      '<button class="dg-loop" id="dg-rrhear" title="استمع">🔊</button>' +
+      '<div class="dg-count" id="dg-rrcnt">' + dgR.count + '/5</div>' +
+      '<button class="dg-plus" id="dg-rrplus">+</button>' +
+    '</div>' +
+    '<div class="dg-sub">اسمع الجملة، كرّرها بصوت عالٍ واضغط + — 5 مرات وتنتقل تلقائياً</div></div>';
+  var hear = document.getElementById('dg-rrhear');
+  hear.onclick = function(){ speakLoop(p.f, hear, 'fr-FR'); };
+  document.getElementById('dg-rrplus').onclick = function(){
+    if(!dgR || dgR.count >= 5) return;
+    dgR.count++;
+    document.getElementById('dg-rrcnt').textContent = dgR.count + '/5';
+    if(dgR.count >= 5){
+      playFeedback(true);
+      setTimeout(function(){ if(dgR){ dgR.i++; dgR.count = 0; dgRRShow(); } }, 1200);
+    }
+  };
+}
+function dgRREnd(){
+  var body = document.getElementById('dg-body'); if(!body || !dgR) return;
+  body.innerHTML = '<div class="dg-end"><div class="dg-pct">🎉</div>' +
+    '<h3>أحسنت! كرّرت ' + dgR.pool.length + ' جملة</h3>' +
+    '<div class="dg-langs"><button class="big-btn" id="dg-again3">🔁 من جديد</button>' +
+    '<button class="ghost-btn" id="dg-out3">✕ خروج</button></div></div>';
+  document.getElementById('dg-again3').onclick = function(){ dgR.i = 0; dgR.count = 0; dgRRShow(); };
+  document.getElementById('dg-out3').onclick = dgClose;
+}
 
 render();
 if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function(){});
