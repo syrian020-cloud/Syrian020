@@ -17060,6 +17060,530 @@ window.DELF_LESSONS = {
         }
       ],
       "ids": []
+    },
+    {
+      "id": "b1-l26",
+      "icon": "📵",
+      "fr": "Essai 19 — Faut-il limiter l'utilisation des réseaux sociaux ?",
+      "ar": "مقال 19 — هل يجب الحدّ من استخدام وسائل التواصل الاجتماعي؟",
+      "consigne": {
+        "f": "Faut-il limiter l'utilisation des réseaux sociaux ?",
+        "a": "هل يجب الحدّ من استخدام وسائل التواصل الاجتماعي؟ — اكتب نصاً لا يقل عن 160 كلمة تعبّر فيه عن رأيك، مع الإيجابيات والسلبيات وأمثلة."
+      },
+      "phr": [
+        {
+          "f": "De nos jours, les réseaux sociaux occupent une place importante dans notre vie quotidienne.",
+          "a": "في أيامنا هذه، تحتل وسائل التواصل الاجتماعي مكانة مهمة في حياتنا اليومية.",
+          "e": "Nowadays, social media plays an important role in our daily lives."
+        },
+        {
+          "f": "Ils nous permettent de communiquer facilement avec nos amis et notre famille.",
+          "a": "تسمح لنا بالتواصل بسهولة مع أصدقائنا وعائلاتنا.",
+          "e": "They allow us to communicate easily with our friends and family."
+        },
+        {
+          "f": "Cependant, leur utilisation excessive peut avoir des conséquences négatives sur notre santé.",
+          "a": "لكن استخدامها المفرط قد تكون له آثار سلبية على صحتنا.",
+          "e": "However, excessive use can have negative effects on our health."
+        },
+        {
+          "f": "Il est donc important de trouver un équilibre entre la vie virtuelle et la vie réelle.",
+          "a": "لذلك من المهم إيجاد توازن بين الحياة الافتراضية والحياة الواقعية.",
+          "e": "Therefore, it is important to find a balance between virtual life and real life."
+        },
+        {
+          "f": "À mon avis, il ne faut pas supprimer les réseaux sociaux, mais apprendre à les utiliser correctement.",
+          "a": "برأيي، لا يجب إلغاء وسائل التواصل الاجتماعي، بل يجب تعلّم استخدامها بطريقة صحيحة.",
+          "e": "In my opinion, we should not eliminate social media, but learn to use it properly."
+        },
+        {
+          "f": "De nos jours, les réseaux sociaux occupent une place très importante dans notre vie quotidienne. Beaucoup de personnes les utilisent pour communiquer, partager des photos et suivre les actualités.",
+          "a": "في أيامنا هذه، تحتل وسائل التواصل الاجتماعي مكانة مهمة جدًا في حياتنا اليومية. يستخدمها الكثير من الأشخاص للتواصل ومشاركة الصور ومتابعة الأخبار.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "À mon avis, les réseaux sociaux présentent plusieurs avantages. Tout d'abord, ils permettent de rester en contact avec nos amis et notre famille, même lorsqu'ils habitent loin. Ensuite, ils nous donnent la possibilité de découvrir de nouvelles informations et d'apprendre différentes choses.",
+          "a": "برأيي، تمتلك وسائل التواصل الاجتماعي عدة إيجابيات. أولًا، تسمح لنا بالبقاء على تواصل مع أصدقائنا وعائلاتنا، حتى عندما يسكنون بعيدًا عنا. ثانيًا، تمنحنا إمكانية اكتشاف معلومات جديدة وتعلّم أشياء مختلفة.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "Cependant, leur utilisation excessive peut provoquer plusieurs problèmes. Par exemple, certaines personnes passent plusieurs heures par jour devant leur téléphone et oublient leurs responsabilités. De plus, les réseaux sociaux peuvent parfois provoquer du stress, de la dépendance et des problèmes de sommeil.",
+          "a": "لكن استخدامها المفرط قد يسبب عدة مشكلات. على سبيل المثال، يقضي بعض الأشخاص ساعات طويلة يوميًا أمام هواتفهم وينسون مسؤولياتهم. بالإضافة إلى ذلك، قد تسبب وسائل التواصل الاجتماعي أحيانًا التوتر والإدمان ومشكلات في النوم.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "C'est pourquoi je pense qu'il est nécessaire de limiter le temps passé sur ces applications. Il faut également protéger sa vie privée et faire attention aux fausses informations.",
+          "a": "لذلك أعتقد أنه من الضروري الحدّ من الوقت الذي نقضيه على هذه التطبيقات. ويجب أيضًا حماية حياتنا الخاصة والانتباه إلى الأخبار الكاذبة.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "Pour conclure, les réseaux sociaux sont des outils très utiles, mais nous devons les utiliser avec modération afin de profiter de leurs avantages sans subir leurs inconvénients.",
+          "a": "في الختام، وسائل التواصل الاجتماعي أدوات مفيدة جدًا، لكن يجب علينا استخدامها باعتدال حتى نستفيد من إيجابياتها دون أن نتعرض لسلبياتها.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "Les réseaux sociaux",
+          "a": "وسائل التواصل الاجتماعي",
+          "e": "Social media",
+          "voc": 1
+        },
+        {
+          "f": "Le temps d'écran",
+          "a": "وقت استخدام الشاشة",
+          "e": "Screen time",
+          "voc": 1
+        },
+        {
+          "f": "Publier une photo",
+          "a": "ينشر صورة",
+          "e": "To post a photo",
+          "voc": 1
+        },
+        {
+          "f": "Partager des informations",
+          "a": "يشارك المعلومات",
+          "e": "To share information",
+          "voc": 1
+        },
+        {
+          "f": "Rester en contact",
+          "a": "يبقى على تواصل",
+          "e": "To stay in touch",
+          "voc": 1
+        },
+        {
+          "f": "Perdre du temps",
+          "a": "يضيّع الوقت",
+          "e": "To waste time",
+          "voc": 1
+        },
+        {
+          "f": "Devenir dépendant",
+          "a": "يصبح مدمنًا",
+          "e": "To become addicted",
+          "voc": 1
+        },
+        {
+          "f": "Protéger sa vie privée",
+          "a": "يحمي حياته الخاصة",
+          "e": "To protect one's privacy",
+          "voc": 1
+        },
+        {
+          "f": "Les fausses informations",
+          "a": "الأخبار الكاذبة",
+          "e": "Fake news",
+          "voc": 1
+        },
+        {
+          "f": "Limiter son utilisation",
+          "a": "يحدّ من استخدامه",
+          "e": "To limit one's use",
+          "voc": 1
+        },
+        {
+          "f": "Les avantages et les inconvénients",
+          "a": "الإيجابيات والسلبيات",
+          "e": "Advantages and disadvantages",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l27",
+      "icon": "🌱",
+      "fr": "Essai 20 — Faut-il protéger l'environnement ?",
+      "ar": "مقال 20 — هل يجب حماية البيئة؟",
+      "consigne": {
+        "f": "Faut-il protéger l'environnement ?",
+        "a": "هل يجب حماية البيئة؟ — اكتب نصاً لا يقل عن 160 كلمة تعبّر فيه عن رأيك، مع الإيجابيات والسلبيات وأمثلة."
+      },
+      "phr": [
+        {
+          "f": "La protection de l'environnement est devenue un sujet très important dans notre société.",
+          "a": "أصبحت حماية البيئة موضوعًا مهمًا جدًا في مجتمعنا.",
+          "e": "Protecting the environment has become a very important issue in our society."
+        },
+        {
+          "f": "Chacun de nous peut contribuer à protéger la planète.",
+          "a": "يمكن لكل واحد منا أن يساهم في حماية كوكب الأرض.",
+          "e": "Each of us can contribute to protecting the planet."
+        },
+        {
+          "f": "Il est nécessaire de réduire la consommation de plastique.",
+          "a": "من الضروري تقليل استهلاك البلاستيك.",
+          "e": "It is necessary to reduce plastic consumption."
+        },
+        {
+          "f": "Les autorités doivent prendre des mesures pour lutter contre la pollution.",
+          "a": "يجب على السلطات اتخاذ إجراءات لمكافحة التلوث.",
+          "e": "Authorities must take measures to fight pollution."
+        },
+        {
+          "f": "Si nous ne protégeons pas la nature, les générations futures auront de nombreux problèmes.",
+          "a": "إذا لم نحْمِ الطبيعة، فستواجه الأجيال القادمة مشكلات كثيرة.",
+          "e": "If we do not protect nature, future generations will face many problems."
+        },
+        {
+          "f": "Aujourd'hui, la protection de l'environnement est devenue une question très importante dans le monde entier. La pollution, le réchauffement climatique et la destruction des forêts représentent de grands dangers pour notre planète.",
+          "a": "اليوم، أصبحت حماية البيئة قضية مهمة جدًا في جميع أنحاء العالم. يشكّل التلوث والاحتباس الحراري وتدمير الغابات أخطارًا كبيرة على كوكبنا.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "À mon avis, chacun de nous doit participer à la protection de l'environnement. Tout d'abord, nous pouvons réduire notre consommation de plastique en utilisant des sacs réutilisables et en évitant les produits jetables.",
+          "a": "برأيي، يجب على كل واحد منا المشاركة في حماية البيئة. أولًا، يمكننا تقليل استهلاك البلاستيك من خلال استخدام الأكياس القابلة لإعادة الاستخدام وتجنب المنتجات التي تُستعمل مرة واحدة.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "Ensuite, il est important de trier les déchets et de recycler le papier, le verre et le plastique. Nous pouvons également économiser l'eau et l'électricité à la maison.",
+          "a": "ثانيًا، من المهم فرز النفايات وإعادة تدوير الورق والزجاج والبلاستيك. ويمكننا أيضًا توفير المياه والكهرباء في المنزل.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "De plus, je pense que les transports en commun et le vélo sont de bonnes solutions pour réduire la pollution de l'air. Les autorités doivent aussi encourager l'utilisation des énergies renouvelables et protéger les espaces naturels.",
+          "a": "بالإضافة إلى ذلك، أعتقد أن وسائل النقل العام والدراجة حلول جيدة لتقليل تلوث الهواء. ويجب على السلطات أيضًا تشجيع استخدام الطاقات المتجددة وحماية المساحات الطبيعية.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "Bien sûr, ces changements demandent des efforts de la part de tous. Cependant, même les petits gestes peuvent avoir des effets positifs.",
+          "a": "بالطبع، تتطلب هذه التغييرات جهودًا من الجميع. ومع ذلك، حتى التصرفات الصغيرة يمكن أن يكون لها تأثير إيجابي.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "Pour conclure, protéger l'environnement est une responsabilité collective. Nous devons agir aujourd'hui pour offrir une planète plus propre et plus saine aux générations futures.",
+          "a": "في الختام، حماية البيئة مسؤولية جماعية. يجب أن نتحرك اليوم لنقدم للأجيال القادمة كوكبًا أكثر نظافة وصحة.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "L'environnement",
+          "a": "البيئة",
+          "e": "The environment",
+          "voc": 1
+        },
+        {
+          "f": "La pollution",
+          "a": "التلوث",
+          "e": "Pollution",
+          "voc": 1
+        },
+        {
+          "f": "Le réchauffement climatique",
+          "a": "الاحتباس الحراري",
+          "e": "Global warming",
+          "voc": 1
+        },
+        {
+          "f": "Le changement climatique",
+          "a": "التغير المناخي",
+          "e": "Climate change",
+          "voc": 1
+        },
+        {
+          "f": "Le recyclage",
+          "a": "إعادة التدوير",
+          "e": "Recycling",
+          "voc": 1
+        },
+        {
+          "f": "Trier les déchets",
+          "a": "يفرز النفايات",
+          "e": "To sort waste",
+          "voc": 1
+        },
+        {
+          "f": "Économiser l'eau",
+          "a": "يوفّر المياه",
+          "e": "To save water",
+          "voc": 1
+        },
+        {
+          "f": "Protéger la nature",
+          "a": "يحمي الطبيعة",
+          "e": "To protect nature",
+          "voc": 1
+        },
+        {
+          "f": "Les énergies renouvelables",
+          "a": "الطاقات المتجددة",
+          "e": "Renewable energy",
+          "voc": 1
+        },
+        {
+          "f": "Les transports en commun",
+          "a": "وسائل النقل العام",
+          "e": "Public transportation",
+          "voc": 1
+        },
+        {
+          "f": "Réduire les déchets",
+          "a": "يقلّل النفايات",
+          "e": "To reduce waste",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-l28",
+      "icon": "🏙️",
+      "fr": "Essai 21 — Vivre en ville ou à la campagne ?",
+      "ar": "مقال 21 — العيش في المدينة أم في الريف؟",
+      "consigne": {
+        "f": "Vivre en ville ou à la campagne ?",
+        "a": "العيش في المدينة أم في الريف؟ — اكتب نصاً لا يقل عن 160 كلمة تعبّر فيه عن رأيك، مع الإيجابيات والسلبيات وأمثلة."
+      },
+      "phr": [
+        {
+          "f": "Vivre en ville présente plusieurs avantages.",
+          "a": "العيش في المدينة له عدة إيجابيات.",
+          "e": "Living in the city has several advantages."
+        },
+        {
+          "f": "On trouve facilement des magasins, des écoles et des hôpitaux.",
+          "a": "يمكن إيجاد المتاجر والمدارس والمستشفيات بسهولة.",
+          "e": "Shops, schools and hospitals are easy to find."
+        },
+        {
+          "f": "En revanche, la vie à la campagne est généralement plus calme.",
+          "a": "في المقابل، تكون الحياة في الريف أكثر هدوءًا بشكل عام.",
+          "e": "On the other hand, life in the countryside is generally quieter."
+        },
+        {
+          "f": "Le choix dépend des besoins et du mode de vie de chaque personne.",
+          "a": "يعتمد الاختيار على احتياجات كل شخص وأسلوب حياته.",
+          "e": "The choice depends on each person's needs and lifestyle."
+        },
+        {
+          "f": "Personnellement, je préfère vivre dans un endroit calme, loin du bruit et du stress.",
+          "a": "شخصيًا، أفضل العيش في مكان هادئ بعيدًا عن الضجيج والتوتر.",
+          "e": "Personally, I prefer living in a quiet place, away from noise and stress."
+        },
+        {
+          "f": "Aujourd'hui, beaucoup de personnes se demandent s'il est préférable de vivre en ville ou à la campagne. Les deux choix présentent des avantages et des inconvénients.",
+          "a": "اليوم، يتساءل الكثير من الأشخاص عمّا إذا كان من الأفضل العيش في المدينة أم في الريف. ولكلا الخيارين إيجابيات وسلبيات.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "Tout d'abord, vivre en ville est pratique parce qu'on trouve facilement des magasins, des écoles, des hôpitaux et des moyens de transport. De plus, il existe de nombreuses possibilités de travail et de loisirs.",
+          "a": "أولًا، العيش في المدينة عملي لأنه يمكن إيجاد المتاجر والمدارس والمستشفيات ووسائل النقل بسهولة. بالإضافة إلى ذلك، توجد فرص كثيرة للعمل والترفيه.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "Cependant, la vie en ville peut être stressante à cause du bruit, de la pollution et des embouteillages. Le coût de la vie est également souvent plus élevé.",
+          "a": "لكن الحياة في المدينة قد تكون مرهقة بسبب الضجيج والتلوث والازدحام المروري. كما أن تكلفة المعيشة غالبًا ما تكون مرتفعة.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "En revanche, vivre à la campagne permet de profiter du calme, de l'air frais et de la nature. Les habitants peuvent avoir une vie plus tranquille et moins stressante. Toutefois, il est parfois difficile de trouver un emploi ou d'utiliser les transports en commun.",
+          "a": "في المقابل، يسمح العيش في الريف بالاستمتاع بالهدوء والهواء النقي والطبيعة. ويمكن للسكان أن يعيشوا حياة أكثر هدوءًا وأقل توترًا. ومع ذلك، يكون من الصعب أحيانًا العثور على عمل أو استخدام وسائل النقل العام.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "Personnellement, je préfère vivre dans une petite ville parce qu'elle offre un bon équilibre entre les avantages de la ville et le calme de la campagne.",
+          "a": "شخصيًا، أفضل العيش في مدينة صغيرة لأنها توفر توازنًا جيدًا بين إيجابيات المدينة وهدوء الريف.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "Pour conclure, je pense que le meilleur endroit pour vivre dépend des besoins, du travail et des préférences de chaque personne.",
+          "a": "في الختام، أعتقد أن أفضل مكان للعيش يعتمد على احتياجات كل شخص وعمله وتفضيلاته.",
+          "e": "",
+          "mod": 1
+        },
+        {
+          "f": "La ville",
+          "a": "المدينة",
+          "e": "The city",
+          "voc": 1
+        },
+        {
+          "f": "La campagne",
+          "a": "الريف",
+          "e": "The countryside",
+          "voc": 1
+        },
+        {
+          "f": "Un quartier calme",
+          "a": "حي هادئ",
+          "e": "A quiet neighborhood",
+          "voc": 1
+        },
+        {
+          "f": "Le bruit",
+          "a": "الضجيج",
+          "e": "Noise",
+          "voc": 1
+        },
+        {
+          "f": "Les embouteillages",
+          "a": "الازدحام المروري",
+          "e": "Traffic jams",
+          "voc": 1
+        },
+        {
+          "f": "Les espaces verts",
+          "a": "المساحات الخضراء",
+          "e": "Green spaces",
+          "voc": 1
+        },
+        {
+          "f": "Le coût de la vie",
+          "a": "تكلفة المعيشة",
+          "e": "The cost of living",
+          "voc": 1
+        },
+        {
+          "f": "Les commerces de proximité",
+          "a": "المحلات التجارية القريبة",
+          "e": "Local shops",
+          "voc": 1
+        },
+        {
+          "f": "Les transports publics",
+          "a": "وسائل النقل العام",
+          "e": "Public transportation",
+          "voc": 1
+        },
+        {
+          "f": "Profiter du calme",
+          "a": "يستمتع بالهدوء",
+          "e": "To enjoy the peace and quiet",
+          "voc": 1
+        },
+        {
+          "f": "Être proche de la nature",
+          "a": "يكون قريبًا من الطبيعة",
+          "e": "To be close to nature",
+          "voc": 1
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-o1",
+      "icon": "🗣️",
+      "fr": "Oral 1 — Les avantages et les inconvénients du travail à distance",
+      "ar": "شفهي 1 — إيجابيات وسلبيات العمل عن بُعد",
+      "consigne": {
+        "f": "Les avantages et les inconvénients du travail à distance",
+        "a": "إيجابيات وسلبيات العمل عن بُعد — موضوع نقاش للإنتاج الشفهي: قدّم الموضوع، اذكر الإيجابيات والسلبيات، ثم أعطِ رأيك الشخصي."
+      },
+      "phr": [
+        {
+          "f": "Aujourd'hui, le travail à distance est de plus en plus répandu dans notre société.",
+          "a": "اليوم، أصبح العمل عن بُعد منتشرًا بشكل متزايد في مجتمعنا.",
+          "e": "Today, remote work is becoming increasingly common in our society."
+        },
+        {
+          "f": "Grâce à Internet, beaucoup de personnes peuvent travailler depuis leur maison.",
+          "a": "بفضل الإنترنت، يستطيع الكثير من الأشخاص العمل من منازلهم.",
+          "e": "Thanks to the Internet, many people can work from home."
+        },
+        {
+          "f": "Cette nouvelle façon de travailler présente des avantages, mais aussi quelques inconvénients.",
+          "a": "طريقة العمل الجديدة هذه لها إيجابيات، ولكن لديها أيضًا بعض السلبيات.",
+          "e": "This new way of working has advantages, but also some disadvantages."
+        },
+        {
+          "f": "Tout d'abord, le travail à distance permet de gagner du temps.",
+          "a": "أولًا، يسمح العمل عن بُعد بتوفير الوقت.",
+          "e": "First of all, remote work saves time."
+        },
+        {
+          "f": "On n'a plus besoin de prendre les transports chaque matin.",
+          "a": "لم نعد بحاجة إلى استخدام وسائل النقل كل صباح.",
+          "e": "We no longer need to use public transportation every morning."
+        },
+        {
+          "f": "On peut également passer plus de temps avec sa famille.",
+          "a": "يمكننا أيضًا قضاء وقت أطول مع العائلة.",
+          "e": "We can also spend more time with our family."
+        },
+        {
+          "f": "Cependant, travailler à la maison peut parfois être difficile.",
+          "a": "لكن العمل في المنزل قد يكون صعبًا أحيانًا.",
+          "e": "However, working from home can sometimes be difficult."
+        },
+        {
+          "f": "Certaines personnes se sentent seules et manquent de contacts avec leurs collègues.",
+          "a": "يشعر بعض الأشخاص بالوحدة ويفتقدون التواصل مع زملائهم.",
+          "e": "Some people feel lonely and miss contact with their colleagues."
+        },
+        {
+          "f": "Il est aussi parfois difficile de séparer la vie professionnelle et la vie personnelle.",
+          "a": "من الصعب أحيانًا الفصل بين الحياة المهنية والحياة الشخصية.",
+          "e": "It is also sometimes difficult to separate professional and personal life."
+        },
+        {
+          "f": "Personnellement, je pense que le travail à distance est une bonne solution, à condition de bien organiser son temps.",
+          "a": "شخصيًا، أعتقد أن العمل عن بُعد حل جيد، بشرط تنظيم الوقت بشكل جيد.",
+          "e": "Personally, I think remote work is a good solution, provided that you organize your time well."
+        },
+        {
+          "f": "À mon avis, il est préférable de trouver un équilibre entre le travail à distance et le travail au bureau.",
+          "a": "برأيي، من الأفضل إيجاد توازن بين العمل عن بُعد والعمل في المكتب.",
+          "e": "In my opinion, it is better to find a balance between remote work and office work."
+        },
+        {
+          "f": "Préférez-vous travailler à la maison ou au bureau ?",
+          "a": "هل تفضّل العمل في المنزل أم في المكتب؟",
+          "e": "Do you prefer working at home or in the office?",
+          "qa": 1
+        },
+        {
+          "f": "Je préfère travailler au bureau parce que j'aime rencontrer mes collègues et communiquer avec eux.",
+          "a": "أفضل العمل في المكتب لأنني أحب لقاء زملائي والتواصل معهم.",
+          "e": "I prefer working in the office because I like meeting and communicating with my colleagues.",
+          "qa": 1
+        },
+        {
+          "f": "Quels sont les principaux avantages du travail à distance ?",
+          "a": "ما أهم إيجابيات العمل عن بُعد؟",
+          "e": "What are the main advantages of remote work?",
+          "qa": 1
+        },
+        {
+          "f": "Les principaux avantages sont le gain de temps, la liberté et la possibilité de passer plus de temps avec sa famille.",
+          "a": "أهم الإيجابيات هي توفير الوقت والحرية وإمكانية قضاء وقت أطول مع العائلة.",
+          "e": "The main advantages are saving time, freedom, and the possibility of spending more time with family.",
+          "qa": 1
+        },
+        {
+          "f": "Pensez-vous que le travail à distance va se développer dans le futur ?",
+          "a": "هل تعتقد أن العمل عن بُعد سينتشر أكثر في المستقبل؟",
+          "e": "Do you think remote work will become more widespread in the future?",
+          "qa": 1
+        },
+        {
+          "f": "Oui, je pense que cette façon de travailler va se développer grâce aux nouvelles technologies.",
+          "a": "نعم، أعتقد أن طريقة العمل هذه ستنتشر بفضل التكنولوجيا الحديثة.",
+          "e": "Yes, I think this way of working will develop thanks to new technologies.",
+          "qa": 1
+        },
+        {
+          "f": "Pensez-vous que travailler à la maison est meilleur que travailler au bureau ? Pourquoi ?",
+          "a": "هل تعتقد أن العمل في المنزل أفضل من العمل في المكتب؟ لماذا؟",
+          "e": "Do you think working from home is better than working in the office? Why?",
+          "qa": 1
+        }
+      ],
+      "ids": []
     }
   ]
 };
