@@ -5978,6 +5978,801 @@ window.DELF_LESSONS = {
         }
       ],
       "ids": []
+    },
+    {
+      "id": "b1-t15",
+      "icon": "📺",
+      "fr": "Thème 15 — Les médias et l'information",
+      "ar": "موضوع 15 — وسائل الإعلام والأخبار",
+      "phr": [
+        {
+          "f": "Je regarde les informations à la télévision pour connaître l'actualité.",
+          "a": "بحضر الأخبار على التلفزيون حتى أعرف شو عم يصير بالعالم.",
+          "e": "I watch the news on television to keep up with current events."
+        },
+        {
+          "f": "Les médias jouent un rôle important dans notre société.",
+          "a": "وسائل الإعلام إلها دور مهم بمجتمعنا.",
+          "e": "The media plays an important role in our society."
+        },
+        {
+          "f": "Je consulte plusieurs sources avant de croire une information.",
+          "a": "براجع عدة مصادر قبل ما صدّق أي خبر.",
+          "e": "I check several sources before believing any information."
+        },
+        {
+          "f": "Les journalistes doivent vérifier leurs informations avant de publier un article.",
+          "a": "لازم الصحفيين يتأكدوا من معلوماتهم قبل نشر أي مقال.",
+          "e": "Journalists must verify their information before publishing an article."
+        },
+        {
+          "f": "La liberté de la presse est essentielle dans une démocratie.",
+          "a": "حرية الصحافة ضرورية بأي نظام ديمقراطي.",
+          "e": "Freedom of the press is essential in a democracy."
+        },
+        {
+          "f": "Les journaux papier sont moins utilisés qu'autrefois.",
+          "a": "الصحف الورقية صارت أقل استخداماً من قبل.",
+          "e": "Printed newspapers are less widely used than they were in the past."
+        },
+        {
+          "f": "De nombreuses personnes préfèrent lire les actualités sur leur téléphone.",
+          "a": "كتير من الناس بيفضّلوا يقرؤوا الأخبار على موبايلاتهم.",
+          "e": "Many people prefer reading the news on their phones."
+        },
+        {
+          "f": "Les informations circulent très rapidement sur les réseaux sociaux.",
+          "a": "الأخبار بتنتشر بسرعة كبيرة على مواقع التواصل الاجتماعي.",
+          "e": "Information spreads very quickly on social media."
+        },
+        {
+          "f": "Il est parfois difficile de distinguer les faits des opinions.",
+          "a": "أحياناً بيكون صعب نميّز بين الحقائق والآراء الشخصية.",
+          "e": "It is sometimes difficult to distinguish facts from opinions."
+        },
+        {
+          "f": "Un titre accrocheur ne signifie pas forcément que l'article est fiable.",
+          "a": "العنوان الجذّاب مو بالضرورة يعني إن المقال موثوق.",
+          "e": "A catchy headline does not necessarily mean that the article is reliable."
+        },
+        {
+          "f": "Certaines chaînes de télévision présentent les événements de différentes manières.",
+          "a": "بعض القنوات التلفزيونية بتعرض الأحداث بطرق مختلفة.",
+          "e": "Some television channels present events in different ways."
+        },
+        {
+          "f": "Je préfère écouter plusieurs points de vue avant de me faire une opinion.",
+          "a": "بفضّل اسمع عدة وجهات نظر قبل ما كوّن رأيي.",
+          "e": "I prefer listening to several points of view before forming an opinion."
+        },
+        {
+          "f": "Les documentaires permettent de mieux comprendre certains sujets.",
+          "a": "الأفلام الوثائقية بتساعدنا نفهم بعض المواضيع بشكل أفضل.",
+          "e": "Documentaries help us better understand certain subjects."
+        },
+        {
+          "f": "J'aime regarder des reportages sur les pays et les cultures du monde.",
+          "a": "بحب احضر تقارير عن بلدان وثقافات العالم.",
+          "e": "I enjoy watching reports about countries and cultures around the world."
+        },
+        {
+          "f": "Les médias peuvent sensibiliser le public aux problèmes sociaux.",
+          "a": "وسائل الإعلام ممكن توعّي الناس بالمشاكل الاجتماعية.",
+          "e": "The media can raise public awareness of social problems."
+        },
+        {
+          "f": "Les reportages sur l'environnement encouragent parfois les gens à changer leurs habitudes.",
+          "a": "التقارير عن البيئة أحياناً بتشجّع الناس يغيّروا عاداتهم.",
+          "e": "Environmental reports sometimes encourage people to change their habits."
+        },
+        {
+          "f": "Les publicités influencent souvent nos choix et nos comportements.",
+          "a": "الإعلانات غالباً بتأثّر على اختياراتنا وتصرفاتنا.",
+          "e": "Advertisements often influence our choices and behaviour."
+        },
+        {
+          "f": "Il faut apprendre à analyser les images et les messages publicitaires.",
+          "a": "لازم نتعلّم كيف نحلّل الصور والرسائل الإعلانية.",
+          "e": "We need to learn how to analyze images and advertising messages."
+        },
+        {
+          "f": "Les enfants peuvent être particulièrement sensibles aux publicités.",
+          "a": "الأطفال ممكن يتأثّروا بالإعلانات بشكل خاص.",
+          "e": "Children can be particularly influenced by advertisements."
+        },
+        {
+          "f": "Je limite le temps que je passe à regarder les informations.",
+          "a": "بحدّد الوقت اللي بقضيه بمتابعة الأخبار.",
+          "e": "I limit the time I spend watching the news."
+        },
+        {
+          "f": "Trop suivre l'actualité peut parfois provoquer du stress.",
+          "a": "متابعة الأخبار بشكل مفرط ممكن أحياناً تسبب التوتر.",
+          "e": "Following the news too closely can sometimes cause stress."
+        },
+        {
+          "f": "Certaines nouvelles sont difficiles à regarder, surtout lorsqu'elles concernent des conflits.",
+          "a": "بعض الأخبار صعب الواحد يحضرها، خصوصاً لما تكون عن الحروب والنزاعات.",
+          "e": "Some news stories are difficult to watch, especially when they concern conflicts."
+        },
+        {
+          "f": "Les informations locales nous aident à mieux connaître notre région.",
+          "a": "الأخبار المحلية بتساعدنا نتعرّف على منطقتنا بشكل أفضل.",
+          "e": "Local news helps us learn more about our region."
+        },
+        {
+          "f": "La radio reste un moyen pratique de suivre l'actualité pendant les déplacements.",
+          "a": "الراديو بيضل وسيلة عملية لمتابعة الأخبار أثناء التنقّل.",
+          "e": "Radio remains a convenient way to follow the news while travelling."
+        },
+        {
+          "f": "Les podcasts permettent d'écouter des émissions à n'importe quel moment.",
+          "a": "البودكاست بيسمحلنا نسمع برامج بأي وقت بدنا ياه.",
+          "e": "Podcasts allow us to listen to programmes whenever we want."
+        },
+        {
+          "f": "Les médias numériques ont changé notre façon de recevoir les informations.",
+          "a": "وسائل الإعلام الرقمية غيّرت طريقتنا بالحصول على الأخبار والمعلومات.",
+          "e": "Digital media has changed the way we receive information."
+        },
+        {
+          "f": "Il faut faire attention aux images qui ont été modifiées ou sorties de leur contexte.",
+          "a": "لازم ننتبه للصور اللي تم تعديلها أو استخدامها خارج سياقها.",
+          "e": "We must be careful with images that have been edited or taken out of context."
+        },
+        {
+          "f": "Chacun peut aujourd'hui publier du contenu sur Internet, mais cela demande de la responsabilité.",
+          "a": "اليوم أي شخص فيه ينشر محتوى على الإنترنت، بس هالشي بيتطلّب مسؤولية.",
+          "e": "Today, anyone can publish content online, but this requires responsibility."
+        },
+        {
+          "f": "Une information fiable doit être précise, vérifiable et présentée dans son contexte.",
+          "a": "المعلومة الموثوقة لازم تكون دقيقة وقابلة للتحقّق ومعروضة ضمن سياقها الصحيح.",
+          "e": "Reliable information must be accurate, verifiable and presented in its proper context."
+        },
+        {
+          "f": "À mon avis, savoir s'informer est devenu une compétence indispensable dans la vie quotidienne.",
+          "a": "برأيي، معرفة كيف نحصل على معلومات صحيحة صارت مهارة ضرورية بحياتنا اليومية.",
+          "e": "In my opinion, knowing how to find reliable information has become an essential everyday skill."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-t16",
+      "icon": "🗳️",
+      "fr": "Thème 16 — La citoyenneté",
+      "ar": "موضوع 16 — المواطنة والحياة في المجتمع",
+      "phr": [
+        {
+          "f": "Vivre en société signifie respecter les droits et les devoirs de chacun.",
+          "a": "العيش بالمجتمع يعني نحترم حقوق وواجبات كل شخص.",
+          "e": "Living in society means respecting everyone's rights and responsibilities."
+        },
+        {
+          "f": "Chaque citoyen doit respecter les lois de son pays.",
+          "a": "كل مواطن لازم يحترم قوانين بلده.",
+          "e": "Every citizen must respect the laws of their country."
+        },
+        {
+          "f": "Les règles permettent d'organiser la vie collective et d'éviter les conflits.",
+          "a": "القوانين والأنظمة بتنظّم الحياة الجماعية وبتساعد على تجنّب الخلافات.",
+          "e": "Rules help organize community life and prevent conflicts."
+        },
+        {
+          "f": "Le respect des autres est indispensable pour vivre ensemble.",
+          "a": "احترام الآخرين ضروري حتى نقدر نعيش مع بعض.",
+          "e": "Respecting others is essential for living together."
+        },
+        {
+          "f": "Tous les citoyens doivent avoir les mêmes droits devant la loi.",
+          "a": "لازم كل المواطنين يكون عندهم نفس الحقوق أمام القانون.",
+          "e": "All citizens should have equal rights before the law."
+        },
+        {
+          "f": "La liberté d'expression permet à chacun de donner son opinion.",
+          "a": "حرية التعبير بتسمح لكل شخص يعبّر عن رأيه.",
+          "e": "Freedom of expression allows everyone to express their opinion."
+        },
+        {
+          "f": "Cependant, cette liberté doit s'exercer dans le respect des autres.",
+          "a": "مع هيك، لازم نمارس هالحرية مع احترام الآخرين.",
+          "e": "However, this freedom must be exercised with respect for others."
+        },
+        {
+          "f": "Participer aux élections est une manière de prendre part à la vie démocratique.",
+          "a": "المشاركة بالانتخابات طريقة حتى نساهم بالحياة الديمقراطية.",
+          "e": "Taking part in elections is a way to participate in democratic life."
+        },
+        {
+          "f": "Le vote permet aux citoyens de choisir leurs représentants.",
+          "a": "التصويت بيسمح للمواطنين يختاروا الأشخاص اللي بيمثّلوهم.",
+          "e": "Voting allows citizens to choose their representatives."
+        },
+        {
+          "f": "Il est important de s'informer avant de prendre une décision politique.",
+          "a": "من المهم نعرف المعلومات اللازمة قبل ما ناخد قرار سياسي.",
+          "e": "It is important to get informed before making a political decision."
+        },
+        {
+          "f": "Les associations jouent un rôle important dans la vie locale.",
+          "a": "الجمعيات إلها دور مهم بالحياة المحلية.",
+          "e": "Associations play an important role in local life."
+        },
+        {
+          "f": "Le bénévolat permet d'aider les personnes qui en ont besoin.",
+          "a": "العمل التطوعي بيسمحلنا نساعد الأشخاص اللي بحاجة للمساعدة.",
+          "e": "Volunteering allows us to help people who need support."
+        },
+        {
+          "f": "De nombreux bénévoles consacrent leur temps à des actions solidaires.",
+          "a": "كتير من المتطوعين بيخصّصوا وقتهم للأعمال التضامنية.",
+          "e": "Many volunteers devote their time to charitable activities."
+        },
+        {
+          "f": "La solidarité renforce les liens entre les habitants d'un quartier.",
+          "a": "التضامن بيقوّي العلاقات بين سكان الحي.",
+          "e": "Solidarity strengthens relationships between people in a neighborhood."
+        },
+        {
+          "f": "Il faut lutter contre toutes les formes de discrimination.",
+          "a": "لازم نحارب كل أشكال التمييز.",
+          "e": "We must fight against all forms of discrimination."
+        },
+        {
+          "f": "Chaque personne mérite d'être traitée avec dignité.",
+          "a": "كل شخص بيستحق إنو الناس تتعامل معه بكرامة.",
+          "e": "Everyone deserves to be treated with dignity."
+        },
+        {
+          "f": "La diversité culturelle représente une richesse pour notre société.",
+          "a": "التنوع الثقافي بيشكّل ثروة لمجتمعنا.",
+          "e": "Cultural diversity is an asset to our society."
+        },
+        {
+          "f": "Il est important d'apprendre à vivre avec des personnes qui ont des habitudes différentes.",
+          "a": "من المهم نتعلّم نعيش مع أشخاص عندهم عادات مختلفة عن عاداتنا.",
+          "e": "It is important to learn to live with people who have different habits."
+        },
+        {
+          "f": "Les services publics doivent être accessibles à tous les citoyens.",
+          "a": "لازم تكون الخدمات العامة متاحة لكل المواطنين.",
+          "e": "Public services should be accessible to all citizens."
+        },
+        {
+          "f": "Les transports publics facilitent les déplacements des habitants.",
+          "a": "وسائل النقل العام بتسهّل تنقّل السكان.",
+          "e": "Public transport makes it easier for residents to get around."
+        },
+        {
+          "f": "Chacun doit contribuer à garder les espaces publics propres.",
+          "a": "كل شخص لازم يساهم بالحفاظ على نظافة الأماكن العامة.",
+          "e": "Everyone should help keep public spaces clean."
+        },
+        {
+          "f": "J'essaie de respecter les règles de tri des déchets dans ma commune.",
+          "a": "بحاول التزم بقواعد فرز النفايات ببلديتي.",
+          "e": "I try to follow the waste-sorting rules in my local area."
+        },
+        {
+          "f": "Les citoyens peuvent contacter leur mairie pour signaler un problème dans leur quartier.",
+          "a": "في المواطنين يتواصلوا مع البلدية حتى يبلّغوا عن مشكلة بحيّهم.",
+          "e": "Citizens can contact their town hall to report a problem in their neighborhood."
+        },
+        {
+          "f": "Il est important de connaître les démarches administratives de base.",
+          "a": "من المهم نعرف الإجراءات الإدارية الأساسية.",
+          "e": "It is important to know the basic administrative procedures."
+        },
+        {
+          "f": "Les documents officiels doivent être conservés dans un endroit sûr.",
+          "a": "لازم نحتفظ بالوثائق الرسمية بمكان آمن.",
+          "e": "Official documents should be kept in a safe place."
+        },
+        {
+          "f": "En cas de difficulté, on peut demander de l'aide auprès des services compétents.",
+          "a": "إذا واجهتنا صعوبة، فينا نطلب المساعدة من الجهات المختصة.",
+          "e": "If we encounter difficulties, we can ask the appropriate services for help."
+        },
+        {
+          "f": "La participation des habitants peut améliorer la vie dans une commune.",
+          "a": "مشاركة السكان ممكن تحسّن الحياة بالبلدية أو المنطقة اللي عايشين فيها.",
+          "e": "Residents' participation can improve life in a local community."
+        },
+        {
+          "f": "Les jeunes devraient être davantage encouragés à participer aux projets collectifs.",
+          "a": "لازم نشجّع الشباب أكتر على المشاركة بالمشاريع الجماعية.",
+          "e": "Young people should be encouraged more to participate in community projects."
+        },
+        {
+          "f": "Une société juste doit protéger les personnes les plus vulnérables.",
+          "a": "المجتمع العادل لازم يحمي الأشخاص الأكثر ضعفاً وحاجة للمساعدة.",
+          "e": "A fair society must protect the most vulnerable people."
+        },
+        {
+          "f": "À mon avis, chacun peut contribuer à rendre la société plus juste et plus agréable.",
+          "a": "برأيي، كل شخص فيه يساهم بجعل المجتمع أكثر عدلاً وراحة للجميع.",
+          "e": "In my opinion, everyone can help make society fairer and more pleasant."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-t17",
+      "icon": "🗂️",
+      "fr": "Thème 17 — Les démarches administratives",
+      "ar": "موضوع 17 — المعاملات الإدارية",
+      "phr": [
+        {
+          "f": "Je dois prendre rendez-vous pour effectuer certaines démarches administratives.",
+          "a": "لازم احجز موعد حتى خلّص بعض المعاملات الإدارية.",
+          "e": "I have to make an appointment to complete certain administrative procedures."
+        },
+        {
+          "f": "Il faut préparer tous les documents nécessaires avant le rendez-vous.",
+          "a": "لازم حضّر كل الأوراق المطلوبة قبل الموعد.",
+          "e": "I have to prepare all the necessary documents before the appointment."
+        },
+        {
+          "f": "J'ai rempli le formulaire, mais j'ai oublié de le signer.",
+          "a": "عبّيت الاستمارة، بس نسيت وقّع عليها.",
+          "e": "I filled in the form, but I forgot to sign it."
+        },
+        {
+          "f": "L'administration m'a demandé un justificatif de domicile récent.",
+          "a": "الإدارة طلبت مني إثبات سكن حديث.",
+          "e": "The administration asked me for recent proof of address."
+        },
+        {
+          "f": "Je dois fournir une copie de ma pièce d'identité.",
+          "a": "لازم قدّم نسخة عن وثيقة هويتي.",
+          "e": "I have to provide a copy of my identity document."
+        },
+        {
+          "f": "Certains documents doivent être traduits en français par un traducteur agréé.",
+          "a": "بعض الوثائق لازم يترجمها مترجم معتمد للغة الفرنسية.",
+          "e": "Some documents must be translated into French by an approved translator."
+        },
+        {
+          "f": "J'ai envoyé mon dossier par courrier recommandé avec accusé de réception.",
+          "a": "بعت ملفي بالبريد المسجّل مع إشعار بالاستلام.",
+          "e": "I sent my application by registered mail with acknowledgment of receipt."
+        },
+        {
+          "f": "Je conserve une copie de chaque document que j'envoie.",
+          "a": "بحتفظ بنسخة عن كل ورقة ببعتها.",
+          "e": "I keep a copy of every document I send."
+        },
+        {
+          "f": "Mon dossier est encore en cours de traitement.",
+          "a": "ملفي لسا قيد المعالجة.",
+          "e": "My application is still being processed."
+        },
+        {
+          "f": "Je voudrais savoir où en est ma demande.",
+          "a": "بدي أعرف لوين وصلت معاملتي.",
+          "e": "I would like to know the status of my application."
+        },
+        {
+          "f": "Le service administratif m'a demandé des documents supplémentaires.",
+          "a": "القسم الإداري طلب مني أوراق إضافية.",
+          "e": "The administrative department asked me for additional documents."
+        },
+        {
+          "f": "Je dois respecter le délai indiqué dans le courrier.",
+          "a": "لازم التزم بالمهلة المحددة بالرسالة.",
+          "e": "I have to meet the deadline indicated in the letter."
+        },
+        {
+          "f": "Si je ne comprends pas une décision, je peux demander des explications.",
+          "a": "إذا ما فهمت قرار، فيني اطلب توضيحات.",
+          "e": "If I do not understand a decision, I can ask for an explanation."
+        },
+        {
+          "f": "J'ai reçu une réponse officielle par courrier.",
+          "a": "وصلتني إجابة رسمية عن طريق البريد.",
+          "e": "I received an official response by mail."
+        },
+        {
+          "f": "Il est important de lire attentivement les courriers administratifs.",
+          "a": "من المهم نقرأ الرسائل الإدارية بانتباه.",
+          "e": "It is important to read administrative letters carefully."
+        },
+        {
+          "f": "Je ne peux pas me rendre au rendez-vous, alors je dois le reporter.",
+          "a": "ما فيني روح على الموعد، ولهيك لازم أجّله.",
+          "e": "I cannot attend the appointment, so I have to reschedule it."
+        },
+        {
+          "f": "J'ai contacté le service concerné pour signaler un changement d'adresse.",
+          "a": "تواصلت مع القسم المختص حتى بلّغهم عن تغيير عنواني.",
+          "e": "I contacted the relevant department to report a change of address."
+        },
+        {
+          "f": "Certaines démarches peuvent être effectuées directement sur Internet.",
+          "a": "في معاملات ممكن ننجزها مباشرة عن طريق الإنترنت.",
+          "e": "Some procedures can be completed directly online."
+        },
+        {
+          "f": "Je dois créer un compte personnel pour accéder aux services en ligne.",
+          "a": "لازم أنشئ حساب شخصي حتى أقدر استخدم الخدمات الإلكترونية.",
+          "e": "I have to create a personal account to access online services."
+        },
+        {
+          "f": "J'ai oublié mes identifiants et je n'arrive plus à accéder à mon compte.",
+          "a": "نسيت بيانات تسجيل الدخول وما عاد عم أقدر فوت على حسابي.",
+          "e": "I forgot my login details and can no longer access my account."
+        },
+        {
+          "f": "La mairie peut fournir des renseignements sur les services disponibles dans la commune.",
+          "a": "البلدية فيها تعطينا معلومات عن الخدمات المتوفرة بالمنطقة.",
+          "e": "The town hall can provide information about the services available in the municipality."
+        },
+        {
+          "f": "Je voudrais obtenir une attestation officielle pour compléter mon dossier.",
+          "a": "بدي احصل على شهادة رسمية حتى كمّل ملفي.",
+          "e": "I would like to obtain an official certificate to complete my application."
+        },
+        {
+          "f": "En cas de refus, il est parfois possible de déposer un recours.",
+          "a": "بحالة الرفض، أحياناً بيكون من الممكن تقديم اعتراض.",
+          "e": "If an application is rejected, it is sometimes possible to appeal."
+        },
+        {
+          "f": "Il faut expliquer clairement les raisons de sa contestation.",
+          "a": "لازم نشرح بوضوح أسباب اعتراضنا على القرار.",
+          "e": "We must clearly explain the reasons for our appeal."
+        },
+        {
+          "f": "Une assistante sociale peut m'aider à comprendre certaines démarches.",
+          "a": "الأخصائية الاجتماعية ممكن تساعدني أفهم بعض الإجراءات.",
+          "e": "A social worker can help me understand certain procedures."
+        },
+        {
+          "f": "Les services publics doivent accueillir les usagers dans de bonnes conditions.",
+          "a": "لازم الخدمات العامة تستقبل المراجعين بظروف مناسبة.",
+          "e": "Public services should welcome users in appropriate conditions."
+        },
+        {
+          "f": "Si j'ai besoin d'aide, je peux demander à parler à un conseiller.",
+          "a": "إذا احتجت مساعدة، فيني اطلب احكي مع مستشار.",
+          "e": "If I need help, I can ask to speak to an adviser."
+        },
+        {
+          "f": "Les délais de traitement peuvent varier selon le type de demande.",
+          "a": "مدة معالجة الطلب ممكن تختلف حسب نوع المعاملة.",
+          "e": "Processing times can vary depending on the type of application."
+        },
+        {
+          "f": "Je préfère anticiper mes démarches pour éviter les problèmes de dernière minute.",
+          "a": "بفضّل بلّش بمعاملاتي من وقت بكير حتى أتجنّب مشاكل آخر لحظة.",
+          "e": "I prefer planning my administrative procedures in advance to avoid last-minute problems."
+        },
+        {
+          "f": "Même si les démarches administratives sont parfois compliquées, il ne faut pas hésiter à demander de l'aide.",
+          "a": "حتى لو المعاملات الإدارية معقّدة أحياناً، ما لازم نتردد نطلب المساعدة.",
+          "e": "Even though administrative procedures can sometimes be complicated, we should not hesitate to ask for help."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-t18",
+      "icon": "🏦",
+      "fr": "Thème 18 — Les banques et l'argent",
+      "ar": "موضوع 18 — البنوك وإدارة الأموال",
+      "phr": [
+        {
+          "f": "J'ai ouvert un compte bancaire dans une banque française.",
+          "a": "فتحت حساب بنكي ببنك فرنسي.",
+          "e": "I opened a bank account at a French bank."
+        },
+        {
+          "f": "Je voudrais connaître les frais liés à mon compte.",
+          "a": "بدي أعرف الرسوم المرتبطة بحسابي.",
+          "e": "I would like to know the fees associated with my account."
+        },
+        {
+          "f": "Est-ce que je peux recevoir mon salaire directement sur ce compte ?",
+          "a": "فيني استلم راتبي مباشرة على هالحساب؟",
+          "e": "Can I receive my salary directly into this account?"
+        },
+        {
+          "f": "J'ai oublié le code de ma carte bancaire.",
+          "a": "نسيت الرقم السري لبطاقتي البنكية.",
+          "e": "I forgot my bank card PIN."
+        },
+        {
+          "f": "Je vérifie régulièrement le solde de mon compte.",
+          "a": "بتفقد رصيد حسابي بشكل منتظم.",
+          "e": "I regularly check my account balance."
+        },
+        {
+          "f": "Mon salaire est versé à la fin de chaque mois.",
+          "a": "راتبي بينزل بنهاية كل شهر.",
+          "e": "My salary is paid at the end of each month."
+        },
+        {
+          "f": "Je préfère payer par carte plutôt qu'en espèces.",
+          "a": "بفضّل ادفع بالبطاقة بدل الكاش.",
+          "e": "I prefer paying by card rather than in cash."
+        },
+        {
+          "f": "J'ai effectué un virement bancaire hier matin.",
+          "a": "عملت تحويل بنكي مبارح الصبح.",
+          "e": "I made a bank transfer yesterday morning."
+        },
+        {
+          "f": "Le montant a été débité de mon compte.",
+          "a": "المبلغ انخصم من حسابي.",
+          "e": "The amount was deducted from my account."
+        },
+        {
+          "f": "Je ne reconnais pas ce paiement sur mon relevé bancaire.",
+          "a": "ما بتعرّف على هالدفعة بكشف حسابي.",
+          "e": "I don't recognize this payment on my bank statement."
+        },
+        {
+          "f": "Je voudrais contester cette opération.",
+          "a": "بدي اعترض على هالعملية المالية.",
+          "e": "I would like to dispute this transaction."
+        },
+        {
+          "f": "Ma carte bancaire ne fonctionne plus.",
+          "a": "بطاقتي البنكية ما عادت تشتغل.",
+          "e": "My bank card no longer works."
+        },
+        {
+          "f": "Pourriez-vous m'envoyer une nouvelle carte ?",
+          "a": "ممكن تبعتولي بطاقة جديدة؟",
+          "e": "Could you send me a new card?"
+        },
+        {
+          "f": "J'ai besoin d'un relevé bancaire pour mon dossier administratif.",
+          "a": "بحتاج كشف حساب بنكي لملفي الإداري.",
+          "e": "I need a bank statement for my administrative file."
+        },
+        {
+          "f": "Je dois mettre de l'argent de côté chaque mois.",
+          "a": "لازم وفّر شوي مصاري كل شهر.",
+          "e": "I have to put some money aside every month."
+        },
+        {
+          "f": "J'essaie de respecter mon budget pour éviter les dépenses inutiles.",
+          "a": "بحاول التزم بميزانيتي حتى تجنّب المصاريف اللي ما إلها ضرورة.",
+          "e": "I try to stick to my budget to avoid unnecessary expenses."
+        },
+        {
+          "f": "Le loyer représente une grande partie de mes dépenses.",
+          "a": "الإيجار بياخد جزء كبير من مصاريفي.",
+          "e": "Rent represents a large part of my expenses."
+        },
+        {
+          "f": "Je compare les prix avant de faire un achat important.",
+          "a": "بقارن الأسعار قبل ما اشتري شي غالي.",
+          "e": "I compare prices before making an important purchase."
+        },
+        {
+          "f": "Je préfère économiser plutôt que de dépenser tout mon salaire.",
+          "a": "بفضّل وفّر بدل ما اصرف راتبي كله.",
+          "e": "I prefer saving money rather than spending my entire salary."
+        },
+        {
+          "f": "Il faut prévoir les dépenses imprévues.",
+          "a": "لازم نحسب حساب المصاريف المفاجئة.",
+          "e": "We need to plan for unexpected expenses."
+        },
+        {
+          "f": "Si je dépense moins, je pourrai économiser davantage.",
+          "a": "إذا صرفت أقل، رح أقدر وفّر أكتر.",
+          "e": "If I spend less, I will be able to save more."
+        },
+        {
+          "f": "Je préfère éviter les crédits lorsque ce n'est pas nécessaire.",
+          "a": "بفضّل تجنّب القروض لما ما تكون ضرورية.",
+          "e": "I prefer to avoid loans when they are not necessary."
+        },
+        {
+          "f": "Avant de signer un contrat, je lis attentivement les conditions.",
+          "a": "قبل ما وقّع عقد، بقرأ الشروط منيح.",
+          "e": "Before signing a contract, I carefully read the terms."
+        },
+        {
+          "f": "Le remboursement de ce prêt prendra plusieurs années.",
+          "a": "تسديد هالقرض رح ياخد عدة سنين.",
+          "e": "Repaying this loan will take several years."
+        },
+        {
+          "f": "Je voudrais augmenter le plafond de ma carte bancaire.",
+          "a": "بدي ارفع الحد المسموح للشراء ببطاقتي البنكية.",
+          "e": "I would like to increase my bank card limit."
+        },
+        {
+          "f": "J'ai reçu un message qui me demande mes coordonnées bancaires.",
+          "a": "وصلتني رسالة عم تطلب معلوماتي البنكية.",
+          "e": "I received a message asking for my bank details."
+        },
+        {
+          "f": "Je ne communique jamais mes codes confidentiels par téléphone.",
+          "a": "ما بعطي أبداً رموزي السرية عبر التلفون.",
+          "e": "I never share my confidential codes over the phone."
+        },
+        {
+          "f": "En cas de fraude, il faut contacter immédiatement sa banque.",
+          "a": "بحالة الاحتيال، لازم نتواصل فوراً مع البنك.",
+          "e": "In case of fraud, you must contact your bank immediately."
+        },
+        {
+          "f": "Même si mon salaire est limité, j'essaie de gérer mon argent correctement.",
+          "a": "حتى لو راتبي محدود، بحاول دبّر مصرياتي بطريقة صحيحة.",
+          "e": "Even if my salary is limited, I try to manage my money properly."
+        },
+        {
+          "f": "Une bonne gestion de l'argent permet de mieux préparer l'avenir.",
+          "a": "إدارة المصاري بشكل منيح بتساعدنا نخطط للمستقبل بطريقة أفضل.",
+          "e": "Good money management helps us prepare better for the future."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-t19",
+      "icon": "🛡️",
+      "fr": "Thème 19 — Les assurances",
+      "ar": "موضوع 19 — التأمين والحماية",
+      "phr": [
+        {
+          "f": "J'ai souscrit une assurance habitation pour protéger mon logement.",
+          "a": "اشتركت بتأمين للسكن حتى أحمي بيتي.",
+          "e": "I took out home insurance to protect my home."
+        },
+        {
+          "f": "L'assurance habitation est obligatoire pour certains locataires.",
+          "a": "تأمين السكن إجباري لبعض المستأجرين.",
+          "e": "Home insurance is compulsory for some tenants."
+        },
+        {
+          "f": "Je voudrais comparer plusieurs offres d'assurance.",
+          "a": "بدي قارن بين عدة عروض تأمين.",
+          "e": "I would like to compare several insurance offers."
+        },
+        {
+          "f": "Le montant de ma cotisation augmente chaque année.",
+          "a": "قيمة اشتراكي بالتأمين عم تزيد كل سنة.",
+          "e": "My insurance premium increases every year."
+        },
+        {
+          "f": "Je paie ma cotisation tous les mois.",
+          "a": "بدفع قسط التأمين كل شهر.",
+          "e": "I pay my insurance premium every month."
+        },
+        {
+          "f": "Mon contrat couvre les dégâts causés par un incendie.",
+          "a": "عقد التأمين بيغطي الأضرار الناتجة عن الحريق.",
+          "e": "My policy covers damage caused by fire."
+        },
+        {
+          "f": "Je voudrais savoir ce qui est inclus dans mon contrat.",
+          "a": "بدي أعرف شو الأشياء المشمولة بعقد التأمين.",
+          "e": "I would like to know what is included in my policy."
+        },
+        {
+          "f": "Certains dommages ne sont pas couverts par cette assurance.",
+          "a": "في بعض الأضرار هالتأمين ما بيغطيها.",
+          "e": "Some types of damage are not covered by this insurance."
+        },
+        {
+          "f": "J'ai déclaré un dégât des eaux à mon assureur.",
+          "a": "بلّغت شركة التأمين عن ضرر بسبب تسرب المي.",
+          "e": "I reported water damage to my insurer."
+        },
+        {
+          "f": "L'assureur m'a demandé des photos des dégâts.",
+          "a": "شركة التأمين طلبت مني صور للأضرار.",
+          "e": "The insurer asked me for photos of the damage."
+        },
+        {
+          "f": "Je dois envoyer les documents nécessaires avant la date limite.",
+          "a": "لازم ابعت الأوراق المطلوبة قبل آخر موعد.",
+          "e": "I must send the necessary documents before the deadline."
+        },
+        {
+          "f": "Un expert viendra évaluer les dégâts dans mon appartement.",
+          "a": "رح يجي خبير ليقيّم الأضرار بشقتي.",
+          "e": "An expert will come to assess the damage in my apartment."
+        },
+        {
+          "f": "L'assurance peut prendre en charge une partie des réparations.",
+          "a": "التأمين ممكن يتحمّل جزء من تكاليف التصليح.",
+          "e": "The insurance may cover part of the repair costs."
+        },
+        {
+          "f": "Je n'ai pas encore reçu le remboursement.",
+          "a": "لسه ما استلمت التعويض.",
+          "e": "I haven't received the reimbursement yet."
+        },
+        {
+          "f": "Je voudrais connaître l'état d'avancement de mon dossier.",
+          "a": "بدي أعرف لوين وصل ملفي.",
+          "e": "I would like to know the progress of my claim."
+        },
+        {
+          "f": "Mon assurance automobile couvre les dommages matériels.",
+          "a": "تأمين سيارتي بيغطي الأضرار المادية.",
+          "e": "My car insurance covers property damage."
+        },
+        {
+          "f": "En cas d'accident, il faut remplir un constat amiable.",
+          "a": "بحالة وقوع حادث، لازم نعبي استمارة التصريح بالحادث.",
+          "e": "In case of an accident, you must fill out an accident report."
+        },
+        {
+          "f": "Je dois prévenir mon assurance après un accident.",
+          "a": "لازم خبّر شركة التأمين بعد وقوع حادث.",
+          "e": "I must inform my insurance company after an accident."
+        },
+        {
+          "f": "La franchise reste à ma charge après certains sinistres.",
+          "a": "مبلغ التحمّل بيضل على حسابي بعد بعض الحوادث.",
+          "e": "The deductible remains my responsibility after certain claims."
+        },
+        {
+          "f": "Je bénéficie d'une complémentaire santé grâce à mon contrat.",
+          "a": "عندي تأمين صحي تكميلي من خلال عقدي.",
+          "e": "I have supplementary health insurance through my contract."
+        },
+        {
+          "f": "Ma complémentaire santé rembourse une partie des frais médicaux.",
+          "a": "التأمين الصحي التكميلي بيرجّعلي جزء من تكاليف العلاج.",
+          "e": "My supplementary health insurance reimburses part of my medical expenses."
+        },
+        {
+          "f": "Certains soins nécessitent une prise en charge particulière.",
+          "a": "بعض العلاجات بدها تغطية خاصة من التأمين.",
+          "e": "Some treatments require special coverage."
+        },
+        {
+          "f": "Je dois vérifier si ce médecin est conventionné.",
+          "a": "لازم أتأكد إذا هالطبيب متعاقد مع نظام التأمين الصحي.",
+          "e": "I need to check whether this doctor is registered with the health insurance system."
+        },
+        {
+          "f": "Je conserve toutes mes factures et mes justificatifs.",
+          "a": "بحتفظ بكل فواتيري والأوراق اللي بتثبت المصاريف.",
+          "e": "I keep all my invoices and supporting documents."
+        },
+        {
+          "f": "Avant de résilier mon contrat, je vérifie les conditions.",
+          "a": "قبل ما ألغي عقد التأمين، بتأكد من الشروط.",
+          "e": "Before cancelling my policy, I check the conditions."
+        },
+        {
+          "f": "Je souhaite changer d'assurance pour payer moins cher.",
+          "a": "بدي غيّر شركة التأمين حتى ادفع أقل.",
+          "e": "I want to change insurance providers to pay less."
+        },
+        {
+          "f": "Il est important de lire les exclusions de garantie.",
+          "a": "من المهم نقرأ الحالات اللي التأمين ما بيغطيها.",
+          "e": "It is important to read the policy exclusions."
+        },
+        {
+          "f": "En cas de problème, je peux déposer une réclamation.",
+          "a": "إذا صار في مشكلة، فيني قدّم شكوى لشركة التأمين.",
+          "e": "If there is a problem, I can file a complaint."
+        },
+        {
+          "f": "Une bonne assurance permet de faire face aux imprévus.",
+          "a": "التأمين الجيد بيساعدنا نواجه الظروف والمشاكل المفاجئة.",
+          "e": "Good insurance helps us deal with unexpected situations."
+        },
+        {
+          "f": "Il vaut mieux comprendre son contrat avant d'en avoir besoin.",
+          "a": "الأفضل نفهم عقد التأمين قبل ما نحتاج نستخدمه.",
+          "e": "It is better to understand your insurance policy before you need it."
+        }
+      ],
+      "ids": []
     }
   ]
 };
