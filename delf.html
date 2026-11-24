@@ -165,6 +165,8 @@
   .slide-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.45rem; }
   .slide-num { font-size: 0.7rem; font-weight: 800; color: var(--gold); background: rgba(255,200,87,0.12); border: 1px solid rgba(255,200,87,0.3); border-radius: 999px; padding: 0.15rem 0.55rem; }
   .phr-line { padding: 0.3rem 0.15rem; font-size: 0.93rem; line-height: 1.55; border-bottom: 1px dashed rgba(255,255,255,0.07); }
+  .phr-line .w { cursor: pointer; border-radius: 4px; transition: background .15s; }
+  .phr-line .w:active, .phr-line .w.speaking { background: rgba(76,201,240,0.28); }
   .phr-line:last-child { border-bottom: none; }
   .phr-line[dir="ltr"] { text-align: left; }
   .phr-line[dir="rtl"] { text-align: right; }
@@ -217,6 +219,14 @@ var speechRun = 0;
 var edgeAudio = null;
 
 function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+function wordify(text, lang){
+  return String(text == null ? '' : text).split(/(\s+)/).map(function(tok){
+    if(!tok.trim()) return tok;
+    var w = tok.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '');
+    if(!w) return esc(tok);
+    return '<span class="w" data-w="' + esc(w) + '" data-lang="' + lang + '">' + esc(tok) + '</span>';
+  }).join('');
+}
 function showToast(m){ toast.textContent = m; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 2000); }
 function shuffle(a){ var r = a.slice(); for(var i = r.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var t = r[i]; r[i] = r[j]; r[j] = t; } return r; }
 
@@ -629,7 +639,7 @@ function stopSpeech(){
   if(edgeAudio){ try{ edgeAudio.pause(); edgeAudio.src = ''; }catch(e){} edgeAudio = null; }
   if(nativeTTS()) nativeTTS().stop();
   if('speechSynthesis' in window) window.speechSynthesis.cancel();
-  document.querySelectorAll('.icon-btn.speaking, .flag-btn.speaking').forEach(function(b){ b.classList.remove('speaking'); });
+  document.querySelectorAll('.icon-btn.speaking, .flag-btn.speaking, .w.speaking').forEach(function(b){ b.classList.remove('speaking'); });
 }
 function speakLoop(text, btn, lang){
   lang = lang || 'fr-FR';
@@ -1254,16 +1264,16 @@ function renderLesson(){
   if(ls.consigne){
     consigne = '<div class="slide-card consigne-card">' +
       '<div class="slide-head"><span class="slide-num">📝 المطلوب بالامتحان</span></div>' +
-      (ls.consigne.f ? '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="-1" data-lang="fr-FR">🇫🇷</button> ' + esc(ls.consigne.f) + '</div>' : '') +
-      (ls.consigne.a ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-i="-1" data-lang="ar-SY">🇸🇾</button> ' + esc(ls.consigne.a) + '</div>' : '') +
+      (ls.consigne.f ? '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="-1" data-lang="fr-FR">🇫🇷</button> ' + wordify(ls.consigne.f, 'fr-FR') + '</div>' : '') +
+      (ls.consigne.a ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-i="-1" data-lang="ar-SY">🇸🇾</button> ' + wordify(ls.consigne.a, 'ar-SY') + '</div>' : '') +
     '</div>';
   }
   var cards = ls.phr.map(function(p, i){
     return '<div class="slide-card">' +
       '<div class="slide-head"><span class="slide-num">' + (p.qa ? '❓ سؤال وجواب' : p.mod ? '✍️ النموذج الكامل' : (p.voc ? '📖 كلمة مهمة' : (i + 1) + ' / ' + ls.phr.length)) + '</span></div>' +
-      (p.f ? '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="' + i + '" data-lang="fr-FR">🇫🇷</button> ' + esc(p.f) + '</div>' : '') +
-      (p.a ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-i="' + i + '" data-lang="ar-SY">🇸🇾</button> ' + esc(p.a) + '</div>' : '') +
-      (p.e ? '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="' + i + '" data-lang="en-US">🇺🇸</button> ' + esc(p.e) + '</div>' : '') +
+      (p.f ? '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="' + i + '" data-lang="fr-FR">🇫🇷</button> ' + wordify(p.f, 'fr-FR') + '</div>' : '') +
+      (p.a ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-i="' + i + '" data-lang="ar-SY">🇸🇾</button> ' + wordify(p.a, 'ar-SY') + '</div>' : '') +
+      (p.e ? '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="' + i + '" data-lang="en-US">🇺🇸</button> ' + wordify(p.e, 'en-US') + '</div>' : '') +
     '</div>';
   }).join('');
   app.innerHTML =
@@ -1274,7 +1284,7 @@ function renderLesson(){
     '</div>' +
     '<div class="card">' +
       '<div class="mode-title">' + ls.icon + ' ' + esc(ls.fr) + '</div>' +
-      '<div class="mode-desc">اقرأ الشرح كاملاً بالفرنسي والعربي — استمع لكل شريحة بالزر 🔊 ثم تدرّب.</div>' +
+      '<div class="mode-desc">اقرأ الشرح كاملاً — استمع لكل شريحة بعلمها 🔊، اضغط أي كلمة لتنطقها loop، وضغطتين عليها لتبحث عنها في Google.</div>' +
       consigne +
       cards +
       '<button class="big-btn" id="btn-lfinish" style="margin-top:0.4rem">✅ أنهيت الدرس' + (nq ? ' — تدرّب (' + nq + ' سؤالاً)' : '') + '</button>' +
@@ -1285,6 +1295,19 @@ function renderLesson(){
       var p = +b.dataset.i >= 0 ? ls.phr[+b.dataset.i] : ls.consigne;
       var t = b.dataset.lang === 'ar-SY' ? p.a : (b.dataset.lang === 'en-US' ? p.e : p.f);
       speakLoop(t, this, b.dataset.lang);
+    };
+  });
+  var wordTap = null;
+  document.querySelectorAll('.phr-line .w').forEach(function(w){
+    w.onclick = function(){
+      var el = w;
+      if(wordTap){ clearTimeout(wordTap); wordTap = null; return; }
+      wordTap = setTimeout(function(){ wordTap = null; speakLoop(el.dataset.w, el, el.dataset.lang); }, 300);
+    };
+    w.ondblclick = function(){
+      if(wordTap){ clearTimeout(wordTap); wordTap = null; }
+      stopSpeech();
+      window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(w.dataset.w), '_system');
     };
   });
   document.getElementById('btn-lfinish').onclick = function(){
