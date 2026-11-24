@@ -3911,6 +3911,69 @@ window.DELF_LESSONS = {
         "d8099",
         "d8100"
       ]
+    },
+    {
+      "id": "b1-e1",
+      "icon": "✍️",
+      "fr": "Écrit 1 — La vie en France",
+      "ar": "كتابة 1 — الحياة في فرنسا",
+      "consigne": {
+        "f": "Vous habitez en France depuis quelque temps. Écrivez un texte pour raconter votre expérience, parler des difficultés rencontrées et expliquer les avantages de la vie en France.",
+        "a": "أنت تعيش في فرنسا منذ فترة. اكتب نصاً لتحكي عن تجربتك، وتتحدث عن الصعوبات التي واجهتها، وتشرح إيجابيات الحياة في فرنسا."
+      },
+      "phr": [
+        {
+          "f": "Depuis mon arrivée en France, ma vie a beaucoup changé.",
+          "a": "منذ وصولي إلى فرنسا، تغيّرت حياتي كثيراً.",
+          "e": "Since my arrival in France, my life has changed a lot."
+        },
+        {
+          "f": "Au début, j'ai rencontré plusieurs difficultés, surtout avec la langue française.",
+          "a": "بالبداية واجهت عدة صعوبات، وخاصة باللغة الفرنسية.",
+          "e": "At first, I faced several difficulties, especially with the French language."
+        },
+        {
+          "f": "Il était parfois difficile de communiquer avec les autres et de comprendre les conversations.",
+          "a": "كان أحياناً من الصعب التواصل مع الآخرين وفهم المحادثات.",
+          "e": "It was sometimes difficult to communicate with others and understand conversations."
+        },
+        {
+          "f": "J'ai également eu des problèmes pour trouver un logement et un emploi.",
+          "a": "كمان واجهت مشاكل بإيجاد سكن وعمل.",
+          "e": "I also had problems finding accommodation and a job."
+        },
+        {
+          "f": "Cependant, avec le temps, j'ai commencé à mieux connaître le pays.",
+          "a": "لكن مع مرور الوقت، بلّشت تعرّف على البلد بشكل أفضل.",
+          "e": "However, over time, I began to know the country better."
+        },
+        {
+          "f": "J'ai appris à utiliser les transports publics et à faire mes démarches administratives.",
+          "a": "تعلّمت كيف استخدم المواصلات العامة وأعمل معاملاتي الإدارية.",
+          "e": "I learned how to use public transport and complete administrative procedures."
+        },
+        {
+          "f": "J'ai aussi rencontré de nouvelles personnes et découvert une culture différente.",
+          "a": "كمان تعرّفت على أشخاص جدد واكتشفت ثقافة مختلفة.",
+          "e": "I also met new people and discovered a different culture."
+        },
+        {
+          "f": "À mon avis, vivre en France offre de nombreuses possibilités, notamment dans le domaine du travail et de la formation.",
+          "a": "برأيي، العيش بفرنسا بيوفّر فرص كثيرة، وخاصة بمجال العمل والتدريب.",
+          "e": "In my opinion, living in France offers many opportunities, especially in employment and training."
+        },
+        {
+          "f": "Pour bien s'intégrer, il faut apprendre la langue, respecter les règles et participer à la vie sociale.",
+          "a": "حتى يندمج الإنسان بشكل جيد، لازم يتعلّم اللغة ويحترم القوانين ويشارك بالحياة الاجتماعية.",
+          "e": "To integrate well, you must learn the language, respect the rules and participate in social life."
+        },
+        {
+          "f": "Pour conclure, même si la vie dans un nouveau pays n'est pas toujours facile, je pense que cette expérience est très positive et enrichissante.",
+          "a": "بالخلاصة، رغم أن الحياة ببلد جديد مو دائماً سهلة، بعتقد إن هالتجربة إيجابية ومفيدة جداً.",
+          "e": "To conclude, even though life in a new country is not always easy, I think this experience is very positive and enriching."
+        }
+      ],
+      "ids": []
     }
   ]
 };

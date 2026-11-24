@@ -1250,6 +1250,14 @@ function renderLesson(){
   var ls = currentLesson();
   if(!ls){ state.screen = 'lessons'; render(); return; }
   var nq = DATA.filter(function(q){ return ls.ids.indexOf(q.id) !== -1; }).length;
+  var consigne = '';
+  if(ls.consigne){
+    consigne = '<div class="slide-card consigne-card">' +
+      '<div class="slide-head"><span class="slide-num">📝 المطلوب بالامتحان</span></div>' +
+      '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="-1" data-lang="fr-FR">🇫🇷</button> ' + esc(ls.consigne.f) + '</div>' +
+      '<div class="phr-line" dir="rtl"><button class="flag-btn" data-i="-1" data-lang="ar-SY">🇸🇾</button> ' + esc(ls.consigne.a) + '</div>' +
+    '</div>';
+  }
   var cards = ls.phr.map(function(p, i){
     return '<div class="slide-card">' +
       '<div class="slide-head"><span class="slide-num">' + (i + 1) + ' / ' + ls.phr.length + '</span></div>' +
@@ -1267,13 +1275,14 @@ function renderLesson(){
     '<div class="card">' +
       '<div class="mode-title">' + ls.icon + ' ' + esc(ls.fr) + '</div>' +
       '<div class="mode-desc">اقرأ الشرح كاملاً بالفرنسي والعربي — استمع لكل شريحة بالزر 🔊 ثم تدرّب.</div>' +
+      consigne +
       cards +
       '<button class="big-btn" id="btn-lfinish" style="margin-top:0.4rem">✅ أنهيت الدرس' + (nq ? ' — تدرّب (' + nq + ' سؤالاً)' : '') + '</button>' +
     '</div>';
   document.getElementById('btn-lback2').onclick = function(){ enterScreen('lessons'); };
   document.querySelectorAll('.flag-btn').forEach(function(b){
     b.onclick = function(){
-      var p = ls.phr[+b.dataset.i];
+      var p = +b.dataset.i >= 0 ? ls.phr[+b.dataset.i] : ls.consigne;
       var t = b.dataset.lang === 'ar-SY' ? p.a : (b.dataset.lang === 'en-US' ? p.e : p.f);
       speakLoop(t, this, b.dataset.lang);
     };
