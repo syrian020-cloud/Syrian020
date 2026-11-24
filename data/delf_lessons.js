@@ -5342,6 +5342,642 @@ window.DELF_LESSONS = {
         }
       ],
       "ids": []
+    },
+    {
+      "id": "b1-t11",
+      "icon": "🎓",
+      "fr": "Thème 11 — L'éducation et la formation",
+      "ar": "موضوع 11 — التعليم والتدريب",
+      "phr": [
+        {
+          "f": "L'éducation joue un rôle essentiel dans le développement d'une personne.",
+          "a": "التعليم إله دور أساسي بتطوير شخصية الإنسان.",
+          "e": "Education plays an essential role in a person's development."
+        },
+        {
+          "f": "J'ai toujours aimé apprendre de nouvelles choses.",
+          "a": "دايماً حبيت اتعلّم أشياء جديدة.",
+          "e": "I have always enjoyed learning new things."
+        },
+        {
+          "f": "À mon avis, il n'est jamais trop tard pour reprendre ses études.",
+          "a": "برأيي، مو متأخر أبداً إن الواحد يرجع يكمل دراسته.",
+          "e": "In my opinion, it is never too late to resume your studies."
+        },
+        {
+          "f": "Les élèves doivent participer activement aux activités en classe.",
+          "a": "لازم الطلاب يشاركوا بشكل فعّال بالأنشطة الصفية.",
+          "e": "Students should actively participate in classroom activities."
+        },
+        {
+          "f": "Un bon enseignant doit expliquer les leçons clairement.",
+          "a": "الأستاذ الجيد لازم يشرح الدروس بطريقة واضحة.",
+          "e": "A good teacher must explain lessons clearly."
+        },
+        {
+          "f": "Certains élèves ont besoin de plus de temps pour comprendre une leçon.",
+          "a": "بعض الطلاب بيحتاجوا وقت أطول حتى يفهموا الدرس.",
+          "e": "Some students need more time to understand a lesson."
+        },
+        {
+          "f": "Il est important de poser des questions lorsqu'on ne comprend pas quelque chose.",
+          "a": "من المهم نسأل لما ما نفهم شي.",
+          "e": "It is important to ask questions when we do not understand something."
+        },
+        {
+          "f": "Je prends des notes pendant les cours pour mieux mémoriser les informations.",
+          "a": "بكتب ملاحظات خلال الدروس حتى أتذكّر المعلومات بشكل أفضل.",
+          "e": "I take notes during lessons to remember information better."
+        },
+        {
+          "f": "Les examens permettent d'évaluer les connaissances des étudiants.",
+          "a": "الامتحانات بتسمح بتقييم معلومات الطلاب ومعرفتهم.",
+          "e": "Exams make it possible to assess students' knowledge."
+        },
+        {
+          "f": "Il faut réviser régulièrement au lieu d'attendre le dernier moment.",
+          "a": "لازم نراجع بشكل منتظم بدل ما ننتظر لآخر لحظة.",
+          "e": "We should revise regularly instead of waiting until the last minute."
+        },
+        {
+          "f": "J'organise mon emploi du temps afin de consacrer du temps à mes études.",
+          "a": "بنظّم وقتي حتى خصّص وقت لدراستي.",
+          "e": "I organize my schedule in order to make time for my studies."
+        },
+        {
+          "f": "Les bibliothèques offrent un endroit calme pour travailler.",
+          "a": "المكتبات بتوفّر مكان هادي للدراسة والعمل.",
+          "e": "Libraries provide a quiet place to study and work."
+        },
+        {
+          "f": "Les formations professionnelles aident les personnes à trouver un emploi.",
+          "a": "التدريبات المهنية بتساعد الناس يلاقوا شغل.",
+          "e": "Vocational training helps people find a job."
+        },
+        {
+          "f": "J'aimerais suivre une formation pour améliorer mes compétences professionnelles.",
+          "a": "بتمنى شارك بدورة تدريبية حتى طوّر مهاراتي المهنية.",
+          "e": "I would like to take a course to improve my professional skills."
+        },
+        {
+          "f": "Certains métiers exigent des qualifications particulières.",
+          "a": "بعض المهن بتحتاج مؤهلات وشهادات خاصة.",
+          "e": "Some professions require specific qualifications."
+        },
+        {
+          "f": "La formation continue permet de rester à jour dans son domaine.",
+          "a": "التدريب المستمر بيساعد الشخص يضل مواكب للتطورات بمجاله.",
+          "e": "Continuing education helps people stay up to date in their field."
+        },
+        {
+          "f": "J'apprends mieux lorsque je peux mettre la théorie en pratique.",
+          "a": "بتعلّم بشكل أفضل لما بقدر طبّق المعلومات النظرية عملياً.",
+          "e": "I learn better when I can put theory into practice."
+        },
+        {
+          "f": "Les stages permettent de découvrir le fonctionnement d'une entreprise.",
+          "a": "التدريب العملي بيسمح للمتدرّب يتعرّف على طريقة العمل داخل الشركة.",
+          "e": "Internships allow people to discover how a company operates."
+        },
+        {
+          "f": "Pendant mon stage, j'ai appris à travailler avec une équipe.",
+          "a": "خلال تدريبي العملي، تعلّمت اشتغل مع فريق.",
+          "e": "During my internship, I learned how to work with a team."
+        },
+        {
+          "f": "L'apprentissage d'une langue étrangère demande de la patience et de la régularité.",
+          "a": "تعلّم لغة أجنبية بده صبر وممارسة منتظمة.",
+          "e": "Learning a foreign language requires patience and consistency."
+        },
+        {
+          "f": "Je préfère étudier un peu chaque jour plutôt que de tout apprendre en une seule fois.",
+          "a": "بفضّل ادرس شوي كل يوم بدل ما حاول احفظ كل شي دفعة وحدة.",
+          "e": "I prefer studying a little every day rather than learning everything at once."
+        },
+        {
+          "f": "Les outils numériques peuvent rendre les cours plus intéressants.",
+          "a": "الأدوات الرقمية ممكن تخلي الدروس أكثر تشويقاً.",
+          "e": "Digital tools can make lessons more interesting."
+        },
+        {
+          "f": "Cependant, les élèves ne doivent pas devenir dépendants des écrans.",
+          "a": "مع هيك، لازم الطلاب ما يصيروا معتمدين بشكل مفرط على الشاشات.",
+          "e": "However, students should not become dependent on screens."
+        },
+        {
+          "f": "L'enseignement à distance offre davantage de flexibilité aux étudiants.",
+          "a": "التعليم عن بُعد بيعطي الطلاب مرونة أكبر بتنظيم وقتهم.",
+          "e": "Distance learning offers students greater flexibility."
+        },
+        {
+          "f": "Il est parfois difficile de rester concentré pendant plusieurs heures.",
+          "a": "أحياناً بيكون صعب الواحد يضل مركّز لعدة ساعات.",
+          "e": "It is sometimes difficult to stay focused for several hours."
+        },
+        {
+          "f": "Les échanges avec les autres étudiants permettent de partager des idées.",
+          "a": "النقاشات مع الطلاب التانيين بتسمح بتبادل الأفكار.",
+          "e": "Discussions with other students allow people to share ideas."
+        },
+        {
+          "f": "Un diplôme peut améliorer les chances de trouver un emploi.",
+          "a": "الشهادة ممكن تزيد فرص الحصول على وظيفة.",
+          "e": "A diploma can improve the chances of finding a job."
+        },
+        {
+          "f": "Il est important de choisir une formation qui correspond à ses objectifs.",
+          "a": "من المهم نختار تدريب يناسب أهدافنا وطموحاتنا.",
+          "e": "It is important to choose training that matches our goals."
+        },
+        {
+          "f": "Même si les études demandent beaucoup d'efforts, elles peuvent ouvrir de nouvelles portes.",
+          "a": "حتى لو الدراسة بدها جهد كبير، ممكن تفتح قدامنا فرص جديدة.",
+          "e": "Even though studying requires a lot of effort, it can open new doors."
+        },
+        {
+          "f": "Je suis convaincu que l'apprentissage ne s'arrête pas à la fin des études.",
+          "a": "أنا مقتنع إن التعلّم ما بيوقف لما تخلص الدراسة.",
+          "e": "I am convinced that learning does not stop when formal education ends."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-t12",
+      "icon": "👨‍👩‍👧",
+      "fr": "Thème 12 — La famille et les relations",
+      "ar": "موضوع 12 — العائلة والعلاقات الاجتماعية",
+      "phr": [
+        {
+          "f": "La famille occupe une place importante dans la vie de chacun.",
+          "a": "العيلة إلها مكانة مهمة بحياة كل شخص.",
+          "e": "Family plays an important role in everyone's life."
+        },
+        {
+          "f": "Les membres d'une famille doivent se soutenir dans les moments difficiles.",
+          "a": "أفراد العيلة لازم يوقفوا جنب بعض بالأوقات الصعبة.",
+          "e": "Family members should support one another during difficult times."
+        },
+        {
+          "f": "Je préfère passer mon temps libre avec les personnes que j'aime.",
+          "a": "بفضّل اقضي وقت فراغي مع الأشخاص اللي بحبهم.",
+          "e": "I prefer spending my free time with the people I love."
+        },
+        {
+          "f": "Il est important de garder le contact avec ses proches, même lorsqu'ils habitent loin.",
+          "a": "من المهم نضل على تواصل مع أقاربنا حتى لو ساكنين بعيد عنا.",
+          "e": "It is important to stay in touch with loved ones, even when they live far away."
+        },
+        {
+          "f": "J'essaie de rendre visite à ma famille aussi souvent que possible.",
+          "a": "بحاول زور عيلتي كل ما سنحتلي الفرصة.",
+          "e": "I try to visit my family as often as possible."
+        },
+        {
+          "f": "Les repas en famille sont une bonne occasion de discuter et de partager des nouvelles.",
+          "a": "وجبات الأكل مع العيلة فرصة حلوة حتى نحكي ونتبادل الأخبار.",
+          "e": "Family meals are a good opportunity to talk and share news."
+        },
+        {
+          "f": "Les parents jouent un rôle essentiel dans l'éducation de leurs enfants.",
+          "a": "الأهل إلهم دور أساسي بتربية أولادهم.",
+          "e": "Parents play an essential role in raising their children."
+        },
+        {
+          "f": "Les enfants ont besoin d'attention, de patience et d'encouragement.",
+          "a": "الأطفال بيحتاجوا اهتمام وصبر وتشجيع.",
+          "e": "Children need attention, patience and encouragement."
+        },
+        {
+          "f": "Chaque génération a sa propre façon de voir la vie.",
+          "a": "كل جيل إله طريقته الخاصة بالنظر للحياة.",
+          "e": "Every generation has its own way of looking at life."
+        },
+        {
+          "f": "Il arrive que les parents et les enfants ne soient pas d'accord.",
+          "a": "أحياناً بيصير في اختلاف بالرأي بين الأهل والأولاد.",
+          "e": "Parents and children sometimes disagree."
+        },
+        {
+          "f": "Le dialogue permet souvent de résoudre les problèmes familiaux.",
+          "a": "الحوار غالباً بيساعد على حل المشاكل العائلية.",
+          "e": "Dialogue often helps solve family problems."
+        },
+        {
+          "f": "Je pense qu'il faut respecter les opinions des autres, même si elles sont différentes.",
+          "a": "برأيي، لازم نحترم آراء الآخرين حتى لو كانت مختلفة عن آرائنا.",
+          "e": "I think we should respect other people's opinions, even if they are different."
+        },
+        {
+          "f": "Une véritable amitié se construit avec le temps et la confiance.",
+          "a": "الصداقة الحقيقية بتنبنى مع الوقت والثقة.",
+          "e": "A true friendship is built over time and through trust."
+        },
+        {
+          "f": "Un bon ami est une personne sur laquelle on peut compter.",
+          "a": "الصديق الحقيقي هو الشخص اللي فينا نعتمد عليه.",
+          "e": "A good friend is someone we can rely on."
+        },
+        {
+          "f": "Je préfère avoir quelques amis sincères plutôt que beaucoup de relations superficielles.",
+          "a": "بفضّل يكون عندي كم صديق صادق بدل علاقات كتيرة وسطحية.",
+          "e": "I prefer having a few sincere friends rather than many superficial relationships."
+        },
+        {
+          "f": "Il faut parfois faire des efforts pour maintenir une amitié.",
+          "a": "أحياناً لازم نبذل جهد حتى نحافظ على الصداقة.",
+          "e": "Sometimes we have to make an effort to maintain a friendship."
+        },
+        {
+          "f": "Les malentendus peuvent créer des tensions entre les personnes.",
+          "a": "سوء الفهم ممكن يسبّب توتر بين الناس.",
+          "e": "Misunderstandings can create tension between people."
+        },
+        {
+          "f": "Lorsque je suis en désaccord avec quelqu'un, j'essaie de discuter calmement.",
+          "a": "لما اختلف مع حدا، بحاول ناقشه بهدوء.",
+          "e": "When I disagree with someone, I try to discuss it calmly."
+        },
+        {
+          "f": "Il est parfois nécessaire de prendre du recul avant de réagir.",
+          "a": "أحياناً من الضروري نهدى ونفكّر قبل ما نردّ.",
+          "e": "Sometimes it is necessary to take a step back before reacting."
+        },
+        {
+          "f": "Les voisins peuvent s'entraider et rendre la vie quotidienne plus agréable.",
+          "a": "الجيران فيهم يساعدوا بعض ويخلّوا الحياة اليومية أحلى.",
+          "e": "Neighbors can help one another and make everyday life more pleasant."
+        },
+        {
+          "f": "Je trouve agréable de vivre dans un quartier où les habitants se connaissent.",
+          "a": "بحب العيش بحيّ السكان فيه بيعرفوا بعض.",
+          "e": "I enjoy living in a neighborhood where residents know one another."
+        },
+        {
+          "f": "Participer à des activités collectives permet de rencontrer de nouvelles personnes.",
+          "a": "المشاركة بالأنشطة الجماعية بتساعدنا نتعرّف على ناس جدد.",
+          "e": "Taking part in group activities helps us meet new people."
+        },
+        {
+          "f": "Il est important d'accepter les différences culturelles et les habitudes de chacun.",
+          "a": "من المهم نتقبّل الاختلافات الثقافية وعادات كل شخص.",
+          "e": "It is important to accept cultural differences and everyone's habits."
+        },
+        {
+          "f": "Les personnes âgées ont beaucoup d'expérience à partager avec les jeunes.",
+          "a": "كبار السن عندهم خبرة كبيرة فيهم يشاركوها مع الشباب.",
+          "e": "Older people have a lot of experience to share with younger people."
+        },
+        {
+          "f": "Il ne faut pas juger quelqu'un sans connaître son histoire.",
+          "a": "ما لازم نحكم على حدا قبل ما نعرف قصته وظروفه.",
+          "e": "We should not judge someone without knowing their story."
+        },
+        {
+          "f": "Aider les autres peut renforcer les liens entre les personnes.",
+          "a": "مساعدة الآخرين ممكن تقوّي الروابط بين الناس.",
+          "e": "Helping others can strengthen relationships between people."
+        },
+        {
+          "f": "Les réseaux sociaux facilitent les échanges, mais ils ne remplacent pas les rencontres réelles.",
+          "a": "مواقع التواصل بتسهّل التواصل، بس ما بتعوّض عن اللقاءات وجهاً لوجه.",
+          "e": "Social media makes communication easier, but it does not replace real-life meetings."
+        },
+        {
+          "f": "Chacun a besoin de moments de solitude pour réfléchir et se reposer.",
+          "a": "كل شخص بيحتاج أوقات يقعد فيها لحاله حتى يفكّر ويرتاح.",
+          "e": "Everyone needs moments of solitude to think and rest."
+        },
+        {
+          "f": "Une relation saine repose sur le respect, l'écoute et la confiance.",
+          "a": "العلاقة السليمة بتقوم على الاحترام والاستماع والثقة.",
+          "e": "A healthy relationship is based on respect, listening and trust."
+        },
+        {
+          "f": "À mon avis, les relations humaines donnent beaucoup de sens à notre vie.",
+          "a": "برأيي، العلاقات الإنسانية بتعطي حياتنا معنى كبير.",
+          "e": "In my opinion, human relationships give our lives a lot of meaning."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-t13",
+      "icon": "⚽",
+      "fr": "Thème 13 — Les loisirs et la culture",
+      "ar": "موضوع 13 — أوقات الفراغ والرياضة والثقافة",
+      "phr": [
+        {
+          "f": "Pendant mon temps libre, j'aime faire des activités qui me détendent.",
+          "a": "بوقت فراغي، بحب اعمل نشاطات بتريحني.",
+          "e": "In my free time, I enjoy doing activities that help me relax."
+        },
+        {
+          "f": "Pratiquer une activité sportive permet de rester en bonne santé.",
+          "a": "ممارسة الرياضة بتساعدنا نحافظ على صحتنا.",
+          "e": "Taking part in sports helps us stay healthy."
+        },
+        {
+          "f": "Je préfère marcher en plein air plutôt que de rester toute la journée à la maison.",
+          "a": "بفضّل امشي بالهواء الطلق بدل ما ضل بالبيت طول النهار.",
+          "e": "I prefer walking outdoors rather than staying at home all day."
+        },
+        {
+          "f": "Le week-end, je profite souvent de mon temps libre pour faire du sport.",
+          "a": "بعطلة نهاية الأسبوع، غالباً بستغل وقت فراغي حتى مارس الرياضة.",
+          "e": "At weekends, I often make use of my free time to exercise."
+        },
+        {
+          "f": "La natation est une activité complète qui fait travailler plusieurs muscles.",
+          "a": "السباحة رياضة متكاملة بتشغّل عدة عضلات بالجسم.",
+          "e": "Swimming is a complete activity that works several muscles."
+        },
+        {
+          "f": "Il est conseillé de pratiquer une activité physique régulièrement.",
+          "a": "من الأفضل نمارس نشاط بدني بشكل منتظم.",
+          "e": "It is recommended to do physical activity regularly."
+        },
+        {
+          "f": "Faire du sport en groupe peut être plus motivant.",
+          "a": "ممارسة الرياضة ضمن مجموعة ممكن تكون أكثر تشجيعاً.",
+          "e": "Exercising in a group can be more motivating."
+        },
+        {
+          "f": "Je trouve que la marche est un moyen simple de se détendre.",
+          "a": "بشوف إن المشي وسيلة بسيطة حتى الواحد يروّق.",
+          "e": "I think walking is a simple way to relax."
+        },
+        {
+          "f": "Après une longue journée de travail, j'ai besoin de me reposer.",
+          "a": "بعد يوم شغل طويل، بكون بحاجة ارتاح.",
+          "e": "After a long day at work, I need to rest."
+        },
+        {
+          "f": "Lire un livre permet de découvrir de nouvelles idées et de nouvelles cultures.",
+          "a": "قراءة كتاب بتخلّينا نكتشف أفكار وثقافات جديدة.",
+          "e": "Reading a book allows us to discover new ideas and cultures."
+        },
+        {
+          "f": "Je préfère les romans qui racontent des histoires réalistes.",
+          "a": "بفضّل الروايات اللي بتحكي قصص واقعية.",
+          "e": "I prefer novels that tell realistic stories."
+        },
+        {
+          "f": "Aller au cinéma est une activité agréable à partager avec des amis.",
+          "a": "الذهاب للسينما نشاط ممتع فينا نشارك فيه مع الأصدقاء.",
+          "e": "Going to the cinema is an enjoyable activity to share with friends."
+        },
+        {
+          "f": "Le dernier film que j'ai regardé m'a beaucoup impressionné.",
+          "a": "آخر فيلم حضرته ترك عندي انطباع قوي.",
+          "e": "The last film I watched impressed me a lot."
+        },
+        {
+          "f": "Je préfère regarder un film au cinéma plutôt que sur un petit écran.",
+          "a": "بفضّل احضر فيلم بالسينما بدل ما احضره على شاشة صغيرة.",
+          "e": "I prefer watching a film at the cinema rather than on a small screen."
+        },
+        {
+          "f": "Les musées permettent de mieux comprendre l'histoire et le patrimoine d'un pays.",
+          "a": "المتاحف بتساعدنا نفهم تاريخ وتراث البلد بشكل أفضل.",
+          "e": "Museums help us better understand a country's history and heritage."
+        },
+        {
+          "f": "J'aimerais visiter plusieurs musées pour découvrir des œuvres d'art.",
+          "a": "بتمنى زور عدة متاحف حتى اكتشف الأعمال الفنية.",
+          "e": "I would like to visit several museums to discover works of art."
+        },
+        {
+          "f": "La musique m'aide à me détendre lorsque je suis stressé.",
+          "a": "الموسيقى بتساعدني ارتاح لما كون متوتر.",
+          "e": "Music helps me relax when I am stressed."
+        },
+        {
+          "f": "Chaque personne a des goûts musicaux différents.",
+          "a": "كل شخص إله ذوق موسيقي مختلف.",
+          "e": "Everyone has different musical tastes."
+        },
+        {
+          "f": "Apprendre à jouer d'un instrument demande beaucoup de pratique.",
+          "a": "تعلّم العزف على آلة موسيقية بده تدريب وممارسة كتير.",
+          "e": "Learning to play a musical instrument requires a lot of practice."
+        },
+        {
+          "f": "La peinture est un moyen d'exprimer ses émotions et sa créativité.",
+          "a": "الرسم وسيلة للتعبير عن المشاعر والإبداع.",
+          "e": "Painting is a way to express emotions and creativity."
+        },
+        {
+          "f": "Les événements culturels permettent de découvrir les traditions locales.",
+          "a": "الفعاليات الثقافية بتخلّينا نتعرّف على التقاليد المحلية.",
+          "e": "Cultural events allow us to discover local traditions."
+        },
+        {
+          "f": "J'aime assister à des festivals parce que l'ambiance est souvent agréable.",
+          "a": "بحب احضر المهرجانات لأن الأجواء فيها غالباً بتكون حلوة.",
+          "e": "I enjoy attending festivals because the atmosphere is often pleasant."
+        },
+        {
+          "f": "Il existe de nombreuses activités gratuites dans certaines villes.",
+          "a": "في نشاطات مجانية كتيرة ببعض المدن.",
+          "e": "There are many free activities in some cities."
+        },
+        {
+          "f": "Les associations proposent souvent des activités pour tous les âges.",
+          "a": "الجمعيات غالباً بتقدّم نشاطات لكل الأعمار.",
+          "e": "Associations often offer activities for all age groups."
+        },
+        {
+          "f": "Il faut organiser son temps pour profiter de ses loisirs sans négliger ses responsabilités.",
+          "a": "لازم ننظّم وقتنا حتى نستمتع بهواياتنا من دون ما نهمل مسؤولياتنا.",
+          "e": "We need to organize our time to enjoy our hobbies without neglecting our responsibilities."
+        },
+        {
+          "f": "Certaines personnes préfèrent les activités calmes, tandis que d'autres aiment les sensations fortes.",
+          "a": "في ناس بتفضّل النشاطات الهادية، بينما غيرها بتحب المغامرات والإثارة.",
+          "e": "Some people prefer quiet activities, while others enjoy exciting experiences."
+        },
+        {
+          "f": "Voyager est une excellente occasion de découvrir d'autres modes de vie.",
+          "a": "السفر فرصة ممتازة حتى نتعرّف على أساليب حياة مختلفة.",
+          "e": "Travelling is an excellent opportunity to discover other ways of life."
+        },
+        {
+          "f": "Je pense que les loisirs sont indispensables pour maintenir un bon équilibre dans la vie.",
+          "a": "برأيي، أوقات الفراغ ضرورية حتى نحافظ على توازن جيد بحياتنا.",
+          "e": "I think leisure activities are essential for maintaining a good balance in life."
+        },
+        {
+          "f": "Même si je suis occupé, j'essaie de garder du temps pour mes passions.",
+          "a": "حتى لو كنت مشغول، بحاول خصّص وقت للأشياء اللي بحبها.",
+          "e": "Even when I am busy, I try to make time for my passions."
+        },
+        {
+          "f": "Chacun devrait avoir une activité qui lui apporte du plaisir et de la satisfaction.",
+          "a": "لازم يكون عند كل شخص نشاط بيمنحه المتعة والشعور بالرضا.",
+          "e": "Everyone should have an activity that brings them pleasure and satisfaction."
+        }
+      ],
+      "ids": []
+    },
+    {
+      "id": "b1-t14",
+      "icon": "🛒",
+      "fr": "Thème 14 — La consommation",
+      "ar": "موضوع 14 — الاستهلاك والتسوّق",
+      "phr": [
+        {
+          "f": "Avant de faire des achats, je compare souvent les prix dans plusieurs magasins.",
+          "a": "قبل ما اشتري، غالباً بقارن الأسعار بين عدة محلات.",
+          "e": "Before shopping, I often compare prices in several stores."
+        },
+        {
+          "f": "Je préfère acheter des produits de bonne qualité, même s'ils coûtent un peu plus cher.",
+          "a": "بفضّل اشتري منتجات جودتها منيحة حتى لو كانت أغلى شوي.",
+          "e": "I prefer buying good-quality products, even if they cost a little more."
+        },
+        {
+          "f": "Il est important de vérifier la date de péremption des produits alimentaires.",
+          "a": "من المهم نتأكد من تاريخ انتهاء صلاحية المواد الغذائية.",
+          "e": "It is important to check the expiration date of food products."
+        },
+        {
+          "f": "Je prépare une liste de courses pour éviter les achats inutiles.",
+          "a": "بحضّر قائمة للمشتريات حتى أتجنّب شراء أشياء ما بلزمني.",
+          "e": "I prepare a shopping list to avoid unnecessary purchases."
+        },
+        {
+          "f": "Les promotions permettent parfois de faire de bonnes économies.",
+          "a": "العروض أحياناً بتساعدنا نوفر مصاري بشكل منيح.",
+          "e": "Special offers sometimes help us save a good amount of money."
+        },
+        {
+          "f": "Cependant, il ne faut pas acheter quelque chose simplement parce qu'il est en promotion.",
+          "a": "مع هيك، ما لازم نشتري شي بس لأنه عليه تخفيض.",
+          "e": "However, we should not buy something simply because it is on sale."
+        },
+        {
+          "f": "Je vérifie toujours les conditions de retour avant de commander un produit.",
+          "a": "دايماً بتأكد من شروط إرجاع المنتج قبل ما اطلبه.",
+          "e": "I always check the return policy before ordering a product."
+        },
+        {
+          "f": "J'ai reçu un article défectueux et j'ai demandé un remboursement.",
+          "a": "وصلني غرض فيه عطل، وطلبت استرجاع المبلغ.",
+          "e": "I received a faulty item and requested a refund."
+        },
+        {
+          "f": "Le vendeur m'a proposé un échange au lieu d'un remboursement.",
+          "a": "البائع عرض عليّ يبدّل المنتج بدل ما يرجّعلي المصاري.",
+          "e": "The seller offered me an exchange instead of a refund."
+        },
+        {
+          "f": "Il faut conserver le ticket de caisse en cas de réclamation.",
+          "a": "لازم نحتفظ بفاتورة الشراء إذا بدنا نقدّم شكوى.",
+          "e": "We should keep the receipt in case we need to make a complaint."
+        },
+        {
+          "f": "Les achats en ligne sont pratiques, mais ils présentent aussi certains risques.",
+          "a": "التسوّق عبر الإنترنت مريح، بس كمان فيه بعض المخاطر.",
+          "e": "Online shopping is convenient, but it also involves certain risks."
+        },
+        {
+          "f": "Je consulte les avis des clients avant de choisir un produit.",
+          "a": "بقرأ تقييمات الزبائن قبل ما اختار أي منتج.",
+          "e": "I read customer reviews before choosing a product."
+        },
+        {
+          "f": "Certains vendeurs utilisent des publicités exagérées pour attirer les consommateurs.",
+          "a": "بعض البائعين بيستخدموا إعلانات مبالغ فيها حتى يجذبوا المستهلكين.",
+          "e": "Some sellers use exaggerated advertisements to attract consumers."
+        },
+        {
+          "f": "Il vaut mieux lire attentivement les caractéristiques d'un produit.",
+          "a": "الأفضل نقرأ مواصفات المنتج بانتباه.",
+          "e": "It is better to read a product's specifications carefully."
+        },
+        {
+          "f": "Je fais attention à mes dépenses pour respecter mon budget mensuel.",
+          "a": "بنتبه لمصاريفي حتى التزم بميزانيتي الشهرية.",
+          "e": "I pay attention to my expenses to stay within my monthly budget."
+        },
+        {
+          "f": "Les achats impulsifs peuvent provoquer des difficultés financières.",
+          "a": "المشتريات العشوائية والاندفاعية ممكن تسبب مشاكل مادية.",
+          "e": "Impulsive purchases can cause financial difficulties."
+        },
+        {
+          "f": "Je préfère économiser une partie de mon salaire chaque mois.",
+          "a": "بفضّل وفّر جزء من راتبي كل شهر.",
+          "e": "I prefer saving part of my salary every month."
+        },
+        {
+          "f": "Il est parfois préférable de réparer un appareil plutôt que d'en acheter un nouveau.",
+          "a": "أحياناً الأفضل نصلّح جهاز بدل ما نشتري واحد جديد.",
+          "e": "Sometimes it is better to repair a device rather than buy a new one."
+        },
+        {
+          "f": "Les produits d'occasion peuvent être une solution économique.",
+          "a": "المنتجات المستعملة ممكن تكون حل اقتصادي.",
+          "e": "Second-hand products can be an economical solution."
+        },
+        {
+          "f": "Je vends parfois les objets dont je n'ai plus besoin.",
+          "a": "أحياناً ببيع الأغراض اللي ما عاد بحتاجها.",
+          "e": "I sometimes sell things I no longer need."
+        },
+        {
+          "f": "Les consommateurs ont le droit de recevoir des informations claires sur les produits.",
+          "a": "من حق المستهلكين يحصلوا على معلومات واضحة عن المنتجات.",
+          "e": "Consumers have the right to receive clear information about products."
+        },
+        {
+          "f": "En cas de problème, je contacte le service après-vente.",
+          "a": "إذا صار في مشكلة، بتواصل مع خدمة ما بعد البيع.",
+          "e": "If there is a problem, I contact customer service."
+        },
+        {
+          "f": "Le prix le plus bas n'est pas toujours synonyme de bonne qualité.",
+          "a": "السعر الأرخص مو دايماً بيعني إن الجودة منيحة.",
+          "e": "The lowest price does not always mean good quality."
+        },
+        {
+          "f": "Je préfère acheter localement lorsque cela est possible.",
+          "a": "بفضّل اشتري من المحلات المحلية لما يكون هالشي ممكن.",
+          "e": "I prefer buying locally whenever possible."
+        },
+        {
+          "f": "Acheter des produits locaux peut soutenir les petits commerces.",
+          "a": "شراء المنتجات المحلية ممكن يدعم المحلات التجارية الصغيرة.",
+          "e": "Buying local products can support small businesses."
+        },
+        {
+          "f": "Nous devrions éviter le gaspillage et acheter uniquement ce dont nous avons besoin.",
+          "a": "لازم نتجنّب الهدر ونشتري بس الأشياء اللي منحتاجها.",
+          "e": "We should avoid waste and buy only what we need."
+        },
+        {
+          "f": "Les emballages excessifs augmentent la quantité de déchets.",
+          "a": "التغليف الزائد بيزيد كمية النفايات.",
+          "e": "Excessive packaging increases the amount of waste."
+        },
+        {
+          "f": "Certains consommateurs choisissent des produits respectueux de l'environnement.",
+          "a": "بعض المستهلكين بيختاروا منتجات صديقة للبيئة.",
+          "e": "Some consumers choose environmentally friendly products."
+        },
+        {
+          "f": "Avant de prendre une décision, je réfléchis à l'utilité réelle de mon achat.",
+          "a": "قبل ما قرر اشتري شي، بفكّر إذا أنا فعلاً بحاجة إله.",
+          "e": "Before making a decision, I think about whether I really need the item."
+        },
+        {
+          "f": "À mon avis, consommer intelligemment signifie acheter de manière responsable et éviter les dépenses inutiles.",
+          "a": "برأيي، الاستهلاك الواعي يعني نشتري بمسؤولية ونتجنّب المصاريف اللي ما إلها داعي.",
+          "e": "In my opinion, consuming wisely means shopping responsibly and avoiding unnecessary expenses."
+        }
+      ],
+      "ids": []
     }
   ]
 };
