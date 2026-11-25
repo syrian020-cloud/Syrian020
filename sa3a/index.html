@@ -332,6 +332,12 @@ audio.lmed{max-height:none}
 .qz-card.wrong{animation:qzShake .45s;border-color:#e0245e;background:#e0245e;color:#fff}
 @keyframes qzShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
 .qz-langs{display:flex;flex-direction:column;gap:.9rem;max-width:340px;margin:auto;width:100%}
+.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:.7rem;padding:.4rem;width:100%;max-width:520px;margin:0 auto}
+.src-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.45rem;background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:.9rem .35rem;min-height:104px;cursor:pointer;box-shadow:var(--shadow);transition:transform .12s}
+.src-tile:active{transform:scale(.95)}
+.src-tile .ti{font-size:2.1rem;line-height:1}
+.src-tile .tl{font-size:.92rem;font-weight:700;text-align:center;color:var(--txt)}
+.src-tile .tc{font-size:.72rem;color:var(--dim)}
 .qz-langs .btn{width:100%;min-height:3.2rem;font-size:1.1rem}
 .qz-end{margin:auto;text-align:center}
 .qz-pct{font-size:4.2rem;font-weight:800;line-height:1}
@@ -1040,11 +1046,16 @@ function gSources(){
   f.secs.forEach(s=>(s.rows||[]).forEach(r=>{if(r[1]&&r[2])ph.push({s:r[1],lg:'fr',a:r[2],e:r[3]||''})}));
   if(ph.length)out.push({label:f.ic+' '+(f.t[st.lang]||f.t.en),node:{id:'nm'+fi,t:'l',n:(f.t[st.lang]||f.t.en),ph:ph}})});
  return out}
+function srcIcon(lb){
+ const m=(lb||'').match(/^(\p{Extended_Pictographic}(\uFE0F|\u200D\p{Extended_Pictographic})*)\s*/u);
+ return m&&m[0]?[m[0],lb.slice(m[0].length).trim()]:['📁',lb]}
+function srcTileBtn(attr,icon,label,count){
+ return '<button class="src-tile" '+attr+'><span class="ti">'+icon+'</span><span class="tl">'+esc(label)+'</span>'+(count!=null?'<span class="tc">'+count+'</span>':'')+'</button>'}
 function gameSrcPick(body,go){
  const srcs=gSources();
  if(!srcs.length){body.innerHTML='<div class="qz-langs"><h3 style="text-align:center;margin:0">'+esc(t('quizNoPhrases'))+'</h3></div>';return}
- body.innerHTML='<div class="qz-langs"><h3 style="text-align:center;margin:0">'+esc(t('chooseSrc'))+'</h3>'+
-  srcs.map((s,i)=>'<button class="btn" data-si="'+i+'">'+esc(s.label)+' — '+s.node.ph.length+'</button>').join('')+'</div>';
+ body.innerHTML='<h3 style="text-align:center;margin:.4rem 0">'+esc(t('chooseSrc'))+'</h3><div class="src-grid">'+
+  srcs.map((s,i)=>{const ic=srcIcon(s.label);return srcTileBtn('data-si="'+i+'"',ic[0],ic[1],s.node.ph.length)}).join('')+'</div>';
  body.querySelectorAll('button[data-si]').forEach(b=>{b.onclick=()=>go(srcs[+b.dataset.si].node)})}
 function gamePairPicker(n,title){
  const maps=gPool(n).map(phMapS),langs=rrLangsOf(gItems(n),n),pairs=[];
@@ -2884,9 +2895,9 @@ function openLwGame(){
  $('quiz-exit').onclick=closeGame;
  const body=$('quiz-body');
  const srcs=gSources();
- body.innerHTML='<div class="qz-langs"><h3 style="text-align:center;margin:0">'+esc(t('chooseSrc'))+'</h3>'+
- '<button class="btn" data-lw="num">🔢 1–2000</button>'+
- srcs.map((s,i)=>'<button class="btn" data-lw="'+i+'">'+esc(s.label)+' — '+s.node.ph.length+'</button>').join('')+'</div>';
+ body.innerHTML='<h3 style="text-align:center;margin:.4rem 0">'+esc(t('chooseSrc'))+'</h3><div class="src-grid">'+
+ srcTileBtn('data-lw="num"','🔢','1–2000',2000)+
+ srcs.map((s,i)=>{const ic=srcIcon(s.label);return srcTileBtn('data-lw="'+i+'"',ic[0],ic[1],s.node.ph.length)}).join('')+'</div>';
  body.querySelectorAll('button[data-lw]').forEach(b=>{b.onclick=()=>lwStart(b.dataset.lw==='num'?null:srcs[+b.dataset.lw].node)})}
 function lwStart(n){
  lw.node=n;
