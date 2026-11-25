@@ -1370,7 +1370,7 @@ function renderLesson(){
     w.ondblclick = function(){
       if(wordTap){ clearTimeout(wordTap); wordTap = null; }
       stopSpeech();
-      window.open('https://www.google.com/search?q=' + encodeURIComponent(el_word(this) + ' code de la route'), '_system');
+      window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(el_word(this) + ' code de la route panneau'), '_system');
     };
   });
   function el_word(el){ return el.dataset.w || el.textContent; }
