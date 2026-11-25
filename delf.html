@@ -1754,10 +1754,12 @@ function dgLWQ(){
   var p = dgW.pool[dgW.i];
   nbPhr = p.f;
   var q = dgLWText(p.f) || p.f;
+  var dm = p.f.match(/^\s*(\d[\d\s.,\/-]*)\s*—/);
+  var digits = dm ? dm[1].replace(/\D/g, '') : '';
   document.getElementById('dg-prog').textContent = '✍️ اكتب — ' + (dgW.i + 1) + '/' + dgW.pool.length + ' · ✅ ' + dgW.ok;
   body.innerHTML = '<div class="dg-stage"><div class="dg-hero">🎧</div>' +
     '<button class="dg-loop" id="dg-lw-play" title="استمع">🔊</button>' +
-    '<div class="dg-sub">اسمع الجملة واكتبها بالفرنسي — التصحيح يتغاضى عن الحركات والفواصل</div>' +
+    '<div class="dg-sub">اسمع الجملة واكتبها بالفرنسي — التصحيح يتغاضى عن الحركات والفواصل' + (digits ? ' · فيك تكتب الأرقام كمان 🔢' : '') + '</div>' +
     '<input class="dg-inp" id="dg-lw-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" dir="ltr" placeholder="écris ici…">' +
     '<div class="dg-msg" id="dg-lw-msg"></div>' +
     '<button class="big-btn" id="dg-lw-go" style="margin-top:.3rem">تحقّق ✔️</button>' +
@@ -1769,7 +1771,8 @@ function dgLWQ(){
   var lock = false;
   function check(){
     if(lock) return; lock = true;
-    var good = lwNorm(inp.value) === lwNorm(q);
+    var inD = inp.value.replace(/\D/g, '');
+    var good = lwNorm(inp.value) === lwNorm(q) || (digits && inD.length > 0 && inD === digits && inp.value.replace(/[0-9\s.,\/-]/g, '').trim() === '');
     if(good){ dgW.ok++; } else { dgW.bad++; }
     playFeedback(good);
     inp.disabled = true; go.disabled = true;
