@@ -202,6 +202,10 @@
   .dg-tile.ok { border-color: #22c55e; background: rgba(34,197,94,.13); }
   .dg-tile.bad { border-color: #ef4444; background: rgba(239,68,68,.1); animation: dgShake .45s; }
   .dg-tile.dim { opacity: .45; pointer-events: none; }
+  .dg-inp { font-size: 1.05rem; text-align: center; padding: 0.7rem 0.8rem; border-radius: 14px; border: 2px solid var(--border); background: var(--bg-tertiary); color: var(--text-primary); width: min(92%, 26rem); margin-top: 0.9rem; font-family: inherit; }
+  .dg-inp.ok { border-color: #22c55e; }
+  .dg-inp.bad { border-color: #ef4444; }
+  .dg-msg { text-align: center; min-height: 1.6rem; margin-top: 0.6rem; font-size: 0.95rem; }
   .dg-text { font-size: 1.15rem; font-weight: 800; text-align: center; line-height: 1.7; }
   .dg-tr { color: var(--text-secondary); text-align: center; font-size: 0.95rem; margin-top: 0.35rem; }
   .dg-count { font-size: 1.6rem; font-weight: 800; color: var(--gold); }
@@ -1338,6 +1342,7 @@ function renderLesson(){
         '<button class="dg-btn" id="dg-bmatch">🧩 توصيل</button>' +
         '<button class="dg-btn" id="dg-blisten">🎧 اختبار سمعي</button>' +
         '<button class="dg-btn" id="dg-brr">🗣️ اقرأ وكرّر</button>' +
+        '<button class="dg-btn" id="dg-blw">✍️ اسمع واكتب</button>' +
       '</div>' +
       consigne +
       cards +
@@ -1347,6 +1352,7 @@ function renderLesson(){
   document.getElementById('dg-bmatch').onclick = function(){ openDgMatch(ls); };
   document.getElementById('dg-blisten').onclick = function(){ openDgListen(ls); };
   document.getElementById('dg-brr').onclick = function(){ openDgRR(ls); };
+  document.getElementById('dg-blw').onclick = function(){ openDgLW(ls); };
   document.querySelectorAll('.flag-btn').forEach(function(b){
     b.onclick = function(){
       var p = +b.dataset.i >= 0 ? ls.phr[+b.dataset.i] : ls.consigne;
@@ -1728,6 +1734,64 @@ function dgListenEnd(){
   var ls = currentLesson();
   document.getElementById('dg-again2').onclick = function(){ openDgListen(ls); };
   document.getElementById('dg-out2').onclick = dgClose;
+}
+
+/* ===== اسمع واكتب ✍️ — اكتب ما تسمعه بالفرنسي ===== */
+function lwNorm(s){ return (s || '').toLowerCase().replace(/[\u2018\u2019]/g, "'").normalize('NFD').replace(/\p{M}/gu, '').replace(/[^a-z0-9'\- ]/g, ' ').replace(/\s+/g, ' ').trim(); }
+function dgLWText(f){ return (f || '').replace(/^\s*\d[\d\s.,\/-]*\s*—\s*/, '').trim(); }
+var dgW = null;
+function openDgLW(ls){
+  var items = dgItems(ls).filter(function(p){ return p.f; });
+  if(items.length < 2){ showToast('لا يوجد عبارات كافية للّعبة'); return; }
+  dgOverlay('اسمع واكتب ✍️');
+  dgW = { pool: shuffle(items).slice(0, Math.min(10, items.length)), i: 0, ok: 0, bad: 0 };
+  dgLWQ();
+}
+function dgLWQ(){
+  var body = document.getElementById('dg-body'); if(!body || !dgW) return;
+  stopSpeech();
+  if(dgW.i >= dgW.pool.length){ dgLWEnd(); return; }
+  var p = dgW.pool[dgW.i];
+  nbPhr = p.f;
+  var q = dgLWText(p.f) || p.f;
+  document.getElementById('dg-prog').textContent = '✍️ اكتب — ' + (dgW.i + 1) + '/' + dgW.pool.length + ' · ✅ ' + dgW.ok;
+  body.innerHTML = '<div class="dg-stage"><div class="dg-hero">🎧</div>' +
+    '<button class="dg-loop" id="dg-lw-play" title="استمع">🔊</button>' +
+    '<div class="dg-sub">اسمع الجملة واكتبها بالفرنسي — التصحيح يتغاضى عن الحركات والفواصل</div>' +
+    '<input class="dg-inp" id="dg-lw-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" dir="ltr" placeholder="écris ici…">' +
+    '<div class="dg-msg" id="dg-lw-msg"></div>' +
+    '<button class="big-btn" id="dg-lw-go" style="margin-top:.3rem">تحقّق ✔️</button>' +
+    '<button class="ghost-btn" id="dg-lw-skip" style="margin-top:.4rem">⏭ تخطي</button></div>';
+  var play = document.getElementById('dg-lw-play');
+  play.onclick = function(){ speakLoop(q, play, 'fr-FR'); };
+  speakLoop(q, play, 'fr-FR');
+  var inp = document.getElementById('dg-lw-in'), msg = document.getElementById('dg-lw-msg'), go = document.getElementById('dg-lw-go');
+  var lock = false;
+  function check(){
+    if(lock) return; lock = true;
+    var good = lwNorm(inp.value) === lwNorm(q);
+    if(good){ dgW.ok++; } else { dgW.bad++; }
+    playFeedback(good);
+    inp.disabled = true; go.disabled = true;
+    inp.classList.add(good ? 'ok' : 'bad');
+    msg.innerHTML = (good ? '✅ أحسنت' : '❌ الصحيح: <b dir="ltr">' + esc(q) + '</b>');
+    setTimeout(function(){ dgW.i++; dgLWQ(); }, good ? 1200 : 3000);
+  }
+  go.onclick = check;
+  inp.onkeydown = function(e){ if(e.key === 'Enter') check(); };
+  inp.focus();
+  document.getElementById('dg-lw-skip').onclick = function(){ dgW.i++; dgLWQ(); };
+}
+function dgLWEnd(){
+  var body = document.getElementById('dg-body'); if(!body || !dgW) return;
+  var pct = Math.round(100 * dgW.ok / dgW.pool.length);
+  body.innerHTML = '<div class="dg-end"><div class="dg-pct">' + pct + '%</div>' +
+    '<h3>✍️ ' + dgW.ok + '/' + dgW.pool.length + ' صحيحة · ' + dgW.bad + ' خطأ</h3>' +
+    '<div class="dg-langs"><button class="big-btn" id="dg-again3">🔁 أعد اللعب</button>' +
+    '<button class="ghost-btn" id="dg-out3">✕ خروج</button></div></div>';
+  var ls = currentLesson();
+  document.getElementById('dg-again3').onclick = function(){ openDgLW(ls); };
+  document.getElementById('dg-out3').onclick = dgClose;
 }
 
 /* ===== اقرأ وكرّر 🗣️ — استمع وكرّر حتى 5 ===== */
