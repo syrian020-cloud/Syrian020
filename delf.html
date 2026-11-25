@@ -1763,6 +1763,7 @@ function dgLWQ(){
     '<input class="dg-inp" id="dg-lw-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" dir="ltr" placeholder="écris ici…">' +
     '<div class="dg-msg" id="dg-lw-msg"></div>' +
     '<button class="big-btn" id="dg-lw-go" style="margin-top:.3rem">تحقّق ✔️</button>' +
+    '<button class="big-btn" id="dg-lw-next" style="margin-top:.3rem;display:none">⏭ التالي</button>' +
     '<button class="ghost-btn" id="dg-lw-skip" style="margin-top:.4rem">⏭ تخطي</button></div>';
   var play = document.getElementById('dg-lw-play');
   play.onclick = function(){ speakLoop(q, play, 'fr-FR'); };
@@ -1777,9 +1778,17 @@ function dgLWQ(){
     playFeedback(good);
     inp.disabled = true; go.disabled = true;
     inp.classList.add(good ? 'ok' : 'bad');
-    msg.innerHTML = (good ? '✅ أحسنت' : '❌ الصحيح: <b dir="ltr">' + esc(q) + '</b>');
-    setTimeout(function(){ dgW.i++; dgLWQ(); }, good ? 1200 : 3000);
+    var full = digits ? '<b dir="ltr">' + esc(dm[1].trim()) + '</b> — <b dir="ltr">' + esc(q) + '</b>' : '<b dir="ltr">' + esc(q) + '</b>';
+    msg.innerHTML = (good ? '✅ أحسنت — ' : '❌ الصحيح: ') + full;
+    go.style.display = 'none';
+    var nxt = document.getElementById('dg-lw-next');
+    nxt.style.display = '';
+    var skip = document.getElementById('dg-lw-skip'); if(skip) skip.style.display = 'none';
+    var tm = setTimeout(advance, 5000);
+    nxt.onclick = function(){ clearTimeout(tm); advance(); };
+    nxt.focus();
   }
+  function advance(){ dgW.i++; dgLWQ(); }
   go.onclick = check;
   inp.onkeydown = function(e){ if(e.key === 'Enter') check(); };
   inp.focus();
