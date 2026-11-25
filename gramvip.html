@@ -2237,7 +2237,12 @@
     document.getElementById('ovPhEdit').classList.add('hidden');
     phEditCtx = null;
     toast('✓ ' + t('saved'));
+    renderKeepScroll();
+  }
+  function renderKeepScroll() {
+    var m = document.querySelector('main'), st = m ? m.scrollTop : 0;
     renderAll();
+    if (m) m.scrollTop = st;
   }
   function confirmDeletePhrase(f) {
     confirmBox(t('delPhraseT'), allText(f.phrase).slice(0, 80) + '. ' + t('delPhraseD'), async function () {
@@ -2245,7 +2250,7 @@
       f.lesson.raw = lessonToRaw(f.lesson);
       await idbPut('lessons', f.lesson);
       toast('✓ ' + t('deleted'));
-      renderAll();
+      renderKeepScroll();
     });
   }
 
