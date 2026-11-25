@@ -908,6 +908,16 @@ function sayOnce(txt,lg){return new Promise(res=>{
  if(isCap()&&CAP.Plugins.Tts){CAP.Plugins.Tts.speak({text:txt,lang:lg}).catch(()=>{});setTimeout(res,Math.min(9000,600+txt.length*95));return}
  if(window.speechSynthesis){const u=new SpeechSynthesisUtterance(txt);u.lang=lg||'fr';u.onend=res;u.onerror=res;speechSynthesis.speak(u);return}
  res()})}
+function saySmart(txt,lg){
+ const m=(txt||'').match(/^\s*([^:]{1,40}?) : ([A-ZÉÈA-Z]\s*–\s*.+)$/)
+ if(!m)return sayOnce(txt,lg);
+ return (async()=>{
+  const tok=sayTok;
+  await sayOnce(m[1].trim(),lg);
+  if(tok!==sayTok)return;
+  await new Promise(r=>setTimeout(r,5000));
+  if(tok!==sayTok)return;
+  await sayOnce(m[2],lg)})()}
 function loopSpeak(rows,btn){
  rows=rows.filter(r=>r.txt);if(!rows.length)return;
  if(btn.classList.contains('speaking')){btn.classList.remove('speaking');stopSay();return}
@@ -915,7 +925,7 @@ function loopSpeak(rows,btn){
  stopSay();const md=$('lsMedia');if(md){md._seg=null;md._once=null;try{md.pause()}catch(e){}}
  btn.classList.add('speaking');const tok=sayTok;
  (async()=>{let k=0;
-  while(btn.classList.contains('speaking')&&tok===sayTok){const r=rows[k++%rows.length];await sayOnce(r.txt,(r.lg&&r.lg!=='x')?r.lg:guessLang(r.txt));await new Promise(rs=>setTimeout(rs,1100))}
+  while(btn.classList.contains('speaking')&&tok===sayTok){const r=rows[k++%rows.length];await saySmart(r.txt,(r.lg&&r.lg!=='x')?r.lg:guessLang(r.txt));await new Promise(rs=>setTimeout(rs,1100))}
   btn.classList.remove('speaking')})()}
 function openExt(u){const B=CAP.Plugins&&CAP.Plugins.Browser;if(B&&B.open){B.open({url:u});return}window.open(u,'_blank')}
 function phRowsOf(p){const r=[];const tt=p.tt||{};
