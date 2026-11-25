@@ -2771,10 +2771,12 @@ function openPhGame(){
  closeGame();
  const ov=document.createElement('div');ov.id='quiz-overlay';ov.className='qz-ov';
  ov.innerHTML='<div class="qz-top"><button class="mini" id="quiz-exit">✕</button>'+
+  '<button class="mini" id="quiz-note">📔</button>'+
   '<div class="qz-prog" id="quiz-progress"></div></div>'+
   '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>';
  document.body.appendChild(ov);
  $('quiz-exit').onclick=closeGame;
+ $('quiz-note').onclick=function(){const p=window.__gNoteP;openNote('gnote_'+(p&&p.id||'scratch'),p||null,this)};
  phRound()}
 function phRound(){pg.i=0;pg.ok=0;pg.bad=0;pg.qs=[];
  for(let k=0;k<5;k++){
@@ -2935,11 +2937,13 @@ function openLwGame(directNode){
  closeGame();
  const ov=document.createElement('div');ov.id='quiz-overlay';ov.className='qz-ov';
  ov.innerHTML='<div class="qz-top"><button class="mini" id="quiz-exit">✕</button>'+
+ '<button class="mini" id="quiz-note">📔</button>'+
  '<div class="qz-prog" id="quiz-progress"></div></div>'+
  '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>';
  document.body.appendChild(ov);
  $('quiz-exit').onclick=closeGame;
  const body=$('quiz-body');
+  $('quiz-note').onclick=function(){const p=window.__gNoteP;openNote('gnote_'+(p&&p.id||'scratch'),p||null,this)};
  if(directNode){lwStart(directNode);return}
  const srcs=gSources();
  body.innerHTML='<h3 style="text-align:center;margin:.4rem 0">'+esc(t('chooseSrc'))+'</h3><div class="src-grid">'+
