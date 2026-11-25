@@ -1298,7 +1298,7 @@ function renderLesson(){
     }).join('');
     return '<div class="slide-card">' +
       '<div class="slide-head"><span class="slide-num">' + (i + 1) + ' / ' + ls.qs.length + '</span>' +
-      '<button class="icon-btn gsearch" data-q="' + esc(q.q) + '" title="بحث Google AI" style="font-size:0.95rem;width:2rem;height:2rem">✨</button>' + '</div>' +
+      '<button class="icon-btn gsearch" data-q="' + esc(q.q) + '" data-qa="' + esc(q.qa || '') + '" data-exp="' + esc(q.exp || '') + '" title="بحث Google AI" style="font-size:0.95rem;width:2rem;height:2rem">✨</button>' + '</div>' +
       '<div class="phr-line" dir="ltr"><button class="flag-btn" data-t="' + esc(q.q) + '" data-lang="fr-FR">🇫🇷</button> ' + wordify(q.q, 'fr-FR') + '</div>' +
       (q.qa ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-t="' + esc(q.qa) + '" data-lang="ar-SY">🇸🇾</button> ' + wordify(q.qa, 'ar-SY') + '</div>' : '') +
       (q.img ? imgHtml(q) : '') +
@@ -1356,7 +1356,10 @@ function renderLesson(){
   });
   document.querySelectorAll('.gsearch').forEach(function(b){
     b.onclick = function(){
-      var query = b.dataset.q + ' code de la route règle explication';
+      var query = 'Explique en français et en arabe, puis donne la règle du code de la route — اشرح بالفرنسية والعربية مع قاعدة قانون الطريق: '
+        + b.dataset.q
+        + (b.dataset.qa ? ' / ' + b.dataset.qa : '')
+        + (b.dataset.exp ? ' — ' + b.dataset.exp : '');
       window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_system');
     };
   });
