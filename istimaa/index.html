@@ -915,7 +915,7 @@ function saySmart(txt,lg){
   const tok=sayTok;
   await sayOnce(m[1].trim(),lg);
   if(tok!==sayTok)return;
-  await new Promise(r=>setTimeout(r,5000));
+  await new Promise(r=>setTimeout(r,3000));
   if(tok!==sayTok)return;
   const letters=m[2].split(/\s*–\s*/).map(x=>x.trim().replace(/[.\s]+$/,'')).filter(Boolean);
   for(const L of letters){
