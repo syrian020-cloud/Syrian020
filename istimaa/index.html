@@ -2630,7 +2630,13 @@ let numView=-1;
 function renderNums(){
  $('numTitle').textContent='🔢 '+NUM_TITLE[st.lang];
  const b=$('numBody');b.innerHTML='';
- if(numView<0){NUMPH.forEach((f,i)=>{
+ if(numView<0){
+  const tot=NUMPH.reduce((a,f)=>a+f.secs.reduce((x,s)=>x+s.rows.length,0),0);
+  const st_bar=document.createElement('div');
+  st_bar.style.cssText='text-align:center;padding:.45rem .6rem;margin-bottom:.5rem;border-radius:12px;background:var(--card);border:1px solid var(--line);font-weight:800;font-size:1.05rem';
+  st_bar.textContent='📊 '+tot.toLocaleString('en')+' · '+NUMPH.length+' 📁';
+  b.appendChild(st_bar);
+  NUMPH.forEach((f,i)=>{
   const n=f.secs.reduce((a,s)=>a+s.rows.length,0);
   const c=document.createElement('button');c.className='pr-menu';
   c.innerHTML='<span class="pr-ic">'+f.ic+'</span><span class="pr-tt"><b>'+esc(f.t[st.lang]||f.t.en)+'</b><small>'+esc(f.t.ar)+' · '+esc(f.t.fr)+'</small></span><span class="pr-n">'+n+'</span>';
