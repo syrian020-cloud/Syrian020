@@ -8079,6 +8079,13489 @@ window.DELF_LESSONS={
     }
    ],
    "ids": []
+  },
+  {
+   "id": "a2-119",
+   "icon": "📱",
+   "fr": "Comprendre un numéro de téléphone 1/2",
+   "ar": "فهم رقم الهاتف — جزء 1",
+   "phr": [
+    {
+     "f": "07 75 81 36 43 — Zéro sept – soixante-quinze – quatre-vingt-un – trente-six – quarante-trois.",
+     "a": "صفر سبعة – خمسة وسبعين – واحد وتمانين – ستة وتلاتين – تلاتة وأربعين.",
+     "e": "Zero seven – seventy-five – eighty-one – thirty-six – forty-three."
+    },
+    {
+     "f": "07 — Zéro sept",
+     "a": "صفر سبعة",
+     "e": "Zero seven"
+    },
+    {
+     "f": "75 — Soixante-quinze",
+     "a": "خمسة وسبعين",
+     "e": "Seventy-five"
+    },
+    {
+     "f": "81 — Quatre-vingt-un",
+     "a": "واحد وتمانين",
+     "e": "Eighty-one"
+    },
+    {
+     "f": "36 — Trente-six",
+     "a": "ستة وتلاتين",
+     "e": "Thirty-six"
+    },
+    {
+     "f": "43 — Quarante-trois",
+     "a": "تلاتة وأربعين",
+     "e": "Forty-three"
+    },
+    {
+     "f": " — Quel est votre numéro de téléphone ?",
+     "a": "شو رقم تلفونك؟",
+     "e": "What is your phone number?"
+    },
+    {
+     "f": " — Vous pouvez me donner votre numéro ?",
+     "a": "فيك تعطيني رقمك؟",
+     "e": "Can you give me your number?"
+    },
+    {
+     "f": " — Je vais vous dicter mon numéro.",
+     "a": "رح أملي عليك رقمي.",
+     "e": "I’ll dictate my number to you."
+    },
+    {
+     "f": " — Pouvez-vous répéter le numéro ?",
+     "a": "فيك تعيد الرقم؟",
+     "e": "Can you repeat the number?"
+    },
+    {
+     "f": " — Pouvez-vous parler plus lentement ?",
+     "a": "فيك تحكي بشكل أبطأ؟",
+     "e": "Can you speak more slowly?"
+    },
+    {
+     "f": " — Pouvez-vous le répéter chiffre par chiffre ?",
+     "a": "فيك تعيدو رقم رقم؟",
+     "e": "Can you repeat it digit by digit?"
+    },
+    {
+     "f": " — Je vais noter votre numéro.",
+     "a": "رح سجّل رقمك.",
+     "e": "I’ll write down your number."
+    },
+    {
+     "f": " — Est-ce que j’ai bien noté le numéro ?",
+     "a": "هل سجّلت الرقم بشكل صحيح؟",
+     "e": "Did I write the number down correctly?"
+    },
+    {
+     "f": " — Je vais vous donner mon numéro.",
+     "a": "رح أعطيك رقم تلفوني.",
+     "e": "I’ll give you my phone number."
+    },
+    {
+     "f": " — Écoutez bien le numéro.",
+     "a": "اسمع الرقم منيح.",
+     "e": "Listen carefully to the number."
+    },
+    {
+     "f": " — Notez les deux premiers chiffres.",
+     "a": "سجّل أول رقمين.",
+     "e": "Write down the first two digits."
+    },
+    {
+     "f": " — Les deux chiffres suivants sont…",
+     "a": "الرقمين اللي بعدن هنن…",
+     "e": "The next two digits are…"
+    },
+    {
+     "f": " — Je répète les deux derniers chiffres.",
+     "a": "رح عيد آخر رقمين.",
+     "e": "I’ll repeat the last two digits."
+    },
+    {
+     "f": " — Mon numéro commence par zéro six.",
+     "a": "رقمي بيبدأ بصفر ستة.",
+     "e": "My number starts with zero six."
+    },
+    {
+     "f": " — Mon numéro commence par zéro sept.",
+     "a": "رقمي بيبدأ بصفر سبعة.",
+     "e": "My number starts with zero seven."
+    },
+    {
+     "f": " — Mon numéro se termine par quarante-trois.",
+     "a": "رقمي بينتهي بتلاتة وأربعين.",
+     "e": "My number ends in forty-three."
+    },
+    {
+     "f": " — Pardon, je n’ai pas compris le numéro.",
+     "a": "عفواً، ما فهمت الرقم.",
+     "e": "Sorry, I didn’t understand the number."
+    },
+    {
+     "f": " — Vous pouvez répéter depuis le début ?",
+     "a": "فيك تعيد من الأول؟",
+     "e": "Can you repeat from the beginning?"
+    },
+    {
+     "f": " — Vous pouvez répéter les trois derniers groupes ?",
+     "a": "فيك تعيد آخر ثلاث مجموعات؟",
+     "e": "Can you repeat the last three groups?"
+    }
+   ],
+   "ids": [],
+   "consigne": "معلومة مهمة: بفرنسا رقم الموبايل غالباً 10 أرقام، ومنقراه كخمس مجموعات كل وحدة فيها رقمين. مثال: 07 75 81 36 43.\nنصيحة: ما تحاول تحفظ الرقم كله مرة وحدة — ركّز على كل مجموعتين وبعدها اجمع الخمسة سوا."
+  },
+  {
+   "id": "a2-120",
+   "icon": "📱",
+   "fr": "Comprendre un numéro de téléphone 2/2",
+   "ar": "فهم رقم الهاتف — جزء 2",
+   "phr": [
+    {
+     "f": " — Je n’ai pas entendu le dernier chiffre.",
+     "a": "ما سمعت آخر رقم.",
+     "e": "I didn’t hear the last digit."
+    },
+    {
+     "f": " — J’ai entendu zéro six, et après ?",
+     "a": "سمعت صفر ستة، وبعدين؟",
+     "e": "I heard zero six, and then?"
+    },
+    {
+     "f": " — Vous avez dit trente-six ou trente-sept ?",
+     "a": "قلت ستة وتلاتين ولا سبعة وتلاتين؟",
+     "e": "Did you say thirty-six or thirty-seven?"
+    },
+    {
+     "f": " — Je préfère que vous me l’écriviez.",
+     "a": "بفضّل تكتبه إلي.",
+     "e": "I’d prefer you to write it down for me."
+    },
+    {
+     "f": "06 18 25 47 90 — Zéro six – dix-huit – vingt-cinq – quarante-sept – quatre-vingt-dix.",
+     "a": "صفر ستة – تمنتعش – خمسة وعشرين – سبعة وأربعين – تسعين.",
+     "e": "Zero six – eighteen – twenty-five – forty-seven – ninety."
+    },
+    {
+     "f": "07 32 64 81 15 — Zéro sept – trente-deux – soixante-quatre – quatre-vingt-un – quinze.",
+     "a": "صفر سبعة – اتنين وتلاتين – أربعة وستين – واحد وتمانين – خمستعش.",
+     "e": "Zero seven – thirty-two – sixty-four – eighty-one – fifteen."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-121",
+   "icon": "📅",
+   "fr": "Comprendre la date 1/2",
+   "ar": "فهم التاريخ — جزء 1",
+   "phr": [
+    {
+     "f": " — Lundi",
+     "a": "الإثنين",
+     "e": "Monday"
+    },
+    {
+     "f": " — Mardi",
+     "a": "الثلاثاء",
+     "e": "Tuesday"
+    },
+    {
+     "f": " — Mercredi",
+     "a": "الأربعاء",
+     "e": "Wednesday"
+    },
+    {
+     "f": " — Jeudi",
+     "a": "الخميس",
+     "e": "Thursday"
+    },
+    {
+     "f": " — Vendredi",
+     "a": "الجمعة",
+     "e": "Friday"
+    },
+    {
+     "f": " — Samedi",
+     "a": "السبت",
+     "e": "Saturday"
+    },
+    {
+     "f": " — Dimanche",
+     "a": "الأحد",
+     "e": "Sunday"
+    },
+    {
+     "f": " — Janvier",
+     "a": "يناير / كانون الثاني",
+     "e": "January"
+    },
+    {
+     "f": " — Février",
+     "a": "فبراير / شباط",
+     "e": "February"
+    },
+    {
+     "f": " — Mars",
+     "a": "مارس / آذار",
+     "e": "March"
+    },
+    {
+     "f": " — Avril",
+     "a": "أبريل / نيسان",
+     "e": "April"
+    },
+    {
+     "f": " — Mai",
+     "a": "مايو / أيار",
+     "e": "May"
+    },
+    {
+     "f": " — Juin",
+     "a": "يونيو / حزيران",
+     "e": "June"
+    },
+    {
+     "f": " — Juillet",
+     "a": "يوليو / تموز",
+     "e": "July"
+    },
+    {
+     "f": " — Août",
+     "a": "أغسطس / آب",
+     "e": "August"
+    },
+    {
+     "f": " — Septembre",
+     "a": "سبتمبر / أيلول",
+     "e": "September"
+    },
+    {
+     "f": " — Octobre",
+     "a": "أكتوبر / تشرين الأول",
+     "e": "October"
+    },
+    {
+     "f": " — Novembre",
+     "a": "نوفمبر / تشرين الثاني",
+     "e": "November"
+    },
+    {
+     "f": " — Décembre",
+     "a": "ديسمبر / كانون الأول",
+     "e": "December"
+    },
+    {
+     "f": " — Le premier janvier",
+     "a": "أول يناير",
+     "e": "The first of January"
+    },
+    {
+     "f": " — Le deux janvier",
+     "a": "ثاني يناير",
+     "e": "The second of January"
+    },
+    {
+     "f": " — Le quinze juillet",
+     "a": "خمسة عشر يوليو",
+     "e": "The fifteenth of July"
+    },
+    {
+     "f": " — Le trente et un décembre",
+     "a": "واحد وثلاثون ديسمبر",
+     "e": "The thirty-first of December"
+    },
+    {
+     "f": " — En deux mille vingt-quatre",
+     "a": "سنة ألفين وأربعة وعشرين",
+     "e": "In 2024"
+    },
+    {
+     "f": " — En mille neuf cent quatre-vingt-dix",
+     "a": "سنة ألف وتسعمئة وتسعين",
+     "e": "In 1990"
+    }
+   ],
+   "ids": [],
+   "consigne": "مهم: بالفرنسية أول يوم بالشهر هو الوحيد اللي بينقال «premier» — باقي الأيام أرقام عادية (le deux, le trois…). والسنوات بين 1900–1999 بتنقرأ «mille neuf cent…» وبعد 2000 «deux mille…»."
+  },
+  {
+   "id": "a2-122",
+   "icon": "📅",
+   "fr": "Comprendre la date 2/2",
+   "ar": "فهم التاريخ — جزء 2",
+   "phr": [
+    {
+     "f": " — Le dix-huit mars deux mille vingt-cinq",
+     "a": "18 مارس 2025",
+     "e": "March 18, 2025"
+    },
+    {
+     "f": " — Aujourd’hui, on est le…",
+     "a": "اليوم التاريخ…",
+     "e": "Today is the…"
+    },
+    {
+     "f": " — Quelle est la date aujourd’hui ?",
+     "a": "شو التاريخ اليوم؟",
+     "e": "What’s the date today?"
+    },
+    {
+     "f": " — On est le combien aujourd’hui ?",
+     "a": "قديش تاريخ اليوم؟",
+     "e": "What’s today’s date?"
+    },
+    {
+     "f": " — C’est quel jour aujourd’hui ?",
+     "a": "أي يوم اليوم؟",
+     "e": "What day is it today?"
+    },
+    {
+     "f": " — Ma date de naissance est le…",
+     "a": "تاريخ ميلادي هو…",
+     "e": "My date of birth is…"
+    },
+    {
+     "f": " — Je suis né le…",
+     "a": "أنا مولود بتاريخ…",
+     "e": "I was born on…"
+    },
+    {
+     "f": " — Le rendez-vous est le…",
+     "a": "الموعد بتاريخ…",
+     "e": "The appointment is on…"
+    },
+    {
+     "f": " — C’est pour quelle date ?",
+     "a": "لأي تاريخ؟",
+     "e": "For what date?"
+    },
+    {
+     "f": " — Vous pouvez répéter la date ?",
+     "a": "فيك تعيد التاريخ؟",
+     "e": "Can you repeat the date?"
+    },
+    {
+     "f": " — Le premier ou le deux ?",
+     "a": "الأول ولا الثاني؟",
+     "e": "The first or the second?"
+    },
+    {
+     "f": " — En quelle année ?",
+     "a": "بأي سنة؟",
+     "e": "In what year?"
+    },
+    {
+     "f": " — Quel mois ?",
+     "a": "أي شهر؟",
+     "e": "Which month?"
+    },
+    {
+     "f": " — Il y a combien de jours ?",
+     "a": "في كم يوم؟",
+     "e": "How many days are there?"
+    },
+    {
+     "f": "12/05/1990 — Le douze mai mille neuf cent quatre-vingt-dix",
+     "a": "12 أيار 1990",
+     "e": "May 12, 1990"
+    },
+    {
+     "f": "01/01/2024 — Le premier janvier deux mille vingt-quatre",
+     "a": "1 يناير 2024",
+     "e": "January 1, 2024"
+    },
+    {
+     "f": "23/07/1985 — Le vingt-trois juillet mille neuf cent quatre-vingt-cinq",
+     "a": "23 تموز 1985",
+     "e": "July 23, 1985"
+    },
+    {
+     "f": "30/11/2000 — Le trente novembre deux mille",
+     "a": "30 تشرين الثاني 2000",
+     "e": "November 30, 2000"
+    },
+    {
+     "f": "15/08/2015 — Le quinze août deux mille quinze",
+     "a": "15 آب 2015",
+     "e": "August 15, 2015"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-123",
+   "icon": "🔢",
+   "fr": "Les nombres de 1 à 99 1/4",
+   "ar": "الأرقام من 1 إلى 99 — جزء 1",
+   "phr": [
+    {
+     "f": "1 — Un",
+     "a": "واحد",
+     "e": "One"
+    },
+    {
+     "f": "2 — Deux",
+     "a": "تنين",
+     "e": "Two"
+    },
+    {
+     "f": "3 — Trois",
+     "a": "تلاتة",
+     "e": "Three"
+    },
+    {
+     "f": "4 — Quatre",
+     "a": "أربعة",
+     "e": "Four"
+    },
+    {
+     "f": "5 — Cinq",
+     "a": "خمسة",
+     "e": "Five"
+    },
+    {
+     "f": "6 — Six",
+     "a": "ستة",
+     "e": "Six"
+    },
+    {
+     "f": "7 — Sept",
+     "a": "سبعة",
+     "e": "Seven"
+    },
+    {
+     "f": "8 — Huit",
+     "a": "تمانية",
+     "e": "Eight"
+    },
+    {
+     "f": "9 — Neuf",
+     "a": "تسعة",
+     "e": "Nine"
+    },
+    {
+     "f": "10 — Dix",
+     "a": "عشرة",
+     "e": "Ten"
+    },
+    {
+     "f": "11 — Onze",
+     "a": "حداش",
+     "e": "Eleven"
+    },
+    {
+     "f": "12 — Douze",
+     "a": "اتناش",
+     "e": "Twelve"
+    },
+    {
+     "f": "13 — Treize",
+     "a": "تلتعش",
+     "e": "Thirteen"
+    },
+    {
+     "f": "14 — Quatorze",
+     "a": "أربعتعش",
+     "e": "Fourteen"
+    },
+    {
+     "f": "15 — Quinze",
+     "a": "خمستعش",
+     "e": "Fifteen"
+    },
+    {
+     "f": "16 — Seize",
+     "a": "ستعش",
+     "e": "Sixteen"
+    },
+    {
+     "f": "17 — Dix-sept",
+     "a": "سبعتعش",
+     "e": "Seventeen"
+    },
+    {
+     "f": "18 — Dix-huit",
+     "a": "تمنتعش",
+     "e": "Eighteen"
+    },
+    {
+     "f": "19 — Dix-neuf",
+     "a": "تسعتعش",
+     "e": "Nineteen"
+    },
+    {
+     "f": "20 — Vingt",
+     "a": "عشرين",
+     "e": "twenty"
+    },
+    {
+     "f": "21 — Vingt et un",
+     "a": "واحد وعشرين",
+     "e": "twenty-one"
+    },
+    {
+     "f": "22 — Vingt-deux",
+     "a": "اتنين وعشرين",
+     "e": "twenty-two"
+    },
+    {
+     "f": "23 — Vingt-trois",
+     "a": "تلاتة وعشرين",
+     "e": "twenty-three"
+    },
+    {
+     "f": "24 — Vingt-quatre",
+     "a": "أربعة وعشرين",
+     "e": "twenty-four"
+    },
+    {
+     "f": "25 — Vingt-cinq",
+     "a": "خمسة وعشرين",
+     "e": "twenty-five"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-124",
+   "icon": "🔢",
+   "fr": "Les nombres de 1 à 99 2/4",
+   "ar": "الأرقام من 1 إلى 99 — جزء 2",
+   "phr": [
+    {
+     "f": "26 — Vingt-six",
+     "a": "ستة وعشرين",
+     "e": "twenty-six"
+    },
+    {
+     "f": "27 — Vingt-sept",
+     "a": "سبعة وعشرين",
+     "e": "twenty-seven"
+    },
+    {
+     "f": "28 — Vingt-huit",
+     "a": "تمانية وعشرين",
+     "e": "twenty-eight"
+    },
+    {
+     "f": "29 — Vingt-neuf",
+     "a": "تسعة وعشرين",
+     "e": "twenty-nine"
+    },
+    {
+     "f": "30 — Trente",
+     "a": "تلاتين",
+     "e": "thirty"
+    },
+    {
+     "f": "31 — Trente et un",
+     "a": "واحد وتلاتين",
+     "e": "thirty-one"
+    },
+    {
+     "f": "32 — Trente-deux",
+     "a": "اتنين وتلاتين",
+     "e": "thirty-two"
+    },
+    {
+     "f": "33 — Trente-trois",
+     "a": "تلاتة وتلاتين",
+     "e": "thirty-three"
+    },
+    {
+     "f": "34 — Trente-quatre",
+     "a": "أربعة وتلاتين",
+     "e": "thirty-four"
+    },
+    {
+     "f": "35 — Trente-cinq",
+     "a": "خمسة وتلاتين",
+     "e": "thirty-five"
+    },
+    {
+     "f": "36 — Trente-six",
+     "a": "ستة وتلاتين",
+     "e": "thirty-six"
+    },
+    {
+     "f": "37 — Trente-sept",
+     "a": "سبعة وتلاتين",
+     "e": "thirty-seven"
+    },
+    {
+     "f": "38 — Trente-huit",
+     "a": "تمانية وتلاتين",
+     "e": "thirty-eight"
+    },
+    {
+     "f": "39 — Trente-neuf",
+     "a": "تسعة وتلاتين",
+     "e": "thirty-nine"
+    },
+    {
+     "f": "40 — Quarante",
+     "a": "أربعين",
+     "e": "forty"
+    },
+    {
+     "f": "41 — Quarante et un",
+     "a": "واحد وأربعين",
+     "e": "forty-one"
+    },
+    {
+     "f": "42 — Quarante-deux",
+     "a": "اتنين وأربعين",
+     "e": "forty-two"
+    },
+    {
+     "f": "43 — Quarante-trois",
+     "a": "تلاتة وأربعين",
+     "e": "forty-three"
+    },
+    {
+     "f": "44 — Quarante-quatre",
+     "a": "أربعة وأربعين",
+     "e": "forty-four"
+    },
+    {
+     "f": "45 — Quarante-cinq",
+     "a": "خمسة وأربعين",
+     "e": "forty-five"
+    },
+    {
+     "f": "46 — Quarante-six",
+     "a": "ستة وأربعين",
+     "e": "forty-six"
+    },
+    {
+     "f": "47 — Quarante-sept",
+     "a": "سبعة وأربعين",
+     "e": "forty-seven"
+    },
+    {
+     "f": "48 — Quarante-huit",
+     "a": "تمانية وأربعين",
+     "e": "forty-eight"
+    },
+    {
+     "f": "49 — Quarante-neuf",
+     "a": "تسعة وأربعين",
+     "e": "forty-nine"
+    },
+    {
+     "f": "50 — Cinquante",
+     "a": "خمسين",
+     "e": "fifty"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-125",
+   "icon": "🔢",
+   "fr": "Les nombres de 1 à 99 3/4",
+   "ar": "الأرقام من 1 إلى 99 — جزء 3",
+   "phr": [
+    {
+     "f": "51 — Cinquante et un",
+     "a": "واحد وخمسين",
+     "e": "fifty-one"
+    },
+    {
+     "f": "52 — Cinquante-deux",
+     "a": "اتنين وخمسين",
+     "e": "fifty-two"
+    },
+    {
+     "f": "53 — Cinquante-trois",
+     "a": "تلاتة وخمسين",
+     "e": "fifty-three"
+    },
+    {
+     "f": "54 — Cinquante-quatre",
+     "a": "أربعة وخمسين",
+     "e": "fifty-four"
+    },
+    {
+     "f": "55 — Cinquante-cinq",
+     "a": "خمسة وخمسين",
+     "e": "fifty-five"
+    },
+    {
+     "f": "56 — Cinquante-six",
+     "a": "ستة وخمسين",
+     "e": "fifty-six"
+    },
+    {
+     "f": "57 — Cinquante-sept",
+     "a": "سبعة وخمسين",
+     "e": "fifty-seven"
+    },
+    {
+     "f": "58 — Cinquante-huit",
+     "a": "تمانية وخمسين",
+     "e": "fifty-eight"
+    },
+    {
+     "f": "59 — Cinquante-neuf",
+     "a": "تسعة وخمسين",
+     "e": "fifty-nine"
+    },
+    {
+     "f": "60 — Soixante",
+     "a": "ستين",
+     "e": "sixty"
+    },
+    {
+     "f": "61 — Soixante et un",
+     "a": "واحد وستين",
+     "e": "sixty-one"
+    },
+    {
+     "f": "62 — Soixante-deux",
+     "a": "اتنين وستين",
+     "e": "sixty-two"
+    },
+    {
+     "f": "63 — Soixante-trois",
+     "a": "تلاتة وستين",
+     "e": "sixty-three"
+    },
+    {
+     "f": "64 — Soixante-quatre",
+     "a": "أربعة وستين",
+     "e": "sixty-four"
+    },
+    {
+     "f": "65 — Soixante-cinq",
+     "a": "خمسة وستين",
+     "e": "sixty-five"
+    },
+    {
+     "f": "66 — Soixante-six",
+     "a": "ستة وستين",
+     "e": "sixty-six"
+    },
+    {
+     "f": "67 — Soixante-sept",
+     "a": "سبعة وستين",
+     "e": "sixty-seven"
+    },
+    {
+     "f": "68 — Soixante-huit",
+     "a": "تمانية وستين",
+     "e": "sixty-eight"
+    },
+    {
+     "f": "69 — Soixante-neuf",
+     "a": "تسعة وستين",
+     "e": "sixty-nine"
+    },
+    {
+     "f": "70 — Soixante-dix",
+     "a": "سبعين",
+     "e": "seventy"
+    },
+    {
+     "f": "71 — Soixante et onze",
+     "a": "واحد وسبعين",
+     "e": "seventy-one"
+    },
+    {
+     "f": "72 — Soixante-douze",
+     "a": "اتنين وسبعين",
+     "e": "seventy-two"
+    },
+    {
+     "f": "73 — Soixante-treize",
+     "a": "تلاتة وسبعين",
+     "e": "seventy-three"
+    },
+    {
+     "f": "74 — Soixante-quatorze",
+     "a": "أربعة وسبعين",
+     "e": "seventy-four"
+    },
+    {
+     "f": "75 — Soixante-quinze",
+     "a": "خمسة وسبعين",
+     "e": "seventy-five"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-126",
+   "icon": "🔢",
+   "fr": "Les nombres de 1 à 99 4/4",
+   "ar": "الأرقام من 1 إلى 99 — جزء 4",
+   "phr": [
+    {
+     "f": "76 — Soixante-seize",
+     "a": "ستة وسبعين",
+     "e": "seventy-six"
+    },
+    {
+     "f": "77 — Soixante-dix-sept",
+     "a": "سبعة وسبعين",
+     "e": "seventy-seven"
+    },
+    {
+     "f": "78 — Soixante-dix-huit",
+     "a": "تمانية وسبعين",
+     "e": "seventy-eight"
+    },
+    {
+     "f": "79 — Soixante-dix-neuf",
+     "a": "تسعة وسبعين",
+     "e": "seventy-nine"
+    },
+    {
+     "f": "80 — Quatre-vingts",
+     "a": "تمانين",
+     "e": "eighty"
+    },
+    {
+     "f": "81 — Quatre-vingt-un",
+     "a": "واحد وتمانين",
+     "e": "eighty-one"
+    },
+    {
+     "f": "82 — Quatre-vingt-deux",
+     "a": "اتنين وتمانين",
+     "e": "eighty-two"
+    },
+    {
+     "f": "83 — Quatre-vingt-trois",
+     "a": "تلاتة وتمانين",
+     "e": "eighty-three"
+    },
+    {
+     "f": "84 — Quatre-vingt-quatre",
+     "a": "أربعة وتمانين",
+     "e": "eighty-four"
+    },
+    {
+     "f": "85 — Quatre-vingt-cinq",
+     "a": "خمسة وتمانين",
+     "e": "eighty-five"
+    },
+    {
+     "f": "86 — Quatre-vingt-six",
+     "a": "ستة وتمانين",
+     "e": "eighty-six"
+    },
+    {
+     "f": "87 — Quatre-vingt-sept",
+     "a": "سبعة وتمانين",
+     "e": "eighty-seven"
+    },
+    {
+     "f": "88 — Quatre-vingt-huit",
+     "a": "تمانية وتمانين",
+     "e": "eighty-eight"
+    },
+    {
+     "f": "89 — Quatre-vingt-neuf",
+     "a": "تسعة وتمانين",
+     "e": "eighty-nine"
+    },
+    {
+     "f": "90 — Quatre-vingt-dix",
+     "a": "تسعين",
+     "e": "ninety"
+    },
+    {
+     "f": "91 — Quatre-vingt-onze",
+     "a": "واحد وتسعين",
+     "e": "ninety-one"
+    },
+    {
+     "f": "92 — Quatre-vingt-douze",
+     "a": "اتنين وتسعين",
+     "e": "ninety-two"
+    },
+    {
+     "f": "93 — Quatre-vingt-treize",
+     "a": "تلاتة وتسعين",
+     "e": "ninety-three"
+    },
+    {
+     "f": "94 — Quatre-vingt-quatorze",
+     "a": "أربعة وتسعين",
+     "e": "ninety-four"
+    },
+    {
+     "f": "95 — Quatre-vingt-quinze",
+     "a": "خمسة وتسعين",
+     "e": "ninety-five"
+    },
+    {
+     "f": "96 — Quatre-vingt-seize",
+     "a": "ستة وتسعين",
+     "e": "ninety-six"
+    },
+    {
+     "f": "97 — Quatre-vingt-dix-sept",
+     "a": "سبعة وتسعين",
+     "e": "ninety-seven"
+    },
+    {
+     "f": "98 — Quatre-vingt-dix-huit",
+     "a": "تمانية وتسعين",
+     "e": "ninety-eight"
+    },
+    {
+     "f": "99 — Quatre-vingt-dix-neuf",
+     "a": "تسعة وتسعين",
+     "e": "ninety-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-127",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 1/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 1",
+   "phr": [
+    {
+     "f": "100 — Cent",
+     "a": "مية",
+     "e": "One hundred"
+    },
+    {
+     "f": "200 — Deux cents",
+     "a": "ميتين",
+     "e": "Two hundred"
+    },
+    {
+     "f": "300 — Trois cents",
+     "a": "تلتمية",
+     "e": "Three hundred"
+    },
+    {
+     "f": "400 — Quatre cents",
+     "a": "أربعمية",
+     "e": "Four hundred"
+    },
+    {
+     "f": "500 — Cinq cents",
+     "a": "خمسمية",
+     "e": "Five hundred"
+    },
+    {
+     "f": "600 — Six cents",
+     "a": "ستمية",
+     "e": "Six hundred"
+    },
+    {
+     "f": "700 — Sept cents",
+     "a": "سبعمية",
+     "e": "Seven hundred"
+    },
+    {
+     "f": "800 — Huit cents",
+     "a": "تمنمية",
+     "e": "Eight hundred"
+    },
+    {
+     "f": "900 — Neuf cents",
+     "a": "تسعمية",
+     "e": "Nine hundred"
+    },
+    {
+     "f": "1000 — Mille",
+     "a": "ألف",
+     "e": "One thousand"
+    },
+    {
+     "f": "101 — Cent un",
+     "a": "مية وواحد",
+     "e": "One hundred and one"
+    },
+    {
+     "f": "102 — Cent deux",
+     "a": "مية واتنين",
+     "e": "One hundred and two"
+    },
+    {
+     "f": "103 — Cent trois",
+     "a": "مية وتلاتة",
+     "e": "One hundred and three"
+    },
+    {
+     "f": "104 — Cent quatre",
+     "a": "مية وأربعة",
+     "e": "One hundred and four"
+    },
+    {
+     "f": "105 — Cent cinq",
+     "a": "مية وخمسة",
+     "e": "One hundred and five"
+    },
+    {
+     "f": "106 — Cent six",
+     "a": "مية وستة",
+     "e": "One hundred and six"
+    },
+    {
+     "f": "107 — Cent sept",
+     "a": "مية وسبعة",
+     "e": "One hundred and seven"
+    },
+    {
+     "f": "108 — Cent huit",
+     "a": "مية وتمانية",
+     "e": "One hundred and eight"
+    },
+    {
+     "f": "109 — Cent neuf",
+     "a": "مية وتسعة",
+     "e": "One hundred and nine"
+    },
+    {
+     "f": "110 — Cent dix",
+     "a": "مية وعشرة",
+     "e": "One hundred and ten"
+    },
+    {
+     "f": "111 — Cent onze",
+     "a": "مية وحداش",
+     "e": "One hundred and eleven"
+    },
+    {
+     "f": "112 — Cent douze",
+     "a": "مية واتناش",
+     "e": "One hundred and twelve"
+    },
+    {
+     "f": "113 — Cent treize",
+     "a": "مية وتلتعش",
+     "e": "One hundred and thirteen"
+    },
+    {
+     "f": "114 — Cent quatorze",
+     "a": "مية وأربعتعش",
+     "e": "One hundred and fourteen"
+    },
+    {
+     "f": "115 — Cent quinze",
+     "a": "مية وخمستعش",
+     "e": "One hundred and fifteen"
+    }
+   ],
+   "ids": [],
+   "consigne": "ملاحظة لغوية مهمة: منكتب «Deux cents» لما تأتي 200 لحالها، بس «Deux cent cinq» لما يجي بعدها عدد. ونفس الشي «Quatre-vingts» بتصير «Quatre-vingt-un» مع إضافة واحد.\nتغطية كاملة: المجلد فيه كل الأعداد من 100 إلى 1000 مولّدة بقواعد الفرنسية، واللعبة كمان بتلعب على كل الأعداد من 1 إلى 1000 بدون تكرار بالجولة."
+  },
+  {
+   "id": "a2-128",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 2/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 2",
+   "phr": [
+    {
+     "f": "116 — Cent seize",
+     "a": "مية وستعش",
+     "e": "One hundred and sixteen"
+    },
+    {
+     "f": "117 — Cent dix-sept",
+     "a": "مية وسبعتعش",
+     "e": "One hundred and seventeen"
+    },
+    {
+     "f": "118 — Cent dix-huit",
+     "a": "مية وتمنتعش",
+     "e": "One hundred and eighteen"
+    },
+    {
+     "f": "119 — Cent dix-neuf",
+     "a": "مية وتسعتعش",
+     "e": "One hundred and nineteen"
+    },
+    {
+     "f": "120 — Cent vingt",
+     "a": "مية وعشرين",
+     "e": "One hundred and twenty"
+    },
+    {
+     "f": "121 — Cent vingt et un",
+     "a": "مية وواحد وعشرين",
+     "e": "One hundred and twenty-one"
+    },
+    {
+     "f": "122 — Cent vingt-deux",
+     "a": "مية واتنين وعشرين",
+     "e": "One hundred and twenty-two"
+    },
+    {
+     "f": "123 — Cent vingt-trois",
+     "a": "مية وتلاتة وعشرين",
+     "e": "One hundred and twenty-three"
+    },
+    {
+     "f": "124 — Cent vingt-quatre",
+     "a": "مية وأربعة وعشرين",
+     "e": "One hundred and twenty-four"
+    },
+    {
+     "f": "125 — Cent vingt-cinq",
+     "a": "مية وخمسة وعشرين",
+     "e": "One hundred and twenty-five"
+    },
+    {
+     "f": "126 — Cent vingt-six",
+     "a": "مية وستة وعشرين",
+     "e": "One hundred and twenty-six"
+    },
+    {
+     "f": "127 — Cent vingt-sept",
+     "a": "مية وسبعة وعشرين",
+     "e": "One hundred and twenty-seven"
+    },
+    {
+     "f": "128 — Cent vingt-huit",
+     "a": "مية وتمانية وعشرين",
+     "e": "One hundred and twenty-eight"
+    },
+    {
+     "f": "129 — Cent vingt-neuf",
+     "a": "مية وتسعة وعشرين",
+     "e": "One hundred and twenty-nine"
+    },
+    {
+     "f": "130 — Cent trente",
+     "a": "مية وتلاتين",
+     "e": "One hundred and thirty"
+    },
+    {
+     "f": "131 — Cent trente et un",
+     "a": "مية وواحد وتلاتين",
+     "e": "One hundred and thirty-one"
+    },
+    {
+     "f": "132 — Cent trente-deux",
+     "a": "مية واتنين وتلاتين",
+     "e": "One hundred and thirty-two"
+    },
+    {
+     "f": "133 — Cent trente-trois",
+     "a": "مية وتلاتة وتلاتين",
+     "e": "One hundred and thirty-three"
+    },
+    {
+     "f": "134 — Cent trente-quatre",
+     "a": "مية وأربعة وتلاتين",
+     "e": "One hundred and thirty-four"
+    },
+    {
+     "f": "135 — Cent trente-cinq",
+     "a": "مية وخمسة وتلاتين",
+     "e": "One hundred and thirty-five"
+    },
+    {
+     "f": "136 — Cent trente-six",
+     "a": "مية وستة وتلاتين",
+     "e": "One hundred and thirty-six"
+    },
+    {
+     "f": "137 — Cent trente-sept",
+     "a": "مية وسبعة وتلاتين",
+     "e": "One hundred and thirty-seven"
+    },
+    {
+     "f": "138 — Cent trente-huit",
+     "a": "مية وتمانية وتلاتين",
+     "e": "One hundred and thirty-eight"
+    },
+    {
+     "f": "139 — Cent trente-neuf",
+     "a": "مية وتسعة وتلاتين",
+     "e": "One hundred and thirty-nine"
+    },
+    {
+     "f": "140 — Cent quarante",
+     "a": "مية وأربعين",
+     "e": "One hundred and forty"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-129",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 3/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 3",
+   "phr": [
+    {
+     "f": "141 — Cent quarante et un",
+     "a": "مية وواحد وأربعين",
+     "e": "One hundred and forty-one"
+    },
+    {
+     "f": "142 — Cent quarante-deux",
+     "a": "مية واتنين وأربعين",
+     "e": "One hundred and forty-two"
+    },
+    {
+     "f": "143 — Cent quarante-trois",
+     "a": "مية وتلاتة وأربعين",
+     "e": "One hundred and forty-three"
+    },
+    {
+     "f": "144 — Cent quarante-quatre",
+     "a": "مية وأربعة وأربعين",
+     "e": "One hundred and forty-four"
+    },
+    {
+     "f": "145 — Cent quarante-cinq",
+     "a": "مية وخمسة وأربعين",
+     "e": "One hundred and forty-five"
+    },
+    {
+     "f": "146 — Cent quarante-six",
+     "a": "مية وستة وأربعين",
+     "e": "One hundred and forty-six"
+    },
+    {
+     "f": "147 — Cent quarante-sept",
+     "a": "مية وسبعة وأربعين",
+     "e": "One hundred and forty-seven"
+    },
+    {
+     "f": "148 — Cent quarante-huit",
+     "a": "مية وتمانية وأربعين",
+     "e": "One hundred and forty-eight"
+    },
+    {
+     "f": "149 — Cent quarante-neuf",
+     "a": "مية وتسعة وأربعين",
+     "e": "One hundred and forty-nine"
+    },
+    {
+     "f": "150 — Cent cinquante",
+     "a": "مية وخمسين",
+     "e": "One hundred and fifty"
+    },
+    {
+     "f": "151 — Cent cinquante et un",
+     "a": "مية وواحد وخمسين",
+     "e": "One hundred and fifty-one"
+    },
+    {
+     "f": "152 — Cent cinquante-deux",
+     "a": "مية واتنين وخمسين",
+     "e": "One hundred and fifty-two"
+    },
+    {
+     "f": "153 — Cent cinquante-trois",
+     "a": "مية وتلاتة وخمسين",
+     "e": "One hundred and fifty-three"
+    },
+    {
+     "f": "154 — Cent cinquante-quatre",
+     "a": "مية وأربعة وخمسين",
+     "e": "One hundred and fifty-four"
+    },
+    {
+     "f": "155 — Cent cinquante-cinq",
+     "a": "مية وخمسة وخمسين",
+     "e": "One hundred and fifty-five"
+    },
+    {
+     "f": "156 — Cent cinquante-six",
+     "a": "مية وستة وخمسين",
+     "e": "One hundred and fifty-six"
+    },
+    {
+     "f": "157 — Cent cinquante-sept",
+     "a": "مية وسبعة وخمسين",
+     "e": "One hundred and fifty-seven"
+    },
+    {
+     "f": "158 — Cent cinquante-huit",
+     "a": "مية وتمنية وخمسين",
+     "e": "One hundred and fifty-eight"
+    },
+    {
+     "f": "159 — Cent cinquante-neuf",
+     "a": "مية وتسعة وخمسين",
+     "e": "One hundred and fifty-nine"
+    },
+    {
+     "f": "160 — Cent soixante",
+     "a": "مية وستين",
+     "e": "One hundred and sixty"
+    },
+    {
+     "f": "161 — Cent soixante et un",
+     "a": "مية وواحد وستين",
+     "e": "One hundred and sixty-one"
+    },
+    {
+     "f": "162 — Cent soixante-deux",
+     "a": "مية واتنين وستين",
+     "e": "One hundred and sixty-two"
+    },
+    {
+     "f": "163 — Cent soixante-trois",
+     "a": "مية وتلاتة وستين",
+     "e": "One hundred and sixty-three"
+    },
+    {
+     "f": "164 — Cent soixante-quatre",
+     "a": "مية وأربعة وستين",
+     "e": "One hundred and sixty-four"
+    },
+    {
+     "f": "165 — Cent soixante-cinq",
+     "a": "مية وخمسة وستين",
+     "e": "One hundred and sixty-five"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-130",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 4/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 4",
+   "phr": [
+    {
+     "f": "166 — Cent soixante-six",
+     "a": "مية وستة وستين",
+     "e": "One hundred and sixty-six"
+    },
+    {
+     "f": "167 — Cent soixante-sept",
+     "a": "مية وسبعة وستين",
+     "e": "One hundred and sixty-seven"
+    },
+    {
+     "f": "168 — Cent soixante-huit",
+     "a": "مية وتمانية وستين",
+     "e": "One hundred and sixty-eight"
+    },
+    {
+     "f": "169 — Cent soixante-neuf",
+     "a": "مية وتسعة وستين",
+     "e": "One hundred and sixty-nine"
+    },
+    {
+     "f": "170 — Cent soixante-dix",
+     "a": "مية وسبعين",
+     "e": "One hundred and seventy"
+    },
+    {
+     "f": "171 — Cent soixante et onze",
+     "a": "مية وواحد وسبعين",
+     "e": "One hundred and seventy-one"
+    },
+    {
+     "f": "172 — Cent soixante-douze",
+     "a": "مية واتنين وسبعين",
+     "e": "One hundred and seventy-two"
+    },
+    {
+     "f": "173 — Cent soixante-treize",
+     "a": "مية وتلاتة وسبعين",
+     "e": "One hundred and seventy-three"
+    },
+    {
+     "f": "174 — Cent soixante-quatorze",
+     "a": "مية وأربعة وسبعين",
+     "e": "One hundred and seventy-four"
+    },
+    {
+     "f": "175 — Cent soixante-quinze",
+     "a": "مية وخمسة وسبعين",
+     "e": "One hundred and seventy-five"
+    },
+    {
+     "f": "176 — Cent soixante-seize",
+     "a": "مية وستعش وسبعين",
+     "e": "One hundred and seventy-six"
+    },
+    {
+     "f": "177 — Cent soixante-dix-sept",
+     "a": "مية وسبعة وسبعين",
+     "e": "One hundred and seventy-seven"
+    },
+    {
+     "f": "178 — Cent soixante-dix-huit",
+     "a": "مية وتمانية وسبعين",
+     "e": "One hundred and seventy-eight"
+    },
+    {
+     "f": "179 — Cent soixante-dix-neuf",
+     "a": "مية وتسعة وسبعين",
+     "e": "One hundred and seventy-nine"
+    },
+    {
+     "f": "180 — Cent quatre-vingts",
+     "a": "مية وتمانين",
+     "e": "One hundred and eighty"
+    },
+    {
+     "f": "181 — Cent quatre-vingt-un",
+     "a": "مية وواحد وتمانين",
+     "e": "One hundred and eighty-one"
+    },
+    {
+     "f": "182 — Cent quatre-vingt-deux",
+     "a": "مية واتنين وتمانين",
+     "e": "One hundred and eighty-two"
+    },
+    {
+     "f": "183 — Cent quatre-vingt-trois",
+     "a": "مية وتلاتة وتمانين",
+     "e": "One hundred and eighty-three"
+    },
+    {
+     "f": "184 — Cent quatre-vingt-quatre",
+     "a": "مية وأربعة وتمانين",
+     "e": "One hundred and eighty-four"
+    },
+    {
+     "f": "185 — Cent quatre-vingt-cinq",
+     "a": "مية وخمسة وتمانين",
+     "e": "One hundred and eighty-five"
+    },
+    {
+     "f": "186 — Cent quatre-vingt-six",
+     "a": "مية وستة وتمانين",
+     "e": "One hundred and eighty-six"
+    },
+    {
+     "f": "187 — Cent quatre-vingt-sept",
+     "a": "مية وسبعة وتمانين",
+     "e": "One hundred and eighty-seven"
+    },
+    {
+     "f": "188 — Cent quatre-vingt-huit",
+     "a": "مية وتمانية وتمانين",
+     "e": "One hundred and eighty-eight"
+    },
+    {
+     "f": "189 — Cent quatre-vingt-neuf",
+     "a": "مية وتسعة وتمانين",
+     "e": "One hundred and eighty-nine"
+    },
+    {
+     "f": "190 — Cent quatre-vingt-dix",
+     "a": "مية وتسعين",
+     "e": "One hundred and ninety"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-131",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 5/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 5",
+   "phr": [
+    {
+     "f": "191 — Cent quatre-vingt-onze",
+     "a": "مية وواحد وتسعين",
+     "e": "One hundred and ninety-one"
+    },
+    {
+     "f": "192 — Cent quatre-vingt-douze",
+     "a": "مية واتنين وتسعين",
+     "e": "One hundred and ninety-two"
+    },
+    {
+     "f": "193 — Cent quatre-vingt-treize",
+     "a": "مية وتلتعش وتسعين",
+     "e": "One hundred and ninety-three"
+    },
+    {
+     "f": "194 — Cent quatre-vingt-quatorze",
+     "a": "مية وأربعة وتسعين",
+     "e": "One hundred and ninety-four"
+    },
+    {
+     "f": "195 — Cent quatre-vingt-quinze",
+     "a": "مية وخمسة وتسعين",
+     "e": "One hundred and ninety-five"
+    },
+    {
+     "f": "196 — Cent quatre-vingt-seize",
+     "a": "مية وستة وتسعين",
+     "e": "One hundred and ninety-six"
+    },
+    {
+     "f": "197 — Cent quatre-vingt-dix-sept",
+     "a": "مية وسبعة وتسعين",
+     "e": "One hundred and ninety-seven"
+    },
+    {
+     "f": "198 — Cent quatre-vingt-dix-huit",
+     "a": "مية وتمانية وتسعين",
+     "e": "One hundred and ninety-eight"
+    },
+    {
+     "f": "199 — Cent quatre-vingt-dix-neuf",
+     "a": "مية وتسعة وتسعين",
+     "e": "One hundred and ninety-nine"
+    },
+    {
+     "f": "201 — Deux cent un",
+     "a": "ميتين وواحد",
+     "e": "Two hundred and one"
+    },
+    {
+     "f": "202 — Deux cent deux",
+     "a": "ميتين وتنين",
+     "e": "Two hundred and two"
+    },
+    {
+     "f": "203 — Deux cent trois",
+     "a": "ميتين وتلاتة",
+     "e": "Two hundred and three"
+    },
+    {
+     "f": "204 — Deux cent quatre",
+     "a": "ميتين وأربعة",
+     "e": "Two hundred and four"
+    },
+    {
+     "f": "205 — Deux cent cinq",
+     "a": "ميتين وخمسة",
+     "e": "Two hundred and five"
+    },
+    {
+     "f": "206 — Deux cent six",
+     "a": "ميتين وستة",
+     "e": "Two hundred and six"
+    },
+    {
+     "f": "207 — Deux cent sept",
+     "a": "ميتين وسبعة",
+     "e": "Two hundred and seven"
+    },
+    {
+     "f": "208 — Deux cent huit",
+     "a": "ميتين وتمانية",
+     "e": "Two hundred and eight"
+    },
+    {
+     "f": "209 — Deux cent neuf",
+     "a": "ميتين وتسعة",
+     "e": "Two hundred and nine"
+    },
+    {
+     "f": "210 — Deux cent dix",
+     "a": "ميتين وعشرة",
+     "e": "Two hundred and ten"
+    },
+    {
+     "f": "211 — Deux cent onze",
+     "a": "ميتين وحداش",
+     "e": "Two hundred and eleven"
+    },
+    {
+     "f": "212 — Deux cent douze",
+     "a": "ميتين واتناش",
+     "e": "Two hundred and twelve"
+    },
+    {
+     "f": "213 — Deux cent treize",
+     "a": "ميتين وتلتعش",
+     "e": "Two hundred and thirteen"
+    },
+    {
+     "f": "214 — Deux cent quatorze",
+     "a": "ميتين وأربعتعش",
+     "e": "Two hundred and fourteen"
+    },
+    {
+     "f": "215 — Deux cent quinze",
+     "a": "ميتين وخمستعش",
+     "e": "Two hundred and fifteen"
+    },
+    {
+     "f": "216 — Deux cent seize",
+     "a": "ميتين وستعش",
+     "e": "Two hundred and sixteen"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-132",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 6/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 6",
+   "phr": [
+    {
+     "f": "217 — Deux cent dix-sept",
+     "a": "ميتين وسبعتعش",
+     "e": "Two hundred and seventeen"
+    },
+    {
+     "f": "218 — Deux cent dix-huit",
+     "a": "ميتين وتمنتعش",
+     "e": "Two hundred and eighteen"
+    },
+    {
+     "f": "219 — Deux cent dix-neuf",
+     "a": "ميتين وتسعتعش",
+     "e": "Two hundred and nineteen"
+    },
+    {
+     "f": "220 — Deux cent vingt",
+     "a": "ميتين وعشرين",
+     "e": "Two hundred and twenty"
+    },
+    {
+     "f": "221 — Deux cent vingt et un",
+     "a": "ميتين وواحد وعشرين",
+     "e": "Two hundred and twenty-one"
+    },
+    {
+     "f": "222 — Deux cent vingt-deux",
+     "a": "ميتين واتنين وعشرين",
+     "e": "Two hundred and twenty-two"
+    },
+    {
+     "f": "223 — Deux cent vingt-trois",
+     "a": "ميتين وتلاتة وعشرين",
+     "e": "Two hundred and twenty-three"
+    },
+    {
+     "f": "224 — Deux cent vingt-quatre",
+     "a": "ميتين وأربعة وعشرين",
+     "e": "Two hundred and twenty-four"
+    },
+    {
+     "f": "225 — Deux cent vingt-cinq",
+     "a": "ميتين وخمسة وعشرين",
+     "e": "Two hundred and twenty-five"
+    },
+    {
+     "f": "226 — Deux cent vingt-six",
+     "a": "ميتين وستة وعشرين",
+     "e": "Two hundred and twenty-six"
+    },
+    {
+     "f": "227 — Deux cent vingt-sept",
+     "a": "ميتين وسبعة وعشرين",
+     "e": "Two hundred and twenty-seven"
+    },
+    {
+     "f": "228 — Deux cent vingt-huit",
+     "a": "ميتين وتمانية وعشرين",
+     "e": "Two hundred and twenty-eight"
+    },
+    {
+     "f": "229 — Deux cent vingt-neuf",
+     "a": "ميتين وتسعة وعشرين",
+     "e": "Two hundred and twenty-nine"
+    },
+    {
+     "f": "230 — Deux cent trente",
+     "a": "ميتين وتلاتين",
+     "e": "Two hundred and thirty"
+    },
+    {
+     "f": "231 — Deux cent trente et un",
+     "a": "ميتين وواحد وتلاتين",
+     "e": "Two hundred and thirty-one"
+    },
+    {
+     "f": "232 — Deux cent trente-deux",
+     "a": "ميتين واتنين وتلاتين",
+     "e": "Two hundred and thirty-two"
+    },
+    {
+     "f": "233 — Deux cent trente-trois",
+     "a": "ميتين وتلاتة وتلاتين",
+     "e": "Two hundred and thirty-three"
+    },
+    {
+     "f": "234 — Deux cent trente-quatre",
+     "a": "ميتين وأربعة وتلاتين",
+     "e": "Two hundred and thirty-four"
+    },
+    {
+     "f": "235 — Deux cent trente-cinq",
+     "a": "ميتين وخمسة وتلاتين",
+     "e": "Two hundred and thirty-five"
+    },
+    {
+     "f": "236 — Deux cent trente-six",
+     "a": "ميتين وستة وتلاتين",
+     "e": "Two hundred and thirty-six"
+    },
+    {
+     "f": "237 — Deux cent trente-sept",
+     "a": "ميتين وسبعة وتلاتين",
+     "e": "Two hundred and thirty-seven"
+    },
+    {
+     "f": "238 — Deux cent trente-huit",
+     "a": "ميتين وتمانية وتلاتين",
+     "e": "Two hundred and thirty-eight"
+    },
+    {
+     "f": "239 — Deux cent trente-neuf",
+     "a": "ميتين وتسعة وتلاتين",
+     "e": "Two hundred and thirty-nine"
+    },
+    {
+     "f": "240 — Deux cent quarante",
+     "a": "ميتين وأربعين",
+     "e": "Two hundred and forty"
+    },
+    {
+     "f": "241 — Deux cent quarante et un",
+     "a": "ميتين وواحد وأربعين",
+     "e": "Two hundred and forty-one"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-133",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 7/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 7",
+   "phr": [
+    {
+     "f": "242 — Deux cent quarante-deux",
+     "a": "ميتين واتنين وأربعين",
+     "e": "Two hundred and forty-two"
+    },
+    {
+     "f": "243 — Deux cent quarante-trois",
+     "a": "ميتين وتلاتة وأربعين",
+     "e": "Two hundred and forty-three"
+    },
+    {
+     "f": "244 — Deux cent quarante-quatre",
+     "a": "ميتين وأربعة وأربعين",
+     "e": "Two hundred and forty-four"
+    },
+    {
+     "f": "245 — Deux cent quarante-cinq",
+     "a": "ميتين وخمسة وأربعين",
+     "e": "Two hundred and forty-five"
+    },
+    {
+     "f": "246 — Deux cent quarante-six",
+     "a": "ميتين وستة وأربعين",
+     "e": "Two hundred and forty-six"
+    },
+    {
+     "f": "247 — Deux cent quarante-sept",
+     "a": "ميتين وسبعة وأربعين",
+     "e": "Two hundred and forty-seven"
+    },
+    {
+     "f": "248 — Deux cent quarante-huit",
+     "a": "ميتين وتمانية وأربعين",
+     "e": "Two hundred and forty-eight"
+    },
+    {
+     "f": "249 — Deux cent quarante-neuf",
+     "a": "ميتين وتسعة وأربعين",
+     "e": "Two hundred and forty-nine"
+    },
+    {
+     "f": "250 — Deux cent cinquante",
+     "a": "ميتين وخمسين",
+     "e": "Two hundred and fifty"
+    },
+    {
+     "f": "251 — Deux cent cinquante et un",
+     "a": "ميتين وواحد وخمسين",
+     "e": "Two hundred and fifty-one"
+    },
+    {
+     "f": "252 — Deux cent cinquante-deux",
+     "a": "ميتين واتنين وخمسين",
+     "e": "Two hundred and fifty-two"
+    },
+    {
+     "f": "253 — Deux cent cinquante-trois",
+     "a": "ميتين وتلاتة وخمسين",
+     "e": "Two hundred and fifty-three"
+    },
+    {
+     "f": "254 — Deux cent cinquante-quatre",
+     "a": "ميتين وأربعة وخمسين",
+     "e": "Two hundred and fifty-four"
+    },
+    {
+     "f": "255 — Deux cent cinquante-cinq",
+     "a": "ميتين وخمسة وخمسين",
+     "e": "Two hundred and fifty-five"
+    },
+    {
+     "f": "256 — Deux cent cinquante-six",
+     "a": "ميتين وستة وخمسين",
+     "e": "Two hundred and fifty-six"
+    },
+    {
+     "f": "257 — Deux cent cinquante-sept",
+     "a": "ميتين وسبعة وخمسين",
+     "e": "Two hundred and fifty-seven"
+    },
+    {
+     "f": "258 — Deux cent cinquante-huit",
+     "a": "ميتين وتمانية وخمسين",
+     "e": "Two hundred and fifty-eight"
+    },
+    {
+     "f": "259 — Deux cent cinquante-neuf",
+     "a": "ميتين وتسعة وخمسين",
+     "e": "Two hundred and fifty-nine"
+    },
+    {
+     "f": "260 — Deux cent soixante",
+     "a": "ميتين وستين",
+     "e": "Two hundred and sixty"
+    },
+    {
+     "f": "261 — Deux cent soixante et un",
+     "a": "ميتين وواحد وستين",
+     "e": "Two hundred and sixty-one"
+    },
+    {
+     "f": "262 — Deux cent soixante-deux",
+     "a": "ميتين واتنين وستين",
+     "e": "Two hundred and sixty-two"
+    },
+    {
+     "f": "263 — Deux cent soixante-trois",
+     "a": "ميتين وتلاتة وستين",
+     "e": "Two hundred and sixty-three"
+    },
+    {
+     "f": "264 — Deux cent soixante-quatre",
+     "a": "ميتين وأربعة وستين",
+     "e": "Two hundred and sixty-four"
+    },
+    {
+     "f": "265 — Deux cent soixante-cinq",
+     "a": "ميتين وخمسة وستين",
+     "e": "Two hundred and sixty-five"
+    },
+    {
+     "f": "266 — Deux cent soixante-six",
+     "a": "ميتين وستة وستين",
+     "e": "Two hundred and sixty-six"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-134",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 8/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 8",
+   "phr": [
+    {
+     "f": "267 — Deux cent soixante-sept",
+     "a": "ميتين وسبعة وستين",
+     "e": "Two hundred and sixty-seven"
+    },
+    {
+     "f": "268 — Deux cent soixante-huit",
+     "a": "ميتين وتمانية وستين",
+     "e": "Two hundred and sixty-eight"
+    },
+    {
+     "f": "269 — Deux cent soixante-neuf",
+     "a": "ميتين وتسعة وستين",
+     "e": "Two hundred and sixty-nine"
+    },
+    {
+     "f": "270 — Deux cent soixante-dix",
+     "a": "ميتين وسبعين",
+     "e": "Two hundred and seventy"
+    },
+    {
+     "f": "271 — Deux cent soixante et onze",
+     "a": "ميتين وواحد وسبعين",
+     "e": "Two hundred and seventy-one"
+    },
+    {
+     "f": "272 — Deux cent soixante-douze",
+     "a": "ميتين واتنين وسبعين",
+     "e": "Two hundred and seventy-two"
+    },
+    {
+     "f": "273 — Deux cent soixante-treize",
+     "a": "ميتين وتلتعش وسبعين",
+     "e": "Two hundred and seventy-three"
+    },
+    {
+     "f": "274 — Deux cent soixante-quatorze",
+     "a": "ميتين وأربعة وسبعين",
+     "e": "Two hundred and seventy-four"
+    },
+    {
+     "f": "275 — Deux cent soixante-quinze",
+     "a": "ميتين وخمسة وسبعين",
+     "e": "Two hundred and seventy-five"
+    },
+    {
+     "f": "276 — Deux cent soixante-seize",
+     "a": "ميتين وستة وسبعين",
+     "e": "Two hundred and seventy-six"
+    },
+    {
+     "f": "277 — Deux cent soixante-dix-sept",
+     "a": "ميتين وسبعة وسبعين",
+     "e": "Two hundred and seventy-seven"
+    },
+    {
+     "f": "278 — Deux cent soixante-dix-huit",
+     "a": "ميتين وتمانية وسبعين",
+     "e": "Two hundred and seventy-eight"
+    },
+    {
+     "f": "279 — Deux cent soixante-dix-neuf",
+     "a": "ميتين وتسعة وسبعين",
+     "e": "Two hundred and seventy-nine"
+    },
+    {
+     "f": "280 — Deux cent quatre-vingts",
+     "a": "ميتين وتمانين",
+     "e": "Two hundred and eighty"
+    },
+    {
+     "f": "281 — Deux cent quatre-vingt-un",
+     "a": "ميتين وواحد وتمانين",
+     "e": "Two hundred and eighty-one"
+    },
+    {
+     "f": "282 — Deux cent quatre-vingt-deux",
+     "a": "ميتين واتنين وتمانين",
+     "e": "Two hundred and eighty-two"
+    },
+    {
+     "f": "283 — Deux cent quatre-vingt-trois",
+     "a": "ميتين وتلاتة وتمانين",
+     "e": "Two hundred and eighty-three"
+    },
+    {
+     "f": "284 — Deux cent quatre-vingt-quatre",
+     "a": "ميتين وأربعة وتمانين",
+     "e": "Two hundred and eighty-four"
+    },
+    {
+     "f": "285 — Deux cent quatre-vingt-cinq",
+     "a": "ميتين وخمسة وتمانين",
+     "e": "Two hundred and eighty-five"
+    },
+    {
+     "f": "286 — Deux cent quatre-vingt-six",
+     "a": "ميتين وستة وتمانين",
+     "e": "Two hundred and eighty-six"
+    },
+    {
+     "f": "287 — Deux cent quatre-vingt-sept",
+     "a": "ميتين وسبعة وتمانين",
+     "e": "Two hundred and eighty-seven"
+    },
+    {
+     "f": "288 — Deux cent quatre-vingt-huit",
+     "a": "ميتين وتمانية وتمانين",
+     "e": "Two hundred and eighty-eight"
+    },
+    {
+     "f": "289 — Deux cent quatre-vingt-neuf",
+     "a": "ميتين وتسعة وتمانين",
+     "e": "Two hundred and eighty-nine"
+    },
+    {
+     "f": "290 — Deux cent quatre-vingt-dix",
+     "a": "ميتين وتسعين",
+     "e": "Two hundred and ninety"
+    },
+    {
+     "f": "291 — Deux cent quatre-vingt-onze",
+     "a": "ميتين وواحد وتسعين",
+     "e": "Two hundred and ninety-one"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-135",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 9/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 9",
+   "phr": [
+    {
+     "f": "292 — Deux cent quatre-vingt-douze",
+     "a": "ميتين واتنين وتسعين",
+     "e": "Two hundred and ninety-two"
+    },
+    {
+     "f": "293 — Deux cent quatre-vingt-treize",
+     "a": "ميتين وتلتعش وتسعين",
+     "e": "Two hundred and ninety-three"
+    },
+    {
+     "f": "294 — Deux cent quatre-vingt-quatorze",
+     "a": "ميتين وأربعة وتسعين",
+     "e": "Two hundred and ninety-four"
+    },
+    {
+     "f": "295 — Deux cent quatre-vingt-quinze",
+     "a": "ميتين وخمسة وتسعين",
+     "e": "Two hundred and ninety-five"
+    },
+    {
+     "f": "296 — Deux cent quatre-vingt-seize",
+     "a": "ميتين وستة وتسعين",
+     "e": "Two hundred and ninety-six"
+    },
+    {
+     "f": "297 — Deux cent quatre-vingt-dix-sept",
+     "a": "ميتين وسبعة وتسعين",
+     "e": "Two hundred and ninety-seven"
+    },
+    {
+     "f": "298 — Deux cent quatre-vingt-dix-huit",
+     "a": "ميتين وتمانية وتسعين",
+     "e": "Two hundred and ninety-eight"
+    },
+    {
+     "f": "299 — Deux cent quatre-vingt-dix-neuf",
+     "a": "ميتين وتسعة وتسعين",
+     "e": "Two hundred and ninety-nine"
+    },
+    {
+     "f": "301 — Trois cent un",
+     "a": "تلتمية وواحد",
+     "e": "Three hundred and one"
+    },
+    {
+     "f": "302 — Trois cent deux",
+     "a": "تلتمية وتنين",
+     "e": "Three hundred and two"
+    },
+    {
+     "f": "303 — Trois cent trois",
+     "a": "تلتمية وتلاتة",
+     "e": "Three hundred and three"
+    },
+    {
+     "f": "304 — Trois cent quatre",
+     "a": "تلتمية وأربعة",
+     "e": "Three hundred and four"
+    },
+    {
+     "f": "305 — Trois cent cinq",
+     "a": "تلتمية وخمسة",
+     "e": "Three hundred and five"
+    },
+    {
+     "f": "306 — Trois cent six",
+     "a": "تلتمية وستة",
+     "e": "Three hundred and six"
+    },
+    {
+     "f": "307 — Trois cent sept",
+     "a": "تلتمية وسبعة",
+     "e": "Three hundred and seven"
+    },
+    {
+     "f": "308 — Trois cent huit",
+     "a": "تلتمية وتمانية",
+     "e": "Three hundred and eight"
+    },
+    {
+     "f": "309 — Trois cent neuf",
+     "a": "تلتمية وتسعة",
+     "e": "Three hundred and nine"
+    },
+    {
+     "f": "310 — Trois cent dix",
+     "a": "تلتمية وعشرة",
+     "e": "Three hundred and ten"
+    },
+    {
+     "f": "311 — Trois cent onze",
+     "a": "تلتمية وحداش",
+     "e": "Three hundred and eleven"
+    },
+    {
+     "f": "312 — Trois cent douze",
+     "a": "تلتمية واتناش",
+     "e": "Three hundred and twelve"
+    },
+    {
+     "f": "313 — Trois cent treize",
+     "a": "تلتمية وتلتعش",
+     "e": "Three hundred and thirteen"
+    },
+    {
+     "f": "314 — Trois cent quatorze",
+     "a": "تلتمية وأربعتعش",
+     "e": "Three hundred and fourteen"
+    },
+    {
+     "f": "315 — Trois cent quinze",
+     "a": "تلتمية وخمستعش",
+     "e": "Three hundred and fifteen"
+    },
+    {
+     "f": "316 — Trois cent seize",
+     "a": "تلتمية وستعش",
+     "e": "Three hundred and sixteen"
+    },
+    {
+     "f": "317 — Trois cent dix-sept",
+     "a": "تلتمية وسبعتعش",
+     "e": "Three hundred and seventeen"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-136",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 10/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 10",
+   "phr": [
+    {
+     "f": "318 — Trois cent dix-huit",
+     "a": "تلتمية وتمنتعش",
+     "e": "Three hundred and eighteen"
+    },
+    {
+     "f": "319 — Trois cent dix-neuf",
+     "a": "تلتمية وتسعتعش",
+     "e": "Three hundred and nineteen"
+    },
+    {
+     "f": "320 — Trois cent vingt",
+     "a": "تلتمية وعشرين",
+     "e": "Three hundred and twenty"
+    },
+    {
+     "f": "321 — Trois cent vingt et un",
+     "a": "تلتمية وواحد وعشرين",
+     "e": "Three hundred and twenty-one"
+    },
+    {
+     "f": "322 — Trois cent vingt-deux",
+     "a": "تلتمية واتنين وعشرين",
+     "e": "Three hundred and twenty-two"
+    },
+    {
+     "f": "323 — Trois cent vingt-trois",
+     "a": "تلتمية وتلاتة وعشرين",
+     "e": "Three hundred and twenty-three"
+    },
+    {
+     "f": "324 — Trois cent vingt-quatre",
+     "a": "تلتمية وأربعة وعشرين",
+     "e": "Three hundred and twenty-four"
+    },
+    {
+     "f": "325 — Trois cent vingt-cinq",
+     "a": "تلتمية وخمسة وعشرين",
+     "e": "Three hundred and twenty-five"
+    },
+    {
+     "f": "326 — Trois cent vingt-six",
+     "a": "تلتمية وستة وعشرين",
+     "e": "Three hundred and twenty-six"
+    },
+    {
+     "f": "327 — Trois cent vingt-sept",
+     "a": "تلتمية وسبعة وعشرين",
+     "e": "Three hundred and twenty-seven"
+    },
+    {
+     "f": "328 — Trois cent vingt-huit",
+     "a": "تلتمية وتمانية وعشرين",
+     "e": "Three hundred and twenty-eight"
+    },
+    {
+     "f": "329 — Trois cent vingt-neuf",
+     "a": "تلتمية وتسعة وعشرين",
+     "e": "Three hundred and twenty-nine"
+    },
+    {
+     "f": "330 — Trois cent trente",
+     "a": "تلتمية وتلاتين",
+     "e": "Three hundred and thirty"
+    },
+    {
+     "f": "331 — Trois cent trente et un",
+     "a": "تلتمية وواحد وتلاتين",
+     "e": "Three hundred and thirty-one"
+    },
+    {
+     "f": "332 — Trois cent trente-deux",
+     "a": "تلتمية واتنين وتلاتين",
+     "e": "Three hundred and thirty-two"
+    },
+    {
+     "f": "333 — Trois cent trente-trois",
+     "a": "تلتمية وتلاتة وتلاتين",
+     "e": "Three hundred and thirty-three"
+    },
+    {
+     "f": "334 — Trois cent trente-quatre",
+     "a": "تلتمية وأربعة وتلاتين",
+     "e": "Three hundred and thirty-four"
+    },
+    {
+     "f": "335 — Trois cent trente-cinq",
+     "a": "تلتمية وخمسة وتلاتين",
+     "e": "Three hundred and thirty-five"
+    },
+    {
+     "f": "336 — Trois cent trente-six",
+     "a": "تلتمية وستة وتلاتين",
+     "e": "Three hundred and thirty-six"
+    },
+    {
+     "f": "337 — Trois cent trente-sept",
+     "a": "تلتمية وسبعة وتلاتين",
+     "e": "Three hundred and thirty-seven"
+    },
+    {
+     "f": "338 — Trois cent trente-huit",
+     "a": "تلتمية وتمانية وتلاتين",
+     "e": "Three hundred and thirty-eight"
+    },
+    {
+     "f": "339 — Trois cent trente-neuf",
+     "a": "تلتمية وتسعة وتلاتين",
+     "e": "Three hundred and thirty-nine"
+    },
+    {
+     "f": "340 — Trois cent quarante",
+     "a": "تلتمية وأربعين",
+     "e": "Three hundred and forty"
+    },
+    {
+     "f": "341 — Trois cent quarante et un",
+     "a": "تلتمية وواحد وأربعين",
+     "e": "Three hundred and forty-one"
+    },
+    {
+     "f": "342 — Trois cent quarante-deux",
+     "a": "تلتمية واتنين وأربعين",
+     "e": "Three hundred and forty-two"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-137",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 11/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 11",
+   "phr": [
+    {
+     "f": "343 — Trois cent quarante-trois",
+     "a": "تلتمية وتلاتة وأربعين",
+     "e": "Three hundred and forty-three"
+    },
+    {
+     "f": "344 — Trois cent quarante-quatre",
+     "a": "تلتمية وأربعة وأربعين",
+     "e": "Three hundred and forty-four"
+    },
+    {
+     "f": "345 — Trois cent quarante-cinq",
+     "a": "تلتمية وخمسة وأربعين",
+     "e": "Three hundred and forty-five"
+    },
+    {
+     "f": "346 — Trois cent quarante-six",
+     "a": "تلتمية وستة وأربعين",
+     "e": "Three hundred and forty-six"
+    },
+    {
+     "f": "347 — Trois cent quarante-sept",
+     "a": "تلتمية وسبعة وأربعين",
+     "e": "Three hundred and forty-seven"
+    },
+    {
+     "f": "348 — Trois cent quarante-huit",
+     "a": "تلتمية وتمانية وأربعين",
+     "e": "Three hundred and forty-eight"
+    },
+    {
+     "f": "349 — Trois cent quarante-neuf",
+     "a": "تلتمية وتسعة وأربعين",
+     "e": "Three hundred and forty-nine"
+    },
+    {
+     "f": "350 — Trois cent cinquante",
+     "a": "تلتمية وخمسين",
+     "e": "Three hundred and fifty"
+    },
+    {
+     "f": "351 — Trois cent cinquante et un",
+     "a": "تلتمية وواحد وخمسين",
+     "e": "Three hundred and fifty-one"
+    },
+    {
+     "f": "352 — Trois cent cinquante-deux",
+     "a": "تلتمية واتنين وخمسين",
+     "e": "Three hundred and fifty-two"
+    },
+    {
+     "f": "353 — Trois cent cinquante-trois",
+     "a": "تلتمية وتلاتة وخمسين",
+     "e": "Three hundred and fifty-three"
+    },
+    {
+     "f": "354 — Trois cent cinquante-quatre",
+     "a": "تلتمية وأربعة وخمسين",
+     "e": "Three hundred and fifty-four"
+    },
+    {
+     "f": "355 — Trois cent cinquante-cinq",
+     "a": "تلتمية وخمسة وخمسين",
+     "e": "Three hundred and fifty-five"
+    },
+    {
+     "f": "356 — Trois cent cinquante-six",
+     "a": "تلتمية وستة وخمسين",
+     "e": "Three hundred and fifty-six"
+    },
+    {
+     "f": "357 — Trois cent cinquante-sept",
+     "a": "تلتمية وسبعة وخمسين",
+     "e": "Three hundred and fifty-seven"
+    },
+    {
+     "f": "358 — Trois cent cinquante-huit",
+     "a": "تلتمية وتمانية وخمسين",
+     "e": "Three hundred and fifty-eight"
+    },
+    {
+     "f": "359 — Trois cent cinquante-neuf",
+     "a": "تلتمية وتسعة وخمسين",
+     "e": "Three hundred and fifty-nine"
+    },
+    {
+     "f": "360 — Trois cent soixante",
+     "a": "تلتمية وستين",
+     "e": "Three hundred and sixty"
+    },
+    {
+     "f": "361 — Trois cent soixante et un",
+     "a": "تلتمية وواحد وستين",
+     "e": "Three hundred and sixty-one"
+    },
+    {
+     "f": "362 — Trois cent soixante-deux",
+     "a": "تلتمية واتنين وستين",
+     "e": "Three hundred and sixty-two"
+    },
+    {
+     "f": "363 — Trois cent soixante-trois",
+     "a": "تلتمية وتلاتة وستين",
+     "e": "Three hundred and sixty-three"
+    },
+    {
+     "f": "364 — Trois cent soixante-quatre",
+     "a": "تلتمية وأربعة وستين",
+     "e": "Three hundred and sixty-four"
+    },
+    {
+     "f": "365 — Trois cent soixante-cinq",
+     "a": "تلتمية وخمسة وستين",
+     "e": "Three hundred and sixty-five"
+    },
+    {
+     "f": "366 — Trois cent soixante-six",
+     "a": "تلتمية وستة وستين",
+     "e": "Three hundred and sixty-six"
+    },
+    {
+     "f": "367 — Trois cent soixante-sept",
+     "a": "تلتمية وسبعة وستين",
+     "e": "Three hundred and sixty-seven"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-138",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 12/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 12",
+   "phr": [
+    {
+     "f": "368 — Trois cent soixante-huit",
+     "a": "تلتمية وتمانية وستين",
+     "e": "Three hundred and sixty-eight"
+    },
+    {
+     "f": "369 — Trois cent soixante-neuf",
+     "a": "تلتمية وتسعة وستين",
+     "e": "Three hundred and sixty-nine"
+    },
+    {
+     "f": "370 — Trois cent soixante-dix",
+     "a": "تلتمية وسبعين",
+     "e": "Three hundred and seventy"
+    },
+    {
+     "f": "371 — Trois cent soixante et onze",
+     "a": "تلتمية وواحد وسبعين",
+     "e": "Three hundred and seventy-one"
+    },
+    {
+     "f": "372 — Trois cent soixante-douze",
+     "a": "تلتمية واتنين وسبعين",
+     "e": "Three hundred and seventy-two"
+    },
+    {
+     "f": "373 — Trois cent soixante-treize",
+     "a": "تلتمية وتلاتة وسبعين",
+     "e": "Three hundred and seventy-three"
+    },
+    {
+     "f": "374 — Trois cent soixante-quatorze",
+     "a": "تلتمية وأربعة وسبعين",
+     "e": "Three hundred and seventy-four"
+    },
+    {
+     "f": "375 — Trois cent soixante-quinze",
+     "a": "تلتمية وخمسة وسبعين",
+     "e": "Three hundred and seventy-five"
+    },
+    {
+     "f": "376 — Trois cent soixante-seize",
+     "a": "تلتمية وستعش وسبعين",
+     "e": "Three hundred and seventy-six"
+    },
+    {
+     "f": "377 — Trois cent soixante-dix-sept",
+     "a": "تلتمية وسبعة وسبعين",
+     "e": "Three hundred and seventy-seven"
+    },
+    {
+     "f": "378 — Trois cent soixante-dix-huit",
+     "a": "تلتمية وتمانية وسبعين",
+     "e": "Three hundred and seventy-eight"
+    },
+    {
+     "f": "379 — Trois cent soixante-dix-neuf",
+     "a": "تلتمية وتسعة وسبعين",
+     "e": "Three hundred and seventy-nine"
+    },
+    {
+     "f": "380 — Trois cent quatre-vingts",
+     "a": "تلتمية وتمانين",
+     "e": "Three hundred and eighty"
+    },
+    {
+     "f": "381 — Trois cent quatre-vingt-un",
+     "a": "تلتمية وواحد وتمانين",
+     "e": "Three hundred and eighty-one"
+    },
+    {
+     "f": "382 — Trois cent quatre-vingt-deux",
+     "a": "تلتمية واتنين وتمانين",
+     "e": "Three hundred and eighty-two"
+    },
+    {
+     "f": "383 — Trois cent quatre-vingt-trois",
+     "a": "تلتمية وتلاتة وتمانين",
+     "e": "Three hundred and eighty-three"
+    },
+    {
+     "f": "384 — Trois cent quatre-vingt-quatre",
+     "a": "تلتمية وأربعة وتمانين",
+     "e": "Three hundred and eighty-four"
+    },
+    {
+     "f": "385 — Trois cent quatre-vingt-cinq",
+     "a": "تلتمية وخمسة وتمانين",
+     "e": "Three hundred and eighty-five"
+    },
+    {
+     "f": "386 — Trois cent quatre-vingt-six",
+     "a": "تلتمية وستة وتمانين",
+     "e": "Three hundred and eighty-six"
+    },
+    {
+     "f": "387 — Trois cent quatre-vingt-sept",
+     "a": "تلتمية وسبعة وتمانين",
+     "e": "Three hundred and eighty-seven"
+    },
+    {
+     "f": "388 — Trois cent quatre-vingt-huit",
+     "a": "تلتمية وتمانية وتمانين",
+     "e": "Three hundred and eighty-eight"
+    },
+    {
+     "f": "389 — Trois cent quatre-vingt-neuf",
+     "a": "تلتمية وتسعة وتمانين",
+     "e": "Three hundred and eighty-nine"
+    },
+    {
+     "f": "390 — Trois cent quatre-vingt-dix",
+     "a": "تلتمية وتسعين",
+     "e": "Three hundred and ninety"
+    },
+    {
+     "f": "391 — Trois cent quatre-vingt-onze",
+     "a": "تلتمية وواحد وتسعين",
+     "e": "Three hundred and ninety-one"
+    },
+    {
+     "f": "392 — Trois cent quatre-vingt-douze",
+     "a": "تلتمية واتنين وتسعين",
+     "e": "Three hundred and ninety-two"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-139",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 13/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 13",
+   "phr": [
+    {
+     "f": "393 — Trois cent quatre-vingt-treize",
+     "a": "تلتمية وتلاتة وتسعين",
+     "e": "Three hundred and ninety-three"
+    },
+    {
+     "f": "394 — Trois cent quatre-vingt-quatorze",
+     "a": "تلتمية وأربعة وتسعين",
+     "e": "Three hundred and ninety-four"
+    },
+    {
+     "f": "395 — Trois cent quatre-vingt-quinze",
+     "a": "تلتمية وخمسة وتسعين",
+     "e": "Three hundred and ninety-five"
+    },
+    {
+     "f": "396 — Trois cent quatre-vingt-seize",
+     "a": "تلتمية وستة وتسعين",
+     "e": "Three hundred and ninety-six"
+    },
+    {
+     "f": "397 — Trois cent quatre-vingt-dix-sept",
+     "a": "تلتمية وسبعة وتسعين",
+     "e": "Three hundred and ninety-seven"
+    },
+    {
+     "f": "398 — Trois cent quatre-vingt-dix-huit",
+     "a": "تلتمية وتمانية وتسعين",
+     "e": "Three hundred and ninety-eight"
+    },
+    {
+     "f": "399 — Trois cent quatre-vingt-dix-neuf",
+     "a": "تلتمية وتسعة وتسعين",
+     "e": "Three hundred and ninety-nine"
+    },
+    {
+     "f": "401 — Quatre cent un",
+     "a": "أربعمية وواحد",
+     "e": "Four hundred and one"
+    },
+    {
+     "f": "402 — Quatre cent deux",
+     "a": "أربعمية واتنين",
+     "e": "Four hundred and two"
+    },
+    {
+     "f": "403 — Quatre cent trois",
+     "a": "أربعمية وتلاتة",
+     "e": "Four hundred and three"
+    },
+    {
+     "f": "404 — Quatre cent quatre",
+     "a": "أربعمية وأربعة",
+     "e": "Four hundred and four"
+    },
+    {
+     "f": "405 — Quatre cent cinq",
+     "a": "أربعمية وخمسة",
+     "e": "Four hundred and five"
+    },
+    {
+     "f": "406 — Quatre cent six",
+     "a": "أربعمية وستة",
+     "e": "Four hundred and six"
+    },
+    {
+     "f": "407 — Quatre cent sept",
+     "a": "أربعمية وسبعة",
+     "e": "Four hundred and seven"
+    },
+    {
+     "f": "408 — Quatre cent huit",
+     "a": "أربعمية وتمانية",
+     "e": "Four hundred and eight"
+    },
+    {
+     "f": "409 — Quatre cent neuf",
+     "a": "أربعمية وتسعة",
+     "e": "Four hundred and nine"
+    },
+    {
+     "f": "410 — Quatre cent dix",
+     "a": "أربعمية وعشرة",
+     "e": "Four hundred and ten"
+    },
+    {
+     "f": "411 — Quatre cent onze",
+     "a": "أربعمية وحداش",
+     "e": "Four hundred and eleven"
+    },
+    {
+     "f": "412 — Quatre cent douze",
+     "a": "أربعمية واتناش",
+     "e": "Four hundred and twelve"
+    },
+    {
+     "f": "413 — Quatre cent treize",
+     "a": "أربعمية وتلتعش",
+     "e": "Four hundred and thirteen"
+    },
+    {
+     "f": "414 — Quatre cent quatorze",
+     "a": "أربعمية وأربعتعش",
+     "e": "Four hundred and fourteen"
+    },
+    {
+     "f": "415 — Quatre cent quinze",
+     "a": "أربعمية وخمستعش",
+     "e": "Four hundred and fifteen"
+    },
+    {
+     "f": "416 — Quatre cent seize",
+     "a": "أربعمية وستعش",
+     "e": "Four hundred and sixteen"
+    },
+    {
+     "f": "417 — Quatre cent dix-sept",
+     "a": "أربعمية وسبعتعش",
+     "e": "Four hundred and seventeen"
+    },
+    {
+     "f": "418 — Quatre cent dix-huit",
+     "a": "أربعمية وتمنتعش",
+     "e": "Four hundred and eighteen"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-140",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 14/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 14",
+   "phr": [
+    {
+     "f": "419 — Quatre cent dix-neuf",
+     "a": "أربعمية وتسعتعش",
+     "e": "Four hundred and nineteen"
+    },
+    {
+     "f": "420 — Quatre cent vingt",
+     "a": "أربعمية وعشرين",
+     "e": "Four hundred and twenty"
+    },
+    {
+     "f": "421 — Quatre cent vingt et un",
+     "a": "أربعمية وواحد وعشرين",
+     "e": "Four hundred and twenty-one"
+    },
+    {
+     "f": "422 — Quatre cent vingt-deux",
+     "a": "أربعمية واتنين وعشرين",
+     "e": "Four hundred and twenty-two"
+    },
+    {
+     "f": "423 — Quatre cent vingt-trois",
+     "a": "أربعمية وتلاتة وعشرين",
+     "e": "Four hundred and twenty-three"
+    },
+    {
+     "f": "424 — Quatre cent vingt-quatre",
+     "a": "أربعمية وأربعة وعشرين",
+     "e": "Four hundred and twenty-four"
+    },
+    {
+     "f": "425 — Quatre cent vingt-cinq",
+     "a": "أربعمية وخمسة وعشرين",
+     "e": "Four hundred and twenty-five"
+    },
+    {
+     "f": "426 — Quatre cent vingt-six",
+     "a": "أربعمية وستة وعشرين",
+     "e": "Four hundred and twenty-six"
+    },
+    {
+     "f": "427 — Quatre cent vingt-sept",
+     "a": "أربعمية وسبعة وعشرين",
+     "e": "Four hundred and twenty-seven"
+    },
+    {
+     "f": "428 — Quatre cent vingt-huit",
+     "a": "أربعمية وتمانية وعشرين",
+     "e": "Four hundred and twenty-eight"
+    },
+    {
+     "f": "429 — Quatre cent vingt-neuf",
+     "a": "أربعمية وتسعة وعشرين",
+     "e": "Four hundred and twenty-nine"
+    },
+    {
+     "f": "430 — Quatre cent trente",
+     "a": "أربعمية وتلاتين",
+     "e": "Four hundred and thirty"
+    },
+    {
+     "f": "431 — Quatre cent trente et un",
+     "a": "أربعمية وواحد وتلاتين",
+     "e": "Four hundred and thirty-one"
+    },
+    {
+     "f": "432 — Quatre cent trente-deux",
+     "a": "أربعمية واتنين وتلاتين",
+     "e": "Four hundred and thirty-two"
+    },
+    {
+     "f": "433 — Quatre cent trente-trois",
+     "a": "أربعمية وتلاتة وتلاتين",
+     "e": "Four hundred and thirty-three"
+    },
+    {
+     "f": "434 — Quatre cent trente-quatre",
+     "a": "أربعمية وأربعة وتلاتين",
+     "e": "Four hundred and thirty-four"
+    },
+    {
+     "f": "435 — Quatre cent trente-cinq",
+     "a": "أربعمية وخمسة وتلاتين",
+     "e": "Four hundred and thirty-five"
+    },
+    {
+     "f": "436 — Quatre cent trente-six",
+     "a": "أربعمية وستة وتلاتين",
+     "e": "Four hundred and thirty-six"
+    },
+    {
+     "f": "437 — Quatre cent trente-sept",
+     "a": "أربعمية وسبعة وتلاتين",
+     "e": "Four hundred and thirty-seven"
+    },
+    {
+     "f": "438 — Quatre cent trente-huit",
+     "a": "أربعمية وتمانية وتلاتين",
+     "e": "Four hundred and thirty-eight"
+    },
+    {
+     "f": "439 — Quatre cent trente-neuf",
+     "a": "أربعمية وتسعة وتلاتين",
+     "e": "Four hundred and thirty-nine"
+    },
+    {
+     "f": "440 — Quatre cent quarante",
+     "a": "أربعمية وأربعين",
+     "e": "Four hundred and forty"
+    },
+    {
+     "f": "441 — Quatre cent quarante et un",
+     "a": "أربعمية وواحد وأربعين",
+     "e": "Four hundred and forty-one"
+    },
+    {
+     "f": "442 — Quatre cent quarante-deux",
+     "a": "أربعمية واتنين وأربعين",
+     "e": "Four hundred and forty-two"
+    },
+    {
+     "f": "443 — Quatre cent quarante-trois",
+     "a": "أربعمية وتلاتة وأربعين",
+     "e": "Four hundred and forty-three"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-141",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 15/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 15",
+   "phr": [
+    {
+     "f": "444 — Quatre cent quarante-quatre",
+     "a": "أربعمية وأربعة وأربعين",
+     "e": "Four hundred and forty-four"
+    },
+    {
+     "f": "445 — Quatre cent quarante-cinq",
+     "a": "أربعمية وخمسة وأربعين",
+     "e": "Four hundred and forty-five"
+    },
+    {
+     "f": "446 — Quatre cent quarante-six",
+     "a": "أربعمية وستة وأربعين",
+     "e": "Four hundred and forty-six"
+    },
+    {
+     "f": "447 — Quatre cent quarante-sept",
+     "a": "أربعمية وسبعة وأربعين",
+     "e": "Four hundred and forty-seven"
+    },
+    {
+     "f": "448 — Quatre cent quarante-huit",
+     "a": "أربعمية وتمانية وأربعين",
+     "e": "Four hundred and forty-eight"
+    },
+    {
+     "f": "449 — Quatre cent quarante-neuf",
+     "a": "أربعمية وتسعة وأربعين",
+     "e": "Four hundred and forty-nine"
+    },
+    {
+     "f": "450 — Quatre cent cinquante",
+     "a": "أربعمية وخمسين",
+     "e": "Four hundred and fifty"
+    },
+    {
+     "f": "451 — Quatre cent cinquante et un",
+     "a": "أربعمية وواحد وخمسين",
+     "e": "Four hundred and fifty-one"
+    },
+    {
+     "f": "452 — Quatre cent cinquante-deux",
+     "a": "أربعمية واتنين وخمسين",
+     "e": "Four hundred and fifty-two"
+    },
+    {
+     "f": "453 — Quatre cent cinquante-trois",
+     "a": "أربعمية وتلاتة وخمسين",
+     "e": "Four hundred and fifty-three"
+    },
+    {
+     "f": "454 — Quatre cent cinquante-quatre",
+     "a": "أربعمية وأربعة وخمسين",
+     "e": "Four hundred and fifty-four"
+    },
+    {
+     "f": "455 — Quatre cent cinquante-cinq",
+     "a": "أربعمية وخمسة وخمسين",
+     "e": "Four hundred and fifty-five"
+    },
+    {
+     "f": "456 — Quatre cent cinquante-six",
+     "a": "أربعمية وستة وخمسين",
+     "e": "Four hundred and fifty-six"
+    },
+    {
+     "f": "457 — Quatre cent cinquante-sept",
+     "a": "أربعمية وسبعة وخمسين",
+     "e": "Four hundred and fifty-seven"
+    },
+    {
+     "f": "458 — Quatre cent cinquante-huit",
+     "a": "أربعمية وتمانية وخمسين",
+     "e": "Four hundred and fifty-eight"
+    },
+    {
+     "f": "459 — Quatre cent cinquante-neuf",
+     "a": "أربعمية وتسعة وخمسين",
+     "e": "Four hundred and fifty-nine"
+    },
+    {
+     "f": "460 — Quatre cent soixante",
+     "a": "أربعمية وستين",
+     "e": "Four hundred and sixty"
+    },
+    {
+     "f": "461 — Quatre cent soixante et un",
+     "a": "أربعمية وواحد وستين",
+     "e": "Four hundred and sixty-one"
+    },
+    {
+     "f": "462 — Quatre cent soixante-deux",
+     "a": "أربعمية واتنين وستين",
+     "e": "Four hundred and sixty-two"
+    },
+    {
+     "f": "463 — Quatre cent soixante-trois",
+     "a": "أربعمية وتلاتة وستين",
+     "e": "Four hundred and sixty-three"
+    },
+    {
+     "f": "464 — Quatre cent soixante-quatre",
+     "a": "أربعمية وأربعة وستين",
+     "e": "Four hundred and sixty-four"
+    },
+    {
+     "f": "465 — Quatre cent soixante-cinq",
+     "a": "أربعمية وخمسة وستين",
+     "e": "Four hundred and sixty-five"
+    },
+    {
+     "f": "466 — Quatre cent soixante-six",
+     "a": "أربعمية وستة وستين",
+     "e": "Four hundred and sixty-six"
+    },
+    {
+     "f": "467 — Quatre cent soixante-sept",
+     "a": "أربعمية وسبعة وستين",
+     "e": "Four hundred and sixty-seven"
+    },
+    {
+     "f": "468 — Quatre cent soixante-huit",
+     "a": "أربعمية وتمانية وستين",
+     "e": "Four hundred and sixty-eight"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-142",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 16/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 16",
+   "phr": [
+    {
+     "f": "469 — Quatre cent soixante-neuf",
+     "a": "أربعمية وتسعة وستين",
+     "e": "Four hundred and sixty-nine"
+    },
+    {
+     "f": "470 — Quatre cent soixante-dix",
+     "a": "أربعمية وسبعين",
+     "e": "Four hundred and seventy"
+    },
+    {
+     "f": "471 — Quatre cent soixante et onze",
+     "a": "أربعمية وواحد وسبعين",
+     "e": "Four hundred and seventy-one"
+    },
+    {
+     "f": "472 — Quatre cent soixante-douze",
+     "a": "أربعمية واتنين وسبعين",
+     "e": "Four hundred and seventy-two"
+    },
+    {
+     "f": "473 — Quatre cent soixante-treize",
+     "a": "أربعمية وتلاتة وسبعين",
+     "e": "Four hundred and seventy-three"
+    },
+    {
+     "f": "474 — Quatre cent soixante-quatorze",
+     "a": "أربعمية وأربعة وسبعين",
+     "e": "Four hundred and seventy-four"
+    },
+    {
+     "f": "475 — Quatre cent soixante-quinze",
+     "a": "أربعمية وخمسة وسبعين",
+     "e": "Four hundred and seventy-five"
+    },
+    {
+     "f": "476 — Quatre cent soixante-seize",
+     "a": "أربعمية وستة وسبعين",
+     "e": "Four hundred and seventy-six"
+    },
+    {
+     "f": "477 — Quatre cent soixante-dix-sept",
+     "a": "أربعمية وسبعة وسبعين",
+     "e": "Four hundred and seventy-seven"
+    },
+    {
+     "f": "478 — Quatre cent soixante-dix-huit",
+     "a": "أربعمية وتمانية وسبعين",
+     "e": "Four hundred and seventy-eight"
+    },
+    {
+     "f": "479 — Quatre cent soixante-dix-neuf",
+     "a": "أربعمية وتسعة وسبعين",
+     "e": "Four hundred and seventy-nine"
+    },
+    {
+     "f": "480 — Quatre cent quatre-vingts",
+     "a": "أربعمية وتمانين",
+     "e": "Four hundred and eighty"
+    },
+    {
+     "f": "481 — Quatre cent quatre-vingt-un",
+     "a": "أربعمية وواحد وتمانين",
+     "e": "Four hundred and eighty-one"
+    },
+    {
+     "f": "482 — Quatre cent quatre-vingt-deux",
+     "a": "أربعمية واتنين وتمانين",
+     "e": "Four hundred and eighty-two"
+    },
+    {
+     "f": "483 — Quatre cent quatre-vingt-trois",
+     "a": "أربعمية وتلاتة وتمانين",
+     "e": "Four hundred and eighty-three"
+    },
+    {
+     "f": "484 — Quatre cent quatre-vingt-quatre",
+     "a": "أربعمية وأربعة وتمانين",
+     "e": "Four hundred and eighty-four"
+    },
+    {
+     "f": "485 — Quatre cent quatre-vingt-cinq",
+     "a": "أربعمية وخمسة وتمانين",
+     "e": "Four hundred and eighty-five"
+    },
+    {
+     "f": "486 — Quatre cent quatre-vingt-six",
+     "a": "أربعمية وستة وتمانين",
+     "e": "Four hundred and eighty-six"
+    },
+    {
+     "f": "487 — Quatre cent quatre-vingt-sept",
+     "a": "أربعمية وسبعة وتمانين",
+     "e": "Four hundred and eighty-seven"
+    },
+    {
+     "f": "488 — Quatre cent quatre-vingt-huit",
+     "a": "أربعمية وتمانية وتمانين",
+     "e": "Four hundred and eighty-eight"
+    },
+    {
+     "f": "489 — Quatre cent quatre-vingt-neuf",
+     "a": "أربعمية وتسعة وتمانين",
+     "e": "Four hundred and eighty-nine"
+    },
+    {
+     "f": "490 — Quatre cent quatre-vingt-dix",
+     "a": "أربعمية وتسعين",
+     "e": "Four hundred and ninety"
+    },
+    {
+     "f": "491 — Quatre cent quatre-vingt-onze",
+     "a": "أربعمية وواحد وتسعين",
+     "e": "Four hundred and ninety-one"
+    },
+    {
+     "f": "492 — Quatre cent quatre-vingt-douze",
+     "a": "أربعمية واتنين وتسعين",
+     "e": "Four hundred and ninety-two"
+    },
+    {
+     "f": "493 — Quatre cent quatre-vingt-treize",
+     "a": "أربعمية وتلتعش وتسعين",
+     "e": "Four hundred and ninety-three"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-143",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 17/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 17",
+   "phr": [
+    {
+     "f": "494 — Quatre cent quatre-vingt-quatorze",
+     "a": "أربعمية وأربعة وتسعين",
+     "e": "Four hundred and ninety-four"
+    },
+    {
+     "f": "495 — Quatre cent quatre-vingt-quinze",
+     "a": "أربعمية وخمسة وتسعين",
+     "e": "Four hundred and ninety-five"
+    },
+    {
+     "f": "496 — Quatre cent quatre-vingt-seize",
+     "a": "أربعمية وستة وتسعين",
+     "e": "Four hundred and ninety-six"
+    },
+    {
+     "f": "497 — Quatre cent quatre-vingt-dix-sept",
+     "a": "أربعمية وسبعة وتسعين",
+     "e": "Four hundred and ninety-seven"
+    },
+    {
+     "f": "498 — Quatre cent quatre-vingt-dix-huit",
+     "a": "أربعمية وتمانية وتسعين",
+     "e": "Four hundred and ninety-eight"
+    },
+    {
+     "f": "499 — Quatre cent quatre-vingt-dix-neuf",
+     "a": "أربعمية وتسعة وتسعين",
+     "e": "Four hundred and ninety-nine"
+    },
+    {
+     "f": "501 — Cinq cent un",
+     "a": "خمسمية وواحد",
+     "e": "Five hundred and one"
+    },
+    {
+     "f": "502 — Cinq cent deux",
+     "a": "خمسمية وتنين",
+     "e": "Five hundred and two"
+    },
+    {
+     "f": "503 — Cinq cent trois",
+     "a": "خمسمية وتلاتة",
+     "e": "Five hundred and three"
+    },
+    {
+     "f": "504 — Cinq cent quatre",
+     "a": "خمسمية وأربعة",
+     "e": "Five hundred and four"
+    },
+    {
+     "f": "505 — Cinq cent cinq",
+     "a": "خمسمية وخمسة",
+     "e": "Five hundred and five"
+    },
+    {
+     "f": "506 — Cinq cent six",
+     "a": "خمسمية وستة",
+     "e": "Five hundred and six"
+    },
+    {
+     "f": "507 — Cinq cent sept",
+     "a": "خمسمية وسبعة",
+     "e": "Five hundred and seven"
+    },
+    {
+     "f": "508 — Cinq cent huit",
+     "a": "خمسمية وتمانية",
+     "e": "Five hundred and eight"
+    },
+    {
+     "f": "509 — Cinq cent neuf",
+     "a": "خمسمية وتسعة",
+     "e": "Five hundred and nine"
+    },
+    {
+     "f": "510 — Cinq cent dix",
+     "a": "خمسمية وعشرة",
+     "e": "Five hundred and ten"
+    },
+    {
+     "f": "511 — Cinq cent onze",
+     "a": "خمسمية وحداش",
+     "e": "Five hundred and eleven"
+    },
+    {
+     "f": "512 — Cinq cent douze",
+     "a": "خمسمية واتناش",
+     "e": "Five hundred and twelve"
+    },
+    {
+     "f": "513 — Cinq cent treize",
+     "a": "خمسمية وتلتعش",
+     "e": "Five hundred and thirteen"
+    },
+    {
+     "f": "514 — Cinq cent quatorze",
+     "a": "خمسمية وأربعتعش",
+     "e": "Five hundred and fourteen"
+    },
+    {
+     "f": "515 — Cinq cent quinze",
+     "a": "خمسمية وخمستعش",
+     "e": "Five hundred and fifteen"
+    },
+    {
+     "f": "516 — Cinq cent seize",
+     "a": "خمسمية وستعش",
+     "e": "Five hundred and sixteen"
+    },
+    {
+     "f": "517 — Cinq cent dix-sept",
+     "a": "خمسمية وسبعتعش",
+     "e": "Five hundred and seventeen"
+    },
+    {
+     "f": "518 — Cinq cent dix-huit",
+     "a": "خمسمية وتمنتعش",
+     "e": "Five hundred and eighteen"
+    },
+    {
+     "f": "519 — Cinq cent dix-neuf",
+     "a": "خمسمية وتسعتعش",
+     "e": "Five hundred and nineteen"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-144",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 18/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 18",
+   "phr": [
+    {
+     "f": "520 — Cinq cent vingt",
+     "a": "خمسمية وعشرين",
+     "e": "Five hundred and twenty"
+    },
+    {
+     "f": "521 — Cinq cent vingt et un",
+     "a": "خمسمية وواحد وعشرين",
+     "e": "Five hundred and twenty-one"
+    },
+    {
+     "f": "522 — Cinq cent vingt-deux",
+     "a": "خمسمية واتنين وعشرين",
+     "e": "Five hundred and twenty-two"
+    },
+    {
+     "f": "523 — Cinq cent vingt-trois",
+     "a": "خمسمية وتلاتة وعشرين",
+     "e": "Five hundred and twenty-three"
+    },
+    {
+     "f": "524 — Cinq cent vingt-quatre",
+     "a": "خمسمية وأربعة وعشرين",
+     "e": "Five hundred and twenty-four"
+    },
+    {
+     "f": "525 — Cinq cent vingt-cinq",
+     "a": "خمسمية وخمسة وعشرين",
+     "e": "Five hundred and twenty-five"
+    },
+    {
+     "f": "526 — Cinq cent vingt-six",
+     "a": "خمسمية وستة وعشرين",
+     "e": "Five hundred and twenty-six"
+    },
+    {
+     "f": "527 — Cinq cent vingt-sept",
+     "a": "خمسمية وسبعة وعشرين",
+     "e": "Five hundred and twenty-seven"
+    },
+    {
+     "f": "528 — Cinq cent vingt-huit",
+     "a": "خمسمية وتمانية وعشرين",
+     "e": "Five hundred and twenty-eight"
+    },
+    {
+     "f": "529 — Cinq cent vingt-neuf",
+     "a": "خمسمية وتسعة وعشرين",
+     "e": "Five hundred and twenty-nine"
+    },
+    {
+     "f": "530 — Cinq cent trente",
+     "a": "خمسمية وتلاتين",
+     "e": "Five hundred and thirty"
+    },
+    {
+     "f": "531 — Cinq cent trente et un",
+     "a": "خمسمية وواحد وتلاتين",
+     "e": "Five hundred and thirty-one"
+    },
+    {
+     "f": "532 — Cinq cent trente-deux",
+     "a": "خمسمية واتنين وتلاتين",
+     "e": "Five hundred and thirty-two"
+    },
+    {
+     "f": "533 — Cinq cent trente-trois",
+     "a": "خمسمية وتلاتة وتلاتين",
+     "e": "Five hundred and thirty-three"
+    },
+    {
+     "f": "534 — Cinq cent trente-quatre",
+     "a": "خمسمية وأربعة وتلاتين",
+     "e": "Five hundred and thirty-four"
+    },
+    {
+     "f": "535 — Cinq cent trente-cinq",
+     "a": "خمسمية وخمسة وتلاتين",
+     "e": "Five hundred and thirty-five"
+    },
+    {
+     "f": "536 — Cinq cent trente-six",
+     "a": "خمسمية وستة وتلاتين",
+     "e": "Five hundred and thirty-six"
+    },
+    {
+     "f": "537 — Cinq cent trente-sept",
+     "a": "خمسمية وسبعة وتلاتين",
+     "e": "Five hundred and thirty-seven"
+    },
+    {
+     "f": "538 — Cinq cent trente-huit",
+     "a": "خمسمية وتمانية وتلاتين",
+     "e": "Five hundred and thirty-eight"
+    },
+    {
+     "f": "539 — Cinq cent trente-neuf",
+     "a": "خمسمية وتسعة وتلاتين",
+     "e": "Five hundred and thirty-nine"
+    },
+    {
+     "f": "540 — Cinq cent quarante",
+     "a": "خمسمية وأربعين",
+     "e": "Five hundred and forty"
+    },
+    {
+     "f": "541 — Cinq cent quarante et un",
+     "a": "خمسمية وواحد وأربعين",
+     "e": "Five hundred and forty-one"
+    },
+    {
+     "f": "542 — Cinq cent quarante-deux",
+     "a": "خمسمية واتنين وأربعين",
+     "e": "Five hundred and forty-two"
+    },
+    {
+     "f": "543 — Cinq cent quarante-trois",
+     "a": "خمسمية وتلاتة وأربعين",
+     "e": "Five hundred and forty-three"
+    },
+    {
+     "f": "544 — Cinq cent quarante-quatre",
+     "a": "خمسمية وأربعة وأربعين",
+     "e": "Five hundred and forty-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-145",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 19/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 19",
+   "phr": [
+    {
+     "f": "545 — Cinq cent quarante-cinq",
+     "a": "خمسمية وخمسة وأربعين",
+     "e": "Five hundred and forty-five"
+    },
+    {
+     "f": "546 — Cinq cent quarante-six",
+     "a": "خمسمية وستة وأربعين",
+     "e": "Five hundred and forty-six"
+    },
+    {
+     "f": "547 — Cinq cent quarante-sept",
+     "a": "خمسمية وسبعة وأربعين",
+     "e": "Five hundred and forty-seven"
+    },
+    {
+     "f": "548 — Cinq cent quarante-huit",
+     "a": "خمسمية وتمانية وأربعين",
+     "e": "Five hundred and forty-eight"
+    },
+    {
+     "f": "549 — Cinq cent quarante-neuf",
+     "a": "خمسمية وتسعة وأربعين",
+     "e": "Five hundred and forty-nine"
+    },
+    {
+     "f": "550 — Cinq cent cinquante",
+     "a": "خمسمية وخمسين",
+     "e": "Five hundred and fifty"
+    },
+    {
+     "f": "551 — Cinq cent cinquante et un",
+     "a": "خمسمية وواحد وخمسين",
+     "e": "Five hundred and fifty-one"
+    },
+    {
+     "f": "552 — Cinq cent cinquante-deux",
+     "a": "خمسمية واتنين وخمسين",
+     "e": "Five hundred and fifty-two"
+    },
+    {
+     "f": "553 — Cinq cent cinquante-trois",
+     "a": "خمسمية وتلاتة وخمسين",
+     "e": "Five hundred and fifty-three"
+    },
+    {
+     "f": "554 — Cinq cent cinquante-quatre",
+     "a": "خمسمية وأربعة وخمسين",
+     "e": "Five hundred and fifty-four"
+    },
+    {
+     "f": "555 — Cinq cent cinquante-cinq",
+     "a": "خمسمية وخمسة وخمسين",
+     "e": "Five hundred and fifty-five"
+    },
+    {
+     "f": "556 — Cinq cent cinquante-six",
+     "a": "خمسمية وستة وخمسين",
+     "e": "Five hundred and fifty-six"
+    },
+    {
+     "f": "557 — Cinq cent cinquante-sept",
+     "a": "خمسمية وسبعة وخمسين",
+     "e": "Five hundred and fifty-seven"
+    },
+    {
+     "f": "558 — Cinq cent cinquante-huit",
+     "a": "خمسمية وتمانية وخمسين",
+     "e": "Five hundred and fifty-eight"
+    },
+    {
+     "f": "559 — Cinq cent cinquante-neuf",
+     "a": "خمسمية وتسعة وخمسين",
+     "e": "Five hundred and fifty-nine"
+    },
+    {
+     "f": "560 — Cinq cent soixante",
+     "a": "خمسمية وستين",
+     "e": "Five hundred and sixty"
+    },
+    {
+     "f": "561 — Cinq cent soixante et un",
+     "a": "خمسمية وواحد وستين",
+     "e": "Five hundred and sixty-one"
+    },
+    {
+     "f": "562 — Cinq cent soixante-deux",
+     "a": "خمسمية واتنين وستين",
+     "e": "Five hundred and sixty-two"
+    },
+    {
+     "f": "563 — Cinq cent soixante-trois",
+     "a": "خمسمية وتلاتة وستين",
+     "e": "Five hundred and sixty-three"
+    },
+    {
+     "f": "564 — Cinq cent soixante-quatre",
+     "a": "خمسمية وأربعة وستين",
+     "e": "Five hundred and sixty-four"
+    },
+    {
+     "f": "565 — Cinq cent soixante-cinq",
+     "a": "خمسمية وخمسة وستين",
+     "e": "Five hundred and sixty-five"
+    },
+    {
+     "f": "566 — Cinq cent soixante-six",
+     "a": "خمسمية وستة وستين",
+     "e": "Five hundred and sixty-six"
+    },
+    {
+     "f": "567 — Cinq cent soixante-sept",
+     "a": "خمسمية وسبعة وستين",
+     "e": "Five hundred and sixty-seven"
+    },
+    {
+     "f": "568 — Cinq cent soixante-huit",
+     "a": "خمسمية وتمانية وستين",
+     "e": "Five hundred and sixty-eight"
+    },
+    {
+     "f": "569 — Cinq cent soixante-neuf",
+     "a": "خمسمية وتسعة وستين",
+     "e": "Five hundred and sixty-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-146",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 20/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 20",
+   "phr": [
+    {
+     "f": "570 — Cinq cent soixante-dix",
+     "a": "خمسمية وسبعين",
+     "e": "Five hundred and seventy"
+    },
+    {
+     "f": "571 — Cinq cent soixante et onze",
+     "a": "خمسمية وواحد وسبعين",
+     "e": "Five hundred and seventy-one"
+    },
+    {
+     "f": "572 — Cinq cent soixante-douze",
+     "a": "خمسمية واتنين وسبعين",
+     "e": "Five hundred and seventy-two"
+    },
+    {
+     "f": "573 — Cinq cent soixante-treize",
+     "a": "خمسمية وتلاتة وسبعين",
+     "e": "Five hundred and seventy-three"
+    },
+    {
+     "f": "574 — Cinq cent soixante-quatorze",
+     "a": "خمسمية وأربعة وسبعين",
+     "e": "Five hundred and seventy-four"
+    },
+    {
+     "f": "575 — Cinq cent soixante-quinze",
+     "a": "خمسمية وخمسة وسبعين",
+     "e": "Five hundred and seventy-five"
+    },
+    {
+     "f": "576 — Cinq cent soixante-seize",
+     "a": "خمسمية وستعش وسبعين",
+     "e": "Five hundred and seventy-six"
+    },
+    {
+     "f": "577 — Cinq cent soixante-dix-sept",
+     "a": "خمسمية وسبعة وسبعين",
+     "e": "Five hundred and seventy-seven"
+    },
+    {
+     "f": "578 — Cinq cent soixante-dix-huit",
+     "a": "خمسمية وتمانية وسبعين",
+     "e": "Five hundred and seventy-eight"
+    },
+    {
+     "f": "579 — Cinq cent soixante-dix-neuf",
+     "a": "خمسمية وتسعة وسبعين",
+     "e": "Five hundred and seventy-nine"
+    },
+    {
+     "f": "580 — Cinq cent quatre-vingts",
+     "a": "خمسمية وتمانين",
+     "e": "Five hundred and eighty"
+    },
+    {
+     "f": "581 — Cinq cent quatre-vingt-un",
+     "a": "خمسمية وواحد وتمانين",
+     "e": "Five hundred and eighty-one"
+    },
+    {
+     "f": "582 — Cinq cent quatre-vingt-deux",
+     "a": "خمسمية واتنين وتمانين",
+     "e": "Five hundred and eighty-two"
+    },
+    {
+     "f": "583 — Cinq cent quatre-vingt-trois",
+     "a": "خمسمية وتلاتة وتمانين",
+     "e": "Five hundred and eighty-three"
+    },
+    {
+     "f": "584 — Cinq cent quatre-vingt-quatre",
+     "a": "خمسمية وأربعة وتمانين",
+     "e": "Five hundred and eighty-four"
+    },
+    {
+     "f": "585 — Cinq cent quatre-vingt-cinq",
+     "a": "خمسمية وخمسة وتمانين",
+     "e": "Five hundred and eighty-five"
+    },
+    {
+     "f": "586 — Cinq cent quatre-vingt-six",
+     "a": "خمسمية وستة وتمانين",
+     "e": "Five hundred and eighty-six"
+    },
+    {
+     "f": "587 — Cinq cent quatre-vingt-sept",
+     "a": "خمسمية وسبعة وتمانين",
+     "e": "Five hundred and eighty-seven"
+    },
+    {
+     "f": "588 — Cinq cent quatre-vingt-huit",
+     "a": "خمسمية وتمانية وتمانين",
+     "e": "Five hundred and eighty-eight"
+    },
+    {
+     "f": "589 — Cinq cent quatre-vingt-neuf",
+     "a": "خمسمية وتسعة وتمانين",
+     "e": "Five hundred and eighty-nine"
+    },
+    {
+     "f": "590 — Cinq cent quatre-vingt-dix",
+     "a": "خمسمية وتسعين",
+     "e": "Five hundred and ninety"
+    },
+    {
+     "f": "591 — Cinq cent quatre-vingt-onze",
+     "a": "خمسمية وواحد وتسعين",
+     "e": "Five hundred and ninety-one"
+    },
+    {
+     "f": "592 — Cinq cent quatre-vingt-douze",
+     "a": "خمسمية واتنين وتسعين",
+     "e": "Five hundred and ninety-two"
+    },
+    {
+     "f": "593 — Cinq cent quatre-vingt-treize",
+     "a": "خمسمية وتلتعش وتسعين",
+     "e": "Five hundred and ninety-three"
+    },
+    {
+     "f": "594 — Cinq cent quatre-vingt-quatorze",
+     "a": "خمسمية وأربعة وتسعين",
+     "e": "Five hundred and ninety-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-147",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 21/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 21",
+   "phr": [
+    {
+     "f": "595 — Cinq cent quatre-vingt-quinze",
+     "a": "خمسمية وخمسة وتسعين",
+     "e": "Five hundred and ninety-five"
+    },
+    {
+     "f": "596 — Cinq cent quatre-vingt-seize",
+     "a": "خمسمية وستة وتسعين",
+     "e": "Five hundred and ninety-six"
+    },
+    {
+     "f": "597 — Cinq cent quatre-vingt-dix-sept",
+     "a": "خمسمية وسبعة وتسعين",
+     "e": "Five hundred and ninety-seven"
+    },
+    {
+     "f": "598 — Cinq cent quatre-vingt-dix-huit",
+     "a": "خمسمية وتمانية وتسعين",
+     "e": "Five hundred and ninety-eight"
+    },
+    {
+     "f": "599 — Cinq cent quatre-vingt-dix-neuf",
+     "a": "خمسمية وتسعة وتسعين",
+     "e": "Five hundred and ninety-nine"
+    },
+    {
+     "f": "601 — Six cent un",
+     "a": "ستمية وواحد",
+     "e": "Six hundred and one"
+    },
+    {
+     "f": "602 — Six cent deux",
+     "a": "ستمية واتنين",
+     "e": "Six hundred and two"
+    },
+    {
+     "f": "603 — Six cent trois",
+     "a": "ستمية وتلاتة",
+     "e": "Six hundred and three"
+    },
+    {
+     "f": "604 — Six cent quatre",
+     "a": "ستمية وأربعة",
+     "e": "Six hundred and four"
+    },
+    {
+     "f": "605 — Six cent cinq",
+     "a": "ستمية وخمسة",
+     "e": "Six hundred and five"
+    },
+    {
+     "f": "606 — Six cent six",
+     "a": "ستمية وستة",
+     "e": "Six hundred and six"
+    },
+    {
+     "f": "607 — Six cent sept",
+     "a": "ستمية وسبعة",
+     "e": "Six hundred and seven"
+    },
+    {
+     "f": "608 — Six cent huit",
+     "a": "ستمية وتمانية",
+     "e": "Six hundred and eight"
+    },
+    {
+     "f": "609 — Six cent neuf",
+     "a": "ستمية وتسعة",
+     "e": "Six hundred and nine"
+    },
+    {
+     "f": "610 — Six cent dix",
+     "a": "ستمية وعشرة",
+     "e": "Six hundred and ten"
+    },
+    {
+     "f": "611 — Six cent onze",
+     "a": "ستمية وحداش",
+     "e": "Six hundred and eleven"
+    },
+    {
+     "f": "612 — Six cent douze",
+     "a": "ستمية واتناش",
+     "e": "Six hundred and twelve"
+    },
+    {
+     "f": "613 — Six cent treize",
+     "a": "ستمية وتلتعش",
+     "e": "Six hundred and thirteen"
+    },
+    {
+     "f": "614 — Six cent quatorze",
+     "a": "ستمية وأربعتعش",
+     "e": "Six hundred and fourteen"
+    },
+    {
+     "f": "615 — Six cent quinze",
+     "a": "ستمية وخمستعش",
+     "e": "Six hundred and fifteen"
+    },
+    {
+     "f": "616 — Six cent seize",
+     "a": "ستمية وستعش",
+     "e": "Six hundred and sixteen"
+    },
+    {
+     "f": "617 — Six cent dix-sept",
+     "a": "ستمية وسبعتعش",
+     "e": "Six hundred and seventeen"
+    },
+    {
+     "f": "618 — Six cent dix-huit",
+     "a": "ستمية وتمنتعش",
+     "e": "Six hundred and eighteen"
+    },
+    {
+     "f": "619 — Six cent dix-neuf",
+     "a": "ستمية وتسعتعش",
+     "e": "Six hundred and nineteen"
+    },
+    {
+     "f": "620 — Six cent vingt",
+     "a": "ستمية وعشرين",
+     "e": "Six hundred and twenty"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-148",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 22/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 22",
+   "phr": [
+    {
+     "f": "621 — Six cent vingt et un",
+     "a": "ستمية وواحد وعشرين",
+     "e": "Six hundred and twenty-one"
+    },
+    {
+     "f": "622 — Six cent vingt-deux",
+     "a": "ستمية واتنين وعشرين",
+     "e": "Six hundred and twenty-two"
+    },
+    {
+     "f": "623 — Six cent vingt-trois",
+     "a": "ستمية وتلاتة وعشرين",
+     "e": "Six hundred and twenty-three"
+    },
+    {
+     "f": "624 — Six cent vingt-quatre",
+     "a": "ستمية وأربعة وعشرين",
+     "e": "Six hundred and twenty-four"
+    },
+    {
+     "f": "625 — Six cent vingt-cinq",
+     "a": "ستمية وخمسة وعشرين",
+     "e": "Six hundred and twenty-five"
+    },
+    {
+     "f": "626 — Six cent vingt-six",
+     "a": "ستمية وستة وعشرين",
+     "e": "Six hundred and twenty-six"
+    },
+    {
+     "f": "627 — Six cent vingt-sept",
+     "a": "ستمية وسبعة وعشرين",
+     "e": "Six hundred and twenty-seven"
+    },
+    {
+     "f": "628 — Six cent vingt-huit",
+     "a": "ستمية وتمانية وعشرين",
+     "e": "Six hundred and twenty-eight"
+    },
+    {
+     "f": "629 — Six cent vingt-neuf",
+     "a": "ستمية وتسعة وعشرين",
+     "e": "Six hundred and twenty-nine"
+    },
+    {
+     "f": "630 — Six cent trente",
+     "a": "ستمية وتلاتين",
+     "e": "Six hundred and thirty"
+    },
+    {
+     "f": "631 — Six cent trente et un",
+     "a": "ستمية وواحد وتلاتين",
+     "e": "Six hundred and thirty-one"
+    },
+    {
+     "f": "632 — Six cent trente-deux",
+     "a": "ستمية واتنين وتلاتين",
+     "e": "Six hundred and thirty-two"
+    },
+    {
+     "f": "633 — Six cent trente-trois",
+     "a": "ستمية وتلاتة وتلاتين",
+     "e": "Six hundred and thirty-three"
+    },
+    {
+     "f": "634 — Six cent trente-quatre",
+     "a": "ستمية وأربعة وتلاتين",
+     "e": "Six hundred and thirty-four"
+    },
+    {
+     "f": "635 — Six cent trente-cinq",
+     "a": "ستمية وخمسة وتلاتين",
+     "e": "Six hundred and thirty-five"
+    },
+    {
+     "f": "636 — Six cent trente-six",
+     "a": "ستمية وستة وتلاتين",
+     "e": "Six hundred and thirty-six"
+    },
+    {
+     "f": "637 — Six cent trente-sept",
+     "a": "ستمية وسبعة وتلاتين",
+     "e": "Six hundred and thirty-seven"
+    },
+    {
+     "f": "638 — Six cent trente-huit",
+     "a": "ستمية وتمانية وتلاتين",
+     "e": "Six hundred and thirty-eight"
+    },
+    {
+     "f": "639 — Six cent trente-neuf",
+     "a": "ستمية وتسعة وتلاتين",
+     "e": "Six hundred and thirty-nine"
+    },
+    {
+     "f": "640 — Six cent quarante",
+     "a": "ستمية وأربعين",
+     "e": "Six hundred and forty"
+    },
+    {
+     "f": "641 — Six cent quarante et un",
+     "a": "ستمية وواحد وأربعين",
+     "e": "Six hundred and forty-one"
+    },
+    {
+     "f": "642 — Six cent quarante-deux",
+     "a": "ستمية واتنين وأربعين",
+     "e": "Six hundred and forty-two"
+    },
+    {
+     "f": "643 — Six cent quarante-trois",
+     "a": "ستمية وتلاتة وأربعين",
+     "e": "Six hundred and forty-three"
+    },
+    {
+     "f": "644 — Six cent quarante-quatre",
+     "a": "ستمية وأربعة وأربعين",
+     "e": "Six hundred and forty-four"
+    },
+    {
+     "f": "645 — Six cent quarante-cinq",
+     "a": "ستمية وخمسة وأربعين",
+     "e": "Six hundred and forty-five"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-149",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 23/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 23",
+   "phr": [
+    {
+     "f": "646 — Six cent quarante-six",
+     "a": "ستمية وستة وأربعين",
+     "e": "Six hundred and forty-six"
+    },
+    {
+     "f": "647 — Six cent quarante-sept",
+     "a": "ستمية وسبعة وأربعين",
+     "e": "Six hundred and forty-seven"
+    },
+    {
+     "f": "648 — Six cent quarante-huit",
+     "a": "ستمية وتمانية وأربعين",
+     "e": "Six hundred and forty-eight"
+    },
+    {
+     "f": "649 — Six cent quarante-neuf",
+     "a": "ستمية وتسعة وأربعين",
+     "e": "Six hundred and forty-nine"
+    },
+    {
+     "f": "650 — Six cent cinquante",
+     "a": "ستمية وخمسين",
+     "e": "Six hundred and fifty"
+    },
+    {
+     "f": "651 — Six cent cinquante et un",
+     "a": "ستمية وواحد وخمسين",
+     "e": "Six hundred and fifty-one"
+    },
+    {
+     "f": "652 — Six cent cinquante-deux",
+     "a": "ستمية واتنين وخمسين",
+     "e": "Six hundred and fifty-two"
+    },
+    {
+     "f": "653 — Six cent cinquante-trois",
+     "a": "ستمية وتلاتة وخمسين",
+     "e": "Six hundred and fifty-three"
+    },
+    {
+     "f": "654 — Six cent cinquante-quatre",
+     "a": "ستمية وأربعة وخمسين",
+     "e": "Six hundred and fifty-four"
+    },
+    {
+     "f": "655 — Six cent cinquante-cinq",
+     "a": "ستمية وخمسة وخمسين",
+     "e": "Six hundred and fifty-five"
+    },
+    {
+     "f": "656 — Six cent cinquante-six",
+     "a": "ستمية وستة وخمسين",
+     "e": "Six hundred and fifty-six"
+    },
+    {
+     "f": "657 — Six cent cinquante-sept",
+     "a": "ستمية وسبعة وخمسين",
+     "e": "Six hundred and fifty-seven"
+    },
+    {
+     "f": "658 — Six cent cinquante-huit",
+     "a": "ستمية وتمانية وخمسين",
+     "e": "Six hundred and fifty-eight"
+    },
+    {
+     "f": "659 — Six cent cinquante-neuf",
+     "a": "ستمية وتسعة وخمسين",
+     "e": "Six hundred and fifty-nine"
+    },
+    {
+     "f": "660 — Six cent soixante",
+     "a": "ستمية وستين",
+     "e": "Six hundred and sixty"
+    },
+    {
+     "f": "661 — Six cent soixante et un",
+     "a": "ستمية وواحد وستين",
+     "e": "Six hundred and sixty-one"
+    },
+    {
+     "f": "662 — Six cent soixante-deux",
+     "a": "ستمية واتنين وستين",
+     "e": "Six hundred and sixty-two"
+    },
+    {
+     "f": "663 — Six cent soixante-trois",
+     "a": "ستمية وتلاتة وستين",
+     "e": "Six hundred and sixty-three"
+    },
+    {
+     "f": "664 — Six cent soixante-quatre",
+     "a": "ستمية وأربعة وستين",
+     "e": "Six hundred and sixty-four"
+    },
+    {
+     "f": "665 — Six cent soixante-cinq",
+     "a": "ستمية وخمسة وستين",
+     "e": "Six hundred and sixty-five"
+    },
+    {
+     "f": "666 — Six cent soixante-six",
+     "a": "ستمية وستة وستين",
+     "e": "Six hundred and sixty-six"
+    },
+    {
+     "f": "667 — Six cent soixante-sept",
+     "a": "ستمية وسبعة وستين",
+     "e": "Six hundred and sixty-seven"
+    },
+    {
+     "f": "668 — Six cent soixante-huit",
+     "a": "ستمية وتمانية وستين",
+     "e": "Six hundred and sixty-eight"
+    },
+    {
+     "f": "669 — Six cent soixante-neuf",
+     "a": "ستمية وتسعة وستين",
+     "e": "Six hundred and sixty-nine"
+    },
+    {
+     "f": "670 — Six cent soixante-dix",
+     "a": "ستمية وسبعين",
+     "e": "Six hundred and seventy"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-150",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 24/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 24",
+   "phr": [
+    {
+     "f": "671 — Six cent soixante et onze",
+     "a": "ستمية وواحد وسبعين",
+     "e": "Six hundred and seventy-one"
+    },
+    {
+     "f": "672 — Six cent soixante-douze",
+     "a": "ستمية واتنين وسبعين",
+     "e": "Six hundred and seventy-two"
+    },
+    {
+     "f": "673 — Six cent soixante-treize",
+     "a": "ستمية وتلاتة وسبعين",
+     "e": "Six hundred and seventy-three"
+    },
+    {
+     "f": "674 — Six cent soixante-quatorze",
+     "a": "ستمية وأربعة وسبعين",
+     "e": "Six hundred and seventy-four"
+    },
+    {
+     "f": "675 — Six cent soixante-quinze",
+     "a": "ستمية وخمسة وسبعين",
+     "e": "Six hundred and seventy-five"
+    },
+    {
+     "f": "676 — Six cent soixante-seize",
+     "a": "ستمية وستة وسبعين",
+     "e": "Six hundred and seventy-six"
+    },
+    {
+     "f": "677 — Six cent soixante-dix-sept",
+     "a": "ستمية وسبعة وسبعين",
+     "e": "Six hundred and seventy-seven"
+    },
+    {
+     "f": "678 — Six cent soixante-dix-huit",
+     "a": "ستمية وتمانية وسبعين",
+     "e": "Six hundred and seventy-eight"
+    },
+    {
+     "f": "679 — Six cent soixante-dix-neuf",
+     "a": "ستمية وتسعة وسبعين",
+     "e": "Six hundred and seventy-nine"
+    },
+    {
+     "f": "680 — Six cent quatre-vingts",
+     "a": "ستمية وتمانين",
+     "e": "Six hundred and eighty"
+    },
+    {
+     "f": "681 — Six cent quatre-vingt-un",
+     "a": "ستمية وواحد وتمانين",
+     "e": "Six hundred and eighty-one"
+    },
+    {
+     "f": "682 — Six cent quatre-vingt-deux",
+     "a": "ستمية واتنين وتمانين",
+     "e": "Six hundred and eighty-two"
+    },
+    {
+     "f": "683 — Six cent quatre-vingt-trois",
+     "a": "ستمية وتلاتة وتمانين",
+     "e": "Six hundred and eighty-three"
+    },
+    {
+     "f": "684 — Six cent quatre-vingt-quatre",
+     "a": "ستمية وأربعة وتمانين",
+     "e": "Six hundred and eighty-four"
+    },
+    {
+     "f": "685 — Six cent quatre-vingt-cinq",
+     "a": "ستمية وخمسة وتمانين",
+     "e": "Six hundred and eighty-five"
+    },
+    {
+     "f": "686 — Six cent quatre-vingt-six",
+     "a": "ستمية وستة وتمانين",
+     "e": "Six hundred and eighty-six"
+    },
+    {
+     "f": "687 — Six cent quatre-vingt-sept",
+     "a": "ستمية وسبعة وتمانين",
+     "e": "Six hundred and eighty-seven"
+    },
+    {
+     "f": "688 — Six cent quatre-vingt-huit",
+     "a": "ستمية وتمانية وتمانين",
+     "e": "Six hundred and eighty-eight"
+    },
+    {
+     "f": "689 — Six cent quatre-vingt-neuf",
+     "a": "ستمية وتسعة وتمانين",
+     "e": "Six hundred and eighty-nine"
+    },
+    {
+     "f": "690 — Six cent quatre-vingt-dix",
+     "a": "ستمية وتسعين",
+     "e": "Six hundred and ninety"
+    },
+    {
+     "f": "691 — Six cent quatre-vingt-onze",
+     "a": "ستمية وواحد وتسعين",
+     "e": "Six hundred and ninety-one"
+    },
+    {
+     "f": "692 — Six cent quatre-vingt-douze",
+     "a": "ستمية واتنين وتسعين",
+     "e": "Six hundred and ninety-two"
+    },
+    {
+     "f": "693 — Six cent quatre-vingt-treize",
+     "a": "ستمية وتلتعش وتسعين",
+     "e": "Six hundred and ninety-three"
+    },
+    {
+     "f": "694 — Six cent quatre-vingt-quatorze",
+     "a": "ستمية وأربعة وتسعين",
+     "e": "Six hundred and ninety-four"
+    },
+    {
+     "f": "695 — Six cent quatre-vingt-quinze",
+     "a": "ستمية وخمسة وتسعين",
+     "e": "Six hundred and ninety-five"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-151",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 25/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 25",
+   "phr": [
+    {
+     "f": "696 — Six cent quatre-vingt-seize",
+     "a": "ستمية وستة وتسعين",
+     "e": "Six hundred and ninety-six"
+    },
+    {
+     "f": "697 — Six cent quatre-vingt-dix-sept",
+     "a": "ستمية وسبعة وتسعين",
+     "e": "Six hundred and ninety-seven"
+    },
+    {
+     "f": "698 — Six cent quatre-vingt-dix-huit",
+     "a": "ستمية وتمانية وتسعين",
+     "e": "Six hundred and ninety-eight"
+    },
+    {
+     "f": "699 — Six cent quatre-vingt-dix-neuf",
+     "a": "ستمية وتسعة وتسعين",
+     "e": "Six hundred and ninety-nine"
+    },
+    {
+     "f": "701 — Sept cent un",
+     "a": "سبعمية وواحد",
+     "e": "Seven hundred and one"
+    },
+    {
+     "f": "702 — Sept cent deux",
+     "a": "سبعمية وتنين",
+     "e": "Seven hundred and two"
+    },
+    {
+     "f": "703 — Sept cent trois",
+     "a": "سبعمية وتلاتة",
+     "e": "Seven hundred and three"
+    },
+    {
+     "f": "704 — Sept cent quatre",
+     "a": "سبعمية وأربعة",
+     "e": "Seven hundred and four"
+    },
+    {
+     "f": "705 — Sept cent cinq",
+     "a": "سبعمية وخمسة",
+     "e": "Seven hundred and five"
+    },
+    {
+     "f": "706 — Sept cent six",
+     "a": "سبعمية وستة",
+     "e": "Seven hundred and six"
+    },
+    {
+     "f": "707 — Sept cent sept",
+     "a": "سبعمية وسبعة",
+     "e": "Seven hundred and seven"
+    },
+    {
+     "f": "708 — Sept cent huit",
+     "a": "سبعمية وتمانية",
+     "e": "Seven hundred and eight"
+    },
+    {
+     "f": "709 — Sept cent neuf",
+     "a": "سبعمية وتسعة",
+     "e": "Seven hundred and nine"
+    },
+    {
+     "f": "710 — Sept cent dix",
+     "a": "سبعمية وعشرة",
+     "e": "Seven hundred and ten"
+    },
+    {
+     "f": "711 — Sept cent onze",
+     "a": "سبعمية وحداش",
+     "e": "Seven hundred and eleven"
+    },
+    {
+     "f": "712 — Sept cent douze",
+     "a": "سبعمية واتناش",
+     "e": "Seven hundred and twelve"
+    },
+    {
+     "f": "713 — Sept cent treize",
+     "a": "سبعمية وتلتعش",
+     "e": "Seven hundred and thirteen"
+    },
+    {
+     "f": "714 — Sept cent quatorze",
+     "a": "سبعمية وأربعتعش",
+     "e": "Seven hundred and fourteen"
+    },
+    {
+     "f": "715 — Sept cent quinze",
+     "a": "سبعمية وخمستعش",
+     "e": "Seven hundred and fifteen"
+    },
+    {
+     "f": "716 — Sept cent seize",
+     "a": "سبعمية وستعش",
+     "e": "Seven hundred and sixteen"
+    },
+    {
+     "f": "717 — Sept cent dix-sept",
+     "a": "سبعمية وسبعتعش",
+     "e": "Seven hundred and seventeen"
+    },
+    {
+     "f": "718 — Sept cent dix-huit",
+     "a": "سبعمية وتمنتعش",
+     "e": "Seven hundred and eighteen"
+    },
+    {
+     "f": "719 — Sept cent dix-neuf",
+     "a": "سبعمية وتسعتعش",
+     "e": "Seven hundred and nineteen"
+    },
+    {
+     "f": "720 — Sept cent vingt",
+     "a": "سبعمية وعشرين",
+     "e": "Seven hundred and twenty"
+    },
+    {
+     "f": "721 — Sept cent vingt et un",
+     "a": "سبعمية وواحد وعشرين",
+     "e": "Seven hundred and twenty-one"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-152",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 26/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 26",
+   "phr": [
+    {
+     "f": "722 — Sept cent vingt-deux",
+     "a": "سبعمية واتنين وعشرين",
+     "e": "Seven hundred and twenty-two"
+    },
+    {
+     "f": "723 — Sept cent vingt-trois",
+     "a": "سبعمية وتلاتة وعشرين",
+     "e": "Seven hundred and twenty-three"
+    },
+    {
+     "f": "724 — Sept cent vingt-quatre",
+     "a": "سبعمية وأربعة وعشرين",
+     "e": "Seven hundred and twenty-four"
+    },
+    {
+     "f": "725 — Sept cent vingt-cinq",
+     "a": "سبعمية وخمسة وعشرين",
+     "e": "Seven hundred and twenty-five"
+    },
+    {
+     "f": "726 — Sept cent vingt-six",
+     "a": "سبعمية وستة وعشرين",
+     "e": "Seven hundred and twenty-six"
+    },
+    {
+     "f": "727 — Sept cent vingt-sept",
+     "a": "سبعمية وسبعة وعشرين",
+     "e": "Seven hundred and twenty-seven"
+    },
+    {
+     "f": "728 — Sept cent vingt-huit",
+     "a": "سبعمية وتمانية وعشرين",
+     "e": "Seven hundred and twenty-eight"
+    },
+    {
+     "f": "729 — Sept cent vingt-neuf",
+     "a": "سبعمية وتسعة وعشرين",
+     "e": "Seven hundred and twenty-nine"
+    },
+    {
+     "f": "730 — Sept cent trente",
+     "a": "سبعمية وتلاتين",
+     "e": "Seven hundred and thirty"
+    },
+    {
+     "f": "731 — Sept cent trente et un",
+     "a": "سبعمية وواحد وتلاتين",
+     "e": "Seven hundred and thirty-one"
+    },
+    {
+     "f": "732 — Sept cent trente-deux",
+     "a": "سبعمية واتنين وتلاتين",
+     "e": "Seven hundred and thirty-two"
+    },
+    {
+     "f": "733 — Sept cent trente-trois",
+     "a": "سبعمية وتلاتة وتلاتين",
+     "e": "Seven hundred and thirty-three"
+    },
+    {
+     "f": "734 — Sept cent trente-quatre",
+     "a": "سبعمية وأربعة وتلاتين",
+     "e": "Seven hundred and thirty-four"
+    },
+    {
+     "f": "735 — Sept cent trente-cinq",
+     "a": "سبعمية وخمسة وتلاتين",
+     "e": "Seven hundred and thirty-five"
+    },
+    {
+     "f": "736 — Sept cent trente-six",
+     "a": "سبعمية وستة وتلاتين",
+     "e": "Seven hundred and thirty-six"
+    },
+    {
+     "f": "737 — Sept cent trente-sept",
+     "a": "سبعمية وسبعة وتلاتين",
+     "e": "Seven hundred and thirty-seven"
+    },
+    {
+     "f": "738 — Sept cent trente-huit",
+     "a": "سبعمية وتمانية وتلاتين",
+     "e": "Seven hundred and thirty-eight"
+    },
+    {
+     "f": "739 — Sept cent trente-neuf",
+     "a": "سبعمية وتسعة وتلاتين",
+     "e": "Seven hundred and thirty-nine"
+    },
+    {
+     "f": "740 — Sept cent quarante",
+     "a": "سبعمية وأربعين",
+     "e": "Seven hundred and forty"
+    },
+    {
+     "f": "741 — Sept cent quarante et un",
+     "a": "سبعمية وواحد وأربعين",
+     "e": "Seven hundred and forty-one"
+    },
+    {
+     "f": "742 — Sept cent quarante-deux",
+     "a": "سبعمية واتنين وأربعين",
+     "e": "Seven hundred and forty-two"
+    },
+    {
+     "f": "743 — Sept cent quarante-trois",
+     "a": "سبعمية وتلاتة وأربعين",
+     "e": "Seven hundred and forty-three"
+    },
+    {
+     "f": "744 — Sept cent quarante-quatre",
+     "a": "سبعمية وأربعة وأربعين",
+     "e": "Seven hundred and forty-four"
+    },
+    {
+     "f": "745 — Sept cent quarante-cinq",
+     "a": "سبعمية وخمسة وأربعين",
+     "e": "Seven hundred and forty-five"
+    },
+    {
+     "f": "746 — Sept cent quarante-six",
+     "a": "سبعمية وستة وأربعين",
+     "e": "Seven hundred and forty-six"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-153",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 27/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 27",
+   "phr": [
+    {
+     "f": "747 — Sept cent quarante-sept",
+     "a": "سبعمية وسبعة وأربعين",
+     "e": "Seven hundred and forty-seven"
+    },
+    {
+     "f": "748 — Sept cent quarante-huit",
+     "a": "سبعمية وتمانية وأربعين",
+     "e": "Seven hundred and forty-eight"
+    },
+    {
+     "f": "749 — Sept cent quarante-neuf",
+     "a": "سبعمية وتسعة وأربعين",
+     "e": "Seven hundred and forty-nine"
+    },
+    {
+     "f": "750 — Sept cent cinquante",
+     "a": "سبعمية وخمسين",
+     "e": "Seven hundred and fifty"
+    },
+    {
+     "f": "751 — Sept cent cinquante et un",
+     "a": "سبعمية وواحد وخمسين",
+     "e": "Seven hundred and fifty-one"
+    },
+    {
+     "f": "752 — Sept cent cinquante-deux",
+     "a": "سبعمية واتنين وخمسين",
+     "e": "Seven hundred and fifty-two"
+    },
+    {
+     "f": "753 — Sept cent cinquante-trois",
+     "a": "سبعمية وتلاتة وخمسين",
+     "e": "Seven hundred and fifty-three"
+    },
+    {
+     "f": "754 — Sept cent cinquante-quatre",
+     "a": "سبعمية وأربعة وخمسين",
+     "e": "Seven hundred and fifty-four"
+    },
+    {
+     "f": "755 — Sept cent cinquante-cinq",
+     "a": "سبعمية وخمسة وخمسين",
+     "e": "Seven hundred and fifty-five"
+    },
+    {
+     "f": "756 — Sept cent cinquante-six",
+     "a": "سبعمية وستة وخمسين",
+     "e": "Seven hundred and fifty-six"
+    },
+    {
+     "f": "757 — Sept cent cinquante-sept",
+     "a": "سبعمية وسبعة وخمسين",
+     "e": "Seven hundred and fifty-seven"
+    },
+    {
+     "f": "758 — Sept cent cinquante-huit",
+     "a": "سبعمية وتمانية وخمسين",
+     "e": "Seven hundred and fifty-eight"
+    },
+    {
+     "f": "759 — Sept cent cinquante-neuf",
+     "a": "سبعمية وتسعة وخمسين",
+     "e": "Seven hundred and fifty-nine"
+    },
+    {
+     "f": "760 — Sept cent soixante",
+     "a": "سبعمية وستين",
+     "e": "Seven hundred and sixty"
+    },
+    {
+     "f": "761 — Sept cent soixante et un",
+     "a": "سبعمية وواحد وستين",
+     "e": "Seven hundred and sixty-one"
+    },
+    {
+     "f": "762 — Sept cent soixante-deux",
+     "a": "سبعمية واتنين وستين",
+     "e": "Seven hundred and sixty-two"
+    },
+    {
+     "f": "763 — Sept cent soixante-trois",
+     "a": "سبعمية وتلاتة وستين",
+     "e": "Seven hundred and sixty-three"
+    },
+    {
+     "f": "764 — Sept cent soixante-quatre",
+     "a": "سبعمية وأربعة وستين",
+     "e": "Seven hundred and sixty-four"
+    },
+    {
+     "f": "765 — Sept cent soixante-cinq",
+     "a": "سبعمية وخمسة وستين",
+     "e": "Seven hundred and sixty-five"
+    },
+    {
+     "f": "766 — Sept cent soixante-six",
+     "a": "سبعمية وستة وستين",
+     "e": "Seven hundred and sixty-six"
+    },
+    {
+     "f": "767 — Sept cent soixante-sept",
+     "a": "سبعمية وسبعة وستين",
+     "e": "Seven hundred and sixty-seven"
+    },
+    {
+     "f": "768 — Sept cent soixante-huit",
+     "a": "سبعمية وتمانية وستين",
+     "e": "Seven hundred and sixty-eight"
+    },
+    {
+     "f": "769 — Sept cent soixante-neuf",
+     "a": "سبعمية وتسعة وستين",
+     "e": "Seven hundred and sixty-nine"
+    },
+    {
+     "f": "770 — Sept cent soixante-dix",
+     "a": "سبعمية وسبعين",
+     "e": "Seven hundred and seventy"
+    },
+    {
+     "f": "771 — Sept cent soixante et onze",
+     "a": "سبعمية وواحد وسبعين",
+     "e": "Seven hundred and seventy-one"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-154",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 28/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 28",
+   "phr": [
+    {
+     "f": "772 — Sept cent soixante-douze",
+     "a": "سبعمية واتنين وسبعين",
+     "e": "Seven hundred and seventy-two"
+    },
+    {
+     "f": "773 — Sept cent soixante-treize",
+     "a": "سبعمية وتلاتة وسبعين",
+     "e": "Seven hundred and seventy-three"
+    },
+    {
+     "f": "774 — Sept cent soixante-quatorze",
+     "a": "سبعمية وأربعة وسبعين",
+     "e": "Seven hundred and seventy-four"
+    },
+    {
+     "f": "775 — Sept cent soixante-quinze",
+     "a": "سبعمية وخمسة وسبعين",
+     "e": "Seven hundred and seventy-five"
+    },
+    {
+     "f": "776 — Sept cent soixante-seize",
+     "a": "سبعمية وستة وسبعين",
+     "e": "Seven hundred and seventy-six"
+    },
+    {
+     "f": "777 — Sept cent soixante-dix-sept",
+     "a": "سبعمية وسبعة وسبعين",
+     "e": "Seven hundred and seventy-seven"
+    },
+    {
+     "f": "778 — Sept cent soixante-dix-huit",
+     "a": "سبعمية وتمانية وسبعين",
+     "e": "Seven hundred and seventy-eight"
+    },
+    {
+     "f": "779 — Sept cent soixante-dix-neuf",
+     "a": "سبعمية وتسعة وسبعين",
+     "e": "Seven hundred and seventy-nine"
+    },
+    {
+     "f": "780 — Sept cent quatre-vingts",
+     "a": "سبعمية وتمانين",
+     "e": "Seven hundred and eighty"
+    },
+    {
+     "f": "781 — Sept cent quatre-vingt-un",
+     "a": "سبعمية وواحد وتمانين",
+     "e": "Seven hundred and eighty-one"
+    },
+    {
+     "f": "782 — Sept cent quatre-vingt-deux",
+     "a": "سبعمية واتنين وتمانين",
+     "e": "Seven hundred and eighty-two"
+    },
+    {
+     "f": "783 — Sept cent quatre-vingt-trois",
+     "a": "سبعمية وتلاتة وتمانين",
+     "e": "Seven hundred and eighty-three"
+    },
+    {
+     "f": "784 — Sept cent quatre-vingt-quatre",
+     "a": "سبعمية وأربعة وتمانين",
+     "e": "Seven hundred and eighty-four"
+    },
+    {
+     "f": "785 — Sept cent quatre-vingt-cinq",
+     "a": "سبعمية وخمسة وتمانين",
+     "e": "Seven hundred and eighty-five"
+    },
+    {
+     "f": "786 — Sept cent quatre-vingt-six",
+     "a": "سبعمية وستة وتمانين",
+     "e": "Seven hundred and eighty-six"
+    },
+    {
+     "f": "787 — Sept cent quatre-vingt-sept",
+     "a": "سبعمية وسبعة وتمانين",
+     "e": "Seven hundred and eighty-seven"
+    },
+    {
+     "f": "788 — Sept cent quatre-vingt-huit",
+     "a": "سبعمية وتمانية وتمانين",
+     "e": "Seven hundred and eighty-eight"
+    },
+    {
+     "f": "789 — Sept cent quatre-vingt-neuf",
+     "a": "سبعمية وتسعة وتمانين",
+     "e": "Seven hundred and eighty-nine"
+    },
+    {
+     "f": "790 — Sept cent quatre-vingt-dix",
+     "a": "سبعمية وتسعين",
+     "e": "Seven hundred and ninety"
+    },
+    {
+     "f": "791 — Sept cent quatre-vingt-onze",
+     "a": "سبعمية وواحد وتسعين",
+     "e": "Seven hundred and ninety-one"
+    },
+    {
+     "f": "792 — Sept cent quatre-vingt-douze",
+     "a": "سبعمية واتنين وتسعين",
+     "e": "Seven hundred and ninety-two"
+    },
+    {
+     "f": "793 — Sept cent quatre-vingt-treize",
+     "a": "سبعمية وتلتعش وتسعين",
+     "e": "Seven hundred and ninety-three"
+    },
+    {
+     "f": "794 — Sept cent quatre-vingt-quatorze",
+     "a": "سبعمية وأربعة وتسعين",
+     "e": "Seven hundred and ninety-four"
+    },
+    {
+     "f": "795 — Sept cent quatre-vingt-quinze",
+     "a": "سبعمية وخمسة وتسعين",
+     "e": "Seven hundred and ninety-five"
+    },
+    {
+     "f": "796 — Sept cent quatre-vingt-seize",
+     "a": "سبعمية وستة وتسعين",
+     "e": "Seven hundred and ninety-six"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-155",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 29/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 29",
+   "phr": [
+    {
+     "f": "797 — Sept cent quatre-vingt-dix-sept",
+     "a": "سبعمية وسبعة وتسعين",
+     "e": "Seven hundred and ninety-seven"
+    },
+    {
+     "f": "798 — Sept cent quatre-vingt-dix-huit",
+     "a": "سبعمية وتمانية وتسعين",
+     "e": "Seven hundred and ninety-eight"
+    },
+    {
+     "f": "799 — Sept cent quatre-vingt-dix-neuf",
+     "a": "سبعمية وتسعة وتسعين",
+     "e": "Seven hundred and ninety-nine"
+    },
+    {
+     "f": "801 — Huit cent un",
+     "a": "تمنمية وواحد",
+     "e": "Eight hundred and one"
+    },
+    {
+     "f": "802 — Huit cent deux",
+     "a": "تمنمية وتنين",
+     "e": "Eight hundred and two"
+    },
+    {
+     "f": "803 — Huit cent trois",
+     "a": "تمنمية وتلاتة",
+     "e": "Eight hundred and three"
+    },
+    {
+     "f": "804 — Huit cent quatre",
+     "a": "تمنمية وأربعة",
+     "e": "Eight hundred and four"
+    },
+    {
+     "f": "805 — Huit cent cinq",
+     "a": "تمنمية وخمسة",
+     "e": "Eight hundred and five"
+    },
+    {
+     "f": "806 — Huit cent six",
+     "a": "تمنمية وستة",
+     "e": "Eight hundred and six"
+    },
+    {
+     "f": "807 — Huit cent sept",
+     "a": "تمنمية وسبعة",
+     "e": "Eight hundred and seven"
+    },
+    {
+     "f": "808 — Huit cent huit",
+     "a": "تمنمية وتمانية",
+     "e": "Eight hundred and eight"
+    },
+    {
+     "f": "809 — Huit cent neuf",
+     "a": "تمنمية وتسعة",
+     "e": "Eight hundred and nine"
+    },
+    {
+     "f": "810 — Huit cent dix",
+     "a": "تمنمية وعشرة",
+     "e": "Eight hundred and ten"
+    },
+    {
+     "f": "811 — Huit cent onze",
+     "a": "تمنمية وحداش",
+     "e": "Eight hundred and eleven"
+    },
+    {
+     "f": "812 — Huit cent douze",
+     "a": "تمنمية واتناش",
+     "e": "Eight hundred and twelve"
+    },
+    {
+     "f": "813 — Huit cent treize",
+     "a": "تمنمية وتلتعش",
+     "e": "Eight hundred and thirteen"
+    },
+    {
+     "f": "814 — Huit cent quatorze",
+     "a": "تمنمية وأربعتعش",
+     "e": "Eight hundred and fourteen"
+    },
+    {
+     "f": "815 — Huit cent quinze",
+     "a": "تمنمية وخمستعش",
+     "e": "Eight hundred and fifteen"
+    },
+    {
+     "f": "816 — Huit cent seize",
+     "a": "تمنمية وستعش",
+     "e": "Eight hundred and sixteen"
+    },
+    {
+     "f": "817 — Huit cent dix-sept",
+     "a": "تمنمية وسبعتعش",
+     "e": "Eight hundred and seventeen"
+    },
+    {
+     "f": "818 — Huit cent dix-huit",
+     "a": "تمنمية وتمنتعش",
+     "e": "Eight hundred and eighteen"
+    },
+    {
+     "f": "819 — Huit cent dix-neuf",
+     "a": "تمنمية وتسعتعش",
+     "e": "Eight hundred and nineteen"
+    },
+    {
+     "f": "820 — Huit cent vingt",
+     "a": "تمنمية وعشرين",
+     "e": "Eight hundred and twenty"
+    },
+    {
+     "f": "821 — Huit cent vingt et un",
+     "a": "تمنمية وواحد وعشرين",
+     "e": "Eight hundred and twenty-one"
+    },
+    {
+     "f": "822 — Huit cent vingt-deux",
+     "a": "تمنمية واتنين وعشرين",
+     "e": "Eight hundred and twenty-two"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-156",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 30/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 30",
+   "phr": [
+    {
+     "f": "823 — Huit cent vingt-trois",
+     "a": "تمنمية وتلاتة وعشرين",
+     "e": "Eight hundred and twenty-three"
+    },
+    {
+     "f": "824 — Huit cent vingt-quatre",
+     "a": "تمنمية وأربعة وعشرين",
+     "e": "Eight hundred and twenty-four"
+    },
+    {
+     "f": "825 — Huit cent vingt-cinq",
+     "a": "تمنمية وخمسة وعشرين",
+     "e": "Eight hundred and twenty-five"
+    },
+    {
+     "f": "826 — Huit cent vingt-six",
+     "a": "تمنمية وستة وعشرين",
+     "e": "Eight hundred and twenty-six"
+    },
+    {
+     "f": "827 — Huit cent vingt-sept",
+     "a": "تمنمية وسبعة وعشرين",
+     "e": "Eight hundred and twenty-seven"
+    },
+    {
+     "f": "828 — Huit cent vingt-huit",
+     "a": "تمنمية وتمانية وعشرين",
+     "e": "Eight hundred and twenty-eight"
+    },
+    {
+     "f": "829 — Huit cent vingt-neuf",
+     "a": "تمنمية وتسعة وعشرين",
+     "e": "Eight hundred and twenty-nine"
+    },
+    {
+     "f": "830 — Huit cent trente",
+     "a": "تمنمية وتلاتين",
+     "e": "Eight hundred and thirty"
+    },
+    {
+     "f": "831 — Huit cent trente et un",
+     "a": "تمنمية وواحد وتلاتين",
+     "e": "Eight hundred and thirty-one"
+    },
+    {
+     "f": "832 — Huit cent trente-deux",
+     "a": "تمنمية واتنين وتلاتين",
+     "e": "Eight hundred and thirty-two"
+    },
+    {
+     "f": "833 — Huit cent trente-trois",
+     "a": "تمنمية وتلاتة وتلاتين",
+     "e": "Eight hundred and thirty-three"
+    },
+    {
+     "f": "834 — Huit cent trente-quatre",
+     "a": "تمنمية وأربعة وتلاتين",
+     "e": "Eight hundred and thirty-four"
+    },
+    {
+     "f": "835 — Huit cent trente-cinq",
+     "a": "تمنمية وخمسة وتلاتين",
+     "e": "Eight hundred and thirty-five"
+    },
+    {
+     "f": "836 — Huit cent trente-six",
+     "a": "تمنمية وستة وتلاتين",
+     "e": "Eight hundred and thirty-six"
+    },
+    {
+     "f": "837 — Huit cent trente-sept",
+     "a": "تمنمية وسبعة وتلاتين",
+     "e": "Eight hundred and thirty-seven"
+    },
+    {
+     "f": "838 — Huit cent trente-huit",
+     "a": "تمنمية وتمانية وتلاتين",
+     "e": "Eight hundred and thirty-eight"
+    },
+    {
+     "f": "839 — Huit cent trente-neuf",
+     "a": "تمنمية وتسعة وتلاتين",
+     "e": "Eight hundred and thirty-nine"
+    },
+    {
+     "f": "840 — Huit cent quarante",
+     "a": "تمنمية وأربعين",
+     "e": "Eight hundred and forty"
+    },
+    {
+     "f": "841 — Huit cent quarante et un",
+     "a": "تمنمية وواحد وأربعين",
+     "e": "Eight hundred and forty-one"
+    },
+    {
+     "f": "842 — Huit cent quarante-deux",
+     "a": "تمنمية واتنين وأربعين",
+     "e": "Eight hundred and forty-two"
+    },
+    {
+     "f": "843 — Huit cent quarante-trois",
+     "a": "تمنمية وتلاتة وأربعين",
+     "e": "Eight hundred and forty-three"
+    },
+    {
+     "f": "844 — Huit cent quarante-quatre",
+     "a": "تمنمية وأربعة وأربعين",
+     "e": "Eight hundred and forty-four"
+    },
+    {
+     "f": "845 — Huit cent quarante-cinq",
+     "a": "تمنمية وخمسة وأربعين",
+     "e": "Eight hundred and forty-five"
+    },
+    {
+     "f": "846 — Huit cent quarante-six",
+     "a": "تمنمية وستة وأربعين",
+     "e": "Eight hundred and forty-six"
+    },
+    {
+     "f": "847 — Huit cent quarante-sept",
+     "a": "تمنمية وسبعة وأربعين",
+     "e": "Eight hundred and forty-seven"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-157",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 31/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 31",
+   "phr": [
+    {
+     "f": "848 — Huit cent quarante-huit",
+     "a": "تمنمية وتمانية وأربعين",
+     "e": "Eight hundred and forty-eight"
+    },
+    {
+     "f": "849 — Huit cent quarante-neuf",
+     "a": "تمنمية وتسعة وأربعين",
+     "e": "Eight hundred and forty-nine"
+    },
+    {
+     "f": "850 — Huit cent cinquante",
+     "a": "تمنمية وخمسين",
+     "e": "Eight hundred and fifty"
+    },
+    {
+     "f": "851 — Huit cent cinquante et un",
+     "a": "تمنمية وواحد وخمسين",
+     "e": "Eight hundred and fifty-one"
+    },
+    {
+     "f": "852 — Huit cent cinquante-deux",
+     "a": "تمنمية واتنين وخمسين",
+     "e": "Eight hundred and fifty-two"
+    },
+    {
+     "f": "853 — Huit cent cinquante-trois",
+     "a": "تمنمية وتلاتة وخمسين",
+     "e": "Eight hundred and fifty-three"
+    },
+    {
+     "f": "854 — Huit cent cinquante-quatre",
+     "a": "تمنمية وأربعة وخمسين",
+     "e": "Eight hundred and fifty-four"
+    },
+    {
+     "f": "855 — Huit cent cinquante-cinq",
+     "a": "تمنمية وخمسة وخمسين",
+     "e": "Eight hundred and fifty-five"
+    },
+    {
+     "f": "856 — Huit cent cinquante-six",
+     "a": "تمنمية وستة وخمسين",
+     "e": "Eight hundred and fifty-six"
+    },
+    {
+     "f": "857 — Huit cent cinquante-sept",
+     "a": "تمنمية وسبعة وخمسين",
+     "e": "Eight hundred and fifty-seven"
+    },
+    {
+     "f": "858 — Huit cent cinquante-huit",
+     "a": "تمنمية وتمانية وخمسين",
+     "e": "Eight hundred and fifty-eight"
+    },
+    {
+     "f": "859 — Huit cent cinquante-neuf",
+     "a": "تمنمية وتسعة وخمسين",
+     "e": "Eight hundred and fifty-nine"
+    },
+    {
+     "f": "860 — Huit cent soixante",
+     "a": "تمنمية وستين",
+     "e": "Eight hundred and sixty"
+    },
+    {
+     "f": "861 — Huit cent soixante et un",
+     "a": "تمنمية وواحد وستين",
+     "e": "Eight hundred and sixty-one"
+    },
+    {
+     "f": "862 — Huit cent soixante-deux",
+     "a": "تمنمية واتنين وستين",
+     "e": "Eight hundred and sixty-two"
+    },
+    {
+     "f": "863 — Huit cent soixante-trois",
+     "a": "تمنمية وتلاتة وستين",
+     "e": "Eight hundred and sixty-three"
+    },
+    {
+     "f": "864 — Huit cent soixante-quatre",
+     "a": "تمنمية وأربعة وستين",
+     "e": "Eight hundred and sixty-four"
+    },
+    {
+     "f": "865 — Huit cent soixante-cinq",
+     "a": "تمنمية وخمسة وستين",
+     "e": "Eight hundred and sixty-five"
+    },
+    {
+     "f": "866 — Huit cent soixante-six",
+     "a": "تمنمية وستة وستين",
+     "e": "Eight hundred and sixty-six"
+    },
+    {
+     "f": "867 — Huit cent soixante-sept",
+     "a": "تمنمية وسبعة وستين",
+     "e": "Eight hundred and sixty-seven"
+    },
+    {
+     "f": "868 — Huit cent soixante-huit",
+     "a": "تمنمية وتمانية وستين",
+     "e": "Eight hundred and sixty-eight"
+    },
+    {
+     "f": "869 — Huit cent soixante-neuf",
+     "a": "تمنمية وتسعة وستين",
+     "e": "Eight hundred and sixty-nine"
+    },
+    {
+     "f": "870 — Huit cent soixante-dix",
+     "a": "تمنمية وسبعين",
+     "e": "Eight hundred and seventy"
+    },
+    {
+     "f": "871 — Huit cent soixante et onze",
+     "a": "تمنمية وواحد وسبعين",
+     "e": "Eight hundred and seventy-one"
+    },
+    {
+     "f": "872 — Huit cent soixante-douze",
+     "a": "تمنمية واتنين وسبعين",
+     "e": "Eight hundred and seventy-two"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-158",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 32/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 32",
+   "phr": [
+    {
+     "f": "873 — Huit cent soixante-treize",
+     "a": "تمنمية وتلتعش وسبعين",
+     "e": "Eight hundred and seventy-three"
+    },
+    {
+     "f": "874 — Huit cent soixante-quatorze",
+     "a": "تمنمية وأربعة وسبعين",
+     "e": "Eight hundred and seventy-four"
+    },
+    {
+     "f": "875 — Huit cent soixante-quinze",
+     "a": "تمنمية وخمسة وسبعين",
+     "e": "Eight hundred and seventy-five"
+    },
+    {
+     "f": "876 — Huit cent soixante-seize",
+     "a": "تمنمية وستة وسبعين",
+     "e": "Eight hundred and seventy-six"
+    },
+    {
+     "f": "877 — Huit cent soixante-dix-sept",
+     "a": "تمنمية وسبعة وسبعين",
+     "e": "Eight hundred and seventy-seven"
+    },
+    {
+     "f": "878 — Huit cent soixante-dix-huit",
+     "a": "تمنمية وتمانية وسبعين",
+     "e": "Eight hundred and seventy-eight"
+    },
+    {
+     "f": "879 — Huit cent soixante-dix-neuf",
+     "a": "تمنمية وتسعة وسبعين",
+     "e": "Eight hundred and seventy-nine"
+    },
+    {
+     "f": "880 — Huit cent quatre-vingts",
+     "a": "تمنمية وتمانين",
+     "e": "Eight hundred and eighty"
+    },
+    {
+     "f": "881 — Huit cent quatre-vingt-un",
+     "a": "تمنمية وواحد وتمانين",
+     "e": "Eight hundred and eighty-one"
+    },
+    {
+     "f": "882 — Huit cent quatre-vingt-deux",
+     "a": "تمنمية واتنين وتمانين",
+     "e": "Eight hundred and eighty-two"
+    },
+    {
+     "f": "883 — Huit cent quatre-vingt-trois",
+     "a": "تمنمية وتلاتة وتمانين",
+     "e": "Eight hundred and eighty-three"
+    },
+    {
+     "f": "884 — Huit cent quatre-vingt-quatre",
+     "a": "تمنمية وأربعة وتمانين",
+     "e": "Eight hundred and eighty-four"
+    },
+    {
+     "f": "885 — Huit cent quatre-vingt-cinq",
+     "a": "تمنمية وخمسة وتمانين",
+     "e": "Eight hundred and eighty-five"
+    },
+    {
+     "f": "886 — Huit cent quatre-vingt-six",
+     "a": "تمنمية وستة وتمانين",
+     "e": "Eight hundred and eighty-six"
+    },
+    {
+     "f": "887 — Huit cent quatre-vingt-sept",
+     "a": "تمنمية وسبعة وتمانين",
+     "e": "Eight hundred and eighty-seven"
+    },
+    {
+     "f": "888 — Huit cent quatre-vingt-huit",
+     "a": "تمنمية وتمانية وتمانين",
+     "e": "Eight hundred and eighty-eight"
+    },
+    {
+     "f": "889 — Huit cent quatre-vingt-neuf",
+     "a": "تمنمية وتسعة وتمانين",
+     "e": "Eight hundred and eighty-nine"
+    },
+    {
+     "f": "890 — Huit cent quatre-vingt-dix",
+     "a": "تمنمية وتسعين",
+     "e": "Eight hundred and ninety"
+    },
+    {
+     "f": "891 — Huit cent quatre-vingt-onze",
+     "a": "تمنمية وواحد وتسعين",
+     "e": "Eight hundred and ninety-one"
+    },
+    {
+     "f": "892 — Huit cent quatre-vingt-douze",
+     "a": "تمنمية واتنين وتسعين",
+     "e": "Eight hundred and ninety-two"
+    },
+    {
+     "f": "893 — Huit cent quatre-vingt-treize",
+     "a": "تمنمية وتلتعش وتسعين",
+     "e": "Eight hundred and ninety-three"
+    },
+    {
+     "f": "894 — Huit cent quatre-vingt-quatorze",
+     "a": "تمنمية وأربعة وتسعين",
+     "e": "Eight hundred and ninety-four"
+    },
+    {
+     "f": "895 — Huit cent quatre-vingt-quinze",
+     "a": "تمنمية وخمسة وتسعين",
+     "e": "Eight hundred and ninety-five"
+    },
+    {
+     "f": "896 — Huit cent quatre-vingt-seize",
+     "a": "تمنمية وستة وتسعين",
+     "e": "Eight hundred and ninety-six"
+    },
+    {
+     "f": "897 — Huit cent quatre-vingt-dix-sept",
+     "a": "تمنمية وسبعة وتسعين",
+     "e": "Eight hundred and ninety-seven"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-159",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 33/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 33",
+   "phr": [
+    {
+     "f": "898 — Huit cent quatre-vingt-dix-huit",
+     "a": "تمنمية وتمانية وتسعين",
+     "e": "Eight hundred and ninety-eight"
+    },
+    {
+     "f": "899 — Huit cent quatre-vingt-dix-neuf",
+     "a": "تمنمية وتسعة وتسعين",
+     "e": "Eight hundred and ninety-nine"
+    },
+    {
+     "f": "901 — Neuf cent un",
+     "a": "تسعمية وواحد",
+     "e": "Nine hundred and one"
+    },
+    {
+     "f": "902 — Neuf cent deux",
+     "a": "تسعمية وتنين",
+     "e": "Nine hundred and two"
+    },
+    {
+     "f": "903 — Neuf cent trois",
+     "a": "تسعمية وتلاتة",
+     "e": "Nine hundred and three"
+    },
+    {
+     "f": "904 — Neuf cent quatre",
+     "a": "تسعمية وأربعة",
+     "e": "Nine hundred and four"
+    },
+    {
+     "f": "905 — Neuf cent cinq",
+     "a": "تسعمية وخمسة",
+     "e": "Nine hundred and five"
+    },
+    {
+     "f": "906 — Neuf cent six",
+     "a": "تسعمية وستة",
+     "e": "Nine hundred and six"
+    },
+    {
+     "f": "907 — Neuf cent sept",
+     "a": "تسعمية وسبعة",
+     "e": "Nine hundred and seven"
+    },
+    {
+     "f": "908 — Neuf cent huit",
+     "a": "تسعمية وتمانية",
+     "e": "Nine hundred and eight"
+    },
+    {
+     "f": "909 — Neuf cent neuf",
+     "a": "تسعمية وتسعة",
+     "e": "Nine hundred and nine"
+    },
+    {
+     "f": "910 — Neuf cent dix",
+     "a": "تسعمية وعشرة",
+     "e": "Nine hundred and ten"
+    },
+    {
+     "f": "911 — Neuf cent onze",
+     "a": "تسعمية وحداش",
+     "e": "Nine hundred and eleven"
+    },
+    {
+     "f": "912 — Neuf cent douze",
+     "a": "تسعمية واتناش",
+     "e": "Nine hundred and twelve"
+    },
+    {
+     "f": "913 — Neuf cent treize",
+     "a": "تسعمية وتلتعش",
+     "e": "Nine hundred and thirteen"
+    },
+    {
+     "f": "914 — Neuf cent quatorze",
+     "a": "تسعمية وأربعتعش",
+     "e": "Nine hundred and fourteen"
+    },
+    {
+     "f": "915 — Neuf cent quinze",
+     "a": "تسعمية وخمستعش",
+     "e": "Nine hundred and fifteen"
+    },
+    {
+     "f": "916 — Neuf cent seize",
+     "a": "تسعمية وستعش",
+     "e": "Nine hundred and sixteen"
+    },
+    {
+     "f": "917 — Neuf cent dix-sept",
+     "a": "تسعمية وسبعتعش",
+     "e": "Nine hundred and seventeen"
+    },
+    {
+     "f": "918 — Neuf cent dix-huit",
+     "a": "تسعمية وتمنتعش",
+     "e": "Nine hundred and eighteen"
+    },
+    {
+     "f": "919 — Neuf cent dix-neuf",
+     "a": "تسعمية وتسعتعش",
+     "e": "Nine hundred and nineteen"
+    },
+    {
+     "f": "920 — Neuf cent vingt",
+     "a": "تسعمية وعشرين",
+     "e": "Nine hundred and twenty"
+    },
+    {
+     "f": "921 — Neuf cent vingt et un",
+     "a": "تسعمية وواحد وعشرين",
+     "e": "Nine hundred and twenty-one"
+    },
+    {
+     "f": "922 — Neuf cent vingt-deux",
+     "a": "تسعمية واتنين وعشرين",
+     "e": "Nine hundred and twenty-two"
+    },
+    {
+     "f": "923 — Neuf cent vingt-trois",
+     "a": "تسعمية وتلاتة وعشرين",
+     "e": "Nine hundred and twenty-three"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-160",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 34/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 34",
+   "phr": [
+    {
+     "f": "924 — Neuf cent vingt-quatre",
+     "a": "تسعمية وأربعة وعشرين",
+     "e": "Nine hundred and twenty-four"
+    },
+    {
+     "f": "925 — Neuf cent vingt-cinq",
+     "a": "تسعمية وخمسة وعشرين",
+     "e": "Nine hundred and twenty-five"
+    },
+    {
+     "f": "926 — Neuf cent vingt-six",
+     "a": "تسعمية وستة وعشرين",
+     "e": "Nine hundred and twenty-six"
+    },
+    {
+     "f": "927 — Neuf cent vingt-sept",
+     "a": "تسعمية وسبعة وعشرين",
+     "e": "Nine hundred and twenty-seven"
+    },
+    {
+     "f": "928 — Neuf cent vingt-huit",
+     "a": "تسعمية وتمانية وعشرين",
+     "e": "Nine hundred and twenty-eight"
+    },
+    {
+     "f": "929 — Neuf cent vingt-neuf",
+     "a": "تسعمية وتسعة وعشرين",
+     "e": "Nine hundred and twenty-nine"
+    },
+    {
+     "f": "930 — Neuf cent trente",
+     "a": "تسعمية وتلاتين",
+     "e": "Nine hundred and thirty"
+    },
+    {
+     "f": "931 — Neuf cent trente et un",
+     "a": "تسعمية وواحد وتلاتين",
+     "e": "Nine hundred and thirty-one"
+    },
+    {
+     "f": "932 — Neuf cent trente-deux",
+     "a": "تسعمية واتنين وتلاتين",
+     "e": "Nine hundred and thirty-two"
+    },
+    {
+     "f": "933 — Neuf cent trente-trois",
+     "a": "تسعمية وتلاتة وتلاتين",
+     "e": "Nine hundred and thirty-three"
+    },
+    {
+     "f": "934 — Neuf cent trente-quatre",
+     "a": "تسعمية وأربعة وتلاتين",
+     "e": "Nine hundred and thirty-four"
+    },
+    {
+     "f": "935 — Neuf cent trente-cinq",
+     "a": "تسعمية وخمسة وتلاتين",
+     "e": "Nine hundred and thirty-five"
+    },
+    {
+     "f": "936 — Neuf cent trente-six",
+     "a": "تسعمية وستة وتلاتين",
+     "e": "Nine hundred and thirty-six"
+    },
+    {
+     "f": "937 — Neuf cent trente-sept",
+     "a": "تسعمية وسبعة وتلاتين",
+     "e": "Nine hundred and thirty-seven"
+    },
+    {
+     "f": "938 — Neuf cent trente-huit",
+     "a": "تسعمية وتمانية وتلاتين",
+     "e": "Nine hundred and thirty-eight"
+    },
+    {
+     "f": "939 — Neuf cent trente-neuf",
+     "a": "تسعمية وتسعة وتلاتين",
+     "e": "Nine hundred and thirty-nine"
+    },
+    {
+     "f": "940 — Neuf cent quarante",
+     "a": "تسعمية وأربعين",
+     "e": "Nine hundred and forty"
+    },
+    {
+     "f": "941 — Neuf cent quarante et un",
+     "a": "تسعمية وواحد وأربعين",
+     "e": "Nine hundred and forty-one"
+    },
+    {
+     "f": "942 — Neuf cent quarante-deux",
+     "a": "تسعمية واتنين وأربعين",
+     "e": "Nine hundred and forty-two"
+    },
+    {
+     "f": "943 — Neuf cent quarante-trois",
+     "a": "تسعمية وتلاتة وأربعين",
+     "e": "Nine hundred and forty-three"
+    },
+    {
+     "f": "944 — Neuf cent quarante-quatre",
+     "a": "تسعمية وأربعة وأربعين",
+     "e": "Nine hundred and forty-four"
+    },
+    {
+     "f": "945 — Neuf cent quarante-cinq",
+     "a": "تسعمية وخمسة وأربعين",
+     "e": "Nine hundred and forty-five"
+    },
+    {
+     "f": "946 — Neuf cent quarante-six",
+     "a": "تسعمية وستة وأربعين",
+     "e": "Nine hundred and forty-six"
+    },
+    {
+     "f": "947 — Neuf cent quarante-sept",
+     "a": "تسعمية وسبعة وأربعين",
+     "e": "Nine hundred and forty-seven"
+    },
+    {
+     "f": "948 — Neuf cent quarante-huit",
+     "a": "تسعمية وتمانية وأربعين",
+     "e": "Nine hundred and forty-eight"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-161",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 35/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 35",
+   "phr": [
+    {
+     "f": "949 — Neuf cent quarante-neuf",
+     "a": "تسعمية وتسعة وأربعين",
+     "e": "Nine hundred and forty-nine"
+    },
+    {
+     "f": "950 — Neuf cent cinquante",
+     "a": "تسعمية وخمسين",
+     "e": "Nine hundred and fifty"
+    },
+    {
+     "f": "951 — Neuf cent cinquante et un",
+     "a": "تسعمية وواحد وخمسين",
+     "e": "Nine hundred and fifty-one"
+    },
+    {
+     "f": "952 — Neuf cent cinquante-deux",
+     "a": "تسعمية واتنين وخمسين",
+     "e": "Nine hundred and fifty-two"
+    },
+    {
+     "f": "953 — Neuf cent cinquante-trois",
+     "a": "تسعمية وتلاتة وخمسين",
+     "e": "Nine hundred and fifty-three"
+    },
+    {
+     "f": "954 — Neuf cent cinquante-quatre",
+     "a": "تسعمية وأربعة وخمسين",
+     "e": "Nine hundred and fifty-four"
+    },
+    {
+     "f": "955 — Neuf cent cinquante-cinq",
+     "a": "تسعمية وخمسة وخمسين",
+     "e": "Nine hundred and fifty-five"
+    },
+    {
+     "f": "956 — Neuf cent cinquante-six",
+     "a": "تسعمية وستة وخمسين",
+     "e": "Nine hundred and fifty-six"
+    },
+    {
+     "f": "957 — Neuf cent cinquante-sept",
+     "a": "تسعمية وسبعة وخمسين",
+     "e": "Nine hundred and fifty-seven"
+    },
+    {
+     "f": "958 — Neuf cent cinquante-huit",
+     "a": "تسعمية وتمانية وخمسين",
+     "e": "Nine hundred and fifty-eight"
+    },
+    {
+     "f": "959 — Neuf cent cinquante-neuf",
+     "a": "تسعمية وتسعة وخمسين",
+     "e": "Nine hundred and fifty-nine"
+    },
+    {
+     "f": "960 — Neuf cent soixante",
+     "a": "تسعمية وستين",
+     "e": "Nine hundred and sixty"
+    },
+    {
+     "f": "961 — Neuf cent soixante et un",
+     "a": "تسعمية وواحد وستين",
+     "e": "Nine hundred and sixty-one"
+    },
+    {
+     "f": "962 — Neuf cent soixante-deux",
+     "a": "تسعمية واتنين وستين",
+     "e": "Nine hundred and sixty-two"
+    },
+    {
+     "f": "963 — Neuf cent soixante-trois",
+     "a": "تسعمية وتلاتة وستين",
+     "e": "Nine hundred and sixty-three"
+    },
+    {
+     "f": "964 — Neuf cent soixante-quatre",
+     "a": "تسعمية وأربعة وستين",
+     "e": "Nine hundred and sixty-four"
+    },
+    {
+     "f": "965 — Neuf cent soixante-cinq",
+     "a": "تسعمية وخمسة وستين",
+     "e": "Nine hundred and sixty-five"
+    },
+    {
+     "f": "966 — Neuf cent soixante-six",
+     "a": "تسعمية وستة وستين",
+     "e": "Nine hundred and sixty-six"
+    },
+    {
+     "f": "967 — Neuf cent soixante-sept",
+     "a": "تسعمية وسبعة وستين",
+     "e": "Nine hundred and sixty-seven"
+    },
+    {
+     "f": "968 — Neuf cent soixante-huit",
+     "a": "تسعمية وتمانية وستين",
+     "e": "Nine hundred and sixty-eight"
+    },
+    {
+     "f": "969 — Neuf cent soixante-neuf",
+     "a": "تسعمية وتسعة وستين",
+     "e": "Nine hundred and sixty-nine"
+    },
+    {
+     "f": "970 — Neuf cent soixante-dix",
+     "a": "تسعمية وسبعين",
+     "e": "Nine hundred and seventy"
+    },
+    {
+     "f": "971 — Neuf cent soixante et onze",
+     "a": "تسعمية وواحد وسبعين",
+     "e": "Nine hundred and seventy-one"
+    },
+    {
+     "f": "972 — Neuf cent soixante-douze",
+     "a": "تسعمية واتنين وسبعين",
+     "e": "Nine hundred and seventy-two"
+    },
+    {
+     "f": "973 — Neuf cent soixante-treize",
+     "a": "تسعمية وتلاتة وسبعين",
+     "e": "Nine hundred and seventy-three"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-162",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 36/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 36",
+   "phr": [
+    {
+     "f": "974 — Neuf cent soixante-quatorze",
+     "a": "تسعمية وأربعة وسبعين",
+     "e": "Nine hundred and seventy-four"
+    },
+    {
+     "f": "975 — Neuf cent soixante-quinze",
+     "a": "تسعمية وخمسة وسبعين",
+     "e": "Nine hundred and seventy-five"
+    },
+    {
+     "f": "976 — Neuf cent soixante-seize",
+     "a": "تسعمية وستة وسبعين",
+     "e": "Nine hundred and seventy-six"
+    },
+    {
+     "f": "977 — Neuf cent soixante-dix-sept",
+     "a": "تسعمية وسبعة وسبعين",
+     "e": "Nine hundred and seventy-seven"
+    },
+    {
+     "f": "978 — Neuf cent soixante-dix-huit",
+     "a": "تسعمية وتمانية وسبعين",
+     "e": "Nine hundred and seventy-eight"
+    },
+    {
+     "f": "979 — Neuf cent soixante-dix-neuf",
+     "a": "تسعمية وتسعة وسبعين",
+     "e": "Nine hundred and seventy-nine"
+    },
+    {
+     "f": "980 — Neuf cent quatre-vingts",
+     "a": "تسعمية وتمانين",
+     "e": "Nine hundred and eighty"
+    },
+    {
+     "f": "981 — Neuf cent quatre-vingt-un",
+     "a": "تسعمية وواحد وتمانين",
+     "e": "Nine hundred and eighty-one"
+    },
+    {
+     "f": "982 — Neuf cent quatre-vingt-deux",
+     "a": "تسعمية واتنين وتمانين",
+     "e": "Nine hundred and eighty-two"
+    },
+    {
+     "f": "983 — Neuf cent quatre-vingt-trois",
+     "a": "تسعمية وتلاتة وتمانين",
+     "e": "Nine hundred and eighty-three"
+    },
+    {
+     "f": "984 — Neuf cent quatre-vingt-quatre",
+     "a": "تسعمية وأربعة وتمانين",
+     "e": "Nine hundred and eighty-four"
+    },
+    {
+     "f": "985 — Neuf cent quatre-vingt-cinq",
+     "a": "تسعمية وخمسة وتمانين",
+     "e": "Nine hundred and eighty-five"
+    },
+    {
+     "f": "986 — Neuf cent quatre-vingt-six",
+     "a": "تسعمية وستة وتمانين",
+     "e": "Nine hundred and eighty-six"
+    },
+    {
+     "f": "987 — Neuf cent quatre-vingt-sept",
+     "a": "تسعمية وسبعة وتمانين",
+     "e": "Nine hundred and eighty-seven"
+    },
+    {
+     "f": "988 — Neuf cent quatre-vingt-huit",
+     "a": "تسعمية وتمانية وتمانين",
+     "e": "Nine hundred and eighty-eight"
+    },
+    {
+     "f": "989 — Neuf cent quatre-vingt-neuf",
+     "a": "تسعمية وتسعة وتمانين",
+     "e": "Nine hundred and eighty-nine"
+    },
+    {
+     "f": "990 — Neuf cent quatre-vingt-dix",
+     "a": "تسعمية وتسعين",
+     "e": "Nine hundred and ninety"
+    },
+    {
+     "f": "991 — Neuf cent quatre-vingt-onze",
+     "a": "تسعمية وواحد وتسعين",
+     "e": "Nine hundred and ninety-one"
+    },
+    {
+     "f": "992 — Neuf cent quatre-vingt-douze",
+     "a": "تسعمية واتنين وتسعين",
+     "e": "Nine hundred and ninety-two"
+    },
+    {
+     "f": "993 — Neuf cent quatre-vingt-treize",
+     "a": "تسعمية وتلاتة وتسعين",
+     "e": "Nine hundred and ninety-three"
+    },
+    {
+     "f": "994 — Neuf cent quatre-vingt-quatorze",
+     "a": "تسعمية وأربعة وتسعين",
+     "e": "Nine hundred and ninety-four"
+    },
+    {
+     "f": "995 — Neuf cent quatre-vingt-quinze",
+     "a": "تسعمية وخمسة وتسعين",
+     "e": "Nine hundred and ninety-five"
+    },
+    {
+     "f": "996 — Neuf cent quatre-vingt-seize",
+     "a": "تسعمية وستة وتسعين",
+     "e": "Nine hundred and ninety-six"
+    },
+    {
+     "f": "997 — Neuf cent quatre-vingt-dix-sept",
+     "a": "تسعمية وسبعة وتسعين",
+     "e": "Nine hundred and ninety-seven"
+    },
+    {
+     "f": "998 — Neuf cent quatre-vingt-dix-huit",
+     "a": "تسعمية وتمانية وتسعين",
+     "e": "Nine hundred and ninety-eight"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-163",
+   "icon": "💯",
+   "fr": "Les nombres de 100 à 1000 37/37",
+   "ar": "الأرقام من 100 إلى 1000 — جزء 37",
+   "phr": [
+    {
+     "f": "999 — Neuf cent quatre-vingt-dix-neuf",
+     "a": "تسعمية وتسعة وتسعين",
+     "e": "Nine hundred and ninety-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-164",
+   "icon": "🎧",
+   "fr": "Numéros de téléphone aléatoires 1/5",
+   "ar": "أرقام هواتف عشوائية — جزء 1",
+   "phr": [
+    {
+     "f": "06 12 34 56 78 — Zéro six, douze, trente-quatre, cinquante-six, soixante-dix-huit.",
+     "a": "صفر ستة، اتناش، أربعة وتلاتين، ستة وخمسين، تمانية وسبعين.",
+     "e": "Zero six, twelve, thirty-four, fifty-six, seventy-eight."
+    },
+    {
+     "f": "07 89 01 23 45 — Zéro sept, quatre-vingt-neuf, zéro un, vingt-trois, quarante-cinq.",
+     "a": "صفر سبعة، تسعة وتمانين، صفر واحد، تلاتة وعشرين، خمسة وأربعين.",
+     "e": "Zero seven, eighty-nine, zero one, twenty-three, forty-five."
+    },
+    {
+     "f": "06 90 18 27 35 — Zéro six, quatre-vingt-dix, dix-huit, vingt-sept, trente-cinq.",
+     "a": "صفر ستة، تسعين، تمنتعش، سبعة وعشرين، خمسة وتلاتين.",
+     "e": "Zero six, ninety, eighteen, twenty-seven, thirty-five."
+    },
+    {
+     "f": "07 41 62 83 09 — Zéro sept, quarante et un, soixante-deux, quatre-vingt-trois, zéro neuf.",
+     "a": "صفر سبعة، واحد وأربعين، اتنين وستين، تلاتة وتمانين، صفر تسعة.",
+     "e": "Zero seven, forty-one, sixty-two, eighty-three, zero nine."
+    },
+    {
+     "f": "06 55 44 33 22 — Zéro six, cinquante-cinq, quarante-quatre, trente-trois, vingt-deux.",
+     "a": "صفر ستة، خمسة وخمسين، أربعة وأربعين، تلاتة وتلاتين، اتنين وعشرين.",
+     "e": "Zero six, fifty-five, forty-four, thirty-three, twenty-two."
+    },
+    {
+     "f": "07 13 26 49 80 — Zéro sept, treize, vingt-six, quarante-neuf, quatre-vingts.",
+     "a": "صفر سبعة، تلتعش، ستة وعشرين، تسعة وأربعين، تمانين.",
+     "e": "Zero seven, thirteen, twenty-six, forty-nine, eighty."
+    },
+    {
+     "f": "06 08 19 70 54 — Zéro six, zéro huit, dix-neuf, soixante-dix, cinquante-quatre.",
+     "a": "صفر ستة، صفر تمانية، تسعتعش، سبعين، أربعة وخمسين.",
+     "e": "Zero six, zero eight, nineteen, seventy, fifty-four."
+    },
+    {
+     "f": "07 96 85 74 63 — Zéro sept, quatre-vingt-seize, quatre-vingt-cinq, soixante-quatorze, soixante-trois.",
+     "a": "صفر سبعة، ستة وتسعين، خمسة وتمانين، أربعة وسبعين، تلاتة وستين.",
+     "e": "Zero seven, ninety-six, eighty-five, seventy-four, sixty-three."
+    },
+    {
+     "f": "06 21 43 65 87 — Zéro six, vingt et un, quarante-trois, soixante-cinq, quatre-vingt-sept.",
+     "a": "صفر ستة، واحد وعشرين، تلاتة وأربعين، خمسة وستين، سبعة وتمانين.",
+     "e": "Zero six, twenty-one, forty-three, sixty-five, eighty-seven."
+    },
+    {
+     "f": "07 02 14 36 58 — Zéro sept, zéro deux, quatorze, trente-six, cinquante-huit.",
+     "a": "صفر سبعة، صفر تنين، أربعتعش، ستة وتلاتين، تمانية وخمسين.",
+     "e": "Zero seven, zero two, fourteen, thirty-six, fifty-eight."
+    },
+    {
+     "f": "06 73 91 05 28 — Zéro six, soixante-treize, quatre-vingt-onze, zéro cinq, vingt-huit.",
+     "a": "صفر ستة، تلاتة وسبعين، واحد وتسعين، صفر خمسة، تمانية وعشرين.",
+     "e": "Zero six, seventy-three, ninety-one, zero five, twenty-eight."
+    },
+    {
+     "f": "07 30 42 61 95 — Zéro sept, trente, quarante-deux, soixante et un, quatre-vingt-quinze.",
+     "a": "صفر سبعة، تلاتين، اتنين وأربعين، واحد وستين، خمسة وتسعين.",
+     "e": "Zero seven, thirty, forty-two, sixty-one, ninety-five."
+    },
+    {
+     "f": "06 47 58 69 10 — Zéro six, quarante-sept, cinquante-huit, soixante-neuf, dix.",
+     "a": "صفر ستة، سبعة وأربعين، تمانية وخمسين، تسعة وستين، عشرة.",
+     "e": "Zero six, forty-seven, fifty-eight, sixty-nine, ten."
+    },
+    {
+     "f": "07 84 03 16 29 — Zéro sept, quatre-vingt-quatre, zéro trois, seize, vingt-neuf.",
+     "a": "صفر سبعة، أربعة وتمانين، صفر تلاتة، ستعش، تسعة وعشرين.",
+     "e": "Zero seven, eighty-four, zero three, sixteen, twenty-nine."
+    },
+    {
+     "f": "06 11 22 44 88 — Zéro six, onze, vingt-deux, quarante-quatre, quatre-vingt-huit.",
+     "a": "صفر ستة، حداش، اتنين وعشرين، أربعة وأربعين، تمانية وتمانين.",
+     "e": "Zero six, eleven, twenty-two, forty-four, eighty-eight."
+    },
+    {
+     "f": "07 67 78 89 90 — Zéro sept, soixante-sept, soixante-dix-huit, quatre-vingt-neuf, quatre-vingt-dix.",
+     "a": "صفر سبعة، سبعة وستين، تمانية وسبعين، تسعة وتمانين، تسعين.",
+     "e": "Zero seven, sixty-seven, seventy-eight, eighty-nine, ninety."
+    },
+    {
+     "f": "06 04 25 46 97 — Zéro six, zéro quatre, vingt-cinq, quarante-six, quatre-vingt-dix-sept.",
+     "a": "صفر ستة، صفر أربعة، خمسة وعشرين، ستة وأربعين، سبعة وتسعين.",
+     "e": "Zero six, zero four, twenty-five, forty-six, ninety-seven."
+    },
+    {
+     "f": "07 52 63 74 85 — Zéro sept, cinquante-deux, soixante-trois, soixante-quatorze, quatre-vingt-cinq.",
+     "a": "صفر سبعة، اتنين وخمسين، تلاتة وستين، أربعة وسبعين، خمسة وتمانين.",
+     "e": "Zero seven, fifty-two, sixty-three, seventy-four, eighty-five."
+    },
+    {
+     "f": "06 99 88 77 66 — Zéro six, quatre-vingt-dix-neuf, quatre-vingt-huit, soixante-dix-sept, soixante-six.",
+     "a": "صفر ستة، تسعة وتسعين، تمانية وتمانين، سبعة وسبعين، ستة وستين.",
+     "e": "Zero six, ninety-nine, eighty-eight, seventy-seven, sixty-six."
+    },
+    {
+     "f": "07 15 30 45 60 — Zéro sept, quinze, trente, quarante-cinq, soixante.",
+     "a": "صفر سبعة، خمستعش، تلاتين، خمسة وأربعين، ستين.",
+     "e": "Zero seven, fifteen, thirty, forty-five, sixty."
+    },
+    {
+     "f": "06 38 49 50 71 — Zéro six, trente-huit, quarante-neuf, cinquante, soixante et onze.",
+     "a": "صفر ستة، تمانية وتلاتين، تسعة وأربعين، خمسين، واحد وسبعين.",
+     "e": "Zero six, thirty-eight, forty-nine, fifty, seventy-one."
+    },
+    {
+     "f": "07 06 28 40 92 — Zéro sept, zéro six, vingt-huit, quarante, quatre-vingt-douze.",
+     "a": "صفر سبعة، صفر ستة، تمانية وعشرين، أربعين، اتنين وتسعين.",
+     "e": "Zero seven, zero six, twenty-eight, forty, ninety-two."
+    },
+    {
+     "f": "06 17 39 51 82 — Zéro six, dix-sept, trente-neuf, cinquante et un, quatre-vingt-deux.",
+     "a": "صفر ستة، سبعتعش، تسعة وتلاتين، واحد وخمسين، اتنين وتمانين.",
+     "e": "Zero six, seventeen, thirty-nine, fifty-one, eighty-two."
+    },
+    {
+     "f": "07 24 35 46 57 — Zéro sept, vingt-quatre, trente-cinq, quarante-six, cinquante-sept.",
+     "a": "صفر سبعة، أربعة وعشرين، خمسة وتلاتين، ستة وأربعين، سبعة وخمسين.",
+     "e": "Zero seven, twenty-four, thirty-five, forty-six, fifty-seven."
+    },
+    {
+     "f": "06 81 72 63 54 — Zéro six, quatre-vingt-un, soixante-douze, soixante-trois, cinquante-quatre.",
+     "a": "صفر ستة، واحد وتمانين، اتنين وسبعين، تلاتة وستين، أربعة وخمسين.",
+     "e": "Zero six, eighty-one, seventy-two, sixty-three, fifty-four."
+    }
+   ],
+   "ids": [],
+   "consigne": "نصيحة للتدريب: ما تقرأ الترجمة مباشرة — غطّيها وحاول تفهم الرقم الفرنسي لحالك وبعدها اكشف وتحقق. تدرّب بثلاث طرق: سماع الرقم واختيار الصحيح · سماعه وكتابته من الذاكرة · قراءة الرقم المكتوب بصوت عالي بالفرنسية.\nركّز على سماع الأعداد 70–99 لأنها الأصعب بالفرنسية: 71 = soixante et onze · 75 = soixante-quinze · 80 = quatre-vingts · 81 = quatre-vingt-un · 90 = quatre-vingt-dix · 95 = quatre-vingt-quinze.\nالأرقام أعلاه تدريبية عشوائية وليست أرقام اتصال حقيقية.\nتدريب مهم: لما تسمع رقم هاتف انتبه للصفر ببداية كل مجموعة: 06 04 = Zéro six, zéro quatre · 07 08 = Zéro sept, zéro huit · 06 10 = Zéro six, dix · 07 71 = Zéro sept, soixante et onze."
+  },
+  {
+   "id": "a2-165",
+   "icon": "🎧",
+   "fr": "Numéros de téléphone aléatoires 2/5",
+   "ar": "أرقام هواتف عشوائية — جزء 2",
+   "phr": [
+    {
+     "f": "07 09 18 27 36 — Zéro sept, zéro neuf, dix-huit, vingt-sept, trente-six.",
+     "a": "صفر سبعة، صفر تسعة، تمنتعش، سبعة وعشرين، ستة وتلاتين.",
+     "e": "Zero seven, zero nine, eighteen, twenty-seven, thirty-six."
+    },
+    {
+     "f": "06 43 52 61 70 — Zéro six, quarante-trois, cinquante-deux, soixante et un, soixante-dix.",
+     "a": "صفر ستة، تلاتة وأربعين، اتنين وخمسين، واحد وستين، سبعين.",
+     "e": "Zero six, forty-three, fifty-two, sixty-one, seventy."
+    },
+    {
+     "f": "07 98 76 54 32 — Zéro sept, quatre-vingt-dix-huit, soixante-seize, cinquante-quatre, trente-deux.",
+     "a": "صفر سبعة، تمانية وتسعين، ستة وسبعين، أربعة وخمسين، اتنين وتلاتين.",
+     "e": "Zero seven, ninety-eight, seventy-six, fifty-four, thirty-two."
+    },
+    {
+     "f": "06 26 37 48 59 — Zéro six, vingt-six, trente-sept, quarante-huit, cinquante-neuf.",
+     "a": "صفر ستة، ستة وعشرين، سبعة وتلاتين، تمانية وأربعين، تسعة وخمسين.",
+     "e": "Zero six, twenty-six, thirty-seven, forty-eight, fifty-nine."
+    },
+    {
+     "f": "07 64 53 42 31 — Zéro sept, soixante-quatre, cinquante-trois, quarante-deux, trente et un.",
+     "a": "صفر سبعة، أربعة وستين، تلاتة وخمسين، اتنين وأربعين، واحد وتلاتين.",
+     "e": "Zero seven, sixty-four, fifty-three, forty-two, thirty-one."
+    },
+    {
+     "f": "06 32 71 94 08 — Zéro six, trente-deux, soixante et onze, quatre-vingt-quatorze, zéro huit.",
+     "a": "صفر ستة، اتنين وتلاتين، واحد وسبعين، أربعة وتسعين، صفر تمانية.",
+     "e": "Zero six, thirty-two, seventy-one, ninety-four, zero eight."
+    },
+    {
+     "f": "07 46 20 83 15 — Zéro sept, quarante-six, vingt, quatre-vingt-trois, quinze.",
+     "a": "صفر سبعة، ستة وأربعين، عشرين، تلاتة وتمانين، خمستعش.",
+     "e": "Zero seven, forty-six, twenty, eighty-three, fifteen."
+    },
+    {
+     "f": "06 58 92 14 37 — Zéro six, cinquante-huit, quatre-vingt-douze, quatorze, trente-sept.",
+     "a": "صفر ستة، تمانية وخمسين، اتنين وتسعين، أربعتعش، سبعة وتلاتين.",
+     "e": "Zero six, fifty-eight, ninety-two, fourteen, thirty-seven."
+    },
+    {
+     "f": "07 03 65 28 91 — Zéro sept, zéro trois, soixante-cinq, vingt-huit, quatre-vingt-onze.",
+     "a": "صفر سبعة، صفر تلاتة، خمسة وستين، تمانية وعشرين، واحد وتسعين.",
+     "e": "Zero seven, zero three, sixty-five, twenty-eight, ninety-one."
+    },
+    {
+     "f": "06 74 19 52 86 — Zéro six, soixante-quatorze, dix-neuf, cinquante-deux, quatre-vingt-six.",
+     "a": "صفر ستة، أربعة وسبعين، تسعتعش، اتنين وخمسين، ستة وتمانين.",
+     "e": "Zero six, seventy-four, nineteen, fifty-two, eighty-six."
+    },
+    {
+     "f": "07 27 48 60 13 — Zéro sept, vingt-sept, quarante-huit, soixante, treize.",
+     "a": "صفر سبعة، سبعة وعشرين، تمانية وأربعين، ستين، تلتعش.",
+     "e": "Zero seven, twenty-seven, forty-eight, sixty, thirteen."
+    },
+    {
+     "f": "06 85 31 07 49 — Zéro six, quatre-vingt-cinq, trente et un, zéro sept, quarante-neuf.",
+     "a": "صفر ستة، خمسة وتمانين، واحد وتلاتين، صفر سبعة، تسعة وأربعين.",
+     "e": "Zero six, eighty-five, thirty-one, zero seven, forty-nine."
+    },
+    {
+     "f": "07 62 94 38 05 — Zéro sept, soixante-deux, quatre-vingt-quatorze, trente-huit, zéro cinq.",
+     "a": "صفر سبعة، اتنين وستين، أربعة وتسعين، تمانية وتلاتين، صفر خمسة.",
+     "e": "Zero seven, sixty-two, ninety-four, thirty-eight, zero five."
+    },
+    {
+     "f": "06 16 43 79 20 — Zéro six, seize, quarante-trois, soixante-dix-neuf, vingt.",
+     "a": "صفر ستة، ستعش، تلاتة وأربعين، تسعة وسبعين، عشرين.",
+     "e": "Zero six, sixteen, forty-three, seventy-nine, twenty."
+    },
+    {
+     "f": "07 51 08 36 74 — Zéro sept, cinquante et un, zéro huit, trente-six, soixante-quatorze.",
+     "a": "صفر سبعة، واحد وخمسين، صفر تمانية، ستة وتلاتين، أربعة وسبعين.",
+     "e": "Zero seven, fifty-one, zero eight, thirty-six, seventy-four."
+    },
+    {
+     "f": "06 29 57 81 43 — Zéro six, vingt-neuf, cinquante-sept, quatre-vingt-un, quarante-trois.",
+     "a": "صفر ستة، تسعة وعشرين، سبعة وخمسين، واحد وتمانين، تلاتة وأربعين.",
+     "e": "Zero six, twenty-nine, fifty-seven, eighty-one, forty-three."
+    },
+    {
+     "f": "07 95 42 16 08 — Zéro sept, quatre-vingt-quinze, quarante-deux, seize, zéro huit.",
+     "a": "صفر سبعة، خمسة وتسعين، اتنين وأربعين، ستعش، صفر تمانية.",
+     "e": "Zero seven, ninety-five, forty-two, sixteen, zero eight."
+    },
+    {
+     "f": "06 03 24 68 97 — Zéro six, zéro trois, vingt-quatre, soixante-huit, quatre-vingt-dix-sept.",
+     "a": "صفر ستة، صفر تلاتة، أربعة وعشرين، تمانية وستين، سبعة وتسعين.",
+     "e": "Zero six, zero three, twenty-four, sixty-eight, ninety-seven."
+    },
+    {
+     "f": "07 38 59 71 26 — Zéro sept, trente-huit, cinquante-neuf, soixante et onze, vingt-six.",
+     "a": "صفر سبعة، تمانية وتلاتين، تسعة وخمسين، واحد وسبعين، ستة وعشرين.",
+     "e": "Zero seven, thirty-eight, fifty-nine, seventy-one, twenty-six."
+    },
+    {
+     "f": "06 47 02 93 51 — Zéro six, quarante-sept, zéro deux, quatre-vingt-treize, cinquante et un.",
+     "a": "صفر ستة، سبعة وأربعين، صفر تنين، تلاتة وتسعين، واحد وخمسين.",
+     "e": "Zero six, forty-seven, zero two, ninety-three, fifty-one."
+    },
+    {
+     "f": "07 82 14 65 39 — Zéro sept, quatre-vingt-deux, quatorze, soixante-cinq, trente-neuf.",
+     "a": "صفر سبعة، اتنين وتمانين، أربعتعش، خمسة وستين، تسعة وتلاتين.",
+     "e": "Zero seven, eighty-two, fourteen, sixty-five, thirty-nine."
+    },
+    {
+     "f": "06 56 78 09 31 — Zéro six, cinquante-six, soixante-dix-huit, zéro neuf, trente et un.",
+     "a": "صفر ستة، ستة وخمسين، تمانية وسبعين، صفر تسعة، واحد وتلاتين.",
+     "e": "Zero six, fifty-six, seventy-eight, zero nine, thirty-one."
+    },
+    {
+     "f": "07 19 40 86 52 — Zéro sept, dix-neuf, quarante, quatre-vingt-six, cinquante-deux.",
+     "a": "صفر سبعة، تسعتعش، أربعين، ستة وتمانين، اتنين وخمسين.",
+     "e": "Zero seven, nineteen, forty, eighty-six, fifty-two."
+    },
+    {
+     "f": "06 91 35 27 64 — Zéro six, quatre-vingt-onze, trente-cinq, vingt-sept, soixante-quatre.",
+     "a": "صفر ستة، واحد وتسعين، خمسة وتلاتين، سبعة وعشرين، أربعة وستين.",
+     "e": "Zero six, ninety-one, thirty-five, twenty-seven, sixty-four."
+    },
+    {
+     "f": "07 04 53 78 12 — Zéro sept, zéro quatre, cinquante-trois, soixante-dix-huit, douze.",
+     "a": "صفر سبعة، صفر أربعة، تلاتة وخمسين، تمانية وسبعين، اتناش.",
+     "e": "Zero seven, zero four, fifty-three, seventy-eight, twelve."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-166",
+   "icon": "🎧",
+   "fr": "Numéros de téléphone aléatoires 3/5",
+   "ar": "أرقام هواتف عشوائية — جزء 3",
+   "phr": [
+    {
+     "f": "06 67 29 41 85 — Zéro six, soixante-sept, vingt-neuf, quarante et un, quatre-vingt-cinq.",
+     "a": "صفر ستة، سبعة وستين، تسعة وعشرين، واحد وأربعين، خمسة وتمانين.",
+     "e": "Zero six, sixty-seven, twenty-nine, forty-one, eighty-five."
+    },
+    {
+     "f": "07 33 76 08 94 — Zéro sept, trente-trois, soixante-seize, zéro huit, quatre-vingt-quatorze.",
+     "a": "صفر سبعة، تلاتة وتلاتين، ستة وسبعين، صفر تمانية، أربعة وتسعين.",
+     "e": "Zero seven, thirty-three, seventy-six, zero eight, ninety-four."
+    },
+    {
+     "f": "06 12 89 45 70 — Zéro six, douze, quatre-vingt-neuf, quarante-cinq, soixante-dix.",
+     "a": "صفر ستة، اتناش، تسعة وتمانين، خمسة وأربعين، سبعين.",
+     "e": "Zero six, twelve, eighty-nine, forty-five, seventy."
+    },
+    {
+     "f": "07 68 21 57 03 — Zéro sept, soixante-huit, vingt et un, cinquante-sept, zéro trois.",
+     "a": "صفر سبعة، تمانية وستين، واحد وعشرين، سبعة وخمسين، صفر تلاتة.",
+     "e": "Zero seven, sixty-eight, twenty-one, fifty-seven, zero three."
+    },
+    {
+     "f": "06 45 90 32 17 — Zéro six, quarante-cinq, quatre-vingt-dix, trente-deux, dix-sept.",
+     "a": "صفر ستة، خمسة وأربعين، تسعين، اتنين وتلاتين، سبعتعش.",
+     "e": "Zero six, forty-five, ninety, thirty-two, seventeen."
+    },
+    {
+     "f": "07 86 13 49 25 — Zéro sept, quatre-vingt-six, treize, quarante-neuf, vingt-cinq.",
+     "a": "صفر سبعة، ستة وتمانين، تلتعش، تسعة وأربعين، خمسة وعشرين.",
+     "e": "Zero seven, eighty-six, thirteen, forty-nine, twenty-five."
+    },
+    {
+     "f": "06 28 64 05 93 — Zéro six, vingt-huit, soixante-quatre, zéro cinq, quatre-vingt-treize.",
+     "a": "صفر ستة، تمانية وعشرين، أربعة وستين، صفر خمسة، تلاتة وتسعين.",
+     "e": "Zero six, twenty-eight, sixty-four, zero five, ninety-three."
+    },
+    {
+     "f": "07 54 37 82 16 — Zéro sept, cinquante-quatre, trente-sept, quatre-vingt-deux, seize.",
+     "a": "صفر سبعة، أربعة وخمسين، سبعة وتلاتين، اتنين وتمانين، ستعش.",
+     "e": "Zero seven, fifty-four, thirty-seven, eighty-two, sixteen."
+    },
+    {
+     "f": "06 72 08 51 39 — Zéro six, soixante-douze, zéro huit, cinquante et un, trente-neuf.",
+     "a": "صفر ستة، اتنين وسبعين، صفر تمانية، واحد وخمسين، تسعة وتلاتين.",
+     "e": "Zero six, seventy-two, zero eight, fifty-one, thirty-nine."
+    },
+    {
+     "f": "07 25 63 94 18 — Zéro sept, vingt-cinq, soixante-trois, quatre-vingt-quatorze, dix-huit.",
+     "a": "صفر سبعة، خمسة وعشرين، تلاتة وستين، أربعة وتسعين، تمنتعش.",
+     "e": "Zero seven, twenty-five, sixty-three, ninety-four, eighteen."
+    },
+    {
+     "f": "06 14 72 39 85 — Zéro six, quatorze, soixante-douze, trente-neuf, quatre-vingt-cinq.",
+     "a": "صفر ستة، أربعتعش، اتنين وسبعين، تسعة وتلاتين، خمسة وتمانين.",
+     "e": "Zero six, fourteen, seventy-two, thirty-nine, eighty-five."
+    },
+    {
+     "f": "07 83 26 51 04 — Zéro sept, quatre-vingt-trois, vingt-six, cinquante et un, zéro quatre.",
+     "a": "صفر سبعة، تلاتة وتمانين، ستة وعشرين، واحد وخمسين، صفر أربعة.",
+     "e": "Zero seven, eighty-three, twenty-six, fifty-one, zero four."
+    },
+    {
+     "f": "06 39 95 17 62 — Zéro six, trente-neuf, quatre-vingt-quinze, dix-sept, soixante-deux.",
+     "a": "صفر ستة، تسعة وتلاتين، خمسة وتسعين، سبعتعش، اتنين وستين.",
+     "e": "Zero six, thirty-nine, ninety-five, seventeen, sixty-two."
+    },
+    {
+     "f": "07 08 46 73 21 — Zéro sept, zéro huit, quarante-six, soixante-treize, vingt et un.",
+     "a": "صفر سبعة، صفر تمانية، ستة وأربعين، تلاتة وسبعين، واحد وعشرين.",
+     "e": "Zero seven, zero eight, forty-six, seventy-three, twenty-one."
+    },
+    {
+     "f": "06 57 31 84 09 — Zéro six, cinquante-sept, trente et un, quatre-vingt-quatre, zéro neuf.",
+     "a": "صفر ستة، سبعة وخمسين، واحد وتلاتين، أربعة وتمانين، صفر تسعة.",
+     "e": "Zero six, fifty-seven, thirty-one, eighty-four, zero nine."
+    },
+    {
+     "f": "07 42 68 15 93 — Zéro sept, quarante-deux, soixante-huit, quinze, quatre-vingt-treize.",
+     "a": "صفر سبعة، اتنين وأربعين، تمانية وستين، خمستعش، تلاتة وتسعين.",
+     "e": "Zero seven, forty-two, sixty-eight, fifteen, ninety-three."
+    },
+    {
+     "f": "06 81 24 59 37 — Zéro six, quatre-vingt-un, vingt-quatre, cinquante-neuf, trente-sept.",
+     "a": "صفر ستة، واحد وتمانين، أربعة وعشرين، تسعة وخمسين، سبعة وتلاتين.",
+     "e": "Zero six, eighty-one, twenty-four, fifty-nine, thirty-seven."
+    },
+    {
+     "f": "07 16 90 43 58 — Zéro sept, seize, quatre-vingt-dix, quarante-trois, cinquante-huit.",
+     "a": "صفر سبعة، ستعش، تسعين، تلاتة وأربعين، تمانية وخمسين.",
+     "e": "Zero seven, sixteen, ninety, forty-three, fifty-eight."
+    },
+    {
+     "f": "06 25 48 07 91 — Zéro six, vingt-cinq, quarante-huit, zéro sept, quatre-vingt-onze.",
+     "a": "صفر ستة، خمسة وعشرين، تمانية وأربعين، صفر سبعة، واحد وتسعين.",
+     "e": "Zero six, twenty-five, forty-eight, zero seven, ninety-one."
+    },
+    {
+     "f": "07 69 32 54 18 — Zéro sept, soixante-neuf, trente-deux, cinquante-quatre, dix-huit.",
+     "a": "صفر سبعة، تسعة وستين، اتنين وتلاتين، أربعة وخمسين، تمنتعش.",
+     "e": "Zero seven, sixty-nine, thirty-two, fifty-four, eighteen."
+    },
+    {
+     "f": "06 03 77 42 86 — Zéro six, zéro trois, soixante-dix-sept, quarante-deux, quatre-vingt-six.",
+     "a": "صفر ستة، صفر تلاتة، سبعة وسبعين، اتنين وأربعين، ستة وتمانين.",
+     "e": "Zero six, zero three, seventy-seven, forty-two, eighty-six."
+    },
+    {
+     "f": "07 94 51 28 63 — Zéro sept, quatre-vingt-quatorze, cinquante et un, vingt-huit, soixante-trois.",
+     "a": "صفر سبعة، أربعة وتسعين، واحد وخمسين، تمانية وعشرين، تلاتة وستين.",
+     "e": "Zero seven, ninety-four, fifty-one, twenty-eight, sixty-three."
+    },
+    {
+     "f": "06 36 82 19 47 — Zéro six, trente-six, quatre-vingt-deux, dix-neuf, quarante-sept.",
+     "a": "صفر ستة، ستة وتلاتين، اتنين وتمانين، تسعتعش، سبعة وأربعين.",
+     "e": "Zero six, thirty-six, eighty-two, nineteen, forty-seven."
+    },
+    {
+     "f": "07 21 05 64 98 — Zéro sept, vingt et un, zéro cinq, soixante-quatre, quatre-vingt-dix-huit.",
+     "a": "صفر سبعة، واحد وعشرين، صفر خمسة، أربعة وستين، تمانية وتسعين.",
+     "e": "Zero seven, twenty-one, zero five, sixty-four, ninety-eight."
+    },
+    {
+     "f": "06 88 43 12 75 — Zéro six, quatre-vingt-huit, quarante-trois, douze, soixante-quinze.",
+     "a": "صفر ستة، تمانية وتمانين، تلاتة وأربعين، اتناش، خمسة وسبعين.",
+     "e": "Zero six, eighty-eight, forty-three, twelve, seventy-five."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-167",
+   "icon": "🎧",
+   "fr": "Numéros de téléphone aléatoires 4/5",
+   "ar": "أرقام هواتف عشوائية — جزء 4",
+   "phr": [
+    {
+     "f": "07 35 60 92 14 — Zéro sept, trente-cinq, soixante, quatre-vingt-douze, quatorze.",
+     "a": "صفر سبعة، خمسة وتلاتين، ستين، اتنين وتسعين، أربعتعش.",
+     "e": "Zero seven, thirty-five, sixty, ninety-two, fourteen."
+    },
+    {
+     "f": "06 49 27 83 50 — Zéro six, quarante-neuf, vingt-sept, quatre-vingt-trois, cinquante.",
+     "a": "صفر ستة، تسعة وأربعين، سبعة وعشرين، تلاتة وتمانين، خمسين.",
+     "e": "Zero six, forty-nine, twenty-seven, eighty-three, fifty."
+    },
+    {
+     "f": "07 72 18 46 05 — Zéro sept, soixante-douze, dix-huit, quarante-six, zéro cinq.",
+     "a": "صفر سبعة، اتنين وسبعين، تمنتعش، ستة وأربعين، صفر خمسة.",
+     "e": "Zero seven, seventy-two, eighteen, forty-six, zero five."
+    },
+    {
+     "f": "06 10 53 89 24 — Zéro six, dix, cinquante-trois, quatre-vingt-neuf, vingt-quatre.",
+     "a": "صفر ستة، عشرة، تلاتة وخمسين، تسعة وتمانين، أربعة وعشرين.",
+     "e": "Zero six, ten, fifty-three, eighty-nine, twenty-four."
+    },
+    {
+     "f": "07 87 40 16 52 — Zéro sept, quatre-vingt-sept, quarante, seize, cinquante-deux.",
+     "a": "صفر سبعة، سبعة وتمانين، أربعين، ستعش، اتنين وخمسين.",
+     "e": "Zero seven, eighty-seven, forty, sixteen, fifty-two."
+    },
+    {
+     "f": "06 23 64 91 38 — Zéro six, vingt-trois, soixante-quatre, quatre-vingt-onze, trente-huit.",
+     "a": "صفر ستة، تلاتة وعشرين، أربعة وستين، واحد وتسعين، تمانية وتلاتين.",
+     "e": "Zero six, twenty-three, sixty-four, ninety-one, thirty-eight."
+    },
+    {
+     "f": "07 59 04 31 76 — Zéro sept, cinquante-neuf, zéro quatre, trente et un, soixante-seize.",
+     "a": "صفر سبعة، تسعة وخمسين، صفر أربعة، واحد وتلاتين، ستة وسبعين.",
+     "e": "Zero seven, fifty-nine, zero four, thirty-one, seventy-six."
+    },
+    {
+     "f": "06 92 47 65 13 — Zéro six, quatre-vingt-douze, quarante-sept, soixante-cinq, treize.",
+     "a": "صفر ستة، اتنين وتسعين، سبعة وأربعين، خمسة وستين، تلتعش.",
+     "e": "Zero six, ninety-two, forty-seven, sixty-five, thirteen."
+    },
+    {
+     "f": "07 44 28 70 95 — Zéro sept, quarante-quatre, vingt-huit, soixante-dix, quatre-vingt-quinze.",
+     "a": "صفر سبعة، أربعة وأربعين، تمانية وعشرين، سبعين، خمسة وتسعين.",
+     "e": "Zero seven, forty-four, twenty-eight, seventy, ninety-five."
+    },
+    {
+     "f": "06 18 56 93 42 — Zéro six, dix-huit, cinquante-six, quatre-vingt-treize, quarante-deux.",
+     "a": "صفر ستة، تمنتعش، ستة وخمسين، تلاتة وتسعين، اتنين وأربعين.",
+     "e": "Zero six, eighteen, fifty-six, ninety-three, forty-two."
+    },
+    {
+     "f": "07 63 15 82 49 — Zéro sept, soixante-trois, quinze, quatre-vingt-deux, quarante-neuf.",
+     "a": "صفر سبعة، تلاتة وستين، خمستعش، اتنين وتمانين، تسعة وأربعين.",
+     "e": "Zero seven, sixty-three, fifteen, eighty-two, forty-nine."
+    },
+    {
+     "f": "06 75 34 08 61 — Zéro six, soixante-quinze, trente-quatre, zéro huit, soixante et un.",
+     "a": "صفر ستة، خمسة وسبعين، أربعة وتلاتين، صفر تمانية، واحد وستين.",
+     "e": "Zero six, seventy-five, thirty-four, zero eight, sixty-one."
+    },
+    {
+     "f": "07 26 91 57 40 — Zéro sept, vingt-six, quatre-vingt-onze, cinquante-sept, quarante.",
+     "a": "صفر سبعة، ستة وعشرين، واحد وتسعين، سبعة وخمسين، أربعين.",
+     "e": "Zero seven, twenty-six, ninety-one, fifty-seven, forty."
+    },
+    {
+     "f": "06 54 80 23 17 — Zéro six, cinquante-quatre, quatre-vingts, vingt-trois, dix-sept.",
+     "a": "صفر ستة، أربعة وخمسين، تمانين، تلاتة وعشرين، سبعتعش.",
+     "e": "Zero six, fifty-four, eighty, twenty-three, seventeen."
+    },
+    {
+     "f": "07 97 12 68 34 — Zéro sept, quatre-vingt-dix-sept, douze, soixante-huit, trente-quatre.",
+     "a": "صفر سبعة، سبعة وتسعين، اتناش، تمانية وستين، أربعة وتلاتين.",
+     "e": "Zero seven, ninety-seven, twelve, sixty-eight, thirty-four."
+    },
+    {
+     "f": "06 42 87 13 59 — Zéro six, quarante-deux, quatre-vingt-sept, treize, cinquante-neuf.",
+     "a": "صفر ستة، اتنين وأربعين، سبعة وتمانين، تلتعش، تسعة وخمسين.",
+     "e": "Zero six, forty-two, eighty-seven, thirteen, fifty-nine."
+    },
+    {
+     "f": "07 18 64 92 35 — Zéro sept, dix-huit, soixante-quatre, quatre-vingt-douze, trente-cinq.",
+     "a": "صفر سبعة، تمنتعش، أربعة وستين، اتنين وتسعين، خمسة وتلاتين.",
+     "e": "Zero seven, eighteen, sixty-four, ninety-two, thirty-five."
+    },
+    {
+     "f": "06 09 31 75 48 — Zéro six, zéro neuf, trente et un, soixante-quinze, quarante-huit.",
+     "a": "صفر ستة، صفر تسعة، واحد وتلاتين، خمسة وسبعين، تمانية وأربعين.",
+     "e": "Zero six, zero nine, thirty-one, seventy-five, forty-eight."
+    },
+    {
+     "f": "07 56 83 20 14 — Zéro sept, cinquante-six, quatre-vingt-trois, vingt, quatorze.",
+     "a": "صفر سبعة، ستة وخمسين، تلاتة وتمانين، عشرين، أربعتعش.",
+     "e": "Zero seven, fifty-six, eighty-three, twenty, fourteen."
+    },
+    {
+     "f": "06 71 25 96 03 — Zéro six, soixante et onze, vingt-cinq, quatre-vingt-seize, zéro trois.",
+     "a": "صفر ستة، واحد وسبعين، خمسة وعشرين، ستة وتسعين، صفر تلاتة.",
+     "e": "Zero six, seventy-one, twenty-five, ninety-six, zero three."
+    },
+    {
+     "f": "07 34 68 51 27 — Zéro sept, trente-quatre, soixante-huit, cinquante et un, vingt-sept.",
+     "a": "صفر سبعة، أربعة وتلاتين، تمانية وستين، واحد وخمسين، سبعة وعشرين.",
+     "e": "Zero seven, thirty-four, sixty-eight, fifty-one, twenty-seven."
+    },
+    {
+     "f": "06 93 47 08 62 — Zéro six, quatre-vingt-treize, quarante-sept, zéro huit, soixante-deux.",
+     "a": "صفر ستة، تلاتة وتسعين، سبعة وأربعين، صفر تمانية، اتنين وستين.",
+     "e": "Zero six, ninety-three, forty-seven, zero eight, sixty-two."
+    },
+    {
+     "f": "07 05 82 39 64 — Zéro sept, zéro cinq, quatre-vingt-deux, trente-neuf, soixante-quatre.",
+     "a": "صفر سبعة، صفر خمسة، اتنين وتمانين، تسعة وتلاتين، أربعة وستين.",
+     "e": "Zero seven, zero five, eighty-two, thirty-nine, sixty-four."
+    },
+    {
+     "f": "06 28 54 71 90 — Zéro six, vingt-huit, cinquante-quatre, soixante et onze, quatre-vingt-dix.",
+     "a": "صفر ستة، تمانية وعشرين، أربعة وخمسين، واحد وسبعين، تسعين.",
+     "e": "Zero six, twenty-eight, fifty-four, seventy-one, ninety."
+    },
+    {
+     "f": "07 63 19 45 08 — Zéro sept, soixante-trois, dix-neuf, quarante-cinq, zéro huit.",
+     "a": "صفر سبعة، تلاتة وستين، تسعتعش، خمسة وأربعين، صفر تمانية.",
+     "e": "Zero seven, sixty-three, nineteen, forty-five, zero eight."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-168",
+   "icon": "🎧",
+   "fr": "Numéros de téléphone aléatoires 5/5",
+   "ar": "أرقام هواتف عشوائية — جزء 5",
+   "phr": [
+    {
+     "f": "06 84 32 57 16 — Zéro six, quatre-vingt-quatre, trente-deux, cinquante-sept, seize.",
+     "a": "صفر ستة، أربعة وتمانين، اتنين وتلاتين، سبعة وخمسين، ستعش.",
+     "e": "Zero six, eighty-four, thirty-two, fifty-seven, sixteen."
+    },
+    {
+     "f": "07 29 76 04 53 — Zéro sept, vingt-neuf, soixante-seize, zéro quatre, cinquante-trois.",
+     "a": "صفر سبعة، تسعة وعشرين، ستة وسبعين، صفر أربعة، تلاتة وخمسين.",
+     "e": "Zero seven, twenty-nine, seventy-six, zero four, fifty-three."
+    },
+    {
+     "f": "06 15 98 42 73 — Zéro six, quinze, quatre-vingt-dix-huit, quarante-deux, soixante-treize.",
+     "a": "صفر ستة، خمستعش، تمانية وتسعين، اتنين وأربعين، تلاتة وسبعين.",
+     "e": "Zero six, fifteen, ninety-eight, forty-two, seventy-three."
+    },
+    {
+     "f": "07 48 21 67 95 — Zéro sept, quarante-huit, vingt et un, soixante-sept, quatre-vingt-quinze.",
+     "a": "صفر سبعة، تمانية وأربعين، واحد وعشرين، سبعة وستين، خمسة وتسعين.",
+     "e": "Zero seven, forty-eight, twenty-one, sixty-seven, ninety-five."
+    },
+    {
+     "f": "06 37 60 84 12 — Zéro six, trente-sept, soixante, quatre-vingt-quatre, douze.",
+     "a": "صفر ستة، سبعة وتلاتين، ستين، أربعة وتمانين، اتناش.",
+     "e": "Zero six, thirty-seven, sixty, eighty-four, twelve."
+    },
+    {
+     "f": "07 91 06 38 52 — Zéro sept, quatre-vingt-onze, zéro six, trente-huit, cinquante-deux.",
+     "a": "صفر سبعة، واحد وتسعين، صفر ستة، تمانية وتلاتين، اتنين وخمسين.",
+     "e": "Zero seven, ninety-one, zero six, thirty-eight, fifty-two."
+    },
+    {
+     "f": "06 52 74 19 83 — Zéro six, cinquante-deux, soixante-quatorze, dix-neuf, quatre-vingt-trois.",
+     "a": "صفر ستة، اتنين وخمسين، أربعة وسبعين، تسعتعش، تلاتة وتمانين.",
+     "e": "Zero six, fifty-two, seventy-four, nineteen, eighty-three."
+    },
+    {
+     "f": "07 24 89 56 01 — Zéro sept, vingt-quatre, quatre-vingt-neuf, cinquante-six, zéro un.",
+     "a": "صفر سبعة، أربعة وعشرين، تسعة وتمانين، ستة وخمسين، صفر واحد.",
+     "e": "Zero seven, twenty-four, eighty-nine, fifty-six, zero one."
+    },
+    {
+     "f": "06 78 43 05 91 — Zéro six, soixante-dix-huit, quarante-trois, zéro cinq, quatre-vingt-onze.",
+     "a": "صفر ستة، تمانية وسبعين، تلاتة وأربعين، صفر خمسة، واحد وتسعين.",
+     "e": "Zero six, seventy-eight, forty-three, zero five, ninety-one."
+    },
+    {
+     "f": "07 11 65 92 38 — Zéro sept, onze, soixante-cinq, quatre-vingt-douze, trente-huit.",
+     "a": "صفر سبعة، حداش، خمسة وستين، اتنين وتسعين، تمانية وتلاتين.",
+     "e": "Zero seven, eleven, sixty-five, ninety-two, thirty-eight."
+    },
+    {
+     "f": "06 46 20 87 35 — Zéro six, quarante-six, vingt, quatre-vingt-sept, trente-cinq.",
+     "a": "صفر ستة، ستة وأربعين، عشرين، سبعة وتمانين، خمسة وتلاتين.",
+     "e": "Zero six, forty-six, twenty, eighty-seven, thirty-five."
+    },
+    {
+     "f": "07 73 58 14 29 — Zéro sept, soixante-treize, cinquante-huit, quatorze, vingt-neuf.",
+     "a": "صفر سبعة، تلاتة وسبعين، تمانية وخمسين، أربعتعش، تسعة وعشرين.",
+     "e": "Zero seven, seventy-three, fifty-eight, fourteen, twenty-nine."
+    },
+    {
+     "f": "06 02 49 83 67 — Zéro six, zéro deux, quarante-neuf, quatre-vingt-trois, soixante-sept.",
+     "a": "صفر ستة، صفر تنين، تسعة وأربعين، تلاتة وتمانين، سبعة وستين.",
+     "e": "Zero six, zero two, forty-nine, eighty-three, sixty-seven."
+    },
+    {
+     "f": "07 85 36 70 41 — Zéro sept, quatre-vingt-cinq, trente-six, soixante-dix, quarante et un.",
+     "a": "صفر سبعة، خمسة وتمانين، ستة وتلاتين، سبعين، واحد وأربعين.",
+     "e": "Zero seven, eighty-five, thirty-six, seventy, forty-one."
+    },
+    {
+     "f": "06 19 57 24 88 — Zéro six, dix-neuf, cinquante-sept, vingt-quatre, quatre-vingt-huit.",
+     "a": "صفر ستة، تسعتعش، سبعة وخمسين، أربعة وعشرين، تمانية وتمانين.",
+     "e": "Zero six, nineteen, fifty-seven, twenty-four, eighty-eight."
+    },
+    {
+     "f": "07 40 93 16 58 — Zéro sept, quarante, quatre-vingt-treize, seize, cinquante-huit.",
+     "a": "صفر سبعة، أربعين، تلاتة وتسعين، ستعش، تمانية وخمسين.",
+     "e": "Zero seven, forty, ninety-three, sixteen, fifty-eight."
+    },
+    {
+     "f": "06 65 28 91 47 — Zéro six, soixante-cinq, vingt-huit, quatre-vingt-onze, quarante-sept.",
+     "a": "صفر ستة، خمسة وستين، تمانية وعشرين، واحد وتسعين، سبعة وأربعين.",
+     "e": "Zero six, sixty-five, twenty-eight, ninety-one, forty-seven."
+    },
+    {
+     "f": "07 37 04 62 95 — Zéro sept, trente-sept, zéro quatre, soixante-deux, quatre-vingt-quinze.",
+     "a": "صفر سبعة، سبعة وتلاتين، صفر أربعة، اتنين وستين، خمسة وتسعين.",
+     "e": "Zero seven, thirty-seven, zero four, sixty-two, ninety-five."
+    },
+    {
+     "f": "06 96 51 30 74 — Zéro six, quatre-vingt-seize, cinquante et un, trente, soixante-quatorze.",
+     "a": "صفر ستة، ستة وتسعين، واحد وخمسين، تلاتين، أربعة وسبعين.",
+     "e": "Zero six, ninety-six, fifty-one, thirty, seventy-four."
+    },
+    {
+     "f": "07 50 82 13 69 — Zéro sept, cinquante, quatre-vingt-deux, treize, soixante-neuf.",
+     "a": "صفر سبعة، خمسين، اتنين وتمانين، تلتعش، تسعة وستين.",
+     "e": "Zero seven, fifty, eighty-two, thirteen, sixty-nine."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-169",
+   "icon": "📚",
+   "fr": "Entraînement des paires 00–99 1/4",
+   "ar": "تدريب المجموعات 00–99 — جزء 1",
+   "phr": [
+    {
+     "f": "00 — Zéro zéro",
+     "a": "صفر صفر",
+     "e": "Zero zero"
+    },
+    {
+     "f": "01 — Zéro un",
+     "a": "صفر واحد",
+     "e": "Zero one"
+    },
+    {
+     "f": "02 — Zéro deux",
+     "a": "صفر تنين",
+     "e": "Zero two"
+    },
+    {
+     "f": "03 — Zéro trois",
+     "a": "صفر تلاتة",
+     "e": "Zero three"
+    },
+    {
+     "f": "04 — Zéro quatre",
+     "a": "صفر أربعة",
+     "e": "Zero four"
+    },
+    {
+     "f": "05 — Zéro cinq",
+     "a": "صفر خمسة",
+     "e": "Zero five"
+    },
+    {
+     "f": "06 — Zéro six",
+     "a": "صفر ستة",
+     "e": "Zero six"
+    },
+    {
+     "f": "07 — Zéro sept",
+     "a": "صفر سبعة",
+     "e": "Zero seven"
+    },
+    {
+     "f": "08 — Zéro huit",
+     "a": "صفر تمانية",
+     "e": "Zero eight"
+    },
+    {
+     "f": "09 — Zéro neuf",
+     "a": "صفر تسعة",
+     "e": "Zero nine"
+    },
+    {
+     "f": "10 — Dix",
+     "a": "عشرة",
+     "e": "Ten"
+    },
+    {
+     "f": "11 — Onze",
+     "a": "حداش",
+     "e": "Eleven"
+    },
+    {
+     "f": "12 — Douze",
+     "a": "اتناش",
+     "e": "Twelve"
+    },
+    {
+     "f": "13 — Treize",
+     "a": "تلتعش",
+     "e": "Thirteen"
+    },
+    {
+     "f": "14 — Quatorze",
+     "a": "أربعتعش",
+     "e": "Fourteen"
+    },
+    {
+     "f": "15 — Quinze",
+     "a": "خمستعش",
+     "e": "Fifteen"
+    },
+    {
+     "f": "16 — Seize",
+     "a": "ستعش",
+     "e": "Sixteen"
+    },
+    {
+     "f": "17 — Dix-sept",
+     "a": "سبعتعش",
+     "e": "Seventeen"
+    },
+    {
+     "f": "18 — Dix-huit",
+     "a": "تمنتعش",
+     "e": "Eighteen"
+    },
+    {
+     "f": "19 — Dix-neuf",
+     "a": "تسعتعش",
+     "e": "Nineteen"
+    },
+    {
+     "f": "20 — Vingt",
+     "a": "عشرين",
+     "e": "Twenty"
+    },
+    {
+     "f": "21 — Vingt et un",
+     "a": "واحد وعشرين",
+     "e": "Twenty-one"
+    },
+    {
+     "f": "22 — Vingt-deux",
+     "a": "اتنين وعشرين",
+     "e": "Twenty-two"
+    },
+    {
+     "f": "23 — Vingt-trois",
+     "a": "تلاتة وعشرين",
+     "e": "Twenty-three"
+    },
+    {
+     "f": "24 — Vingt-quatre",
+     "a": "أربعة وعشرين",
+     "e": "Twenty-four"
+    }
+   ],
+   "ids": [],
+   "consigne": "هي كل الاحتمالات من 00 إلى 99 — أي كل المجموعات المكوّنة من رقمين اللي ممكن تسمعها برقم هاتف فرنسي."
+  },
+  {
+   "id": "a2-170",
+   "icon": "📚",
+   "fr": "Entraînement des paires 00–99 2/4",
+   "ar": "تدريب المجموعات 00–99 — جزء 2",
+   "phr": [
+    {
+     "f": "25 — Vingt-cinq",
+     "a": "خمسة وعشرين",
+     "e": "Twenty-five"
+    },
+    {
+     "f": "26 — Vingt-six",
+     "a": "ستة وعشرين",
+     "e": "Twenty-six"
+    },
+    {
+     "f": "27 — Vingt-sept",
+     "a": "سبعة وعشرين",
+     "e": "Twenty-seven"
+    },
+    {
+     "f": "28 — Vingt-huit",
+     "a": "تمانية وعشرين",
+     "e": "Twenty-eight"
+    },
+    {
+     "f": "29 — Vingt-neuf",
+     "a": "تسعة وعشرين",
+     "e": "Twenty-nine"
+    },
+    {
+     "f": "30 — Trente",
+     "a": "تلاتين",
+     "e": "Thirty"
+    },
+    {
+     "f": "31 — Trente et un",
+     "a": "واحد وتلاتين",
+     "e": "Thirty-one"
+    },
+    {
+     "f": "32 — Trente-deux",
+     "a": "اتنين وتلاتين",
+     "e": "Thirty-two"
+    },
+    {
+     "f": "33 — Trente-trois",
+     "a": "تلاتة وتلاتين",
+     "e": "Thirty-three"
+    },
+    {
+     "f": "34 — Trente-quatre",
+     "a": "أربعة وتلاتين",
+     "e": "Thirty-four"
+    },
+    {
+     "f": "35 — Trente-cinq",
+     "a": "خمسة وتلاتين",
+     "e": "Thirty-five"
+    },
+    {
+     "f": "36 — Trente-six",
+     "a": "ستة وتلاتين",
+     "e": "Thirty-six"
+    },
+    {
+     "f": "37 — Trente-sept",
+     "a": "سبعة وتلاتين",
+     "e": "Thirty-seven"
+    },
+    {
+     "f": "38 — Trente-huit",
+     "a": "تمانية وتلاتين",
+     "e": "Thirty-eight"
+    },
+    {
+     "f": "39 — Trente-neuf",
+     "a": "تسعة وتلاتين",
+     "e": "Thirty-nine"
+    },
+    {
+     "f": "40 — Quarante",
+     "a": "أربعين",
+     "e": "Forty"
+    },
+    {
+     "f": "41 — Quarante et un",
+     "a": "واحد وأربعين",
+     "e": "Forty-one"
+    },
+    {
+     "f": "42 — Quarante-deux",
+     "a": "اتنين وأربعين",
+     "e": "Forty-two"
+    },
+    {
+     "f": "43 — Quarante-trois",
+     "a": "تلاتة وأربعين",
+     "e": "Forty-three"
+    },
+    {
+     "f": "44 — Quarante-quatre",
+     "a": "أربعة وأربعين",
+     "e": "Forty-four"
+    },
+    {
+     "f": "45 — Quarante-cinq",
+     "a": "خمسة وأربعين",
+     "e": "Forty-five"
+    },
+    {
+     "f": "46 — Quarante-six",
+     "a": "ستة وأربعين",
+     "e": "Forty-six"
+    },
+    {
+     "f": "47 — Quarante-sept",
+     "a": "سبعة وأربعين",
+     "e": "Forty-seven"
+    },
+    {
+     "f": "48 — Quarante-huit",
+     "a": "تمانية وأربعين",
+     "e": "Forty-eight"
+    },
+    {
+     "f": "49 — Quarante-neuf",
+     "a": "تسعة وأربعين",
+     "e": "Forty-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-171",
+   "icon": "📚",
+   "fr": "Entraînement des paires 00–99 3/4",
+   "ar": "تدريب المجموعات 00–99 — جزء 3",
+   "phr": [
+    {
+     "f": "50 — Cinquante",
+     "a": "خمسين",
+     "e": "Fifty"
+    },
+    {
+     "f": "51 — Cinquante et un",
+     "a": "واحد وخمسين",
+     "e": "Fifty-one"
+    },
+    {
+     "f": "52 — Cinquante-deux",
+     "a": "اتنين وخمسين",
+     "e": "Fifty-two"
+    },
+    {
+     "f": "53 — Cinquante-trois",
+     "a": "تلاتة وخمسين",
+     "e": "Fifty-three"
+    },
+    {
+     "f": "54 — Cinquante-quatre",
+     "a": "أربعة وخمسين",
+     "e": "Fifty-four"
+    },
+    {
+     "f": "55 — Cinquante-cinq",
+     "a": "خمسة وخمسين",
+     "e": "Fifty-five"
+    },
+    {
+     "f": "56 — Cinquante-six",
+     "a": "ستة وخمسين",
+     "e": "Fifty-six"
+    },
+    {
+     "f": "57 — Cinquante-sept",
+     "a": "سبعة وخمسين",
+     "e": "Fifty-seven"
+    },
+    {
+     "f": "58 — Cinquante-huit",
+     "a": "تمانية وخمسين",
+     "e": "Fifty-eight"
+    },
+    {
+     "f": "59 — Cinquante-neuf",
+     "a": "تسعة وخمسين",
+     "e": "Fifty-nine"
+    },
+    {
+     "f": "60 — Soixante",
+     "a": "ستين",
+     "e": "Sixty"
+    },
+    {
+     "f": "61 — Soixante et un",
+     "a": "واحد وستين",
+     "e": "Sixty-one"
+    },
+    {
+     "f": "62 — Soixante-deux",
+     "a": "اتنين وستين",
+     "e": "Sixty-two"
+    },
+    {
+     "f": "63 — Soixante-trois",
+     "a": "تلاتة وستين",
+     "e": "Sixty-three"
+    },
+    {
+     "f": "64 — Soixante-quatre",
+     "a": "أربعة وستين",
+     "e": "Sixty-four"
+    },
+    {
+     "f": "65 — Soixante-cinq",
+     "a": "خمسة وستين",
+     "e": "Sixty-five"
+    },
+    {
+     "f": "66 — Soixante-six",
+     "a": "ستة وستين",
+     "e": "Sixty-six"
+    },
+    {
+     "f": "67 — Soixante-sept",
+     "a": "سبعة وستين",
+     "e": "Sixty-seven"
+    },
+    {
+     "f": "68 — Soixante-huit",
+     "a": "تمانية وستين",
+     "e": "Sixty-eight"
+    },
+    {
+     "f": "69 — Soixante-neuf",
+     "a": "تسعة وستين",
+     "e": "Sixty-nine"
+    },
+    {
+     "f": "70 — Soixante-dix",
+     "a": "سبعين",
+     "e": "Seventy"
+    },
+    {
+     "f": "71 — Soixante et onze",
+     "a": "واحد وسبعين",
+     "e": "Seventy-one"
+    },
+    {
+     "f": "72 — Soixante-douze",
+     "a": "اتنين وسبعين",
+     "e": "Seventy-two"
+    },
+    {
+     "f": "73 — Soixante-treize",
+     "a": "تلاتة وسبعين",
+     "e": "Seventy-three"
+    },
+    {
+     "f": "74 — Soixante-quatorze",
+     "a": "أربعة وسبعين",
+     "e": "Seventy-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-172",
+   "icon": "📚",
+   "fr": "Entraînement des paires 00–99 4/4",
+   "ar": "تدريب المجموعات 00–99 — جزء 4",
+   "phr": [
+    {
+     "f": "75 — Soixante-quinze",
+     "a": "خمسة وسبعين",
+     "e": "Seventy-five"
+    },
+    {
+     "f": "76 — Soixante-seize",
+     "a": "ستة وسبعين",
+     "e": "Seventy-six"
+    },
+    {
+     "f": "77 — Soixante-dix-sept",
+     "a": "سبعة وسبعين",
+     "e": "Seventy-seven"
+    },
+    {
+     "f": "78 — Soixante-dix-huit",
+     "a": "تمانية وسبعين",
+     "e": "Seventy-eight"
+    },
+    {
+     "f": "79 — Soixante-dix-neuf",
+     "a": "تسعة وسبعين",
+     "e": "Seventy-nine"
+    },
+    {
+     "f": "80 — Quatre-vingts",
+     "a": "تمانين",
+     "e": "Eighty"
+    },
+    {
+     "f": "81 — Quatre-vingt-un",
+     "a": "واحد وتمانين",
+     "e": "Eighty-one"
+    },
+    {
+     "f": "82 — Quatre-vingt-deux",
+     "a": "اتنين وتمانين",
+     "e": "Eighty-two"
+    },
+    {
+     "f": "83 — Quatre-vingt-trois",
+     "a": "تلاتة وتمانين",
+     "e": "Eighty-three"
+    },
+    {
+     "f": "84 — Quatre-vingt-quatre",
+     "a": "أربعة وتمانين",
+     "e": "Eighty-four"
+    },
+    {
+     "f": "85 — Quatre-vingt-cinq",
+     "a": "خمسة وتمانين",
+     "e": "Eighty-five"
+    },
+    {
+     "f": "86 — Quatre-vingt-six",
+     "a": "ستة وتمانين",
+     "e": "Eighty-six"
+    },
+    {
+     "f": "87 — Quatre-vingt-sept",
+     "a": "سبعة وتمانين",
+     "e": "Eighty-seven"
+    },
+    {
+     "f": "88 — Quatre-vingt-huit",
+     "a": "تمانية وتمانين",
+     "e": "Eighty-eight"
+    },
+    {
+     "f": "89 — Quatre-vingt-neuf",
+     "a": "تسعة وتمانين",
+     "e": "Eighty-nine"
+    },
+    {
+     "f": "90 — Quatre-vingt-dix",
+     "a": "تسعين",
+     "e": "Ninety"
+    },
+    {
+     "f": "91 — Quatre-vingt-onze",
+     "a": "واحد وتسعين",
+     "e": "Ninety-one"
+    },
+    {
+     "f": "92 — Quatre-vingt-douze",
+     "a": "اتنين وتسعين",
+     "e": "Ninety-two"
+    },
+    {
+     "f": "93 — Quatre-vingt-treize",
+     "a": "تلاتة وتسعين",
+     "e": "Ninety-three"
+    },
+    {
+     "f": "94 — Quatre-vingt-quatorze",
+     "a": "أربعة وتسعين",
+     "e": "Ninety-four"
+    },
+    {
+     "f": "95 — Quatre-vingt-quinze",
+     "a": "خمسة وتسعين",
+     "e": "Ninety-five"
+    },
+    {
+     "f": "96 — Quatre-vingt-seize",
+     "a": "ستة وتسعين",
+     "e": "Ninety-six"
+    },
+    {
+     "f": "97 — Quatre-vingt-dix-sept",
+     "a": "سبعة وتسعين",
+     "e": "Ninety-seven"
+    },
+    {
+     "f": "98 — Quatre-vingt-dix-huit",
+     "a": "تمانية وتسعين",
+     "e": "Ninety-eight"
+    },
+    {
+     "f": "99 — Quatre-vingt-dix-neuf",
+     "a": "تسعة وتسعين",
+     "e": "Ninety-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-173",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 1/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 1",
+   "phr": [
+    {
+     "f": "1000 — Mille",
+     "a": "ألف",
+     "e": "One thousand"
+    },
+    {
+     "f": "1001 — Mille un",
+     "a": "ألف وواحد",
+     "e": "One thousand and one"
+    },
+    {
+     "f": "1002 — Mille deux",
+     "a": "ألف وتنين",
+     "e": "One thousand and two"
+    },
+    {
+     "f": "1003 — Mille trois",
+     "a": "ألف وتلاتة",
+     "e": "One thousand and three"
+    },
+    {
+     "f": "1004 — Mille quatre",
+     "a": "ألف وأربعة",
+     "e": "One thousand and four"
+    },
+    {
+     "f": "1005 — Mille cinq",
+     "a": "ألف وخمسة",
+     "e": "One thousand and five"
+    },
+    {
+     "f": "1006 — Mille six",
+     "a": "ألف وستة",
+     "e": "One thousand and six"
+    },
+    {
+     "f": "1007 — Mille sept",
+     "a": "ألف وسبعة",
+     "e": "One thousand and seven"
+    },
+    {
+     "f": "1008 — Mille huit",
+     "a": "ألف وتمانية",
+     "e": "One thousand and eight"
+    },
+    {
+     "f": "1009 — Mille neuf",
+     "a": "ألف وتسعة",
+     "e": "One thousand and nine"
+    },
+    {
+     "f": "1010 — Mille dix",
+     "a": "ألف وعشرة",
+     "e": "One thousand and ten"
+    },
+    {
+     "f": "1011 — Mille onze",
+     "a": "ألف وحداش",
+     "e": "One thousand and eleven"
+    },
+    {
+     "f": "1012 — Mille douze",
+     "a": "ألف واتناش",
+     "e": "One thousand and twelve"
+    },
+    {
+     "f": "1013 — Mille treize",
+     "a": "ألف وتلتعش",
+     "e": "One thousand and thirteen"
+    },
+    {
+     "f": "1014 — Mille quatorze",
+     "a": "ألف وأربعتعش",
+     "e": "One thousand and fourteen"
+    },
+    {
+     "f": "1015 — Mille quinze",
+     "a": "ألف وخمستعش",
+     "e": "One thousand and fifteen"
+    },
+    {
+     "f": "1016 — Mille seize",
+     "a": "ألف وستعش",
+     "e": "One thousand and sixteen"
+    },
+    {
+     "f": "1017 — Mille dix-sept",
+     "a": "ألف وسبعتعش",
+     "e": "One thousand and seventeen"
+    },
+    {
+     "f": "1018 — Mille dix-huit",
+     "a": "ألف وتمنتعش",
+     "e": "One thousand and eighteen"
+    },
+    {
+     "f": "1019 — Mille dix-neuf",
+     "a": "ألف وتسعتعش",
+     "e": "One thousand and nineteen"
+    },
+    {
+     "f": "1020 — Mille vingt",
+     "a": "ألف وعشرين",
+     "e": "One thousand and twenty"
+    },
+    {
+     "f": "1021 — Mille vingt et un",
+     "a": "ألف وواحد وعشرين",
+     "e": "One thousand and twenty-one"
+    },
+    {
+     "f": "1022 — Mille vingt-deux",
+     "a": "ألف واتنين وعشرين",
+     "e": "One thousand and twenty-two"
+    },
+    {
+     "f": "1023 — Mille vingt-trois",
+     "a": "ألف وتلاتة وعشرين",
+     "e": "One thousand and twenty-three"
+    },
+    {
+     "f": "1024 — Mille vingt-quatre",
+     "a": "ألف وأربعة وعشرين",
+     "e": "One thousand and twenty-four"
+    }
+   ],
+   "ids": [],
+   "consigne": "ملاحظة مهمة: كلمة Mille ما بتتجمع أبداً — منقول «Deux mille» مش «Deux milles».\nتغطية كاملة: كل الأعداد من 1000 إلى 2000 مولّدة بقواعد الفرنسية، وألعاب الأرقام صارت تسحب من 1 إلى 2000."
+  },
+  {
+   "id": "a2-174",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 2/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 2",
+   "phr": [
+    {
+     "f": "1025 — Mille vingt-cinq",
+     "a": "ألف وخمسة وعشرين",
+     "e": "One thousand and twenty-five"
+    },
+    {
+     "f": "1026 — Mille vingt-six",
+     "a": "ألف وستة وعشرين",
+     "e": "One thousand and twenty-six"
+    },
+    {
+     "f": "1027 — Mille vingt-sept",
+     "a": "ألف وسبعة وعشرين",
+     "e": "One thousand and twenty-seven"
+    },
+    {
+     "f": "1028 — Mille vingt-huit",
+     "a": "ألف وتمانية وعشرين",
+     "e": "One thousand and twenty-eight"
+    },
+    {
+     "f": "1029 — Mille vingt-neuf",
+     "a": "ألف وتسعة وعشرين",
+     "e": "One thousand and twenty-nine"
+    },
+    {
+     "f": "1030 — Mille trente",
+     "a": "ألف وتلاتين",
+     "e": "One thousand and thirty"
+    },
+    {
+     "f": "1031 — Mille trente et un",
+     "a": "ألف وواحد وتلاتين",
+     "e": "One thousand and thirty-one"
+    },
+    {
+     "f": "1032 — Mille trente-deux",
+     "a": "ألف واتنين وتلاتين",
+     "e": "One thousand and thirty-two"
+    },
+    {
+     "f": "1033 — Mille trente-trois",
+     "a": "ألف وتلاتة وتلاتين",
+     "e": "One thousand and thirty-three"
+    },
+    {
+     "f": "1034 — Mille trente-quatre",
+     "a": "ألف وأربعة وتلاتين",
+     "e": "One thousand and thirty-four"
+    },
+    {
+     "f": "1035 — Mille trente-cinq",
+     "a": "ألف وخمسة وتلاتين",
+     "e": "One thousand and thirty-five"
+    },
+    {
+     "f": "1036 — Mille trente-six",
+     "a": "ألف وستة وتلاتين",
+     "e": "One thousand and thirty-six"
+    },
+    {
+     "f": "1037 — Mille trente-sept",
+     "a": "ألف وسبعة وتلاتين",
+     "e": "One thousand and thirty-seven"
+    },
+    {
+     "f": "1038 — Mille trente-huit",
+     "a": "ألف وتمانية وتلاتين",
+     "e": "One thousand and thirty-eight"
+    },
+    {
+     "f": "1039 — Mille trente-neuf",
+     "a": "ألف وتسعة وتلاتين",
+     "e": "One thousand and thirty-nine"
+    },
+    {
+     "f": "1040 — Mille quarante",
+     "a": "ألف وأربعين",
+     "e": "One thousand and forty"
+    },
+    {
+     "f": "1041 — Mille quarante et un",
+     "a": "ألف وواحد وأربعين",
+     "e": "One thousand and forty-one"
+    },
+    {
+     "f": "1042 — Mille quarante-deux",
+     "a": "ألف واتنين وأربعين",
+     "e": "One thousand and forty-two"
+    },
+    {
+     "f": "1043 — Mille quarante-trois",
+     "a": "ألف وتلاتة وأربعين",
+     "e": "One thousand and forty-three"
+    },
+    {
+     "f": "1044 — Mille quarante-quatre",
+     "a": "ألف وأربعة وأربعين",
+     "e": "One thousand and forty-four"
+    },
+    {
+     "f": "1045 — Mille quarante-cinq",
+     "a": "ألف وخمسة وأربعين",
+     "e": "One thousand and forty-five"
+    },
+    {
+     "f": "1046 — Mille quarante-six",
+     "a": "ألف وستة وأربعين",
+     "e": "One thousand and forty-six"
+    },
+    {
+     "f": "1047 — Mille quarante-sept",
+     "a": "ألف وسبعة وأربعين",
+     "e": "One thousand and forty-seven"
+    },
+    {
+     "f": "1048 — Mille quarante-huit",
+     "a": "ألف وتمانية وأربعين",
+     "e": "One thousand and forty-eight"
+    },
+    {
+     "f": "1049 — Mille quarante-neuf",
+     "a": "ألف وتسعة وأربعين",
+     "e": "One thousand and forty-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-175",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 3/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 3",
+   "phr": [
+    {
+     "f": "1050 — Mille cinquante",
+     "a": "ألف وخمسين",
+     "e": "One thousand and fifty"
+    },
+    {
+     "f": "1051 — Mille cinquante et un",
+     "a": "ألف وواحد وخمسين",
+     "e": "One thousand and fifty-one"
+    },
+    {
+     "f": "1052 — Mille cinquante-deux",
+     "a": "ألف واتنين وخمسين",
+     "e": "One thousand and fifty-two"
+    },
+    {
+     "f": "1053 — Mille cinquante-trois",
+     "a": "ألف وتلاتة وخمسين",
+     "e": "One thousand and fifty-three"
+    },
+    {
+     "f": "1054 — Mille cinquante-quatre",
+     "a": "ألف وأربعة وخمسين",
+     "e": "One thousand and fifty-four"
+    },
+    {
+     "f": "1055 — Mille cinquante-cinq",
+     "a": "ألف وخمسة وخمسين",
+     "e": "One thousand and fifty-five"
+    },
+    {
+     "f": "1056 — Mille cinquante-six",
+     "a": "ألف وستة وخمسين",
+     "e": "One thousand and fifty-six"
+    },
+    {
+     "f": "1057 — Mille cinquante-sept",
+     "a": "ألف وسبعة وخمسين",
+     "e": "One thousand and fifty-seven"
+    },
+    {
+     "f": "1058 — Mille cinquante-huit",
+     "a": "ألف وتمانية وخمسين",
+     "e": "One thousand and fifty-eight"
+    },
+    {
+     "f": "1059 — Mille cinquante-neuf",
+     "a": "ألف وتسعة وخمسين",
+     "e": "One thousand and fifty-nine"
+    },
+    {
+     "f": "1060 — Mille soixante",
+     "a": "ألف وستين",
+     "e": "One thousand and sixty"
+    },
+    {
+     "f": "1061 — Mille soixante et un",
+     "a": "ألف وواحد وستين",
+     "e": "One thousand and sixty-one"
+    },
+    {
+     "f": "1062 — Mille soixante-deux",
+     "a": "ألف واتنين وستين",
+     "e": "One thousand and sixty-two"
+    },
+    {
+     "f": "1063 — Mille soixante-trois",
+     "a": "ألف وتلاتة وستين",
+     "e": "One thousand and sixty-three"
+    },
+    {
+     "f": "1064 — Mille soixante-quatre",
+     "a": "ألف وأربعة وستين",
+     "e": "One thousand and sixty-four"
+    },
+    {
+     "f": "1065 — Mille soixante-cinq",
+     "a": "ألف وخمسة وستين",
+     "e": "One thousand and sixty-five"
+    },
+    {
+     "f": "1066 — Mille soixante-six",
+     "a": "ألف وستة وستين",
+     "e": "One thousand and sixty-six"
+    },
+    {
+     "f": "1067 — Mille soixante-sept",
+     "a": "ألف وسبعة وستين",
+     "e": "One thousand and sixty-seven"
+    },
+    {
+     "f": "1068 — Mille soixante-huit",
+     "a": "ألف وتمانية وستين",
+     "e": "One thousand and sixty-eight"
+    },
+    {
+     "f": "1069 — Mille soixante-neuf",
+     "a": "ألف وتسعة وستين",
+     "e": "One thousand and sixty-nine"
+    },
+    {
+     "f": "1070 — Mille soixante-dix",
+     "a": "ألف وسبعين",
+     "e": "One thousand and seventy"
+    },
+    {
+     "f": "1071 — Mille soixante et onze",
+     "a": "ألف وواحد وسبعين",
+     "e": "One thousand and seventy-one"
+    },
+    {
+     "f": "1072 — Mille soixante-douze",
+     "a": "ألف واتنين وسبعين",
+     "e": "One thousand and seventy-two"
+    },
+    {
+     "f": "1073 — Mille soixante-treize",
+     "a": "ألف وتلاتة وسبعين",
+     "e": "One thousand and seventy-three"
+    },
+    {
+     "f": "1074 — Mille soixante-quatorze",
+     "a": "ألف وأربعة وسبعين",
+     "e": "One thousand and seventy-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-176",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 4/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 4",
+   "phr": [
+    {
+     "f": "1075 — Mille soixante-quinze",
+     "a": "ألف وخمسة وسبعين",
+     "e": "One thousand and seventy-five"
+    },
+    {
+     "f": "1076 — Mille soixante-seize",
+     "a": "ألف وستة وسبعين",
+     "e": "One thousand and seventy-six"
+    },
+    {
+     "f": "1077 — Mille soixante-dix-sept",
+     "a": "ألف وسبعة وسبعين",
+     "e": "One thousand and seventy-seven"
+    },
+    {
+     "f": "1078 — Mille soixante-dix-huit",
+     "a": "ألف وتمانية وسبعين",
+     "e": "One thousand and seventy-eight"
+    },
+    {
+     "f": "1079 — Mille soixante-dix-neuf",
+     "a": "ألف وتسعة وسبعين",
+     "e": "One thousand and seventy-nine"
+    },
+    {
+     "f": "1080 — Mille quatre-vingts",
+     "a": "ألف وتمانين",
+     "e": "One thousand and eighty"
+    },
+    {
+     "f": "1081 — Mille quatre-vingt-un",
+     "a": "ألف وواحد وتمانين",
+     "e": "One thousand and eighty-one"
+    },
+    {
+     "f": "1082 — Mille quatre-vingt-deux",
+     "a": "ألف واتنين وتمانين",
+     "e": "One thousand and eighty-two"
+    },
+    {
+     "f": "1083 — Mille quatre-vingt-trois",
+     "a": "ألف وتلاتة وتمانين",
+     "e": "One thousand and eighty-three"
+    },
+    {
+     "f": "1084 — Mille quatre-vingt-quatre",
+     "a": "ألف وأربعة وتمانين",
+     "e": "One thousand and eighty-four"
+    },
+    {
+     "f": "1085 — Mille quatre-vingt-cinq",
+     "a": "ألف وخمسة وتمانين",
+     "e": "One thousand and eighty-five"
+    },
+    {
+     "f": "1086 — Mille quatre-vingt-six",
+     "a": "ألف وستة وتمانين",
+     "e": "One thousand and eighty-six"
+    },
+    {
+     "f": "1087 — Mille quatre-vingt-sept",
+     "a": "ألف وسبعة وتمانين",
+     "e": "One thousand and eighty-seven"
+    },
+    {
+     "f": "1088 — Mille quatre-vingt-huit",
+     "a": "ألف وتمانية وتمانين",
+     "e": "One thousand and eighty-eight"
+    },
+    {
+     "f": "1089 — Mille quatre-vingt-neuf",
+     "a": "ألف وتسعة وتمانين",
+     "e": "One thousand and eighty-nine"
+    },
+    {
+     "f": "1090 — Mille quatre-vingt-dix",
+     "a": "ألف وتسعين",
+     "e": "One thousand and ninety"
+    },
+    {
+     "f": "1091 — Mille quatre-vingt-onze",
+     "a": "ألف وواحد وتسعين",
+     "e": "One thousand and ninety-one"
+    },
+    {
+     "f": "1092 — Mille quatre-vingt-douze",
+     "a": "ألف واتنين وتسعين",
+     "e": "One thousand and ninety-two"
+    },
+    {
+     "f": "1093 — Mille quatre-vingt-treize",
+     "a": "ألف وتلاتة وتسعين",
+     "e": "One thousand and ninety-three"
+    },
+    {
+     "f": "1094 — Mille quatre-vingt-quatorze",
+     "a": "ألف وأربعة وتسعين",
+     "e": "One thousand and ninety-four"
+    },
+    {
+     "f": "1095 — Mille quatre-vingt-quinze",
+     "a": "ألف وخمسة وتسعين",
+     "e": "One thousand and ninety-five"
+    },
+    {
+     "f": "1096 — Mille quatre-vingt-seize",
+     "a": "ألف وستة وتسعين",
+     "e": "One thousand and ninety-six"
+    },
+    {
+     "f": "1097 — Mille quatre-vingt-dix-sept",
+     "a": "ألف وسبعة وتسعين",
+     "e": "One thousand and ninety-seven"
+    },
+    {
+     "f": "1098 — Mille quatre-vingt-dix-huit",
+     "a": "ألف وتمانية وتسعين",
+     "e": "One thousand and ninety-eight"
+    },
+    {
+     "f": "1099 — Mille quatre-vingt-dix-neuf",
+     "a": "ألف وتسعة وتسعين",
+     "e": "One thousand and ninety-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-177",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 5/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 5",
+   "phr": [
+    {
+     "f": "1100 — Mille cent",
+     "a": "ألف ومية",
+     "e": "One thousand one hundred"
+    },
+    {
+     "f": "1101 — Mille cent un",
+     "a": "ألف ومية وواحد",
+     "e": "One thousand one hundred and one"
+    },
+    {
+     "f": "1102 — Mille cent deux",
+     "a": "ألف ومية وتنين",
+     "e": "One thousand one hundred and two"
+    },
+    {
+     "f": "1103 — Mille cent trois",
+     "a": "ألف ومية وتلاتة",
+     "e": "One thousand one hundred and three"
+    },
+    {
+     "f": "1104 — Mille cent quatre",
+     "a": "ألف ومية وأربعة",
+     "e": "One thousand one hundred and four"
+    },
+    {
+     "f": "1105 — Mille cent cinq",
+     "a": "ألف ومية وخمسة",
+     "e": "One thousand one hundred and five"
+    },
+    {
+     "f": "1106 — Mille cent six",
+     "a": "ألف ومية وستة",
+     "e": "One thousand one hundred and six"
+    },
+    {
+     "f": "1107 — Mille cent sept",
+     "a": "ألف ومية وسبعة",
+     "e": "One thousand one hundred and seven"
+    },
+    {
+     "f": "1108 — Mille cent huit",
+     "a": "ألف ومية وتمانية",
+     "e": "One thousand one hundred and eight"
+    },
+    {
+     "f": "1109 — Mille cent neuf",
+     "a": "ألف ومية وتسعة",
+     "e": "One thousand one hundred and nine"
+    },
+    {
+     "f": "1110 — Mille cent dix",
+     "a": "ألف ومية وعشرة",
+     "e": "One thousand one hundred and ten"
+    },
+    {
+     "f": "1111 — Mille cent onze",
+     "a": "ألف ومية وحداش",
+     "e": "One thousand one hundred and eleven"
+    },
+    {
+     "f": "1112 — Mille cent douze",
+     "a": "ألف ومية واتناش",
+     "e": "One thousand one hundred and twelve"
+    },
+    {
+     "f": "1113 — Mille cent treize",
+     "a": "ألف ومية وتلتعش",
+     "e": "One thousand one hundred and thirteen"
+    },
+    {
+     "f": "1114 — Mille cent quatorze",
+     "a": "ألف ومية وأربعتعش",
+     "e": "One thousand one hundred and fourteen"
+    },
+    {
+     "f": "1115 — Mille cent quinze",
+     "a": "ألف ومية وخمستعش",
+     "e": "One thousand one hundred and fifteen"
+    },
+    {
+     "f": "1116 — Mille cent seize",
+     "a": "ألف ومية وستعش",
+     "e": "One thousand one hundred and sixteen"
+    },
+    {
+     "f": "1117 — Mille cent dix-sept",
+     "a": "ألف ومية وسبعتعش",
+     "e": "One thousand one hundred and seventeen"
+    },
+    {
+     "f": "1118 — Mille cent dix-huit",
+     "a": "ألف ومية وتمنتعش",
+     "e": "One thousand one hundred and eighteen"
+    },
+    {
+     "f": "1119 — Mille cent dix-neuf",
+     "a": "ألف ومية وتسعتعش",
+     "e": "One thousand one hundred and nineteen"
+    },
+    {
+     "f": "1120 — Mille cent vingt",
+     "a": "ألف ومية وعشرين",
+     "e": "One thousand one hundred and twenty"
+    },
+    {
+     "f": "1121 — Mille cent vingt et un",
+     "a": "ألف ومية وواحد وعشرين",
+     "e": "One thousand one hundred and twenty-one"
+    },
+    {
+     "f": "1122 — Mille cent vingt-deux",
+     "a": "ألف ومية واتنين وعشرين",
+     "e": "One thousand one hundred and twenty-two"
+    },
+    {
+     "f": "1123 — Mille cent vingt-trois",
+     "a": "ألف ومية وتلاتة وعشرين",
+     "e": "One thousand one hundred and twenty-three"
+    },
+    {
+     "f": "1124 — Mille cent vingt-quatre",
+     "a": "ألف ومية وأربعة وعشرين",
+     "e": "One thousand one hundred and twenty-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-178",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 6/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 6",
+   "phr": [
+    {
+     "f": "1125 — Mille cent vingt-cinq",
+     "a": "ألف ومية وخمسة وعشرين",
+     "e": "One thousand one hundred and twenty-five"
+    },
+    {
+     "f": "1126 — Mille cent vingt-six",
+     "a": "ألف ومية وستة وعشرين",
+     "e": "One thousand one hundred and twenty-six"
+    },
+    {
+     "f": "1127 — Mille cent vingt-sept",
+     "a": "ألف ومية وسبعة وعشرين",
+     "e": "One thousand one hundred and twenty-seven"
+    },
+    {
+     "f": "1128 — Mille cent vingt-huit",
+     "a": "ألف ومية وتمانية وعشرين",
+     "e": "One thousand one hundred and twenty-eight"
+    },
+    {
+     "f": "1129 — Mille cent vingt-neuf",
+     "a": "ألف ومية وتسعة وعشرين",
+     "e": "One thousand one hundred and twenty-nine"
+    },
+    {
+     "f": "1130 — Mille cent trente",
+     "a": "ألف ومية وتلاتين",
+     "e": "One thousand one hundred and thirty"
+    },
+    {
+     "f": "1131 — Mille cent trente et un",
+     "a": "ألف ومية وواحد وتلاتين",
+     "e": "One thousand one hundred and thirty-one"
+    },
+    {
+     "f": "1132 — Mille cent trente-deux",
+     "a": "ألف ومية واتنين وتلاتين",
+     "e": "One thousand one hundred and thirty-two"
+    },
+    {
+     "f": "1133 — Mille cent trente-trois",
+     "a": "ألف ومية وتلاتة وتلاتين",
+     "e": "One thousand one hundred and thirty-three"
+    },
+    {
+     "f": "1134 — Mille cent trente-quatre",
+     "a": "ألف ومية وأربعة وتلاتين",
+     "e": "One thousand one hundred and thirty-four"
+    },
+    {
+     "f": "1135 — Mille cent trente-cinq",
+     "a": "ألف ومية وخمسة وتلاتين",
+     "e": "One thousand one hundred and thirty-five"
+    },
+    {
+     "f": "1136 — Mille cent trente-six",
+     "a": "ألف ومية وستة وتلاتين",
+     "e": "One thousand one hundred and thirty-six"
+    },
+    {
+     "f": "1137 — Mille cent trente-sept",
+     "a": "ألف ومية وسبعة وتلاتين",
+     "e": "One thousand one hundred and thirty-seven"
+    },
+    {
+     "f": "1138 — Mille cent trente-huit",
+     "a": "ألف ومية وتمانية وتلاتين",
+     "e": "One thousand one hundred and thirty-eight"
+    },
+    {
+     "f": "1139 — Mille cent trente-neuf",
+     "a": "ألف ومية وتسعة وتلاتين",
+     "e": "One thousand one hundred and thirty-nine"
+    },
+    {
+     "f": "1140 — Mille cent quarante",
+     "a": "ألف ومية وأربعين",
+     "e": "One thousand one hundred and forty"
+    },
+    {
+     "f": "1141 — Mille cent quarante et un",
+     "a": "ألف ومية وواحد وأربعين",
+     "e": "One thousand one hundred and forty-one"
+    },
+    {
+     "f": "1142 — Mille cent quarante-deux",
+     "a": "ألف ومية واتنين وأربعين",
+     "e": "One thousand one hundred and forty-two"
+    },
+    {
+     "f": "1143 — Mille cent quarante-trois",
+     "a": "ألف ومية وتلاتة وأربعين",
+     "e": "One thousand one hundred and forty-three"
+    },
+    {
+     "f": "1144 — Mille cent quarante-quatre",
+     "a": "ألف ومية وأربعة وأربعين",
+     "e": "One thousand one hundred and forty-four"
+    },
+    {
+     "f": "1145 — Mille cent quarante-cinq",
+     "a": "ألف ومية وخمسة وأربعين",
+     "e": "One thousand one hundred and forty-five"
+    },
+    {
+     "f": "1146 — Mille cent quarante-six",
+     "a": "ألف ومية وستة وأربعين",
+     "e": "One thousand one hundred and forty-six"
+    },
+    {
+     "f": "1147 — Mille cent quarante-sept",
+     "a": "ألف ومية وسبعة وأربعين",
+     "e": "One thousand one hundred and forty-seven"
+    },
+    {
+     "f": "1148 — Mille cent quarante-huit",
+     "a": "ألف ومية وتمانية وأربعين",
+     "e": "One thousand one hundred and forty-eight"
+    },
+    {
+     "f": "1149 — Mille cent quarante-neuf",
+     "a": "ألف ومية وتسعة وأربعين",
+     "e": "One thousand one hundred and forty-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-179",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 7/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 7",
+   "phr": [
+    {
+     "f": "1150 — Mille cent cinquante",
+     "a": "ألف ومية وخمسين",
+     "e": "One thousand one hundred and fifty"
+    },
+    {
+     "f": "1151 — Mille cent cinquante et un",
+     "a": "ألف ومية وواحد وخمسين",
+     "e": "One thousand one hundred and fifty-one"
+    },
+    {
+     "f": "1152 — Mille cent cinquante-deux",
+     "a": "ألف ومية واتنين وخمسين",
+     "e": "One thousand one hundred and fifty-two"
+    },
+    {
+     "f": "1153 — Mille cent cinquante-trois",
+     "a": "ألف ومية وتلاتة وخمسين",
+     "e": "One thousand one hundred and fifty-three"
+    },
+    {
+     "f": "1154 — Mille cent cinquante-quatre",
+     "a": "ألف ومية وأربعة وخمسين",
+     "e": "One thousand one hundred and fifty-four"
+    },
+    {
+     "f": "1155 — Mille cent cinquante-cinq",
+     "a": "ألف ومية وخمسة وخمسين",
+     "e": "One thousand one hundred and fifty-five"
+    },
+    {
+     "f": "1156 — Mille cent cinquante-six",
+     "a": "ألف ومية وستة وخمسين",
+     "e": "One thousand one hundred and fifty-six"
+    },
+    {
+     "f": "1157 — Mille cent cinquante-sept",
+     "a": "ألف ومية وسبعة وخمسين",
+     "e": "One thousand one hundred and fifty-seven"
+    },
+    {
+     "f": "1158 — Mille cent cinquante-huit",
+     "a": "ألف ومية وتمانية وخمسين",
+     "e": "One thousand one hundred and fifty-eight"
+    },
+    {
+     "f": "1159 — Mille cent cinquante-neuf",
+     "a": "ألف ومية وتسعة وخمسين",
+     "e": "One thousand one hundred and fifty-nine"
+    },
+    {
+     "f": "1160 — Mille cent soixante",
+     "a": "ألف ومية وستين",
+     "e": "One thousand one hundred and sixty"
+    },
+    {
+     "f": "1161 — Mille cent soixante et un",
+     "a": "ألف ومية وواحد وستين",
+     "e": "One thousand one hundred and sixty-one"
+    },
+    {
+     "f": "1162 — Mille cent soixante-deux",
+     "a": "ألف ومية واتنين وستين",
+     "e": "One thousand one hundred and sixty-two"
+    },
+    {
+     "f": "1163 — Mille cent soixante-trois",
+     "a": "ألف ومية وتلاتة وستين",
+     "e": "One thousand one hundred and sixty-three"
+    },
+    {
+     "f": "1164 — Mille cent soixante-quatre",
+     "a": "ألف ومية وأربعة وستين",
+     "e": "One thousand one hundred and sixty-four"
+    },
+    {
+     "f": "1165 — Mille cent soixante-cinq",
+     "a": "ألف ومية وخمسة وستين",
+     "e": "One thousand one hundred and sixty-five"
+    },
+    {
+     "f": "1166 — Mille cent soixante-six",
+     "a": "ألف ومية وستة وستين",
+     "e": "One thousand one hundred and sixty-six"
+    },
+    {
+     "f": "1167 — Mille cent soixante-sept",
+     "a": "ألف ومية وسبعة وستين",
+     "e": "One thousand one hundred and sixty-seven"
+    },
+    {
+     "f": "1168 — Mille cent soixante-huit",
+     "a": "ألف ومية وتمانية وستين",
+     "e": "One thousand one hundred and sixty-eight"
+    },
+    {
+     "f": "1169 — Mille cent soixante-neuf",
+     "a": "ألف ومية وتسعة وستين",
+     "e": "One thousand one hundred and sixty-nine"
+    },
+    {
+     "f": "1170 — Mille cent soixante-dix",
+     "a": "ألف ومية وسبعين",
+     "e": "One thousand one hundred and seventy"
+    },
+    {
+     "f": "1171 — Mille cent soixante et onze",
+     "a": "ألف ومية وواحد وسبعين",
+     "e": "One thousand one hundred and seventy-one"
+    },
+    {
+     "f": "1172 — Mille cent soixante-douze",
+     "a": "ألف ومية واتنين وسبعين",
+     "e": "One thousand one hundred and seventy-two"
+    },
+    {
+     "f": "1173 — Mille cent soixante-treize",
+     "a": "ألف ومية وتلاتة وسبعين",
+     "e": "One thousand one hundred and seventy-three"
+    },
+    {
+     "f": "1174 — Mille cent soixante-quatorze",
+     "a": "ألف ومية وأربعة وسبعين",
+     "e": "One thousand one hundred and seventy-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-180",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 8/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 8",
+   "phr": [
+    {
+     "f": "1175 — Mille cent soixante-quinze",
+     "a": "ألف ومية وخمسة وسبعين",
+     "e": "One thousand one hundred and seventy-five"
+    },
+    {
+     "f": "1176 — Mille cent soixante-seize",
+     "a": "ألف ومية وستة وسبعين",
+     "e": "One thousand one hundred and seventy-six"
+    },
+    {
+     "f": "1177 — Mille cent soixante-dix-sept",
+     "a": "ألف ومية وسبعة وسبعين",
+     "e": "One thousand one hundred and seventy-seven"
+    },
+    {
+     "f": "1178 — Mille cent soixante-dix-huit",
+     "a": "ألف ومية وتمانية وسبعين",
+     "e": "One thousand one hundred and seventy-eight"
+    },
+    {
+     "f": "1179 — Mille cent soixante-dix-neuf",
+     "a": "ألف ومية وتسعة وسبعين",
+     "e": "One thousand one hundred and seventy-nine"
+    },
+    {
+     "f": "1180 — Mille cent quatre-vingts",
+     "a": "ألف ومية وتمانين",
+     "e": "One thousand one hundred and eighty"
+    },
+    {
+     "f": "1181 — Mille cent quatre-vingt-un",
+     "a": "ألف ومية وواحد وتمانين",
+     "e": "One thousand one hundred and eighty-one"
+    },
+    {
+     "f": "1182 — Mille cent quatre-vingt-deux",
+     "a": "ألف ومية واتنين وتمانين",
+     "e": "One thousand one hundred and eighty-two"
+    },
+    {
+     "f": "1183 — Mille cent quatre-vingt-trois",
+     "a": "ألف ومية وتلاتة وتمانين",
+     "e": "One thousand one hundred and eighty-three"
+    },
+    {
+     "f": "1184 — Mille cent quatre-vingt-quatre",
+     "a": "ألف ومية وأربعة وتمانين",
+     "e": "One thousand one hundred and eighty-four"
+    },
+    {
+     "f": "1185 — Mille cent quatre-vingt-cinq",
+     "a": "ألف ومية وخمسة وتمانين",
+     "e": "One thousand one hundred and eighty-five"
+    },
+    {
+     "f": "1186 — Mille cent quatre-vingt-six",
+     "a": "ألف ومية وستة وتمانين",
+     "e": "One thousand one hundred and eighty-six"
+    },
+    {
+     "f": "1187 — Mille cent quatre-vingt-sept",
+     "a": "ألف ومية وسبعة وتمانين",
+     "e": "One thousand one hundred and eighty-seven"
+    },
+    {
+     "f": "1188 — Mille cent quatre-vingt-huit",
+     "a": "ألف ومية وتمانية وتمانين",
+     "e": "One thousand one hundred and eighty-eight"
+    },
+    {
+     "f": "1189 — Mille cent quatre-vingt-neuf",
+     "a": "ألف ومية وتسعة وتمانين",
+     "e": "One thousand one hundred and eighty-nine"
+    },
+    {
+     "f": "1190 — Mille cent quatre-vingt-dix",
+     "a": "ألف ومية وتسعين",
+     "e": "One thousand one hundred and ninety"
+    },
+    {
+     "f": "1191 — Mille cent quatre-vingt-onze",
+     "a": "ألف ومية وواحد وتسعين",
+     "e": "One thousand one hundred and ninety-one"
+    },
+    {
+     "f": "1192 — Mille cent quatre-vingt-douze",
+     "a": "ألف ومية واتنين وتسعين",
+     "e": "One thousand one hundred and ninety-two"
+    },
+    {
+     "f": "1193 — Mille cent quatre-vingt-treize",
+     "a": "ألف ومية وتلاتة وتسعين",
+     "e": "One thousand one hundred and ninety-three"
+    },
+    {
+     "f": "1194 — Mille cent quatre-vingt-quatorze",
+     "a": "ألف ومية وأربعة وتسعين",
+     "e": "One thousand one hundred and ninety-four"
+    },
+    {
+     "f": "1195 — Mille cent quatre-vingt-quinze",
+     "a": "ألف ومية وخمسة وتسعين",
+     "e": "One thousand one hundred and ninety-five"
+    },
+    {
+     "f": "1196 — Mille cent quatre-vingt-seize",
+     "a": "ألف ومية وستة وتسعين",
+     "e": "One thousand one hundred and ninety-six"
+    },
+    {
+     "f": "1197 — Mille cent quatre-vingt-dix-sept",
+     "a": "ألف ومية وسبعة وتسعين",
+     "e": "One thousand one hundred and ninety-seven"
+    },
+    {
+     "f": "1198 — Mille cent quatre-vingt-dix-huit",
+     "a": "ألف ومية وتمانية وتسعين",
+     "e": "One thousand one hundred and ninety-eight"
+    },
+    {
+     "f": "1199 — Mille cent quatre-vingt-dix-neuf",
+     "a": "ألف ومية وتسعة وتسعين",
+     "e": "One thousand one hundred and ninety-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-181",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 9/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 9",
+   "phr": [
+    {
+     "f": "1200 — Mille deux cents",
+     "a": "ألف وميتين",
+     "e": "One thousand two hundred"
+    },
+    {
+     "f": "1201 — Mille deux cent un",
+     "a": "ألف وميتين وواحد",
+     "e": "One thousand two hundred and one"
+    },
+    {
+     "f": "1202 — Mille deux cent deux",
+     "a": "ألف وميتين وتنين",
+     "e": "One thousand two hundred and two"
+    },
+    {
+     "f": "1203 — Mille deux cent trois",
+     "a": "ألف وميتين وتلاتة",
+     "e": "One thousand two hundred and three"
+    },
+    {
+     "f": "1204 — Mille deux cent quatre",
+     "a": "ألف وميتين وأربعة",
+     "e": "One thousand two hundred and four"
+    },
+    {
+     "f": "1205 — Mille deux cent cinq",
+     "a": "ألف وميتين وخمسة",
+     "e": "One thousand two hundred and five"
+    },
+    {
+     "f": "1206 — Mille deux cent six",
+     "a": "ألف وميتين وستة",
+     "e": "One thousand two hundred and six"
+    },
+    {
+     "f": "1207 — Mille deux cent sept",
+     "a": "ألف وميتين وسبعة",
+     "e": "One thousand two hundred and seven"
+    },
+    {
+     "f": "1208 — Mille deux cent huit",
+     "a": "ألف وميتين وتمانية",
+     "e": "One thousand two hundred and eight"
+    },
+    {
+     "f": "1209 — Mille deux cent neuf",
+     "a": "ألف وميتين وتسعة",
+     "e": "One thousand two hundred and nine"
+    },
+    {
+     "f": "1210 — Mille deux cent dix",
+     "a": "ألف وميتين وعشرة",
+     "e": "One thousand two hundred and ten"
+    },
+    {
+     "f": "1211 — Mille deux cent onze",
+     "a": "ألف وميتين وحداش",
+     "e": "One thousand two hundred and eleven"
+    },
+    {
+     "f": "1212 — Mille deux cent douze",
+     "a": "ألف وميتين واتناش",
+     "e": "One thousand two hundred and twelve"
+    },
+    {
+     "f": "1213 — Mille deux cent treize",
+     "a": "ألف وميتين وتلتعش",
+     "e": "One thousand two hundred and thirteen"
+    },
+    {
+     "f": "1214 — Mille deux cent quatorze",
+     "a": "ألف وميتين وأربعتعش",
+     "e": "One thousand two hundred and fourteen"
+    },
+    {
+     "f": "1215 — Mille deux cent quinze",
+     "a": "ألف وميتين وخمستعش",
+     "e": "One thousand two hundred and fifteen"
+    },
+    {
+     "f": "1216 — Mille deux cent seize",
+     "a": "ألف وميتين وستعش",
+     "e": "One thousand two hundred and sixteen"
+    },
+    {
+     "f": "1217 — Mille deux cent dix-sept",
+     "a": "ألف وميتين وسبعتعش",
+     "e": "One thousand two hundred and seventeen"
+    },
+    {
+     "f": "1218 — Mille deux cent dix-huit",
+     "a": "ألف وميتين وتمنتعش",
+     "e": "One thousand two hundred and eighteen"
+    },
+    {
+     "f": "1219 — Mille deux cent dix-neuf",
+     "a": "ألف وميتين وتسعتعش",
+     "e": "One thousand two hundred and nineteen"
+    },
+    {
+     "f": "1220 — Mille deux cent vingt",
+     "a": "ألف وميتين وعشرين",
+     "e": "One thousand two hundred and twenty"
+    },
+    {
+     "f": "1221 — Mille deux cent vingt et un",
+     "a": "ألف وميتين وواحد وعشرين",
+     "e": "One thousand two hundred and twenty-one"
+    },
+    {
+     "f": "1222 — Mille deux cent vingt-deux",
+     "a": "ألف وميتين واتنين وعشرين",
+     "e": "One thousand two hundred and twenty-two"
+    },
+    {
+     "f": "1223 — Mille deux cent vingt-trois",
+     "a": "ألف وميتين وتلاتة وعشرين",
+     "e": "One thousand two hundred and twenty-three"
+    },
+    {
+     "f": "1224 — Mille deux cent vingt-quatre",
+     "a": "ألف وميتين وأربعة وعشرين",
+     "e": "One thousand two hundred and twenty-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-182",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 10/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 10",
+   "phr": [
+    {
+     "f": "1225 — Mille deux cent vingt-cinq",
+     "a": "ألف وميتين وخمسة وعشرين",
+     "e": "One thousand two hundred and twenty-five"
+    },
+    {
+     "f": "1226 — Mille deux cent vingt-six",
+     "a": "ألف وميتين وستة وعشرين",
+     "e": "One thousand two hundred and twenty-six"
+    },
+    {
+     "f": "1227 — Mille deux cent vingt-sept",
+     "a": "ألف وميتين وسبعة وعشرين",
+     "e": "One thousand two hundred and twenty-seven"
+    },
+    {
+     "f": "1228 — Mille deux cent vingt-huit",
+     "a": "ألف وميتين وتمانية وعشرين",
+     "e": "One thousand two hundred and twenty-eight"
+    },
+    {
+     "f": "1229 — Mille deux cent vingt-neuf",
+     "a": "ألف وميتين وتسعة وعشرين",
+     "e": "One thousand two hundred and twenty-nine"
+    },
+    {
+     "f": "1230 — Mille deux cent trente",
+     "a": "ألف وميتين وتلاتين",
+     "e": "One thousand two hundred and thirty"
+    },
+    {
+     "f": "1231 — Mille deux cent trente et un",
+     "a": "ألف وميتين وواحد وتلاتين",
+     "e": "One thousand two hundred and thirty-one"
+    },
+    {
+     "f": "1232 — Mille deux cent trente-deux",
+     "a": "ألف وميتين واتنين وتلاتين",
+     "e": "One thousand two hundred and thirty-two"
+    },
+    {
+     "f": "1233 — Mille deux cent trente-trois",
+     "a": "ألف وميتين وتلاتة وتلاتين",
+     "e": "One thousand two hundred and thirty-three"
+    },
+    {
+     "f": "1234 — Mille deux cent trente-quatre",
+     "a": "ألف وميتين وأربعة وتلاتين",
+     "e": "One thousand two hundred and thirty-four"
+    },
+    {
+     "f": "1235 — Mille deux cent trente-cinq",
+     "a": "ألف وميتين وخمسة وتلاتين",
+     "e": "One thousand two hundred and thirty-five"
+    },
+    {
+     "f": "1236 — Mille deux cent trente-six",
+     "a": "ألف وميتين وستة وتلاتين",
+     "e": "One thousand two hundred and thirty-six"
+    },
+    {
+     "f": "1237 — Mille deux cent trente-sept",
+     "a": "ألف وميتين وسبعة وتلاتين",
+     "e": "One thousand two hundred and thirty-seven"
+    },
+    {
+     "f": "1238 — Mille deux cent trente-huit",
+     "a": "ألف وميتين وتمانية وتلاتين",
+     "e": "One thousand two hundred and thirty-eight"
+    },
+    {
+     "f": "1239 — Mille deux cent trente-neuf",
+     "a": "ألف وميتين وتسعة وتلاتين",
+     "e": "One thousand two hundred and thirty-nine"
+    },
+    {
+     "f": "1240 — Mille deux cent quarante",
+     "a": "ألف وميتين وأربعين",
+     "e": "One thousand two hundred and forty"
+    },
+    {
+     "f": "1241 — Mille deux cent quarante et un",
+     "a": "ألف وميتين وواحد وأربعين",
+     "e": "One thousand two hundred and forty-one"
+    },
+    {
+     "f": "1242 — Mille deux cent quarante-deux",
+     "a": "ألف وميتين واتنين وأربعين",
+     "e": "One thousand two hundred and forty-two"
+    },
+    {
+     "f": "1243 — Mille deux cent quarante-trois",
+     "a": "ألف وميتين وتلاتة وأربعين",
+     "e": "One thousand two hundred and forty-three"
+    },
+    {
+     "f": "1244 — Mille deux cent quarante-quatre",
+     "a": "ألف وميتين وأربعة وأربعين",
+     "e": "One thousand two hundred and forty-four"
+    },
+    {
+     "f": "1245 — Mille deux cent quarante-cinq",
+     "a": "ألف وميتين وخمسة وأربعين",
+     "e": "One thousand two hundred and forty-five"
+    },
+    {
+     "f": "1246 — Mille deux cent quarante-six",
+     "a": "ألف وميتين وستة وأربعين",
+     "e": "One thousand two hundred and forty-six"
+    },
+    {
+     "f": "1247 — Mille deux cent quarante-sept",
+     "a": "ألف وميتين وسبعة وأربعين",
+     "e": "One thousand two hundred and forty-seven"
+    },
+    {
+     "f": "1248 — Mille deux cent quarante-huit",
+     "a": "ألف وميتين وتمانية وأربعين",
+     "e": "One thousand two hundred and forty-eight"
+    },
+    {
+     "f": "1249 — Mille deux cent quarante-neuf",
+     "a": "ألف وميتين وتسعة وأربعين",
+     "e": "One thousand two hundred and forty-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-183",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 11/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 11",
+   "phr": [
+    {
+     "f": "1250 — Mille deux cent cinquante",
+     "a": "ألف وميتين وخمسين",
+     "e": "One thousand two hundred and fifty"
+    },
+    {
+     "f": "1251 — Mille deux cent cinquante et un",
+     "a": "ألف وميتين وواحد وخمسين",
+     "e": "One thousand two hundred and fifty-one"
+    },
+    {
+     "f": "1252 — Mille deux cent cinquante-deux",
+     "a": "ألف وميتين واتنين وخمسين",
+     "e": "One thousand two hundred and fifty-two"
+    },
+    {
+     "f": "1253 — Mille deux cent cinquante-trois",
+     "a": "ألف وميتين وتلاتة وخمسين",
+     "e": "One thousand two hundred and fifty-three"
+    },
+    {
+     "f": "1254 — Mille deux cent cinquante-quatre",
+     "a": "ألف وميتين وأربعة وخمسين",
+     "e": "One thousand two hundred and fifty-four"
+    },
+    {
+     "f": "1255 — Mille deux cent cinquante-cinq",
+     "a": "ألف وميتين وخمسة وخمسين",
+     "e": "One thousand two hundred and fifty-five"
+    },
+    {
+     "f": "1256 — Mille deux cent cinquante-six",
+     "a": "ألف وميتين وستة وخمسين",
+     "e": "One thousand two hundred and fifty-six"
+    },
+    {
+     "f": "1257 — Mille deux cent cinquante-sept",
+     "a": "ألف وميتين وسبعة وخمسين",
+     "e": "One thousand two hundred and fifty-seven"
+    },
+    {
+     "f": "1258 — Mille deux cent cinquante-huit",
+     "a": "ألف وميتين وتمانية وخمسين",
+     "e": "One thousand two hundred and fifty-eight"
+    },
+    {
+     "f": "1259 — Mille deux cent cinquante-neuf",
+     "a": "ألف وميتين وتسعة وخمسين",
+     "e": "One thousand two hundred and fifty-nine"
+    },
+    {
+     "f": "1260 — Mille deux cent soixante",
+     "a": "ألف وميتين وستين",
+     "e": "One thousand two hundred and sixty"
+    },
+    {
+     "f": "1261 — Mille deux cent soixante et un",
+     "a": "ألف وميتين وواحد وستين",
+     "e": "One thousand two hundred and sixty-one"
+    },
+    {
+     "f": "1262 — Mille deux cent soixante-deux",
+     "a": "ألف وميتين واتنين وستين",
+     "e": "One thousand two hundred and sixty-two"
+    },
+    {
+     "f": "1263 — Mille deux cent soixante-trois",
+     "a": "ألف وميتين وتلاتة وستين",
+     "e": "One thousand two hundred and sixty-three"
+    },
+    {
+     "f": "1264 — Mille deux cent soixante-quatre",
+     "a": "ألف وميتين وأربعة وستين",
+     "e": "One thousand two hundred and sixty-four"
+    },
+    {
+     "f": "1265 — Mille deux cent soixante-cinq",
+     "a": "ألف وميتين وخمسة وستين",
+     "e": "One thousand two hundred and sixty-five"
+    },
+    {
+     "f": "1266 — Mille deux cent soixante-six",
+     "a": "ألف وميتين وستة وستين",
+     "e": "One thousand two hundred and sixty-six"
+    },
+    {
+     "f": "1267 — Mille deux cent soixante-sept",
+     "a": "ألف وميتين وسبعة وستين",
+     "e": "One thousand two hundred and sixty-seven"
+    },
+    {
+     "f": "1268 — Mille deux cent soixante-huit",
+     "a": "ألف وميتين وتمانية وستين",
+     "e": "One thousand two hundred and sixty-eight"
+    },
+    {
+     "f": "1269 — Mille deux cent soixante-neuf",
+     "a": "ألف وميتين وتسعة وستين",
+     "e": "One thousand two hundred and sixty-nine"
+    },
+    {
+     "f": "1270 — Mille deux cent soixante-dix",
+     "a": "ألف وميتين وسبعين",
+     "e": "One thousand two hundred and seventy"
+    },
+    {
+     "f": "1271 — Mille deux cent soixante et onze",
+     "a": "ألف وميتين وواحد وسبعين",
+     "e": "One thousand two hundred and seventy-one"
+    },
+    {
+     "f": "1272 — Mille deux cent soixante-douze",
+     "a": "ألف وميتين واتنين وسبعين",
+     "e": "One thousand two hundred and seventy-two"
+    },
+    {
+     "f": "1273 — Mille deux cent soixante-treize",
+     "a": "ألف وميتين وتلاتة وسبعين",
+     "e": "One thousand two hundred and seventy-three"
+    },
+    {
+     "f": "1274 — Mille deux cent soixante-quatorze",
+     "a": "ألف وميتين وأربعة وسبعين",
+     "e": "One thousand two hundred and seventy-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-184",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 12/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 12",
+   "phr": [
+    {
+     "f": "1275 — Mille deux cent soixante-quinze",
+     "a": "ألف وميتين وخمسة وسبعين",
+     "e": "One thousand two hundred and seventy-five"
+    },
+    {
+     "f": "1276 — Mille deux cent soixante-seize",
+     "a": "ألف وميتين وستة وسبعين",
+     "e": "One thousand two hundred and seventy-six"
+    },
+    {
+     "f": "1277 — Mille deux cent soixante-dix-sept",
+     "a": "ألف وميتين وسبعة وسبعين",
+     "e": "One thousand two hundred and seventy-seven"
+    },
+    {
+     "f": "1278 — Mille deux cent soixante-dix-huit",
+     "a": "ألف وميتين وتمانية وسبعين",
+     "e": "One thousand two hundred and seventy-eight"
+    },
+    {
+     "f": "1279 — Mille deux cent soixante-dix-neuf",
+     "a": "ألف وميتين وتسعة وسبعين",
+     "e": "One thousand two hundred and seventy-nine"
+    },
+    {
+     "f": "1280 — Mille deux cent quatre-vingts",
+     "a": "ألف وميتين وتمانين",
+     "e": "One thousand two hundred and eighty"
+    },
+    {
+     "f": "1281 — Mille deux cent quatre-vingt-un",
+     "a": "ألف وميتين وواحد وتمانين",
+     "e": "One thousand two hundred and eighty-one"
+    },
+    {
+     "f": "1282 — Mille deux cent quatre-vingt-deux",
+     "a": "ألف وميتين واتنين وتمانين",
+     "e": "One thousand two hundred and eighty-two"
+    },
+    {
+     "f": "1283 — Mille deux cent quatre-vingt-trois",
+     "a": "ألف وميتين وتلاتة وتمانين",
+     "e": "One thousand two hundred and eighty-three"
+    },
+    {
+     "f": "1284 — Mille deux cent quatre-vingt-quatre",
+     "a": "ألف وميتين وأربعة وتمانين",
+     "e": "One thousand two hundred and eighty-four"
+    },
+    {
+     "f": "1285 — Mille deux cent quatre-vingt-cinq",
+     "a": "ألف وميتين وخمسة وتمانين",
+     "e": "One thousand two hundred and eighty-five"
+    },
+    {
+     "f": "1286 — Mille deux cent quatre-vingt-six",
+     "a": "ألف وميتين وستة وتمانين",
+     "e": "One thousand two hundred and eighty-six"
+    },
+    {
+     "f": "1287 — Mille deux cent quatre-vingt-sept",
+     "a": "ألف وميتين وسبعة وتمانين",
+     "e": "One thousand two hundred and eighty-seven"
+    },
+    {
+     "f": "1288 — Mille deux cent quatre-vingt-huit",
+     "a": "ألف وميتين وتمانية وتمانين",
+     "e": "One thousand two hundred and eighty-eight"
+    },
+    {
+     "f": "1289 — Mille deux cent quatre-vingt-neuf",
+     "a": "ألف وميتين وتسعة وتمانين",
+     "e": "One thousand two hundred and eighty-nine"
+    },
+    {
+     "f": "1290 — Mille deux cent quatre-vingt-dix",
+     "a": "ألف وميتين وتسعين",
+     "e": "One thousand two hundred and ninety"
+    },
+    {
+     "f": "1291 — Mille deux cent quatre-vingt-onze",
+     "a": "ألف وميتين وواحد وتسعين",
+     "e": "One thousand two hundred and ninety-one"
+    },
+    {
+     "f": "1292 — Mille deux cent quatre-vingt-douze",
+     "a": "ألف وميتين واتنين وتسعين",
+     "e": "One thousand two hundred and ninety-two"
+    },
+    {
+     "f": "1293 — Mille deux cent quatre-vingt-treize",
+     "a": "ألف وميتين وتلاتة وتسعين",
+     "e": "One thousand two hundred and ninety-three"
+    },
+    {
+     "f": "1294 — Mille deux cent quatre-vingt-quatorze",
+     "a": "ألف وميتين وأربعة وتسعين",
+     "e": "One thousand two hundred and ninety-four"
+    },
+    {
+     "f": "1295 — Mille deux cent quatre-vingt-quinze",
+     "a": "ألف وميتين وخمسة وتسعين",
+     "e": "One thousand two hundred and ninety-five"
+    },
+    {
+     "f": "1296 — Mille deux cent quatre-vingt-seize",
+     "a": "ألف وميتين وستة وتسعين",
+     "e": "One thousand two hundred and ninety-six"
+    },
+    {
+     "f": "1297 — Mille deux cent quatre-vingt-dix-sept",
+     "a": "ألف وميتين وسبعة وتسعين",
+     "e": "One thousand two hundred and ninety-seven"
+    },
+    {
+     "f": "1298 — Mille deux cent quatre-vingt-dix-huit",
+     "a": "ألف وميتين وتمانية وتسعين",
+     "e": "One thousand two hundred and ninety-eight"
+    },
+    {
+     "f": "1299 — Mille deux cent quatre-vingt-dix-neuf",
+     "a": "ألف وميتين وتسعة وتسعين",
+     "e": "One thousand two hundred and ninety-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-185",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 13/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 13",
+   "phr": [
+    {
+     "f": "1300 — Mille trois cents",
+     "a": "ألف وتلتمية",
+     "e": "One thousand three hundred"
+    },
+    {
+     "f": "1301 — Mille trois cent un",
+     "a": "ألف وتلتمية وواحد",
+     "e": "One thousand three hundred and one"
+    },
+    {
+     "f": "1302 — Mille trois cent deux",
+     "a": "ألف وتلتمية وتنين",
+     "e": "One thousand three hundred and two"
+    },
+    {
+     "f": "1303 — Mille trois cent trois",
+     "a": "ألف وتلتمية وتلاتة",
+     "e": "One thousand three hundred and three"
+    },
+    {
+     "f": "1304 — Mille trois cent quatre",
+     "a": "ألف وتلتمية وأربعة",
+     "e": "One thousand three hundred and four"
+    },
+    {
+     "f": "1305 — Mille trois cent cinq",
+     "a": "ألف وتلتمية وخمسة",
+     "e": "One thousand three hundred and five"
+    },
+    {
+     "f": "1306 — Mille trois cent six",
+     "a": "ألف وتلتمية وستة",
+     "e": "One thousand three hundred and six"
+    },
+    {
+     "f": "1307 — Mille trois cent sept",
+     "a": "ألف وتلتمية وسبعة",
+     "e": "One thousand three hundred and seven"
+    },
+    {
+     "f": "1308 — Mille trois cent huit",
+     "a": "ألف وتلتمية وتمانية",
+     "e": "One thousand three hundred and eight"
+    },
+    {
+     "f": "1309 — Mille trois cent neuf",
+     "a": "ألف وتلتمية وتسعة",
+     "e": "One thousand three hundred and nine"
+    },
+    {
+     "f": "1310 — Mille trois cent dix",
+     "a": "ألف وتلتمية وعشرة",
+     "e": "One thousand three hundred and ten"
+    },
+    {
+     "f": "1311 — Mille trois cent onze",
+     "a": "ألف وتلتمية وحداش",
+     "e": "One thousand three hundred and eleven"
+    },
+    {
+     "f": "1312 — Mille trois cent douze",
+     "a": "ألف وتلتمية واتناش",
+     "e": "One thousand three hundred and twelve"
+    },
+    {
+     "f": "1313 — Mille trois cent treize",
+     "a": "ألف وتلتمية وتلتعش",
+     "e": "One thousand three hundred and thirteen"
+    },
+    {
+     "f": "1314 — Mille trois cent quatorze",
+     "a": "ألف وتلتمية وأربعتعش",
+     "e": "One thousand three hundred and fourteen"
+    },
+    {
+     "f": "1315 — Mille trois cent quinze",
+     "a": "ألف وتلتمية وخمستعش",
+     "e": "One thousand three hundred and fifteen"
+    },
+    {
+     "f": "1316 — Mille trois cent seize",
+     "a": "ألف وتلتمية وستعش",
+     "e": "One thousand three hundred and sixteen"
+    },
+    {
+     "f": "1317 — Mille trois cent dix-sept",
+     "a": "ألف وتلتمية وسبعتعش",
+     "e": "One thousand three hundred and seventeen"
+    },
+    {
+     "f": "1318 — Mille trois cent dix-huit",
+     "a": "ألف وتلتمية وتمنتعش",
+     "e": "One thousand three hundred and eighteen"
+    },
+    {
+     "f": "1319 — Mille trois cent dix-neuf",
+     "a": "ألف وتلتمية وتسعتعش",
+     "e": "One thousand three hundred and nineteen"
+    },
+    {
+     "f": "1320 — Mille trois cent vingt",
+     "a": "ألف وتلتمية وعشرين",
+     "e": "One thousand three hundred and twenty"
+    },
+    {
+     "f": "1321 — Mille trois cent vingt et un",
+     "a": "ألف وتلتمية وواحد وعشرين",
+     "e": "One thousand three hundred and twenty-one"
+    },
+    {
+     "f": "1322 — Mille trois cent vingt-deux",
+     "a": "ألف وتلتمية واتنين وعشرين",
+     "e": "One thousand three hundred and twenty-two"
+    },
+    {
+     "f": "1323 — Mille trois cent vingt-trois",
+     "a": "ألف وتلتمية وتلاتة وعشرين",
+     "e": "One thousand three hundred and twenty-three"
+    },
+    {
+     "f": "1324 — Mille trois cent vingt-quatre",
+     "a": "ألف وتلتمية وأربعة وعشرين",
+     "e": "One thousand three hundred and twenty-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-186",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 14/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 14",
+   "phr": [
+    {
+     "f": "1325 — Mille trois cent vingt-cinq",
+     "a": "ألف وتلتمية وخمسة وعشرين",
+     "e": "One thousand three hundred and twenty-five"
+    },
+    {
+     "f": "1326 — Mille trois cent vingt-six",
+     "a": "ألف وتلتمية وستة وعشرين",
+     "e": "One thousand three hundred and twenty-six"
+    },
+    {
+     "f": "1327 — Mille trois cent vingt-sept",
+     "a": "ألف وتلتمية وسبعة وعشرين",
+     "e": "One thousand three hundred and twenty-seven"
+    },
+    {
+     "f": "1328 — Mille trois cent vingt-huit",
+     "a": "ألف وتلتمية وتمانية وعشرين",
+     "e": "One thousand three hundred and twenty-eight"
+    },
+    {
+     "f": "1329 — Mille trois cent vingt-neuf",
+     "a": "ألف وتلتمية وتسعة وعشرين",
+     "e": "One thousand three hundred and twenty-nine"
+    },
+    {
+     "f": "1330 — Mille trois cent trente",
+     "a": "ألف وتلتمية وتلاتين",
+     "e": "One thousand three hundred and thirty"
+    },
+    {
+     "f": "1331 — Mille trois cent trente et un",
+     "a": "ألف وتلتمية وواحد وتلاتين",
+     "e": "One thousand three hundred and thirty-one"
+    },
+    {
+     "f": "1332 — Mille trois cent trente-deux",
+     "a": "ألف وتلتمية واتنين وتلاتين",
+     "e": "One thousand three hundred and thirty-two"
+    },
+    {
+     "f": "1333 — Mille trois cent trente-trois",
+     "a": "ألف وتلتمية وتلاتة وتلاتين",
+     "e": "One thousand three hundred and thirty-three"
+    },
+    {
+     "f": "1334 — Mille trois cent trente-quatre",
+     "a": "ألف وتلتمية وأربعة وتلاتين",
+     "e": "One thousand three hundred and thirty-four"
+    },
+    {
+     "f": "1335 — Mille trois cent trente-cinq",
+     "a": "ألف وتلتمية وخمسة وتلاتين",
+     "e": "One thousand three hundred and thirty-five"
+    },
+    {
+     "f": "1336 — Mille trois cent trente-six",
+     "a": "ألف وتلتمية وستة وتلاتين",
+     "e": "One thousand three hundred and thirty-six"
+    },
+    {
+     "f": "1337 — Mille trois cent trente-sept",
+     "a": "ألف وتلتمية وسبعة وتلاتين",
+     "e": "One thousand three hundred and thirty-seven"
+    },
+    {
+     "f": "1338 — Mille trois cent trente-huit",
+     "a": "ألف وتلتمية وتمانية وتلاتين",
+     "e": "One thousand three hundred and thirty-eight"
+    },
+    {
+     "f": "1339 — Mille trois cent trente-neuf",
+     "a": "ألف وتلتمية وتسعة وتلاتين",
+     "e": "One thousand three hundred and thirty-nine"
+    },
+    {
+     "f": "1340 — Mille trois cent quarante",
+     "a": "ألف وتلتمية وأربعين",
+     "e": "One thousand three hundred and forty"
+    },
+    {
+     "f": "1341 — Mille trois cent quarante et un",
+     "a": "ألف وتلتمية وواحد وأربعين",
+     "e": "One thousand three hundred and forty-one"
+    },
+    {
+     "f": "1342 — Mille trois cent quarante-deux",
+     "a": "ألف وتلتمية واتنين وأربعين",
+     "e": "One thousand three hundred and forty-two"
+    },
+    {
+     "f": "1343 — Mille trois cent quarante-trois",
+     "a": "ألف وتلتمية وتلاتة وأربعين",
+     "e": "One thousand three hundred and forty-three"
+    },
+    {
+     "f": "1344 — Mille trois cent quarante-quatre",
+     "a": "ألف وتلتمية وأربعة وأربعين",
+     "e": "One thousand three hundred and forty-four"
+    },
+    {
+     "f": "1345 — Mille trois cent quarante-cinq",
+     "a": "ألف وتلتمية وخمسة وأربعين",
+     "e": "One thousand three hundred and forty-five"
+    },
+    {
+     "f": "1346 — Mille trois cent quarante-six",
+     "a": "ألف وتلتمية وستة وأربعين",
+     "e": "One thousand three hundred and forty-six"
+    },
+    {
+     "f": "1347 — Mille trois cent quarante-sept",
+     "a": "ألف وتلتمية وسبعة وأربعين",
+     "e": "One thousand three hundred and forty-seven"
+    },
+    {
+     "f": "1348 — Mille trois cent quarante-huit",
+     "a": "ألف وتلتمية وتمانية وأربعين",
+     "e": "One thousand three hundred and forty-eight"
+    },
+    {
+     "f": "1349 — Mille trois cent quarante-neuf",
+     "a": "ألف وتلتمية وتسعة وأربعين",
+     "e": "One thousand three hundred and forty-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-187",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 15/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 15",
+   "phr": [
+    {
+     "f": "1350 — Mille trois cent cinquante",
+     "a": "ألف وتلتمية وخمسين",
+     "e": "One thousand three hundred and fifty"
+    },
+    {
+     "f": "1351 — Mille trois cent cinquante et un",
+     "a": "ألف وتلتمية وواحد وخمسين",
+     "e": "One thousand three hundred and fifty-one"
+    },
+    {
+     "f": "1352 — Mille trois cent cinquante-deux",
+     "a": "ألف وتلتمية واتنين وخمسين",
+     "e": "One thousand three hundred and fifty-two"
+    },
+    {
+     "f": "1353 — Mille trois cent cinquante-trois",
+     "a": "ألف وتلتمية وتلاتة وخمسين",
+     "e": "One thousand three hundred and fifty-three"
+    },
+    {
+     "f": "1354 — Mille trois cent cinquante-quatre",
+     "a": "ألف وتلتمية وأربعة وخمسين",
+     "e": "One thousand three hundred and fifty-four"
+    },
+    {
+     "f": "1355 — Mille trois cent cinquante-cinq",
+     "a": "ألف وتلتمية وخمسة وخمسين",
+     "e": "One thousand three hundred and fifty-five"
+    },
+    {
+     "f": "1356 — Mille trois cent cinquante-six",
+     "a": "ألف وتلتمية وستة وخمسين",
+     "e": "One thousand three hundred and fifty-six"
+    },
+    {
+     "f": "1357 — Mille trois cent cinquante-sept",
+     "a": "ألف وتلتمية وسبعة وخمسين",
+     "e": "One thousand three hundred and fifty-seven"
+    },
+    {
+     "f": "1358 — Mille trois cent cinquante-huit",
+     "a": "ألف وتلتمية وتمانية وخمسين",
+     "e": "One thousand three hundred and fifty-eight"
+    },
+    {
+     "f": "1359 — Mille trois cent cinquante-neuf",
+     "a": "ألف وتلتمية وتسعة وخمسين",
+     "e": "One thousand three hundred and fifty-nine"
+    },
+    {
+     "f": "1360 — Mille trois cent soixante",
+     "a": "ألف وتلتمية وستين",
+     "e": "One thousand three hundred and sixty"
+    },
+    {
+     "f": "1361 — Mille trois cent soixante et un",
+     "a": "ألف وتلتمية وواحد وستين",
+     "e": "One thousand three hundred and sixty-one"
+    },
+    {
+     "f": "1362 — Mille trois cent soixante-deux",
+     "a": "ألف وتلتمية واتنين وستين",
+     "e": "One thousand three hundred and sixty-two"
+    },
+    {
+     "f": "1363 — Mille trois cent soixante-trois",
+     "a": "ألف وتلتمية وتلاتة وستين",
+     "e": "One thousand three hundred and sixty-three"
+    },
+    {
+     "f": "1364 — Mille trois cent soixante-quatre",
+     "a": "ألف وتلتمية وأربعة وستين",
+     "e": "One thousand three hundred and sixty-four"
+    },
+    {
+     "f": "1365 — Mille trois cent soixante-cinq",
+     "a": "ألف وتلتمية وخمسة وستين",
+     "e": "One thousand three hundred and sixty-five"
+    },
+    {
+     "f": "1366 — Mille trois cent soixante-six",
+     "a": "ألف وتلتمية وستة وستين",
+     "e": "One thousand three hundred and sixty-six"
+    },
+    {
+     "f": "1367 — Mille trois cent soixante-sept",
+     "a": "ألف وتلتمية وسبعة وستين",
+     "e": "One thousand three hundred and sixty-seven"
+    },
+    {
+     "f": "1368 — Mille trois cent soixante-huit",
+     "a": "ألف وتلتمية وتمانية وستين",
+     "e": "One thousand three hundred and sixty-eight"
+    },
+    {
+     "f": "1369 — Mille trois cent soixante-neuf",
+     "a": "ألف وتلتمية وتسعة وستين",
+     "e": "One thousand three hundred and sixty-nine"
+    },
+    {
+     "f": "1370 — Mille trois cent soixante-dix",
+     "a": "ألف وتلتمية وسبعين",
+     "e": "One thousand three hundred and seventy"
+    },
+    {
+     "f": "1371 — Mille trois cent soixante et onze",
+     "a": "ألف وتلتمية وواحد وسبعين",
+     "e": "One thousand three hundred and seventy-one"
+    },
+    {
+     "f": "1372 — Mille trois cent soixante-douze",
+     "a": "ألف وتلتمية واتنين وسبعين",
+     "e": "One thousand three hundred and seventy-two"
+    },
+    {
+     "f": "1373 — Mille trois cent soixante-treize",
+     "a": "ألف وتلتمية وتلاتة وسبعين",
+     "e": "One thousand three hundred and seventy-three"
+    },
+    {
+     "f": "1374 — Mille trois cent soixante-quatorze",
+     "a": "ألف وتلتمية وأربعة وسبعين",
+     "e": "One thousand three hundred and seventy-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-188",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 16/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 16",
+   "phr": [
+    {
+     "f": "1375 — Mille trois cent soixante-quinze",
+     "a": "ألف وتلتمية وخمسة وسبعين",
+     "e": "One thousand three hundred and seventy-five"
+    },
+    {
+     "f": "1376 — Mille trois cent soixante-seize",
+     "a": "ألف وتلتمية وستة وسبعين",
+     "e": "One thousand three hundred and seventy-six"
+    },
+    {
+     "f": "1377 — Mille trois cent soixante-dix-sept",
+     "a": "ألف وتلتمية وسبعة وسبعين",
+     "e": "One thousand three hundred and seventy-seven"
+    },
+    {
+     "f": "1378 — Mille trois cent soixante-dix-huit",
+     "a": "ألف وتلتمية وتمانية وسبعين",
+     "e": "One thousand three hundred and seventy-eight"
+    },
+    {
+     "f": "1379 — Mille trois cent soixante-dix-neuf",
+     "a": "ألف وتلتمية وتسعة وسبعين",
+     "e": "One thousand three hundred and seventy-nine"
+    },
+    {
+     "f": "1380 — Mille trois cent quatre-vingts",
+     "a": "ألف وتلتمية وتمانين",
+     "e": "One thousand three hundred and eighty"
+    },
+    {
+     "f": "1381 — Mille trois cent quatre-vingt-un",
+     "a": "ألف وتلتمية وواحد وتمانين",
+     "e": "One thousand three hundred and eighty-one"
+    },
+    {
+     "f": "1382 — Mille trois cent quatre-vingt-deux",
+     "a": "ألف وتلتمية واتنين وتمانين",
+     "e": "One thousand three hundred and eighty-two"
+    },
+    {
+     "f": "1383 — Mille trois cent quatre-vingt-trois",
+     "a": "ألف وتلتمية وتلاتة وتمانين",
+     "e": "One thousand three hundred and eighty-three"
+    },
+    {
+     "f": "1384 — Mille trois cent quatre-vingt-quatre",
+     "a": "ألف وتلتمية وأربعة وتمانين",
+     "e": "One thousand three hundred and eighty-four"
+    },
+    {
+     "f": "1385 — Mille trois cent quatre-vingt-cinq",
+     "a": "ألف وتلتمية وخمسة وتمانين",
+     "e": "One thousand three hundred and eighty-five"
+    },
+    {
+     "f": "1386 — Mille trois cent quatre-vingt-six",
+     "a": "ألف وتلتمية وستة وتمانين",
+     "e": "One thousand three hundred and eighty-six"
+    },
+    {
+     "f": "1387 — Mille trois cent quatre-vingt-sept",
+     "a": "ألف وتلتمية وسبعة وتمانين",
+     "e": "One thousand three hundred and eighty-seven"
+    },
+    {
+     "f": "1388 — Mille trois cent quatre-vingt-huit",
+     "a": "ألف وتلتمية وتمانية وتمانين",
+     "e": "One thousand three hundred and eighty-eight"
+    },
+    {
+     "f": "1389 — Mille trois cent quatre-vingt-neuf",
+     "a": "ألف وتلتمية وتسعة وتمانين",
+     "e": "One thousand three hundred and eighty-nine"
+    },
+    {
+     "f": "1390 — Mille trois cent quatre-vingt-dix",
+     "a": "ألف وتلتمية وتسعين",
+     "e": "One thousand three hundred and ninety"
+    },
+    {
+     "f": "1391 — Mille trois cent quatre-vingt-onze",
+     "a": "ألف وتلتمية وواحد وتسعين",
+     "e": "One thousand three hundred and ninety-one"
+    },
+    {
+     "f": "1392 — Mille trois cent quatre-vingt-douze",
+     "a": "ألف وتلتمية واتنين وتسعين",
+     "e": "One thousand three hundred and ninety-two"
+    },
+    {
+     "f": "1393 — Mille trois cent quatre-vingt-treize",
+     "a": "ألف وتلتمية وتلاتة وتسعين",
+     "e": "One thousand three hundred and ninety-three"
+    },
+    {
+     "f": "1394 — Mille trois cent quatre-vingt-quatorze",
+     "a": "ألف وتلتمية وأربعة وتسعين",
+     "e": "One thousand three hundred and ninety-four"
+    },
+    {
+     "f": "1395 — Mille trois cent quatre-vingt-quinze",
+     "a": "ألف وتلتمية وخمسة وتسعين",
+     "e": "One thousand three hundred and ninety-five"
+    },
+    {
+     "f": "1396 — Mille trois cent quatre-vingt-seize",
+     "a": "ألف وتلتمية وستة وتسعين",
+     "e": "One thousand three hundred and ninety-six"
+    },
+    {
+     "f": "1397 — Mille trois cent quatre-vingt-dix-sept",
+     "a": "ألف وتلتمية وسبعة وتسعين",
+     "e": "One thousand three hundred and ninety-seven"
+    },
+    {
+     "f": "1398 — Mille trois cent quatre-vingt-dix-huit",
+     "a": "ألف وتلتمية وتمانية وتسعين",
+     "e": "One thousand three hundred and ninety-eight"
+    },
+    {
+     "f": "1399 — Mille trois cent quatre-vingt-dix-neuf",
+     "a": "ألف وتلتمية وتسعة وتسعين",
+     "e": "One thousand three hundred and ninety-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-189",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 17/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 17",
+   "phr": [
+    {
+     "f": "1400 — Mille quatre cents",
+     "a": "ألف وأربعمية",
+     "e": "One thousand four hundred"
+    },
+    {
+     "f": "1401 — Mille quatre cent un",
+     "a": "ألف وأربعمية وواحد",
+     "e": "One thousand four hundred and one"
+    },
+    {
+     "f": "1402 — Mille quatre cent deux",
+     "a": "ألف وأربعمية وتنين",
+     "e": "One thousand four hundred and two"
+    },
+    {
+     "f": "1403 — Mille quatre cent trois",
+     "a": "ألف وأربعمية وتلاتة",
+     "e": "One thousand four hundred and three"
+    },
+    {
+     "f": "1404 — Mille quatre cent quatre",
+     "a": "ألف وأربعمية وأربعة",
+     "e": "One thousand four hundred and four"
+    },
+    {
+     "f": "1405 — Mille quatre cent cinq",
+     "a": "ألف وأربعمية وخمسة",
+     "e": "One thousand four hundred and five"
+    },
+    {
+     "f": "1406 — Mille quatre cent six",
+     "a": "ألف وأربعمية وستة",
+     "e": "One thousand four hundred and six"
+    },
+    {
+     "f": "1407 — Mille quatre cent sept",
+     "a": "ألف وأربعمية وسبعة",
+     "e": "One thousand four hundred and seven"
+    },
+    {
+     "f": "1408 — Mille quatre cent huit",
+     "a": "ألف وأربعمية وتمانية",
+     "e": "One thousand four hundred and eight"
+    },
+    {
+     "f": "1409 — Mille quatre cent neuf",
+     "a": "ألف وأربعمية وتسعة",
+     "e": "One thousand four hundred and nine"
+    },
+    {
+     "f": "1410 — Mille quatre cent dix",
+     "a": "ألف وأربعمية وعشرة",
+     "e": "One thousand four hundred and ten"
+    },
+    {
+     "f": "1411 — Mille quatre cent onze",
+     "a": "ألف وأربعمية وحداش",
+     "e": "One thousand four hundred and eleven"
+    },
+    {
+     "f": "1412 — Mille quatre cent douze",
+     "a": "ألف وأربعمية واتناش",
+     "e": "One thousand four hundred and twelve"
+    },
+    {
+     "f": "1413 — Mille quatre cent treize",
+     "a": "ألف وأربعمية وتلتعش",
+     "e": "One thousand four hundred and thirteen"
+    },
+    {
+     "f": "1414 — Mille quatre cent quatorze",
+     "a": "ألف وأربعمية وأربعتعش",
+     "e": "One thousand four hundred and fourteen"
+    },
+    {
+     "f": "1415 — Mille quatre cent quinze",
+     "a": "ألف وأربعمية وخمستعش",
+     "e": "One thousand four hundred and fifteen"
+    },
+    {
+     "f": "1416 — Mille quatre cent seize",
+     "a": "ألف وأربعمية وستعش",
+     "e": "One thousand four hundred and sixteen"
+    },
+    {
+     "f": "1417 — Mille quatre cent dix-sept",
+     "a": "ألف وأربعمية وسبعتعش",
+     "e": "One thousand four hundred and seventeen"
+    },
+    {
+     "f": "1418 — Mille quatre cent dix-huit",
+     "a": "ألف وأربعمية وتمنتعش",
+     "e": "One thousand four hundred and eighteen"
+    },
+    {
+     "f": "1419 — Mille quatre cent dix-neuf",
+     "a": "ألف وأربعمية وتسعتعش",
+     "e": "One thousand four hundred and nineteen"
+    },
+    {
+     "f": "1420 — Mille quatre cent vingt",
+     "a": "ألف وأربعمية وعشرين",
+     "e": "One thousand four hundred and twenty"
+    },
+    {
+     "f": "1421 — Mille quatre cent vingt et un",
+     "a": "ألف وأربعمية وواحد وعشرين",
+     "e": "One thousand four hundred and twenty-one"
+    },
+    {
+     "f": "1422 — Mille quatre cent vingt-deux",
+     "a": "ألف وأربعمية واتنين وعشرين",
+     "e": "One thousand four hundred and twenty-two"
+    },
+    {
+     "f": "1423 — Mille quatre cent vingt-trois",
+     "a": "ألف وأربعمية وتلاتة وعشرين",
+     "e": "One thousand four hundred and twenty-three"
+    },
+    {
+     "f": "1424 — Mille quatre cent vingt-quatre",
+     "a": "ألف وأربعمية وأربعة وعشرين",
+     "e": "One thousand four hundred and twenty-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-190",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 18/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 18",
+   "phr": [
+    {
+     "f": "1425 — Mille quatre cent vingt-cinq",
+     "a": "ألف وأربعمية وخمسة وعشرين",
+     "e": "One thousand four hundred and twenty-five"
+    },
+    {
+     "f": "1426 — Mille quatre cent vingt-six",
+     "a": "ألف وأربعمية وستة وعشرين",
+     "e": "One thousand four hundred and twenty-six"
+    },
+    {
+     "f": "1427 — Mille quatre cent vingt-sept",
+     "a": "ألف وأربعمية وسبعة وعشرين",
+     "e": "One thousand four hundred and twenty-seven"
+    },
+    {
+     "f": "1428 — Mille quatre cent vingt-huit",
+     "a": "ألف وأربعمية وتمانية وعشرين",
+     "e": "One thousand four hundred and twenty-eight"
+    },
+    {
+     "f": "1429 — Mille quatre cent vingt-neuf",
+     "a": "ألف وأربعمية وتسعة وعشرين",
+     "e": "One thousand four hundred and twenty-nine"
+    },
+    {
+     "f": "1430 — Mille quatre cent trente",
+     "a": "ألف وأربعمية وتلاتين",
+     "e": "One thousand four hundred and thirty"
+    },
+    {
+     "f": "1431 — Mille quatre cent trente et un",
+     "a": "ألف وأربعمية وواحد وتلاتين",
+     "e": "One thousand four hundred and thirty-one"
+    },
+    {
+     "f": "1432 — Mille quatre cent trente-deux",
+     "a": "ألف وأربعمية واتنين وتلاتين",
+     "e": "One thousand four hundred and thirty-two"
+    },
+    {
+     "f": "1433 — Mille quatre cent trente-trois",
+     "a": "ألف وأربعمية وتلاتة وتلاتين",
+     "e": "One thousand four hundred and thirty-three"
+    },
+    {
+     "f": "1434 — Mille quatre cent trente-quatre",
+     "a": "ألف وأربعمية وأربعة وتلاتين",
+     "e": "One thousand four hundred and thirty-four"
+    },
+    {
+     "f": "1435 — Mille quatre cent trente-cinq",
+     "a": "ألف وأربعمية وخمسة وتلاتين",
+     "e": "One thousand four hundred and thirty-five"
+    },
+    {
+     "f": "1436 — Mille quatre cent trente-six",
+     "a": "ألف وأربعمية وستة وتلاتين",
+     "e": "One thousand four hundred and thirty-six"
+    },
+    {
+     "f": "1437 — Mille quatre cent trente-sept",
+     "a": "ألف وأربعمية وسبعة وتلاتين",
+     "e": "One thousand four hundred and thirty-seven"
+    },
+    {
+     "f": "1438 — Mille quatre cent trente-huit",
+     "a": "ألف وأربعمية وتمانية وتلاتين",
+     "e": "One thousand four hundred and thirty-eight"
+    },
+    {
+     "f": "1439 — Mille quatre cent trente-neuf",
+     "a": "ألف وأربعمية وتسعة وتلاتين",
+     "e": "One thousand four hundred and thirty-nine"
+    },
+    {
+     "f": "1440 — Mille quatre cent quarante",
+     "a": "ألف وأربعمية وأربعين",
+     "e": "One thousand four hundred and forty"
+    },
+    {
+     "f": "1441 — Mille quatre cent quarante et un",
+     "a": "ألف وأربعمية وواحد وأربعين",
+     "e": "One thousand four hundred and forty-one"
+    },
+    {
+     "f": "1442 — Mille quatre cent quarante-deux",
+     "a": "ألف وأربعمية واتنين وأربعين",
+     "e": "One thousand four hundred and forty-two"
+    },
+    {
+     "f": "1443 — Mille quatre cent quarante-trois",
+     "a": "ألف وأربعمية وتلاتة وأربعين",
+     "e": "One thousand four hundred and forty-three"
+    },
+    {
+     "f": "1444 — Mille quatre cent quarante-quatre",
+     "a": "ألف وأربعمية وأربعة وأربعين",
+     "e": "One thousand four hundred and forty-four"
+    },
+    {
+     "f": "1445 — Mille quatre cent quarante-cinq",
+     "a": "ألف وأربعمية وخمسة وأربعين",
+     "e": "One thousand four hundred and forty-five"
+    },
+    {
+     "f": "1446 — Mille quatre cent quarante-six",
+     "a": "ألف وأربعمية وستة وأربعين",
+     "e": "One thousand four hundred and forty-six"
+    },
+    {
+     "f": "1447 — Mille quatre cent quarante-sept",
+     "a": "ألف وأربعمية وسبعة وأربعين",
+     "e": "One thousand four hundred and forty-seven"
+    },
+    {
+     "f": "1448 — Mille quatre cent quarante-huit",
+     "a": "ألف وأربعمية وتمانية وأربعين",
+     "e": "One thousand four hundred and forty-eight"
+    },
+    {
+     "f": "1449 — Mille quatre cent quarante-neuf",
+     "a": "ألف وأربعمية وتسعة وأربعين",
+     "e": "One thousand four hundred and forty-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-191",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 19/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 19",
+   "phr": [
+    {
+     "f": "1450 — Mille quatre cent cinquante",
+     "a": "ألف وأربعمية وخمسين",
+     "e": "One thousand four hundred and fifty"
+    },
+    {
+     "f": "1451 — Mille quatre cent cinquante et un",
+     "a": "ألف وأربعمية وواحد وخمسين",
+     "e": "One thousand four hundred and fifty-one"
+    },
+    {
+     "f": "1452 — Mille quatre cent cinquante-deux",
+     "a": "ألف وأربعمية واتنين وخمسين",
+     "e": "One thousand four hundred and fifty-two"
+    },
+    {
+     "f": "1453 — Mille quatre cent cinquante-trois",
+     "a": "ألف وأربعمية وتلاتة وخمسين",
+     "e": "One thousand four hundred and fifty-three"
+    },
+    {
+     "f": "1454 — Mille quatre cent cinquante-quatre",
+     "a": "ألف وأربعمية وأربعة وخمسين",
+     "e": "One thousand four hundred and fifty-four"
+    },
+    {
+     "f": "1455 — Mille quatre cent cinquante-cinq",
+     "a": "ألف وأربعمية وخمسة وخمسين",
+     "e": "One thousand four hundred and fifty-five"
+    },
+    {
+     "f": "1456 — Mille quatre cent cinquante-six",
+     "a": "ألف وأربعمية وستة وخمسين",
+     "e": "One thousand four hundred and fifty-six"
+    },
+    {
+     "f": "1457 — Mille quatre cent cinquante-sept",
+     "a": "ألف وأربعمية وسبعة وخمسين",
+     "e": "One thousand four hundred and fifty-seven"
+    },
+    {
+     "f": "1458 — Mille quatre cent cinquante-huit",
+     "a": "ألف وأربعمية وتمانية وخمسين",
+     "e": "One thousand four hundred and fifty-eight"
+    },
+    {
+     "f": "1459 — Mille quatre cent cinquante-neuf",
+     "a": "ألف وأربعمية وتسعة وخمسين",
+     "e": "One thousand four hundred and fifty-nine"
+    },
+    {
+     "f": "1460 — Mille quatre cent soixante",
+     "a": "ألف وأربعمية وستين",
+     "e": "One thousand four hundred and sixty"
+    },
+    {
+     "f": "1461 — Mille quatre cent soixante et un",
+     "a": "ألف وأربعمية وواحد وستين",
+     "e": "One thousand four hundred and sixty-one"
+    },
+    {
+     "f": "1462 — Mille quatre cent soixante-deux",
+     "a": "ألف وأربعمية واتنين وستين",
+     "e": "One thousand four hundred and sixty-two"
+    },
+    {
+     "f": "1463 — Mille quatre cent soixante-trois",
+     "a": "ألف وأربعمية وتلاتة وستين",
+     "e": "One thousand four hundred and sixty-three"
+    },
+    {
+     "f": "1464 — Mille quatre cent soixante-quatre",
+     "a": "ألف وأربعمية وأربعة وستين",
+     "e": "One thousand four hundred and sixty-four"
+    },
+    {
+     "f": "1465 — Mille quatre cent soixante-cinq",
+     "a": "ألف وأربعمية وخمسة وستين",
+     "e": "One thousand four hundred and sixty-five"
+    },
+    {
+     "f": "1466 — Mille quatre cent soixante-six",
+     "a": "ألف وأربعمية وستة وستين",
+     "e": "One thousand four hundred and sixty-six"
+    },
+    {
+     "f": "1467 — Mille quatre cent soixante-sept",
+     "a": "ألف وأربعمية وسبعة وستين",
+     "e": "One thousand four hundred and sixty-seven"
+    },
+    {
+     "f": "1468 — Mille quatre cent soixante-huit",
+     "a": "ألف وأربعمية وتمانية وستين",
+     "e": "One thousand four hundred and sixty-eight"
+    },
+    {
+     "f": "1469 — Mille quatre cent soixante-neuf",
+     "a": "ألف وأربعمية وتسعة وستين",
+     "e": "One thousand four hundred and sixty-nine"
+    },
+    {
+     "f": "1470 — Mille quatre cent soixante-dix",
+     "a": "ألف وأربعمية وسبعين",
+     "e": "One thousand four hundred and seventy"
+    },
+    {
+     "f": "1471 — Mille quatre cent soixante et onze",
+     "a": "ألف وأربعمية وواحد وسبعين",
+     "e": "One thousand four hundred and seventy-one"
+    },
+    {
+     "f": "1472 — Mille quatre cent soixante-douze",
+     "a": "ألف وأربعمية واتنين وسبعين",
+     "e": "One thousand four hundred and seventy-two"
+    },
+    {
+     "f": "1473 — Mille quatre cent soixante-treize",
+     "a": "ألف وأربعمية وتلاتة وسبعين",
+     "e": "One thousand four hundred and seventy-three"
+    },
+    {
+     "f": "1474 — Mille quatre cent soixante-quatorze",
+     "a": "ألف وأربعمية وأربعة وسبعين",
+     "e": "One thousand four hundred and seventy-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-192",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 20/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 20",
+   "phr": [
+    {
+     "f": "1475 — Mille quatre cent soixante-quinze",
+     "a": "ألف وأربعمية وخمسة وسبعين",
+     "e": "One thousand four hundred and seventy-five"
+    },
+    {
+     "f": "1476 — Mille quatre cent soixante-seize",
+     "a": "ألف وأربعمية وستة وسبعين",
+     "e": "One thousand four hundred and seventy-six"
+    },
+    {
+     "f": "1477 — Mille quatre cent soixante-dix-sept",
+     "a": "ألف وأربعمية وسبعة وسبعين",
+     "e": "One thousand four hundred and seventy-seven"
+    },
+    {
+     "f": "1478 — Mille quatre cent soixante-dix-huit",
+     "a": "ألف وأربعمية وتمانية وسبعين",
+     "e": "One thousand four hundred and seventy-eight"
+    },
+    {
+     "f": "1479 — Mille quatre cent soixante-dix-neuf",
+     "a": "ألف وأربعمية وتسعة وسبعين",
+     "e": "One thousand four hundred and seventy-nine"
+    },
+    {
+     "f": "1480 — Mille quatre cent quatre-vingts",
+     "a": "ألف وأربعمية وتمانين",
+     "e": "One thousand four hundred and eighty"
+    },
+    {
+     "f": "1481 — Mille quatre cent quatre-vingt-un",
+     "a": "ألف وأربعمية وواحد وتمانين",
+     "e": "One thousand four hundred and eighty-one"
+    },
+    {
+     "f": "1482 — Mille quatre cent quatre-vingt-deux",
+     "a": "ألف وأربعمية واتنين وتمانين",
+     "e": "One thousand four hundred and eighty-two"
+    },
+    {
+     "f": "1483 — Mille quatre cent quatre-vingt-trois",
+     "a": "ألف وأربعمية وتلاتة وتمانين",
+     "e": "One thousand four hundred and eighty-three"
+    },
+    {
+     "f": "1484 — Mille quatre cent quatre-vingt-quatre",
+     "a": "ألف وأربعمية وأربعة وتمانين",
+     "e": "One thousand four hundred and eighty-four"
+    },
+    {
+     "f": "1485 — Mille quatre cent quatre-vingt-cinq",
+     "a": "ألف وأربعمية وخمسة وتمانين",
+     "e": "One thousand four hundred and eighty-five"
+    },
+    {
+     "f": "1486 — Mille quatre cent quatre-vingt-six",
+     "a": "ألف وأربعمية وستة وتمانين",
+     "e": "One thousand four hundred and eighty-six"
+    },
+    {
+     "f": "1487 — Mille quatre cent quatre-vingt-sept",
+     "a": "ألف وأربعمية وسبعة وتمانين",
+     "e": "One thousand four hundred and eighty-seven"
+    },
+    {
+     "f": "1488 — Mille quatre cent quatre-vingt-huit",
+     "a": "ألف وأربعمية وتمانية وتمانين",
+     "e": "One thousand four hundred and eighty-eight"
+    },
+    {
+     "f": "1489 — Mille quatre cent quatre-vingt-neuf",
+     "a": "ألف وأربعمية وتسعة وتمانين",
+     "e": "One thousand four hundred and eighty-nine"
+    },
+    {
+     "f": "1490 — Mille quatre cent quatre-vingt-dix",
+     "a": "ألف وأربعمية وتسعين",
+     "e": "One thousand four hundred and ninety"
+    },
+    {
+     "f": "1491 — Mille quatre cent quatre-vingt-onze",
+     "a": "ألف وأربعمية وواحد وتسعين",
+     "e": "One thousand four hundred and ninety-one"
+    },
+    {
+     "f": "1492 — Mille quatre cent quatre-vingt-douze",
+     "a": "ألف وأربعمية واتنين وتسعين",
+     "e": "One thousand four hundred and ninety-two"
+    },
+    {
+     "f": "1493 — Mille quatre cent quatre-vingt-treize",
+     "a": "ألف وأربعمية وتلاتة وتسعين",
+     "e": "One thousand four hundred and ninety-three"
+    },
+    {
+     "f": "1494 — Mille quatre cent quatre-vingt-quatorze",
+     "a": "ألف وأربعمية وأربعة وتسعين",
+     "e": "One thousand four hundred and ninety-four"
+    },
+    {
+     "f": "1495 — Mille quatre cent quatre-vingt-quinze",
+     "a": "ألف وأربعمية وخمسة وتسعين",
+     "e": "One thousand four hundred and ninety-five"
+    },
+    {
+     "f": "1496 — Mille quatre cent quatre-vingt-seize",
+     "a": "ألف وأربعمية وستة وتسعين",
+     "e": "One thousand four hundred and ninety-six"
+    },
+    {
+     "f": "1497 — Mille quatre cent quatre-vingt-dix-sept",
+     "a": "ألف وأربعمية وسبعة وتسعين",
+     "e": "One thousand four hundred and ninety-seven"
+    },
+    {
+     "f": "1498 — Mille quatre cent quatre-vingt-dix-huit",
+     "a": "ألف وأربعمية وتمانية وتسعين",
+     "e": "One thousand four hundred and ninety-eight"
+    },
+    {
+     "f": "1499 — Mille quatre cent quatre-vingt-dix-neuf",
+     "a": "ألف وأربعمية وتسعة وتسعين",
+     "e": "One thousand four hundred and ninety-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-193",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 21/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 21",
+   "phr": [
+    {
+     "f": "1500 — Mille cinq cents",
+     "a": "ألف وخمسمية",
+     "e": "One thousand five hundred"
+    },
+    {
+     "f": "1501 — Mille cinq cent un",
+     "a": "ألف وخمسمية وواحد",
+     "e": "One thousand five hundred and one"
+    },
+    {
+     "f": "1502 — Mille cinq cent deux",
+     "a": "ألف وخمسمية وتنين",
+     "e": "One thousand five hundred and two"
+    },
+    {
+     "f": "1503 — Mille cinq cent trois",
+     "a": "ألف وخمسمية وتلاتة",
+     "e": "One thousand five hundred and three"
+    },
+    {
+     "f": "1504 — Mille cinq cent quatre",
+     "a": "ألف وخمسمية وأربعة",
+     "e": "One thousand five hundred and four"
+    },
+    {
+     "f": "1505 — Mille cinq cent cinq",
+     "a": "ألف وخمسمية وخمسة",
+     "e": "One thousand five hundred and five"
+    },
+    {
+     "f": "1506 — Mille cinq cent six",
+     "a": "ألف وخمسمية وستة",
+     "e": "One thousand five hundred and six"
+    },
+    {
+     "f": "1507 — Mille cinq cent sept",
+     "a": "ألف وخمسمية وسبعة",
+     "e": "One thousand five hundred and seven"
+    },
+    {
+     "f": "1508 — Mille cinq cent huit",
+     "a": "ألف وخمسمية وتمانية",
+     "e": "One thousand five hundred and eight"
+    },
+    {
+     "f": "1509 — Mille cinq cent neuf",
+     "a": "ألف وخمسمية وتسعة",
+     "e": "One thousand five hundred and nine"
+    },
+    {
+     "f": "1510 — Mille cinq cent dix",
+     "a": "ألف وخمسمية وعشرة",
+     "e": "One thousand five hundred and ten"
+    },
+    {
+     "f": "1511 — Mille cinq cent onze",
+     "a": "ألف وخمسمية وحداش",
+     "e": "One thousand five hundred and eleven"
+    },
+    {
+     "f": "1512 — Mille cinq cent douze",
+     "a": "ألف وخمسمية واتناش",
+     "e": "One thousand five hundred and twelve"
+    },
+    {
+     "f": "1513 — Mille cinq cent treize",
+     "a": "ألف وخمسمية وتلتعش",
+     "e": "One thousand five hundred and thirteen"
+    },
+    {
+     "f": "1514 — Mille cinq cent quatorze",
+     "a": "ألف وخمسمية وأربعتعش",
+     "e": "One thousand five hundred and fourteen"
+    },
+    {
+     "f": "1515 — Mille cinq cent quinze",
+     "a": "ألف وخمسمية وخمستعش",
+     "e": "One thousand five hundred and fifteen"
+    },
+    {
+     "f": "1516 — Mille cinq cent seize",
+     "a": "ألف وخمسمية وستعش",
+     "e": "One thousand five hundred and sixteen"
+    },
+    {
+     "f": "1517 — Mille cinq cent dix-sept",
+     "a": "ألف وخمسمية وسبعتعش",
+     "e": "One thousand five hundred and seventeen"
+    },
+    {
+     "f": "1518 — Mille cinq cent dix-huit",
+     "a": "ألف وخمسمية وتمنتعش",
+     "e": "One thousand five hundred and eighteen"
+    },
+    {
+     "f": "1519 — Mille cinq cent dix-neuf",
+     "a": "ألف وخمسمية وتسعتعش",
+     "e": "One thousand five hundred and nineteen"
+    },
+    {
+     "f": "1520 — Mille cinq cent vingt",
+     "a": "ألف وخمسمية وعشرين",
+     "e": "One thousand five hundred and twenty"
+    },
+    {
+     "f": "1521 — Mille cinq cent vingt et un",
+     "a": "ألف وخمسمية وواحد وعشرين",
+     "e": "One thousand five hundred and twenty-one"
+    },
+    {
+     "f": "1522 — Mille cinq cent vingt-deux",
+     "a": "ألف وخمسمية واتنين وعشرين",
+     "e": "One thousand five hundred and twenty-two"
+    },
+    {
+     "f": "1523 — Mille cinq cent vingt-trois",
+     "a": "ألف وخمسمية وتلاتة وعشرين",
+     "e": "One thousand five hundred and twenty-three"
+    },
+    {
+     "f": "1524 — Mille cinq cent vingt-quatre",
+     "a": "ألف وخمسمية وأربعة وعشرين",
+     "e": "One thousand five hundred and twenty-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-194",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 22/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 22",
+   "phr": [
+    {
+     "f": "1525 — Mille cinq cent vingt-cinq",
+     "a": "ألف وخمسمية وخمسة وعشرين",
+     "e": "One thousand five hundred and twenty-five"
+    },
+    {
+     "f": "1526 — Mille cinq cent vingt-six",
+     "a": "ألف وخمسمية وستة وعشرين",
+     "e": "One thousand five hundred and twenty-six"
+    },
+    {
+     "f": "1527 — Mille cinq cent vingt-sept",
+     "a": "ألف وخمسمية وسبعة وعشرين",
+     "e": "One thousand five hundred and twenty-seven"
+    },
+    {
+     "f": "1528 — Mille cinq cent vingt-huit",
+     "a": "ألف وخمسمية وتمانية وعشرين",
+     "e": "One thousand five hundred and twenty-eight"
+    },
+    {
+     "f": "1529 — Mille cinq cent vingt-neuf",
+     "a": "ألف وخمسمية وتسعة وعشرين",
+     "e": "One thousand five hundred and twenty-nine"
+    },
+    {
+     "f": "1530 — Mille cinq cent trente",
+     "a": "ألف وخمسمية وتلاتين",
+     "e": "One thousand five hundred and thirty"
+    },
+    {
+     "f": "1531 — Mille cinq cent trente et un",
+     "a": "ألف وخمسمية وواحد وتلاتين",
+     "e": "One thousand five hundred and thirty-one"
+    },
+    {
+     "f": "1532 — Mille cinq cent trente-deux",
+     "a": "ألف وخمسمية واتنين وتلاتين",
+     "e": "One thousand five hundred and thirty-two"
+    },
+    {
+     "f": "1533 — Mille cinq cent trente-trois",
+     "a": "ألف وخمسمية وتلاتة وتلاتين",
+     "e": "One thousand five hundred and thirty-three"
+    },
+    {
+     "f": "1534 — Mille cinq cent trente-quatre",
+     "a": "ألف وخمسمية وأربعة وتلاتين",
+     "e": "One thousand five hundred and thirty-four"
+    },
+    {
+     "f": "1535 — Mille cinq cent trente-cinq",
+     "a": "ألف وخمسمية وخمسة وتلاتين",
+     "e": "One thousand five hundred and thirty-five"
+    },
+    {
+     "f": "1536 — Mille cinq cent trente-six",
+     "a": "ألف وخمسمية وستة وتلاتين",
+     "e": "One thousand five hundred and thirty-six"
+    },
+    {
+     "f": "1537 — Mille cinq cent trente-sept",
+     "a": "ألف وخمسمية وسبعة وتلاتين",
+     "e": "One thousand five hundred and thirty-seven"
+    },
+    {
+     "f": "1538 — Mille cinq cent trente-huit",
+     "a": "ألف وخمسمية وتمانية وتلاتين",
+     "e": "One thousand five hundred and thirty-eight"
+    },
+    {
+     "f": "1539 — Mille cinq cent trente-neuf",
+     "a": "ألف وخمسمية وتسعة وتلاتين",
+     "e": "One thousand five hundred and thirty-nine"
+    },
+    {
+     "f": "1540 — Mille cinq cent quarante",
+     "a": "ألف وخمسمية وأربعين",
+     "e": "One thousand five hundred and forty"
+    },
+    {
+     "f": "1541 — Mille cinq cent quarante et un",
+     "a": "ألف وخمسمية وواحد وأربعين",
+     "e": "One thousand five hundred and forty-one"
+    },
+    {
+     "f": "1542 — Mille cinq cent quarante-deux",
+     "a": "ألف وخمسمية واتنين وأربعين",
+     "e": "One thousand five hundred and forty-two"
+    },
+    {
+     "f": "1543 — Mille cinq cent quarante-trois",
+     "a": "ألف وخمسمية وتلاتة وأربعين",
+     "e": "One thousand five hundred and forty-three"
+    },
+    {
+     "f": "1544 — Mille cinq cent quarante-quatre",
+     "a": "ألف وخمسمية وأربعة وأربعين",
+     "e": "One thousand five hundred and forty-four"
+    },
+    {
+     "f": "1545 — Mille cinq cent quarante-cinq",
+     "a": "ألف وخمسمية وخمسة وأربعين",
+     "e": "One thousand five hundred and forty-five"
+    },
+    {
+     "f": "1546 — Mille cinq cent quarante-six",
+     "a": "ألف وخمسمية وستة وأربعين",
+     "e": "One thousand five hundred and forty-six"
+    },
+    {
+     "f": "1547 — Mille cinq cent quarante-sept",
+     "a": "ألف وخمسمية وسبعة وأربعين",
+     "e": "One thousand five hundred and forty-seven"
+    },
+    {
+     "f": "1548 — Mille cinq cent quarante-huit",
+     "a": "ألف وخمسمية وتمانية وأربعين",
+     "e": "One thousand five hundred and forty-eight"
+    },
+    {
+     "f": "1549 — Mille cinq cent quarante-neuf",
+     "a": "ألف وخمسمية وتسعة وأربعين",
+     "e": "One thousand five hundred and forty-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-195",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 23/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 23",
+   "phr": [
+    {
+     "f": "1550 — Mille cinq cent cinquante",
+     "a": "ألف وخمسمية وخمسين",
+     "e": "One thousand five hundred and fifty"
+    },
+    {
+     "f": "1551 — Mille cinq cent cinquante et un",
+     "a": "ألف وخمسمية وواحد وخمسين",
+     "e": "One thousand five hundred and fifty-one"
+    },
+    {
+     "f": "1552 — Mille cinq cent cinquante-deux",
+     "a": "ألف وخمسمية واتنين وخمسين",
+     "e": "One thousand five hundred and fifty-two"
+    },
+    {
+     "f": "1553 — Mille cinq cent cinquante-trois",
+     "a": "ألف وخمسمية وتلاتة وخمسين",
+     "e": "One thousand five hundred and fifty-three"
+    },
+    {
+     "f": "1554 — Mille cinq cent cinquante-quatre",
+     "a": "ألف وخمسمية وأربعة وخمسين",
+     "e": "One thousand five hundred and fifty-four"
+    },
+    {
+     "f": "1555 — Mille cinq cent cinquante-cinq",
+     "a": "ألف وخمسمية وخمسة وخمسين",
+     "e": "One thousand five hundred and fifty-five"
+    },
+    {
+     "f": "1556 — Mille cinq cent cinquante-six",
+     "a": "ألف وخمسمية وستة وخمسين",
+     "e": "One thousand five hundred and fifty-six"
+    },
+    {
+     "f": "1557 — Mille cinq cent cinquante-sept",
+     "a": "ألف وخمسمية وسبعة وخمسين",
+     "e": "One thousand five hundred and fifty-seven"
+    },
+    {
+     "f": "1558 — Mille cinq cent cinquante-huit",
+     "a": "ألف وخمسمية وتمانية وخمسين",
+     "e": "One thousand five hundred and fifty-eight"
+    },
+    {
+     "f": "1559 — Mille cinq cent cinquante-neuf",
+     "a": "ألف وخمسمية وتسعة وخمسين",
+     "e": "One thousand five hundred and fifty-nine"
+    },
+    {
+     "f": "1560 — Mille cinq cent soixante",
+     "a": "ألف وخمسمية وستين",
+     "e": "One thousand five hundred and sixty"
+    },
+    {
+     "f": "1561 — Mille cinq cent soixante et un",
+     "a": "ألف وخمسمية وواحد وستين",
+     "e": "One thousand five hundred and sixty-one"
+    },
+    {
+     "f": "1562 — Mille cinq cent soixante-deux",
+     "a": "ألف وخمسمية واتنين وستين",
+     "e": "One thousand five hundred and sixty-two"
+    },
+    {
+     "f": "1563 — Mille cinq cent soixante-trois",
+     "a": "ألف وخمسمية وتلاتة وستين",
+     "e": "One thousand five hundred and sixty-three"
+    },
+    {
+     "f": "1564 — Mille cinq cent soixante-quatre",
+     "a": "ألف وخمسمية وأربعة وستين",
+     "e": "One thousand five hundred and sixty-four"
+    },
+    {
+     "f": "1565 — Mille cinq cent soixante-cinq",
+     "a": "ألف وخمسمية وخمسة وستين",
+     "e": "One thousand five hundred and sixty-five"
+    },
+    {
+     "f": "1566 — Mille cinq cent soixante-six",
+     "a": "ألف وخمسمية وستة وستين",
+     "e": "One thousand five hundred and sixty-six"
+    },
+    {
+     "f": "1567 — Mille cinq cent soixante-sept",
+     "a": "ألف وخمسمية وسبعة وستين",
+     "e": "One thousand five hundred and sixty-seven"
+    },
+    {
+     "f": "1568 — Mille cinq cent soixante-huit",
+     "a": "ألف وخمسمية وتمانية وستين",
+     "e": "One thousand five hundred and sixty-eight"
+    },
+    {
+     "f": "1569 — Mille cinq cent soixante-neuf",
+     "a": "ألف وخمسمية وتسعة وستين",
+     "e": "One thousand five hundred and sixty-nine"
+    },
+    {
+     "f": "1570 — Mille cinq cent soixante-dix",
+     "a": "ألف وخمسمية وسبعين",
+     "e": "One thousand five hundred and seventy"
+    },
+    {
+     "f": "1571 — Mille cinq cent soixante et onze",
+     "a": "ألف وخمسمية وواحد وسبعين",
+     "e": "One thousand five hundred and seventy-one"
+    },
+    {
+     "f": "1572 — Mille cinq cent soixante-douze",
+     "a": "ألف وخمسمية واتنين وسبعين",
+     "e": "One thousand five hundred and seventy-two"
+    },
+    {
+     "f": "1573 — Mille cinq cent soixante-treize",
+     "a": "ألف وخمسمية وتلاتة وسبعين",
+     "e": "One thousand five hundred and seventy-three"
+    },
+    {
+     "f": "1574 — Mille cinq cent soixante-quatorze",
+     "a": "ألف وخمسمية وأربعة وسبعين",
+     "e": "One thousand five hundred and seventy-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-196",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 24/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 24",
+   "phr": [
+    {
+     "f": "1575 — Mille cinq cent soixante-quinze",
+     "a": "ألف وخمسمية وخمسة وسبعين",
+     "e": "One thousand five hundred and seventy-five"
+    },
+    {
+     "f": "1576 — Mille cinq cent soixante-seize",
+     "a": "ألف وخمسمية وستة وسبعين",
+     "e": "One thousand five hundred and seventy-six"
+    },
+    {
+     "f": "1577 — Mille cinq cent soixante-dix-sept",
+     "a": "ألف وخمسمية وسبعة وسبعين",
+     "e": "One thousand five hundred and seventy-seven"
+    },
+    {
+     "f": "1578 — Mille cinq cent soixante-dix-huit",
+     "a": "ألف وخمسمية وتمانية وسبعين",
+     "e": "One thousand five hundred and seventy-eight"
+    },
+    {
+     "f": "1579 — Mille cinq cent soixante-dix-neuf",
+     "a": "ألف وخمسمية وتسعة وسبعين",
+     "e": "One thousand five hundred and seventy-nine"
+    },
+    {
+     "f": "1580 — Mille cinq cent quatre-vingts",
+     "a": "ألف وخمسمية وتمانين",
+     "e": "One thousand five hundred and eighty"
+    },
+    {
+     "f": "1581 — Mille cinq cent quatre-vingt-un",
+     "a": "ألف وخمسمية وواحد وتمانين",
+     "e": "One thousand five hundred and eighty-one"
+    },
+    {
+     "f": "1582 — Mille cinq cent quatre-vingt-deux",
+     "a": "ألف وخمسمية واتنين وتمانين",
+     "e": "One thousand five hundred and eighty-two"
+    },
+    {
+     "f": "1583 — Mille cinq cent quatre-vingt-trois",
+     "a": "ألف وخمسمية وتلاتة وتمانين",
+     "e": "One thousand five hundred and eighty-three"
+    },
+    {
+     "f": "1584 — Mille cinq cent quatre-vingt-quatre",
+     "a": "ألف وخمسمية وأربعة وتمانين",
+     "e": "One thousand five hundred and eighty-four"
+    },
+    {
+     "f": "1585 — Mille cinq cent quatre-vingt-cinq",
+     "a": "ألف وخمسمية وخمسة وتمانين",
+     "e": "One thousand five hundred and eighty-five"
+    },
+    {
+     "f": "1586 — Mille cinq cent quatre-vingt-six",
+     "a": "ألف وخمسمية وستة وتمانين",
+     "e": "One thousand five hundred and eighty-six"
+    },
+    {
+     "f": "1587 — Mille cinq cent quatre-vingt-sept",
+     "a": "ألف وخمسمية وسبعة وتمانين",
+     "e": "One thousand five hundred and eighty-seven"
+    },
+    {
+     "f": "1588 — Mille cinq cent quatre-vingt-huit",
+     "a": "ألف وخمسمية وتمانية وتمانين",
+     "e": "One thousand five hundred and eighty-eight"
+    },
+    {
+     "f": "1589 — Mille cinq cent quatre-vingt-neuf",
+     "a": "ألف وخمسمية وتسعة وتمانين",
+     "e": "One thousand five hundred and eighty-nine"
+    },
+    {
+     "f": "1590 — Mille cinq cent quatre-vingt-dix",
+     "a": "ألف وخمسمية وتسعين",
+     "e": "One thousand five hundred and ninety"
+    },
+    {
+     "f": "1591 — Mille cinq cent quatre-vingt-onze",
+     "a": "ألف وخمسمية وواحد وتسعين",
+     "e": "One thousand five hundred and ninety-one"
+    },
+    {
+     "f": "1592 — Mille cinq cent quatre-vingt-douze",
+     "a": "ألف وخمسمية واتنين وتسعين",
+     "e": "One thousand five hundred and ninety-two"
+    },
+    {
+     "f": "1593 — Mille cinq cent quatre-vingt-treize",
+     "a": "ألف وخمسمية وتلاتة وتسعين",
+     "e": "One thousand five hundred and ninety-three"
+    },
+    {
+     "f": "1594 — Mille cinq cent quatre-vingt-quatorze",
+     "a": "ألف وخمسمية وأربعة وتسعين",
+     "e": "One thousand five hundred and ninety-four"
+    },
+    {
+     "f": "1595 — Mille cinq cent quatre-vingt-quinze",
+     "a": "ألف وخمسمية وخمسة وتسعين",
+     "e": "One thousand five hundred and ninety-five"
+    },
+    {
+     "f": "1596 — Mille cinq cent quatre-vingt-seize",
+     "a": "ألف وخمسمية وستة وتسعين",
+     "e": "One thousand five hundred and ninety-six"
+    },
+    {
+     "f": "1597 — Mille cinq cent quatre-vingt-dix-sept",
+     "a": "ألف وخمسمية وسبعة وتسعين",
+     "e": "One thousand five hundred and ninety-seven"
+    },
+    {
+     "f": "1598 — Mille cinq cent quatre-vingt-dix-huit",
+     "a": "ألف وخمسمية وتمانية وتسعين",
+     "e": "One thousand five hundred and ninety-eight"
+    },
+    {
+     "f": "1599 — Mille cinq cent quatre-vingt-dix-neuf",
+     "a": "ألف وخمسمية وتسعة وتسعين",
+     "e": "One thousand five hundred and ninety-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-197",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 25/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 25",
+   "phr": [
+    {
+     "f": "1600 — Mille six cents",
+     "a": "ألف وستمية",
+     "e": "One thousand six hundred"
+    },
+    {
+     "f": "1601 — Mille six cent un",
+     "a": "ألف وستمية وواحد",
+     "e": "One thousand six hundred and one"
+    },
+    {
+     "f": "1602 — Mille six cent deux",
+     "a": "ألف وستمية وتنين",
+     "e": "One thousand six hundred and two"
+    },
+    {
+     "f": "1603 — Mille six cent trois",
+     "a": "ألف وستمية وتلاتة",
+     "e": "One thousand six hundred and three"
+    },
+    {
+     "f": "1604 — Mille six cent quatre",
+     "a": "ألف وستمية وأربعة",
+     "e": "One thousand six hundred and four"
+    },
+    {
+     "f": "1605 — Mille six cent cinq",
+     "a": "ألف وستمية وخمسة",
+     "e": "One thousand six hundred and five"
+    },
+    {
+     "f": "1606 — Mille six cent six",
+     "a": "ألف وستمية وستة",
+     "e": "One thousand six hundred and six"
+    },
+    {
+     "f": "1607 — Mille six cent sept",
+     "a": "ألف وستمية وسبعة",
+     "e": "One thousand six hundred and seven"
+    },
+    {
+     "f": "1608 — Mille six cent huit",
+     "a": "ألف وستمية وتمانية",
+     "e": "One thousand six hundred and eight"
+    },
+    {
+     "f": "1609 — Mille six cent neuf",
+     "a": "ألف وستمية وتسعة",
+     "e": "One thousand six hundred and nine"
+    },
+    {
+     "f": "1610 — Mille six cent dix",
+     "a": "ألف وستمية وعشرة",
+     "e": "One thousand six hundred and ten"
+    },
+    {
+     "f": "1611 — Mille six cent onze",
+     "a": "ألف وستمية وحداش",
+     "e": "One thousand six hundred and eleven"
+    },
+    {
+     "f": "1612 — Mille six cent douze",
+     "a": "ألف وستمية واتناش",
+     "e": "One thousand six hundred and twelve"
+    },
+    {
+     "f": "1613 — Mille six cent treize",
+     "a": "ألف وستمية وتلتعش",
+     "e": "One thousand six hundred and thirteen"
+    },
+    {
+     "f": "1614 — Mille six cent quatorze",
+     "a": "ألف وستمية وأربعتعش",
+     "e": "One thousand six hundred and fourteen"
+    },
+    {
+     "f": "1615 — Mille six cent quinze",
+     "a": "ألف وستمية وخمستعش",
+     "e": "One thousand six hundred and fifteen"
+    },
+    {
+     "f": "1616 — Mille six cent seize",
+     "a": "ألف وستمية وستعش",
+     "e": "One thousand six hundred and sixteen"
+    },
+    {
+     "f": "1617 — Mille six cent dix-sept",
+     "a": "ألف وستمية وسبعتعش",
+     "e": "One thousand six hundred and seventeen"
+    },
+    {
+     "f": "1618 — Mille six cent dix-huit",
+     "a": "ألف وستمية وتمنتعش",
+     "e": "One thousand six hundred and eighteen"
+    },
+    {
+     "f": "1619 — Mille six cent dix-neuf",
+     "a": "ألف وستمية وتسعتعش",
+     "e": "One thousand six hundred and nineteen"
+    },
+    {
+     "f": "1620 — Mille six cent vingt",
+     "a": "ألف وستمية وعشرين",
+     "e": "One thousand six hundred and twenty"
+    },
+    {
+     "f": "1621 — Mille six cent vingt et un",
+     "a": "ألف وستمية وواحد وعشرين",
+     "e": "One thousand six hundred and twenty-one"
+    },
+    {
+     "f": "1622 — Mille six cent vingt-deux",
+     "a": "ألف وستمية واتنين وعشرين",
+     "e": "One thousand six hundred and twenty-two"
+    },
+    {
+     "f": "1623 — Mille six cent vingt-trois",
+     "a": "ألف وستمية وتلاتة وعشرين",
+     "e": "One thousand six hundred and twenty-three"
+    },
+    {
+     "f": "1624 — Mille six cent vingt-quatre",
+     "a": "ألف وستمية وأربعة وعشرين",
+     "e": "One thousand six hundred and twenty-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-198",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 26/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 26",
+   "phr": [
+    {
+     "f": "1625 — Mille six cent vingt-cinq",
+     "a": "ألف وستمية وخمسة وعشرين",
+     "e": "One thousand six hundred and twenty-five"
+    },
+    {
+     "f": "1626 — Mille six cent vingt-six",
+     "a": "ألف وستمية وستة وعشرين",
+     "e": "One thousand six hundred and twenty-six"
+    },
+    {
+     "f": "1627 — Mille six cent vingt-sept",
+     "a": "ألف وستمية وسبعة وعشرين",
+     "e": "One thousand six hundred and twenty-seven"
+    },
+    {
+     "f": "1628 — Mille six cent vingt-huit",
+     "a": "ألف وستمية وتمانية وعشرين",
+     "e": "One thousand six hundred and twenty-eight"
+    },
+    {
+     "f": "1629 — Mille six cent vingt-neuf",
+     "a": "ألف وستمية وتسعة وعشرين",
+     "e": "One thousand six hundred and twenty-nine"
+    },
+    {
+     "f": "1630 — Mille six cent trente",
+     "a": "ألف وستمية وتلاتين",
+     "e": "One thousand six hundred and thirty"
+    },
+    {
+     "f": "1631 — Mille six cent trente et un",
+     "a": "ألف وستمية وواحد وتلاتين",
+     "e": "One thousand six hundred and thirty-one"
+    },
+    {
+     "f": "1632 — Mille six cent trente-deux",
+     "a": "ألف وستمية واتنين وتلاتين",
+     "e": "One thousand six hundred and thirty-two"
+    },
+    {
+     "f": "1633 — Mille six cent trente-trois",
+     "a": "ألف وستمية وتلاتة وتلاتين",
+     "e": "One thousand six hundred and thirty-three"
+    },
+    {
+     "f": "1634 — Mille six cent trente-quatre",
+     "a": "ألف وستمية وأربعة وتلاتين",
+     "e": "One thousand six hundred and thirty-four"
+    },
+    {
+     "f": "1635 — Mille six cent trente-cinq",
+     "a": "ألف وستمية وخمسة وتلاتين",
+     "e": "One thousand six hundred and thirty-five"
+    },
+    {
+     "f": "1636 — Mille six cent trente-six",
+     "a": "ألف وستمية وستة وتلاتين",
+     "e": "One thousand six hundred and thirty-six"
+    },
+    {
+     "f": "1637 — Mille six cent trente-sept",
+     "a": "ألف وستمية وسبعة وتلاتين",
+     "e": "One thousand six hundred and thirty-seven"
+    },
+    {
+     "f": "1638 — Mille six cent trente-huit",
+     "a": "ألف وستمية وتمانية وتلاتين",
+     "e": "One thousand six hundred and thirty-eight"
+    },
+    {
+     "f": "1639 — Mille six cent trente-neuf",
+     "a": "ألف وستمية وتسعة وتلاتين",
+     "e": "One thousand six hundred and thirty-nine"
+    },
+    {
+     "f": "1640 — Mille six cent quarante",
+     "a": "ألف وستمية وأربعين",
+     "e": "One thousand six hundred and forty"
+    },
+    {
+     "f": "1641 — Mille six cent quarante et un",
+     "a": "ألف وستمية وواحد وأربعين",
+     "e": "One thousand six hundred and forty-one"
+    },
+    {
+     "f": "1642 — Mille six cent quarante-deux",
+     "a": "ألف وستمية واتنين وأربعين",
+     "e": "One thousand six hundred and forty-two"
+    },
+    {
+     "f": "1643 — Mille six cent quarante-trois",
+     "a": "ألف وستمية وتلاتة وأربعين",
+     "e": "One thousand six hundred and forty-three"
+    },
+    {
+     "f": "1644 — Mille six cent quarante-quatre",
+     "a": "ألف وستمية وأربعة وأربعين",
+     "e": "One thousand six hundred and forty-four"
+    },
+    {
+     "f": "1645 — Mille six cent quarante-cinq",
+     "a": "ألف وستمية وخمسة وأربعين",
+     "e": "One thousand six hundred and forty-five"
+    },
+    {
+     "f": "1646 — Mille six cent quarante-six",
+     "a": "ألف وستمية وستة وأربعين",
+     "e": "One thousand six hundred and forty-six"
+    },
+    {
+     "f": "1647 — Mille six cent quarante-sept",
+     "a": "ألف وستمية وسبعة وأربعين",
+     "e": "One thousand six hundred and forty-seven"
+    },
+    {
+     "f": "1648 — Mille six cent quarante-huit",
+     "a": "ألف وستمية وتمانية وأربعين",
+     "e": "One thousand six hundred and forty-eight"
+    },
+    {
+     "f": "1649 — Mille six cent quarante-neuf",
+     "a": "ألف وستمية وتسعة وأربعين",
+     "e": "One thousand six hundred and forty-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-199",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 27/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 27",
+   "phr": [
+    {
+     "f": "1650 — Mille six cent cinquante",
+     "a": "ألف وستمية وخمسين",
+     "e": "One thousand six hundred and fifty"
+    },
+    {
+     "f": "1651 — Mille six cent cinquante et un",
+     "a": "ألف وستمية وواحد وخمسين",
+     "e": "One thousand six hundred and fifty-one"
+    },
+    {
+     "f": "1652 — Mille six cent cinquante-deux",
+     "a": "ألف وستمية واتنين وخمسين",
+     "e": "One thousand six hundred and fifty-two"
+    },
+    {
+     "f": "1653 — Mille six cent cinquante-trois",
+     "a": "ألف وستمية وتلاتة وخمسين",
+     "e": "One thousand six hundred and fifty-three"
+    },
+    {
+     "f": "1654 — Mille six cent cinquante-quatre",
+     "a": "ألف وستمية وأربعة وخمسين",
+     "e": "One thousand six hundred and fifty-four"
+    },
+    {
+     "f": "1655 — Mille six cent cinquante-cinq",
+     "a": "ألف وستمية وخمسة وخمسين",
+     "e": "One thousand six hundred and fifty-five"
+    },
+    {
+     "f": "1656 — Mille six cent cinquante-six",
+     "a": "ألف وستمية وستة وخمسين",
+     "e": "One thousand six hundred and fifty-six"
+    },
+    {
+     "f": "1657 — Mille six cent cinquante-sept",
+     "a": "ألف وستمية وسبعة وخمسين",
+     "e": "One thousand six hundred and fifty-seven"
+    },
+    {
+     "f": "1658 — Mille six cent cinquante-huit",
+     "a": "ألف وستمية وتمانية وخمسين",
+     "e": "One thousand six hundred and fifty-eight"
+    },
+    {
+     "f": "1659 — Mille six cent cinquante-neuf",
+     "a": "ألف وستمية وتسعة وخمسين",
+     "e": "One thousand six hundred and fifty-nine"
+    },
+    {
+     "f": "1660 — Mille six cent soixante",
+     "a": "ألف وستمية وستين",
+     "e": "One thousand six hundred and sixty"
+    },
+    {
+     "f": "1661 — Mille six cent soixante et un",
+     "a": "ألف وستمية وواحد وستين",
+     "e": "One thousand six hundred and sixty-one"
+    },
+    {
+     "f": "1662 — Mille six cent soixante-deux",
+     "a": "ألف وستمية واتنين وستين",
+     "e": "One thousand six hundred and sixty-two"
+    },
+    {
+     "f": "1663 — Mille six cent soixante-trois",
+     "a": "ألف وستمية وتلاتة وستين",
+     "e": "One thousand six hundred and sixty-three"
+    },
+    {
+     "f": "1664 — Mille six cent soixante-quatre",
+     "a": "ألف وستمية وأربعة وستين",
+     "e": "One thousand six hundred and sixty-four"
+    },
+    {
+     "f": "1665 — Mille six cent soixante-cinq",
+     "a": "ألف وستمية وخمسة وستين",
+     "e": "One thousand six hundred and sixty-five"
+    },
+    {
+     "f": "1666 — Mille six cent soixante-six",
+     "a": "ألف وستمية وستة وستين",
+     "e": "One thousand six hundred and sixty-six"
+    },
+    {
+     "f": "1667 — Mille six cent soixante-sept",
+     "a": "ألف وستمية وسبعة وستين",
+     "e": "One thousand six hundred and sixty-seven"
+    },
+    {
+     "f": "1668 — Mille six cent soixante-huit",
+     "a": "ألف وستمية وتمانية وستين",
+     "e": "One thousand six hundred and sixty-eight"
+    },
+    {
+     "f": "1669 — Mille six cent soixante-neuf",
+     "a": "ألف وستمية وتسعة وستين",
+     "e": "One thousand six hundred and sixty-nine"
+    },
+    {
+     "f": "1670 — Mille six cent soixante-dix",
+     "a": "ألف وستمية وسبعين",
+     "e": "One thousand six hundred and seventy"
+    },
+    {
+     "f": "1671 — Mille six cent soixante et onze",
+     "a": "ألف وستمية وواحد وسبعين",
+     "e": "One thousand six hundred and seventy-one"
+    },
+    {
+     "f": "1672 — Mille six cent soixante-douze",
+     "a": "ألف وستمية واتنين وسبعين",
+     "e": "One thousand six hundred and seventy-two"
+    },
+    {
+     "f": "1673 — Mille six cent soixante-treize",
+     "a": "ألف وستمية وتلاتة وسبعين",
+     "e": "One thousand six hundred and seventy-three"
+    },
+    {
+     "f": "1674 — Mille six cent soixante-quatorze",
+     "a": "ألف وستمية وأربعة وسبعين",
+     "e": "One thousand six hundred and seventy-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-200",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 28/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 28",
+   "phr": [
+    {
+     "f": "1675 — Mille six cent soixante-quinze",
+     "a": "ألف وستمية وخمسة وسبعين",
+     "e": "One thousand six hundred and seventy-five"
+    },
+    {
+     "f": "1676 — Mille six cent soixante-seize",
+     "a": "ألف وستمية وستة وسبعين",
+     "e": "One thousand six hundred and seventy-six"
+    },
+    {
+     "f": "1677 — Mille six cent soixante-dix-sept",
+     "a": "ألف وستمية وسبعة وسبعين",
+     "e": "One thousand six hundred and seventy-seven"
+    },
+    {
+     "f": "1678 — Mille six cent soixante-dix-huit",
+     "a": "ألف وستمية وتمانية وسبعين",
+     "e": "One thousand six hundred and seventy-eight"
+    },
+    {
+     "f": "1679 — Mille six cent soixante-dix-neuf",
+     "a": "ألف وستمية وتسعة وسبعين",
+     "e": "One thousand six hundred and seventy-nine"
+    },
+    {
+     "f": "1680 — Mille six cent quatre-vingts",
+     "a": "ألف وستمية وتمانين",
+     "e": "One thousand six hundred and eighty"
+    },
+    {
+     "f": "1681 — Mille six cent quatre-vingt-un",
+     "a": "ألف وستمية وواحد وتمانين",
+     "e": "One thousand six hundred and eighty-one"
+    },
+    {
+     "f": "1682 — Mille six cent quatre-vingt-deux",
+     "a": "ألف وستمية واتنين وتمانين",
+     "e": "One thousand six hundred and eighty-two"
+    },
+    {
+     "f": "1683 — Mille six cent quatre-vingt-trois",
+     "a": "ألف وستمية وتلاتة وتمانين",
+     "e": "One thousand six hundred and eighty-three"
+    },
+    {
+     "f": "1684 — Mille six cent quatre-vingt-quatre",
+     "a": "ألف وستمية وأربعة وتمانين",
+     "e": "One thousand six hundred and eighty-four"
+    },
+    {
+     "f": "1685 — Mille six cent quatre-vingt-cinq",
+     "a": "ألف وستمية وخمسة وتمانين",
+     "e": "One thousand six hundred and eighty-five"
+    },
+    {
+     "f": "1686 — Mille six cent quatre-vingt-six",
+     "a": "ألف وستمية وستة وتمانين",
+     "e": "One thousand six hundred and eighty-six"
+    },
+    {
+     "f": "1687 — Mille six cent quatre-vingt-sept",
+     "a": "ألف وستمية وسبعة وتمانين",
+     "e": "One thousand six hundred and eighty-seven"
+    },
+    {
+     "f": "1688 — Mille six cent quatre-vingt-huit",
+     "a": "ألف وستمية وتمانية وتمانين",
+     "e": "One thousand six hundred and eighty-eight"
+    },
+    {
+     "f": "1689 — Mille six cent quatre-vingt-neuf",
+     "a": "ألف وستمية وتسعة وتمانين",
+     "e": "One thousand six hundred and eighty-nine"
+    },
+    {
+     "f": "1690 — Mille six cent quatre-vingt-dix",
+     "a": "ألف وستمية وتسعين",
+     "e": "One thousand six hundred and ninety"
+    },
+    {
+     "f": "1691 — Mille six cent quatre-vingt-onze",
+     "a": "ألف وستمية وواحد وتسعين",
+     "e": "One thousand six hundred and ninety-one"
+    },
+    {
+     "f": "1692 — Mille six cent quatre-vingt-douze",
+     "a": "ألف وستمية واتنين وتسعين",
+     "e": "One thousand six hundred and ninety-two"
+    },
+    {
+     "f": "1693 — Mille six cent quatre-vingt-treize",
+     "a": "ألف وستمية وتلاتة وتسعين",
+     "e": "One thousand six hundred and ninety-three"
+    },
+    {
+     "f": "1694 — Mille six cent quatre-vingt-quatorze",
+     "a": "ألف وستمية وأربعة وتسعين",
+     "e": "One thousand six hundred and ninety-four"
+    },
+    {
+     "f": "1695 — Mille six cent quatre-vingt-quinze",
+     "a": "ألف وستمية وخمسة وتسعين",
+     "e": "One thousand six hundred and ninety-five"
+    },
+    {
+     "f": "1696 — Mille six cent quatre-vingt-seize",
+     "a": "ألف وستمية وستة وتسعين",
+     "e": "One thousand six hundred and ninety-six"
+    },
+    {
+     "f": "1697 — Mille six cent quatre-vingt-dix-sept",
+     "a": "ألف وستمية وسبعة وتسعين",
+     "e": "One thousand six hundred and ninety-seven"
+    },
+    {
+     "f": "1698 — Mille six cent quatre-vingt-dix-huit",
+     "a": "ألف وستمية وتمانية وتسعين",
+     "e": "One thousand six hundred and ninety-eight"
+    },
+    {
+     "f": "1699 — Mille six cent quatre-vingt-dix-neuf",
+     "a": "ألف وستمية وتسعة وتسعين",
+     "e": "One thousand six hundred and ninety-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-201",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 29/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 29",
+   "phr": [
+    {
+     "f": "1700 — Mille sept cents",
+     "a": "ألف وسبعمية",
+     "e": "One thousand seven hundred"
+    },
+    {
+     "f": "1701 — Mille sept cent un",
+     "a": "ألف وسبعمية وواحد",
+     "e": "One thousand seven hundred and one"
+    },
+    {
+     "f": "1702 — Mille sept cent deux",
+     "a": "ألف وسبعمية وتنين",
+     "e": "One thousand seven hundred and two"
+    },
+    {
+     "f": "1703 — Mille sept cent trois",
+     "a": "ألف وسبعمية وتلاتة",
+     "e": "One thousand seven hundred and three"
+    },
+    {
+     "f": "1704 — Mille sept cent quatre",
+     "a": "ألف وسبعمية وأربعة",
+     "e": "One thousand seven hundred and four"
+    },
+    {
+     "f": "1705 — Mille sept cent cinq",
+     "a": "ألف وسبعمية وخمسة",
+     "e": "One thousand seven hundred and five"
+    },
+    {
+     "f": "1706 — Mille sept cent six",
+     "a": "ألف وسبعمية وستة",
+     "e": "One thousand seven hundred and six"
+    },
+    {
+     "f": "1707 — Mille sept cent sept",
+     "a": "ألف وسبعمية وسبعة",
+     "e": "One thousand seven hundred and seven"
+    },
+    {
+     "f": "1708 — Mille sept cent huit",
+     "a": "ألف وسبعمية وتمانية",
+     "e": "One thousand seven hundred and eight"
+    },
+    {
+     "f": "1709 — Mille sept cent neuf",
+     "a": "ألف وسبعمية وتسعة",
+     "e": "One thousand seven hundred and nine"
+    },
+    {
+     "f": "1710 — Mille sept cent dix",
+     "a": "ألف وسبعمية وعشرة",
+     "e": "One thousand seven hundred and ten"
+    },
+    {
+     "f": "1711 — Mille sept cent onze",
+     "a": "ألف وسبعمية وحداش",
+     "e": "One thousand seven hundred and eleven"
+    },
+    {
+     "f": "1712 — Mille sept cent douze",
+     "a": "ألف وسبعمية واتناش",
+     "e": "One thousand seven hundred and twelve"
+    },
+    {
+     "f": "1713 — Mille sept cent treize",
+     "a": "ألف وسبعمية وتلتعش",
+     "e": "One thousand seven hundred and thirteen"
+    },
+    {
+     "f": "1714 — Mille sept cent quatorze",
+     "a": "ألف وسبعمية وأربعتعش",
+     "e": "One thousand seven hundred and fourteen"
+    },
+    {
+     "f": "1715 — Mille sept cent quinze",
+     "a": "ألف وسبعمية وخمستعش",
+     "e": "One thousand seven hundred and fifteen"
+    },
+    {
+     "f": "1716 — Mille sept cent seize",
+     "a": "ألف وسبعمية وستعش",
+     "e": "One thousand seven hundred and sixteen"
+    },
+    {
+     "f": "1717 — Mille sept cent dix-sept",
+     "a": "ألف وسبعمية وسبعتعش",
+     "e": "One thousand seven hundred and seventeen"
+    },
+    {
+     "f": "1718 — Mille sept cent dix-huit",
+     "a": "ألف وسبعمية وتمنتعش",
+     "e": "One thousand seven hundred and eighteen"
+    },
+    {
+     "f": "1719 — Mille sept cent dix-neuf",
+     "a": "ألف وسبعمية وتسعتعش",
+     "e": "One thousand seven hundred and nineteen"
+    },
+    {
+     "f": "1720 — Mille sept cent vingt",
+     "a": "ألف وسبعمية وعشرين",
+     "e": "One thousand seven hundred and twenty"
+    },
+    {
+     "f": "1721 — Mille sept cent vingt et un",
+     "a": "ألف وسبعمية وواحد وعشرين",
+     "e": "One thousand seven hundred and twenty-one"
+    },
+    {
+     "f": "1722 — Mille sept cent vingt-deux",
+     "a": "ألف وسبعمية واتنين وعشرين",
+     "e": "One thousand seven hundred and twenty-two"
+    },
+    {
+     "f": "1723 — Mille sept cent vingt-trois",
+     "a": "ألف وسبعمية وتلاتة وعشرين",
+     "e": "One thousand seven hundred and twenty-three"
+    },
+    {
+     "f": "1724 — Mille sept cent vingt-quatre",
+     "a": "ألف وسبعمية وأربعة وعشرين",
+     "e": "One thousand seven hundred and twenty-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-202",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 30/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 30",
+   "phr": [
+    {
+     "f": "1725 — Mille sept cent vingt-cinq",
+     "a": "ألف وسبعمية وخمسة وعشرين",
+     "e": "One thousand seven hundred and twenty-five"
+    },
+    {
+     "f": "1726 — Mille sept cent vingt-six",
+     "a": "ألف وسبعمية وستة وعشرين",
+     "e": "One thousand seven hundred and twenty-six"
+    },
+    {
+     "f": "1727 — Mille sept cent vingt-sept",
+     "a": "ألف وسبعمية وسبعة وعشرين",
+     "e": "One thousand seven hundred and twenty-seven"
+    },
+    {
+     "f": "1728 — Mille sept cent vingt-huit",
+     "a": "ألف وسبعمية وتمانية وعشرين",
+     "e": "One thousand seven hundred and twenty-eight"
+    },
+    {
+     "f": "1729 — Mille sept cent vingt-neuf",
+     "a": "ألف وسبعمية وتسعة وعشرين",
+     "e": "One thousand seven hundred and twenty-nine"
+    },
+    {
+     "f": "1730 — Mille sept cent trente",
+     "a": "ألف وسبعمية وتلاتين",
+     "e": "One thousand seven hundred and thirty"
+    },
+    {
+     "f": "1731 — Mille sept cent trente et un",
+     "a": "ألف وسبعمية وواحد وتلاتين",
+     "e": "One thousand seven hundred and thirty-one"
+    },
+    {
+     "f": "1732 — Mille sept cent trente-deux",
+     "a": "ألف وسبعمية واتنين وتلاتين",
+     "e": "One thousand seven hundred and thirty-two"
+    },
+    {
+     "f": "1733 — Mille sept cent trente-trois",
+     "a": "ألف وسبعمية وتلاتة وتلاتين",
+     "e": "One thousand seven hundred and thirty-three"
+    },
+    {
+     "f": "1734 — Mille sept cent trente-quatre",
+     "a": "ألف وسبعمية وأربعة وتلاتين",
+     "e": "One thousand seven hundred and thirty-four"
+    },
+    {
+     "f": "1735 — Mille sept cent trente-cinq",
+     "a": "ألف وسبعمية وخمسة وتلاتين",
+     "e": "One thousand seven hundred and thirty-five"
+    },
+    {
+     "f": "1736 — Mille sept cent trente-six",
+     "a": "ألف وسبعمية وستة وتلاتين",
+     "e": "One thousand seven hundred and thirty-six"
+    },
+    {
+     "f": "1737 — Mille sept cent trente-sept",
+     "a": "ألف وسبعمية وسبعة وتلاتين",
+     "e": "One thousand seven hundred and thirty-seven"
+    },
+    {
+     "f": "1738 — Mille sept cent trente-huit",
+     "a": "ألف وسبعمية وتمانية وتلاتين",
+     "e": "One thousand seven hundred and thirty-eight"
+    },
+    {
+     "f": "1739 — Mille sept cent trente-neuf",
+     "a": "ألف وسبعمية وتسعة وتلاتين",
+     "e": "One thousand seven hundred and thirty-nine"
+    },
+    {
+     "f": "1740 — Mille sept cent quarante",
+     "a": "ألف وسبعمية وأربعين",
+     "e": "One thousand seven hundred and forty"
+    },
+    {
+     "f": "1741 — Mille sept cent quarante et un",
+     "a": "ألف وسبعمية وواحد وأربعين",
+     "e": "One thousand seven hundred and forty-one"
+    },
+    {
+     "f": "1742 — Mille sept cent quarante-deux",
+     "a": "ألف وسبعمية واتنين وأربعين",
+     "e": "One thousand seven hundred and forty-two"
+    },
+    {
+     "f": "1743 — Mille sept cent quarante-trois",
+     "a": "ألف وسبعمية وتلاتة وأربعين",
+     "e": "One thousand seven hundred and forty-three"
+    },
+    {
+     "f": "1744 — Mille sept cent quarante-quatre",
+     "a": "ألف وسبعمية وأربعة وأربعين",
+     "e": "One thousand seven hundred and forty-four"
+    },
+    {
+     "f": "1745 — Mille sept cent quarante-cinq",
+     "a": "ألف وسبعمية وخمسة وأربعين",
+     "e": "One thousand seven hundred and forty-five"
+    },
+    {
+     "f": "1746 — Mille sept cent quarante-six",
+     "a": "ألف وسبعمية وستة وأربعين",
+     "e": "One thousand seven hundred and forty-six"
+    },
+    {
+     "f": "1747 — Mille sept cent quarante-sept",
+     "a": "ألف وسبعمية وسبعة وأربعين",
+     "e": "One thousand seven hundred and forty-seven"
+    },
+    {
+     "f": "1748 — Mille sept cent quarante-huit",
+     "a": "ألف وسبعمية وتمانية وأربعين",
+     "e": "One thousand seven hundred and forty-eight"
+    },
+    {
+     "f": "1749 — Mille sept cent quarante-neuf",
+     "a": "ألف وسبعمية وتسعة وأربعين",
+     "e": "One thousand seven hundred and forty-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-203",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 31/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 31",
+   "phr": [
+    {
+     "f": "1750 — Mille sept cent cinquante",
+     "a": "ألف وسبعمية وخمسين",
+     "e": "One thousand seven hundred and fifty"
+    },
+    {
+     "f": "1751 — Mille sept cent cinquante et un",
+     "a": "ألف وسبعمية وواحد وخمسين",
+     "e": "One thousand seven hundred and fifty-one"
+    },
+    {
+     "f": "1752 — Mille sept cent cinquante-deux",
+     "a": "ألف وسبعمية واتنين وخمسين",
+     "e": "One thousand seven hundred and fifty-two"
+    },
+    {
+     "f": "1753 — Mille sept cent cinquante-trois",
+     "a": "ألف وسبعمية وتلاتة وخمسين",
+     "e": "One thousand seven hundred and fifty-three"
+    },
+    {
+     "f": "1754 — Mille sept cent cinquante-quatre",
+     "a": "ألف وسبعمية وأربعة وخمسين",
+     "e": "One thousand seven hundred and fifty-four"
+    },
+    {
+     "f": "1755 — Mille sept cent cinquante-cinq",
+     "a": "ألف وسبعمية وخمسة وخمسين",
+     "e": "One thousand seven hundred and fifty-five"
+    },
+    {
+     "f": "1756 — Mille sept cent cinquante-six",
+     "a": "ألف وسبعمية وستة وخمسين",
+     "e": "One thousand seven hundred and fifty-six"
+    },
+    {
+     "f": "1757 — Mille sept cent cinquante-sept",
+     "a": "ألف وسبعمية وسبعة وخمسين",
+     "e": "One thousand seven hundred and fifty-seven"
+    },
+    {
+     "f": "1758 — Mille sept cent cinquante-huit",
+     "a": "ألف وسبعمية وتمانية وخمسين",
+     "e": "One thousand seven hundred and fifty-eight"
+    },
+    {
+     "f": "1759 — Mille sept cent cinquante-neuf",
+     "a": "ألف وسبعمية وتسعة وخمسين",
+     "e": "One thousand seven hundred and fifty-nine"
+    },
+    {
+     "f": "1760 — Mille sept cent soixante",
+     "a": "ألف وسبعمية وستين",
+     "e": "One thousand seven hundred and sixty"
+    },
+    {
+     "f": "1761 — Mille sept cent soixante et un",
+     "a": "ألف وسبعمية وواحد وستين",
+     "e": "One thousand seven hundred and sixty-one"
+    },
+    {
+     "f": "1762 — Mille sept cent soixante-deux",
+     "a": "ألف وسبعمية واتنين وستين",
+     "e": "One thousand seven hundred and sixty-two"
+    },
+    {
+     "f": "1763 — Mille sept cent soixante-trois",
+     "a": "ألف وسبعمية وتلاتة وستين",
+     "e": "One thousand seven hundred and sixty-three"
+    },
+    {
+     "f": "1764 — Mille sept cent soixante-quatre",
+     "a": "ألف وسبعمية وأربعة وستين",
+     "e": "One thousand seven hundred and sixty-four"
+    },
+    {
+     "f": "1765 — Mille sept cent soixante-cinq",
+     "a": "ألف وسبعمية وخمسة وستين",
+     "e": "One thousand seven hundred and sixty-five"
+    },
+    {
+     "f": "1766 — Mille sept cent soixante-six",
+     "a": "ألف وسبعمية وستة وستين",
+     "e": "One thousand seven hundred and sixty-six"
+    },
+    {
+     "f": "1767 — Mille sept cent soixante-sept",
+     "a": "ألف وسبعمية وسبعة وستين",
+     "e": "One thousand seven hundred and sixty-seven"
+    },
+    {
+     "f": "1768 — Mille sept cent soixante-huit",
+     "a": "ألف وسبعمية وتمانية وستين",
+     "e": "One thousand seven hundred and sixty-eight"
+    },
+    {
+     "f": "1769 — Mille sept cent soixante-neuf",
+     "a": "ألف وسبعمية وتسعة وستين",
+     "e": "One thousand seven hundred and sixty-nine"
+    },
+    {
+     "f": "1770 — Mille sept cent soixante-dix",
+     "a": "ألف وسبعمية وسبعين",
+     "e": "One thousand seven hundred and seventy"
+    },
+    {
+     "f": "1771 — Mille sept cent soixante et onze",
+     "a": "ألف وسبعمية وواحد وسبعين",
+     "e": "One thousand seven hundred and seventy-one"
+    },
+    {
+     "f": "1772 — Mille sept cent soixante-douze",
+     "a": "ألف وسبعمية واتنين وسبعين",
+     "e": "One thousand seven hundred and seventy-two"
+    },
+    {
+     "f": "1773 — Mille sept cent soixante-treize",
+     "a": "ألف وسبعمية وتلاتة وسبعين",
+     "e": "One thousand seven hundred and seventy-three"
+    },
+    {
+     "f": "1774 — Mille sept cent soixante-quatorze",
+     "a": "ألف وسبعمية وأربعة وسبعين",
+     "e": "One thousand seven hundred and seventy-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-204",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 32/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 32",
+   "phr": [
+    {
+     "f": "1775 — Mille sept cent soixante-quinze",
+     "a": "ألف وسبعمية وخمسة وسبعين",
+     "e": "One thousand seven hundred and seventy-five"
+    },
+    {
+     "f": "1776 — Mille sept cent soixante-seize",
+     "a": "ألف وسبعمية وستة وسبعين",
+     "e": "One thousand seven hundred and seventy-six"
+    },
+    {
+     "f": "1777 — Mille sept cent soixante-dix-sept",
+     "a": "ألف وسبعمية وسبعة وسبعين",
+     "e": "One thousand seven hundred and seventy-seven"
+    },
+    {
+     "f": "1778 — Mille sept cent soixante-dix-huit",
+     "a": "ألف وسبعمية وتمانية وسبعين",
+     "e": "One thousand seven hundred and seventy-eight"
+    },
+    {
+     "f": "1779 — Mille sept cent soixante-dix-neuf",
+     "a": "ألف وسبعمية وتسعة وسبعين",
+     "e": "One thousand seven hundred and seventy-nine"
+    },
+    {
+     "f": "1780 — Mille sept cent quatre-vingts",
+     "a": "ألف وسبعمية وتمانين",
+     "e": "One thousand seven hundred and eighty"
+    },
+    {
+     "f": "1781 — Mille sept cent quatre-vingt-un",
+     "a": "ألف وسبعمية وواحد وتمانين",
+     "e": "One thousand seven hundred and eighty-one"
+    },
+    {
+     "f": "1782 — Mille sept cent quatre-vingt-deux",
+     "a": "ألف وسبعمية واتنين وتمانين",
+     "e": "One thousand seven hundred and eighty-two"
+    },
+    {
+     "f": "1783 — Mille sept cent quatre-vingt-trois",
+     "a": "ألف وسبعمية وتلاتة وتمانين",
+     "e": "One thousand seven hundred and eighty-three"
+    },
+    {
+     "f": "1784 — Mille sept cent quatre-vingt-quatre",
+     "a": "ألف وسبعمية وأربعة وتمانين",
+     "e": "One thousand seven hundred and eighty-four"
+    },
+    {
+     "f": "1785 — Mille sept cent quatre-vingt-cinq",
+     "a": "ألف وسبعمية وخمسة وتمانين",
+     "e": "One thousand seven hundred and eighty-five"
+    },
+    {
+     "f": "1786 — Mille sept cent quatre-vingt-six",
+     "a": "ألف وسبعمية وستة وتمانين",
+     "e": "One thousand seven hundred and eighty-six"
+    },
+    {
+     "f": "1787 — Mille sept cent quatre-vingt-sept",
+     "a": "ألف وسبعمية وسبعة وتمانين",
+     "e": "One thousand seven hundred and eighty-seven"
+    },
+    {
+     "f": "1788 — Mille sept cent quatre-vingt-huit",
+     "a": "ألف وسبعمية وتمانية وتمانين",
+     "e": "One thousand seven hundred and eighty-eight"
+    },
+    {
+     "f": "1789 — Mille sept cent quatre-vingt-neuf",
+     "a": "ألف وسبعمية وتسعة وتمانين",
+     "e": "One thousand seven hundred and eighty-nine"
+    },
+    {
+     "f": "1790 — Mille sept cent quatre-vingt-dix",
+     "a": "ألف وسبعمية وتسعين",
+     "e": "One thousand seven hundred and ninety"
+    },
+    {
+     "f": "1791 — Mille sept cent quatre-vingt-onze",
+     "a": "ألف وسبعمية وواحد وتسعين",
+     "e": "One thousand seven hundred and ninety-one"
+    },
+    {
+     "f": "1792 — Mille sept cent quatre-vingt-douze",
+     "a": "ألف وسبعمية واتنين وتسعين",
+     "e": "One thousand seven hundred and ninety-two"
+    },
+    {
+     "f": "1793 — Mille sept cent quatre-vingt-treize",
+     "a": "ألف وسبعمية وتلاتة وتسعين",
+     "e": "One thousand seven hundred and ninety-three"
+    },
+    {
+     "f": "1794 — Mille sept cent quatre-vingt-quatorze",
+     "a": "ألف وسبعمية وأربعة وتسعين",
+     "e": "One thousand seven hundred and ninety-four"
+    },
+    {
+     "f": "1795 — Mille sept cent quatre-vingt-quinze",
+     "a": "ألف وسبعمية وخمسة وتسعين",
+     "e": "One thousand seven hundred and ninety-five"
+    },
+    {
+     "f": "1796 — Mille sept cent quatre-vingt-seize",
+     "a": "ألف وسبعمية وستة وتسعين",
+     "e": "One thousand seven hundred and ninety-six"
+    },
+    {
+     "f": "1797 — Mille sept cent quatre-vingt-dix-sept",
+     "a": "ألف وسبعمية وسبعة وتسعين",
+     "e": "One thousand seven hundred and ninety-seven"
+    },
+    {
+     "f": "1798 — Mille sept cent quatre-vingt-dix-huit",
+     "a": "ألف وسبعمية وتمانية وتسعين",
+     "e": "One thousand seven hundred and ninety-eight"
+    },
+    {
+     "f": "1799 — Mille sept cent quatre-vingt-dix-neuf",
+     "a": "ألف وسبعمية وتسعة وتسعين",
+     "e": "One thousand seven hundred and ninety-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-205",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 33/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 33",
+   "phr": [
+    {
+     "f": "1800 — Mille huit cents",
+     "a": "ألف وتمنمية",
+     "e": "One thousand eight hundred"
+    },
+    {
+     "f": "1801 — Mille huit cent un",
+     "a": "ألف وتمنمية وواحد",
+     "e": "One thousand eight hundred and one"
+    },
+    {
+     "f": "1802 — Mille huit cent deux",
+     "a": "ألف وتمنمية وتنين",
+     "e": "One thousand eight hundred and two"
+    },
+    {
+     "f": "1803 — Mille huit cent trois",
+     "a": "ألف وتمنمية وتلاتة",
+     "e": "One thousand eight hundred and three"
+    },
+    {
+     "f": "1804 — Mille huit cent quatre",
+     "a": "ألف وتمنمية وأربعة",
+     "e": "One thousand eight hundred and four"
+    },
+    {
+     "f": "1805 — Mille huit cent cinq",
+     "a": "ألف وتمنمية وخمسة",
+     "e": "One thousand eight hundred and five"
+    },
+    {
+     "f": "1806 — Mille huit cent six",
+     "a": "ألف وتمنمية وستة",
+     "e": "One thousand eight hundred and six"
+    },
+    {
+     "f": "1807 — Mille huit cent sept",
+     "a": "ألف وتمنمية وسبعة",
+     "e": "One thousand eight hundred and seven"
+    },
+    {
+     "f": "1808 — Mille huit cent huit",
+     "a": "ألف وتمنمية وتمانية",
+     "e": "One thousand eight hundred and eight"
+    },
+    {
+     "f": "1809 — Mille huit cent neuf",
+     "a": "ألف وتمنمية وتسعة",
+     "e": "One thousand eight hundred and nine"
+    },
+    {
+     "f": "1810 — Mille huit cent dix",
+     "a": "ألف وتمنمية وعشرة",
+     "e": "One thousand eight hundred and ten"
+    },
+    {
+     "f": "1811 — Mille huit cent onze",
+     "a": "ألف وتمنمية وحداش",
+     "e": "One thousand eight hundred and eleven"
+    },
+    {
+     "f": "1812 — Mille huit cent douze",
+     "a": "ألف وتمنمية واتناش",
+     "e": "One thousand eight hundred and twelve"
+    },
+    {
+     "f": "1813 — Mille huit cent treize",
+     "a": "ألف وتمنمية وتلتعش",
+     "e": "One thousand eight hundred and thirteen"
+    },
+    {
+     "f": "1814 — Mille huit cent quatorze",
+     "a": "ألف وتمنمية وأربعتعش",
+     "e": "One thousand eight hundred and fourteen"
+    },
+    {
+     "f": "1815 — Mille huit cent quinze",
+     "a": "ألف وتمنمية وخمستعش",
+     "e": "One thousand eight hundred and fifteen"
+    },
+    {
+     "f": "1816 — Mille huit cent seize",
+     "a": "ألف وتمنمية وستعش",
+     "e": "One thousand eight hundred and sixteen"
+    },
+    {
+     "f": "1817 — Mille huit cent dix-sept",
+     "a": "ألف وتمنمية وسبعتعش",
+     "e": "One thousand eight hundred and seventeen"
+    },
+    {
+     "f": "1818 — Mille huit cent dix-huit",
+     "a": "ألف وتمنمية وتمنتعش",
+     "e": "One thousand eight hundred and eighteen"
+    },
+    {
+     "f": "1819 — Mille huit cent dix-neuf",
+     "a": "ألف وتمنمية وتسعتعش",
+     "e": "One thousand eight hundred and nineteen"
+    },
+    {
+     "f": "1820 — Mille huit cent vingt",
+     "a": "ألف وتمنمية وعشرين",
+     "e": "One thousand eight hundred and twenty"
+    },
+    {
+     "f": "1821 — Mille huit cent vingt et un",
+     "a": "ألف وتمنمية وواحد وعشرين",
+     "e": "One thousand eight hundred and twenty-one"
+    },
+    {
+     "f": "1822 — Mille huit cent vingt-deux",
+     "a": "ألف وتمنمية واتنين وعشرين",
+     "e": "One thousand eight hundred and twenty-two"
+    },
+    {
+     "f": "1823 — Mille huit cent vingt-trois",
+     "a": "ألف وتمنمية وتلاتة وعشرين",
+     "e": "One thousand eight hundred and twenty-three"
+    },
+    {
+     "f": "1824 — Mille huit cent vingt-quatre",
+     "a": "ألف وتمنمية وأربعة وعشرين",
+     "e": "One thousand eight hundred and twenty-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-206",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 34/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 34",
+   "phr": [
+    {
+     "f": "1825 — Mille huit cent vingt-cinq",
+     "a": "ألف وتمنمية وخمسة وعشرين",
+     "e": "One thousand eight hundred and twenty-five"
+    },
+    {
+     "f": "1826 — Mille huit cent vingt-six",
+     "a": "ألف وتمنمية وستة وعشرين",
+     "e": "One thousand eight hundred and twenty-six"
+    },
+    {
+     "f": "1827 — Mille huit cent vingt-sept",
+     "a": "ألف وتمنمية وسبعة وعشرين",
+     "e": "One thousand eight hundred and twenty-seven"
+    },
+    {
+     "f": "1828 — Mille huit cent vingt-huit",
+     "a": "ألف وتمنمية وتمانية وعشرين",
+     "e": "One thousand eight hundred and twenty-eight"
+    },
+    {
+     "f": "1829 — Mille huit cent vingt-neuf",
+     "a": "ألف وتمنمية وتسعة وعشرين",
+     "e": "One thousand eight hundred and twenty-nine"
+    },
+    {
+     "f": "1830 — Mille huit cent trente",
+     "a": "ألف وتمنمية وتلاتين",
+     "e": "One thousand eight hundred and thirty"
+    },
+    {
+     "f": "1831 — Mille huit cent trente et un",
+     "a": "ألف وتمنمية وواحد وتلاتين",
+     "e": "One thousand eight hundred and thirty-one"
+    },
+    {
+     "f": "1832 — Mille huit cent trente-deux",
+     "a": "ألف وتمنمية واتنين وتلاتين",
+     "e": "One thousand eight hundred and thirty-two"
+    },
+    {
+     "f": "1833 — Mille huit cent trente-trois",
+     "a": "ألف وتمنمية وتلاتة وتلاتين",
+     "e": "One thousand eight hundred and thirty-three"
+    },
+    {
+     "f": "1834 — Mille huit cent trente-quatre",
+     "a": "ألف وتمنمية وأربعة وتلاتين",
+     "e": "One thousand eight hundred and thirty-four"
+    },
+    {
+     "f": "1835 — Mille huit cent trente-cinq",
+     "a": "ألف وتمنمية وخمسة وتلاتين",
+     "e": "One thousand eight hundred and thirty-five"
+    },
+    {
+     "f": "1836 — Mille huit cent trente-six",
+     "a": "ألف وتمنمية وستة وتلاتين",
+     "e": "One thousand eight hundred and thirty-six"
+    },
+    {
+     "f": "1837 — Mille huit cent trente-sept",
+     "a": "ألف وتمنمية وسبعة وتلاتين",
+     "e": "One thousand eight hundred and thirty-seven"
+    },
+    {
+     "f": "1838 — Mille huit cent trente-huit",
+     "a": "ألف وتمنمية وتمانية وتلاتين",
+     "e": "One thousand eight hundred and thirty-eight"
+    },
+    {
+     "f": "1839 — Mille huit cent trente-neuf",
+     "a": "ألف وتمنمية وتسعة وتلاتين",
+     "e": "One thousand eight hundred and thirty-nine"
+    },
+    {
+     "f": "1840 — Mille huit cent quarante",
+     "a": "ألف وتمنمية وأربعين",
+     "e": "One thousand eight hundred and forty"
+    },
+    {
+     "f": "1841 — Mille huit cent quarante et un",
+     "a": "ألف وتمنمية وواحد وأربعين",
+     "e": "One thousand eight hundred and forty-one"
+    },
+    {
+     "f": "1842 — Mille huit cent quarante-deux",
+     "a": "ألف وتمنمية واتنين وأربعين",
+     "e": "One thousand eight hundred and forty-two"
+    },
+    {
+     "f": "1843 — Mille huit cent quarante-trois",
+     "a": "ألف وتمنمية وتلاتة وأربعين",
+     "e": "One thousand eight hundred and forty-three"
+    },
+    {
+     "f": "1844 — Mille huit cent quarante-quatre",
+     "a": "ألف وتمنمية وأربعة وأربعين",
+     "e": "One thousand eight hundred and forty-four"
+    },
+    {
+     "f": "1845 — Mille huit cent quarante-cinq",
+     "a": "ألف وتمنمية وخمسة وأربعين",
+     "e": "One thousand eight hundred and forty-five"
+    },
+    {
+     "f": "1846 — Mille huit cent quarante-six",
+     "a": "ألف وتمنمية وستة وأربعين",
+     "e": "One thousand eight hundred and forty-six"
+    },
+    {
+     "f": "1847 — Mille huit cent quarante-sept",
+     "a": "ألف وتمنمية وسبعة وأربعين",
+     "e": "One thousand eight hundred and forty-seven"
+    },
+    {
+     "f": "1848 — Mille huit cent quarante-huit",
+     "a": "ألف وتمنمية وتمانية وأربعين",
+     "e": "One thousand eight hundred and forty-eight"
+    },
+    {
+     "f": "1849 — Mille huit cent quarante-neuf",
+     "a": "ألف وتمنمية وتسعة وأربعين",
+     "e": "One thousand eight hundred and forty-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-207",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 35/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 35",
+   "phr": [
+    {
+     "f": "1850 — Mille huit cent cinquante",
+     "a": "ألف وتمنمية وخمسين",
+     "e": "One thousand eight hundred and fifty"
+    },
+    {
+     "f": "1851 — Mille huit cent cinquante et un",
+     "a": "ألف وتمنمية وواحد وخمسين",
+     "e": "One thousand eight hundred and fifty-one"
+    },
+    {
+     "f": "1852 — Mille huit cent cinquante-deux",
+     "a": "ألف وتمنمية واتنين وخمسين",
+     "e": "One thousand eight hundred and fifty-two"
+    },
+    {
+     "f": "1853 — Mille huit cent cinquante-trois",
+     "a": "ألف وتمنمية وتلاتة وخمسين",
+     "e": "One thousand eight hundred and fifty-three"
+    },
+    {
+     "f": "1854 — Mille huit cent cinquante-quatre",
+     "a": "ألف وتمنمية وأربعة وخمسين",
+     "e": "One thousand eight hundred and fifty-four"
+    },
+    {
+     "f": "1855 — Mille huit cent cinquante-cinq",
+     "a": "ألف وتمنمية وخمسة وخمسين",
+     "e": "One thousand eight hundred and fifty-five"
+    },
+    {
+     "f": "1856 — Mille huit cent cinquante-six",
+     "a": "ألف وتمنمية وستة وخمسين",
+     "e": "One thousand eight hundred and fifty-six"
+    },
+    {
+     "f": "1857 — Mille huit cent cinquante-sept",
+     "a": "ألف وتمنمية وسبعة وخمسين",
+     "e": "One thousand eight hundred and fifty-seven"
+    },
+    {
+     "f": "1858 — Mille huit cent cinquante-huit",
+     "a": "ألف وتمنمية وتمانية وخمسين",
+     "e": "One thousand eight hundred and fifty-eight"
+    },
+    {
+     "f": "1859 — Mille huit cent cinquante-neuf",
+     "a": "ألف وتمنمية وتسعة وخمسين",
+     "e": "One thousand eight hundred and fifty-nine"
+    },
+    {
+     "f": "1860 — Mille huit cent soixante",
+     "a": "ألف وتمنمية وستين",
+     "e": "One thousand eight hundred and sixty"
+    },
+    {
+     "f": "1861 — Mille huit cent soixante et un",
+     "a": "ألف وتمنمية وواحد وستين",
+     "e": "One thousand eight hundred and sixty-one"
+    },
+    {
+     "f": "1862 — Mille huit cent soixante-deux",
+     "a": "ألف وتمنمية واتنين وستين",
+     "e": "One thousand eight hundred and sixty-two"
+    },
+    {
+     "f": "1863 — Mille huit cent soixante-trois",
+     "a": "ألف وتمنمية وتلاتة وستين",
+     "e": "One thousand eight hundred and sixty-three"
+    },
+    {
+     "f": "1864 — Mille huit cent soixante-quatre",
+     "a": "ألف وتمنمية وأربعة وستين",
+     "e": "One thousand eight hundred and sixty-four"
+    },
+    {
+     "f": "1865 — Mille huit cent soixante-cinq",
+     "a": "ألف وتمنمية وخمسة وستين",
+     "e": "One thousand eight hundred and sixty-five"
+    },
+    {
+     "f": "1866 — Mille huit cent soixante-six",
+     "a": "ألف وتمنمية وستة وستين",
+     "e": "One thousand eight hundred and sixty-six"
+    },
+    {
+     "f": "1867 — Mille huit cent soixante-sept",
+     "a": "ألف وتمنمية وسبعة وستين",
+     "e": "One thousand eight hundred and sixty-seven"
+    },
+    {
+     "f": "1868 — Mille huit cent soixante-huit",
+     "a": "ألف وتمنمية وتمانية وستين",
+     "e": "One thousand eight hundred and sixty-eight"
+    },
+    {
+     "f": "1869 — Mille huit cent soixante-neuf",
+     "a": "ألف وتمنمية وتسعة وستين",
+     "e": "One thousand eight hundred and sixty-nine"
+    },
+    {
+     "f": "1870 — Mille huit cent soixante-dix",
+     "a": "ألف وتمنمية وسبعين",
+     "e": "One thousand eight hundred and seventy"
+    },
+    {
+     "f": "1871 — Mille huit cent soixante et onze",
+     "a": "ألف وتمنمية وواحد وسبعين",
+     "e": "One thousand eight hundred and seventy-one"
+    },
+    {
+     "f": "1872 — Mille huit cent soixante-douze",
+     "a": "ألف وتمنمية واتنين وسبعين",
+     "e": "One thousand eight hundred and seventy-two"
+    },
+    {
+     "f": "1873 — Mille huit cent soixante-treize",
+     "a": "ألف وتمنمية وتلاتة وسبعين",
+     "e": "One thousand eight hundred and seventy-three"
+    },
+    {
+     "f": "1874 — Mille huit cent soixante-quatorze",
+     "a": "ألف وتمنمية وأربعة وسبعين",
+     "e": "One thousand eight hundred and seventy-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-208",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 36/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 36",
+   "phr": [
+    {
+     "f": "1875 — Mille huit cent soixante-quinze",
+     "a": "ألف وتمنمية وخمسة وسبعين",
+     "e": "One thousand eight hundred and seventy-five"
+    },
+    {
+     "f": "1876 — Mille huit cent soixante-seize",
+     "a": "ألف وتمنمية وستة وسبعين",
+     "e": "One thousand eight hundred and seventy-six"
+    },
+    {
+     "f": "1877 — Mille huit cent soixante-dix-sept",
+     "a": "ألف وتمنمية وسبعة وسبعين",
+     "e": "One thousand eight hundred and seventy-seven"
+    },
+    {
+     "f": "1878 — Mille huit cent soixante-dix-huit",
+     "a": "ألف وتمنمية وتمانية وسبعين",
+     "e": "One thousand eight hundred and seventy-eight"
+    },
+    {
+     "f": "1879 — Mille huit cent soixante-dix-neuf",
+     "a": "ألف وتمنمية وتسعة وسبعين",
+     "e": "One thousand eight hundred and seventy-nine"
+    },
+    {
+     "f": "1880 — Mille huit cent quatre-vingts",
+     "a": "ألف وتمنمية وتمانين",
+     "e": "One thousand eight hundred and eighty"
+    },
+    {
+     "f": "1881 — Mille huit cent quatre-vingt-un",
+     "a": "ألف وتمنمية وواحد وتمانين",
+     "e": "One thousand eight hundred and eighty-one"
+    },
+    {
+     "f": "1882 — Mille huit cent quatre-vingt-deux",
+     "a": "ألف وتمنمية واتنين وتمانين",
+     "e": "One thousand eight hundred and eighty-two"
+    },
+    {
+     "f": "1883 — Mille huit cent quatre-vingt-trois",
+     "a": "ألف وتمنمية وتلاتة وتمانين",
+     "e": "One thousand eight hundred and eighty-three"
+    },
+    {
+     "f": "1884 — Mille huit cent quatre-vingt-quatre",
+     "a": "ألف وتمنمية وأربعة وتمانين",
+     "e": "One thousand eight hundred and eighty-four"
+    },
+    {
+     "f": "1885 — Mille huit cent quatre-vingt-cinq",
+     "a": "ألف وتمنمية وخمسة وتمانين",
+     "e": "One thousand eight hundred and eighty-five"
+    },
+    {
+     "f": "1886 — Mille huit cent quatre-vingt-six",
+     "a": "ألف وتمنمية وستة وتمانين",
+     "e": "One thousand eight hundred and eighty-six"
+    },
+    {
+     "f": "1887 — Mille huit cent quatre-vingt-sept",
+     "a": "ألف وتمنمية وسبعة وتمانين",
+     "e": "One thousand eight hundred and eighty-seven"
+    },
+    {
+     "f": "1888 — Mille huit cent quatre-vingt-huit",
+     "a": "ألف وتمنمية وتمانية وتمانين",
+     "e": "One thousand eight hundred and eighty-eight"
+    },
+    {
+     "f": "1889 — Mille huit cent quatre-vingt-neuf",
+     "a": "ألف وتمنمية وتسعة وتمانين",
+     "e": "One thousand eight hundred and eighty-nine"
+    },
+    {
+     "f": "1890 — Mille huit cent quatre-vingt-dix",
+     "a": "ألف وتمنمية وتسعين",
+     "e": "One thousand eight hundred and ninety"
+    },
+    {
+     "f": "1891 — Mille huit cent quatre-vingt-onze",
+     "a": "ألف وتمنمية وواحد وتسعين",
+     "e": "One thousand eight hundred and ninety-one"
+    },
+    {
+     "f": "1892 — Mille huit cent quatre-vingt-douze",
+     "a": "ألف وتمنمية واتنين وتسعين",
+     "e": "One thousand eight hundred and ninety-two"
+    },
+    {
+     "f": "1893 — Mille huit cent quatre-vingt-treize",
+     "a": "ألف وتمنمية وتلاتة وتسعين",
+     "e": "One thousand eight hundred and ninety-three"
+    },
+    {
+     "f": "1894 — Mille huit cent quatre-vingt-quatorze",
+     "a": "ألف وتمنمية وأربعة وتسعين",
+     "e": "One thousand eight hundred and ninety-four"
+    },
+    {
+     "f": "1895 — Mille huit cent quatre-vingt-quinze",
+     "a": "ألف وتمنمية وخمسة وتسعين",
+     "e": "One thousand eight hundred and ninety-five"
+    },
+    {
+     "f": "1896 — Mille huit cent quatre-vingt-seize",
+     "a": "ألف وتمنمية وستة وتسعين",
+     "e": "One thousand eight hundred and ninety-six"
+    },
+    {
+     "f": "1897 — Mille huit cent quatre-vingt-dix-sept",
+     "a": "ألف وتمنمية وسبعة وتسعين",
+     "e": "One thousand eight hundred and ninety-seven"
+    },
+    {
+     "f": "1898 — Mille huit cent quatre-vingt-dix-huit",
+     "a": "ألف وتمنمية وتمانية وتسعين",
+     "e": "One thousand eight hundred and ninety-eight"
+    },
+    {
+     "f": "1899 — Mille huit cent quatre-vingt-dix-neuf",
+     "a": "ألف وتمنمية وتسعة وتسعين",
+     "e": "One thousand eight hundred and ninety-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-209",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 37/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 37",
+   "phr": [
+    {
+     "f": "1900 — Mille neuf cents",
+     "a": "ألف وتسعمية",
+     "e": "One thousand nine hundred"
+    },
+    {
+     "f": "1901 — Mille neuf cent un",
+     "a": "ألف وتسعمية وواحد",
+     "e": "One thousand nine hundred and one"
+    },
+    {
+     "f": "1902 — Mille neuf cent deux",
+     "a": "ألف وتسعمية وتنين",
+     "e": "One thousand nine hundred and two"
+    },
+    {
+     "f": "1903 — Mille neuf cent trois",
+     "a": "ألف وتسعمية وتلاتة",
+     "e": "One thousand nine hundred and three"
+    },
+    {
+     "f": "1904 — Mille neuf cent quatre",
+     "a": "ألف وتسعمية وأربعة",
+     "e": "One thousand nine hundred and four"
+    },
+    {
+     "f": "1905 — Mille neuf cent cinq",
+     "a": "ألف وتسعمية وخمسة",
+     "e": "One thousand nine hundred and five"
+    },
+    {
+     "f": "1906 — Mille neuf cent six",
+     "a": "ألف وتسعمية وستة",
+     "e": "One thousand nine hundred and six"
+    },
+    {
+     "f": "1907 — Mille neuf cent sept",
+     "a": "ألف وتسعمية وسبعة",
+     "e": "One thousand nine hundred and seven"
+    },
+    {
+     "f": "1908 — Mille neuf cent huit",
+     "a": "ألف وتسعمية وتمانية",
+     "e": "One thousand nine hundred and eight"
+    },
+    {
+     "f": "1909 — Mille neuf cent neuf",
+     "a": "ألف وتسعمية وتسعة",
+     "e": "One thousand nine hundred and nine"
+    },
+    {
+     "f": "1910 — Mille neuf cent dix",
+     "a": "ألف وتسعمية وعشرة",
+     "e": "One thousand nine hundred and ten"
+    },
+    {
+     "f": "1911 — Mille neuf cent onze",
+     "a": "ألف وتسعمية وحداش",
+     "e": "One thousand nine hundred and eleven"
+    },
+    {
+     "f": "1912 — Mille neuf cent douze",
+     "a": "ألف وتسعمية واتناش",
+     "e": "One thousand nine hundred and twelve"
+    },
+    {
+     "f": "1913 — Mille neuf cent treize",
+     "a": "ألف وتسعمية وتلتعش",
+     "e": "One thousand nine hundred and thirteen"
+    },
+    {
+     "f": "1914 — Mille neuf cent quatorze",
+     "a": "ألف وتسعمية وأربعتعش",
+     "e": "One thousand nine hundred and fourteen"
+    },
+    {
+     "f": "1915 — Mille neuf cent quinze",
+     "a": "ألف وتسعمية وخمستعش",
+     "e": "One thousand nine hundred and fifteen"
+    },
+    {
+     "f": "1916 — Mille neuf cent seize",
+     "a": "ألف وتسعمية وستعش",
+     "e": "One thousand nine hundred and sixteen"
+    },
+    {
+     "f": "1917 — Mille neuf cent dix-sept",
+     "a": "ألف وتسعمية وسبعتعش",
+     "e": "One thousand nine hundred and seventeen"
+    },
+    {
+     "f": "1918 — Mille neuf cent dix-huit",
+     "a": "ألف وتسعمية وتمنتعش",
+     "e": "One thousand nine hundred and eighteen"
+    },
+    {
+     "f": "1919 — Mille neuf cent dix-neuf",
+     "a": "ألف وتسعمية وتسعتعش",
+     "e": "One thousand nine hundred and nineteen"
+    },
+    {
+     "f": "1920 — Mille neuf cent vingt",
+     "a": "ألف وتسعمية وعشرين",
+     "e": "One thousand nine hundred and twenty"
+    },
+    {
+     "f": "1921 — Mille neuf cent vingt et un",
+     "a": "ألف وتسعمية وواحد وعشرين",
+     "e": "One thousand nine hundred and twenty-one"
+    },
+    {
+     "f": "1922 — Mille neuf cent vingt-deux",
+     "a": "ألف وتسعمية واتنين وعشرين",
+     "e": "One thousand nine hundred and twenty-two"
+    },
+    {
+     "f": "1923 — Mille neuf cent vingt-trois",
+     "a": "ألف وتسعمية وتلاتة وعشرين",
+     "e": "One thousand nine hundred and twenty-three"
+    },
+    {
+     "f": "1924 — Mille neuf cent vingt-quatre",
+     "a": "ألف وتسعمية وأربعة وعشرين",
+     "e": "One thousand nine hundred and twenty-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-210",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 38/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 38",
+   "phr": [
+    {
+     "f": "1925 — Mille neuf cent vingt-cinq",
+     "a": "ألف وتسعمية وخمسة وعشرين",
+     "e": "One thousand nine hundred and twenty-five"
+    },
+    {
+     "f": "1926 — Mille neuf cent vingt-six",
+     "a": "ألف وتسعمية وستة وعشرين",
+     "e": "One thousand nine hundred and twenty-six"
+    },
+    {
+     "f": "1927 — Mille neuf cent vingt-sept",
+     "a": "ألف وتسعمية وسبعة وعشرين",
+     "e": "One thousand nine hundred and twenty-seven"
+    },
+    {
+     "f": "1928 — Mille neuf cent vingt-huit",
+     "a": "ألف وتسعمية وتمانية وعشرين",
+     "e": "One thousand nine hundred and twenty-eight"
+    },
+    {
+     "f": "1929 — Mille neuf cent vingt-neuf",
+     "a": "ألف وتسعمية وتسعة وعشرين",
+     "e": "One thousand nine hundred and twenty-nine"
+    },
+    {
+     "f": "1930 — Mille neuf cent trente",
+     "a": "ألف وتسعمية وتلاتين",
+     "e": "One thousand nine hundred and thirty"
+    },
+    {
+     "f": "1931 — Mille neuf cent trente et un",
+     "a": "ألف وتسعمية وواحد وتلاتين",
+     "e": "One thousand nine hundred and thirty-one"
+    },
+    {
+     "f": "1932 — Mille neuf cent trente-deux",
+     "a": "ألف وتسعمية واتنين وتلاتين",
+     "e": "One thousand nine hundred and thirty-two"
+    },
+    {
+     "f": "1933 — Mille neuf cent trente-trois",
+     "a": "ألف وتسعمية وتلاتة وتلاتين",
+     "e": "One thousand nine hundred and thirty-three"
+    },
+    {
+     "f": "1934 — Mille neuf cent trente-quatre",
+     "a": "ألف وتسعمية وأربعة وتلاتين",
+     "e": "One thousand nine hundred and thirty-four"
+    },
+    {
+     "f": "1935 — Mille neuf cent trente-cinq",
+     "a": "ألف وتسعمية وخمسة وتلاتين",
+     "e": "One thousand nine hundred and thirty-five"
+    },
+    {
+     "f": "1936 — Mille neuf cent trente-six",
+     "a": "ألف وتسعمية وستة وتلاتين",
+     "e": "One thousand nine hundred and thirty-six"
+    },
+    {
+     "f": "1937 — Mille neuf cent trente-sept",
+     "a": "ألف وتسعمية وسبعة وتلاتين",
+     "e": "One thousand nine hundred and thirty-seven"
+    },
+    {
+     "f": "1938 — Mille neuf cent trente-huit",
+     "a": "ألف وتسعمية وتمانية وتلاتين",
+     "e": "One thousand nine hundred and thirty-eight"
+    },
+    {
+     "f": "1939 — Mille neuf cent trente-neuf",
+     "a": "ألف وتسعمية وتسعة وتلاتين",
+     "e": "One thousand nine hundred and thirty-nine"
+    },
+    {
+     "f": "1940 — Mille neuf cent quarante",
+     "a": "ألف وتسعمية وأربعين",
+     "e": "One thousand nine hundred and forty"
+    },
+    {
+     "f": "1941 — Mille neuf cent quarante et un",
+     "a": "ألف وتسعمية وواحد وأربعين",
+     "e": "One thousand nine hundred and forty-one"
+    },
+    {
+     "f": "1942 — Mille neuf cent quarante-deux",
+     "a": "ألف وتسعمية واتنين وأربعين",
+     "e": "One thousand nine hundred and forty-two"
+    },
+    {
+     "f": "1943 — Mille neuf cent quarante-trois",
+     "a": "ألف وتسعمية وتلاتة وأربعين",
+     "e": "One thousand nine hundred and forty-three"
+    },
+    {
+     "f": "1944 — Mille neuf cent quarante-quatre",
+     "a": "ألف وتسعمية وأربعة وأربعين",
+     "e": "One thousand nine hundred and forty-four"
+    },
+    {
+     "f": "1945 — Mille neuf cent quarante-cinq",
+     "a": "ألف وتسعمية وخمسة وأربعين",
+     "e": "One thousand nine hundred and forty-five"
+    },
+    {
+     "f": "1946 — Mille neuf cent quarante-six",
+     "a": "ألف وتسعمية وستة وأربعين",
+     "e": "One thousand nine hundred and forty-six"
+    },
+    {
+     "f": "1947 — Mille neuf cent quarante-sept",
+     "a": "ألف وتسعمية وسبعة وأربعين",
+     "e": "One thousand nine hundred and forty-seven"
+    },
+    {
+     "f": "1948 — Mille neuf cent quarante-huit",
+     "a": "ألف وتسعمية وتمانية وأربعين",
+     "e": "One thousand nine hundred and forty-eight"
+    },
+    {
+     "f": "1949 — Mille neuf cent quarante-neuf",
+     "a": "ألف وتسعمية وتسعة وأربعين",
+     "e": "One thousand nine hundred and forty-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-211",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 39/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 39",
+   "phr": [
+    {
+     "f": "1950 — Mille neuf cent cinquante",
+     "a": "ألف وتسعمية وخمسين",
+     "e": "One thousand nine hundred and fifty"
+    },
+    {
+     "f": "1951 — Mille neuf cent cinquante et un",
+     "a": "ألف وتسعمية وواحد وخمسين",
+     "e": "One thousand nine hundred and fifty-one"
+    },
+    {
+     "f": "1952 — Mille neuf cent cinquante-deux",
+     "a": "ألف وتسعمية واتنين وخمسين",
+     "e": "One thousand nine hundred and fifty-two"
+    },
+    {
+     "f": "1953 — Mille neuf cent cinquante-trois",
+     "a": "ألف وتسعمية وتلاتة وخمسين",
+     "e": "One thousand nine hundred and fifty-three"
+    },
+    {
+     "f": "1954 — Mille neuf cent cinquante-quatre",
+     "a": "ألف وتسعمية وأربعة وخمسين",
+     "e": "One thousand nine hundred and fifty-four"
+    },
+    {
+     "f": "1955 — Mille neuf cent cinquante-cinq",
+     "a": "ألف وتسعمية وخمسة وخمسين",
+     "e": "One thousand nine hundred and fifty-five"
+    },
+    {
+     "f": "1956 — Mille neuf cent cinquante-six",
+     "a": "ألف وتسعمية وستة وخمسين",
+     "e": "One thousand nine hundred and fifty-six"
+    },
+    {
+     "f": "1957 — Mille neuf cent cinquante-sept",
+     "a": "ألف وتسعمية وسبعة وخمسين",
+     "e": "One thousand nine hundred and fifty-seven"
+    },
+    {
+     "f": "1958 — Mille neuf cent cinquante-huit",
+     "a": "ألف وتسعمية وتمانية وخمسين",
+     "e": "One thousand nine hundred and fifty-eight"
+    },
+    {
+     "f": "1959 — Mille neuf cent cinquante-neuf",
+     "a": "ألف وتسعمية وتسعة وخمسين",
+     "e": "One thousand nine hundred and fifty-nine"
+    },
+    {
+     "f": "1960 — Mille neuf cent soixante",
+     "a": "ألف وتسعمية وستين",
+     "e": "One thousand nine hundred and sixty"
+    },
+    {
+     "f": "1961 — Mille neuf cent soixante et un",
+     "a": "ألف وتسعمية وواحد وستين",
+     "e": "One thousand nine hundred and sixty-one"
+    },
+    {
+     "f": "1962 — Mille neuf cent soixante-deux",
+     "a": "ألف وتسعمية واتنين وستين",
+     "e": "One thousand nine hundred and sixty-two"
+    },
+    {
+     "f": "1963 — Mille neuf cent soixante-trois",
+     "a": "ألف وتسعمية وتلاتة وستين",
+     "e": "One thousand nine hundred and sixty-three"
+    },
+    {
+     "f": "1964 — Mille neuf cent soixante-quatre",
+     "a": "ألف وتسعمية وأربعة وستين",
+     "e": "One thousand nine hundred and sixty-four"
+    },
+    {
+     "f": "1965 — Mille neuf cent soixante-cinq",
+     "a": "ألف وتسعمية وخمسة وستين",
+     "e": "One thousand nine hundred and sixty-five"
+    },
+    {
+     "f": "1966 — Mille neuf cent soixante-six",
+     "a": "ألف وتسعمية وستة وستين",
+     "e": "One thousand nine hundred and sixty-six"
+    },
+    {
+     "f": "1967 — Mille neuf cent soixante-sept",
+     "a": "ألف وتسعمية وسبعة وستين",
+     "e": "One thousand nine hundred and sixty-seven"
+    },
+    {
+     "f": "1968 — Mille neuf cent soixante-huit",
+     "a": "ألف وتسعمية وتمانية وستين",
+     "e": "One thousand nine hundred and sixty-eight"
+    },
+    {
+     "f": "1969 — Mille neuf cent soixante-neuf",
+     "a": "ألف وتسعمية وتسعة وستين",
+     "e": "One thousand nine hundred and sixty-nine"
+    },
+    {
+     "f": "1970 — Mille neuf cent soixante-dix",
+     "a": "ألف وتسعمية وسبعين",
+     "e": "One thousand nine hundred and seventy"
+    },
+    {
+     "f": "1971 — Mille neuf cent soixante et onze",
+     "a": "ألف وتسعمية وواحد وسبعين",
+     "e": "One thousand nine hundred and seventy-one"
+    },
+    {
+     "f": "1972 — Mille neuf cent soixante-douze",
+     "a": "ألف وتسعمية واتنين وسبعين",
+     "e": "One thousand nine hundred and seventy-two"
+    },
+    {
+     "f": "1973 — Mille neuf cent soixante-treize",
+     "a": "ألف وتسعمية وتلاتة وسبعين",
+     "e": "One thousand nine hundred and seventy-three"
+    },
+    {
+     "f": "1974 — Mille neuf cent soixante-quatorze",
+     "a": "ألف وتسعمية وأربعة وسبعين",
+     "e": "One thousand nine hundred and seventy-four"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-212",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 40/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 40",
+   "phr": [
+    {
+     "f": "1975 — Mille neuf cent soixante-quinze",
+     "a": "ألف وتسعمية وخمسة وسبعين",
+     "e": "One thousand nine hundred and seventy-five"
+    },
+    {
+     "f": "1976 — Mille neuf cent soixante-seize",
+     "a": "ألف وتسعمية وستة وسبعين",
+     "e": "One thousand nine hundred and seventy-six"
+    },
+    {
+     "f": "1977 — Mille neuf cent soixante-dix-sept",
+     "a": "ألف وتسعمية وسبعة وسبعين",
+     "e": "One thousand nine hundred and seventy-seven"
+    },
+    {
+     "f": "1978 — Mille neuf cent soixante-dix-huit",
+     "a": "ألف وتسعمية وتمانية وسبعين",
+     "e": "One thousand nine hundred and seventy-eight"
+    },
+    {
+     "f": "1979 — Mille neuf cent soixante-dix-neuf",
+     "a": "ألف وتسعمية وتسعة وسبعين",
+     "e": "One thousand nine hundred and seventy-nine"
+    },
+    {
+     "f": "1980 — Mille neuf cent quatre-vingts",
+     "a": "ألف وتسعمية وتمانين",
+     "e": "One thousand nine hundred and eighty"
+    },
+    {
+     "f": "1981 — Mille neuf cent quatre-vingt-un",
+     "a": "ألف وتسعمية وواحد وتمانين",
+     "e": "One thousand nine hundred and eighty-one"
+    },
+    {
+     "f": "1982 — Mille neuf cent quatre-vingt-deux",
+     "a": "ألف وتسعمية واتنين وتمانين",
+     "e": "One thousand nine hundred and eighty-two"
+    },
+    {
+     "f": "1983 — Mille neuf cent quatre-vingt-trois",
+     "a": "ألف وتسعمية وتلاتة وتمانين",
+     "e": "One thousand nine hundred and eighty-three"
+    },
+    {
+     "f": "1984 — Mille neuf cent quatre-vingt-quatre",
+     "a": "ألف وتسعمية وأربعة وتمانين",
+     "e": "One thousand nine hundred and eighty-four"
+    },
+    {
+     "f": "1985 — Mille neuf cent quatre-vingt-cinq",
+     "a": "ألف وتسعمية وخمسة وتمانين",
+     "e": "One thousand nine hundred and eighty-five"
+    },
+    {
+     "f": "1986 — Mille neuf cent quatre-vingt-six",
+     "a": "ألف وتسعمية وستة وتمانين",
+     "e": "One thousand nine hundred and eighty-six"
+    },
+    {
+     "f": "1987 — Mille neuf cent quatre-vingt-sept",
+     "a": "ألف وتسعمية وسبعة وتمانين",
+     "e": "One thousand nine hundred and eighty-seven"
+    },
+    {
+     "f": "1988 — Mille neuf cent quatre-vingt-huit",
+     "a": "ألف وتسعمية وتمانية وتمانين",
+     "e": "One thousand nine hundred and eighty-eight"
+    },
+    {
+     "f": "1989 — Mille neuf cent quatre-vingt-neuf",
+     "a": "ألف وتسعمية وتسعة وتمانين",
+     "e": "One thousand nine hundred and eighty-nine"
+    },
+    {
+     "f": "1990 — Mille neuf cent quatre-vingt-dix",
+     "a": "ألف وتسعمية وتسعين",
+     "e": "One thousand nine hundred and ninety"
+    },
+    {
+     "f": "1991 — Mille neuf cent quatre-vingt-onze",
+     "a": "ألف وتسعمية وواحد وتسعين",
+     "e": "One thousand nine hundred and ninety-one"
+    },
+    {
+     "f": "1992 — Mille neuf cent quatre-vingt-douze",
+     "a": "ألف وتسعمية واتنين وتسعين",
+     "e": "One thousand nine hundred and ninety-two"
+    },
+    {
+     "f": "1993 — Mille neuf cent quatre-vingt-treize",
+     "a": "ألف وتسعمية وتلاتة وتسعين",
+     "e": "One thousand nine hundred and ninety-three"
+    },
+    {
+     "f": "1994 — Mille neuf cent quatre-vingt-quatorze",
+     "a": "ألف وتسعمية وأربعة وتسعين",
+     "e": "One thousand nine hundred and ninety-four"
+    },
+    {
+     "f": "1995 — Mille neuf cent quatre-vingt-quinze",
+     "a": "ألف وتسعمية وخمسة وتسعين",
+     "e": "One thousand nine hundred and ninety-five"
+    },
+    {
+     "f": "1996 — Mille neuf cent quatre-vingt-seize",
+     "a": "ألف وتسعمية وستة وتسعين",
+     "e": "One thousand nine hundred and ninety-six"
+    },
+    {
+     "f": "1997 — Mille neuf cent quatre-vingt-dix-sept",
+     "a": "ألف وتسعمية وسبعة وتسعين",
+     "e": "One thousand nine hundred and ninety-seven"
+    },
+    {
+     "f": "1998 — Mille neuf cent quatre-vingt-dix-huit",
+     "a": "ألف وتسعمية وتمانية وتسعين",
+     "e": "One thousand nine hundred and ninety-eight"
+    },
+    {
+     "f": "1999 — Mille neuf cent quatre-vingt-dix-neuf",
+     "a": "ألف وتسعمية وتسعة وتسعين",
+     "e": "One thousand nine hundred and ninety-nine"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-213",
+   "icon": "🧮",
+   "fr": "Les nombres de 1000 à 2000 41/41",
+   "ar": "الأرقام من 1000 إلى 2000 — جزء 41",
+   "phr": [
+    {
+     "f": "2000 — Deux mille",
+     "a": "ألفين",
+     "e": "Two thousand"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-214",
+   "icon": "🗓️",
+   "fr": "Exemples de lecture de dates 1/9",
+   "ar": "أمثلة عن قراءة التواريخ — جزء 1",
+   "phr": [
+    {
+     "f": "05/01/2026 — cinq janvier deux mille vingt-six",
+     "a": "5 يناير 2026",
+     "e": "January 5, 2026"
+    },
+    {
+     "f": "12/01/2027 — douze janvier deux mille vingt-sept",
+     "a": "12 يناير 2027",
+     "e": "January 12, 2027"
+    },
+    {
+     "f": "21/01/2028 — vingt et un janvier deux mille vingt-huit",
+     "a": "21 يناير 2028",
+     "e": "January 21, 2028"
+    },
+    {
+     "f": "30/01/2029 — trente janvier deux mille vingt-neuf",
+     "a": "30 يناير 2029",
+     "e": "January 30, 2029"
+    },
+    {
+     "f": "01/02/2026 — premier février deux mille vingt-six",
+     "a": "1 فبراير 2026",
+     "e": "February 1, 2026"
+    },
+    {
+     "f": "14/02/2027 — quatorze février deux mille vingt-sept",
+     "a": "14 فبراير 2027",
+     "e": "February 14, 2027"
+    },
+    {
+     "f": "23/02/2028 — vingt-trois février deux mille vingt-huit",
+     "a": "23 فبراير 2028",
+     "e": "February 23, 2028"
+    },
+    {
+     "f": "28/02/2029 — vingt-huit février deux mille vingt-neuf",
+     "a": "28 فبراير 2029",
+     "e": "February 28, 2029"
+    },
+    {
+     "f": "03/03/2026 — trois mars deux mille vingt-six",
+     "a": "3 مارس 2026",
+     "e": "March 3, 2026"
+    },
+    {
+     "f": "17/03/2027 — dix-sept mars deux mille vingt-sept",
+     "a": "17 مارس 2027",
+     "e": "March 17, 2027"
+    },
+    {
+     "f": "22/03/2028 — vingt-deux mars deux mille vingt-huit",
+     "a": "22 مارس 2028",
+     "e": "March 22, 2028"
+    },
+    {
+     "f": "31/03/2029 — trente et un mars deux mille vingt-neuf",
+     "a": "31 مارس 2029",
+     "e": "March 31, 2029"
+    },
+    {
+     "f": "04/04/2026 — quatre avril deux mille vingt-six",
+     "a": "4 أبريل 2026",
+     "e": "April 4, 2026"
+    },
+    {
+     "f": "16/04/2027 — seize avril deux mille vingt-sept",
+     "a": "16 أبريل 2027",
+     "e": "April 16, 2027"
+    },
+    {
+     "f": "25/04/2028 — vingt-cinq avril deux mille vingt-huit",
+     "a": "25 أبريل 2028",
+     "e": "April 25, 2028"
+    },
+    {
+     "f": "30/04/2029 — trente avril deux mille vingt-neuf",
+     "a": "30 أبريل 2029",
+     "e": "April 30, 2029"
+    },
+    {
+     "f": "01/05/2026 — premier mai deux mille vingt-six",
+     "a": "1 مايو 2026",
+     "e": "May 1, 2026"
+    },
+    {
+     "f": "11/05/2027 — onze mai deux mille vingt-sept",
+     "a": "11 مايو 2027",
+     "e": "May 11, 2027"
+    },
+    {
+     "f": "19/05/2028 — dix-neuf mai deux mille vingt-huit",
+     "a": "19 مايو 2028",
+     "e": "May 19, 2028"
+    },
+    {
+     "f": "29/05/2029 — vingt-neuf mai deux mille vingt-neuf",
+     "a": "29 مايو 2029",
+     "e": "May 29, 2029"
+    },
+    {
+     "f": "02/06/2026 — deux juin deux mille vingt-six",
+     "a": "2 يونيو 2026",
+     "e": "June 2, 2026"
+    },
+    {
+     "f": "13/06/2027 — treize juin deux mille vingt-sept",
+     "a": "13 يونيو 2027",
+     "e": "June 13, 2027"
+    },
+    {
+     "f": "24/06/2028 — vingt-quatre juin deux mille vingt-huit",
+     "a": "24 يونيو 2028",
+     "e": "June 24, 2028"
+    },
+    {
+     "f": "30/06/2029 — trente juin deux mille vingt-neuf",
+     "a": "30 يونيو 2029",
+     "e": "June 30, 2029"
+    },
+    {
+     "f": "06/07/2026 — six juillet deux mille vingt-six",
+     "a": "6 يوليو 2026",
+     "e": "July 6, 2026"
+    }
+   ],
+   "ids": [],
+   "consigne": "بالفرنسي أول يوم بالشهر منقول «premier» مش «un»: 01/02 = premier février، بس 02/02 = deux février.\nالسنة بالفرنسي بتنقرأ كعدد عادي: 2027 = deux mille vingt-sept، وسنة 1987 = mille neuf cent quatre-vingt-sept."
+  },
+  {
+   "id": "a2-215",
+   "icon": "🗓️",
+   "fr": "Exemples de lecture de dates 2/9",
+   "ar": "أمثلة عن قراءة التواريخ — جزء 2",
+   "phr": [
+    {
+     "f": "15/07/2027 — quinze juillet deux mille vingt-sept",
+     "a": "15 يوليو 2027",
+     "e": "July 15, 2027"
+    },
+    {
+     "f": "21/07/2028 — vingt et un juillet deux mille vingt-huit",
+     "a": "21 يوليو 2028",
+     "e": "July 21, 2028"
+    },
+    {
+     "f": "31/07/2029 — trente et un juillet deux mille vingt-neuf",
+     "a": "31 يوليو 2029",
+     "e": "July 31, 2029"
+    },
+    {
+     "f": "08/08/2026 — huit août deux mille vingt-six",
+     "a": "8 أغسطس 2026",
+     "e": "August 8, 2026"
+    },
+    {
+     "f": "17/08/2027 — dix-sept août deux mille vingt-sept",
+     "a": "17 أغسطس 2027",
+     "e": "August 17, 2027"
+    },
+    {
+     "f": "26/08/2028 — vingt-six août deux mille vingt-huit",
+     "a": "26 أغسطس 2028",
+     "e": "August 26, 2028"
+    },
+    {
+     "f": "31/08/2029 — trente et un août deux mille vingt-neuf",
+     "a": "31 أغسطس 2029",
+     "e": "August 31, 2029"
+    },
+    {
+     "f": "01/09/2026 — premier septembre deux mille vingt-six",
+     "a": "1 سبتمبر 2026",
+     "e": "September 1, 2026"
+    },
+    {
+     "f": "12/09/2027 — douze septembre deux mille vingt-sept",
+     "a": "12 سبتمبر 2027",
+     "e": "September 12, 2027"
+    },
+    {
+     "f": "20/09/2028 — vingt septembre deux mille vingt-huit",
+     "a": "20 سبتمبر 2028",
+     "e": "September 20, 2028"
+    },
+    {
+     "f": "30/09/2029 — trente septembre deux mille vingt-neuf",
+     "a": "30 سبتمبر 2029",
+     "e": "September 30, 2029"
+    },
+    {
+     "f": "05/10/2026 — cinq octobre deux mille vingt-six",
+     "a": "5 أكتوبر 2026",
+     "e": "October 5, 2026"
+    },
+    {
+     "f": "14/10/2027 — quatorze octobre deux mille vingt-sept",
+     "a": "14 أكتوبر 2027",
+     "e": "October 14, 2027"
+    },
+    {
+     "f": "23/10/2028 — vingt-trois octobre deux mille vingt-huit",
+     "a": "23 أكتوبر 2028",
+     "e": "October 23, 2028"
+    },
+    {
+     "f": "31/10/2029 — trente et un octobre deux mille vingt-neuf",
+     "a": "31 أكتوبر 2029",
+     "e": "October 31, 2029"
+    },
+    {
+     "f": "07/11/2026 — sept novembre deux mille vingt-six",
+     "a": "7 نوفمبر 2026",
+     "e": "November 7, 2026"
+    },
+    {
+     "f": "16/11/2027 — seize novembre deux mille vingt-sept",
+     "a": "16 نوفمبر 2027",
+     "e": "November 16, 2027"
+    },
+    {
+     "f": "25/11/2028 — vingt-cinq novembre deux mille vingt-huit",
+     "a": "25 نوفمبر 2028",
+     "e": "November 25, 2028"
+    },
+    {
+     "f": "30/11/2029 — trente novembre deux mille vingt-neuf",
+     "a": "30 نوفمبر 2029",
+     "e": "November 30, 2029"
+    },
+    {
+     "f": "09/12/2026 — neuf décembre deux mille vingt-six",
+     "a": "9 ديسمبر 2026",
+     "e": "December 9, 2026"
+    },
+    {
+     "f": "18/12/2027 — dix-huit décembre deux mille vingt-sept",
+     "a": "18 ديسمبر 2027",
+     "e": "December 18, 2027"
+    },
+    {
+     "f": "24/12/2028 — vingt-quatre décembre deux mille vingt-huit",
+     "a": "24 ديسمبر 2028",
+     "e": "December 24, 2028"
+    },
+    {
+     "f": "31/12/2029 — trente et un décembre deux mille vingt-neuf",
+     "a": "31 ديسمبر 2029",
+     "e": "December 31, 2029"
+    },
+    {
+     "f": "1901 — mille neuf cent un",
+     "a": "ألف وتسعمئة وواحد",
+     "e": "nineteen oh one"
+    },
+    {
+     "f": "1902 — mille neuf cent deux",
+     "a": "ألف وتسعمئة واثنان",
+     "e": "nineteen oh two"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-216",
+   "icon": "🗓️",
+   "fr": "Exemples de lecture de dates 3/9",
+   "ar": "أمثلة عن قراءة التواريخ — جزء 3",
+   "phr": [
+    {
+     "f": "1903 — mille neuf cent trois",
+     "a": "ألف وتسعمئة وثلاثة",
+     "e": "nineteen oh three"
+    },
+    {
+     "f": "1904 — mille neuf cent quatre",
+     "a": "ألف وتسعمئة وأربعة",
+     "e": "nineteen oh four"
+    },
+    {
+     "f": "1905 — mille neuf cent cinq",
+     "a": "ألف وتسعمئة وخمسة",
+     "e": "nineteen oh five"
+    },
+    {
+     "f": "1906 — mille neuf cent six",
+     "a": "ألف وتسعمئة وستة",
+     "e": "nineteen oh six"
+    },
+    {
+     "f": "1907 — mille neuf cent sept",
+     "a": "ألف وتسعمئة وسبعة",
+     "e": "nineteen oh seven"
+    },
+    {
+     "f": "1908 — mille neuf cent huit",
+     "a": "ألف وتسعمئة وثمانية",
+     "e": "nineteen oh eight"
+    },
+    {
+     "f": "1909 — mille neuf cent neuf",
+     "a": "ألف وتسعمئة وتسعة",
+     "e": "nineteen oh nine"
+    },
+    {
+     "f": "1910 — mille neuf cent dix",
+     "a": "ألف وتسعمئة وعشرة",
+     "e": "nineteen ten"
+    },
+    {
+     "f": "1911 — mille neuf cent onze",
+     "a": "ألف وتسعمئة وأحد عشر",
+     "e": "nineteen eleven"
+    },
+    {
+     "f": "1912 — mille neuf cent douze",
+     "a": "ألف وتسعمئة واثنا عشر",
+     "e": "nineteen twelve"
+    },
+    {
+     "f": "1913 — mille neuf cent treize",
+     "a": "ألف وتسعمئة وثلاثة عشر",
+     "e": "nineteen thirteen"
+    },
+    {
+     "f": "1914 — mille neuf cent quatorze",
+     "a": "ألف وتسعمئة وأربعة عشر",
+     "e": "nineteen fourteen"
+    },
+    {
+     "f": "1915 — mille neuf cent quinze",
+     "a": "ألف وتسعمئة وخمسة عشر",
+     "e": "nineteen fifteen"
+    },
+    {
+     "f": "1916 — mille neuf cent seize",
+     "a": "ألف وتسعمئة وستة عشر",
+     "e": "nineteen sixteen"
+    },
+    {
+     "f": "1917 — mille neuf cent dix-sept",
+     "a": "ألف وتسعمئة وسبعة عشر",
+     "e": "nineteen seventeen"
+    },
+    {
+     "f": "1918 — mille neuf cent dix-huit",
+     "a": "ألف وتسعمئة وثمانية عشر",
+     "e": "nineteen eighteen"
+    },
+    {
+     "f": "1919 — mille neuf cent dix-neuf",
+     "a": "ألف وتسعمئة وتسعة عشر",
+     "e": "nineteen nineteen"
+    },
+    {
+     "f": "1920 — mille neuf cent vingt",
+     "a": "ألف وتسعمئة وعشرون",
+     "e": "nineteen twenty"
+    },
+    {
+     "f": "1921 — mille neuf cent vingt et un",
+     "a": "ألف وتسعمئة وواحد وعشرون",
+     "e": "nineteen twenty-one"
+    },
+    {
+     "f": "1922 — mille neuf cent vingt-deux",
+     "a": "ألف وتسعمئة واثنان وعشرون",
+     "e": "nineteen twenty-two"
+    },
+    {
+     "f": "1923 — mille neuf cent vingt-trois",
+     "a": "ألف وتسعمئة وثلاثة وعشرون",
+     "e": "nineteen twenty-three"
+    },
+    {
+     "f": "1924 — mille neuf cent vingt-quatre",
+     "a": "ألف وتسعمئة وأربعة وعشرون",
+     "e": "nineteen twenty-four"
+    },
+    {
+     "f": "1925 — mille neuf cent vingt-cinq",
+     "a": "ألف وتسعمئة وخمسة وعشرون",
+     "e": "nineteen twenty-five"
+    },
+    {
+     "f": "1926 — mille neuf cent vingt-six",
+     "a": "ألف وتسعمئة وستة وعشرون",
+     "e": "nineteen twenty-six"
+    },
+    {
+     "f": "1927 — mille neuf cent vingt-sept",
+     "a": "ألف وتسعمئة وسبعة وعشرون",
+     "e": "nineteen twenty-seven"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-217",
+   "icon": "🗓️",
+   "fr": "Exemples de lecture de dates 4/9",
+   "ar": "أمثلة عن قراءة التواريخ — جزء 4",
+   "phr": [
+    {
+     "f": "1928 — mille neuf cent vingt-huit",
+     "a": "ألف وتسعمئة وثمانية وعشرون",
+     "e": "nineteen twenty-eight"
+    },
+    {
+     "f": "1929 — mille neuf cent vingt-neuf",
+     "a": "ألف وتسعمئة وتسعة وعشرون",
+     "e": "nineteen twenty-nine"
+    },
+    {
+     "f": "1930 — mille neuf cent trente",
+     "a": "ألف وتسعمئة وثلاثون",
+     "e": "nineteen thirty"
+    },
+    {
+     "f": "1931 — mille neuf cent trente et un",
+     "a": "ألف وتسعمئة وواحد وثلاثون",
+     "e": "nineteen thirty-one"
+    },
+    {
+     "f": "1932 — mille neuf cent trente-deux",
+     "a": "ألف وتسعمئة واثنان وثلاثون",
+     "e": "nineteen thirty-two"
+    },
+    {
+     "f": "1933 — mille neuf cent trente-trois",
+     "a": "ألف وتسعمئة وثلاثة وثلاثون",
+     "e": "nineteen thirty-three"
+    },
+    {
+     "f": "1934 — mille neuf cent trente-quatre",
+     "a": "ألف وتسعمئة وأربعة وثلاثون",
+     "e": "nineteen thirty-four"
+    },
+    {
+     "f": "1935 — mille neuf cent trente-cinq",
+     "a": "ألف وتسعمئة وخمسة وثلاثون",
+     "e": "nineteen thirty-five"
+    },
+    {
+     "f": "1936 — mille neuf cent trente-six",
+     "a": "ألف وتسعمئة وستة وثلاثون",
+     "e": "nineteen thirty-six"
+    },
+    {
+     "f": "1937 — mille neuf cent trente-sept",
+     "a": "ألف وتسعمئة وسبعة وثلاثون",
+     "e": "nineteen thirty-seven"
+    },
+    {
+     "f": "1938 — mille neuf cent trente-huit",
+     "a": "ألف وتسعمئة وثمانية وثلاثون",
+     "e": "nineteen thirty-eight"
+    },
+    {
+     "f": "1939 — mille neuf cent trente-neuf",
+     "a": "ألف وتسعمئة وتسعة وثلاثون",
+     "e": "nineteen thirty-nine"
+    },
+    {
+     "f": "1940 — mille neuf cent quarante",
+     "a": "ألف وتسعمئة وأربعون",
+     "e": "nineteen forty"
+    },
+    {
+     "f": "1941 — mille neuf cent quarante et un",
+     "a": "ألف وتسعمئة وواحد وأربعون",
+     "e": "nineteen forty-one"
+    },
+    {
+     "f": "1942 — mille neuf cent quarante-deux",
+     "a": "ألف وتسعمئة واثنان وأربعون",
+     "e": "nineteen forty-two"
+    },
+    {
+     "f": "1943 — mille neuf cent quarante-trois",
+     "a": "ألف وتسعمئة وثلاثة وأربعون",
+     "e": "nineteen forty-three"
+    },
+    {
+     "f": "1944 — mille neuf cent quarante-quatre",
+     "a": "ألف وتسعمئة وأربعة وأربعون",
+     "e": "nineteen forty-four"
+    },
+    {
+     "f": "1945 — mille neuf cent quarante-cinq",
+     "a": "ألف وتسعمئة وخمسة وأربعون",
+     "e": "nineteen forty-five"
+    },
+    {
+     "f": "1946 — mille neuf cent quarante-six",
+     "a": "ألف وتسعمئة وستة وأربعون",
+     "e": "nineteen forty-six"
+    },
+    {
+     "f": "1947 — mille neuf cent quarante-sept",
+     "a": "ألف وتسعمئة وسبعة وأربعون",
+     "e": "nineteen forty-seven"
+    },
+    {
+     "f": "1948 — mille neuf cent quarante-huit",
+     "a": "ألف وتسعمئة وثمانية وأربعون",
+     "e": "nineteen forty-eight"
+    },
+    {
+     "f": "1949 — mille neuf cent quarante-neuf",
+     "a": "ألف وتسعمئة وتسعة وأربعون",
+     "e": "nineteen forty-nine"
+    },
+    {
+     "f": "1950 — mille neuf cent cinquante",
+     "a": "ألف وتسعمئة وخمسون",
+     "e": "nineteen fifty"
+    },
+    {
+     "f": "1951 — mille neuf cent cinquante et un",
+     "a": "ألف وتسعمئة وواحد وخمسون",
+     "e": "nineteen fifty-one"
+    },
+    {
+     "f": "1952 — mille neuf cent cinquante-deux",
+     "a": "ألف وتسعمئة واثنان وخمسون",
+     "e": "nineteen fifty-two"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-218",
+   "icon": "🗓️",
+   "fr": "Exemples de lecture de dates 5/9",
+   "ar": "أمثلة عن قراءة التواريخ — جزء 5",
+   "phr": [
+    {
+     "f": "1953 — mille neuf cent cinquante-trois",
+     "a": "ألف وتسعمئة وثلاثة وخمسون",
+     "e": "nineteen fifty-three"
+    },
+    {
+     "f": "1954 — mille neuf cent cinquante-quatre",
+     "a": "ألف وتسعمئة وأربعة وخمسون",
+     "e": "nineteen fifty-four"
+    },
+    {
+     "f": "1955 — mille neuf cent cinquante-cinq",
+     "a": "ألف وتسعمئة وخمسة وخمسون",
+     "e": "nineteen fifty-five"
+    },
+    {
+     "f": "1956 — mille neuf cent cinquante-six",
+     "a": "ألف وتسعمئة وستة وخمسون",
+     "e": "nineteen fifty-six"
+    },
+    {
+     "f": "1957 — mille neuf cent cinquante-sept",
+     "a": "ألف وتسعمئة وسبعة وخمسون",
+     "e": "nineteen fifty-seven"
+    },
+    {
+     "f": "1958 — mille neuf cent cinquante-huit",
+     "a": "ألف وتسعمئة وثمانية وخمسون",
+     "e": "nineteen fifty-eight"
+    },
+    {
+     "f": "1959 — mille neuf cent cinquante-neuf",
+     "a": "ألف وتسعمئة وتسعة وخمسون",
+     "e": "nineteen fifty-nine"
+    },
+    {
+     "f": "1960 — mille neuf cent soixante",
+     "a": "ألف وتسعمئة وستون",
+     "e": "nineteen sixty"
+    },
+    {
+     "f": "1961 — mille neuf cent soixante et un",
+     "a": "ألف وتسعمئة وواحد وستون",
+     "e": "nineteen sixty-one"
+    },
+    {
+     "f": "1962 — mille neuf cent soixante-deux",
+     "a": "ألف وتسعمئة واثنان وستون",
+     "e": "nineteen sixty-two"
+    },
+    {
+     "f": "1963 — mille neuf cent soixante-trois",
+     "a": "ألف وتسعمئة وثلاثة وستون",
+     "e": "nineteen sixty-three"
+    },
+    {
+     "f": "1964 — mille neuf cent soixante-quatre",
+     "a": "ألف وتسعمئة وستة وستون",
+     "e": "nineteen sixty-four"
+    },
+    {
+     "f": "1965 — mille neuf cent soixante-cinq",
+     "a": "ألف وتسعمئة وخمسة وستون",
+     "e": "nineteen sixty-five"
+    },
+    {
+     "f": "1966 — mille neuf cent soixante-six",
+     "a": "ألف وتسعمئة وستة وستون",
+     "e": "nineteen sixty-six"
+    },
+    {
+     "f": "1967 — mille neuf cent soixante-sept",
+     "a": "ألف وتسعمئة وسبعة وستون",
+     "e": "nineteen sixty-seven"
+    },
+    {
+     "f": "1968 — mille neuf cent soixante-huit",
+     "a": "ألف وتسعمئة وثمانية وستون",
+     "e": "nineteen sixty-eight"
+    },
+    {
+     "f": "1969 — mille neuf cent soixante-neuf",
+     "a": "ألف وتسعمئة وتسعة وستون",
+     "e": "nineteen sixty-nine"
+    },
+    {
+     "f": "1970 — mille neuf cent soixante-dix",
+     "a": "ألف وتسعمئة وسبعون",
+     "e": "nineteen seventy"
+    },
+    {
+     "f": "1971 — mille neuf cent soixante et onze",
+     "a": "ألف وتسعمئة وواحد وسبعون",
+     "e": "nineteen seventy-one"
+    },
+    {
+     "f": "1972 — mille neuf cent soixante-douze",
+     "a": "ألف وتسعمئة واثنان وسبعون",
+     "e": "nineteen seventy-two"
+    },
+    {
+     "f": "1973 — mille neuf cent soixante-treize",
+     "a": "ألف وتسعمئة وثلاثة وسبعون",
+     "e": "nineteen seventy-three"
+    },
+    {
+     "f": "1974 — mille neuf cent soixante-quatorze",
+     "a": "ألف وتسعمئة وأربعة وسبعون",
+     "e": "nineteen seventy-four"
+    },
+    {
+     "f": "1975 — mille neuf cent soixante-quinze",
+     "a": "ألف وتسعمئة وخمسة وسبعون",
+     "e": "nineteen seventy-five"
+    },
+    {
+     "f": "1976 — mille neuf cent soixante-seize",
+     "a": "ألف وتسعمئة وستة وسبعون",
+     "e": "nineteen seventy-six"
+    },
+    {
+     "f": "1977 — mille neuf cent soixante-dix-sept",
+     "a": "ألف وتسعمئة وسبعة وسبعون",
+     "e": "nineteen seventy-seven"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-219",
+   "icon": "🗓️",
+   "fr": "Exemples de lecture de dates 6/9",
+   "ar": "أمثلة عن قراءة التواريخ — جزء 6",
+   "phr": [
+    {
+     "f": "1978 — mille neuf cent soixante-dix-huit",
+     "a": "ألف وتسعمئة وثمانية وسبعون",
+     "e": "nineteen seventy-eight"
+    },
+    {
+     "f": "1979 — mille neuf cent soixante-dix-neuf",
+     "a": "ألف وتسعمئة وتسعة وسبعون",
+     "e": "nineteen seventy-nine"
+    },
+    {
+     "f": "1980 — mille neuf cent quatre-vingts",
+     "a": "ألف وتسعمئة وثمانون",
+     "e": "nineteen eighty"
+    },
+    {
+     "f": "1981 — mille neuf cent quatre-vingt-un",
+     "a": "ألف وتسعمئة وواحد وثمانون",
+     "e": "nineteen eighty-one"
+    },
+    {
+     "f": "1982 — mille neuf cent quatre-vingt-deux",
+     "a": "ألف وتسعمئة واثنان وثمانون",
+     "e": "nineteen eighty-two"
+    },
+    {
+     "f": "1983 — mille neuf cent quatre-vingt-trois",
+     "a": "ألف وتسعمئة وثلاثة وثمانون",
+     "e": "nineteen eighty-three"
+    },
+    {
+     "f": "1984 — mille neuf cent quatre-vingt-quatre",
+     "a": "ألف وتسعمئة وأربعة وثمانون",
+     "e": "nineteen eighty-four"
+    },
+    {
+     "f": "1985 — mille neuf cent quatre-vingt-cinq",
+     "a": "ألف وتسعمئة وخمسة وثمانون",
+     "e": "nineteen eighty-five"
+    },
+    {
+     "f": "1986 — mille neuf cent quatre-vingt-six",
+     "a": "ألف وتسعمئة وستة وثمانون",
+     "e": "nineteen eighty-six"
+    },
+    {
+     "f": "1987 — mille neuf cent quatre-vingt-sept",
+     "a": "ألف وتسعمئة وسبعة وثمانون",
+     "e": "nineteen eighty-seven"
+    },
+    {
+     "f": "1988 — mille neuf cent quatre-vingt-huit",
+     "a": "ألف وتسعمئة وثمانية وثمانون",
+     "e": "nineteen eighty-eight"
+    },
+    {
+     "f": "1989 — mille neuf cent quatre-vingt-neuf",
+     "a": "ألف وتسعمئة وتسعة وثمانون",
+     "e": "nineteen eighty-nine"
+    },
+    {
+     "f": "1990 — mille neuf cent quatre-vingt-dix",
+     "a": "ألف وتسعمئة وتسعون",
+     "e": "nineteen ninety"
+    },
+    {
+     "f": "1991 — mille neuf cent quatre-vingt-onze",
+     "a": "ألف وتسعمئة وواحد وتسعون",
+     "e": "nineteen ninety-one"
+    },
+    {
+     "f": "1992 — mille neuf cent quatre-vingt-douze",
+     "a": "ألف وتسعمئة واثنان وتسعون",
+     "e": "nineteen ninety-two"
+    },
+    {
+     "f": "1993 — mille neuf cent quatre-vingt-treize",
+     "a": "ألف وتسعمئة وثلاثة وتسعون",
+     "e": "nineteen ninety-three"
+    },
+    {
+     "f": "1994 — mille neuf cent quatre-vingt-quatorze",
+     "a": "ألف وتسعمئة وأربعة وتسعون",
+     "e": "nineteen ninety-four"
+    },
+    {
+     "f": "1995 — mille neuf cent quatre-vingt-quinze",
+     "a": "ألف وتسعمئة وخمسة وتسعون",
+     "e": "nineteen ninety-five"
+    },
+    {
+     "f": "1996 — mille neuf cent quatre-vingt-seize",
+     "a": "ألف وتسعمئة وستة وتسعون",
+     "e": "nineteen ninety-six"
+    },
+    {
+     "f": "1997 — mille neuf cent quatre-vingt-dix-sept",
+     "a": "ألف وتسعمئة وسبعة وتسعون",
+     "e": "nineteen ninety-seven"
+    },
+    {
+     "f": "1998 — mille neuf cent quatre-vingt-dix-huit",
+     "a": "ألف وتسعمئة وثمانية وتسعون",
+     "e": "nineteen ninety-eight"
+    },
+    {
+     "f": "1999 — mille neuf cent quatre-vingt-dix-neuf",
+     "a": "ألف وتسعمئة وتسعة وتسعون",
+     "e": "nineteen ninety-nine"
+    },
+    {
+     "f": "2000 — deux mille",
+     "a": "ألفان",
+     "e": "two thousand"
+    },
+    {
+     "f": "2001 — deux mille un",
+     "a": "ألفان وواحد",
+     "e": "two thousand one"
+    },
+    {
+     "f": "2002 — deux mille deux",
+     "a": "ألفان واثنان",
+     "e": "two thousand two"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-220",
+   "icon": "🗓️",
+   "fr": "Exemples de lecture de dates 7/9",
+   "ar": "أمثلة عن قراءة التواريخ — جزء 7",
+   "phr": [
+    {
+     "f": "2003 — deux mille trois",
+     "a": "ألفان وثلاثة",
+     "e": "two thousand three"
+    },
+    {
+     "f": "2004 — deux mille quatre",
+     "a": "ألفان وأربعة",
+     "e": "two thousand four"
+    },
+    {
+     "f": "2005 — deux mille cinq",
+     "a": "ألفان وخمسة",
+     "e": "two thousand five"
+    },
+    {
+     "f": "2006 — deux mille six",
+     "a": "ألفان وستة",
+     "e": "two thousand six"
+    },
+    {
+     "f": "2007 — deux mille sept",
+     "a": "ألفان وسبعة",
+     "e": "two thousand seven"
+    },
+    {
+     "f": "2008 — deux mille huit",
+     "a": "ألفان وثمانية",
+     "e": "two thousand eight"
+    },
+    {
+     "f": "2009 — deux mille neuf",
+     "a": "ألفان وتسعة",
+     "e": "two thousand nine"
+    },
+    {
+     "f": "2010 — deux mille dix",
+     "a": "ألفان وعشرة",
+     "e": "two thousand ten"
+    },
+    {
+     "f": "2011 — deux mille onze",
+     "a": "ألفان وأحد عشر",
+     "e": "two thousand eleven"
+    },
+    {
+     "f": "2012 — deux mille douze",
+     "a": "ألفان واثنا عشر",
+     "e": "two thousand twelve"
+    },
+    {
+     "f": "2013 — deux mille treize",
+     "a": "ألفان وثلاثة عشر",
+     "e": "two thousand thirteen"
+    },
+    {
+     "f": "2014 — deux mille quatorze",
+     "a": "ألفان وأربعة عشر",
+     "e": "two thousand fourteen"
+    },
+    {
+     "f": "2015 — deux mille quinze",
+     "a": "ألفان وخمسة عشر",
+     "e": "two thousand fifteen"
+    },
+    {
+     "f": "2016 — deux mille seize",
+     "a": "ألفان وستة عشر",
+     "e": "two thousand sixteen"
+    },
+    {
+     "f": "2017 — deux mille dix-sept",
+     "a": "ألفان وسبعة عشر",
+     "e": "two thousand seventeen"
+    },
+    {
+     "f": "2018 — deux mille dix-huit",
+     "a": "ألفان وثمانية عشر",
+     "e": "two thousand eighteen"
+    },
+    {
+     "f": "2019 — deux mille dix-neuf",
+     "a": "ألفان وتسعة عشر",
+     "e": "two thousand nineteen"
+    },
+    {
+     "f": "2020 — deux mille vingt",
+     "a": "ألفان وعشرون",
+     "e": "two thousand twenty"
+    },
+    {
+     "f": "2021 — deux mille vingt et un",
+     "a": "ألفان وواحد وعشرون",
+     "e": "twenty twenty-one"
+    },
+    {
+     "f": "2022 — deux mille vingt-deux",
+     "a": "ألفان واثنان وعشرون",
+     "e": "twenty twenty-two"
+    },
+    {
+     "f": "2023 — deux mille vingt-trois",
+     "a": "ألفان وثلاثة وعشرون",
+     "e": "twenty twenty-three"
+    },
+    {
+     "f": "2024 — deux mille vingt-quatre",
+     "a": "ألفان وأربعة وعشرون",
+     "e": "twenty twenty-four"
+    },
+    {
+     "f": "2025 — deux mille vingt-cinq",
+     "a": "ألفان وخمسة وعشرون",
+     "e": "twenty twenty-five"
+    },
+    {
+     "f": "2026 — deux mille vingt-six",
+     "a": "ألفان وستة وعشرون",
+     "e": "twenty twenty-six"
+    },
+    {
+     "f": "2027 — deux mille vingt-sept",
+     "a": "ألفان وسبعة وعشرون",
+     "e": "twenty twenty-seven"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-221",
+   "icon": "🗓️",
+   "fr": "Exemples de lecture de dates 8/9",
+   "ar": "أمثلة عن قراءة التواريخ — جزء 8",
+   "phr": [
+    {
+     "f": "2028 — deux mille vingt-huit",
+     "a": "ألفان وثمانية وعشرون",
+     "e": "twenty twenty-eight"
+    },
+    {
+     "f": "2029 — deux mille vingt-neuf",
+     "a": "ألفان وتسعة وعشرون",
+     "e": "twenty twenty-nine"
+    },
+    {
+     "f": "2030 — deux mille trente",
+     "a": "ألفان وثلاثون",
+     "e": "twenty thirty"
+    },
+    {
+     "f": "2031 — deux mille trente et un",
+     "a": "ألفان وواحد وثلاثون",
+     "e": "twenty thirty-one"
+    },
+    {
+     "f": "2032 — deux mille trente-deux",
+     "a": "ألفان واثنان وثلاثون",
+     "e": "twenty thirty-two"
+    },
+    {
+     "f": "2033 — deux mille trente-trois",
+     "a": "ألفان وثلاثة وثلاثون",
+     "e": "twenty thirty-three"
+    },
+    {
+     "f": "1982 — mille neuf cent quatre-vingt-deux",
+     "a": "ألف وتسعمئة واثنان وثمانون",
+     "e": "nineteen eighty-two"
+    },
+    {
+     "f": "1986 — mille neuf cent quatre-vingt-six",
+     "a": "ألف وتسعمئة وستة وثمانون",
+     "e": "nineteen eighty-six"
+    },
+    {
+     "f": "1990 — mille neuf cent quatre-vingt-dix",
+     "a": "ألف وتسعمئة وتسعون",
+     "e": "nineteen ninety"
+    },
+    {
+     "f": "1993 — mille neuf cent quatre-vingt-treize",
+     "a": "ألف وتسعمئة وثلاثة وتسعون",
+     "e": "nineteen ninety-three"
+    },
+    {
+     "f": "1996 — mille neuf cent quatre-vingt-seize",
+     "a": "ألف وتسعمئة وستة وتسعون",
+     "e": "nineteen ninety-six"
+    },
+    {
+     "f": "2000 — deux mille",
+     "a": "ألفان",
+     "e": "two thousand"
+    },
+    {
+     "f": "2003 — deux mille trois",
+     "a": "ألفان وثلاثة",
+     "e": "two thousand three"
+    },
+    {
+     "f": "2006 — deux mille six",
+     "a": "ألفان وستة",
+     "e": "two thousand six"
+    },
+    {
+     "f": "2009 — deux mille neuf",
+     "a": "ألفان وتسعة",
+     "e": "two thousand nine"
+    },
+    {
+     "f": "2012 — deux mille douze",
+     "a": "ألفان واثنا عشر",
+     "e": "two thousand twelve"
+    },
+    {
+     "f": "2015 — deux mille quinze",
+     "a": "ألفان وخمسة عشر",
+     "e": "two thousand fifteen"
+    },
+    {
+     "f": "2018 — deux mille dix-huit",
+     "a": "ألفان وثمانية عشر",
+     "e": "two thousand eighteen"
+    },
+    {
+     "f": "2021 — deux mille vingt et un",
+     "a": "ألفان وواحد وعشرون",
+     "e": "two thousand twenty-one"
+    },
+    {
+     "f": "2025 — deux mille vingt-cinq",
+     "a": "ألفان وخمسة وعشرون",
+     "e": "two thousand twenty-five"
+    },
+    {
+     "f": "1983 — mille neuf cent quatre-vingt-trois",
+     "a": "ألف وتسعمئة وثلاثة وثمانون",
+     "e": "nineteen eighty-three"
+    },
+    {
+     "f": "1985 — mille neuf cent quatre-vingt-cinq",
+     "a": "ألف وتسعمئة وخمسة وثمانون",
+     "e": "nineteen eighty-five"
+    },
+    {
+     "f": "1987 — mille neuf cent quatre-vingt-sept",
+     "a": "ألف وتسعمئة وسبعة وثمانون",
+     "e": "nineteen eighty-seven"
+    },
+    {
+     "f": "1989 — mille neuf cent quatre-vingt-neuf",
+     "a": "ألف وتسعمئة وتسعة وثمانون",
+     "e": "nineteen eighty-nine"
+    },
+    {
+     "f": "1991 — mille neuf cent quatre-vingt-onze",
+     "a": "ألف وتسعمئة وواحد وتسعون",
+     "e": "nineteen ninety-one"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a2-222",
+   "icon": "🗓️",
+   "fr": "Exemples de lecture de dates 9/9",
+   "ar": "أمثلة عن قراءة التواريخ — جزء 9",
+   "phr": [
+    {
+     "f": "1994 — mille neuf cent quatre-vingt-quatorze",
+     "a": "ألف وتسعمئة وأربعة وتسعون",
+     "e": "nineteen ninety-four"
+    },
+    {
+     "f": "1997 — mille neuf cent quatre-vingt-dix-sept",
+     "a": "ألف وتسعمئة وسبعة وتسعون",
+     "e": "nineteen ninety-seven"
+    },
+    {
+     "f": "1999 — mille neuf cent quatre-vingt-dix-neuf",
+     "a": "ألف وتسعمئة وتسعة وتسعون",
+     "e": "nineteen ninety-nine"
+    },
+    {
+     "f": "2001 — deux mille un",
+     "a": "ألفان وواحد",
+     "e": "two thousand one"
+    },
+    {
+     "f": "2004 — deux mille quatre",
+     "a": "ألفان وأربعة",
+     "e": "two thousand four"
+    },
+    {
+     "f": "2007 — deux mille sept",
+     "a": "ألفان وسبعة",
+     "e": "two thousand seven"
+    },
+    {
+     "f": "2010 — deux mille dix",
+     "a": "ألفان وعشرة",
+     "e": "two thousand ten"
+    },
+    {
+     "f": "2013 — deux mille treize",
+     "a": "ألفان وثلاثة عشر",
+     "e": "two thousand thirteen"
+    },
+    {
+     "f": "2016 — deux mille seize",
+     "a": "ألفان وستة عشر",
+     "e": "two thousand sixteen"
+    },
+    {
+     "f": "2019 — deux mille dix-neuf",
+     "a": "ألفان وتسعة عشر",
+     "e": "two thousand nineteen"
+    },
+    {
+     "f": "2022 — deux mille vingt-deux",
+     "a": "ألفان واثنان وعشرون",
+     "e": "two thousand twenty-two"
+    },
+    {
+     "f": "2024 — deux mille vingt-quatre",
+     "a": "ألفان وأربعة وعشرون",
+     "e": "two thousand twenty-four"
+    }
+   ],
+   "ids": []
   }
  ],
  "b1": [
