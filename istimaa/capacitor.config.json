@@ -1,0 +1,8 @@
+{
+  "appId": "com.syrian020.istimaa",
+  "appName": "Istimaa",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
