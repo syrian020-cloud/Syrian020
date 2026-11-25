@@ -230,6 +230,7 @@
     <span class="logo">Code de la route<small>امتحان الكود الفرنسي</small></span>
     <span class="spacer"></span>
     <button class="icon-btn" id="btn-stop" title="إيقاف الصوت">🔇</button>
+    <button class="icon-btn" id="btn-back" title="رجوع" style="display:none">🔙</button>
     <button class="icon-btn" id="btn-home" title="الرئيسية" style="display:none">🏠</button>
   </div>
 </header>
@@ -867,6 +868,7 @@ function render(){
   else if(state.screen === 'quiz') renderQuiz();
   else renderResult();
   document.getElementById('btn-home').style.display = state.screen === 'home' ? 'none' : '';
+  document.getElementById('btn-back').style.display = state.screen === 'home' ? 'none' : '';
 }
 
 function renderHome(){
@@ -1205,6 +1207,12 @@ function renderResult(){
 }
 
 document.getElementById('btn-stop').onclick = stopSpeech;
+document.getElementById('btn-back').onclick = function(){
+  if(state.screen === 'lesson'){ state.screen = 'lessons'; render(); }
+  else if(state.screen === 'lessons'){ state.screen = 'home'; render(); }
+  else if(state.screen === 'quiz' || state.screen === 'result'){ state.screen = 'home'; render(); }
+  else { state.screen = 'home'; render(); }
+};
 document.getElementById('btn-home').onclick = function(){
   clearInterval(state.timer);
   state.screen = 'home';
@@ -1290,7 +1298,7 @@ function renderLesson(){
     }).join('');
     return '<div class="slide-card">' +
       '<div class="slide-head"><span class="slide-num">' + (i + 1) + ' / ' + ls.qs.length + '</span>' +
-      (q.img ? '<span class="mini">🚸</span>' : '') + '</div>' +
+      '<button class="icon-btn gsearch" data-q="' + esc(q.q) + '" title="بحث Google AI" style="font-size:0.95rem;width:2rem;height:2rem">✨</button>' + '</div>' +
       '<div class="phr-line" dir="ltr"><button class="flag-btn" data-t="' + esc(q.q) + '" data-lang="fr-FR">🇫🇷</button> ' + wordify(q.q, 'fr-FR') + '</div>' +
       (q.qa ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-t="' + esc(q.qa) + '" data-lang="ar-SY">🇸🇾</button> ' + wordify(q.qa, 'ar-SY') + '</div>' : '') +
       (q.img ? imgHtml(q) : '') +
@@ -1346,6 +1354,12 @@ function renderLesson(){
   document.querySelectorAll('.flag-btn').forEach(function(b){
     b.onclick = function(){ speakLoop(b.dataset.t, b, b.dataset.lang || 'fr-FR'); };
   });
+  document.querySelectorAll('.gsearch').forEach(function(b){
+    b.onclick = function(){
+      var query = b.dataset.q + ' code de la route règle explication';
+      window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_system');
+    };
+  });
   var wordTap = null;
   document.querySelectorAll('.phr-line .w').forEach(function(w){
     w.onclick = function(){
@@ -1353,7 +1367,13 @@ function renderLesson(){
       if(wordTap){ clearTimeout(wordTap); wordTap = null; return; }
       wordTap = setTimeout(function(){ wordTap = null; speakLoop(el.dataset.w, el, el.dataset.lang); }, 300);
     };
+    w.ondblclick = function(){
+      if(wordTap){ clearTimeout(wordTap); wordTap = null; }
+      stopSpeech();
+      window.open('https://www.google.com/search?q=' + encodeURIComponent(el_word(this) + ' code de la route'), '_system');
+    };
   });
+  function el_word(el){ return el.dataset.w || el.textContent; }
 }
 
 var dgM = null, dgL = null, dgR = null;
