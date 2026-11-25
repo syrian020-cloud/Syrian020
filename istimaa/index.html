@@ -2953,7 +2953,9 @@ function lwStart(n){
   lw.qs=quizShuffle(NUM1000.concat(NUM2K.slice(1))).slice(0,5).map(r=>({say:r[1],ans:String(r[0]),disp:'<b>'+r[0]+'</b> — '+esc(r[1])}));
  }else{lw.num=false;
   const pool=gPool(n).map(p=>({fr:phTxt(p,'fr'),ar:phTxt(p,'ar')})).filter(x=>x.fr&&x.fr.trim().length>1);
-  lw.qs=quizShuffle(pool).slice(0,5).map(x=>({say:x.fr,ans:x.fr,disp:'<b>'+esc(x.fr)+'</b>'+(x.ar?'<br><small dir="rtl">'+esc(x.ar)+'</small>':'')}))}
+  lw.qs=quizShuffle(pool).slice(0,5).map(x=>{
+   const alt=x.fr.indexOf(' : ')>0?x.fr.split(' : ')[0].trim():null;
+   return {say:x.fr,ans:x.fr,alt,disp:'<b>'+esc(x.fr)+'</b>'+(x.ar?'<br><small dir="rtl">'+esc(x.ar)+'</small>':'')}})}
  if(!lw.qs.length){toast(t('quizNoPhrases'));return}
  lwAsk()}
 function lwRound(){lwStart(lw.node)}
@@ -2980,7 +2982,7 @@ function lwAsk(){
  const inp=$('lw-in');inp.focus();
  const go=()=>{
   if(lw.lock)return;lw.lock=true;stopSay();
-  const good=lw.num?((/\d/.test(inp.value)&&+inp.value.replace(/\D/g,'')===+q.ans)||lwNorm(inp.value)===lwNorm(q.say)):(lwNorm(inp.value)===lwNorm(q.ans)||lwTimeOk(inp.value,q.ans)||(lwNorm(inp.value).length>1&&/\d/.test(inp.value)&&lwNorm(inp.value)===lwNorm(frDigitize(q.ans))));
+  const good=lw.num?((/\d/.test(inp.value)&&+inp.value.replace(/\D/g,'')===+q.ans)||lwNorm(inp.value)===lwNorm(q.say)):(lwNorm(inp.value)===lwNorm(q.ans)||(q.alt&&lwNorm(inp.value)===lwNorm(q.alt))||lwTimeOk(inp.value,q.ans)||(lwNorm(inp.value).length>1&&/\d/.test(inp.value)&&lwNorm(inp.value)===lwNorm(frDigitize(q.ans))));
   if(good){lw.ok++;quizTone(true)}else{lw.bad++;quizTone(false)}
   inp.disabled=true;$('lw-go').disabled=true;
   inp.style.borderColor=good?'var(--ok)':'#e0245e';
