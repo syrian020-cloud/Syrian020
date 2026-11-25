@@ -1074,7 +1074,7 @@ function gamePairPicker(n,title){
   pairs.map(p=>'<button class="btn" data-q="'+p.q+'" data-a="'+p.a+'">'+
    gFlag(p.q)+' '+p.q.toUpperCase()+' – '+gFlag(p.a)+' '+p.a.toUpperCase()+' — '+p.n+'</button>').join('')+'</div>'}
 function closeGame(){
- stopSay();clearTimeout(lz.timer);clearTimeout(pg.timer);
+ stopSay();clearTimeout(lz.timer);clearTimeout(pg.timer);clearTimeout(lw.timer);
  if(ringCard._chal){ringCard._chal=false;
   const au=$('ringAudio');if(au.src)au.play().catch(()=>{});
   ringCard._sp=true;(async()=>{while(ringCard._sp&&$('ringShade').classList.contains('on')){await sayOnce(' ',st.lang)}})();
@@ -2815,7 +2815,7 @@ function phEnd(){
   '<button class="btn" id="pg-exit">✕ '+esc(t('quizExit'))+'</button></div></div>';
  $('pg-replay').onclick=phRound;$('pg-exit').onclick=closeGame}
 /* ---- listen & write dictation game ---- */
-var lw={i:0,ok:0,bad:0,qs:[],lock:false,num:true};
+var lw={i:0,ok:0,bad:0,qs:[],lock:false,num:true,auto:false,timer:null};
 const FRWT={un:1,une:1,deux:2,trois:3,quatre:4,cinq:5,six:6,sept:7,huit:8,neuf:9,dix:10,onze:11,douze:12,treize:13,quatorze:14,quinze:15,seize:16,vingt:20,trente:30,quarante:40,cinquante:50,soixante:60};
 function frSmallN(ws){
  if(!ws.length)return null;
@@ -2961,7 +2961,10 @@ function lwAsk(){
  :'<input id="lw-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="80" '+
  'style="font-size:1.15rem;text-align:center;padding:.7rem .8rem;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--txt);width:min(92%,26rem);direction:ltr">')+
  '</div><div id="lw-msg" style="text-align:center;min-height:1.6rem;margin-top:.6rem"></div>'+
- '<button class="btn" id="lw-go" style="margin-top:.4rem">'+esc(t('phCheck'))+'</button></div>';
+ '<button class="btn" id="lw-go" style="margin-top:.4rem">'+esc(t('phCheck'))+'</button>'+
+ '<div class="lz-nav" style="justify-content:center;margin-top:.6rem">'+
+ '<button id="lw-next">⏭ '+esc(t('gNext'))+'</button>'+
+ '<button id="lw-auto" class="'+(lw.auto?'on':'')+'">🔁 '+esc(t('autoNext'))+'</button></div></div>';
  const play=()=>loopSpeak([{txt:q.say,lg:'fr'}],$('lw-say'));
  $('lw-say').onclick=play;play();
  const inp=$('lw-in');inp.focus();
@@ -2972,8 +2975,12 @@ function lwAsk(){
   inp.disabled=true;$('lw-go').disabled=true;
   inp.style.borderColor=good?'var(--ok)':'#e0245e';
   $('lw-msg').innerHTML=(good?'✅ ':'❌ ')+q.disp;
-  setTimeout(()=>{lw.i++;if(lw.i<lw.qs.length)lwAsk();else lwEnd()},good?1200:2800)};
+  if(lw.auto)lw.timer=setTimeout(adv,good?1500:3200)};
+ const adv=()=>{clearTimeout(lw.timer);lw.i++;if(lw.i<lw.qs.length)lwAsk();else lwEnd()};
  $('lw-go').onclick=go;
+ $('lw-next').onclick=adv;
+ $('lw-auto').onclick=function(){lw.auto=!lw.auto;this.classList.toggle('on',lw.auto);
+  if(lw.auto&&lw.lock)lw.timer=setTimeout(adv,1200)};
  inp.onkeydown=e=>{if(e.key==='Enter')go()}}
 function lwEnd(){
  const body=$('quiz-body');if(!body)return;
