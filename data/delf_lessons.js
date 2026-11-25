@@ -3838,6 +3838,2421 @@ window.DELF_LESSONS={
     }
    ],
    "ids": []
+  },
+  {
+   "id": "a1-125",
+   "icon": "✉️",
+   "fr": "Écrire un message",
+   "ar": "كتابة رسالة قصيرة",
+   "phr": [
+    {
+     "f": "🇷 Salut Ali,",
+     "a": "🇾 مرحباً علي،",
+     "e": "🇸 Hi Ali,"
+    },
+    {
+     "f": "🇷 Je ne peux pas venir aujourd'hui.",
+     "a": "🇾 لا أستطيع الحضور اليوم.",
+     "e": "🇸 I can't come today."
+    },
+    {
+     "f": "🇷 Je suis malade et je dois rester à la maison.",
+     "a": "🇾 أنا مريض ويجب أن أبقى في المنزل.",
+     "e": "🇸 I am sick and I have to stay at home."
+    },
+    {
+     "f": "🇷 Nous pouvons nous voir demain.",
+     "a": "🇾 يمكننا أن نلتقي غداً.",
+     "e": "🇸 We can meet tomorrow."
+    },
+    {
+     "f": "🇷 À bientôt !",
+     "a": "🇾 أراك قريباً!",
+     "e": "🇸 See you soon!"
+    }
+   ],
+   "ids": [],
+   "consigne": "السؤال المحتمل: اكتب رسالة لصديق تخبره أنك لن تستطيع مقابلته اليوم."
+  },
+  {
+   "id": "a1-126",
+   "icon": "📧",
+   "fr": "Écrire un e-mail",
+   "ar": "كتابة بريد إلكتروني",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Marie,",
+     "a": "🇾 مرحباً ماري،",
+     "e": "🇸 Hello Marie,"
+    },
+    {
+     "f": "🇷 Comment vas-tu ?",
+     "a": "🇾 كيف حالك؟",
+     "e": "🇸 How are you?"
+    },
+    {
+     "f": "🇷 J'habite maintenant à Paris.",
+     "a": "🇾 أعيش الآن في باريس.",
+     "e": "🇸 I live in Paris now."
+    },
+    {
+     "f": "🇷 J'ai un nouvel appartement et un nouveau travail.",
+     "a": "🇾 لدي شقة جديدة وعمل جديد.",
+     "e": "🇸 I have a new apartment and a new job."
+    },
+    {
+     "f": "🇷 La ville est très belle.",
+     "a": "🇾 المدينة جميلة جداً.",
+     "e": "🇸 The city is very beautiful."
+    },
+    {
+     "f": "🇷 J'espère te voir bientôt.",
+     "a": "🇾 أتمنى أن أراك قريباً.",
+     "e": "🇸 I hope to see you soon."
+    },
+    {
+     "f": "🇷 À bientôt !",
+     "a": "🇾 أراك قريباً!",
+     "e": "🇸 See you soon!"
+    }
+   ],
+   "ids": [],
+   "consigne": "السؤال المحتمل: اكتب بريداً إلكترونياً إلى صديق تتحدث فيه عن حياتك الجديدة."
+  },
+  {
+   "id": "a1-127",
+   "icon": "📝",
+   "fr": "Compléter un formulaire",
+   "ar": "تعبئة استمارة",
+   "phr": [
+    {
+     "f": "🇷 Nom",
+     "a": "🇾 اسم العائلة",
+     "e": "🇸 Surname"
+    },
+    {
+     "f": "🇷 Prénom",
+     "a": "🇾 الاسم الشخصي",
+     "e": "🇸 First name"
+    },
+    {
+     "f": "🇷 Date de naissance",
+     "a": "🇾 تاريخ الميلاد",
+     "e": "🇸 Date of birth"
+    },
+    {
+     "f": "🇷 Lieu de naissance",
+     "a": "🇾 مكان الولادة",
+     "e": "🇸 Place of birth"
+    },
+    {
+     "f": "🇷 Nationalité",
+     "a": "🇾 الجنسية",
+     "e": "🇸 Nationality"
+    },
+    {
+     "f": "🇷 Adresse",
+     "a": "🇾 العنوان",
+     "e": "🇸 Address"
+    },
+    {
+     "f": "🇷 Téléphone",
+     "a": "🇾 الهاتف",
+     "e": "🇸 Phone"
+    },
+    {
+     "f": "🇷 Profession",
+     "a": "🇾 المهنة",
+     "e": "🇸 Profession"
+    }
+   ],
+   "ids": [],
+   "consigne": "السؤال المحتمل: املأ استمارة التسجيل في دورة اللغة الفرنسية. مثال: Nom=ALI، Prénom=Ahmed، Date de naissance=10/05/1995، Lieu de naissance=Damas، Nationalité=Syrienne، Adresse=Paris، Téléphone=06 12 34 56 78، Profession=Employé، Langue=Français."
+  },
+  {
+   "id": "a1-128",
+   "icon": "📮",
+   "fr": "Écrire une carte postale",
+   "ar": "كتابة بطاقة بريدية",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Ali,",
+     "a": "🇾 مرحباً علي،",
+     "e": "🇸 Hello Ali,"
+    },
+    {
+     "f": "🇷 Je suis en vacances à Marseille.",
+     "a": "🇾 أنا في عطلة في مارسيليا.",
+     "e": "🇸 I am on holiday in Marseille."
+    },
+    {
+     "f": "🇷 Il fait beau et il y a du soleil.",
+     "a": "🇾 الطقس جميل والشمس مشرقة.",
+     "e": "🇸 The weather is nice and sunny."
+    },
+    {
+     "f": "🇷 Je visite la ville et je vais à la plage.",
+     "a": "🇾 أزور المدينة وأذهب إلى الشاطئ.",
+     "e": "🇸 I visit the city and go to the beach."
+    },
+    {
+     "f": "🇷 Je mange dans de bons restaurants.",
+     "a": "🇾 أتناول الطعام في مطاعم جيدة.",
+     "e": "🇸 I eat at good restaurants."
+    },
+    {
+     "f": "🇷 Je passe de bonnes vacances.",
+     "a": "🇾 أقضي عطلة جميلة.",
+     "e": "🇸 I am having a good holiday."
+    },
+    {
+     "f": "🇷 À bientôt !",
+     "a": "🇾 أراك قريباً!",
+     "e": "🇸 See you soon!"
+    }
+   ],
+   "ids": [],
+   "consigne": "السؤال المحتمل: أنت في عطلة، اكتب بطاقة بريدية إلى صديقك."
+  },
+  {
+   "id": "a1-129",
+   "icon": "🙋",
+   "fr": "Se présenter",
+   "ar": "تقديم نفسك",
+   "phr": [
+    {
+     "f": "🇷 Bonjour, je m'appelle Ahmed.",
+     "a": "🇾 مرحباً، اسمي أحمد.",
+     "e": "🇸 Hello, my name is Ahmed."
+    },
+    {
+     "f": "🇷 J'ai trente ans.",
+     "a": "🇾 عمري ثلاثون سنة.",
+     "e": "🇸 I am thirty years old."
+    },
+    {
+     "f": "🇷 Je suis syrien et j'habite en France.",
+     "a": "🇾 أنا سوري وأعيش في فرنسا.",
+     "e": "🇸 I am Syrian and I live in France."
+    },
+    {
+     "f": "🇷 Je parle arabe et un peu français.",
+     "a": "🇾 أتحدث العربية والقليل من الفرنسية.",
+     "e": "🇸 I speak Arabic and a little French."
+    },
+    {
+     "f": "🇷 Je travaille et j'aime apprendre le français.",
+     "a": "🇾 أعمل وأحب تعلم اللغة الفرنسية.",
+     "e": "🇸 I work and I like learning French."
+    },
+    {
+     "f": "🇷 Pendant mon temps libre, j'aime écouter de la musique.",
+     "a": "🇾 في وقت فراغي أحب الاستماع إلى الموسيقى.",
+     "e": "🇸 In my free time, I like listening to music."
+    }
+   ],
+   "ids": [],
+   "consigne": "السؤال المحتمل: عرّف عن نفسك في رسالة قصيرة."
+  },
+  {
+   "id": "a1-130",
+   "icon": "🧍",
+   "fr": "Décrire une personne",
+   "ar": "وصف شخص",
+   "phr": [
+    {
+     "f": "🇷 Mon meilleur ami s'appelle Ali.",
+     "a": "🇾 اسم أفضل صديق لي علي.",
+     "e": "🇸 My best friend's name is Ali."
+    },
+    {
+     "f": "🇷 Il a vingt-huit ans.",
+     "a": "🇾 عمره ثمانية وعشرون عاماً.",
+     "e": "🇸 He is twenty-eight years old."
+    },
+    {
+     "f": "🇷 Il est grand et mince.",
+     "a": "🇾 هو طويل ونحيف.",
+     "e": "🇸 He is tall and slim."
+    },
+    {
+     "f": "🇷 Il a les cheveux noirs et les yeux marron.",
+     "a": "🇾 شعره أسود وعيناه بنيتان.",
+     "e": "🇸 He has black hair and brown eyes."
+    },
+    {
+     "f": "🇷 Il est gentil, drôle et sympathique.",
+     "a": "🇾 هو لطيف ومرح وودود.",
+     "e": "🇸 He is kind, funny and friendly."
+    },
+    {
+     "f": "🇷 J'aime passer du temps avec lui.",
+     "a": "🇾 أحب قضاء الوقت معه.",
+     "e": "🇸 I like spending time with him."
+    }
+   ],
+   "ids": [],
+   "consigne": "السؤال المحتمل: صف صديقك المفضل."
+  },
+  {
+   "id": "a1-131",
+   "icon": "🏙️",
+   "fr": "Décrire un lieu",
+   "ar": "وصف مكان",
+   "phr": [
+    {
+     "f": "🇷 J'habite dans une belle ville.",
+     "a": "🇾 أعيش في مدينة جميلة.",
+     "e": "🇸 I live in a beautiful city."
+    },
+    {
+     "f": "🇷 Il y a beaucoup de magasins et de restaurants.",
+     "a": "🇾 يوجد الكثير من المتاجر والمطاعم.",
+     "e": "🇸 There are many shops and restaurants."
+    },
+    {
+     "f": "🇷 Il y a aussi des parcs et des écoles.",
+     "a": "🇾 توجد أيضاً حدائق ومدارس.",
+     "e": "🇸 There are also parks and schools."
+    },
+    {
+     "f": "🇷 Les rues sont grandes et propres.",
+     "a": "🇾 الشوارع واسعة ونظيفة.",
+     "e": "🇸 The streets are wide and clean."
+    },
+    {
+     "f": "🇷 J'aime ma ville parce qu'elle est agréable.",
+     "a": "🇾 أحب مدينتي لأنها جميلة ومريحة.",
+     "e": "🇸 I like my city because it is pleasant."
+    }
+   ],
+   "ids": [],
+   "consigne": "السؤال المحتمل: صف مدينتك أو منزلك."
+  },
+  {
+   "id": "a1-132",
+   "icon": "🎉",
+   "fr": "Inviter quelqu'un",
+   "ar": "دعوة شخص",
+   "phr": [
+    {
+     "f": "🇷 Salut Marie,",
+     "a": "🇾 مرحباً ماري،",
+     "e": "🇸 Hi Marie,"
+    },
+    {
+     "f": "🇷 C'est mon anniversaire samedi.",
+     "a": "🇾 عيد ميلادي يوم السبت.",
+     "e": "🇸 It is my birthday on Saturday."
+    },
+    {
+     "f": "🇷 Je fais une petite fête chez moi.",
+     "a": "🇾 سأقيم حفلة صغيرة في منزلي.",
+     "e": "🇸 I am having a small party at my home."
+    },
+    {
+     "f": "🇷 La fête commence à dix-huit heures.",
+     "a": "🇾 تبدأ الحفلة الساعة السادسة مساءً.",
+     "e": "🇸 The party starts at six p.m."
+    },
+    {
+     "f": "🇷 Il y aura de la musique et un gâteau.",
+     "a": "🇾 ستكون هناك موسيقى وكعكة.",
+     "e": "🇸 There will be music and a cake."
+    },
+    {
+     "f": "🇷 Est-ce que tu peux venir ?",
+     "a": "🇾 هل تستطيعين الحضور؟",
+     "e": "🇸 Can you come?"
+    },
+    {
+     "f": "🇷 J'espère te voir samedi !",
+     "a": "🇾 أتمنى أن أراك يوم السبت!",
+     "e": "🇸 I hope to see you on Saturday!"
+    }
+   ],
+   "ids": [],
+   "consigne": "السؤال المحتمل: ادعُ صديقك إلى حفلة عيد ميلادك."
+  },
+  {
+   "id": "a1-133",
+   "icon": "🆘",
+   "fr": "Écrire pour demander de l'aide",
+   "ar": "طلب المساعدة",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Marie,",
+     "a": "🇾 مرحباً ماري،",
+     "e": "🇸 Hello Marie,"
+    },
+    {
+     "f": "🇷 Je t'écris parce que j'ai un problème.",
+     "a": "🇾 أكتب لك لأن لدي مشكلة.",
+     "e": "🇸 I'm writing to you because I have a problem."
+    },
+    {
+     "f": "🇷 Je ne comprends pas mon devoir de français.",
+     "a": "🇾 لا أفهم واجبي في اللغة الفرنسية.",
+     "e": "🇸 I don't understand my French homework."
+    },
+    {
+     "f": "🇷 Peux-tu m'aider, s'il te plaît ?",
+     "a": "🇾 هل يمكنك مساعدتي من فضلك؟",
+     "e": "🇸 Can you help me, please?"
+    },
+    {
+     "f": "🇷 Je suis libre demain après-midi.",
+     "a": "🇾 أنا متفرغ غداً بعد الظهر.",
+     "e": "🇸 I'm free tomorrow afternoon."
+    },
+    {
+     "f": "🇷 Merci beaucoup pour ton aide.",
+     "a": "🇾 شكراً جزيلاً على مساعدتك.",
+     "e": "🇸 Thank you very much for your help."
+    },
+    {
+     "f": "🇷 À bientôt !",
+     "a": "🇾 إلى اللقاء قريباً!",
+     "e": "🇸 See you soon!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-134",
+   "icon": "🙏",
+   "fr": "Écrire pour remercier quelqu'un",
+   "ar": "شكر شخص",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Paul,",
+     "a": "🇾 مرحباً بول،",
+     "e": "🇸 Hello Paul,"
+    },
+    {
+     "f": "🇷 Merci beaucoup pour ton cadeau.",
+     "a": "🇾 شكراً جزيلاً على هديتك.",
+     "e": "🇸 Thank you very much for your gift."
+    },
+    {
+     "f": "🇷 J'aime beaucoup ce livre.",
+     "a": "🇾 أحب هذا الكتاب كثيراً.",
+     "e": "🇸 I really like this book."
+    },
+    {
+     "f": "🇷 Tu es très gentil.",
+     "a": "🇾 أنت لطيف جداً.",
+     "e": "🇸 You are very kind."
+    },
+    {
+     "f": "🇷 J'ai passé une très bonne journée avec toi.",
+     "a": "🇾 قضيت يوماً جميلاً جداً معك.",
+     "e": "🇸 I had a very nice day with you."
+    },
+    {
+     "f": "🇷 J'espère te revoir bientôt.",
+     "a": "🇾 أتمنى أن أراك مجدداً قريباً.",
+     "e": "🇸 I hope to see you again soon."
+    },
+    {
+     "f": "🇷 À bientôt !",
+     "a": "🇾 إلى اللقاء قريباً!",
+     "e": "🇸 See you soon!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-135",
+   "icon": "📰",
+   "fr": "Écrire pour donner des nouvelles",
+   "ar": "إرسال أخبارك",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Ahmed,",
+     "a": "🇾 مرحباً أحمد،",
+     "e": "🇸 Hello Ahmed,"
+    },
+    {
+     "f": "🇷 Comment vas-tu ?",
+     "a": "🇾 كيف حالك؟",
+     "e": "🇸 How are you?"
+    },
+    {
+     "f": "🇷 Moi, je vais très bien.",
+     "a": "🇾 أنا بخير جداً.",
+     "e": "🇸 I'm very well."
+    },
+    {
+     "f": "🇷 J'habite maintenant à Paris.",
+     "a": "🇾 أسكن الآن في باريس.",
+     "e": "🇸 I live in Paris now."
+    },
+    {
+     "f": "🇷 J'ai un nouveau travail.",
+     "a": "🇾 لدي عمل جديد.",
+     "e": "🇸 I have a new job."
+    },
+    {
+     "f": "🇷 Je travaille du lundi au vendredi.",
+     "a": "🇾 أعمل من الاثنين إلى الجمعة.",
+     "e": "🇸 I work from Monday to Friday."
+    },
+    {
+     "f": "🇷 Le week-end, je sors avec mes amis.",
+     "a": "🇾 في عطلة نهاية الأسبوع أخرج مع أصدقائي.",
+     "e": "🇸 At the weekend, I go out with my friends."
+    },
+    {
+     "f": "🇷 Écris-moi bientôt !",
+     "a": "🇾 اكتب لي قريباً!",
+     "e": "🇸 Write to me soon!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-136",
+   "icon": "🌟",
+   "fr": "Écrire pour parler de ses projets",
+   "ar": "الحديث عن خططك",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Sophie,",
+     "a": "🇾 مرحباً صوفي،",
+     "e": "🇸 Hello Sophie,"
+    },
+    {
+     "f": "🇷 Je voudrais te parler de mes projets.",
+     "a": "🇾 أريد أن أتحدث معك عن خططي.",
+     "e": "🇸 I would like to tell you about my plans."
+    },
+    {
+     "f": "🇷 Cet été, je vais voyager en Espagne.",
+     "a": "🇾 هذا الصيف سأسافر إلى إسبانيا.",
+     "e": "🇸 This summer, I'm going to travel to Spain."
+    },
+    {
+     "f": "🇷 Je vais visiter Madrid et Barcelone.",
+     "a": "🇾 سأزور مدريد وبرشلونة.",
+     "e": "🇸 I'm going to visit Madrid and Barcelona."
+    },
+    {
+     "f": "🇷 Je voudrais aussi apprendre l'espagnol.",
+     "a": "🇾 أريد أيضاً أن أتعلم الإسبانية.",
+     "e": "🇸 I would also like to learn Spanish."
+    },
+    {
+     "f": "🇷 Plus tard, je veux trouver un bon travail.",
+     "a": "🇾 في المستقبل أريد أن أجد عملاً جيداً.",
+     "e": "🇸 Later, I want to find a good job."
+    },
+    {
+     "f": "🇷 Et toi, quels sont tes projets ?",
+     "a": "🇾 وأنت، ما خططك؟",
+     "e": "🇸 And you, what are your plans?"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-137",
+   "icon": "🖼️",
+   "fr": "Écrire pour décrire une photo",
+   "ar": "وصف صورة",
+   "phr": [
+    {
+     "f": "🇷 Sur cette photo, je vois une famille.",
+     "a": "🇾 في هذه الصورة أرى عائلة.",
+     "e": "🇸 In this photo, I see a family."
+    },
+    {
+     "f": "🇷 Il y a un père, une mère et deux enfants.",
+     "a": "🇾 يوجد أب وأم وطفلان.",
+     "e": "🇸 There is a father, a mother and two children."
+    },
+    {
+     "f": "🇷 Ils sont dans un jardin.",
+     "a": "🇾 هم في حديقة.",
+     "e": "🇸 They are in a garden."
+    },
+    {
+     "f": "🇷 Le père joue avec les enfants.",
+     "a": "🇾 الأب يلعب مع الأطفال.",
+     "e": "🇸 The father is playing with the children."
+    },
+    {
+     "f": "🇷 La mère sourit.",
+     "a": "🇾 الأم تبتسم.",
+     "e": "🇸 The mother is smiling."
+    },
+    {
+     "f": "🇷 Il fait beau et le soleil brille.",
+     "a": "🇾 الطقس جميل والشمس مشرقة.",
+     "e": "🇸 The weather is nice and the sun is shining."
+    },
+    {
+     "f": "🇷 La famille est heureuse.",
+     "a": "🇾 العائلة سعيدة.",
+     "e": "🇸 The family is happy."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-138",
+   "icon": "🐱",
+   "fr": "Écrire pour parler de ses animaux",
+   "ar": "الحديث عن حيواناتك",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Julie,",
+     "a": "🇾 مرحباً جولي،",
+     "e": "🇸 Hello Julie,"
+    },
+    {
+     "f": "🇷 J'ai un petit chat à la maison.",
+     "a": "🇾 لدي قطة صغيرة في المنزل.",
+     "e": "🇸 I have a little cat at home."
+    },
+    {
+     "f": "🇷 Il s'appelle Mimi.",
+     "a": "🇾 اسمه ميمي.",
+     "e": "🇸 His name is Mimi."
+    },
+    {
+     "f": "🇷 Il est blanc et très gentil.",
+     "a": "🇾 لونه أبيض ولطيف جداً.",
+     "e": "🇸 He is white and very friendly."
+    },
+    {
+     "f": "🇷 Il aime jouer avec une balle.",
+     "a": "🇾 يحب اللعب بالكرة.",
+     "e": "🇸 He likes playing with a ball."
+    },
+    {
+     "f": "🇷 Je lui donne à manger chaque jour.",
+     "a": "🇾 أعطيه الطعام كل يوم.",
+     "e": "🇸 I feed him every day."
+    },
+    {
+     "f": "🇷 J'aime beaucoup mon chat.",
+     "a": "🇾 أحب قطتي كثيراً.",
+     "e": "🇸 I love my cat very much."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-139",
+   "icon": "⏰",
+   "fr": "Écrire pour expliquer un retard",
+   "ar": "توضيح سبب التأخر",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Madame,",
+     "a": "🇾 مرحباً سيدتي،",
+     "e": "🇸 Hello Madam,"
+    },
+    {
+     "f": "🇷 Je suis désolé pour mon retard.",
+     "a": "🇾 أنا آسف على تأخري.",
+     "e": "🇸 I'm sorry for being late."
+    },
+    {
+     "f": "🇷 Le bus est arrivé en retard.",
+     "a": "🇾 وصلت الحافلة متأخرة.",
+     "e": "🇸 The bus arrived late."
+    },
+    {
+     "f": "🇷 Il y avait beaucoup de circulation.",
+     "a": "🇾 كانت هناك حركة مرور كثيفة.",
+     "e": "🇸 There was a lot of traffic."
+    },
+    {
+     "f": "🇷 Je suis arrivé avec quinze minutes de retard.",
+     "a": "🇾 وصلت متأخراً خمس عشرة دقيقة.",
+     "e": "🇸 I arrived fifteen minutes late."
+    },
+    {
+     "f": "🇷 Excusez-moi pour ce problème.",
+     "a": "🇾 أعتذر منكم عن هذه المشكلة.",
+     "e": "🇸 Please excuse me for this problem."
+    },
+    {
+     "f": "🇷 Merci pour votre compréhension.",
+     "a": "🇾 شكراً لتفهمكم.",
+     "e": "🇸 Thank you for your understanding."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-140",
+   "icon": "🎊",
+   "fr": "Écrire pour souhaiter une bonne fête",
+   "ar": "تهنئة شخص بمناسبة سعيدة",
+   "phr": [
+    {
+     "f": "🇷 Bonjour mon ami,",
+     "a": "🇾 مرحباً يا صديقي,",
+     "e": "🇸 Hello my friend,"
+    },
+    {
+     "f": "🇷 Je te souhaite une très bonne fête.",
+     "a": "🇾 أتمنى لك عيداً سعيداً جداً.",
+     "e": "🇸 I wish you a very happy celebration."
+    },
+    {
+     "f": "🇷 Je te souhaite beaucoup de bonheur et de santé.",
+     "a": "🇾 أتمنى لك الكثير من السعادة والصحة.",
+     "e": "🇸 I wish you lots of happiness and good health."
+    },
+    {
+     "f": "🇷 J'espère que tu vas passer une belle journée.",
+     "a": "🇾 أتمنى أن تقضي يوماً جميلاً.",
+     "e": "🇸 I hope you have a lovely day."
+    },
+    {
+     "f": "🇷 Profite bien de cette journée avec ta famille.",
+     "a": "🇾 استمتع بهذا اليوم مع عائلتك.",
+     "e": "🇸 Enjoy this day with your family."
+    },
+    {
+     "f": "🇷 Encore une bonne fête !",
+     "a": "🇾 عيد سعيد مرة أخرى!",
+     "e": "🇸 Happy celebration once again!"
+    },
+    {
+     "f": "🇷 À bientôt !",
+     "a": "🇾 إلى اللقاء قريباً!",
+     "e": "🇸 See you soon!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-141",
+   "icon": "ℹ️",
+   "fr": "Écrire pour demander une information",
+   "ar": "كتابة رسالة لطلب معلومة",
+   "phr": [
+    {
+     "f": "🇷 Bonjour,",
+     "a": "🇾 مرحباً،",
+     "e": "🇸 Hello,"
+    },
+    {
+     "f": "🇷 Je voudrais avoir des informations sur les cours de français.",
+     "a": "🇾 أريد الحصول على معلومات عن دروس اللغة الفرنسية.",
+     "e": "🇸 I would like to get information about French classes."
+    },
+    {
+     "f": "🇷 Quels sont les horaires des cours ?",
+     "a": "🇾 ما هي أوقات الدروس؟",
+     "e": "🇸 What are the class times?"
+    },
+    {
+     "f": "🇷 Combien coûte l'inscription ?",
+     "a": "🇾 كم تبلغ رسوم التسجيل؟",
+     "e": "🇸 How much does registration cost?"
+    },
+    {
+     "f": "🇷 Est-ce que les cours commencent en janvier ?",
+     "a": "🇾 هل تبدأ الدروس في شهر يناير؟",
+     "e": "🇸 Do the classes start in January?"
+    },
+    {
+     "f": "🇷 Merci pour votre réponse.",
+     "a": "🇾 شكراً على إجابتكم.",
+     "e": "🇸 Thank you for your reply."
+    },
+    {
+     "f": "🇷 Cordialement.",
+     "a": "🇾 مع التحية.",
+     "e": "🇸 Best regards."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-142",
+   "icon": "❌",
+   "fr": "Écrire pour annuler un rendez-vous",
+   "ar": "إلغاء موعد",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Paul,",
+     "a": "🇾 مرحباً بول،",
+     "e": "🇸 Hello Paul,"
+    },
+    {
+     "f": "🇷 Je suis désolé, mais je ne peux pas venir aujourd'hui.",
+     "a": "🇾 أنا آسف، لكن لا أستطيع الحضور اليوم.",
+     "e": "🇸 I'm sorry, but I can't come today."
+    },
+    {
+     "f": "🇷 J'ai un problème personnel.",
+     "a": "🇾 لدي مشكلة شخصية.",
+     "e": "🇸 I have a personal problem."
+    },
+    {
+     "f": "🇷 Je voudrais annuler notre rendez-vous.",
+     "a": "🇾 أريد إلغاء موعدنا.",
+     "e": "🇸 I would like to cancel our appointment."
+    },
+    {
+     "f": "🇷 Excuse-moi pour ce changement.",
+     "a": "🇾 سامحني على هذا التغيير.",
+     "e": "🇸 Sorry for this change."
+    },
+    {
+     "f": "🇷 À bientôt !",
+     "a": "🇾 إلى اللقاء قريباً!",
+     "e": "🇸 See you soon!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-143",
+   "icon": "📅",
+   "fr": "Écrire pour changer la date d'un rendez-vous",
+   "ar": "تغيير تاريخ موعد",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Marie,",
+     "a": "🇾 مرحباً ماري،",
+     "e": "🇸 Hello Marie,"
+    },
+    {
+     "f": "🇷 Je ne peux pas venir lundi.",
+     "a": "🇾 لا أستطيع الحضور يوم الاثنين.",
+     "e": "🇸 I can't come on Monday."
+    },
+    {
+     "f": "🇷 Est-ce possible de changer la date ?",
+     "a": "🇾 هل من الممكن تغيير الموعد؟",
+     "e": "🇸 Is it possible to change the date?"
+    },
+    {
+     "f": "🇷 Je suis libre mardi après-midi.",
+     "a": "🇾 أنا متفرغ يوم الثلاثاء بعد الظهر.",
+     "e": "🇸 I'm free on Tuesday afternoon."
+    },
+    {
+     "f": "🇷 Nous pouvons nous voir à 15 heures.",
+     "a": "🇾 يمكننا أن نلتقي الساعة الثالثة.",
+     "e": "🇸 We can meet at 3 p.m."
+    },
+    {
+     "f": "🇷 Merci pour ta réponse.",
+     "a": "🇾 شكراً على ردك.",
+     "e": "🇸 Thank you for your reply."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-144",
+   "icon": "📍",
+   "fr": "Écrire pour demander une adresse",
+   "ar": "طلب عنوان",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Ahmed,",
+     "a": "🇾 مرحباً أحمد،",
+     "e": "🇸 Hello Ahmed,"
+    },
+    {
+     "f": "🇷 Je voudrais venir chez toi samedi.",
+     "a": "🇾 أريد أن آتي إلى منزلك يوم السبت.",
+     "e": "🇸 I would like to come to your house on Saturday."
+    },
+    {
+     "f": "🇷 Peux-tu m'envoyer ton adresse ?",
+     "a": "🇾 هل يمكنك إرسال عنوانك لي؟",
+     "e": "🇸 Can you send me your address?"
+    },
+    {
+     "f": "🇷 Je ne connais pas ton quartier.",
+     "a": "🇾 أنا لا أعرف حيك.",
+     "e": "🇸 I don't know your neighborhood."
+    },
+    {
+     "f": "🇷 Est-ce que tu habites près de la gare ?",
+     "a": "🇾 هل تسكن بالقرب من محطة القطار؟",
+     "e": "🇸 Do you live near the train station?"
+    },
+    {
+     "f": "🇷 Merci et à samedi !",
+     "a": "🇾 شكراً وإلى يوم السبت!",
+     "e": "🇸 Thanks and see you on Saturday!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-145",
+   "icon": "💼",
+   "fr": "Écrire pour parler de son travail",
+   "ar": "الحديث عن العمل",
+   "phr": [
+    {
+     "f": "🇷 Bonjour,",
+     "a": "🇾 مرحباً،",
+     "e": "🇸 Hello,"
+    },
+    {
+     "f": "🇷 Je travaille dans une entreprise.",
+     "a": "🇾 أعمل في شركة.",
+     "e": "🇸 I work in a company."
+    },
+    {
+     "f": "🇷 Je travaille du lundi au vendredi.",
+     "a": "🇾 أعمل من الاثنين إلى الجمعة.",
+     "e": "🇸 I work from Monday to Friday."
+    },
+    {
+     "f": "🇷 Je commence à huit heures du matin.",
+     "a": "🇾 أبدأ العمل الساعة الثامنة صباحاً.",
+     "e": "🇸 I start work at eight in the morning."
+    },
+    {
+     "f": "🇷 Je termine à seize heures.",
+     "a": "🇾 أنتهي الساعة الرابعة بعد الظهر.",
+     "e": "🇸 I finish at four in the afternoon."
+    },
+    {
+     "f": "🇷 Mes collègues sont gentils.",
+     "a": "🇾 زملائي لطفاء.",
+     "e": "🇸 My colleagues are kind."
+    },
+    {
+     "f": "🇷 J'aime mon travail.",
+     "a": "🇾 أحب عملي.",
+     "e": "🇸 I like my job."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-146",
+   "icon": "🛏️",
+   "fr": "Écrire pour décrire sa chambre",
+   "ar": "وصف غرفتك",
+   "phr": [
+    {
+     "f": "🇷 Ma chambre est petite mais confortable.",
+     "a": "🇾 غرفتي صغيرة لكنها مريحة.",
+     "e": "🇸 My bedroom is small but comfortable."
+    },
+    {
+     "f": "🇷 Il y a un lit et une armoire.",
+     "a": "🇾 يوجد سرير وخزانة.",
+     "e": "🇸 There is a bed and a wardrobe."
+    },
+    {
+     "f": "🇷 Il y a aussi un bureau et une chaise.",
+     "a": "🇾 يوجد أيضاً مكتب وكرسي.",
+     "e": "🇸 There is also a desk and a chair."
+    },
+    {
+     "f": "🇷 La fenêtre est grande.",
+     "a": "🇾 النافذة كبيرة.",
+     "e": "🇸 The window is big."
+    },
+    {
+     "f": "🇷 Ma chambre est propre et lumineuse.",
+     "a": "🇾 غرفتي نظيفة ومضيئة.",
+     "e": "🇸 My bedroom is clean and bright."
+    },
+    {
+     "f": "🇷 J'aime beaucoup ma chambre.",
+     "a": "🇾 أحب غرفتي كثيراً.",
+     "e": "🇸 I really like my bedroom."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-147",
+   "icon": "🌄",
+   "fr": "Écrire pour raconter son dimanche",
+   "ar": "وصف يوم الأحد",
+   "phr": [
+    {
+     "f": "🇷 Dimanche dernier, je me suis levé à neuf heures.",
+     "a": "🇾 يوم الأحد الماضي استيقظت الساعة التاسعة.",
+     "e": "🇸 Last Sunday, I got up at nine o'clock."
+    },
+    {
+     "f": "🇷 J'ai pris mon petit-déjeuner.",
+     "a": "🇾 تناولت فطوري.",
+     "e": "🇸 I had my breakfast."
+    },
+    {
+     "f": "🇷 Ensuite, je suis allé au parc.",
+     "a": "🇾 بعد ذلك ذهبت إلى الحديقة.",
+     "e": "🇸 Then, I went to the park."
+    },
+    {
+     "f": "🇷 J'ai rencontré mes amis.",
+     "a": "🇾 التقيت بأصدقائي.",
+     "e": "🇸 I met my friends."
+    },
+    {
+     "f": "🇷 Nous avons bu un café ensemble.",
+     "a": "🇾 شربنا القهوة معاً.",
+     "e": "🇸 We drank coffee together."
+    },
+    {
+     "f": "🇷 Le soir, je suis rentré à la maison.",
+     "a": "🇾 في المساء عدت إلى المنزل.",
+     "e": "🇸 In the evening, I returned home."
+    },
+    {
+     "f": "🇷 C'était une très belle journée.",
+     "a": "🇾 كان يوماً جميلاً جداً.",
+     "e": "🇸 It was a very nice day."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-148",
+   "icon": "🎂",
+   "fr": "Écrire pour parler de son anniversaire",
+   "ar": "الحديث عن عيد ميلادك",
+   "phr": [
+    {
+     "f": "🇷 Samedi dernier, j'ai fêté mon anniversaire.",
+     "a": "🇾 يوم السبت الماضي احتفلت بعيد ميلادي.",
+     "e": "🇸 Last Saturday, I celebrated my birthday."
+    },
+    {
+     "f": "🇷 J'ai invité mes amis et ma famille.",
+     "a": "🇾 دعوت أصدقائي وعائلتي.",
+     "e": "🇸 I invited my friends and family."
+    },
+    {
+     "f": "🇷 Nous avons mangé un grand gâteau.",
+     "a": "🇾 أكلنا كعكة كبيرة.",
+     "e": "🇸 We ate a big cake."
+    },
+    {
+     "f": "🇷 Nous avons écouté de la musique.",
+     "a": "🇾 استمعنا إلى الموسيقى.",
+     "e": "🇸 We listened to music."
+    },
+    {
+     "f": "🇷 J'ai reçu beaucoup de cadeaux.",
+     "a": "🇾 حصلت على الكثير من الهدايا.",
+     "e": "🇸 I received many gifts."
+    },
+    {
+     "f": "🇷 J'étais très heureux.",
+     "a": "🇾 كنت سعيداً جداً.",
+     "e": "🇸 I was very happy."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-149",
+   "icon": "🚶",
+   "fr": "Écrire pour proposer une sortie",
+   "ar": "اقتراح نزهة",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Ahmed,",
+     "a": "🇾 مرحباً أحمد،",
+     "e": "🇸 Hello Ahmed,"
+    },
+    {
+     "f": "🇷 Est-ce que tu es libre samedi ?",
+     "a": "🇾 هل أنت متفرغ يوم السبت؟",
+     "e": "🇸 Are you free on Saturday?"
+    },
+    {
+     "f": "🇷 Je voudrais sortir avec toi.",
+     "a": "🇾 أريد أن أخرج معك.",
+     "e": "🇸 I would like to go out with you."
+    },
+    {
+     "f": "🇷 Nous pouvons aller au cinéma.",
+     "a": "🇾 يمكننا الذهاب إلى السينما.",
+     "e": "🇸 We can go to the cinema."
+    },
+    {
+     "f": "🇷 Après le film, nous pouvons prendre un café.",
+     "a": "🇾 بعد الفيلم يمكننا شرب القهوة.",
+     "e": "🇸 After the film, we can have a coffee."
+    },
+    {
+     "f": "🇷 Qu'est-ce que tu en penses ?",
+     "a": "🇾 ما رأيك؟",
+     "e": "🇸 What do you think?"
+    },
+    {
+     "f": "🇷 À bientôt !",
+     "a": "🇾 إلى اللقاء قريباً!",
+     "e": "🇸 See you soon!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-150",
+   "icon": "✅",
+   "fr": "Écrire pour accepter une invitation",
+   "ar": "قبول دعوة",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Marie,",
+     "a": "🇾 مرحباً ماري،",
+     "e": "🇸 Hello Marie,"
+    },
+    {
+     "f": "🇷 Merci pour ton invitation.",
+     "a": "🇾 شكراً على دعوتك.",
+     "e": "🇸 Thank you for your invitation."
+    },
+    {
+     "f": "🇷 Je suis très content de venir à ta fête.",
+     "a": "🇾 أنا سعيد جداً بالحضور إلى حفلتك.",
+     "e": "🇸 I'm very happy to come to your party."
+    },
+    {
+     "f": "🇷 Je serai chez toi samedi à dix-huit heures.",
+     "a": "🇾 سأكون عندك يوم السبت الساعة السادسة مساءً.",
+     "e": "🇸 I'll be at your place on Saturday at six p.m."
+    },
+    {
+     "f": "🇷 Je vais apporter un cadeau.",
+     "a": "🇾 سأحضر معي هدية.",
+     "e": "🇸 I will bring a gift."
+    },
+    {
+     "f": "🇷 À samedi !",
+     "a": "🇾 إلى يوم السبت!",
+     "e": "🇸 See you on Saturday!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-151",
+   "icon": "🙅",
+   "fr": "Écrire pour refuser une invitation",
+   "ar": "رفض دعوة",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Paul,",
+     "a": "🇾 مرحباً بول،",
+     "e": "🇸 Hello Paul,"
+    },
+    {
+     "f": "🇷 Merci beaucoup pour ton invitation.",
+     "a": "🇾 شكراً جزيلاً على دعوتك.",
+     "e": "🇸 Thank you very much for your invitation."
+    },
+    {
+     "f": "🇷 Malheureusement, je ne peux pas venir samedi.",
+     "a": "🇾 للأسف، لا أستطيع الحضور يوم السبت.",
+     "e": "🇸 Unfortunately, I can't come on Saturday."
+    },
+    {
+     "f": "🇷 Je dois travailler ce jour-là.",
+     "a": "🇾 يجب أن أعمل في ذلك اليوم.",
+     "e": "🇸 I have to work that day."
+    },
+    {
+     "f": "🇷 Je suis désolé.",
+     "a": "🇾 أنا آسف.",
+     "e": "🇸 I'm sorry."
+    },
+    {
+     "f": "🇷 Nous pouvons nous voir dimanche prochain.",
+     "a": "🇾 يمكننا أن نلتقي يوم الأحد القادم.",
+     "e": "🇸 We can meet next Sunday."
+    },
+    {
+     "f": "🇷 Bonne fête et amuse-toi bien !",
+     "a": "🇾 عيد سعيد واستمتع بوقتك!",
+     "e": "🇸 Happy celebration and have fun!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-152",
+   "icon": "🏠",
+   "fr": "Écrire pour demander un renseignement sur un logement",
+   "ar": "طلب معلومات عن سكن",
+   "phr": [
+    {
+     "f": "🇷 Bonjour,",
+     "a": "🇾 مرحباً،",
+     "e": "🇸 Hello,"
+    },
+    {
+     "f": "🇷 Je cherche un appartement à louer.",
+     "a": "🇾 أبحث عن شقة للإيجار.",
+     "e": "🇸 I'm looking for an apartment to rent."
+    },
+    {
+     "f": "🇷 Je voudrais un appartement avec deux chambres.",
+     "a": "🇾 أريد شقة فيها غرفتا نوم.",
+     "e": "🇸 I would like an apartment with two bedrooms."
+    },
+    {
+     "f": "🇷 Est-ce que l'appartement est près du centre-ville ?",
+     "a": "🇾 هل الشقة قريبة من مركز المدينة؟",
+     "e": "🇸 Is the apartment near the city center?"
+    },
+    {
+     "f": "🇷 Quel est le prix du loyer ?",
+     "a": "🇾 كم سعر الإيجار؟",
+     "e": "🇸 What is the rent?"
+    },
+    {
+     "f": "🇷 Est-ce possible de visiter l'appartement samedi ?",
+     "a": "🇾 هل من الممكن زيارة الشقة يوم السبت؟",
+     "e": "🇸 Is it possible to visit the apartment on Saturday?"
+    },
+    {
+     "f": "🇷 Merci pour votre réponse.",
+     "a": "🇾 شكراً على ردكم.",
+     "e": "🇸 Thank you for your reply."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-153",
+   "icon": "📚",
+   "fr": "Écrire pour parler de ses études",
+   "ar": "الحديث عن الدراسة",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Sophie,",
+     "a": "🇾 مرحباً صوفي،",
+     "e": "🇸 Hello Sophie,"
+    },
+    {
+     "f": "🇷 Je prends des cours de français.",
+     "a": "🇾 أحضر دروساً في اللغة الفرنسية.",
+     "e": "🇸 I'm taking French classes."
+    },
+    {
+     "f": "🇷 Les cours sont intéressants.",
+     "a": "🇾 الدروس ممتعة.",
+     "e": "🇸 The classes are interesting."
+    },
+    {
+     "f": "🇷 J'étudie trois fois par semaine.",
+     "a": "🇾 أدرس ثلاث مرات في الأسبوع.",
+     "e": "🇸 I study three times a week."
+    },
+    {
+     "f": "🇷 Mon professeur est très gentil.",
+     "a": "🇾 أستاذي لطيف جداً.",
+     "e": "🇸 My teacher is very kind."
+    },
+    {
+     "f": "🇷 Je fais mes devoirs chaque soir.",
+     "a": "🇾 أقوم بواجباتي كل مساء.",
+     "e": "🇸 I do my homework every evening."
+    },
+    {
+     "f": "🇷 Je veux parler français correctement.",
+     "a": "🇾 أريد أن أتحدث الفرنسية بشكل صحيح.",
+     "e": "🇸 I want to speak French correctly."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-154",
+   "icon": "⚽",
+   "fr": "Écrire pour parler de son sport préféré",
+   "ar": "الحديث عن رياضتك المفضلة",
+   "phr": [
+    {
+     "f": "🇷 Mon sport préféré est le football.",
+     "a": "🇾 رياضتي المفضلة هي كرة القدم.",
+     "e": "🇸 My favorite sport is football."
+    },
+    {
+     "f": "🇷 Je joue au football avec mes amis.",
+     "a": "🇾 ألعب كرة القدم مع أصدقائي.",
+     "e": "🇸 I play football with my friends."
+    },
+    {
+     "f": "🇷 Nous jouons chaque dimanche.",
+     "a": "🇾 نلعب كل يوم أحد.",
+     "e": "🇸 We play every Sunday."
+    },
+    {
+     "f": "🇷 J'aime beaucoup ce sport.",
+     "a": "🇾 أحب هذه الرياضة كثيراً.",
+     "e": "🇸 I really like this sport."
+    },
+    {
+     "f": "🇷 Le sport est bon pour la santé.",
+     "a": "🇾 الرياضة مفيدة للصحة.",
+     "e": "🇸 Sport is good for your health."
+    },
+    {
+     "f": "🇷 Je veux rester en bonne santé.",
+     "a": "🇾 أريد أن أبقى بصحة جيدة.",
+     "e": "🇸 I want to stay healthy."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-155",
+   "icon": "🇸🇾",
+   "fr": "Écrire pour parler de son pays",
+   "ar": "الحديث عن بلدك",
+   "phr": [
+    {
+     "f": "🇷 J'habite en France, mais mon pays d'origine est la Syrie.",
+     "a": "🇾 أعيش في فرنسا، لكن بلدي الأصلي هو سوريا.",
+     "e": "🇸 I live in France, but my country of origin is Syria."
+    },
+    {
+     "f": "🇷 La Syrie est un beau pays.",
+     "a": "🇾 سوريا بلد جميل.",
+     "e": "🇸 Syria is a beautiful country."
+    },
+    {
+     "f": "🇷 Il y a de belles villes et de vieux monuments.",
+     "a": "🇾 توجد مدن جميلة وآثار قديمة.",
+     "e": "🇸 There are beautiful cities and old monuments."
+    },
+    {
+     "f": "🇷 La nourriture syrienne est délicieuse.",
+     "a": "🇾 الطعام السوري لذيذ.",
+     "e": "🇸 Syrian food is delicious."
+    },
+    {
+     "f": "🇷 J'aime beaucoup la cuisine de mon pays.",
+     "a": "🇾 أحب مطبخ بلدي كثيراً.",
+     "e": "🇸 I really like my country's cuisine."
+    },
+    {
+     "f": "🇷 Ma famille et mes amis me manquent.",
+     "a": "🇾 أشتاق إلى عائلتي وأصدقائي.",
+     "e": "🇸 I miss my family and friends."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-156",
+   "icon": "🏖️",
+   "fr": "Écrire pour parler de ses vacances",
+   "ar": "الحديث عن العطلة",
+   "phr": [
+    {
+     "f": "🇷 Bonjour mon ami,",
+     "a": "🇾 مرحباً يا صديقي,",
+     "e": "🇸 Hello my friend,"
+    },
+    {
+     "f": "🇷 Je suis en vacances à Marseille.",
+     "a": "🇾 أنا في عطلة في مارسيليا.",
+     "e": "🇸 I'm on holiday in Marseille."
+    },
+    {
+     "f": "🇷 Il fait beau et il y a du soleil.",
+     "a": "🇾 الطقس جميل والشمس مشرقة.",
+     "e": "🇸 The weather is nice and sunny."
+    },
+    {
+     "f": "🇷 Je visite la ville et les musées.",
+     "a": "🇾 أزور المدينة والمتاحف.",
+     "e": "🇸 I visit the city and the museums."
+    },
+    {
+     "f": "🇷 Je vais aussi à la plage.",
+     "a": "🇾 أذهب أيضاً إلى الشاطئ.",
+     "e": "🇸 I also go to the beach."
+    },
+    {
+     "f": "🇷 Je mange dans de bons restaurants.",
+     "a": "🇾 أتناول الطعام في مطاعم جيدة.",
+     "e": "🇸 I eat at good restaurants."
+    },
+    {
+     "f": "🇷 Je passe de très bonnes vacances.",
+     "a": "🇾 أقضي عطلة جميلة جداً.",
+     "e": "🇸 I'm having a very nice holiday."
+    },
+    {
+     "f": "🇷 À bientôt !",
+     "a": "🇾 إلى اللقاء قريباً!",
+     "e": "🇸 See you soon!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-157",
+   "icon": "💶",
+   "fr": "Écrire pour demander un prix",
+   "ar": "السؤال عن السعر",
+   "phr": [
+    {
+     "f": "🇷 Bonjour,",
+     "a": "🇾 مرحباً،",
+     "e": "🇸 Hello,"
+    },
+    {
+     "f": "🇷 Je voudrais acheter ce téléphone.",
+     "a": "🇾 أريد شراء هذا الهاتف.",
+     "e": "🇸 I would like to buy this phone."
+    },
+    {
+     "f": "🇷 Combien coûte ce téléphone ?",
+     "a": "🇾 كم سعر هذا الهاتف؟",
+     "e": "🇸 How much does this phone cost?"
+    },
+    {
+     "f": "🇷 Est-ce qu'il est en promotion ?",
+     "a": "🇾 هل عليه تخفيض؟",
+     "e": "🇸 Is it on sale?"
+    },
+    {
+     "f": "🇷 Est-ce que je peux payer par carte bancaire ?",
+     "a": "🇾 هل يمكنني الدفع بالبطاقة المصرفية؟",
+     "e": "🇸 Can I pay by bank card?"
+    },
+    {
+     "f": "🇷 Merci pour votre réponse.",
+     "a": "🇾 شكراً على ردكم.",
+     "e": "🇸 Thank you for your reply."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-158",
+   "icon": "🎫",
+   "fr": "Écrire pour acheter un billet",
+   "ar": "شراء تذكرة",
+   "phr": [
+    {
+     "f": "🇷 Bonjour,",
+     "a": "🇾 مرحباً،",
+     "e": "🇸 Hello,"
+    },
+    {
+     "f": "🇷 Je voudrais acheter un billet de train pour Lyon.",
+     "a": "🇾 أريد شراء تذكرة قطار إلى ليون.",
+     "e": "🇸 I would like to buy a train ticket to Lyon."
+    },
+    {
+     "f": "🇷 Je voudrais partir samedi matin.",
+     "a": "🇾 أريد السفر صباح يوم السبت.",
+     "e": "🇸 I would like to leave on Saturday morning."
+    },
+    {
+     "f": "🇷 À quelle heure part le train ?",
+     "a": "🇾 في أي ساعة ينطلق القطار؟",
+     "e": "🇸 What time does the train leave?"
+    },
+    {
+     "f": "🇷 Combien coûte le billet ?",
+     "a": "🇾 كم سعر التذكرة؟",
+     "e": "🇸 How much is the ticket?"
+    },
+    {
+     "f": "🇷 Merci beaucoup.",
+     "a": "🇾 شكراً جزيلاً.",
+     "e": "🇸 Thank you very much."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-159",
+   "icon": "🍽️",
+   "fr": "Écrire pour réserver une table au restaurant",
+   "ar": "حجز طاولة في مطعم",
+   "phr": [
+    {
+     "f": "🇷 Bonjour,",
+     "a": "🇾 مرحباً،",
+     "e": "🇸 Hello,"
+    },
+    {
+     "f": "🇷 Je voudrais réserver une table pour deux personnes.",
+     "a": "🇾 أريد حجز طاولة لشخصين.",
+     "e": "🇸 I would like to book a table for two people."
+    },
+    {
+     "f": "🇷 Je voudrais venir samedi soir.",
+     "a": "🇾 أريد الحضور مساء السبت.",
+     "e": "🇸 I would like to come on Saturday evening."
+    },
+    {
+     "f": "🇷 Est-ce possible à vingt heures ?",
+     "a": "🇾 هل هذا ممكن الساعة الثامنة مساءً؟",
+     "e": "🇸 Is eight p.m. possible?"
+    },
+    {
+     "f": "🇷 Je préfère une table près de la fenêtre.",
+     "a": "🇾 أفضل طاولة بالقرب من النافذة.",
+     "e": "🇸 I prefer a table near the window."
+    },
+    {
+     "f": "🇷 Merci pour votre confirmation.",
+     "a": "🇾 شكراً على تأكيدكم.",
+     "e": "🇸 Thank you for your confirmation."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-160",
+   "icon": "🍕",
+   "fr": "Écrire pour commander un repas",
+   "ar": "طلب وجبة",
+   "phr": [
+    {
+     "f": "🇷 Bonjour,",
+     "a": "🇾 مرحباً،",
+     "e": "🇸 Hello,"
+    },
+    {
+     "f": "🇷 Je voudrais commander une pizza.",
+     "a": "🇾 أريد طلب بيتزا.",
+     "e": "🇸 I would like to order a pizza."
+    },
+    {
+     "f": "🇷 Je voudrais une pizza au fromage.",
+     "a": "🇾 أريد بيتزا بالجبن.",
+     "e": "🇸 I would like a cheese pizza."
+    },
+    {
+     "f": "🇷 Je voudrais aussi une bouteille d'eau.",
+     "a": "🇾 أريد أيضاً زجاجة ماء.",
+     "e": "🇸 I would also like a bottle of water."
+    },
+    {
+     "f": "🇷 Quel est le prix total ?",
+     "a": "🇾 كم السعر الإجمالي؟",
+     "e": "🇸 What is the total price?"
+    },
+    {
+     "f": "🇷 Pouvez-vous livrer à mon domicile ?",
+     "a": "🇾 هل يمكنكم التوصيل إلى منزلي؟",
+     "e": "🇸 Can you deliver to my home?"
+    },
+    {
+     "f": "🇷 Merci beaucoup.",
+     "a": "🇾 شكراً جزيلاً.",
+     "e": "🇸 Thank you very much."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-161",
+   "icon": "🏨",
+   "fr": "Écrire pour signaler un problème dans un hôtel",
+   "ar": "الإبلاغ عن مشكلة في الفندق",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Madame,",
+     "a": "🇾 مرحباً سيدتي،",
+     "e": "🇸 Hello Madam,"
+    },
+    {
+     "f": "🇷 Je suis dans votre hôtel depuis hier.",
+     "a": "🇾 أنا في فندقكم منذ البارحة.",
+     "e": "🇸 I have been in your hotel since yesterday."
+    },
+    {
+     "f": "🇷 J'ai un problème dans ma chambre.",
+     "a": "🇾 لدي مشكلة في غرفتي.",
+     "e": "🇸 I have a problem in my room."
+    },
+    {
+     "f": "🇷 La douche ne fonctionne pas.",
+     "a": "🇾 الدش لا يعمل.",
+     "e": "🇸 The shower doesn't work."
+    },
+    {
+     "f": "🇷 Il n'y a pas d'eau chaude.",
+     "a": "🇾 لا يوجد ماء ساخن.",
+     "e": "🇸 There is no hot water."
+    },
+    {
+     "f": "🇷 Pouvez-vous réparer ce problème, s'il vous plaît ?",
+     "a": "🇾 هل يمكنكم إصلاح هذه المشكلة من فضلكم؟",
+     "e": "🇸 Can you fix this problem, please?"
+    },
+    {
+     "f": "🇷 Merci pour votre aide.",
+     "a": "🇾 شكراً على مساعدتكم.",
+     "e": "🇸 Thank you for your help."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-162",
+   "icon": "📆",
+   "fr": "Écrire pour demander un jour de congé",
+   "ar": "طلب يوم إجازة",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Monsieur,",
+     "a": "🇾 مرحباً سيدي،",
+     "e": "🇸 Hello Sir,"
+    },
+    {
+     "f": "🇷 Je voudrais demander un jour de congé.",
+     "a": "🇾 أريد طلب يوم إجازة.",
+     "e": "🇸 I would like to request a day off."
+    },
+    {
+     "f": "🇷 J'ai un rendez-vous important mardi.",
+     "a": "🇾 لدي موعد مهم يوم الثلاثاء.",
+     "e": "🇸 I have an important appointment on Tuesday."
+    },
+    {
+     "f": "🇷 Est-ce possible de prendre un jour de congé ?",
+     "a": "🇾 هل يمكنني أخذ يوم إجازة؟",
+     "e": "🇸 Is it possible to take a day off?"
+    },
+    {
+     "f": "🇷 Je peux reprendre le travail mercredi.",
+     "a": "🇾 يمكنني العودة إلى العمل يوم الأربعاء.",
+     "e": "🇸 I can return to work on Wednesday."
+    },
+    {
+     "f": "🇷 Merci pour votre compréhension.",
+     "a": "🇾 شكراً لتفهمكم.",
+     "e": "🇸 Thank you for your understanding."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-163",
+   "icon": "🤒",
+   "fr": "Écrire pour prévenir de son absence",
+   "ar": "الإخبار عن عدم الحضور",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Madame,",
+     "a": "🇾 مرحباً سيدتي،",
+     "e": "🇸 Hello Madam,"
+    },
+    {
+     "f": "🇷 Je ne peux pas venir aujourd'hui.",
+     "a": "🇾 لا أستطيع الحضور اليوم.",
+     "e": "🇸 I can't come today."
+    },
+    {
+     "f": "🇷 Je suis malade.",
+     "a": "🇾 أنا مريض.",
+     "e": "🇸 I am sick."
+    },
+    {
+     "f": "🇷 J'ai de la fièvre et mal à la tête.",
+     "a": "🇾 لدي حمى وألم في الرأس.",
+     "e": "🇸 I have a fever and a headache."
+    },
+    {
+     "f": "🇷 Je vais rester à la maison.",
+     "a": "🇾 سأبقى في المنزل.",
+     "e": "🇸 I am going to stay at home."
+    },
+    {
+     "f": "🇷 Je suis désolé pour mon absence.",
+     "a": "🇾 أنا آسف بسبب غيابي.",
+     "e": "🇸 I am sorry for my absence."
+    },
+    {
+     "f": "🇷 Merci pour votre compréhension.",
+     "a": "🇾 شكراً لتفهمكم.",
+     "e": "🇸 Thank you for your understanding."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-164",
+   "icon": "🎉",
+   "fr": "Écrire pour féliciter quelqu'un",
+   "ar": "تهنئة شخص",
+   "phr": [
+    {
+     "f": "🇷 Bonjour mon ami,",
+     "a": "🇾 مرحباً يا صديقي,",
+     "e": "🇸 Hello my friend,"
+    },
+    {
+     "f": "🇷 Félicitations pour ton nouveau travail !",
+     "a": "🇾 مبروك على عملك الجديد!",
+     "e": "🇸 Congratulations on your new job!"
+    },
+    {
+     "f": "🇷 Je suis très heureux pour toi.",
+     "a": "🇾 أنا سعيد جداً من أجلك.",
+     "e": "🇸 I am very happy for you."
+    },
+    {
+     "f": "🇷 Tu as beaucoup travaillé.",
+     "a": "🇾 لقد عملت كثيراً.",
+     "e": "🇸 You worked very hard."
+    },
+    {
+     "f": "🇷 Tu mérites cette réussite.",
+     "a": "🇾 أنت تستحق هذا النجاح.",
+     "e": "🇸 You deserve this success."
+    },
+    {
+     "f": "🇷 Je te souhaite beaucoup de bonheur.",
+     "a": "🇾 أتمنى لك الكثير من السعادة.",
+     "e": "🇸 I wish you lots of happiness."
+    },
+    {
+     "f": "🇷 À bientôt !",
+     "a": "🇾 إلى اللقاء قريباً!",
+     "e": "🇸 See you soon!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-165",
+   "icon": "🙇",
+   "fr": "Écrire pour présenter ses excuses",
+   "ar": "تقديم الاعتذار",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Marie,",
+     "a": "🇾 مرحباً ماري،",
+     "e": "🇸 Hello Marie,"
+    },
+    {
+     "f": "🇷 Je suis désolé pour mon erreur.",
+     "a": "🇾 أنا آسف على خطئي.",
+     "e": "🇸 I am sorry for my mistake."
+    },
+    {
+     "f": "🇷 Je n'ai pas voulu te faire de mal.",
+     "a": "🇾 لم أقصد أن أؤذيك.",
+     "e": "🇸 I didn't want to hurt you."
+    },
+    {
+     "f": "🇷 J'espère que tu peux me pardonner.",
+     "a": "🇾 أتمنى أن تسامحيني.",
+     "e": "🇸 I hope you can forgive me."
+    },
+    {
+     "f": "🇷 Tu es une amie importante pour moi.",
+     "a": "🇾 أنت صديقة مهمة بالنسبة لي.",
+     "e": "🇸 You are an important friend to me."
+    },
+    {
+     "f": "🇷 Encore une fois, excuse-moi.",
+     "a": "🇾 أعتذر منك مرة أخرى.",
+     "e": "🇸 Once again, I'm sorry."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-166",
+   "icon": "👔",
+   "fr": "Écrire pour inviter un collègue",
+   "ar": "دعوة زميل في العمل",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Paul,",
+     "a": "🇾 مرحباً بول،",
+     "e": "🇸 Hello Paul,"
+    },
+    {
+     "f": "🇷 J'organise une petite fête samedi soir.",
+     "a": "🇾 أنظم حفلة صغيرة مساء السبت.",
+     "e": "🇸 I am organizing a small party on Saturday evening."
+    },
+    {
+     "f": "🇷 Je voudrais t'inviter.",
+     "a": "🇾 أريد دعوتك.",
+     "e": "🇸 I would like to invite you."
+    },
+    {
+     "f": "🇷 La fête commence à dix-neuf heures.",
+     "a": "🇾 تبدأ الحفلة الساعة السابعة مساءً.",
+     "e": "🇸 The party starts at seven p.m."
+    },
+    {
+     "f": "🇷 Il y aura de la musique et de la nourriture.",
+     "a": "🇾 ستكون هناك موسيقى وطعام.",
+     "e": "🇸 There will be music and food."
+    },
+    {
+     "f": "🇷 J'espère que tu peux venir.",
+     "a": "🇾 أتمنى أن تستطيع الحضور.",
+     "e": "🇸 I hope you can come."
+    },
+    {
+     "f": "🇷 À samedi !",
+     "a": "🇾 إلى يوم السبت!",
+     "e": "🇸 See you on Saturday!"
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-167",
+   "icon": "🏡",
+   "fr": "Écrire pour parler de son nouveau logement",
+   "ar": "الحديث عن منزلك الجديد",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Ahmed,",
+     "a": "🇾 مرحباً أحمد،",
+     "e": "🇸 Hello Ahmed,"
+    },
+    {
+     "f": "🇷 J'ai un nouvel appartement.",
+     "a": "🇾 لدي شقة جديدة.",
+     "e": "🇸 I have a new apartment."
+    },
+    {
+     "f": "🇷 Il est grand et lumineux.",
+     "a": "🇾 إنها كبيرة ومضيئة.",
+     "e": "🇸 It is big and bright."
+    },
+    {
+     "f": "🇷 Il y a deux chambres et un salon.",
+     "a": "🇾 فيها غرفتا نوم وغرفة جلوس.",
+     "e": "🇸 There are two bedrooms and a living room."
+    },
+    {
+     "f": "🇷 La cuisine est moderne.",
+     "a": "🇾 المطبخ حديث.",
+     "e": "🇸 The kitchen is modern."
+    },
+    {
+     "f": "🇷 Mon appartement est près du centre-ville.",
+     "a": "🇾 شقتي قريبة من مركز المدينة.",
+     "e": "🇸 My apartment is near the city center."
+    },
+    {
+     "f": "🇷 Je suis très content de mon nouveau logement.",
+     "a": "🇾 أنا سعيد جداً بمنزلي الجديد.",
+     "e": "🇸 I am very happy with my new home."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-168",
+   "icon": "🌟",
+   "fr": "Écrire pour raconter une journée spéciale",
+   "ar": "رواية يوم مميز",
+   "phr": [
+    {
+     "f": "🇷 Hier, j'ai passé une journée spéciale.",
+     "a": "🇾 أمس قضيت يوماً مميزاً.",
+     "e": "🇸 Yesterday, I had a special day."
+    },
+    {
+     "f": "🇷 Je suis allé à Paris avec ma famille.",
+     "a": "🇾 ذهبت إلى باريس مع عائلتي.",
+     "e": "🇸 I went to Paris with my family."
+    },
+    {
+     "f": "🇷 Nous avons visité la tour Eiffel.",
+     "a": "🇾 زرنا برج إيفل.",
+     "e": "🇸 We visited the Eiffel Tower."
+    },
+    {
+     "f": "🇷 Nous avons pris beaucoup de photos.",
+     "a": "🇾 التقطنا الكثير من الصور.",
+     "e": "🇸 We took many photos."
+    },
+    {
+     "f": "🇷 Ensuite, nous avons mangé dans un restaurant.",
+     "a": "🇾 بعد ذلك تناولنا الطعام في مطعم.",
+     "e": "🇸 Then, we ate at a restaurant."
+    },
+    {
+     "f": "🇷 C'était une journée magnifique.",
+     "a": "🇾 كان يوماً رائعاً.",
+     "e": "🇸 It was a wonderful day."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-169",
+   "icon": "🧳",
+   "fr": "Écrire pour parler de son dernier voyage",
+   "ar": "الحديث عن آخر رحلة",
+   "phr": [
+    {
+     "f": "🇷 Le mois dernier, je suis allé à Lyon.",
+     "a": "🇾 الشهر الماضي ذهبت إلى ليون.",
+     "e": "🇸 Last month, I went to Lyon."
+    },
+    {
+     "f": "🇷 J'ai voyagé en train.",
+     "a": "🇾 سافرت بالقطار.",
+     "e": "🇸 I travelled by train."
+    },
+    {
+     "f": "🇷 J'ai visité de beaux endroits.",
+     "a": "🇾 زرت أماكن جميلة.",
+     "e": "🇸 I visited beautiful places."
+    },
+    {
+     "f": "🇷 J'ai mangé dans un bon restaurant.",
+     "a": "🇾 تناولت الطعام في مطعم جيد.",
+     "e": "🇸 I ate at a good restaurant."
+    },
+    {
+     "f": "🇷 J'ai pris des photos avec mes amis.",
+     "a": "🇾 التقطت صوراً مع أصدقائي.",
+     "e": "🇸 I took photos with my friends."
+    },
+    {
+     "f": "🇷 J'ai beaucoup aimé ce voyage.",
+     "a": "🇾 أحببت هذه الرحلة كثيراً.",
+     "e": "🇸 I really enjoyed this trip."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-170",
+   "icon": "🏘️",
+   "fr": "Écrire pour décrire son quartier",
+   "ar": "وصف الحي الذي تسكن فيه",
+   "phr": [
+    {
+     "f": "🇷 J'habite dans un quartier calme.",
+     "a": "🇾 أسكن في حي هادئ.",
+     "e": "🇸 I live in a quiet neighborhood."
+    },
+    {
+     "f": "🇷 Il y a beaucoup de magasins.",
+     "a": "🇾 توجد متاجر كثيرة.",
+     "e": "🇸 There are many shops."
+    },
+    {
+     "f": "🇷 Il y a aussi un parc et une école.",
+     "a": "🇾 يوجد أيضاً حديقة ومدرسة.",
+     "e": "🇸 There is also a park and a school."
+    },
+    {
+     "f": "🇷 Les rues sont propres.",
+     "a": "🇾 الشوارع نظيفة.",
+     "e": "🇸 The streets are clean."
+    },
+    {
+     "f": "🇷 Les voisins sont gentils.",
+     "a": "🇾 الجيران لطفاء.",
+     "e": "🇸 The neighbors are friendly."
+    },
+    {
+     "f": "🇷 J'aime beaucoup mon quartier.",
+     "a": "🇾 أحب حيي كثيراً.",
+     "e": "🇸 I really like my neighborhood."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-171",
+   "icon": "🚌",
+   "fr": "Écrire pour parler de ses transports",
+   "ar": "الحديث عن وسائل النقل",
+   "phr": [
+    {
+     "f": "🇷 Je prends le bus pour aller au travail.",
+     "a": "🇾 أستقل الحافلة للذهاب إلى العمل.",
+     "e": "🇸 I take the bus to go to work."
+    },
+    {
+     "f": "🇷 Le trajet dure vingt minutes.",
+     "a": "🇾 تستغرق الرحلة عشرين دقيقة.",
+     "e": "🇸 The journey takes twenty minutes."
+    },
+    {
+     "f": "🇷 Parfois, je prends le métro.",
+     "a": "🇾 أحياناً أستقل المترو.",
+     "e": "🇸 Sometimes, I take the subway."
+    },
+    {
+     "f": "🇷 Je préfère le bus parce qu'il est pratique.",
+     "a": "🇾 أفضل الحافلة لأنها عملية.",
+     "e": "🇸 I prefer the bus because it is convenient."
+    },
+    {
+     "f": "🇷 Le week-end, je marche beaucoup.",
+     "a": "🇾 في عطلة نهاية الأسبوع أمشي كثيراً.",
+     "e": "🇸 At the weekend, I walk a lot."
+    },
+    {
+     "f": "🇷 Les transports sont importants dans la ville.",
+     "a": "🇾 وسائل النقل مهمة في المدينة.",
+     "e": "🇸 Transport is important in the city."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-172",
+   "icon": "🩺",
+   "fr": "Écrire pour demander un rendez-vous chez le médecin",
+   "ar": "طلب موعد عند الطبيب",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Docteur,",
+     "a": "🇾 مرحباً دكتور،",
+     "e": "🇸 Hello Doctor,"
+    },
+    {
+     "f": "🇷 Je voudrais prendre un rendez-vous.",
+     "a": "🇾 أريد حجز موعد.",
+     "e": "🇸 I would like to make an appointment."
+    },
+    {
+     "f": "🇷 J'ai mal à la tête depuis hier.",
+     "a": "🇾 أعاني من ألم في الرأس منذ البارحة.",
+     "e": "🇸 I have had a headache since yesterday."
+    },
+    {
+     "f": "🇷 Je voudrais consulter un médecin.",
+     "a": "🇾 أريد استشارة طبيب.",
+     "e": "🇸 I would like to see a doctor."
+    },
+    {
+     "f": "🇷 Est-ce que vous êtes libre demain matin ?",
+     "a": "🇾 هل أنتم متفرغون غداً صباحاً؟",
+     "e": "🇸 Are you available tomorrow morning?"
+    },
+    {
+     "f": "🇷 Merci pour votre réponse.",
+     "a": "🇾 شكراً على ردكم.",
+     "e": "🇸 Thank you for your reply."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-173",
+   "icon": "🤕",
+   "fr": "Écrire pour expliquer un problème de santé",
+   "ar": "شرح مشكلة صحية",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Marie,",
+     "a": "🇾 مرحباً ماري،",
+     "e": "🇸 Hello Marie,"
+    },
+    {
+     "f": "🇷 Je ne me sens pas bien aujourd'hui.",
+     "a": "🇾 لا أشعر أنني بخير اليوم.",
+     "e": "🇸 I don't feel well today."
+    },
+    {
+     "f": "🇷 J'ai mal à la tête et à la gorge.",
+     "a": "🇾 أعاني من ألم في الرأس والحلق.",
+     "e": "🇸 I have a headache and a sore throat."
+    },
+    {
+     "f": "🇷 J'ai aussi de la fièvre.",
+     "a": "🇾 لدي أيضاً حمى.",
+     "e": "🇸 I also have a fever."
+    },
+    {
+     "f": "🇷 Je vais rester à la maison et me reposer.",
+     "a": "🇾 سأبقى في المنزل وأرتاح.",
+     "e": "🇸 I will stay at home and rest."
+    },
+    {
+     "f": "🇷 J'espère aller mieux demain.",
+     "a": "🇾 أتمنى أن أتحسن غداً.",
+     "e": "🇸 I hope to feel better tomorrow."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-174",
+   "icon": "⏰",
+   "fr": "Écrire pour parler de ses habitudes quotidiennes",
+   "ar": "الحديث عن عاداتك اليومية",
+   "phr": [
+    {
+     "f": "🇷 Je me lève tous les jours à sept heures.",
+     "a": "🇾 أستيقظ كل يوم الساعة السابعة.",
+     "e": "🇸 I get up every day at seven."
+    },
+    {
+     "f": "🇷 Je prends une douche et je prends mon petit-déjeuner.",
+     "a": "🇾 أستحم وأتناول فطوري.",
+     "e": "🇸 I take a shower and have breakfast."
+    },
+    {
+     "f": "🇷 Ensuite, je vais au travail.",
+     "a": "🇾 بعد ذلك أذهب إلى العمل.",
+     "e": "🇸 Then, I go to work."
+    },
+    {
+     "f": "🇷 Je rentre à la maison le soir.",
+     "a": "🇾 أعود إلى المنزل مساءً.",
+     "e": "🇸 I return home in the evening."
+    },
+    {
+     "f": "🇷 Je regarde la télévision ou je lis un livre.",
+     "a": "🇾 أشاهد التلفاز أو أقرأ كتاباً.",
+     "e": "🇸 I watch television or read a book."
+    },
+    {
+     "f": "🇷 Je me couche à vingt-deux heures.",
+     "a": "🇾 أذهب إلى النوم الساعة العاشرة.",
+     "e": "🇸 I go to bed at ten p.m."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-175",
+   "icon": "🍗",
+   "fr": "Écrire pour parler de son repas préféré",
+   "ar": "الحديث عن وجبتك المفضلة",
+   "phr": [
+    {
+     "f": "🇷 Mon plat préféré est le poulet avec du riz.",
+     "a": "🇾 طبقي المفضل هو الدجاج مع الأرز.",
+     "e": "🇸 My favorite dish is chicken with rice."
+    },
+    {
+     "f": "🇷 J'aime beaucoup ce plat.",
+     "a": "🇾 أحب هذا الطبق كثيراً.",
+     "e": "🇸 I really like this dish."
+    },
+    {
+     "f": "🇷 Ma mère prépare ce repas à la maison.",
+     "a": "🇾 أمي تحضّر هذه الوجبة في المنزل.",
+     "e": "🇸 My mother prepares this meal at home."
+    },
+    {
+     "f": "🇷 Il est délicieux.",
+     "a": "🇾 إنه لذيذ.",
+     "e": "🇸 It is delicious."
+    },
+    {
+     "f": "🇷 Je mange souvent avec ma famille.",
+     "a": "🇾 غالباً ما أتناول الطعام مع عائلتي.",
+     "e": "🇸 I often eat with my family."
+    },
+    {
+     "f": "🇷 J'aime la cuisine traditionnelle.",
+     "a": "🇾 أحب الطعام التقليدي.",
+     "e": "🇸 I like traditional food."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-176",
+   "icon": "🌱",
+   "fr": "Écrire pour demander un service à un voisin",
+   "ar": "طلب خدمة من جار",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Monsieur,",
+     "a": "🇾 مرحباً سيدي,",
+     "e": "🇸 Hello Sir,"
+    },
+    {
+     "f": "🇷 Je pars en voyage demain.",
+     "a": "🇾 سأسافر غداً.",
+     "e": "🇸 I'm going on a trip tomorrow."
+    },
+    {
+     "f": "🇷 Pouvez-vous arroser mes plantes, s'il vous plaît ?",
+     "a": "🇾 هل يمكنك سقي نباتاتي من فضلك؟",
+     "e": "🇸 Can you water my plants, please?"
+    },
+    {
+     "f": "🇷 Je serai absent pendant trois jours.",
+     "a": "🇾 سأكون غائباً لمدة ثلاثة أيام.",
+     "e": "🇸 I will be away for three days."
+    },
+    {
+     "f": "🇷 Je vous remercie beaucoup.",
+     "a": "🇾 أشكرك كثيراً.",
+     "e": "🇸 Thank you very much."
+    },
+    {
+     "f": "🇷 Je peux vous aider une autre fois.",
+     "a": "🇾 يمكنني مساعدتك في مرة أخرى.",
+     "e": "🇸 I can help you another time."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-177",
+   "icon": "📢",
+   "fr": "Écrire pour répondre à une annonce",
+   "ar": "الرد على إعلان",
+   "phr": [
+    {
+     "f": "🇷 Bonjour,",
+     "a": "🇾 مرحباً،",
+     "e": "🇸 Hello,"
+    },
+    {
+     "f": "🇷 J'ai vu votre annonce sur Internet.",
+     "a": "🇾 رأيت إعلانكم على الإنترنت.",
+     "e": "🇸 I saw your advertisement on the Internet."
+    },
+    {
+     "f": "🇷 Je suis intéressé par votre appartement.",
+     "a": "🇾 أنا مهتم بشقتكم.",
+     "e": "🇸 I am interested in your apartment."
+    },
+    {
+     "f": "🇷 Je voudrais avoir plus d'informations.",
+     "a": "🇾 أريد الحصول على معلومات إضافية.",
+     "e": "🇸 I would like to have more information."
+    },
+    {
+     "f": "🇷 Quel est le prix du loyer ?",
+     "a": "🇾 كم سعر الإيجار؟",
+     "e": "🇸 What is the rent?"
+    },
+    {
+     "f": "🇷 Est-ce possible de visiter le logement ?",
+     "a": "🇾 هل من الممكن زيارة السكن؟",
+     "e": "🇸 Is it possible to visit the accommodation?"
+    },
+    {
+     "f": "🇷 Merci pour votre réponse.",
+     "a": "🇾 شكراً على ردكم.",
+     "e": "🇸 Thank you for your reply."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-178",
+   "icon": "💼",
+   "fr": "Écrire pour chercher un emploi",
+   "ar": "البحث عن عمل",
+   "phr": [
+    {
+     "f": "🇷 Bonjour Monsieur,",
+     "a": "🇾 مرحباً سيدي,",
+     "e": "🇸 Hello Sir,"
+    },
+    {
+     "f": "🇷 Je cherche un travail dans votre entreprise.",
+     "a": "🇾 أبحث عن عمل في شركتكم.",
+     "e": "🇸 I am looking for a job in your company."
+    },
+    {
+     "f": "🇷 Je suis sérieux et motivé.",
+     "a": "🇾 أنا جاد ومتحمس للعمل.",
+     "e": "🇸 I am serious and motivated."
+    },
+    {
+     "f": "🇷 J'ai de l'expérience dans ce domaine.",
+     "a": "🇾 لدي خبرة في هذا المجال.",
+     "e": "🇸 I have experience in this field."
+    },
+    {
+     "f": "🇷 Je suis disponible immédiatement.",
+     "a": "🇾 أنا متاح للعمل فوراً.",
+     "e": "🇸 I am available immediately."
+    },
+    {
+     "f": "🇷 Je voudrais avoir un entretien.",
+     "a": "🇾 أريد إجراء مقابلة.",
+     "e": "🇸 I would like to have an interview."
+    },
+    {
+     "f": "🇷 Merci pour votre attention.",
+     "a": "🇾 شكراً لاهتمامكم.",
+     "e": "🇸 Thank you for your attention."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-179",
+   "icon": "🎬",
+   "fr": "Écrire pour parler de ses projets de week-end",
+   "ar": "الحديث عن خطط عطلة نهاية الأسبوع",
+   "phr": [
+    {
+     "f": "🇷 Ce week-end, je vais sortir avec mes amis.",
+     "a": "🇾 في عطلة نهاية الأسبوع هذه سأخرج مع أصدقائي.",
+     "e": "🇸 This weekend, I am going out with my friends."
+    },
+    {
+     "f": "🇷 Samedi, nous allons aller au cinéma.",
+     "a": "🇾 يوم السبت سنذهب إلى السينما.",
+     "e": "🇸 On Saturday, we are going to the cinema."
+    },
+    {
+     "f": "🇷 Ensuite, nous allons manger au restaurant.",
+     "a": "🇾 بعد ذلك سنتناول الطعام في المطعم.",
+     "e": "🇸 Then, we are going to eat at a restaurant."
+    },
+    {
+     "f": "🇷 Dimanche, je vais rester à la maison.",
+     "a": "🇾 يوم الأحد سأبقى في المنزل.",
+     "e": "🇸 On Sunday, I am going to stay at home."
+    },
+    {
+     "f": "🇷 Je vais me reposer et regarder un film.",
+     "a": "🇾 سأرتاح وأشاهد فيلماً.",
+     "e": "🇸 I am going to relax and watch a film."
+    },
+    {
+     "f": "🇷 J'attends le week-end avec impatience.",
+     "a": "🇾 أنا متحمس لعطلة نهاية الأسبوع.",
+     "e": "🇸 I am looking forward to the weekend."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-180",
+   "icon": "🎊",
+   "fr": "Écrire pour décrire une fête",
+   "ar": "وصف حفلة",
+   "phr": [
+    {
+     "f": "🇷 Samedi dernier, je suis allé à une fête.",
+     "a": "🇾 يوم السبت الماضي ذهبت إلى حفلة.",
+     "e": "🇸 Last Saturday, I went to a party."
+    },
+    {
+     "f": "🇷 Il y avait beaucoup de personnes.",
+     "a": "🇾 كان هناك الكثير من الأشخاص.",
+     "e": "🇸 There were many people."
+    },
+    {
+     "f": "🇷 Nous avons mangé et dansé.",
+     "a": "🇾 أكلنا ورقصنا.",
+     "e": "🇸 We ate and danced."
+    },
+    {
+     "f": "🇷 La musique était très belle.",
+     "a": "🇾 كانت الموسيقى جميلة جداً.",
+     "e": "🇸 The music was very nice."
+    },
+    {
+     "f": "🇷 J'ai rencontré de nouveaux amis.",
+     "a": "🇾 تعرفت على أصدقاء جدد.",
+     "e": "🇸 I met new friends."
+    },
+    {
+     "f": "🇷 J'ai passé une excellente soirée.",
+     "a": "🇾 قضيت أمسية رائعة.",
+     "e": "🇸 I had an excellent evening."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-181",
+   "icon": "👨‍👩‍👧",
+   "fr": "Écrire pour parler de sa famille",
+   "ar": "الحديث عن عائلتك",
+   "phr": [
+    {
+     "f": "🇷 Ma famille est très importante pour moi.",
+     "a": "🇾 عائلتي مهمة جداً بالنسبة لي.",
+     "e": "🇸 My family is very important to me."
+    },
+    {
+     "f": "🇷 Nous sommes cinq personnes dans ma famille.",
+     "a": "🇾 نحن خمسة أشخاص في عائلتي.",
+     "e": "🇸 There are five people in my family."
+    },
+    {
+     "f": "🇷 J'ai deux frères et une sœur.",
+     "a": "🇾 لدي أخوان وأخت.",
+     "e": "🇸 I have two brothers and one sister."
+    },
+    {
+     "f": "🇷 Mon père travaille et ma mère reste à la maison.",
+     "a": "🇾 أبي يعمل وأمي تبقى في المنزل.",
+     "e": "🇸 My father works and my mother stays at home."
+    },
+    {
+     "f": "🇷 Nous aimons passer du temps ensemble.",
+     "a": "🇾 نحب قضاء الوقت معاً.",
+     "e": "🇸 We like spending time together."
+    },
+    {
+     "f": "🇷 Le dimanche, nous mangeons ensemble.",
+     "a": "🇾 يوم الأحد نتناول الطعام معاً.",
+     "e": "🇸 On Sundays, we eat together."
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "a1-182",
+   "icon": "🤝",
+   "fr": "Écrire pour raconter une rencontre",
+   "ar": "رواية لقاء مع شخص",
+   "phr": [
+    {
+     "f": "🇷 Hier, j'ai rencontré un nouvel ami.",
+     "a": "🇾 أمس التقيت صديقاً جديداً.",
+     "e": "🇸 Yesterday, I met a new friend."
+    },
+    {
+     "f": "🇷 Il s'appelle Karim.",
+     "a": "🇾 اسمه كريم.",
+     "e": "🇸 His name is Karim."
+    },
+    {
+     "f": "🇷 Il est gentil et sympathique.",
+     "a": "🇾 هو لطيف وودود.",
+     "e": "🇸 He is kind and friendly."
+    },
+    {
+     "f": "🇷 Nous avons parlé pendant une heure.",
+     "a": "🇾 تحدثنا لمدة ساعة.",
+     "e": "🇸 We talked for an hour."
+    },
+    {
+     "f": "🇷 Nous avons bu un café ensemble.",
+     "a": "🇾 شربنا القهوة معاً.",
+     "e": "🇸 We drank coffee together."
+    },
+    {
+     "f": "🇷 Nous allons nous revoir bientôt.",
+     "a": "🇾 سنلتقي مجدداً قريباً.",
+     "e": "🇸 We are going to meet again soon."
+    }
+   ],
+   "ids": []
   }
  ],
  "a2": [
