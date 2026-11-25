@@ -1304,7 +1304,9 @@
       if (/^#\s+/.test(line)) {   // '# lesson title' (lessonToRaw serialization — never a card)
         var htxt = line.replace(/^#\s*/, '');
         var hsegs = flaggedSegs(htxt);
-        lesson.title = hsegs ? segsToTri(hsegs) : partsToTri(splitParts(htxt));
+        var htri = hsegs ? segsToTri(hsegs) : partsToTri(splitParts(htxt));
+        if (!hasTriText(lesson.title)) lesson.title = htri;
+        else newSec(htri);   // a further '# ' heading opens a section, not a new title
         continue;
       }
       var fl = flagOf(line);
@@ -2458,21 +2460,26 @@
     var savedL = null;
     if (editingLesson) {
       // keep phrase attachments (uploaded images) across the re-parse:
-      // match by phrase text first, then by position for edited cards
-      var oldImgs = {}, oldSeq = [];
+      // match by phrase text first, then by position for edited cards —
+      // each old image goes to at most one card
+      var oldImgs = Object.create(null), oldSeq = [];
       editingLesson.sections.forEach(function (s) {
         secGroups(s).forEach(function (g) {
-          (g.phrases || []).forEach(function (p) { oldSeq.push(p); if (p.img) oldImgs[allText(p)] = p.img; });
+          (g.phrases || []).forEach(function (p) { if (p.img) oldImgs[allText(p)] = { img: p.img, oi: oldSeq.length }; oldSeq.push(p); });
         });
       });
-      var pi = 0;
+      var newSeq = [];
       items[0].p.sections.forEach(function (s) {
-        secGroups(s).forEach(function (g) {
-          (g.phrases || []).forEach(function (p) {
-            if (!p.img) p.img = oldImgs[allText(p)] || (oldSeq[pi] && oldSeq[pi].img);
-            pi++;
-          });
-        });
+        secGroups(s).forEach(function (g) { (g.phrases || []).forEach(function (p) { newSeq.push(p); }); });
+      });
+      var claimed = Object.create(null);
+      newSeq.forEach(function (p) {
+        if (p.img) return;
+        var m = oldImgs[allText(p)];
+        if (m) { p.img = m.img; claimed[m.oi] = 1; }
+      });
+      newSeq.forEach(function (p, ni) {
+        if (!p.img && oldSeq[ni] && oldSeq[ni].img && !claimed[ni]) { p.img = oldSeq[ni].img; claimed[ni] = 1; }
       });
       editingLesson.title = titleFromInput(titleIn, items[0].p.title); editingLesson.sections = items[0].p.sections; editingLesson.raw = items[0].raw; editingLesson.icon = lessonIcon;
       await idbPut('lessons', editingLesson);
