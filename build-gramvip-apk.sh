@@ -59,6 +59,24 @@ if [ -f "$STRINGS" ]; then
   sed -i 's|<string name="title_activity_main">.*</string>|<string name="title_activity_main">gramvip</string>|' "$STRINGS"
 fi
 
+# Android 11+ package visibility: let the WebView file chooser's capture= camera intent resolve
+MANIFEST="$ROOT/android/app/src/main/AndroidManifest.xml"
+if [ -f "$MANIFEST" ] && ! grep -q 'IMAGE_CAPTURE' "$MANIFEST"; then
+  python3 - "$MANIFEST" <<'PYEOF'
+import sys
+p = sys.argv[1]
+s = open(p).read()
+q = '''    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
+'''
+s = s.replace('<application', q + '<application', 1)
+open(p, 'w').write(s)
+PYEOF
+fi
+
 # Inject the EdgeTTS native plugin (free Microsoft neural voices over WebSocket)
 PLUGIN_DIR="android/app/src/main/java/com/syrian020/tts"
 mkdir -p "$PLUGIN_DIR"

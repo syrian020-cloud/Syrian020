@@ -1734,7 +1734,10 @@
         m.style.right = 'auto';
         m.style.left = (want - pr.left) + 'px';
       }
-      if (r.bottom > window.innerHeight - 8) {
+      // open upward when the menu would overflow the viewport OR a clipped ancestor (.section)
+      var clip = btn.closest('.section');
+      var clipBottom = clip ? clip.getBoundingClientRect().bottom - 4 : Infinity;
+      if (r.bottom > window.innerHeight - 8 || r.bottom > clipBottom) {
         m.style.top = 'auto';
         m.style.bottom = 'calc(100% + 4px)';
       }
@@ -2241,7 +2244,11 @@
   }
   function renderKeepScroll() {
     var m = document.querySelector('main'), st = m ? m.scrollTop : 0;
+    // remember which sections were expanded so edit/delete doesn't collapse the lesson
+    var open = [];
+    document.querySelectorAll('#content .section').forEach(function (s, i) { if (s.classList.contains('open')) open.push(i); });
     renderAll();
+    document.querySelectorAll('#content .section').forEach(function (s, i) { if (open.indexOf(i) >= 0) s.classList.add('open'); });
     if (m) m.scrollTop = st;
   }
   function confirmDeletePhrase(f) {
