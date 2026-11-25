@@ -1410,7 +1410,10 @@ function renderLesson(){
       '<span class="progress-info">' + ls.phr.length + ' ' + tr('sentences') + (nq ? ' · ' + nq + ' ' + tr('questions') : '') + '</span>' +
     '</div>' +
     '<div class="card">' +
-      '<div class="mode-title">' + ls.icon + ' ' + esc(ls.fr) + '</div>' +
+      '<div class="mode-title" style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem">' +
+        '<span>' + ls.icon + ' ' + esc(ls.fr) + '</span>' +
+        '<button class="icon-btn" id="btn-lsloop" title="قراءة العبارات loop" style="flex:none">🔁</button>' +
+      '</div>' +
       '<div class="mode-desc">' + tr('lesson_instr') + '</div>' +
       '<div class="dg-bar">' +
         '<button class="dg-btn" id="dg-bmatch">' + tr('g_match') + '</button>' +
@@ -1423,6 +1426,13 @@ function renderLesson(){
       '<button class="big-btn" id="btn-lfinish" style="margin-top:0.4rem">' + tr('finish_lesson') + (nq ? tr('practice_q') + nq + ' ' + tr('questions') + ')' : '') + '</button>' +
     '</div>';
   document.getElementById('btn-lback2').onclick = function(){ enterScreen('lessons'); };
+  var lsloop = document.getElementById('btn-lsloop');
+  if(lsloop) lsloop.onclick = function(){
+    var texts = ls.phr.map(function(p){ return p.f; }).filter(Boolean);
+    if(ls.consigne && ls.consigne.f) texts.unshift(ls.consigne.f);
+    if(!texts.length) return;
+    speakLoop(texts.join(' ... '), lsloop, 'fr-FR');
+  };
   document.getElementById('dg-bmatch').onclick = function(){ openDgMatch(ls); };
   document.getElementById('dg-blisten').onclick = function(){ openDgListen(ls); };
   document.getElementById('dg-brr').onclick = function(){ openDgRR(ls); };
