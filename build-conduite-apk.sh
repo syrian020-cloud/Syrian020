@@ -34,6 +34,16 @@ fi
 
 npx cap sync android
 
+# Apply the pickling package id and app name to the Android project
+sed -i 's/namespace "com.syrian020.convip"/namespace "com.syrian020.pickling"/; s/applicationId "com.syrian020.convip"/applicationId "com.syrian020.pickling"/' android/app/build.gradle
+sed -i 's/>conVip</>pickling</g; s/com.syrian020.convip/com.syrian020.pickling/g' android/app/src/main/res/values/strings.xml
+JDIR="android/app/src/main/java/com/syrian020"
+if [ -f "$JDIR/convip/MainActivity.java" ]; then
+  mkdir -p "$JDIR/pickling"
+  sed 's/package com.syrian020.convip;/package com.syrian020.pickling;/' "$JDIR/convip/MainActivity.java" > "$JDIR/pickling/MainActivity.java"
+  rm -rf "$JDIR/convip"
+fi
+
 # Sync the PWA icon into the Android mipmap launcher icons
 ICON_SRC="$ROOT/conduite/icon-512.png"
 MIPMAP="$ROOT/android/app/src/main/res"

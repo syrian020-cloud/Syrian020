@@ -1,6 +1,6 @@
 {
-  "appId": "com.syrian020.convip",
-  "appName": "conVip",
+  "appId": "com.syrian020.pickling",
+  "appName": "pickling",
   "webDir": "www",
   "server": {
     "androidScheme": "https"

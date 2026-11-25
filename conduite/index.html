@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#2a0a2e">
 <meta name="description" content="تعلم الفرنسية مع ترجمة عربية وإنجليزية">
-<title>conVip — Français / العربية / English</title>
+<title>pickling — Français / العربية / English</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
 <style>
@@ -530,7 +530,7 @@
 <body>
 <header>
   <div class="header-inner">
-    <span class="logo"><img src="icon-192.png" alt="" class="logo-icon"> <span data-t="appName">conVip</span></span>
+    <span class="logo"><img src="icon-192.png" alt="" class="logo-icon"> <span data-t="appName">pickling</span></span>
     <span class="spacer"></span>
     <div class="lang-switch">
       <button class="lang-btn" data-lang="ar">AR</button>
@@ -910,7 +910,7 @@
         await queue;
         if (failed) throw failed;
         const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
-        if (Share && Share.share) await Share.share({ title: 'conVip lessons', files: [uri], dialogTitle: 'conVip export' });
+        if (Share && Share.share) await Share.share({ title: 'pickling lessons', files: [uri], dialogTitle: 'pickling export' });
       }
     };
   }
@@ -925,7 +925,7 @@
 
   async function exportLessonsFull(kinds, list) {
     list = list || LESSONS;
-    const filename = 'convip-full-' + new Date().toISOString().slice(0,10) + '.json';
+    const filename = 'pickling-full-' + new Date().toISOString().slice(0,10) + '.json';
     showToast(t('exportPreparing'), 60000);
     try {
       const sink = createTextSink(filename, 'application/json');
@@ -1259,7 +1259,7 @@
 
   async function exportLessons(list) {
     const data = JSON.stringify(list || LESSONS, null, 2);
-    const filename = 'convip-lessons-' + new Date().toISOString().slice(0,10) + '.json';
+    const filename = 'pickling-lessons-' + new Date().toISOString().slice(0,10) + '.json';
     if (typeof Capacitor !== 'undefined' && Capacitor.Plugins && Capacitor.Plugins.Filesystem) {
       try {
         const { Filesystem, Share } = Capacitor.Plugins;
@@ -1269,7 +1269,7 @@
         await Filesystem.writeFile({ path: filename, data: data, directory: dir, encoding: encoding });
         const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
         if (Share && Share.share) {
-          await Share.share({ title: 'conVip lessons', files: [uri], dialogTitle: 'conVip JSON' });
+          await Share.share({ title: 'pickling lessons', files: [uri], dialogTitle: 'pickling JSON' });
         }
         showToast(t('exportSuccess'));
         return;
@@ -1680,6 +1680,9 @@
   };
 
   function ensureBuiltInLesson() {
+    const idx = LESSONS.findIndex(it => it.type === 'lesson' && it.protected);
+    if (idx !== -1) { LESSONS.splice(idx, 1); saveLessons(); }
+    return;
     const builtIn = JSON.parse(JSON.stringify(BIENVENUE_LESSON));
     const existing = LESSONS.find(it => it.type === 'lesson' && it.protected);
     if (existing) {
@@ -1716,7 +1719,7 @@
   }
 
   function ensureConduiteFolders() {
-    const SEED_V = '31';
+    const SEED_V = '33';
     if (localStorage.getItem('conduite_seed_v') === SEED_V) return;
     const seededIds = JSON.parse(localStorage.getItem('conduite_seed_ids') || '[]');
     const oldTitles = ['تعلّم قيادة السيارة خطوة بخطوة', 'الدراجة الكهربائية', 'مواقف حقيقية في فرنسا'];
@@ -1791,8 +1794,8 @@
   }
 
   const UI = {
-    appName: { ar: 'conVip', en: 'conVip', fr: 'conVip' },
-    appTitle: { ar: 'conVip — فرنسي / عربي / إنجليزي', en: 'conVip — French / Arabic / English', fr: 'conVip — Français / Arabe / Anglais' },
+    appName: { ar: 'pickling', en: 'pickling', fr: 'pickling' },
+    appTitle: { ar: 'pickling — فرنسي / عربي / إنجليزي', en: 'pickling — French / Arabic / English', fr: 'pickling — Français / Arabe / Anglais' },
     searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
     rateTitle: { ar: 'سرعة الصوت والفيديو', en: 'Audio & video speed', fr: 'Vitesse audio et vidéo' },
     voiceSettings: { ar: 'إعدادات الصوت', en: 'Voice settings', fr: 'Réglages de la voix' },
@@ -1966,7 +1969,7 @@
     lessonLabel: { ar: 'الدرس', en: 'Lesson', fr: 'Leçon' },
     folderLabel: { ar: 'المجلد', en: 'Folder', fr: 'Dossier' },
     emptyFolder: { ar: 'لا توجد دروس في هذا المجلد. أضف درساً جديداً.', en: 'No lessons in this folder. Add a new lesson.', fr: 'Aucune leçon dans ce dossier. Ajoutez-en une nouvelle.' },
-    footerText: { ar: 'conVip · ', en: 'conVip · ', fr: 'conVip · ' },
+    footerText: { ar: 'pickling · ', en: 'pickling · ', fr: 'pickling · ' },
     footerLink: { ar: 'تطبيقاتي الأخرى', en: 'My other apps', fr: 'Mes autres applications' },
     heroTitle: { ar: 'تعلم الفرنسية', en: 'Learn French', fr: 'Apprenez le français' },
     heroSub: { ar: 'عبارات مترجمة إلى العربية والإنجليزية', en: 'Phrases translated into Arabic and English', fr: 'Phrases traduites en arabe et en anglais' },
@@ -2945,7 +2948,7 @@
         try {
           const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
           showToast(t('videoSaved'));
-          if (Share && Share.share) await Share.share({ title: 'conVip video', files: [uri], dialogTitle: 'conVip video' });
+          if (Share && Share.share) await Share.share({ title: 'pickling video', files: [uri], dialogTitle: 'pickling video' });
         } catch (e) { console.error('share video failed', e); showToast(e.message || 'Save failed'); }
       }
     };
