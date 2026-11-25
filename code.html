@@ -221,12 +221,6 @@
   .lesson-item .li-ar { font-size: 0.76rem; color: var(--text-secondary); margin-top: 0.15rem; }
   .lesson-item .li-meta { font-size: 0.68rem; color: var(--text-secondary); margin-top: 0.2rem; }
   .lesson-item .li-check { flex-shrink: 0; font-size: 1.1rem; }
-  .lesson-item .li-check { flex-shrink: 0; font-size: 1.1rem; }
-</style>
-</head>
-<body>
-<header>
-  <div class="header-inner">
 </style>
 </head>
 <body>
@@ -1299,7 +1293,7 @@ function renderLesson(){
       (q.img ? '<span class="mini">🚸</span>' : '') + '</div>' +
       '<div class="phr-line" dir="ltr"><button class="flag-btn" data-t="' + esc(q.q) + '" data-lang="fr-FR">🇫🇷</button> ' + wordify(q.q, 'fr-FR') + '</div>' +
       (q.qa ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-t="' + esc(q.qa) + '" data-lang="ar-SY">🇸🇾</button> ' + wordify(q.qa, 'ar-SY') + '</div>' : '') +
-      (q.img ? '<div style="text-align:center;margin:0.4rem 0"><img src="img/' + q.img + '.png" style="max-width:120px;border-radius:10px" onerror="this.style.display=\'none\'"></div>' : '') +
+      (q.img ? imgHtml(q) : '') +
       '<div class="phr-line" dir="ltr" style="border-top:1px dashed var(--border)"><button class="flag-btn" data-t="' + esc(cor.f) + '" data-lang="fr-FR">🇫🇷</button> ✅ <b>' + wordify(cor.f, 'fr-FR') + '</b></div>' +
       (cor.a ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-t="' + esc(cor.a) + '" data-lang="ar-SY">🇸🇾</button> ✅ <b>' + wordify(cor.a, 'ar-SY') + '</b></div>' : '') +
       (q.exp ? '<div class="phr-line" dir="ltr" style="opacity:0.92"><button class="flag-btn" data-t="' + esc(q.exp) + '" data-lang="fr-FR">🇫🇷</button> 💡 ' + wordify(q.exp, 'fr-FR') + '</div>' : '') +
