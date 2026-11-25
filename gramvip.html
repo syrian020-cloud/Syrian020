@@ -1008,7 +1008,10 @@
   function t(k) { return (UI[state.lang] && UI[state.lang][k]) || UI.ar[k] || k; }
   function esc(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : s; return d.innerHTML; }
   function iconHtml(ic) {
-    if (ic && ic.indexOf('data:image') === 0) return '<img class="ic-img" src="' + ic + '" alt="">';
+    // imported backups can carry hostile values — only a real image data URL may go into src
+    if (ic && /^data:image\/(?:png|jpe?g|gif|webp);base64,[a-zA-Z0-9+/=\s]+$/.test(ic)) {
+      return '<img class="ic-img" src="' + ic + '" alt="">';
+    }
     return esc(ic || '📁');
   }
   function $(s) { return document.querySelector(s); }
@@ -1292,8 +1295,16 @@
         newGrp(gsegs ? segsToTri(gsegs) : partsToTri(splitParts(gtxt.replace(/^\d+\s*[.)]\s*/, ''))));
         continue;
       }
-      if (/^#{1,6}\s+/.test(line)) {   // '### section title' (ProLang style)
-        newSec(partsToTri(splitParts(line.replace(/^#{1,6}\s*/, '').replace(/^\d+\s*[.)]\s*/, ''))));
+      if (/^#{2,3}\s+/.test(line)) {   // '### section title' (ProLang style)
+        var stxt = line.replace(/^#{1,6}\s*/, '');
+        var ssegs = flaggedSegs(stxt);
+        newSec(ssegs ? segsToTri(ssegs) : partsToTri(splitParts(stxt.replace(/^\d+\s*[.)]\s*/, ''))));
+        continue;
+      }
+      if (/^#\s+/.test(line)) {   // '# lesson title' (lessonToRaw serialization — never a card)
+        var htxt = line.replace(/^#\s*/, '');
+        var hsegs = flaggedSegs(htxt);
+        lesson.title = hsegs ? segsToTri(hsegs) : partsToTri(splitParts(htxt));
         continue;
       }
       var fl = flagOf(line);
@@ -1347,7 +1358,12 @@
         // pronunciation/latin guide line — stays inside the current phrase, unspeakable
         var mt = deLabel(line.replace(/^[\u{1F524}🗣🔊]\uFE0F?\s*/u, ''));
         var mmark = line.match(/^[\u{1F524}🗣🔊]\uFE0F?/u);
-        if (curPhrase && mt) { curPhrase.lines.push({ lang: '', flag: '', text: (mmark ? mmark[0] + ' ' : '') + mt }); }
+        var gtxt2 = (mmark ? mmark[0] + ' ' : '') + mt;
+        if (curPhrase && mt) { curPhrase.lines.push({ lang: '', flag: '', text: gtxt2 }); }
+        else if (mt && curGrp && curGrp.phrases.length) {
+          // attach to the phrase just before it (e.g. after a multi-flag card line)
+          curGrp.phrases[curGrp.phrases.length - 1].lines.push({ lang: '', flag: '', text: gtxt2 });
+        }
         else if (mt) { ensureGrp().notes.push(line); }
         continue;
       }
@@ -2163,7 +2179,7 @@
     }
     var out = [];
     var tl = flines(l.title);
-    if (tl) out.push(tl);
+    if (tl) out.push('# ' + tl);
     l.sections.forEach(function (s) {
       var st = flines(s.title);
       if (st) out.push('### ' + st);
@@ -2183,7 +2199,7 @@
             prefix += ' ';
           }
           if (parts.length) out.push(prefix + parts.join(' '));
-          guide.forEach(function (gx) { out.push(gx); });
+          guide.forEach(function (gx) { out.push(/^[\u{1F524}🗣🔊]/u.test(gx) ? gx : '\ud83d\udd24 ' + gx); });
         });
         (g.notes || []).forEach(function (n) { out.push(n); });
       });
@@ -2441,6 +2457,23 @@
     if (lessonIcon === '__img__') lessonIcon = '📚';
     var savedL = null;
     if (editingLesson) {
+      // keep phrase attachments (uploaded images) across the re-parse:
+      // match by phrase text first, then by position for edited cards
+      var oldImgs = {}, oldSeq = [];
+      editingLesson.sections.forEach(function (s) {
+        secGroups(s).forEach(function (g) {
+          (g.phrases || []).forEach(function (p) { oldSeq.push(p); if (p.img) oldImgs[allText(p)] = p.img; });
+        });
+      });
+      var pi = 0;
+      items[0].p.sections.forEach(function (s) {
+        secGroups(s).forEach(function (g) {
+          (g.phrases || []).forEach(function (p) {
+            if (!p.img) p.img = oldImgs[allText(p)] || (oldSeq[pi] && oldSeq[pi].img);
+            pi++;
+          });
+        });
+      });
       editingLesson.title = titleFromInput(titleIn, items[0].p.title); editingLesson.sections = items[0].p.sections; editingLesson.raw = items[0].raw; editingLesson.icon = lessonIcon;
       await idbPut('lessons', editingLesson);
       savedL = editingLesson;
