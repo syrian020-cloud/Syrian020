@@ -23,6 +23,17 @@ if [ "$USE_ALIYUN" = "1" ]; then
   GRADLE_ARGS=(-I ../gradle/aliyun-init.gradle)
 fi
 
+# Ensure the Android project matches the desired Capacitor appId (it may be left over from another build, e.g. gramvip)
+DESIRED_APP_ID=$(node -p "JSON.parse(require('fs').readFileSync('capacitor.config.json')).appId")
+CURRENT_APP_ID=""
+if [ -f "android/app/build.gradle" ]; then
+  CURRENT_APP_ID=$(sed -n 's/.*applicationId "\([^"]*\)".*/\1/p' android/app/build.gradle | head -1 || true)
+fi
+if [ -n "$DESIRED_APP_ID" ] && [ "$CURRENT_APP_ID" != "$DESIRED_APP_ID" ]; then
+  echo "Android applicationId mismatch ('$CURRENT_APP_ID' != '$DESIRED_APP_ID'); recreating android project..."
+  rm -rf android
+fi
+
 if [ ! -d android ]; then
   npx cap add android
 fi
