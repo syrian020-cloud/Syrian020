@@ -2769,6 +2769,110 @@ function phEnd(){
  $('pg-replay').onclick=phRound;$('pg-exit').onclick=closeGame}
 /* ---- listen & write dictation game ---- */
 var lw={i:0,ok:0,bad:0,qs:[],lock:false,num:true};
+const FRWT={un:1,une:1,deux:2,trois:3,quatre:4,cinq:5,six:6,sept:7,huit:8,neuf:9,dix:10,onze:11,douze:12,treize:13,quatorze:14,quinze:15,seize:16,vingt:20,trente:30,quarante:40,cinquante:50,soixante:60};
+function frSmallN(ws){
+ if(!ws.length)return null;
+ let n=0,seen=false;
+ for(const w of ws){
+  if(w==='et'||w==='le')continue;
+  if(w in FRWT){const v=FRWT[w];
+   if(n>=20)n+=v;else if(v>=20)n+=v;else n+=v;
+   seen=true}
+  else return null}
+ return seen?n:null}
+function frTimeMin(txt){
+ const s=(txt||'').toLowerCase().replace(/[\u2018\u2019']/g,' ').replace(/-/g,' ').replace(/[^a-z\u00e0-\u00ff ]/g,' ').replace(/\s+/g,' ').trim();
+ const ws=s.split(' ');
+ if(ws[0]==='il'&&ws[1]==='est'){
+  if(ws[2]==='midi')return 720;
+  if(ws[2]==='minuit')return 0}
+ const hi=ws.indexOf('heures')>=0?ws.indexOf('heures'):ws.indexOf('heure');
+ if(hi<1)return null;
+ const st=ws.indexOf('est')>=0&&ws.indexOf('est')<hi?ws.indexOf('est')+1:0;
+ const hour=frSmallN(ws.slice(st,hi));
+ if(hour==null||hour>23)return null;
+ const rest=ws.slice(hi+1).filter(w=>['pile','du','matin','soir','minute','minutes','d\u2019apr'].indexOf(w)<0);
+ if(rest[0]==='et'&&rest[1]==='quart')return hour*60+15;
+ if(rest[0]==='et'&&(rest[1]==='demie'||rest[1]==='demi'))return hour*60+30;
+ if(rest[0]==='moins'){
+  const r2=rest.slice(1).filter(w=>w!=='le');
+  if(r2[0]==='quart')return hour*60-15;
+  const mm=frSmallN(r2);if(mm==null||mm>59)return null;
+  return hour*60-mm}
+ if(!rest.length)return hour*60;
+ const mm=frSmallN(rest);
+ if(mm==null||mm>59)return null;
+ return hour*60+mm}
+function lwTypedMin(v){
+ const t=(v||'').trim();
+ let m=t.match(/^(\d{1,2})\s*[:hH.,]\s*(\d{1,2})$/);
+ if(m){const h=+m[1],mm=+m[2];return(h<24&&mm<60)?h*60+mm:null}
+ m=t.match(/^(\d{1,2})\s*h$/);
+ if(m&&(+m[1])<24)return(+m[1])*60;
+ m=t.match(/^(\d{1,2})$/);
+ if(m&&(+m[1])<24)return(+m[1])*60;
+ return null}
+function lwTimeOk(inp,ans){
+ const mins=frTimeMin(ans);if(mins==null)return false;
+ const tm=lwTypedMin(inp);if(tm==null)return false;
+ return ((mins-tm)%720+720)%720===0}
+function frTail(ws,j,base){
+ const U={un:1,une:1,deux:2,trois:3,quatre:4,cinq:5,six:6,sept:7,huit:8,neuf:9};
+ const T={onze:11,douze:12,treize:13,quatorze:14,quinze:15,seize:16};
+ const w=ws[j];
+ if(w==='et'){
+  if(ws[j+1]==='un'||ws[j+1]==='une')return[base+1,j+2];
+  if(ws[j+1]==='onze'&&base===60)return[base+11,j+2];
+  return[base,j]}
+ if(w in U)return[base+U[w],j+1];
+ if(base===60||base===80){
+  if(w==='dix'){
+   if(ws[j+1]in U&&U[ws[j+1]]>=7)return[base+10+U[ws[j+1]],j+2];
+   return[base+10,j+1]}
+  if(w in T)return[base+T[w],j+1]}
+ return[base,j]}
+function fr99at(ws,i){
+ const U={un:1,une:1,deux:2,trois:3,quatre:4,cinq:5,six:6,sept:7,huit:8,neuf:9};
+ const T={dix:10,onze:11,douze:12,treize:13,quatorze:14,quinze:15,seize:16};
+ const D={vingt:20,trente:30,quarante:40,cinquante:50,soixante:60};
+ const w=ws[i];
+ if(w==='z\u00e9ro'||w==='zero')return[0,i+1];
+ if(w==='quatre'&&(ws[i+1]==='vingt'||ws[i+1]==='vingts'))return frTail(ws,i+2,80);
+ if(w in D)return frTail(ws,i+1,D[w]);
+ if(w==='dix'&&(ws[i+1]in U)&&U[ws[i+1]]>=7)return[10+U[ws[i+1]],i+2];
+ if(w in T)return[T[w],i+1];
+ if(w in U)return[U[w],i+1];
+ return null}
+function frHunAt(ws,i){
+ const m=fr99at(ws,i);
+ if(m&&(ws[m[1]]==='cent'||ws[m[1]]==='cents')){
+  let val=m[0]*100,j=m[1]+1;
+  const tt=fr99at(ws,j);if(tt){val+=tt[0];j=tt[1]}
+  return[val,j]}
+ if(ws[i]==='cent'||ws[i]==='cents'){
+  let val=100,j=i+1;
+  const tt=fr99at(ws,j);if(tt){val+=tt[0];j=tt[1]}
+  return[val,j]}
+ return m||null}
+function frNumAt(ws,i){
+ const m=fr99at(ws,i);
+ if(m&&ws[m[1]]==='mille'){
+  let val=m[0]*1000,j=m[1]+1;
+  const tt=frHunAt(ws,j);if(tt){val+=tt[0];j=tt[1]}
+  return[val,j]}
+ if(ws[i]==='mille'){
+  let val=1000,j=i+1;
+  const tt=frHunAt(ws,j);if(tt){val+=tt[0];j=tt[1]}
+  return[val,j]}
+ return frHunAt(ws,i)}
+function frDigitize(txt){
+ const ws=(txt||'').toLowerCase().replace(/[\u2018\u2019']/g,' ').replace(/-/g,' ').split(/\s+/).filter(x=>x);
+ const out=[];let i=0;
+ while(i<ws.length){
+  const r=frNumAt(ws,i);
+  if(r&&r[1]>i){out.push(String(r[0]));i=r[1]}
+  else{out.push(ws[i]);i++}}
+ return out.join(' ')}
 function lwNorm(s){return (s||'').toLowerCase().replace(/[\u2018\u2019]/g,"'").normalize('NFD').replace(/\p{M}/gu,'').replace(/[^a-z0-9'\- ]/g,' ').replace(/\s+/g,' ').trim()}
 function openLwGame(){
  closeGame();
@@ -2804,8 +2908,8 @@ function lwAsk(){
  '<button class="btn" id="lw-say" style="font-size:1.6rem;padding:.7rem 1.4rem">🔊</button>'+
  '<div style="margin-top:1rem;text-align:center">'+
  (lw.num?
- '<input id="lw-in" inputmode="numeric" maxlength="4" placeholder="?" '+
- 'style="font-size:1.6rem;font-weight:800;letter-spacing:.2em;text-align:center;padding:.5rem .8rem;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--txt);width:6ch;direction:ltr">'
+ '<input id="lw-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="30" placeholder="?" '+
+ 'style="font-size:1.6rem;font-weight:800;letter-spacing:.2em;text-align:center;padding:.5rem .8rem;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--txt);width:12ch;direction:ltr">'
  :'<input id="lw-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="80" '+
  'style="font-size:1.15rem;text-align:center;padding:.7rem .8rem;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--txt);width:min(92%,26rem);direction:ltr">')+
  '</div><div id="lw-msg" style="text-align:center;min-height:1.6rem;margin-top:.6rem"></div>'+
@@ -2815,7 +2919,7 @@ function lwAsk(){
  const inp=$('lw-in');inp.focus();
  const go=()=>{
   if(lw.lock)return;lw.lock=true;
-  const good=lw.num?(+inp.value.replace(/\D/g,'')===+q.ans):(lwNorm(inp.value)===lwNorm(q.ans));
+  const good=lw.num?((/\d/.test(inp.value)&&+inp.value.replace(/\D/g,'')===+q.ans)||lwNorm(inp.value)===lwNorm(q.say)):(lwNorm(inp.value)===lwNorm(q.ans)||lwTimeOk(inp.value,q.ans)||(lwNorm(inp.value).length>1&&/\d/.test(inp.value)&&lwNorm(inp.value)===lwNorm(frDigitize(q.ans))));
   if(good){lw.ok++;quizTone(true)}else{lw.bad++;quizTone(false)}
   inp.disabled=true;$('lw-go').disabled=true;
   inp.style.borderColor=good?'var(--ok)':'#e0245e';
