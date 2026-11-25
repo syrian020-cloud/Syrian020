@@ -1074,7 +1074,7 @@ function gamePairPicker(n,title){
   pairs.map(p=>'<button class="btn" data-q="'+p.q+'" data-a="'+p.a+'">'+
    gFlag(p.q)+' '+p.q.toUpperCase()+' – '+gFlag(p.a)+' '+p.a.toUpperCase()+' — '+p.n+'</button>').join('')+'</div>'}
 function closeGame(){
- stopSay();clearTimeout(lz.timer);
+ stopSay();clearTimeout(lz.timer);clearTimeout(pg.timer);
  if(ringCard._chal){ringCard._chal=false;
   const au=$('ringAudio');if(au.src)au.play().catch(()=>{});
   ringCard._sp=true;(async()=>{while(ringCard._sp&&$('ringShade').classList.contains('on')){await sayOnce(' ',st.lang)}})();
@@ -2726,7 +2726,7 @@ function numEnd(){
   '<button class="btn" id="ng-exit">✕ '+esc(t('quizExit'))+'</button></div></div>';
  $('ng-replay').onclick=numRound;$('ng-exit').onclick=closeGame}
 /* ---- phone dictation game ---- */
-var pg={i:0,ok:0,bad:0,qs:[],lock:false};
+var pg={i:0,ok:0,bad:0,qs:[],lock:false,auto:false,timer:null};
 function phSpeak(digits){
  const parts=[];
  for(let i=0;i<10;i+=2){
@@ -2761,8 +2761,11 @@ function phAsk(){
   '<div style="margin-top:1rem;text-align:center">'+
   '<input id="pg-in" inputmode="numeric" maxlength="10" placeholder="06________" '+
    'style="font-size:1.4rem;letter-spacing:.15em;text-align:center;padding:.55rem .8rem;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--txt);width:12ch;direction:ltr">'+
-  '</div><div id="pg-msg" style="text-align:center;min-height:1.6rem;margin-top:.6rem"></div>'+
-  '<button class="btn" id="pg-go" style="margin-top:.4rem">'+esc(t('phCheck'))+'</button></div>';
+  '</div><div id="pg-msg" dir="ltr" style="text-align:center;min-height:1.6rem;margin-top:.6rem"></div>'+
+  '<button class="btn" id="pg-go" style="margin-top:.4rem">'+esc(t('phCheck'))+'</button>'+
+  '<div class="lz-nav" style="justify-content:center;margin-top:.6rem">'+
+  '<button id="pg-next">⏭ '+esc(t('gNext'))+'</button>'+
+  '<button id="pg-auto" class="'+(pg.auto?'on':'')+'">🔁 '+esc(t('autoNext'))+'</button></div></div>';
  const play=()=>sayOnce(phSpeak(d),'fr-FR');
  $('pg-say').onclick=play;play();
  const inp=$('pg-in');inp.focus();
@@ -2774,8 +2777,12 @@ function phAsk(){
   inp.disabled=true;$('pg-go').disabled=true;
   inp.style.borderColor=good?'var(--ok)':'#e0245e';
   $('pg-msg').innerHTML=(good?'✅ ':'❌ ')+'<b style="letter-spacing:.12em">'+phNice(d)+'</b><br><small>'+esc(phSpeak(d))+'</small>';
-  setTimeout(()=>{pg.i++;if(pg.i<pg.qs.length)phAsk();else phEnd()},good?1200:2600)};
+  if(pg.auto)pg.timer=setTimeout(adv,good?1500:3000)};
+ const adv=()=>{clearTimeout(pg.timer);pg.i++;if(pg.i<pg.qs.length)phAsk();else phEnd()};
  $('pg-go').onclick=go;
+ $('pg-next').onclick=adv;
+ $('pg-auto').onclick=function(){pg.auto=!pg.auto;this.classList.toggle('on',pg.auto);
+  if(pg.auto&&pg.lock)pg.timer=setTimeout(adv,1200)};
  inp.onkeydown=e=>{if(e.key==='Enter')go()}}
 function phEnd(){
  const body=$('quiz-body');if(!body)return;
