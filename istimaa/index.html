@@ -915,7 +915,7 @@ function loopSpeak(rows,btn){
  stopSay();const md=$('lsMedia');if(md){md._seg=null;md._once=null;try{md.pause()}catch(e){}}
  btn.classList.add('speaking');const tok=sayTok;
  (async()=>{let k=0;
-  while(btn.classList.contains('speaking')&&tok===sayTok){const r=rows[k++%rows.length];await sayOnce(r.txt,(r.lg&&r.lg!=='x')?r.lg:guessLang(r.txt))}
+  while(btn.classList.contains('speaking')&&tok===sayTok){const r=rows[k++%rows.length];await sayOnce(r.txt,(r.lg&&r.lg!=='x')?r.lg:guessLang(r.txt));await new Promise(rs=>setTimeout(rs,1100))}
   btn.classList.remove('speaking')})()}
 function openExt(u){const B=CAP.Plugins&&CAP.Plugins.Browser;if(B&&B.open){B.open({url:u});return}window.open(u,'_blank')}
 function phRowsOf(p){const r=[];const tt=p.tt||{};
@@ -1002,14 +1002,14 @@ function gspeakSlow(txt,lang,el){
   const prev=EdgeTTS.speed;EdgeTTS.speed=.55;
   (function play(){if(tok!==sayTok||!el.classList.contains('speaking')){EdgeTTS.speed=prev;el.classList.remove('speaking');return}
    EdgeTTS.play(txt,lang).then(()=>play(),()=>{EdgeTTS.speed=prev;el.classList.remove('speaking')})})()}
- else{(async()=>{while(el.classList.contains('speaking')&&tok===sayTok){await sayOnce(txt,lang)}el.classList.remove('speaking')})()}}
+ else{(async()=>{while(el.classList.contains('speaking')&&tok===sayTok){await sayOnce(txt,lang);await new Promise(rs=>setTimeout(rs,1100))}el.classList.remove('speaking')})()}}
 function speakPair(t1,l1,t2,l2,el1,el2){
  document.querySelectorAll('.speaking').forEach(x=>x.classList.remove('speaking'));
  stopSay();
  if(el1)el1.classList.add('speaking');if(el2)el2.classList.add('speaking');
  const tok=sayTok;
  (async()=>{let i=0;
-  while(tok===sayTok){await sayOnce(i?t2:t1,(i?l2:l1)||'fr');i=1-i}
+  while(tok===sayTok){await sayOnce(i?t2:t1,(i?l2:l1)||'fr');i=1-i;await new Promise(rs=>setTimeout(rs,1100))}
   if(el1)el1.classList.remove('speaking');if(el2)el2.classList.remove('speaking')})()}
 function quizTone(ok){
  try{const Ctx=window.AudioContext||window.webkitAudioContext;
@@ -2449,7 +2449,7 @@ function renderTimePh(){
     d.innerHTML='<span class="fl">'+fl+'</span><span class="rd"></span>';
     const rd=d.querySelector('.rd');const dv=document.createElement('div');
     dv.innerHTML='<span>'+esc(txt)+'</span>';
-    const sb=document.createElement('button');sb.textContent='🔊';sb.onclick=()=>sayOnce(txt,code);
+    const sb=document.createElement('button');sb.textContent='🔊';sb.onclick=()=>loopSpeak([{txt,lg:code}],sb);
     dv.appendChild(sb);rd.appendChild(dv);row.appendChild(d)});
    b.appendChild(row)})})}
 $('timePhFold').onclick=()=>{renderTimePh();$('timePhOv').classList.add('on')};
@@ -2574,7 +2574,7 @@ function renderPrices(){
     d.innerHTML='<span class="fl">'+fl+'</span><span class="rd"></span>';
     const rd=d.querySelector('.rd');const dv=document.createElement('div');
     dv.innerHTML='<span>'+esc(txt)+'</span>';
-    const sb=document.createElement('button');sb.textContent='🔊';sb.onclick=()=>sayOnce(txt,code);
+    const sb=document.createElement('button');sb.textContent='🔊';sb.onclick=()=>loopSpeak([{txt,lg:code}],sb);
     dv.appendChild(sb);rd.appendChild(dv);row.appendChild(d)});
    b.appendChild(row)});
   (sec.quiz||[]).forEach(q=>{
@@ -2676,7 +2676,7 @@ function renderNums(){
     d.innerHTML='<span class="fl">'+fl+'</span><span class="rd"></span>';
     const rd=d.querySelector('.rd');const dv=document.createElement('div');
     dv.innerHTML='<span>'+esc(txt)+'</span>';
-    const sb=document.createElement('button');sb.textContent='🔊';sb.onclick=()=>sayOnce(txt,code);
+    const sb=document.createElement('button');sb.textContent='🔊';sb.onclick=()=>loopSpeak([{txt,lg:code}],sb);
     dv.appendChild(sb);rd.appendChild(dv);row.appendChild(d)});
    b.appendChild(row)});
   (sec.quiz||[]).forEach(q=>{
@@ -2726,10 +2726,10 @@ function numAsk(){
   '<button class="btn" id="ng-say" style="font-size:1.6rem;padding:.7rem 1.4rem">🔊</button>'+
   '<div class="pr-opts" style="justify-content:center;margin-top:1.1rem;gap:.7rem">'+
   arr.map(v=>'<button class="btn" data-v="'+v+'" style="min-width:72px;font-size:1.25rem">'+v+'</button>').join('')+'</div></div>';
- $('ng-say').onclick=()=>sayOnce(q[1],'fr-FR');
- sayOnce(q[1],'fr-FR');
+ $('ng-say').onclick=function(){loopSpeak([{txt:q[1],lg:'fr'}],this)};
+ loopSpeak([{txt:q[1],lg:'fr'}],$('ng-say'));
  body.querySelectorAll('button[data-v]').forEach(b=>{b.onclick=()=>{
-  if(ng.lock)return;ng.lock=true;
+  if(ng.lock)return;ng.lock=true;stopSay();
   const v=+b.dataset.v,good=v===q[0];
   if(good){ng.ok++;quizTone(true)}else{ng.bad++;quizTone(false)}
   $('ng-say').innerHTML='🔊 '+esc(q[1]);
@@ -2787,11 +2787,11 @@ function phAsk(){
   '<div class="lz-nav" style="justify-content:center;margin-top:.6rem">'+
   '<button id="pg-next">⏭ '+esc(t('gNext'))+'</button>'+
   '<button id="pg-auto" class="'+(pg.auto?'on':'')+'">🔁 '+esc(t('autoNext'))+'</button></div></div>';
- const play=()=>sayOnce(phSpeak(d),'fr-FR');
+ const play=()=>loopSpeak([{txt:phSpeak(d),lg:'fr'}],$('pg-say'));
  $('pg-say').onclick=play;play();
  const inp=$('pg-in');inp.focus();
  const go=()=>{
-  if(pg.lock)return;pg.lock=true;
+  if(pg.lock)return;pg.lock=true;stopSay();
   const v=inp.value.replace(/\D/g,'');
   const good=v===d;
   if(good){pg.ok++;quizTone(true)}else{pg.bad++;quizTone(false)}
@@ -2962,11 +2962,11 @@ function lwAsk(){
  'style="font-size:1.15rem;text-align:center;padding:.7rem .8rem;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--txt);width:min(92%,26rem);direction:ltr">')+
  '</div><div id="lw-msg" style="text-align:center;min-height:1.6rem;margin-top:.6rem"></div>'+
  '<button class="btn" id="lw-go" style="margin-top:.4rem">'+esc(t('phCheck'))+'</button></div>';
- const play=()=>sayOnce(q.say,'fr-FR');
+ const play=()=>loopSpeak([{txt:q.say,lg:'fr'}],$('lw-say'));
  $('lw-say').onclick=play;play();
  const inp=$('lw-in');inp.focus();
  const go=()=>{
-  if(lw.lock)return;lw.lock=true;
+  if(lw.lock)return;lw.lock=true;stopSay();
   const good=lw.num?((/\d/.test(inp.value)&&+inp.value.replace(/\D/g,'')===+q.ans)||lwNorm(inp.value)===lwNorm(q.say)):(lwNorm(inp.value)===lwNorm(q.ans)||lwTimeOk(inp.value,q.ans)||(lwNorm(inp.value).length>1&&/\d/.test(inp.value)&&lwNorm(inp.value)===lwNorm(frDigitize(q.ans))));
   if(good){lw.ok++;quizTone(true)}else{lw.bad++;quizTone(false)}
   inp.disabled=true;$('lw-go').disabled=true;
@@ -2999,14 +2999,14 @@ function pairGameInit(host){
    'style="font-size:1.6rem;font-weight:800;text-align:center;padding:.55rem .5rem;border-radius:16px;border:2px solid var(--line);background:var(--card);color:var(--txt);width:13ch;direction:ltr"></div>'+
   '<button class="btn" id="prg-go" style="width:100%;padding:.8rem;font-size:1.05rem;font-weight:700;border-radius:14px">'+esc(t('phCheck'))+'</button>'+
   '<div id="prg-msg" style="text-align:center;min-height:1.8rem;margin-top:.6rem;font-size:1.05rem"></div></div>';
- const say=()=>sayOnce(pairFr(cur),'fr-FR');
+ const say=()=>loopSpeak([{txt:pairFr(cur),lg:'fr'}],$('prg-say'));if($('prg-say'))$('prg-say').onclick=say;
  host.querySelector('#prg-say').onclick=say;
  const inp=host.querySelector('#prg-in'),msg=host.querySelector('#prg-msg'),go=host.querySelector('#prg-go');
  function next(){cur=Math.floor(Math.random()*100);lock=false;
   msg.innerHTML='';inp.value='';inp.disabled=false;inp.style.borderColor='var(--line)';go.disabled=false;
   say();inp.focus()}
  go.onclick=()=>{
-  if(lock)return;lock=true;
+  if(lock)return;lock=true;stopSay();
   const v=+inp.value.replace(/\D/g,'');
   const good=(/\d/.test(inp.value)&&v===cur)||lwNorm(inp.value)===lwNorm(pairFr(cur));
   good?quizTone(true):quizTone(false);
