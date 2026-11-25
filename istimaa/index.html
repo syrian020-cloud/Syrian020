@@ -1113,9 +1113,10 @@ function openQuiz(n){
  $('quiz-exit').onclick=closeGame;
  $('quiz-note').onclick=function(){const p=window.__gNoteP;openNote('gnote_'+(p&&p.id||'scratch'),p||null,this)};
  const body=$('quiz-body');
- gameSrcPick(body,nd=>{
+ const useNd=nd=>{
   body.innerHTML=gamePairPicker(nd,t('quizChooseLang'));
-  body.querySelectorAll('button[data-q]').forEach(b=>{b.onclick=()=>startQuiz(nd,b.dataset.q,b.dataset.a)})})}
+  body.querySelectorAll('button[data-q]').forEach(b=>{b.onclick=()=>startQuiz(nd,b.dataset.q,b.dataset.a)})};
+ if(n)useNd(n);else gameSrcPick(body,useNd)}
 function startQuiz(n,qlang,alang){
  const pool=gPool(n).filter(p=>{const m=phMapS(p);return m[qlang]&&m[alang]});
  if(!pool.length){toast(t('quizNoPhrases'));return}
@@ -1230,9 +1231,10 @@ function openListen(n){
  $('quiz-exit').onclick=closeGame;
  $('quiz-note').onclick=function(){const p=window.__gNoteP;openNote('gnote_'+(p&&p.id||'scratch'),p||null,this)};
  const body=$('quiz-body');
- gameSrcPick(body,nd=>{lz.lesson=nd;
+ const useNd=nd=>{lz.lesson=nd;
   body.innerHTML=gamePairPicker(nd,t('quizChooseLang'));
-  body.querySelectorAll('button[data-q]').forEach(b=>{b.onclick=()=>{lz.qlang=b.dataset.q;lz.lang=b.dataset.a;lzStart()}})})}
+  body.querySelectorAll('button[data-q]').forEach(b=>{b.onclick=()=>{lz.qlang=b.dataset.q;lz.lang=b.dataset.a;lzStart()}})};
+ if(n)useNd(n);else gameSrcPick(body,useNd)}
 function lzStart(){
  const pool=gPool(lz.lesson).filter(p=>{const m=phMapS(p);return m[lz.qlang]&&m[lz.lang]});
  const body=$('quiz-body');if(!body)return;
@@ -2636,6 +2638,25 @@ function renderNums(){
  const f=NUMPH[numView];let pi=0;
  const bk=document.createElement('button');bk.className='btn pr-back';bk.textContent='‹ '+NUM_TITLE[st.lang];
  bk.onclick=()=>{numView=-1;renderNums()};b.appendChild(bk);
+ const fph=[];
+ f.secs.forEach(s=>(s.rows||[]).forEach(r=>{if(r[1]&&r[2])fph.push({s:r[1],lg:'fr',a:r[2],e:r[3]||''})}));
+ const fnode={id:'nm'+numView,t:'l',n:(f.t[st.lang]||f.t.en),ph:fph};
+ const gb=document.createElement('div');gb.style.cssText='display:flex;gap:.35rem;justify-content:center;flex-wrap:wrap;margin:.3rem 0 .5rem';
+ gb.innerHTML='<button class="mini" data-fg="qz" title="'+esc(t('quiz'))+'">🧩</button>'+
+  '<button class="mini" data-fg="lz" title="'+esc(t('listenQuiz'))+'">🎧</button>'+
+  '<button class="mini" data-fg="rr" title="'+esc(t('rrTitle'))+'">🗣</button>'+
+  '<button class="mini" data-fg="lw" title="'+esc(t('lwGame'))+'">✍️</button>'+
+  '<button class="mini" data-fg="nm" title="'+esc(t('numGame'))+'">🔢</button>'+
+  '<button class="mini" data-fg="pg" title="'+esc(t('phGame'))+'">⌨️</button>';
+ gb.querySelectorAll('button[data-fg]').forEach(bt=>{bt.onclick=()=>{
+  const k=bt.dataset.fg;
+  if(k==='qz')openQuiz(fnode);
+  else if(k==='lz')openListen(fnode);
+  else if(k==='rr')openReadRepeat(fnode,true);
+  else if(k==='lw')openLwGame(fnode);
+  else if(k==='nm')openNumGame();
+  else if(k==='pg')openPhGame()}});
+ b.appendChild(gb);
  (f.notes||[]).forEach(tx=>{const nt=document.createElement('div');nt.className='lr-notes';nt.innerHTML='<b>📝</b> '+esc(tx);b.appendChild(nt)});
  if(f.game==='pairs'){const gc=document.createElement('div');gc.className='lr-row';b.appendChild(gc);pairGameInit(gc)}
  f.secs.forEach(sec=>{
@@ -2900,7 +2921,7 @@ function frDigitize(txt){
   else{out.push(ws[i]);i++}}
  return out.join(' ')}
 function lwNorm(s){return (s||'').toLowerCase().replace(/[\u2018\u2019]/g,"'").normalize('NFD').replace(/\p{M}/gu,'').replace(/[^a-z0-9'\- ]/g,' ').replace(/\s+/g,' ').trim()}
-function openLwGame(){
+function openLwGame(directNode){
  closeGame();
  const ov=document.createElement('div');ov.id='quiz-overlay';ov.className='qz-ov';
  ov.innerHTML='<div class="qz-top"><button class="mini" id="quiz-exit">✕</button>'+
@@ -2909,6 +2930,7 @@ function openLwGame(){
  document.body.appendChild(ov);
  $('quiz-exit').onclick=closeGame;
  const body=$('quiz-body');
+ if(directNode){lwStart(directNode);return}
  const srcs=gSources();
  body.innerHTML='<h3 style="text-align:center;margin:.4rem 0">'+esc(t('chooseSrc'))+'</h3><div class="src-grid">'+
  srcTileBtn('data-lw="num"','🔢','1–2000',2000)+
