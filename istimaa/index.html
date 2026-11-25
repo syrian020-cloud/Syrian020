@@ -2463,7 +2463,7 @@ function renderTimePh(){
     const d=document.createElement('div');d.className='lr-lg';d.dir=dir;
     d.innerHTML='<span class="fl">'+fl+'</span><span class="rd"></span>';
     const rd=d.querySelector('.rd');const dv=document.createElement('div');
-    dv.innerHTML='<span>'+esc(txt)+'</span>';
+    dv.appendChild(wordsSpan(txt,code.split('-')[0]));
     const sb=document.createElement('button');sb.textContent='🔊';sb.onclick=()=>loopSpeak([{txt,lg:code}],sb);
     dv.appendChild(sb);rd.appendChild(dv);row.appendChild(d)});
    b.appendChild(row)})})}
@@ -2588,7 +2588,7 @@ function renderPrices(){
     const d=document.createElement('div');d.className='lr-lg';d.dir=dir;
     d.innerHTML='<span class="fl">'+fl+'</span><span class="rd"></span>';
     const rd=d.querySelector('.rd');const dv=document.createElement('div');
-    dv.innerHTML='<span>'+esc(txt)+'</span>';
+    dv.appendChild(wordsSpan(txt,code.split('-')[0]));
     const sb=document.createElement('button');sb.textContent='🔊';sb.onclick=()=>loopSpeak([{txt,lg:code}],sb);
     dv.appendChild(sb);rd.appendChild(dv);row.appendChild(d)});
    b.appendChild(row)});
@@ -2700,7 +2700,7 @@ function renderNums(){
     const d=document.createElement('div');d.className='lr-lg';d.dir=dir;
     d.innerHTML='<span class="fl">'+fl+'</span><span class="rd"></span>';
     const rd=d.querySelector('.rd');const dv=document.createElement('div');
-    dv.innerHTML='<span>'+esc(txt)+'</span>';
+    dv.appendChild(wordsSpan(txt,code.split('-')[0]));
     const sb=document.createElement('button');sb.textContent='🔊';sb.onclick=()=>loopSpeak([{txt,lg:code}],sb);
     dv.appendChild(sb);rd.appendChild(dv);row.appendChild(d)});
    b.appendChild(row)});
