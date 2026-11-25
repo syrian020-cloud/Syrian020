@@ -2633,8 +2633,12 @@ function renderNums(){
  if(numView<0){
   const tot=NUMPH.reduce((a,f)=>a+f.secs.reduce((x,s)=>x+s.rows.length,0),0);
   const st_bar=document.createElement('div');
-  st_bar.style.cssText='text-align:center;padding:.45rem .6rem;margin-bottom:.5rem;border-radius:12px;background:var(--card);border:1px solid var(--line);font-weight:800;font-size:1.05rem';
-  st_bar.textContent='📊 '+tot.toLocaleString('en')+' · '+NUMPH.length+' 📁';
+  const LBL={ar:['عبارة','مجلد'],fr:['phrases','dossiers'],en:['phrases','folders']}[st.lang]||['phrases','folders'];
+  st_bar.style.cssText='display:flex;gap:.6rem;margin-bottom:.6rem';
+  st_bar.innerHTML=[['🎧',tot,LBL[0]],['📁',NUMPH.length,LBL[1]]].map(([ic,v,lb])=>
+   '<div style="flex:1;text-align:center;padding:.55rem .4rem;border-radius:14px;background:var(--card);border:1px solid var(--line)">'+
+   '<div style="font-size:1.35rem;font-weight:900">'+ic+' '+v.toLocaleString('en')+'</div>'+
+   '<div style="font-size:.8rem;opacity:.75;font-weight:700">'+lb+'</div></div>').join('');
   b.appendChild(st_bar);
   NUMPH.forEach((f,i)=>{
   const n=f.secs.reduce((a,s)=>a+s.rows.length,0);
