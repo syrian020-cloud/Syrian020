@@ -137,7 +137,7 @@ main{flex:1;overflow:auto;position:relative}
 /* istimaa shell: hide clock chrome, sections app is the home */
 #dock,#clockWrap,#speakBtn,#timeRead,#learnFold,#timePhFold,#priceFold{display:none!important}
 nav{display:none!important}
-#numOv{display:flex!important}
+#numOv{display:flex!important} .shade{z-index:440!important}
 #numX{display:none!important}
 header{display:none!important}
 
@@ -3978,31 +3978,11 @@ function renderMenu(){
  $('mTitle2').textContent=t('settings');
  const mi=$('menuItems');mi.innerHTML='';
  const items=[
-  {ico:'🕐',txt:t('mClock')+': '+(st.style==='analog'?t('analog'):t('digital')),fn:()=>{st.style=st.style==='analog'?'digital':'analog';save();applyStyle();syncPrefs();renderMenu()}},
+  {ico:'🌐',txt:'Language / اللغة / Langue: '+st.lang.toUpperCase(),fn:()=>{st.lang=LANGS[(LANGS.indexOf(st.lang)+1)%3];save();applyLang();renderMenu()}},
   {ico:st.theme==='dark'?'🌙':st.theme==='light'?'☀️':st.theme==='syria'?'🇸🇾':'🖼️',txt:t('mTheme')+': '+(st.theme==='dark'?t('dark'):st.theme==='light'?t('light'):st.theme==='syria'?t('syria'):t('custom')),fn:()=>{const THS=['dark','light','syria'];if(st.custImg)THS.push('custom');st.theme=THS[(THS.indexOf(st.theme)+1)%THS.length];save();applyTheme();syncPrefs();renderMenu()}},
-  {ico:'🖼️',txt:t('mPicClock'),fn:()=>$('clkImgPick').click()},
-  ...(st.custImg?[{ico:'🗑️',txt:t('mDelClockImg'),fn:()=>{delete st.custImg;if(st.theme==='custom')st.theme='dark';save();applyTheme();syncPrefs();renderMenu()}}]:[]),
-  {ico:'💤',txt:t('snoozeDur')+': '+st.snooze+' '+t('mmm'),fn:()=>{st.snooze=st.snooze===5?10:st.snooze===10?15:5;save();renderMenu()}},
-  ...(isCap()?[{ico:'🖼️',txt:t('setWallpaper'),fn:setWallpaper}]:[]),
-  ...(window.EdgeTTS&&EdgeTTS.openSettings?[{ico:'🎙️',txt:t('edgeVoice'),fn:()=>{try{EdgeTTS.openSettings()}catch(e){toast('!')}}}]:[]),
-  {ico:'⬇️',txt:t('mExport'),fn:exportAlarms},
-  {ico:'⬆️',txt:t('mImport'),fn:()=>$('impPick').click()},
+...(window.EdgeTTS&&EdgeTTS.openSettings?[{ico:'🎙️',txt:t('edgeVoice'),fn:()=>{try{EdgeTTS.openSettings()}catch(e){toast('!')}}}]:[]),
   {ico:'📚',txt:t('mExpLs'),fn:exportLessons},
   {ico:'📥',txt:t('mImpLs'),fn:()=>$('lesImpPick').click()},
-  ...(isCap()&&AS()&&AS().nativeDebug?[{ico:'🔍',txt:t('diagT'),fn:async()=>{try{const d=await AS().nativeDebug();
-   const nx=d.nextAt>0?new Date(d.nextAt).toLocaleString():'—';
-   alert('🔍 '+t('diagT')+'\n'+
-    t('warnNotif')+': '+(d.notif?'✓':'✗')+'\n'+
-    'FSI: '+(d.fsi?'✓':'✗')+'\n'+
-    'Exact: '+(d.canSchedule?'✓':'✗')+'\n'+
-    'Native alarms: '+d.native+'\n'+
-    'Next: '+nx+'\n'+
-    'Ringing: '+d.ringing+' · SDK '+d.sdk)}catch(e){toast('!')}}}]:[]),
-  ...(isCap()&&AS()&&AS().scheduleNative?[{ico:'🧪',txt:t('testRing'),fn:async()=>{
-   const id=Date.now(),req=800000+(id%10000);
-   try{await AS().scheduleNative({req,at:Date.now()+20000,alarmId:id,label:'🧪 '+(st.lang==='ar'?'تجربة رنة':st.lang==='fr'?'Test sonnerie':'Ring test'),sound:'asset:sounds/alarm_beep.mp3',vib:true});
-    st.alarms.push({id,hh:new Date(Date.now()+20000).getHours(),mm:new Date(Date.now()+20000).getMinutes(),label:'🧪 test',days:[],sound:'beep',vib:true,on:true,_test:true});save();renderAlarms();
-    toast('🧪 20s — '+t('testRingHint'),4000)}catch(e){toast('!')}}}]:[]),
   {ico:'ℹ️',txt:t('mAbout'),fn:()=>toast(t('aboutTxt').split('\n')[0])},
  ];
  for(const it of items){const d=document.createElement('div');d.className='mitem';d.innerHTML=`<span class="ico">${it.ico}</span><span>${it.txt}</span>`;d.onclick=it.fn;mi.appendChild(d)}
