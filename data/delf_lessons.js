@@ -1752,6 +1752,50 @@ window.DELF_LESSONS={
     }
    ],
    "ids": []
+  },
+  {
+   "id": "a1-66",
+   "icon": "🏭",
+   "fr": "La pollution",
+   "ar": "التلوث",
+   "phr": [
+    {
+     "f": "🇷 La pollution est un problème.",
+     "a": "🇾 التلوث مشكلة.",
+     "e": "🇸 Pollution is a problem."
+    },
+    {
+     "f": "🇷 L’air est sale dans les grandes villes.",
+     "a": "🇾 الهواء ملوث في المدن الكبيرة.",
+     "e": "🇸 The air is dirty in big cities."
+    },
+    {
+     "f": "🇷 Les voitures polluent l’air.",
+     "a": "🇾 السيارات تلوث الهواء.",
+     "e": "🇸 Cars pollute the air."
+    },
+    {
+     "f": "🇷 Les usines polluent la nature.",
+     "a": "🇾 المصانع تلوث الطبيعة.",
+     "e": "🇸 Factories pollute nature."
+    },
+    {
+     "f": "🇷 Il y a beaucoup de déchets dans les rues.",
+     "a": "🇾 يوجد الكثير من النفايات في الشوارع.",
+     "e": "🇸 There is a lot of rubbish in the streets."
+    },
+    {
+     "f": "🇷 Nous devons protéger la nature.",
+     "a": "🇾 يجب علينا حماية الطبيعة.",
+     "e": "🇸 We must protect nature."
+    },
+    {
+     "f": "🇷 Il faut jeter les déchets dans les poubelles.",
+     "a": "🇾 يجب رمي النفايات في سلات المهملات.",
+     "e": "🇸 We must throw rubbish in the bins."
+    }
+   ],
+   "ids": []
   }
  ],
  "a2": [
@@ -21562,6 +21606,60 @@ window.DELF_LESSONS={
     }
    ],
    "ids": []
+  },
+  {
+   "id": "a2-223",
+   "icon": "🏭",
+   "fr": "La pollution",
+   "ar": "التلوث",
+   "phr": [
+    {
+     "f": "🇷 La pollution est un grand problème dans notre société.",
+     "a": "🇾 التلوث مشكلة كبيرة في مجتمعنا.",
+     "e": "🇸 Pollution is a big problem in our society."
+    },
+    {
+     "f": "🇷 Elle est causée par les voitures, les usines et les déchets.",
+     "a": "🇾 ينتج التلوث عن السيارات والمصانع والنفايات.",
+     "e": "🇸 It is caused by cars, factories and waste."
+    },
+    {
+     "f": "🇷 La pollution de l’air peut provoquer des problèmes de santé.",
+     "a": "🇾 يمكن أن يسبب تلوث الهواء مشكلات صحية.",
+     "e": "🇸 Air pollution can cause health problems."
+    },
+    {
+     "f": "🇷 Les déchets plastiques sont dangereux pour les animaux et la nature.",
+     "a": "🇾 النفايات البلاستيكية خطيرة على الحيوانات والطبيعة.",
+     "e": "🇸 Plastic waste is dangerous for animals and nature."
+    },
+    {
+     "f": "🇷 Pour réduire la pollution, nous pouvons utiliser les transports en commun.",
+     "a": "🇾 لتقليل التلوث، يمكننا استخدام وسائل النقل العامة.",
+     "e": "🇸 To reduce pollution, we can use public transport."
+    },
+    {
+     "f": "🇷 Nous devons aussi recycler les déchets et économiser l’eau.",
+     "a": "🇾 يجب علينا أيضاً إعادة تدوير النفايات وتوفير الماء.",
+     "e": "🇸 We must also recycle waste and save water."
+    },
+    {
+     "f": "🇷 Il est important de planter des arbres et de garder les rues propres.",
+     "a": "🇾 من المهم زراعة الأشجار والمحافظة على نظافة الشوارع.",
+     "e": "🇸 It is important to plant trees and keep the streets clean."
+    },
+    {
+     "f": "🇷 À mon avis, chacun doit participer à la protection de l’environnement.",
+     "a": "🇾 برأيي، يجب على كل شخص المشاركة في حماية البيئة.",
+     "e": "🇸 In my opinion, everyone must participate in protecting the environment."
+    },
+    {
+     "f": "🇷 Si nous faisons des efforts, nous pouvons avoir un monde plus propre.",
+     "a": "🇾 إذا بذلنا الجهود، يمكننا الحصول على عالم أكثر نظافة.",
+     "e": "🇸 If we make an effort, we can have a cleaner world."
+    }
+   ],
+   "ids": []
   }
  ],
  "b1": [
@@ -37169,6 +37267,65 @@ window.DELF_LESSONS={
      "a": "هل من الأفضل تعلّم اللغة في المدرسة أم في البلد الذي تُتحدث فيه؟ ولماذا؟",
      "e": "Is it better to learn a language at school or in the country where it is spoken? Why?",
      "qa": 1
+    }
+   ],
+   "ids": []
+  },
+  {
+   "id": "b1-27",
+   "icon": "🏭",
+   "fr": "La pollution",
+   "ar": "التلوث",
+   "phr": [
+    {
+     "f": "🇷 Aujourd’hui, la pollution est devenue un problème très important dans le monde entier.",
+     "a": "🇾 اليوم، أصبح التلوث مشكلة مهمة جداً في جميع أنحاء العالم.",
+     "e": "🇸 Today, pollution has become a very important problem all over the world."
+    },
+    {
+     "f": "🇷 Les activités humaines sont l’une des principales causes de cette situation.",
+     "a": "🇾 الأنشطة البشرية هي أحد الأسباب الرئيسية لهذا الوضع.",
+     "e": "🇸 Human activities are one of the main causes of this situation."
+    },
+    {
+     "f": "🇷 La circulation, les industries et l’utilisation excessive du plastique contribuent à la pollution.",
+     "a": "🇾 حركة المرور والصناعات والاستخدام المفرط للبلاستيك تساهم في التلوث.",
+     "e": "🇸 Traffic, industries and excessive use of plastic contribute to pollution."
+    },
+    {
+     "f": "🇷 Cette situation a des conséquences négatives sur la santé des personnes et sur l’environnement.",
+     "a": "🇾 لهذا الوضع آثار سلبية على صحة الناس وعلى البيئة.",
+     "e": "🇸 This situation has negative consequences for people's health and the environment."
+    },
+    {
+     "f": "🇷 Par exemple, l’air pollué peut provoquer des maladies respiratoires.",
+     "a": "🇾 على سبيل المثال، يمكن أن يسبب الهواء الملوث أمراضاً تنفسية.",
+     "e": "🇸 For example, polluted air can cause respiratory diseases."
+    },
+    {
+     "f": "🇷 Pour lutter contre ce problème, nous devons changer certaines habitudes quotidiennes.",
+     "a": "🇾 لمكافحة هذه المشكلة، يجب علينا تغيير بعض العادات اليومية.",
+     "e": "🇸 To fight this problem, we must change some daily habits."
+    },
+    {
+     "f": "🇷 Nous pouvons marcher, faire du vélo et utiliser les transports en commun.",
+     "a": "🇾 يمكننا المشي وركوب الدراجة واستخدام وسائل النقل العامة.",
+     "e": "🇸 We can walk, ride bicycles and use public transport."
+    },
+    {
+     "f": "🇷 Les gouvernements doivent également prendre des mesures pour protéger l’environnement.",
+     "a": "🇾 يجب على الحكومات أيضاً اتخاذ إجراءات لحماية البيئة.",
+     "e": "🇸 Governments must also take measures to protect the environment."
+    },
+    {
+     "f": "🇷 Je pense que chaque personne a une responsabilité dans la protection de notre planète.",
+     "a": "🇾 أعتقد أن كل شخص يتحمل مسؤولية في حماية كوكبنا.",
+     "e": "🇸 I think every person has a responsibility to protect our planet."
+    },
+    {
+     "f": "🇷 Si nous agissons ensemble, nous pourrons laisser un environnement plus propre aux générations futures.",
+     "a": "🇾 إذا عملنا معاً، فسنتمكن من ترك بيئة أكثر نظافة للأجيال القادمة.",
+     "e": "🇸 If we act together, we will be able to leave a cleaner environment for future generations."
     }
    ],
    "ids": []
