@@ -2958,8 +2958,8 @@ function pairGameInit(host){
   '<div style="font-size:1.1rem;font-weight:700;margin-bottom:.9rem">🎧 '+esc(t('numHear'))+'</div>'+
   '<button class="btn" id="prg-say" style="font-size:1.6rem;width:64px;height:64px;border-radius:50%;margin-bottom:1rem">🔊</button>'+
   '<div style="display:flex;justify-content:center;margin:0 0 1rem">'+
-  '<input id="prg-in" inputmode="numeric" maxlength="2" placeholder="· ·" '+
-   'style="font-size:2.3rem;font-weight:800;letter-spacing:.3em;text-align:center;padding:.45rem .5rem .45rem .8rem;border-radius:16px;border:2px solid var(--line);background:var(--card);color:var(--txt);width:4ch;direction:ltr"></div>'+
+  '<input id="prg-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="30" placeholder="· ·" '+
+   'style="font-size:1.6rem;font-weight:800;text-align:center;padding:.55rem .5rem;border-radius:16px;border:2px solid var(--line);background:var(--card);color:var(--txt);width:13ch;direction:ltr"></div>'+
   '<button class="btn" id="prg-go" style="width:100%;padding:.8rem;font-size:1.05rem;font-weight:700;border-radius:14px">'+esc(t('phCheck'))+'</button>'+
   '<div id="prg-msg" style="text-align:center;min-height:1.8rem;margin-top:.6rem;font-size:1.05rem"></div></div>';
  const say=()=>sayOnce(pairFr(cur),'fr-FR');
@@ -2971,7 +2971,7 @@ function pairGameInit(host){
  go.onclick=()=>{
   if(lock)return;lock=true;
   const v=+inp.value.replace(/\D/g,'');
-  const good=v===cur;
+  const good=(/\d/.test(inp.value)&&v===cur)||lwNorm(inp.value)===lwNorm(pairFr(cur));
   good?quizTone(true):quizTone(false);
   inp.disabled=true;go.disabled=true;
   inp.style.borderColor=good?'var(--ok)':'#e0245e';
