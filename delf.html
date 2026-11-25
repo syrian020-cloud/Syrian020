@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#0b0f1f">
-<title>DELF B1 — دبلوم اللغة الفرنسية</title>
+<title>DelfVip — دبلوم اللغة الفرنسية</title>
 <link rel="manifest" href="manifest.json">
 <style>
   :root {
@@ -235,16 +235,17 @@
 <header>
   <div class="header-inner">
     <span class="logo-badge">🇫🇷</span>
-    <span class="logo">DELF B1<small>دبلوم اللغة الفرنسية</small></span>
+    <span class="logo">DelfVip<small>دبلوم اللغة الفرنسية</small></span>
     <span class="spacer"></span>
-    <button class="icon-btn" id="btn-back" title="رجوع" style="display:none">🔙</button>
+    <button class="icon-btn" id="btn-back" title="back" style="display:none">🔙</button>
+    <button class="icon-btn" id="btn-lang" title="Language">🌐</button>
     <button class="icon-btn" id="btn-stop" title="إيقاف الصوت">🔇</button>
     <button class="icon-btn" id="btn-home" title="الرئيسية" style="display:none">🏠</button>
   </div>
 </header>
 
 <main id="app"></main>
-<footer>تطبيق تدريب لامتحان DELF B1 بالفرنسي والعربي — أسئلة تدريبية مشابهة وليست رسمية</footer>
+<footer>DelfVip — تطبيق تدريب لامتحان DELF بالفرنسي والعربي — أسئلة تدريبية مشابهة وليست رسمية</footer>
 <div class="toast" id="toast"></div>
 
 <script src="data/delf1.js"></script>
@@ -266,6 +267,65 @@ var LEVELS = {
   a2: {icon:'<span style="display:inline-block;background:linear-gradient(135deg,#f43f5e,#be123c);color:#fff;font-weight:800;font-size:1rem;padding:.15rem .5rem;border-radius:9px;letter-spacing:.5px">A2</span>', name:'A2 أساسي', fr:'Élémentaire'},
   b1: {icon:'🎓', name:'B1 متوسط', fr:'Intermédiaire'}
 };
+
+/* ---------- واجهة متعددة اللغات ---------- */
+var LANG = localStorage.getItem('delfvip_lang') || 'ar';
+var TR = {
+  lessons_mode:   {ar:'وضع الدروس', fr:'Mode leçons', en:'Lessons mode'},
+  lessons_desc:   {ar:'دروس مرتبة لكل مستوى — شرح فرنسي/عربي ثم تمارين الدرس. التقدم: ', fr:'Leçons par niveau — explication français/arabe puis exercices. Progression : ', en:'Lessons by level — French/Arabic explanation then practice. Progress: '},
+  train_mode:     {ar:'📝 وضع التدريب', fr:'📝 Mode entraînement', en:'📝 Training mode'},
+  train_desc:     {ar:'تصحيح فوري وشرح بالفرنسي والعربي. اختر موضوعاً (أو اترك الاختيار لكل المواضيع):', fr:'Correction immédiate et explication en français et arabe. Choisis un thème (ou tous les thèmes) :', en:'Instant correction with French and Arabic explanation. Pick a theme (or all themes):'},
+  train_start:    {ar:'ابدأ التدريب — الكل', fr:'Commencer — tout', en:'Start training — all'},
+  train_start_t:  {ar:'ابدأ: ', fr:'Commencer : ', en:'Start: '},
+  mistakes:       {ar:'🔁 راجع أخطائي (', fr:'🔁 Revoir mes erreurs (', en:'🔁 Review my mistakes ('},
+  exam_mode:      {ar:'⏱️ وضع الامتحان', fr:'⏱️ Mode examen', en:'⏱️ Exam mode'},
+  exam_desc:      {ar:'40 سؤالاً عشوائياً، 45 دقيقة إجمالاً، بلا تصحيح حتى النهاية. النجاح: 32/40 على الأقل.', fr:'40 questions aléatoires, 45 minutes au total, sans correction avant la fin. Réussite : 32/40 minimum.', en:'40 random questions, 45 minutes total, no correction until the end. Pass: at least 32/40.'},
+  exam_start:     {ar:'ابدأ الامتحان', fr:'Commencer l\'examen', en:'Start the exam'},
+  questions:      {ar:'سؤالاً', fr:'questions', en:'questions'},
+  correct:        {ar:'صحيحة', fr:'correctes', en:'correct'},
+  exams_passed:   {ar:'امتحان ناجح', fr:'examens réussis', en:'exams passed'},
+  device_voice:   {ar:'صوت الجهاز', fr:'Voix de l\'appareil', en:'Device voice'},
+  no_mistakes:    {ar:'لا أخطاء مسجلة', fr:'Aucune erreur enregistrée', en:'No mistakes recorded'},
+  lesson_done:    {ar:'درساً مكتملاً', fr:'leçons terminées', en:'lessons completed'},
+  lesson_word:    {ar:'درس', fr:'leçons', en:'lessons'},
+  sentences:      {ar:'جملة', fr:'phrases', en:'sentences'},
+  completed:      {ar:'✅ مكتمل', fr:'✅ terminé', en:'✅ done'},
+  level_lessons:  {ar:'دروس مستوى ', fr:'Leçons niveau ', en:'Lessons level '},
+  open_lesson:    {ar:'افتح الدرس، اقرأ الشرح، ثم تدرّب على أسئلته.', fr:'Ouvre la leçon, lis l\'explication, puis entraîne-toi.', en:'Open the lesson, read the explanation, then practice.'},
+  lesson_instr:   {ar:'اقرأ الشرح كاملاً — استمع لكل شريحة بعلمها 🔊، اضغط أي كلمة لتنطقها loop، وضغطتين عليها لتبحث عنها في Google.', fr:'Lis toute l\'explication — écoute chaque carte avec son drapeau 🔊, touche un mot pour le répéter en boucle, deux fois pour le chercher sur Google.', en:'Read the full explanation — listen to each card with its flag 🔊, tap any word to loop it, double-tap to search it on Google.'},
+  g_match:        {ar:'🧩 توصيل', fr:'🧩 Association', en:'🧩 Matching'},
+  g_listen:       {ar:'🎧 اختبار سمعي', fr:'🎧 Test d\'écoute', en:'🎧 Listening test'},
+  g_rr:           {ar:'🗣️ اقرأ وكرّر', fr:'🗣️ Lis et répète', en:'🗣️ Read & repeat'},
+  g_lw:           {ar:'✍️ اسمع واكتب', fr:'✍️ Écoute et écris', en:'✍️ Listen & write'},
+  finish_lesson:  {ar:'✅ أنهيت الدرس', fr:'✅ Leçon terminée', en:'✅ Lesson finished'},
+  practice_q:     {ar:' — تدرّب (', fr:' — entraînement (', en:' — practice ('},
+  exam_task:      {ar:'📝 المطلوب بالامتحان', fr:'📝 Tâche d\'examen', en:'📝 Exam task'},
+  qa_card:        {ar:'❓ سؤال وجواب', fr:'❓ Question-réponse', en:'❓ Q&A'},
+  model_card:     {ar:'✍️ النموذج الكامل', fr:'✍️ Modèle complet', en:'✍️ Full model'},
+  voc_card:       {ar:'📖 كلمة مهمة', fr:'📖 Mot important', en:'📖 Key word'},
+  hero_title:     {ar:'امتحان DelfVip 🇫🇷', fr:'Examen DelfVip 🇫🇷', en:'DelfVip Exam 🇫🇷'},
+  hero_desc:      {ar:'تدريب على DELF بالفرنسي والعربي — قواعد، مفردات، فهم مكتوب ومسموع وتعبير. الامتحان الرسمي: 4 أقسام (مسموع 25د، مقروء 35د، مكتوب 45د، شفوي 15د) والنجاح بـ 50/100.', fr:'Entraînement au DELF en français et arabe — grammaire, vocabulaire, compréhension écrite et orale, expression. Examen officiel : 4 épreuves (orale 25 min, écrite 35+45 min, speaking 15 min), réussite à 50/100.', en:'DELF training in French and Arabic — grammar, vocabulary, reading and listening comprehension, expression. Official exam: 4 parts (listening 25min, reading 35min, writing 45min, speaking 15min), pass at 50/100.'},
+  validate:       {ar:'تأكيد', fr:'Valider', en:'Confirm'},
+  skip:           {ar:'تخطي ⏭', fr:'Passer ⏭', en:'Skip ⏭'},
+  multi_hint:     {ar:'⚠️ عدة إجابات صحيحة ممكنة — اختر ثم اضغط "تأكيد"', fr:'⚠️ Plusieurs réponses possibles — choisis puis appuie sur "Valider"', en:'⚠️ Multiple correct answers possible — select then press "Confirm"'},
+  pass_msg:       {ar:'🎉 ناجح! (الحد الأدنى 32/40)', fr:'🎉 Réussi ! (minimum 32/40)', en:'🎉 Passed! (minimum 32/40)'},
+  fail_msg:       {ar:'😕 راسب — تحتاج 32 إجابة صحيحة', fr:'😕 Échoué — il faut 32 bonnes réponses', en:'😕 Failed — you need 32 correct answers'},
+  perfect:        {ar:'ممتاز! كل الإجابات صحيحة', fr:'Excellent ! Toutes les réponses sont correctes', en:'Excellent! All answers correct'},
+  keep_going:     {ar:'أكمل التدريب لتحسين نتيجتك', fr:'Continue l\'entraînement pour améliorer ton score', en:'Keep training to improve your score'},
+  new_exam:       {ar:'امتحان جديد', fr:'Nouvel examen', en:'New exam'},
+  new_train:      {ar:'تدريب جديد', fr:'Nouvel entraînement', en:'New training'},
+  home_btn:       {ar:'🏠 الرئيسية', fr:'🏠 Accueil', en:'🏠 Home'},
+  review_wrong:   {ar:'مراجعة الأخطاء (', fr:'Revoir les erreurs (', en:'Review mistakes ('},
+  lvl_a1:         {ar:'A1 مبتدئ', fr:'A1 Débutant', en:'A1 Beginner'},
+  lvl_a2:         {ar:'A2 أساسي', fr:'A2 Élémentaire', en:'A2 Elementary'},
+  lvl_b1:         {ar:'B1 متوسط', fr:'B1 Intermédiaire', en:'B1 Intermediate'},
+  back_title:     {ar:'رجوع', fr:'Retour', en:'Back'},
+  lessons_title:  {ar:'الدروس', fr:'Leçons', en:'Lessons'},
+  lang_switched:  {ar:'🌐 العربية', fr:'🌐 Français', en:'🌐 English'}
+};
+function tr(k){ var row = TR[k]; return row ? (row[LANG] || row.ar) : k; }
+function lvlName(l){ return tr('lvl_' + l); }
+
 var app = document.getElementById('app');
 var toast = document.getElementById('toast');
 var speechRun = 0;
@@ -888,6 +948,20 @@ function imgHtml(q){
 function optionLetters(i){ return 'ABCD'[i] || '?'; }
 
 /* ---------------- screens ---------------- */
+
+function applyLangDir(){
+  document.documentElement.lang = LANG;
+  document.title = LANG === 'ar' ? 'DelfVip — دبلوم اللغة الفرنسية' : (LANG === 'fr' ? 'DelfVip — Diplôme de français' : 'DelfVip — French diploma trainer');
+}
+document.getElementById('btn-lang').onclick = function(){
+  LANG = LANG === 'ar' ? 'fr' : (LANG === 'fr' ? 'en' : 'ar');
+  localStorage.setItem('delfvip_lang', LANG);
+  applyLangDir();
+  render();
+  showToast(tr('lang_switched'));
+};
+applyLangDir();
+
 function render(){
   stopSpeech();
   if(state.screen === 'home') renderHome();
@@ -908,18 +982,18 @@ function renderHome(){
     var m = THEME_META[t] || {icon: '📚', bg: 'rgba(124,58,237,0.22)'};
     tiles += '<div class="theme-tile' + (state.theme === t ? ' active' : '') + '" data-theme="' + t + '">' +
       '<span class="t-icon" style="background:' + m.bg + '">' + m.icon + '</span>' +
-      '<span><span class="t-name">' + THEMES[t] + '</span><br><span class="t-count">' + byTheme[t] + ' سؤالاً</span></span>' +
+      '<span><span class="t-name">' + THEMES[t] + '</span><br><span class="t-count">' + byTheme[t] + ' ' + tr('questions') + '</span></span>' +
     '</div>';
   });
   var wrongCount = stats.wrongIds.length;
   var acc = stats.answered ? Math.round(stats.correct * 100 / stats.answered) : 0;
   app.innerHTML =
-    '<div class="hero"><h1>امتحان DELF B1 🇫🇷</h1>' +
-    '<p>تدريب على DELF B1 بالفرنسي والعربي — قواعد، مفردات، فهم مكتوب ومسموع وتعبير. الامتحان الرسمي: 4 أقسام (مسموع 25د، مقروء 35د، مكتوب 45د، شفوي 15د) والنجاح بـ 50/100.</p>' +
+    '<div class="hero"><h1>' + tr('hero_title') + '</h1>' +
+    '<p>' + tr('hero_desc') + '</p>' +
     '<div class="stats-row">' +
-      '<span class="stat-chip">📚 ' + DATA.length + ' سؤالاً</span>' +
-      '<span class="stat-chip">✅ ' + acc + '% صحيحة</span>' +
-      '<span class="stat-chip">🎓 ' + stats.passed + '/' + stats.exams + ' امتحان ناجح</span>' +
+      '<span class="stat-chip">📚 ' + DATA.length + ' ' + tr('questions') + '</span>' +
+      '<span class="stat-chip">✅ ' + acc + '% ' + tr('correct') + '</span>' +
+      '<span class="stat-chip">🎓 ' + stats.passed + '/' + stats.exams + ' ' + tr('exams_passed') + '</span>' +
     '</div>' +
     '<div class="stats-row" style="margin-top:8px"><span class="stat-chip">🔊 ' +
       '<select id="voiceSel" style="background:transparent;color:inherit;border:none;font:inherit;outline:none">' +
@@ -927,37 +1001,37 @@ function renderHome(){
         '<option value="fr-FR-HenriNeural">Henri — صوت Edge</option>' +
         '<option value="fr-FR-EloiseNeural">Éloïse — صوت Edge</option>' +
         '<option value="fr-FR-RemyMultilingualNeural">Rémy — صوت Edge</option>' +
-        '<option value="device">صوت الجهاز</option>' +
+        '<option value="device">' + tr('device_voice') + '</option>' +
       '</select></span></div></div>' +
 
     '<div class="card">' +
-      '<div class="mode-title">📚 وضع الدروس <span class="mini">leçons</span></div>' +
-      '<div class="mode-desc">دروس مرتبة لكل مستوى — شرح فرنسي/عربي ثم تمارين الدرس. التقدم: ' + lessonProgress() + '</div>' +
+      '<div class="mode-title">📚 ' + tr('lessons_mode') + ' <span class="mini">leçons</span></div>' +
+      '<div class="mode-desc">' + tr('lessons_desc') + lessonProgress() + '</div>' +
       '<div class="lvl-grid">' +
         Object.keys(LEVELS).map(function(l){
           var m = LEVELS[l], n = (LESSONS[l] || []).length;
           var done = (LESSONS[l] || []).filter(function(ls){ return stats.lessons[ls.id]; }).length;
           return '<button class="lvl-btn" data-lvl="' + l + '">' +
             '<span class="lvl-icon">' + m.icon + '</span>' +
-            '<span class="lvl-name">' + m.name + '</span>' +
-            '<span class="lvl-sub">' + m.fr + ' · ' + done + '/' + n + ' درس</span>' +
+            '<span class="lvl-name">' + lvlName(l) + '</span>' +
+            '<span class="lvl-sub">' + m.fr + ' · ' + done + '/' + n + ' ' + tr('lesson_word') + '</span>' +
           '</button>';
         }).join('') +
       '</div>' +
     '</div>' +
 
     '<div class="card">' +
-      '<div class="mode-title">📝 وضع التدريب</div>' +
-      '<div class="mode-desc">تصحيح فوري وشرح بالفرنسي والعربي. اختر موضوعاً (أو اترك الاختيار لكل المواضيع):</div>' +
+      '<div class="mode-title">' + tr('train_mode') + '</div>' +
+      '<div class="mode-desc">' + tr('train_desc') + '</div>' +
       '<div class="theme-grid">' + tiles + '</div>' +
-      '<button class="big-btn" id="btn-train">' + (state.theme ? 'ابدأ: ' + THEMES[state.theme] : 'ابدأ التدريب — الكل') + '</button>' +
-      (wrongCount ? '<button class="ghost-btn" id="btn-mistakes">🔁 راجع أخطائي (' + wrongCount + ')</button>' : '') +
+      '<button class="big-btn" id="btn-train">' + (state.theme ? tr('train_start_t') + THEMES[state.theme] : tr('train_start')) + '</button>' +
+      (wrongCount ? '<button class="ghost-btn" id="btn-mistakes">' + tr('mistakes') + wrongCount + ')</button>' : '') +
     '</div>' +
 
     '<div class="card">' +
-      '<div class="mode-title">⏱️ وضع الامتحان <span class="mini">examen blanc</span></div>' +
-      '<div class="mode-desc">40 سؤالاً عشوائياً، 45 دقيقة إجمالاً، بلا تصحيح حتى النهاية. النجاح: 32/40 على الأقل.</div>' +
-      '<button class="big-btn" id="btn-exam">ابدأ الامتحان</button>' +
+      '<div class="mode-title">' + tr('exam_mode') + ' <span class="mini">examen blanc</span></div>' +
+      '<div class="mode-desc">' + tr('exam_desc') + '</div>' +
+      '<button class="big-btn" id="btn-exam">' + tr('exam_start') + '</button>' +
     '</div>';
 
   document.getElementById('btn-train').onclick = function(){ startQuiz('train'); };
@@ -965,7 +1039,7 @@ function renderHome(){
   var bm = document.getElementById('btn-mistakes');
   if(bm) bm.onclick = function(){ startMistakes(); };
   var vs = document.getElementById('voiceSel');
-  if(vs){ vs.value = edgeVoice(); vs.onchange = function(){ localStorage.setItem('edge_voice', vs.value); showToast(vs.value === 'device' ? 'صوت الجهاز' : 'صوت Edge: ' + vs.options[vs.selectedIndex].text.split(' ')[0]); }; }
+  if(vs){ vs.value = edgeVoice(); vs.onchange = function(){ localStorage.setItem('edge_voice', vs.value); showToast(vs.value === 'device' ? tr('device_voice') : 'Edge: ' + vs.options[vs.selectedIndex].text.split(' ')[0]); }; }
   document.querySelectorAll('.theme-tile').forEach(function(c){
     c.onclick = function(){
       state.theme = (state.theme === c.dataset.theme) ? '' : c.dataset.theme;
@@ -991,7 +1065,7 @@ function startQuiz(mode, poolOverride){
 function startMistakes(){
   var ids = stats.wrongIds;
   state.questions = DATA.filter(function(q){ return ids.indexOf(q.id) !== -1; });
-  if(!state.questions.length){ showToast('لا أخطاء مسجلة'); return; }
+  if(!state.questions.length){ showToast(tr('no_mistakes')); return; }
   state.mode = 'train';
   state.idx = 0;
   state.results = [];
@@ -1046,7 +1120,7 @@ function renderQuiz(){
       '<div class="q-fr">' + esc(q.q) + '</div>' +
       (q.qa ? '<div class="q-ar">' + esc(q.qa) + '</div>' : '') +
       '</div>' +
-      (multi ? '<div class="multi-hint">⚠️ عدة إجابات صحيحة ممكنة — اختر ثم اضغط "تأكيد"</div>' : '') +
+      (multi ? '<div class="multi-hint">' + tr('multi_hint') + '</div>' : '') +
       '<div id="opts">' + q.opts.map(function(o, i){
         return '<button class="opt" data-i="' + i + '">' +
           '<span class="letter">' + optionLetters(i) + '</span>' +
@@ -1057,8 +1131,8 @@ function renderQuiz(){
         '</button>';
       }).join('') + '</div>' +
       '<div class="answer-bar">' +
-        (multi ? '<button class="big-btn" id="btn-validate" disabled>تأكيد</button>' : '') +
-        (state.mode === 'exam' ? '<button class="ghost-btn" id="btn-next">تخطي ⏭</button>' : '') +
+        (multi ? '<button class="big-btn" id="btn-validate" disabled>' + tr('validate') + '</button>' : '') +
+        (state.mode === 'exam' ? '<button class="ghost-btn" id="btn-next">' + tr('skip') + '</button>' : '') +
       '</div>' +
       '<div id="after"></div>' +
     '</div>';
@@ -1223,15 +1297,15 @@ function renderResult(){
   var html =
     '<div class="card result-hero">' +
       '<div class="result-score ' + (passed ? 'ok' : 'ko') + '">' + okCount + ' / ' + total + '</div>' +
-      '<div class="result-sub">' + (exam ? (passed ? '🎉 ناجح! (الحد الأدنى 32/40)' : '😕 راسب — تحتاج 32 إجابة صحيحة') : (okCount === total ? 'ممتاز! كل الإجابات صحيحة' : 'أكمل التدريب لتحسين نتيجتك')) + '</div>' +
+      '<div class="result-sub">' + (exam ? (passed ? tr('pass_msg') : tr('fail_msg')) : (okCount === total ? tr('perfect') : tr('keep_going'))) + '</div>' +
     '</div>' +
     '<div class="card">' +
-      '<button class="big-btn" id="btn-again">' + (exam ? 'امتحان جديد' : 'تدريب جديد') + '</button>' +
-      '<button class="ghost-btn" id="btn-gohome">🏠 الرئيسية</button>' +
+      '<button class="big-btn" id="btn-again">' + (exam ? tr('new_exam') : tr('new_train')) + '</button>' +
+      '<button class="ghost-btn" id="btn-gohome">' + tr('home_btn') + '</button>' +
     '</div>';
 
   if(wrongs.length){
-    html += '<div class="card"><div class="mode-title">مراجعة الأخطاء (' + wrongs.length + ')</div>';
+    html += '<div class="card"><div class="mode-title">' + tr('review_wrong') + wrongs.length + ')</div>';
     wrongs.forEach(function(r, i){
       var q = r.q;
       html += '<div class="review-item">' +
@@ -1259,7 +1333,7 @@ function lessonProgress(){
   Object.keys(LESSONS).forEach(function(l){
     LESSONS[l].forEach(function(ls){ total++; if(stats.lessons[ls.id]) done++; });
   });
-  return done + ' / ' + total + ' درساً مكتملاً';
+  return done + ' / ' + total + ' ' + tr('lesson_done');
 }
 function currentLesson(){
   var list = LESSONS[state.level] || [];
@@ -1277,15 +1351,15 @@ function renderLessons(){
       '<span class="li-body">' +
         '<div class="li-fr">' + (i + 1) + '. ' + esc(ls.fr) + '</div>' +
         '<div class="li-ar">' + esc(ls.ar) + '</div>' +
-        '<div class="li-meta">' + ls.phr.length + ' جملة' + (nq ? ' · ' + nq + ' سؤالاً' : '') + (done ? ' · ✅ مكتمل' : '') + '</div>' +
+        '<div class="li-meta">' + ls.phr.length + ' ' + tr('sentences') + (nq ? ' · ' + nq + ' ' + tr('questions') : '') + (done ? ' · ' + tr('completed') : '') + '</div>' +
       '</span>' +
       '<span class="li-check">' + (done ? '✅' : '▶️') + '</span>' +
     '</div>';
   }).join('');
   app.innerHTML =
     '<div class="progress-wrap">' +
-      '<button class="icon-btn" id="btn-lback" title="رجوع">🔙</button>' +
-      '<span class="score-pill">📚 وضع الدروس</span>' +
+      '<button class="icon-btn" id="btn-lback" title="back">🔙</button>' +
+      '<span class="score-pill">📚 ' + tr('lessons_mode') + '</span>' +
     '</div>' +
     '<div class="lvl-grid">' +
       Object.keys(LEVELS).map(function(l){
@@ -1298,8 +1372,8 @@ function renderLessons(){
         '</button>';
       }).join('') +
     '</div>' +
-    '<div class="card" style="margin-top:0.7rem"><div class="mode-title">' + m.icon + ' دروس مستوى ' + m.name + '</div>' +
-    '<div class="mode-desc">افتح الدرس، اقرأ الشرح، ثم تدرّب على أسئلته.</div></div>' +
+    '<div class="card" style="margin-top:0.7rem"><div class="mode-title">' + m.icon + ' ' + tr('level_lessons') + lvlName(state.level) + '</div>' +
+    '<div class="mode-desc">' + tr('open_lesson') + '</div></div>' +
     items;
   document.getElementById('btn-lback').onclick = function(){ enterScreen('home'); };
   document.querySelectorAll('.lvl-btn').forEach(function(b){
@@ -1316,14 +1390,14 @@ function renderLesson(){
   var consigne = '';
   if(ls.consigne){
     consigne = '<div class="slide-card consigne-card">' +
-      '<div class="slide-head"><span class="slide-num">📝 المطلوب بالامتحان</span></div>' +
+      '<div class="slide-head"><span class="slide-num">' + tr('exam_task') + '</span></div>' +
       (ls.consigne.f ? '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="-1" data-lang="fr-FR">🇫🇷</button> ' + wordify(ls.consigne.f, 'fr-FR') + '</div>' : '') +
       (ls.consigne.a ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-i="-1" data-lang="ar-SY">🇸🇾</button> ' + wordify(ls.consigne.a, 'ar-SY') + '</div>' : '') +
     '</div>';
   }
   var cards = ls.phr.map(function(p, i){
     return '<div class="slide-card">' +
-      '<div class="slide-head"><span class="slide-num">' + (p.qa ? '❓ سؤال وجواب' : p.mod ? '✍️ النموذج الكامل' : (p.voc ? '📖 كلمة مهمة' : (i + 1) + ' / ' + ls.phr.length)) + '</span></div>' +
+      '<div class="slide-head"><span class="slide-num">' + (p.qa ? tr('qa_card') : p.mod ? tr('model_card') : (p.voc ? tr('voc_card') : (i + 1) + ' / ' + ls.phr.length)) + '</span></div>' +
       (p.f ? '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="' + i + '" data-lang="fr-FR">🇫🇷</button> ' + wordify(p.f, 'fr-FR') + '</div>' : '') +
       (p.a ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-i="' + i + '" data-lang="ar-SY">🇸🇾</button> ' + wordify(p.a, 'ar-SY') + '</div>' : '') +
       (p.e ? '<div class="phr-line" dir="ltr"><button class="flag-btn" data-i="' + i + '" data-lang="en-US">🇺🇸</button> ' + wordify(p.e, 'en-US') + '</div>' : '') +
@@ -1331,22 +1405,22 @@ function renderLesson(){
   }).join('');
   app.innerHTML =
     '<div class="progress-wrap">' +
-      '<button class="icon-btn" id="btn-lback2" title="الدروس">🔙</button>' +
+      '<button class="icon-btn" id="btn-lback2" title="lessons">🔙</button>' +
       '<span class="score-pill">' + ls.icon + ' ' + esc(ls.ar) + '</span>' +
-      '<span class="progress-info">' + ls.phr.length + ' جملة' + (nq ? ' · ' + nq + ' سؤالاً' : '') + '</span>' +
+      '<span class="progress-info">' + ls.phr.length + ' ' + tr('sentences') + (nq ? ' · ' + nq + ' ' + tr('questions') : '') + '</span>' +
     '</div>' +
     '<div class="card">' +
       '<div class="mode-title">' + ls.icon + ' ' + esc(ls.fr) + '</div>' +
-      '<div class="mode-desc">اقرأ الشرح كاملاً — استمع لكل شريحة بعلمها 🔊، اضغط أي كلمة لتنطقها loop، وضغطتين عليها لتبحث عنها في Google.</div>' +
+      '<div class="mode-desc">' + tr('lesson_instr') + '</div>' +
       '<div class="dg-bar">' +
-        '<button class="dg-btn" id="dg-bmatch">🧩 توصيل</button>' +
-        '<button class="dg-btn" id="dg-blisten">🎧 اختبار سمعي</button>' +
-        '<button class="dg-btn" id="dg-brr">🗣️ اقرأ وكرّر</button>' +
-        '<button class="dg-btn" id="dg-blw">✍️ اسمع واكتب</button>' +
+        '<button class="dg-btn" id="dg-bmatch">' + tr('g_match') + '</button>' +
+        '<button class="dg-btn" id="dg-blisten">' + tr('g_listen') + '</button>' +
+        '<button class="dg-btn" id="dg-brr">' + tr('g_rr') + '</button>' +
+        '<button class="dg-btn" id="dg-blw">' + tr('g_lw') + '</button>' +
       '</div>' +
       consigne +
       cards +
-      '<button class="big-btn" id="btn-lfinish" style="margin-top:0.4rem">✅ أنهيت الدرس' + (nq ? ' — تدرّب (' + nq + ' سؤالاً)' : '') + '</button>' +
+      '<button class="big-btn" id="btn-lfinish" style="margin-top:0.4rem">' + tr('finish_lesson') + (nq ? tr('practice_q') + nq + ' ' + tr('questions') + ')' : '') + '</button>' +
     '</div>';
   document.getElementById('btn-lback2').onclick = function(){ enterScreen('lessons'); };
   document.getElementById('dg-bmatch').onclick = function(){ openDgMatch(ls); };
