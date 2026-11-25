@@ -917,7 +917,12 @@ function saySmart(txt,lg){
   if(tok!==sayTok)return;
   await new Promise(r=>setTimeout(r,5000));
   if(tok!==sayTok)return;
-  await sayOnce(m[2],lg)})()}
+  const letters=m[2].split(/\s*–\s*/).map(x=>x.trim().replace(/[.\s]+$/,'')).filter(Boolean);
+  for(const L of letters){
+   if(tok!==sayTok)return;
+   await sayOnce(L,lg);
+   if(tok!==sayTok)return;
+   await new Promise(r=>setTimeout(r,450))}})()}
 function loopSpeak(rows,btn){
  rows=rows.filter(r=>r.txt);if(!rows.length)return;
  if(btn.classList.contains('speaking')){btn.classList.remove('speaking');stopSay();return}
