@@ -509,6 +509,7 @@
 <button class="fab hidden" id="fabBtn">➕</button>
 <input type="file" id="iconFileInput" accept="image/*" hidden>
 <input type="file" id="phImgInput" accept="image/*" hidden>
+<input type="file" id="phCamInput" accept="image/*" capture="environment" hidden>
 
 <!-- sheets -->
 <div class="overlay hidden" id="ovFolder">
@@ -672,6 +673,7 @@
       delLessonT: 'حذف الدرس؟', delLessonD: 'سيتم حذف هذا الدرس نهائياً.',
       delImgT: 'حذف الصورة؟', delImgD: 'ستُزال الصورة من هذه العبارة.',
       editCard: 'تعديل البطاقة', delPhraseT: 'حذف البطاقة؟', delPhraseD: 'ستُحذف هذه العبارة نهائياً.',
+      camTake: 'التقاط صورة', galleryPick: 'من المعرض',
       lzImgT: 'حذف صورة اللعبة؟', lzImgD: 'ستُزال صورتك المخصصة وترجع الصورة الافتراضية.',
       quiz: 'اختبار التوصيل', listenQuiz: 'اسمع واختر', replay: '🔊 إعادة الاستماع', quizPick: 'اختر اللغة المقابلة لـ{lang}:', quizScore: 'النتيجة', quizAgain: 'إعادة اللعب', quizDone: 'انتهى', quizEmpty: 'الدرس يحتاج عبارات بلغتين على الأقل',
       rrTitle: 'لعبة اقرأ وكرّر 🗣', rrPickLang: 'اختر لغة التدريب', rrModeT: 'طريقة التدريب', rrModeL: '👂 استمع 5× ثم انطق', rrModeR: '📖 اقرأ وانطق مباشرة',
@@ -703,6 +705,7 @@
       delLessonT: 'Delete lesson?', delLessonD: 'This lesson will be permanently deleted.',
       delImgT: 'Delete image?', delImgD: 'The image will be removed from this phrase.',
       editCard: 'Edit card', delPhraseT: 'Delete card?', delPhraseD: 'This phrase will be permanently deleted.',
+      camTake: 'Take photo', galleryPick: 'From gallery',
       lzImgT: 'Delete game image?', lzImgD: 'Your custom image will be removed and the default restored.',
       quiz: 'Matching quiz', listenQuiz: 'Listen & choose', replay: '🔊 Listen again', quizPick: 'Pick the language to match with {lang}:', quizScore: 'Score', quizAgain: 'Play again', quizDone: 'Done', quizEmpty: 'The lesson needs phrases in at least two languages',
       rrTitle: 'Read & Repeat game 🗣', rrPickLang: 'Choose the training language', rrModeT: 'Training mode', rrModeL: '👂 Listen 5× then repeat', rrModeR: '📖 Read & repeat directly',
@@ -734,6 +737,7 @@
       delLessonT: 'Supprimer la leçon ?', delLessonD: 'Cette leçon sera définitivement supprimée.',
       delImgT: 'Supprimer l’image ?', delImgD: 'L’image sera retirée de cette phrase.',
       editCard: 'Modifier la carte', delPhraseT: 'Supprimer la carte ?', delPhraseD: 'Cette phrase sera définitivement supprimée.',
+      camTake: 'Prendre une photo', galleryPick: 'Depuis la galerie',
       lzImgT: 'Supprimer l’image du jeu ?', lzImgD: 'Votre image personnalisée sera remplacée par l’image par défaut.',
       quiz: 'Quiz d’association', listenQuiz: 'Écoute et choisis', replay: '🔊 Réécouter', quizPick: 'Choisissez la langue à associer à {lang} :', quizScore: 'Score', quizAgain: 'Rejouer', quizDone: 'Terminé', quizEmpty: 'La leçon doit avoir des phrases dans au moins deux langues',
       rrTitle: 'Jeu Lis & Répète 🗣', rrPickLang: 'Choisis la langue d’entraînement', rrModeT: 'Mode d’entraînement', rrModeL: '👂 Écoute 5× puis répète', rrModeR: '📖 Lis et répète directement',
@@ -2137,11 +2141,10 @@
       };
     });
     wrap.querySelectorAll('.ph-img-add').forEach(function (b) {
-      b.onclick = function (ev) {
-        ev.stopPropagation();
-        phImgBtn = b;
-        document.getElementById('phImgInput').click();
-      };
+      attachMenu(b, [
+        { icon: '📷', label: t('camTake'), fn: function () { phImgBtn = b; document.getElementById('phCamInput').click(); } },
+        { icon: '🖼️', label: t('galleryPick'), fn: function () { phImgBtn = b; document.getElementById('phImgInput').click(); } }
+      ]);
     });
     wrap.querySelectorAll('.ph-medloop').forEach(function (b) {
       b.onclick = function (ev) {
@@ -3379,7 +3382,9 @@
     };
   });
 
-  document.getElementById('phImgInput').onchange = function (e) {
+  document.getElementById('phImgInput').onchange = onPhraseImgPicked;
+  document.getElementById('phCamInput').onchange = onPhraseImgPicked;
+  function onPhraseImgPicked(e) {
     var file = e.target.files && e.target.files[0];
     e.target.value = '';
     var btn = phImgBtn; phImgBtn = null;
