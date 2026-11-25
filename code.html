@@ -230,6 +230,7 @@
     <span class="logo">Code de la route<small>امتحان الكود الفرنسي</small></span>
     <span class="spacer"></span>
     <button class="icon-btn" id="btn-stop" title="إيقاف الصوت">🔇</button>
+    <button class="icon-btn" id="btn-lang" title="Language">🌐</button>
     <button class="icon-btn" id="btn-back" title="رجوع" style="display:none">🔙</button>
     <button class="icon-btn" id="btn-home" title="الرئيسية" style="display:none">🏠</button>
   </div>
@@ -860,6 +861,68 @@ function imgHtml(q){
 function optionLetters(i){ return 'ABCD'[i] || '?'; }
 
 /* ---------------- screens ---------------- */
+
+/* ---------- واجهة متعددة اللغات ---------- */
+var LANG = localStorage.getItem('code_lang') || 'ar';
+var TR = {
+  hero_title:     {ar:'امتحان الكود الفرنسي 🇫🇷🚗', fr:'Examen du code français 🇫🇷🚗', en:'French driving test 🇫🇷🚗'},
+  hero_desc:      {ar:'تدريب على أسئلة code de la route بالفرنسي والعربي مع الصور. الامتحان الحقيقي: 40 سؤالاً والنجاح بـ 35 إجابة صحيحة.', fr:'Entraînement aux questions du code de la route en français et arabe avec images. Vrai examen : 40 questions, réussite à 35 bonnes réponses.', en:'Practice for the code de la route questions in French and Arabic with images. Real exam: 40 questions, pass with 35 correct answers.'},
+  questions:      {ar:'سؤالاً', fr:'questions', en:'questions'},
+  correct:        {ar:'صحيحة', fr:'correctes', en:'correct'},
+  exams_passed:   {ar:'امتحان ناجح', fr:'examens réussis', en:'exams passed'},
+  device_voice:   {ar:'صوت الجهاز', fr:"Voix de l'appareil", en:'Device voice'},
+  no_mistakes:    {ar:'لا أخطاء مسجلة', fr:'Aucune erreur enregistrée', en:'No mistakes recorded'},
+  lessons_mode:   {ar:'وضع الدروس', fr:'Mode leçons', en:'Lessons mode'},
+  lessons_card:   {ar:'وضع الدروس', fr:'Mode leçons', en:'Lessons mode'},
+  lessons_desc:   {ar:'دروس قواعد الطريق بالفرنسي والعربي — شرح واستماع وألعاب تفاعلية لكل موضوع.', fr:'Leçons du code de la route en français et arabe — explication, écoute et jeux interactifs par thème.', en:'Driving rules lessons in French and Arabic — explanation, listening and interactive games per theme.'},
+  open_lessons:   {ar:'📚 افتح الدروس', fr:'📚 Ouvrir les leçons', en:'📚 Open lessons'},
+  train_mode:     {ar:'وضع التدريب', fr:'Mode entraînement', en:'Training mode'},
+  train_desc:     {ar:'تصحيح فوري وشرح بالفرنسي والعربي. اختر موضوعاً (أو اترك الاختيار لكل المواضيع):', fr:'Correction immédiate et explication en français et arabe. Choisis un thème (ou tous les thèmes) :', en:'Instant correction with French and Arabic explanation. Pick a theme (or all themes):'},
+  train_start:    {ar:'ابدأ التدريب — الكل', fr:'Commencer — tout', en:'Start training — all'},
+  train_start_t:  {ar:'ابدأ: ', fr:'Commencer : ', en:'Start: '},
+  mistakes:       {ar:'🔁 راجع أخطائي (', fr:'🔁 Revoir mes erreurs (', en:'🔁 Review my mistakes ('},
+  exam_mode:      {ar:'وضع الامتحان', fr:'Mode examen', en:'Exam mode'},
+  exam_desc:      {ar:'40 سؤالاً عشوائياً، 20 ثانية لكل سؤال، بلا تصحيح حتى النهاية. النجاح: 35/40 على الأقل.', fr:'40 questions aléatoires, 20 secondes par question, sans correction avant la fin. Réussite : 35/40 minimum.', en:'40 random questions, 20 seconds per question, no correction until the end. Pass: at least 35/40.'},
+  exam_start:     {ar:'ابدأ الامتحان', fr:"Commencer l'examen", en:'Start the exam'},
+  lessons_title:  {ar:'دروس قواعد الطريق', fr:'Leçons du code de la route', en:'Driving rules lessons'},
+  lessons_intro:  {ar:'كل درس يشرح قواعد موضوع من الامتحان بالفرنسي والعربي — اقرأ الشرح، استمع، ثم تدرّب بالألعاب والأسئلة.', fr:'Chaque leçon explique les règles d\'un thème de l\'examen en français et arabe — lis, écoute, puis entraîne-toi avec les jeux et les questions.', en:'Each lesson explains the rules of an exam theme in French and Arabic — read, listen, then practice with games and questions.'},
+  rules_word:     {ar:'قاعدة', fr:'règles', en:'rules'},
+  sentences:      {ar:'جملة', fr:'phrases', en:'sentences'},
+  completed:      {ar:'✅ مكتمل', fr:'✅ terminé', en:'✅ done'},
+  part:           {ar:'جزء', fr:'partie', en:'part'},
+  lesson_instr:   {ar:'اقرأ القاعدة والشرح — استمع بعلمها 🔊، اضغط أي كلمة لتنطقها loop، وضغطتين لتبحث عنها في Google.', fr:'Lis la règle et l\'explication — écoute avec son drapeau 🔊, touche un mot pour le répéter en boucle, deux fois pour le chercher sur Google.', en:'Read the rule and explanation — listen with its flag 🔊, tap a word to loop it, double-tap to search it on Google.'},
+  g_match:        {ar:'🧩 توصيل', fr:'🧩 Association', en:'🧩 Matching'},
+  g_listen:       {ar:'🎧 اختبار سمعي', fr:"🎧 Test d'écoute", en:'🎧 Listening test'},
+  g_rr:           {ar:'🗣️ اقرأ وكرّر', fr:'🗣️ Lis et répète', en:'🗣️ Read & repeat'},
+  g_lw:           {ar:'✍️ اسمع واكتب', fr:'✍️ Écoute et écris', en:'✍️ Listen & write'},
+  finish_lesson:  {ar:'✅ أنهيت الدرس — تدرّب (', fr:'✅ Leçon terminée — entraînement (', en:'✅ Lesson finished — practice ('},
+  validate:       {ar:'تأكيد', fr:'Valider', en:'Confirm'},
+  skip:           {ar:'تخطي ⏭', fr:'Passer ⏭', en:'Skip ⏭'},
+  multi_hint:     {ar:'⚠️ عدة إجابات صحيحة ممكنة — اختر ثم اضغط "تأكيد"', fr:'⚠️ Plusieurs réponses possibles — choisis puis appuie sur "Valider"', en:'⚠️ Multiple correct answers possible — select then press "Confirm"'},
+  pass_msg:       {ar:'🎉 ناجح! (الحد الأدنى 35/40)', fr:'🎉 Réussi ! (minimum 35/40)', en:'🎉 Passed! (minimum 35/40)'},
+  fail_msg:       {ar:'😕 راسب — تحتاج 35 إجابة صحيحة', fr:'😕 Échoué — il faut 35 bonnes réponses', en:'😕 Failed — you need 35 correct answers'},
+  perfect:        {ar:'ممتاز! كل الإجابات صحيحة', fr:'Excellent ! Toutes les réponses sont correctes', en:'Excellent! All answers correct'},
+  keep_going:     {ar:'أكمل التدريب لتحسين نتيجتك', fr:"Continue l'entraînement pour améliorer ton score", en:'Keep training to improve your score'},
+  new_exam:       {ar:'امتحان جديد', fr:'Nouvel examen', en:'New exam'},
+  new_train:      {ar:'تدريب جديد', fr:'Nouvel entraînement', en:'New training'},
+  home_btn:       {ar:'🏠 الرئيسية', fr:'🏠 Accueil', en:'🏠 Home'},
+  review_wrong:   {ar:'مراجعة الأخطاء (', fr:'Revoir les erreurs (', en:'Review mistakes ('},
+  lang_switched:  {ar:'🌐 العربية', fr:'🌐 Français', en:'🌐 English'}
+};
+function tr(k){ var row = TR[k]; return row ? (row[LANG] || row.ar) : k; }
+function applyLangDir(){
+  document.documentElement.lang = LANG;
+  document.title = LANG === 'ar' ? 'Code de la route — امتحان الكود الفرنسي' : (LANG === 'fr' ? 'Code de la route — entraînement' : 'Code de la route — driving test trainer');
+}
+document.getElementById('btn-lang').onclick = function(){
+  LANG = LANG === 'ar' ? 'fr' : (LANG === 'fr' ? 'en' : 'ar');
+  localStorage.setItem('code_lang', LANG);
+  applyLangDir();
+  render();
+  showToast(tr('lang_switched'));
+};
+applyLangDir();
+
 function render(){
   stopSpeech();
   if(state.screen === 'home') renderHome();
@@ -880,18 +943,18 @@ function renderHome(){
     var m = THEME_META[t] || {icon: '📚', bg: 'rgba(123,121,255,0.2)'};
     tiles += '<div class="theme-tile' + (state.theme === t ? ' active' : '') + '" data-theme="' + t + '">' +
       '<span class="t-icon" style="background:' + m.bg + '">' + m.icon + '</span>' +
-      '<span><span class="t-name">' + THEMES[t] + '</span><br><span class="t-count">' + byTheme[t] + ' سؤالاً</span></span>' +
+      '<span><span class="t-name">' + THEMES[t] + '</span><br><span class="t-count">' + byTheme[t] + ' ' + tr('questions') + '</span></span>' +
     '</div>';
   });
   var wrongCount = stats.wrongIds.length;
   var acc = stats.answered ? Math.round(stats.correct * 100 / stats.answered) : 0;
   app.innerHTML =
-    '<div class="hero"><h1>امتحان الكود الفرنسي 🇫🇷🚗</h1>' +
-    '<p>تدريب على أسئلة code de la route بالفرنسي والعربي مع الصور. الامتحان الحقيقي: 40 سؤالاً والنجاح بـ 35 إجابة صحيحة.</p>' +
+    '<div class="hero"><h1>' + tr('hero_title') + '</h1>' +
+    '<p>' + tr('hero_desc') + '</p>' +
     '<div class="stats-row">' +
-      '<span class="stat-chip">📚 ' + DATA.length + ' سؤالاً</span>' +
-      '<span class="stat-chip">✅ ' + acc + '% صحيحة</span>' +
-      '<span class="stat-chip">🎓 ' + stats.passed + '/' + stats.exams + ' امتحان ناجح</span>' +
+      '<span class="stat-chip">📚 ' + DATA.length + ' ' + tr('questions') + '</span>' +
+      '<span class="stat-chip">✅ ' + acc + '% ' + tr('correct') + '</span>' +
+      '<span class="stat-chip">🎓 ' + stats.passed + '/' + stats.exams + ' ' + tr('exams_passed') + '</span>' +
     '</div>' +
     '<div class="stats-row" style="margin-top:8px"><span class="stat-chip">🔊 ' +
       '<select id="voiceSel" style="background:transparent;color:inherit;border:none;font:inherit;outline:none">' +
@@ -899,27 +962,27 @@ function renderHome(){
         '<option value="fr-FR-HenriNeural">Henri — صوت Edge</option>' +
         '<option value="fr-FR-EloiseNeural">Éloïse — صوت Edge</option>' +
         '<option value="fr-FR-RemyMultilingualNeural">Rémy — صوت Edge</option>' +
-        '<option value="device">صوت الجهاز</option>' +
+        '<option value="device">' + tr('device_voice') + '</option>' +
       '</select></span></div></div>' +
 
     '<div class="card">' +
-      '<div class="mode-title">📚 وضع الدروس <span class="mini">leçons</span></div>' +
-      '<div class="mode-desc">دروس قواعد الطريق بالفرنسي والعربي — شرح واستماع وألعاب تفاعلية لكل موضوع.</div>' +
-      '<button class="big-btn" id="btn-lessons">📚 افتح الدروس</button>' +
+      '<div class="mode-title">📚 ' + tr('lessons_card') + ' <span class="mini">leçons</span></div>' +
+      '<div class="mode-desc">' + tr('lessons_desc') + '</div>' +
+      '<button class="big-btn" id="btn-lessons">' + tr('open_lessons') + '</button>' +
     '</div>' +
 
     '<div class="card">' +
-      '<div class="mode-title">📝 وضع التدريب</div>' +
-      '<div class="mode-desc">تصحيح فوري وشرح بالفرنسي والعربي. اختر موضوعاً (أو اترك الاختيار لكل المواضيع):</div>' +
+      '<div class="mode-title">📝 ' + tr('train_mode') + '</div>' +
+      '<div class="mode-desc">' + tr('train_desc') + '</div>' +
       '<div class="theme-grid">' + tiles + '</div>' +
-      '<button class="big-btn" id="btn-train">' + (state.theme ? 'ابدأ: ' + THEMES[state.theme] : 'ابدأ التدريب — الكل') + '</button>' +
-      (wrongCount ? '<button class="ghost-btn" id="btn-mistakes">🔁 راجع أخطائي (' + wrongCount + ')</button>' : '') +
+      '<button class="big-btn" id="btn-train">' + (state.theme ? tr('train_start_t') + THEMES[state.theme] : tr('train_start')) + '</button>' +
+      (wrongCount ? '<button class="ghost-btn" id="btn-mistakes">' + tr('mistakes') + wrongCount + ')</button>' : '') +
     '</div>' +
 
     '<div class="card">' +
-      '<div class="mode-title">⏱️ وضع الامتحان <span class="mini">examen blanc</span></div>' +
-      '<div class="mode-desc">40 سؤالاً عشوائياً، 20 ثانية لكل سؤال، بلا تصحيح حتى النهاية. النجاح: 35/40 على الأقل.</div>' +
-      '<button class="big-btn" id="btn-exam">ابدأ الامتحان</button>' +
+      '<div class="mode-title">⏱️ ' + tr('exam_mode') + ' <span class="mini">examen blanc</span></div>' +
+      '<div class="mode-desc">' + tr('exam_desc') + '</div>' +
+      '<button class="big-btn" id="btn-exam">' + tr('exam_start') + '</button>' +
     '</div>';
 
   document.getElementById('btn-lessons').onclick = function(){ state.screen = 'lessons'; render(); };
@@ -928,7 +991,7 @@ function renderHome(){
   var bm = document.getElementById('btn-mistakes');
   if(bm) bm.onclick = function(){ startMistakes(); };
   var vs = document.getElementById('voiceSel');
-  if(vs){ vs.value = edgeVoice(); vs.onchange = function(){ localStorage.setItem('edge_voice', vs.value); showToast(vs.value === 'device' ? 'صوت الجهاز' : 'صوت Edge: ' + vs.options[vs.selectedIndex].text.split(' ')[0]); }; }
+  if(vs){ vs.value = edgeVoice(); vs.onchange = function(){ localStorage.setItem('edge_voice', vs.value); showToast(vs.value === 'device' ? tr('device_voice') : 'Edge: ' + vs.options[vs.selectedIndex].text.split(' ')[0]); }; }
   document.querySelectorAll('.theme-tile').forEach(function(c){
     c.onclick = function(){
       state.theme = (state.theme === c.dataset.theme) ? '' : c.dataset.theme;
@@ -952,7 +1015,7 @@ function startQuiz(mode){
 function startMistakes(){
   var ids = stats.wrongIds;
   state.questions = DATA.filter(function(q){ return ids.indexOf(q.id) !== -1; });
-  if(!state.questions.length){ showToast('لا أخطاء مسجلة'); return; }
+  if(!state.questions.length){ showToast(tr('no_mistakes')); return; }
   state.mode = 'train';
   state.idx = 0;
   state.results = [];
@@ -1003,7 +1066,7 @@ function renderQuiz(){
       '<div class="q-fr">' + esc(q.q) + '</div>' +
       (q.qa ? '<div class="q-ar">' + esc(q.qa) + '</div>' : '') +
       '</div>' +
-      (multi ? '<div class="multi-hint">⚠️ عدة إجابات صحيحة ممكنة — اختر ثم اضغط "تأكيد"</div>' : '') +
+      (multi ? '<div class="multi-hint">' + tr('multi_hint') + '</div>' : '') +
       '<div id="opts">' + q.opts.map(function(o, i){
         return '<button class="opt" data-i="' + i + '">' +
           '<span class="letter">' + optionLetters(i) + '</span>' +
@@ -1014,8 +1077,8 @@ function renderQuiz(){
         '</button>';
       }).join('') + '</div>' +
       '<div class="answer-bar">' +
-        (multi ? '<button class="big-btn" id="btn-validate" disabled>تأكيد</button>' : '') +
-        (state.mode === 'exam' ? '<button class="ghost-btn" id="btn-next">تخطي ⏭</button>' : '') +
+        (multi ? '<button class="big-btn" id="btn-validate" disabled>' + tr('validate') + '</button>' : '') +
+        (state.mode === 'exam' ? '<button class="ghost-btn" id="btn-next">' + tr('skip') + '</button>' : '') +
       '</div>' +
       '<div id="after"></div>' +
     '</div>';
@@ -1177,15 +1240,15 @@ function renderResult(){
   var html =
     '<div class="card result-hero">' +
       '<div class="result-score ' + (passed ? 'ok' : 'ko') + '">' + okCount + ' / ' + total + '</div>' +
-      '<div class="result-sub">' + (exam ? (passed ? '🎉 ناجح! (الحد الأدنى 35/40)' : '😕 راسب — تحتاج 35 إجابة صحيحة') : (okCount === total ? 'ممتاز! كل الإجابات صحيحة' : 'أكمل التدريب لتحسين نتيجتك')) + '</div>' +
+      '<div class="result-sub">' + (exam ? (passed ? tr('pass_msg') : tr('fail_msg')) : (okCount === total ? tr('perfect') : tr('keep_going'))) + '</div>' +
     '</div>' +
     '<div class="card">' +
-      '<button class="big-btn" id="btn-again">' + (exam ? 'امتحان جديد' : 'تدريب جديد') + '</button>' +
-      '<button class="ghost-btn" id="btn-gohome">🏠 الرئيسية</button>' +
+      '<button class="big-btn" id="btn-again">' + (exam ? tr('new_exam') : tr('new_train')) + '</button>' +
+      '<button class="ghost-btn" id="btn-gohome">' + tr('home_btn') + '</button>' +
     '</div>';
 
   if(wrongs.length){
-    html += '<div class="card"><div class="mode-title">مراجعة الأخطاء (' + wrongs.length + ')</div>';
+    html += '<div class="card"><div class="mode-title">' + tr('review_wrong') + wrongs.length + ')</div>';
     wrongs.forEach(function(r, i){
       var q = r.q;
       html += '<div class="review-item">' +
@@ -1284,8 +1347,8 @@ function renderLessons(){
     return '<div class="lesson-item' + (dn ? ' done' : '') + '" data-id="' + ls.id + '">' +
       '<span class="li-icon">' + ls.icon + '</span>' +
       '<span class="li-body">' +
-        '<div class="li-fr">' + esc(ls.fr) + (ls.parts > 1 ? ' — جزء ' + ls.part + '/' + ls.parts : '') + '</div>' +
-        '<div class="li-meta">' + ls.qs.length + ' قاعدة · ' + ls.phr.length + ' جملة' + (dn ? ' · ✅ مكتمل' : '') + '</div>' +
+        '<div class="li-fr">' + esc(ls.fr) + (ls.parts > 1 ? ' — ' + tr('part') + ' ' + ls.part + '/' + ls.parts : '') + '</div>' +
+        '<div class="li-meta">' + ls.qs.length + ' ' + tr('rules_word') + ' · ' + ls.phr.length + ' ' + tr('sentences') + (dn ? ' · ' + tr('completed') : '') + '</div>' +
       '</span>' +
       '<span class="li-check">' + (dn ? '✅' : '▶️') + '</span>' +
     '</div>';
@@ -1293,11 +1356,11 @@ function renderLessons(){
   app.innerHTML =
     '<div class="progress-wrap">' +
       '<button class="icon-btn" id="btn-lback" title="رجوع">🔙</button>' +
-      '<span class="score-pill">📚 وضع الدروس</span>' +
+      '<span class="score-pill">📚 ' + tr('lessons_mode') + '</span>' +
       '<span class="progress-info">' + done + '/' + list.length + '</span>' +
     '</div>' +
-    '<div class="card" style="margin-top:0.7rem"><div class="mode-title">📚 دروس قواعد الطريق</div>' +
-    '<div class="mode-desc">كل درس يشرح قواعد موضوع من الامتحان بالفرنسي والعربي — اقرأ الشرح، استمع، ثم تدرّب بالألعاب والأسئلة.</div></div>' +
+    '<div class="card" style="margin-top:0.7rem"><div class="mode-title">📚 ' + tr('lessons_title') + '</div>' +
+    '<div class="mode-desc">' + tr('lessons_intro') + '</div></div>' +
     items;
   document.getElementById('btn-lback').onclick = function(){ state.screen = 'home'; render(); };
   document.querySelectorAll('.lesson-item').forEach(function(c){
@@ -1330,22 +1393,22 @@ function renderLesson(){
     '<div class="progress-wrap">' +
       '<button class="icon-btn" id="btn-lback2" title="الدروس">🔙</button>' +
       '<span class="score-pill">' + ls.icon + ' ' + esc(ls.fr) + '</span>' +
-      '<span class="progress-info">' + ls.qs.length + ' قاعدة</span>' +
+      '<span class="progress-info">' + ls.qs.length + ' ' + tr('rules_word') + '</span>' +
     '</div>' +
     '<div class="card">' +
       '<div class="mode-title" style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem">' +
         '<span>' + ls.icon + ' ' + esc(ls.fr) + (ls.parts > 1 ? ' — ' + ls.part + '/' + ls.parts : '') + '</span>' +
         '<button class="icon-btn" id="btn-lsloop" title="قراءة العبارات loop" style="flex:none">🔁</button>' +
       '</div>' +
-      '<div class="mode-desc">اقرأ القاعدة والشرح — استمع بعلمها 🔊، اضغط أي كلمة لتنطقها loop.</div>' +
+      '<div class="mode-desc">' + tr('lesson_instr') + '</div>' +
       '<div class="dg-bar">' +
-        '<button class="dg-btn" id="dg-bmatch">🧩 توصيل</button>' +
-        '<button class="dg-btn" id="dg-blisten">🎧 اختبار سمعي</button>' +
-        '<button class="dg-btn" id="dg-brr">🗣️ اقرأ وكرّر</button>' +
-        '<button class="dg-btn" id="dg-blw">✍️ اسمع واكتب</button>' +
+        '<button class="dg-btn" id="dg-bmatch">' + tr('g_match') + '</button>' +
+        '<button class="dg-btn" id="dg-blisten">' + tr('g_listen') + '</button>' +
+        '<button class="dg-btn" id="dg-brr">' + tr('g_rr') + '</button>' +
+        '<button class="dg-btn" id="dg-blw">' + tr('g_lw') + '</button>' +
       '</div>' +
       cards +
-      '<button class="big-btn" id="btn-lfinish" style="margin-top:0.4rem">✅ أنهيت الدرس — تدرّب (' + ls.qs.length + ' سؤالاً)</button>' +
+      '<button class="big-btn" id="btn-lfinish" style="margin-top:0.4rem">' + tr('finish_lesson') + ls.qs.length + ' ' + tr('questions') + ')</button>' +
     '</div>';
   document.getElementById('btn-lback2').onclick = function(){ state.screen = 'lessons'; render(); };
   document.getElementById('dg-bmatch').onclick = function(){ openDgMatch(ls); };
