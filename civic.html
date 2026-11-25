@@ -141,6 +141,87 @@
   .toast { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.6rem 1.1rem; z-index: 100; opacity: 0; transition: opacity 0.2s; pointer-events: none; font-weight: 700; }
   .toast.show { opacity: 1; }
   footer { text-align: center; padding: 1.5rem 1rem; color: var(--text-secondary); font-size: 0.78rem; }
+.slide-card { background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.25); border-radius: 16px; padding: 1rem 1.05rem; margin-bottom: 0.9rem; }
+  .slide-fr { direction: ltr; text-align: left; font-size: 1.05rem; font-weight: 800; line-height: 1.55; margin-bottom: 0.55rem; }
+  .slide-ar { font-size: 0.92rem; color: var(--text-secondary); border-top: 1px dashed var(--border); padding-top: 0.55rem; line-height: 1.75; }
+  .slide-nav { display: flex; gap: 0.5rem; }
+  .slide-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.45rem; }
+  .slide-num { font-size: 0.7rem; font-weight: 800; color: var(--gold); background: rgba(255,200,87,0.12); border: 1px solid rgba(255,200,87,0.3); border-radius: 999px; padding: 0.15rem 0.55rem; }
+  .phr-line { padding: 0.3rem 0.15rem; font-size: 0.93rem; line-height: 1.55; border-bottom: 1px dashed rgba(255,255,255,0.07); }
+  .phr-line .w { cursor: pointer; border-radius: 4px; transition: background .15s; }
+  .phr-line .w:active, .phr-line .w.speaking { background: rgba(76,201,240,0.28); }
+  .phr-line:last-child { border-bottom: none; }
+  .phr-line[dir="ltr"] { text-align: left; }
+  .phr-line[dir="rtl"] { text-align: right; }
+  .flag-btn { font-size: 1.3rem; background: none; border: none; cursor: pointer; padding: 0 0.3rem 0 0; line-height: 1; vertical-align: middle; transition: transform .15s, filter .15s; }
+  .phr-line[dir="rtl"] .flag-btn { padding: 0 0 0 0.3rem; }
+  .flag-btn:active { transform: scale(0.9); }
+  .flag-btn.speaking { transform: scale(1.2); filter: drop-shadow(0 0 6px rgba(76,175,125,0.9)); }
+  .slide-nav .big-btn { flex: 1; }
+  .dg-bar { display: flex; gap: 0.5rem; margin-bottom: 0.9rem; }
+  .dg-bar .dg-btn { flex: 1; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 14px; padding: 0.55rem 0.3rem; color: var(--text-primary); font-size: 0.85rem; font-weight: 800; cursor: pointer; font-family: inherit; }
+  .dg-bar .dg-btn:active { transform: scale(0.96); }
+  .dg-ov { position: fixed; inset: 0; z-index: 4000; background: var(--bg-primary); display: flex; flex-direction: column; overflow-y: auto; overflow-x: hidden; padding: 0.9rem 0.75rem; }
+  .dg-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; }
+  .dg-prog { font-weight: 800; font-size: 1.05rem; }
+  .dg-flags { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; direction: ltr; margin-bottom: 0.5rem; }
+  .dg-flag { text-align: center; font-size: 1.4rem; }
+  .dg-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem 0.55rem; align-content: start; direction: ltr; }
+  .dg-card { border: 2px solid var(--border); border-radius: 18px; padding: 0.85rem 0.7rem; background: var(--bg-tertiary); color: var(--text-primary); cursor: pointer; font-size: 0.95rem; line-height: 1.5; text-align: center; user-select: none; overflow-wrap: anywhere; display: flex; align-items: center; justify-content: center; transition: transform .15s; font-family: inherit; }
+  .dg-card:active { transform: scale(0.97); }
+  .dg-card.sel { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold); transform: scale(1.02); }
+  .dg-card.done { background: linear-gradient(135deg,#22c55e,#16a34a); border-color: transparent; color: #fff; pointer-events: none; }
+  .dg-card.wrong { animation: dgShake .45s; border-color: #e0245e; background: #e0245e; color: #fff; }
+  @keyframes dgShake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-7px)} 75%{transform:translateX(7px)} }
+  .dg-langs { display: flex; flex-direction: column; gap: 0.9rem; max-width: 340px; margin: auto; width: 100%; }
+  .dg-end { margin: auto; text-align: center; }
+  .dg-pct { font-size: 4.2rem; font-weight: 800; line-height: 1; }
+  .dg-stage { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; width: 100%; max-width: 480px; margin: 0 auto; }
+  .dg-hero { width: 100%; height: 96px; border-radius: 18px; border: 1.5px solid var(--border); background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-size: 2.4rem; }
+  .dg-loop { width: 62px; height: 62px; border-radius: 50%; border: none; cursor: pointer; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; box-shadow: 0 4px 14px rgba(124,58,237,0.4); }
+  .dg-loop.speaking { animation: dgPulse 1s infinite; }
+  @keyframes dgPulse { 0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.55)} 50%{box-shadow:0 0 0 9px rgba(124,58,237,0)} }
+  .dg-tile { border: 2px solid var(--border); background: var(--bg-tertiary); border-radius: 16px; padding: 0.7rem 0.6rem; font-size: 0.95rem; font-weight: 700; cursor: pointer; text-align: center; min-height: 52px; display: flex; align-items: center; justify-content: center; color: var(--text-primary); line-height: 1.4; transition: all .15s; width: 100%; font-family: inherit; }
+  .dg-tile.ok { border-color: #22c55e; background: rgba(34,197,94,.13); }
+  .dg-tile.bad { border-color: #ef4444; background: rgba(239,68,68,.1); animation: dgShake .45s; }
+  .dg-tile.dim { opacity: .45; pointer-events: none; }
+  .dg-inp { font-size: 1.05rem; text-align: center; padding: 0.7rem 0.8rem; border-radius: 14px; border: 2px solid var(--border); background: var(--bg-tertiary); color: var(--text-primary); width: min(92%, 26rem); margin-top: 0.9rem; font-family: inherit; }
+  .dg-inp.ok { border-color: #22c55e; }
+  .dg-inp.bad { border-color: #ef4444; }
+  .dg-msg { text-align: center; min-height: 1.6rem; margin-top: 0.6rem; font-size: 0.95rem; }
+  .dg-text { font-size: 1.15rem; font-weight: 800; text-align: center; line-height: 1.7; }
+  .dg-tr { color: var(--text-secondary); text-align: center; font-size: 0.95rem; margin-top: 0.35rem; }
+  .dg-count { font-size: 1.6rem; font-weight: 800; color: var(--gold); }
+  .dg-plus { width: 62px; height: 62px; border-radius: 50%; border: none; font-size: 1.9rem; font-weight: 800; cursor: pointer; background: linear-gradient(135deg,#22c55e,#16a34a); color: #fff; }
+  .dg-plus.dim { opacity: .35; }
+  .dg-sub { min-height: 1.6rem; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+  .dg-skip { color: var(--gold); text-decoration: underline; cursor: pointer; }
+  /* ---------- دفتر الألعاب ---------- */
+  #nb-ov { position: fixed; inset: 0; z-index: 4500; display: none; flex-direction: column; background: #f3f4f6; }
+  #nb-ov.show { display: flex; }
+  .nb-top { display: flex; align-items: center; gap: 0.3rem; padding: 0.45rem 0.4rem; background: #fff; border-bottom: 1px solid #e5e7eb; flex-wrap: wrap; }
+  .nb-title { font-weight: 800; font-size: 0.95rem; color: #111827; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 40vw; }
+  .nb-icon { width: 2.15rem; height: 2.15rem; flex: 0 0 auto; border-radius: 50%; border: 1px solid #e5e7eb; background: #fff; color: #6d28d9; font-size: 1.05rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; font-family: inherit; }
+  .nb-icon.active { background: #6d28d9; color: #fff; border-color: #6d28d9; }
+  .nb-icon:disabled { opacity: 0.35; }
+  .nb-icon.danger { color: #e53935; }
+  .nb-dot { width: 2rem; height: 2rem; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1px #d1d5db; cursor: pointer; }
+  .nb-dot.active { box-shadow: 0 0 0 3px #6d28d9; }
+  .nb-phrase { padding: 0.5rem 0.7rem; background: #eef2ff; border-bottom: 1px solid #e5e7eb; font-size: 0.9rem; color: #111827; font-weight: 700; text-align: center; max-height: 5rem; overflow-y: auto; }
+  .nb-wrap { flex: 1; min-height: 0; position: relative; background: #fff; }
+  .nb-wrap.lined { background-color: #fffdf5; background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(2.2rem - 1px), #9fc5e8 calc(2.2rem - 1px), #9fc5e8 2.2rem); }
+  #nb-canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
+  .slide-nav .ghost-btn { flex: 1; margin-top: 0; }
+  .lesson-item { display: flex; align-items: center; gap: 0.7rem; background: var(--bg-tertiary); border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 0.7rem 0.75rem; margin-bottom: 0.55rem; cursor: pointer; transition: transform .12s, border-color .12s; }
+  .lesson-item:active { transform: scale(0.98); }
+  .lesson-item.done { border-color: rgba(0,230,118,0.4); }
+  .lesson-item .li-icon { width: 38px; height: 38px; flex-shrink: 0; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; background: rgba(124,58,237,0.18); }
+  .lesson-item .li-body { flex: 1; min-width: 0; }
+  .lesson-item .li-fr { direction: ltr; text-align: left; font-size: 0.88rem; font-weight: 800; }
+  .lesson-item .li-ar { font-size: 0.76rem; color: var(--text-secondary); margin-top: 0.15rem; }
+  .lesson-item .li-meta { font-size: 0.68rem; color: var(--text-secondary); margin-top: 0.2rem; }
+  .lesson-item .li-check { flex-shrink: 0; font-size: 1.1rem; }
+
 </style>
 </head>
 <body>
@@ -150,6 +231,8 @@
     <span class="logo">Examen civique<small>امتحان الجنسية الفرنسية</small></span>
     <span class="spacer"></span>
     <button class="icon-btn" id="btn-stop" title="إيقاف الصوت">🔇</button>
+    <button class="icon-btn" id="btn-lang" title="Language">🌐</button>
+    <button class="icon-btn" id="btn-back" title="رجوع" style="display:none">🔙</button>
     <button class="icon-btn" id="btn-home" title="الرئيسية" style="display:none">🏠</button>
   </div>
 </header>
@@ -176,6 +259,14 @@ var edgeAudio = null;
 function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 function showToast(m){ toast.textContent = m; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 2000); }
 function shuffle(a){ var r = a.slice(); for(var i = r.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var t = r[i]; r[i] = r[j]; r[j] = t; } return r; }
+function wordify(text, lang){
+  return String(text == null ? '' : text).split(/(\s+)/).map(function(tok){
+    if(!tok.trim()) return tok;
+    var w = tok.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '');
+    if(!w) return esc(tok);
+    return '<span class="w" data-w="' + esc(w) + '" data-lang="' + lang + '">' + esc(tok) + '</span>';
+  }).join('');
+}
 
 /* ---------------- SVG sign / diagram library ---------------- */
 var SIGNS = {
@@ -754,12 +845,690 @@ function imgHtml(q){
 function optionLetters(i){ return 'ABCD'[i] || '?'; }
 
 /* ---------------- screens ---------------- */
+/* ---------------- lessons mode (مثل Delfvip) ---------------- */
+var CHUNK = 15;
+function buildLessons(){
+  if(window._codeLessons) return window._codeLessons;
+  var byTheme = {};
+  DATA.forEach(function(q){ (byTheme[q.theme] = byTheme[q.theme] || []).push(q); });
+  var list = [];
+  Object.keys(byTheme).forEach(function(t){
+    var qs = byTheme[t];
+    var m = THEME_META[t] || {icon: '📚'};
+    for(var c = 0; c < qs.length; c += CHUNK){
+      var part = qs.slice(c, c + CHUNK);
+      var n = Math.floor(c / CHUNK) + 1;
+      list.push({
+        id: 'les-' + t + '-' + n,
+        icon: m.icon,
+        fr: THEMES[t],
+        ar: THEMES[t],
+        theme: t,
+        part: n,
+        parts: Math.ceil(qs.length / CHUNK),
+        qs: part,
+        phr: part.map(function(q){
+          var ok = q.ok[0];
+          return { f: q.opts[ok].f, a: q.opts[ok].a || '', q: q.q, qa: q.qa };
+        }).filter(function(p){ return p.f && p.a; })
+      });
+    }
+  });
+  window._codeLessons = list;
+  return list;
+}
+function currentLesson(){
+  var list = buildLessons();
+  for(var i = 0; i < list.length; i++) if(list[i].id === state.lessonId) return list[i];
+  return null;
+}
+function renderLessons(){
+  var list = buildLessons();
+  var done = 0;
+  list.forEach(function(ls){ if(stats.lessons && stats.lessons[ls.id]) done++; });
+  var items = list.map(function(ls, i){
+    var dn = stats.lessons && stats.lessons[ls.id];
+    return '<div class="lesson-item' + (dn ? ' done' : '') + '" data-id="' + ls.id + '">' +
+      '<span class="li-icon">' + ls.icon + '</span>' +
+      '<span class="li-body">' +
+        '<div class="li-fr">' + esc(ls.fr) + (ls.parts > 1 ? ' — ' + tr('part') + ' ' + ls.part + '/' + ls.parts : '') + '</div>' +
+        '<div class="li-meta">' + ls.qs.length + ' ' + tr('rules_word') + ' · ' + ls.phr.length + ' ' + tr('sentences') + (dn ? ' · ' + tr('completed') : '') + '</div>' +
+      '</span>' +
+      '<span class="li-check">' + (dn ? '✅' : '▶️') + '</span>' +
+    '</div>';
+  }).join('');
+  app.innerHTML =
+    '<div class="progress-wrap">' +
+      '<button class="icon-btn" id="btn-lback" title="رجوع">🔙</button>' +
+      '<span class="score-pill">📚 ' + tr('lessons_mode') + '</span>' +
+      '<span class="progress-info">' + done + '/' + list.length + '</span>' +
+    '</div>' +
+    '<div class="card" style="margin-top:0.7rem"><div class="mode-title">📚 ' + tr('lessons_title') + '</div>' +
+    '<div class="mode-desc">' + tr('lessons_intro') + '</div></div>' +
+    items;
+  document.getElementById('btn-lback').onclick = function(){ state.screen = 'home'; render(); };
+  document.querySelectorAll('.lesson-item').forEach(function(c){
+    c.onclick = function(){ state.lessonId = c.dataset.id; state.screen = 'lesson'; render(); };
+  });
+}
+function renderLesson(){
+  var ls = currentLesson();
+  if(!ls){ state.screen = 'lessons'; render(); return; }
+  var cards = ls.qs.map(function(q, i){
+    var oki = q.ok[0];
+    var cor = q.opts[oki];
+    var optsTxt = q.opts.map(function(o, j){
+      var isOk = q.ok.indexOf(j) !== -1;
+      return '<div class="mini" style="direction:ltr;text-align:left;' + (isOk ? 'color:#22c55e;font-weight:800' : 'opacity:0.75') + '">' + (isOk ? '✔ ' : '· ') + esc(o.f) + '</div>';
+    }).join('');
+    var imgH = q.img ? imgHtml(q) : '';
+    var lines = [
+      {l:'fr', h:'<div class="phr-line" dir="ltr"><button class="flag-btn" data-t="' + esc(q.q) + '" data-lang="fr-FR">🇫🇷</button> ' + wordify(q.q, 'fr-FR') + '</div>'},
+      {l:'ar', h:(q.qa ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-t="' + esc(q.qa) + '" data-lang="ar-SY">🇸🇾</button> ' + wordify(q.qa, 'ar-SY') + '</div>' : '')},
+      {l:'img', h:imgH},
+      {l:'fr', h:'<div class="phr-line" dir="ltr" style="border-top:1px dashed var(--border)"><button class="flag-btn" data-t="' + esc(cor.f) + '" data-lang="fr-FR">🇫🇷</button> ✅ <b>' + wordify(cor.f, 'fr-FR') + '</b></div>'},
+      {l:'ar', h:(cor.a ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-t="' + esc(cor.a) + '" data-lang="ar-SY">🇸🇾</button> ✅ <b>' + wordify(cor.a, 'ar-SY') + '</b></div>' : '')},
+      {l:'fr', h:(q.exp ? '<div class="phr-line" dir="ltr" style="opacity:0.92"><button class="flag-btn" data-t="' + esc(q.exp) + '" data-lang="fr-FR">🇫🇷</button> 💡 ' + wordify(q.exp, 'fr-FR') + '</div>' : '')},
+      {l:'ar', h:(q.expa ? '<div class="phr-line" dir="rtl" style="opacity:0.92"><button class="flag-btn" data-t="' + esc(q.expa) + '" data-lang="ar-SY">🇸🇾</button> 💡 ' + wordify(q.expa, 'ar-SY') + '</div>' : '')}
+    ];
+    if(LANG === 'ar'){
+      lines = [lines[1], lines[0], lines[2], lines[4], lines[3], lines[6], lines[5]];
+    }
+    var linesHtml = lines.map(function(x){ return x.h; }).join('');
+    return '<div class="slide-card">' +
+      '<div class="slide-head"><span class="slide-num">' + (i + 1) + ' / ' + ls.qs.length + '</span>' +
+      '<button class="icon-btn gsearch" data-q="' + esc(q.q) + '" data-qa="' + esc(q.qa || '') + '" data-exp="' + esc(q.exp || '') + '" title="بحث Google AI" style="font-size:0.95rem;width:2rem;height:2rem">✨</button>' + '</div>' +
+      linesHtml +
+    '</div>';
+  }).join('');
+  app.innerHTML =
+    '<div class="progress-wrap">' +
+      '<button class="icon-btn" id="btn-lback2" title="الدروس">🔙</button>' +
+      '<span class="score-pill">' + ls.icon + ' ' + esc(ls.fr) + '</span>' +
+      '<span class="progress-info">' + ls.qs.length + ' ' + tr('rules_word') + '</span>' +
+    '</div>' +
+    '<div class="card">' +
+      '<div class="mode-title" style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem">' +
+        '<span>' + ls.icon + ' ' + esc(ls.fr) + (ls.parts > 1 ? ' — ' + ls.part + '/' + ls.parts : '') + '</span>' +
+        '<button class="icon-btn" id="btn-lsloop" title="قراءة العبارات loop" style="flex:none">🔁</button>' +
+      '</div>' +
+      '<div class="mode-desc">' + tr('lesson_instr') + '</div>' +
+      '<div class="dg-bar">' +
+        '<button class="dg-btn" id="dg-bmatch">' + tr('g_match') + '</button>' +
+        '<button class="dg-btn" id="dg-blisten">' + tr('g_listen') + '</button>' +
+        '<button class="dg-btn" id="dg-brr">' + tr('g_rr') + '</button>' +
+        '<button class="dg-btn" id="dg-blw">' + tr('g_lw') + '</button>' +
+      '</div>' +
+      cards +
+      '<button class="big-btn" id="btn-lfinish" style="margin-top:0.4rem">' + tr('finish_lesson') + ls.qs.length + ' ' + tr('questions') + ')</button>' +
+    '</div>';
+  document.getElementById('btn-lback2').onclick = function(){ state.screen = 'lessons'; render(); };
+  document.getElementById('dg-bmatch').onclick = function(){ openDgMatch(ls); };
+  document.getElementById('dg-blisten').onclick = function(){ openDgListen(ls); };
+  document.getElementById('dg-brr').onclick = function(){ openDgRR(ls); };
+  document.getElementById('dg-blw').onclick = function(){ openDgLW(ls); };
+  var lsloop = document.getElementById('btn-lsloop');
+  if(lsloop) lsloop.onclick = function(){
+    var texts = ls.phr.map(function(p){ return p.f; }).filter(Boolean);
+    if(!texts.length) return;
+    speakLoop(texts.join(' ... '), lsloop, 'fr-FR');
+  };
+  document.getElementById('btn-lfinish').onclick = function(){
+    if(!stats.lessons) stats.lessons = {};
+    stats.lessons[ls.id] = Date.now();
+    saveStats();
+    state.questions = shuffle(ls.qs);
+    state.mode = 'train';
+    state.idx = 0;
+    state.results = [];
+    state.screen = 'quiz';
+    render();
+  };
+  document.querySelectorAll('.flag-btn').forEach(function(b){
+    b.onclick = function(){ speakLoop(b.dataset.t, b, b.dataset.lang || 'fr-FR'); };
+  });
+  document.querySelectorAll('.gsearch').forEach(function(b){
+    b.onclick = function(){
+      var query = 'Explique en français et en arabe, puis donne la règle du code de la route — اشرح بالفرنسية والعربية مع قاعدة قانون الطريق: '
+        + b.dataset.q
+        + (b.dataset.qa ? ' / ' + b.dataset.qa : '')
+        + (b.dataset.exp ? ' — ' + b.dataset.exp : '');
+      window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_system');
+    };
+  });
+  var wordTap = null;
+  document.querySelectorAll('.phr-line .w').forEach(function(w){
+    w.onclick = function(){
+      var el = this;
+      if(wordTap){ clearTimeout(wordTap); wordTap = null; return; }
+      wordTap = setTimeout(function(){ wordTap = null; speakLoop(el.dataset.w, el, el.dataset.lang); }, 300);
+    };
+    w.ondblclick = function(){
+      if(wordTap){ clearTimeout(wordTap); wordTap = null; }
+      stopSpeech();
+      window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(el_word(this) + ' code de la route panneau'), '_system');
+    };
+  });
+  function el_word(el){ return el.dataset.w || el.textContent; }
+}
+
+
+var dgM = null, dgL = null, dgR = null;
+function dgItems(ls){
+  var a = ls.phr.filter(function(p){ return p.f && p.a; });
+  if(ls.consigne && ls.consigne.f) a.unshift({f: ls.consigne.f, a: ls.consigne.a, e: ''});
+  return a;
+}
+function dgClose(){
+  stopSpeech();
+  var ov = document.getElementById('dg-overlay');
+  if(ov) ov.remove();
+  dgM = dgL = dgR = null;
+}
+var nbPhr = '';
+function dgOverlay(title){
+  dgClose();
+  var ov = document.createElement('div');
+  ov.className = 'dg-ov'; ov.id = 'dg-overlay';
+  ov.innerHTML = '<div class="dg-top"><button class="icon-btn" id="dg-exit" title="خروج">✕</button>' +
+    '<button class="icon-btn" id="dg-note" title="الدفتر 📓">📓</button>' +
+    '<div class="dg-prog" id="dg-prog">' + esc(title) + '</div></div>' +
+    '<div id="dg-body" style="display:flex;flex:1;flex-direction:column;overflow:auto"></div>';
+  document.body.appendChild(ov);
+  document.getElementById('dg-exit').onclick = dgClose;
+  var ls = currentLesson();
+  document.getElementById('dg-note').onclick = function(){ nbOpen(ls ? ls.id : 'x', nbPhr); };
+  return document.getElementById('dg-body');
+}
+
+/* ===== الدفتر داخل الألعاب 📓 — رسم محفوظ لكل درس ===== */
+var nbKey = null, nbCtx = null, nbDraw = false, nbErase = false, nbHl = false,
+    nbColor = '#111827', nbSize = 3, nbUndo = [], nbRedo = [];
+function nbOv(){
+  var ov = document.getElementById('nb-ov');
+  if(ov) return ov;
+  ov = document.createElement('div');
+  ov.id = 'nb-ov';
+  ov.innerHTML = '<div class="nb-top">' +
+    '<button class="nb-icon danger" id="nb-x" title="إغلاق">✕</button>' +
+    '<span class="nb-title">📓 الدفتر</span>' +
+    '<button class="nb-icon" id="nb-pen" title="قلم">✏️</button>' +
+    '<button class="nb-icon" id="nb-hl" title="تظليل">🖍️</button>' +
+    '<button class="nb-icon" id="nb-erase" title="ممحاة">🧽</button>' +
+    '<button class="nb-dot" id="nb-c1" data-c="#111827" style="background:#111827"></button>' +
+    '<button class="nb-dot" id="nb-c2" data-c="#dc2626" style="background:#dc2626"></button>' +
+    '<button class="nb-dot" id="nb-c3" data-c="#2563eb" style="background:#2563eb"></button>' +
+    '<button class="nb-dot" id="nb-c4" data-c="#059669" style="background:#059669"></button>' +
+    '<button class="nb-icon" id="nb-thin" title="أرفع">−</button>' +
+    '<button class="nb-icon" id="nb-thick" title="أسمك">+</button>' +
+    '<button class="nb-icon" id="nb-undo" title="تراجع">↩️</button>' +
+    '<button class="nb-icon" id="nb-redo" title="إعادة">↪️</button>' +
+    '<button class="nb-icon" id="nb-paper" title="ورق مسطّر">📄</button>' +
+    '<button class="nb-icon danger" id="nb-clear" title="مسح الكل">🗑️</button>' +
+    '<button class="nb-icon" id="nb-save" title="حفظ">💾</button>' +
+  '</div>' +
+  '<div class="nb-phrase" id="nb-phrase"></div>' +
+  '<div class="nb-wrap" id="nb-wrap"><canvas id="nb-canvas"></canvas></div>';
+  document.body.appendChild(ov);
+  document.getElementById('nb-x').onclick = nbClose;
+  document.getElementById('nb-pen').onclick = function(){ nbTool('pen'); };
+  document.getElementById('nb-hl').onclick = function(){ nbTool('hl'); };
+  document.getElementById('nb-erase').onclick = function(){ nbTool('erase'); };
+  document.getElementById('nb-thin').onclick = function(){ nbSetSize(nbSize - 1); };
+  document.getElementById('nb-thick').onclick = function(){ nbSetSize(nbSize + 1); };
+  document.getElementById('nb-undo').onclick = nbUndoDo;
+  document.getElementById('nb-redo').onclick = nbRedoDo;
+  document.getElementById('nb-clear').onclick = nbClear;
+  document.getElementById('nb-save').onclick = nbSave;
+  document.getElementById('nb-paper').onclick = function(){
+    var w = document.getElementById('nb-wrap');
+    w.classList.toggle('lined');
+    this.classList.toggle('active', w.classList.contains('lined'));
+  };
+  ov.querySelectorAll('.nb-dot').forEach(function(b){
+    b.onclick = function(){
+      nbColor = b.dataset.c;
+      ov.querySelectorAll('.nb-dot').forEach(function(x){ x.classList.toggle('active', x === b); });
+      nbTool('pen');
+    };
+  });
+  var cv = document.getElementById('nb-canvas');
+  cv.addEventListener('mousedown', nbStart);
+  cv.addEventListener('mousemove', nbMove);
+  cv.addEventListener('mouseup', nbEnd);
+  cv.addEventListener('mouseleave', nbEnd);
+  cv.addEventListener('touchstart', nbStart, {passive: false});
+  cv.addEventListener('touchmove', nbMove, {passive: false});
+  cv.addEventListener('touchend', nbEnd);
+  return ov;
+}
+function nbTool(t){
+  nbErase = t === 'erase'; nbHl = t === 'hl';
+  document.getElementById('nb-pen').classList.toggle('active', t === 'pen');
+  document.getElementById('nb-hl').classList.toggle('active', t === 'hl');
+  document.getElementById('nb-erase').classList.toggle('active', t === 'erase');
+}
+function nbSetSize(n){ nbSize = Math.min(16, Math.max(1, n)); }
+function nbSetup(){
+  var cv = document.getElementById('nb-canvas');
+  nbCtx = cv.getContext('2d');
+  var dpr = window.devicePixelRatio || 1;
+  cv.width = Math.max(1, (cv.clientWidth || 600) * dpr);
+  cv.height = Math.max(1, (cv.clientHeight || 400) * dpr);
+  nbCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  nbCtx.lineCap = 'round'; nbCtx.lineJoin = 'round';
+}
+function nbSnap(){
+  if(!nbCtx) return;
+  var cv = document.getElementById('nb-canvas');
+  nbUndo.push(nbCtx.getImageData(0, 0, cv.width, cv.height));
+  if(nbUndo.length > 30) nbUndo.shift();
+  nbRedo = [];
+  document.getElementById('nb-undo').disabled = !nbUndo.length;
+  document.getElementById('nb-redo').disabled = true;
+}
+function nbRestore(img){
+  nbCtx.save();
+  nbCtx.setTransform(1, 0, 0, 1, 0, 0);
+  nbCtx.globalCompositeOperation = 'source-over';
+  nbCtx.globalAlpha = 1;
+  nbCtx.clearRect(0, 0, img.width, img.height);
+  nbCtx.putImageData(img, 0, 0);
+  nbCtx.restore();
+}
+function nbUndoDo(){
+  if(!nbCtx || !nbUndo.length) return;
+  var cv = document.getElementById('nb-canvas');
+  nbRedo.push(nbCtx.getImageData(0, 0, cv.width, cv.height));
+  nbRestore(nbUndo.pop());
+  document.getElementById('nb-undo').disabled = !nbUndo.length;
+  document.getElementById('nb-redo').disabled = !nbRedo.length;
+}
+function nbRedoDo(){
+  if(!nbCtx || !nbRedo.length) return;
+  var cv = document.getElementById('nb-canvas');
+  nbUndo.push(nbCtx.getImageData(0, 0, cv.width, cv.height));
+  nbRestore(nbRedo.pop());
+  document.getElementById('nb-undo').disabled = !nbUndo.length;
+  document.getElementById('nb-redo').disabled = !nbRedo.length;
+}
+function nbClear(){
+  if(!nbCtx) return;
+  nbSnap();
+  var cv = document.getElementById('nb-canvas');
+  var dpr = window.devicePixelRatio || 1;
+  nbCtx.clearRect(0, 0, cv.width / dpr, cv.height / dpr);
+}
+function nbSave(){
+  if(!nbCtx || !nbKey) return;
+  try{ localStorage.setItem('delf_note_' + nbKey, document.getElementById('nb-canvas').toDataURL('image/png')); }catch(e){}
+  showToast('✓ انحفظ الدفتر');
+  nbClose();
+}
+function nbPos(e){
+  var cv = document.getElementById('nb-canvas');
+  var r = cv.getBoundingClientRect();
+  var cx = e.touches ? e.touches[0].clientX : e.clientX;
+  var cy = e.touches ? e.touches[0].clientY : e.clientY;
+  return {x: cx - r.left, y: cy - r.top};
+}
+function nbStart(e){
+  if(!nbCtx) return;
+  e.preventDefault();
+  nbSnap();
+  nbDraw = true;
+  var p = nbPos(e);
+  nbCtx.beginPath();
+  nbCtx.moveTo(p.x, p.y);
+  nbCtx.globalCompositeOperation = nbErase ? 'destination-out' : 'source-over';
+  nbCtx.globalAlpha = nbHl ? 0.35 : 1;
+  nbCtx.lineCap = nbHl ? 'square' : 'round';
+  nbCtx.strokeStyle = nbColor;
+  nbCtx.lineWidth = nbErase ? nbSize * 4 : (nbHl ? nbSize * 3 : nbSize);
+}
+function nbMove(e){
+  if(!nbDraw || !nbCtx) return;
+  e.preventDefault();
+  var p = nbPos(e);
+  nbCtx.lineTo(p.x, p.y);
+  nbCtx.stroke();
+}
+function nbEnd(){ nbDraw = false; }
+function nbOpen(key, phrase){
+  var ov = nbOv();
+  nbKey = key;
+  ov.classList.add('show');
+  var pb = document.getElementById('nb-phrase');
+  if(phrase){ pb.textContent = phrase; pb.style.display = ''; }
+  else pb.style.display = 'none';
+  nbUndo = []; nbRedo = [];
+  setTimeout(function(){
+    nbSetup();
+    var cv = document.getElementById('nb-canvas');
+    var dpr = window.devicePixelRatio || 1;
+    nbCtx.clearRect(0, 0, cv.width / dpr, cv.height / dpr);
+    var saved = null;
+    try{ saved = localStorage.getItem('delf_note_' + key); }catch(e){}
+    if(saved){
+      var img = new Image();
+      img.onload = function(){ nbCtx.drawImage(img, 0, 0, cv.width / dpr, cv.height / dpr); };
+      img.src = saved;
+    }
+    nbTool('pen');
+    document.getElementById('nb-undo').disabled = true;
+    document.getElementById('nb-redo').disabled = true;
+  }, 60);
+}
+function nbClose(){
+  var ov = document.getElementById('nb-ov');
+  if(ov) ov.classList.remove('show');
+  nbKey = null; nbCtx = null; nbDraw = false;
+}
+
+/* ===== لعبة التوصيل 🧩 — 8 أزواج بكل جولة ===== */
+function openDgMatch(ls){
+  var items = dgItems(ls).filter(function(p){ return p.f && p.a; });
+  if(items.length < 2){ showToast('لا يوجد عبارات كافية للعبة'); return; }
+  dgOverlay('لعبة التوصيل 🧩');
+  dgM = { pool: shuffle(items), total: items.length, solved: 0, wrong: 0, sel: null, busy: false, deck: [] };
+  dgMatchRound();
+}
+function dgMatchRound(){
+  var body = document.getElementById('dg-body'); if(!body || !dgM) return;
+  var batch = dgM.pool.splice(0, Math.min(8, dgM.pool.length));
+  nbPhr = batch.map(function(p){ return p.f; }).join(' · ');
+  var qs = shuffle(batch.map(function(p, i){ return {pair: i, t: p.f, side: 'q'}; }));
+  var as = shuffle(batch.map(function(p, i){ return {pair: i, t: p.a, side: 'a'}; }));
+  dgM.deck = qs.concat(as);
+  dgM.sel = null; dgM.busy = false;
+  document.getElementById('dg-prog').textContent = '🧩 التوصيل — ' + dgM.solved + '/' + dgM.total;
+  body.innerHTML = '<div class="dg-flags"><div class="dg-flag">🇫🇷</div><div class="dg-flag">🇸🇾</div></div>' +
+    '<div class="dg-cols"><div style="display:flex;flex-direction:column;gap:.55rem">' +
+      qs.map(function(c){ return '<button class="dg-card" dir="ltr" data-i="' + dgM.deck.indexOf(c) + '">' + esc(c.t) + '</button>'; }).join('') +
+    '</div><div style="display:flex;flex-direction:column;gap:.55rem">' +
+      as.map(function(c){ return '<button class="dg-card" dir="rtl" data-i="' + dgM.deck.indexOf(c) + '">' + esc(c.t) + '</button>'; }).join('') +
+    '</div></div>';
+  body.querySelectorAll('.dg-card').forEach(function(b){
+    b.onclick = function(){
+      if(!dgM || dgM.busy || b.classList.contains('done')) return;
+      var c = dgM.deck[+b.dataset.i];
+      if(dgM.sel === c){ b.classList.remove('sel'); dgM.sel = null; return; }
+      if(!dgM.sel){ dgM.sel = c; b.classList.add('sel'); return; }
+      var first = dgM.sel, firstEl = body.querySelector('[data-i="' + dgM.deck.indexOf(first) + '"]');
+      if(first.side === c.side){
+        firstEl.classList.remove('sel'); dgM.sel = c; b.classList.add('sel'); return;
+      }
+      if(first.pair === c.pair){
+        dgM.sel = null; dgM.solved++;
+        b.classList.add('done'); firstEl.classList.add('done');
+        playFeedback(true);
+        document.getElementById('dg-prog').textContent = '🧩 التوصيل — ' + dgM.solved + '/' + dgM.total;
+        if(body.querySelectorAll('.dg-card:not(.done)').length === 0){
+          setTimeout(function(){ if(dgM) dgM.pool.length ? dgMatchRound() : dgMatchEnd(); }, 600);
+        }
+      } else {
+        dgM.busy = true; dgM.wrong++;
+        b.classList.add('wrong'); firstEl.classList.add('wrong');
+        playFeedback(false);
+        setTimeout(function(){
+          b.classList.remove('wrong', 'sel'); firstEl.classList.remove('wrong', 'sel');
+          if(dgM){ dgM.sel = null; dgM.busy = false; }
+        }, 600);
+      }
+    };
+  });
+}
+function dgMatchEnd(){
+  var body = document.getElementById('dg-body'); if(!body || !dgM) return;
+  body.innerHTML = '<div class="dg-end"><div class="dg-pct">🧩</div>' +
+    '<h3>' + dgM.solved + '/' + dgM.total + ' زوج · ' + dgM.wrong + ' خطأ</h3>' +
+    '<div class="dg-langs"><button class="big-btn" id="dg-again">🔁 العب مرة أخرى</button>' +
+    '<button class="ghost-btn" id="dg-out">✕ خروج</button></div></div>';
+  var ls = currentLesson();
+  document.getElementById('dg-again').onclick = function(){ openDgMatch(ls); };
+  document.getElementById('dg-out').onclick = dgClose;
+}
+
+/* ===== اختبار سمعي 🎧 — كل عبارات الدرس ===== */
+function openDgListen(ls){
+  var items = dgItems(ls).filter(function(p){ return p.f; });
+  if(items.length < 2){ showToast('لا يوجد عبارات كافية للاختبار'); return; }
+  dgOverlay('اختبار سمعي 🎧');
+  dgL = { pool: shuffle(items), all: items, i: 0, ok: 0, wrong: 0 };
+  dgListenQ();
+}
+function dgListenQ(){
+  var body = document.getElementById('dg-body'); if(!body || !dgL) return;
+  stopSpeech();
+  if(dgL.i >= dgL.pool.length){ dgListenEnd(); return; }
+  var p = dgL.pool[dgL.i];
+  nbPhr = p.f;
+  var others = shuffle(dgL.all.filter(function(x){ return x !== p; }));
+  var nOpts = Math.min(3, others.length);
+  var opts = shuffle([p.f].concat(others.slice(0, nOpts).map(function(x){ return x.f; })));
+  document.getElementById('dg-prog').textContent = '🎧 سمعي — ' + (dgL.i + 1) + '/' + dgL.pool.length + ' · ✅ ' + dgL.ok;
+  body.innerHTML = '<div class="dg-stage"><div class="dg-hero">🎧</div>' +
+    '<button class="dg-loop" id="dg-play" title="استمع">🔊</button>' +
+    '<div class="dg-sub">اسمع الجملة واختر العبارة الصحيحة</div>' +
+    opts.map(function(t){ return '<button class="dg-tile" dir="ltr" data-t="' + esc(t) + '">' + esc(t) + '</button>'; }).join('') +
+    '<button class="ghost-btn" id="dg-skip2" style="margin-top:.4rem">⏭ تخطي</button></div>';
+  var play = document.getElementById('dg-play');
+  play.onclick = function(){ speakLoop(p.f, play, 'fr-FR'); };
+  speakLoop(p.f, play, 'fr-FR');
+  body.querySelectorAll('.dg-tile').forEach(function(b){
+    b.onclick = function(){
+      if(!dgL || b.classList.contains('dim')) return;
+      if(b.dataset.t === p.f){
+        b.classList.add('ok'); playFeedback(true); dgL.ok++; dgL.i++;
+        body.querySelectorAll('.dg-tile').forEach(function(x){ if(x !== b) x.classList.add('dim'); });
+        setTimeout(dgListenQ, 800);
+      } else {
+        b.classList.add('bad'); playFeedback(false); dgL.wrong++;
+        setTimeout(function(){ b.classList.add('dim'); b.classList.remove('bad'); }, 500);
+      }
+    };
+  });
+  document.getElementById('dg-skip2').onclick = function(){ dgL.i++; dgListenQ(); };
+}
+function dgListenEnd(){
+  var body = document.getElementById('dg-body'); if(!body || !dgL) return;
+  var pct = Math.round(100 * dgL.ok / dgL.pool.length);
+  body.innerHTML = '<div class="dg-end"><div class="dg-pct">' + pct + '%</div>' +
+    '<h3>🎧 ' + dgL.ok + '/' + dgL.pool.length + ' صحيحة · ' + dgL.wrong + ' خطأ</h3>' +
+    '<div class="dg-langs"><button class="big-btn" id="dg-again2">🔁 أعد الاختبار</button>' +
+    '<button class="ghost-btn" id="dg-out2">✕ خروج</button></div></div>';
+  var ls = currentLesson();
+  document.getElementById('dg-again2').onclick = function(){ openDgListen(ls); };
+  document.getElementById('dg-out2').onclick = dgClose;
+}
+
+/* ===== اسمع واكتب ✍️ — اكتب ما تسمعه بالفرنسي ===== */
+function lwNorm(s){ return (s || '').toLowerCase().replace(/[\u2018\u2019]/g, "'").normalize('NFD').replace(/\p{M}/gu, '').replace(/[^a-z0-9'\- ]/g, ' ').replace(/\s+/g, ' ').trim(); }
+function dgLWText(f){ return (f || '').replace(/^\s*\d[\d\s.,\/-]*\s*—\s*/, '').trim(); }
+var dgW = null;
+function openDgLW(ls){
+  var items = dgItems(ls).filter(function(p){ return p.f; });
+  if(items.length < 2){ showToast('لا يوجد عبارات كافية للّعبة'); return; }
+  dgOverlay('اسمع واكتب ✍️');
+  dgW = { pool: shuffle(items).slice(0, Math.min(10, items.length)), i: 0, ok: 0, bad: 0 };
+  dgLWQ();
+}
+function dgLWQ(){
+  var body = document.getElementById('dg-body'); if(!body || !dgW) return;
+  stopSpeech();
+  if(dgW.i >= dgW.pool.length){ dgLWEnd(); return; }
+  var p = dgW.pool[dgW.i];
+  nbPhr = p.f;
+  var q = dgLWText(p.f) || p.f;
+  var dm = p.f.match(/^\s*(\d[\d\s.,\/-]*)\s*—/);
+  var digits = dm ? dm[1].replace(/\D/g, '') : '';
+  document.getElementById('dg-prog').textContent = '✍️ اكتب — ' + (dgW.i + 1) + '/' + dgW.pool.length + ' · ✅ ' + dgW.ok;
+  body.innerHTML = '<div class="dg-stage"><div class="dg-hero">🎧</div>' +
+    '<button class="dg-loop" id="dg-lw-play" title="استمع">🔊</button>' +
+    '<div class="dg-sub">اسمع الجملة واكتبها بالفرنسي — التصحيح يتغاضى عن الحركات والفواصل' + (digits ? ' · فيك تكتب الأرقام كمان 🔢' : '') + '</div>' +
+    '<input class="dg-inp" id="dg-lw-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" dir="ltr" placeholder="écris ici…">' +
+    '<div class="dg-msg" id="dg-lw-msg"></div>' +
+    '<button class="big-btn" id="dg-lw-go" style="margin-top:.3rem">تحقّق ✔️</button>' +
+    '<button class="big-btn" id="dg-lw-next" style="margin-top:.3rem;display:none">⏭ التالي</button>' +
+    '<button class="ghost-btn" id="dg-lw-skip" style="margin-top:.4rem">⏭ تخطي</button></div>';
+  var play = document.getElementById('dg-lw-play');
+  play.onclick = function(){ speakLoop(q, play, 'fr-FR'); };
+  speakLoop(q, play, 'fr-FR');
+  var inp = document.getElementById('dg-lw-in'), msg = document.getElementById('dg-lw-msg'), go = document.getElementById('dg-lw-go');
+  var lock = false;
+  function check(){
+    if(lock) return; lock = true;
+    var inD = inp.value.replace(/\D/g, '');
+    var good = lwNorm(inp.value) === lwNorm(q) || (digits && inD.length > 0 && inD === digits && inp.value.replace(/[0-9\s.,\/-]/g, '').trim() === '');
+    if(good){ dgW.ok++; } else { dgW.bad++; }
+    playFeedback(good);
+    inp.disabled = true; go.disabled = true;
+    inp.classList.add(good ? 'ok' : 'bad');
+    var full = digits ? '<b dir="ltr">' + esc(dm[1].trim()) + '</b> — <b dir="ltr">' + esc(q) + '</b>' : '<b dir="ltr">' + esc(q) + '</b>';
+    msg.innerHTML = (good ? '✅ أحسنت — ' : '❌ الصحيح: ') + full;
+    go.style.display = 'none';
+    var nxt = document.getElementById('dg-lw-next');
+    nxt.style.display = '';
+    var skip = document.getElementById('dg-lw-skip'); if(skip) skip.style.display = 'none';
+    var tm = setTimeout(advance, 5000);
+    nxt.onclick = function(){ clearTimeout(tm); advance(); };
+    nxt.focus();
+  }
+  function advance(){ dgW.i++; dgLWQ(); }
+  go.onclick = check;
+  inp.onkeydown = function(e){ if(e.key === 'Enter') check(); };
+  inp.focus();
+  document.getElementById('dg-lw-skip').onclick = function(){ dgW.i++; dgLWQ(); };
+}
+function dgLWEnd(){
+  var body = document.getElementById('dg-body'); if(!body || !dgW) return;
+  var pct = Math.round(100 * dgW.ok / dgW.pool.length);
+  body.innerHTML = '<div class="dg-end"><div class="dg-pct">' + pct + '%</div>' +
+    '<h3>✍️ ' + dgW.ok + '/' + dgW.pool.length + ' صحيحة · ' + dgW.bad + ' خطأ</h3>' +
+    '<div class="dg-langs"><button class="big-btn" id="dg-again3">🔁 أعد اللعب</button>' +
+    '<button class="ghost-btn" id="dg-out3">✕ خروج</button></div></div>';
+  var ls = currentLesson();
+  document.getElementById('dg-again3').onclick = function(){ openDgLW(ls); };
+  document.getElementById('dg-out3').onclick = dgClose;
+}
+
+/* ===== اقرأ وكرّر 🗣️ — استمع وكرّر حتى 5 ===== */
+function openDgRR(ls){
+  var items = dgItems(ls).filter(function(p){ return p.f; });
+  if(!items.length){ showToast('لا يوجد عبارات في الدرس'); return; }
+  dgOverlay('اقرأ وكرّر 🗣️');
+  dgR = { pool: items, i: 0, count: 0 };
+  dgRRShow();
+}
+function dgRRShow(){
+  var body = document.getElementById('dg-body'); if(!body || !dgR) return;
+  stopSpeech();
+  if(dgR.i >= dgR.pool.length){ dgRREnd(); return; }
+  var p = dgR.pool[dgR.i];
+  nbPhr = p.f;
+  document.getElementById('dg-prog').textContent = '🗣️ اقرأ وكرّر — ' + (dgR.i + 1) + '/' + dgR.pool.length;
+  body.innerHTML = '<div class="dg-stage">' +
+    '<div class="dg-text" dir="ltr">' + esc(p.f) + '</div>' +
+    (p.a ? '<div class="dg-tr" dir="rtl">🇸🇾 ' + esc(p.a) + '</div>' : '') +
+    (p.e ? '<div class="dg-tr" dir="ltr">🇺🇸 ' + esc(p.e) + '</div>' : '') +
+    '<div style="display:flex;gap:1.1rem;align-items:center;margin-top:.4rem">' +
+      '<button class="dg-loop" id="dg-rrhear" title="استمع">🔊</button>' +
+      '<div class="dg-count" id="dg-rrcnt">' + dgR.count + '/5</div>' +
+      '<button class="dg-plus" id="dg-rrplus">+</button>' +
+    '</div>' +
+    '<div class="dg-sub">اسمع الجملة، كرّرها بصوت عالٍ واضغط + — 5 مرات وتنتقل تلقائياً</div></div>';
+  var hear = document.getElementById('dg-rrhear');
+  hear.onclick = function(){ speakLoop(p.f, hear, 'fr-FR'); };
+  document.getElementById('dg-rrplus').onclick = function(){
+    if(!dgR || dgR.count >= 5) return;
+    dgR.count++;
+    document.getElementById('dg-rrcnt').textContent = dgR.count + '/5';
+    if(dgR.count >= 5){
+      playFeedback(true);
+      setTimeout(function(){ if(dgR){ dgR.i++; dgR.count = 0; dgRRShow(); } }, 1200);
+    }
+  };
+}
+function dgRREnd(){
+  var body = document.getElementById('dg-body'); if(!body || !dgR) return;
+  body.innerHTML = '<div class="dg-end"><div class="dg-pct">🎉</div>' +
+    '<h3>أحسنت! كرّرت ' + dgR.pool.length + ' جملة</h3>' +
+    '<div class="dg-langs"><button class="big-btn" id="dg-again3">🔁 من جديد</button>' +
+    '<button class="ghost-btn" id="dg-out3">✕ خروج</button></div></div>';
+  document.getElementById('dg-again3').onclick = function(){ dgR.i = 0; dgR.count = 0; dgRRShow(); };
+  document.getElementById('dg-out3').onclick = dgClose;
+}
+/* ---------- واجهة متعددة اللغات ---------- */
+var LANG = localStorage.getItem('civ_lang') || 'ar';
+var TR = {
+  hero_title:     {ar:'الامتحان المدني الفرنسي 🇫🇷', fr:'Examen civique français 🇫🇷', en:'French civic exam 🇫🇷'},
+  hero_desc:      {ar:'تدريب على examen civique بالفرنسي والعربي مع الصور — إلزامي من 2026 للجنسية وكرت الإقامة. الامتحان الحقيقي: 40 سؤالاً في 45 دقيقة والنجاح بـ 32/40.', fr:'Entraînement à l\'examen civique en français et arabe — obligatoire depuis 2026 pour la nationalité et le titre de séjour. Vrai examen : 40 questions en 45 minutes, réussite à 32/40.', en:'Practice for the examen civique in French and Arabic — mandatory from 2026 for nationality and residence cards. Real exam: 40 questions in 45 minutes, pass at 32/40.'},
+  questions:      {ar:'سؤالاً', fr:'questions', en:'questions'},
+  correct:        {ar:'صحيحة', fr:'correctes', en:'correct'},
+  exams_passed:   {ar:'امتحان ناجح', fr:'examens réussis', en:'exams passed'},
+  device_voice:   {ar:'صوت الجهاز', fr:"Voix de l'appareil", en:'Device voice'},
+  no_mistakes:    {ar:'لا أخطاء مسجلة', fr:'Aucune erreur enregistrée', en:'No mistakes recorded'},
+  lessons_mode:   {ar:'وضع الدروس', fr:'Mode leçons', en:'Lessons mode'},
+  lessons_card:   {ar:'وضع الدروس', fr:'Mode leçons', en:'Lessons mode'},
+  lessons_desc:   {ar:'دروس الامتحان المدني بالفرنسي والعربي — شرح واستماع وألعاب تفاعلية لكل موضوع.', fr:'Leçons du examen civique en français et arabe — explication, écoute et jeux interactifs par thème.', en:'Civic exam lessons in French and Arabic — explanation, listening and interactive games per theme.'},
+  open_lessons:   {ar:'📚 افتح الدروس', fr:'📚 Ouvrir les leçons', en:'📚 Open lessons'},
+  train_mode:     {ar:'وضع التدريب', fr:'Mode entraînement', en:'Training mode'},
+  train_desc:     {ar:'تصحيح فوري وشرح بالفرنسي والعربي. اختر موضوعاً (أو اترك الاختيار لكل المواضيع):', fr:'Correction immédiate et explication en français et arabe. Choisis un thème (ou tous les thèmes) :', en:'Instant correction with French and Arabic explanation. Pick a theme (or all themes):'},
+  train_start:    {ar:'ابدأ التدريب — الكل', fr:'Commencer — tout', en:'Start training — all'},
+  train_start_t:  {ar:'ابدأ: ', fr:'Commencer : ', en:'Start: '},
+  mistakes:       {ar:'🔁 راجع أخطائي (', fr:'🔁 Revoir mes erreurs (', en:'🔁 Review my mistakes ('},
+  exam_mode:      {ar:'وضع الامتحان', fr:'Mode examen', en:'Exam mode'},
+  exam_desc:      {ar:'40 سؤالاً عشوائياً، 45 دقيقة إجمالاً، بلا تصحيح حتى النهاية. النجاح: 32/40 على الأقل.', fr:'40 questions aléatoires, 45 minutes au total, sans correction avant la fin. Réussite : 32/40 minimum.', en:'40 random questions, 20 seconds per question, no correction until the end. Pass: at least 32/40.'},
+  exam_start:     {ar:'ابدأ الامتحان', fr:"Commencer l'examen", en:'Start the exam'},
+  lessons_title:  {ar:'دروس الامتحان المدني', fr:'Leçons du examen civique', en:'Civic exam lessons'},
+  lessons_intro:  {ar:'كل درس يشرح قواعد موضوع من الامتحان بالفرنسي والعربي — اقرأ الشرح، استمع، ثم تدرّب بالألعاب والأسئلة.', fr:'Chaque leçon explique les règles d\'un thème de l\'examen en français et arabe — lis, écoute, puis entraîne-toi avec les jeux et les questions.', en:'Each lesson explains the rules of an exam theme in French and Arabic — read, listen, then practice with games and questions.'},
+  rules_word:     {ar:'قاعدة', fr:'règles', en:'rules'},
+  sentences:      {ar:'جملة', fr:'phrases', en:'sentences'},
+  completed:      {ar:'✅ مكتمل', fr:'✅ terminé', en:'✅ done'},
+  part:           {ar:'جزء', fr:'partie', en:'part'},
+  lesson_instr:   {ar:'اقرأ القاعدة والشرح — استمع بعلمها 🔊، اضغط أي كلمة لتنطقها loop، وضغطتين لتبحث عنها في Google.', fr:'Lis la règle et l\'explication — écoute avec son drapeau 🔊, touche un mot pour le répéter en boucle, deux fois pour le chercher sur Google.', en:'Read the rule and explanation — listen with its flag 🔊, tap a word to loop it, double-tap to search it on Google.'},
+  g_match:        {ar:'🧩 توصيل', fr:'🧩 Association', en:'🧩 Matching'},
+  g_listen:       {ar:'🎧 اختبار سمعي', fr:"🎧 Test d'écoute", en:'🎧 Listening test'},
+  g_rr:           {ar:'🗣️ اقرأ وكرّر', fr:'🗣️ Lis et répète', en:'🗣️ Read & repeat'},
+  g_lw:           {ar:'✍️ اسمع واكتب', fr:'✍️ Écoute et écris', en:'✍️ Listen & write'},
+  finish_lesson:  {ar:'✅ أنهيت الدرس — تدرّب (', fr:'✅ Leçon terminée — entraînement (', en:'✅ Lesson finished — practice ('},
+  validate:       {ar:'تأكيد', fr:'Valider', en:'Confirm'},
+  skip:           {ar:'تخطي ⏭', fr:'Passer ⏭', en:'Skip ⏭'},
+  multi_hint:     {ar:'⚠️ عدة إجابات صحيحة ممكنة — اختر ثم اضغط "تأكيد"', fr:'⚠️ Plusieurs réponses possibles — choisis puis appuie sur "Valider"', en:'⚠️ Multiple correct answers possible — select then press "Confirm"'},
+  pass_msg:       {ar:'🎉 ناجح! (الحد الأدنى 32/40)', fr:'🎉 Réussi ! (minimum 32/40)', en:'🎉 Passed! (minimum 32/40)'},
+  fail_msg:       {ar:'😕 راسب — تحتاج 32 إجابة صحيحة', fr:'😕 Échoué — il faut 32 bonnes réponses', en:'😕 Failed — you need 32 correct answers'},
+  perfect:        {ar:'ممتاز! كل الإجابات صحيحة', fr:'Excellent ! Toutes les réponses sont correctes', en:'Excellent! All answers correct'},
+  keep_going:     {ar:'أكمل التدريب لتحسين نتيجتك', fr:"Continue l'entraînement pour améliorer ton score", en:'Keep training to improve your score'},
+  new_exam:       {ar:'امتحان جديد', fr:'Nouvel examen', en:'New exam'},
+  new_train:      {ar:'تدريب جديد', fr:'Nouvel entraînement', en:'New training'},
+  home_btn:       {ar:'🏠 الرئيسية', fr:'🏠 Accueil', en:'🏠 Home'},
+  review_wrong:   {ar:'مراجعة الأخطاء (', fr:'Revoir les erreurs (', en:'Review mistakes ('},
+  lang_switched:  {ar:'🌐 العربية', fr:'🌐 Français', en:'🌐 English'}
+};
+function tr(k){ var row = TR[k]; return row ? (row[LANG] || row.ar) : k; }
+function applyLangDir(){
+  document.documentElement.lang = LANG;
+  document.title = LANG === 'ar' ? 'Examen civique — الامتحان المدني الفرنسي' : (LANG === 'fr' ? 'Examen civique — entraînement' : 'French civic exam — trainer');
+}
+document.getElementById('btn-lang').onclick = function(){
+  LANG = LANG === 'ar' ? 'fr' : (LANG === 'fr' ? 'en' : 'ar');
+  localStorage.setItem('civ_lang', LANG);
+  applyLangDir();
+  render();
+  showToast(tr('lang_switched'));
+};
+applyLangDir();
+
+
 function render(){
   stopSpeech();
   if(state.screen === 'home') renderHome();
+  else if(state.screen === 'lessons') renderLessons();
+  else if(state.screen === 'lesson') renderLesson();
   else if(state.screen === 'quiz') renderQuiz();
   else renderResult();
   document.getElementById('btn-home').style.display = state.screen === 'home' ? 'none' : '';
+  document.getElementById('btn-back').style.display = state.screen === 'home' ? 'none' : '';
 }
 
 function renderHome(){
@@ -771,18 +1540,18 @@ function renderHome(){
     var m = THEME_META[t] || {icon: '📚', bg: 'rgba(47,107,255,0.22)'};
     tiles += '<div class="theme-tile' + (state.theme === t ? ' active' : '') + '" data-theme="' + t + '">' +
       '<span class="t-icon" style="background:' + m.bg + '">' + m.icon + '</span>' +
-      '<span><span class="t-name">' + THEMES[t] + '</span><br><span class="t-count">' + byTheme[t] + ' سؤالاً</span></span>' +
+      '<span><span class="t-name">' + THEMES[t] + '</span><br><span class="t-count">' + byTheme[t] + ' ' + tr('questions') + '</span></span>' +
     '</div>';
   });
   var wrongCount = stats.wrongIds.length;
   var acc = stats.answered ? Math.round(stats.correct * 100 / stats.answered) : 0;
   app.innerHTML =
-    '<div class="hero"><h1>الامتحان المدني الفرنسي 🇫🇷</h1>' +
-    '<p>تدريب على examen civique بالفرنسي والعربي مع الصور — إلزامي من 2026 للجنسية وكرت الإقامة. الامتحان الحقيقي: 40 سؤالاً في 45 دقيقة والنجاح بـ 32/40.</p>' +
+    '<div class="hero"><h1>' + tr('hero_title') + '</h1>' +
+    '<p>' + tr('hero_desc') + '</p>' +
     '<div class="stats-row">' +
-      '<span class="stat-chip">📚 ' + DATA.length + ' سؤالاً</span>' +
-      '<span class="stat-chip">✅ ' + acc + '% صحيحة</span>' +
-      '<span class="stat-chip">🎓 ' + stats.passed + '/' + stats.exams + ' امتحان ناجح</span>' +
+      '<span class="stat-chip">📚 ' + DATA.length + ' ' + tr('questions') + '</span>' +
+      '<span class="stat-chip">✅ ' + acc + '% ' + tr('correct') + '</span>' +
+      '<span class="stat-chip">🎓 ' + stats.passed + '/' + stats.exams + ' ' + tr('exams_passed') + '</span>' +
     '</div>' +
     '<div class="stats-row" style="margin-top:8px"><span class="stat-chip">🔊 ' +
       '<select id="voiceSel" style="background:transparent;color:inherit;border:none;font:inherit;outline:none">' +
@@ -790,29 +1559,36 @@ function renderHome(){
         '<option value="fr-FR-HenriNeural">Henri — صوت Edge</option>' +
         '<option value="fr-FR-EloiseNeural">Éloïse — صوت Edge</option>' +
         '<option value="fr-FR-RemyMultilingualNeural">Rémy — صوت Edge</option>' +
-        '<option value="device">صوت الجهاز</option>' +
+        '<option value="device">' + tr('device_voice') + '</option>' +
       '</select></span></div></div>' +
 
     '<div class="card">' +
-      '<div class="mode-title">📝 وضع التدريب</div>' +
-      '<div class="mode-desc">تصحيح فوري وشرح بالفرنسي والعربي. اختر موضوعاً (أو اترك الاختيار لكل المواضيع):</div>' +
-      '<div class="theme-grid">' + tiles + '</div>' +
-      '<button class="big-btn" id="btn-train">' + (state.theme ? 'ابدأ: ' + THEMES[state.theme] : 'ابدأ التدريب — الكل') + '</button>' +
-      (wrongCount ? '<button class="ghost-btn" id="btn-mistakes">🔁 راجع أخطائي (' + wrongCount + ')</button>' : '') +
+      '<div class="mode-title">📚 ' + tr('lessons_card') + ' <span class="mini">leçons</span></div>' +
+      '<div class="mode-desc">' + tr('lessons_desc') + '</div>' +
+      '<button class="big-btn" id="btn-lessons">' + tr('open_lessons') + '</button>' +
     '</div>' +
 
     '<div class="card">' +
-      '<div class="mode-title">⏱️ وضع الامتحان <span class="mini">examen blanc</span></div>' +
-      '<div class="mode-desc">40 سؤالاً عشوائياً، 45 دقيقة إجمالاً، بلا تصحيح حتى النهاية. النجاح: 32/40 على الأقل.</div>' +
-      '<button class="big-btn" id="btn-exam">ابدأ الامتحان</button>' +
+      '<div class="mode-title">📝 ' + tr('train_mode') + '</div>' +
+      '<div class="mode-desc">' + tr('train_desc') + '</div>' +
+      '<div class="theme-grid">' + tiles + '</div>' +
+      '<button class="big-btn" id="btn-train">' + (state.theme ? tr('train_start_t') + THEMES[state.theme] : tr('train_start')) + '</button>' +
+      (wrongCount ? '<button class="ghost-btn" id="btn-mistakes">' + tr('mistakes') + wrongCount + ')</button>' : '') +
+    '</div>' +
+
+    '<div class="card">' +
+      '<div class="mode-title">⏱️ ' + tr('exam_mode') + ' <span class="mini">examen blanc</span></div>' +
+      '<div class="mode-desc">' + tr('exam_desc') + '</div>' +
+      '<button class="big-btn" id="btn-exam">' + tr('exam_start') + '</button>' +
     '</div>';
 
+  document.getElementById('btn-lessons').onclick = function(){ state.screen = 'lessons'; render(); };
   document.getElementById('btn-train').onclick = function(){ startQuiz('train'); };
   document.getElementById('btn-exam').onclick = function(){ startQuiz('exam'); };
   var bm = document.getElementById('btn-mistakes');
   if(bm) bm.onclick = function(){ startMistakes(); };
   var vs = document.getElementById('voiceSel');
-  if(vs){ vs.value = edgeVoice(); vs.onchange = function(){ localStorage.setItem('edge_voice', vs.value); showToast(vs.value === 'device' ? 'صوت الجهاز' : 'صوت Edge: ' + vs.options[vs.selectedIndex].text.split(' ')[0]); }; }
+  if(vs){ vs.value = edgeVoice(); vs.onchange = function(){ localStorage.setItem('edge_voice', vs.value); showToast(vs.value === 'device' ? tr('device_voice') : 'Edge: ' + vs.options[vs.selectedIndex].text.split(' ')[0]); }; }
   document.querySelectorAll('.theme-tile').forEach(function(c){
     c.onclick = function(){
       state.theme = (state.theme === c.dataset.theme) ? '' : c.dataset.theme;
@@ -836,7 +1612,7 @@ function startQuiz(mode){
 function startMistakes(){
   var ids = stats.wrongIds;
   state.questions = DATA.filter(function(q){ return ids.indexOf(q.id) !== -1; });
-  if(!state.questions.length){ showToast('لا أخطاء مسجلة'); return; }
+  if(!state.questions.length){ showToast(tr('no_mistakes')); return; }
   state.mode = 'train';
   state.idx = 0;
   state.results = [];
@@ -892,7 +1668,7 @@ function renderQuiz(){
       '<div class="q-fr">' + esc(q.q) + '</div>' +
       (q.qa ? '<div class="q-ar">' + esc(q.qa) + '</div>' : '') +
       '</div>' +
-      (multi ? '<div class="multi-hint">⚠️ عدة إجابات صحيحة ممكنة — اختر ثم اضغط "تأكيد"</div>' : '') +
+      (multi ? '<div class="multi-hint">' + tr('multi_hint') + '</div>' : '') +
       '<div id="opts">' + q.opts.map(function(o, i){
         return '<button class="opt" data-i="' + i + '">' +
           '<span class="letter">' + optionLetters(i) + '</span>' +
@@ -903,8 +1679,8 @@ function renderQuiz(){
         '</button>';
       }).join('') + '</div>' +
       '<div class="answer-bar">' +
-        (multi ? '<button class="big-btn" id="btn-validate" disabled>تأكيد</button>' : '') +
-        (state.mode === 'exam' ? '<button class="ghost-btn" id="btn-next">تخطي ⏭</button>' : '') +
+        (multi ? '<button class="big-btn" id="btn-validate" disabled>' + tr('validate') + '</button>' : '') +
+        (state.mode === 'exam' ? '<button class="ghost-btn" id="btn-next">' + tr('skip') + '</button>' : '') +
       '</div>' +
       '<div id="after"></div>' +
     '</div>';
@@ -1070,15 +1846,15 @@ function renderResult(){
   var html =
     '<div class="card result-hero">' +
       '<div class="result-score ' + (passed ? 'ok' : 'ko') + '">' + okCount + ' / ' + total + '</div>' +
-      '<div class="result-sub">' + (exam ? (passed ? '🎉 ناجح! (الحد الأدنى 32/40)' : '😕 راسب — تحتاج 32 إجابة صحيحة') : (okCount === total ? 'ممتاز! كل الإجابات صحيحة' : 'أكمل التدريب لتحسين نتيجتك')) + '</div>' +
+      '<div class="result-sub">' + (exam ? (passed ? tr('pass_msg') : tr('fail_msg')) : (okCount === total ? tr('perfect') : tr('keep_going'))) + '</div>' +
     '</div>' +
     '<div class="card">' +
-      '<button class="big-btn" id="btn-again">' + (exam ? 'امتحان جديد' : 'تدريب جديد') + '</button>' +
-      '<button class="ghost-btn" id="btn-gohome">🏠 الرئيسية</button>' +
+      '<button class="big-btn" id="btn-again">' + (exam ? tr('new_exam') : tr('new_train')) + '</button>' +
+      '<button class="ghost-btn" id="btn-gohome">' + tr('home_btn') + '</button>' +
     '</div>';
 
   if(wrongs.length){
-    html += '<div class="card"><div class="mode-title">مراجعة الأخطاء (' + wrongs.length + ')</div>';
+    html += '<div class="card"><div class="mode-title">' + tr('review_wrong') + wrongs.length + ')</div>';
     wrongs.forEach(function(r, i){
       var q = r.q;
       html += '<div class="review-item">' +
@@ -1100,6 +1876,24 @@ function renderResult(){
 }
 
 document.getElementById('btn-stop').onclick = stopSpeech;
+function goBack(){
+  if(document.getElementById('nb-ov') && document.getElementById('nb-ov').classList.contains('show')){
+    document.getElementById('nb-ov').classList.remove('show');
+    return true;
+  }
+  if(document.getElementById('dg-overlay')){ dgClose(); return true; }
+  if(state.screen === 'lesson'){ state.screen = 'lessons'; render(); return true; }
+  if(state.screen === 'lessons'){ state.screen = 'home'; render(); return true; }
+  if(state.screen === 'quiz' || state.screen === 'result'){ state.screen = 'home'; render(); return true; }
+  return false;
+}
+if(window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App){
+  Capacitor.Plugins.App.addListener('backButton', function(){
+    if(!goBack()) Capacitor.Plugins.App.exitApp();
+  });
+}
+window.addEventListener('popstate', function(){ goBack(); });
+document.getElementById('btn-back').onclick = function(){ goBack(); };
 document.getElementById('btn-home').onclick = function(){
   clearInterval(state.timer);
   state.screen = 'home';
