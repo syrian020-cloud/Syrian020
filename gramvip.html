@@ -397,6 +397,18 @@
   .lz-v-row > div { min-width: 0; }
   .lz-v-spk { flex: none; width: 30px; height: 30px; border-radius: 10px; border: none; background: linear-gradient(135deg, #f6b93b, #f0932b); color: #fff; font-size: 0.9rem; cursor: pointer; box-shadow: 0 3px 8px rgba(240,147,43,0.35); }
   .lz-v-spk.looping { animation: pulse 1s infinite; }
+  /* dictation game */
+  .dz-stage { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; width: 100%; max-width: 460px; margin: auto; }
+  .dz-ctl { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+  .dz-in { width: 100%; padding: 0.95rem 1rem; font-size: 1.08rem; text-align: center; border-radius: 14px; border: 1.5px solid var(--border); background: var(--bg-secondary); color: var(--text-primary); font-family: inherit; font-weight: 700; }
+  .dz-in:focus { outline: none; border-color: var(--accent); }
+  .dz-in.ok { border-color: #22c55e; }
+  .dz-in.bad { border-color: #ef4444; animation: qzShake .3s; }
+  .dz-msg { min-height: 1.5rem; font-weight: 800; }
+  .dz-msg.ok { color: #22c55e; }
+  .dz-msg.bad { color: #ef4444; }
+  .dz-ans { font-weight: 700; color: var(--text-primary); }
+  .dz-small { width: 44px; height: 44px; font-size: 1.1rem; }
   /* Read & Repeat game */
   .rr-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; width: 100%; max-width: 480px; margin: auto; padding: 0.6rem; }
   .rr-text { font-size: 1.5rem; font-weight: 800; text-align: center; line-height: 1.45; }
@@ -678,6 +690,7 @@
       quiz: 'اختبار التوصيل', listenQuiz: 'اسمع واختر', replay: '🔊 إعادة الاستماع', quizPick: 'اختر اللغة المقابلة لـ{lang}:', quizScore: 'النتيجة', quizAgain: 'إعادة اللعب', quizDone: 'انتهى', quizEmpty: 'الدرس يحتاج عبارات بلغتين على الأقل',
       rrTitle: 'لعبة اقرأ وكرّر 🗣', rrPickLang: 'اختر لغة التدريب', rrModeT: 'طريقة التدريب', rrModeL: '👂 استمع 5× ثم انطق', rrModeR: '📖 اقرأ وانطق مباشرة',
       rrListenN: '👂 استمع', rrYourTurn: '🎤 دورك — انطق الآن', rrHear: '🔊 استمع', rrSkip: 'تخطي الاستماع', rrWell: 'أحسنت! 🎉', rrResume: '↩ متابعة التدريب', rrNew: '🔄 بدء من جديد', rrSlow: '🐢 انطق العبارة ببطء',
+      dictTitle: 'لعبة الإملاء ✍️', dictPick: 'اختر لغة الإملاء', dictType: 'اكتب ما تسمعه…', dictCheck: 'تحقق', dictShow: 'أظهر الجواب', dictCorrect: 'أحسنت! صحيح', dictWrong: 'الجواب الصحيح:',
       exitTitle: 'الخروج من التطبيق؟', exitYes: 'خروج', exitNo: 'بقاء',
       saved: 'تم الحفظ', savedN: 'تمت إضافة {n} دروس', multiHint: '💡 افصل الدروس بسطر === لإضافة عدة دروس معاً', deleted: 'تم الحذف', imported: 'تم الاستيراد', importBad: 'ملف غير صالح', copied: 'تم نسخ النموذج', pasted: 'تم اللصق',
       media: 'وسائط', mediaAdded: 'أُرفقت الوسائط', mediaReplace: 'استبدال', mediaMiss: 'الملف غير مخزّن — أرفقه من 🎬', remove: 'إزالة',
@@ -710,6 +723,7 @@
       quiz: 'Matching quiz', listenQuiz: 'Listen & choose', replay: '🔊 Listen again', quizPick: 'Pick the language to match with {lang}:', quizScore: 'Score', quizAgain: 'Play again', quizDone: 'Done', quizEmpty: 'The lesson needs phrases in at least two languages',
       rrTitle: 'Read & Repeat game 🗣', rrPickLang: 'Choose the training language', rrModeT: 'Training mode', rrModeL: '👂 Listen 5× then repeat', rrModeR: '📖 Read & repeat directly',
       rrListenN: '👂 Listen', rrYourTurn: '🎤 Your turn — speak now', rrHear: '🔊 Listen', rrSkip: 'Skip listening', rrWell: 'Well done! 🎉', rrResume: '↩ Resume training', rrNew: '🔄 Start over', rrSlow: '🐢 Speak the phrase slowly',
+      dictTitle: 'Dictation game ✍️', dictPick: 'Choose the dictation language', dictType: 'Type what you hear…', dictCheck: 'Check', dictShow: 'Show answer', dictCorrect: 'Correct! Well done', dictWrong: 'Correct answer:',
       exitTitle: 'Exit the app?', exitYes: 'Exit', exitNo: 'Stay',
       saved: 'Saved', savedN: '{n} lessons added', multiHint: '💡 Separate lessons with a === line to add several at once', deleted: 'Deleted', imported: 'Imported', importBad: 'Invalid file', copied: 'Template copied', pasted: 'Pasted',
       media: 'Media', mediaAdded: 'Media attached', mediaReplace: 'Replace', mediaMiss: 'File not stored — attach it via 🎬', remove: 'Remove',
@@ -742,6 +756,7 @@
       quiz: 'Quiz d’association', listenQuiz: 'Écoute et choisis', replay: '🔊 Réécouter', quizPick: 'Choisissez la langue à associer à {lang} :', quizScore: 'Score', quizAgain: 'Rejouer', quizDone: 'Terminé', quizEmpty: 'La leçon doit avoir des phrases dans au moins deux langues',
       rrTitle: 'Jeu Lis & Répète 🗣', rrPickLang: 'Choisis la langue d’entraînement', rrModeT: 'Mode d’entraînement', rrModeL: '👂 Écoute 5× puis répète', rrModeR: '📖 Lis et répète directement',
       rrListenN: '👂 Écoute', rrYourTurn: '🎤 À toi — répète', rrHear: '🔊 Écouter', rrSkip: 'Passer l’écoute', rrWell: 'Bravo ! 🎉', rrResume: '↩ Continuer l’entraînement', rrNew: '🔄 Recommencer', rrSlow: '🐢 Lecture lente de la phrase',
+      dictTitle: 'Jeu de dictée ✍️', dictPick: 'Choisis la langue de dictée', dictType: 'Écris ce que tu entends…', dictCheck: 'Vérifier', dictShow: 'Voir la réponse', dictCorrect: 'Bravo, c’est juste !', dictWrong: 'Bonne réponse :',
       exitTitle: 'Quitter l\'application ?', exitYes: 'Quitter', exitNo: 'Rester',
       saved: 'Enregistré', savedN: '{n} leçons ajoutées', multiHint: '💡 Séparez les leçons par une ligne === pour en ajouter plusieurs', deleted: 'Supprimé', imported: 'Importé', importBad: 'Fichier invalide', copied: 'Modèle copié', pasted: 'Collé',
       media: 'Média', mediaAdded: 'Média joint', mediaReplace: 'Remplacer', mediaMiss: 'Fichier absent — joignez-le via 🎬', remove: 'Retirer',
@@ -1837,6 +1852,7 @@
         '<button class="vh-act" id="lessonQuizBtn" title="' + esc(t('quiz')) + '">🧩</button>' +
         '<button class="vh-act" id="lessonListenBtn" title="' + esc(t('listenQuiz')) + '">🎧</button>' +
         '<button class="vh-act" id="lessonRrBtn" title="' + esc(t('rrTitle')) + '">🗣️</button>' +
+        '<button class="vh-act" id="lessonDictBtn" title="' + esc(t('dictTitle')) + '">✍️</button>' +
         '<button class="vh-act" id="lessonMediaBtn" title="' + esc(t('media')) + '">🎬</button>' +
         '<button class="vh-act" id="lessonEditBtn" title="' + esc(t('edit')) + '">✏️</button>' +
         '<button class="vh-act" id="plIconModeBtn" title="أيقونة الأسطر">' + (plIconMode === 'flag' ? '🚩' : '⟳') + '</button>' +
@@ -1853,6 +1869,7 @@
     document.getElementById('lessonQuizBtn').onclick = function () { openQuiz(l); };
     document.getElementById('lessonListenBtn').onclick = function () { openListen(l); };
     document.getElementById('lessonRrBtn').onclick = function () { openReadRepeat(l); };
+    document.getElementById('lessonDictBtn').onclick = function () { openDict(l); };
     document.getElementById('plIconModeBtn').onclick = togglePlIconMode;
 
     var mediaWrap = '<div id="mediaBox"></div>';
@@ -2813,6 +2830,7 @@
   function closeQuiz() {
     document.getElementById('ovQuiz').classList.remove('open');
     rr = null;
+    dz = null;
     stopSpeaking();
   }
   /* ProLang-style pair picker for both games: every question→answer direction
@@ -3094,6 +3112,264 @@
     document.getElementById('qzProgress').textContent = t('quizScore') + ': ' + pct + '%';
     document.getElementById('qzAgain').onclick = function () { openListen(lz.lesson); };
     document.getElementById('qzDone').onclick = closeQuiz;
+  }
+
+  /* ==================== dictation game (listen & write) ==================== */
+  var dz = null;
+  function dzBase(s) {
+    s = (s || '').toLowerCase().trim();
+    if (s.normalize) s = s.normalize('NFD').replace(/[̀-ͯ]/g, '');
+    s = s.replace(/[\u064B-\u0654\u0670\u0640]/g, '')
+         .replace(/[أإآٱ]/g, 'ا').replace(/ؤ/g, 'و').replace(/ئ/g, 'ي')
+         .replace(/ى/g, 'ي').replace(/ة/g, 'ه').replace(/ء/g, '');
+    return s;
+  }
+  var DZNUM = {
+    'zero': 0, 'un': 1, 'une': 1, 'deux': 2, 'trois': 3, 'quatre': 4, 'cinq': 5, 'six': 6, 'sept': 7, 'huit': 8, 'neuf': 9, 'dix': 10, 'onze': 11, 'douze': 12, 'treize': 13, 'quatorze': 14, 'quinze': 15, 'seize': 16, 'vingt': 20, 'trente': 30, 'quarante': 40, 'cinquante': 50, 'soixante': 60, 'cent': 100, 'cents': 100, 'mille': 1000,
+    'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10, 'eleven': 11, 'twelve': 12, 'thirteen': 13, 'fourteen': 14, 'fifteen': 15, 'sixteen': 16, 'seventeen': 17, 'eighteen': 18, 'nineteen': 19, 'twenty': 20, 'thirty': 30, 'forty': 40, 'fifty': 50, 'sixty': 60, 'seventy': 70, 'eighty': 80, 'ninety': 90, 'hundred': 100, 'thousand': 1000,
+    'صفر': 0, 'واحد': 1, 'واحده': 1, 'احد': 1, 'احدي': 1, 'اثنان': 2, 'اثنين': 2, 'اثنتان': 2, 'اثنتين': 2, 'ثلاثه': 3, 'ثلاث': 3, 'اربعه': 4, 'اربع': 4, 'خمسه': 5, 'خمس': 5, 'سته': 6, 'ست': 6, 'سبعه': 7, 'سبع': 7, 'ثمانيه': 8, 'ثمان': 8, 'ثماني': 8, 'تسعه': 9, 'تسع': 9, 'عشره': 10, 'عشر': 10, 'عشرين': 20, 'عشرون': 20, 'عشرین': 20, 'ثلاثين': 30, 'اربعين': 40, 'خمسين': 50, 'ستين': 60, 'سبعين': 70, 'ثمانين': 80, 'تسعين': 90, 'مئه': 100, 'مائه': 100, 'ميه': 100, 'الف': 1000
+  };
+  var DZFRAC = { 'demi': 0.5, 'demie': 0.5, 'moitie': 0.5, 'half': 0.5, 'نصف': 0.5, 'نص': 0.5, 'tiers': 1 / 3, 'tierce': 1 / 3, 'third': 1 / 3, 'ثلث': 1 / 3, 'quart': 0.25, 'quarts': 0.25, 'quarter': 0.25, 'quarters': 0.25, 'ربع': 0.25, 'ارباع': 0.25 };
+  var DZOP = { 'plus': '+', 'زايد': '+', 'moins': '-', 'ناقص': '-', 'fois': '*', 'multiplie': '*', 'multiplies': '*', 'times': '*', 'ضرب': '*', 'divise': '/', 'divises': '/', 'over': '/', 'divided': '/', 'تقسيم': '/', 'قسمه': '/', 'egale': '=', 'egal': '=', 'egaux': '=', 'font': '=', 'equals': '=', 'equal': '=', 'is': '=', 'يساوي': '=', 'تساوي': '=', 'يساوون': '=', 'ناتج': '=', 'نتيجه': '=', 'الجواب': '=',
+    'virgule': '.', 'point': '.', 'dot': '.', 'فاصله': '.', 'نقطه': '.' };
+  var DZDROP = ['et', 'و', 'and', "o'clock", 'heure', 'heures', 'ساعه', 'ساعات', 'minute', 'minutes', 'دقيقه', 'دقايق', 'دقائق', 'ثانيه', 'ثواني', 'seconde', 'secondes', 'h', 'du', 'des', 'de', 'd', 'le', 'la', 'les'];
+  var DZPM = ['pm', 'soir', 'apres', 'مساء', 'ظهر', 'عصر', 'ليلا'];
+  function dzToks(text) {
+    var s = dzBase(text);
+    s = s.replace(/pour\s+cents?/g, ' % ').replace(/per\s+cent/g, ' % ').replace(/pourcents?/g, ' % ').replace(/percents?/g, ' % ')
+         .replace(/في\s+المي?[ئ]?ه|بالمي?[ئ]?ه|بالمائه/g, ' % ')
+         .replace(/au\s+carre|a\s+la\s+puissance\s+2|squared|تربيع|مربع/g, ' ^2 ')
+         .replace(/au\s+cube|cubed|تكعيب/g, ' ^3 ')
+         .replace(/²/g, ' ^2 ').replace(/³/g, ' ^3 ');
+    var prev;
+    do { prev = s; s = s.replace(/(\d)[,.](\d)/g, '$1§$2'); } while (s !== prev);
+    s = s.replace(/(\d)\s*[:h]\s*(\d)/g, '$1 $2');
+    s = s.replace(/([a-zء-ي])-([a-zء-ي])/g, '$1 $2');
+    s = s.replace(/[-+*\/=%^]/g, ' $& ');
+    s = s.replace(/[.,!?;:'"؟?«»()\[\]{}]/g, ' ');
+    return s.split(/\s+/).filter(Boolean).map(function (x) {
+      x = x.replace(/§/g, '.');
+      var wx = x.charAt(0) === 'و' ? x.slice(1) : x; // وخمسون → 50
+      if (DZNUM[x] !== undefined) return String(DZNUM[x]);
+      if (wx !== x && DZNUM[wx] !== undefined) return String(DZNUM[wx]);
+      if (DZFRAC[x] !== undefined) return 'F' + DZFRAC[x];
+      if (wx !== x && DZFRAC[wx] !== undefined) return 'F' + DZFRAC[wx];
+      if (DZOP[x]) return DZOP[x];
+      if (wx !== x && DZOP[wx]) return DZOP[wx];
+      return x;
+    });
+  }
+  function dzFmt(v) { return String(Math.round(v * 10000) / 10000); }
+  function dzExpand(toks) {
+    var vs = [{ t: [], pm: false }];
+    toks.forEach(function (tk) {
+      if (DZDROP.indexOf(tk) >= 0) return;
+      if (DZPM.indexOf(tk) >= 0) { vs.forEach(function (v) { v.pm = true; }); return; }
+      if (tk.charAt(0) === 'F') {
+        var f = parseFloat(tk.slice(1)), nv = [];
+        vs.forEach(function (v) {
+          var last = v.t[v.t.length - 1];
+          if (last !== undefined && /^\d/.test(last)) {
+            var n = parseFloat(last);
+            [n * f, n + f, n + f * 60].forEach(function (x) {
+              nv.push({ t: v.t.slice(0, -1).concat([dzFmt(x)]), pm: v.pm });
+            });
+          } else {
+            [f, f * 60].forEach(function (x) { nv.push({ t: v.t.concat([dzFmt(x)]), pm: v.pm }); });
+          }
+        });
+        vs = nv;
+        return;
+      }
+      vs.forEach(function (v) { v.t.push(tk); });
+    });
+    return vs;
+  }
+  function dzFinal(v, mergeNums) {
+    var t = v.t, out = [], i = 0;
+    while (i < t.length) {
+      var x = t[i];
+      if (/^\d+(\.\d+)?$/.test(x)) {
+        var num = x;
+        if (i + 2 < t.length && t[i + 1] === '.' && /^\d+$/.test(t[i + 2])) { num = x + '.' + t[i + 2]; i += 3; out.push(num); continue; }
+        if (i + 2 < t.length && t[i + 1] === '^' && (t[i + 2] === '2' || t[i + 2] === '3')) {
+          num = dzFmt(Math.pow(parseFloat(x), parseInt(t[i + 2], 10))); i += 3;
+          if (t[i] === '%') { num += '%'; i++; }
+          out.push(num); continue;
+        }
+        var acc = parseFloat(x); i++;
+        if (mergeNums) while (i < t.length && /^\d+(\.\d+)?$/.test(t[i])) { acc += parseFloat(t[i]); i++; }
+        var s = dzFmt(acc);
+        if (t[i] === '%') { s += '%'; i++; }
+        out.push(s); continue;
+      }
+      if (x === '.') { i++; continue; }
+      out.push(x); i++;
+    }
+    return out;
+  }
+  function dzEvalToks(toks) {
+    var parts = [[]];
+    toks.forEach(function (x) { if (x === '=') parts.push([]); else parts[parts.length - 1].push(x); });
+    var vals = [], hasOp = false;
+    for (var pi = 0; pi < parts.length; pi++) {
+      var p = parts[pi], st = [], i;
+      for (i = 0; i < p.length; i++) {
+        var tk = p[i];
+        if (/^\d/.test(tk)) {
+          var num = parseFloat(tk);
+          if (st.length >= 2 && (st[st.length - 1] === '*' || st[st.length - 1] === '/')) {
+            var o = st.pop(), a = st.pop();
+            st.push(o === '*' ? a * num : (num === 0 ? NaN : a / num));
+          } else st.push(num);
+        } else if (tk === '+' || tk === '-' || tk === '*' || tk === '/') st.push(tk);
+        else return null;
+      }
+      var acc = st[0];
+      if (typeof acc !== 'number' || isNaN(acc)) return null;
+      for (i = 1; i < st.length - 1; i += 2) {
+        if (st[i] === '+') acc += st[i + 1];
+        else if (st[i] === '-') acc -= st[i + 1];
+        else return null;
+      }
+      if (/[+\-*\/]/.test(p.join(' '))) hasOp = true;
+      vals.push(acc);
+    }
+    if (!hasOp && parts.length === 1) return null;
+    return vals.every(function (v) { return Math.abs(v - vals[0]) < 1e-9; }) ? dzFmt(vals[0]) : null;
+  }
+  function dzCanonSet(text) {
+    var toks = dzToks(text);
+    var vs = dzExpand(toks);
+    var set = {};
+    vs.slice(0, 96).forEach(function (v) {
+      [true, false].forEach(function (merge) {
+        var out = dzFinal(v, merge);
+        set[out.join(' ')] = 1;
+        if (v.pm) {
+          for (var j = 0; j < out.length; j++) {
+            if (/^\d+(\.\d+)?$/.test(out[j])) {
+              var o2 = out.slice(); o2[j] = dzFmt(parseFloat(out[j]) + 12);
+              set[o2.join(' ')] = 1;
+              break;
+            }
+          }
+        }
+        var ev = dzEvalToks(out);
+        if (ev) set[ev] = 1;
+      });
+    });
+    return set;
+  }
+  function dzMatch(user, answer) {
+    var A = dzCanonSet(user), B = dzCanonSet(answer);
+    return Object.keys(A).some(function (k) { return B[k]; });
+  }
+  function openDict(l) {
+    document.querySelector('#ovQuiz .qz-title').innerHTML = '✍️ <span>' + esc(t('dictTitle')) + '</span>';
+    document.getElementById('ovQuiz').classList.add('open');
+    document.getElementById('qzProgress').textContent = '';
+    var body = document.getElementById('qzBody');
+    var items = rrItemsFor(l);
+    var langs = [], main = primaryLang(l);
+    items.forEach(function (m) { Object.keys(m).forEach(function (k) { if (m[k] && HAS_VOICE[k] && langs.indexOf(k) < 0) langs.push(k); }); });
+    if (!items.length || !langs.length) { body.innerHTML = '<div class="qz-result"><div class="qz-sub">' + esc(t('quizEmpty')) + '</div></div>'; return; }
+    langs.sort(function (a, b) { return (a === main ? -1 : 0) - (b === main ? -1 : 0); });
+    body.innerHTML = '<div class="qz-langs"><h3>' + esc(t('dictPick')) + '</h3>' +
+      langs.map(function (g) {
+        var n = items.filter(function (m) { return m[g]; }).length;
+        return '<button class="btn" data-lang="' + g + '">' + (LANG_FLAG[g] || '🏳️') + ' ' + g.toUpperCase() + ' — ' + n + '</button>';
+      }).join('') + '</div>';
+    body.querySelectorAll('button[data-lang]').forEach(function (b) {
+      b.onclick = function () { dzStart(l, items, b.dataset.lang); };
+    });
+  }
+  function dzStart(l, items, lang) {
+    var qs = items.filter(function (m) { return (m[lang] || '').trim(); });
+    dz = { l: l, items: qzShuffle(qs.slice()), lang: lang, i: 0, ok: 0, bad: 0, answered: false };
+    dzShow();
+  }
+  function dzShow() {
+    var body = document.getElementById('qzBody');
+    if (!dz || !document.getElementById('ovQuiz').classList.contains('open')) return;
+    var m = dz.items[dz.i];
+    var text = m[dz.lang] || '';
+    var trans = Object.keys(m).filter(function (k) { return k !== dz.lang && m[k]; })
+      .map(function (k) { return '<div class="dz-ans" dir="' + rrDir(k) + '">' + esc((LANG_FLAG[k] || '🏳️') + ' ' + m[k]) + '</div>'; }).join('');
+    document.getElementById('qzProgress').textContent = (dz.i + 1) + '/' + dz.items.length;
+    body.innerHTML = '<div class="dz-stage">' +
+      '<div class="dz-ctl"><button class="lz-loop" id="dzPlay" title="' + esc(t('replay')) + '">🔊</button><button class="lz-loop dz-small" id="dzSlow" title="' + esc(t('rrSlow')) + '">🐢</button></div>' +
+      '<input class="dz-in" id="dzIn" dir="' + rrDir(dz.lang) + '" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="' + esc(t('dictType')) + '">' +
+      '<div class="dz-msg" id="dzMsg"></div>' +
+      '<div class="dz-ctl">' +
+        '<button class="btn btn-primary" id="dzCheck">✓ ' + esc(t('dictCheck')) + '</button>' +
+        '<button class="btn" id="dzShowBtn">👁 ' + esc(t('dictShow')) + '</button>' +
+        '<button class="btn hidden" id="dzNextBtn">⏭ ' + esc(t('next')) + '</button>' +
+      '</div>' +
+      '<div id="dzTrans" style="display:none">' + trans + '</div>' +
+    '</div>';
+    var inp = document.getElementById('dzIn');
+    var play = document.getElementById('dzPlay');
+    var slow = document.getElementById('dzSlow');
+    play.onclick = function () { speakLoop(text, play, dz.lang); };
+    slow.onclick = function () { speakSlow(text, dz.lang, slow); };
+    document.getElementById('dzCheck').onclick = dzCheck;
+    document.getElementById('dzShowBtn').onclick = function () { dzReveal(false); };
+    document.getElementById('dzNextBtn').onclick = dzNext;
+    inp.addEventListener('keydown', function (e) { if (e.key === 'Enter') dzCheck(); });
+    dz.answered = false;
+    setTimeout(function () {
+      if (document.getElementById('ovQuiz').classList.contains('open')) {
+        speakLoop(text, play, dz.lang);
+        try { inp.focus(); } catch (e) {}
+      }
+    }, 300);
+  }
+  function dzCheck() {
+    if (!dz || dz.answered) return;
+    var val = document.getElementById('dzIn').value;
+    if (!val.trim()) return;
+    dzReveal(dzMatch(val, dz.items[dz.i][dz.lang] || ''));
+  }
+  function dzReveal(ok) {
+    if (!dz || dz.answered) return;
+    dz.answered = true;
+    var m = dz.items[dz.i], text = m[dz.lang] || '';
+    var inp = document.getElementById('dzIn');
+    var msg = document.getElementById('dzMsg');
+    var next = document.getElementById('dzNextBtn');
+    var trans = document.getElementById('dzTrans');
+    stopSpeaking(); pauseMedia();
+    if (ok) { dz.ok++; qzTone(true); inp.classList.add('ok'); msg.className = 'dz-msg ok'; msg.textContent = '✅ ' + t('dictCorrect'); }
+    else {
+      dz.bad++; qzTone(false); inp.classList.add('bad');
+      msg.className = 'dz-msg bad';
+      msg.innerHTML = '❌ ' + esc(t('dictWrong')) + ' <span class="dz-ans" dir="' + rrDir(dz.lang) + '">' + esc(text) + '</span>';
+    }
+    if (trans) trans.style.display = 'block';
+    next.classList.remove('hidden');
+    if (ok && HAS_VOICE[dz.lang]) speakAuto(text, dz.lang, state.loop, function () {});
+    setTimeout(function () { if (dz && dz.answered) dzNext(); }, ok ? 2800 : 8000);
+  }
+  function dzNext() {
+    if (!dz || !document.getElementById('ovQuiz').classList.contains('open')) return;
+    dz.i++;
+    if (dz.i >= dz.items.length) { dzEnd(); return; }
+    dzShow();
+  }
+  function dzEnd() {
+    var body = document.getElementById('qzBody');
+    var n = dz.items.length;
+    var pct = Math.round(dz.ok / Math.max(1, n) * 100);
+    body.innerHTML = '<div class="qz-result"><div class="qz-score">' + pct + '%</div>' +
+      '<div class="qz-sub">✅ ' + dz.ok + ' · ❌ ' + dz.bad + '</div>' +
+      '<button class="btn btn-primary" id="dzAgain">🔄 ' + esc(t('quizAgain')) + '</button>' +
+      '<button class="btn btn-ghost" id="dzOut">✓ ' + esc(t('quizDone')) + '</button></div>';
+    document.getElementById('qzProgress').textContent = t('quizScore') + ': ' + pct + '%';
+    var l = dz.l;
+    document.getElementById('dzAgain').onclick = function () { openDict(l); };
+    document.getElementById('dzOut').onclick = closeQuiz;
+    dz = null;
   }
 
   /* ==================== Read & Repeat game (ProLang) ==================== */
