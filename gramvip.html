@@ -558,6 +558,17 @@
   </div>
 </div>
 
+<div class="overlay hidden" id="ovPhEdit">
+  <div class="sheet">
+    <h2>✏️ <span data-t="editCard">تعديل البطاقة</span></h2>
+    <div id="phEditRows"></div>
+    <div class="btnrow">
+      <button class="btn btn-ghost" id="phEditCancel" data-t="cancel">إلغاء</button>
+      <button class="btn btn-primary" id="phEditSave" data-t="save">حفظ</button>
+    </div>
+  </div>
+</div>
+
 <div class="overlay hidden" id="ovMove">
   <div class="sheet">
     <h2>📂 <span data-t="moveTo">نقل إلى مجلد</span></h2>
@@ -660,6 +671,7 @@
       delFolderT: 'حذف المجلد؟', delFolderD: 'سيتم حذف المجلد وكل دروسه — لا يمكن التراجع.',
       delLessonT: 'حذف الدرس؟', delLessonD: 'سيتم حذف هذا الدرس نهائياً.',
       delImgT: 'حذف الصورة؟', delImgD: 'ستُزال الصورة من هذه العبارة.',
+      editCard: 'تعديل البطاقة', delPhraseT: 'حذف البطاقة؟', delPhraseD: 'ستُحذف هذه العبارة نهائياً.',
       lzImgT: 'حذف صورة اللعبة؟', lzImgD: 'ستُزال صورتك المخصصة وترجع الصورة الافتراضية.',
       quiz: 'اختبار التوصيل', listenQuiz: 'اسمع واختر', replay: '🔊 إعادة الاستماع', quizPick: 'اختر اللغة المقابلة لـ{lang}:', quizScore: 'النتيجة', quizAgain: 'إعادة اللعب', quizDone: 'انتهى', quizEmpty: 'الدرس يحتاج عبارات بلغتين على الأقل',
       rrTitle: 'لعبة اقرأ وكرّر 🗣', rrPickLang: 'اختر لغة التدريب', rrModeT: 'طريقة التدريب', rrModeL: '👂 استمع 5× ثم انطق', rrModeR: '📖 اقرأ وانطق مباشرة',
@@ -690,6 +702,7 @@
       delFolderT: 'Delete folder?', delFolderD: 'The folder and all its lessons will be deleted — this cannot be undone.',
       delLessonT: 'Delete lesson?', delLessonD: 'This lesson will be permanently deleted.',
       delImgT: 'Delete image?', delImgD: 'The image will be removed from this phrase.',
+      editCard: 'Edit card', delPhraseT: 'Delete card?', delPhraseD: 'This phrase will be permanently deleted.',
       lzImgT: 'Delete game image?', lzImgD: 'Your custom image will be removed and the default restored.',
       quiz: 'Matching quiz', listenQuiz: 'Listen & choose', replay: '🔊 Listen again', quizPick: 'Pick the language to match with {lang}:', quizScore: 'Score', quizAgain: 'Play again', quizDone: 'Done', quizEmpty: 'The lesson needs phrases in at least two languages',
       rrTitle: 'Read & Repeat game 🗣', rrPickLang: 'Choose the training language', rrModeT: 'Training mode', rrModeL: '👂 Listen 5× then repeat', rrModeR: '📖 Read & repeat directly',
@@ -720,6 +733,7 @@
       delFolderT: 'Supprimer le dossier ?', delFolderD: 'Le dossier et toutes ses leçons seront supprimés — action irréversible.',
       delLessonT: 'Supprimer la leçon ?', delLessonD: 'Cette leçon sera définitivement supprimée.',
       delImgT: 'Supprimer l’image ?', delImgD: 'L’image sera retirée de cette phrase.',
+      editCard: 'Modifier la carte', delPhraseT: 'Supprimer la carte ?', delPhraseD: 'Cette phrase sera définitivement supprimée.',
       lzImgT: 'Supprimer l’image du jeu ?', lzImgD: 'Votre image personnalisée sera remplacée par l’image par défaut.',
       quiz: 'Quiz d’association', listenQuiz: 'Écoute et choisis', replay: '🔊 Réécouter', quizPick: 'Choisissez la langue à associer à {lang} :', quizScore: 'Score', quizAgain: 'Rejouer', quizDone: 'Terminé', quizEmpty: 'La leçon doit avoir des phrases dans au moins deux langues',
       rrTitle: 'Jeu Lis & Répète 🗣', rrPickLang: 'Choisis la langue d’entraînement', rrModeT: 'Mode d’entraînement', rrModeL: '👂 Écoute 5× puis répète', rrModeR: '📖 Lis et répète directement',
@@ -1272,6 +1286,12 @@
       if (!line || /^\d+$/.test(line)) { if (tStart != null) { pendStart = tStart; pendEnd = tEnd; } continue; }
       if (pendStart != null && tStart == null) { tStart = pendStart; tEnd = pendEnd; }
       pendStart = pendEnd = null;
+      if (/^#{4,6}\s+/.test(line)) {   // '#### group title' (lessonToRaw serialization)
+        var gtxt = line.replace(/^#{1,6}\s*/, '');
+        var gsegs = flaggedSegs(gtxt);
+        newGrp(gsegs ? segsToTri(gsegs) : partsToTri(splitParts(gtxt.replace(/^\d+\s*[.)]\s*/, ''))));
+        continue;
+      }
       if (/^#{1,6}\s+/.test(line)) {   // '### section title' (ProLang style)
         newSec(partsToTri(splitParts(line.replace(/^#{1,6}\s*/, '').replace(/^\d+\s*[.)]\s*/, ''))));
         continue;
@@ -1650,7 +1670,8 @@
       '<button class="ph-act ai-open" title="Google AI">✨</button>' +
       '<button class="ph-act img-open" title="Google Images">🖼️</button>' +
       '<button class="ph-act ph-img-add" title="رفع صورة">📷</button>' +
-      (p && p.start != null ? '<button class="ph-act ph-medloop" title="تكرار مقطع الفيديو">🔁</button>' : '') + '</div>';
+      (p && p.start != null ? '<button class="ph-act ph-medloop" title="تكرار مقطع الفيديو">🔁</button>' : '') +
+      (ref && ref.l ? '<button class="ph-act ph-menu" title="⋮">⋮</button>' : '') + '</div>';
     var img = p.img ? '<div class="ph-img"><img src="' + esc(p.img) + '" alt=""><button class="ph-img-del" title="حذف الصورة">×</button></div>' : '';
     return '<div class="phrase"' + refAttr + '><div class="phrase-lines">' + rows + acts + img + '</div></div>';
   }
@@ -2043,10 +2064,11 @@
     if (!l) return null;
     var sec = l.sections[parseInt(el.dataset.s, 10)];
     if (!sec) return null;
-    var g = secGroups(sec)[parseInt(el.dataset.g, 10)];
+    var gi = parseInt(el.dataset.g, 10), pi = parseInt(el.dataset.p, 10);
+    var g = secGroups(sec)[gi];
     if (!g) return null;
-    var p = g.phrases[parseInt(el.dataset.p, 10)];
-    return p ? { lesson: l, phrase: p, el: el } : null;
+    var p = g.phrases[pi];
+    return p ? { lesson: l, phrase: p, el: el, g: g, pi: pi } : null;
   }
   function delPhraseImg(f) {
     confirmBox(t('delImgT'), t('delImgD'), function () {
@@ -2118,6 +2140,91 @@
         var f = findPhraseObj(b);
         if (f) delPhraseImg(f);
       };
+    });
+    wrap.querySelectorAll('.ph-menu').forEach(function (b) {
+      attachMenu(b, [
+        { icon: '✏️', label: t('editCard'), fn: function () { var f = findPhraseObj(b); if (f) openPhraseEdit(f); } },
+        { icon: '🗑️', label: t('del'), danger: true, fn: function () { var f = findPhraseObj(b); if (f) confirmDeletePhrase(f); } }
+      ]);
+    });
+  }
+
+  /* serialize a lesson back to the text template so card edits survive
+     full-lesson edits later ('### ' = section, '#### ' = group) */
+  function tFmt(s) {
+    var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), x = (s % 60);
+    var xs = x < 10 ? '0' + x : '' + x;
+    return h ? h + ':' + String(m).padStart(2, '0') + ':' + xs : String(m).padStart(2, '0') + ':' + xs;
+  }
+  function lessonToRaw(l) {
+    function fl(ln) { return ln.flag || LANG_FLAG[ln.lang] || '🏳️'; }
+    function flines(tr) {
+      return tLines(tr).map(function (x) { return fl(x) + ' ' + x.text; }).join(' ').trim();
+    }
+    var out = [];
+    var tl = flines(l.title);
+    if (tl) out.push(tl);
+    l.sections.forEach(function (s) {
+      var st = flines(s.title);
+      if (st) out.push('### ' + st);
+      secGroups(s).forEach(function (g) {
+        var gt = g.title ? flines(g.title) : '';
+        if (gt) out.push('#### ' + gt);
+        g.phrases.forEach(function (p) {
+          var parts = [], guide = [];
+          pLines(p).forEach(function (ln) {
+            if (!ln.lang) { if (ln.text) guide.push(ln.text); return; }
+            parts.push(fl(ln) + ' ' + ln.text);
+          });
+          var prefix = '';
+          if (p.start != null) {
+            prefix = tFmt(p.start);
+            if (p.end != null) prefix += ' --> ' + tFmt(p.end);
+            prefix += ' ';
+          }
+          if (parts.length) out.push(prefix + parts.join(' '));
+          guide.forEach(function (gx) { out.push(gx); });
+        });
+        (g.notes || []).forEach(function (n) { out.push(n); });
+      });
+    });
+    return out.join('\n');
+  }
+
+  var phEditCtx = null;
+  function openPhraseEdit(f) {
+    phEditCtx = f;
+    document.getElementById('phEditRows').innerHTML = pLines(f.phrase).map(function (ln, i) {
+      var flag = ln.flag || LANG_FLAG[ln.lang] || '🏳️';
+      var nm = ln.lang ? (LANG_NAMES[ln.lang] || ln.lang.toUpperCase()) : '';
+      return '<div class="field"><label>' + esc(flag) + (nm ? ' ' + esc(nm) : '') + '</label>' +
+        '<input type="text" data-i="' + i + '" value="' + esc(ln.text) + '"' + (rrDir(ln.lang) ? ' dir="rtl"' : '') + '></div>';
+    }).join('');
+    document.getElementById('ovPhEdit').classList.remove('hidden');
+  }
+  async function savePhraseEdit() {
+    var f = phEditCtx;
+    if (!f) return;
+    var inputs = document.querySelectorAll('#phEditRows input');
+    inputs.forEach(function (inp) {
+      var i = parseInt(inp.dataset.i, 10);
+      if (f.phrase.lines[i]) f.phrase.lines[i].text = inp.value.trim();
+    });
+    f.phrase.lines = (f.phrase.lines || []).filter(function (ln) { return ln.text || ln.lang === ''; });
+    f.lesson.raw = lessonToRaw(f.lesson);
+    await idbPut('lessons', f.lesson);
+    document.getElementById('ovPhEdit').classList.add('hidden');
+    phEditCtx = null;
+    toast('✓ ' + t('saved'));
+    renderAll();
+  }
+  function confirmDeletePhrase(f) {
+    confirmBox(t('delPhraseT'), allText(f.phrase).slice(0, 80) + '. ' + t('delPhraseD'), async function () {
+      f.g.phrases.splice(f.pi, 1);
+      f.lesson.raw = lessonToRaw(f.lesson);
+      await idbPut('lessons', f.lesson);
+      toast('✓ ' + t('deleted'));
+      renderAll();
     });
   }
 
@@ -3357,6 +3464,8 @@
     if (state.view === 'folder') { var ff = folderById(state.folderId); if (ff) openLessonSheet(ff, null); }
   };
   document.getElementById('moveCancel').onclick = function () { document.getElementById('ovMove').classList.add('hidden'); };
+  document.getElementById('phEditCancel').onclick = function () { phEditCtx = null; document.getElementById('ovPhEdit').classList.add('hidden'); };
+  document.getElementById('phEditSave').onclick = savePhraseEdit;
   document.getElementById('lessonText').addEventListener('input', updateParseStats);
   function copyTplText(tp, done) {
     done = done || function () { toast('📋 ' + t('copied')); };
@@ -3419,7 +3528,7 @@
     } catch (e) { toast('⚠️'); }
   };
 
-  ['ovFolder', 'ovLesson', 'ovMove', 'ovTemplate'].forEach(function (id) {
+  ['ovFolder', 'ovLesson', 'ovMove', 'ovTemplate', 'ovPhEdit'].forEach(function (id) {
     document.getElementById(id).addEventListener('click', function (e) {
       if (e.target.id === id) document.getElementById(id).classList.add('hidden');
     });
@@ -3455,6 +3564,7 @@
       if (!document.getElementById('ovFolder').classList.contains('hidden')) { document.getElementById('ovFolder').classList.add('hidden'); return; }
       if (!document.getElementById('ovLesson').classList.contains('hidden')) { document.getElementById('ovLesson').classList.add('hidden'); return; }
       if (!document.getElementById('ovMove').classList.contains('hidden')) { document.getElementById('ovMove').classList.add('hidden'); return; }
+      if (!document.getElementById('ovPhEdit').classList.contains('hidden')) { phEditCtx = null; document.getElementById('ovPhEdit').classList.add('hidden'); return; }
       if (state.query) { state.query = ''; document.getElementById('search').value = ''; renderAll(); return; }
       if (state.view === 'lesson') { state.view = 'folder'; state.lessonId = null; renderAll(); return; }
       if (state.view === 'folder') { state.view = 'home'; state.folderId = null; renderAll(); return; }
