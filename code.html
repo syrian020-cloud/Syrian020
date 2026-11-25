@@ -1207,6 +1207,24 @@ function renderResult(){
 }
 
 document.getElementById('btn-stop').onclick = stopSpeech;
+function goBack(){
+  if(document.getElementById('nb-ov') && document.getElementById('nb-ov').classList.contains('show')){
+    var nbCloseBtn = document.querySelector('#nb-ov .nb-icon');
+    document.getElementById('nb-ov').classList.remove('show');
+    return true;
+  }
+  if(document.getElementById('dg-overlay')){ dgClose(); return true; }
+  if(state.screen === 'lesson'){ state.screen = 'lessons'; render(); return true; }
+  if(state.screen === 'lessons'){ state.screen = 'home'; render(); return true; }
+  if(state.screen === 'quiz' || state.screen === 'result'){ state.screen = 'home'; render(); return true; }
+  return false;
+}
+if(window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App){
+  Capacitor.Plugins.App.addListener('backButton', function(){
+    if(!goBack()) Capacitor.Plugins.App.exitApp();
+  });
+}
+window.addEventListener('popstate', function(){ goBack(); });
 document.getElementById('btn-back').onclick = function(){
   if(state.screen === 'lesson'){ state.screen = 'lessons'; render(); }
   else if(state.screen === 'lessons'){ state.screen = 'home'; render(); }
