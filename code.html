@@ -1377,16 +1377,24 @@ function renderLesson(){
       var isOk = q.ok.indexOf(j) !== -1;
       return '<div class="mini" style="direction:ltr;text-align:left;' + (isOk ? 'color:#22c55e;font-weight:800' : 'opacity:0.75') + '">' + (isOk ? '✔ ' : '· ') + esc(o.f) + '</div>';
     }).join('');
+    var imgH = q.img ? imgHtml(q) : '';
+    var lines = [
+      {l:'fr', h:'<div class="phr-line" dir="ltr"><button class="flag-btn" data-t="' + esc(q.q) + '" data-lang="fr-FR">🇫🇷</button> ' + wordify(q.q, 'fr-FR') + '</div>'},
+      {l:'ar', h:(q.qa ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-t="' + esc(q.qa) + '" data-lang="ar-SY">🇸🇾</button> ' + wordify(q.qa, 'ar-SY') + '</div>' : '')},
+      {l:'img', h:imgH},
+      {l:'fr', h:'<div class="phr-line" dir="ltr" style="border-top:1px dashed var(--border)"><button class="flag-btn" data-t="' + esc(cor.f) + '" data-lang="fr-FR">🇫🇷</button> ✅ <b>' + wordify(cor.f, 'fr-FR') + '</b></div>'},
+      {l:'ar', h:(cor.a ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-t="' + esc(cor.a) + '" data-lang="ar-SY">🇸🇾</button> ✅ <b>' + wordify(cor.a, 'ar-SY') + '</b></div>' : '')},
+      {l:'fr', h:(q.exp ? '<div class="phr-line" dir="ltr" style="opacity:0.92"><button class="flag-btn" data-t="' + esc(q.exp) + '" data-lang="fr-FR">🇫🇷</button> 💡 ' + wordify(q.exp, 'fr-FR') + '</div>' : '')},
+      {l:'ar', h:(q.expa ? '<div class="phr-line" dir="rtl" style="opacity:0.92"><button class="flag-btn" data-t="' + esc(q.expa) + '" data-lang="ar-SY">🇸🇾</button> 💡 ' + wordify(q.expa, 'ar-SY') + '</div>' : '')}
+    ];
+    if(LANG === 'ar'){
+      lines = [lines[1], lines[0], lines[2], lines[4], lines[3], lines[6], lines[5]];
+    }
+    var linesHtml = lines.map(function(x){ return x.h; }).join('');
     return '<div class="slide-card">' +
       '<div class="slide-head"><span class="slide-num">' + (i + 1) + ' / ' + ls.qs.length + '</span>' +
       '<button class="icon-btn gsearch" data-q="' + esc(q.q) + '" data-qa="' + esc(q.qa || '') + '" data-exp="' + esc(q.exp || '') + '" title="بحث Google AI" style="font-size:0.95rem;width:2rem;height:2rem">✨</button>' + '</div>' +
-      '<div class="phr-line" dir="ltr"><button class="flag-btn" data-t="' + esc(q.q) + '" data-lang="fr-FR">🇫🇷</button> ' + wordify(q.q, 'fr-FR') + '</div>' +
-      (q.qa ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-t="' + esc(q.qa) + '" data-lang="ar-SY">🇸🇾</button> ' + wordify(q.qa, 'ar-SY') + '</div>' : '') +
-      (q.img ? imgHtml(q) : '') +
-      '<div class="phr-line" dir="ltr" style="border-top:1px dashed var(--border)"><button class="flag-btn" data-t="' + esc(cor.f) + '" data-lang="fr-FR">🇫🇷</button> ✅ <b>' + wordify(cor.f, 'fr-FR') + '</b></div>' +
-      (cor.a ? '<div class="phr-line" dir="rtl"><button class="flag-btn" data-t="' + esc(cor.a) + '" data-lang="ar-SY">🇸🇾</button> ✅ <b>' + wordify(cor.a, 'ar-SY') + '</b></div>' : '') +
-      (q.exp ? '<div class="phr-line" dir="ltr" style="opacity:0.92"><button class="flag-btn" data-t="' + esc(q.exp) + '" data-lang="fr-FR">🇫🇷</button> 💡 ' + wordify(q.exp, 'fr-FR') + '</div>' : '') +
-      (q.expa ? '<div class="phr-line" dir="rtl" style="opacity:0.92"><button class="flag-btn" data-t="' + esc(q.expa) + '" data-lang="ar-SY">🇸🇾</button> 💡 ' + wordify(q.expa, 'ar-SY') + '</div>' : '') +
+      linesHtml +
     '</div>';
   }).join('');
   app.innerHTML =
