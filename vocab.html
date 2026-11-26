@@ -232,6 +232,15 @@
   #lang-box .lopt.on { border-color: var(--accent); background: rgba(139,92,246,0.15); }
   #lang-box .lx { align-self: center; padding: 0.4rem 1.2rem; border-radius: 10px; border: 1px solid var(--border); background: none; color: var(--text-secondary); cursor: pointer; }
 
+
+  #exit-ov { position: fixed; inset: 0; z-index: 400; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; }
+  #exit-ov.show { display: flex; }
+  #exit-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; padding: 1.4rem; width: min(85%, 19rem); text-align: center; }
+  #exit-box p { color: var(--text-primary); font-size: 1.1rem; font-weight: 700; margin: 0 0 1rem; }
+  #exit-box .xb { padding: 0.7rem 1.4rem; border-radius: 12px; border: none; font-weight: 800; font-size: 1rem; cursor: pointer; margin: 0 0.3rem; }
+  #exit-box .xyes { background: linear-gradient(135deg, var(--accent), var(--accent-2, var(--accent))); color: #fff; }
+  #exit-box .xno { background: var(--bg-tertiary, rgba(255,255,255,0.08)); color: var(--text-primary); border: 1px solid var(--border); }
+
 </style>
 </head>
 <body>
@@ -304,6 +313,13 @@
     <button class="lopt" data-l="en">🇬🇧 English</button>
     <button class="lopt" data-l="fr">🇫🇷 Français</button>
     <button class="lx">✕</button>
+  </div>
+</div>
+<div id="exit-ov">
+  <div id="exit-box">
+    <p id="exit-txt">الخروج من التطبيق؟</p>
+    <button class="xb xyes" id="exit-yes">نعم</button>
+    <button class="xb xno" id="exit-no">لا</button>
   </div>
 </div>
 <script src="js/edge-tts.js"></script>
@@ -1302,6 +1318,36 @@
   document.getElementById('btn-voice').addEventListener('click', function(){
     if(window.EdgeTTS && EdgeTTS.openSettings) EdgeTTS.openSettings();
   });
+
+  /* back button: close overlays first, else confirm exit */
+  function exitLabels(){
+    if(state.uiLang==='fr') return {q:'Quitter l\u2019application ?',y:'Oui',n:'Non'};
+    if(state.uiLang==='en') return {q:'Exit the app?',y:'Yes',n:'No'};
+    return {q:'\u0627\u0644\u062e\u0631\u0648\u062c \u0645\u0646 \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u061f',y:'\u0646\u0639\u0645',n:'\u0644\u0627'};
+  }
+  function showExit(){
+    var L=exitLabels();
+    document.getElementById('exit-txt').textContent=L.q;
+    document.getElementById('exit-yes').textContent=L.y;
+    document.getElementById('exit-no').textContent=L.n;
+    document.getElementById('exit-ov').classList.add('show');
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    document.getElementById('exit-no').onclick=function(){ document.getElementById('exit-ov').classList.remove('show'); };
+    document.getElementById('exit-yes').onclick=function(){
+      if(window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App) Capacitor.Plugins.App.exitApp();
+      else window.close();
+    };
+  });
+  if(window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App && Capacitor.Plugins.App.addListener){
+    Capacitor.Plugins.App.addListener('backButton', function(){
+      if(document.getElementById('exit-ov').classList.contains('show')){ document.getElementById('exit-ov').classList.remove('show'); return; }
+      if(document.getElementById('nt-ov') && document.getElementById('nt-ov').classList.contains('show')){ ntClose(); return; }
+      if(document.getElementById('lang-ov') && document.getElementById('lang-ov').classList.contains('show')){ document.getElementById('lang-ov').classList.remove('show'); return; }
+      if(document.getElementById('gm-ov')){ gmClose(); return; }
+      showExit();
+    });
+  }
 
   init();
 })();
