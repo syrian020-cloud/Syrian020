@@ -305,6 +305,7 @@
     <button class="lx">✕</button>
   </div>
 </div>
+<script src="js/edge-tts.js"></script>
 <script src="data/vocab.js"></script>
 <script src="data/vocab-batch-02.js"></script>
 <script>
@@ -745,7 +746,13 @@
   }
 
   function nativeStop(){ var tts = nativeTTS(); if(!tts) return Promise.resolve(); return tts.stop(); }
+  function edgeSpeak(text, lang){
+    if(!(window.EdgeTTS && EdgeTTS.supported && EdgeTTS.supported())) return null;
+    return EdgeTTS.play((text||'').slice(0,400), lang);
+  }
   function nativeSpeak(text, lang){
+    var ep = edgeSpeak(text, lang);
+    if(ep) return ep.catch(function(){});
     var tts = nativeTTS(); if(!tts) return Promise.reject('no tts');
     return tts.speak({ text: text, lang: VOICE_LANG[lang] || 'en-US', rate: state.rate, queueStrategy: 1 });
   }
@@ -762,6 +769,7 @@
   function stopSpeech(){
     state.loop = null;
     speechRun++;
+    if(window.EdgeTTS && EdgeTTS.stop) try{EdgeTTS.stop()}catch(e){}
     if(nativeTTS()) nativeStop();
     else if('speechSynthesis' in window) window.speechSynthesis.cancel();
     highlight();
@@ -1045,7 +1053,7 @@
     return items;
   }
   function gmSpeak(txt, lang){
-    if(nativeTTS()){
+    if(nativeTTS() || (window.EdgeTTS && EdgeTTS.supported && EdgeTTS.supported())){
       return nativeSpeak(txt, lang).catch(function(){});
     }
     return new Promise(function(res){

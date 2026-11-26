@@ -11,6 +11,7 @@ rm -rf www
 mkdir -p www/data www/js
 
 cp data/* www/data/
+mkdir -p www/js && cp js/*.js www/js/ 2>/dev/null || true
 cp manifest.json icon-192.png icon-512.png sw.js www/
 
 # Use vocab.html as the main entry, keep french.html available for the back link
