@@ -748,6 +748,7 @@
   function nativeStop(){ var tts = nativeTTS(); if(!tts) return Promise.resolve(); return tts.stop(); }
   function edgeSpeak(text, lang){
     if(!(window.EdgeTTS && EdgeTTS.supported && EdgeTTS.supported())) return null;
+    try{ EdgeTTS.stop(); }catch(e){}
     return EdgeTTS.play((text||'').slice(0,400), lang);
   }
   function nativeSpeak(text, lang){
@@ -1158,6 +1159,7 @@
           var w=items[parseInt(card.dataset.i,10)].fr;
           if(card._lp){ card._lp=false; stopSpeech(); }
           else {
+            document.querySelectorAll('.gm-card').forEach(function(c){ c._lp=false; });
             card._lp=true;
             gmSpeak(w,'fr').then(function loop(){ if(card._lp){ setTimeout(function(){ if(card._lp) gmSpeak(w,'fr').then(loop); },900); } });
           }
