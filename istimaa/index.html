@@ -4171,10 +4171,13 @@ if(!isCap()&&'serviceWorker'in navigator)navigator.serviceWorker.register('sw.js
 /* =============== init =============== */
 if(typeof ISTF!=='undefined'&&!window.__istp){window.__istp=1;NUMPH.push.apply(NUMPH,ISTF);
  const isNumF=f=>/nombr|numéro|paire/i.test(f.t.fr||'')||/الأرقام|المجموعات|هواتف/.test(f.t.ar||'');
- const nums=[],rest=[];NUMPH.forEach(f=>(isNumF(f)?nums:rest).push(f));
- if(nums.length>1){NUMPH.length=0;
-  NUMPH.push({t:{ar:'الأرقام والهواتف',fr:'Les nombres et les téléphones',en:'Numbers and phones'},ic:'🔢',secs:[],kids:nums});
-  rest.forEach(f=>NUMPH.push(f))}}
+ const isTimeF=f=>/heure|date|année/i.test(f.t.fr||'')||/التاريخ|التواريخ|الساعة|السنوات/.test(f.t.ar||'');
+ const nums=[],times=[],rest=[];
+ NUMPH.forEach(f=>{if(isNumF(f))nums.push(f);else if(isTimeF(f))times.push(f);else rest.push(f)});
+ NUMPH.length=0;
+ if(nums.length>1)NUMPH.push({t:{ar:'الأرقام والهواتف',fr:'Les nombres et les téléphones',en:'Numbers and phones'},ic:'🔢',secs:[],kids:nums});
+ if(times.length>1)NUMPH.push({t:{ar:'الوقت والتاريخ',fr:"L'heure et les dates",en:'Time and dates'},ic:'🕐',secs:[],kids:times});
+ rest.forEach(f=>NUMPH.push(f))}
 $('numGames').onclick=openGameHub;
 $('numLang').onclick=()=>$('langBtn').click();
 $('numTheme').onclick=()=>$('themeBtn').click();
