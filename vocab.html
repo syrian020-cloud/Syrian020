@@ -186,6 +186,43 @@
     .filter-chip.letter { min-width: 2.7rem; padding: 0.32rem 0.25rem; }
     .filter-chip.letter .letter-char { font-size: 0.95rem; }
   }
+
+  .gm-ov { position: fixed; inset: 0; z-index: 200; background: var(--bg); display: flex; flex-direction: column; padding: 0.8rem 0.7rem; box-sizing: border-box; overflow-y: auto; }
+  .gm-top { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem; }
+  .gm-prog { flex: 1; text-align: center; font-weight: 800; font-size: 1rem; }
+  .gm-menu { display: flex; flex-direction: column; gap: 0.7rem; align-items: center; justify-content: center; flex: 1; }
+  .gm-menu .gbtn { width: min(92%, 24rem); padding: 1rem; font-size: 1.1rem; font-weight: 800; border-radius: 16px; border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer; }
+  .gm-center { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; gap: 0.8rem; }
+  .gm-say { font-size: 1.7rem; padding: 0.8rem 1.5rem; border-radius: 50%; width: 74px; height: 74px; border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer; }
+  .gm-inp { font-size: 1.2rem; text-align: center; padding: 0.7rem 0.8rem; border-radius: 14px; border: 2px solid var(--border); background: var(--card); color: var(--text); width: min(92%, 26rem); direction: ltr; outline: none; }
+  .gm-inp:focus { border-color: var(--accent); }
+  .gm-btn { padding: 0.75rem 1.6rem; border-radius: 14px; border: none; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; font-weight: 800; font-size: 1rem; cursor: pointer; }
+  .gm-btn:disabled { opacity: 0.4; }
+  .gm-nav { display: flex; gap: 0.5rem; justify-content: center; }
+  .gm-nav button { padding: 0.5rem 1rem; border-radius: 12px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-weight: 700; cursor: pointer; }
+  .gm-nav button.on { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; border-color: transparent; }
+  .gm-msg { text-align: center; min-height: 2.2rem; font-size: 1rem; }
+  .gm-opts { display: flex; flex-direction: column; gap: 0.55rem; width: min(94%, 26rem); }
+  .gm-opt { padding: 0.8rem 0.9rem; border-radius: 14px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-size: 1rem; font-weight: 600; cursor: pointer; text-align: start; }
+  .gm-opt.ok { border-color: #1f9d55; background: rgba(31,157,85,0.15); }
+  .gm-opt.bad { border-color: #e0245e; background: rgba(224,36,94,0.12); }
+  .gm-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; width: min(96%, 30rem); }
+  .gm-card { padding: 0.8rem 0.5rem; border-radius: 13px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-weight: 700; font-size: 0.95rem; cursor: pointer; text-align: center; }
+  .gm-card.sel { border-color: var(--accent); background: rgba(139,92,246,0.15); }
+  .gm-card.done { opacity: 0.25; pointer-events: none; border-color: #1f9d55; }
+  .gm-card.err { border-color: #e0245e; }
+  .gm-end { text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; gap: 0.9rem; }
+  .gm-pct { font-size: 3rem; font-weight: 900; }
+  .rr-txt { font-size: 1.5rem; font-weight: 800; text-align: center; direction: ltr; background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; padding: 0 1rem; }
+  .rr-tr { text-align: center; opacity: 0.8; font-size: 0.95rem; }
+  #nt-ov { position: fixed; inset: 0; z-index: 300; background: var(--bg); display: none; flex-direction: column; }
+  #nt-ov.show { display: flex; }
+  #nt-bar { display: flex; gap: 0.4rem; padding: 0.5rem; align-items: center; flex-wrap: wrap; }
+  #nt-bar button { padding: 0.4rem 0.7rem; border-radius: 10px; border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer; font-weight: 700; }
+  #nt-ph { padding: 0.3rem 0.6rem; font-size: 0.85rem; max-height: 4.5rem; overflow: auto; }
+  #nt-ph .ntc { display: inline-block; margin: 0.15rem 0.25rem; padding: 0.15rem 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.06); }
+  #nt-cv { flex: 1; width: 100%; touch-action: none; background: #fff; cursor: crosshair; }
+
 </style>
 </head>
 <body>
@@ -194,6 +231,7 @@
     <span class="logo"><span data-t="appName">VidCap</span></span>
     <span class="spacer"></span>
     <div class="top-actions">
+      <button class="icon-btn" id="btn-games" title="الألعاب / Games">🎮</button>
       <button class="icon-btn" id="btn-lang" title="Language / اللغة">AR</button>
       <button class="icon-btn" id="btn-theme" title="Dark / light mode">🌙</button>
       <button class="icon-btn" id="btn-stop" title="Stop audio / إيقاف الصوت">🔇</button>
@@ -238,6 +276,17 @@
 
 <div class="toast" id="toast"></div>
 
+<div id="nt-ov">
+  <div id="nt-bar">
+    <button id="nt-x">✕</button>
+    <button id="nt-pen" style="border-color:var(--accent)">🖊</button>
+    <button id="nt-ers">🧽</button>
+    <button id="nt-clr">🗑</button>
+    <input type="color" id="nt-color" value="#111827" style="width:36px;height:32px;border:none;background:none;cursor:pointer">
+  </div>
+  <div id="nt-ph"></div>
+  <canvas id="nt-cv"></canvas>
+</div>
 <script src="data/vocab.js"></script>
 <script src="data/vocab-batch-02.js"></script>
 <script>
@@ -953,6 +1002,244 @@
 
     window.addEventListener('beforeunload', stopSpeech);
   }
+
+  /* ================= games engine ================= */
+  var gm = { ov: null, mode: null, qs: [], i: 0, ok: 0, bad: 0, lock: false, auto: false, timer: null, noteP: null };
+  function gmEsc(s){ return esc(s); }
+  function gmNorm(s){ return String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim(); }
+  function gmShuffle(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  function gmPool(){
+    var items = filtered();
+    if(items.length < 4) items = VOCAB;
+    return items.filter(function(v){ return v.fr && v.ar; });
+  }
+  function gmSpeak(txt, lang){
+    return new Promise(function(res){
+      var u = new SpeechSynthesisUtterance(txt);
+      u.lang = VOICE_LANG[lang] || 'fr-FR';
+      u.rate = state.rate || 1;
+      u.onend = res; u.onerror = res;
+      speechSynthesis.speak(u);
+    });
+  }
+  function gmLoop(txt, lang, btn){
+    if(btn._lp){ btn._lp=false; btn.style.opacity=''; stopSpeech(); return; }
+    btn._lp = true; btn.style.opacity='0.6';
+    var tok = speechRun;
+    (async function(){
+      while(btn._lp && tok === speechRun){
+        await gmSpeak(txt, lang);
+        if(!btn._lp || tok !== speechRun) break;
+        await new Promise(function(r){ setTimeout(r, 1100); });
+      }
+      btn.style.opacity='';
+    })();
+  }
+  function gmOpen(){
+    if(gm.ov) gmClose();
+    var ov = document.createElement('div');
+    ov.className = 'gm-ov'; ov.id = 'gm-ov';
+    ov.innerHTML = '<div class="gm-top"><button class="icon-btn" id="gm-x">✕</button><button class="icon-btn" id="gm-note">📔</button><div class="gm-prog" id="gm-prog">🎮 '+(state.uiLang==='ar'?'الألعاب':'Games')+'</div></div><div id="gm-body" style="display:flex;flex:1;flex-direction:column"></div>';
+    document.body.appendChild(ov);
+    gm.ov = ov;
+    ov.querySelector('#gm-x').onclick = gmClose;
+    ov.querySelector('#gm-note').onclick = function(){ ntOpen(gm.noteP); };
+    gmMenu();
+  }
+  function gmClose(){
+    clearTimeout(gm.timer);
+    stopSpeech();
+    if(gm.ov){ gm.ov.remove(); gm.ov = null; }
+  }
+  function gmMenu(){
+    var body = gm.ov.querySelector('#gm-body');
+    body.innerHTML = '<div class="gm-menu">'+
+      '<button class="gbtn" data-g="match">🧩 '+(state.uiLang==='ar'?'توصيل':'Matching')+'</button>'+
+      '<button class="gbtn" data-g="listen">🎧 '+(state.uiLang==='ar'?'استماع':'Listening')+'</button>'+
+      '<button class="gbtn" data-g="write">✍️ '+(state.uiLang==='ar'?'اسمع واكتب':'Listen & write')+'</button>'+
+      '<button class="gbtn" data-g="speak">🗣 '+(state.uiLang==='ar'?'اقرأ وانطق':'Read & repeat')+'</button>'+
+    '</div>';
+    body.querySelectorAll('.gbtn').forEach(function(b){
+      b.onclick = function(){ gmStart(b.dataset.g); };
+    });
+    gm.ov.querySelector('#gm-prog').textContent = '🎮';
+  }
+  function gmStart(mode){
+    gm.mode = mode;
+    var pool = gmShuffle(gmPool());
+    if(mode==='match') gm.qs = pool.slice(0,5);
+    else gm.qs = pool.slice(0,10);
+    gm.i=0; gm.ok=0; gm.bad=0;
+    if(mode==='match') gmMatchRound(); else gmAsk();
+  }
+  function gmProg(){ gm.ov.querySelector('#gm-prog').textContent = (gm.i+1)+'/'+gm.qs.length; }
+  function gmAdv(){ clearTimeout(gm.timer); gm.i++; if(gm.i<gm.qs.length){ if(gm.mode==='match') gmMatchRound(); else gmAsk(); } else gmEnd(); }
+  function gmEnd(){
+    var body = gm.ov.querySelector('#gm-body');
+    var pct = gm.qs.length? Math.round(gm.ok/gm.qs.length*100):0;
+    var color = pct>=70?'#1f9d55':pct>=40?'#f59e0b':'#e0245e';
+    body.innerHTML='<div class="gm-end"><div class="gm-pct" style="color:'+color+'">'+pct+'%</div>'+
+      '<div style="font-size:1.2rem">✅ '+gm.ok+' ❌ '+gm.bad+'</div>'+
+      '<div class="gm-nav"><button id="gm-again">🔁 '+(state.uiLang==='ar'?'من جديد':'Again')+'</button>'+
+      '<button id="gm-menu2">🎮 '+(state.uiLang==='ar'?'الألعاب':'Menu')+'</button></div></div>';
+    body.querySelector('#gm-again').onclick = function(){ gmStart(gm.mode); };
+    body.querySelector('#gm-menu2').onclick = gmMenu;
+  }
+  function gmNavHtml(){
+    return '<div class="gm-nav"><button id="gm-next">⏭ '+(state.uiLang==='ar'?'التالي':'Next')+'</button>'+
+      '<button id="gm-auto" class="'+(gm.auto?'on':'')+'">🔁 '+(state.uiLang==='ar'?'تلقائي':'Auto')+'</button></div>';
+  }
+  function gmWireNav(){
+    var nx=gm.ov.querySelector('#gm-next'); if(nx) nx.onclick = gmAdv;
+    var au=gm.ov.querySelector('#gm-auto'); if(au) au.onclick = function(){ gm.auto=!gm.auto; this.classList.toggle('on',gm.auto); if(gm.auto&&gm.lock) gm.timer=setTimeout(gmAdv,1200); };
+  }
+  /* --- matching --- */
+  function gmMatchRound(){
+    var body = gm.ov.querySelector('#gm-body');
+    gmProg();
+    var items = gm.qs;
+    var frs = gmShuffle(items.map(function(v,i){ return {t:v.fr,i:i,l:'fr'}; }));
+    var ars = gmShuffle(items.map(function(v,i){ return {t:v.ar,i:i,l:'ar'}; }));
+    body.innerHTML = '<div class="gm-center"><div class="gm-cards" id="gm-fcol">'+frs.map(function(c){return '<div class="gm-card" data-i="'+c.i+'" data-l="fr" dir="ltr">'+gmEsc(c.t)+'</div>'}).join('')+'</div>'+
+      '<div class="gm-cards" id="gm-acol">'+ars.map(function(c){return '<div class="gm-card" data-i="'+c.i+'" data-l="ar" dir="rtl">'+gmEsc(c.t)+'</div>'}).join('')+'</div></div>';
+    var sel=null, solved=0;
+    body.querySelectorAll('.gm-card').forEach(function(card){
+      card.onclick=function(){
+        if(card.classList.contains('done'))return;
+        if(!sel){ sel=card; card.classList.add('sel'); return; }
+        if(sel===card){ card.classList.remove('sel'); sel=null; return; }
+        if(sel.dataset.l===card.dataset.l){ sel.classList.remove('sel'); sel=card; card.classList.add('sel'); return; }
+        if(sel.dataset.i===card.dataset.i){
+          sel.classList.add('done'); card.classList.add('done'); sel.classList.remove('sel');
+          gm.ok++; solved++; sel=null;
+          if(solved>=items.length) gmEnd();
+        } else {
+          gm.bad++;
+          card.classList.add('err'); sel.classList.add('err');
+          var s=sel;
+          setTimeout(function(){ s.classList.remove('sel','err'); card.classList.remove('err'); },350);
+          sel=null;
+        }
+      };
+    });
+    gm.noteP = {fr:items[0].fr, ar:items[0].ar, en:items[0].en};
+  }
+  /* --- listening mcq --- */
+  function gmListenAsk(v){
+    var body = gm.ov.querySelector('#gm-body');
+    gmProg(); gm.lock=false;
+    gm.noteP = v;
+    var pool = gmPool().filter(function(x){ return x!==v; });
+    var opts = gmShuffle(pool).slice(0,3); opts.push(v); opts = gmShuffle(opts);
+    body.innerHTML = '<div class="gm-center">'+
+      '<button class="gm-say" id="gm-play">🔊</button>'+
+      '<div class="gm-opts">'+opts.map(function(o){ return '<button class="gm-opt" data-ok="'+(o===v?1:0)+'" dir="rtl">'+gmEsc(o.ar)+'</button>'; }).join('')+'</div>'+
+      '<div class="gm-msg" id="gm-msg"></div>'+gmNavHtml()+'</div>';
+    var pb = body.querySelector('#gm-play');
+    pb.onclick = function(){ gmLoop(v.fr,'fr',pb); };
+    gmLoop(v.fr,'fr',pb);
+    body.querySelectorAll('.gm-opt').forEach(function(b){
+      b.onclick=function(){
+        if(gm.lock)return; gm.lock=true; stopSpeech(); pb._lp=false;
+        var good = b.dataset.ok==='1';
+        if(good){ gm.ok++; b.classList.add('ok'); } else { gm.bad++; b.classList.add('bad'); body.querySelector('[data-ok="1"]').classList.add('ok'); }
+        body.querySelectorAll('.gm-opt').forEach(function(x){ x.disabled=true; });
+        body.querySelector('#gm-msg').innerHTML=(good?'✅ ':'❌ ')+'<b dir="ltr">'+gmEsc(v.fr)+'</b>';
+        if(gm.auto) gm.timer=setTimeout(gmAdv,good?1400:2800);
+      };
+    });
+    gmWireNav();
+  }
+  /* --- dictation --- */
+  function gmWriteAsk(v){
+    var body = gm.ov.querySelector('#gm-body');
+    gmProg(); gm.lock=false;
+    gm.noteP = v;
+    body.innerHTML = '<div class="gm-center">'+
+      '<button class="gm-say" id="gm-play">🔊</button>'+
+      '<input class="gm-inp" id="gm-inp" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="...">'+
+      '<div class="gm-msg" id="gm-msg"></div>'+
+      '<button class="gm-btn" id="gm-go">✓ '+(state.uiLang==='ar'?'تحقق':'Check')+'</button>'+gmNavHtml()+'</div>';
+    var pb = body.querySelector('#gm-play');
+    pb.onclick = function(){ gmLoop(v.fr,'fr',pb); };
+    gmLoop(v.fr,'fr',pb);
+    var inp = body.querySelector('#gm-inp');
+    inp.focus();
+    function go(){
+      if(gm.lock)return; gm.lock=true; stopSpeech(); pb._lp=false;
+      var good = gmNorm(inp.value)===gmNorm(v.fr);
+      if(good){ gm.ok++; } else { gm.bad++; }
+      inp.disabled=true; body.querySelector('#gm-go').disabled=true;
+      inp.style.borderColor = good?'#1f9d55':'#e0245e';
+      body.querySelector('#gm-msg').innerHTML=(good?'✅ ':'❌ ')+'<b dir="ltr">'+gmEsc(v.fr)+'</b><br><small dir="rtl">'+gmEsc(v.ar)+'</small>'+(v.en?'<br><small dir="ltr">'+gmEsc(v.en)+'</small>':'');
+      if(gm.auto) gm.timer=setTimeout(gmAdv,good?1400:3200);
+    }
+    body.querySelector('#gm-go').onclick = go;
+    inp.onkeydown = function(e){ if(e.key==='Enter') go(); };
+    gmWireNav();
+  }
+  /* --- read & repeat --- */
+  function gmSpeakAsk(v){
+    var body = gm.ov.querySelector('#gm-body');
+    gmProg(); gm.lock=false;
+    gm.noteP = v;
+    body.innerHTML = '<div class="gm-center">'+
+      '<div class="rr-txt">'+gmEsc(v.fr)+'</div>'+
+      '<div class="rr-tr" dir="rtl">'+gmEsc(v.ar)+'</div>'+(v.en?'<div class="rr-tr" dir="ltr">'+gmEsc(v.en)+'</div>':'')+
+      '<div style="display:flex;gap:0.6rem;align-items:center"><button class="gm-say" id="gm-play" style="width:60px;height:60px;font-size:1.3rem">🔊</button>'+
+      '<button class="gm-btn" id="gm-plus">+ <span id="gm-cnt">0</span>/5</button></div>'+
+      '<div class="gm-msg" id="gm-msg"></div>'+gmNavHtml()+'</div>';
+    var pb = body.querySelector('#gm-play'), cnt=0;
+    pb.onclick = function(){ gmLoop(v.fr,'fr',pb); };
+    gmLoop(v.fr,'fr',pb);
+    body.querySelector('#gm-plus').onclick=function(){
+      cnt++; body.querySelector('#gm-cnt').textContent=cnt;
+      if(cnt>=5){ gm.ok++; body.querySelector('#gm-msg').textContent='✅ '+(state.uiLang==='ar'?'أحسنت':'Well done'); if(gm.auto) gm.timer=setTimeout(gmAdv,1200); }
+    };
+    gmWireNav();
+  }
+  function gmAsk(){
+    var v = gm.qs[gm.i];
+    if(gm.mode==='listen') gmListenAsk(v);
+    else if(gm.mode==='write') gmWriteAsk(v);
+    else if(gm.mode==='speak') gmSpeakAsk(v);
+  }
+  /* --- notebook --- */
+  var nt={ctx:null,drawing:false,color:'#111827',size:4,erase:false};
+  function ntOpen(p){
+    var ov=document.getElementById('nt-ov'); ov.classList.add('show');
+    var ph=document.getElementById('nt-ph'); ph.innerHTML='';
+    if(p){ ['fr','ar','en'].forEach(function(k){ if(p[k]){ var s=document.createElement('span'); s.className='ntc'; s.dir=(k==='ar'?'rtl':'ltr'); s.textContent=p[k]; ph.appendChild(s); } }); }
+    var cv=document.getElementById('nt-cv');
+    var dpr=window.devicePixelRatio||1;
+    cv.width=cv.clientWidth*dpr; cv.height=cv.clientHeight*dpr;
+    nt.ctx=cv.getContext('2d'); nt.ctx.scale(dpr,dpr);
+    nt.ctx.lineCap='round'; nt.ctx.strokeStyle=nt.color; nt.ctx.lineWidth=nt.size;
+  }
+  function ntClose(){ document.getElementById('nt-ov').classList.remove('show'); nt.ctx=null; }
+  function ntPos(e){ var cv=document.getElementById('nt-cv'),rc=cv.getBoundingClientRect(); var x=(e.touches?e.touches[0].clientX:e.clientX)-rc.left, y=(e.touches?e.touches[0].clientY:e.clientY)-rc.top; return {x:x,y:y}; }
+  (function(){
+    var cv=null;
+    document.addEventListener('DOMContentLoaded',function(){
+      cv=document.getElementById('nt-cv'); if(!cv) return;
+      function start(e){ if(!nt.ctx)return; e.preventDefault(); nt.drawing=true; var p=ntPos(e); nt.ctx.beginPath(); nt.ctx.moveTo(p.x,p.y); nt.ctx.globalCompositeOperation=nt.erase?'destination-out':'source-over'; nt.ctx.strokeStyle=nt.color; nt.ctx.lineWidth=nt.erase?nt.size*4:nt.size; }
+      function move(e){ if(!nt.drawing||!nt.ctx)return; e.preventDefault(); var p=ntPos(e); nt.ctx.lineTo(p.x,p.y); nt.ctx.stroke(); }
+      function end(){ nt.drawing=false; if(nt.ctx)nt.ctx.closePath(); }
+      cv.addEventListener('mousedown',start); cv.addEventListener('mousemove',move); window.addEventListener('mouseup',end);
+      cv.addEventListener('touchstart',start,{passive:false}); cv.addEventListener('touchmove',move,{passive:false}); cv.addEventListener('touchend',end);
+      document.getElementById('nt-x').onclick=ntClose;
+      document.getElementById('nt-pen').onclick=function(){ nt.erase=false; };
+      document.getElementById('nt-ers').onclick=function(){ nt.erase=true; };
+      document.getElementById('nt-clr').onclick=function(){ if(nt.ctx)nt.ctx.clearRect(0,0,cv.width,cv.height); };
+      document.getElementById('nt-color').oninput=function(){ nt.color=this.value; nt.erase=false; };
+    });
+  })();
+  /* double-tap on word = google clipart */
+  document.addEventListener('dblclick',function(e){
+    var w=e.target.closest('.word-loop'); if(!w) return;
+    window.open('https://www.google.com/search?q='+encodeURIComponent(w.dataset.text+' clipart')+'&udm=2','_blank');
+  });
+  document.getElementById('btn-games').addEventListener('click', gmOpen);
 
   init();
 })();
