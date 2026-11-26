@@ -943,13 +943,17 @@ const nextCue=(n,p)=>{const c=cuesOf(n);const i=c.indexOf(p);return i>=0?c[i+1]:
 function wordsSpan(txt,lg){
  const d=document.createElement('span');d.className='pht wlg-'+(['ar','en','fr'].indexOf(lg)>=0?lg:'x');
  (txt||'').split(/\s+/).forEach(w=>{if(!w)return;
-  const ws=document.createElement('span');ws.className='w';ws.textContent=w;let last=0;
-  ws.onclick=e=>{e.stopPropagation();const now=Date.now();
-   if(now-last<330){openExt('https://www.google.com/search?q='+encodeURIComponent(w+' clipart')+'&udm=2&hl='+st.lang)}
-   else loopSpeak([{txt:w,lg}],ws);
-   last=now};
+  const ws=document.createElement('span');ws.className='w';ws.textContent=w;ws.dataset.lg=lg;
   d.appendChild(ws);d.appendChild(document.createTextNode(' '))});
  return d}
+document.addEventListener('click',e=>{
+ const ws=e.target&&e.target.closest?e.target.closest('span.w'):null;
+ if(!ws||!ws.dataset.lg)return;
+ e.stopPropagation();
+ const now=Date.now(),last=+(ws.dataset.lt||0);
+ if(now-last<330)openExt('https://www.google.com/search?q='+encodeURIComponent(ws.textContent+' clipart')+'&udm=2&hl='+st.lang);
+ else loopSpeak([{txt:ws.textContent,lg:ws.dataset.lg}],ws);
+ ws.dataset.lt=now},true)
 function pickResizedImg(){return new Promise(res=>{
  const fi=document.createElement('input');fi.type='file';fi.accept='image/*';
  fi.onchange=async()=>{const f=fi.files[0];if(!f)return res(null);
