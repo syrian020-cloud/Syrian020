@@ -946,14 +946,36 @@ function wordsSpan(txt,lg){
   const ws=document.createElement('span');ws.className='w';ws.textContent=w;ws.dataset.lg=lg;
   d.appendChild(ws);d.appendChild(document.createTextNode(' '))});
  return d}
+function tapWordAt(x,y,container){
+ const rg=document.caretRangeFromPoint?document.caretRangeFromPoint(x,y):null;
+ if(!rg)return null;
+ const nd=rg.startContainer;
+ if(!nd||nd.nodeType!==3)return null;
+ if(!container.contains(nd))return null;
+ const tx=nd.textContent;let a=rg.startOffset,b=a;
+ while(a>0&&!/\s/.test(tx[a-1]))a--;
+ while(b<tx.length&&!/\s/.test(tx[b]))b++;
+ const w=tx.slice(a,b).replace(/^[\u00ab\u201c"'(\[\u2026.,;:!?\u00bb\u201d"'\)\]]+|[\u00ab\u201c"'(\[\u2026.,;:!?\u00bb\u201d"'\)\]]+$/g,'');
+ return w||null}
 document.addEventListener('click',e=>{
+ const wt=e.target&&e.target.closest?e.target.closest('.wtxt'):null;
+ if(wt){
+  const rd=wt.closest('.lr-lg')?wt.closest('.lr-lg').querySelector('.rd'):wt.parentElement;
+  const lg=(wt.closest('[data-lg]')||{}).dataset?wt.closest('[data-lg]').dataset.lg:null;
+  const w=tapWordAt(e.clientX,e.clientY,wt);
+  if(!w||!lg)return;
+  e.stopPropagation();
+  const now=Date.now(),last=+(wt.dataset.lt||0);
+  if(now-last<330)openExt('https://www.google.com/search?q='+encodeURIComponent(w+' clipart')+'&udm=2&hl='+st.lang);
+  else loopSpeak([{txt:w,lg}],rd.querySelector('button')||rd);
+  wt.dataset.lt=now;return}
  const ws=e.target&&e.target.closest?e.target.closest('span.w'):null;
  if(!ws||!ws.dataset.lg)return;
  e.stopPropagation();
- const now=Date.now(),last=+(ws.dataset.lt||0);
- if(now-last<330)openExt('https://www.google.com/search?q='+encodeURIComponent(ws.textContent+' clipart')+'&udm=2&hl='+st.lang);
+ const now2=Date.now(),last2=+(ws.dataset.lt||0);
+ if(now2-last2<330)openExt('https://www.google.com/search?q='+encodeURIComponent(ws.textContent+' clipart')+'&udm=2&hl='+st.lang);
  else loopSpeak([{txt:ws.textContent,lg:ws.dataset.lg}],ws);
- ws.dataset.lt=now},true)
+ ws.dataset.lt=now2},true)
 function pickResizedImg(){return new Promise(res=>{
  const fi=document.createElement('input');fi.type='file';fi.accept='image/*';
  fi.onchange=async()=>{const f=fi.files[0];if(!f)return res(null);
@@ -2730,9 +2752,10 @@ function renderNums(){
   [['🇫🇷',r[1],'fr-FR','ltr'],['🇸🇾',r[2],'ar-SA','rtl'],['🇺🇸',r[3],'en-US','ltr']].forEach(([fl,txt,code,dir])=>{
    if(!txt)return;
    const d=document.createElement('div');d.className='lr-lg';d.dir=dir;
-   d.innerHTML='<span class="fl">'+fl+'</span><span class="rd"></span>';
+   d.innerHTML='<span class="fl">'+fl+'</span><span class="rd" data-lg="'+code.split('-')[0]+'"></span>';
    const rd=d.querySelector('.rd');const dv=document.createElement('div');
-   dv.appendChild(wordsSpan(txt,code.split('-')[0]));
+   const wt=document.createElement('span');wt.className='wtxt';wt.textContent=txt;
+   dv.appendChild(wt);
    const sb=document.createElement('button');sb.textContent='🔊';sb.onclick=()=>loopSpeak([{txt,lg:code}],sb);
    dv.appendChild(sb);rd.appendChild(dv);row.appendChild(d)});
   b.appendChild(row)})};
