@@ -223,6 +223,15 @@
   #nt-ph .ntc { display: inline-block; margin: 0.15rem 0.25rem; padding: 0.15rem 0.5rem; border-radius: 8px; background: rgba(255,255,255,0.06); }
   #nt-cv { flex: 1; width: 100%; touch-action: none; background: #fff; cursor: crosshair; }
 
+
+  #lang-ov { position: fixed; inset: 0; z-index: 350; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; }
+  #lang-ov.show { display: flex; }
+  #lang-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; padding: 1.2rem; width: min(88%, 20rem); display: flex; flex-direction: column; gap: 0.7rem; }
+  #lang-box h3 { margin: 0 0 0.3rem; text-align: center; color: var(--text-primary); font-size: 1.1rem; }
+  #lang-box .lopt { padding: 0.9rem; border-radius: 14px; border: 2px solid var(--border); background: var(--bg-tertiary, rgba(255,255,255,0.04)); color: var(--text-primary); font-size: 1.05rem; font-weight: 800; cursor: pointer; text-align: center; }
+  #lang-box .lopt.on { border-color: var(--accent); background: rgba(139,92,246,0.15); }
+  #lang-box .lx { align-self: center; padding: 0.4rem 1.2rem; border-radius: 10px; border: 1px solid var(--border); background: none; color: var(--text-secondary); cursor: pointer; }
+
 </style>
 </head>
 <body>
@@ -286,6 +295,15 @@
   </div>
   <div id="nt-ph"></div>
   <canvas id="nt-cv"></canvas>
+</div>
+<div id="lang-ov">
+  <div id="lang-box">
+    <h3 id="lang-title">🌐 اللغة / Language / Langue</h3>
+    <button class="lopt" data-l="ar">🇸🇾 العربية</button>
+    <button class="lopt" data-l="en">🇬🇧 English</button>
+    <button class="lopt" data-l="fr">🇫🇷 Français</button>
+    <button class="lx">✕</button>
+  </div>
 </div>
 <script src="data/vocab.js"></script>
 <script src="data/vocab-batch-02.js"></script>
@@ -953,8 +971,14 @@
       localStorage.setItem('vocab_theme', state.theme);
     });
     document.getElementById('btn-lang').addEventListener('click', function(){
-      var next = state.uiLang === 'ar' ? 'en' : state.uiLang === 'en' ? 'fr' : 'ar';
-      setUILang(next);
+      var ov=document.getElementById('lang-ov');
+      ov.querySelectorAll('.lopt').forEach(function(b){ b.classList.toggle('on', b.dataset.l===state.uiLang); });
+      ov.classList.add('show');
+    });
+    document.getElementById('lang-ov').addEventListener('click', function(e){
+      var b=e.target.closest('.lopt');
+      if(b){ setUILang(b.dataset.l); this.classList.remove('show'); return; }
+      if(e.target.closest('.lx') || e.target===this) this.classList.remove('show');
     });
 
     filters.addEventListener('click', function(e){
