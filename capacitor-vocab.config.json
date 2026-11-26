@@ -1,6 +1,6 @@
 {
-  "appId": "com.b2french.app",
-  "appName": "B2 French",
+  "appId": "com.varvip.app",
+  "appName": "Varvip",
   "webDir": "www",
   "server": {
     "androidScheme": "https"

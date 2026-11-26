@@ -325,11 +325,12 @@
 <script src="js/edge-tts.js"></script>
 <script src="data/vocab.js"></script>
 <script src="data/vocab-batch-02.js"></script>
+<script src="data/vocab-batch-03.js"></script>
 <script>
 (function(){
   'use strict';
 
-  var VOCAB = (window.VOCAB_DATA || []).concat(window.VOCAB_DATA_BATCH2 || []);
+  var VOCAB = (window.VOCAB_DATA || []).concat(window.VOCAB_DATA_BATCH2 || [], window.VOCAB_DATA_BATCH3 || []);
   var list = document.getElementById('list');
   var search = document.getElementById('search');
   var filters = document.getElementById('filters');
