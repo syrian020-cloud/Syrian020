@@ -1154,7 +1154,14 @@
     body.querySelectorAll('.gm-card').forEach(function(card){
       card.onclick=function(){
         if(card.classList.contains('done'))return;
-        if(card.dataset.l==='fr'){ gmSpeak(items[parseInt(card.dataset.i,10)].fr,'fr'); }
+        if(card.dataset.l==='fr'){
+          var w=items[parseInt(card.dataset.i,10)].fr;
+          if(card._lp){ card._lp=false; stopSpeech(); }
+          else {
+            card._lp=true;
+            gmSpeak(w,'fr').then(function loop(){ if(card._lp){ setTimeout(function(){ if(card._lp) gmSpeak(w,'fr').then(loop); },900); } });
+          }
+        }
         if(!sel){ sel=card; card.classList.add('sel'); return; }
         if(sel===card){ card.classList.remove('sel'); sel=null; return; }
         if(sel.dataset.l===card.dataset.l){ sel.classList.remove('sel'); sel=card; card.classList.add('sel'); return; }
