@@ -4766,6 +4766,14 @@ function gamePairPicker(l, title) {
         flagForLang(l, p.a) + ' ' + p.a.toUpperCase() + ' — ' + p.n + '</button>';
     }).join('') + '</div>';
 }
+/* notebook rows for a whole lesson — shared by every game */
+function lessonNoteRows(lesson) {
+  var rows = [];
+  sortedCues(lesson).forEach(function (c) {
+    cueLangLines(c.text || '').forEach(function (rr) { if (rr.text) rows.push(rr); });
+  });
+  return rows;
+}
 /* ===== matching game 🧩 ===== */
 function openQuiz(lesson) {
   closeQuiz();
@@ -4774,10 +4782,12 @@ function openQuiz(lesson) {
   ov.id = 'quiz-overlay';
   ov.className = 'qz-ov';
   ov.innerHTML = '<div class="qz-top"><button class="mini" id="quiz-exit" title="' + esc(t.quizExit) + '">✕</button>' +
+    '<button class="mini" id="quiz-note" title="📓">📓</button>' +
     '<div class="qz-prog" id="quiz-progress"></div></div>' +
     '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>';
   document.body.appendChild(ov);
   document.getElementById('quiz-exit').onclick = closeQuiz;
+  document.getElementById('quiz-note').onclick = function () { openNote('lesson-' + lesson.id, lessonNoteRows(lesson)); };
   var body = document.getElementById('quiz-body');
   body.innerHTML = gamePairPicker(lesson, t.quizChooseLang);
   body.querySelectorAll('button[data-q]').forEach(function (b) {
@@ -4984,11 +4994,13 @@ function openListen(lesson) {
   ov.id = 'quiz-overlay';
   ov.className = 'qz-ov';
   ov.innerHTML = '<div class="qz-top"><button class="mini" id="quiz-exit" title="' + esc(t.quizExit) + '">✕</button>' +
+    '<button class="mini" id="quiz-note" title="📓">📓</button>' +
     '<div class="qz-prog" id="quiz-progress"></div></div>' +
     '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>' +
     '<input type="file" id="lzImgInput" accept="image/*" style="display:none">';
   document.body.appendChild(ov);
   document.getElementById('quiz-exit').onclick = closeQuiz;
+  document.getElementById('quiz-note').onclick = function () { openNote('lesson-' + lesson.id, lessonNoteRows(lesson)); };
   var body = document.getElementById('quiz-body');
   body.innerHTML = gamePairPicker(lesson, t.quizChooseLang);
   body.querySelectorAll('button[data-q]').forEach(function (b) {
@@ -5140,10 +5152,12 @@ function openReadRepeat(l) {
   var ov = el('div', 'qz-ov');
   ov.id = 'rr-overlay';
   ov.innerHTML = '<div class="qz-top"><button class="mini" id="rr-exit" title="' + esc(t.quizExit) + '">✕</button>' +
+    '<button class="mini" id="rr-note" title="📓">📓</button>' +
     '<div class="qz-prog" id="rr-prog">' + esc(t.rrTitle) + '</div></div>' +
     '<div id="rr-body" style="display:flex;flex:1;flex-direction:column;overflow:auto"></div>';
   document.body.appendChild(ov);
   document.getElementById('rr-exit').onclick = closeRR;
+  document.getElementById('rr-note').onclick = function () { openNote('lesson-' + l.id, lessonNoteRows(l)); };
   var body = document.getElementById('rr-body');
   var langs = rrLangs(items, l);
   function start(lang, mode, idx, cnt) {
