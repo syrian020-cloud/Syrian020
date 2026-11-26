@@ -1045,7 +1045,11 @@
     return items;
   }
   function gmSpeak(txt, lang){
+    if(nativeTTS()){
+      return nativeSpeak(txt, lang).catch(function(){});
+    }
     return new Promise(function(res){
+      if(!('speechSynthesis' in window)){ res(); return; }
       var u = new SpeechSynthesisUtterance(txt);
       u.lang = VOICE_LANG[lang] || 'fr-FR';
       u.rate = state.rate || 1;
