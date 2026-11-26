@@ -1148,12 +1148,13 @@
     var items = gm.qs;
     var frs = gmShuffle(items.map(function(v,i){ return {t:v.fr,i:i,l:'fr'}; }));
     var ars = gmShuffle(items.map(function(v,i){ return {t:v.ar,i:i,l:'ar'}; }));
-    body.innerHTML = '<div class="gm-center"><div class="gm-cards" id="gm-fcol">'+frs.map(function(c){return '<div class="gm-card" data-i="'+c.i+'" data-l="fr" dir="ltr">'+gmEsc(c.t)+'</div>'}).join('')+'</div>'+
+    body.innerHTML = '<div class="gm-center"><div class="gm-cards" id="gm-fcol">'+frs.map(function(c){return '<div class="gm-card" data-i="'+c.i+'" data-l="fr" dir="ltr">🔊 '+gmEsc(c.t)+'</div>'}).join('')+'</div>'+
       '<div class="gm-cards" id="gm-acol">'+ars.map(function(c){return '<div class="gm-card" data-i="'+c.i+'" data-l="ar" dir="rtl">'+gmEsc(c.t)+'</div>'}).join('')+'</div></div>';
     var sel=null, solved=0;
     body.querySelectorAll('.gm-card').forEach(function(card){
       card.onclick=function(){
         if(card.classList.contains('done'))return;
+        if(card.dataset.l==='fr'){ gmSpeak(items[parseInt(card.dataset.i,10)].fr,'fr'); }
         if(!sel){ sel=card; card.classList.add('sel'); return; }
         if(sel===card){ card.classList.remove('sel'); sel=null; return; }
         if(sel.dataset.l===card.dataset.l){ sel.classList.remove('sel'); sel=card; card.classList.add('sel'); return; }
