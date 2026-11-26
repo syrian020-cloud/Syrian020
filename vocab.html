@@ -240,6 +240,7 @@
     <span class="logo"><span data-t="appName">VidCap</span></span>
     <span class="spacer"></span>
     <div class="top-actions">
+      <button class="icon-btn" id="btn-voice" title="أصوات الكلام / Voices">🎙️</button>
       <button class="icon-btn" id="btn-games" title="الألعاب / Games">🎮</button>
       <button class="icon-btn" id="btn-lang" title="Language / اللغة">AR</button>
       <button class="icon-btn" id="btn-theme" title="Dark / light mode">🌙</button>
@@ -1298,6 +1299,9 @@
     window.open('https://www.google.com/search?q='+encodeURIComponent(w.dataset.text+' clipart')+'&udm=2','_blank');
   });
   document.getElementById('btn-games').addEventListener('click', gmOpen);
+  document.getElementById('btn-voice').addEventListener('click', function(){
+    if(window.EdgeTTS && EdgeTTS.openSettings) EdgeTTS.openSettings();
+  });
 
   init();
 })();
