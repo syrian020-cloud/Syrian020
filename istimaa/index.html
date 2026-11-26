@@ -3011,10 +3011,10 @@ function lwStart(n){
  lw.node=n;
  lw.i=0;lw.ok=0;lw.bad=0;lw.qs=[];
  if(!n){lw.num=true;
-  lw.qs=quizShuffle(NUM1000.concat(NUM2K.slice(1))).slice(0,10).map(r=>({say:r[1],ans:String(r[0]),ar:r[2]||'',en:r[3]||'',disp:'<b>'+r[0]+'</b> — '+esc(r[1])}));
+  lw.qs=quizShuffle(NUM1000.concat(NUM2K.slice(1))).map(r=>({say:r[1],ans:String(r[0]),ar:r[2]||'',en:r[3]||'',disp:'<b>'+r[0]+'</b> — '+esc(r[1])}));
  }else{lw.num=false;
   const pool=gPool(n).map(p=>({fr:phTxt(p,'fr'),ar:phTxt(p,'ar'),en:phTxt(p,'en')})).filter(x=>x.fr&&x.fr.trim().length>1);
-  lw.qs=quizShuffle(pool).slice(0,10).map(x=>{
+  lw.qs=quizShuffle(pool).map(x=>{
    const alt=x.fr.indexOf(' : ')>0?x.fr.split(' : ')[0].trim():null;
    return {say:x.fr,ans:x.fr,alt,ar:x.ar,en:x.en,disp:'<b>'+esc(x.fr)+'</b>'+(x.ar?'<br><small dir="rtl">'+esc(x.ar)+'</small>':'')}})}
  if(!lw.qs.length){toast(t('quizNoPhrases'));return}
