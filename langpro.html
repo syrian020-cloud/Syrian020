@@ -5566,11 +5566,14 @@ function zipStreamWriter(FS, path) {
 }
 // Streams a ZIP (store method, data descriptors) into a cache file entry by entry —
 // memory stays bounded to one small slice of one file at a time.
-async function zipStreamExport(entries, path, FS) {
+async function zipStreamExport(entries, path, FS, onProg) {
   var zw = zipStreamWriter(FS, path);
   var enc = new TextEncoder();
   var central = [];
   var off = 0;
+  var total = 0;
+  entries.forEach(function (e) { total += e.blob.size + 30 + 46 + 16 + 2 * e.name.length; });
+  total += 22;
   for (var ei = 0; ei < entries.length; ei++) {
     var e = entries[ei];
     var nm = enc.encode(e.name);
@@ -5588,6 +5591,7 @@ async function zipStreamExport(entries, path, FS) {
       crc = crc32part(crc, u8);
       await zw.put(u8);
       size += u8.length; written += u8.length;
+      if (onProg) onProg(off + written, total);
     }
     crc = (crc ^ 0xFFFFFFFF) >>> 0;
     var dd = new DataView(new ArrayBuffer(16));
@@ -5678,6 +5682,7 @@ async function exportData() {
     var recs = await IDB.getAll();
     for (var i = 0; i < recs.length; i++) {
       var fn = (recs[i].name || 'file-' + recs[i].id).replace(/[\\/:*?"<>|]/g, '_');
+      if (!recs[i].blob || typeof recs[i].blob.slice !== 'function') continue;   // legacy/corrupt record — skip instead of killing the export
       var zp = 'files/' + recs[i].id + '-' + fn;
       filesOut.push({ id: recs[i].id, siteId: recs[i].siteId, name: recs[i].name,
         mime: recs[i].mime, kind: recs[i].kind, zip: zp });
@@ -5687,7 +5692,7 @@ async function exportData() {
     for (var li = 0; li < lrecs.length; li++) {
       var lr = lrecs[li];
       var mo = { id: lr.id, siteId: lr.siteId, name: lr.name, mime: lr.mime, icon: lr.icon || '', cover: lr.cover || '', vfit: lr.vfit || 0, cues: lr.cues || [] };
-      if (lr.blob) {
+      if (lr.blob && typeof lr.blob.slice === 'function') {
         var mext = String(lr.mime || 'bin').split('/')[1] || 'bin';
         mo.media = 'media/' + lr.id + '.' + mext.split(';')[0];
         entries.push({ name: mo.media, blob: lr.blob });
@@ -5702,15 +5707,24 @@ async function exportData() {
   var SH = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Share;
   if (inCap && FS && SH) {
     try {
-      toast('⏳ …');
-      await zipStreamExport(entries, name, FS);
+      toast('⏳ 0%');
+      var lastP = 0;
+      await zipStreamExport(entries, name, FS, function (w, tot) {
+        var p = Math.min(99, Math.round(w / Math.max(1, tot) * 100));
+        if (p !== lastP) { lastP = p; toast('⏳ ' + p + '%'); }
+      });
       var rd0 = await FS.getUri({ path: name, directory: 'CACHE' });
       await SH.share({ title: name, url: rd0.uri });
       toast(t.exported);
       return;
-    } catch (e) { console.error(e); }
+    } catch (e) {
+      console.error(e);
+      toast('✗ ' + (e && e.message ? String(e.message).slice(0, 60) : 'export'));
+    }
   }
-  // browser fallback: build the zip in memory (small backups)
+  // browser fallback: build the zip in memory (small backups) — never on device,
+  // where big media would blow up memory all over again
+  if (inCap) return;
   var memEntries = [];
   for (var mi = 0; mi < entries.length; mi++) {
     memEntries.push({ name: entries[mi].name, data: new Uint8Array(await entries[mi].blob.arrayBuffer()) });
