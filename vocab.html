@@ -1028,14 +1028,21 @@
   }
 
   /* ================= games engine ================= */
-  var gm = { ov: null, mode: null, qs: [], i: 0, ok: 0, bad: 0, lock: false, auto: false, timer: null, noteP: null };
+  var gm = { ov: null, mode: null, qs: [], i: 0, ok: 0, bad: 0, lock: false, auto: false, timer: null, noteP: null, kind: localStorage.getItem("vocab_gmkind")||"all" };
   function gmEsc(s){ return esc(s); }
   function gmNorm(s){ return String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim(); }
   function gmShuffle(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  function gmIsWord(fr){
+    var s=String(fr||'').replace(/^(le |la |les |l'|un |une |des |du |de |de la |d'|se |s')/i,'').trim();
+    return s.split(/\s+/).length<=1;
+  }
   function gmPool(){
     var items = filtered();
     if(items.length < 4) items = VOCAB;
-    return items.filter(function(v){ return v.fr && v.ar; });
+    items = items.filter(function(v){ return v.fr && v.ar; });
+    if(gm.kind==='word'){ var w=items.filter(function(v){return gmIsWord(v.fr);}); if(w.length>=4) return w; }
+    if(gm.kind==='phrase'){ var p=items.filter(function(v){return !gmIsWord(v.fr);}); if(p.length>=4) return p; }
+    return items;
   }
   function gmSpeak(txt, lang){
     return new Promise(function(res){
@@ -1077,12 +1084,17 @@
   }
   function gmMenu(){
     var body = gm.ov.querySelector('#gm-body');
+    var kinds=[['all',state.uiLang==='ar'?'الكل':'All'],['word',state.uiLang==='ar'?'كلمات':'Words'],['phrase',state.uiLang==='ar'?'عبارات':'Phrases']];
     body.innerHTML = '<div class="gm-menu">'+
+      '<div class="gm-nav" style="margin-bottom:0.4rem">'+kinds.map(function(k){return '<button data-k="'+k[0]+'" class="gm-kind'+(gm.kind===k[0]?' on':'')+'">'+k[1]+'</button>'}).join('')+'</div>'+
       '<button class="gbtn" data-g="match">🧩 '+(state.uiLang==='ar'?'توصيل':'Matching')+'</button>'+
       '<button class="gbtn" data-g="listen">🎧 '+(state.uiLang==='ar'?'استماع':'Listening')+'</button>'+
       '<button class="gbtn" data-g="write">✍️ '+(state.uiLang==='ar'?'اسمع واكتب':'Listen & write')+'</button>'+
       '<button class="gbtn" data-g="speak">🗣 '+(state.uiLang==='ar'?'اقرأ وانطق':'Read & repeat')+'</button>'+
     '</div>';
+    body.querySelectorAll('.gm-kind').forEach(function(b){
+      b.onclick=function(){ gm.kind=b.dataset.k; localStorage.setItem('vocab_gmkind',gm.kind); body.querySelectorAll('.gm-kind').forEach(function(x){x.classList.toggle('on',x===b);}); };
+    });
     body.querySelectorAll('.gbtn').forEach(function(b){
       b.onclick = function(){ gmStart(b.dataset.g); };
     });
