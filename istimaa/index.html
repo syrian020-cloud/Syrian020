@@ -1120,12 +1120,19 @@ function openGameHub(){
  $('gh-pg').onclick=()=>{ov.remove();openPhGame()};
  $('gh-lw').onclick=()=>{ov.remove();openLwGame()}}
 $('logoBtn').onclick=openGameHub;
+document.addEventListener('click',e=>{
+ if(e.target&&e.target.id==='quiz-clip'){
+  const p=window.__gNoteP,w=p&&(p.s||'');
+  if(w&&w.trim())openExt('https://www.google.com/search?q='+encodeURIComponent(w+' clipart')+'&udm=2&hl='+st.lang);
+  else toast('!')}});
+
 /* ---- matching game ---- */
 function openQuiz(n){
  closeGame();
  const ov=document.createElement('div');ov.id='quiz-overlay';ov.className='qz-ov';
  ov.innerHTML='<div class="qz-top"><button class="mini" id="quiz-exit">✕</button>'+
   '<button class="mini" id="quiz-note">📔</button>'+
+  '<button class="mini" id="quiz-clip">🖼</button>'+
   '<div class="qz-prog" id="quiz-progress"></div></div>'+
   '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>';
  document.body.appendChild(ov);
@@ -1243,6 +1250,7 @@ function openListen(n){
  const ov=document.createElement('div');ov.id='quiz-overlay';ov.className='qz-ov';
  ov.innerHTML='<div class="qz-top"><button class="mini" id="quiz-exit">✕</button>'+
   '<button class="mini" id="quiz-note">📔</button>'+
+  '<button class="mini" id="quiz-clip">🖼</button>'+
   '<div class="qz-prog" id="quiz-progress"></div></div>'+
   '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>'+
   '<input type="file" id="lzImgInput" accept="image/*" style="display:none">';
@@ -1349,6 +1357,7 @@ function openReadRepeat(n,direct){
  const ov=document.createElement('div');ov.id='rr-overlay';ov.className='qz-ov';
  ov.innerHTML='<div class="qz-top"><button class="mini" id="rr-exit">✕</button>'+
   '<button class="mini" id="rr-note">📔</button>'+
+  '<button class="mini" id="quiz-clip">🖼</button>'+
   '<div class="qz-prog" id="rr-prog">'+esc(t('rrTitle'))+'</div></div>'+
   '<div id="rr-body" style="display:flex;flex:1;flex-direction:column;overflow:auto"></div>';
  document.body.appendChild(ov);
@@ -2753,6 +2762,7 @@ function openNumGame(){
  const ov=document.createElement('div');ov.id='quiz-overlay';ov.className='qz-ov';
  ov.innerHTML='<div class="qz-top"><button class="mini" id="quiz-exit">✕</button>'+
   '<button class="mini" id="quiz-note">📔</button>'+
+  '<button class="mini" id="quiz-clip">🖼</button>'+
   '<div class="qz-prog" id="quiz-progress"></div></div>'+
   '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>';
  document.body.appendChild(ov);
@@ -2816,6 +2826,7 @@ function openPhGame(){
  const ov=document.createElement('div');ov.id='quiz-overlay';ov.className='qz-ov';
  ov.innerHTML='<div class="qz-top"><button class="mini" id="quiz-exit">✕</button>'+
   '<button class="mini" id="quiz-note">📔</button>'+
+  '<button class="mini" id="quiz-clip">🖼</button>'+
   '<div class="qz-prog" id="quiz-progress"></div></div>'+
   '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>';
  document.body.appendChild(ov);
@@ -2983,6 +2994,7 @@ function openLwGame(directNode){
  const ov=document.createElement('div');ov.id='quiz-overlay';ov.className='qz-ov';
  ov.innerHTML='<div class="qz-top"><button class="mini" id="quiz-exit">✕</button>'+
  '<button class="mini" id="quiz-note">📔</button>'+
+  '<button class="mini" id="quiz-clip">🖼</button>'+
  '<div class="qz-prog" id="quiz-progress"></div></div>'+
  '<div id="quiz-body" style="display:flex;flex:1;flex-direction:column"></div>';
  document.body.appendChild(ov);
