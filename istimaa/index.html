@@ -2771,7 +2771,7 @@ function openNumGame(){
  numRound()}
 function numRound(){
  ng.i=0;ng.ok=0;ng.bad=0;
- ng.qs=quizShuffle(NUM1000.concat(NUM2K.slice(1))).slice(0,5);
+ ng.qs=quizShuffle(NUM1000.concat(NUM2K.slice(1))).slice(0,10);
  numAsk()}
 function numAsk(){
  const body=$('quiz-body');if(!body)return;
@@ -2834,7 +2834,7 @@ function openPhGame(){
  $('quiz-note').onclick=function(){const p=window.__gNoteP;openNote('gnote_'+(p&&p.id||'scratch'),p||null,this)};
  phRound()}
 function phRound(){pg.i=0;pg.ok=0;pg.bad=0;pg.qs=[];
- for(let k=0;k<5;k++){
+ for(let k=0;k<10;k++){
   let d=(Math.random()<.5?'06':'07');
   for(let j=0;j<4;j++)d+=String(Math.floor(Math.random()*100)).padStart(2,'0');
   pg.qs.push(d)}
@@ -3011,10 +3011,10 @@ function lwStart(n){
  lw.node=n;
  lw.i=0;lw.ok=0;lw.bad=0;lw.qs=[];
  if(!n){lw.num=true;
-  lw.qs=quizShuffle(NUM1000.concat(NUM2K.slice(1))).slice(0,5).map(r=>({say:r[1],ans:String(r[0]),ar:r[2]||'',en:r[3]||'',disp:'<b>'+r[0]+'</b> — '+esc(r[1])}));
+  lw.qs=quizShuffle(NUM1000.concat(NUM2K.slice(1))).slice(0,10).map(r=>({say:r[1],ans:String(r[0]),ar:r[2]||'',en:r[3]||'',disp:'<b>'+r[0]+'</b> — '+esc(r[1])}));
  }else{lw.num=false;
   const pool=gPool(n).map(p=>({fr:phTxt(p,'fr'),ar:phTxt(p,'ar'),en:phTxt(p,'en')})).filter(x=>x.fr&&x.fr.trim().length>1);
-  lw.qs=quizShuffle(pool).slice(0,5).map(x=>{
+  lw.qs=quizShuffle(pool).slice(0,10).map(x=>{
    const alt=x.fr.indexOf(' : ')>0?x.fr.split(' : ')[0].trim():null;
    return {say:x.fr,ans:x.fr,alt,ar:x.ar,en:x.en,disp:'<b>'+esc(x.fr)+'</b>'+(x.ar?'<br><small dir="rtl">'+esc(x.ar)+'</small>':'')}})}
  if(!lw.qs.length){toast(t('quizNoPhrases'));return}
