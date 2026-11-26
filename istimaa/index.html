@@ -4218,7 +4218,17 @@ if(typeof ISTF!=='undefined'&&!window.__istp){window.__istp=1;NUMPH.push.apply(N
  NUMPH.length=0;
  if(nums.length>1)NUMPH.push({t:{ar:'الأرقام والهواتف',fr:'Les nombres et les téléphones',en:'Numbers and phones'},ic:'🔢',secs:[],kids:nums});
  if(times.length>1)NUMPH.push({t:{ar:'الوقت والتاريخ',fr:"L'heure et les dates",en:'Time and dates'},ic:'🕐',secs:[],kids:times});
- rest.forEach(f=>NUMPH.push(f))}
+ rest.forEach(f=>NUMPH.push(f));
+ const chunkF=(f)=>{
+  if(f.kids){f.kids=f.kids.map(chunkF);return f}
+  const all=[];(f.secs||[]).forEach(s=>(s.rows||[]).forEach(r=>all.push(r)));
+  if(all.length<=300)return f;
+  const parts=[];
+  for(let i=0;i<all.length;i+=250){
+   const slice=all.slice(i,i+250);
+   parts.push({t:{ar:f.t.ar+' '+(i+1)+'–'+Math.min(i+250,all.length),fr:f.t.fr+' '+(i+1)+'–'+Math.min(i+250,all.length),en:f.t.en+' '+(i+1)+'–'+Math.min(i+250,all.length)},ic:f.ic,secs:[{t:{ar:f.t.ar,fr:f.t.fr,en:f.t.en},rows:slice}]})}
+  return {t:f.t,ic:f.ic,secs:[],kids:parts}};
+ for(let i=0;i<NUMPH.length;i++)NUMPH[i]=chunkF(NUMPH[i])}
 $('numGames').onclick=openGameHub;
 $('numLang').onclick=()=>$('langBtn').click();
 $('numTheme').onclick=()=>$('themeBtn').click();
