@@ -601,6 +601,373 @@ window.CENTRES_DATA = [
         { fr: "Je vous remercie de prendre ma situation en considération.", ar: "أشكركم على أخذ وضعي بعين الاعتبار.", en: "Thank you for taking my situation into consideration." },
         { fr: "Je reste disponible pour tout renseignement complémentaire.", ar: "أنا متاح لأي معلومات إضافية.", en: "I remain available for any further information." }
       ] },
+      { icon: '🚫', title: { ar: "معرفة سبب الرفض", en: "معرفة سبب الرفض", fr: "معرفة سبب الرفض" }, phrases: [
+        { fr: "Pourquoi ma demande a-t-elle été refusée ?", ar: "لماذا تم رفض طلبي؟", en: "Why was my application refused?" },
+        { fr: "Pourriez-vous m'expliquer la raison du refus ?", ar: "هل يمكنكم توضيح سبب الرفض؟", en: "Could you explain the reason for the refusal?" },
+        { fr: "Je ne comprends pas cette décision.", ar: "لا أفهم هذا القرار.", en: "I don't understand this decision." },
+        { fr: "Est-ce qu'il manque des documents dans mon dossier ?", ar: "هل هناك وثائق ناقصة في ملفي؟", en: "Are any documents missing from my file?" },
+        { fr: "Mon dossier est-il incomplet ?", ar: "هل ملفي غير مكتمل؟", en: "Is my file incomplete?" }
+      ] },
+      { icon: '📮', title: { ar: "طلب إعادة دراسة الملف", en: "طلب إعادة دراسة الملف", fr: "طلب إعادة دراسة الملف" }, phrases: [
+        { fr: "Je voudrais demander un réexamen de mon dossier.", ar: "أريد طلب إعادة دراسة ملفي.", en: "I would like to request a review of my file." },
+        { fr: "Est-ce que ma demande peut être réétudiée ?", ar: "هل يمكن إعادة دراسة طلبي؟", en: "Can my application be reviewed again?" },
+        { fr: "Ma situation a changé depuis ma première demande.", ar: "لقد تغير وضعي منذ طلبي الأول.", en: "My situation has changed since my first application." },
+        { fr: "Je souhaite ajouter de nouveaux documents à mon dossier.", ar: "أريد إضافة وثائق جديدة إلى ملفي.", en: "I would like to add new documents to my file." },
+        { fr: "Je voudrais mettre à jour ma situation.", ar: "أريد تحديث وضعي.", en: "I would like to update my situation." }
+      ] },
+      { icon: '⚖️', title: { ar: "الاعتراض على القرار", en: "الاعتراض على القرار", fr: "الاعتراض على القرار" }, phrases: [
+        { fr: "Est-ce que je peux contester cette décision ?", ar: "هل يمكنني الاعتراض على هذا القرار؟", en: "Can I challenge this decision?" },
+        { fr: "Quelle est la procédure de recours ?", ar: "ما إجراءات الطعن؟", en: "What is the appeal procedure?" },
+        { fr: "Quel est le délai pour faire un recours ?", ar: "ما المهلة المحددة لتقديم الطعن؟", en: "What is the deadline for filing an appeal?" },
+        { fr: "À qui dois-je adresser mon recours ?", ar: "إلى من يجب أن أوجه الطعن؟", en: "To whom should I send my appeal?" },
+        { fr: "Je voudrais être accompagné dans cette démarche.", ar: "أريد الحصول على المرافقة في هذا الإجراء.", en: "I would like support with this procedure." }
+      ] },
+      { icon: '🔁', title: { ar: "إثبات أن الوضع مستعجل", en: "إثبات أن الوضع مستعجل", fr: "إثبات أن الوضع مستعجل" }, phrases: [
+        { fr: "Ma situation est particulièrement urgente.", ar: "وضعي مستعجل بشكل خاص.", en: "My situation is particularly urgent." },
+        { fr: "Je risque de me retrouver à la rue.", ar: "قد أجد نفسي في الشارع دون مأوى.", en: "I risk ending up homeless." },
+        { fr: "Je n'ai aucune solution d'hébergement.", ar: "ليس لدي أي حل للإيواء.", en: "I have no accommodation solution." },
+        { fr: "Je n'ai pas de logement pour les prochains jours.", ar: "ليس لدي مكان للسكن خلال الأيام القادمة.", en: "I have nowhere to stay for the next few days." },
+        { fr: "Je vous demande de réévaluer ma situation.", ar: "أطلب منكم إعادة تقييم وضعي.", en: "I ask you to reassess my situation." }
+      ] },
+      { icon: '📢', title: { ar: "طلب المساعدة القانونية والاجتماعية", en: "طلب المساعدة القانونية والاجتماعية", fr: "طلب المساعدة القانونية والاجتماعية" }, phrases: [
+        { fr: "Où puis-je obtenir une aide juridique gratuite ?", ar: "أين يمكنني الحصول على مساعدة قانونية مجانية؟", en: "Where can I get free legal assistance?" },
+        { fr: "Est-ce que je peux consulter un avocat ?", ar: "هل يمكنني استشارة محامٍ؟", en: "Can I consult a lawyer?" },
+        { fr: "Existe-t-il une association qui peut m'aider ?", ar: "هل توجد جمعية يمكنها مساعدتي؟", en: "Is there an association that can help me?" },
+        { fr: "Je voudrais connaître mes droits.", ar: "أريد معرفة حقوقي.", en: "I would like to know my rights." }
+      ] },
+      { icon: '🧾', title: { ar: "تغيير العنوان", en: "تغيير العنوان", fr: "تغيير العنوان" }, phrases: [
+        { fr: "J'ai changé d'adresse.", ar: "لقد غيرت عنوان سكني.", en: "I have changed my address." },
+        { fr: "Je voudrais signaler mon changement d'adresse.", ar: "أريد الإبلاغ عن تغيير عنواني.", en: "I would like to report my change of address." },
+        { fr: "Mon ancienne adresse n'est plus valable.", ar: "عنواني القديم لم يعد صالحاً.", en: "My old address is no longer valid." },
+        { fr: "Où dois-je recevoir mon courrier ?", ar: "أين يجب أن أتلقى بريدي؟", en: "Where should I receive my mail?" },
+        { fr: "J'ai besoin d'une domiciliation administrative.", ar: "أحتاج إلى عنوان بريدي إداري.", en: "I need an administrative mailing address." }
+      ] },
+      { icon: '🏃', title: { ar: "تغيير الحالة العائلية", en: "تغيير الحالة العائلية", fr: "تغيير الحالة العائلية" }, phrases: [
+        { fr: "Ma situation familiale a changé.", ar: "تغيرت حالتي العائلية.", en: "My family situation has changed." },
+        { fr: "Je suis maintenant en couple.", ar: "أنا الآن في علاقة زوجية.", en: "I am now in a relationship." },
+        { fr: "Je suis séparé de mon conjoint.", ar: "أنا منفصل عن زوجي أو زوجتي.", en: "I am separated from my spouse." },
+        { fr: "J'ai un enfant à charge.", ar: "لدي طفل أعيله.", en: "I have a dependent child." },
+        { fr: "Je souhaite un logement adapté à ma situation familiale.", ar: "أريد سكناً مناسباً لوضعي العائلي.", en: "I would like housing suited to my family situation." }
+      ] },
+      { icon: '🛟', title: { ar: "تغيير العمل والدخل", en: "تغيير العمل والدخل", fr: "تغيير العمل والدخل" }, phrases: [
+        { fr: "J'ai commencé un nouvel emploi.", ar: "بدأت عملاً جديداً.", en: "I have started a new job." },
+        { fr: "J'ai perdu mon emploi.", ar: "فقدت عملي.", en: "I have lost my job." },
+        { fr: "Mes revenus ont diminué.", ar: "انخفض دخلي.", en: "My income has decreased." },
+        { fr: "Ma situation professionnelle est devenue plus stable.", ar: "أصبح وضعي المهني أكثر استقراراً.", en: "My employment situation has become more stable." },
+        { fr: "Je voudrais déclarer ce changement de situation.", ar: "أريد التصريح بهذا التغيير في وضعي.", en: "I would like to report this change in my circumstances." }
+      ] },
+      { icon: '📨', title: { ar: "مفردات إدارية مهمة في ملفات السكن", en: "مفردات إدارية مهمة في ملفات السكن", fr: "مفردات إدارية مهمة في ملفات السكن" }, phrases: [
+        { fr: "Une décision favorable", ar: "قرار إيجابي بالموافقة", en: "A favourable decision" },
+        { fr: "Une décision défavorable", ar: "قرار سلبي بالرفض", en: "An unfavourable decision" },
+        { fr: "Un recours gracieux", ar: "تظلّم إداري يُقدَّم إلى الجهة التي أصدرت القرار", en: "An administrative appeal to the authority that made the decision" },
+        { fr: "Un recours contentieux", ar: "طعن أمام المحكمة المختصة", en: "A legal appeal before the competent court" },
+        { fr: "Un réexamen du dossier", ar: "إعادة دراسة الملف", en: "A review of the application" },
+        { fr: "Une pièce justificative", ar: "وثيقة إثبات", en: "A supporting document" },
+        { fr: "Un justificatif de domicile", ar: "إثبات عنوان السكن", en: "Proof of address" },
+        { fr: "Une attestation d'hébergement", ar: "شهادة استضافة أو إيواء", en: "Accommodation certificate" },
+        { fr: "Une notification de décision", ar: "إشعار بالقرار", en: "Decision notification" },
+        { fr: "Un délai de traitement", ar: "مدة معالجة الطلب", en: "Processing time" },
+        { fr: "Une demande en cours", ar: "طلب قيد الدراسة", en: "Pending application" },
+        { fr: "Une situation prioritaire", ar: "حالة ذات أولوية", en: "A priority situation" }
+      ] },
+      { icon: '🗣', title: { ar: "تقديم طلب السكن الاجتماعي", en: "تقديم طلب السكن الاجتماعي", fr: "تقديم طلب السكن الاجتماعي" }, phrases: [
+        { fr: "Je voudrais faire une demande de logement social.", ar: "أريد تقديم طلب للحصول على سكن اجتماعي.", en: "I would like to apply for social housing." },
+        { fr: "Où puis-je déposer ma demande ?", ar: "أين يمكنني تقديم طلبي؟", en: "Where can I submit my application?" },
+        { fr: "Est-ce que je peux faire ma demande en ligne ?", ar: "هل يمكنني تقديم طلبي عبر الإنترنت؟", en: "Can I apply online?" },
+        { fr: "Quels sont les documents nécessaires ?", ar: "ما الوثائق المطلوبة؟", en: "What documents are required?" },
+        { fr: "Je voudrais connaître les conditions d'accès au logement social.", ar: "أريد معرفة شروط الحصول على السكن الاجتماعي.", en: "I would like to know the eligibility requirements for social housing." }
+      ] },
+      { icon: '🚫', title: { ar: "رقم الطلب ورقم التسجيل", en: "رقم الطلب ورقم التسجيل", fr: "رقم الطلب ورقم التسجيل" }, phrases: [
+        { fr: "Est-ce que j'ai un numéro unique de demande ?", ar: "هل لدي رقم موحد لطلب السكن؟", en: "Do I have a unique application number?" },
+        { fr: "J'ai reçu mon numéro d'enregistrement.", ar: "لقد استلمت رقم تسجيل طلبي.", en: "I have received my registration number." },
+        { fr: "J'ai perdu mon numéro de demande.", ar: "لقد فقدت رقم طلبي.", en: "I have lost my application number." },
+        { fr: "Pouvez-vous me communiquer mon numéro unique ?", ar: "هل يمكنكم تزويدي برقمي الموحد؟", en: "Can you give me my unique application number?" },
+        { fr: "Voici mon numéro de demande de logement social.", ar: "هذا رقم طلب السكن الاجتماعي الخاص بي.", en: "Here is my social housing application number." }
+      ] },
+      { icon: '📮', title: { ar: "تجديد طلب السكن", en: "تجديد طلب السكن", fr: "تجديد طلب السكن" }, phrases: [
+        { fr: "Je dois renouveler ma demande de logement social.", ar: "يجب عليّ تجديد طلب السكن الاجتماعي.", en: "I have to renew my social housing application." },
+        { fr: "Quelle est la date limite de renouvellement ?", ar: "ما الموعد النهائي لتجديد الطلب؟", en: "What is the renewal deadline?" },
+        { fr: "Est-ce que ma demande est toujours valable ?", ar: "هل لا يزال طلبي سارياً؟", en: "Is my application still valid?" },
+        { fr: "J'ai reçu un rappel pour renouveler ma demande.", ar: "تلقيت تذكيراً لتجديد طلبي.", en: "I received a reminder to renew my application." },
+        { fr: "Je voudrais éviter que ma demande soit radiée.", ar: "أريد تجنب إلغاء طلبي من السجل.", en: "I want to avoid having my application removed." }
+      ] },
+      { icon: '⚖️', title: { ar: "اقتراح شقة اجتماعية", en: "اقتراح شقة اجتماعية", fr: "اقتراح شقة اجتماعية" }, phrases: [
+        { fr: "Une proposition de logement m'a été faite.", ar: "تم تقديم عرض سكن لي.", en: "I have received a housing offer." },
+        { fr: "Quel est le montant du loyer ?", ar: "ما قيمة الإيجار؟", en: "How much is the rent?" },
+        { fr: "Où se trouve le logement ?", ar: "أين يقع السكن؟", en: "Where is the accommodation located?" },
+        { fr: "Est-ce que je peux visiter l'appartement ?", ar: "هل يمكنني معاينة الشقة؟", en: "Can I visit the apartment?" },
+        { fr: "Combien de pièces y a-t-il dans le logement ?", ar: "كم عدد الغرف في السكن؟", en: "How many rooms are there in the property?" },
+        { fr: "Le logement est-il proche des transports en commun ?", ar: "هل السكن قريب من وسائل النقل العام؟", en: "Is the accommodation close to public transport?" }
+      ] },
+      { icon: '🔁', title: { ar: "قبول الشقة أو رفضها", en: "قبول الشقة أو رفضها", fr: "قبول الشقة أو رفضها" }, phrases: [
+        { fr: "J'accepte cette proposition de logement.", ar: "أقبل عرض السكن هذا.", en: "I accept this housing offer." },
+        { fr: "Je souhaite accepter le logement.", ar: "أرغب في قبول السكن.", en: "I would like to accept the accommodation." },
+        { fr: "Je voudrais avoir un délai pour réfléchir.", ar: "أريد مهلة للتفكير.", en: "I would like some time to think." },
+        { fr: "Je suis obligé de refuser cette proposition.", ar: "أنا مضطر لرفض هذا العرض.", en: "I have to refuse this offer." },
+        { fr: "Est-ce que le refus aura des conséquences sur mon dossier ?", ar: "هل سيكون للرفض تأثير على ملفي؟", en: "Will refusing have consequences for my application?" },
+        { fr: "Je voudrais connaître les conséquences d'un refus.", ar: "أريد معرفة نتائج رفض العرض.", en: "I would like to know the consequences of refusing." }
+      ] },
+      { icon: '📢', title: { ar: "تحديد موعد الزيارة", en: "تحديد موعد الزيارة", fr: "تحديد موعد الزيارة" }, phrases: [
+        { fr: "Quand puis-je visiter le logement ?", ar: "متى يمكنني زيارة السكن؟", en: "When can I visit the property?" },
+        { fr: "Je suis disponible demain après-midi.", ar: "أنا متاح غداً بعد الظهر.", en: "I am available tomorrow afternoon." },
+        { fr: "Est-ce que je peux venir accompagné ?", ar: "هل يمكنني الحضور برفقة شخص آخر؟", en: "Can I come with someone?" },
+        { fr: "À quelle adresse se trouve l'appartement ?", ar: "ما عنوان الشقة؟", en: "What is the address of the apartment?" }
+      ] },
+      { icon: '🧾', title: { ar: "فحص الشقة", en: "فحص الشقة", fr: "فحص الشقة" }, phrases: [
+        { fr: "Le logement est-il en bon état ?", ar: "هل السكن بحالة جيدة؟", en: "Is the property in good condition?" },
+        { fr: "Est-ce qu'il y a du chauffage ?", ar: "هل يوجد تدفئة؟", en: "Is there heating?" },
+        { fr: "Est-ce que les fenêtres sont bien isolées ?", ar: "هل النوافذ معزولة جيداً؟", en: "Are the windows properly insulated?" },
+        { fr: "Y a-t-il des problèmes d'humidité ?", ar: "هل توجد مشاكل رطوبة؟", en: "Are there any damp problems?" },
+        { fr: "Est-ce que l'eau chaude fonctionne ?", ar: "هل الماء الساخن يعمل؟", en: "Does the hot water work?" },
+        { fr: "Est-ce que l'électricité est déjà installée ?", ar: "هل الكهرباء موصولة بالفعل؟", en: "Is the electricity already connected?" }
+      ] },
+      { icon: '🏃', title: { ar: "التكاليف والمصاريف", en: "التكاليف والمصاريف", fr: "التكاليف والمصاريف" }, phrases: [
+        { fr: "Les charges sont-elles comprises dans le loyer ?", ar: "هل المصاريف الإضافية مشمولة في الإيجار؟", en: "Are the service charges included in the rent?" },
+        { fr: "Combien coûtent les charges mensuelles ?", ar: "كم تبلغ المصاريف الشهرية؟", en: "How much are the monthly charges?" },
+        { fr: "Dois-je payer un dépôt de garantie ?", ar: "هل يجب أن أدفع مبلغ ضمان؟", en: "Do I have to pay a security deposit?" },
+        { fr: "Est-ce que je peux bénéficier de l'APL ?", ar: "هل يمكنني الاستفادة من مساعدة السكن APL؟", en: "Can I receive housing benefit (APL)?" }
+      ] },
+      { icon: '🛟', title: { ar: "توقيع عقد الإيجار واستلام المفاتيح", en: "توقيع عقد الإيجار واستلام المفاتيح", fr: "توقيع عقد الإيجار واستلام المفاتيح" }, phrases: [
+        { fr: "Je voudrais lire le contrat avant de le signer.", ar: "أريد قراءة العقد قبل توقيعه.", en: "I would like to read the contract before signing it." },
+        { fr: "Où dois-je signer le contrat ?", ar: "أين يجب أن أوقّع العقد؟", en: "Where should I sign the contract?" },
+        { fr: "Quelle est la date de début du bail ?", ar: "ما تاريخ بداية عقد الإيجار؟", en: "What is the start date of the lease?" },
+        { fr: "Quand est-ce que je peux récupérer les clés ?", ar: "متى يمكنني استلام المفاتيح؟", en: "When can I collect the keys?" },
+        { fr: "Je voudrais faire l'état des lieux d'entrée.", ar: "أريد إجراء معاينة حالة السكن عند الدخول.", en: "I would like to complete the move-in inspection." },
+        { fr: "Il y a déjà quelques défauts dans l'appartement.", ar: "توجد بعض العيوب في الشقة بالفعل.", en: "There are already some defects in the apartment." },
+        { fr: "Je voudrais que ces défauts soient mentionnés dans l'état des lieux.", ar: "أريد تسجيل هذه العيوب في محضر المعاينة.", en: "I would like these defects to be recorded in the inspection report." },
+        { fr: "Merci de me remettre un exemplaire du contrat.", ar: "من فضلكم سلّموني نسخة من العقد.", en: "Please give me a copy of the contract." }
+      ] },
+      { icon: '📨', title: { ar: "تأخر دفع الإيجار", en: "تأخر دفع الإيجار", fr: "تأخر دفع الإيجار" }, phrases: [
+        { fr: "J'ai du retard dans le paiement de mon loyer.", ar: "لدي تأخر في دفع الإيجار.", en: "I am behind on my rent payments." },
+        { fr: "Je n'ai pas pu payer mon loyer ce mois-ci.", ar: "لم أتمكن من دفع إيجاري هذا الشهر.", en: "I couldn't pay my rent this month." },
+        { fr: "J'ai des difficultés financières en ce moment.", ar: "أعاني من صعوبات مالية حالياً.", en: "I am having financial difficulties at the moment." },
+        { fr: "Je risque d'avoir des impayés de loyer.", ar: "أخشى أن تتراكم عليّ ديون الإيجار.", en: "I risk falling behind on my rent payments." },
+        { fr: "Je voudrais trouver une solution avant que la situation s'aggrave.", ar: "أريد إيجاد حل قبل أن يتفاقم الوضع.", en: "I would like to find a solution before the situation gets worse." }
+      ] },
+      { icon: '🗣', title: { ar: "التفاوض مع صاحب السكن", en: "التفاوض مع صاحب السكن", fr: "التفاوض مع صاحب السكن" }, phrases: [
+        { fr: "Est-ce que je peux payer mon loyer en plusieurs fois ?", ar: "هل يمكنني دفع الإيجار على عدة دفعات؟", en: "Can I pay my rent in instalments?" },
+        { fr: "Je voudrais demander un délai de paiement.", ar: "أريد طلب مهلة للدفع.", en: "I would like to request an extension for payment." },
+        { fr: "Je peux verser une partie du loyer maintenant.", ar: "أستطيع دفع جزء من الإيجار الآن.", en: "I can pay part of the rent now." },
+        { fr: "Je m'engage à régulariser ma situation.", ar: "أتعهد بتسوية وضعي.", en: "I undertake to settle my situation." },
+        { fr: "Pourrions-nous établir un échéancier de paiement ?", ar: "هل يمكننا وضع جدول زمني للدفع؟", en: "Could we set up a payment schedule?" }
+      ] },
+      { icon: '🚫', title: { ar: "ديون السكن", en: "ديون السكن", fr: "ديون السكن" }, phrases: [
+        { fr: "J'ai accumulé des dettes de loyer.", ar: "تراكمت عليّ ديون الإيجار.", en: "I have accumulated rent arrears." },
+        { fr: "Quel est le montant total de ma dette ?", ar: "ما إجمالي قيمة ديني؟", en: "What is the total amount of my debt?" },
+        { fr: "J'ai reçu un courrier concernant des loyers impayés.", ar: "تلقيت رسالة بخصوص إيجارات غير مدفوعة.", en: "I received a letter concerning unpaid rent." },
+        { fr: "Je voudrais éviter une procédure d'expulsion.", ar: "أريد تجنب إجراءات الطرد من السكن.", en: "I would like to avoid eviction proceedings." },
+        { fr: "Je souhaite rencontrer un travailleur social pour trouver une solution.", ar: "أريد مقابلة مساعد اجتماعي لإيجاد حل.", en: "I would like to meet a social worker to find a solution." }
+      ] },
+      { icon: '📮', title: { ar: "المساعدة السكنية CAF / APL", en: "المساعدة السكنية CAF / APL", fr: "المساعدة السكنية CAF / APL" }, phrases: [
+        { fr: "Je voudrais faire une demande d'aide au logement.", ar: "أريد تقديم طلب للحصول على مساعدة سكنية.", en: "I would like to apply for housing assistance." },
+        { fr: "Est-ce que j'ai droit à l'APL ?", ar: "هل يحق لي الحصول على APL؟", en: "Am I entitled to APL?" },
+        { fr: "Mon dossier CAF est-il complet ?", ar: "هل ملفي لدى CAF مكتمل؟", en: "Is my CAF file complete?" },
+        { fr: "Je voudrais connaître le montant de mon aide au logement.", ar: "أريد معرفة قيمة المساعدة السكنية التي سأحصل عليها.", en: "I would like to know the amount of my housing benefit." },
+        { fr: "Pourquoi mon aide au logement a-t-elle été suspendue ?", ar: "لماذا تم تعليق المساعدة السكنية الخاصة بي؟", en: "Why has my housing benefit been suspended?" },
+        { fr: "Je n'ai pas encore reçu mon versement.", ar: "لم أتلقَّ الدفعة الخاصة بي بعد.", en: "I haven't received my payment yet." }
+      ] },
+      { icon: '⚖️', title: { ar: "صندوق التضامن السكني FSL", en: "صندوق التضامن السكني FSL", fr: "صندوق التضامن السكني FSL" }, phrases: [
+        { fr: "Je voudrais faire une demande d'aide auprès du FSL.", ar: "أريد تقديم طلب مساعدة لدى صندوق التضامن السكني.", en: "I would like to apply for assistance from the FSL." },
+        { fr: "Est-ce que le FSL peut m'aider à payer mon loyer ?", ar: "هل يستطيع FSL مساعدتي في دفع الإيجار؟", en: "Can the FSL help me pay my rent?" },
+        { fr: "Est-ce que le FSL peut prendre en charge le dépôt de garantie ?", ar: "هل يمكن لـ FSL تغطية مبلغ ضمان الإيجار؟", en: "Can the FSL cover the security deposit?" },
+        { fr: "Quelles sont les conditions pour bénéficier du FSL ?", ar: "ما شروط الاستفادة من FSL؟", en: "What are the eligibility conditions for FSL?" },
+        { fr: "Quels documents dois-je fournir ?", ar: "ما الوثائق التي يجب أن أقدمها؟", en: "Which documents do I need to provide?" }
+      ] },
+      { icon: '🔁', title: { ar: "المساعدة في فواتير الكهرباء والغاز", en: "المساعدة في فواتير الكهرباء والغاز", fr: "المساعدة في فواتير الكهرباء والغاز" }, phrases: [
+        { fr: "J'ai des difficultés à payer mes factures d'électricité.", ar: "أواجه صعوبة في دفع فواتير الكهرباء.", en: "I am having difficulty paying my electricity bills." },
+        { fr: "Ma facture de gaz est trop élevée.", ar: "فاتورة الغاز مرتفعة جداً.", en: "My gas bill is too high." },
+        { fr: "Je voudrais demander une aide pour mes factures d'énergie.", ar: "أريد طلب مساعدة لتسديد فواتير الطاقة.", en: "I would like to request assistance with my energy bills." },
+        { fr: "Est-ce qu'il existe une aide pour les personnes en difficulté ?", ar: "هل توجد مساعدة للأشخاص الذين يواجهون صعوبات؟", en: "Is there assistance available for people in financial difficulty?" }
+      ] },
+      { icon: '📢', title: { ar: "استلام إنذار", en: "استلام إنذار", fr: "استلام إنذار" }, phrases: [
+        { fr: "J'ai reçu un commandement de payer.", ar: "تلقيت إنذاراً رسمياً بالدفع.", en: "I received a formal demand for payment." },
+        { fr: "J'ai reçu une lettre de mise en demeure.", ar: "تلقيت رسالة مطالبة رسمية.", en: "I received a formal notice." },
+        { fr: "J'ai reçu un courrier concernant une procédure d'expulsion.", ar: "تلقيت رسالة بخصوص إجراءات الطرد من السكن.", en: "I received a letter concerning eviction proceedings." },
+        { fr: "Je voudrais comprendre ce que signifie ce document.", ar: "أريد أن أفهم ماذا تعني هذه الوثيقة.", en: "I would like to understand what this document means." },
+        { fr: "Quel est le délai dont je dispose pour réagir ?", ar: "ما المهلة المتاحة لي للرد أو اتخاذ إجراء؟", en: "How much time do I have to respond or take action?" }
+      ] },
+      { icon: '🧾', title: { ar: "طلب المساعدة لتجنب الطرد", en: "طلب المساعدة لتجنب الطرد", fr: "طلب المساعدة لتجنب الطرد" }, phrases: [
+        { fr: "Je voudrais éviter d'être expulsé de mon logement.", ar: "أريد تجنب طردي من منزلي.", en: "I would like to avoid being evicted from my home." },
+        { fr: "Est-ce que je peux bénéficier d'un accompagnement social ?", ar: "هل يمكنني الاستفادة من مرافقة اجتماعية؟", en: "Can I receive social support?" },
+        { fr: "Je voudrais contacter un conseiller juridique.", ar: "أريد التواصل مع مستشار قانوني.", en: "I would like to contact a legal adviser." },
+        { fr: "Est-ce que je peux demander un délai supplémentaire ?", ar: "هل يمكنني طلب مهلة إضافية؟", en: "Can I request additional time?" },
+        { fr: "Je souhaite trouver un accord avec mon propriétaire.", ar: "أريد التوصل إلى اتفاق مع صاحب السكن.", en: "I would like to reach an agreement with my landlord." }
+      ] },
+      { icon: '🏃', title: { ar: "كلمات إدارية وقانونية إضافية", en: "كلمات إدارية وقانونية إضافية", fr: "كلمات إدارية وقانونية إضافية" }, phrases: [
+        { fr: "Un loyer impayé", ar: "إيجار غير مدفوع", en: "Unpaid rent" },
+        { fr: "Une dette locative", ar: "دين ناتج عن الإيجار", en: "Rental debt" },
+        { fr: "Un échéancier de paiement", ar: "جدول زمني لتسديد الديون", en: "Payment schedule" },
+        { fr: "Un commandement de payer", ar: "أمر رسمي بالدفع", en: "Formal demand for payment" },
+        { fr: "Une mise en demeure", ar: "إنذار أو مطالبة رسمية", en: "Formal notice" },
+        { fr: "Une procédure d'expulsion", ar: "إجراءات الطرد من السكن", en: "Eviction proceedings" },
+        { fr: "Un bailleur", ar: "مالك العقار أو المؤجّر", en: "Landlord" },
+        { fr: "Un locataire", ar: "المستأجر", en: "Tenant" },
+        { fr: "Une aide financière exceptionnelle", ar: "مساعدة مالية استثنائية", en: "Exceptional financial assistance" },
+        { fr: "Un accompagnement budgétaire", ar: "مرافقة لتنظيم الميزانية", en: "Budgeting support" }
+      ] },
+      { icon: '🛟', title: { ar: "البلدية Mairie", en: "البلدية Mairie", fr: "البلدية Mairie" }, phrases: [
+        { fr: "Je voudrais prendre rendez-vous à la mairie.", ar: "أريد حجز موعد في البلدية.", en: "I would like to make an appointment at the town hall." },
+        { fr: "Quel service s'occupe des demandes de logement ?", ar: "أي قسم يتولى طلبات السكن؟", en: "Which department handles housing applications?" },
+        { fr: "Est-ce que la mairie peut m'aider à trouver un logement ?", ar: "هل تستطيع البلدية مساعدتي في إيجاد سكن؟", en: "Can the town hall help me find accommodation?" },
+        { fr: "Je voudrais rencontrer un conseiller social.", ar: "أريد مقابلة مستشار اجتماعي.", en: "I would like to meet a social adviser." },
+        { fr: "Où se trouve le service social de la mairie ?", ar: "أين يوجد قسم الخدمات الاجتماعية في البلدية؟", en: "Where is the town hall's social services department?" }
+      ] },
+      { icon: '📨', title: { ar: "مركز العمل الاجتماعي CCAS", en: "مركز العمل الاجتماعي CCAS", fr: "مركز العمل الاجتماعي CCAS" }, phrases: [
+        { fr: "Je voudrais demander de l'aide au CCAS.", ar: "أريد طلب المساعدة من مركز العمل الاجتماعي.", en: "I would like to ask the CCAS for assistance." },
+        { fr: "Est-ce que le CCAS propose un accompagnement social ?", ar: "هل يقدم المركز مرافقة اجتماعية؟", en: "Does the CCAS provide social support?" },
+        { fr: "Je voudrais faire évaluer ma situation sociale.", ar: "أريد إجراء تقييم لوضعي الاجتماعي.", en: "I would like to have my social situation assessed." },
+        { fr: "Est-ce que vous pouvez m'aider dans mes démarches administratives ?", ar: "هل يمكنكم مساعدتي في الإجراءات الإدارية؟", en: "Can you help me with my administrative procedures?" },
+        { fr: "Est-ce que vous proposez des aides alimentaires ?", ar: "هل تقدمون مساعدات غذائية؟", en: "Do you provide food assistance?" }
+      ] },
+      { icon: '🗣', title: { ar: "المحافظة Préfecture", en: "المحافظة Préfecture", fr: "المحافظة Préfecture" }, phrases: [
+        { fr: "Je voudrais obtenir des renseignements auprès de la préfecture.", ar: "أريد الحصول على معلومات من المحافظة.", en: "I would like to get information from the prefecture." },
+        { fr: "Quel service dois-je contacter ?", ar: "أي قسم يجب أن أتواصل معه؟", en: "Which department should I contact?" },
+        { fr: "Je voudrais connaître l'état d'avancement de mon dossier.", ar: "أريد معرفة مدى تقدم ملفي.", en: "I would like to know the progress of my application." },
+        { fr: "J'ai reçu une convocation de la préfecture.", ar: "تلقيت استدعاءً من المحافظة.", en: "I received a summons from the prefecture." },
+        { fr: "Quels documents dois-je apporter le jour du rendez-vous ?", ar: "ما الوثائق التي يجب أن أحضرها يوم الموعد؟", en: "Which documents should I bring on the appointment day?" }
+      ] },
+      { icon: '🚫', title: { ar: "الجمعيات الاجتماعية", en: "الجمعيات الاجتماعية", fr: "الجمعيات الاجتماعية" }, phrases: [
+        { fr: "Je cherche une association qui aide les personnes sans logement.", ar: "أبحث عن جمعية تساعد الأشخاص الذين لا يملكون سكناً.", en: "I'm looking for an association that helps homeless people." },
+        { fr: "Est-ce que votre association propose un hébergement ?", ar: "هل تقدم جمعيتكم أماكن للإيواء؟", en: "Does your association provide accommodation?" },
+        { fr: "Est-ce que je peux bénéficier d'un accompagnement gratuit ?", ar: "هل يمكنني الاستفادة من مرافقة مجانية؟", en: "Can I receive free support?" },
+        { fr: "Je voudrais parler à un travailleur social.", ar: "أريد التحدث مع مساعد اجتماعي.", en: "I would like to speak to a social worker." }
+      ] },
+      { icon: '📮', title: { ar: "طلب مساعدة غذائية", en: "طلب مساعدة غذائية", fr: "طلب مساعدة غذائية" }, phrases: [
+        { fr: "J'ai besoin d'une aide alimentaire.", ar: "أحتاج إلى مساعدة غذائية.", en: "I need food assistance." },
+        { fr: "Où puis-je récupérer un colis alimentaire ?", ar: "أين يمكنني استلام طرد غذائي؟", en: "Where can I collect a food parcel?" },
+        { fr: "Est-ce qu'il faut prendre rendez-vous ?", ar: "هل يجب حجز موعد؟", en: "Do I need to make an appointment?" },
+        { fr: "Quels documents dois-je présenter ?", ar: "ما الوثائق التي يجب أن أقدمها؟", en: "Which documents do I need to show?" },
+        { fr: "À quelle fréquence puis-je recevoir cette aide ?", ar: "كم مرة يمكنني الحصول على هذه المساعدة؟", en: "How often can I receive this assistance?" }
+      ] },
+      { icon: '⚖️', title: { ar: "طلب الملابس", en: "طلب الملابس", fr: "طلب الملابس" }, phrases: [
+        { fr: "J'ai besoin de vêtements chauds.", ar: "أحتاج إلى ملابس دافئة.", en: "I need warm clothes." },
+        { fr: "Est-ce que vous distribuez des vêtements gratuitement ?", ar: "هل توزعون الملابس مجاناً؟", en: "Do you distribute clothes free of charge?" },
+        { fr: "Je cherche des chaussures à ma taille.", ar: "أبحث عن حذاء بمقاسي.", en: "I'm looking for shoes in my size." },
+        { fr: "Où se trouve le vestiaire solidaire ?", ar: "أين يوجد مركز توزيع الملابس الخيري؟", en: "Where is the charity clothing centre?" }
+      ] },
+      { icon: '🔁', title: { ar: "النظافة والاستحمام", en: "النظافة والاستحمام", fr: "النظافة والاستحمام" }, phrases: [
+        { fr: "Où puis-je prendre une douche ?", ar: "أين يمكنني الاستحمام؟", en: "Where can I take a shower?" },
+        { fr: "Est-ce qu'il y a des douches publiques ?", ar: "هل توجد حمامات عامة؟", en: "Are there public showers?" },
+        { fr: "J'ai besoin de produits d'hygiène.", ar: "أحتاج إلى مستلزمات النظافة.", en: "I need hygiene products." },
+        { fr: "Où puis-je faire une lessive ?", ar: "أين يمكنني غسل ملابسي؟", en: "Where can I do my laundry?" },
+        { fr: "Est-ce que le service est gratuit ?", ar: "هل الخدمة مجانية؟", en: "Is the service free?" }
+      ] },
+      { icon: '📢', title: { ar: "طلب عنوان بريدي", en: "طلب عنوان بريدي", fr: "طلب عنوان بريدي" }, phrases: [
+        { fr: "Je n'ai pas d'adresse fixe actuellement.", ar: "ليس لدي عنوان ثابت حالياً.", en: "I don't currently have a permanent address." },
+        { fr: "J'ai besoin d'une domiciliation administrative.", ar: "أحتاج إلى عنوان إداري لاستلام البريد.", en: "I need an administrative mailing address." },
+        { fr: "Est-ce que je peux recevoir mon courrier chez vous ?", ar: "هل يمكنني استلام بريدي لديكم؟", en: "Can I receive my mail at your address?" },
+        { fr: "Comment puis-je récupérer mon courrier ?", ar: "كيف يمكنني استلام بريدي؟", en: "How can I collect my mail?" },
+        { fr: "À quels horaires puis-je venir chercher mon courrier ?", ar: "في أي أوقات يمكنني الحضور لاستلام بريدي؟", en: "During what hours can I come to collect my mail?" }
+      ] },
+      { icon: '🧾', title: { ar: "استلام رسالة أو وثيقة", en: "استلام رسالة أو وثيقة", fr: "استلام رسالة أو وثيقة" }, phrases: [
+        { fr: "J'attends un courrier important.", ar: "أنتظر رسالة مهمة.", en: "I'm expecting an important letter." },
+        { fr: "Est-ce que j'ai reçu du courrier à mon nom ?", ar: "هل وصل بريد باسمي؟", en: "Has any mail arrived in my name?" },
+        { fr: "Je voudrais vérifier ma boîte aux lettres.", ar: "أريد التحقق من صندوق بريدي.", en: "I would like to check my mailbox." },
+        { fr: "J'ai reçu une lettre recommandée.", ar: "تلقيت رسالة مسجلة مع إشعار بالاستلام.", en: "I received a registered letter." },
+        { fr: "Je dois signer pour récupérer ce courrier.", ar: "يجب أن أوقّع لاستلام هذه الرسالة.", en: "I have to sign to collect this letter." }
+      ] },
+      { icon: '🏃', title: { ar: "تجديد التوطين الإداري", en: "تجديد التوطين الإداري", fr: "تجديد التوطين الإداري" }, phrases: [
+        { fr: "Je voudrais renouveler ma domiciliation.", ar: "أريد تجديد عنواني الإداري.", en: "I would like to renew my administrative address." },
+        { fr: "Ma domiciliation arrive bientôt à expiration.", ar: "سينتهي عنواني الإداري قريباً.", en: "My administrative address is about to expire." },
+        { fr: "Est-ce que je dois fournir de nouveaux justificatifs ?", ar: "هل يجب أن أقدم إثباتات جديدة؟", en: "Do I need to provide new supporting documents?" },
+        { fr: "J'ai besoin d'une attestation de domiciliation.", ar: "أحتاج إلى شهادة إثبات العنوان الإداري.", en: "I need an administrative address certificate." }
+      ] },
+      { icon: '🛟', title: { ar: "عبارات مهمة جداً في الحياة اليومية مع المساعد الاجتماعي", en: "عبارات مهمة جداً في الحياة اليومية مع المساعد الاجتماعي", fr: "عبارات مهمة جداً في الحياة اليومية مع المساعد الاجتماعي" }, phrases: [
+        { fr: "Je suis venu pour demander de l'aide.", ar: "جئت لطلب المساعدة.", en: "I came to ask for help." },
+        { fr: "Je ne sais pas à qui m'adresser.", ar: "لا أعرف إلى من أتوجه.", en: "I don't know who to turn to." },
+        { fr: "Pouvez-vous m'orienter vers le bon service ?", ar: "هل يمكنكم توجيهي إلى القسم المناسب؟", en: "Can you direct me to the right department?" },
+        { fr: "J'ai besoin d'un rendez-vous rapidement.", ar: "أحتاج إلى موعد بسرعة.", en: "I need an appointment as soon as possible." },
+        { fr: "Je n'ai pas les moyens de payer cette dépense.", ar: "لا أملك المال لدفع هذه المصاريف.", en: "I cannot afford this expense." },
+        { fr: "Je voudrais connaître toutes les aides auxquelles je peux avoir droit.", ar: "أريد معرفة جميع المساعدات التي قد يحق لي الحصول عليها.", en: "I would like to know all the benefits I may be entitled to." },
+        { fr: "Merci de m'avoir expliqué les démarches.", ar: "شكراً لأنكم شرحتم لي الإجراءات.", en: "Thank you for explaining the procedures to me." }
+      ] },
+      { icon: '📨', title: { ar: "بداية المكالمة الهاتفية", en: "بداية المكالمة الهاتفية", fr: "بداية المكالمة الهاتفية" }, phrases: [
+        { fr: "Bonjour, je vous appelle pour demander un hébergement d'urgence.", ar: "مرحباً، أتصل بكم لطلب إيواء طارئ.", en: "Hello, I'm calling to request emergency accommodation." },
+        { fr: "Je voudrais savoir s'il y a une place disponible.", ar: "أريد معرفة ما إذا كان هناك مكان متاح.", en: "I would like to know if a place is available." },
+        { fr: "Je suis actuellement sans hébergement.", ar: "أنا حالياً بلا مأوى.", en: "I am currently without accommodation." },
+        { fr: "Je n'ai pas d'endroit où dormir ce soir.", ar: "ليس لدي مكان أنام فيه هذه الليلة.", en: "I have nowhere to sleep tonight." },
+        { fr: "Je cherche une solution pour cette nuit.", ar: "أبحث عن حل لهذه الليلة.", en: "I'm looking for a solution for tonight." }
+      ] },
+      { icon: '🗣', title: { ar: "الإجابة عن أسئلة الموظف", en: "الإجابة عن أسئلة الموظف", fr: "الإجابة عن أسئلة الموظف" }, phrases: [
+        { fr: "Où vous trouvez-vous actuellement ?", ar: "أين توجد حالياً؟", en: "Where are you currently?" },
+        { fr: "Je suis actuellement à Paris.", ar: "أنا حالياً في باريس.", en: "I am currently in Paris." },
+        { fr: "Êtes-vous seul ou accompagné ?", ar: "هل أنت بمفردك أم برفقة أحد؟", en: "Are you alone or accompanied?" },
+        { fr: "Je suis seul.", ar: "أنا بمفردي.", en: "I am alone." },
+        { fr: "Avez-vous des enfants avec vous ?", ar: "هل يوجد أطفال برفقتك؟", en: "Do you have children with you?" },
+        { fr: "Non, je suis seul.", ar: "لا، أنا بمفردي.", en: "No, I am alone." },
+        { fr: "Avez-vous déjà bénéficié d'un hébergement ?", ar: "هل سبق أن استفدت من الإيواء؟", en: "Have you previously received accommodation?" },
+        { fr: "Oui, j'ai déjà été hébergé dans un centre.", ar: "نعم، سبق أن أقمت في مركز إيواء.", en: "Yes, I have previously stayed in an accommodation centre." }
+      ] },
+      { icon: '🚫', title: { ar: "شرح الحالة الطارئة", en: "شرح الحالة الطارئة", fr: "شرح الحالة الطارئة" }, phrases: [
+        { fr: "Je suis dans une situation très difficile.", ar: "أنا في وضع صعب جداً.", en: "I am in a very difficult situation." },
+        { fr: "Je n'ai aucune solution pour cette nuit.", ar: "ليس لدي أي حل لهذه الليلة.", en: "I have no solution for tonight." },
+        { fr: "Je risque de dormir dehors.", ar: "قد أضطر إلى النوم في الشارع.", en: "I may have to sleep outside." },
+        { fr: "Je n'ai pas de famille qui puisse m'accueillir.", ar: "ليس لدي عائلة تستطيع استقبالي.", en: "I have no family who can take me in." },
+        { fr: "Ma situation devient urgente.", ar: "وضعي أصبح طارئاً.", en: "My situation is becoming urgent." }
+      ] },
+      { icon: '📮', title: { ar: "عندما لا توجد أماكن متاحة", en: "عندما لا توجد أماكن متاحة", fr: "عندما لا توجد أماكن متاحة" }, phrases: [
+        { fr: "Il n'y a pas de place disponible pour le moment.", ar: "لا توجد أماكن متاحة في الوقت الحالي.", en: "There are no available places at the moment." },
+        { fr: "Que dois-je faire dans ce cas ?", ar: "ماذا يجب أن أفعل في هذه الحالة؟", en: "What should I do in this situation?" },
+        { fr: "Est-ce que je peux rappeler plus tard ?", ar: "هل يمكنني الاتصال مرة أخرى لاحقاً؟", en: "Can I call back later?" },
+        { fr: "Est-ce que ma demande est enregistrée ?", ar: "هل تم تسجيل طلبي؟", en: "Has my request been registered?" },
+        { fr: "Pouvez-vous me donner un numéro de suivi ?", ar: "هل يمكنكم إعطائي رقم متابعة؟", en: "Can you give me a reference number?" }
+      ] },
+      { icon: '⚖️', title: { ar: "نهاية المكالمة", en: "نهاية المكالمة", fr: "نهاية المكالمة" }, phrases: [
+        { fr: "Merci pour votre réponse.", ar: "شكراً على إجابتكم.", en: "Thank you for your response." },
+        { fr: "Je vais rappeler si nécessaire.", ar: "سأعاود الاتصال إذا لزم الأمر.", en: "I will call again if necessary." },
+        { fr: "Bonne journée et merci pour votre aide.", ar: "أتمنى لكم يوماً سعيداً وشكراً على مساعدتكم.", en: "Have a nice day, and thank you for your help." }
+      ] },
+      { icon: '🔁', title: { ar: "أسماء أماكن الإيواء", en: "أسماء أماكن الإيواء", fr: "أسماء أماكن الإيواء" }, phrases: [
+        { fr: "Un centre d'hébergement d'urgence (CHU)", ar: "مركز الإيواء الطارئ.", en: "Emergency accommodation centre." },
+        { fr: "Un centre d'hébergement et de réinsertion sociale (CHRS)", ar: "مركز الإيواء وإعادة الإدماج الاجتماعي.", en: "Accommodation and social reintegration centre." },
+        { fr: "Un centre d'accueil de jour", ar: "مركز استقبال نهاري.", en: "Day centre." },
+        { fr: "Un accueil de nuit", ar: "مركز استقبال ليلي.", en: "Night shelter." },
+        { fr: "Un foyer d'hébergement", ar: "دار أو مركز للإقامة.", en: "Residential accommodation facility." },
+        { fr: "Une résidence sociale", ar: "إقامة اجتماعية.", en: "Social residence." },
+        { fr: "Une pension de famille", ar: "سكن جماعي صغير للأشخاص الذين يحتاجون إلى سكن مستقر ومرافقة اجتماعية.", en: "Supported shared residence." },
+        { fr: "Un logement temporaire", ar: "سكن مؤقت.", en: "Temporary accommodation." }
+      ] },
+      { icon: '📢', title: { ar: "الخدمات داخل المركز", en: "الخدمات داخل المركز", fr: "الخدمات داخل المركز" }, phrases: [
+        { fr: "Un travailleur social", ar: "مساعد اجتماعي.", en: "Social worker." },
+        { fr: "Un référent social", ar: "المسؤول الاجتماعي عن متابعة الملف.", en: "Social support caseworker." },
+        { fr: "Un responsable du centre", ar: "مسؤول المركز.", en: "Centre manager." },
+        { fr: "Un agent d'accueil", ar: "موظف الاستقبال.", en: "Receptionist." },
+        { fr: "Un règlement intérieur", ar: "النظام الداخلي للمركز.", en: "House rules." },
+        { fr: "Une chambre individuelle", ar: "غرفة فردية.", en: "Single room." },
+        { fr: "Une chambre partagée", ar: "غرفة مشتركة.", en: "Shared room." },
+        { fr: "Les espaces communs", ar: "الأماكن المشتركة.", en: "Common areas." },
+        { fr: "Les horaires d'entrée et de sortie", ar: "أوقات الدخول والخروج.", en: "Entry and exit times." }
+      ] },
+      { icon: '🧾', title: { ar: "النظام الداخلي", en: "النظام الداخلي", fr: "النظام الداخلي" }, phrases: [
+        { fr: "Quelles sont les règles du centre ?", ar: "ما قواعد المركز؟", en: "What are the centre's rules?" },
+        { fr: "À quelle heure faut-il rentrer le soir ?", ar: "في أي ساعة يجب العودة مساءً؟", en: "What time must we return in the evening?" },
+        { fr: "Est-ce que je peux sortir pendant la journée ?", ar: "هل يمكنني الخروج خلال النهار؟", en: "Can I go out during the day?" },
+        { fr: "Est-ce que les repas sont fournis ?", ar: "هل يتم توفير الوجبات؟", en: "Are meals provided?" },
+        { fr: "Est-ce que je peux recevoir des visiteurs ?", ar: "هل يمكنني استقبال الزوار؟", en: "Can I receive visitors?" }
+      ] },
+      { icon: '🏃', title: { ar: "الإبلاغ عن مشكلة", en: "الإبلاغ عن مشكلة", fr: "الإبلاغ عن مشكلة" }, phrases: [
+        { fr: "J'ai un problème dans ma chambre.", ar: "لدي مشكلة في غرفتي.", en: "I have a problem in my room." },
+        { fr: "Il y a trop de bruit la nuit.", ar: "هناك ضجيج كثير في الليل.", en: "There is too much noise at night." },
+        { fr: "Je ne me sens pas en sécurité.", ar: "لا أشعر بالأمان.", en: "I don't feel safe." },
+        { fr: "Je voudrais parler au responsable.", ar: "أريد التحدث مع المسؤول.", en: "I would like to speak to the manager." },
+        { fr: "Je voudrais signaler un incident.", ar: "أريد الإبلاغ عن حادثة.", en: "I would like to report an incident." },
+        { fr: "J'aimerais changer de chambre si possible.", ar: "أود تغيير الغرفة إذا كان ذلك ممكناً.", en: "I would like to change rooms if possible." }
+      ] },
+      { icon: '🛟', title: { ar: "كلمات مهمة جداً في الحياة اليومية داخل السكن", en: "كلمات مهمة جداً في الحياة اليومية داخل السكن", fr: "كلمات مهمة جداً في الحياة اليومية داخل السكن" }, phrases: [
+        { fr: "L'hébergement", ar: "الإيواء.", en: "Accommodation." },
+        { fr: "L'accueil", ar: "الاستقبال.", en: "Reception." },
+        { fr: "L'admission", ar: "القبول في المركز.", en: "Admission." },
+        { fr: "La prise en charge", ar: "التكفّل أو تقديم الرعاية والمساعدة.", en: "Support and care." },
+        { fr: "L'orientation", ar: "التوجيه إلى جهة أو خدمة مناسبة.", en: "Referral." },
+        { fr: "La disponibilité", ar: "التوفّر.", en: "Availability." },
+        { fr: "La prolongation", ar: "التمديد.", en: "Extension." },
+        { fr: "La sortie du dispositif", ar: "الخروج من نظام الإيواء أو البرنامج.", en: "Exit from the accommodation scheme." },
+        { fr: "La réorientation", ar: "إعادة التوجيه إلى خدمة أو مركز آخر.", en: "Re-referral." },
+        { fr: "Le suivi social", ar: "المتابعة الاجتماعية.", en: "Social support follow-up." },
+        { fr: "L'accompagnement vers le logement", ar: "المرافقة للحصول على سكن.", en: "Support in accessing housing." },
+        { fr: "La stabilisation de la situation", ar: "استقرار الوضع.", en: "Stabilisation of the situation." }
+      ] },
+
     ]
   },
   {
