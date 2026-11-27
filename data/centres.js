@@ -3039,6 +3039,113 @@ window.CENTRES_DATA = [
 
       ] },
 
+      { icon: '🩺', images: ["https://images.openai.com/static-rsc-4/5gxKsktR9yCfZN3OpLvLzvFk5Bl8jfODYQPQ4wWEjTPOc9UgMmRHCI0GgG5qQTy_bt455GY2QSvRqPjImhv4-3T08y1HzcD6my5z6jhi6IuHFabltQ4SMrtvVtoNRT9Hf0BAmqSCRHkFZ1xJetFCvYJPun0joD95sOC34E8cC8S_iaSVgTz4wG9RXR3t9i1_?purpose=fullsize", "https://images.openai.com/static-rsc-4/n9PsShmyc0R2BazOld2ZN692dEf-8Earh59lsOybczfpHsMtw8V2qf1Ae7wxee1nPXVWzwcBoAuJx9WfxIqequMM9d1Z4gp3jHrvYSHZkLxk_zZ8lzwqk_O8fctoNPdJoW8HWknM8xHV0LPDZ1DMj9_FRte_ZL3-KRaJmfx3Ctdn0hkXST8cUCncDYnLFuEI?purpose=fullsize", "https://images.openai.com/static-rsc-4/WT6iO9wNh2UHOcDIi_PvftBGdDlyblKAWDGmd2_PbCKSuX_60a6Uf1GvXUFQNNMYMBczuiVlCXsRMruzCyuzzcv9JmOlxwtMAa4H9QmAW-NkF2pJZ78Tu2J6M9lR-EGYbMgrkzI3NU-6a2BhXc4GmdSuhjio8j4fio0YHlKZ_Sa_tZ0vz_A3EG9YXDRjESIO?purpose=fullsize"], notes: ["فحص غير جراحي للكبد", "فحص FibroScan من الفحوصات الشائعة في فرنسا لتقييم حالة الكبد، وخاصةً للكشف عن:", "يُسمّى طبياً أيضاً Élastométrie hépatique par FibroScan.", "الفحص سريع، لا يحتاج إلى إبرة أو جراحة، ولا يستخدم الأشعة السينية. وهو يساعد على تقدير درجة صلابة الكبد وكمية الدهون فيه، لكنه لا يعطي تشخيصاً نهائياً بمفرده."], title: { ar: "شرح شامل لفحص FibroScan في فرنسا", en: "شرح شامل لفحص FibroScan في فرنسا", fr: "شرح شامل لفحص FibroScan في فرنسا" }, phrases: [
+        { fr: "La fibrose hépatique", ar: "تليّف الكبد", en: "Liver fibrosis" },
+        { fr: "La stéatose hépatique", ar: "تراكم الدهون في الكبد", en: "Fatty liver" },
+        { fr: "La rigidité du foie", ar: "صلابة الكبد", en: "Liver stiffness" }
+      ] },
+      { icon: '📋', notes: ["يستخدم الجهاز مسباراً يوضع على الجلد في الجهة اليمنى من البطن، بالقرب من الكبد.", "يقوم الجهاز بإرسال موجات ميكانيكية وقياس سرعة انتشارها داخل أنسجة الكبد.", "كلما زادت صلابة النسيج، زادت سرعة انتشار الموجة.", "يستخدم الجهاز القياس لتقدير درجة التليف.", "ويمكنه أيضاً تقدير الدهون باستخدام تقنية CAP."], title: { ar: "كيف يعمل جهاز FibroScan؟", en: "كيف يعمل جهاز FibroScan؟", fr: "كيف يعمل جهاز FibroScan؟" }, phrases: [
+        { fr: "Le médecin mesure la rigidité du foie.", ar: "الطبيب يقيس صلابة الكبد.", en: "The doctor measures liver stiffness." },
+        { fr: "L'examen permet d'évaluer la fibrose hépatique.", ar: "الفحص يسمح بتقييم تليف الكبد.", en: "The examination helps assess liver fibrosis." }
+      ] },
+      { icon: '🎒', notes: ["في فرنسا، تطلب مراكز كثيرة الحضور على معدة فارغة قبل الفحص.", "غالباً يُطلب عدم تناول الطعام لمدة ساعتين إلى ثلاث ساعات قبل الفحص، لكن يجب اتباع تعليمات المركز الذي حجزت فيه.", "نصائح قبل الموعد:", "لا تتناول الطعام خلال المدة التي حددها المركز.", "اسأل المركز إن كان مسموحاً شرب الماء.", "لا توقف أدويتك من تلقاء نفسك.", "أحضر الوصفة الطبية والتقارير السابقة."], title: { ar: "هل يحتاج FibroScan إلى تحضير؟", en: "هل يحتاج FibroScan إلى تحضير؟", fr: "هل يحتاج FibroScan إلى تحضير؟" }, phrases: [
+        { fr: "À jeun", ar: "صائماً / على معدة فارغة.", en: "Fasting." },
+        { fr: "Dois-je être à jeun pour le FibroScan ?", ar: "هل يجب أن أكون صائماً لإجراء الفيبروسكان؟", en: "Do I need to fast for the FibroScan?" },
+        { fr: "Combien d'heures dois-je rester à jeun ?", ar: "كم ساعة يجب أن أبقى صائماً؟", en: "How many hours do I need to fast?" }
+      ] },
+      { icon: '🔬', images: ["https://images.openai.com/static-rsc-4/MxFS3C3bP4mWuOzaBdL3pH2VpvkR-6VnRS0NiHRkF5yUlZ9KwzkxX4c2LPW0SMTtZ2qfba-jq8bjgcLclwq9SO2Fen4zg0-L0dwqi6SiL0BI5iHBMaxgfOmvpUKK6xeVFFyEQ0Vfr8IUjZkHun4LF5AAeytTIAr-3VKq7ZD8iV4A12vmiJaJvzZ3WQOYACWX?purpose=fullsize", "https://images.openai.com/static-rsc-4/sbELlaHzJjznjZHhGoQZtfcOq7Ac9iRV2ezrcQ3by_mLDebpoxjMrY9W9qVCKVE14Vtc7lpE-GztlsSdNo5TDHK4KgBDbMRHEOsXXmcIKn8VfzuhtcIgEdgBzVBZEWOoRgTmPVhyT210hfEz5T9dvR_gygFWQ6jiWFHx1Aq5QNBHIC_TuA5nCNbS8_Z7HXm-?purpose=fullsize"], notes: ["المرحلة الأولى: الاستقبال", "تدخل إلى مركز الفحص وتقول:", "المرحلة الثانية: الاستعداد", "يطلب منك الموظف كشف الجزء الأيمن من البطن، وقد يطلب منك الاستلقاء على ظهرك مع رفع الذراع اليمنى فوق الرأس.", "المرحلة الثالثة: وضع المسبار", "يضع الموظف كمية صغيرة من الجل على الجلد، ثم يضع المسبار في منطقة الكبد.", "المرحلة الرابعة: أخذ القياسات", "يقوم الجهاز بإرسال نبضات متتالية ويأخذ عدة قياسات.", "قد تشعر بنقرات أو اهتزازات خفيفة من المسبار، وعادة لا يكون الفحص مؤلماً.", "المرحلة الخامسة: انتهاء الفحص"], title: { ar: "ماذا يحدث يوم الفحص في فرنسا؟", en: "ماذا يحدث يوم الفحص في فرنسا؟", fr: "ماذا يحدث يوم الفحص في فرنسا؟" }, phrases: [
+        { fr: "Bonjour, j'ai rendez-vous pour un FibroScan.", ar: "مرحباً، لدي موعد لإجراء فيبروسكان.", en: "Hello, I have an appointment for a FibroScan." },
+        { fr: "Vous avez votre ordonnance ?", ar: "هل لديك الوصفة الطبية؟", en: "Do you have your prescription?" },
+        { fr: "Vous avez respecté le jeûne ?", ar: "هل التزمت بالصيام؟", en: "Have you followed the fasting instructions?" },
+        { fr: "Allongez-vous sur le dos, s'il vous plaît.", ar: "استلقِ على ظهرك من فضلك.", en: "Please lie on your back." },
+        { fr: "Levez le bras droit au-dessus de la tête.", ar: "ارفع ذراعك اليمنى فوق رأسك.", en: "Raise your right arm above your head." },
+        { fr: "Dégagez le côté droit de votre abdomen.", ar: "اكشف الجانب الأيمن من بطنك.", en: "Expose the right side of your abdomen." },
+        { fr: "Nous allons appliquer un peu de gel.", ar: "سنضع قليلاً من الجل.", en: "We are going to apply some gel." },
+        { fr: "Vous allez sentir une légère pression.", ar: "ستشعر بضغط خفيف.", en: "You will feel slight pressure." },
+        { fr: "Ne bougez pas, s'il vous plaît.", ar: "لا تتحرك من فضلك.", en: "Please do not move." },
+        { fr: "Nous allons effectuer plusieurs mesures.", ar: "سنجري عدة قياسات.", en: "We are going to take several measurements." },
+        { fr: "Respirez normalement.", ar: "تنفس بشكل طبيعي.", en: "Breathe normally." },
+        { fr: "Encore quelques mesures.", ar: "بقيت بعض القياسات.", en: "Just a few more measurements." },
+        { fr: "L'examen est terminé.", ar: "انتهى الفحص.", en: "The examination is finished." },
+        { fr: "Vous pouvez vous rhabiller.", ar: "يمكنك ارتداء ملابسك.", en: "You can get dressed." }
+      ] },
+      { icon: '⚖️', notes: ["عادةً يستغرق الفحص نفسه حوالي 5 إلى 15 دقيقة، وقد تختلف المدة بحسب الحالة وجودة القياسات."], title: { ar: "كم تستغرق مدة FibroScan؟", en: "كم تستغرق مدة FibroScan؟", fr: "كم تستغرق مدة FibroScan؟" }, phrases: [
+        { fr: "Le FibroScan est un examen rapide.", ar: "الفيبروسكان فحص سريع.", en: "FibroScan is a quick examination." },
+        { fr: "L'examen est indolore.", ar: "الفحص غير مؤلم.", en: "The examination is painless." },
+        { fr: "Il ne nécessite pas d'anesthésie.", ar: "لا يحتاج إلى تخدير.", en: "It does not require anaesthesia." }
+      ] },
+      { icon: '📖', notes: ["الوحدة: Kilopascal"], title: { ar: "kPa", en: "kPa", fr: "kPa" }, phrases: [
+        { fr: "Élasticité / rigidité hépatique", ar: "قياس صلابة الكبد وتقدير التليف", en: "" }
+      ] },
+      { icon: '📊', notes: ["الوحدة: Decibels per meter", "بمعنى بسيط:", "kPa يساعد على تقييم صلابة الكبد واحتمال وجود تليف.", "CAP يساعد على تقدير تراكم الدهون في الكبد."], title: { ar: "dB/m", en: "dB/m", fr: "dB/m" }, phrases: [
+        { fr: "CAP – Controlled Attenuation Parameter", ar: "تقدير كمية الدهون في الكبد", en: "" }
+      ] },
+      { icon: '🆚', notes: ["قد يظهر في التقرير تصنيف تقريبي من F0 إلى F4:", "مهم جداً: هذه المراحل تصنيف مبسط. لا يمكن تحويل أي رقم kPa إلى مرحلة F بصورة ثابتة لجميع المرضى؛ فالحدود تختلف بحسب سبب مرض الكبد، ونوع الجهاز، والحالة الطبية. كما أن الالتهاب واحتقان الكبد وبعض العوامل الأخرى قد ترفع قياس الصلابة دون أن تعني وجود تليف بنفس الدرجة."], title: { ar: "أولاً: نتيجة التليف Fibrose hépatique", en: "أولاً: نتيجة التليف Fibrose hépatique", fr: "أولاً: نتيجة التليف Fibrose hépatique" }, phrases: [
+        { fr: "F0", ar: "لا يوجد تليف", en: "No fibrosis" },
+        { fr: "F1", ar: "تليف خفيف", en: "Mild fibrosis" },
+        { fr: "F2", ar: "تليف متوسط", en: "Moderate fibrosis" },
+        { fr: "F3", ar: "تليف متقدم", en: "Advanced fibrosis" },
+        { fr: "F4", ar: "تشمع الكبد", en: "Cirrhosis" }
+      ] },
+      { icon: '🏠', notes: ["قد تجد في التقرير:", "قد يصنف التقرير الدهون إلى درجات:", "تختلف الحدود الرقمية بين البروتوكولات والحالات، لذلك لا يصح الحكم على النتيجة من رقم CAP وحده."], title: { ar: "ثانياً: نتيجة الدهون CAP", en: "ثانياً: نتيجة الدهون CAP", fr: "ثانياً: نتيجة الدهون CAP" }, phrases: [
+        { fr: "CAP : Controlled Attenuation Parameter", ar: "قياس تقديري لدهون الكبد.", en: "Controlled attenuation parameter." },
+        { fr: "S0", ar: "لا توجد أو توجد دهون قليلة جداً", en: "" },
+        { fr: "S1", ar: "دهون خفيفة", en: "" },
+        { fr: "S2", ar: "دهون متوسطة", en: "" },
+        { fr: "S3", ar: "دهون شديدة", en: "" }
+      ] },
+      { icon: '💬', notes: ["قد تجد في التقرير أيضاً:", "هذا مثال توضيحي وليس نتيجة طبية أو حكماً على وجود مرض."], title: { ar: "أهم الكلمات التي تظهر في تقرير FibroScan الفرنسي", en: "أهم الكلمات التي تظهر في تقرير FibroScan الفرنسي", fr: "أهم الكلمات التي تظهر في تقرير FibroScan الفرنسي" }, phrases: [
+        { fr: "Élastométrie hépatique", ar: "قياس مرونة الكبد", en: "Liver elastography" },
+        { fr: "Rigidité hépatique", ar: "صلابة الكبد", en: "Liver stiffness" },
+        { fr: "Fibrose", ar: "تليف", en: "Fibrosis" },
+        { fr: "Stéatose", ar: "تشحم الكبد", en: "Steatosis" },
+        { fr: "Cirrhose", ar: "تشمع الكبد", en: "Cirrhosis" },
+        { fr: "Mesure valide", ar: "قياس صالح", en: "Valid measurement" },
+        { fr: "Mesures fiables", ar: "قياسات موثوقة", en: "Reliable measurements" },
+        { fr: "Résultat interprétable", ar: "نتيجة قابلة للتفسير", en: "Interpretable result" },
+        { fr: "Médiane", ar: "القيمة الوسيطة", en: "Median" },
+        { fr: "IQR", ar: "المدى الربيعي", en: "Interquartile range" },
+        { fr: "Sonde M", ar: "المسبار المتوسط", en: "M probe" },
+        { fr: "Sonde XL", ar: "المسبار الكبير", en: "XL probe" },
+        { fr: "Qualité des mesures", ar: "جودة القياسات", en: "Measurement quality" },
+        { fr: "Nombre de mesures valides : 10", ar: "عدد القياسات الصالحة: 10.", en: "Number of valid measurements: 10." },
+        { fr: "Médiane : 8,5 kPa", ar: "القيمة الوسيطة لصلابة الكبد: 8.5 كيلو باسكال.", en: "Median liver stiffness: 8.5 kPa." }
+      ] },
+      { icon: '❓', notes: ["لا. الفحص مفيد خصوصاً لتقييم التليف والدهون، لكنه لا يكشف كل شيء.", "قد يطلب الطبيب أكثر من فحص بحسب نتائج تحاليل الدم والأعراض والتاريخ الطبي. ولا يُغني FibroScan عن الخزعة في جميع الحالات."], title: { ar: "هل FibroScan يكشف كل أمراض الكبد؟", en: "هل FibroScan يكشف كل أمراض الكبد؟", fr: "هل FibroScan يكشف كل أمراض الكبد؟" }, phrases: [
+        { fr: "Échographie hépatique", ar: "شكل الكبد وحجمه وبعض الآفات", en: "" },
+        { fr: "FibroScan", ar: "صلابة الكبد والدهون", en: "" },
+        { fr: "IRM hépatique", ar: "تفاصيل أنسجة الكبد والآفات", en: "" },
+        { fr: "Scanner hépatique", ar: "صور تفصيلية للكبد والأوعية والآفات", en: "" },
+        { fr: "Biopsie hépatique", ar: "فحص عينة من نسيج الكبد", en: "" }
+      ] },
+      { icon: '🧲', notes: ["FibroScan فحص غير جراحي، ولا يتطلب إبرة أو حقن مادة تباين عادةً.", "بعد الفحص:", "يمكنك ارتداء ملابسك.", "يمكنك العودة إلى أنشطتك المعتادة غالباً.", "لا توجد فترة نقاهة خاصة عادةً.", "تحصل على التقرير وفق نظام المركز."], title: { ar: "هل الفحص خطير؟ وهل يمكن العودة إلى المنزل؟", en: "هل الفحص خطير؟ وهل يمكن العودة إلى المنزل؟", fr: "هل الفحص خطير؟ وهل يمكن العودة إلى المنزل؟" }, phrases: [
+
+      ] },
+      { icon: '📌', title: { ar: "حوار كامل في مركز FibroScan بفرنسا", en: "حوار كامل في مركز FibroScan بفرنسا", fr: "حوار كامل في مركز FibroScan بفرنسا" }, phrases: [
+        { fr: "Employé : Bonjour, vous venez pour un FibroScan ?", ar: "الموظف: مرحباً، هل أتيت لإجراء فيبروسكان؟", en: "Employee: Hello, are you here for a FibroScan?" },
+        { fr: "Patient : Oui, j'ai rendez-vous aujourd'hui.", ar: "المريض: نعم، لدي موعد اليوم.", en: "Patient: Yes, I have an appointment today." },
+        { fr: "Employé : Vous êtes à jeun depuis combien de temps ?", ar: "الموظف: منذ كم ساعة وأنت صائم؟", en: "Employee: How long have you been fasting?" },
+        { fr: "Patient : Depuis trois heures.", ar: "المريض: منذ ثلاث ساعات.", en: "Patient: For three hours." },
+        { fr: "Employé : Très bien. Vous pouvez vous allonger sur la table.", ar: "الموظف: جيد جداً، يمكنك الاستلقاء على الطاولة.", en: "Employee: Very good. You can lie down on the table." },
+        { fr: "Employé : Levez votre bras droit, s'il vous plaît.", ar: "الموظف: ارفع ذراعك اليمنى من فضلك.", en: "Employee: Please raise your right arm." },
+        { fr: "Employé : Nous allons commencer les mesures.", ar: "الموظف: سنبدأ القياسات.", en: "Employee: We are going to start the measurements." },
+        { fr: "Patient : Est-ce que l'examen fait mal ?", ar: "المريض: هل الفحص مؤلم؟", en: "Patient: Does the examination hurt?" },
+        { fr: "Employé : Non, l'examen est généralement indolore.", ar: "الموظف: لا، الفحص عادةً غير مؤلم.", en: "Employee: No, the examination is usually painless." },
+        { fr: "Patient : Combien de temps faut-il attendre pour les résultats ?", ar: "المريض: كم يجب أن أنتظر للحصول على النتائج؟", en: "Patient: How long do I have to wait for the results?" },
+        { fr: "Employé : Vous aurez un compte rendu à la fin de l'examen ou selon l'organisation du centre.", ar: "الموظف: ستحصل على تقرير في نهاية الفحص أو حسب نظام المركز.", en: "Employee: You will receive a report at the end of the examination or according to the centre's procedure." }
+      ] },
+      { icon: '🧾', title: { ar: "أسئلة مهمة يمكنك طرحها على الطبيب", en: "أسئلة مهمة يمكنك طرحها على الطبيب", fr: "أسئلة مهمة يمكنك طرحها على الطبيب" }, phrases: [
+        { fr: "Est-ce que mon foie présente une fibrose ?", ar: "هل يوجد تليف في كبدي؟", en: "Does my liver show fibrosis?" },
+        { fr: "Est-ce que j'ai une stéatose hépatique ?", ar: "هل أعاني من الكبد الدهني؟", en: "Do I have fatty liver?" },
+        { fr: "Quel est mon résultat en kPa ?", ar: "ما نتيجة قياس الكبد بالكيلو باسكال؟", en: "What is my kPa result?" },
+        { fr: "Quel est mon score CAP ?", ar: "ما نتيجة قياس الدهون CAP؟", en: "What is my CAP score?" },
+        { fr: "Est-ce que je dois refaire cet examen ?", ar: "هل يجب أن أعيد هذا الفحص؟", en: "Do I need to repeat this examination?" },
+        { fr: "Est-ce que je dois consulter un hépatologue ?", ar: "هل يجب أن أراجع طبيباً مختصاً بالكبد؟", en: "Should I see a hepatologist?" }
+      ] },
+      { icon: '🗂', images: ["https://images.openai.com/static-rsc-4/YTMC2J-ZMa9SoJ9gLupiNaLA4MmdrcV8LtM_0ZPemBJ-TN2bWotcxovcoAG3V-QjigmQF5RwiYlmrcRxzO_wy1zoy6gMeqy6z0NyegS5uSgmTcSWfb8MhTWrUaNeh2Spm9v_XFVi0-HqcXP30akCHvVDPXS3BpJ8RcDjh2zL-B1yK0XvnMAK0-MFUUiSMA30?purpose=fullsize", "https://images.openai.com/static-rsc-4/nqh_wI5hQSE14MmsDTDUnR1B9MFfDFOGLHuSAqVRHHeq-hbNJ6qEb0ONxkTCF57BFuPWR8GLxiFQMVWrldnZCTidM4RsLIGHmJOMzG7j-mdhO3Xu2Mxc30SLLg7UgyLgR22o7193HtwA0o04UxvcLiD086z1sllhOSrXDk9QpvXi1xnyrlCH7mi-vGsooxjr?purpose=fullsize"], notes: ["سريع.", "غير مؤلم غالباً.", "يقيس الصلابة والدهون.", "لا يعطي صوراً تفصيلية للكبد.", "تصوير تفصيلي.", "يستغرق وقتاً أطول.", "يمكن أن يدرس الآفات والأوعية.", "قد يحتاج إلى مادة تباين.", "الخلاصة: FibroScan يساعد على تقييم التليف والدهون، بينما IRM hépatique يعطي صوراً تشريحية أكثر تفصيلاً للكبد. وقد يحتاج المريض إلى أحدهما أو كليهما حسب تقييم الطبيب."], title: { ar: "الفرق بين FibroScan وIRM hépatique", en: "الفرق بين FibroScan وIRM hépatique", fr: "الفرق بين FibroScan وIRM hépatique" }, phrases: [
+
+      ] },
+
     ]
   },
   {
