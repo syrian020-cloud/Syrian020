@@ -230,9 +230,7 @@
     <button class="icon-btn" id="themeBtn" title="Theme">🌙</button>
     <button class="icon-btn" id="edgeBtn" title="صوت طبيعي (إنترنت)">🔊</button>
     <button class="icon-btn" id="edgeSetBtn" title="إعدادات النطق">⚙️</button>
-    <button class="icon-btn lang-btn" data-lang="ar">AR</button>
-    <button class="icon-btn lang-btn" data-lang="en">EN</button>
-    <button class="icon-btn lang-btn" data-lang="fr">FR</button>
+    <button class="icon-btn" id="langCycle" title="اللغة / Language">AR</button>
   </div>
 </header>
 <main>
@@ -352,10 +350,8 @@
     document.querySelectorAll('[data-t-ph]').forEach(function (el) { el.placeholder = t(el.getAttribute('data-t-ph')); });
     document.documentElement.lang = state.lang;
     document.documentElement.dir = (state.lang === 'ar') ? 'rtl' : 'ltr';
-    document.querySelectorAll('.lang-btn').forEach(function (b) {
-      b.style.background = (b.dataset.lang === state.lang) ? 'linear-gradient(135deg,var(--accent),var(--accent-hover))' : '';
-      b.style.color = (b.dataset.lang === state.lang) ? '#fff' : '';
-    });
+    var lc = document.getElementById('langCycle');
+    if (lc) lc.textContent = state.lang.toUpperCase();
   }
 
   function applyTheme() {
@@ -697,9 +693,12 @@
   });
 
   /* ---------- wiring ---------- */
-  document.querySelectorAll('.lang-btn').forEach(function (b) {
-    b.onclick = function () { state.lang = b.dataset.lang; localStorage.setItem('centres_lang', state.lang); renderAll(); };
-  });
+  var langCycleBtn = document.getElementById('langCycle');
+  if (langCycleBtn) langCycleBtn.onclick = function () {
+    state.lang = state.lang === 'ar' ? 'en' : state.lang === 'en' ? 'fr' : 'ar';
+    localStorage.setItem('centres_lang', state.lang);
+    renderAll();
+  };
   document.getElementById('themeBtn').onclick = function () {
     state.theme = (state.theme === 'light') ? 'dark' : 'light';
     localStorage.setItem('centres_theme', state.theme);
