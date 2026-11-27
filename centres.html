@@ -233,6 +233,12 @@
   .clk-row button { background: rgba(139,92,246,.2); border: 1px solid rgba(139,92,246,.45); color: #e7ebf5; border-radius: 12px; padding: 0.55rem 0.9rem; font-size: 0.95rem; font-weight: 600; }
   .clk-row button:active { background: rgba(139,92,246,.45); }
   .clk-hint { font-size: 0.8rem; color: #8b93a7; text-align: center; margin-top: 0.4rem; }
+
+  .sec-imgs { display: flex; gap: 0.6rem; overflow-x: auto; padding: 0.6rem 0.2rem; }
+  .sec-imgs img { height: 150px; border-radius: 12px; border: 1px solid var(--border); flex: 0 0 auto; }
+  .sec-notes { margin: 0.3rem 0 0.6rem; display: flex; flex-direction: column; gap: 0.35rem; }
+  .sec-note { background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.30); border-radius: 10px; padding: 0.45rem 0.7rem; font-size: 0.86rem; color: var(--text-secondary); line-height: 1.6; }
+  .sec-note::before { content: '📝 '; }
 </style></style>
 </head>
 <body>
@@ -638,7 +644,10 @@
           '<div class="section-head" data-sec="' + si + '"><button class="sec-play" data-play="' + (playData.length - 1) + '" title="Play all">▶️</button><span class="sec-icon">' + sec.icon + '</span>' +
           '<span class="sec-title">' + esc(tside(sec.title)) + '</span>' +
           '<span class="sec-count">' + phrases.length + ' ' + t('phrases') + ' · ' + wordsFr + ' ' + t('wordsFr') + '</span><span class="chev">▼</span></div>' +
-          '<div class="section-body">' + phrases.map(function (p) { return phraseHtml(p, cc.id === 'maths'); }).join('') + '</div></div>';
+          '<div class="section-body">' +
+            ((sec.images && sec.images.length) ? '<div class="sec-imgs">' + sec.images.map(function(u){ return '<img src="'+u+'" loading="lazy" alt="">'; }).join('') + '</div>' : '') +
+            ((sec.notes && sec.notes.length) ? '<div class="sec-notes">' + sec.notes.map(function(n){ return '<div class="sec-note" dir="auto">' + esc(n) + '</div>'; }).join('') + '</div>' : '') +
+            phrases.map(function (p) { return phraseHtml(p, cc.id === 'maths'); }).join('') + '</div></div>';
       });
       if (q && !html) return '';
       return (q ? '<div class="centre-group">' + cc.icon + ' ' + esc(tside(cc.name)) + '</div>' : '') + html;

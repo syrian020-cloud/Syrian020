@@ -2888,6 +2888,157 @@ window.CENTRES_DATA = [
         { fr: "Voies biliaires", ar: "القنوات الصفراوية", en: "Bile ducts" },
         { fr: "Hypertension portale", ar: "ارتفاع ضغط الوريد البابي", en: "Portal hypertension" }
       ] },
+      { icon: '🧲', images: ["https://images.openai.com/static-rsc-4/zA6Axu33NKTd4Kj9VDeXahKloSPDi-SMmkMUc-ufP9GdnyIG_P4YXO7ToFRg5tugyfos577TMwrxLjzDrOi12D1qzaq3A1b-aOQDZUtQDw3rED84CAIrtWZEePQ58nycVH7rQZUr0nF-N3RAcLUltkyD_8aNp90FRpmk4QnO_82OCsSRV4iKsFIW2ZKYJMNt?purpose=fullsize", "https://images.openai.com/static-rsc-4/nqh_wI5hQSE14MmsDTDUnR1B9MFfDFOGLHuSAqVRHHeq-hbNJ6qEb0ONxkTCF57BFuPWR8GLxiFQMVWrldnZCTidM4RsLIGHmJOMzG7j-mdhO3Xu2Mxc30SLLg7UgyLgR22o7193HtwA0o04UxvcLiD086z1sllhOSrXDk9QpvXi1xnyrlCH7mi-vGsooxjr?purpose=fullsize", "https://images.openai.com/static-rsc-4/4Xj4R04Ma8RjOtdhowpqU5J9IqwqV558xD86WRT2dOPjRhtAQth0xDUQgYDGGn_brVVCvQnGsbqNGIzqB-KBmLxCy17Jf9kFSaAkWDZ-PHscHLT7rduB3kAH5mDaDQamAMsynSPZSZFvPVfbG2dG6ouqYxnnXif0keNSHfjzy_yCtYyms8oHA2u104sQeI0p?purpose=fullsize"], notes: ["سأشرح لك ماذا يحدث من لحظة وصولك إلى مركز الأشعة في فرنسا، وحتى انتهاء الفحص واستلام النتيجة، مع أهم العبارات الفرنسية التي قد تسمعها من الموظفين."], title: { ar: "شرح يوم التصوير بالرنين المغناطيسي للبطن في فرنسا", en: "شرح يوم التصوير بالرنين المغناطيسي للبطن في فرنسا", fr: "شرح يوم التصوير بالرنين المغناطيسي للبطن في فرنسا" }, phrases: [
+
+      ] },
+      { icon: '📋', notes: ["هو فحص يستخدم مجالاً مغناطيسياً وموجات راديوية لإظهار الأعضاء الداخلية، ولا يستخدم الأشعة السينية.", "يمكن أن يفحص:", "إذا كان طلب الطبيب متعلقاً بالكبد، فقد تجد في الوصفة عبارة IRM hépatique، أي رنين مغناطيسي للكبد، وهو فحص مخصص ضمن تصوير البطن."], title: { ar: "ما هو فحص IRM abdominale؟", en: "ما هو فحص IRM abdominale؟", fr: "ما هو فحص IRM abdominale؟" }, phrases: [
+        { fr: "IRM abdominale (Imagerie par Résonance Magnétique)", ar: "التصوير بالرنين المغناطيسي للبطن.", en: "Abdominal Magnetic Resonance Imaging (MRI)." },
+        { fr: "Le foie", ar: "الكبد", en: "Liver" },
+        { fr: "La vésicule biliaire", ar: "المرارة", en: "Gallbladder" },
+        { fr: "Les voies biliaires", ar: "القنوات الصفراوية", en: "Bile ducts" },
+        { fr: "Le pancréas", ar: "البنكرياس", en: "Pancreas" },
+        { fr: "Les reins", ar: "الكليتان", en: "Kidneys" },
+        { fr: "La rate", ar: "الطحال", en: "Spleen" },
+        { fr: "Les vaisseaux sanguins", ar: "الأوعية الدموية", en: "Blood vessels" }
+      ] },
+      { icon: '🎒', notes: ["عند حجز الموعد أو استلام ورقة الموعد، قد تجد عبارة:", "جهّز الأشياء التالية:", "إذا أجريت سابقاً إيكو أو سكانير أو رنيناً للكبد، فمن المفيد إحضار الصور والتقارير السابقة."], title: { ar: "قبل يوم الفحص: ماذا يجب أن تحضّر؟", en: "قبل يوم الفحص: ماذا يجب أن تحضّر؟", fr: "قبل يوم الفحص: ماذا يجب أن تحضّر؟" }, phrases: [
+        { fr: "Votre rendez-vous pour une IRM abdominale.", ar: "موعدك لإجراء تصوير البطن بالرنين المغناطيسي.", en: "Your appointment for an abdominal MRI." },
+        { fr: "L'ordonnance médicale", ar: "الوصفة الطبية", en: "" },
+        { fr: "La carte Vitale", ar: "بطاقة التأمين الصحي الفرنسية", en: "" },
+        { fr: "La carte de mutuelle", ar: "بطاقة التأمين التكميلي إن وجدت", en: "" },
+        { fr: "La pièce d'identité", ar: "بطاقة الهوية", en: "" },
+        { fr: "Les anciens examens", ar: "الفحوصات السابقة", en: "" },
+        { fr: "Les anciens comptes rendus", ar: "التقارير الطبية السابقة", en: "" },
+        { fr: "Les résultats de prise de sang", ar: "نتائج تحاليل الدم إذا طُلبت", en: "" },
+        { fr: "La liste des médicaments", ar: "قائمة الأدوية التي تتناولها", en: "" }
+      ] },
+      { icon: '🍽', notes: ["انتبه: تعليمات الصيام تختلف حسب نوع التصوير والمركز الطبي.", "بعض المراكز تطلب عدم الأكل والشرب لمدة ساعتين.", "بعض بروتوكولات التصوير تطلب الصيام لمدة أربع ساعات.", "وقد لا يحتاج بعض فحوص الرنين إلى الصيام أصلاً.", "لذلك اتبع ورقة التحضير الخاصة بمركزك، ولا تفترض أن الصيام مطلوب دائماً. ولا توقف أدويتك من تلقاء نفسك.", "عبارات مهمة:"], title: { ar: "هل يجب الصيام قبل IRM abdominale؟", en: "هل يجب الصيام قبل IRM abdominale؟", fr: "هل يجب الصيام قبل IRM abdominale؟" }, phrases: [
+        { fr: "Être à jeun", ar: "أن تكون صائماً.", en: "To be fasting." },
+        { fr: "Vous devez être à jeun.", ar: "يجب أن تكون صائماً.", en: "You must be fasting." },
+        { fr: "Depuis quelle heure dois-je être à jeun ?", ar: "من أي ساعة يجب أن أبدأ الصيام؟", en: "From what time should I start fasting?" },
+        { fr: "Est-ce que je peux boire de l'eau ?", ar: "هل يمكنني شرب الماء؟", en: "Can I drink water?" },
+        { fr: "Est-ce que je peux prendre mes médicaments ?", ar: "هل يمكنني تناول أدويتي؟", en: "Can I take my medication?" }
+      ] },
+      { icon: '🏥', images: ["https://images.openai.com/static-rsc-4/x-GmmQbfflxTXLu6UVNEE8FFfi22JWVrNERu3-krkXWnzp2eyWHbZ848oSTPQI87-9fG5TZyaOI7CJ4nfUqx1SNyQu96un4aYAHIVTrOXji7p5wP7bXpoRdzSdROnnGLVsTw95KxR_DuT5hq-Jf1EcnbfXZHsLE3aGj9yolU2oKIplQC-eISV4y-K-yb7yJc?purpose=fullsize"], notes: ["عندما تدخل إلى المركز، تتوجه إلى الاستقبال:"], title: { ar: "الوصول إلى مركز الأشعة", en: "الوصول إلى مركز الأشعة", fr: "الوصول إلى مركز الأشعة" }, phrases: [
+        { fr: "Bonjour, j'ai rendez-vous pour une IRM abdominale.", ar: "مرحباً، لدي موعد لتصوير البطن بالرنين المغناطيسي.", en: "Hello, I have an appointment for an abdominal MRI." },
+        { fr: "Vous avez votre ordonnance ?", ar: "هل معك الوصفة الطبية؟", en: "Do you have your prescription?" },
+        { fr: "Vous avez votre carte Vitale ?", ar: "هل معك بطاقة فيتال؟", en: "Do you have your Vitale card?" },
+        { fr: "Vous pouvez patienter dans la salle d'attente.", ar: "يمكنك الانتظار في قاعة الانتظار.", en: "You can wait in the waiting room." },
+        { fr: "Le manipulateur va venir vous chercher.", ar: "سيأتي فني التصوير ليأخذك.", en: "The MRI technologist will come and get you." }
+      ] },
+      { icon: '👷', notes: ["هو الموظف المختص بتشغيل جهاز التصوير وإجراء الفحص تحت مسؤولية طبيب الأشعة."], title: { ar: "من هو Manipulateur en radiologie؟", en: "من هو Manipulateur en radiologie؟", fr: "من هو Manipulateur en radiologie؟" }, phrases: [
+        { fr: "Manipulateur en électroradiologie médicale (MERM)", ar: "فني التصوير الطبي بالأشعة.", en: "Medical imaging technologist." }
+      ] },
+      { icon: '❓', notes: ["هذه مرحلة مهمة جداً. سيطرح عليك الموظف أسئلة للتأكد من سلامتك.", "إذا كان لديك جهاز مزروع أو شظية معدنية أو أي جسم معدني داخل الجسم، أخبر المركز قبل الفحص. لا يكفي أن تقول إن الجهاز «صغير»؛ يجب أن يتحقق الفريق من توافقه مع الرنين المغناطيسي."], title: { ar: "الأسئلة الطبية قبل دخول غرفة الرنين", en: "الأسئلة الطبية قبل دخول غرفة الرنين", fr: "الأسئلة الطبية قبل دخول غرفة الرنين" }, phrases: [
+        { fr: "Avez-vous déjà passé une IRM ?", ar: "هل أجريت رنيناً مغناطيسياً من قبل؟", en: "Have you ever had an MRI before?" },
+        { fr: "Avez-vous des allergies ?", ar: "هل لديك أي حساسية؟", en: "Do you have any allergies?" },
+        { fr: "Avez-vous déjà eu une réaction à un produit de contraste ?", ar: "هل سبق أن حدثت لك ردة فعل تجاه مادة التباين؟", en: "Have you ever had a reaction to contrast material?" },
+        { fr: "Avez-vous des problèmes rénaux ?", ar: "هل لديك مشكلات في الكلى؟", en: "Do you have kidney problems?" },
+        { fr: "Avez-vous un pacemaker ?", ar: "هل لديك جهاز تنظيم ضربات القلب؟", en: "Do you have a pacemaker?" },
+        { fr: "Avez-vous des implants métalliques ?", ar: "هل لديك زرعات معدنية داخل الجسم؟", en: "Do you have any metal implants?" },
+        { fr: "Avez-vous été opéré récemment ?", ar: "هل أجريت عملية جراحية مؤخراً؟", en: "Have you had surgery recently?" },
+        { fr: "Êtes-vous claustrophobe ?", ar: "هل تعاني من الخوف من الأماكن المغلقة؟", en: "Are you claustrophobic?" },
+        { fr: "Êtes-vous enceinte ou susceptible de l'être ?", ar: "هل أنت حامل أو من المحتمل أن تكوني حاملاً؟", en: "Are you pregnant or could you be pregnant?" }
+      ] },
+      { icon: '👕', images: ["https://images.openai.com/static-rsc-4/nahsn9B7JqaLs9ql0QpyCWNhBSe30vksHsUU9PAiJPeQP3wR5FaG5ostNKWdZH1pNcODfvbAkfHRTxWSSN6ozyXcfqpLoJrWNOoNZYz-vOqyz3VkB4alX5h3Y2VrE3pRZYWXJyMTEbOP0M-kqLfOzHr_R1PAaT170-MPyBUyTbYeSMJi33HyuuyrhF8E_hDw?purpose=fullsize"], notes: ["سيطلب منك الموظف إزالة الأشياء التي قد تتأثر بالمغناطيس أو تؤثر في الصور.", "من الأشياء التي قد يُطلب منك إزالتها:", "الساعة والخاتم والسلسلة.", "الحزام والمفاتيح.", "الهاتف المحمول.", "العملات والبطاقات.", "مشابك الشعر المعدنية.", "بعض أطقم الأسنان والأجهزة السمعية الخارجية.", "اتبع تعليمات الموظف بشأن الملابس والأغراض التي يجب إزالتها."], title: { ar: "غرفة تبديل الملابس وإزالة المعادن", en: "غرفة تبديل الملابس وإزالة المعادن", fr: "غرفة تبديل الملابس وإزالة المعادن" }, phrases: [
+        { fr: "Veuillez retirer vos bijoux.", ar: "يرجى إزالة مجوهراتك.", en: "Please remove your jewellery." },
+        { fr: "Retirez votre montre et votre ceinture.", ar: "انزع ساعتك وحزامك.", en: "Remove your watch and belt." },
+        { fr: "Enlevez vos objets métalliques.", ar: "أزل الأشياء المعدنية.", en: "Remove your metal objects." },
+        { fr: "Vous pouvez mettre cette blouse.", ar: "يمكنك ارتداء هذا الرداء.", en: "You can put on this gown." },
+        { fr: "Laissez vos affaires dans le vestiaire.", ar: "اترك أغراضك في غرفة تبديل الملابس.", en: "Leave your belongings in the changing room." }
+      ] },
+      { icon: '💉', images: ["https://images.openai.com/static-rsc-4/0SoGErIWiVfpSNYDlU6Tl_WllcDLR_QV75xyZ8cXLJRF8AYPpT2ChxE1BsgdA1O8m4vdignYdEWGjs4Oe6q9l62JdHQto3dTxarpnSxk8TK1gru1vcPnTVKGpPuiGr_zyd0sCmes2kpquJ9njG5LEphtb3GUawQeFZXnGlBTEYvB4m_0mZQhww84RQi9SPb-?purpose=fullsize"], notes: ["في بعض فحوص البطن والكبد، يحتاج الطبيب إلى حقن مادة تباين لتحسين رؤية الأنسجة والأوعية الدموية.", "قد يقوم الموظف بوضع قسطرة وريدية صغيرة في يدك أو ذراعك.", "قد تشعر بوخزة عند تركيب القسطرة، وأحياناً بإحساس عابر بالدفء أو بطعم غريب في الفم بعد الحقن. أخبر الفريق إذا شعرت بحكة أو طفح أو ضيق في التنفس أو ألم وتورم في موضع الحقن.", "من المهم إخبارهم مسبقاً عن أمراض الكلى أو أي تفاعل سابق مع مادة التباين. وقد يطلب المركز تحليل وظائف الكلى حسب حالتك ونوع المادة المستخدمة."], title: { ar: "حقن مادة التباين Gadolinium", en: "حقن مادة التباين Gadolinium", fr: "حقن مادة التباين Gadolinium" }, phrases: [
+        { fr: "Produit de contraste", ar: "مادة التباين.", en: "Contrast agent." },
+        { fr: "Gadolinium", ar: "الغادولينيوم، مادة تباين تستخدم في بعض فحوص الرنين.", en: "Gadolinium contrast agent." },
+        { fr: "Nous allons poser une perfusion.", ar: "سنضع لك قسطرة وريدية.", en: "We are going to insert an IV cannula." },
+        { fr: "Tendez votre bras, s'il vous plaît.", ar: "مدّ ذراعك من فضلك.", en: "Please extend your arm." },
+        { fr: "Vous allez sentir une petite piqûre.", ar: "ستشعر بوخزة صغيرة.", en: "You will feel a small prick." },
+        { fr: "Nous allons injecter le produit de contraste.", ar: "سنحقن مادة التباين.", en: "We are going to inject the contrast agent." },
+        { fr: "Est-ce que vous avez mal ?", ar: "هل تشعر بالألم؟", en: "Are you in pain?" }
+      ] },
+      { icon: '🚪', images: ["https://images.openai.com/static-rsc-4/obZrZsGNhSxPpoRx7SOQzEQhtECA7lDdUcNBNOZSDUku2SeSuLbfk-YtaWAWPkRq42wtKIyPY_JTnm5UX3zfm1DEdFHqy8cOSIGB84BtY88o11krzwRNK-0qt9x1ucZcmGqN3FG5AEBujYMOajYnaGdf4UxAjf70zDp3TxF9fd8cAbijkuy3vLwdMu2ZBgQ2?purpose=fullsize"], notes: ["سيطلب منك الموظف الدخول إلى غرفة الجهاز والاستلقاء على الطاولة.", "ستكون قادراً على التواصل مع الفريق أثناء الفحص، حتى لو كان الموظفون في غرفة التحكم المجاورة."], title: { ar: "الدخول إلى غرفة جهاز IRM", en: "الدخول إلى غرفة جهاز IRM", fr: "الدخول إلى غرفة جهاز IRM" }, phrases: [
+        { fr: "Allongez-vous sur la table, s'il vous plaît.", ar: "استلقِ على الطاولة من فضلك.", en: "Please lie down on the table." },
+        { fr: "Mettez-vous sur le dos.", ar: "استلقِ على ظهرك.", en: "Lie on your back." },
+        { fr: "Ne bougez pas, s'il vous plaît.", ar: "لا تتحرك من فضلك.", en: "Please do not move." },
+        { fr: "Nous allons positionner une antenne sur votre ventre.", ar: "سنضع جهاز استقبال خاصاً فوق بطنك.", en: "We are going to position a coil over your abdomen." },
+        { fr: "Nous allons vous donner un casque ou des bouchons d'oreilles.", ar: "سنعطيك سماعات أو سدادات للأذنين.", en: "We will give you headphones or earplugs." },
+        { fr: "Voici la sonnette de sécurité.", ar: "هذا زر أو جرس الطوارئ.", en: "Here is the emergency call button." }
+      ] },
+      { icon: '🔊', images: ["https://images.openai.com/static-rsc-4/lkZaXxmKWKEUt2FO-D_MUE1t6_dikv7Wb6S5fhmzhlXyt5wr7LBeEg6fa6amB3wmBPh-BpxDwl7Ma7S2m2UKI3yEjjA3zaqTNe5FQBkC_WGDQwukbQRhd87rDIDKlOKi_iiUuCO4M8RojWQaQeE1UEK5TwGM5U6WdCsz5cT4Eq-3uSIKbYIY6498GwaBULyD?purpose=fullsize"], notes: ["تتحرك الطاولة إلى داخل الجهاز، ثم يبدأ التصوير.", "ستسمع أصواتاً قوية ومتقطعة مثل الطرق أو الطقطقة. هذا أمر طبيعي أثناء عمل الجهاز.", "قد يطلب منك الموظف حبس النفس لعدة ثوانٍ في بعض مراحل تصوير الكبد، ثم يسمح لك بالتنفس مجدداً. هذا يساعد على الحصول على صور أوضح وتقليل تأثير حركة التنفس."], title: { ar: "أثناء التصوير: ماذا يحدث؟", en: "أثناء التصوير: ماذا يحدث؟", fr: "أثناء التصوير: ماذا يحدث؟" }, phrases: [
+        { fr: "L'examen va commencer.", ar: "سيبدأ الفحص الآن.", en: "The examination is about to begin." },
+        { fr: "Restez bien immobile.", ar: "ابقَ ثابتاً دون حركة.", en: "Stay completely still." },
+        { fr: "Ne bougez surtout pas.", ar: "إياك أن تتحرك.", en: "Do not move at all." },
+        { fr: "Respirez normalement.", ar: "تنفس بشكل طبيعي.", en: "Breathe normally." },
+        { fr: "Inspirez profondément.", ar: "خذ شهيقاً عميقاً.", en: "Breathe in deeply." },
+        { fr: "Bloquez votre respiration.", ar: "احبس نفسك.", en: "Hold your breath." },
+        { fr: "Ne respirez plus.", ar: "توقف عن التنفس للحظة.", en: "Stop breathing for a moment." },
+        { fr: "Vous pouvez respirer.", ar: "يمكنك التنفس الآن.", en: "You can breathe now." },
+        { fr: "Encore quelques secondes.", ar: "بضع ثوانٍ أخرى.", en: "Just a few more seconds." }
+      ] },
+      { icon: '⏱', notes: ["غالباً يستغرق التصوير نفسه حوالي 25 إلى 40 دقيقة بحسب نوع الفحص والبروتوكول، وقد يختلف الوقت. أما وقت وجودك في المركز فيكون أطول بسبب التسجيل والتحضير والانتظار."], title: { ar: "كم تستغرق مدة الفحص؟", en: "كم تستغرق مدة الفحص؟", fr: "كم تستغرق مدة الفحص؟" }, phrases: [
+        { fr: "La durée de l'examen", ar: "مدة الفحص.", en: "Examination duration." },
+        { fr: "Combien de temps dure l'examen ?", ar: "كم تستغرق مدة الفحص؟", en: "How long does the examination take?" },
+        { fr: "L'examen dure environ trente minutes.", ar: "يستغرق الفحص حوالي ثلاثين دقيقة.", en: "The examination takes about thirty minutes." },
+        { fr: "Il faut rester immobile pendant l'examen.", ar: "يجب أن تبقى ثابتاً أثناء الفحص.", en: "You need to remain still during the examination." }
+      ] },
+      { icon: '😰', notes: ["لا تحاول الخروج أو التحرك فجأة. استخدم زر الاستدعاء وأخبر الفريق بما تشعر به. وإذا كنت تعاني من رهاب الأماكن المغلقة، أخبر المركز قبل الموعد حتى يناقش معك الحلول الممكنة."], title: { ar: "إذا شعرت بالخوف أو الاختناق داخل الجهاز", en: "إذا شعرت بالخوف أو الاختناق داخل الجهاز", fr: "إذا شعرت بالخوف أو الاختناق داخل الجهاز" }, phrases: [
+        { fr: "J'ai peur.", ar: "أنا خائف.", en: "I'm scared." },
+        { fr: "Je suis claustrophobe.", ar: "أعاني من الخوف من الأماكن المغلقة.", en: "I am claustrophobic." },
+        { fr: "Je me sens mal.", ar: "أشعر أنني لست بخير.", en: "I feel unwell." },
+        { fr: "J'ai du mal à respirer.", ar: "أجد صعوبة في التنفس.", en: "I'm having difficulty breathing." },
+        { fr: "Est-ce que je peux sortir un instant ?", ar: "هل يمكنني الخروج للحظة؟", en: "Can I come out for a moment?" }
+      ] },
+      { icon: '✅', notes: ["إذا لم تكن هناك تعليمات طبية خاصة أو مشكلة تستدعي المراقبة، يمكنك عادة العودة إلى المنزل بعد الفحص.", "إذا تلقيت مادة تباين، اسأل الفريق عن تعليمات شرب الماء والأدوية بعد الفحص، ولا تفرض على نفسك كمية معينة إذا كان لديك تقييد طبي للسوائل."], title: { ar: "بعد انتهاء الفحص", en: "بعد انتهاء الفحص", fr: "بعد انتهاء الفحص" }, phrases: [
+        { fr: "L'examen est terminé.", ar: "انتهى الفحص.", en: "The examination is finished." },
+        { fr: "Vous pouvez vous relever doucement.", ar: "يمكنك النهوض ببطء.", en: "You can get up slowly." },
+        { fr: "Nous allons retirer la perfusion.", ar: "سنزيل القسطرة الوريدية.", en: "We are going to remove the IV cannula." },
+        { fr: "Vous pouvez vous rhabiller.", ar: "يمكنك ارتداء ملابسك.", en: "You can get dressed." }
+      ] },
+      { icon: '📊', notes: ["بعد الفحص، يقوم طبيب الأشعة بتحليل الصور وإعداد تقرير طبي.", "قد تحصل على الصور إلكترونياً أو على قرص أو عبر رابط، بحسب المركز. وقد يكون التقرير جاهزاً في وقت لاحق، وليس بالضرورة مباشرة بعد الفحص."], title: { ar: "كيف تحصل على نتيجة الرنين في فرنسا؟", en: "كيف تحصل على نتيجة الرنين في فرنسا؟", fr: "كيف تحصل على نتيجة الرنين في فرنسا؟" }, phrases: [
+        { fr: "Les résultats de l'IRM", ar: "نتائج الرنين المغناطيسي.", en: "MRI results." },
+        { fr: "Le radiologue va analyser les images.", ar: "سيقوم طبيب الأشعة بتحليل الصور.", en: "The radiologist will analyse the images." },
+        { fr: "Le compte rendu sera disponible plus tard.", ar: "سيكون التقرير متاحاً لاحقاً.", en: "The report will be available later." },
+        { fr: "Vous pourrez récupérer vos résultats en ligne.", ar: "يمكنك الحصول على نتائجك عبر الإنترنت.", en: "You will be able to access your results online." },
+        { fr: "Le compte rendu sera transmis à votre médecin.", ar: "سيتم إرسال التقرير إلى طبيبك.", en: "The report will be sent to your doctor." },
+        { fr: "Voici votre CD avec les images.", ar: "هذا القرص الذي يحتوي على الصور.", en: "Here is your CD with the images." }
+      ] },
+      { icon: '📖', title: { ar: "أهم الكلمات التي ستجدها في تقرير IRM للكبد", en: "أهم الكلمات التي ستجدها في تقرير IRM للكبد", fr: "أهم الكلمات التي ستجدها في تقرير IRM للكبد" }, phrases: [
+        { fr: "Foie", ar: "الكبد", en: "Liver" },
+        { fr: "Stéatose hépatique", ar: "الكبد الدهني", en: "Fatty liver" },
+        { fr: "Fibrose hépatique", ar: "تليف الكبد", en: "Liver fibrosis" },
+        { fr: "Cirrhose", ar: "تشمع الكبد", en: "Cirrhosis" },
+        { fr: "Lésion hépatique", ar: "آفة كبدية", en: "Liver lesion" },
+        { fr: "Nodule hépatique", ar: "عقدة كبدية", en: "Liver nodule" },
+        { fr: "Kyste hépatique", ar: "كيس كبدي", en: "Liver cyst" },
+        { fr: "Masse hépatique", ar: "كتلة كبدية", en: "Liver mass" },
+        { fr: "Tumeur hépatique", ar: "ورم كبدي", en: "Liver tumour" },
+        { fr: "Voies biliaires", ar: "القنوات الصفراوية", en: "Bile ducts" },
+        { fr: "Vésicule biliaire", ar: "المرارة", en: "Gallbladder" },
+        { fr: "Pancréas", ar: "البنكرياس", en: "Pancreas" },
+        { fr: "Rate", ar: "الطحال", en: "Spleen" },
+        { fr: "Sans anomalie particulière", ar: "دون وجود خلل ملحوظ", en: "No significant abnormality" },
+        { fr: "Aspect normal", ar: "مظهر طبيعي", en: "Normal appearance" }
+      ] },
+      { icon: '💬', title: { ar: "حوار كامل في يوم موعد الرنين المغناطيسي", en: "حوار كامل في يوم موعد الرنين المغناطيسي", fr: "حوار كامل في يوم موعد الرنين المغناطيسي" }, phrases: [
+        { fr: "Employé : Bonjour, vous avez rendez-vous ?", ar: "الموظف: مرحباً، هل لديك موعد؟", en: "Employee: Hello, do you have an appointment?" },
+        { fr: "Patient : Oui, j'ai rendez-vous pour une IRM abdominale.", ar: "المريض: نعم، لدي موعد لتصوير البطن بالرنين المغناطيسي.", en: "Patient: Yes, I have an appointment for an abdominal MRI." },
+        { fr: "Employé : Vous avez votre ordonnance ?", ar: "الموظف: هل معك الوصفة الطبية؟", en: "Employee: Do you have your prescription?" },
+        { fr: "Patient : Oui, la voici.", ar: "المريض: نعم، تفضل.", en: "Patient: Yes, here it is." },
+        { fr: "Employé : Avez-vous respecté le jeûne ?", ar: "الموظف: هل التزمت بالصيام؟", en: "Employee: Have you followed the fasting instructions?" },
+        { fr: "Patient : Oui, j'ai suivi les consignes.", ar: "المريض: نعم، اتبعت التعليمات.", en: "Patient: Yes, I followed the instructions." },
+        { fr: "Employé : Avez-vous des allergies ou des implants métalliques ?", ar: "الموظف: هل لديك حساسية أو زرعات معدنية؟", en: "Employee: Do you have any allergies or metal implants?" },
+        { fr: "Patient : Non, je n'en ai pas.", ar: "المريض: لا، ليس لدي شيء من ذلك.", en: "Patient: No, I don't." },
+        { fr: "Employé : Nous allons commencer la préparation.", ar: "الموظف: سنبدأ التحضير.", en: "Employee: We are going to start the preparation." },
+        { fr: "Employé : Allongez-vous et ne bougez pas.", ar: "الموظف: استلقِ ولا تتحرك.", en: "Employee: Lie down and don't move." },
+        { fr: "Employé : Inspirez et bloquez votre respiration.", ar: "الموظف: خذ شهيقاً واحبس نفسك.", en: "Employee: Breathe in and hold your breath." },
+        { fr: "Employé : C'est terminé, vous pouvez vous relever.", ar: "الموظف: انتهى الفحص، يمكنك النهوض.", en: "Employee: It's finished, you can get up." },
+        { fr: "Patient : Quand est-ce que je pourrai récupérer les résultats ?", ar: "المريض: متى يمكنني الحصول على النتائج؟", en: "Patient: When can I collect the results?" },
+        { fr: "Employé : Le compte rendu sera disponible ultérieurement.", ar: "الموظف: سيكون التقرير متاحاً لاحقاً.", en: "Employee: The report will be available later." }
+      ] },
+      { icon: '✔️', notes: ["التحضير لموعد IRM abdominale", "أحمل الوصفة الطبية Ordonnance médicale", "أحمل بطاقة Vitale والهوية", "أحمل نتائج التصوير السابقة", "قرأت تعليمات الصيام الخاصة بالمركز", "أخبرت المركز عن الحساسية وأمراض الكلى", "أخبرت المركز عن أي جهاز أو معدن مزروع", "أصل في الوقت المحدد", "أزيل المعادن وفق تعليمات الموظف", "ملاحظة أخيرة: إذا كان موعدك لفحص الكبد تحديداً، فمن المهم أن تعرف هل الوصفة مكتوب فيها IRM abdominale أم IRM hépatique أم Cholangio-IRM؛ لأن البروتوكول والصور المطلوبة قد تختلف."], title: { ar: "قائمة مراجعة يوم الفحص", en: "قائمة مراجعة يوم الفحص", fr: "قائمة مراجعة يوم الفحص" }, phrases: [
+
+      ] },
+
     ]
   },
   {
