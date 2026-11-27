@@ -646,9 +646,20 @@
   document.getElementById('sections').addEventListener('click', function (e) {
     var w = wordAt(e); if (!w) return;
     if (wHeld) { wHeld = false; return; }
+    var pl = w.closest('.pl');
+    var lang = pl.classList.contains('ar') ? 'ar' : (pl.classList.contains('en') ? 'en' : 'fr');
+    if (w.classList.contains('looping')) { stopSpeaking(); return; }
     wTaps++;
-    if (wTaps === 1) { wTapT = setTimeout(function () { wTaps = 0; }, 380); }
-    else { clearTimeout(wTapT); wTaps = 0; searchImages(w.textContent); }
+    if (wTaps === 1) {
+      wTapT = setTimeout(function () {
+        wTaps = 0;
+        speakLoop(w.textContent, w, lang);
+      }, 380);
+    } else {
+      clearTimeout(wTapT); wTaps = 0;
+      stopSpeaking();
+      searchImages(w.textContent);
+    }
   });
 
   function findPhrase(btn) {
