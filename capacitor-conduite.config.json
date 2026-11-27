@@ -1,6 +1,6 @@
 {
-  "appId": "com.syrian020.pickling",
-  "appName": "pickling",
+  "appId": "com.syrian020.piclib",
+  "appName": "picLib",
   "webDir": "www",
   "server": {
     "androidScheme": "https"

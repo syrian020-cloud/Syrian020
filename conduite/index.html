@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#0d3b2e">
-<title>pickling — إطارات الصور</title>
+<title>picLib — إطارات الصور</title>
 <link rel="manifest" href="manifest.json">
 <style>
 @font-face { font-family: 'Cairo'; src: url('fonts/cairo.ttf'); font-weight: 100 900; }
@@ -154,7 +154,7 @@ p.sub { color: #9db8ac; font-size: 13.5px; margin: 0 0 14px; }
 <div id="app">
   <header>
     <button class="iconbtn hidden" id="backBtn">→</button>
-    <div class="logo"><img src="icon-192.png" alt=""> pickling</div>
+    <div class="logo"><img src="icon-192.png" alt=""> picLib</div>
     <div class="spacer"></div>
     <button class="iconbtn" id="darkBtn" title="الوضع الليلي">🌙</button>
   </header>
@@ -556,7 +556,7 @@ async function exportImage(share) {
   const ctx = c.getContext('2d');
   renderScene(ctx, 1080, state.frame);
   const blob = await new Promise(r => c.toBlob(r, 'image/png'));
-  const fname = `pickling-${state.frame.id}-${Date.now()}.png`;
+  const fname = `picLib-${state.frame.id}-${Date.now()}.png`;
 
   try {
     const cap = window.Capacitor;
@@ -569,10 +569,10 @@ async function exportImage(share) {
       });
       const res = await Filesystem.writeFile({ path: fname, data: reader, directory: 'CACHE' });
       if (share && Share && Share.share) {
-        await Share.share({ title: 'pickling', files: [res.uri] });
+        await Share.share({ title: 'picLib', files: [res.uri] });
         toast('تم فتح المشاركة ✓');
       } else if (Share && Share.share) {
-        await Share.share({ title: 'pickling', files: [res.uri], dialogTitle: 'حفظ الصورة' });
+        await Share.share({ title: 'picLib', files: [res.uri], dialogTitle: 'حفظ الصورة' });
         toast('احفظ الصورة من قائمة المشاركة ✓');
       }
       return;

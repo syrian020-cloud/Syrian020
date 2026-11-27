@@ -35,14 +35,16 @@ fi
 npx cap sync android
 
 # Apply the pickling package id and app name to the Android project
-sed -i 's/namespace "com.syrian020.convip"/namespace "com.syrian020.pickling"/; s/applicationId "com.syrian020.convip"/applicationId "com.syrian020.pickling"/' android/app/build.gradle
-sed -i 's/>conVip</>pickling</g; s/com.syrian020.convip/com.syrian020.pickling/g' android/app/src/main/res/values/strings.xml
+sed -i -E 's@namespace "com\.syrian020\.(convip|pickling)"@namespace "com.syrian020.piclib"@; s@applicationId "com\.syrian020\.(convip|pickling)"@applicationId "com.syrian020.piclib"@' android/app/build.gradle
+sed -i -E 's/>(conVip|pickling)</>picLib</g; s/com\.syrian020\.(convip|pickling)/com.syrian020.piclib/g' android/app/src/main/res/values/strings.xml
 JDIR="android/app/src/main/java/com/syrian020"
-if [ -f "$JDIR/convip/MainActivity.java" ]; then
-  mkdir -p "$JDIR/pickling"
-  sed 's/package com.syrian020.convip;/package com.syrian020.pickling;/' "$JDIR/convip/MainActivity.java" > "$JDIR/pickling/MainActivity.java"
-  rm -rf "$JDIR/convip"
-fi
+for oldpkg in convip pickling; do
+  if [ -f "$JDIR/$oldpkg/MainActivity.java" ] && [ "$oldpkg" != "piclib" ]; then
+    mkdir -p "$JDIR/piclib"
+    sed -E 's/package com\.syrian020\.(convip|pickling);/package com.syrian020.piclib;/' "$JDIR/$oldpkg/MainActivity.java" > "$JDIR/piclib/MainActivity.java"
+    rm -rf "$JDIR/$oldpkg"
+  fi
+done
 
 # Sync the PWA icon into the Android mipmap launcher icons
 ICON_SRC="$ROOT/conduite/icon-512.png"
