@@ -1,6 +1,6 @@
 {
-  "appId": "com.varvip.app",
-  "appName": "Varvip",
+  "appId": "com.vedmap.app",
+  "appName": "Vedmap",
   "webDir": "www",
   "server": {
     "androidScheme": "https"
