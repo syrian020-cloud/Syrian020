@@ -2098,6 +2098,268 @@ window.CENTRES_DATA = [
         { fr: "Une place d'hébergement", ar: "مكان للإيواء", en: "An accommodation place" }
       ] },
 
+      { icon: '🧑‍💼', title: { ar: "طلب مقابلة مساعد اجتماعي في فرنسا — كيف تطلب مساعداً اجتماعياً؟", en: "طلب مقابلة مساعد اجتماعي في فرنسا — كيف تطلب مساعداً اجتماعياً؟", fr: "طلب مقابلة مساعد اجتماعي في فرنسا — كيف تطلب مساعداً اجتماعياً؟" }, phrases: [
+        { fr: "Je voudrais rencontrer un travailleur social.", ar: "أود مقابلة مساعد اجتماعي.", en: "I would like to meet a social worker." },
+        { fr: "J'ai besoin d'un accompagnement social.", ar: "أحتاج إلى مرافقة ومساعدة اجتماعية.", en: "I need social support." },
+        { fr: "Je souhaite prendre rendez-vous avec une assistante sociale.", ar: "أرغب في تحديد موعد مع مساعدة اجتماعية.", en: "I would like to make an appointment with a social worker." },
+        { fr: "Comment puis-je rencontrer un travailleur social ?", ar: "كيف يمكنني مقابلة مساعد اجتماعي؟", en: "How can I meet a social worker?" },
+        { fr: "Où puis-je trouver une assistante sociale ?", ar: "أين يمكنني العثور على مساعدة اجتماعية؟", en: "Where can I find a social worker?" },
+        { fr: "Je voudrais être accompagné dans mes démarches.", ar: "أود الحصول على مساعدة في إجراءاتي.", en: "I would like support with my procedures." },
+        { fr: "Je ne sais pas à quel service m'adresser.", ar: "لا أعرف إلى أي جهة يجب أن أتوجه.", en: "I don't know which service to contact." },
+        { fr: "Pouvez-vous m'orienter vers une assistante sociale ?", ar: "هل يمكنكم توجيهي إلى مساعدة اجتماعية؟", en: "Can you refer me to a social worker?" }
+      ] },
+      { icon: '📋', title: { ar: "طلب مقابلة مساعد اجتماعي في فرنسا — شرح سبب طلب المساعدة", en: "طلب مقابلة مساعد اجتماعي في فرنسا — شرح سبب طلب المساعدة", fr: "طلب مقابلة مساعد اجتماعي في فرنسا — شرح سبب طلب المساعدة" }, phrases: [
+        { fr: "Je rencontre des difficultés dans ma vie quotidienne.", ar: "أواجه صعوبات في حياتي اليومية.", en: "I am facing difficulties in my daily life." },
+        { fr: "Ma situation sociale est difficile.", ar: "وضعي الاجتماعي صعب.", en: "My social situation is difficult." },
+        { fr: "J'ai besoin d'aide pour trouver un logement.", ar: "أحتاج إلى مساعدة لإيجاد سكن.", en: "I need help finding accommodation." },
+        { fr: "J'ai des difficultés financières.", ar: "لدي صعوبات مالية.", en: "I am experiencing financial difficulties." },
+        { fr: "Je ne peux pas payer mon loyer.", ar: "لا أستطيع دفع إيجاري.", en: "I cannot pay my rent." },
+        { fr: "Je risque de perdre mon logement.", ar: "أنا معرض لخسارة مسكني.", en: "I am at risk of losing my home." },
+        { fr: "Je n'ai pas de logement stable.", ar: "ليس لدي سكن مستقر.", en: "I don't have stable accommodation." },
+        { fr: "J'ai besoin d'aide pour mes démarches administratives.", ar: "أحتاج إلى مساعدة في معاملاتي الإدارية.", en: "I need help with my administrative procedures." },
+        { fr: "Je voudrais faire le point sur ma situation.", ar: "أود مراجعة وضعي الحالي.", en: "I would like to review my current situation." },
+        { fr: "J'ai plusieurs problèmes à régler.", ar: "لدي عدة مشاكل أحتاج إلى حلها.", en: "I have several problems to sort out." }
+      ] },
+      { icon: '💶', title: { ar: "طلب مقابلة مساعد اجتماعي في فرنسا — طلب موعد مع المساعد الاجتماعي", en: "طلب مقابلة مساعد اجتماعي في فرنسا — طلب موعد مع المساعد الاجتماعي", fr: "طلب مقابلة مساعد اجتماعي في فرنسا — طلب موعد مع المساعد الاجتماعي" }, phrases: [
+        { fr: "Est-ce qu'un rendez-vous est possible ?", ar: "هل من الممكن تحديد موعد؟", en: "Is it possible to make an appointment?" },
+        { fr: "Quand puis-je rencontrer un travailleur social ?", ar: "متى يمكنني مقابلة مساعد اجتماعي؟", en: "When can I meet a social worker?" },
+        { fr: "Avez-vous un créneau disponible cette semaine ?", ar: "هل لديكم موعد متاح هذا الأسبوع؟", en: "Do you have an available appointment this week?" },
+        { fr: "Je suis disponible le matin.", ar: "أنا متاح في الصباح.", en: "I am available in the morning." },
+        { fr: "Je préfère un rendez-vous en personne.", ar: "أفضل موعداً حضورياً.", en: "I prefer an in-person appointment." },
+        { fr: "Est-ce que le rendez-vous est gratuit ?", ar: "هل الموعد مجاني؟", en: "Is the appointment free?" },
+        { fr: "Quels documents dois-je apporter ?", ar: "ما الوثائق التي يجب أن أحضرها؟", en: "What documents should I bring?" }
+      ] },
+      { icon: '🧳', title: { ar: "طلب مقابلة مساعد اجتماعي في فرنسا — طلب المساعدة في السكن و115 وSIAO", en: "طلب مقابلة مساعد اجتماعي في فرنسا — طلب المساعدة في السكن و115 وSIAO", fr: "طلب مقابلة مساعد اجتماعي في فرنسا — طلب المساعدة في السكن و115 وSIAO" }, phrases: [
+        { fr: "J'ai besoin d'aide pour contacter le 115.", ar: "أحتاج إلى مساعدة للتواصل مع الرقم 115.", en: "I need help contacting 115." },
+        { fr: "Je voudrais faire une demande auprès du SIAO.", ar: "أود تقديم طلب لدى SIAO.", en: "I would like to submit an application to SIAO." },
+        { fr: "Pouvez-vous transmettre mon dossier au SIAO ?", ar: "هل يمكنكم إرسال ملفي إلى SIAO؟", en: "Can you forward my file to SIAO?" },
+        { fr: "Je voudrais demander un hébergement d'urgence.", ar: "أود طلب إيواء طارئ.", en: "I would like to request emergency accommodation." },
+        { fr: "Je souhaite faire une demande de logement social.", ar: "أرغب في تقديم طلب سكن اجتماعي.", en: "I would like to apply for social housing." },
+        { fr: "Pouvez-vous m'aider à remplir le dossier ?", ar: "هل يمكنكم مساعدتي في ملء الملف؟", en: "Can you help me fill in the application?" },
+        { fr: "Je voudrais connaître mes droits au logement.", ar: "أود معرفة حقوقي المتعلقة بالسكن.", en: "I would like to know my housing rights." }
+      ] },
+      { icon: '📄', title: { ar: "طلب مقابلة مساعد اجتماعي في فرنسا — طلب المساعدة المالية والإدارية", en: "طلب مقابلة مساعد اجتماعي في فرنسا — طلب المساعدة المالية والإدارية", fr: "طلب مقابلة مساعد اجتماعي في فرنسا — طلب المساعدة المالية والإدارية" }, phrases: [
+        { fr: "Pouvez-vous m'aider à faire une demande auprès de la CAF ?", ar: "هل يمكنكم مساعدتي في تقديم طلب لدى CAF؟", en: "Can you help me apply through CAF?" },
+        { fr: "Est-ce que je peux bénéficier du RSA ?", ar: "هل يمكنني الاستفادة من إعانة RSA؟", en: "Am I eligible for RSA?" },
+        { fr: "Puis-je bénéficier d'une aide du FSL ?", ar: "هل يمكنني الاستفادة من مساعدة FSL؟", en: "Can I receive FSL assistance?" },
+        { fr: "J'ai besoin d'aide pour payer mes factures.", ar: "أحتاج إلى مساعدة لدفع فواتيري.", en: "I need help paying my bills." },
+        { fr: "Je voudrais faire une demande de domiciliation.", ar: "أود تقديم طلب للحصول على عنوان بريدي وإداري.", en: "I would like to apply for an administrative mailing address." },
+        { fr: "J'ai besoin d'aide pour renouveler mes documents.", ar: "أحتاج إلى مساعدة لتجديد وثائقي.", en: "I need help renewing my documents." }
+      ] },
+      { icon: '🔑', title: { ar: "طلب مقابلة مساعد اجتماعي في فرنسا — ماذا يسألك المساعد الاجتماعي؟", en: "طلب مقابلة مساعد اجتماعي في فرنسا — ماذا يسألك المساعد الاجتماعي؟", fr: "طلب مقابلة مساعد اجتماعي في فرنسا — ماذا يسألك المساعد الاجتماعي؟" }, phrases: [
+        { fr: "Quelle est votre situation familiale ?", ar: "ما وضعك العائلي؟", en: "What is your family situation?" },
+        { fr: "Quelle est votre situation professionnelle ?", ar: "ما وضعك المهني؟", en: "What is your employment situation?" },
+        { fr: "Quelles sont vos ressources mensuelles ?", ar: "ما مواردك المالية الشهرية؟", en: "What are your monthly resources?" },
+        { fr: "Avez-vous un logement actuellement ?", ar: "هل لديك سكن حالياً؟", en: "Do you currently have accommodation?" },
+        { fr: "Quelles sont vos principales difficultés ?", ar: "ما الصعوبات الرئيسية التي تواجهها؟", en: "What are your main difficulties?" },
+        { fr: "De quelle aide avez-vous besoin ?", ar: "ما نوع المساعدة التي تحتاج إليها؟", en: "What kind of help do you need?" },
+        { fr: "Avez-vous déjà effectué des démarches ?", ar: "هل قمت بإجراءات من قبل؟", en: "Have you already taken any steps?" }
+      ] },
+      { icon: '🚪', title: { ar: "طلب مقابلة مساعد اجتماعي في فرنسا — حوار كامل لطلب مساعد اجتماعي", en: "طلب مقابلة مساعد اجتماعي في فرنسا — حوار كامل لطلب مساعد اجتماعي", fr: "طلب مقابلة مساعد اجتماعي في فرنسا — حوار كامل لطلب مساعد اجتماعي" }, phrases: [
+        { fr: "Bonjour, je voudrais rencontrer une assistante sociale.", ar: "مرحباً، أود مقابلة مساعدة اجتماعية.", en: "Hello, I would like to meet a social worker." },
+        { fr: "Bien sûr. Pour quelle raison souhaitez-vous la rencontrer ?", ar: "بالتأكيد. ما سبب رغبتك في مقابلتها؟", en: "Of course. Why would you like to meet her?" },
+        { fr: "J'ai des difficultés concernant mon logement et ma situation administrative.", ar: "لدي صعوبات تتعلق بسكني ووضعي الإداري.", en: "I am having difficulties with my housing and administrative situation." },
+        { fr: "Avez-vous déjà un suivi social ?", ar: "هل لديك متابعة اجتماعية بالفعل؟", en: "Are you already receiving social support?" },
+        { fr: "Non, pas encore. Je voudrais être accompagné dans mes démarches.", ar: "لا، ليس بعد. أود الحصول على مساعدة في إجراءاتي.", en: "No, not yet. I would like support with my procedures." },
+        { fr: "D'accord, nous allons essayer de vous proposer un rendez-vous.", ar: "حسناً، سنحاول تحديد موعد لك.", en: "All right, we will try to arrange an appointment for you." }
+      ] },
+      { icon: '🗺', title: { ar: "طلب مقابلة مساعد اجتماعي في فرنسا — جملة احفظها جيداً", en: "طلب مقابلة مساعد اجتماعي في فرنسا — جملة احفظها جيداً", fr: "طلب مقابلة مساعد اجتماعي في فرنسا — جملة احفظها جيداً" }, phrases: [
+        { fr: "Bonjour, je souhaite rencontrer un travailleur social pour faire le point sur ma situation et obtenir de l'aide concernant le logement, les démarches administratives et les aides financières.", ar: "مرحباً، أرغب في مقابلة مساعد اجتماعي لمراجعة وضعي والحصول على مساعدة بخصوص السكن والإجراءات الإدارية والمساعدات المالية.", en: "Hello, I would like to meet a social worker to review my situation and get help with housing, administrative procedures and financial assistance." }
+      ] },
+      { icon: '📆', title: { ar: "طلب مقابلة مساعد اجتماعي في فرنسا — Travailleur social — للمذكر والمؤنث", en: "طلب مقابلة مساعد اجتماعي في فرنسا — Travailleur social — للمذكر والمؤنث", fr: "طلب مقابلة مساعد اجتماعي في فرنسا — Travailleur social — للمذكر والمؤنث" }, phrases: [
+        { fr: "Un travailleur social", ar: "عامل اجتماعي (رجل)", en: "Social worker (man)" },
+        { fr: "Une travailleuse sociale", ar: "عاملة اجتماعية (امرأة)", en: "Social worker (woman)" },
+        { fr: "Le travailleur social", ar: "العامل الاجتماعي", en: "The social worker" },
+        { fr: "La travailleuse sociale", ar: "العاملة الاجتماعية", en: "The social worker" }
+      ] },
+      { icon: '🧾', title: { ar: "طلب مقابلة مساعد اجتماعي في فرنسا — Assistant social — للمذكر والمؤنث", en: "طلب مقابلة مساعد اجتماعي في فرنسا — Assistant social — للمذكر والمؤنث", fr: "طلب مقابلة مساعد اجتماعي في فرنسا — Assistant social — للمذكر والمؤنث" }, phrases: [
+        { fr: "Un assistant social", ar: "مساعد اجتماعي (رجل)", en: "Social worker / Social assistant (man)" },
+        { fr: "Une assistante sociale", ar: "مساعدة اجتماعية (امرأة)", en: "Social worker / Social assistant (woman)" },
+        { fr: "L'assistant social", ar: "المساعد الاجتماعي", en: "The social worker" },
+        { fr: "L'assistante sociale", ar: "المساعدة الاجتماعية", en: "The social worker" }
+      ] },
+      { icon: '🧑‍💼', title: { ar: "طلب مقابلة مساعد اجتماعي في فرنسا — ما الفرق بينهما؟", en: "طلب مقابلة مساعد اجتماعي في فرنسا — ما الفرق بينهما؟", fr: "طلب مقابلة مساعد اجتماعي في فرنسا — ما الفرق بينهما؟" }, phrases: [
+        { fr: "Travailleur social est un terme général.", ar: "عامل اجتماعي هو مصطلح عام.", en: "Social worker is a general term." },
+        { fr: "Assistant social est un métier spécifique.", ar: "المساعد الاجتماعي هو مهنة محددة.", en: "Social assistant is a specific profession." },
+        { fr: "Une assistante sociale peut m'aider dans mes démarches administratives.", ar: "يمكن لمساعدة اجتماعية أن تساعدني في إجراءاتي الإدارية.", en: "A female social worker can help me with my administrative procedures." },
+        { fr: "Je voudrais prendre rendez-vous avec un travailleur social.", ar: "أريد تحديد موعد مع عامل اجتماعي.", en: "I would like to make an appointment with a social worker." },
+        { fr: "Je voudrais parler à une assistante sociale.", ar: "أريد التحدث مع مساعدة اجتماعية.", en: "I would like to speak to a female social worker." }
+      ] },
+      { icon: '📋', title: { ar: "طلب مقابلة مساعد اجتماعي في فرنسا — عبارات مهمة في فرنسا", en: "طلب مقابلة مساعد اجتماعي في فرنسا — عبارات مهمة في فرنسا", fr: "طلب مقابلة مساعد اجتماعي في فرنسا — عبارات مهمة في فرنسا" }, phrases: [
+        { fr: "Je cherche un travailleur social.", ar: "أبحث عن عامل اجتماعي.", en: "I'm looking for a social worker." },
+        { fr: "Je voudrais rencontrer une assistante sociale.", ar: "أريد مقابلة مساعدة اجتماعية.", en: "I would like to meet a female social worker." },
+        { fr: "Est-ce qu'il y a un assistant social disponible ?", ar: "هل يوجد مساعد اجتماعي متاح؟", en: "Is there a male social worker available?" },
+        { fr: "Est-ce qu'il y a une travailleuse sociale disponible ?", ar: "هل توجد عاملة اجتماعية متاحة؟", en: "Is there a female social worker available?" }
+      ] },
+      { icon: '💶', title: { ar: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — عند الدخول إلى البلدية أو CCAS", en: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — عند الدخول إلى البلدية أو CCAS", fr: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — عند الدخول إلى البلدية أو CCAS" }, phrases: [
+        { fr: "Bonjour, excusez-moi.", ar: "مرحباً، عذراً.", en: "Hello, excuse me." },
+        { fr: "Je viens pour demander une aide sociale.", ar: "جئت لطلب مساعدة اجتماعية.", en: "I've come to ask for social assistance." },
+        { fr: "Je voudrais rencontrer un travailleur social.", ar: "أريد مقابلة عامل اجتماعي.", en: "I would like to meet a social worker." },
+        { fr: "Je voudrais parler à une assistante sociale.", ar: "أريد التحدث مع مساعدة اجتماعية.", en: "I would like to speak to a female social worker." },
+        { fr: "Est-ce que je suis au bon endroit ?", ar: "هل أنا في المكان الصحيح؟", en: "Am I in the right place?" },
+        { fr: "Est-ce que c'est bien le CCAS ?", ar: "هل هذا هو مركز CCAS؟", en: "Is this the CCAS?" }
+      ] },
+      { icon: '🧳', title: { ar: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — عند الاستقبال — À l'accueil", en: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — عند الاستقبال — À l'accueil", fr: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — عند الاستقبال — À l'accueil" }, phrases: [
+        { fr: "Bonjour, que puis-je faire pour vous ?", ar: "مرحباً، كيف يمكنني مساعدتك؟", en: "Hello, how can I help you?" },
+        { fr: "Je voudrais prendre rendez-vous avec une assistante sociale.", ar: "أريد تحديد موعد مع مساعدة اجتماعية.", en: "I would like to make an appointment with a female social worker." },
+        { fr: "C'est pour quelle raison ?", ar: "ما سبب طلبك؟", en: "What is the reason for your request?" },
+        { fr: "J'ai des difficultés concernant mon logement.", ar: "لدي صعوبات تتعلق بالسكن.", en: "I have difficulties concerning my housing." },
+        { fr: "J'ai besoin d'aide pour mes démarches administratives.", ar: "أحتاج إلى مساعدة في معاملاتي الإدارية.", en: "I need help with my administrative procedures." },
+        { fr: "Je voudrais faire le point sur ma situation.", ar: "أريد مراجعة وضعي وتقييمه.", en: "I would like to review my situation." }
+      ] },
+      { icon: '📄', title: { ar: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — شرح نوع المساعدة التي تحتاجها", en: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — شرح نوع المساعدة التي تحتاجها", fr: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — شرح نوع المساعدة التي تحتاجها" }, phrases: [
+        { fr: "J'ai besoin d'aide pour trouver un logement.", ar: "أحتاج إلى مساعدة للعثور على سكن.", en: "I need help finding accommodation." },
+        { fr: "Je suis actuellement sans logement.", ar: "أنا حالياً من دون سكن.", en: "I am currently homeless." },
+        { fr: "Je suis hébergé temporairement chez quelqu'un.", ar: "أقيم مؤقتاً عند شخص ما.", en: "I am temporarily staying at someone's place." },
+        { fr: "J'ai des difficultés financières.", ar: "لدي صعوبات مالية.", en: "I am experiencing financial difficulties." },
+        { fr: "J'ai besoin d'aide pour payer mes factures.", ar: "أحتاج إلى مساعدة لدفع فواتيري.", en: "I need help paying my bills." },
+        { fr: "Je voudrais connaître les aides auxquelles j'ai droit.", ar: "أريد معرفة المساعدات التي يحق لي الحصول عليها.", en: "I would like to know which benefits I am entitled to." }
+      ] },
+      { icon: '🔑', title: { ar: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — عندما يطلبون منك معلومات عن وضعك", en: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — عندما يطلبون منك معلومات عن وضعك", fr: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — عندما يطلبون منك معلومات عن وضعك" }, phrases: [
+        { fr: "Vous habitez dans quelle commune ?", ar: "في أي بلدية تسكن؟", en: "Which municipality do you live in?" },
+        { fr: "J'habite dans cette commune.", ar: "أسكن في هذه البلدية.", en: "I live in this municipality." },
+        { fr: "Est-ce que vous avez déjà un suivi social ?", ar: "هل لديك متابعة اجتماعية من قبل؟", en: "Are you already receiving social support?" },
+        { fr: "Non, je n'ai pas encore de suivi social.", ar: "لا، ليست لدي متابعة اجتماعية حتى الآن.", en: "No, I am not receiving social support yet." },
+        { fr: "Oui, j'ai déjà une assistante sociale.", ar: "نعم، لدي مساعدة اجتماعية أتابع معها.", en: "Yes, I already have a female social worker." },
+        { fr: "Est-ce que vous avez des enfants à charge ?", ar: "هل لديك أطفال تعولهم؟", en: "Do you have dependent children?" },
+        { fr: "Je vis seul.", ar: "أعيش وحدي.", en: "I live alone." },
+        { fr: "Je vis avec ma famille.", ar: "أعيش مع عائلتي.", en: "I live with my family." }
+      ] },
+      { icon: '🚪', title: { ar: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — السؤال عن الوثائق المطلوبة", en: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — السؤال عن الوثائق المطلوبة", fr: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — السؤال عن الوثائق المطلوبة" }, phrases: [
+        { fr: "Quels documents dois-je apporter ?", ar: "ما الوثائق التي يجب أن أحضرها؟", en: "What documents should I bring?" },
+        { fr: "Est-ce que je dois apporter une pièce d'identité ?", ar: "هل يجب أن أحضر وثيقة إثبات الهوية؟", en: "Do I need to bring an identity document?" },
+        { fr: "Est-ce qu'un justificatif de domicile est nécessaire ?", ar: "هل إثبات السكن ضروري؟", en: "Is proof of address necessary?" },
+        { fr: "Dois-je apporter mes justificatifs de revenus ?", ar: "هل يجب أن أحضر إثباتات دخلي؟", en: "Should I bring proof of my income?" },
+        { fr: "Je peux vous apporter les documents lors du rendez-vous.", ar: "يمكنني إحضار الوثائق في موعد المقابلة.", en: "I can bring the documents to the appointment." },
+        { fr: "Je n'ai pas tous les documents pour le moment.", ar: "ليست لدي جميع الوثائق في الوقت الحالي.", en: "I don't have all the documents at the moment." }
+      ] },
+      { icon: '🗺', title: { ar: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — الحصول على موعد", en: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — الحصول على موعد", fr: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — الحصول على موعد" }, phrases: [
+        { fr: "Nous allons vous proposer un rendez-vous.", ar: "سنقترح عليك موعداً.", en: "We will offer you an appointment." },
+        { fr: "Quel jour êtes-vous disponible ?", ar: "أي يوم تكون متاحاً؟", en: "Which day are you available?" },
+        { fr: "Je suis disponible tous les jours.", ar: "أنا متاح كل الأيام.", en: "I'm available every day." },
+        { fr: "Je préfère un rendez-vous le matin.", ar: "أفضل موعداً في الصباح.", en: "I prefer a morning appointment." },
+        { fr: "Est-ce qu'il y a un rendez-vous cette semaine ?", ar: "هل يوجد موعد هذا الأسبوع؟", en: "Is there an appointment available this week?" },
+        { fr: "Le prochain rendez-vous est mardi à 10 heures.", ar: "الموعد القادم يوم الثلاثاء الساعة العاشرة.", en: "The next appointment is Tuesday at 10 a.m." },
+        { fr: "Très bien, je confirme ce rendez-vous.", ar: "جيد جداً، أؤكد هذا الموعد.", en: "Very well, I confirm this appointment." }
+      ] },
+      { icon: '📆', title: { ar: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — قبل مغادرة المكتب", en: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — قبل مغادرة المكتب", fr: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — قبل مغادرة المكتب" }, phrases: [
+        { fr: "Est-ce que vous pouvez me donner une confirmation écrite ?", ar: "هل يمكنكم إعطائي تأكيداً مكتوباً؟", en: "Can you give me written confirmation?" },
+        { fr: "À quelle adresse dois-je me présenter ?", ar: "إلى أي عنوان يجب أن أتوجه؟", en: "What address should I go to?" },
+        { fr: "À quel étage se trouve le bureau ?", ar: "في أي طابق يوجد المكتب؟", en: "On which floor is the office?" },
+        { fr: "Est-ce que je dois arriver quelques minutes en avance ?", ar: "هل يجب أن أصل قبل الموعد ببضع دقائق؟", en: "Should I arrive a few minutes early?" },
+        { fr: "Merci beaucoup pour votre aide.", ar: "شكراً جزيلاً على مساعدتكم.", en: "Thank you very much for your help." }
+      ] },
+      { icon: '🧾', title: { ar: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — حوار كامل داخل CCAS", en: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — حوار كامل داخل CCAS", fr: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — حوار كامل داخل CCAS" }, phrases: [
+        { fr: "Bonjour, que puis-je faire pour vous ?", ar: "مرحباً، كيف يمكنني مساعدتك؟", en: "Hello, how can I help you?" },
+        { fr: "Bonjour, je voudrais rencontrer une assistante sociale.", ar: "مرحباً، أريد مقابلة مساعدة اجتماعية.", en: "Hello, I would like to meet a female social worker." },
+        { fr: "C'est pour quelle raison ?", ar: "ما سبب طلبك؟", en: "What is the reason for your request?" },
+        { fr: "J'ai des difficultés concernant mon logement et ma situation financière.", ar: "لدي صعوبات تتعلق بالسكن ووضعي المالي.", en: "I have difficulties with my housing and financial situation." },
+        { fr: "Est-ce que vous avez déjà une assistante sociale ?", ar: "هل لديك مساعدة اجتماعية بالفعل؟", en: "Do you already have a female social worker?" },
+        { fr: "Non, pas encore. Je voudrais être accompagné dans mes démarches.", ar: "لا، ليس بعد. أريد الحصول على مرافقة ومساعدة في إجراءاتي.", en: "No, not yet. I would like support with my procedures." },
+        { fr: "D'accord. Nous allons vous proposer un rendez-vous.", ar: "حسناً، سنقترح عليك موعداً.", en: "All right. We will offer you an appointment." },
+        { fr: "Merci. Quels documents dois-je apporter ?", ar: "شكراً. ما الوثائق التي يجب أن أحضرها؟", en: "Thank you. What documents should I bring?" },
+        { fr: "Apportez votre pièce d'identité et vos justificatifs de situation.", ar: "أحضر وثيقة هويتك والوثائق التي تثبت وضعك.", en: "Bring your identity document and documents showing your situation." },
+        { fr: "Très bien, merci beaucoup.", ar: "جيد جداً، شكراً جزيلاً.", en: "Very well, thank you very much." }
+      ] },
+      { icon: '🧑‍💼', title: { ar: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — كلمات مهمة للحفظ", en: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — كلمات مهمة للحفظ", fr: "طلب مقابلة مساعد اجتماعي في البلدية CCAS خطوة بخطوة — كلمات مهمة للحفظ" }, phrases: [
+        { fr: "L'accueil", ar: "الاستقبال", en: "Reception" },
+        { fr: "Le rendez-vous", ar: "الموعد", en: "Appointment" },
+        { fr: "Le suivi social", ar: "المتابعة الاجتماعية", en: "Social support" },
+        { fr: "L'accompagnement social", ar: "المرافقة الاجتماعية", en: "Social assistance and support" },
+        { fr: "Les justificatifs", ar: "الوثائق الإثباتية", en: "Supporting documents" },
+        { fr: "Le dossier social", ar: "الملف الاجتماعي", en: "Social assistance file" },
+        { fr: "La situation personnelle", ar: "الوضع الشخصي", en: "Personal situation" },
+        { fr: "Une aide d'urgence", ar: "مساعدة طارئة", en: "Emergency assistance" }
+      ] },
+      { icon: '📋', title: { ar: "المقابلة مع المساعدة الاجتماعية داخل CCAS — بداية المقابلة — Début de l'entretien", en: "المقابلة مع المساعدة الاجتماعية داخل CCAS — بداية المقابلة — Début de l'entretien", fr: "المقابلة مع المساعدة الاجتماعية داخل CCAS — بداية المقابلة — Début de l'entretien" }, phrases: [
+        { fr: "Bonjour, installez-vous.", ar: "مرحباً، تفضل بالجلوس.", en: "Hello, please have a seat." },
+        { fr: "Comment allez-vous aujourd'hui ?", ar: "كيف حالك اليوم؟", en: "How are you today?" },
+        { fr: "Pouvez-vous m'expliquer votre situation ?", ar: "هل يمكنك أن تشرح لي وضعك؟", en: "Can you explain your situation to me?" },
+        { fr: "Je vais vous expliquer ma situation.", ar: "سأشرح لك وضعي.", en: "I will explain my situation to you." },
+        { fr: "Prenez votre temps, je vous écoute.", ar: "خذ وقتك، أنا أستمع إليك.", en: "Take your time, I'm listening." },
+        { fr: "Je ne parle pas très bien français.", ar: "أنا لا أتحدث الفرنسية بشكل جيد جداً.", en: "I don't speak French very well." },
+        { fr: "Pourriez-vous parler un peu plus lentement ?", ar: "هل يمكنك التحدث ببطء أكثر قليلاً؟", en: "Could you speak a little more slowly?" }
+      ] },
+      { icon: '💶', title: { ar: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن الهوية والوضع الشخصي", en: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن الهوية والوضع الشخصي", fr: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن الهوية والوضع الشخصي" }, phrases: [
+        { fr: "Quel est votre nom et votre prénom ?", ar: "ما اسم عائلتك واسمك الشخصي؟", en: "What are your surname and first name?" },
+        { fr: "Quelle est votre date de naissance ?", ar: "ما تاريخ ميلادك؟", en: "What is your date of birth?" },
+        { fr: "Quelle est votre nationalité ?", ar: "ما جنسيتك؟", en: "What is your nationality?" },
+        { fr: "Quelle est votre situation familiale ?", ar: "ما وضعك العائلي؟", en: "What is your family situation?" },
+        { fr: "Êtes-vous célibataire ou marié ?", ar: "هل أنت أعزب أم متزوج؟", en: "Are you single or married?" },
+        { fr: "Je suis célibataire.", ar: "أنا أعزب.", en: "I am single." },
+        { fr: "Je suis marié.", ar: "أنا متزوج.", en: "I am married." },
+        { fr: "Je suis divorcé.", ar: "أنا مطلق.", en: "I am divorced." },
+        { fr: "Je vis seul.", ar: "أعيش وحدي.", en: "I live alone." }
+      ] },
+      { icon: '🧳', title: { ar: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن السكن — Le logement", en: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن السكن — Le logement", fr: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن السكن — Le logement" }, phrases: [
+        { fr: "Où habitez-vous actuellement ?", ar: "أين تسكن حالياً؟", en: "Where do you currently live?" },
+        { fr: "Vous êtes locataire ou hébergé ?", ar: "هل أنت مستأجر أم تقيم عند شخص آخر؟", en: "Are you a tenant or staying with someone?" },
+        { fr: "Je suis hébergé chez un ami.", ar: "أقيم عند صديق.", en: "I am staying with a friend." },
+        { fr: "Je suis hébergé temporairement chez ma famille.", ar: "أقيم مؤقتاً عند عائلتي.", en: "I am temporarily staying with my family." },
+        { fr: "Je n'ai pas de logement stable.", ar: "ليس لدي سكن مستقر.", en: "I don't have stable accommodation." },
+        { fr: "Depuis combien de temps êtes-vous dans cette situation ?", ar: "منذ متى وأنت في هذا الوضع؟", en: "How long have you been in this situation?" },
+        { fr: "Depuis plusieurs mois.", ar: "منذ عدة أشهر.", en: "For several months." },
+        { fr: "Je cherche un logement depuis longtemps.", ar: "أبحث عن سكن منذ فترة طويلة.", en: "I've been looking for accommodation for a long time." }
+      ] },
+      { icon: '📄', title: { ar: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن العمل — Le travail", en: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن العمل — Le travail", fr: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن العمل — Le travail" }, phrases: [
+        { fr: "Est-ce que vous travaillez actuellement ?", ar: "هل تعمل حالياً؟", en: "Are you currently working?" },
+        { fr: "Oui, je travaille.", ar: "نعم، أعمل.", en: "Yes, I work." },
+        { fr: "Non, je suis sans emploi.", ar: "لا، أنا من دون عمل.", en: "No, I am unemployed." },
+        { fr: "Êtes-vous inscrit à France Travail ?", ar: "هل أنت مسجل في France Travail؟", en: "Are you registered with France Travail?" },
+        { fr: "Oui, je suis inscrit à France Travail.", ar: "نعم، أنا مسجل في France Travail.", en: "Yes, I am registered with France Travail." },
+        { fr: "Je suis à la recherche d'un emploi.", ar: "أنا أبحث عن عمل.", en: "I am looking for a job." },
+        { fr: "Je suis en formation professionnelle.", ar: "أنا في تدريب مهني.", en: "I am in vocational training." }
+      ] },
+      { icon: '🔑', title: { ar: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن الدخل والمساعدات المالية", en: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن الدخل والمساعدات المالية", fr: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن الدخل والمساعدات المالية" }, phrases: [
+        { fr: "Quelles sont vos ressources mensuelles ?", ar: "ما مصادر دخلك الشهرية؟", en: "What are your monthly sources of income?" },
+        { fr: "Est-ce que vous percevez le RSA ?", ar: "هل تحصل على مساعدة RSA؟", en: "Do you receive RSA?" },
+        { fr: "Est-ce que vous touchez des allocations de la CAF ?", ar: "هل تتلقى إعانات من CAF؟", en: "Do you receive benefits from CAF?" },
+        { fr: "Je ne perçois aucune aide actuellement.", ar: "لا أتلقى أي مساعدة حالياً.", en: "I am not receiving any assistance at the moment." },
+        { fr: "Mes revenus ne suffisent pas pour couvrir mes dépenses.", ar: "دخلي لا يكفي لتغطية مصاريفي.", en: "My income is not enough to cover my expenses." },
+        { fr: "J'ai des difficultés à finir le mois.", ar: "أجد صعوبة في تدبير أموري حتى نهاية الشهر.", en: "I struggle to make ends meet." }
+      ] },
+      { icon: '🚪', title: { ar: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن الاحتياجات والمشكلات", en: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن الاحتياجات والمشكلات", fr: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن الاحتياجات والمشكلات" }, phrases: [
+        { fr: "De quelle aide avez-vous besoin ?", ar: "ما نوع المساعدة التي تحتاج إليها؟", en: "What kind of assistance do you need?" },
+        { fr: "Quelle est votre priorité actuellement ?", ar: "ما أولويتك في الوقت الحالي؟", en: "What is your current priority?" },
+        { fr: "Ma priorité est de trouver un logement.", ar: "أولويتي هي العثور على سكن.", en: "My priority is to find accommodation." },
+        { fr: "J'ai besoin d'une aide financière.", ar: "أحتاج إلى مساعدة مالية.", en: "I need financial assistance." },
+        { fr: "J'ai besoin d'aide pour mes démarches administratives.", ar: "أحتاج إلى مساعدة في معاملاتي الإدارية.", en: "I need help with my administrative procedures." },
+        { fr: "J'aimerais être accompagné dans mes démarches.", ar: "أود الحصول على مرافقة ومساعدة في إجراءاتي.", en: "I would like support with my procedures." }
+      ] },
+      { icon: '🗺', title: { ar: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن الوثائق والملف الاجتماعي", en: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن الوثائق والملف الاجتماعي", fr: "المقابلة مع المساعدة الاجتماعية داخل CCAS — أسئلة عن الوثائق والملف الاجتماعي" }, phrases: [
+        { fr: "Avez-vous une pièce d'identité ?", ar: "هل لديك وثيقة إثبات الهوية؟", en: "Do you have an identity document?" },
+        { fr: "Avez-vous un numéro de sécurité sociale ?", ar: "هل لديك رقم ضمان اجتماعي؟", en: "Do you have a social security number?" },
+        { fr: "Avez-vous un compte CAF ?", ar: "هل لديك حساب في CAF؟", en: "Do you have a CAF account?" },
+        { fr: "Avez-vous déjà un dossier de demande de logement social ?", ar: "هل لديك ملف طلب سكن اجتماعي من قبل؟", en: "Do you already have a social housing application?" },
+        { fr: "Je peux vous fournir les documents nécessaires.", ar: "يمكنني تقديم الوثائق اللازمة لكم.", en: "I can provide the necessary documents." },
+        { fr: "Il me manque certains documents.", ar: "تنقصني بعض الوثائق.", en: "I am missing some documents." }
+      ] },
+      { icon: '📆', title: { ar: "المقابلة مع المساعدة الاجتماعية داخل CCAS — كيف تطلب المساعدة في نهاية المقابلة؟", en: "المقابلة مع المساعدة الاجتماعية داخل CCAS — كيف تطلب المساعدة في نهاية المقابلة؟", fr: "المقابلة مع المساعدة الاجتماعية داخل CCAS — كيف تطلب المساعدة في نهاية المقابلة؟" }, phrases: [
+        { fr: "Quelles solutions pouvez-vous me proposer ?", ar: "ما الحلول التي يمكنكم اقتراحها عليّ؟", en: "What solutions can you offer me?" },
+        { fr: "Quelles démarches dois-je effectuer maintenant ?", ar: "ما الإجراءات التي يجب أن أقوم بها الآن؟", en: "What steps should I take now?" },
+        { fr: "Pouvez-vous m'aider à contacter le SIAO ?", ar: "هل يمكنكم مساعدتي في التواصل مع SIAO؟", en: "Can you help me contact SIAO?" },
+        { fr: "Pouvez-vous m'orienter vers un service adapté à ma situation ?", ar: "هل يمكنكم توجيهي إلى خدمة مناسبة لوضعي؟", en: "Can you refer me to a service suited to my situation?" },
+        { fr: "Est-ce que nous pouvons prévoir un autre rendez-vous ?", ar: "هل يمكننا تحديد موعد آخر؟", en: "Can we arrange another appointment?" },
+        { fr: "Merci pour votre écoute et votre accompagnement.", ar: "شكراً لاستماعكم إليّ ولمرافقتكم لي.", en: "Thank you for listening and supporting me." }
+      ] },
+      { icon: '🧾', title: { ar: "المقابلة مع المساعدة الاجتماعية داخل CCAS — حوار تطبيقي كامل", en: "المقابلة مع المساعدة الاجتماعية داخل CCAS — حوار تطبيقي كامل", fr: "المقابلة مع المساعدة الاجتماعية داخل CCAS — حوار تطبيقي كامل" }, phrases: [
+        { fr: "Pouvez-vous me parler de votre situation actuelle ?", ar: "هل يمكنك أن تخبرني عن وضعك الحالي؟", en: "Can you tell me about your current situation?" },
+        { fr: "J'ai des difficultés à trouver un logement et j'ai besoin d'un accompagnement social.", ar: "أواجه صعوبات في العثور على سكن وأحتاج إلى مرافقة اجتماعية.", en: "I am having difficulty finding accommodation and need social support." },
+        { fr: "Est-ce que vous avez des revenus ?", ar: "هل لديك دخل؟", en: "Do you have an income?" },
+        { fr: "Oui, mais mes revenus sont limités.", ar: "نعم، لكن دخلي محدود.", en: "Yes, but my income is limited." },
+        { fr: "Avez-vous déjà fait une demande de logement social ?", ar: "هل سبق أن قدمت طلباً للسكن الاجتماعي؟", en: "Have you already applied for social housing?" },
+        { fr: "Oui, j'ai déjà déposé une demande.", ar: "نعم، لقد قدمت طلباً بالفعل.", en: "Yes, I have already submitted an application." },
+        { fr: "Nous allons étudier votre situation et voir quelles aides sont possibles.", ar: "سندرس وضعك ونرى ما المساعدات الممكنة.", en: "We will review your situation and see what assistance is available." },
+        { fr: "Merci. J'aimerais savoir quelles sont les prochaines étapes.", ar: "شكراً. أود معرفة الخطوات القادمة.", en: "Thank you. I would like to know what the next steps are." }
+      ] },
+      { icon: '🧑‍💼', title: { ar: "المقابلة مع المساعدة الاجتماعية داخل CCAS — عبارات يجب أن تحفظها جيداً", en: "المقابلة مع المساعدة الاجتماعية داخل CCAS — عبارات يجب أن تحفظها جيداً", fr: "المقابلة مع المساعدة الاجتماعية داخل CCAS — عبارات يجب أن تحفظها جيداً" }, phrases: [
+        { fr: "Je souhaite être accompagné par un travailleur social.", ar: "أرغب في الحصول على مرافقة من عامل اجتماعي.", en: "I would like support from a social worker." },
+        { fr: "J'ai besoin de faire le point sur ma situation.", ar: "أحتاج إلى تقييم ومراجعة وضعي.", en: "I need to review my situation." },
+        { fr: "Je ne sais pas quelles démarches effectuer.", ar: "لا أعرف ما الإجراءات التي يجب أن أقوم بها.", en: "I don't know what steps I need to take." },
+        { fr: "J'aimerais connaître mes droits et les aides disponibles.", ar: "أود معرفة حقوقي والمساعدات المتاحة.", en: "I would like to know my rights and the assistance available." },
+        { fr: "Pouvez-vous m'aider à constituer mon dossier ?", ar: "هل يمكنكم مساعدتي في تجهيز ملفي؟", en: "Can you help me put my application together?" }
+      ] },
+
     ]
   },
   {
