@@ -3482,6 +3482,21 @@ window.CENTRES_DATA = [
         { fr: "Le compte rendu sera transmis à votre médecin.", ar: "سيتم إرسال التقرير إلى طبيبك.", en: "The report will be sent to your doctor." }
       ] },
 
+      { icon: '💉', notes: ["عندما تريد أن تقول للممرضة في فرنسا إن يدها خفيفة في الحقن، أي أنها حقنتك بلطف ولم تشعر تقريباً بالوخزة، يمكنك استعمال هذه العبارات."], title: { ar: "عبارات المديح للممرضة عند الحقن — يدك خفيفة", en: "عبارات المديح للممرضة عند الحقن — يدك خفيفة", fr: "عبارات المديح للممرضة عند الحقن — يدك خفيفة" }, phrases: [
+        { fr: "Vous avez la main légère !", ar: "يدك خفيفة!", en: "You have a gentle touch!" },
+        { fr: "Vous piquez très bien !", ar: "أنتِ تجيدين الحقن كثيراً!", en: "You're really good at giving injections!" },
+        { fr: "Je n'ai presque rien senti !", ar: "لم أشعر تقريباً بشيء!", en: "I barely felt anything!" },
+        { fr: "Vous avez été très douce.", ar: "كنتِ لطيفة جداً أثناء الحقن.", en: "You were very gentle." },
+        { fr: "Vous avez une main très douce.", ar: "يدك ناعمة جداً.", en: "You have a very gentle touch." },
+        { fr: "On ne sent presque rien avec vous !", ar: "معك لا نشعر تقريباً بشيء!", en: "You hardly make it hurt at all!" },
+        { fr: "Bravo, je n'ai même pas senti la piqûre !", ar: "أحسنتِ، لم أشعر حتى بالوخزة!", en: "Well done, I didn't even feel the needle!" }
+      ] },
+      { icon: '💬', notes: ["أفضل عبارة أنصحك باستخدامها في فرنسا — طبيعية جداً."], title: { ar: "حوار قصير مع الممرضة — الحقن", en: "حوار قصير مع الممرضة — الحقن", fr: "حوار قصير مع الممرضة — الحقن" }, phrases: [
+        { fr: "Ça va ? Vous avez senti quelque chose ?", ar: "الممرضة: هل أنت بخير؟ هل شعرت بشيء؟", en: "Nurse: Are you okay? Did you feel anything?" },
+        { fr: "Non, pas du tout ! Vous avez vraiment la main légère !", ar: "أنت: لا، أبداً! فعلاً يدك خفيفة!", en: "You: No, not at all! You really have a gentle touch!" },
+        { fr: "Vous avez vraiment la main légère, je n'ai presque rien senti.", ar: "فعلاً يدك خفيفة، لم أشعر تقريباً بشيء.", en: "You really have a gentle touch; I barely felt anything." }
+      ] },
+
     ]
   },
   {
