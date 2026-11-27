@@ -1006,6 +1006,51 @@
     });
     gmWireNav();
   }
+  var frNumMapC=null;
+  function frWordNum(s){
+    if(!frNumMapC){ frNumMapC={}; for(var i=0;i<60;i++){ frNumMapC[gmNorm(frNum(i))]=i; } frNumMapC['une']=1; }
+    return frNumMapC[s];
+  }
+  function frTimeMins(txt){
+    var t=gmNorm(txt);
+    if(t.indexOf('heure')<0 && t.indexOf('minuit')<0 && t.indexOf('midi')<0) return null;
+    if(gmNorm(txt).indexOf('minuit')>=0 && !/heure/.test(t)) return [0,0];
+    var normH=[];
+    for(var h=0;h<24;h++){ normH.push([gmNorm(h===1?'une':frNum(h)),h]); if(h===1) normH.push(['un',1]); }
+    normH.sort(function(a,b){return b[0].length-a[0].length;});
+    var hour=-1, rest='';
+    for(var i=0;i<normH.length;i++){
+      var w=normH[i][0];
+      var re=new RegExp('(^|\\s)'+w+' heures?\\s*');
+      var m2=re.exec(t);
+      if(m2){ hour=normH[i][1]; rest=t.slice(m2.index+m2[0].length).trim(); break; }
+    }
+    if(hour<0) return null;
+    var mins=0;
+    if(/^et quart/.test(rest)) mins=15;
+    else if(/^et demie/.test(rest)) mins=30;
+    else if(/^moins le quart/.test(rest)) return [(hour+23)%24,45];
+    else if(/^moins/.test(rest)){
+      var mw=rest.replace(/^moins\s*/,'').split(/\s+/).filter(Boolean);
+      var mm=null;
+      for(var L=Math.min(3,mw.length);L>=1;L--){ var key=mw.slice(0,L).join(' '); if(frWordNum(key)!=null){ mm=frWordNum(key); break; } }
+      if(mm==null) return null;
+      return [(hour+23)%24,(60-mm)%60];
+    }
+    else if(rest){
+      var toks=rest.split(/\s+/).filter(Boolean), mm2=null;
+      for(var L2=Math.min(3,toks.length);L2>=1;L2--){ var key2=toks.slice(0,L2).join(' '); if(frWordNum(key2)!=null){ mm2=frWordNum(key2); break; } }
+      if(mm2!=null) mins=mm2;
+    }
+    return [hour,mins];
+  }
+  function gmTimeOk(inp, fr){
+    var mm=frTimeMins(fr); if(!mm) return false;
+    var m=String(inp||'').trim().match(/^(\d{1,2})\s*[:hH\.]\s*(\d{2})\s*$/);
+    if(!m) return false;
+    var ih=+m[1], im=+m[2];
+    return im===mm[1] && (ih%12)===(mm[0]%12);
+  }
   function gmWriteAsk(v){
     var body = gm.ov.querySelector('#gm-body');
     gmProg(); gm.lock=false;
@@ -1022,7 +1067,7 @@
     inp.focus();
     function go(){
       if(gm.lock)return; gm.lock=true; stopSpeaking(); pb._lp=false;
-      var good = gmNorm(inp.value)===gmNorm(v.fr);
+      var good = gmNorm(inp.value)===gmNorm(v.fr) || gmTimeOk(inp.value, v.fr);
       if(good){ gm.ok++; } else { gm.bad++; }
       inp.disabled=true; body.querySelector('#gm-go').disabled=true;
       inp.style.borderColor = good?'#1f9d55':'#e0245e';
