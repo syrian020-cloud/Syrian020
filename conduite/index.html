@@ -425,10 +425,16 @@ function viewPhoto() {
       <h2>اختر صورة من جهازك</h2>
       <p>اضغط هنا لاختيار صورة من المعرض</p>
     </div>
+    <button class="sharebtn" id="trySample" style="margin-top:12px">✨ جرّب بصورة المثال</button>
     <div class="note">🛡️ صورتك تبقى على جهازك فقط — لا يتم رفع أي صورة لأي مكان.</div>`;
   document.getElementById('sfthumb').appendChild(frameThumb(state.frame, 112));
   document.getElementById('chgFrame').onclick = () => setStep(1);
   document.getElementById('dz').onclick = () => document.getElementById('fileInput').click();
+  document.getElementById('trySample').onclick = () => {
+    state.img = sampleImg;
+    state.zoom = 1; state.tx = 0; state.ty = 0; state.rot = 0; state.flipX = false;
+    setStep(3);
+  };
 }
 
 function viewEditor() {
@@ -623,6 +629,16 @@ document.getElementById('fileInput').addEventListener('change', e => {
 const sampleImg = new Image();
 sampleImg.src = 'sample-photo.jpg';
 sampleImg.onload = () => { if (state.step === 1) render(); };
+
+if (window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App) {
+  Capacitor.Plugins.App.addListener('backButton', () => {
+    if (state.step > 1) setStep(state.step - 1);
+    else Capacitor.Plugins.App.minimizeApp();
+  });
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && state.step > 1) setStep(state.step - 1);
+});
 
 /* ---------- boot ---------- */
 
