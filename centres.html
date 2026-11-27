@@ -1105,20 +1105,21 @@ function frNum(n) {
   return 'quatre-vingt-'+u[n-80];
 }
 function clkFormal(h,m){
-  var hs=frNum(h)+' heure'+(h>1?'s':'');
+  var hw=h===1?'une':frNum(h);
+  var hs=hw+' heure'+(h>1?'s':'');
   if(m===0) return hs;
   return hs+' '+frNum(m);
 }
 function clkSpoken(h,m){
   var h12=h%12; if(h12===0)h12=12;
-  var hs=frNum(h12)+' heure'+(h12>1?'s':'');
+  var hs=(h12===1?'une':frNum(h12))+' heure'+(h12>1?'s':'');
   var out;
   if(m===0) out='il est '+hs;
   else if(m===15) out='il est '+hs+' et quart';
   else if(m===30) out='il est '+hs+' et demie';
-  else if(m===45){ var nh=(h+1)%12; if(nh===0)nh=12; out='il est '+frNum(nh)+' heure'+(nh>1?'s':'')+' moins le quart'; }
+  else if(m===45){ var nh=(h+1)%12; if(nh===0)nh=12; out='il est '+(nh===1?'une':frNum(nh))+' heure'+(nh>1?'s':'')+' moins le quart'; }
   else if(m<30) out='il est '+hs+' '+frNum(m);
-  else { var nh2=(h+1)%12; if(nh2===0)nh2=12; out='il est '+frNum(nh2)+' heure'+(nh2>1?'s':'')+' moins '+frNum(60-m); }
+  else { var nh2=(h+1)%12; if(nh2===0)nh2=12; out='il est '+(nh2===1?'une':frNum(nh2))+' heure'+(nh2>1?'s':'')+' moins '+frNum(60-m); }
   return out;
 }
 function clkDraw(){
