@@ -3276,6 +3276,212 @@ window.CENTRES_DATA = [
         { fr: "La fiabilité", ar: "الموثوقية", en: "Reliability" }
       ] },
 
+      { icon: '🔧', notes: ["هذا الجزء يركز على الحديث المهني بين فني التصوير والطبيب والزملاء، من تجهيز الجهاز إلى مراجعة القياسات وحفظ التقرير."], title: { ar: "الدرس التالي: العبارات التي يستخدمها موظفو FibroScan فيما بينهم", en: "الدرس التالي: العبارات التي يستخدمها موظفو FibroScan فيما بينهم", fr: "الدرس التالي: العبارات التي يستخدمها موظفو FibroScan فيما بينهم" }, phrases: [
+
+      ] },
+      { icon: '🤝', title: { ar: "تجهيز الجهاز قبل وصول المريض", en: "تجهيز الجهاز قبل وصول المريض", fr: "تجهيز الجهاز قبل وصول المريض" }, phrases: [
+        { fr: "Le FibroScan est-il prêt ?", ar: "هل جهاز الفيبروسكان جاهز؟", en: "Is the FibroScan ready?" },
+        { fr: "Il faut allumer l'appareil.", ar: "يجب تشغيل الجهاز.", en: "We need to turn on the machine." },
+        { fr: "Vérifie que la sonde est bien branchée.", ar: "تحقق من أن المسبار موصول جيداً.", en: "Check that the probe is properly connected." },
+        { fr: "L'appareil est opérationnel.", ar: "الجهاز جاهز للعمل.", en: "The machine is operational." },
+        { fr: "Il faut vérifier le niveau de batterie.", ar: "يجب التحقق من مستوى البطارية.", en: "We need to check the battery level." },
+        { fr: "L'écran fonctionne correctement.", ar: "الشاشة تعمل بشكل صحيح.", en: "The screen is working properly." },
+        { fr: "Vérifie les paramètres de l'examen.", ar: "تحقق من إعدادات الفحص.", en: "Check the examination settings." },
+        { fr: "Il faut préparer la salle.", ar: "يجب تجهيز الغرفة.", en: "We need to prepare the room." },
+        { fr: "Le matériel est prêt.", ar: "المعدات جاهزة.", en: "The equipment is ready." }
+      ] },
+      { icon: '📏', title: { ar: "استقبال المريض والتواصل بين الموظفين", en: "استقبال المريض والتواصل بين الموظفين", fr: "استقبال المريض والتواصل بين الموظفين" }, phrases: [
+        { fr: "Le patient est arrivé.", ar: "وصل المريض.", en: "The patient has arrived." },
+        { fr: "Le patient attend dans la salle d'attente.", ar: "المريض ينتظر في قاعة الانتظار.", en: "The patient is waiting in the waiting room." },
+        { fr: "Tu peux appeler le patient.", ar: "يمكنك مناداة المريض.", en: "You can call the patient." },
+        { fr: "Vérifie son identité avant l'examen.", ar: "تحقق من هويته قبل الفحص.", en: "Check their identity before the examination." },
+        { fr: "Il a bien respecté le jeûne.", ar: "لقد التزم بالصيام جيداً.", en: "He has followed the fasting instructions." },
+        { fr: "Il faut vérifier les informations du dossier.", ar: "يجب التحقق من معلومات الملف.", en: "We need to check the file information." },
+        { fr: "Le patient a déjà passé un FibroScan.", ar: "المريض أجرى فيبروسكان من قبل.", en: "The patient has already had a FibroScan." },
+        { fr: "Il faut comparer avec le précédent examen.", ar: "يجب المقارنة مع الفحص السابق.", en: "We need to compare it with the previous examination." }
+      ] },
+      { icon: '⚖️', title: { ar: "أثناء وضع المسبار وأخذ القياسات", en: "أثناء وضع المسبار وأخذ القياسات", fr: "أثناء وضع المسبار وأخذ القياسات" }, phrases: [
+        { fr: "Positionne la sonde correctement.", ar: "ضع المسبار في الموضع الصحيح.", en: "Position the probe correctly." },
+        { fr: "La sonde est bien placée.", ar: "المسبار موضوع بشكل صحيح.", en: "The probe is correctly positioned." },
+        { fr: "Il faut trouver une bonne fenêtre de mesure.", ar: "يجب العثور على موضع مناسب للقياس.", en: "We need to find a suitable measurement window." },
+        { fr: "Les mesures sont en cours.", ar: "القياسات جارية.", en: "Measurements are in progress." },
+        { fr: "La première mesure est validée.", ar: "تم اعتماد القياس الأول.", en: "The first measurement has been validated." },
+        { fr: "La mesure n'est pas valide.", ar: "القياس غير صالح.", en: "The measurement is not valid." },
+        { fr: "Il faut refaire cette mesure.", ar: "يجب إعادة هذا القياس.", en: "We need to repeat this measurement." },
+        { fr: "Il manque encore quelques mesures.", ar: "ما زالت هناك بعض القياسات الناقصة.", en: "A few more measurements are still needed." },
+        { fr: "On a obtenu dix mesures valides.", ar: "حصلنا على عشرة قياسات صالحة.", en: "We obtained ten valid measurements." },
+        { fr: "La qualité des mesures est satisfaisante.", ar: "جودة القياسات مرضية.", en: "The measurement quality is satisfactory." }
+      ] },
+      { icon: '🛢', images: ["https://images.openai.com/static-rsc-4/TOxSnEllOG5h8CPP8GUnrK3d9Uo2he2iRFs3Hu0VhZx5kgybVs1mzBajFbssGa14iQfKV2T7xa3GtnRCS1DgjUKr0sTzDlAgRH9Slr5vQdjrsYsPXYIq33wbZYx7_6OrNaSi3oiD1Mye52I02g0U-52Be0ooRgYvT71SlmVueBpvEXehS92rkgC7nlFVto_2?purpose=fullsize"], title: { ar: "مراجعة نتيجة صلابة الكبد kPa", en: "مراجعة نتيجة صلابة الكبد kPa", fr: "مراجعة نتيجة صلابة الكبد kPa" }, phrases: [
+        { fr: "Quelle est la valeur de rigidité hépatique ?", ar: "ما قيمة صلابة الكبد؟", en: "What is the liver stiffness value?" },
+        { fr: "La valeur est exprimée en kilopascals.", ar: "القيمة معبّر عنها بالكيلو باسكال.", en: "The value is expressed in kilopascals." },
+        { fr: "La médiane est de huit kilopascals.", ar: "القيمة الوسيطة هي ثمانية كيلو باسكال.", en: "The median is eight kilopascals." },
+        { fr: "Il faut vérifier la médiane des mesures.", ar: "يجب التحقق من القيمة الوسيطة للقياسات.", en: "We need to check the median of the measurements." },
+        { fr: "La rigidité hépatique doit être interprétée dans son contexte.", ar: "يجب تفسير صلابة الكبد بحسب الحالة الطبية.", en: "Liver stiffness must be interpreted in its clinical context." },
+        { fr: "Les résultats doivent être comparés aux examens précédents.", ar: "يجب مقارنة النتائج بالفحوصات السابقة.", en: "The results must be compared with previous examinations." }
+      ] },
+      { icon: '⚠️', images: ["https://images.openai.com/static-rsc-4/whtzo33Cmr7NP4DSCpkwke0nufBqAaUI8Nvbei2ovPvjnMO9-RFDyyQXMtwj2dW6tIj59ZclrspOuxKnSEj0oMUlJVFzbHqbqKnWW8WaoHJAzPdSfHK_1SGxJIdQLknR0q489qgyzIDqV40XWZY5LGwxjVK_JfrebzPDtgnHyCbg7MT8EtsizFq4ebkWydKl?purpose=fullsize"], title: { ar: "مراجعة قياس الدهون CAP", en: "مراجعة قياس الدهون CAP", fr: "مراجعة قياس الدهون CAP" }, phrases: [
+        { fr: "Quelle est la valeur du CAP ?", ar: "ما قيمة CAP؟", en: "What is the CAP value?" },
+        { fr: "Le CAP est exprimé en dB par mètre.", ar: "تُقاس قيمة CAP بالديسيبل لكل متر.", en: "CAP is expressed in decibels per metre." },
+        { fr: "Le CAP permet d'estimer la stéatose hépatique.", ar: "يساعد CAP على تقدير تشحم الكبد.", en: "CAP helps estimate liver steatosis." },
+        { fr: "Il faut vérifier les valeurs obtenues.", ar: "يجب التحقق من القيم التي تم الحصول عليها.", en: "We need to check the values obtained." },
+        { fr: "La valeur du CAP est enregistrée.", ar: "تم تسجيل قيمة CAP.", en: "The CAP value has been recorded." }
+      ] },
+      { icon: '📊', title: { ar: "عندما تكون القياسات غير جيدة", en: "عندما تكون القياسات غير جيدة", fr: "عندما تكون القياسات غير جيدة" }, phrases: [
+        { fr: "Les mesures ne sont pas suffisamment fiables.", ar: "القياسات ليست موثوقة بما فيه الكفاية.", en: "The measurements are not sufficiently reliable." },
+        { fr: "La qualité des mesures est insuffisante.", ar: "جودة القياسات غير كافية.", en: "The measurement quality is insufficient." },
+        { fr: "Il faut repositionner la sonde.", ar: "يجب إعادة وضع المسبار.", en: "The probe needs to be repositioned." },
+        { fr: "On va essayer avec une autre sonde.", ar: "سنحاول باستخدام مسبار آخر.", en: "We will try using another probe." },
+        { fr: "Vérifie si la sonde XL est nécessaire.", ar: "تحقق مما إذا كان استخدام مسبار XL ضرورياً.", en: "Check whether the XL probe is needed." },
+        { fr: "Il faut recommencer les mesures.", ar: "يجب إعادة القياسات.", en: "We need to repeat the measurements." },
+        { fr: "Le patient doit rester immobile.", ar: "يجب أن يبقى المريض ثابتاً.", en: "The patient must remain still." },
+        { fr: "On n'obtient pas de mesures exploitables.", ar: "لا نحصل على قياسات قابلة للاستعمال.", en: "We are not obtaining usable measurements." }
+      ] },
+      { icon: '🧼', title: { ar: "كتابة التقرير وحفظ النتائج", en: "كتابة التقرير وحفظ النتائج", fr: "كتابة التقرير وحفظ النتائج" }, phrases: [
+        { fr: "Il faut enregistrer les résultats.", ar: "يجب حفظ النتائج.", en: "We need to save the results." },
+        { fr: "Le compte rendu est prêt.", ar: "التقرير الطبي جاهز.", en: "The medical report is ready." },
+        { fr: "Vérifie les informations du patient.", ar: "تحقق من معلومات المريض.", en: "Check the patient's information." },
+        { fr: "Il faut joindre les résultats au dossier.", ar: "يجب إرفاق النتائج بالملف.", en: "We need to attach the results to the file." },
+        { fr: "Le médecin doit valider le compte rendu.", ar: "يجب أن يعتمد الطبيب التقرير.", en: "The doctor must validate the report." },
+        { fr: "Le rapport sera transmis au médecin prescripteur.", ar: "سيتم إرسال التقرير إلى الطبيب الذي طلب الفحص.", en: "The report will be sent to the referring doctor." },
+        { fr: "N'oublie pas de sauvegarder les données.", ar: "لا تنسَ حفظ البيانات.", en: "Don't forget to save the data." }
+      ] },
+      { icon: '📖', title: { ar: "تنظيف الجهاز وترتيب غرفة الفحص", en: "تنظيف الجهاز وترتيب غرفة الفحص", fr: "تنظيف الجهاز وترتيب غرفة الفحص" }, phrases: [
+        { fr: "Il faut nettoyer la sonde.", ar: "يجب تنظيف المسبار.", en: "We need to clean the probe." },
+        { fr: "Désinfecte le matériel selon le protocole.", ar: "عقّم المعدات وفق البروتوكول.", en: "Disinfect the equipment according to the protocol." },
+        { fr: "Il faut nettoyer la table d'examen.", ar: "يجب تنظيف سرير الفحص.", en: "We need to clean the examination table." },
+        { fr: "Remplace le papier de protection.", ar: "استبدل ورق الحماية.", en: "Replace the protective paper." },
+        { fr: "Vérifie que la salle est propre.", ar: "تحقق من أن الغرفة نظيفة.", en: "Check that the room is clean." },
+        { fr: "Range le matériel à sa place.", ar: "أعد المعدات إلى مكانها.", en: "Put the equipment back in its place." },
+        { fr: "La salle est prête pour le prochain patient.", ar: "الغرفة جاهزة للمريض التالي.", en: "The room is ready for the next patient." }
+      ] },
+      { icon: '💬', title: { ar: "مفردات مهنية إضافية", en: "مفردات مهنية إضافية", fr: "مفردات مهنية إضافية" }, phrases: [
+        { fr: "Français", ar: "العربية", en: "English" },
+        { fr: "Le manipulateur", ar: "فني التصوير", en: "Imaging technologist" },
+        { fr: "L'hépatologue", ar: "طبيب اختصاصي الكبد", en: "Hepatologist" },
+        { fr: "Le médecin prescripteur", ar: "الطبيب الذي طلب الفحص", en: "Referring doctor" },
+        { fr: "La sonde M", ar: "المسبار المتوسط", en: "M probe" },
+        { fr: "La sonde XL", ar: "المسبار الكبير", en: "XL probe" },
+        { fr: "La mesure valide", ar: "القياس الصالح", en: "Valid measurement" },
+        { fr: "La mesure invalide", ar: "القياس غير الصالح", en: "Invalid measurement" },
+        { fr: "La médiane", ar: "القيمة الوسيطة", en: "Median" },
+        { fr: "L'IQR", ar: "المدى الربيعي", en: "Interquartile range" },
+        { fr: "Le taux de réussite", ar: "نسبة نجاح القياسات", en: "Success rate" },
+        { fr: "La fiabilité", ar: "الموثوقية", en: "Reliability" },
+        { fr: "Le dossier médical", ar: "الملف الطبي", en: "Medical record" },
+        { fr: "La désinfection", ar: "التعقيم", en: "Disinfection" },
+        { fr: "Le protocole", ar: "البروتوكول", en: "Protocol" }
+      ] },
+      { icon: '🏥', title: { ar: "حوار بين موظفين أثناء إجراء الفحص", en: "حوار بين موظفين أثناء إجراء الفحص", fr: "حوار بين موظفين أثناء إجراء الفحص" }, phrases: [
+        { fr: "Manipulateur 1 : Le patient est prêt ?", ar: "فني التصوير الأول: هل المريض جاهز؟", en: "Technologist 1: Is the patient ready?" },
+        { fr: "Manipulateur 2 : Oui, il est installé sur la table.", ar: "فني التصوير الثاني: نعم، استلقى على السرير.", en: "Technologist 2: Yes, he is positioned on the table." },
+        { fr: "Manipulateur 1 : La sonde est bien positionnée ?", ar: "فني التصوير الأول: هل المسبار موضوع بشكل صحيح؟", en: "Technologist 1: Is the probe positioned correctly?" },
+        { fr: "Manipulateur 2 : Oui, je commence les mesures.", ar: "فني التصوير الثاني: نعم، سأبدأ القياسات.", en: "Technologist 2: Yes, I'm starting the measurements." },
+        { fr: "Manipulateur 1 : Combien de mesures valides avons-nous ?", ar: "فني التصوير الأول: كم قياساً صالحاً لدينا؟", en: "Technologist 1: How many valid measurements do we have?" },
+        { fr: "Manipulateur 2 : Nous en avons dix.", ar: "فني التصوير الثاني: لدينا عشرة قياسات.", en: "Technologist 2: We have ten." },
+        { fr: "Manipulateur 1 : La qualité est-elle satisfaisante ?", ar: "فني التصوير الأول: هل الجودة مرضية؟", en: "Technologist 1: Is the quality satisfactory?" },
+        { fr: "Manipulateur 2 : Oui, les mesures sont exploitables.", ar: "فني التصوير الثاني: نعم، القياسات قابلة للاستعمال.", en: "Technologist 2: Yes, the measurements are usable." },
+        { fr: "Manipulateur 1 : Très bien, tu peux enregistrer les résultats.", ar: "فني التصوير الأول: جيد جداً، يمكنك حفظ النتائج.", en: "Technologist 1: Very good, you can save the results." }
+      ] },
+      { icon: '🚪', images: ["https://images.openai.com/static-rsc-4/eMSeCyKLQyc6tr38BONhjfwkhnVgbDMAUBmFK6A1FfHCnCCDRATKCyn-erTwaW5VZzZkNfRLL-ytUReR7wEf6kpQ_p4yGZQ5fqZa_4lwE764FL-nJhuN4mxGB7tpjhUKr5jK-idI55Y4-1x2grCVrQVw8-1RANh5lRjyOlXJAdkGjaWCVQOED7mnas-_wVp0?purpose=fullsize", "https://images.openai.com/static-rsc-4/K_dGEGnIWqcCUTQEnReb9d6rn3BWyTrVNWgHDMTsE6zVmkGGO5iPNasnU4XphhTCcNvtVofqaZ97SzmggsnFU_mfbRP5h2oCgkl3Xv75YBMeTwvPFKHBEGdIWYMPsabl3qOHYZwf--JuI6QluKb_4kSsjABAUMGNIhIganHtTKCaJU9_1uGh4hdjPsy1Dyt5?purpose=fullsize", "https://images.openai.com/static-rsc-4/nqh_wI5hQSE14MmsDTDUnR1B9MFfDFOGLHuSAqVRHHeq-hbNJ6qEb0ONxkTCF57BFuPWR8GLxiFQMVWrldnZCTidM4RsLIGHmJOMzG7j-mdhO3Xu2Mxc30SLLg7UgyLgR22o7193HtwA0o04UxvcLiD086z1sllhOSrXDk9QpvXi1xnyrlCH7mi-vGsooxjr?purpose=fullsize"], notes: ["سلسلة خاصة بالتصوير بالرنين المغناطيسي في فرنسا: العبارات التي تسمعها من الموظفين والأطباء من بداية الموعد حتى انتهاء الفحص، مع التركيز على IRM abdominale وIRM hépatique."], title: { ar: "قاموس شامل لعبارات IRM في فرنسا", en: "قاموس شامل لعبارات IRM في فرنسا", fr: "قاموس شامل لعبارات IRM في فرنسا" }, phrases: [
+
+      ] },
+      { icon: '❓', title: { ar: "الوصول إلى مركز الأشعة — IRM", en: "الوصول إلى مركز الأشعة — IRM", fr: "الوصول إلى مركز الأشعة — IRM" }, phrases: [
+        { fr: "Bonjour, j'ai rendez-vous pour une IRM.", ar: "مرحباً، لدي موعد لإجراء رنين مغناطيسي.", en: "Hello, I have an appointment for an MRI." },
+        { fr: "Je viens pour une IRM abdominale.", ar: "جئت لإجراء رنين مغناطيسي للبطن.", en: "I'm here for an abdominal MRI." },
+        { fr: "J'ai rendez-vous à dix heures.", ar: "لدي موعد الساعة العاشرة.", en: "I have an appointment at ten o'clock." },
+        { fr: "Vous avez votre ordonnance ?", ar: "هل لديك الوصفة الطبية؟", en: "Do you have your prescription?" },
+        { fr: "Vous avez votre carte Vitale ?", ar: "هل لديك بطاقة فيتال؟", en: "Do you have your Vitale card?" },
+        { fr: "Vous avez une pièce d'identité ?", ar: "هل لديك بطاقة هوية؟", en: "Do you have an identity document?" },
+        { fr: "Pouvez-vous me donner votre nom et votre prénom ?", ar: "هل يمكنك إعطائي اسمك ولقبك؟", en: "Can you give me your first and last name?" },
+        { fr: "Quelle est votre date de naissance ?", ar: "ما تاريخ ميلادك؟", en: "What is your date of birth?" },
+        { fr: "Je vais vérifier votre dossier.", ar: "سأتحقق من ملفك.", en: "I'm going to check your file." },
+        { fr: "Votre dossier est complet.", ar: "ملفك مكتمل.", en: "Your file is complete." }
+      ] },
+      { icon: '👕', title: { ar: "الانتظار والمناداة على المريض — IRM", en: "الانتظار والمناداة على المريض — IRM", fr: "الانتظار والمناداة على المريض — IRM" }, phrases: [
+        { fr: "Veuillez patienter dans la salle d'attente.", ar: "يرجى الانتظار في قاعة الانتظار.", en: "Please wait in the waiting room." },
+        { fr: "Nous allons vous appeler.", ar: "سننادي عليك.", en: "We will call you." },
+        { fr: "Le manipulateur va venir vous chercher.", ar: "سيأتي فني التصوير ليأخذك.", en: "The MRI technologist will come and get you." },
+        { fr: "Monsieur, vous pouvez entrer.", ar: "سيدي، يمكنك الدخول.", en: "Sir, you can come in." },
+        { fr: "Suivez-moi, s'il vous plaît.", ar: "اتبعني من فضلك.", en: "Please follow me." },
+        { fr: "Nous allons passer dans la salle d'examen.", ar: "سننتقل إلى غرفة الفحص.", en: "We are going to the examination room." }
+      ] },
+      { icon: '🛏', images: ["https://images.openai.com/static-rsc-4/aha6cI66Jt8n31lLVB48kXjJvRKoyTcXjwRKsgB0Xyb4U-ICBDbwiL3dzYSscsWblJx4g5UWri0rcPPBWTsNcXNwmo6iSIFUTAzk11SjluqsN48OuU_HktOU8uGu1PfKwRmgGw6iOdPuU5NLGY00RNH1uITdhImxqEKhCjdgGv1JklU0x35H9ptG7BoITG_T?purpose=fullsize"], title: { ar: "الأسئلة المتعلقة بالسلامة — IRM", en: "الأسئلة المتعلقة بالسلامة — IRM", fr: "الأسئلة المتعلقة بالسلامة — IRM" }, phrases: [
+        { fr: "Avez-vous déjà passé une IRM ?", ar: "هل أجريت رنيناً مغناطيسياً من قبل؟", en: "Have you ever had an MRI?" },
+        { fr: "Avez-vous des allergies ?", ar: "هل لديك أي حساسية؟", en: "Do you have any allergies?" },
+        { fr: "Avez-vous un pacemaker ?", ar: "هل لديك جهاز تنظيم ضربات القلب؟", en: "Do you have a pacemaker?" },
+        { fr: "Avez-vous des implants métalliques ?", ar: "هل لديك زرعات معدنية؟", en: "Do you have any metal implants?" },
+        { fr: "Avez-vous une prothèse ?", ar: "هل لديك طرف أو مفصل اصطناعي؟", en: "Do you have a prosthesis?" },
+        { fr: "Avez-vous des clips chirurgicaux ?", ar: "هل لديك مشابك جراحية داخل الجسم؟", en: "Do you have surgical clips?" },
+        { fr: "Avez-vous des éclats métalliques dans le corps ?", ar: "هل لديك شظايا معدنية داخل الجسم؟", en: "Do you have metal fragments in your body?" },
+        { fr: "Avez-vous subi une intervention chirurgicale ?", ar: "هل خضعت لعملية جراحية؟", en: "Have you had surgery?" },
+        { fr: "Avez-vous des problèmes rénaux ?", ar: "هل لديك مشكلات في الكلى؟", en: "Do you have kidney problems?" },
+        { fr: "Êtes-vous claustrophobe ?", ar: "هل تعاني من رهاب الأماكن المغلقة؟", en: "Are you claustrophobic?" },
+        { fr: "Êtes-vous enceinte ou susceptible de l'être ?", ar: "هل أنت حامل أو من المحتمل أن تكوني حاملاً؟", en: "Are you pregnant or could you be pregnant?" },
+        { fr: "Prenez-vous des médicaments actuellement ?", ar: "هل تتناول أدوية حالياً؟", en: "Are you currently taking medication?" }
+      ] },
+      { icon: '▶️', images: ["https://images.openai.com/static-rsc-4/nahsn9B7JqaLs9ql0QpyCWNhBSe30vksHsUU9PAiJPeQP3wR5FaG5ostNKWdZH1pNcODfvbAkfHRTxWSSN6ozyXcfqpLoJrWNOoNZYz-vOqyz3VkB4alX5h3Y2VrE3pRZYWXJyMTEbOP0M-kqLfOzHr_R1PAaT170-MPyBUyTbYeSMJi33HyuuyrhF8E_hDw?purpose=fullsize"], title: { ar: "إزالة الملابس والأشياء المعدنية — IRM", en: "إزالة الملابس والأشياء المعدنية — IRM", fr: "إزالة الملابس والأشياء المعدنية — IRM" }, phrases: [
+        { fr: "Vous devez retirer vos bijoux.", ar: "يجب عليك إزالة مجوهراتك.", en: "You must remove your jewellery." },
+        { fr: "Retirez votre montre, s'il vous plaît.", ar: "انزع ساعتك من فضلك.", en: "Please remove your watch." },
+        { fr: "Enlevez votre ceinture.", ar: "انزع حزامك.", en: "Remove your belt." },
+        { fr: "Videz vos poches.", ar: "أفرغ جيوبك.", en: "Empty your pockets." },
+        { fr: "Retirez tous les objets métalliques.", ar: "أزل جميع الأشياء المعدنية.", en: "Remove all metal objects." },
+        { fr: "Enlevez vos chaussures.", ar: "اخلع حذاءك.", en: "Take off your shoes." },
+        { fr: "Vous pouvez mettre cette blouse.", ar: "يمكنك ارتداء هذا الرداء.", en: "You can put on this gown." },
+        { fr: "Laissez vos affaires dans le vestiaire.", ar: "اترك أغراضك في غرفة تبديل الملابس.", en: "Leave your belongings in the changing room." },
+        { fr: "Vous pouvez garder vos vêtements si le personnel vous l'autorise.", ar: "يمكنك الاحتفاظ بملابسك إذا سمح لك الموظفون بذلك.", en: "You may keep your clothes if the staff allows it." }
+      ] },
+      { icon: '🫁', images: ["https://images.openai.com/static-rsc-4/lrhXm7eim2GWlogs9ydrVzMBgGp-tl3EatMcoUktCCt8JcpiSsNIj6TQwzkNOaIskIZIVkxM-BnCI6AC6xnN0_Fkq8ut9QsW30UB9aG1Vjt3W19XkYKY8OZZUxMZ6aiwmwZVpXwdI4CfQt9QGRWgTIkrHnkv-rVeDgypxCvO8Lsp2fgZJE2xrskn-CnBSK9q?purpose=fullsize"], title: { ar: "الاستلقاء ووضع الجسم — IRM", en: "الاستلقاء ووضع الجسم — IRM", fr: "الاستلقاء ووضع الجسم — IRM" }, phrases: [
+        { fr: "Allongez-vous sur la table.", ar: "استلقِ على طاولة الفحص.", en: "Lie down on the examination table." },
+        { fr: "Allongez-vous sur le dos.", ar: "استلقِ على ظهرك.", en: "Lie on your back." },
+        { fr: "Mettez votre tête sur le coussin.", ar: "ضع رأسك على الوسادة.", en: "Put your head on the pillow." },
+        { fr: "Placez vos bras le long du corps.", ar: "ضع ذراعيك بجانب جسمك.", en: "Place your arms alongside your body." },
+        { fr: "Ne croisez pas les jambes.", ar: "لا تضع ساقاً فوق الأخرى.", en: "Do not cross your legs." },
+        { fr: "Nous allons installer une antenne sur votre abdomen.", ar: "سنضع ملف استقبال خاصاً فوق بطنك.", en: "We are going to position a coil over your abdomen." },
+        { fr: "Nous allons vous donner des bouchons d'oreilles.", ar: "سنعطيك سدادات للأذنين.", en: "We will give you earplugs." },
+        { fr: "Voici la sonnette d'appel.", ar: "هذا زر الاستدعاء.", en: "Here is the call button." },
+        { fr: "Vous pouvez nous parler à tout moment.", ar: "يمكنك التحدث إلينا في أي وقت.", en: "You can talk to us at any time." }
+      ] },
+      { icon: '💉', images: ["https://images.openai.com/static-rsc-4/HERfEVECTgpmZoTnYkZG81PruGa12VUh2U6yd721-cjJ85UYbqPqWW7TyBItPMrxHturo_BSitV7WysEJ0CCZIC6uXzJLQMOgRzchxN85oBpjf-lfbF1MNVnA51y5ySxNenVGtgA6aOTyoaeCrsazkbDGviOEJijNFAXW_KycjvqWBg4mXY3S81tRWu-6ped?purpose=fullsize"], title: { ar: "بدء الفحص — IRM", en: "بدء الفحص — IRM", fr: "بدء الفحص — IRM" }, phrases: [
+        { fr: "Nous allons commencer l'examen.", ar: "سنبدأ الفحص.", en: "We are going to start the examination." },
+        { fr: "La table va entrer dans l'appareil.", ar: "ستدخل الطاولة إلى داخل الجهاز.", en: "The table will move into the scanner." },
+        { fr: "Essayez de rester immobile.", ar: "حاول أن تبقى ثابتاً.", en: "Try to remain still." },
+        { fr: "Ne bougez surtout pas.", ar: "إياك أن تتحرك.", en: "Do not move at all." },
+        { fr: "Vous allez entendre des bruits assez forts.", ar: "ستسمع أصواتاً مرتفعة نسبياً.", en: "You will hear fairly loud noises." },
+        { fr: "C'est normal, ne vous inquiétez pas.", ar: "هذا طبيعي، لا تقلق.", en: "That's normal, don't worry." },
+        { fr: "L'examen se déroule en plusieurs séquences.", ar: "الفحص يتم على عدة مراحل تصوير.", en: "The examination is carried out in several sequences." }
+      ] },
+      { icon: '✅', title: { ar: "التنفس أثناء تصوير البطن والكبد — IRM", en: "التنفس أثناء تصوير البطن والكبد — IRM", fr: "التنفس أثناء تصوير البطن والكبد — IRM" }, phrases: [
+        { fr: "Respirez normalement.", ar: "تنفس بشكل طبيعي.", en: "Breathe normally." },
+        { fr: "Inspirez profondément.", ar: "خذ شهيقاً عميقاً.", en: "Breathe in deeply." },
+        { fr: "Bloquez votre respiration.", ar: "احبس نفسك.", en: "Hold your breath." },
+        { fr: "Ne respirez plus.", ar: "توقف عن التنفس للحظة.", en: "Stop breathing for a moment." },
+        { fr: "Vous pouvez respirer.", ar: "يمكنك التنفس الآن.", en: "You can breathe now." },
+        { fr: "Expirez doucement.", ar: "أخرج الهواء ببطء.", en: "Breathe out slowly." },
+        { fr: "Encore une fois, inspirez et bloquez.", ar: "مرة أخرى، خذ شهيقاً واحبس نفسك.", en: "Once again, breathe in and hold your breath." }
+      ] },
+      { icon: '📋', images: ["https://images.openai.com/static-rsc-4/0SoGErIWiVfpSNYDlU6Tl_WllcDLR_QV75xyZ8cXLJRF8AYPpT2ChxE1BsgdA1O8m4vdignYdEWGjs4Oe6q9l62JdHQto3dTxarpnSxk8TK1gru1vcPnTVKGpPuiGr_zyd0sCmes2kpquJ9njG5LEphtb3GUawQeFZXnGlBTEYvB4m_0mZQhww84RQi9SPb-?purpose=fullsize"], title: { ar: "حقن مادة التباين — IRM", en: "حقن مادة التباين — IRM", fr: "حقن مادة التباين — IRM" }, phrases: [
+        { fr: "Nous allons injecter un produit de contraste.", ar: "سنحقن مادة التباين.", en: "We are going to inject a contrast agent." },
+        { fr: "Nous allons poser une voie veineuse.", ar: "سنضع قسطرة وريدية.", en: "We are going to insert an intravenous cannula." },
+        { fr: "Tendez votre bras, s'il vous plaît.", ar: "مد ذراعك من فضلك.", en: "Please extend your arm." },
+        { fr: "Serrez le poing.", ar: "اقبض يدك.", en: "Make a fist." },
+        { fr: "Vous allez sentir une petite piqûre.", ar: "ستشعر بوخزة صغيرة.", en: "You will feel a small prick." },
+        { fr: "Le produit est à base de gadolinium.", ar: "المادة تعتمد على الغادولينيوم.", en: "The agent is gadolinium-based." },
+        { fr: "Est-ce que vous avez déjà reçu ce produit ?", ar: "هل تلقيت هذه المادة من قبل؟", en: "Have you received this agent before?" },
+        { fr: "Signalez-nous toute sensation inhabituelle.", ar: "أخبرنا عن أي إحساس غير معتاد.", en: "Tell us about any unusual sensation." }
+      ] },
+      { icon: '🔧', title: { ar: "انتهاء الفحص ومغادرة المركز — IRM", en: "انتهاء الفحص ومغادرة المركز — IRM", fr: "انتهاء الفحص ومغادرة المركز — IRM" }, phrases: [
+        { fr: "L'examen est terminé.", ar: "انتهى الفحص.", en: "The examination is finished." },
+        { fr: "La table va sortir de l'appareil.", ar: "ستخرج الطاولة من الجهاز.", en: "The table will come out of the scanner." },
+        { fr: "Vous pouvez vous relever doucement.", ar: "يمكنك النهوض ببطء.", en: "You can get up slowly." },
+        { fr: "Nous allons retirer la voie veineuse.", ar: "سنزيل القسطرة الوريدية.", en: "We are going to remove the IV cannula." },
+        { fr: "Appuyez sur la compresse.", ar: "اضغط على قطعة الشاش.", en: "Press on the gauze pad." },
+        { fr: "Vous pouvez vous rhabiller.", ar: "يمكنك ارتداء ملابسك.", en: "You can get dressed." },
+        { fr: "Le compte rendu sera disponible ultérieurement.", ar: "سيكون التقرير الطبي متاحاً لاحقاً.", en: "The medical report will be available later." },
+        { fr: "Les images seront accessibles en ligne.", ar: "ستكون الصور متاحة عبر الإنترنت.", en: "The images will be available online." },
+        { fr: "Le compte rendu sera transmis à votre médecin.", ar: "سيتم إرسال التقرير إلى طبيبك.", en: "The report will be sent to your doctor." }
+      ] },
+
     ]
   },
   {
