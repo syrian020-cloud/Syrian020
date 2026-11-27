@@ -248,10 +248,18 @@ function drawPhotoInCircle(ctx, S, R, cx, cy) {
     ctx.save();
     ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.clip();
     ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillRect(cx - R, cy - R, R * 2, R * 2);
-    ctx.fillStyle = 'rgba(255,255,255,0.55)';
-    ctx.font = `${R * 0.5}px serif`;
-    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillText('🖼️', cx, cy);
+    if (sampleImg.complete && sampleImg.naturalWidth) {
+      const sc = Math.max((R * 2) / sampleImg.naturalWidth, (R * 2) / sampleImg.naturalHeight);
+      ctx.globalAlpha = 0.55;
+      ctx.drawImage(sampleImg, cx - sampleImg.naturalWidth * sc / 2, cy - sampleImg.naturalHeight * sc / 2, sampleImg.naturalWidth * sc, sampleImg.naturalHeight * sc);
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = 'rgba(0,0,0,0.18)'; ctx.fillRect(cx - R, cy - R, R * 2, R * 2);
+    } else {
+      ctx.fillStyle = 'rgba(255,255,255,0.55)';
+      ctx.font = `${R * 0.5}px serif`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText('🖼️', cx, cy);
+    }
     ctx.restore();
     return;
   }
@@ -611,6 +619,10 @@ document.getElementById('fileInput').addEventListener('change', e => {
   rd.readAsDataURL(file);
   e.target.value = '';
 });
+
+const sampleImg = new Image();
+sampleImg.src = 'sample-photo.jpg';
+sampleImg.onload = () => { if (state.step === 1) render(); };
 
 /* ---------- boot ---------- */
 
