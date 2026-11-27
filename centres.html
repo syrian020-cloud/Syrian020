@@ -219,6 +219,20 @@
   #exit-box .xyes { background: linear-gradient(135deg, #8b5cf6, #ec4899); color: #fff; }
   #exit-box .xno { background: rgba(255,255,255,0.08); color: #e7ebf5; border: 1px solid var(--border); }
 
+
+  #clk-ov { position: fixed; inset: 0; z-index: 2800; background: #070b18; display: none; flex-direction: column; align-items: center; padding: 1rem; overflow-y: auto; color: #e7ebf5; }
+  #clk-ov.on { display: flex; }
+  #clk-ov .clk-top { width: 100%; max-width: 420px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+  #clk-ov .clk-title { font-size: 1.1rem; font-weight: 700; }
+  #clk-ov button.clk-x { background: rgba(255,255,255,.1); border: none; color: #e7ebf5; font-size: 1.2rem; width: 40px; height: 40px; border-radius: 12px; }
+  #clk-ov canvas { touch-action: none; border-radius: 50%; }
+  #clk-digital { font-size: 2rem; font-weight: 800; margin: 0.8rem 0 0.3rem; letter-spacing: 2px; font-variant-numeric: tabular-nums; }
+  #clk-fr1, #clk-fr2 { font-size: 1rem; color: #a5b4fc; min-height: 1.4em; text-align: center; padding: 0 1rem; }
+  #clk-fr2 { color: #6ee7b7; margin-bottom: 0.6rem; }
+  .clk-row { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 0.5rem; }
+  .clk-row button { background: rgba(139,92,246,.2); border: 1px solid rgba(139,92,246,.45); color: #e7ebf5; border-radius: 12px; padding: 0.55rem 0.9rem; font-size: 0.95rem; font-weight: 600; }
+  .clk-row button:active { background: rgba(139,92,246,.45); }
+  .clk-hint { font-size: 0.8rem; color: #8b93a7; text-align: center; margin-top: 0.4rem; }
 </style></style>
 </head>
 <body>
@@ -227,6 +241,7 @@
     <span class="logo">🏛️ <span data-t="appName">frank</span></span>
     <div class="spacer"></div>
     <button class="icon-btn" id="btn-games" title="الألعاب / Games">🎮</button>
+    <button class="icon-btn" id="btn-clock" title="الساعة / Horloge">🕐</button>
     <button class="icon-btn" id="themeBtn" title="Theme">🌙</button>
     <button class="icon-btn" id="edgeBtn" title="صوت طبيعي (إنترنت)">🔊</button>
     <button class="icon-btn" id="edgeSetBtn" title="إعدادات النطق">⚙️</button>
@@ -275,6 +290,26 @@
 </footer>
 <div class="toast" id="toast"></div>
 
+
+<div id="clk-ov">
+  <div class="clk-top">
+    <span class="clk-title">🕐 الساعة / L'horloge</span>
+    <button class="clk-x" id="clk-x">✕</button>
+  </div>
+  <canvas id="clk-cv" width="560" height="560" style="width:min(88vw,420px);height:min(88vw,420px)"></canvas>
+  <div id="clk-digital">--:--</div>
+  <div id="clk-fr1"></div>
+  <div id="clk-fr2"></div>
+  <div class="clk-row">
+    <button id="clk-s1">🔊 الطريقة الأولى</button>
+    <button id="clk-s2">🔊 الطريقة الثانية</button>
+  </div>
+  <div class="clk-row">
+    <button id="clk-loop">🔁 تكرار</button>
+    <button id="clk-rnd">🎲 وقت عشوائي</button>
+  </div>
+  <div class="clk-hint">اسحب العقارب بإصبعك لتحريك الوقت — العقرب الطويل للدقائق والقصير للساعات</div>
+</div>
 <div id="nt-ov">
   <div id="nt-bar">
     <button id="nt-x">✕</button>
@@ -1051,6 +1086,146 @@
     document.getElementById('nt-color').oninput=function(){ nt.color=this.value; nt.erase=false; };
     var gb=document.getElementById('btn-games'); if(gb) gb.addEventListener('click', gmOpen);
   });
+
+
+/* ---------- interactive analog clock ---------- */
+var clk = { h: 10, m: 10, loop: false, seq: 0 };
+function frNum(n) {
+  var u=['zéro','un','deux','trois','quatre','cinq','six','sept','huit','neuf','dix','onze','douze','treize','quatorze','quinze','seize','dix-sept','dix-huit','dix-neuf'];
+  if(n<20) return u[n];
+  if(n<70){
+    var t=['','','vingt','trente','quarante','cinquante','soixante'][Math.floor(n/10)];
+    var r=n%10;
+    if(r===0) return t;
+    if(r===1) return t+' et un';
+    return t+'-'+u[r];
+  }
+  if(n<80){ return n===71?'soixante et onze':'soixante-'+u[n-60]; }
+  if(n<90){ return n===80?'quatre-vingts':'quatre-vingt-'+u[n-80]; }
+  return 'quatre-vingt-'+u[n-80];
+}
+function clkFormal(h,m){
+  var hs=frNum(h)+' heure'+(h>1?'s':'');
+  if(m===0) return hs;
+  return hs+' '+frNum(m);
+}
+function clkSpoken(h,m){
+  var h12=h%12; if(h12===0)h12=12;
+  var hs=frNum(h12)+' heure'+(h12>1?'s':'');
+  var out;
+  if(m===0) out='il est '+hs;
+  else if(m===15) out='il est '+hs+' et quart';
+  else if(m===30) out='il est '+hs+' et demie';
+  else if(m===45){ var nh=(h+1)%12; if(nh===0)nh=12; out='il est '+frNum(nh)+' heure'+(nh>1?'s':'')+' moins le quart'; }
+  else if(m<30) out='il est '+hs+' '+frNum(m);
+  else { var nh2=(h+1)%12; if(nh2===0)nh2=12; out='il est '+frNum(nh2)+' heure'+(nh2>1?'s':'')+' moins '+frNum(60-m); }
+  return out;
+}
+function clkDraw(){
+  var cv=document.getElementById('clk-cv'); if(!cv)return;
+  var x=cv.getContext('2d'), W=cv.width, C=W/2;
+  x.clearRect(0,0,W,W);
+  x.fillStyle='#101632'; x.beginPath(); x.arc(C,C,C-4,0,7); x.fill();
+  x.strokeStyle='#8b5cf6'; x.lineWidth=8; x.beginPath(); x.arc(C,C,C-8,0,7); x.stroke();
+  for(var i=0;i<60;i++){
+    var a=i*Math.PI/30, big=i%5===0;
+    var r1=C-22, r0=big?C-44:C-32;
+    x.strokeStyle=big?'#e7ebf5':'#5a6280'; x.lineWidth=big?6:3;
+    x.beginPath();
+    x.moveTo(C+Math.sin(a)*r0, C-Math.cos(a)*r0);
+    x.lineTo(C+Math.sin(a)*r1, C-Math.cos(a)*r1);
+    x.stroke();
+  }
+  x.fillStyle='#e7ebf5'; x.font='bold 44px sans-serif'; x.textAlign='center'; x.textBaseline='middle';
+  for(var n=1;n<=12;n++){
+    var na=n*Math.PI/6, nr=C-78;
+    x.fillText(String(n), C+Math.sin(na)*nr, C-Math.cos(na)*nr);
+  }
+  var ha=(clk.h%12+clk.m/60)*Math.PI/6, ma=clk.m*Math.PI/30;
+  x.strokeStyle='#a5b4fc'; x.lineWidth=14; x.lineCap='round';
+  x.beginPath(); x.moveTo(C,C); x.lineTo(C+Math.sin(ha)*(C*0.42), C-Math.cos(ha)*(C*0.42)); x.stroke();
+  x.strokeStyle='#6ee7b7'; x.lineWidth=8;
+  x.beginPath(); x.moveTo(C,C); x.lineTo(C+Math.sin(ma)*(C*0.66), C-Math.cos(ma)*(C*0.66)); x.stroke();
+  x.fillStyle='#8b5cf6'; x.beginPath(); x.arc(C,C,16,0,7); x.fill();
+}
+function clkText(){
+  var dd=document.getElementById('clk-digital');
+  if(!dd)return;
+  dd.textContent=String(clk.h).padStart(2,'0')+':'+String(clk.m).padStart(2,'0');
+  document.getElementById('clk-fr1').textContent=clkSpoken(clk.h,clk.m);
+  document.getElementById('clk-fr2').textContent=clkFormal(clk.h,clk.m);
+}
+function clkUpd(){ clkDraw(); clkText(); }
+function clkOpen(){
+  document.getElementById('clk-ov').classList.add('on');
+  stopSpeaking();
+  clkUpd();
+}
+function clkClose(){
+  clk.loop=false; clk.seq++;
+  stopSpeaking();
+  document.getElementById('clk-ov').classList.remove('on');
+}
+function clkSpeak(which){
+  clk.seq++;
+  stopSpeaking();
+  var txt = which===1 ? clkSpoken(clk.h,clk.m) : clkFormal(clk.h,clk.m);
+  var my=clk.seq;
+  if(clk.loop){
+    speakAuto(txt,'fr',0,function(){});
+  } else {
+    speakAuto(txt,'fr',1,function(){});
+  }
+}
+(function(){
+  var cv=document.getElementById('clk-cv');
+  if(cv){
+    var drag=false;
+    function angleOf(e){
+      var r=cv.getBoundingClientRect();
+      var px=(e.clientX-r.left)/r.width*cv.width, py=(e.clientY-r.top)/r.height*cv.height;
+      var dx=px-cv.width/2, dy=py-cv.height/2;
+      var a=Math.atan2(dx,-dy); if(a<0)a+=Math.PI*2;
+      return {a:a, dist:Math.sqrt(dx*dx+dy*dy)};
+    }
+    function nearestHour(a){ return Math.round(a/(Math.PI/6))%12; }
+    function move(e){
+      var p=angleOf(e);
+      var ma=clk.m*Math.PI/30, ha=(clk.h%12+clk.m/60)*Math.PI/6;
+      var dm=Math.abs(p.a-ma), dh=Math.abs(p.a-ha);
+      if(dm>Math.PI)dm=Math.PI*2-dm;
+      if(dh>Math.PI)dh=Math.PI*2-dh;
+      if(p.dist<cv.width*0.18){ return; }
+      if(dm<=dh){
+        clk.m=Math.round(p.a/(Math.PI/30))%60;
+      } else {
+        var hh=nearestHour(p.a);
+        if(hh===0)hh=12;
+        var base=Math.floor(clk.h/12)*12;
+        clk.h=base+hh;
+        if(clk.h>=24)clk.h-=12;
+        clk.h=clk.h%24;
+      }
+      clkUpd();
+    }
+    cv.addEventListener('pointerdown',function(e){drag=true;cv.setPointerCapture(e.pointerId);move(e);});
+    cv.addEventListener('pointermove',function(e){if(drag)move(e);});
+    cv.addEventListener('pointerup',function(){drag=false;});
+  }
+  var bc=document.getElementById('btn-clock'); if(bc)bc.addEventListener('click',clkOpen);
+  var bx=document.getElementById('clk-x'); if(bx)bx.addEventListener('click',clkClose);
+  var b1=document.getElementById('clk-s1'); if(b1)b1.addEventListener('click',function(){clkSpeak(1);});
+  var b2=document.getElementById('clk-s2'); if(b2)b2.addEventListener('click',function(){clkSpeak(2);});
+  var bl=document.getElementById('clk-loop'); if(bl)bl.addEventListener('click',function(){
+    clk.loop=!clk.loop;
+    bl.style.opacity=clk.loop?'0.5':'';
+    if(!clk.loop){clk.seq++;stopSpeaking();}
+  });
+  var br=document.getElementById('clk-rnd'); if(br)br.addEventListener('click',function(){
+    clk.h=Math.floor(Math.random()*24); clk.m=Math.floor(Math.random()*60);
+    clkUpd();
+  });
+})();
 
   renderAll();
 
