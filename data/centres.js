@@ -3146,6 +3146,136 @@ window.CENTRES_DATA = [
 
       ] },
 
+      { icon: '🩺', notes: ["من لحظة دخولك إلى غرفة الفحص، مروراً بالاستلقاء ووضع المسبار وأخذ القياسات، حتى انتهاء الفحص ومغادرة المركز."], title: { ar: "العبارات الشائعة أثناء فحص FibroScan في فرنسا", en: "العبارات الشائعة أثناء فحص FibroScan في فرنسا", fr: "العبارات الشائعة أثناء فحص FibroScan في فرنسا" }, phrases: [
+
+      ] },
+      { icon: '🍽', title: { ar: "استقبال المريض والدخول إلى غرفة الفحص", en: "استقبال المريض والدخول إلى غرفة الفحص", fr: "استقبال المريض والدخول إلى غرفة الفحص" }, phrases: [
+        { fr: "Bonjour, entrez s'il vous plaît.", ar: "مرحباً، تفضل بالدخول من فضلك.", en: "Hello, please come in." },
+        { fr: "Vous venez pour un FibroScan ?", ar: "هل أتيت لإجراء فحص فيبروسكان؟", en: "Are you here for a FibroScan?" },
+        { fr: "Vous avez rendez-vous aujourd'hui ?", ar: "هل لديك موعد اليوم؟", en: "Do you have an appointment today?" },
+        { fr: "Pouvez-vous me donner votre nom et votre prénom ?", ar: "هل يمكنك إعطائي اسمك ولقبك؟", en: "Can you give me your first and last name?" },
+        { fr: "Votre date de naissance, s'il vous plaît.", ar: "تاريخ ميلادك من فضلك.", en: "Your date of birth, please." },
+        { fr: "Je vais vérifier votre dossier.", ar: "سأتحقق من ملفك.", en: "I am going to check your file." },
+        { fr: "Vous pouvez entrer dans la salle d'examen.", ar: "يمكنك الدخول إلى غرفة الفحص.", en: "You can enter the examination room." },
+        { fr: "Installez-vous, s'il vous plaît.", ar: "تفضل بالجلوس.", en: "Please make yourself comfortable." }
+      ] },
+      { icon: '🛏', title: { ar: "السؤال عن الصيام والتحضير", en: "السؤال عن الصيام والتحضير", fr: "السؤال عن الصيام والتحضير" }, phrases: [
+        { fr: "Vous êtes à jeun ?", ar: "هل أنت صائم؟", en: "Are you fasting?" },
+        { fr: "Depuis combien de temps êtes-vous à jeun ?", ar: "منذ كم ساعة وأنت صائم؟", en: "How long have you been fasting?" },
+        { fr: "Vous avez mangé ce matin ?", ar: "هل تناولت الطعام هذا الصباح؟", en: "Have you eaten this morning?" },
+        { fr: "Vous avez bu du café ?", ar: "هل شربت القهوة؟", en: "Have you had coffee?" },
+        { fr: "Vous avez bu de l'eau aujourd'hui ?", ar: "هل شربت الماء اليوم؟", en: "Have you drunk any water today?" },
+        { fr: "Avez-vous bien respecté les consignes de préparation ?", ar: "هل التزمت جيداً بتعليمات التحضير؟", en: "Have you followed the preparation instructions?" },
+        { fr: "Très bien, nous pouvons commencer.", ar: "جيد جداً، يمكننا البدء.", en: "Very good, we can begin." }
+      ] },
+      { icon: '🧴', images: ["https://images.openai.com/static-rsc-4/wyA-NrqbfyYLktrx8SNx8UWW6uBOcNfWX70l-CD7tF5uBZCMynUhndVirWmjVbc71XZF3wS8g16645vg1Wshd7XSiuDxknHQL46I24jIyA42d0bx6ESU4ALSUPy6TUgEEgO3GlhpzetlYVz-EQDlFktBZXFtiQR5ZTRWxKDMZW9fox_5hqTSmgJc50hQsiXi?purpose=fullsize"], title: { ar: "الاستعداد والاستلقاء على سرير الفحص", en: "الاستعداد والاستلقاء على سرير الفحص", fr: "الاستعداد والاستلقاء على سرير الفحص" }, phrases: [
+        { fr: "Vous pouvez vous allonger sur la table.", ar: "يمكنك الاستلقاء على سرير الفحص.", en: "You can lie down on the examination table." },
+        { fr: "Allongez-vous sur le dos.", ar: "استلقِ على ظهرك.", en: "Lie on your back." },
+        { fr: "Mettez-vous bien au milieu de la table.", ar: "تمركز جيداً في وسط السرير.", en: "Position yourself in the middle of the table." },
+        { fr: "Détendez-vous.", ar: "استرخِ.", en: "Relax." },
+        { fr: "Levez le bras droit au-dessus de la tête.", ar: "ارفع ذراعك اليمنى فوق رأسك.", en: "Raise your right arm above your head." },
+        { fr: "Gardez le bras dans cette position.", ar: "أبقِ ذراعك في هذه الوضعية.", en: "Keep your arm in this position." },
+        { fr: "Tournez légèrement votre corps vers la gauche.", ar: "أدر جسمك قليلاً نحو اليسار.", en: "Turn your body slightly to the left." },
+        { fr: "Nous allons examiner le côté droit de votre abdomen.", ar: "سنفحص الجانب الأيمن من بطنك.", en: "We are going to examine the right side of your abdomen." },
+        { fr: "Soulevez légèrement votre tee-shirt.", ar: "ارفع قميصك قليلاً.", en: "Lift your T-shirt slightly." },
+        { fr: "Dégagez la partie droite de votre ventre.", ar: "اكشف الجزء الأيمن من بطنك.", en: "Expose the right side of your abdomen." }
+      ] },
+      { icon: '📏', images: ["https://images.openai.com/static-rsc-4/sbELlaHzJjznjZHhGoQZtfcOq7Ac9iRV2ezrcQ3by_mLDebpoxjMrY9W9qVCKVE14Vtc7lpE-GztlsSdNo5TDHK4KgBDbMRHEOsXXmcIKn8VfzuhtcIgEdgBzVBZEWOoRgTmPVhyT210hfEz5T9dvR_gygFWQ6jiWFHx1Aq5QNBHIC_TuA5nCNbS8_Z7HXm-?purpose=fullsize"], title: { ar: "وضع الجل والمسبار على البطن", en: "وضع الجل والمسبار على البطن", fr: "وضع الجل والمسبار على البطن" }, phrases: [
+        { fr: "Je vais appliquer un peu de gel sur votre peau.", ar: "سأضع قليلاً من الجل على جلدك.", en: "I am going to apply some gel to your skin." },
+        { fr: "Le gel peut être un peu froid.", ar: "قد يكون الجل بارداً قليلاً.", en: "The gel may feel a little cold." },
+        { fr: "Je vais placer la sonde sur votre ventre.", ar: "سأضع المسبار على بطنك.", en: "I am going to place the probe on your abdomen." },
+        { fr: "Vous allez sentir une légère pression.", ar: "ستشعر بضغط خفيف.", en: "You will feel slight pressure." },
+        { fr: "Est-ce que cette position vous convient ?", ar: "هل هذه الوضعية مناسبة لك؟", en: "Is this position comfortable for you?" },
+        { fr: "Est-ce que vous avez mal ?", ar: "هل تشعر بالألم؟", en: "Are you in pain?" },
+        { fr: "Prévenez-moi si vous ressentez une douleur.", ar: "أخبرني إذا شعرت بأي ألم.", en: "Let me know if you feel any pain." }
+      ] },
+      { icon: '🔊', images: ["https://images.openai.com/static-rsc-4/Jak80WqTnEzh8X5iS4IQXCaOuUd-W6duC0muvUkPtMIHkixqs4ZJ8COVG875zlDroVKfQoqbZn5Xvy-GvrwZDW0Yl6k6uMCSVHiBhTC0g0ljsE3YroDuge_lqLyXs33doe9776cxSjdKeLCEDF6UAgQBb4K5Vn98vt60BhqbxSPeaLKHKO39fsX5MVrJK03v?purpose=fullsize"], title: { ar: "بدء قياسات FibroScan", en: "بدء قياسات FibroScan", fr: "بدء قياسات FibroScan" }, phrases: [
+        { fr: "Nous allons commencer l'examen.", ar: "سنبدأ الفحص.", en: "We are going to start the examination." },
+        { fr: "Nous allons effectuer plusieurs mesures.", ar: "سنقوم بإجراء عدة قياسات.", en: "We are going to take several measurements." },
+        { fr: "Essayez de rester bien immobile.", ar: "حاول أن تبقى ثابتاً تماماً.", en: "Try to remain completely still." },
+        { fr: "Ne bougez pas, s'il vous plaît.", ar: "لا تتحرك من فضلك.", en: "Please do not move." },
+        { fr: "Respirez normalement.", ar: "تنفس بشكل طبيعي.", en: "Breathe normally." },
+        { fr: "Ne prenez pas une grande inspiration.", ar: "لا تأخذ شهيقاً عميقاً.", en: "Do not take a deep breath." },
+        { fr: "Gardez une respiration calme.", ar: "حافظ على تنفس هادئ.", en: "Keep breathing calmly." },
+        { fr: "Je vais recommencer la mesure.", ar: "سأعيد القياس.", en: "I am going to repeat the measurement." },
+        { fr: "La mesure n'est pas suffisamment fiable.", ar: "القياس ليس موثوقاً بما فيه الكفاية.", en: "The measurement is not reliable enough." },
+        { fr: "Nous allons refaire quelques mesures.", ar: "سنعيد بعض القياسات.", en: "We are going to repeat a few measurements." },
+        { fr: "C'est très bien, ne bougez pas.", ar: "جيد جداً، لا تتحرك.", en: "That's very good, don't move." }
+      ] },
+      { icon: '💬', title: { ar: "أثناء النقرات والاهتزازات", en: "أثناء النقرات والاهتزازات", fr: "أثناء النقرات والاهتزازات" }, phrases: [
+        { fr: "Vous allez sentir de petites vibrations.", ar: "ستشعر باهتزازات صغيرة.", en: "You will feel small vibrations." },
+        { fr: "Vous allez entendre de petits clics.", ar: "ستسمع نقرات صغيرة.", en: "You will hear small clicks." },
+        { fr: "C'est tout à fait normal.", ar: "هذا طبيعي تماماً.", en: "This is completely normal." },
+        { fr: "Ne vous inquiétez pas.", ar: "لا تقلق.", en: "Don't worry." },
+        { fr: "Encore quelques secondes.", ar: "بضع ثوانٍ أخرى.", en: "Just a few more seconds." },
+        { fr: "Nous avons presque terminé.", ar: "أوشكنا على الانتهاء.", en: "We are almost finished." },
+        { fr: "Encore deux ou trois mesures.", ar: "بقي قياسان أو ثلاثة.", en: "Two or three more measurements." }
+      ] },
+      { icon: '✅', title: { ar: "التواصل مع المريض أثناء الفحص", en: "التواصل مع المريض أثناء الفحص", fr: "التواصل مع المريض أثناء الفحص" }, phrases: [
+        { fr: "Est-ce que tout va bien ?", ar: "هل كل شيء على ما يرام؟", en: "Is everything okay?" },
+        { fr: "Vous êtes à l'aise ?", ar: "هل تشعر بالراحة؟", en: "Are you comfortable?" },
+        { fr: "Vous pouvez me parler si nécessaire.", ar: "يمكنك التحدث معي إذا لزم الأمر.", en: "You can speak to me if necessary." },
+        { fr: "Avez-vous besoin d'une pause ?", ar: "هل تحتاج إلى استراحة؟", en: "Do you need a break?" },
+        { fr: "Essayez de vous détendre.", ar: "حاول أن تسترخي.", en: "Try to relax." },
+        { fr: "Ne contractez pas les muscles du ventre.", ar: "لا تشد عضلات البطن.", en: "Do not tense your abdominal muscles." },
+        { fr: "Gardez la même position.", ar: "حافظ على الوضعية نفسها.", en: "Keep the same position." }
+      ] },
+      { icon: '📊', images: ["https://images.openai.com/static-rsc-4/n9PsShmyc0R2BazOld2ZN692dEf-8Earh59lsOybczfpHsMtw8V2qf1Ae7wxee1nPXVWzwcBoAuJx9WfxIqequMM9d1Z4gp3jHrvYSHZkLxk_zZ8lzwqk_O8fctoNPdJoW8HWknM8xHV0LPDZ1DMj9_FRte_ZL3-KRaJmfx3Ctdn0hkXST8cUCncDYnLFuEI?purpose=fullsize"], title: { ar: "الانتهاء وإزالة المسبار", en: "الانتهاء وإزالة المسبار", fr: "الانتهاء وإزالة المسبار" }, phrases: [
+        { fr: "L'examen est terminé.", ar: "انتهى الفحص.", en: "The examination is finished." },
+        { fr: "Je vais retirer la sonde.", ar: "سأزيل المسبار.", en: "I am going to remove the probe." },
+        { fr: "Je vais essuyer le gel.", ar: "سأمسح الجل.", en: "I am going to wipe off the gel." },
+        { fr: "Vous pouvez baisser votre bras.", ar: "يمكنك إنزال ذراعك.", en: "You can lower your arm." },
+        { fr: "Vous pouvez vous relever doucement.", ar: "يمكنك النهوض ببطء.", en: "You can get up slowly." },
+        { fr: "Prenez votre temps.", ar: "خذ وقتك.", en: "Take your time." },
+        { fr: "Vous pouvez vous rhabiller.", ar: "يمكنك ارتداء ملابسك.", en: "You can get dressed." }
+      ] },
+      { icon: '🔢', title: { ar: "النتيجة والتقرير الطبي", en: "النتيجة والتقرير الطبي", fr: "النتيجة والتقرير الطبي" }, phrases: [
+        { fr: "Les mesures sont terminées.", ar: "انتهت القياسات.", en: "The measurements are complete." },
+        { fr: "Nous avons obtenu suffisamment de mesures.", ar: "حصلنا على عدد كافٍ من القياسات.", en: "We have obtained enough measurements." },
+        { fr: "Les résultats vont être enregistrés.", ar: "سيتم حفظ النتائج.", en: "The results will be saved." },
+        { fr: "Le compte rendu sera préparé.", ar: "سيتم إعداد التقرير الطبي.", en: "The medical report will be prepared." },
+        { fr: "Le résultat sera transmis à votre médecin.", ar: "سيتم إرسال النتيجة إلى طبيبك.", en: "The result will be sent to your doctor." },
+        { fr: "Vous pourrez récupérer votre compte rendu à l'accueil.", ar: "يمكنك استلام تقريرك من الاستقبال.", en: "You can collect your report at reception." },
+        { fr: "Vous pouvez consulter les résultats avec votre médecin.", ar: "يمكنك مراجعة النتائج مع طبيبك.", en: "You can discuss the results with your doctor." }
+      ] },
+      { icon: '🗣', title: { ar: "عبارات قد تسمعها من الموظف عند شرح الأرقام", en: "عبارات قد تسمعها من الموظف عند شرح الأرقام", fr: "عبارات قد تسمعها من الموظف عند شرح الأرقام" }, phrases: [
+        { fr: "La rigidité hépatique est exprimée en kilopascals.", ar: "صلابة الكبد تُقاس بالكيلو باسكال.", en: "Liver stiffness is expressed in kilopascals." },
+        { fr: "Le résultat est exprimé en kPa.", ar: "النتيجة معبّر عنها بوحدة kPa.", en: "The result is expressed in kPa." },
+        { fr: "Le CAP permet d'estimer la quantité de graisse dans le foie.", ar: "يساعد CAP على تقدير كمية الدهون في الكبد.", en: "CAP helps estimate the amount of fat in the liver." },
+        { fr: "Le CAP est exprimé en décibels par mètre.", ar: "تُقاس قيمة CAP بالديسيبل لكل متر.", en: "CAP is expressed in decibels per metre." },
+        { fr: "Il faut interpréter les résultats avec votre médecin.", ar: "يجب تفسير النتائج مع طبيبك.", en: "The results should be interpreted with your doctor." }
+      ] },
+      { icon: '📖', title: { ar: "عبارات قد يقولها المريض أثناء الفحص", en: "عبارات قد يقولها المريض أثناء الفحص", fr: "عبارات قد يقولها المريض أثناء الفحص" }, phrases: [
+        { fr: "Est-ce que je dois rester immobile ?", ar: "هل يجب أن أبقى ثابتاً؟", en: "Do I need to stay still?" },
+        { fr: "Est-ce que je peux respirer normalement ?", ar: "هل يمكنني التنفس بشكل طبيعي؟", en: "Can I breathe normally?" },
+        { fr: "Je ressens une petite pression.", ar: "أشعر بضغط خفيف.", en: "I feel slight pressure." },
+        { fr: "Le gel est un peu froid.", ar: "الجل بارد قليلاً.", en: "The gel is a little cold." },
+        { fr: "Est-ce que l'examen est bientôt terminé ?", ar: "هل سينتهي الفحص قريباً؟", en: "Is the examination nearly finished?" },
+        { fr: "Combien de mesures reste-t-il ?", ar: "كم قياساً تبقى؟", en: "How many measurements are left?" },
+        { fr: "Je ne ressens aucune douleur.", ar: "لا أشعر بأي ألم.", en: "I don't feel any pain." },
+        { fr: "Je suis un peu stressé.", ar: "أنا متوتر قليلاً.", en: "I am a little stressed." },
+        { fr: "J'ai compris, je ne vais pas bouger.", ar: "فهمت، لن أتحرك.", en: "I understand, I won't move." }
+      ] },
+      { icon: '🩺', notes: ["ملاحظة لغوية: في فرنسا، قد تسمع الموظف يقول la sonde للمسبار، وles mesures للقياسات، وle compte rendu للتقرير الطبي."], title: { ar: "أهم المفردات التي تسمعها داخل غرفة FibroScan", en: "أهم المفردات التي تسمعها داخل غرفة FibroScan", fr: "أهم المفردات التي تسمعها داخل غرفة FibroScan" }, phrases: [
+        { fr: "Français", ar: "العربية", en: "English" },
+        { fr: "La sonde", ar: "المسبار", en: "Probe" },
+        { fr: "L'appareil", ar: "الجهاز", en: "Machine" },
+        { fr: "La table d'examen", ar: "سرير الفحص", en: "Examination table" },
+        { fr: "Le gel", ar: "الجل", en: "Gel" },
+        { fr: "Le ventre", ar: "البطن", en: "Abdomen" },
+        { fr: "Le foie", ar: "الكبد", en: "Liver" },
+        { fr: "La mesure", ar: "القياس", en: "Measurement" },
+        { fr: "La vibration", ar: "الاهتزاز", en: "Vibration" },
+        { fr: "La pression", ar: "الضغط", en: "Pressure" },
+        { fr: "La rigidité", ar: "الصلابة", en: "Stiffness" },
+        { fr: "La fibrose", ar: "التليف", en: "Fibrosis" },
+        { fr: "La stéatose", ar: "التشحم", en: "Steatosis" },
+        { fr: "Le compte rendu", ar: "التقرير الطبي", en: "Medical report" },
+        { fr: "Le résultat", ar: "النتيجة", en: "Result" },
+        { fr: "La valeur médiane", ar: "القيمة الوسيطة", en: "Median value" },
+        { fr: "La fiabilité", ar: "الموثوقية", en: "Reliability" }
+      ] },
+
     ]
   },
   {
