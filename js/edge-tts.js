@@ -339,6 +339,7 @@
   }
 
   function playUrl(url) {
+    if (curAudio) { try { curAudio.pause(); curAudio.src = ''; } catch (e) {} curAudio = null; }
     return new Promise(function (resolve, reject) {
       var el;
       try { el = new Audio(url); } catch (e) { reject(e); return; }
@@ -364,6 +365,7 @@
     // Native MediaPlayer playback keeps the <video> playing alongside TTS —
     // an HTMLAudioElement would suspend it inside the Android WebView.
     if (p && a.nativePath && typeof p.play === 'function') {
+      try { p.stop({}); } catch (e) {}
       curNative = true;
       return p.play({ path: a.nativePath }).then(function () {
         curNative = false;

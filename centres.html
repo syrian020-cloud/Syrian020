@@ -373,6 +373,7 @@
     document.querySelectorAll('.speaking').forEach(function (b) { b.classList.remove('speaking'); });
     document.querySelectorAll('.looping').forEach(function (b) { b.classList.remove('looping'); });
     document.querySelectorAll('.phrase.playing').forEach(function (b) { b.classList.remove('playing'); });
+    document.querySelectorAll('button').forEach(function (b) { if (b._lp) { b._lp = false; b.style.opacity = ''; } });
   }
 
   var cleanSpoken = function (t) {
@@ -823,6 +824,7 @@
     return new Promise(function(res){
       var done=false; var fin=function(){ if(!done){done=true;res();} };
       if(window.EdgeTTS && EdgeTTS.supported && EdgeTTS.supported()){
+        try{ EdgeTTS.stop(); }catch(e){}
         EdgeTTS.play((txt||'').slice(0,400), lang).then(fin,fin);
       } else if(window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.TextToSpeech){
         Capacitor.Plugins.TextToSpeech.speak({text:txt,lang:TTS_LANG[lang]||'fr-FR',rate:1,queueStrategy:1}).then(fin,fin);
