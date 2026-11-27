@@ -17,6 +17,15 @@
 @font-face { font-family: 'Simplified'; src: url('fonts/simplified-arabic.ttf'); }
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+:root {
+  --acc: var(--acc);
+  --acc2: #14614a;
+  --acc-dark: #0d3b2e;
+  --acc-deep: var(--acc-deep);
+  --panel: var(--panel);
+  --line: var(--line);
+  --mut: var(--mut);
+}
 body {
   font-family: 'Cairo', 'Tajawal', sans-serif;
   background: #07100d;
@@ -25,7 +34,7 @@ body {
 }
 #app { display: flex; flex-direction: column; height: 100%; }
 header {
-  background: linear-gradient(135deg, #0d3b2e, #14614a);
+  background: linear-gradient(135deg, var(--acc-dark), var(--acc2));
   padding: 10px 14px;
   display: flex; align-items: center; gap: 10px;
   box-shadow: 0 2px 12px rgba(0,0,0,.4);
@@ -41,109 +50,109 @@ header .spacer { flex: 1; }
 }
 .iconbtn:active { transform: scale(.92); }
 .steps {
-  display: flex; direction: rtl; background: #0d3b2e;
+  display: flex; direction: rtl; background: var(--acc-dark);
   padding: 8px 10px 12px; gap: 4px;
 }
-.step { flex: 1; text-align: center; font-size: 12.5px; color: #9db8ac; position: relative; padding-top: 4px; }
+.step { flex: 1; text-align: center; font-size: 12.5px; color: var(--mut); position: relative; padding-top: 4px; }
 .step .n {
   display: inline-flex; width: 22px; height: 22px; border-radius: 50%;
-  background: #1c4d3c; color: #cfe5d9; align-items: center; justify-content: center;
+  background: var(--line); color: #cfe5d9; align-items: center; justify-content: center;
   font-size: 12px; font-weight: 700; margin-inline-start: 4px;
 }
 .step.active { color: #fff; font-weight: 700; }
-.step.active .n { background: #2fbf8f; color: #04241a; }
-.step.done .n { background: #2fbf8f; color: #04241a; }
+.step.active .n { background: var(--acc); color: var(--acc-deep); }
+.step.done .n { background: var(--acc); color: var(--acc-deep); }
 .step::after {
   content: ''; position: absolute; bottom: -6px; right: 0; left: 0; height: 2.5px;
-  background: #1c4d3c; border-radius: 2px;
+  background: var(--line); border-radius: 2px;
 }
-.step.active::after, .step.done::after { background: #2fbf8f; }
+.step.active::after, .step.done::after { background: var(--acc); }
 main { flex: 1; overflow-y: auto; padding: 14px; }
 h1.title { font-size: 21px; margin: 4px 0 2px; font-weight: 800; }
-p.sub { color: #9db8ac; font-size: 13.5px; margin: 0 0 14px; }
+p.sub { color: var(--mut); font-size: 13.5px; margin: 0 0 14px; }
 .frames-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding-bottom: 20px; }
 .frame-card {
-  background: #101c17; border-radius: 16px; overflow: hidden; cursor: pointer;
+  background: var(--panel); border-radius: 16px; overflow: hidden; cursor: pointer;
   border: 2px solid transparent; transition: border-color .15s, transform .1s;
 }
 .frame-card:active { transform: scale(.97); }
-.frame-card.selected { border-color: #2fbf8f; }
+.frame-card.selected { border-color: var(--acc); }
 .frame-card canvas { width: 100%; display: block; aspect-ratio: 1; }
 .frame-card .fname { padding: 8px 10px; font-size: 13.5px; font-weight: 700; text-align: center; }
 .dropzone {
-  border: 2.5px dashed #2fbf8f66; border-radius: 20px; margin-top: 8px;
+  border: 2.5px dashed color-mix(in srgb, var(--acc) 40%, transparent); border-radius: 20px; margin-top: 8px;
   min-height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 12px; cursor: pointer; padding: 30px 16px; text-align: center;
 }
-.dropzone .cam { width: 76px; height: 76px; border-radius: 50%; background: #123c2f;
+.dropzone .cam { width: 76px; height: 76px; border-radius: 50%; background: var(--acc-dark);
   display: flex; align-items: center; justify-content: center; font-size: 34px; }
 .dropzone h2 { margin: 0; font-size: 18px; }
-.dropzone p { margin: 0; color: #9db8ac; font-size: 13px; line-height: 1.7; }
+.dropzone p { margin: 0; color: var(--mut); font-size: 13px; line-height: 1.7; }
 .selected-frame-bar {
-  display: flex; align-items: center; gap: 10px; background: #101c17;
+  display: flex; align-items: center; gap: 10px; background: var(--panel);
   border-radius: 14px; padding: 10px; margin-bottom: 12px;
 }
 .selected-frame-bar canvas { width: 56px; height: 56px; border-radius: 10px; }
-.selected-frame-bar .lbl { font-size: 11.5px; color: #9db8ac; }
+.selected-frame-bar .lbl { font-size: 11.5px; color: var(--mut); }
 .selected-frame-bar .nm { font-weight: 700; font-size: 14.5px; }
-.selected-frame-bar .chg { margin-inline-start: auto; color: #2fbf8f; font-size: 13px; font-weight: 700; cursor: pointer; padding: 6px; }
+.selected-frame-bar .chg { margin-inline-start: auto; color: var(--acc); font-size: 13px; font-weight: 700; cursor: pointer; padding: 6px; }
 .editor-wrap { display: flex; flex-direction: column; height: 100%; }
 #preview-holder {
-  position: relative; border-radius: 18px; overflow: hidden; background: #101c17;
+  position: relative; border-radius: 18px; overflow: hidden; background: var(--panel);
   margin-bottom: 10px; touch-action: none; flex-shrink: 0; aspect-ratio: 1;
 }
 #preview { width: 100%; display: block; touch-action: none; }
-.hint { text-align: center; color: #9db8ac; font-size: 12.5px; margin: 2px 0 8px; }
+.hint { text-align: center; color: var(--mut); font-size: 12.5px; margin: 2px 0 8px; }
 .zoomrow { display: flex; align-items: center; gap: 12px; padding: 0 8px; margin-bottom: 10px; }
-.zoomrow input[type=range] { flex: 1; accent-color: #2fbf8f; height: 34px; }
+.zoomrow input[type=range] { flex: 1; accent-color: var(--acc); height: 34px; }
 .zoomrow .zbtn { font-size: 22px; color: #fff; background: none; border: none; cursor: pointer; padding: 4px 8px; }
 .toolrow { display: flex; gap: 8px; margin-bottom: 10px; }
 .tool {
-  flex: 1; background: #101c17; border: none; color: #fff; border-radius: 12px;
+  flex: 1; background: var(--panel); border: none; color: #fff; border-radius: 12px;
   padding: 10px 4px; font-size: 12.5px; font-family: inherit; cursor: pointer;
   display: flex; flex-direction: column; align-items: center; gap: 4px;
 }
 .tool .ti { font-size: 17px; }
 .tool:active { transform: scale(.96); }
-.txteditor { background: #101c17; border-radius: 14px; padding: 10px; margin-bottom: 10px; }
+.txteditor { background: var(--panel); border-radius: 14px; padding: 10px; margin-bottom: 10px; }
 .txteditor input[type=text] {
-  width: 100%; background: #07100d; border: 1px solid #1c4d3c; color: #fff;
+  width: 100%; background: #07100d; border: 1px solid var(--line); color: #fff;
   border-radius: 10px; padding: 10px 12px; font-size: 15px; font-family: inherit; margin-bottom: 8px;
 }
 .txtrow { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .txtrow select, .txtrow input[type=color] {
-  background: #07100d; border: 1px solid #1c4d3c; color: #fff; border-radius: 10px;
+  background: #07100d; border: 1px solid var(--line); color: #fff; border-radius: 10px;
   padding: 8px; font-family: inherit; font-size: 13px;
 }
 .txtrow input[type=color] { width: 44px; height: 38px; padding: 2px; }
-.txtrow input[type=range] { flex: 1; min-width: 80px; accent-color: #2fbf8f; }
+.txtrow input[type=range] { flex: 1; min-width: 80px; accent-color: var(--acc); }
 .posbtns { display: flex; gap: 6px; margin-top: 8px; }
 .posbtn {
-  flex: 1; background: #07100d; border: 1px solid #1c4d3c; color: #cfe5d9;
+  flex: 1; background: #07100d; border: 1px solid var(--line); color: #cfe5d9;
   border-radius: 8px; padding: 6px 2px; font-size: 11.5px; cursor: pointer; font-family: inherit;
 }
-.posbtn.on { background: #2fbf8f; color: #04241a; border-color: #2fbf8f; font-weight: 700; }
+.posbtn.on { background: var(--acc); color: var(--acc-deep); border-color: var(--acc); font-weight: 700; }
 .savebtn {
-  width: 100%; background: linear-gradient(135deg, #2fbf8f, #1d8f68); border: none; color: #04241a;
+  width: 100%; background: linear-gradient(135deg, var(--acc), var(--acc2)); border: none; color: var(--acc-deep);
   font-size: 18px; font-weight: 800; font-family: inherit; padding: 15px; border-radius: 14px;
   cursor: pointer; margin-top: auto; margin-bottom: 8px;
 }
 .savebtn:active { transform: scale(.98); }
 .sharebtn {
-  width: 100%; background: #101c17; border: 1px solid #2fbf8f; color: #2fbf8f;
+  width: 100%; background: var(--panel); border: 1px solid var(--acc); color: var(--acc);
   font-size: 15px; font-weight: 700; font-family: inherit; padding: 12px; border-radius: 14px;
   cursor: pointer; margin-bottom: 14px;
 }
 .hidden { display: none !important; }
-.note { display: flex; gap: 8px; align-items: flex-start; color: #9db8ac; font-size: 12px; line-height: 1.7; margin: 6px 2px 14px; }
+.note { display: flex; gap: 8px; align-items: flex-start; color: var(--mut); font-size: 12px; line-height: 1.7; margin: 6px 2px 14px; }
 .backrow { display: flex; gap: 8px; margin-bottom: 10px; }
 .backbtn {
-  background: #101c17; border: 1px solid #1c4d3c; color: #cfe5d9; border-radius: 12px;
+  background: var(--panel); border: 1px solid var(--line); color: #cfe5d9; border-radius: 12px;
   padding: 8px 16px; font-size: 13px; font-family: inherit; cursor: pointer;
 }
 .toast {
   position: fixed; bottom: 90px; right: 50%; transform: translateX(50%);
-  background: #2fbf8f; color: #04241a; font-weight: 700; padding: 10px 22px;
+  background: var(--acc); color: var(--acc-deep); font-weight: 700; padding: 10px 22px;
   border-radius: 24px; font-size: 14px; z-index: 50; box-shadow: 0 4px 16px rgba(0,0,0,.4);
   animation: fadein .2s;
 }
@@ -156,7 +165,7 @@ p.sub { color: #9db8ac; font-size: 13.5px; margin: 0 0 14px; }
     <button class="iconbtn hidden" id="backBtn">→</button>
     <div class="logo"><img src="icon-192.png" alt=""> picLib</div>
     <div class="spacer"></div>
-    <button class="iconbtn" id="darkBtn" title="الوضع الليلي">🌙</button>
+    <button class="iconbtn" id="themeBtn" title="لون التطبيق">🎨</button>
   </header>
   <div class="steps">
     <div class="step" data-s="1"><span class="n">1</span> اختر الإطار</div>
@@ -208,6 +217,7 @@ const state = {
   img: null,
   zoom: 1, tx: 0, ty: 0, rot: 0, flipX: false,
   customText: '', textFont: 'Cairo', textColor: '#ffffff', textSize: 52, textPos: 'bottom',
+  shape: 'circle',
   editing: false,
 };
 
@@ -223,6 +233,39 @@ function setStep(n) {
 }
 
 document.getElementById('backBtn').onclick = () => { if (state.step > 1) setStep(state.step - 1); };
+
+
+function shapePath(ctx, cx, cy, R, shape) {
+  ctx.beginPath();
+  if (shape === 'square') {
+    const s = R * 1.72;
+    ctx.rect(cx - s/2, cy - s/2, s, s);
+  } else if (shape === 'rounded') {
+    const s = R * 1.72, r = s * 0.18;
+    const x = cx - s/2, y = cy - s/2;
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + s, y, x + s, y + s, r);
+    ctx.arcTo(x + s, y + s, x, y + s, r);
+    ctx.arcTo(x, y + s, x, y, r);
+    ctx.arcTo(x, y, x + s, y, r);
+    ctx.closePath();
+  } else if (shape === 'hexagon') {
+    for (let i = 0; i < 6; i++) {
+      const a = -Math.PI / 2 + i * Math.PI / 3;
+      const x = cx + Math.cos(a) * R * 1.02, y = cy + Math.sin(a) * R * 1.02;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+  } else if (shape === 'heart') {
+    const s = R / 52;
+    ctx.moveTo(cx, cy + 42 * s);
+    ctx.bezierCurveTo(cx - 70 * s, cy - 12 * s, cx - 38 * s, cy - 62 * s, cx, cy - 22 * s);
+    ctx.bezierCurveTo(cx + 38 * s, cy - 62 * s, cx + 70 * s, cy - 12 * s, cx, cy + 42 * s);
+    ctx.closePath();
+  } else {
+    ctx.arc(cx, cy, R, 0, Math.PI * 2);
+  }
+}
 
 function patternBg(ctx, S, f) {
   const g = ctx.createLinearGradient(0, 0, S, S);
@@ -246,7 +289,7 @@ function patternBg(ctx, S, f) {
 function drawPhotoInCircle(ctx, S, R, cx, cy) {
   if (!state.img) {
     ctx.save();
-    ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.clip();
+    shapePath(ctx, cx, cy, R, state.shape); ctx.clip();
     ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillRect(cx - R, cy - R, R * 2, R * 2);
     if (sampleImg.complete && sampleImg.naturalWidth) {
       const sc = Math.max((R * 2) / sampleImg.naturalWidth, (R * 2) / sampleImg.naturalHeight);
@@ -265,7 +308,7 @@ function drawPhotoInCircle(ctx, S, R, cx, cy) {
   }
   const img = state.img;
   ctx.save();
-  ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.clip();
+  shapePath(ctx, cx, cy, R, state.shape); ctx.clip();
   ctx.fillStyle = '#000'; ctx.fillRect(cx - R, cy - R, R * 2, R * 2);
   const base = Math.max((R * 2) / img.width, (R * 2) / img.height);
   const sc = base * state.zoom;
@@ -276,18 +319,22 @@ function drawPhotoInCircle(ctx, S, R, cx, cy) {
   ctx.restore();
 }
 
+function strokeShapeRing(ctx, cx, cy, R, shape, inflate, lw, color) {
+  ctx.save();
+  ctx.lineWidth = lw;
+  ctx.strokeStyle = color;
+  shapePath(ctx, cx, cy, R + inflate, shape);
+  ctx.stroke();
+  ctx.restore();
+}
+
 function drawRing(ctx, S, R, cx, cy, f) {
   const lw = S * 0.023;
   ctx.save();
-  ctx.lineWidth = lw * 1.6;
-  ctx.strokeStyle = f.ring[2];
-  ctx.beginPath(); ctx.arc(cx, cy, R + lw * 1.1, 0, Math.PI * 2); ctx.stroke();
-  ctx.lineWidth = lw;
-  ctx.strokeStyle = f.ring[0];
-  ctx.beginPath(); ctx.arc(cx, cy, R + lw * 0.55, 0, Math.PI * 2); ctx.stroke();
-  ctx.lineWidth = lw * 0.75;
-  ctx.strokeStyle = f.ring[1];
-  ctx.beginPath(); ctx.arc(cx, cy, R + lw * 0.05, 0, Math.PI * 2); ctx.stroke();
+  const sh = state.shape;
+  strokeShapeRing(ctx, cx, cy, R, sh, lw * 1.1, lw * 1.6, f.ring[2]);
+  strokeShapeRing(ctx, cx, cy, R, sh, lw * 0.55, lw, f.ring[0]);
+  strokeShapeRing(ctx, cx, cy, R, sh, lw * 0.05, lw * 0.75, f.ring[1]);
   if (f.stars) {
     ctx.fillStyle = f.accent;
     [Math.PI * 1.5, Math.PI * 0.15, Math.PI * 0.85].forEach(a => {
@@ -453,6 +500,16 @@ function viewEditor() {
         <button class="tool" id="resetBtn"><span class="ti">⟲</span>إعادة ضبط</button>
         <button class="tool" id="otherBtn"><span class="ti">🖼️</span>صورة أخرى</button>
       </div>
+      <div class="txteditor" style="padding-bottom:6px">
+        <div style="font-size:12.5px;color:var(--mut);margin-bottom:6px">شكل الإطار</div>
+        <div class="posbtns" style="margin-top:0">
+          <button class="posbtn shapebtn ${state.shape==='circle'?'on':''}" data-sh="circle">⭕ دائرة</button>
+          <button class="posbtn shapebtn ${state.shape==='rounded'?'on':''}" data-sh="rounded">▢ مدوّر</button>
+          <button class="posbtn shapebtn ${state.shape==='square'?'on':''}" data-sh="square">⬛ مربع</button>
+          <button class="posbtn shapebtn ${state.shape==='hexagon'?'on':''}" data-sh="hexagon">⬡ سداسي</button>
+          <button class="posbtn shapebtn ${state.shape==='heart'?'on':''}" data-sh="heart">❤️ قلب</button>
+        </div>
+      </div>
       <div class="txteditor">
         <input type="text" id="customText" placeholder="✍️ أضف نصاً على الصورة (اختياري)…" value="${state.customText.replace(/"/g, '&quot;')}">
         <div class="txtrow">
@@ -540,6 +597,14 @@ function setupEditor() {
     document.getElementById('zoom').value = 1; redraw();
   };
   document.getElementById('otherBtn').onclick = () => document.getElementById('fileInput').click();
+
+  document.querySelectorAll('.shapebtn').forEach(b => {
+    b.onclick = () => {
+      state.shape = b.dataset.sh;
+      document.querySelectorAll('.shapebtn').forEach(x => x.classList.toggle('on', x === b));
+      redraw();
+    };
+  });
 
   document.getElementById('customText').oninput = e => { state.customText = e.target.value; redraw(); };
   document.getElementById('textFont').onchange = e => { state.textFont = e.target.value; redraw(); };
@@ -639,6 +704,34 @@ if (window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App) {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && state.step > 1) setStep(state.step - 1);
 });
+
+
+const THEMES = {
+  green:  { acc:'#2fbf8f', acc2:'#14614a', dark:'#0d3b2e', deep:'#04241a', line:'#1c4d3c', mut:'#9db8ac' },
+  blue:   { acc:'#38a5f8', acc2:'#155a99', dark:'#0d2a4a', deep:'#04182c', line:'#1c3f63', mut:'#9db4c8' },
+  purple: { acc:'#a579f5', acc2:'#5b3a99', dark:'#2a1650', deep:'#160a2c', line:'#3f2a63', mut:'#b8a9d4' },
+  red:    { acc:'#f5625e', acc2:'#992b28', dark:'#4a0d0d', deep:'#2c0404', line:'#631c1c', mut:'#d4a9a9' },
+  gold:   { acc:'#e8c55a', acc2:'#8a6d1d', dark:'#3a2c08', deep:'#241a04', line:'#574614', mut:'#c8b891' },
+};
+function applyTheme(name) {
+  const th = THEMES[name] || THEMES.green;
+  const r = document.documentElement.style;
+  r.setProperty('--acc', th.acc);
+  r.setProperty('--acc2', th.acc2);
+  r.setProperty('--acc-dark', th.dark);
+  r.setProperty('--acc-deep', th.deep);
+  r.setProperty('--line', th.line);
+  r.setProperty('--mut', th.mut);
+  localStorage.setItem('piclib_theme', name);
+}
+document.getElementById('themeBtn').onclick = () => {
+  const names = Object.keys(THEMES);
+  const cur = localStorage.getItem('piclib_theme') || 'green';
+  const next = names[(names.indexOf(cur) + 1) % names.length];
+  applyTheme(next);
+  toast('تم تغيير اللون 🎨');
+};
+applyTheme(localStorage.getItem('piclib_theme') || 'green');
 
 /* ---------- boot ---------- */
 
