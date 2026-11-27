@@ -2831,6 +2831,66 @@ window.CENTRES_DATA = [
     ]
   },
   {
+    id: 'medical-imagerie',
+    icon: '🏥',
+    name: { ar: 'الطب والتحاليل والتصوير', en: 'Medical tests & imaging', fr: 'Médecine, analyses et imagerie' },
+    desc: { ar: 'فحوصات وتصوير طبي ومصطلحات الأطباء والمستشفيات في فرنسا', en: 'Medical tests, imaging and hospital vocabulary in France', fr: 'Examens médicaux, imagerie et vocabulaire hospitalier en France' },
+    sections: [
+      { icon: '🩻', title: { ar: "التصوير بالموجات فوق الصوتية", en: "التصوير بالموجات فوق الصوتية", fr: "التصوير بالموجات فوق الصوتية" }, phrases: [
+        { fr: "Échographie hépatique", ar: "إيكو الكبد (تصوير الكبد بالموجات فوق الصوتية)", en: "Liver ultrasound" },
+        { fr: "Échographie abdominale", ar: "إيكو البطن", en: "Abdominal ultrasound" },
+        { fr: "Échographie hépatobiliaire", ar: "تصوير الكبد والمرارة والقنوات الصفراوية", en: "Hepatobiliary ultrasound" },
+        { fr: "Échographie Doppler hépatique", ar: "إيكو دوبلر للكبد والأوعية الدموية", en: "Liver Doppler ultrasound" },
+        { fr: "Doppler de la veine porte", ar: "دوبلر الوريد البابي", en: "Portal vein Doppler" }
+      ] },
+      { icon: '🖥', title: { ar: "التصوير الطبقي المحوري (السكانير)", en: "التصوير الطبقي المحوري (السكانير)", fr: "التصوير الطبقي المحوري (السكانير)" }, phrases: [
+        { fr: "Scanner hépatique", ar: "تصوير الكبد بالسكانير", en: "Liver CT scan" },
+        { fr: "Scanner abdominal", ar: "تصوير البطن بالسكانير", en: "Abdominal CT scan" },
+        { fr: "Scanner avec injection de produit de contraste", ar: "سكانير مع حقن مادة التباين", en: "CT scan with contrast injection" },
+        { fr: "Scanner triphasique du foie", ar: "سكانير الكبد ثلاثي المراحل", en: "Triphasic liver CT scan" }
+      ] },
+      { icon: '🧲', title: { ar: "التصوير بالرنين المغناطيسي", en: "التصوير بالرنين المغناطيسي", fr: "التصوير بالرنين المغناطيسي" }, phrases: [
+        { fr: "IRM hépatique", ar: "تصوير الكبد بالرنين المغناطيسي", en: "Liver MRI" },
+        { fr: "IRM abdominale", ar: "تصوير البطن بالرنين المغناطيسي", en: "Abdominal MRI" },
+        { fr: "IRM avec injection de gadolinium", ar: "رنين مغناطيسي مع حقن مادة الغادولينيوم", en: "MRI with gadolinium contrast" },
+        { fr: "Cholangio-IRM", ar: "تصوير القنوات الصفراوية بالرنين المغناطيسي", en: "MR cholangiopancreatography (MRCP)" }
+      ] },
+      { icon: '📏', title: { ar: "قياس صلابة الكبد والتليف", en: "قياس صلابة الكبد والتليف", fr: "قياس صلابة الكبد والتليف" }, phrases: [
+        { fr: "FibroScan", ar: "فحص الفيبروسكان لقياس صلابة الكبد", en: "FibroScan" },
+        { fr: "Élastométrie hépatique", ar: "قياس مرونة أو صلابة الكبد", en: "Liver elastography" },
+        { fr: "Mesure de la fibrose hépatique", ar: "قياس درجة تليف الكبد", en: "Assessment of liver fibrosis" },
+        { fr: "CAP (Controlled Attenuation Parameter)", ar: "قياس الدهون المتراكمة في الكبد", en: "Controlled attenuation parameter (liver fat measurement)" }
+      ] },
+      { icon: '🔬', title: { ar: "فحوصات أخرى", en: "فحوصات أخرى", fr: "فحوصات أخرى" }, phrases: [
+        { fr: "Scintigraphie hépatique", ar: "التصوير الومضاني للكبد", en: "Liver scintigraphy" },
+        { fr: "TEP-scan (PET-scan)", ar: "التصوير المقطعي بالإصدار البوزيتروني", en: "Positron emission tomography (PET scan)" },
+        { fr: "Biopsie hépatique", ar: "خزعة الكبد (أخذ عينة من نسيج الكبد، وليست فحص تصوير)", en: "Liver biopsy" }
+      ] },
+      { icon: '💬', title: { ar: "عبارات شائعة في مركز التصوير الطبي بفرنسا", en: "عبارات شائعة في مركز التصوير الطبي بفرنسا", fr: "عبارات شائعة في مركز التصوير الطبي بفرنسا" }, phrases: [
+        { fr: "Vous avez rendez-vous pour une échographie du foie.", ar: "لديك موعد لإيكو الكبد", en: "You have an appointment for a liver ultrasound" },
+        { fr: "Avez-vous une ordonnance ?", ar: "هل لديك وصفة طبية؟", en: "Do you have a medical prescription?" },
+        { fr: "Il faut prendre rendez-vous au service de radiologie.", ar: "يجب حجز موعد في قسم الأشعة", en: "You need to make an appointment with radiology" },
+        { fr: "L'examen est indolore.", ar: "الفحص غير مؤلم", en: "The examination is painless" },
+        { fr: "Il faut rester à jeun avant l'examen.", ar: "يجب الصيام قبل الفحص", en: "You must fast before the examination" },
+        { fr: "Nous allons examiner votre foie.", ar: "سنقوم بفحص الكبد لديك", en: "We are going to examine your liver" },
+        { fr: "Le médecin recherche des signes de stéatose hépatique.", ar: "الطبيب يبحث عن علامات الكبد الدهني", en: "The doctor is looking for signs of fatty liver" },
+        { fr: "L'examen permet d'évaluer la fibrose du foie.", ar: "الفحص يسمح بتقييم تليف الكبد", en: "The examination helps assess liver fibrosis" }
+      ] },
+      { icon: '📋', title: { ar: "أهم الكلمات التي تظهر في تقرير التصوير", en: "أهم الكلمات التي تظهر في تقرير التصوير", fr: "أهم الكلمات التي تظهر في تقرير التصوير" }, phrases: [
+        { fr: "Stéatose hépatique", ar: "الكبد الدهني", en: "Fatty liver" },
+        { fr: "Fibrose hépatique", ar: "تليف الكبد", en: "Liver fibrosis" },
+        { fr: "Cirrhose", ar: "تشمع الكبد", en: "Cirrhosis" },
+        { fr: "Hépatomégalie", ar: "تضخم الكبد", en: "Enlarged liver" },
+        { fr: "Lésion hépatique", ar: "آفة في الكبد", en: "Liver lesion" },
+        { fr: "Nodule hépatique", ar: "عقدة كبدية", en: "Liver nodule" },
+        { fr: "Kyste hépatique", ar: "كيس في الكبد", en: "Liver cyst" },
+        { fr: "Foie d'aspect normal", ar: "مظهر الكبد طبيعي", en: "Normal-appearing liver" },
+        { fr: "Voies biliaires", ar: "القنوات الصفراوية", en: "Bile ducts" },
+        { fr: "Hypertension portale", ar: "ارتفاع ضغط الوريد البابي", en: "Portal hypertension" }
+      ] },
+    ]
+  },
+  {
     id: 'croix-rouge',
     icon: '🏥',
     name: { ar: 'الصليب الأحمر — الدوميسيلياسيون', en: 'Croix-Rouge — Domiciliation', fr: 'Croix-Rouge — Domiciliation' },
