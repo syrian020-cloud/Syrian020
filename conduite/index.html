@@ -452,8 +452,10 @@ function drawRing(ctx, S, R, cx, cy, f) {
       });
     }
     ctx.restore();
-    strokeShapeRing(ctx, cx, cy, R, sh, outer + lw * 0.35, lw * 0.7, f.ring[2]);
-    strokeShapeRing(ctx, cx, cy, R, sh, -lw * 0.35, lw * 0.7, f.ring[2]);
+    const edgeOut = (!f.customImg && fd.stripes.length) ? fd.stripes[0] : f.ring[2];
+    const edgeIn = (!f.customImg && fd.stripes.length) ? fd.stripes[fd.stripes.length - 1] : f.ring[2];
+    strokeShapeRing(ctx, cx, cy, R, sh, outer + lw * 0.15, lw * 0.3, edgeOut);
+    strokeShapeRing(ctx, cx, cy, R, sh, -lw * 0.15, lw * 0.3, edgeIn);
   } else {
     strokeShapeRing(ctx, cx, cy, R, sh, lw * 1.1, lw * 1.6, f.ring[2]);
     strokeShapeRing(ctx, cx, cy, R, sh, lw * 0.55, lw, f.ring[0]);
