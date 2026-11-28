@@ -170,6 +170,7 @@ p.sub { color: var(--mut); font-size: 13.5px; margin: 0 0 14px; }
     <button class="iconbtn hidden" id="backBtn">→</button>
     <div class="logo"><img src="icon-192.png" alt=""> picLib</div>
     <div class="spacer"></div>
+    <button class="iconbtn" id="langBtn" title="اللغة">🌐</button>
     <button class="iconbtn" id="mailBtn" title="تواصل معنا">✉️</button>
     <button class="iconbtn" id="themeBtn" title="لون التطبيق">🎨</button>
   </header>
@@ -396,6 +397,7 @@ const FLAGS = {
   spain:   { stripes:['#aa151b','#f1bf00','#aa151b'], weights:[1,2,1], stars:0, vertical:false, emblem:'👑' },
 };
 
+const I18N = { fr: {"اختر الإطار": "Choisir un cadre", "اختر صورتك": "Choisissez votre photo", "اضبط واحفظ": "Ajustez et enregistrez", "اختر صورة من جهازك": "Choisissez une photo de votre appareil", "اضغط هنا لاختيار صورة من المعرض": "Appuyez ici pour choisir dans la galerie", "يفضل صورة واضحة يظهر فيها وجهك.": "Une photo nette avec votre visage est idéale.", "✨ جرّب بصورة المثال": "✨ Essayer la photo d'exemple", "صورة أخرى": "Autre photo", "إعادة ضبط": "Réinitialiser", "قلب": "Retourner", "تدوير": "Pivoter", "اسحب لتحريك الصورة، وقرّب بإصبعين أو بالشريط": "Faites glisser la photo, pincez ou utilisez le curseur pour zoomer", "حفظ الصورة 💾": "Enregistrer 💾", "مشاركة 📤": "Partager 📤", "🎨 تصميم الإطار": "🎨 Conception du cadre", "بدون علم": "Sans drapeau", "🖼️ صورة من المعرض": "🖼️ Image de la galerie", "🖼️ اختر صورة للحلقة…": "🖼️ Choisir une image d'anneau…", "خلفية": "Arrière-plan", "حلقة": "Anneau", "سماكة الحلقة": "Épaisseur de l'anneau", "حجم الصورة": "Taille de la photo", "شكل الإطار": "Forme du cadre", "⭕ دائرة": "⭕ Cercle", "▢ مدوّر": "▢ Arrondi", "⬛ مربع": "⬛ Carré", "⬡ سداسي": "⬡ Hexagone", "❤️ قلب": "❤️ Cœur", "💎 معيّن": "💎 Losange", "🛑 ثماني": "🛑 Octogone", "⭐ نجمة": "⭐ Étoile", "🔺 مثلث": "🔺 Triangle", "فوق الإطار": "Au-dessus du cadre", "داخل الصورة": "Dans la photo", "تحت الإطار": "Sous le cadre", "نص على الصورة": "Texte sur la photo", "الإطار المختار": "Cadre sélectionné", "🛡️ صورتك تبقى على جهازك فقط — لا يتم رفع أي صورة لأي مكان.": "🛡️ Vos photos restent sur votre appareil — rien n'est téléversé.", "إطارات لمناسبات مختلفة — التحرير، الأعياد، رأس السنة، ميلاد، تخرج وزواج.": "Des cadres pour toutes les occasions — Libération, Aïds, Nouvel An, anniversaire, remise de diplôme et mariage.", "صمّم إطارك ✨": "Créez votre cadre ✨", "عيد التحرير السوري": "Jour de la libération syrienne", "رمضان كريم": "Ramadan Karim", "عيد الفطر": "Aïd al-Fitr", "عيد الأضحى": "Aïd al-Adha", "رأس السنة": "Nouvel An", "عيد ميلاد": "Anniversaire", "تخرج": "Remise de diplôme", "زواج": "Mariage", "سوريا": "Syrie", "عنوان الإطار…": "Titre du cadre…", "سطر ثانٍ (اختياري)…": "Deuxième ligne (facultatif)…", "اكتب نصاً…": "Écrivez un texte…"}, en: {"اختر الإطار": "Choose a frame", "اختر صورتك": "Choose your photo", "اضبط واحفظ": "Adjust & save", "اختر صورة من جهازك": "Pick a photo from your device", "اضغط هنا لاختيار صورة من المعرض": "Tap here to pick from gallery", "يفضل صورة واضحة يظهر فيها وجهك.": "A clear photo showing your face works best.", "✨ جرّب بصورة المثال": "✨ Try the sample photo", "صورة أخرى": "Another photo", "إعادة ضبط": "Reset", "قلب": "Flip", "تدوير": "Rotate", "اسحب لتحريك الصورة، وقرّب بإصبعين أو بالشريط": "Drag to move the photo, pinch or use the slider to zoom", "حفظ الصورة 💾": "Save 💾", "مشاركة 📤": "Share 📤", "🎨 تصميم الإطار": "🎨 Frame design", "بدون علم": "No flag", "🖼️ صورة من المعرض": "🖼️ Gallery image", "🖼️ اختر صورة للحلقة…": "🖼️ Pick a ring image…", "خلفية": "Background", "حلقة": "Ring", "سماكة الحلقة": "Ring thickness", "حجم الصورة": "Photo size", "شكل الإطار": "Frame shape", "⭕ دائرة": "⭕ Circle", "▢ مدوّر": "▢ Rounded", "⬛ مربع": "⬛ Square", "⬡ سداسي": "⬡ Hexagon", "❤️ قلب": "❤️ Heart", "💎 معيّن": "💎 Diamond", "🛑 ثماني": "🛑 Octagon", "⭐ نجمة": "⭐ Star", "🔺 مثلث": "🔺 Triangle", "فوق الإطار": "Above frame", "داخل الصورة": "Inside photo", "تحت الإطار": "Below frame", "نص على الصورة": "Text on photo", "الإطار المختار": "Selected frame", "🛡️ صورتك تبقى على جهازك فقط — لا يتم رفع أي صورة لأي مكان.": "🛡️ Your photos stay on your device — nothing is uploaded.", "إطارات لمناسبات مختلفة — التحرير، الأعياد، رأس السنة، ميلاد، تخرج وزواج.": "Frames for many occasions — Liberation, Eids, New Year, birthday, graduation and wedding.", "صمّم إطارك ✨": "Design your frame ✨", "عيد التحرير السوري": "Syrian Liberation Day", "رمضان كريم": "Ramadan Kareem", "عيد الفطر": "Eid al-Fitr", "عيد الأضحى": "Eid al-Adha", "رأس السنة": "New Year", "عيد ميلاد": "Birthday", "تخرج": "Graduation", "زواج": "Wedding", "سوريا": "Syria", "عنوان الإطار…": "Frame title…", "سطر ثانٍ (اختياري)…": "Second line (optional)…", "اكتب نصاً…": "Write text…"} };
 const FLAG_NAMES = { syria:'سوريا', france:'فرنسا', italy:'إيطاليا', germany:'ألمانيا', spain:'إسبانيا', iraq:'العراق', palestine:'فلسطين', jordan:'الأردن', egypt:'مصر', lebanon:'لبنان', uae:'الإمارات', kuwait:'الكويت', saudi:'السعودية', qatar:'قطر', bahrain:'البحرين', oman:'عُمان', yemen:'اليمن', libya:'ليبيا', tunisia:'تونس', algeria:'الجزائر', morocco:'المغرب', sudan:'السودان', mauritania:'موريتانيا', somalia:'الصومال', djibouti:'جيبوتي', comoros:'جزر القمر', turkey:'تركيا', portugal:'البرتغال', netherlands:'هولندا', belgium:'بلجيكا', luxembourg:'لوكسمبورغ', austria:'النمسا', poland:'بولندا', ukraine:'أوكرانيا', russia:'روسيا', sweden:'السويد', norway:'النرويج', denmark:'الدنمارك', finland:'فنلندا', greece:'اليونان', switzerland:'سويسرا', czechia:'تشيكيا', slovakia:'سلوفاكيا', slovenia:'سلوفينيا', hungary:'المجر', romania:'رومانيا', bulgaria:'بلغاريا', serbia:'صربيا', croatia:'كرواتيا', bosnia:'البوسنة', albania:'ألبانيا', macedonia:'مقدونيا', montenegro:'الجبل الأسود', estonia:'إستونيا', latvia:'لاتفيا', lithuania:'ليتوانيا', iceland:'آيسلندا', ireland:'أيرلندا', uk:'بريطانيا', cyprus:'قبرص', malta:'مالطا', moldova:'مولدوفا', belarus:'بيلاروسيا', georgia:'جورجيا', armenia:'أرمينيا', azerbaijan:'أذربيجان', china:'الصين', japan:'اليابان', skorea:'كوريا الجنوبية', india:'الهند', pakistan:'باكستان', bangladesh:'بنغلاديش', indonesia:'إندونيسيا', malaysia:'ماليزيا', thailand:'تايلاند', vietnam:'فيتنام', philippines:'الفلبين', iran:'إيران', afghanistan:'أفغانستان', kazakhstan:'كازاخستان', uzbekistan:'أوزبكستان', turkmenistan:'تركمانستان', kyrgyzstan:'قرغيزستان', tajikistan:'طاجيكستان', mongolia:'منغوليا', myanmar:'ميانمار', cambodia:'كمبوديا', laos:'لاوس', srilanka:'سريلانكا', nepal:'نيبال', bhutan:'بوتان', maldives:'المالديف', singapore:'سنغافورة', brunei:'بروناي', timor:'تيمور الشرقية', nigeria:'نيجيريا', ghana:'غانا', senegal:'السنغال', mali:'مالي', guinea:'غينيا', ivorycoast:'ساحل العاج', cameroon:'الكاميرون', ethiopia:'إثيوبيا', kenya:'كينيا', tanzania:'تنزانيا', uganda:'أوغندا', southafrica:'جنوب أفريقيا', zimbabwe:'زيمبابوي', angola:'أنغولا', mozambique:'موزمبيق', zambia:'زامبيا', rwanda:'رواندا', burkina:'بوركينا فاسو', niger:'النيجر', chad:'تشاد', congo:'الكونغو', drc:'الكونغو الديمقراطية', gabon:'الغابون', eritrea:'إريتريا', madagascar:'مدغشقر', botswana:'بوتسوانا', namibia:'ناميبيا', mozambique2:'موزمبيق', usa:'أمريكا', canada:'كندا', mexico:'المكسيك', brazil:'البرازيل', argentina:'الأرجنتين', chile:'تشيلي', colombia:'كولومبيا', venezuela:'فنزويلا', peru:'بيرو', ecuador:'الإكوادور', bolivia:'بوليفيا', paraguay:'باراغواي', uruguay:'أوروغواي', cuba:'كوبا', panama:'بنما', costarica:'كوستاريكا', honduras:'هندوراس', guatemala:'غواتيمالا', elsalvador:'السلفادور', nicaragua:'نيكاراغوا', haiti:'هايتي', dominican:'الدومينيكان', jamaica:'جامايكا', australia:'أستراليا', newzealand:'نيوزيلندا', fiji:'فيجي' };
 function effectiveFrame(f) {
   if (!f || !f.custom) return f;
@@ -1111,6 +1113,13 @@ function applyTheme(name) {
   r.setProperty('--mut', th.mut);
   localStorage.setItem('piclib_theme', name);
 }
+document.getElementById('langBtn').onclick = () => {
+  const order = ['ar', 'fr', 'en'];
+  const cur = currentLang();
+  const next = order[(order.indexOf(cur) + 1) % order.length];
+  localStorage.setItem('piclib_lang', next);
+  location.reload();
+};
 document.getElementById('mailBtn').onclick = () => {
   const a = document.createElement('a');
   a.href = 'mailto:wesamhaj930@gmail.com?subject=picLib';
@@ -1125,6 +1134,45 @@ document.getElementById('themeBtn').onclick = () => {
   toast('تم تغيير اللون 🎨');
 };
 applyTheme(localStorage.getItem('piclib_theme') || 'green');
+
+
+function currentLang() { return localStorage.getItem('piclib_lang') || 'ar'; }
+function translateDom() {
+  const lang = currentLang();
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.lang = lang;
+  if (lang === 'ar') { restoreOriginalTexts(); return; }
+  const dict = I18N[lang] || {};
+  document.querySelectorAll('body *').forEach(el => {
+    el.childNodes.forEach(n => {
+      if (n.nodeType !== 3) return;
+      const key = n.textContent.trim();
+      if (!key) return;
+      if (!el.dataset) return;
+      const origKey = 'i18norig' + (n === el.firstChild ? '0' : 'x');
+      if (dict[key]) {
+        if (!n._orig) n._orig = key;
+        n.textContent = n.textContent.replace(key, dict[key]);
+      }
+    });
+    if (el.placeholder && dict[el.placeholder.trim()]) {
+      if (!el._phorig) el._phorig = el.placeholder;
+      el.placeholder = dict[el._phorig] || el.placeholder;
+    }
+    if (el.tagName === 'OPTION' && dict[el.textContent.trim()]) {
+      if (!el._oporig) el._oporig = el.textContent;
+      el.textContent = dict[el._oporig.trim()] || el.textContent;
+    }
+  });
+}
+function restoreOriginalTexts() {
+  document.querySelectorAll('[placeholder]').forEach(el => { if (el._phorig) el.placeholder = el._phorig; });
+}
+
+
+new MutationObserver(() => { translateDom(); }).observe(document.getElementById('app') || document.body, { childList: true, subtree: true });
+window.addEventListener('DOMContentLoaded', () => setTimeout(translateDom, 300));
+setTimeout(translateDom, 800);
 
 /* ---------- boot ---------- */
 
