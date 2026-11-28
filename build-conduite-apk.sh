@@ -37,6 +37,21 @@ npx cap sync android
 # Apply the pickling package id and app name to the Android project
 sed -i -E 's@namespace "com\.syrian020\.(convip|pickling)"@namespace "com.syrian020.piclib"@; s@applicationId "com\.syrian020\.(convip|pickling)"@applicationId "com.syrian020.piclib"@' android/app/build.gradle
 sed -i -E 's/>(conVip|pickling)</>picLib</g; s/com\.syrian020\.(convip|pickling)/com.syrian020.piclib/g' android/app/src/main/res/values/strings.xml
+# Media permissions for gallery save
+MANIFEST="android/app/src/main/AndroidManifest.xml"
+if ! grep -q READ_MEDIA_IMAGES "$MANIFEST"; then
+  python3 - "$MANIFEST" <<'PYEOF'
+import sys
+m=open(sys.argv[1]).read()
+perms="""    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+"""
+open(sys.argv[1],'w').write(m.replace('</manifest>', perms + '</manifest>'))
+PYEOF
+fi
+
 JDIR="android/app/src/main/java/com/syrian020"
 for oldpkg in convip pickling; do
   if [ -f "$JDIR/$oldpkg/MainActivity.java" ] && [ "$oldpkg" != "piclib" ]; then

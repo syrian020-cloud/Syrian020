@@ -132,6 +132,11 @@ p.sub { color: var(--mut); font-size: 13.5px; margin: 0 0 14px; }
   border-radius: 8px; padding: 6px 2px; font-size: 11.5px; cursor: pointer; font-family: inherit;
 }
 .posbtn.on { background: var(--acc); color: var(--acc-deep); border-color: var(--acc); font-weight: 700; }
+.shapebtn {
+  flex: 1; background: #07100d; border: 1px solid var(--line); color: #cfe5d9;
+  border-radius: 8px; padding: 6px 2px; font-size: 11.5px; cursor: pointer; font-family: inherit;
+}
+.shapebtn.on { background: var(--acc); color: var(--acc-deep); border-color: var(--acc); font-weight: 700; }
 .savebtn {
   width: 100%; background: linear-gradient(135deg, var(--acc), var(--acc2)); border: none; color: var(--acc-deep);
   font-size: 18px; font-weight: 800; font-family: inherit; padding: 15px; border-radius: 14px;
@@ -530,11 +535,11 @@ function viewEditor() {
       <div class="txteditor" style="padding-bottom:6px">
         <div style="font-size:12.5px;color:var(--mut);margin-bottom:6px">شكل الإطار</div>
         <div class="posbtns" style="margin-top:0">
-          <button class="posbtn shapebtn ${state.shape==='circle'?'on':''}" data-sh="circle">⭕ دائرة</button>
-          <button class="posbtn shapebtn ${state.shape==='rounded'?'on':''}" data-sh="rounded">▢ مدوّر</button>
-          <button class="posbtn shapebtn ${state.shape==='square'?'on':''}" data-sh="square">⬛ مربع</button>
-          <button class="posbtn shapebtn ${state.shape==='hexagon'?'on':''}" data-sh="hexagon">⬡ سداسي</button>
-          <button class="posbtn shapebtn ${state.shape==='heart'?'on':''}" data-sh="heart">❤️ قلب</button>
+          <button class="shapebtn ${state.shape==='circle'?'on':''}" data-sh="circle">⭕ دائرة</button>
+          <button class="shapebtn ${state.shape==='rounded'?'on':''}" data-sh="rounded">▢ مدوّر</button>
+          <button class="shapebtn ${state.shape==='square'?'on':''}" data-sh="square">⬛ مربع</button>
+          <button class="shapebtn ${state.shape==='hexagon'?'on':''}" data-sh="hexagon">⬡ سداسي</button>
+          <button class="shapebtn ${state.shape==='heart'?'on':''}" data-sh="heart">❤️ قلب</button>
         </div>
       </div>
       <div class="txteditor">
@@ -677,9 +682,24 @@ async function exportImage(share) {
       if (share && Share && Share.share) {
         await Share.share({ title: 'picLib', files: [res.uri] });
         toast('تم فتح المشاركة ✓');
-      } else if (Share && Share.share) {
+        return;
+      }
+      const Media = cap.Plugins.Media;
+      if (!share && Media && Media.savePhoto) {
+        if (!window._piclibAlbum) {
+          try { await Media.createAlbum({ name: 'picLib' }); } catch (e) {}
+          const albums = await Media.getAlbums();
+          const found = (albums.albums || []).find(a => a.name === 'picLib');
+          window._piclibAlbum = found ? found.identifier : null;
+        }
+        await Media.savePhoto({ path: res.uri, albumIdentifier: window._piclibAlbum || undefined, fileName: fname.replace('.png','') });
+        toast('تم الحفظ في الاستوديو ✓');
+        return;
+      }
+      if (Share && Share.share) {
         await Share.share({ title: 'picLib', files: [res.uri], dialogTitle: 'حفظ الصورة' });
         toast('احفظ الصورة من قائمة المشاركة ✓');
+        return;
       }
       return;
     }
