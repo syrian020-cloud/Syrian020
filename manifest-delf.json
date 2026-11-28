@@ -1,0 +1,21 @@
+{
+  "name": "DelfVip — دبلوم اللغة الفرنسية",
+  "short_name": "DelfVip",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0b0f1f",
+  "theme_color": "#7c3aed",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon-delf-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-delf-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

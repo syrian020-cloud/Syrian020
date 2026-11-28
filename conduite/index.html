@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0d3b2e">
+<title>picLib — إطارات الصور</title>
+<link rel="manifest" href="manifest.json">
+<style>
+@font-face { font-family: 'Cairo'; src: url('fonts/cairo.ttf'); font-weight: 100 900; }
+@font-face { font-family: 'Amiri'; src: url('fonts/amiri.ttf'); }
+@font-face { font-family: 'Tajawal'; src: url('fonts/tajawal.ttf'); font-weight: 700; }
+@font-face { font-family: 'Lateef'; src: url('fonts/lateef.ttf'); }
+@font-face { font-family: 'Scheherazade'; src: url('fonts/scheherazade.ttf'); }
+@font-face { font-family: 'Ruqaa'; src: url('fonts/ruqaa.ttf'); }
+@font-face { font-family: 'Geeza'; src: url('fonts/geeza-pro.ttf'); }
+@font-face { font-family: 'Simplified'; src: url('fonts/simplified-arabic.ttf'); }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+:root {
+  --acc: var(--acc);
+  --acc2: #14614a;
+  --acc-dark: #0d3b2e;
+  --acc-deep: var(--acc-deep);
+  --panel: var(--panel);
+  --line: var(--line);
+  --mut: var(--mut);
+}
+body {
+  font-family: 'Cairo', 'Tajawal', sans-serif;
+  background: #07100d;
+  color: #f0f4f1;
+  user-select: none;
+}
+#app { display: flex; flex-direction: column; height: 100%; }
+header {
+  background: linear-gradient(135deg, var(--acc-dark), var(--acc2));
+  padding: 10px 14px;
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.4);
+  z-index: 5;
+}
+header .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 19px; }
+header .logo img { width: 30px; height: 30px; border-radius: 8px; }
+header .spacer { flex: 1; }
+.iconbtn {
+  background: rgba(255,255,255,.12); border: none; color: #fff;
+  width: 38px; height: 38px; border-radius: 50%; font-size: 18px;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.iconbtn:active { transform: scale(.92); }
+.steps {
+  display: flex; direction: rtl; background: var(--acc-dark);
+  padding: 8px 10px 12px; gap: 4px;
+}
+.step { flex: 1; text-align: center; font-size: 12.5px; color: var(--mut); position: relative; padding-top: 4px; }
+.step .n {
+  display: inline-flex; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--line); color: #cfe5d9; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; margin-inline-start: 4px;
+}
+.step.active { color: #fff; font-weight: 700; }
+.step.active .n { background: var(--acc); color: var(--acc-deep); }
+.step.done .n { background: var(--acc); color: var(--acc-deep); }
+.step::after {
+  content: ''; position: absolute; bottom: -6px; right: 0; left: 0; height: 2.5px;
+  background: var(--line); border-radius: 2px;
+}
+.step.active::after, .step.done::after { background: var(--acc); }
+main { flex: 1; overflow-y: auto; padding: 14px; }
+h1.title { font-size: 21px; margin: 4px 0 2px; font-weight: 800; }
+p.sub { color: var(--mut); font-size: 13.5px; margin: 0 0 14px; }
+.frames-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding-bottom: 20px; }
+.frame-card {
+  background: var(--panel); border-radius: 16px; overflow: hidden; cursor: pointer;
+  border: 2px solid transparent; transition: border-color .15s, transform .1s;
+}
+.frame-card:active { transform: scale(.97); }
+.frame-card.selected { border-color: var(--acc); }
+.frame-card canvas { width: 100%; display: block; aspect-ratio: 1; }
+.frame-card .fname { padding: 8px 10px; font-size: 13.5px; font-weight: 700; text-align: center; }
+.dropzone {
+  border: 2.5px dashed color-mix(in srgb, var(--acc) 40%, transparent); border-radius: 20px; margin-top: 8px;
+  min-height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 12px; cursor: pointer; padding: 30px 16px; text-align: center;
+}
+.dropzone .cam { width: 76px; height: 76px; border-radius: 50%; background: var(--acc-dark);
+  display: flex; align-items: center; justify-content: center; font-size: 34px; }
+.dropzone h2 { margin: 0; font-size: 18px; }
+.dropzone p { margin: 0; color: var(--mut); font-size: 13px; line-height: 1.7; }
+.selected-frame-bar {
+  display: flex; align-items: center; gap: 10px; background: var(--panel);
+  border-radius: 14px; padding: 10px; margin-bottom: 12px;
+}
+.selected-frame-bar canvas { width: 56px; height: 56px; border-radius: 10px; }
+.selected-frame-bar .lbl { font-size: 11.5px; color: var(--mut); }
+.selected-frame-bar .nm { font-weight: 700; font-size: 14.5px; }
+.selected-frame-bar .chg { margin-inline-start: auto; color: var(--acc); font-size: 13px; font-weight: 700; cursor: pointer; padding: 6px; }
+.editor-wrap { display: flex; flex-direction: column; height: 100%; }
+#preview-holder {
+  position: relative; border-radius: 18px; overflow: hidden; background: var(--panel);
+  margin-bottom: 10px; touch-action: none; flex-shrink: 0; aspect-ratio: 1;
+}
+#preview { width: 100%; display: block; touch-action: none; }
+.hint { text-align: center; color: var(--mut); font-size: 12.5px; margin: 2px 0 8px; }
+.zoomrow { display: flex; align-items: center; gap: 12px; padding: 0 8px; margin-bottom: 10px; }
+.zoomrow input[type=range] { flex: 1; accent-color: var(--acc); height: 34px; }
+.zoomrow .zbtn { font-size: 22px; color: #fff; background: none; border: none; cursor: pointer; padding: 4px 8px; }
+.toolrow { display: flex; gap: 8px; margin-bottom: 10px; }
+.tool {
+  flex: 1; background: var(--panel); border: none; color: #fff; border-radius: 12px;
+  padding: 10px 4px; font-size: 12.5px; font-family: inherit; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.tool .ti { font-size: 17px; }
+.tool:active { transform: scale(.96); }
+.txteditor { background: var(--panel); border-radius: 14px; padding: 10px; margin-bottom: 10px; }
+.txteditor input[type=text] {
+  width: 100%; background: #07100d; border: 1px solid var(--line); color: #fff;
+  border-radius: 10px; padding: 10px 12px; font-size: 15px; font-family: inherit; margin-bottom: 8px;
+}
+.txtrow { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.txtrow select, .txtrow input[type=color] {
+  background: #07100d; border: 1px solid var(--line); color: #fff; border-radius: 10px;
+  padding: 8px; font-family: inherit; font-size: 13px;
+}
+.txtrow input[type=color] { width: 44px; height: 38px; padding: 2px; }
+.txtrow input[type=range] { flex: 1; min-width: 80px; accent-color: var(--acc); }
+.posbtns { display: flex; gap: 6px; margin-top: 8px; }
+.posbtn {
+  flex: 1; background: #07100d; border: 1px solid var(--line); color: #cfe5d9;
+  border-radius: 8px; padding: 6px 2px; font-size: 11.5px; cursor: pointer; font-family: inherit;
+}
+.posbtn.on { background: var(--acc); color: var(--acc-deep); border-color: var(--acc); font-weight: 700; }
+.shapebtn {
+  flex: 1; background: #07100d; border: 1px solid var(--line); color: #cfe5d9;
+  border-radius: 8px; padding: 6px 2px; font-size: 11.5px; cursor: pointer; font-family: inherit;
+}
+.shapebtn.on { background: var(--acc); color: var(--acc-deep); border-color: var(--acc); font-weight: 700; }
+.savebtn {
+  width: 100%; background: linear-gradient(135deg, var(--acc), var(--acc2)); border: none; color: var(--acc-deep);
+  font-size: 18px; font-weight: 800; font-family: inherit; padding: 15px; border-radius: 14px;
+  cursor: pointer; margin-top: auto; margin-bottom: 8px;
+}
+.savebtn:active { transform: scale(.98); }
+.sharebtn {
+  width: 100%; background: var(--panel); border: 1px solid var(--acc); color: var(--acc);
+  font-size: 15px; font-weight: 700; font-family: inherit; padding: 12px; border-radius: 14px;
+  cursor: pointer; margin-bottom: 14px;
+}
+.hidden { display: none !important; }
+.note { display: flex; gap: 8px; align-items: flex-start; color: var(--mut); font-size: 12px; line-height: 1.7; margin: 6px 2px 14px; }
+.backrow { display: flex; gap: 8px; margin-bottom: 10px; }
+.backbtn {
+  background: var(--panel); border: 1px solid var(--line); color: #cfe5d9; border-radius: 12px;
+  padding: 8px 16px; font-size: 13px; font-family: inherit; cursor: pointer;
+}
+.toast {
+  position: fixed; bottom: 90px; right: 50%; transform: translateX(50%);
+  background: var(--acc); color: var(--acc-deep); font-weight: 700; padding: 10px 22px;
+  border-radius: 24px; font-size: 14px; z-index: 50; box-shadow: 0 4px 16px rgba(0,0,0,.4);
+  animation: fadein .2s;
+}
+@keyframes fadein { from { opacity: 0; transform: translateX(50%) translateY(8px); } }
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <button class="iconbtn hidden" id="backBtn">→</button>
+    <div class="logo"><img src="icon-192.png" alt=""> picLib</div>
+    <div class="spacer"></div>
+    <button class="iconbtn" id="langBtn" title="اللغة">🌐</button>
+    <button class="iconbtn" id="mailBtn" title="تواصل معنا">✉️</button>
+    <button class="iconbtn" id="themeBtn" title="لون التطبيق">🎨</button>
+  </header>
+  <div class="steps">
+    <div class="step" data-s="1"><span class="n">1</span> اختر الإطار</div>
+    <div class="step" data-s="2"><span class="n">2</span> اختر صورتك</div>
+    <div class="step" data-s="3"><span class="n">3</span> اضبط واحفظ</div>
+  </div>
+  <main id="main"></main>
+</div>
+<input type="file" id="fileInput" accept="image/*" class="hidden">
+<script>
+const FRAMES = [
+  { id:'custom', name:'صمّم إطارك ✨', title:'', sub:'', sub2:'',
+    bg:['#0d3b2e','#1a7a54'], ring:['#ffffff','#c9a227','#111111'], accent:'#ce1126', stars:false, decor:[], font:'Cairo', titleColor:'#ffffff', custom:true },
+  { id:'liberation', name:'عيد التحرير السوري', title:'اليوم الوطني السوري', sub:'8 Dec · Syrian National Day', sub2:'عيد التحرير',
+    bg:['#0d3b2e','#1a7a54'], ring:['#ffffff','#0a5c3f','#111111'], accent:'#d3382c', stars:true, flag:true, decor:['⭐'], font:'Cairo', titleColor:'#ffffff' },
+  { id:'ramadan', name:'رمضان كريم', title:'رمضان كريم', sub:'Ramadan Kareem', sub2:'',
+    bg:['#1c1038','#3c2566'], ring:['#f5e6c8','#c9a227','#2a1650'], accent:'#e8c55a', stars:false, decor:['🌙','🏮'], font:'Amiri', titleColor:'#f5e6c8' },
+  { id:'fitr', name:'عيد الفطر', title:'عيد فطر سعيد', sub:'Eid al-Fitr Mubarak', sub2:'',
+    bg:['#083d3a','#0e6b62'], ring:['#fff8e7','#c9a227','#0a4a44'], accent:'#e8c55a', stars:false, decor:['🌙','✨'], font:'Amiri', titleColor:'#fff8e7' },
+  { id:'adha', name:'عيد الأضحى', title:'عيد أضحى مبارك', sub:'Eid al-Adha Mubarak', sub2:'',
+    bg:['#3a2415','#6b4423'], ring:['#fdf3e0','#c9a227','#4a2f18'], accent:'#e8c55a', stars:false, decor:['🕌','✨'], font:'Amiri', titleColor:'#fdf3e0' },
+  { id:'newyear', name:'رأس السنة', title:'سنة جديدة سعيدة', sub:'Happy New Year', sub2:'',
+    bg:['#0a1030','#1c2a6b'], ring:['#ffffff','#e8c55a','#0a1030'], accent:'#e8c55a', stars:false, decor:['🎆','✨'], font:'Tajawal', titleColor:'#ffffff' },
+  { id:'birthday', name:'عيد ميلاد', title:'عيد ميلاد سعيد', sub:'Happy Birthday', sub2:'',
+    bg:['#3d0a24','#7a1a4a'], ring:['#ffffff','#ff5e8a','#5c1038'], accent:'#ffd166', stars:false, decor:['🎈','🎂'], font:'Tajawal', titleColor:'#ffffff' },
+  { id:'graduation', name:'تخرج', title:'مبروك التخرج', sub:'Congratulations Graduate', sub2:'',
+    bg:['#101a3d','#24366e'], ring:['#ffffff','#c9a227','#101a3d'], accent:'#e8c55a', stars:false, decor:['🎓','✨'], font:'Cairo', titleColor:'#ffffff' },
+  { id:'wedding', name:'زواج', title:'مبروك الزواج', sub:'Congratulations', sub2:'',
+    bg:['#3d1220','#7a2a44'], ring:['#fff5ee','#d4a0a0','#5c1c30'], accent:'#f0c0c0', stars:false, decor:['💍','🤍'], font:'Ruqaa', titleColor:'#fff5ee' },
+];
+
+const FONTS = [
+  { id:'Cairo', label:'القاهرة — Cairo' },
+  { id:'Amiri', label:'أميري — Amiri' },
+  { id:'Tajawal', label:'تجوال — Tajawal' },
+  { id:'Lateef', label:'لطيف — Lateef' },
+  { id:'Scheherazade', label:'شهرزاد — Scheherazade' },
+  { id:'Ruqaa', label:'رقعة — Ruqaa' },
+  { id:'Geeza', label:'جيزة — Geeza' },
+  { id:'Simplified', label:'مبسط — Simplified' },
+];
+
+const main = document.getElementById('main');
+const state = {
+  step: 1,
+  frame: null,
+  img: null,
+  zoom: 1, tx: 0, ty: 0, rot: 0, flipX: false,
+  customText: '', textFont: 'Cairo', textColor: '#ffffff', textSize: 52, textPos: 'bottom',
+  shape: 'circle',
+  customImgEl: null,
+  custom: { title:'عنواني', sub:'', ringW:2.9, photoR:0.34, bg1:'#0d3b2e', bg2:'#1a7a54', ring1:'#ffffff', ring2:'#c9a227', ring3:'#111111', flag:'none', font:'Cairo', titleColor:'#ffffff', flagImg:null },
+  editing: false,
+};
+
+function setStep(n) {
+  state.step = n;
+  document.querySelectorAll('.step').forEach(el => {
+    const s = +el.dataset.s;
+    el.classList.toggle('active', s === n);
+    el.classList.toggle('done', s < n);
+  });
+  document.getElementById('backBtn').classList.toggle('hidden', n === 1);
+  render();
+}
+
+document.getElementById('backBtn').onclick = () => { if (state.step > 1) setStep(state.step - 1); };
+
+
+
+const FLAGS = {
+  none: null,
+  image: { stripes:[], stars:0, vertical:false },
+  iraq: { stripes:['#ce1126','#ffffff','#111111'], stars:0, vertical:false, bandText:'الله أكبر', bandTextColor:'#007a3d' },
+  palestine: { stripes:['#111111','#ffffff','#007a3d'], stars:0, vertical:false },
+  jordan: { stripes:['#111111','#ffffff','#007a3d'], stars:0, vertical:false },
+  egypt: { stripes:['#ce1126','#ffffff','#111111'], stars:0, vertical:false, emblem:'🦅' },
+  lebanon: { stripes:['#ee161f','#ffffff','#ee161f'], stars:0, vertical:false, weights:[1,2,1], emblem:'🌲' },
+  uae: { stripes:['#00732f','#ffffff','#111111'], stars:0, vertical:false },
+  kuwait: { stripes:['#007a3d','#ffffff','#ce1126'], stars:0, vertical:false },
+  saudi: { stripes:['#006c35','#ffffff','#006c35'], stars:0, vertical:false, weights:[2,1,2] },
+  qatar: { stripes:['#8a1538','#ffffff','#8a1538'], stars:0, vertical:false, weights:[1,2,1] },
+  bahrain: { stripes:['#ce1126','#ffffff','#ce1126'], stars:0, vertical:false, weights:[1,1,1] },
+  oman: { stripes:['#ffffff','#ce1126','#008000'], stars:0, vertical:false },
+  yemen: { stripes:['#ce1126','#ffffff','#111111'], stars:0, vertical:false },
+  libya: { stripes:['#e70013','#111111','#239e46'], stars:0, vertical:false, weights:[1,2,1], emblem:'☪️' },
+  tunisia: { stripes:['#e70013','#ffffff','#e70013'], stars:0, vertical:false, weights:[1,2,1], emblem:'☪️' },
+  algeria: { stripes:['#006233','#ffffff','#d21034'], stars:0, vertical:false, emblem:'☪️' },
+  morocco: { stripes:['#c1272d','#c1272d','#c1272d'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  sudan: { stripes:['#d21034','#ffffff','#111111'], stars:0, vertical:false },
+  mauritania: { stripes:['#006233','#ffd700','#006233'], stars:0, vertical:false, weights:[1,2,1], emblem:'☪️' },
+  somalia: { stripes:['#4189de','#4189de','#4189de'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  djibouti: { stripes:['#6ab2e7','#ffffff','#12ad2b'], stars:0, vertical:false },
+  comoros: { stripes:['#ffc61e','#ffffff','#ce1126'], stars:0, vertical:false },
+  turkey: { stripes:['#e30a17','#e30a17','#e30a17'], stars:0, vertical:false, emblem:'☪️' },
+  portugal: { stripes:['#046a38','#ff0000','#046a38'], stars:0, vertical:true, emblem:'🛡️' },
+  netherlands: { stripes:['#ae1c28','#ffffff','#21468b'], stars:0, vertical:false },
+  belgium: { stripes:['#111111','#fdda24','#ef3340'], stars:0, vertical:true },
+  luxembourg: { stripes:['#ef3340','#ffffff','#51adda'], stars:0, vertical:false },
+  austria: { stripes:['#ef3340','#ffffff','#ef3340'], stars:0, vertical:false },
+  poland: { stripes:['#ffffff','#dc143c','#ffffff'], stars:0, vertical:false, weights:[1,2,1] },
+  ukraine: { stripes:['#0057b7','#ffd700','#0057b7'], stars:0, vertical:false, weights:[1,2,1] },
+  russia: { stripes:['#ffffff','#0039a6','#d52b1e'], stars:0, vertical:false },
+  sweden: { stripes:['#006aa7','#fecc00','#006aa7'], stars:0, vertical:false, weights:[2,1,2] },
+  norway: { stripes:['#ba0c2f','#ffffff','#00205b'], stars:0, vertical:false },
+  denmark: { stripes:['#c8102e','#ffffff','#c8102e'], stars:0, vertical:false, weights:[2,1,2] },
+  finland: { stripes:['#ffffff','#002f6c','#ffffff'], stars:0, vertical:false, weights:[2,1,2] },
+  greece: { stripes:['#0d5eaf','#ffffff','#0d5eaf'], stars:0, vertical:false },
+  switzerland: { stripes:['#da291c','#ffffff','#da291c'], stars:0, vertical:false, weights:[2,1,2], emblem:'➕' },
+  czechia: { stripes:['#ffffff','#d7141a','#11457e'], stars:0, vertical:false },
+  slovakia: { stripes:['#ffffff','#0b4ea2','#ee1c25'], stars:0, vertical:false },
+  slovenia: { stripes:['#ffffff','#005ce6','#ed1c24'], stars:0, vertical:false },
+  hungary: { stripes:['#cd2a3e','#ffffff','#436f4d'], stars:0, vertical:false },
+  romania: { stripes:['#002b7f','#fcd116','#ce1126'], stars:0, vertical:true },
+  bulgaria: { stripes:['#ffffff','#00966e','#d62612'], stars:0, vertical:false },
+  serbia: { stripes:['#c6363c','#0c4076','#ffffff'], stars:0, vertical:false },
+  croatia: { stripes:['#ff0000','#ffffff','#171796'], stars:0, vertical:false, emblem:'🛡️' },
+  bosnia: { stripes:['#002395','#fecb00','#002395'], stars:0, vertical:false, weights:[2,1,2], emblem:'⭐', starColor:'#ce1126' },
+  albania: { stripes:['#e41e20','#e41e20','#e41e20'], stars:0, vertical:false, emblem:'🦅' },
+  macedonia: { stripes:['#d20000','#ffe600','#d20000'], stars:0, vertical:false, weights:[2,1,2] },
+  montenegro: { stripes:['#c40308','#d3ae3b','#c40308'], stars:0, vertical:false, weights:[2,1,2] },
+  estonia: { stripes:['#0072ce','#111111','#ffffff'], stars:0, vertical:false },
+  latvia: { stripes:['#9e3039','#ffffff','#9e3039'], stars:0, vertical:false, weights:[2,1,2] },
+  lithuania: { stripes:['#fdb913','#006a44','#c1272d'], stars:0, vertical:false },
+  iceland: { stripes:['#02529c','#ffffff','#dc1e35'], stars:0, vertical:false },
+  ireland: { stripes:['#169b62','#ffffff','#ff883e'], stars:0, vertical:true },
+  uk: { stripes:['#012169','#ffffff','#c8102e'], stars:0, vertical:false },
+  cyprus: { stripes:['#ffffff','#d47600','#ffffff'], stars:0, vertical:false, weights:[2,1,2] },
+  malta: { stripes:['#ffffff','#cf142b','#ffffff'], stars:0, vertical:true },
+  moldova: { stripes:['#003da5','#ffd100','#c1272d'], stars:0, vertical:true },
+  belarus: { stripes:['#ce1720','#007c30','#ce1720'], stars:0, vertical:false, weights:[2,1,1] },
+  georgia: { stripes:['#ffffff','#ff0000','#ffffff'], stars:0, vertical:false, weights:[2,1,2] },
+  armenia: { stripes:['#d90012','#0033a0','#f2a800'], stars:0, vertical:false },
+  azerbaijan: { stripes:['#00b5e2','#ef3340','#509e2f'], stars:0, vertical:false, emblem:'☪️' },
+  china: { stripes:['#de2910','#ffde00','#de2910'], stars:0, vertical:false, weights:[2,1,2], emblem:'⭐', starColor:'#ce1126' },
+  japan: { stripes:['#ffffff','#bc002d','#ffffff'], stars:0, vertical:false, weights:[2,1,2] },
+  skorea: { stripes:['#ffffff','#cd2e3a','#ffffff'], stars:0, vertical:false, weights:[2,1,2], emblem:'☯️' },
+  india: { stripes:['#ff9933','#ffffff','#138808'], stars:0, vertical:false, emblem:'🔵' },
+  pakistan: { stripes:['#01411c','#01411c','#01411c'], stars:0, vertical:false, emblem:'☪️' },
+  bangladesh: { stripes:['#006a4e','#f42a41','#006a4e'], stars:0, vertical:false, weights:[2,1,2] },
+  indonesia: { stripes:['#e70011','#ffffff','#e70011'], stars:0, vertical:false, weights:[1,2,1] },
+  malaysia: { stripes:['#cc0001','#ffffff','#010066'], stars:0, vertical:false, emblem:'☪️' },
+  thailand: { stripes:['#a51931','#ffffff','#2d2a4a'], stars:0, vertical:false },
+  vietnam: { stripes:['#da251d','#ffde00','#da251d'], stars:0, vertical:false, weights:[2,1,2], emblem:'⭐', starColor:'#ce1126' },
+  philippines: { stripes:['#0038a8','#ce1126','#ffffff'], stars:0, vertical:false },
+  iran: { stripes:['#239f40','#ffffff','#da0000'], stars:0, vertical:false, emblem:'🕌' },
+  afghanistan: { stripes:['#111111','#d32011','#007a36'], stars:0, vertical:true },
+  kazakhstan: { stripes:['#00afca','#fec50c','#00afca'], stars:0, vertical:false, weights:[2,1,2], emblem:'🦅' },
+  uzbekistan: { stripes:['#1eb53a','#ffffff','#0099b5'], stars:0, vertical:false },
+  turkmenistan: { stripes:['#00843d','#ffffff','#00843d'], stars:0, vertical:false, weights:[2,1,2], emblem:'☪️' },
+  kyrgyzstan: { stripes:['#e8112d','#ffef00','#e8112d'], stars:0, vertical:false, weights:[2,1,2] },
+  tajikistan: { stripes:['#cc0000','#ffffff','#006600'], stars:0, vertical:false },
+  mongolia: { stripes:['#c4272f','#015197','#c4272f'], stars:0, vertical:true },
+  myanmar: { stripes:['#fecb00','#34b233','#ea2839'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  cambodia: { stripes:['#032ea1','#e00025','#032ea1'], stars:0, vertical:false, weights:[1,2,1] },
+  laos: { stripes:['#ce1126','#002868','#ce1126'], stars:0, vertical:false, weights:[1,2,1] },
+  srilanka: { stripes:['#ffbe29','#8d2029','#00534e'], stars:0, vertical:false },
+  nepal: { stripes:['#dc143c','#003893','#dc143c'], stars:0, vertical:false, weights:[2,1,2] },
+  bhutan: { stripes:['#ffcc33','#ff4e12','#ffcc33'], stars:0, vertical:false },
+  maldives: { stripes:['#d21034','#007e3a','#d21034'], stars:0, vertical:false, weights:[1,2,1], emblem:'☪️' },
+  singapore: { stripes:['#ef3340','#ffffff','#ef3340'], stars:0, vertical:false, weights:[1,2,1], emblem:'☪️' },
+  brunei: { stripes:['#f7e017','#ffffff','#f7e017'], stars:0, vertical:false, emblem:'🛡️' },
+  timor: { stripes:['#da291c','#ffc72c','#da291c'], stars:0, vertical:false, weights:[2,1,2], emblem:'⭐', starColor:'#ce1126' },
+  nigeria: { stripes:['#008751','#ffffff','#008751'], stars:0, vertical:true },
+  ghana: { stripes:['#ce1126','#fcd116','#006b3f'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  senegal: { stripes:['#00853f','#fdef42','#e31b23'], stars:0, vertical:true, emblem:'⭐', starColor:'#ce1126' },
+  mali: { stripes:['#14b53a','#fcd116','#ce1126'], stars:0, vertical:true },
+  guinea: { stripes:['#ce1126','#fcd116','#009460'], stars:0, vertical:true },
+  ivorycoast: { stripes:['#f77f00','#ffffff','#009e60'], stars:0, vertical:true },
+  cameroon: { stripes:['#007a5e','#ce1126','#fcd116'], stars:0, vertical:true, emblem:'⭐', starColor:'#ce1126' },
+  ethiopia: { stripes:['#078930','#fcdd09','#da121a'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  kenya: { stripes:['#111111','#bb0000','#006600'], stars:0, vertical:false, emblem:'🛡️' },
+  tanzania: { stripes:['#1eb53a','#fcd116','#00a3dd'], stars:0, vertical:false },
+  uganda: { stripes:['#111111','#fcdc04','#d90000'], stars:0, vertical:false, emblem:'🦅' },
+  southafrica: { stripes:['#e03c31','#007749','#001489'], stars:0, vertical:false },
+  zimbabwe: { stripes:['#319208','#ffd200','#de2010'], stars:0, vertical:false },
+  angola: { stripes:['#cc092f','#ffec00','#111111'], stars:0, vertical:false },
+  mozambique: { stripes:['#009a44','#fce100','#d21034'], stars:0, vertical:false },
+  zambia: { stripes:['#198a00','#de2010','#ef7d00'], stars:0, vertical:false },
+  rwanda: { stripes:['#00a1de','#fad201','#20603d'], stars:0, vertical:false },
+  burkina: { stripes:['#ef2b2d','#009e49','#fcd116'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  niger: { stripes:['#e05206','#ffffff','#0db02b'], stars:0, vertical:false },
+  chad: { stripes:['#002664','#fecb00','#c60c30'], stars:0, vertical:true },
+  congo: { stripes:['#009543','#fbde4a','#dc241f'], stars:0, vertical:false },
+  drc: { stripes:['#007fff','#ce1021','#f7d618'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  gabon: { stripes:['#009e60','#fcd116','#3a75c4'], stars:0, vertical:false },
+  eritrea: { stripes:['#12ad2b','#4189de','#ea0437'], stars:0, vertical:false },
+  madagascar: { stripes:['#fc3d32','#007e3a','#ffffff'], stars:0, vertical:false },
+  botswana: { stripes:['#75aadb','#ffffff','#111111'], stars:0, vertical:false },
+  namibia: { stripes:['#003580','#d21034','#009543'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  mozambique2: { stripes:['#009a44','#111111','#fce100'], stars:0, vertical:false },
+  usa: { stripes:['#b22234','#ffffff','#3c3b6e'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  canada: { stripes:['#ff0000','#ffffff','#ff0000'], stars:0, vertical:true, weights:[1,2,1], emblem:'🍁' },
+  mexico: { stripes:['#006847','#ffffff','#ce1126'], stars:0, vertical:true, emblem:'🦅' },
+  brazil: { stripes:['#009c3b','#ffdf00','#002776'], stars:0, vertical:false, weights:[2,1,2], emblem:'⭐', starColor:'#ce1126' },
+  argentina: { stripes:['#74acdf','#ffffff','#74acdf'], stars:0, vertical:false, emblem:'☀️' },
+  chile: { stripes:['#ffffff','#d52b1e','#0039a6'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  colombia: { stripes:['#fcd116','#003893','#ce1126'], stars:0, vertical:false, weights:[2,1,1] },
+  venezuela: { stripes:['#ffcc00','#00247d','#cf142b'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  peru: { stripes:['#d91023','#ffffff','#d91023'], stars:0, vertical:true },
+  ecuador: { stripes:['#ffdd00','#034ea2','#ed1c24'], stars:0, vertical:false, weights:[2,1,1] },
+  bolivia: { stripes:['#d52b1e','#f9e300','#007934'], stars:0, vertical:false },
+  paraguay: { stripes:['#d52b1e','#ffffff','#0038a8'], stars:0, vertical:false },
+  uruguay: { stripes:['#ffffff','#0038a8','#ffffff'], stars:0, vertical:false, weights:[2,1,2], emblem:'☀️' },
+  cuba: { stripes:['#002a8f','#ffffff','#cf142b'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  panama: { stripes:['#ffffff','#d21034','#005293'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  costarica: { stripes:['#002b7f','#ffffff','#ce1126'], stars:0, vertical:false },
+  honduras: { stripes:['#0073cf','#ffffff','#0073cf'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  guatemala: { stripes:['#4997d0','#ffffff','#4997d0'], stars:0, vertical:true },
+  elsalvador: { stripes:['#0047ab','#ffffff','#0047ab'], stars:0, vertical:false },
+  nicaragua: { stripes:['#0067c6','#ffffff','#0067c6'], stars:0, vertical:false },
+  haiti: { stripes:['#00209f','#d21034','#00209f'], stars:0, vertical:false, weights:[1,2,1] },
+  dominican: { stripes:['#002d62','#ce1126','#ffffff'], stars:0, vertical:false },
+  jamaica: { stripes:['#009b3a','#fed100','#111111'], stars:0, vertical:false },
+  australia: { stripes:['#00008b','#ffffff','#ff0000'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  newzealand: { stripes:['#00247d','#ffffff','#cc142b'], stars:0, vertical:false, emblem:'⭐', starColor:'#ce1126' },
+  fiji: { stripes:['#68bfe5','#00247d','#ffffff'], stars:0, vertical:false },
+  syria:   { stripes:['#0a8a4f','#ffffff','#111111'], stars:3, starColor:'#ce1126', vertical:false },
+  france:  { stripes:['#0055a4','#ffffff','#ef4135'], stars:0, vertical:true },
+  italy:   { stripes:['#009246','#ffffff','#ce2b37'], stars:0, vertical:true },
+  germany: { stripes:['#111111','#dd0000','#ffce00'], stars:0, vertical:false },
+  spain:   { stripes:['#aa151b','#f1bf00','#aa151b'], weights:[1,2,1], stars:0, vertical:false, emblem:'👑' },
+};
+
+const I18N = { fr: {"اختر الإطار": "Choisir un cadre", "اختر صورتك": "Choisissez votre photo", "اضبط واحفظ": "Ajustez et enregistrez", "اختر صورة من جهازك": "Choisissez une photo de votre appareil", "اضغط هنا لاختيار صورة من المعرض": "Appuyez ici pour choisir dans la galerie", "يفضل صورة واضحة يظهر فيها وجهك.": "Une photo nette avec votre visage est idéale.", "✨ جرّب بصورة المثال": "✨ Essayer la photo d'exemple", "صورة أخرى": "Autre photo", "إعادة ضبط": "Réinitialiser", "قلب": "Retourner", "تدوير": "Pivoter", "اسحب لتحريك الصورة، وقرّب بإصبعين أو بالشريط": "Faites glisser la photo, pincez ou utilisez le curseur pour zoomer", "حفظ الصورة 💾": "Enregistrer 💾", "مشاركة 📤": "Partager 📤", "🎨 تصميم الإطار": "🎨 Conception du cadre", "بدون علم": "Sans drapeau", "🖼️ صورة من المعرض": "🖼️ Image de la galerie", "🖼️ اختر صورة للحلقة…": "🖼️ Choisir une image d'anneau…", "خلفية": "Arrière-plan", "حلقة": "Anneau", "سماكة الحلقة": "Épaisseur de l'anneau", "حجم الصورة": "Taille de la photo", "شكل الإطار": "Forme du cadre", "⭕ دائرة": "⭕ Cercle", "▢ مدوّر": "▢ Arrondi", "⬛ مربع": "⬛ Carré", "⬡ سداسي": "⬡ Hexagone", "❤️ قلب": "❤️ Cœur", "💎 معيّن": "💎 Losange", "🛑 ثماني": "🛑 Octogone", "⭐ نجمة": "⭐ Étoile", "🔺 مثلث": "🔺 Triangle", "فوق الإطار": "Au-dessus du cadre", "داخل الصورة": "Dans la photo", "تحت الإطار": "Sous le cadre", "نص على الصورة": "Texte sur la photo", "الإطار المختار": "Cadre sélectionné", "🛡️ صورتك تبقى على جهازك فقط — لا يتم رفع أي صورة لأي مكان.": "🛡️ Vos photos restent sur votre appareil — rien n'est téléversé.", "إطارات لمناسبات مختلفة — التحرير، الأعياد، رأس السنة، ميلاد، تخرج وزواج.": "Des cadres pour toutes les occasions — Libération, Aïds, Nouvel An, anniversaire, remise de diplôme et mariage.", "صمّم إطارك ✨": "Créez votre cadre ✨", "عيد التحرير السوري": "Jour de la libération syrienne", "رمضان كريم": "Ramadan Karim", "عيد الفطر": "Aïd al-Fitr", "عيد الأضحى": "Aïd al-Adha", "رأس السنة": "Nouvel An", "عيد ميلاد": "Anniversaire", "تخرج": "Remise de diplôme", "زواج": "Mariage", "سوريا": "Syrie", "هل تريد الخروج من التطبيق؟": "Voulez-vous quitter l\u0027application ?", "نعم": "Oui", "لا": "Non", "عنوان الإطار…": "Titre du cadre…", "سطر ثانٍ (اختياري)…": "Deuxième ligne (facultatif)…", "اكتب نصاً…": "Écrivez un texte…"}, en: {"اختر الإطار": "Choose a frame", "اختر صورتك": "Choose your photo", "اضبط واحفظ": "Adjust & save", "اختر صورة من جهازك": "Pick a photo from your device", "اضغط هنا لاختيار صورة من المعرض": "Tap here to pick from gallery", "يفضل صورة واضحة يظهر فيها وجهك.": "A clear photo showing your face works best.", "✨ جرّب بصورة المثال": "✨ Try the sample photo", "صورة أخرى": "Another photo", "إعادة ضبط": "Reset", "قلب": "Flip", "تدوير": "Rotate", "اسحب لتحريك الصورة، وقرّب بإصبعين أو بالشريط": "Drag to move the photo, pinch or use the slider to zoom", "حفظ الصورة 💾": "Save 💾", "مشاركة 📤": "Share 📤", "🎨 تصميم الإطار": "🎨 Frame design", "بدون علم": "No flag", "🖼️ صورة من المعرض": "🖼️ Gallery image", "🖼️ اختر صورة للحلقة…": "🖼️ Pick a ring image…", "خلفية": "Background", "حلقة": "Ring", "سماكة الحلقة": "Ring thickness", "حجم الصورة": "Photo size", "شكل الإطار": "Frame shape", "⭕ دائرة": "⭕ Circle", "▢ مدوّر": "▢ Rounded", "⬛ مربع": "⬛ Square", "⬡ سداسي": "⬡ Hexagon", "❤️ قلب": "❤️ Heart", "💎 معيّن": "💎 Diamond", "🛑 ثماني": "🛑 Octagon", "⭐ نجمة": "⭐ Star", "🔺 مثلث": "🔺 Triangle", "فوق الإطار": "Above frame", "داخل الصورة": "Inside photo", "تحت الإطار": "Below frame", "نص على الصورة": "Text on photo", "الإطار المختار": "Selected frame", "🛡️ صورتك تبقى على جهازك فقط — لا يتم رفع أي صورة لأي مكان.": "🛡️ Your photos stay on your device — nothing is uploaded.", "إطارات لمناسبات مختلفة — التحرير، الأعياد، رأس السنة، ميلاد، تخرج وزواج.": "Frames for many occasions — Liberation, Eids, New Year, birthday, graduation and wedding.", "صمّم إطارك ✨": "Design your frame ✨", "عيد التحرير السوري": "Syrian Liberation Day", "رمضان كريم": "Ramadan Kareem", "عيد الفطر": "Eid al-Fitr", "عيد الأضحى": "Eid al-Adha", "رأس السنة": "New Year", "عيد ميلاد": "Birthday", "تخرج": "Graduation", "زواج": "Wedding", "سوريا": "Syria", "هل تريد الخروج من التطبيق؟": "Do you want to exit the app?", "نعم": "Yes", "لا": "No", "عنوان الإطار…": "Frame title…", "سطر ثانٍ (اختياري)…": "Second line (optional)…", "اكتب نصاً…": "Write text…"} };
+const FLAG_NAMES = { syria:'سوريا', france:'فرنسا', italy:'إيطاليا', germany:'ألمانيا', spain:'إسبانيا', iraq:'العراق', palestine:'فلسطين', jordan:'الأردن', egypt:'مصر', lebanon:'لبنان', uae:'الإمارات', kuwait:'الكويت', saudi:'السعودية', qatar:'قطر', bahrain:'البحرين', oman:'عُمان', yemen:'اليمن', libya:'ليبيا', tunisia:'تونس', algeria:'الجزائر', morocco:'المغرب', sudan:'السودان', mauritania:'موريتانيا', somalia:'الصومال', djibouti:'جيبوتي', comoros:'جزر القمر', turkey:'تركيا', portugal:'البرتغال', netherlands:'هولندا', belgium:'بلجيكا', luxembourg:'لوكسمبورغ', austria:'النمسا', poland:'بولندا', ukraine:'أوكرانيا', russia:'روسيا', sweden:'السويد', norway:'النرويج', denmark:'الدنمارك', finland:'فنلندا', greece:'اليونان', switzerland:'سويسرا', czechia:'تشيكيا', slovakia:'سلوفاكيا', slovenia:'سلوفينيا', hungary:'المجر', romania:'رومانيا', bulgaria:'بلغاريا', serbia:'صربيا', croatia:'كرواتيا', bosnia:'البوسنة', albania:'ألبانيا', macedonia:'مقدونيا', montenegro:'الجبل الأسود', estonia:'إستونيا', latvia:'لاتفيا', lithuania:'ليتوانيا', iceland:'آيسلندا', ireland:'أيرلندا', uk:'بريطانيا', cyprus:'قبرص', malta:'مالطا', moldova:'مولدوفا', belarus:'بيلاروسيا', georgia:'جورجيا', armenia:'أرمينيا', azerbaijan:'أذربيجان', china:'الصين', japan:'اليابان', skorea:'كوريا الجنوبية', india:'الهند', pakistan:'باكستان', bangladesh:'بنغلاديش', indonesia:'إندونيسيا', malaysia:'ماليزيا', thailand:'تايلاند', vietnam:'فيتنام', philippines:'الفلبين', iran:'إيران', afghanistan:'أفغانستان', kazakhstan:'كازاخستان', uzbekistan:'أوزبكستان', turkmenistan:'تركمانستان', kyrgyzstan:'قرغيزستان', tajikistan:'طاجيكستان', mongolia:'منغوليا', myanmar:'ميانمار', cambodia:'كمبوديا', laos:'لاوس', srilanka:'سريلانكا', nepal:'نيبال', bhutan:'بوتان', maldives:'المالديف', singapore:'سنغافورة', brunei:'بروناي', timor:'تيمور الشرقية', nigeria:'نيجيريا', ghana:'غانا', senegal:'السنغال', mali:'مالي', guinea:'غينيا', ivorycoast:'ساحل العاج', cameroon:'الكاميرون', ethiopia:'إثيوبيا', kenya:'كينيا', tanzania:'تنزانيا', uganda:'أوغندا', southafrica:'جنوب أفريقيا', zimbabwe:'زيمبابوي', angola:'أنغولا', mozambique:'موزمبيق', zambia:'زامبيا', rwanda:'رواندا', burkina:'بوركينا فاسو', niger:'النيجر', chad:'تشاد', congo:'الكونغو', drc:'الكونغو الديمقراطية', gabon:'الغابون', eritrea:'إريتريا', madagascar:'مدغشقر', botswana:'بوتسوانا', namibia:'ناميبيا', mozambique2:'موزمبيق', usa:'أمريكا', canada:'كندا', mexico:'المكسيك', brazil:'البرازيل', argentina:'الأرجنتين', chile:'تشيلي', colombia:'كولومبيا', venezuela:'فنزويلا', peru:'بيرو', ecuador:'الإكوادور', bolivia:'بوليفيا', paraguay:'باراغواي', uruguay:'أوروغواي', cuba:'كوبا', panama:'بنما', costarica:'كوستاريكا', honduras:'هندوراس', guatemala:'غواتيمالا', elsalvador:'السلفادور', nicaragua:'نيكاراغوا', haiti:'هايتي', dominican:'الدومينيكان', jamaica:'جامايكا', australia:'أستراليا', newzealand:'نيوزيلندا', fiji:'فيجي' };
+function effectiveFrame(f) {
+  if (!f || !f.custom) return f;
+  const c = state.custom;
+  return Object.assign({}, f, {
+    title: c.title, sub: c.sub, sub2: '',
+    bg: [c.bg1, c.bg2],
+    ring: [c.ring1, c.ring2, c.ring3],
+    font: c.font, titleColor: c.titleColor,
+    flag: c.flag !== 'none',
+    customW: c.ringW || 2.9,
+    customImg: c.flag === 'image' ? state.customImgEl : null,
+    flagDef: FLAGS[c.flag] || null,
+  });
+}
+
+function shapePath(ctx, cx, cy, R, shape) {
+  if (shape === 'square') {
+    const s = R * 1.72;
+    ctx.rect(cx - s/2, cy - s/2, s, s);
+  } else if (shape === 'rounded') {
+    const s = R * 1.72, r = s * 0.18;
+    const x = cx - s/2, y = cy - s/2;
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + s, y, x + s, y + s, r);
+    ctx.arcTo(x + s, y + s, x, y + s, r);
+    ctx.arcTo(x, y + s, x, y, r);
+    ctx.arcTo(x, y, x + s, y, r);
+    ctx.closePath();
+  } else if (shape === 'hexagon') {
+    for (let i = 0; i < 6; i++) {
+      const a = -Math.PI / 2 + i * Math.PI / 3;
+      const x = cx + Math.cos(a) * R * 1.02, y = cy + Math.sin(a) * R * 1.02;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+  } else if (shape === 'heart') {
+    const s = R / 52;
+    ctx.moveTo(cx, cy + 42 * s);
+    ctx.bezierCurveTo(cx - 70 * s, cy - 12 * s, cx - 38 * s, cy - 62 * s, cx, cy - 22 * s);
+    ctx.bezierCurveTo(cx + 38 * s, cy - 62 * s, cx + 70 * s, cy - 12 * s, cx, cy + 42 * s);
+    ctx.closePath();
+  } else if (shape === 'diamond') {
+    const s = R * 1.18;
+    ctx.moveTo(cx, cy - s);
+    ctx.lineTo(cx + s, cy);
+    ctx.lineTo(cx, cy + s);
+    ctx.lineTo(cx - s, cy);
+    ctx.closePath();
+  } else if (shape === 'octagon') {
+    for (let i = 0; i < 8; i++) {
+      const a = -Math.PI / 2 + Math.PI / 8 + i * Math.PI / 4;
+      const x = cx + Math.cos(a) * R * 1.02, y = cy + Math.sin(a) * R * 1.02;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+  } else if (shape === 'star') {
+    for (let i = 0; i < 10; i++) {
+      const a = -Math.PI / 2 + i * Math.PI / 5;
+      const rr = i % 2 === 0 ? R * 1.05 : R * 0.52;
+      const x = cx + Math.cos(a) * rr, y = cy + Math.sin(a) * rr;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+  } else if (shape === 'triangle') {
+    for (let i = 0; i < 3; i++) {
+      const a = -Math.PI / 2 + i * 2 * Math.PI / 3;
+      const x = cx + Math.cos(a) * R * 1.1, y = cy + Math.sin(a) * R * 1.1;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+  } else {
+    ctx.arc(cx, cy, R, 0, Math.PI * 2);
+  }
+}
+
+function patternBg(ctx, S, f) {
+  const g = ctx.createLinearGradient(0, 0, S, S);
+  g.addColorStop(0, f.bg[0]); g.addColorStop(1, f.bg[1]);
+  ctx.fillStyle = g; ctx.fillRect(0, 0, S, S);
+  ctx.save();
+  ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+  ctx.lineWidth = S * 0.004;
+  const st = S / 7;
+  for (let x = -S; x < S * 2; x += st) {
+    for (let y = -S; y < S * 2; y += st) {
+      ctx.save();
+      ctx.translate(x, y); ctx.rotate(Math.PI / 4);
+      ctx.strokeRect(-st/2.6, -st/2.6, st/1.3, st/1.3);
+      ctx.restore();
+    }
+  }
+  ctx.restore();
+}
+
+function drawPhotoInCircle(ctx, S, R, cx, cy) {
+  if (!state.img) {
+    ctx.save();
+    ctx.beginPath(); shapePath(ctx, cx, cy, R, state.shape); ctx.clip();
+    ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillRect(cx - R, cy - R, R * 2, R * 2);
+    if (sampleImg.complete && sampleImg.naturalWidth) {
+      const sc = Math.max((R * 2) / sampleImg.naturalWidth, (R * 2) / sampleImg.naturalHeight);
+      ctx.globalAlpha = 0.55;
+      ctx.drawImage(sampleImg, cx - sampleImg.naturalWidth * sc / 2, cy - sampleImg.naturalHeight * sc / 2, sampleImg.naturalWidth * sc, sampleImg.naturalHeight * sc);
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = 'rgba(0,0,0,0.18)'; ctx.fillRect(cx - R, cy - R, R * 2, R * 2);
+    } else {
+      ctx.fillStyle = 'rgba(255,255,255,0.55)';
+      ctx.font = `${R * 0.5}px serif`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText('🖼️', cx, cy);
+    }
+    ctx.restore();
+    return;
+  }
+  const img = state.img;
+  ctx.save();
+  ctx.beginPath(); shapePath(ctx, cx, cy, R, state.shape); ctx.clip();
+  ctx.fillStyle = '#000'; ctx.fillRect(cx - R, cy - R, R * 2, R * 2);
+  const base = Math.max((R * 2) / img.width, (R * 2) / img.height);
+  const sc = base * state.zoom;
+  ctx.translate(cx + state.tx * S / 1000, cy + state.ty * S / 1000);
+  ctx.rotate(state.rot);
+  ctx.scale(state.flipX ? -sc : sc, sc);
+  ctx.drawImage(img, -img.width / 2, -img.height / 2);
+  ctx.restore();
+}
+
+function strokeShapeRing(ctx, cx, cy, R, shape, inflate, lw, color) {
+  ctx.save();
+  ctx.lineWidth = lw;
+  ctx.strokeStyle = color;
+  ctx.beginPath();
+  shapePath(ctx, cx, cy, R + inflate, shape);
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawRing(ctx, S, R, cx, cy, f) {
+  const lw = S * 0.023;
+  ctx.save();
+  const sh = state.shape;
+  if (f.flag) {
+    const outer = lw * (f.customW || 2.9);
+    ctx.save();
+    ctx.beginPath();
+    shapePath(ctx, cx, cy, R + outer, sh);
+    shapePath(ctx, cx, cy, R, sh);
+    ctx.clip('evenodd');
+    const fd = f.flagDef || FLAGS.syria;
+    const top = cy - R - outer, bandH = (R + outer) * 2;
+    const left = cx - R - outer - 2, bandW = (R + outer) * 2 + 4;
+    if (f.customImg) {
+      const iw = f.customImg.naturalWidth || f.customImg.width, ih = f.customImg.naturalHeight || f.customImg.height;
+      const scale = Math.max(bandW / iw, bandH / ih);
+      const dw = iw * scale, dh = ih * scale;
+      ctx.drawImage(f.customImg, left + (bandW - dw) / 2, top - 2 + (bandH + 4 - dh) / 2, dw, dh);
+    } else if (fd.vertical) {
+      fd.stripes.forEach((col, i) => {
+        ctx.fillStyle = col;
+        ctx.fillRect(left + bandW * i / 3, top - 2, bandW / 3 + 1, bandH + 4);
+      });
+    }
+    ctx.restore();
+    if (!f.customImg && !fd.vertical) {
+      const wts = fd.weights || fd.stripes.map(() => 1);
+      const wsum = wts.reduce((a, b) => a + b, 0);
+      let acc = 0;
+      fd.stripes.forEach((col, i) => {
+        const band = outer * wts[i] / wsum;
+        strokeShapeRing(ctx, cx, cy, R, sh, outer - acc - band / 2, band, col);
+        acc += band;
+      });
+    }
+    ctx.save();
+    const stS = lw * 0.5;
+    const drawStarBand = fd.stars > 0;
+    const halfW = state.shape === 'circle' ? R
+      : state.shape === 'rounded' || state.shape === 'square' ? R * 0.86
+      : state.shape === 'hexagon' || state.shape === 'octagon' ? R * 0.9
+      : state.shape === 'diamond' ? R * 0.95
+      : state.shape === 'star' ? R * 0.78
+      : state.shape === 'triangle' ? R * 0.85
+      : R * 0.72;
+    const bandMid = halfW + outer * 0.5;
+    if (drawStarBand) [[-1, 0], [1, 0]].forEach(([dir]) => {
+      const sx = cx + dir * bandMid;
+      [-1, 0, 1].forEach(dy => drawStar(ctx, sx, cy + dy * lw * 1.55, stS, fd.starColor || '#ce1126'));
+    });
+    if (fd.emblem) {
+      const emS = outer * 0.5;
+      ctx.font = `${emS}px serif`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      const wts2 = fd.weights || fd.stripes.map(() => 1);
+      const wsum2 = wts2.reduce((a, b) => a + b, 0);
+      const midOff = outer - outer * wts2[0] / wsum2 - outer * (wts2[1] || 0) / wsum2 / 2;
+      const emR = halfW + midOff;
+      [[cx, cy - emR], [cx, cy + emR], [cx - emR, cy], [cx + emR, cy]].forEach(([ex, ey]) => {
+        ctx.fillText(fd.emblem, ex, ey);
+      });
+    }
+    if (fd.bandText) {
+      ctx.fillStyle = fd.bandTextColor || '#007a3d';
+      ctx.font = `bold ${outer / 3 * 0.88}px Cairo, Tajawal, sans-serif`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      [[cx, cy - bandMid], [cx, cy + bandMid]].forEach(([tx0, ty0]) => {
+        ctx.save();
+        ctx.translate(tx0, ty0);
+        ctx.fillText(fd.bandText, 0, 0);
+        ctx.restore();
+      });
+    }
+    ctx.restore();
+    const edgeOut = (!f.customImg && fd.stripes.length) ? fd.stripes[0] : f.ring[2];
+    const edgeIn = (!f.customImg && fd.stripes.length) ? fd.stripes[fd.stripes.length - 1] : f.ring[2];
+    strokeShapeRing(ctx, cx, cy, R, sh, outer + lw * 0.15, lw * 0.3, edgeOut);
+    strokeShapeRing(ctx, cx, cy, R, sh, -lw * 0.15, lw * 0.3, edgeIn);
+  } else {
+    strokeShapeRing(ctx, cx, cy, R, sh, lw * 1.1, lw * 1.6, f.ring[2]);
+    strokeShapeRing(ctx, cx, cy, R, sh, lw * 0.55, lw, f.ring[0]);
+    strokeShapeRing(ctx, cx, cy, R, sh, lw * 0.05, lw * 0.75, f.ring[1]);
+  }
+  if (f.stars) {
+    ctx.fillStyle = f.accent;
+    if (f.flag) { ctx.restore(); return; }
+    const starR = R + lw * 0.55;
+    [Math.PI * 1.5, Math.PI * 0.15, Math.PI * 0.85].forEach(a => {
+      const x = cx + Math.cos(a) * starR;
+      const y = cy + Math.sin(a) * starR;
+      drawStar(ctx, x, y, lw * 0.85, f.accent);
+    });
+  }
+  ctx.restore();
+}
+
+function drawStar(ctx, x, y, r, color) {
+  ctx.save();
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  for (let i = 0; i < 5; i++) {
+    const a = -Math.PI / 2 + i * 4 * Math.PI / 5;
+    const px = x + Math.cos(a) * r, py = y + Math.sin(a) * r;
+    i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+  }
+  ctx.closePath(); ctx.fill();
+  ctx.restore();
+}
+
+function drawDecor(ctx, S, R, cx, cy, f) {
+  if (!f.decor || !f.decor.length) return;
+  ctx.save();
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  const rr = R + S * 0.045;
+  f.decor.forEach((d, i) => {
+    const a = Math.PI * 0.5 + (i - (f.decor.length - 1) / 2) * 0.5;
+    ctx.font = `${S * 0.055}px serif`;
+    ctx.fillText(d, cx + Math.cos(a) * rr, cy + Math.sin(a) * rr + S * 0.03);
+  });
+  ctx.restore();
+}
+
+function arText(ctx, text, x, y, size, font, color, weight) {
+  ctx.save();
+  ctx.font = `${weight || 800} ${size}px "${font}", serif`;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.shadowColor = 'rgba(0,0,0,0.55)'; ctx.shadowBlur = size * 0.15; ctx.shadowOffsetY = size * 0.04;
+  ctx.fillStyle = color;
+  ctx.fillText(text, x, y);
+  ctx.restore();
+}
+
+function drawFrameText(ctx, S, R, cx, cy, f) {
+  if (!f.title) return;
+  const fs = S * 0.062;
+  const y = cy + R * 0.52;
+  arText(ctx, f.title, cx, y, fs, f.font, f.titleColor);
+  if (f.sub) {
+    ctx.save();
+    ctx.font = `700 ${S * 0.032}px "Cairo", sans-serif`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 6;
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText('\u200e' + f.sub + '\u200e', cx, y + fs * 0.95);
+    ctx.restore();
+  }
+  if (f.sub2) {
+    ctx.save();
+    ctx.font = `700 ${S * 0.034}px "Cairo", sans-serif`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 6;
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(f.sub2, cx, y + fs * 1.7);
+    ctx.restore();
+  }
+}
+
+function drawCustomText(ctx, S, R, cx, cy) {
+  if (!state.customText.trim()) return;
+  const size = state.textSize * S / 1080;
+  let y;
+  if (state.textPos === 'bottom') y = cy + R + S * 0.085;
+  else if (state.textPos === 'top') y = cy - R - S * 0.06;
+  else y = cy + R * 0.80;
+  arText(ctx, state.customText, cx, y, size, state.textFont, state.textColor);
+}
+
+function renderScene(ctx, S, f0) {
+  const f = effectiveFrame(f0);
+  patternBg(ctx, S, f);
+  const cx = S / 2, cy = S / 2, R = S * (f0.custom ? (state.custom.photoR || 0.34) : 0.34);
+  drawPhotoInCircle(ctx, S, R, cx, cy);
+  drawRing(ctx, S, R, cx, cy, f);
+  drawDecor(ctx, S, R, cx, cy, f);
+  drawFrameText(ctx, S, R, cx, cy, f);
+  drawCustomText(ctx, S, R, cx, cy);
+}
+
+function frameThumb(f, size) {
+  const c = document.createElement('canvas');
+  c.width = c.height = size || 240;
+  const ctx = c.getContext('2d');
+  const imgBak = state.img;
+  const noPhoto = !imgBak;
+  renderScene(ctx, c.width, f);
+  return c;
+}
+
+/* ---------- Views ---------- */
+
+function viewFrames() {
+  main.innerHTML = `
+    <h1 class="title">اختر الإطار</h1>
+    <p class="sub">إطارات لمناسبات مختلفة — التحرير، الأعياد، رأس السنة، ميلاد، تخرج وزواج.</p>
+    <div class="frames-grid" id="grid"></div>`;
+  const grid = document.getElementById('grid');
+  FRAMES.forEach(f => {
+    const card = document.createElement('div');
+    card.className = 'frame-card' + (state.frame && state.frame.id === f.id ? ' selected' : '');
+    const th = frameThumb(f, 300);
+    card.appendChild(th);
+    const nm = document.createElement('div');
+    nm.className = 'fname'; nm.textContent = f.name;
+    card.appendChild(nm);
+    card.onclick = () => { state.frame = f; setStep(2); };
+    grid.appendChild(card);
+  });
+}
+
+function viewPhoto() {
+  main.innerHTML = `
+    <div class="selected-frame-bar">
+      <div id="sfthumb"></div>
+      <div><div class="lbl">الإطار المختار</div><div class="nm">${state.frame.name}</div></div>
+      <div class="chg" id="chgFrame">تغيير</div>
+    </div>
+    <h1 class="title">اختر صورتك</h1>
+    <p class="sub">يفضل صورة واضحة يظهر فيها وجهك.</p>
+    <div class="dropzone" id="dz">
+      <div class="cam">📷</div>
+      <h2>اختر صورة من جهازك</h2>
+      <p>اضغط هنا لاختيار صورة من المعرض</p>
+    </div>
+    <button class="sharebtn" id="trySample" style="margin-top:12px">✨ جرّب بصورة المثال</button>
+    <div class="note">🛡️ صورتك تبقى على جهازك فقط — لا يتم رفع أي صورة لأي مكان.</div>`;
+  document.getElementById('sfthumb').appendChild(frameThumb(state.frame, 112));
+  document.getElementById('chgFrame').onclick = () => setStep(1);
+  document.getElementById('dz').onclick = () => document.getElementById('fileInput').click();
+  document.getElementById('trySample').onclick = () => {
+    state.img = sampleImg;
+    state.zoom = 1; state.tx = 0; state.ty = 0; state.rot = 0; state.flipX = false;
+    setStep(3);
+  };
+}
+
+function viewEditor() {
+  main.innerHTML = `
+    <div class="editor-wrap">
+      <div id="preview-holder"><canvas id="preview" width="720" height="720"></canvas></div>
+      <div class="hint">اسحب لتحريك الصورة، وقرّب بإصبعين أو بالشريط</div>
+      <div class="zoomrow">
+        <button class="zbtn" id="zout">−</button>
+        <input type="range" id="zoom" min="1" max="4" step="0.01" value="${state.zoom}">
+        <button class="zbtn" id="zin">+</button>
+      </div>
+      <div class="toolrow">
+        <button class="tool" id="rotBtn"><span class="ti">↻</span>تدوير</button>
+        <button class="tool" id="flipBtn"><span class="ti">⇋</span>قلب</button>
+        <button class="tool" id="resetBtn"><span class="ti">⟲</span>إعادة ضبط</button>
+        <button class="tool" id="otherBtn"><span class="ti">🖼️</span>صورة أخرى</button>
+      </div>
+      ${state.frame.custom ? `
+      <div class="txteditor">
+        <div style="font-size:13px;font-weight:700;margin-bottom:8px">🎨 تصميم الإطار</div>
+        <input type="text" id="cfTitle" placeholder="عنوان الإطار…" value="">
+        <input type="text" id="cfSub" placeholder="سطر ثانٍ (اختياري)…" value="">
+        <div class="txtrow" style="margin-top:6px">
+          <select id="cfFlag">
+            <option value="none">بدون علم</option>
+            <option value="image">🖼️ صورة من المعرض</option>
+            <option value="syria">سوريا</option>
+          </select>
+          <select id="cfFont">${FONTS.map(x=>'<option value="'+x.id+'">'+x.label+'</option>').join('')}</select>
+          <input type="color" id="cfTitleColor" value="#ffffff" title="لون العنوان">
+        </div>
+        <div class="txtrow" style="margin-top:6px">
+          <input type="file" id="cfFlagFile" accept="image/*" style="display:none">
+          <button id="cfFlagPick" class="posbtn" style="flex:1">🖼️ اختر صورة للحلقة…</button>
+        </div>
+        <div class="txtrow" style="margin-top:6px">
+          <span style="font-size:11.5px;color:var(--mut)">سماكة الحلقة</span>
+          <input type="range" id="cfRingW" min="1" max="5" step="0.1" value="2.9" style="flex:1">
+        </div>
+        <div class="txtrow" style="margin-top:6px">
+          <span style="font-size:11.5px;color:var(--mut)">حجم الصورة</span>
+          <input type="range" id="cfPhotoR" min="0.25" max="0.44" step="0.01" value="0.34" style="flex:1">
+        </div>
+        <div class="txtrow" style="margin-top:6px">
+          <span style="font-size:11.5px;color:var(--mut)">خلفية</span>
+          <input type="color" id="cfBg1" value="#0d3b2e">
+          <input type="color" id="cfBg2" value="#1a7a54">
+          <span style="font-size:11.5px;color:var(--mut)">حلقة</span>
+          <input type="color" id="cfRing1" value="#ffffff">
+          <input type="color" id="cfRing2" value="#c9a227">
+        </div>
+      </div>` : ''}
+      <div class="txteditor" style="padding-bottom:6px">
+        <div style="font-size:12.5px;color:var(--mut);margin-bottom:6px">شكل الإطار</div>
+        <div class="posbtns" style="margin-top:0">
+          <button class="shapebtn ${state.shape==='circle'?'on':''}" data-sh="circle">⭕ دائرة</button>
+          <button class="shapebtn ${state.shape==='rounded'?'on':''}" data-sh="rounded">▢ مدوّر</button>
+          <button class="shapebtn ${state.shape==='square'?'on':''}" data-sh="square">⬛ مربع</button>
+          <button class="shapebtn ${state.shape==='hexagon'?'on':''}" data-sh="hexagon">⬡ سداسي</button>
+          <button class="shapebtn ${state.shape==='heart'?'on':''}" data-sh="heart">❤️ قلب</button>
+          <button class="shapebtn ${state.shape==='diamond'?'on':''}" data-sh="diamond">💎 معيّن</button>
+          <button class="shapebtn ${state.shape==='octagon'?'on':''}" data-sh="octagon">🛑 ثماني</button>
+          <button class="shapebtn ${state.shape==='star'?'on':''}" data-sh="star">⭐ نجمة</button>
+          <button class="shapebtn ${state.shape==='triangle'?'on':''}" data-sh="triangle">🔺 مثلث</button>
+        </div>
+      </div>
+      <div class="txteditor">
+        <input type="text" id="customText" placeholder="✍️ أضف نصاً على الصورة (اختياري)…" value="${state.customText.replace(/"/g, '&quot;')}">
+        <div class="txtrow">
+          <select id="textFont">${FONTS.map(f => `<option value="${f.id}" ${f.id === state.textFont ? 'selected' : ''}>${f.label}</option>`).join('')}</select>
+          <input type="color" id="textColor" value="${state.textColor}">
+          <input type="range" id="textSize" min="24" max="130" value="${state.textSize}">
+        </div>
+        <div class="posbtns">
+          <button class="posbtn ${state.textPos === 'top' ? 'on' : ''}" data-p="top">فوق الإطار</button>
+          <button class="posbtn ${state.textPos === 'inside' ? 'on' : ''}" data-p="inside">داخل الصورة</button>
+          <button class="posbtn ${state.textPos === 'bottom' ? 'on' : ''}" data-p="bottom">تحت الإطار</button>
+        </div>
+      </div>
+      <button class="savebtn" id="saveBtn">حفظ الصورة 💾</button>
+      <button class="sharebtn" id="shareBtn">مشاركة 📤</button>
+    </div>`;
+  setupEditor();
+}
+
+function render() {
+  if (state.step === 1) viewFrames();
+  else if (state.step === 2) viewPhoto();
+  else viewEditor();
+}
+
+/* ---------- Editor logic ---------- */
+
+let previewCtx, previewCanvas;
+
+function redraw() {
+  if (!previewCanvas) return;
+  renderScene(previewCtx, previewCanvas.width, state.frame);
+}
+
+function setupEditor() {
+  previewCanvas = document.getElementById('preview');
+  previewCtx = previewCanvas.getContext('2d');
+  const holder = document.getElementById('preview-holder');
+  redraw();
+
+  let dragging = false, lastX = 0, lastY = 0;
+  let pinchD = 0, pinchZ = 1;
+  const pts = new Map();
+
+  previewCanvas.addEventListener('pointerdown', e => {
+    pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pts.size === 1) { dragging = true; lastX = e.clientX; lastY = e.clientY; }
+    if (pts.size === 2) {
+      const p = [...pts.values()];
+      pinchD = Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y);
+      pinchZ = state.zoom;
+      dragging = false;
+    }
+    previewCanvas.setPointerCapture(e.pointerId);
+  });
+  previewCanvas.addEventListener('pointermove', e => {
+    if (!pts.has(e.pointerId)) return;
+    pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pts.size === 2) {
+      const p = [...pts.values()];
+      const d = Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y);
+      state.zoom = Math.min(4, Math.max(1, pinchZ * d / (pinchD || 1)));
+      document.getElementById('zoom').value = state.zoom;
+      redraw();
+      return;
+    }
+    if (!dragging) return;
+    const scale = 1000 / previewCanvas.clientWidth;
+    state.tx += (e.clientX - lastX) * scale / 1.5;
+    state.ty += (e.clientY - lastY) * scale / 1.5;
+    lastX = e.clientX; lastY = e.clientY;
+    redraw();
+  });
+  const up = e => { pts.delete(e.pointerId); if (!pts.size) dragging = false; };
+  previewCanvas.addEventListener('pointerup', up);
+  previewCanvas.addEventListener('pointercancel', up);
+
+  document.getElementById('zoom').oninput = e => { state.zoom = +e.target.value; redraw(); };
+  document.getElementById('zin').onclick = () => { state.zoom = Math.min(4, state.zoom + 0.2); document.getElementById('zoom').value = state.zoom; redraw(); };
+  document.getElementById('zout').onclick = () => { state.zoom = Math.max(1, state.zoom - 0.2); document.getElementById('zoom').value = state.zoom; redraw(); };
+  document.getElementById('rotBtn').onclick = () => { state.rot += Math.PI / 2; redraw(); };
+  document.getElementById('flipBtn').onclick = () => { state.flipX = !state.flipX; redraw(); };
+  document.getElementById('resetBtn').onclick = () => {
+    state.zoom = 1; state.tx = 0; state.ty = 0; state.rot = 0; state.flipX = false;
+    document.getElementById('zoom').value = 1; redraw();
+  };
+  document.getElementById('otherBtn').onclick = () => document.getElementById('fileInput').click();
+
+  if (state.frame.custom) {
+    const cf = state.custom;
+    const flagSel = document.getElementById('cfFlag');
+    if (flagSel && flagSel.options.length < 10) {
+      Object.keys(FLAG_NAMES).forEach(k => {
+        if (k === 'syria') return;
+        const o = document.createElement('option');
+        o.value = k; o.textContent = FLAG_NAMES[k];
+        flagSel.appendChild(o);
+      });
+    }
+    const vals = { cfTitle:'title', cfSub:'sub', cfFlag:'flag', cfFont:'font', cfTitleColor:'titleColor', cfBg1:'bg1', cfBg2:'bg2', cfRing1:'ring1', cfRing2:'ring2' };
+    const nums = { cfRingW:'ringW', cfPhotoR:'photoR' };
+    Object.keys(nums).forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.value = cf[nums[id]];
+      const h = () => { cf[nums[id]] = parseFloat(el.value); redraw(); };
+      el.oninput = h; el.onchange = h;
+    });
+    Object.keys(vals).forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.value = cf[vals[id]];
+      const h = () => { cf[vals[id]] = el.value; redraw(); };
+      el.oninput = h; el.onchange = h;
+    });
+    const pickBtn = document.getElementById('cfFlagPick');
+    const pickFile = document.getElementById('cfFlagFile');
+    if (pickBtn && pickFile) {
+      pickBtn.onclick = () => pickFile.click();
+      pickFile.onchange = () => {
+        const fl = pickFile.files && pickFile.files[0];
+        if (!fl) return;
+        const rd = new FileReader();
+        rd.onload = () => {
+          const im = new Image();
+          im.onload = () => { state.customImgEl = im; cf.flag = 'image'; const sel = document.getElementById('cfFlag'); if (sel) sel.value = 'image'; redraw(); };
+          im.src = rd.result;
+        };
+        rd.readAsDataURL(fl);
+      };
+    }
+  }
+
+  document.querySelectorAll('.shapebtn').forEach(b => {
+    b.onclick = () => {
+      state.shape = b.dataset.sh;
+      document.querySelectorAll('.shapebtn').forEach(x => x.classList.toggle('on', x === b));
+      redraw();
+    };
+  });
+
+  document.getElementById('customText').oninput = e => { state.customText = e.target.value; redraw(); };
+  document.getElementById('textFont').onchange = e => { state.textFont = e.target.value; redraw(); };
+  document.getElementById('textColor').oninput = e => { state.textColor = e.target.value; redraw(); };
+  document.getElementById('textSize').oninput = e => { state.textSize = +e.target.value; redraw(); };
+  document.querySelectorAll('.posbtn[data-p]').forEach(b => {
+    b.onclick = () => {
+      state.textPos = b.dataset.p;
+      document.querySelectorAll('.posbtn[data-p]').forEach(x => x.classList.toggle('on', x === b));
+      redraw();
+    };
+  });
+
+  document.getElementById('saveBtn').onclick = () => exportImage(false);
+  document.getElementById('shareBtn').onclick = () => exportImage(true);
+}
+
+function toast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast'; t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2600);
+}
+
+async function exportImage(share) {
+  toast(share ? 'جاري تجهيز المشاركة…' : 'جاري حفظ الصورة…');
+  const c = document.createElement('canvas');
+  c.width = c.height = 1080;
+  const ctx = c.getContext('2d');
+  renderScene(ctx, 1080, state.frame);
+  const blob = await new Promise(r => c.toBlob(r, 'image/jpeg', 0.92));
+  const fname = `picLib-${state.frame.id}-${Date.now()}.jpg`;
+
+  try {
+    const cap = window.Capacitor;
+    if (cap && cap.Plugins && cap.Plugins.Filesystem) {
+      const { Filesystem, Share } = cap.Plugins;
+      const reader = await new Promise(r => {
+        const fr = new FileReader();
+        fr.onload = () => r(fr.result.split(',')[1]);
+        fr.readAsDataURL(blob);
+      });
+      const res = await Filesystem.writeFile({ path: fname, data: reader, directory: 'CACHE' });
+      if (share && Share && Share.share) {
+        await Share.share({ title: 'picLib', files: [res.uri] });
+        toast('تم فتح المشاركة ✓');
+        return;
+      }
+      const Media = cap.Plugins.Media;
+      if (!share && Media && Media.savePhoto) {
+        if (!window._piclibAlbum) {
+          try {
+            await Media.savePhoto({ path: res.uri, albumIdentifier: '/storage/emulated/0/Pictures/picLib', fileName: 'probe' });
+            window._piclibAlbum = '/storage/emulated/0/Pictures/picLib';
+          } catch (e) {
+            window._piclibAlbum = '/storage/emulated/0/Pictures';
+          }
+        }
+        const saved = await Media.savePhoto({ path: res.uri, albumIdentifier: window._piclibAlbum, fileName: fname.replace('.jpg','') });
+        toast('تم الحفظ في المعرض ✓');
+        return;
+      }
+      if (Share && Share.share) {
+        await Share.share({ title: 'picLib', files: [res.uri], dialogTitle: 'حفظ الصورة' });
+        toast('احفظ الصورة من قائمة المشاركة ✓');
+        return;
+      }
+      return;
+    }
+  } catch (e) { console.warn(e); }
+
+  try {
+    if (share && navigator.canShare && navigator.canShare({ files: [new File([blob], fname, { type: 'image/jpeg' })] })) {
+      await navigator.share({ files: [new File([blob], fname, { type: 'image/jpeg' })] });
+      return;
+    }
+  } catch (e) { console.warn(e); }
+
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = fname;
+  a.click();
+  toast(share ? 'تم تنزيل الصورة ✓' : 'تم حفظ الصورة ✓');
+}
+
+/* ---------- Photo loading ---------- */
+
+document.getElementById('fileInput').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const rd = new FileReader();
+  rd.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      state.img = img;
+      state.zoom = 1; state.tx = 0; state.ty = 0; state.rot = 0; state.flipX = false;
+      setStep(3);
+    };
+    img.src = rd.result;
+  };
+  rd.readAsDataURL(file);
+  e.target.value = '';
+});
+
+const sampleImg = new Image();
+sampleImg.src = 'sample-photo.jpg';
+sampleImg.onload = () => { if (state.step === 1) render(); };
+
+function showExitConfirm() {
+  let m = document.getElementById('exitModal');
+  if (m) return;
+  m = document.createElement('div');
+  m.id = 'exitModal';
+  m.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:999;display:flex;align-items:center;justify-content:center';
+  m.innerHTML = '<div style="background:var(--dark,#0d3b2e);border:1px solid var(--line,#1c4d3c);border-radius:16px;padding:22px 26px;text-align:center;max-width:300px">'
+    + '<div style="font-size:17px;font-weight:700;margin-bottom:16px">هل تريد الخروج من التطبيق؟</div>'
+    + '<div style="display:flex;gap:10px;justify-content:center">'
+    + '<button id="exitYes" style="flex:1;padding:10px 18px;border-radius:10px;border:none;background:var(--acc,#2fbf8f);color:#04241a;font-weight:700;font-size:15px">نعم</button>'
+    + '<button id="exitNo" style="flex:1;padding:10px 18px;border-radius:10px;border:1px solid var(--line,#1c4d3c);background:transparent;color:inherit;font-size:15px">لا</button>'
+    + '</div></div>';
+  document.body.appendChild(m);
+  translateDom();
+  document.getElementById('exitYes').onclick = () => {
+    m.remove();
+    if (Capacitor.Plugins.App.exitApp) Capacitor.Plugins.App.exitApp();
+    else Capacitor.Plugins.App.minimizeApp();
+  };
+  document.getElementById('exitNo').onclick = () => m.remove();
+  m.onclick = e => { if (e.target === m) m.remove(); };
+}
+if (window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.App) {
+  Capacitor.Plugins.App.addListener('backButton', () => {
+    if (state.step > 1) setStep(state.step - 1);
+    else showExitConfirm();
+  });
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && state.step > 1) setStep(state.step - 1);
+});
+
+
+const THEMES = {
+  green:  { acc:'#2fbf8f', acc2:'#14614a', dark:'#0d3b2e', deep:'#04241a', line:'#1c4d3c', mut:'#9db8ac' },
+  blue:   { acc:'#38a5f8', acc2:'#155a99', dark:'#0d2a4a', deep:'#04182c', line:'#1c3f63', mut:'#9db4c8' },
+  purple: { acc:'#a579f5', acc2:'#5b3a99', dark:'#2a1650', deep:'#160a2c', line:'#3f2a63', mut:'#b8a9d4' },
+  red:    { acc:'#f5625e', acc2:'#992b28', dark:'#4a0d0d', deep:'#2c0404', line:'#631c1c', mut:'#d4a9a9' },
+  gold:   { acc:'#e8c55a', acc2:'#8a6d1d', dark:'#3a2c08', deep:'#241a04', line:'#574614', mut:'#c8b891' },
+};
+function applyTheme(name) {
+  const th = THEMES[name] || THEMES.green;
+  const r = document.documentElement.style;
+  r.setProperty('--acc', th.acc);
+  r.setProperty('--acc2', th.acc2);
+  r.setProperty('--acc-dark', th.dark);
+  r.setProperty('--acc-deep', th.deep);
+  r.setProperty('--line', th.line);
+  r.setProperty('--mut', th.mut);
+  localStorage.setItem('piclib_theme', name);
+}
+document.getElementById('langBtn').onclick = () => {
+  const order = ['ar', 'fr', 'en'];
+  const cur = currentLang();
+  const next = order[(order.indexOf(cur) + 1) % order.length];
+  localStorage.setItem('piclib_lang', next);
+  location.reload();
+};
+document.getElementById('mailBtn').onclick = () => {
+  const a = document.createElement('a');
+  a.href = 'mailto:wesamhaj930@gmail.com?subject=picLib';
+  a.click();
+  toast('تواصل: wesamhaj930@gmail.com ✉️');
+};
+document.getElementById('themeBtn').onclick = () => {
+  const names = Object.keys(THEMES);
+  const cur = localStorage.getItem('piclib_theme') || 'green';
+  const next = names[(names.indexOf(cur) + 1) % names.length];
+  applyTheme(next);
+  toast('تم تغيير اللون 🎨');
+};
+applyTheme(localStorage.getItem('piclib_theme') || 'green');
+
+
+function currentLang() { return localStorage.getItem('piclib_lang') || 'ar'; }
+function translateDom() {
+  const lang = currentLang();
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.lang = lang;
+  if (lang === 'ar') { restoreOriginalTexts(); return; }
+  const dict = I18N[lang] || {};
+  document.querySelectorAll('body *').forEach(el => {
+    el.childNodes.forEach(n => {
+      if (n.nodeType !== 3) return;
+      const key = n.textContent.trim();
+      if (!key) return;
+      if (!el.dataset) return;
+      const origKey = 'i18norig' + (n === el.firstChild ? '0' : 'x');
+      if (dict[key]) {
+        if (!n._orig) n._orig = key;
+        n.textContent = n.textContent.replace(key, dict[key]);
+      }
+    });
+    if (el.placeholder && dict[el.placeholder.trim()]) {
+      if (!el._phorig) el._phorig = el.placeholder;
+      el.placeholder = dict[el._phorig] || el.placeholder;
+    }
+    if (el.tagName === 'OPTION' && dict[el.textContent.trim()]) {
+      if (!el._oporig) el._oporig = el.textContent;
+      el.textContent = dict[el._oporig.trim()] || el.textContent;
+    }
+  });
+}
+function restoreOriginalTexts() {
+  document.querySelectorAll('[placeholder]').forEach(el => { if (el._phorig) el.placeholder = el._phorig; });
+}
+
+
+new MutationObserver(() => { translateDom(); }).observe(document.getElementById('app') || document.body, { childList: true, subtree: true });
+window.addEventListener('DOMContentLoaded', () => setTimeout(translateDom, 300));
+setTimeout(translateDom, 800);
+
+/* ---------- boot ---------- */
+
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (state.step === 3) redraw(); });
+setStep(1);
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+window.CONDUITE_FOLDERS = [];

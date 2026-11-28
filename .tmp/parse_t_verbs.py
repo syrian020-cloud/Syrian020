@@ -1,0 +1,652 @@
+#!/usr/bin/env python3
+import json, re
+from pathlib import Path
+
+RAW_PATH = Path('/tmp/t_raw.txt')
+REPO_DIR = Path('/home/ubuntu/repos/Syrian020')
+VOCAB_PATH = REPO_DIR / 'data' / 'vocab.js'
+OUT_PATH = Path('/tmp/t_parsed.json')
+
+
+def normalize(fr):
+    s = fr.lower().strip()
+    s = re.sub(r"\s*\([^)]*\)", '', s)
+    s = re.sub(r"^(se |s'|s’|se/)", '', s)
+    s = re.sub(r"['’]", '', s)
+    s = re.sub(r'[^\w\s/]', ' ', s)
+    s = re.sub(r'\s+', ' ', s).strip()
+    return s
+
+
+# Override part of speech for headwords that are not verbs
+HEAD_POS = {
+    'toujours': 'other', 'très': 'other', 'tôt': 'other', 'tard': 'other', 'tout': 'other', 'tous': 'other',
+    'trop': 'other', 'tant': 'other', 'tellement': 'other', 'totalement': 'other', 'tranquillement': 'other',
+    'tranquille': 'adjective', 'triste': 'adjective', 'total': 'adjective',
+    'toute': 'adjective', 'tel': 'adjective', 'tarifaire': 'adjective',
+    'traditionnel': 'adjective', 'théorique': 'adjective', 'temporaire': 'adjective', 'typique': 'adjective',
+    'tardif': 'adjective', 'théâtral': 'adjective', 'titulaire': 'adjective',
+    'thermique': 'adjective', 'tranchant': 'adjective',
+    'timide': 'adjective', 'terrible': 'adjective', 'troublant': 'adjective',
+    'tantôt': 'other', 'toutefois': 'other', 'malgré': 'other', 'toutes': 'other',
+    'travers': 'other', 'tout juste': 'phrase', 'tranquille comme ça': 'phrase',
+    'toucher du bois': 'phrase', 'témoin de': 'phrase', 'ticket de caisse': 'noun',
+    'titre de transport': 'noun', 'tiroir-caisse': 'noun', 'tranche horaire': 'noun',
+    'tant mieux': 'phrase', 'tant pis': 'phrase', 'tôt ou tard': 'phrase',
+    'tout à fait': 'phrase', 'tout de suite': 'phrase', 'tout seul': 'phrase',
+    'tâcher de': 'phrase', 'tenter sa chance': 'phrase', 'tenter le coup': 'phrase',
+    'tirer parti de': 'phrase', 'tourner autour': 'phrase', 'tourner la page': 'phrase',
+    'travailler dur': 'phrase', 'trouver ça': 'phrase', 'trouver moyen': 'phrase',
+    'tromper de': 'phrase', 'tendre la main': 'phrase', 'tenir au courant': 'phrase',
+    'tenir compte de': 'phrase', 'tenir debout': 'phrase', 'tenir bon': 'phrase',
+    'tenir parole': 'phrase', 'tenir prêt': 'phrase', 'tenir à': 'phrase',
+    'tenir prêt': 'phrase', 'terminer par': 'phrase', 'tomber amoureux': 'phrase',
+    'tomber malade': 'phrase', 'tomber en panne': 'phrase', 'tomber sur': 'phrase',
+    'transmettre un message': 'phrase', 'traiter quelqu\'un': 'phrase',
+    "tranche d'âge": 'noun',
+    'tacler': 'verb', 'tâcher': 'verb', 'tendre': 'verb', 'tensionner': 'verb',
+    'témoigner': 'verb', 'terminer': 'verb', 'tirer': 'verb', 'tomber': 'verb',
+    'tourner': 'verb', 'tondre': 'verb',
+    'transformer': 'verb', 'travailler': 'verb', 'tricher': 'verb', 'trancher': 'verb',
+    'trouver': 'verb', 'tromper': 'verb', 'transmettre': 'verb', 'trier': 'verb',
+}
+
+def infer_pos(headword, en):
+    key = headword.lower().strip()
+    if key in HEAD_POS:
+        return HEAD_POS[key]
+    if en and re.match(r'^to\b', en, re.IGNORECASE):
+        return 'verb'
+    return 'noun'
+
+
+def unique_concat(old, new, sep=' / '):
+    if not old:
+        return new
+    if not new:
+        return old
+    parts = [p.strip() for p in re.split(r'\s*/\s*', old) if p.strip()]
+    for p in re.split(r'\s*/\s*', new):
+        p = p.strip()
+        if p and p not in parts:
+            parts.append(p)
+    return sep.join(parts)
+
+
+def load_vocab_text(text):
+    start = text.find('[')
+    end = text.rfind(']') + 1
+    if start == -1 or end == 0:
+        raise ValueError('Could not parse VOCAB_DATA')
+    return json.loads(text[start:end])
+
+
+def save_vocab(path, entries):
+    json_text = json.dumps(entries, ensure_ascii=False, indent=2)
+    path.write_text('/* French vocabulary for daily life in France — starter dataset with matched trilingual examples. */\nwindow.VOCAB_DATA = {}\n'.format(json_text), encoding='utf-8')
+
+
+def get_original_vocab():
+    return load_vocab_text(VOCAB_PATH.read_text(encoding='utf-8'))
+
+
+def keyword_in_text(kw, text):
+    try:
+        return re.search(r'\b' + re.escape(kw) + r'\b', text, re.IGNORECASE) is not None
+    except re.error:
+        return kw in text
+
+
+VERB_CONTEXTS = {
+    'travailler': ['work'],
+    'trouver': ['daily'],
+    'téléphoner': ['phone', 'services'],
+    'terminer': ['work'],
+    'tenir': ['daily'],
+    'tourner': ['transport', 'car'],
+    'traverser': ['transport', 'car'],
+    'tirer': ['daily'],
+    'tomber': ['daily'],
+    'tenter': ['daily'],
+    'traduire': ['daily'],
+    'traiter': ['services', 'work'],
+    'transmettre': ['services', 'work'],
+}
+
+
+def infer_contexts(fr, en, ar, examples, pos):
+    text = ' '.join([fr or '', en or '', ar or ''] + [v for ex in examples for v in ex.values()])
+    text = text.lower()
+    contexts = set(VERB_CONTEXTS.get(normalize(fr), ['daily']))
+    mapping = [
+        ('caf', ['caf']),
+        ('france travail', ['france_travail']),
+        ('travail', ['work']),
+        ('travailler', ['work']),
+        ('télétravail', ['work']),
+        ('télétravailler', ['work']),
+        ('emploi', ['work']),
+        ('téléphone', ['phone']),
+        ('téléphoner', ['phone']),
+        ('appel', ['phone']),
+        ('restaurant', ['restaurant']),
+        ('commande', ['restaurant']),
+        ('plat', ['restaurant']),
+        ('voiture', ['car']),
+        ('conduire', ['car']),
+        ('route', ['car', 'transport']),
+        ('passage piéton', ['transport']),
+        ('rond-point', ['transport']),
+        ('métro', ['transport']),
+        ('train', ['transport']),
+        ('taxi', ['transport']),
+        ('ticket', ['transport']),
+        ('trottoir', ['transport']),
+        ('trajet', ['transport']),
+        ('tarif', ['transport', 'shopping']),
+        ('timbre', ['post']),
+        ('dossier', ['services']),
+        ('demande', ['services']),
+        ('document', ['services']),
+        ('formulaire', ['services']),
+        ('justificatif', ['services']),
+        ('tamponner', ['services']),
+        ('taxe', ['services']),
+        ('logement', ['housing']),
+        ('appartement', ['housing']),
+        ('clés', ['housing']),
+        ('tapis', ['housing']),
+        ('tiroir', ['housing']),
+        ('toit', ['housing']),
+        ('toilette', ['housing', 'daily']),
+        ('terrain', ['housing']),
+        ('trappe', ['housing']),
+        ('tuyau', ['housing']),
+        ('télévision', ['daily', 'housing']),
+        ('température', ['health', 'weather']),
+        ('temps', ['daily', 'weather']),
+        ('tête', ['health']),
+        ('taille', ['shopping']),
+        ('tissu', ['shopping']),
+        ('tasse', ['restaurant', 'food']),
+        ('thé', ['restaurant', 'food']),
+        ('table', ['restaurant', 'housing']),
+        ('tante', ['family']),
+        ('trousse', ['school']),
+        ('tableau', ['school', 'work']),
+        ('trimestre', ['school']),
+        ('tâche', ['work']),
+        ('tournée', ['work']),
+        ('toujours', ['daily']),
+        ('tard', ['daily', 'work']),
+        ('tôt', ['daily', 'work']),
+        ('très', ['daily']),
+        ('tout', ['daily']),
+        ('toute', ['daily']),
+        ('tel', ['daily']),
+        ('tranquille', ['daily']),
+        ('triste', ['daily']),
+        ('total', ['daily']),
+        ('tache', ['daily']),
+        ('ton', ['daily']),
+        ('tour', ['daily']),
+        ('trace', ['daily']),
+        ('truc', ['daily']),
+        ('bouteille', ['daily']),
+        ('transpirer', ['health', 'daily']),
+        ('tourmenter', ['health', 'daily']),
+        ('tousser', ['health', 'daily']),
+        ('trésor', ['daily']),
+        ('tristesse', ['daily']),
+        ('tentative', ['daily', 'work']),
+        ('témoignage', ['services']),
+        ('témoins', ['services']),
+        ('télécommande', ['daily', 'housing']),
+        ('tente', ['daily']),
+        ('tonneau', ['daily']),
+        ('tâtonnement', ['daily', 'work']),
+        ('talent', ['daily', 'work']),
+        ('tension', ['health', 'daily']),
+        ('tendance', ['daily']),
+        ('tarifaire', ['services', 'shopping']),
+        ('tempête', ['weather']),
+        ('terrasse', ['restaurant', 'housing']),
+        ('théière', ['restaurant', 'food']),
+        ('trotinette', ['transport']),
+        ('texte', ['school', 'work', 'daily']),
+        ('titre', ['daily', 'work']),
+        ('tomate', ['food', 'restaurant', 'shopping']),
+        ('tartine', ['food', 'restaurant']),
+        ('théorie', ['school', 'work']),
+        ('théâtre', ['daily']),
+        ('thème', ['school', 'work']),
+        ('tradition', ['daily', 'family']),
+        ('tribunal', ['services', 'prefecture']),
+        ('tunnel', ['transport']),
+        ('téléchargement', ['daily', 'work']),
+        ('traduction', ['daily', 'work', 'services']),
+        ('trafic', ['transport']),
+        ('tournage', ['work']),
+        ('tournant', ['daily']),
+        ('trop', ['daily']),
+        ('tant', ['daily']),
+        ('tellement', ['daily']),
+        ('touriste', ['daily']),
+        ('tramway', ['transport']),
+        ('thérapie', ['health']),
+        ('traditionnel', ['food', 'restaurant', 'daily']),
+        ('technique', ['school', 'work']),
+        ('théorique', ['school']),
+        ('temporaire', ['work', 'housing']),
+        ('totalement', ['daily']),
+        ('tranquillement', ['daily']),
+        ('typique', ['daily', 'restaurant', 'food']),
+        ('timbale', ['restaurant', 'food']),
+        ('tolérance', ['daily', 'health']),
+        ('tonnerre', ['weather']),
+        ('tournis', ['health']),
+        ('tousser', ['health', 'daily']),
+        ('tablier', ['daily', 'food']),
+        ('thermomètre', ['health', 'weather']),
+        ('tondeuse', ['housing', 'daily']),
+        ('toiture', ['housing']),
+        ('tuile', ['housing']),
+        ('tabac', ['daily', 'services']),
+        ('toilettage', ['daily', 'services']),
+        ('tonne', ['daily', 'transport']),
+        ('tonalité', ['daily']),
+        ('tact', ['daily', 'work']),
+        ('taie', ['housing', 'daily']),
+        ('tampon', ['services', 'health', 'daily']),
+        ('tapisserie', ['housing', 'daily']),
+        ('tabouret', ['housing', 'restaurant']),
+        ('teinture', ['shopping', 'daily']),
+        ('temporisation', ['daily', 'work']),
+        ('terminal', ['transport']),
+        ('terrassement', ['work']),
+        ('tuyauterie', ['housing']),
+        ('tardif', ['daily', 'work']),
+        ('taux', ['bank', 'services']),
+        ('taxer', ['services']),
+        ('terme', ['work', 'school', 'health']),
+        ('tirage', ['daily', 'work']),
+        ('transmission', ['car', 'transport', 'services']),
+        ('tentation', ['daily']),
+        ('théâtral', ['daily']),
+        ('titulaire', ['services', 'bank']),
+        ('trancheur', ['restaurant', 'food']),
+        ('trésorier', ['work', 'bank']),
+        ('tutelle', ['services', 'prefecture']),
+        ('tranquillité', ['daily', 'health']),
+        ('trahison', ['daily']),
+        ('traumatisme', ['health']),
+        ('traversée', ['transport']),
+        ('tuteur', ['school', 'daily']),
+        ('tactique', ['daily', 'work']),
+        ('témérité', ['daily']),
+        ('tige', ['daily']),
+        ('tranchée', ['work', 'car']),
+        ('tracteur', ['work']),
+        ('traction', ['car', 'transport']),
+        ('tremplin', ['daily', 'work']),
+        ('thermique', ['daily', 'housing']),
+        ('toupie', ['daily']),
+        ('trousseau', ['daily', 'housing']),
+        ('tumeur', ['health']),
+        ('tâcher', ['daily', 'work']),
+        ('tablée', ['restaurant', 'food']),
+        ('tacler', ['daily']),
+        ('tendeur', ['work']),
+        ('teneur', ['daily', 'shopping']),
+        ('tranchant', ['daily', 'restaurant']),
+        ('trajectoire', ['car', 'transport']),
+        ('transfert', ['bank', 'services']),
+        ('transport', ['transport']),
+        ('trancheuse', ['restaurant', 'food']),
+        ('tout', ['daily']),
+        ('tous', ['daily']),
+        ('très', ['daily']),
+        ('trop', ['daily']),
+        ('toujours', ['daily']),
+        ('tôt', ['daily', 'work']),
+        ('tard', ['daily', 'work']),
+        ('taper', ['daily', 'work']),
+        ('trier', ['daily', 'work']),
+        ('tester', ['daily', 'work']),
+        ('transporter', ['transport', 'work']),
+        ('traîner', ['daily']),
+        ('trembler', ['daily', 'health']),
+        ('trancher', ['daily', 'restaurant']),
+        ('truc', ['daily']),
+        ('trou', ['daily', 'housing']),
+        ('ticket', ['transport', 'daily']),
+        ('tarif', ['services', 'shopping']),
+        ('train', ['transport']),
+        ('trottoir', ['daily', 'transport']),
+        ('taxi', ['transport']),
+        ('trajet', ['transport']),
+        ('terrain', ['daily', 'work']),
+        ('terrasse', ['restaurant', 'housing', 'daily']),
+        ('toit', ['housing']),
+        ('tuyau', ['housing']),
+        ('tissu', ['shopping', 'daily']),
+        ('tasse', ['food', 'restaurant', 'daily']),
+        ('taille', ['shopping', 'daily']),
+        ('tête', ['health', 'daily']),
+        ('température', ['health', 'weather']),
+        ('thé', ['food', 'restaurant', 'daily']),
+        ('trousse', ['school', 'daily']),
+        ('taux', ['bank', 'services']),
+        ('total', ['bank', 'daily']),
+        ('tendance', ['daily', 'shopping']),
+        ('terminal', ['transport']),
+        ('tunnel', ['transport']),
+        ('toilette', ['housing', 'daily']),
+        ('tapis', ['housing', 'daily']),
+        ('talon', ['shopping', 'daily']),
+        ('talent', ['daily', 'work']),
+        ('tante', ['family']),
+        ('tomate', ['food', 'restaurant']),
+        ('télécharger', ['services', 'daily']),
+        ('télécommande', ['housing', 'daily']),
+        ('texte', ['school', 'work']),
+        ('théâtre', ['daily']),
+        ('timide', ['daily']),
+        ('terrible', ['daily']),
+        ('test', ['school', 'work', 'health']),
+        ('thème', ['school', 'work']),
+        ('théorie', ['school', 'work']),
+        ('ton', ['daily']),
+        ('type', ['daily', 'work']),
+        ('trimestre', ['school', 'work', 'bank']),
+        ('travailleur', ['work']),
+        ('tranquillement', ['daily']),
+        ('totalement', ['daily']),
+        ('typique', ['daily']),
+        ('tôt ou tard', ['daily']),
+        ('tant', ['daily']),
+        ('tant mieux', ['daily']),
+        ('tant pis', ['daily']),
+        ('tel', ['daily']),
+        ('tellement', ['daily']),
+        ('malgré', ['daily']),
+        ('toutefois', ['daily']),
+        ('tantôt', ['daily']),
+        ('tâtonner', ['daily']),
+        ('tendre', ['daily']),
+        ('transférer', ['bank', 'services', 'phone']),
+        ('traverser', ['transport', 'car']),
+        ('travailler', ['work']),
+        ('travailler dur', ['work']),
+        ('tranquillité', ['daily', 'health']),
+        ('transformer', ['daily']),
+        ('trouver', ['daily']),
+        ('trouver ça', ['daily']),
+        ('tuer', ['daily']),
+        ('tâcher de', ['daily', 'work']),
+        ('tenter sa chance', ['daily']),
+        ('tirer parti de', ['work']),
+        ('tourner autour', ['daily', 'transport']),
+        ('tourner la page', ['daily']),
+        ('tant pis', ['daily']),
+        ('trafic', ['transport']),
+        ("tranche d'âge", ['daily', 'services']),
+        ('tôt', ['daily', 'work']),
+        ('tard', ['daily', 'work']),
+        ('toujours', ['daily']),
+        ('tout', ['daily']),
+        ('toute', ['daily']),
+        ('tous', ['daily']),
+        ('toutes', ['daily']),
+        ('tout à fait', ['daily']),
+        ('tout de suite', ['daily', 'health']),
+        ('tout seul', ['daily']),
+        ('travers', ['daily', 'transport']),
+        ('trou', ['daily', 'housing']),
+        ('trouver moyen', ['daily', 'work']),
+        ('tromper', ['daily']),
+        ('tromper de', ['daily', 'transport', 'restaurant']),
+        ('troublant', ['daily']),
+        ('truc', ['daily']),
+        ('tricherie', ['school', 'work']),
+        ('témoin de', ['daily', 'services']),
+        ('tournée', ['work', 'transport']),
+        ('tenter le coup', ['daily']),
+        ('tout juste', ['daily']),
+        ('traiter', ['services', 'work', 'health']),
+        ('traiter quelqu\'un', ['daily', 'work', 'health']),
+        ('trancher', ['daily', 'work', 'restaurant']),
+        ('tranquille comme ça', ['daily']),
+        ('tribut', ['daily', 'work']),
+        ('tranche horaire', ['daily', 'work', 'services']),
+        ('ticket', ['transport', 'services']),
+        ('ticket de caisse', ['shopping', 'services']),
+        ('timbre', ['post', 'services']),
+        ('tiroir-caisse', ['services', 'work']),
+        ('titre de transport', ['transport']),
+        ('transmettre', ['services', 'work']),
+        ('transmettre un message', ['services', 'work']),
+        ('temporaire', ['work', 'housing']),
+        ('température', ['health', 'weather']),
+        ('tempête', ['weather']),
+        ('tension', ['health', 'work']),
+        ('tensionner', ['work', 'daily']),
+        ('tendre la main', ['daily', 'work']),
+        ('terminer par', ['daily', 'work', 'school']),
+        ('tenue', ['work', 'daily', 'shopping']),
+        ('tenir compte de', ['daily', 'work']),
+        ('tenir au courant', ['daily', 'work']),
+        ('tenir à', ['daily', 'work']),
+        ('tenir debout', ['daily', 'health']),
+        ('tenir bon', ['daily', 'work']),
+        ('tenir parole', ['daily', 'work']),
+        ('tenir prêt', ['daily', 'work']),
+        ('témoigner', ['prefecture', 'services']),
+        ('témoin', ['services', 'prefecture', 'daily']),
+        ('thé', ['food', 'restaurant', 'daily']),
+        ('tasse', ['food', 'housing', 'daily']),
+        ('table', ['housing', 'restaurant', 'daily']),
+        ('toile', ['housing', 'daily']),
+        ('tomber amoureux', ['daily']),
+        ('tomber malade', ['health', 'daily']),
+        ('tomber en panne', ['car', 'daily', 'phone']),
+        ('tomber sur', ['daily']),
+        ('toucher du bois', ['daily']),
+        ('tri', ['daily', 'work']),
+        ('trier', ['daily', 'work']),
+        ('tutoriel', ['daily', 'work', 'school']),
+    ]
+    for kw, ctxs in mapping:
+        if keyword_in_text(kw, text):
+            contexts.update(ctxs)
+    return sorted(contexts)
+
+
+def merge_entry(old, new):
+    old['ar'] = unique_concat(old.get('ar', ''), new.get('ar', ''))
+    old['en'] = unique_concat(old.get('en', ''), new.get('en', ''))
+    old['contexts'] = sorted(set(old.get('contexts', [])) | set(new.get('contexts', [])))
+    if old.get('level', 'A1') in ('A2', 'B1', 'B2'):
+        pass
+    else:
+        old['level'] = new.get('level', old.get('level', 'A1'))
+
+    def ex_to_list(ex):
+        if not ex:
+            return []
+        if isinstance(ex, list):
+            return ex
+        return [ex]
+    combined = ex_to_list(old.get('ex')) + ex_to_list(new.get('ex'))
+    seen = set()
+    dedup = []
+    for ex in combined:
+        key = json.dumps(ex, ensure_ascii=False, sort_keys=True)
+        if key not in seen:
+            seen.add(key)
+            dedup.append(ex)
+    if len(dedup) == 1:
+        old['ex'] = dedup[0]
+    elif len(dedup) > 1:
+        old['ex'] = dedup
+    else:
+        old.pop('ex', None)
+    return old
+
+
+def parse_blocks(text):
+    # Find explicit 🇫🇷 blocks, optionally prefixed by numbers like "7. 🇫🇷 Tout"
+    pattern = re.compile(r'^(?:\d+\.\s*)?🇫🇷\s*(.+)$', re.MULTILINE)
+    matches = list(pattern.finditer(text))
+    blocks = []
+    for i, m in enumerate(matches):
+        start = m.end()
+        end = matches[i+1].start() if i + 1 < len(matches) else len(text)
+        headword = m.group(1).strip()
+        body = text[start:end]
+        blocks.append((headword, body))
+    # Also detect implicit headword blocks: a short all-letter Latin line followed by Arabic definition
+    implicit_pattern = re.compile(
+        r'^(?P<hw>[A-Z][A-Za-z\u00C0-\u024F\s\'/\-]+?)$\n'
+        r'(?P<ar>[^\n]*[\u0600-\u06FF][^\n]*)$\n'
+        r'(?P<en>[^\n]*[A-Za-z][^\n]*)$',
+        re.MULTILINE,
+    )
+    for m in implicit_pattern.finditer(text):
+        hw = m.group('hw').strip()
+        # skip if it looks like a sentence (contains punctuation)
+        if re.search(r'[.!?,:;]', hw):
+            continue
+        # avoid duplicates if an explicit block already started at this position
+        if any(abs(m.start() - pm.start()) < 5 for pm in matches):
+            continue
+        blocks.append((hw, text[m.end():]))
+    # Sort blocks by position and recompute bodies for implicit ones
+    # Re-parse with full positions:
+    all_matches = list(re.finditer(r'^(?:\d+\.\s*)?🇫🇷\s*(.+)$|^([A-Z][A-Za-z\u00C0-\u024F\s\'/\-]+?)$', text, re.MULTILINE))
+    # Filter valid implicit matches: must be followed by Arabic line and then English line
+    valid = []
+    for m in all_matches:
+        is_flag = bool(re.match(r'^(?:\d+\.\s*)?🇫🇷', m.group(0)))
+        if is_flag:
+            valid.append((m, m.group(1).strip()))
+        else:
+            lines = text[m.end():].splitlines()
+            non_empty = [l for l in lines if l.strip()]
+            if len(non_empty) >= 2 and re.search(r'[\u0600-\u06FF]', non_empty[0]) and re.search(r'[A-Za-z]', non_empty[1]):
+                valid.append((m, m.group(2).strip()))
+    blocks = []
+    for i, (m, headword) in enumerate(valid):
+        end = valid[i+1][0].start() if i + 1 < len(valid) else len(text)
+        blocks.append((headword, text[m.end():end]))
+    return blocks
+
+
+def parse_verb_block(headword, body):
+    lines = body.splitlines()
+    # find Arabic and English definitions after the headword
+    ar = None
+    en = None
+    idx = 0
+    # skip empty and junk until first non-empty
+    while idx < len(lines) and not lines[idx].strip():
+        idx += 1
+    if idx < len(lines):
+        ar = lines[idx].strip()
+        idx += 1
+    while idx < len(lines) and not lines[idx].strip():
+        idx += 1
+    if idx < len(lines):
+        en = lines[idx].strip()
+        idx += 1
+
+    examples = []
+    current = {}
+    while idx < len(lines):
+        line = lines[idx].strip()
+        idx += 1
+        if not line:
+            # commit current example if complete
+            if current and 'fr' in current:
+                examples.append(current)
+                current = {}
+            continue
+        m = re.match(r'^\s*(?:\d+\.)\s*(.+)$', line)
+        is_latin = re.search(r'[A-Za-z\u00C0-\u024F]', line) and not re.search(r'[\u0600-\u06FF]', line)
+        # New example starts with a numbered line, or when we see a new French/Latin
+        # line after the previous example is complete (has en), or when there is no current.
+        is_new_example = bool(m) or (is_latin and (not current or 'en' in current))
+        if is_new_example:
+            if current and 'fr' in current:
+                examples.append(current)
+            fr_text = m.group(1).strip() if m else line
+            current = {'fr': fr_text}
+            continue
+        if current:
+            if 'ar' not in current and re.search(r'[\u0600-\u06FF]', line):
+                current['ar'] = line
+            elif 'en' not in current and re.search(r'[A-Za-z]', line):
+                current['en'] = line
+            # ignore extra lines once ar and en are both filled; next Latin starts a new example
+    if current and 'fr' in current:
+        examples.append(current)
+
+    # clean examples: require ar and en
+    examples = [ex for ex in examples if 'fr' in ex and 'ar' in ex and 'en' in ex]
+    return {
+        'fr': headword,
+        'ar': ar or '',
+        'en': en or '',
+        'pos': infer_pos(headword, en or ''),
+        'level': 'A1',
+        'contexts': infer_contexts(headword, en, ar, examples, infer_pos(headword, en or '')),
+        'ex': examples if len(examples) > 1 else (examples[0] if examples else {'fr': headword, 'ar': ar or '', 'en': en or ''}),
+    }
+
+
+def main():
+    raw = RAW_PATH.read_text(encoding='utf-8')
+    blocks = parse_blocks(raw)
+    entries = []
+    for headword, body in blocks:
+        entry = parse_verb_block(headword, body)
+        if entry['ar'] and entry['en']:
+            entries.append(entry)
+
+    print(f'Parsed {len(entries)} new T verbs')
+
+    existing = get_original_vocab()
+    by_key = {}
+    merged_count = 0
+    for e in existing:
+        key = normalize(e['fr'])
+        if not key:
+            continue
+        if key in by_key:
+            by_key[key] = merge_entry(by_key[key], e)
+            merged_count += 1
+        else:
+            by_key[key] = e
+
+    added = 0
+    for e in entries:
+        key = normalize(e['fr'])
+        if not key:
+            continue
+        if key in by_key:
+            by_key[key] = merge_entry(by_key[key], e)
+            merged_count += 1
+        else:
+            by_key[key] = e
+            added += 1
+
+    final = list(by_key.values())
+    save_vocab(VOCAB_PATH, final)
+    print(f'Added {added}, merged {merged_count}, total {len(final)}')
+    t_count = sum(1 for d in final if d['fr'] and d['fr'][0].lower() == 't')
+    print(f'T entries: {t_count}')
+    OUT_PATH.write_text(json.dumps(entries, ensure_ascii=False, indent=2), encoding='utf-8')
+
+
+if __name__ == '__main__':
+    main()
