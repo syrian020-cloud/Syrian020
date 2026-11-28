@@ -36660,6 +36660,119 @@ window.CENTRES_DATA = [
         phrases: [
         ]
       },
+      { icon: '🧴',
+        notes: ["درس مهم جداً في تكوين CAP CIP – Conducteur d'Installations de Production، لأنه يُستخدم في القياسات والحسابات داخل المصانع."],
+        title: { ar: 'درس Les unités de capacité – وحدات السعة', en: 'درس Les unités de capacité – وحدات السعة', fr: 'درس Les unités de capacité – وحدات السعة' },
+        phrases: [
+        ]
+      },
+      { icon: '⚗️',
+        images: ["https://images.openai.com/static-rsc-4/HGlDwgA9BQdynBTpvQqZUnpcCyKQqppRdw-ciNS3_EILO2879YQB2Xhhke1hlXcur2Mc0IjwU_usz5w1fZoJX0e71Q8O2oEbnXbIMgJ2NlXTVblRrWGFD2LHo70KYC1Ggo5Akg_1FqFK8soeJvR-5P54NF7SmljLrMDEqEGQL-rvYxXYXGJLn47NWQFgRyBR?purpose=fullsize", "https://images.openai.com/static-rsc-4/3bsXeFOslHf3YYNVJcawY-meGpeCgbfsp1JCVQeQeVDwu5i3vDSI9wCF8zBooIbrWLUTCBbgm6IMIgBODK1HNyg4o6zLEGhHFebsItVTltwJPFYKvRyy6zL0t4mXSMbVozbxnrGUaPhGj4DC9ghvKCYhmW2jO3zdxaogl1J-eYgaT8LFkZ5yuM7XIEC_2TCl?purpose=fullsize", "https://images.openai.com/static-rsc-4/OE3F4OzMtcP6ZaXqiXZJaw7S5YxCrff4JAX_rr2LDdFfBxmMVGWageFSopp0q953ybiQvCs2jWEofY296zL9Fw0tb-RpRqmNeA88YLnicqg3lZREFrVNhCEzd-jJa7MOmS1BEWCAetINoT3FDHij5lUz1sGh0mD4diRiEstd9JE-W8S1x9pLqiO84RgmN6u4?purpose=fullsize"],
+        notes: ["قياس السوائل – Mesure des liquides", "تعبئة العبوات – Remplissage des bouteilles", "قياس الجرعات – Dosage"],
+        title: { ar: 'لماذا هو مهم في CAP CIP؟', en: 'لماذا هو مهم في CAP CIP؟', fr: 'لماذا هو مهم في CAP CIP؟' },
+        phrases: [
+          { fr: 'Mesurer la quantité de liquide dans une cuve.', ar: 'قياس كمية السائل داخل الخزان.', en: 'Measuring the amount of liquid in a tank.' },
+          { fr: 'Remplir les bouteilles avec 500 mL ou 1 L.', ar: 'تعبئة القوارير بـ 500 مل أو لتر واحد.', en: 'Filling bottles with 500 mL or 1 L.' },
+          { fr: 'Respecter la quantité de liquide demandée.', ar: 'احترام كمية السائل المطلوبة.', en: 'Respecting the required liquid quantity.' },
+        ]
+      },
+      { icon: '🛢️',
+        notes: ["احفظ ترتيب الوحدات:", "جدول التحويل: kL – hL – daL – L – dL – cL – mL — كل انتقال خانة واحدة إلى اليمين: نضرب في 10. وكل انتقال خانة واحدة إلى اليسار: نقسم على 10."],
+        title: { ar: 'وحدات السعة بالفرنسية والعربية والإنجليزية', en: 'وحدات السعة بالفرنسية والعربية والإنجليزية', fr: 'وحدات السعة بالفرنسية والعربية والإنجليزية' },
+        phrases: [
+          { fr: 'Français', ar: 'العربية', en: 'English' },
+          { fr: 'kL – Kilolitre', ar: 'كيلولتر', en: 'Kiloliter' },
+          { fr: 'hL – Hectolitre', ar: 'هكتولتر', en: 'Hectoliter' },
+          { fr: 'daL – Décalitre', ar: 'ديكالتر', en: 'Decaliter' },
+          { fr: 'L – Litre', ar: 'لتر', en: 'Liter' },
+          { fr: 'dL – Décilitre', ar: 'ديسيلتر', en: 'Deciliter' },
+          { fr: 'cL – Centilitre', ar: 'سنتيلتر', en: 'Centiliter' },
+          { fr: 'mL – Millilitre', ar: 'مليلتر', en: 'Milliliter' },
+        ]
+      },
+      { icon: '🥤',
+        notes: ["1 L = 10 dL", "1 L = 100 cL", "1 L = 1 000 mL", "1 kL = 1 000 L", "1 hL = 100 L", "1 daL = 10 L", "أمثلة: 2,5 L = 2500 mL — 750 mL = 0,75 L — 3 L = 300 cL"],
+        title: { ar: 'أهم التحويلات التي يجب حفظها', en: 'أهم التحويلات التي يجب حفظها', fr: 'أهم التحويلات التي يجب حفظها' },
+        phrases: [
+        ]
+      },
+      { icon: '📏',
+        title: { ar: 'عبارات مهمة تسمعها في المصنع', en: 'عبارات مهمة تسمعها في المصنع', fr: 'عبارات مهمة تسمعها في المصنع' },
+        phrases: [
+          { fr: 'Quelle est la capacité de cette cuve ?', ar: 'ما سعة هذا الخزان؟', en: 'What is the capacity of this tank?' },
+          { fr: 'Le réservoir contient 500 litres.', ar: 'الخزان يحتوي على 500 لتر.', en: 'The tank contains 500 liters.' },
+          { fr: 'Vérifiez le niveau du liquide.', ar: 'تحقق من مستوى السائل.', en: 'Check the liquid level.' },
+          { fr: 'Il faut convertir les millilitres en litres.', ar: 'يجب تحويل المليلترات إلى لترات.', en: 'We need to convert milliliters into liters.' },
+        ]
+      },
+      { icon: '🧪',
+        notes: ["1. 1 L يساوي كم mL؟ الجواب: 1 000", "2. 2 L يساوي كم mL؟ الجواب: 2 000", "3. 500 mL يساوي كم L؟ الجواب: 0,5 L", "4. 1 hL يساوي كم L؟ الجواب: 100", "نصيحة: لا تهمل هذا الدرس. في CAP CIP ركّز خصوصاً على تحويل الوحدات، والفاصلة العشرية، وحساب كميات السوائل، وقراءة سعة الخزانات."],
+        title: { ar: 'اختبار صغير', en: 'اختبار صغير', fr: 'اختبار صغير' },
+        phrases: [
+        ]
+      },
+      { icon: '💧',
+        images: ["https://images.openai.com/static-rsc-4/_6HpQ1g4FofLkESFdNmPgPMdZmOCkI3wlK01Bctc1Ke034wLP1lhwXPtdxK5owFI6etH3sYLmQL7fTFd7cDY5dLiJi7LRESwknbjerIpocUylmjLAoSZ1jfi7VAU1Z64ibR8ZnE5RkAFQBKjBeVVM2AogWO4XOWliXTTRIQQPkzxTRmCnMxlk5HwiMefDheG?purpose=fullsize", "https://images.openai.com/static-rsc-4/Bs-Ky2V5lmbf4wDOYjX1QjloowmzhRCqUNSumITa3pImkfvL9uyDSKvMBD-x-3T4eYtg_b5CSRRRshMxyp7ZarA7fBWNlFRjmol-b2e9vHCodbtzjxKM1qbVmvpzIyOloRjqbF34r6BNJvfTqeieCyoiRVxg4t44oi7UgUb4P0MKNvUutd6F3MUfwXT88EvJ?purpose=fullsize"],
+        notes: ["أمثلة: زجاجة ماء صغيرة: 500 mL — زجاجة ماء كبيرة: 1 L — وعاء ماء: 2 L — خزان مصنع: 1 000 L"],
+        title: { ar: 'ما معنى السعة؟ – La capacité', en: 'ما معنى السعة؟ – La capacité', fr: 'ما معنى السعة؟ – La capacité' },
+        phrases: [
+          { fr: 'La capacité indique la quantité de liquide qu\'un récipient peut contenir.', ar: 'السعة تعني كمية السائل التي يمكن أن يستوعبها الوعاء.', en: 'Capacity indicates how much liquid a container can hold.' },
+        ]
+      },
+      { icon: '🏭',
+        images: ["https://images.openai.com/static-rsc-4/IvIlf_g98M4nEeE8YtPV60TQt8rXDXH1vZan9cQDufKlGlf6ua_bRyvwQ4hfL-m3f0c9fvnHAjUjUWHhJMcBQL89xSsxAFSrJ5U6qTAB-k7WXnz9E_RAb7FM10ClfvfCtLaokQOb5TxsjyNc06NcC5XFD1_Rxq83EzOLCVvOZbJA8Z_0UobY5eq23rkxsW4A?purpose=fullsize"],
+        notes: ["L = Litre = لتر — mL = Millilitre = مليلتر", "احفظ هذه القاعدة: 1 L = 1000 mL — يعني: 1 لتر = 1000 مليلتر، نصف لتر = 500 مليلتر، ربع لتر = 250 مليلتر.", "مثال: لديك زجاجتان، في كل واحدة 500 mL — 500 + 500 = 1000 mL = 1 L"],
+        title: { ar: 'افهم الفرق بين L و mL', en: 'افهم الفرق بين L و mL', fr: 'افهم الفرق بين L و mL' },
+        phrases: [
+          { fr: 'Deux bouteilles de 500 mL font un litre.', ar: 'زجاجتان سعة كل واحدة 500 مليلتر تساويان لتراً واحداً.', en: 'Two 500 mL bottles make one liter.' },
+        ]
+      },
+      { icon: '🔢',
+        images: ["https://images.openai.com/static-rsc-4/oNqdeCOm1njWHWOcsN6rsYavOiryZrMy7Qq7_jF9M3ORVzI0jO5PgvlX0ifzsGbHro8W0wHfj4mxboGqfs3eB73rP1lN-RaWJRz0Jgkb7hagIrWeF0-FlwjaZx9lcWOX-Blg8rJnHRZ1rzY1TDlE7KWjouVY_FYEDMSKH7vfzFSPN9BMs1t1n7P1CGFk18dp?purpose=fullsize"],
+        notes: ["مثال: لدينا 3 لترات من الماء، كم تساوي بالمليلتر؟ نضرب في 1000: 3 × 1000 = 3000 — النتيجة: 3 L = 3000 mL", "أمثلة أخرى: 2 L = 2 000 mL — 4 L = 4 000 mL — 5 L = 5 000 mL — 0,5 L = 500 mL — 1,5 L = 1 500 mL"],
+        title: { ar: 'كيف نحول من اللتر إلى المليلتر؟', en: 'كيف نحول من اللتر إلى المليلتر؟', fr: 'كيف نحول من اللتر إلى المليلتر؟' },
+        phrases: [
+          { fr: 'Pour passer des litres aux millilitres, on multiplie par 1 000.', ar: 'للتحويل من اللتر إلى المليلتر نضرب في 1000.', en: 'To convert liters into milliliters, multiply by 1,000.' },
+        ]
+      },
+      { icon: '📊',
+        images: ["https://images.openai.com/static-rsc-4/BQ1a6yYN1uXmGZFoggc95_q-lLUTHGzMCDyRMR6vQDcdKkxcLQ0K0Sn1Od8AfEwgMA1gtk_qPHm0ath3GHxvQJ4eMaJdfJhcaEjLWf9VJiLM3rXHeAVPVy3L5fsHwLSno6rN1dg7P7plWpNuRdu0Rlod5HXVFkgrUofMH2eKyclr1R2dygHmS_RlIsAKpKDA?purpose=fullsize"],
+        notes: ["مثال: لدينا 500 mL، كم تساوي باللتر؟ نقسم على 1000: 500 ÷ 1000 = 0,5 — النتيجة: 500 mL = 0,5 L", "أمثلة: 250 mL = 0,25 L — 750 mL = 0,75 L — 1 500 mL = 1,5 L — 2 500 mL = 2,5 L"],
+        title: { ar: 'كيف نحول من المليلتر إلى اللتر؟', en: 'كيف نحول من المليلتر إلى اللتر؟', fr: 'كيف نحول من المليلتر إلى اللتر؟' },
+        phrases: [
+          { fr: 'Pour passer des millilitres aux litres, on divise par 1 000.', ar: 'للتحويل من المليلتر إلى اللتر نقسم على 1000.', en: 'To convert milliliters into liters, divide by 1,000.' },
+        ]
+      },
+      { icon: '✅',
+        images: ["https://images.openai.com/static-rsc-4/6kxqKwiYC6avrFm7Le_B392OBO7GMQJ2C877SjJhdXypZOfxLahjqiGLnw9Ld2zzlJsrLu8aggJfFW1A8iI3It0qZykxoYGsJUbovR0Xubei7jeuzkiZkFc91aDFaqPPvr1g20jtddolbqdXncGRChrh5j44GXGt0T7UL_RLHTY_RopqZ04DCFG8W3XLOc1r?purpose=fullsize"],
+        notes: ["قاعدة الجدول: كل خطوة إلى اليمين: نضرب × 10 — كل خطوة إلى اليسار: نقسم ÷ 10", "مثال: 2 L = 20 dL — 2 L = 200 cL — 2 L = 2000 mL"],
+        title: { ar: 'وحدات السعة السبع – Les sept unités de capacité', en: 'وحدات السعة السبع – Les sept unités de capacité', fr: 'وحدات السعة السبع – Les sept unités de capacité' },
+        phrases: [
+          { fr: 'Kilolitre', ar: 'kL', en: '1 000 L' },
+          { fr: 'Hectolitre', ar: 'hL', en: '100 L' },
+          { fr: 'Décalitre', ar: 'daL', en: '10 L' },
+          { fr: 'Litre', ar: 'L', en: '1 L' },
+          { fr: 'Décilitre', ar: 'dL', en: '0,1 L' },
+          { fr: 'Centilitre', ar: 'cL', en: '0,01 L' },
+          { fr: 'Millilitre', ar: 'mL', en: '0,001 L' },
+        ]
+      },
+      { icon: '📝',
+        images: ["https://images.openai.com/static-rsc-4/TO2AW557tA9INF21UJ1JfEzRFSPAKEhE0i14eIIZiYLdRvdBhPACv-WwpeCNewPIloAke3z1Qp-EjQW4gvVMZ38couopi0Z3yFGvHF-MsmDbYwQ54sxdZJBdqSQGSVBy9GpdGKCZmLAS6AHaKBj1n5pklKldhfe9TRkMzPLkoY_oLky2PM4j-S9BC4BjU_te?purpose=fullsize", "https://images.openai.com/static-rsc-4/cJdrt8uMzvA4MatVH3wKn4cAe8Hld6b64SYWTO8XpYXJyZIQR6gaXeG_Bt6WBlMXu4wjjE2D30R92YHOYztUXdRTAVz99--fHqTCIdrKDh1Mhn-EoSoe2J0UD8YpyYUiruoKnOT-Jk_-on1t1J4FVYfeR0qUgTP155YUZz6zK7hQ66dcfIhzMLXEfDGXAWSH?purpose=fullsize", "https://images.openai.com/static-rsc-4/L38u_wVcB2Xz5wEKFrWgDPd85c9aEWV9E38v98GVB7g0PAdM8mUDgRFF9sMZefN9xM20gKFbEllUoR30zi7jKeZ29YnkaUJKNnJv6R79tbAnWdCEO-FW8zO1PxCkZpBC9yTWToyJtD_kXzQ5QWm8qaj9ogZsyS1nbSnTXT4cG15nQdYetwh6yq_Jt4iYXhxQ?purpose=fullsize"],
+        notes: ["المثال الأول: تعبئة القوارير – Remplissage des bouteilles", "كمية السائل الإجمالية؟ 100 × 500 = 50000 mL — نحوّل إلى اللتر: 50000 ÷ 1000 = 50 L — النتيجة: 50 لتر.", "المثال الثاني: خزان المصنع – La cuve industrielle", "استُعمل 500 لتر. كم بقي؟ 2000 - 500 = 1500 L — النتيجة: بقي 1500 لتر.", "المثال الثالث: جرعة السائل – Le dosage", "إذا نفذت الآلة 4 دورات: 250 × 4 = 1000 mL أي 1 L"],
+        title: { ar: 'أمثلة من المصنع – Exemples dans l\'usine', en: 'أمثلة من المصنع – Exemples dans l\'usine', fr: 'أمثلة من المصنع – Exemples dans l\'usine' },
+        phrases: [
+          { fr: 'Une machine remplit 100 bouteilles de 500 mL.', ar: 'آلة تملأ 100 زجاجة، سعة كل واحدة 500 مليلتر.', en: 'A machine fills 100 bottles, each containing 500 milliliters.' },
+          { fr: 'Une cuve contient 2 000 litres d\'eau.', ar: 'خزان يحتوي على 2000 لتر من الماء.', en: 'A tank contains 2,000 liters of water.' },
+          { fr: 'La machine utilise 250 mL de liquide par cycle.', ar: 'الآلة تستعمل 250 مليلتر من السائل في كل دورة.', en: 'The machine uses 250 milliliters of liquid per cycle.' },
+        ]
+      },
+      { icon: '⭐',
+        notes: ["السؤال 1: زجاجة تحتوي على 1 L. كم تساوي بالمليلتر؟ الجواب: 1 000 mL", "السؤال 2: لدينا 2 500 mL. كم تساوي باللتر؟ الجواب: 2,5 L", "السؤال 3: آلة تملأ 20 زجاجة، كل واحدة 500 mL. ما الكمية؟ الجواب: 10 L", "السؤال 4: خزان يحتوي على 1 000 L، استعملنا 300 L. كم بقي؟ الجواب: 700 L", "ماذا يجب أن تحفظ جيداً للامتحان؟ 1 L = 1 000 mL — 1 kL = 1 000 L — 1 hL = 100 L — 1 daL = 10 L — التحويل إلى وحدة أصغر: نضرب — التحويل إلى وحدة أكبر: نقسم."],
+        title: { ar: 'اختبار CAP CIP', en: 'اختبار CAP CIP', fr: 'اختبار CAP CIP' },
+        phrases: [
+        ]
+      },
   ] },
   { id: 'formes', icon: '🔷', name: { ar: 'الأشكال الهندسية', en: 'Geometric shapes', fr: 'Formes géométriques' }, desc: { ar: 'الأشكال وأفعال الرياضيات', en: 'Shapes & maths verbs', fr: 'Formes & verbes de maths' }, sections: [
     { icon: '🔷', title: { ar: 'الأشكال الأساسية', en: 'Basic shapes', fr: 'Les formes de base' }, phrases: [
