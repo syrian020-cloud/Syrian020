@@ -36457,6 +36457,209 @@ window.CENTRES_DATA = [
         phrases: [
         ]
       },
+      { icon: '🔢',
+        notes: ["الكسور من الدروس المهمة في الرياضيات، وستحتاج إليها في تكوين CAP CIP – Conducteur d'Installations de Production، خصوصاً عند حساب نصف كمية الإنتاج، وربع المخزون، وتقسيم المواد، وقياس الأجزاء.", "سنبدأ من الصفر، ثم نتعلم العمليات الأربع على الكسور."],
+        title: { ar: 'Fractions', en: 'Fractions', fr: 'Fractions' },
+        phrases: [
+        ]
+      },
+      { icon: '➕',
+        images: ["https://images.openai.com/static-rsc-4/aBrOC0GAE4RYM77cGyLmAhUSfSiot-H-Ps_wsmumrkOGM_4QRqXmV-rB76eVxDq7B--YXXp4NbVGuF4Jz8dGKSMBZXptEP4k_xYNY-DagI2OpjOiMIMnYjXy30oRhdsTd6a2h80tE47-rko0qnazQ2kJo61WQ_4W_1eVDrSJ8V7Dje9ZIxBWDGNWHh45XqsT?purpose=fullsize"],
+        notes: ["مثال: لدينا قطعة واحدة من البيتزا مقسمة إلى 4 أجزاء متساوية، وأخذنا جزءاً واحداً.", "نكتب الكسر هكذا:", "1/4", "ويُقرأ بالفرنسية:"],
+        title: { ar: 'ما هو الكسر؟ – Qu\'est-ce qu\'une fraction ?', en: 'ما هو الكسر؟ – Qu\'est-ce qu\'une fraction ?', fr: 'ما هو الكسر؟ – Qu\'est-ce qu\'une fraction ?' },
+        phrases: [
+          { fr: 'Une fraction représente une partie d\'un tout.', ar: 'الكسر يمثل جزءاً من شيء كامل.', en: 'A fraction represents a part of a whole.' },
+          { fr: 'Un quart.', ar: 'ربع.', en: 'One quarter.' },
+        ]
+      },
+      { icon: '➖',
+        notes: ["مثال:", "3/4", "البسط – Le numérateur", "المقام – Le dénominateur", "مثال: 3/4 يعني أننا أخذنا 3 أجزاء من أصل 4 أجزاء متساوية."],
+        title: { ar: 'أجزاء الكسر – Les parties d\'une fraction', en: 'أجزاء الكسر – Les parties d\'une fraction', fr: 'أجزاء الكسر – Les parties d\'une fraction' },
+        phrases: [
+          { fr: 'Le numérateur indique le nombre de parts prises.', ar: 'البسط يبين عدد الأجزاء التي أخذناها.', en: 'The numerator indicates the number of parts taken.' },
+          { fr: 'Le dénominateur indique le nombre total de parts égales.', ar: 'المقام يبين العدد الإجمالي للأجزاء المتساوية.', en: 'The denominator indicates the total number of equal parts.' },
+        ]
+      },
+      { icon: '✖️',
+        notes: ["احفظ هذه الكلمات لأنها شائعة جداً:", "أمثلة:", "2/3", "3/5"],
+        title: { ar: 'كيف نقرأ الكسور بالفرنسية؟ – Lire les fractions en français', en: 'كيف نقرأ الكسور بالفرنسية؟ – Lire les fractions en français', fr: 'كيف نقرأ الكسور بالفرنسية؟ – Lire les fractions en français' },
+        phrases: [
+          { fr: 'Un demi —', ar: 'نصف —', en: 'One half' },
+          { fr: 'Un tiers —', ar: 'ثلث —', en: 'One third' },
+          { fr: 'Un quart —', ar: 'ربع —', en: 'One quarter' },
+          { fr: 'Un cinquième —', ar: 'خُمس —', en: 'One fifth' },
+          { fr: 'Un sixième —', ar: 'سُدس —', en: 'One sixth' },
+          { fr: 'Un dixième —', ar: 'عُشر —', en: 'One tenth' },
+          { fr: 'Deux tiers.', ar: 'ثلثان.', en: 'Two thirds.' },
+          { fr: 'Trois cinquièmes.', ar: 'ثلاثة أخماس.', en: 'Three fifths.' },
+        ]
+      },
+      { icon: '➗',
+        notes: ["أولاً: الكسر الأصغر من الواحد – Fraction inférieure à 1", "مثال: 2/5 — البسط أصغر من المقام، لذلك الكسر أصغر من الواحد.", "ثانياً: الكسر المساوي للواحد – Fraction égale à 1", "مثال: 5/5 = 1", "ثالثاً: الكسر الأكبر من الواحد – Fraction supérieure à 1", "مثال: 7/4 = 1,75 — البسط أكبر من المقام، لذلك الكسر أكبر من الواحد."],
+        title: { ar: 'أنواع الكسور – Les types de fractions', en: 'أنواع الكسور – Les types de fractions', fr: 'أنواع الكسور – Les types de fractions' },
+        phrases: [
+        ]
+      },
+      { icon: '🟰',
+        notes: ["التبسيط يعني أن نحصل على كسر أصغر في أرقامه، لكن له نفس القيمة.", "مثال: 4/8 = 2/4 = 1/2 — قسمنا البسط والمقام على 2 ثم على 2 مرة أخرى.", "مثال آخر: 6/9 = 2/3 — قسمنا البسط والمقام على 3.", "مفردات مهمة:"],
+        title: { ar: 'تبسيط الكسور – Simplifier une fraction', en: 'تبسيط الكسور – Simplifier une fraction', fr: 'تبسيط الكسور – Simplifier une fraction' },
+        phrases: [
+          { fr: 'Simplifier une fraction.', ar: 'تبسيط الكسر.', en: 'Simplifying a fraction.' },
+          { fr: 'Simplifier —', ar: 'يبسّط —', en: 'To simplify.' },
+          { fr: 'Diviser —', ar: 'يقسم —', en: 'To divide.' },
+          { fr: 'Le même résultat —', ar: 'النتيجة نفسها —', en: 'The same result.' },
+        ]
+      },
+      { icon: '📐',
+        notes: ["الحالة الأولى: المقامات متساوية", "مثال: 2/5 + 1/5 — نحتفظ بالمقام، ونجمع البسطين: (2+1)/5 = 3/5", "بالفرنسية:", "الحالة الثانية: المقامات مختلفة", "مثال: 1/2 + 1/4 — نحوّل النصف إلى أرباع: 1/2 = 2/4، ثم 2/4 + 1/4 = 3/4"],
+        title: { ar: 'جمع الكسور – Additionner les fractions', en: 'جمع الكسور – Additionner les fractions', fr: 'جمع الكسور – Additionner les fractions' },
+        phrases: [
+          { fr: 'Deux cinquièmes plus un cinquième égalent trois cinquièmes.', ar: 'خمسان زائد خُمس يساوي ثلاثة أخماس.', en: 'Two fifths plus one fifth equals three fifths.' },
+        ]
+      },
+      { icon: '📏',
+        notes: ["مثال بمقامات متساوية: 4/7 - 2/7 — نطرح البسطين ونحتفظ بالمقام: (4-2)/7 = 2/7", "مثال بمقامات مختلفة: 3/4 - 1/2 — نحوّل النصف إلى أرباع: 1/2 = 2/4، ثم 3/4 - 2/4 = 1/4"],
+        title: { ar: 'طرح الكسور – Soustraire les fractions', en: 'طرح الكسور – Soustraire les fractions', fr: 'طرح الكسور – Soustraire les fractions' },
+        phrases: [
+        ]
+      },
+      { icon: '🧮',
+        notes: ["الضرب أسهل من الجمع والطرح.", "مثال: 2/3 × 3/4 — نضرب البسطين: 2×3=6، ونضرب المقامين: 3×4=12، إذن 6/12 = 1/2"],
+        title: { ar: 'ضرب الكسور – Multiplier les fractions', en: 'ضرب الكسور – Multiplier les fractions', fr: 'ضرب الكسور – Multiplier les fractions' },
+        phrases: [
+          { fr: 'On multiplie les numérateurs entre eux et les dénominateurs entre eux.', ar: 'نضرب البسط في البسط والمقام في المقام.', en: 'Multiply the numerators together and the denominators together.' },
+        ]
+      },
+      { icon: '💯',
+        notes: ["مثال: 2/3 ÷ 1/4 — نقلب الكسر الثاني: 1/4 ← 4/1، ثم نضرب: 2/3 × 4/1 = 8/3 = 2 و 2/3"],
+        title: { ar: 'قسمة الكسور – Diviser les fractions', en: 'قسمة الكسور – Diviser les fractions', fr: 'قسمة الكسور – Diviser les fractions' },
+        phrases: [
+          { fr: 'Pour diviser deux fractions, on inverse la deuxième fraction et on multiplie.', ar: 'لقسمة كسرين، نقلب الكسر الثاني ثم نضرب.', en: 'To divide two fractions, invert the second fraction and multiply.' },
+        ]
+      },
+      { icon: '📊',
+        images: ["https://images.openai.com/static-rsc-4/OGf9qty_5eg8-IqHCpPIxF4cLILlVu1WBgn3Sem6J-CYRYbm2uqcwP-27TvwrYJzL8YcgdZSUmg9vLwu139R4pAjpQWBIzTc5q0opWB-d5IMa8sxKqNDqbUT2blKCQJvjIYL3AdYw8Jr_uua5RPV89egfvp2SGpV1JJFVIo_IIBzojUvur-3qW5_dvY0HIui?purpose=fullsize", "https://images.openai.com/static-rsc-4/Fw50vJbGS4G83zNo0JUZ1bieITeE1wHwGYFdQFAFHSorQ3zEdWC7s2090HeJr06RKZZTVRcwbol-D2KBUXi0Yt2GyOwGY-sUAkGVcy2RJDoRzLhCuwh-4VEqi3tXLHXvLaYQ6kVIxcPPuMyAPsUgs-0F0AEv7_1DoD911GylZjHkqHwJBJiBHo341NFLkSGL?purpose=fullsize", "https://images.openai.com/static-rsc-4/NX8GeHpPmsrY4sQoz0RXT7oxmP3niheaCV1MbO5O5RW-SjED4lSx65lNKJHeIOxxcXNv8oS0D0CAZx4pVxIkf1UoceKh754FAyZZZSrN_6LnZ7gpD1UnenKec0pUl6DsPO8ugD3X1azE1FMKdnLOGtFuuvFVhI4jub-JwzvtSSYnfR2yqoxPqMQDsp_QGG7A?purpose=fullsize"],
+        notes: ["المثال الأول: المخزون – Le stock", "إذا كان لدينا 100 صندوق: 100 × 1/2 = 50 — استُعمل 50 صندوقاً.", "المثال الثاني: مراقبة الجودة – Le contrôle qualité", "لدينا 80 منتجاً: 80 × 1/4 = 20 — يجب فحص 20 منتجاً.", "المثال الثالث: الإنتاج – La production", "الهدف 900 قطعة: 900 × 1/3 = 300 — تم إنجاز 300 قطعة."],
+        title: { ar: 'تطبيقات الكسور في المصنع – Les fractions dans l\'usine', en: 'تطبيقات الكسور في المصنع – Les fractions dans l\'usine', fr: 'تطبيقات الكسور في المصنع – Les fractions dans l\'usine' },
+        phrases: [
+          { fr: 'La moitié du stock a été utilisée.', ar: 'تم استعمال نصف المخزون.', en: 'Half of the stock has been used.' },
+          { fr: 'Un quart des produits doit être contrôlé.', ar: 'يجب فحص ربع المنتجات.', en: 'One quarter of the products must be inspected.' },
+          { fr: 'Un tiers de la production est terminé.', ar: 'تم إنجاز ثلث الإنتاج.', en: 'One third of the production is completed.' },
+        ]
+      },
+      { icon: '🔣',
+        title: { ar: 'أهم مفردات الكسور – Vocabulaire essentiel', en: 'أهم مفردات الكسور – Vocabulaire essentiel', fr: 'أهم مفردات الكسور – Vocabulaire essentiel' },
+        phrases: [
+          { fr: 'Une fraction —', ar: 'كسر —', en: 'A fraction.' },
+          { fr: 'Le numérateur —', ar: 'البسط —', en: 'Numerator.' },
+          { fr: 'Le dénominateur —', ar: 'المقام —', en: 'Denominator.' },
+          { fr: 'Un demi —', ar: 'نصف —', en: 'One half.' },
+          { fr: 'Un tiers —', ar: 'ثلث —', en: 'One third.' },
+          { fr: 'Un quart —', ar: 'ربع —', en: 'One quarter.' },
+          { fr: 'Additionner —', ar: 'يجمع —', en: 'To add.' },
+          { fr: 'Soustraire —', ar: 'يطرح —', en: 'To subtract.' },
+          { fr: 'Multiplier —', ar: 'يضرب —', en: 'To multiply.' },
+          { fr: 'Diviser —', ar: 'يقسم —', en: 'To divide.' },
+          { fr: 'Simplifier —', ar: 'يبسّط —', en: 'To simplify.' },
+          { fr: 'Une part —', ar: 'جزء / حصة —', en: 'A part.' },
+          { fr: 'La totalité —', ar: 'الكمية الكاملة —', en: 'The whole amount.' },
+        ]
+      },
+      { icon: '📝',
+        notes: ["1. في الكسر 3/5، ما هو البسط؟ الجواب: 3", "2. ما قيمة 1/2؟ الجواب: نصف", "3. 2/7 + 3/7 = ؟ الجواب: 5/7", "4. 1/2 + 1/4 = ؟ الجواب: 3/4", "5. 80 × 1/4 = ؟ الجواب: 20", "6. 2/3 × 3/4 = ؟ الجواب: 6/12 = 1/2"],
+        title: { ar: 'اختبار الدرس – Test', en: 'اختبار الدرس – Test', fr: 'اختبار الدرس – Test' },
+        phrases: [
+        ]
+      },
+      { icon: '💬',
+        notes: ["في هذا الدرس سنتعلم جمع الكسور بالتفصيل، سواء كانت المقامات متساوية أو مختلفة، وسنتعلم أيضاً المضاعف المشترك الأصغر (PPCM)، مع تطبيقات من المصنع وتكوين CAP CIP."],
+        title: { ar: 'Adding Fractions', en: 'Adding Fractions', fr: 'Adding Fractions' },
+        phrases: [
+        ]
+      },
+      { icon: '✅',
+        notes: ["مثال: 2/5"],
+        title: { ar: 'تذكير بأجزاء الكسر – Rappel sur les parties d\'une fraction', en: 'تذكير بأجزاء الكسر – Rappel sur les parties d\'une fraction', fr: 'تذكير بأجزاء الكسر – Rappel sur les parties d\'une fraction' },
+        phrases: [
+          { fr: 'Le numérateur = 2.', ar: 'البسط = 2.', en: 'Numerator = 2.' },
+          { fr: 'Le dénominateur = 5.', ar: 'المقام = 5.', en: 'Denominator = 5.' },
+        ]
+      },
+      { icon: '📓',
+        notes: ["مثال 1: 2/7 + 3/7 — نجمع البسطين: 2+3=5، ونحتفظ بالمقام 7، النتيجة: 5/7", "مثال 2: 1/8 + 4/8 = 5/8", "مثال 3: 3/10 + 5/10 = 8/10 — نبسّط بقسمة البسط والمقام على 2: 4/5", "ملاحظة: لا نجمع المقامات عندما تكون متساوية. خطأ: 2/7 + 3/7 ≠ 5/14 — الصحيح: 2/7 + 3/7 = 5/7"],
+        title: { ar: 'جمع الكسور ذات المقام نفسه – Addition de fractions ayant le même dénominateur', en: 'جمع الكسور ذات المقام نفسه – Addition de fractions ayant le même dénominateur', fr: 'جمع الكسور ذات المقام نفسه – Addition de fractions ayant le même dénominateur' },
+        phrases: [
+          { fr: 'Quand les dénominateurs sont identiques, on additionne les numérateurs et on garde le même dénominateur.', ar: 'عندما تكون المقامات متساوية، نجمع البسطين ونحتفظ بالمقام نفسه.', en: 'When denominators are the same, add the numerators and keep the same denominator.' },
+        ]
+      },
+      { icon: '🖊️',
+        notes: ["مثال: 1/2 + 1/4 — لا نستطيع جمعهما مباشرة لأن المقامين مختلفان: 2 و4. نحوّل النصف إلى أرباع: 1/2 = 2/4، ثم 2/4 + 1/4 = 3/4"],
+        title: { ar: 'جمع الكسور ذات المقامات المختلفة – Addition de fractions avec des dénominateurs différents', en: 'جمع الكسور ذات المقامات المختلفة – Addition de fractions avec des dénominateurs différents', fr: 'جمع الكسور ذات المقامات المختلفة – Addition de fractions avec des dénominateurs différents' },
+        phrases: [
+          { fr: 'Quand les dénominateurs sont différents, il faut d\'abord les rendre identiques.', ar: 'عندما تكون المقامات مختلفة، يجب أولاً توحيدها.', en: 'When denominators are different, we must first make them the same.' },
+        ]
+      },
+      { icon: '🧾',
+        notes: ["مثال: نريد جمع 1/3 + 1/4 — مضاعفات 3: 3، 6، 9، 12، 15 — مضاعفات 4: 4، 8، 12، 16، 20 — أول عدد مشترك هو 12، إذن PPCM(3,4)=12. نوحّد المقامين: 1/3 = 4/12 و 1/4 = 3/12، ثم نجمع: 4/12 + 3/12 = 7/12"],
+        title: { ar: 'ما هو المضاعف المشترك الأصغر؟ – Le plus petit commun multiple (PPCM)', en: 'ما هو المضاعف المشترك الأصغر؟ – Le plus petit commun multiple (PPCM)', fr: 'ما هو المضاعف المشترك الأصغر؟ – Le plus petit commun multiple (PPCM)' },
+        phrases: [
+          { fr: 'Le PPCM est le plus petit multiple commun à deux nombres ou plus.', ar: 'المضاعف المشترك الأصغر هو أصغر عدد يقبل القسمة على عددين أو أكثر دون باقي.', en: 'The least common multiple is the smallest number divisible by two or more numbers.' },
+        ]
+      },
+      { icon: '📈',
+        notes: ["المثال الأول: 1/2 + 1/3 — المضاعف المشترك الأصغر لـ 2 و3 هو 6. 1/2 = 3/6 و 1/3 = 2/6، نجمع: 3/6 + 2/6 = 5/6", "المثال الثاني: 2/3 + 1/6 — المقام المشترك هو 6. 2/3 = 4/6، إذن: 4/6 + 1/6 = 5/6", "المثال الثالث: 3/4 + 1/8 — المقام المشترك هو 8. 3/4 = 6/8، ثم: 6/8 + 1/8 = 7/8", "المثال الرابع: 2/5 + 1/3 — المضاعف المشترك الأصغر هو 15. 2/5 = 6/15 و 1/3 = 5/15، إذن: 6/15 + 5/15 = 11/15"],
+        title: { ar: 'أمثلة إضافية خطوة بخطوة', en: 'أمثلة إضافية خطوة بخطوة', fr: 'أمثلة إضافية خطوة بخطوة' },
+        phrases: [
+        ]
+      },
+      { icon: '⭐',
+        notes: ["مثال: 1/2 + 1/3 + 1/6 — المضاعف المشترك الأصغر للأعداد 2 و3 و6 هو 6. نحوّل: 1/2 = 3/6 و 1/3 = 2/6 و 1/6 = 1/6، نجمع: (3+2+1)/6 = 6/6 = 1 — إذن مجموع الكسور يساوي واحداً كاملاً."],
+        title: { ar: 'جمع ثلاثة كسور – Addition de trois fractions', en: 'جمع ثلاثة كسور – Addition de trois fractions', fr: 'جمع ثلاثة كسور – Addition de trois fractions' },
+        phrases: [
+        ]
+      },
+      { icon: '🔢',
+        images: ["https://images.openai.com/static-rsc-4/TWek3bT0-vkZqlxT0Enc-pM7tg8pGo0vWCew3Jh3JAXvmH8XOxua2RwDwVIp_dN_WH9PW9KS-TDlkEac2RT4yIxywUwZUjmVkfkBnTMYUAYk8xLcKaUYK_JSjwDp-8xLhllMw0z6zvdZPYeyTSPqnoswIVqQZhsLQJb5f9urtCTd9pNHpetIMRWGsK9ru6Ia?purpose=fullsize", "https://images.openai.com/static-rsc-4/4tz1a_qLrn7NZqUX-ZUSr8GUbBC47KLusrRTS4BGJJvXrV4CSs9yqJp0RsxCm-TX2hLEPXfdD6f0oDKpEMeLgqXILur26mRU6if18sHP6W5Ps5t_xeCzvnYeLgsaX_4sh1fT6XDEDRJK9_M_P-uFM5CeP21S4wQq-nRqttg-3Xl3eImrhavXjm04Zrd9Cm3R?purpose=fullsize", "https://images.openai.com/static-rsc-4/Fw50vJbGS4G83zNo0JUZ1bieITeE1wHwGYFdQFAFHSorQ3zEdWC7s2090HeJr06RKZZTVRcwbol-D2KBUXi0Yt2GyOwGY-sUAkGVcy2RJDoRzLhCuwh-4VEqi3tXLHXvLaYQ6kVIxcPPuMyAPsUgs-0F0AEv7_1DoD911GylZjHkqHwJBJiBHo341NFLkSGL?purpose=fullsize"],
+        notes: ["المثال الأول: المخزون – Le stock", "كم استُخدم من المخزون؟ 1/2 + 1/4 = 3/4 — استُخدم ثلاثة أرباع المخزون.", "المثال الثاني: الإنتاج – La production", "1/3 + 1/6 = 1/2 — تم إنجاز نصف الإنتاج.", "المثال الثالث: مراقبة الجودة – Le contrôle qualité", "1/4 + 1/4 = 1/2 — تم فحص نصف القطع."],
+        title: { ar: 'تطبيقات في المصنع – Applications dans l\'usine', en: 'تطبيقات في المصنع – Applications dans l\'usine', fr: 'تطبيقات في المصنع – Applications dans l\'usine' },
+        phrases: [
+          { fr: 'On utilise la moitié du stock le matin et un quart l\'après-midi.', ar: 'نستخدم نصف المخزون صباحاً وربع المخزون بعد الظهر.', en: 'We use half of the stock in the morning and one quarter in the afternoon.' },
+          { fr: 'Une équipe réalise un tiers de la production et une autre équipe réalise un sixième.', ar: 'فريق ينجز ثلث الإنتاج وفريق آخر ينجز سدس الإنتاج.', en: 'One team completes one third of production and another team completes one sixth.' },
+          { fr: 'Un quart des pièces est contrôlé le matin et un autre quart l\'après-midi.', ar: 'يتم فحص ربع القطع صباحاً وربع آخر بعد الظهر.', en: 'One quarter of the parts is inspected in the morning and another quarter in the afternoon.' },
+        ]
+      },
+      { icon: '➕',
+        title: { ar: 'عبارات تسمعها في درس الرياضيات – Expressions utilisées en cours de mathématiques', en: 'عبارات تسمعها في درس الرياضيات – Expressions utilisées en cours de mathématiques', fr: 'عبارات تسمعها في درس الرياضيات – Expressions utilisées en cours de mathématiques' },
+        phrases: [
+          { fr: 'Additionnez les deux fractions.', ar: 'اجمع الكسرين.', en: 'Add the two fractions.' },
+          { fr: 'Trouvez un dénominateur commun.', ar: 'أوجد مقاماً مشتركاً.', en: 'Find a common denominator.' },
+          { fr: 'Calculez le PPCM.', ar: 'احسب المضاعف المشترك الأصغر.', en: 'Calculate the least common multiple.' },
+          { fr: 'Réduisez la fraction au même dénominateur.', ar: 'حوّل الكسر إلى مقام موحد.', en: 'Convert the fraction to a common denominator.' },
+          { fr: 'Simplifiez le résultat.', ar: 'بسّط النتيجة.', en: 'Simplify the result.' },
+          { fr: 'Donnez le résultat sous forme de fraction.', ar: 'أعطِ النتيجة على شكل كسر.', en: 'Give the result as a fraction.' },
+        ]
+      },
+      { icon: '➖',
+        title: { ar: 'مفردات الدرس – Vocabulaire', en: 'مفردات الدرس – Vocabulaire', fr: 'مفردات الدرس – Vocabulaire' },
+        phrases: [
+          { fr: 'Addition —', ar: 'جمع —', en: 'Addition.' },
+          { fr: 'Dénominateur commun —', ar: 'مقام مشترك —', en: 'Common denominator.' },
+          { fr: 'Multiple —', ar: 'مضاعف —', en: 'Multiple.' },
+          { fr: 'Le PPCM —', ar: 'المضاعف المشترك الأصغر —', en: 'Least common multiple.' },
+          { fr: 'Le résultat —', ar: 'النتيجة —', en: 'Result.' },
+          { fr: 'La somme —', ar: 'المجموع —', en: 'Sum.' },
+          { fr: 'Simplifier —', ar: 'يبسط —', en: 'Simplify.' },
+          { fr: 'Une quantité —', ar: 'كمية —', en: 'Quantity.' },
+          { fr: 'Une partie —', ar: 'جزء —', en: 'Part.' },
+          { fr: 'La totalité —', ar: 'الكمية الكاملة —', en: 'The whole amount.' },
+        ]
+      },
+      { icon: '✖️',
+        notes: ["السؤال 1: 2/7 + 3/7 = ؟ الجواب: 5/7", "السؤال 2: 1/2 + 1/4 = ؟ الجواب: 3/4", "السؤال 3: 1/3 + 1/4 = ؟ الجواب: 7/12", "السؤال 4: 1/2 + 1/3 + 1/6 = ؟ الجواب: 1", "السؤال 5: ما هو PPCM للعددين 4 و6؟ الجواب: 12"],
+        title: { ar: 'اختبار تطبيقي – Exercice d\'entraînement', en: 'اختبار تطبيقي – Exercice d\'entraînement', fr: 'اختبار تطبيقي – Exercice d\'entraînement' },
+        phrases: [
+        ]
+      },
   ] },
   { id: 'formes', icon: '🔷', name: { ar: 'الأشكال الهندسية', en: 'Geometric shapes', fr: 'Formes géométriques' }, desc: { ar: 'الأشكال وأفعال الرياضيات', en: 'Shapes & maths verbs', fr: 'Formes & verbes de maths' }, sections: [
     { icon: '🔷', title: { ar: 'الأشكال الأساسية', en: 'Basic shapes', fr: 'Les formes de base' }, phrases: [
