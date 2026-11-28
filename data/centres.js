@@ -35650,6 +35650,813 @@ window.CENTRES_DATA = [
         { fr: 'Justifie ta réponse.', ar: 'برّر جوابك.', en: 'Justify your answer.' },
         { fr: 'Explique ton calcul.', ar: 'اشرح طريقة حسابك.', en: 'Explain your calculation.' },
     ]},
+      { icon: '🔢',
+        notes: ["من المستوى الأساسي إلى مستوى الامتحان والتطبيق الصناعي"],
+        title: { ar: 'برنامج الرياضيات الكامل – Mathématiques CAP CIP', en: 'برنامج الرياضيات الكامل – Mathématiques CAP CIP', fr: 'برنامج الرياضيات الكامل – Mathématiques CAP CIP' },
+        phrases: [
+        ]
+      },
+      { icon: '➕',
+        notes: ["Les nombres entiers – الأعداد الصحيحة – Whole numbers", "Lire et écrire les nombres – قراءة وكتابة الأعداد – Reading and writing numbers", "L'addition – الجمع – Addition", "La soustraction – الطرح – Subtraction", "La multiplication – الضرب – Multiplication", "La division – القسمة – Division", "Les priorités opératoires – أولوية العمليات – Order of operations", "Les nombres décimaux – الأعداد العشرية – Decimal numbers", "Comparer les nombres – مقارنة الأعداد – Comparing numbers", "Arrondir un nombre – تقريب الأعداد – Rounding numbers"],
+        title: { ar: 'المرحلة الأولى: الحساب الأساسي – Calcul numérique', en: 'المرحلة الأولى: الحساب الأساسي – Calcul numérique', fr: 'المرحلة الأولى: الحساب الأساسي – Calcul numérique' },
+        phrases: [
+        ]
+      },
+      { icon: '➖',
+        notes: ["Les fractions – الكسور – Fractions", "Additionner les fractions – جمع الكسور – Adding fractions", "Soustraire les fractions – طرح الكسور – Subtracting fractions", "Multiplier les fractions – ضرب الكسور – Multiplying fractions", "Diviser les fractions – قسمة الكسور – Dividing fractions", "Les nombres proportionnels – الأعداد المتناسبة – Proportional numbers", "Le tableau de proportionnalité – جدول التناسبية – Proportionality table", "La règle de trois – قاعدة الثلاثة – Rule of three", "Le pourcentage – النسبة المئوية – Percentage", "L'augmentation et la diminution – الزيادة والنقصان – Increase and decrease"],
+        title: { ar: 'المرحلة الثانية: الكسور والنسب – Fractions et proportions', en: 'المرحلة الثانية: الكسور والنسب – Fractions et proportions', fr: 'المرحلة الثانية: الكسور والنسب – Fractions et proportions' },
+        phrases: [
+        ]
+      },
+      { icon: '✖️',
+        notes: ["Les unités de longueur – وحدات الطول – Units of length", "Les unités de masse – وحدات الكتلة – Units of mass", "Les unités de capacité – وحدات السعة – Units of capacity", "Les unités de volume – وحدات الحجم – Units of volume", "Les unités de temps – وحدات الزمن – Units of time", "Les conversions d'unités – تحويل الوحدات – Unit conversions", "Les températures – درجات الحرارة – Temperatures", "Les instruments de mesure – أدوات القياس – Measuring instruments"],
+        title: { ar: 'المرحلة الثالثة: وحدات القياس – Les unités de mesure', en: 'المرحلة الثالثة: وحدات القياس – Les unités de mesure', fr: 'المرحلة الثالثة: وحدات القياس – Les unités de mesure' },
+        phrases: [
+        ]
+      },
+      { icon: '➗',
+        notes: ["Les formes géométriques – الأشكال الهندسية – Geometric shapes", "Le carré et le rectangle – المربع والمستطيل – Square and rectangle", "Le triangle – المثلث – Triangle", "Le cercle – الدائرة – Circle", "Le périmètre – المحيط – Perimeter", "L'aire et la surface – المساحة – Area", "Le volume – الحجم – Volume", "Les angles – الزوايا – Angles", "Les solides géométriques – المجسمات الهندسية – Geometric solids"],
+        title: { ar: 'المرحلة الرابعة: الهندسة – Géométrie', en: 'المرحلة الرابعة: الهندسة – Géométrie', fr: 'المرحلة الرابعة: الهندسة – Géométrie' },
+        phrases: [
+        ]
+      },
+      { icon: '🟰',
+        notes: ["Calculer une quantité – حساب الكمية – Calculating quantities", "Calculer une production – حساب الإنتاج – Calculating production", "La cadence de production – معدل الإنتاج – Production rate", "Le temps de cycle – زمن دورة الإنتاج – Cycle time", "La vitesse – السرعة – Speed", "Le rendement – المردودية – Efficiency", "Le taux de défaut – نسبة العيوب – Defect rate", "Le taux de conformité – نسبة المطابقة – Conformity rate", "Les pertes de production – خسائر الإنتاج – Production losses", "Le poids brut et le poids net – الوزن الإجمالي والصافي – Gross and net weight"],
+        title: { ar: 'المرحلة الخامسة: الحسابات المهنية – Calculs professionnels', en: 'المرحلة الخامسة: الحسابات المهنية – Calculs professionnels', fr: 'المرحلة الخامسة: الحسابات المهنية – Calculs professionnels' },
+        phrases: [
+        ]
+      },
+      { icon: '📐',
+        notes: ["Les expressions mathématiques – التعبيرات الرياضية – Mathematical expressions", "Les équations simples – المعادلات البسيطة – Simple equations", "Calculer une inconnue – حساب المجهول – Finding an unknown", "Les tableaux de données – جداول البيانات – Data tables", "Les graphiques – الرسوم البيانية – Graphs", "La moyenne – المتوسط الحسابي – Average", "Le minimum et le maximum – الحد الأدنى والأقصى – Minimum and maximum", "Les statistiques – الإحصاء – Statistics"],
+        title: { ar: 'المرحلة السادسة: الجبر والإحصاء – Algèbre et statistiques', en: 'المرحلة السادسة: الجبر والإحصاء – Algèbre et statistiques', fr: 'المرحلة السادسة: الجبر والإحصاء – Algèbre et statistiques' },
+        phrases: [
+        ]
+      },
+      { icon: '📏',
+        notes: ["Comprendre un énoncé – فهم نص المسألة – Understanding a problem", "Choisir la bonne opération – اختيار العملية المناسبة – Choosing the right operation", "Résoudre des problèmes – حل المسائل – Solving problems", "Exercices professionnels CAP CIP – تمارين مهنية – CAP CIP vocational exercises", "Examen blanc de mathématiques – امتحان تجريبي – Mathematics mock exam"],
+        title: { ar: 'المرحلة السابعة: الاستعداد للامتحان – Préparation à l\'examen', en: 'المرحلة السابعة: الاستعداد للامتحان – Préparation à l\'examen', fr: 'المرحلة السابعة: الاستعداد للامتحان – Préparation à l\'examen' },
+        phrases: [
+        ]
+      },
+      { icon: '🧮',
+        notes: ["أمثلة:"],
+        title: { ar: 'ما هي الأعداد الصحيحة؟', en: 'ما هي الأعداد الصحيحة؟', fr: 'ما هي الأعداد الصحيحة؟' },
+        phrases: [
+          { fr: 'Un nombre entier est un nombre sans virgule.', ar: 'العدد الصحيح هو عدد لا يحتوي على فاصلة عشرية.', en: 'A whole number is a number without a decimal point.' },
+          { fr: 'Zéro : 0.', ar: 'صفر.', en: 'Zero.' },
+          { fr: 'Un : 1.', ar: 'واحد.', en: 'One.' },
+          { fr: 'Dix : 10.', ar: 'عشرة.', en: 'Ten.' },
+          { fr: 'Cent : 100.', ar: 'مئة.', en: 'One hundred.' },
+          { fr: 'Mille : 1 000.', ar: 'ألف.', en: 'One thousand.' },
+        ]
+      },
+      { icon: '💯',
+        title: { ar: 'أسماء الأعداد', en: 'أسماء الأعداد', fr: 'أسماء الأعداد' },
+        phrases: [
+          { fr: 'Français', ar: 'العربية', en: 'English' },
+          { fr: 'Un', ar: 'واحد', en: 'One' },
+          { fr: 'Deux', ar: 'اثنان', en: 'Two' },
+          { fr: 'Trois', ar: 'ثلاثة', en: 'Three' },
+          { fr: 'Quatre', ar: 'أربعة', en: 'Four' },
+          { fr: 'Cinq', ar: 'خمسة', en: 'Five' },
+          { fr: 'Six', ar: 'ستة', en: 'Six' },
+          { fr: 'Sept', ar: 'سبعة', en: 'Seven' },
+          { fr: 'Huit', ar: 'ثمانية', en: 'Eight' },
+          { fr: 'Neuf', ar: 'تسعة', en: 'Nine' },
+          { fr: 'Dix', ar: 'عشرة', en: 'Ten' },
+          { fr: 'Vingt', ar: 'عشرون', en: 'Twenty' },
+          { fr: 'Trente', ar: 'ثلاثون', en: 'Thirty' },
+          { fr: 'Quarante', ar: 'أربعون', en: 'Forty' },
+          { fr: 'Cinquante', ar: 'خمسون', en: 'Fifty' },
+          { fr: 'Soixante', ar: 'ستون', en: 'Sixty' },
+          { fr: 'Cent', ar: 'مئة', en: 'One hundred' },
+          { fr: 'Mille', ar: 'ألف', en: 'One thousand' },
+          { fr: 'Un million', ar: 'مليون', en: 'One million' },
+        ]
+      },
+      { icon: '📊',
+        title: { ar: 'قراءة الأعداد في المصنع', en: 'قراءة الأعداد في المصنع', fr: 'قراءة الأعداد في المصنع' },
+        phrases: [
+          { fr: 'La machine a produit 250 pièces.', ar: 'أنتجت الآلة 250 قطعة.', en: 'The machine produced 250 parts.' },
+          { fr: 'Il reste 120 pièces à fabriquer.', ar: 'بقي تصنيع 120 قطعة.', en: 'There are 120 parts left to manufacture.' },
+          { fr: 'Nous avons reçu 1 500 kilogrammes de matière première.', ar: 'استلمنا 1,500 كيلوغرام من المواد الأولية.', en: 'We received 1,500 kilograms of raw material.' },
+        ]
+      },
+      { icon: '🔣',
+        title: { ar: 'مفردات الدرس', en: 'مفردات الدرس', fr: 'مفردات الدرس' },
+        phrases: [
+          { fr: 'Un nombre.', ar: 'عدد.', en: 'A number.' },
+          { fr: 'Un chiffre.', ar: 'رقم.', en: 'A digit.' },
+          { fr: 'Unité.', ar: 'آحاد.', en: 'Units.' },
+          { fr: 'Dizaine.', ar: 'عشرات.', en: 'Tens.' },
+          { fr: 'Centaine.', ar: 'مئات.', en: 'Hundreds.' },
+          { fr: 'Millier.', ar: 'آلاف.', en: 'Thousands.' },
+        ]
+      },
+      { icon: '📝',
+        notes: ["اختبر نفسك – Testez vos connaissances", "0/4", "السؤال 1 Comment écrit-on le nombre vingt-cinq ?", "52", "25", "205", "السؤال 2 Combien font 10 dizaines ?", "10", "100", "1 000", "السؤال 3 Quel est le chiffre des centaines dans 458 ?", "4", "5", "8", "السؤال 4 Comment écrit-on mille en chiffres ?", "100", "1 000", "10 000", "تصحيح الإجابات – Corriger", "الدرس القادم:", "الدرس 2 – قراءة وكتابة الأعداد الكبيرة، ثم الجمع والطرح والضرب والقسمة بالتفصيل، مع تمارين تشبه الحسابات التي ستحتاجها في مصنع الإنتاج.", "سنتقدم درساً بعد درس، ولن ننتقل إلى موضوع جديد قبل فهم القواعد والتمارين."],
+        title: { ar: 'تمارين الدرس الأول', en: 'تمارين الدرس الأول', fr: 'تمارين الدرس الأول' },
+        phrases: [
+        ]
+      },
+      { icon: '💬',
+        notes: ["في هذا الدرس سنتعلم قراءة الأعداد الكبيرة وكتابتها بالفرنسية، وكيفية فهم الأرقام داخل جداول الإنتاج في المصنع."],
+        title: { ar: 'الدرس الثاني: قراءة وكتابة الأعداد الكبيرة', en: 'الدرس الثاني: قراءة وكتابة الأعداد الكبيرة', fr: 'الدرس الثاني: قراءة وكتابة الأعداد الكبيرة' },
+        phrases: [
+        ]
+      },
+      { icon: '✅',
+        title: { ar: 'أسماء مراتب الأعداد', en: 'أسماء مراتب الأعداد', fr: 'أسماء مراتب الأعداد' },
+        phrases: [
+          { fr: 'Unité.', ar: 'الآحاد.', en: 'Units.' },
+          { fr: 'Dizaine.', ar: 'العشرات.', en: 'Tens.' },
+          { fr: 'Centaine.', ar: 'المئات.', en: 'Hundreds.' },
+          { fr: 'Millier.', ar: 'الآلاف.', en: 'Thousands.' },
+          { fr: 'Dizaines de milliers.', ar: 'عشرات الآلاف.', en: 'Tens of thousands.' },
+          { fr: 'Centaines de milliers.', ar: 'مئات الآلاف.', en: 'Hundreds of thousands.' },
+          { fr: 'Millions.', ar: 'الملايين.', en: 'Millions.' },
+        ]
+      },
+      { icon: '📓',
+        title: { ar: '1 234', en: '1 234', fr: '1 234' },
+        phrases: [
+          { fr: 'Mille deux cent trente-quatre.', ar: 'ألف ومئتان وأربعة وثلاثون.', en: 'One thousand two hundred and thirty-four.' },
+        ]
+      },
+      { icon: '🖊️',
+        title: { ar: '12 500', en: '12 500', fr: '12 500' },
+        phrases: [
+          { fr: 'Douze mille cinq cents.', ar: 'اثنا عشر ألفاً وخمسمئة.', en: 'Twelve thousand five hundred.' },
+        ]
+      },
+      { icon: '🧾',
+        title: { ar: '125 000', en: '125 000', fr: '125 000' },
+        phrases: [
+          { fr: 'Cent vingt-cinq mille.', ar: 'مئة وخمسة وعشرون ألفاً.', en: 'One hundred and twenty-five thousand.' },
+        ]
+      },
+      { icon: '📈',
+        title: { ar: '1 250 000', en: '1 250 000', fr: '1 250 000' },
+        phrases: [
+          { fr: 'Un million deux cent cinquante mille.', ar: 'مليون ومئتان وخمسون ألفاً.', en: 'One million two hundred and fifty thousand.' },
+        ]
+      },
+      { icon: '⭐',
+        notes: ["مثال:", "العدد 4 582", "4 = 4 000", "5 = 500", "8 = 80", "2 = 2", "إذن:", "4000+500+80+2=4582"],
+        title: { ar: 'كيف نحدد قيمة كل رقم؟', en: 'كيف نحدد قيمة كل رقم؟', fr: 'كيف نحدد قيمة كل رقم؟' },
+        phrases: [
+          { fr: '4 milliers, 5 centaines, 8 dizaines et 2 unités.', ar: 'أربعة آلاف، وخمسمئة، وثمانون، واثنان.', en: 'Four thousands, five hundreds, eight tens and two units.' },
+        ]
+      },
+      { icon: '🔢',
+        title: { ar: 'الأعداد المستخدمة في المصنع', en: 'الأعداد المستخدمة في المصنع', fr: 'الأعداد المستخدمة في المصنع' },
+        phrases: [
+          { fr: 'La production totale est de 25 000 pièces.', ar: 'إجمالي الإنتاج هو 25 ألف قطعة.', en: 'Total production is 25,000 parts.' },
+          { fr: 'Nous avons reçu 12 500 kilogrammes de matière première.', ar: 'استلمنا 12 ألفاً و500 كيلوغرام من المواد الأولية.', en: 'We received 12,500 kilograms of raw material.' },
+          { fr: 'Le stock contient 150 000 unités.', ar: 'المخزون يحتوي على 150 ألف وحدة.', en: 'The stock contains 150,000 units.' },
+          { fr: 'La commande porte sur 1 250 000 produits.', ar: 'الطلبية تشمل مليوناً ومئتين وخمسين ألف منتج.', en: 'The order includes 1,250,000 products.' },
+        ]
+      },
+      { icon: '➕',
+        notes: ["أمثلة:", "200 = deux cents", "201 = deux cent un", "300 = trois cents", "350 = trois cent cinquante", "أمثلة:", "1 000 = mille", "2 000 = deux mille", "10 000 = dix mille"],
+        title: { ar: 'قراءة الأعداد بالفرنسية: ملاحظات مهمة', en: 'قراءة الأعداد بالفرنسية: ملاحظات مهمة', fr: 'قراءة الأعداد بالفرنسية: ملاحظات مهمة' },
+        phrases: [
+          { fr: 'Cent prend un « s » lorsqu\'il est multiplié et qu\'il n\'est pas suivi d\'un autre nombre.', ar: 'كلمة مئة تأخذ حرف s عندما تكون مضروبة ولا يأتي بعدها عدد آخر.', en: 'Cent takes an "s" when multiplied and not followed by another number.' },
+          { fr: 'Mille est toujours invariable.', ar: 'كلمة ألف لا تتغير ولا تأخذ حرف s.', en: 'Mille is always invariable.' },
+        ]
+      },
+      { icon: '➖',
+        notes: ["مثال:", "45 – 120 – 300 – 1 000", "مثال:", "1 000 – 300 – 120 – 45"],
+        title: { ar: 'ترتيب الأعداد من الأصغر إلى الأكبر', en: 'ترتيب الأعداد من الأصغر إلى الأكبر', fr: 'ترتيب الأعداد من الأصغر إلى الأكبر' },
+        phrases: [
+          { fr: 'Classer les nombres dans l\'ordre croissant.', ar: 'ترتيب الأعداد تصاعدياً من الأصغر إلى الأكبر.', en: 'Arrange numbers in ascending order.' },
+          { fr: 'Classer les nombres dans l\'ordre décroissant.', ar: 'ترتيب الأعداد تنازلياً من الأكبر إلى الأصغر.', en: 'Arrange numbers in descending order.' },
+        ]
+      },
+      { icon: '✖️',
+        notes: ["أمثلة:", "500>300120<200100=100"],
+        title: { ar: 'علامات المقارنة', en: 'علامات المقارنة', fr: 'علامات المقارنة' },
+        phrases: [
+          { fr: 'Supérieur à ( > ).', ar: 'أكبر من.', en: 'Greater than.' },
+          { fr: 'Inférieur à ( < ).', ar: 'أصغر من.', en: 'Less than.' },
+          { fr: 'Égal à ( = ).', ar: 'يساوي.', en: 'Equal to.' },
+        ]
+      },
+      { icon: '➗',
+        title: { ar: 'مفردات الدرس', en: 'مفردات الدرس', fr: 'مفردات الدرس' },
+        phrases: [
+          { fr: 'Lire un nombre.', ar: 'قراءة عدد.', en: 'Read a number.' },
+          { fr: 'Écrire un nombre en chiffres.', ar: 'كتابة العدد بالأرقام.', en: 'Write a number in digits.' },
+          { fr: 'Écrire un nombre en lettres.', ar: 'كتابة العدد بالحروف.', en: 'Write a number in words.' },
+          { fr: 'Décomposer un nombre.', ar: 'تحليل العدد إلى مراتبه.', en: 'Break down a number into place values.' },
+          { fr: 'Comparer deux nombres.', ar: 'مقارنة عددين.', en: 'Compare two numbers.' },
+          { fr: 'Ranger les nombres.', ar: 'ترتيب الأعداد.', en: 'Arrange the numbers.' },
+        ]
+      },
+      { icon: '🟰',
+        notes: ["اختبار الفهم – Test", "0/5", "السؤال 1 Comment écrit-on 3 500 en lettres ?", "السؤال 2 Quel est le chiffre des dizaines dans 4 582 ?", "4", "5", "8", "2", "السؤال 3 Quel nombre est le plus grand ?", "12 500", "15 200", "10 900", "السؤال 4 Complète : 250 ___ 300", "\\>", "<", "=", "السؤال 5 Comment écrit-on 2 000 ?", "تصحيح الاختبار"],
+        title: { ar: 'تمارين الدرس الثاني', en: 'تمارين الدرس الثاني', fr: 'تمارين الدرس الثاني' },
+        phrases: [
+        ]
+      },
+      { icon: '📐',
+        title: { ar: 'ما هو الجمع؟', en: 'ما هو الجمع؟', fr: 'ما هو الجمع؟' },
+        phrases: [
+          { fr: 'L\'addition est une opération qui permet d\'ajouter plusieurs nombres.', ar: 'الجمع عملية حسابية نستخدمها لإضافة عدد إلى عدد آخر.', en: 'Addition is an operation used to add numbers together.' },
+          { fr: 'Le signe de l\'addition est le signe plus (+).', ar: 'علامة الجمع هي علامة الزائد (+).', en: 'The addition sign is plus (+).' },
+        ]
+      },
+      { icon: '📏',
+        title: { ar: 'أسماء عملية الجمع', en: 'أسماء عملية الجمع', fr: 'أسماء عملية الجمع' },
+        phrases: [
+          { fr: 'Le premier nombre.', ar: 'العدد الأول.', en: 'The first number.' },
+          { fr: 'Le deuxième nombre.', ar: 'العدد الثاني.', en: 'The second number.' },
+          { fr: 'Les termes.', ar: 'الحدود أو الأعداد التي نجمعها.', en: 'Terms.' },
+          { fr: 'La somme.', ar: 'المجموع.', en: 'The sum.' },
+        ]
+      },
+      { icon: '🧮',
+        notes: ["5+3=8", "20+15=35"],
+        title: { ar: 'أمثلة بسيطة', en: 'أمثلة بسيطة', fr: 'أمثلة بسيطة' },
+        phrases: [
+          { fr: 'Cinq plus trois égalent huit.', ar: 'خمسة زائد ثلاثة يساوي ثمانية.', en: 'Five plus three equals eight.' },
+          { fr: 'Vingt plus quinze égalent trente-cinq.', ar: 'عشرون زائد خمسة عشر يساوي خمسة وثلاثين.', en: 'Twenty plus fifteen equals thirty-five.' },
+        ]
+      },
+      { icon: '💯',
+        notes: ["مثال:", "125", "+  34", "-----", "159", "```"],
+        title: { ar: 'الجمع العمودي', en: 'الجمع العمودي', fr: 'الجمع العمودي' },
+        phrases: [
+          { fr: 'On aligne les unités, les dizaines et les centaines.', ar: 'نضع الآحاد تحت الآحاد والعشرات تحت العشرات والمئات تحت المئات.', en: 'We line up units, tens and hundreds.' },
+        ]
+      },
+      { icon: '📊',
+        notes: ["مثال:", "178", "+   56", "------", "234", "```", "الشرح:", "8 + 6 = 14، نكتب 4 ونحتفظ بـ1.", "7 + 5 + 1 = 13، نكتب 3 ونحتفظ بـ1.", "1 + 1 = 2."],
+        title: { ar: 'الجمع مع الاحتفاظ', en: 'الجمع مع الاحتفاظ', fr: 'الجمع مع الاحتفاظ' },
+        phrases: [
+          { fr: 'La retenue.', ar: 'الاحتفاظ في عملية الجمع.', en: 'Carrying.' },
+        ]
+      },
+      { icon: '🔣',
+        notes: ["الحساب:", "250+180=430"],
+        title: { ar: 'الجمع في المصنع', en: 'الجمع في المصنع', fr: 'الجمع في المصنع' },
+        phrases: [
+          { fr: 'Nous avons produit 250 pièces le matin et 180 pièces l\'après-midi.', ar: 'أنتجنا 250 قطعة صباحاً و180 قطعة بعد الظهر.', en: 'We produced 250 parts in the morning and 180 parts in the afternoon.' },
+          { fr: 'La production totale est de 430 pièces.', ar: 'إجمالي الإنتاج هو 430 قطعة.', en: 'Total production is 430 parts.' },
+        ]
+      },
+      { icon: '📝',
+        title: { ar: 'مفردات الجمع', en: 'مفردات الجمع', fr: 'مفردات الجمع' },
+        phrases: [
+          { fr: 'Additionner.', ar: 'يجمع.', en: 'To add.' },
+          { fr: 'Ajouter.', ar: 'يضيف.', en: 'To add.' },
+          { fr: 'Calculer la somme.', ar: 'حساب المجموع.', en: 'Calculate the sum.' },
+          { fr: 'Au total.', ar: 'في المجموع.', en: 'In total.' },
+          { fr: 'Combien cela fait-il ?', ar: 'كم يساوي ذلك؟', en: 'How much does that make?' },
+        ]
+      },
+      { icon: '💬',
+        notes: ["اختبر نفسك – Exercices d'addition", "1. 25 + 15 =", "30", "40", "45", "2. 120 + 80 =", "180", "190", "200", "3. 178 + 56 =", "224", "234", "244", "4. 250 + 180 =", "420", "430", "440", "تصحيح الإجابات", "الدرس القادم:", "الدرس الرابع – الطرح (La soustraction)، مع الاحتفاظ والاستلاف، وحساب الكميات المتبقية في المخزون والإنتاج، بنفس النموذج الفرنسي والعربي والإنجليزي."],
+        title: { ar: 'تمارين الجمع', en: 'تمارين الجمع', fr: 'تمارين الجمع' },
+        phrases: [
+        ]
+      },
+      { icon: '✅',
+        notes: ["في هذا الدرس سنتعلم كيف نطرح الأعداد، وكيف نستلف عند الحاجة، وكيف نحسب الكميات المتبقية في المصنع."],
+        title: { ar: 'الدرس الرابع: الطرح – La soustraction', en: 'الدرس الرابع: الطرح – La soustraction', fr: 'الدرس الرابع: الطرح – La soustraction' },
+        phrases: [
+          { fr: 'La soustraction', ar: 'الطرح.', en: 'Subtraction.' },
+        ]
+      },
+      { icon: '📓',
+        title: { ar: 'ما هو الطرح؟', en: 'ما هو الطرح؟', fr: 'ما هو الطرح؟' },
+        phrases: [
+          { fr: 'La soustraction est une opération qui permet de retirer une quantité d\'une autre quantité.', ar: 'الطرح عملية حسابية نستخدمها لإنقاص كمية من كمية أخرى.', en: 'Subtraction is an operation used to take one quantity away from another.' },
+          { fr: 'Le signe de la soustraction est le signe moins (−).', ar: 'علامة الطرح هي إشارة الناقص (−).', en: 'The subtraction sign is the minus sign (−).' },
+        ]
+      },
+      { icon: '🖊️',
+        title: { ar: 'أسماء عملية الطرح', en: 'أسماء عملية الطرح', fr: 'أسماء عملية الطرح' },
+        phrases: [
+          { fr: 'Le nombre de départ.', ar: 'العدد الذي نبدأ منه.', en: 'Starting number.' },
+          { fr: 'Le nombre à soustraire.', ar: 'العدد الذي نريد طرحه.', en: 'Number to subtract.' },
+          { fr: 'La différence.', ar: 'الفرق أو نتيجة الطرح.', en: 'Difference.' },
+          { fr: 'Emprunter.', ar: 'يستلف في عملية الطرح.', en: 'To borrow.' },
+        ]
+      },
+      { icon: '🧾',
+        notes: ["مثال:", "8-3=5", "مثال آخر:", "25-10=15"],
+        title: { ar: 'الطرح البسيط – La soustraction simple', en: 'الطرح البسيط – La soustraction simple', fr: 'الطرح البسيط – La soustraction simple' },
+        phrases: [
+          { fr: 'Huit moins trois égalent cinq.', ar: 'ثمانية ناقص ثلاثة يساوي خمسة.', en: 'Eight minus three equals five.' },
+          { fr: 'Vingt-cinq moins dix égalent quinze.', ar: 'خمسة وعشرون ناقص عشرة يساوي خمسة عشر.', en: 'Twenty-five minus ten equals fifteen.' },
+        ]
+      },
+      { icon: '📈',
+        notes: ["مثال:", "85", "- 23", "----", "62", "```", "الشرح:", "5 − 3 = 2", "8 − 2 = 6", "النتيجة = 62."],
+        title: { ar: 'الطرح العمودي – La soustraction posée', en: 'الطرح العمودي – La soustraction posée', fr: 'الطرح العمودي – La soustraction posée' },
+        phrases: [
+          { fr: 'On aligne les unités sous les unités et les dizaines sous les dizaines.', ar: 'نضع الآحاد تحت الآحاد والعشرات تحت العشرات.', en: 'We align units under units and tens under tens.' },
+        ]
+      },
+      { icon: '⭐',
+        notes: ["مثال:", "52", "- 28", "----", "24", "```", "الشرح:", "تصبح 2 عشرة + 2 = 12.", "12 − 8 = 4", "4 − 2 = 2", "النتيجة:", "52-28=24"],
+        title: { ar: 'الطرح مع الاستلاف – La soustraction avec retenue', en: 'الطرح مع الاستلاف – La soustraction avec retenue', fr: 'الطرح مع الاستلاف – La soustraction avec retenue' },
+        phrases: [
+          { fr: 'On ne peut pas faire 2 moins 8. On emprunte une dizaine.', ar: 'لا نستطيع طرح 8 من 2، لذلك نستلف عشرة من خانة العشرات.', en: 'We cannot subtract 8 from 2, so we borrow one ten.' },
+        ]
+      },
+      { icon: '🔢',
+        notes: ["100-35=65", "250-125=125"],
+        title: { ar: 'أمثلة أخرى', en: 'أمثلة أخرى', fr: 'أمثلة أخرى' },
+        phrases: [
+          { fr: 'Cent moins trente-cinq égalent soixante-cinq.', ar: 'مئة ناقص خمسة وثلاثين يساوي خمسة وستين.', en: 'One hundred minus thirty-five equals sixty-five.' },
+          { fr: 'Deux cent cinquante moins cent vingt-cinq égalent cent vingt-cinq.', ar: 'مئتان وخمسون ناقص مئة وخمسة وعشرين يساوي مئة وخمسة وعشرين.', en: 'Two hundred and fifty minus one hundred and twenty-five equals one hundred and twenty-five.' },
+        ]
+      },
+      { icon: '➕',
+        notes: ["الحساب:", "500-150=350", "مثال آخر:", "1000-650=350"],
+        title: { ar: 'الطرح في المصنع – La soustraction en usine', en: 'الطرح في المصنع – La soustraction en usine', fr: 'الطرح في المصنع – La soustraction en usine' },
+        phrases: [
+          { fr: 'Nous avons 500 pièces en stock. Nous utilisons 150 pièces.', ar: 'لدينا 500 قطعة في المخزون، واستخدمنا 150 قطعة.', en: 'We have 500 parts in stock. We use 150 parts.' },
+          { fr: 'Il reste 350 pièces en stock.', ar: 'بقيت 350 قطعة في المخزون.', en: 'There are 350 parts left in stock.' },
+          { fr: 'La commande est de 1 000 produits. Nous avons déjà fabriqué 650 produits.', ar: 'الطلبية تتكون من 1,000 منتج، وقد صنعنا بالفعل 650 منتجاً.', en: 'The order is for 1,000 products. We have already manufactured 650 products.' },
+          { fr: 'Il reste 350 produits à fabriquer.', ar: 'بقي تصنيع 350 منتجاً.', en: 'There are 350 products left to manufacture.' },
+        ]
+      },
+      { icon: '➖',
+        title: { ar: 'كلمات مهمة تسمعها في العمل', en: 'كلمات مهمة تسمعها في العمل', fr: 'كلمات مهمة تسمعها في العمل' },
+        phrases: [
+          { fr: 'Il reste combien ?', ar: 'كم تبقّى؟', en: 'How many are left?' },
+          { fr: 'Quelle est la quantité restante ?', ar: 'ما هي الكمية المتبقية؟', en: 'What is the remaining quantity?' },
+          { fr: 'Retirez cette quantité du stock.', ar: 'اطرح هذه الكمية من المخزون.', en: 'Subtract this quantity from the stock.' },
+          { fr: 'Il manque 20 pièces.', ar: 'ينقصنا 20 قطعة.', en: 'We are short of 20 parts.' },
+          { fr: 'La quantité disponible est insuffisante.', ar: 'الكمية المتوفرة غير كافية.', en: 'The available quantity is insufficient.' },
+        ]
+      },
+      { icon: '✖️',
+        title: { ar: 'مفردات الدرس', en: 'مفردات الدرس', fr: 'مفردات الدرس' },
+        phrases: [
+          { fr: 'Soustraction.', ar: 'الطرح.', en: 'Subtraction.' },
+          { fr: 'Différence.', ar: 'الفرق.', en: 'Difference.' },
+          { fr: 'Quantité restante.', ar: 'الكمية المتبقية.', en: 'Remaining quantity.' },
+          { fr: 'Stock disponible.', ar: 'المخزون المتاح.', en: 'Available stock.' },
+          { fr: 'Quantité utilisée.', ar: 'الكمية المستخدمة.', en: 'Quantity used.' },
+          { fr: 'Quantité manquante.', ar: 'الكمية الناقصة.', en: 'Missing quantity.' },
+        ]
+      },
+      { icon: '➗',
+        notes: ["اختبار الدرس الرابع", "0/5", "السؤال 1 45 − 20 =", "15", "25", "35", "السؤال 2 82 − 37 =", "45", "55", "65", "السؤال 3 150 − 75 =", "65", "75", "85", "السؤال 4 500 − 180 =", "320", "330", "340", "السؤال 5 Nous avons 1 000 pièces et nous utilisons 350 pièces. Combien reste-t-il ?", "550", "650", "750", "تصحيح الإجابات"],
+        title: { ar: 'تمارين الطرح – Exercices', en: 'تمارين الطرح – Exercices', fr: 'تمارين الطرح – Exercices' },
+        phrases: [
+        ]
+      },
+      { icon: '🟰',
+        title: { ar: 'ما هو الضرب؟', en: 'ما هو الضرب؟', fr: 'ما هو الضرب؟' },
+        phrases: [
+          { fr: 'La multiplication est une opération qui permet d\'additionner plusieurs fois le même nombre.', ar: 'الضرب عملية حسابية تسمح بجمع العدد نفسه عدة مرات.', en: 'Multiplication is an operation that allows us to add the same number repeatedly.' },
+          { fr: 'Le signe de la multiplication est le signe ×.', ar: 'علامة الضرب هي ×.', en: 'The multiplication sign is ×.' },
+        ]
+      },
+      { icon: '📐',
+        title: { ar: 'أسماء عملية الضرب', en: 'أسماء عملية الضرب', fr: 'أسماء عملية الضرب' },
+        phrases: [
+          { fr: 'Le multiplicande.', ar: 'العدد الذي نضربه.', en: 'Multiplicand.' },
+          { fr: 'Le multiplicateur.', ar: 'العدد الذي نضرب به.', en: 'Multiplier.' },
+          { fr: 'Le produit.', ar: 'ناتج الضرب.', en: 'Product.' },
+        ]
+      },
+      { icon: '📏',
+        title: { ar: 'جدول الضرب – La table de multiplication', en: 'جدول الضرب – La table de multiplication', fr: 'جدول الضرب – La table de multiplication' },
+        phrases: [
+          { fr: 'Calcul', ar: 'النتيجة', en: 'Result' },
+          { fr: '2 × 2', ar: '4', en: 'Four' },
+          { fr: '2 × 3', ar: '6', en: 'Six' },
+          { fr: '3 × 4', ar: '12', en: 'Twelve' },
+          { fr: '4 × 5', ar: '20', en: 'Twenty' },
+          { fr: '5 × 6', ar: '30', en: 'Thirty' },
+          { fr: '6 × 7', ar: '42', en: 'Forty-two' },
+          { fr: '7 × 8', ar: '56', en: 'Fifty-six' },
+          { fr: '8 × 9', ar: '72', en: 'Seventy-two' },
+          { fr: '9 × 9', ar: '81', en: 'Eighty-one' },
+          { fr: '10 × 10', ar: '100', en: 'One hundred' },
+        ]
+      },
+      { icon: '🧮',
+        title: { ar: 'أمثلة على الضرب', en: 'أمثلة على الضرب', fr: 'أمثلة على الضرب' },
+        phrases: [
+          { fr: 'Cinq multiplié par trois égale quinze.', ar: 'خمسة مضروبة في ثلاثة تساوي خمسة عشر.', en: 'Five multiplied by three equals fifteen.' },
+          { fr: 'Douze fois quatre égale quarante-huit.', ar: 'اثنا عشر مضروبة في أربعة تساوي ثمانية وأربعين.', en: 'Twelve times four equals forty-eight.' },
+        ]
+      },
+      { icon: '💯',
+        notes: ["مثال:", "24", "-----", "72", "```"],
+        title: { ar: 'الضرب العمودي', en: 'الضرب العمودي', fr: 'الضرب العمودي' },
+        phrases: [
+          { fr: 'Vingt-quatre multiplié par trois égale soixante-douze.', ar: 'أربعة وعشرون مضروبة في ثلاثة تساوي اثنين وسبعين.', en: 'Twenty-four multiplied by three equals seventy-two.' },
+        ]
+      },
+      { icon: '📊',
+        title: { ar: 'الضرب في المصنع', en: 'الضرب في المصنع', fr: 'الضرب في المصنع' },
+        phrases: [
+          { fr: 'Une boîte contient 20 pièces. Nous avons 15 boîtes.', ar: 'يحتوي الصندوق على 20 قطعة ولدينا 15 صندوقاً.', en: 'One box contains 20 parts. We have 15 boxes.' },
+          { fr: 'Nous avons 300 pièces au total.', ar: 'لدينا 300 قطعة في المجموع.', en: 'We have 300 parts in total.' },
+        ]
+      },
+      { icon: '🔣',
+        title: { ar: 'مفردات الضرب', en: 'مفردات الضرب', fr: 'مفردات الضرب' },
+        phrases: [
+          { fr: 'Multiplier.', ar: 'يضرب.', en: 'To multiply.' },
+          { fr: 'Fois.', ar: 'ضرب / مرات.', en: 'Times.' },
+          { fr: 'Produit.', ar: 'ناتج الضرب.', en: 'Product.' },
+          { fr: 'Nombre de boîtes.', ar: 'عدد الصناديق.', en: 'Number of boxes.' },
+          { fr: 'Nombre de pièces par boîte.', ar: 'عدد القطع في كل صندوق.', en: 'Number of parts per box.' },
+        ]
+      },
+      { icon: '📝',
+        notes: ["اختبار الضرب – Test de multiplication", "السؤال 1 6 × 7 =", "36", "42", "48", "السؤال 2 12 × 5 =", "50", "60", "70", "السؤال 3 25 × 4 =", "80", "90", "100", "السؤال 4 15 × 20 =", "250", "300", "350", "السؤال 5 Une palette contient 30 cartons. Chaque carton contient 10 pièces. Combien de pièces ?", "300", "30", "3 000", "تصحيح الاختبار", "الدرس القادم: الدرس السادس – القسمة (La division)، مع القسمة البسيطة والطويلة والقسمة مع الباقي، وحساب عدد القطع في الصندوق وعدد الصناديق المطلوبة في المصنع."],
+        title: { ar: 'تمارين الضرب', en: 'تمارين الضرب', fr: 'تمارين الضرب' },
+        phrases: [
+        ]
+      },
+      { icon: '💬',
+        notes: ["القسمة من أهم دروس الرياضيات في CAP CIP، لأنك ستحتاج إليها لحساب عدد الصناديق، وتوزيع القطع، وتقسيم المواد الأولية، وحساب الإنتاج."],
+        title: { ar: 'الدرس السادس: القسمة – La division', en: 'الدرس السادس: القسمة – La division', fr: 'الدرس السادس: القسمة – La division' },
+        phrases: [
+          { fr: 'La division', ar: 'القسمة.', en: 'Division.' },
+        ]
+      },
+      { icon: '✅',
+        notes: ["مثال:"],
+        title: { ar: 'ما هي القسمة؟', en: 'ما هي القسمة؟', fr: 'ما هي القسمة؟' },
+        phrases: [
+          { fr: 'La division est une opération qui permet de partager une quantité en parts égales.', ar: 'القسمة عملية حسابية تسمح بتوزيع كمية إلى أجزاء متساوية.', en: 'Division is an operation that allows a quantity to be shared into equal parts.' },
+          { fr: 'Le signe de la division est ÷ ou /.', ar: 'علامة القسمة هي ÷ أو /.', en: 'The division sign is ÷ or /.' },
+          { fr: 'Douze divisé par trois égale quatre.', ar: 'اثنا عشر مقسومة على ثلاثة تساوي أربعة.', en: 'Twelve divided by three equals four.' },
+        ]
+      },
+      { icon: '📓',
+        notes: ["مثال:", "20 = Le dividende – المقسوم – Dividend.", "4 = Le diviseur – المقسوم عليه – Divisor.", "5 = Le quotient – الناتج – Quotient."],
+        title: { ar: 'أسماء عملية القسمة', en: 'أسماء عملية القسمة', fr: 'أسماء عملية القسمة' },
+        phrases: [
+          { fr: 'Le dividende.', ar: 'المقسوم.', en: 'Dividend.' },
+          { fr: 'Le diviseur.', ar: 'المقسوم عليه.', en: 'Divisor.' },
+          { fr: 'Le quotient.', ar: 'ناتج القسمة.', en: 'Quotient.' },
+          { fr: 'Le reste.', ar: 'الباقي.', en: 'Remainder.' },
+        ]
+      },
+      { icon: '🖊️',
+        notes: ["أمثلة:"],
+        title: { ar: 'القسمة البسيطة – La division simple', en: 'القسمة البسيطة – La division simple', fr: 'القسمة البسيطة – La division simple' },
+        phrases: [
+          { fr: 'Dix divisé par deux égale cinq.', ar: 'عشرة مقسومة على اثنين تساوي خمسة.', en: 'Ten divided by two equals five.' },
+          { fr: 'Trente divisé par cinq égale six.', ar: 'ثلاثون مقسومة على خمسة تساوي ستة.', en: 'Thirty divided by five equals six.' },
+          { fr: 'Cent divisé par dix égale dix.', ar: 'مئة مقسومة على عشرة تساوي عشرة.', en: 'One hundred divided by ten equals ten.' },
+        ]
+      },
+      { icon: '🧾',
+        notes: ["مثال:", "النتيجة:"],
+        title: { ar: 'القسمة العمودية – La division posée', en: 'القسمة العمودية – La division posée', fr: 'القسمة العمودية – La division posée' },
+        phrases: [
+          { fr: 'Quatre entre dans huit deux fois.', ar: 'العدد أربعة يدخل في العدد ثمانية مرتين.', en: 'Four goes into eight twice.' },
+          { fr: 'On abaisse ensuite le quatre et on divise encore par quatre.', ar: 'ثم ننزل الرقم أربعة ونقسمه مرة أخرى على أربعة.', en: 'Then we bring down the four and divide by four again.' },
+        ]
+      },
+      { icon: '📈',
+        notes: ["مثال:", "الشرح:", "5 × 3 = 15", "17 − 15 = 2", "إذن الباقي هو 2."],
+        title: { ar: 'القسمة مع الباقي – La division avec reste', en: 'القسمة مع الباقي – La division avec reste', fr: 'القسمة مع الباقي – La division avec reste' },
+        phrases: [
+          { fr: 'Dix-sept divisé par cinq égale trois, reste deux.', ar: 'سبعة عشر مقسومة على خمسة تساوي ثلاثة والباقي اثنان.', en: 'Seventeen divided by five equals three, remainder two.' },
+        ]
+      },
+      { icon: '⭐',
+        notes: ["مثال الأول: عدد الصناديق", "مثال الثاني: توزيع الإنتاج"],
+        title: { ar: 'القسمة في المصنع – La division en usine', en: 'القسمة في المصنع – La division en usine', fr: 'القسمة في المصنع – La division en usine' },
+        phrases: [
+          { fr: 'Nous avons 200 pièces. Chaque carton contient 20 pièces. Combien faut-il de cartons ?', ar: 'لدينا 200 قطعة، وكل صندوق يحتوي على 20 قطعة. كم صندوقاً نحتاج؟', en: 'We have 200 parts. Each carton contains 20 parts. How many cartons do we need?' },
+          { fr: 'Il faut 10 cartons.', ar: 'نحتاج إلى 10 صناديق.', en: 'We need 10 cartons.' },
+          { fr: 'Une machine produit 600 pièces en 6 heures. Combien de pièces produit-elle par heure en moyenne ?', ar: 'تنتج آلة 600 قطعة خلال 6 ساعات. كم قطعة تنتج في الساعة بالمعدل؟', en: 'A machine produces 600 parts in 6 hours. How many parts does it produce per hour on average?' },
+          { fr: 'La machine produit 100 pièces par heure.', ar: 'تنتج الآلة 100 قطعة في الساعة.', en: 'The machine produces 100 parts per hour.' },
+        ]
+      },
+      { icon: '🔢',
+        title: { ar: 'القسمة على 10 و100 و1000', en: 'القسمة على 10 و100 و1000', fr: 'القسمة على 10 و100 و1000' },
+        phrases: [
+          { fr: 'Diviser par dix.', ar: 'القسمة على عشرة.', en: 'Divide by ten.' },
+          { fr: 'Diviser par cent.', ar: 'القسمة على مئة.', en: 'Divide by one hundred.' },
+          { fr: 'Diviser par mille.', ar: 'القسمة على ألف.', en: 'Divide by one thousand.' },
+        ]
+      },
+      { icon: '➕',
+        notes: ["مثال:", "مثال آخر:"],
+        title: { ar: 'القسمة التي تعطي عدداً عشرياً', en: 'القسمة التي تعطي عدداً عشرياً', fr: 'القسمة التي تعطي عدداً عشرياً' },
+        phrases: [
+          { fr: 'Une division peut donner un résultat décimal.', ar: 'يمكن أن تعطي القسمة نتيجة عشرية.', en: 'A division can give a decimal result.' },
+          { fr: 'Cinq divisé par deux égale deux virgule cinq.', ar: 'خمسة مقسومة على اثنين تساوي اثنين فاصلة خمسة.', en: 'Five divided by two equals two point five.' },
+          { fr: 'Sept divisé par quatre égale un virgule soixante-quinze.', ar: 'سبعة مقسومة على أربعة تساوي 1.75.', en: 'Seven divided by four equals 1.75.' },
+        ]
+      },
+      { icon: '➖',
+        title: { ar: 'مفردات القسمة', en: 'مفردات القسمة', fr: 'مفردات القسمة' },
+        phrases: [
+          { fr: 'Diviser.', ar: 'يقسم.', en: 'To divide.' },
+          { fr: 'Partager.', ar: 'يوزّع أو يقسّم.', en: 'To share.' },
+          { fr: 'Répartir en parts égales.', ar: 'يوزّع إلى أجزاء متساوية.', en: 'Divide into equal parts.' },
+          { fr: 'Le résultat de la division.', ar: 'نتيجة القسمة.', en: 'The result of the division.' },
+          { fr: 'La quantité par carton.', ar: 'الكمية في كل صندوق.', en: 'Quantity per carton.' },
+          { fr: 'Le nombre de cartons nécessaires.', ar: 'عدد الصناديق المطلوبة.', en: 'Number of cartons required.' },
+          { fr: 'La quantité par heure.', ar: 'الكمية في الساعة.', en: 'Quantity per hour.' },
+        ]
+      },
+      { icon: '✖️',
+        notes: ["اختبار القسمة – Test de division", "0/6", "السؤال 1 20 ÷ 4 =", "4", "5", "6", "السؤال 2 100 ÷ 5 =", "10", "20", "25", "السؤال 3 84 ÷ 4 =", "21", "24", "18", "السؤال 4 17 ÷ 5 = ؟", "3 والباقي 1", "3 والباقي 2", "4 والباقي 2", "السؤال 5 300 قطعة، في كل صندوق 30 قطعة. كم صندوقاً؟", "10", "20", "30", "السؤال 6 600 قطعة خلال 6 ساعات. كم قطعة في الساعة؟", "60", "100", "120", "تصحيح الإجابات"],
+        title: { ar: 'تمارين الدرس السادس', en: 'تمارين الدرس السادس', fr: 'تمارين الدرس السادس' },
+        phrases: [
+        ]
+      },
+      { icon: '➗',
+        notes: ["هذا الدرس مهم جداً لأنك ستجد في التمارين أكثر من عملية حسابية في نفس المسألة."],
+        title: { ar: 'الدرس السابع: أولوية العمليات الحسابية', en: 'الدرس السابع: أولوية العمليات الحسابية', fr: 'الدرس السابع: أولوية العمليات الحسابية' },
+        phrases: [
+        ]
+      },
+      { icon: '🟰',
+        notes: ["الترتيب:"],
+        title: { ar: 'القاعدة الأساسية', en: 'القاعدة الأساسية', fr: 'القاعدة الأساسية' },
+        phrases: [
+          { fr: 'On effectue d\'abord les multiplications et les divisions, puis les additions et les soustractions.', ar: 'نقوم أولاً بالضرب والقسمة، ثم الجمع والطرح.', en: 'We perform multiplication and division first, then addition and subtraction.' },
+        ]
+      },
+      { icon: '📐',
+        notes: ["ثم:", "5+6=11", "النتيجة = 11 وليس 16."],
+        title: { ar: 'مثال دون أقواس', en: 'مثال دون أقواس', fr: 'مثال دون أقواس' },
+        phrases: [
+          { fr: 'On commence par la multiplication.', ar: 'نبدأ بعملية الضرب.', en: 'We start with multiplication.' },
+        ]
+      },
+      { icon: '📏',
+        notes: ["ثم:", "20-4=16"],
+        title: { ar: 'مثال آخر', en: 'مثال آخر', fr: 'مثال آخر' },
+        phrases: [
+          { fr: 'On effectue d\'abord la division.', ar: 'نقوم بالقسمة أولاً.', en: 'We perform division first.' },
+        ]
+      },
+      { icon: '🧮',
+        notes: ["مثال:", "أولاً:", "5+3=8", "ثم:"],
+        title: { ar: 'العمليات التي تحتوي على أقواس', en: 'العمليات التي تحتوي على أقواس', fr: 'العمليات التي تحتوي على أقواس' },
+        phrases: [
+          { fr: 'On calcule d\'abord ce qui se trouve entre parenthèses.', ar: 'نحسب أولاً ما يوجد داخل الأقواس.', en: 'We calculate what is inside the parentheses first.' },
+        ]
+      },
+      { icon: '💯',
+        title: { ar: 'تطبيق في المصنع', en: 'تطبيق في المصنع', fr: 'تطبيق في المصنع' },
+        phrases: [
+          { fr: 'Une machine produit 50 pièces par heure pendant 4 heures. On retire ensuite 20 pièces non conformes.', ar: 'تنتج آلة 50 قطعة في الساعة لمدة 4 ساعات، ثم نستبعد 20 قطعة غير مطابقة.', en: 'A machine produces 50 parts per hour for 4 hours. Then 20 non-conforming parts are removed.' },
+          { fr: 'La quantité conforme est de 180 pièces.', ar: 'الكمية المطابقة هي 180 قطعة.', en: 'The conforming quantity is 180 parts.' },
+        ]
+      },
+      { icon: '📊',
+        title: { ar: 'مفردات الدرس', en: 'مفردات الدرس', fr: 'مفردات الدرس' },
+        phrases: [
+          { fr: 'Priorité opératoire.', ar: 'أولوية العمليات الحسابية.', en: 'Order of operations.' },
+          { fr: 'Parenthèses.', ar: 'أقواس.', en: 'Parentheses.' },
+          { fr: 'Effectuer un calcul.', ar: 'إجراء عملية حسابية.', en: 'Perform a calculation.' },
+          { fr: 'Dans l\'ordre.', ar: 'بالترتيب.', en: 'In order.' },
+          { fr: 'En premier.', ar: 'أولاً.', en: 'First.' },
+        ]
+      },
+      { icon: '🔣',
+        notes: ["اختبار الدرس السابع", "16", "11", "13", "16", "8", "12", "11", "16", "13", "30", "110", "150", "60", "80", "75", "تصحيح الإجابات", "الدرس القادم:", "الدرس الثامن – الأعداد العشرية (Les nombres décimaux)، وكيفية قراءة الأرقام بعد الفاصلة وجمعها وطرحها وضربها وقسمتها، مع أمثلة على الوزن والطول والقياسات في المصنع."],
+        title: { ar: 'تمارين أولوية العمليات', en: 'تمارين أولوية العمليات', fr: 'تمارين أولوية العمليات' },
+        phrases: [
+        ]
+      },
+      { icon: '📝',
+        notes: ["هذا الدرس مهم جداً في CAP CIP، لأنك ستستخدم الأعداد العشرية في قياس الوزن والطول والحرارة والضغط وكميات المواد الأولية."],
+        title: { ar: 'الدرس الثامن: الأعداد العشرية – Les nombres décimaux', en: 'الدرس الثامن: الأعداد العشرية – Les nombres décimaux', fr: 'الدرس الثامن: الأعداد العشرية – Les nombres décimaux' },
+        phrases: [
+          { fr: 'Les nombres décimaux', ar: 'الأعداد العشرية.', en: 'Decimal numbers.' },
+        ]
+      },
+      { icon: '💬',
+        notes: ["أمثلة:", "2,5", "3,75", "10,25", "0,50", "125,8", "ملاحظة: في فرنسا نستخدم الفاصلة في الكتابة العشرية، بينما الإنجليزية تستخدم النقطة غالباً."],
+        title: { ar: 'ما هو العدد العشري؟', en: 'ما هو العدد العشري؟', fr: 'ما هو العدد العشري؟' },
+        phrases: [
+          { fr: 'Un nombre décimal est un nombre qui comporte une virgule.', ar: 'العدد العشري هو عدد يحتوي على فاصلة عشرية.', en: 'A decimal number is a number that contains a decimal point.' },
+          { fr: 'La virgule.', ar: 'الفاصلة العشرية.', en: 'Decimal point.' },
+        ]
+      },
+      { icon: '✅',
+        title: { ar: 'قراءة الأعداد العشرية', en: 'قراءة الأعداد العشرية', fr: 'قراءة الأعداد العشرية' },
+        phrases: [
+          { fr: '2,5 se lit : deux virgule cinq.', ar: '2.5 تُقرأ: اثنان فاصلة خمسة.', en: '2.5 is read: two point five.' },
+          { fr: '3,75 se lit : trois virgule soixante-quinze.', ar: '3.75 تُقرأ: ثلاثة فاصلة خمسة وسبعون.', en: '3.75 is read: three point seven five.' },
+          { fr: '10,25 se lit : dix virgule vingt-cinq.', ar: '10.25 تُقرأ: عشرة فاصلة خمسة وعشرون.', en: '10.25 is read: ten point two five.' },
+        ]
+      },
+      { icon: '📓',
+        notes: ["مثال: العدد 25,438", "2", "عشرات🇬🇧 Tens", "5", "آحاد🇬🇧 Units", "4", "أعشار🇬🇧 Tenths", "3", "أجزاء المئة🇬🇧 Hundredths", "الرقم 8 في منزلة أجزاء الألف (🇫🇷 millièmes – 🇬🇧 thousandths)."],
+        title: { ar: 'مراتب الأعداد بعد الفاصلة', en: 'مراتب الأعداد بعد الفاصلة', fr: 'مراتب الأعداد بعد الفاصلة' },
+        phrases: [
+          { fr: 'Le chiffre après la virgule représente une partie de l\'unité.', ar: 'الرقم الموجود بعد الفاصلة يمثل جزءاً من الوحدة.', en: 'The digit after the decimal point represents a fraction of a unit.' },
+        ]
+      },
+      { icon: '🖊️',
+        notes: ["مثال:", "2,5>2,3", "مثال آخر:", "3,25<3,50", "ملاحظة مهمة:", "2,5=2,50=2,500"],
+        title: { ar: 'مقارنة الأعداد العشرية', en: 'مقارنة الأعداد العشرية', fr: 'مقارنة الأعداد العشرية' },
+        phrases: [
+          { fr: 'Comparer les nombres décimaux.', ar: 'مقارنة الأعداد العشرية.', en: 'Comparing decimal numbers.' },
+          { fr: 'Deux virgule cinq est supérieur à deux virgule trois.', ar: 'اثنان فاصلة خمسة أكبر من اثنين فاصلة ثلاثة.', en: 'Two point five is greater than two point three.' },
+          { fr: 'Trois virgule vingt-cinq est inférieur à trois virgule cinquante.', ar: 'ثلاثة فاصلة خمسة وعشرون أصغر من ثلاثة فاصلة خمسون.', en: 'Three point two five is less than three point five.' },
+          { fr: 'Ajouter des zéros à droite après la virgule ne change pas la valeur.', ar: 'إضافة أصفار إلى يمين الفاصلة لا تغير قيمة العدد.', en: 'Adding zeros to the right after the decimal point does not change the value.' },
+        ]
+      },
+      { icon: '🧾',
+        notes: ["مثال:", "12,50", "+  3,25", "-------", "15,75", "```", "12,50+3,25=15,75"],
+        title: { ar: 'جمع الأعداد العشرية – Addition des nombres décimaux', en: 'جمع الأعداد العشرية – Addition des nombres décimaux', fr: 'جمع الأعداد العشرية – Addition des nombres décimaux' },
+        phrases: [
+          { fr: 'Pour additionner des nombres décimaux, on aligne les virgules.', ar: 'لجمع الأعداد العشرية، نضع الفواصل تحت بعضها.', en: 'To add decimal numbers, we align the decimal points.' },
+          { fr: 'La somme est égale à quinze virgule soixante-quinze.', ar: 'المجموع يساوي 15.75.', en: 'The sum is fifteen point seven five.' },
+        ]
+      },
+      { icon: '📈',
+        notes: ["مثال:", "15,75", "-  3,25", "-------", "12,50", "```", "15,75-3,25=12,50"],
+        title: { ar: 'طرح الأعداد العشرية – Soustraction des nombres décimaux', en: 'طرح الأعداد العشرية – Soustraction des nombres décimaux', fr: 'طرح الأعداد العشرية – Soustraction des nombres décimaux' },
+        phrases: [
+          { fr: 'Quinze virgule soixante-quinze moins trois virgule vingt-cinq égale douze virgule cinquante.', ar: 'خمسة عشر فاصلة خمسة وسبعون ناقص ثلاثة فاصلة خمسة وعشرون يساوي 12.50.', en: 'Fifteen point seven five minus three point two five equals twelve point five.' },
+        ]
+      },
+      { icon: '⭐',
+        notes: ["مثال:", "مثال آخر:"],
+        title: { ar: 'ضرب الأعداد العشرية – Multiplication des nombres décimaux', en: 'ضرب الأعداد العشرية – Multiplication des nombres décimaux', fr: 'ضرب الأعداد العشرية – Multiplication des nombres décimaux' },
+        phrases: [
+          { fr: 'Deux virgule cinq multiplié par quatre égale dix.', ar: 'اثنان فاصلة خمسة مضروبة في أربعة تساوي عشرة.', en: 'Two point five multiplied by four equals ten.' },
+          { fr: 'Un virgule cinq multiplié par deux virgule cinq égale trois virgule soixante-quinze.', ar: '1.5 مضروبة في 2.5 تساوي 3.75.', en: '1.5 multiplied by 2.5 equals 3.75.' },
+        ]
+      },
+      { icon: '🔢',
+        notes: ["مثال:", "مثال آخر:"],
+        title: { ar: 'قسمة الأعداد العشرية – Division des nombres décimaux', en: 'قسمة الأعداد العشرية – Division des nombres décimaux', fr: 'قسمة الأعداد العشرية – Division des nombres décimaux' },
+        phrases: [
+          { fr: 'Cinq virgule cinq divisé par deux égale deux virgule soixante-quinze.', ar: 'خمسة فاصلة خمسة مقسومة على اثنين تساوي 2.75.', en: 'Five point five divided by two equals 2.75.' },
+          { fr: 'Douze virgule cinq divisé par cinq égale deux virgule cinq.', ar: '12.5 مقسومة على خمسة تساوي 2.5.', en: '12.5 divided by five equals 2.5.' },
+        ]
+      },
+      { icon: '➕',
+        notes: ["الوزن – Le poids", "الطول – La longueur", "درجة الحرارة – La température", "الضغط – La pression"],
+        title: { ar: 'الأعداد العشرية في المصنع – Les nombres décimaux en usine', en: 'الأعداد العشرية في المصنع – Les nombres décimaux en usine', fr: 'الأعداد العشرية في المصنع – Les nombres décimaux en usine' },
+        phrases: [
+          { fr: 'Une pièce pèse 2,5 kilogrammes.', ar: 'وزن القطعة الواحدة 2.5 كيلوغرام.', en: 'One part weighs 2.5 kilograms.' },
+          { fr: 'La longueur de cette pièce est de 12,5 centimètres.', ar: 'طول هذه القطعة 12.5 سنتيمتراً.', en: 'The length of this part is 12.5 centimetres.' },
+          { fr: 'La température de la machine est de 75,5 degrés.', ar: 'درجة حرارة الآلة 75.5 درجة.', en: 'The machine temperature is 75.5 degrees.' },
+          { fr: 'La pression affichée est de 6,5 bars.', ar: 'الضغط الظاهر على الشاشة هو 6.5 بار.', en: 'The displayed pressure is 6.5 bars.' },
+        ]
+      },
+      { icon: '➖',
+        title: { ar: 'مفردات الدرس', en: 'مفردات الدرس', fr: 'مفردات الدرس' },
+        phrases: [
+          { fr: 'Nombre décimal.', ar: 'عدد عشري.', en: 'Decimal number.' },
+          { fr: 'Virgule.', ar: 'فاصلة عشرية.', en: 'Decimal point.' },
+          { fr: 'Partie entière.', ar: 'الجزء الصحيح.', en: 'Integer part.' },
+          { fr: 'Partie décimale.', ar: 'الجزء العشري.', en: 'Decimal part.' },
+          { fr: 'Dixième.', ar: 'عُشر.', en: 'Tenth.' },
+          { fr: 'Centième.', ar: 'جزء من مئة.', en: 'Hundredth.' },
+          { fr: 'Millième.', ar: 'جزء من ألف.', en: 'Thousandth.' },
+          { fr: 'Arrondir.', ar: 'يقرّب العدد.', en: 'To round.' },
+        ]
+      },
+      { icon: '✖️',
+        notes: ["اختبار الأعداد العشرية", "0/6", "السؤال 1 Combien font 2,5 + 1,5 ?", "3", "4", "5", "السؤال 2 Combien font 10,5 − 2,5 ?", "7", "8", "9", "السؤال 3 Combien font 2,5 × 4 ?", "8", "10", "12", "السؤال 4 Combien font 12,5 ÷ 5 ?", "2", "2,5", "3", "السؤال 5 Quel nombre est le plus grand ?", "3,25", "3,50", "3,05", "السؤال 6 2,5 kg + 1,25 kg = ?", "تصحيح الإجابات"],
+        title: { ar: 'تمارين الدرس الثامن', en: 'تمارين الدرس الثامن', fr: 'تمارين الدرس الثامن' },
+        phrases: [
+        ]
+      },
+      { icon: '➗',
+        title: { ar: 'ما هو التقريب؟', en: 'ما هو التقريب؟', fr: 'ما هو التقريب؟' },
+        phrases: [
+          { fr: 'Arrondir un nombre consiste à donner une valeur approchée plus simple.', ar: 'تقريب العدد يعني إعطاء قيمة تقريبية أبسط للعدد.', en: 'Rounding a number means giving a simpler approximate value.' },
+        ]
+      },
+      { icon: '🟰',
+        notes: ["مثال:", "مثال:"],
+        title: { ar: 'التقريب إلى أقرب عدد صحيح', en: 'التقريب إلى أقرب عدد صحيح', fr: 'التقريب إلى أقرب عدد صحيح' },
+        phrases: [
+          { fr: 'Si le chiffre après la virgule est inférieur à 5, on arrondit vers le bas.', ar: 'إذا كان الرقم بعد الفاصلة أقل من 5، نقرّب إلى الأسفل.', en: 'If the digit after the decimal point is less than 5, we round down.' },
+          { fr: 'Quatre virgule trois est arrondi à quatre.', ar: '4.3 تقرّب إلى 4.', en: '4.3 rounds to 4.' },
+          { fr: 'Si le chiffre après la virgule est supérieur ou égal à 5, on arrondit vers le haut.', ar: 'إذا كان الرقم بعد الفاصلة أكبر من أو يساوي 5، نقرّب إلى الأعلى.', en: 'If the digit after the decimal point is 5 or greater, we round up.' },
+          { fr: 'Quatre virgule sept est arrondi à cinq.', ar: '4.7 تقرّب إلى 5.', en: '4.7 rounds to 5.' },
+        ]
+      },
+      { icon: '📐',
+        notes: ["مثال:"],
+        title: { ar: 'التقريب إلى أقرب عُشر', en: 'التقريب إلى أقرب عُشر', fr: 'التقريب إلى أقرب عُشر' },
+        phrases: [
+          { fr: 'Arrondir au dixième.', ar: 'التقريب إلى أقرب عُشر.', en: 'Round to the nearest tenth.' },
+          { fr: 'Trois virgule quarante-six est arrondi à trois virgule cinq.', ar: '3.46 تقرّب إلى 3.5.', en: '3.46 rounds to 3.5.' },
+        ]
+      },
+      { icon: '📏',
+        notes: ["مهم: في القياسات الصناعية يجب احترام دقة القياس والتسامحات المحددة؛ لا يجوز تقريب قيمة القياس عشوائياً إذا كان ذلك يؤثر في مطابقة المنتج."],
+        title: { ar: 'التقريب في المصنع', en: 'التقريب في المصنع', fr: 'التقريب في المصنع' },
+        phrases: [
+          { fr: 'Le poids mesuré est de 2,48 kg. On l\'arrondit au dixième : 2,5 kg.', ar: 'الوزن المقاس 2.48 كيلوغرام، وعند تقريبه إلى أقرب عُشر يصبح 2.5 كيلوغرام.', en: 'The measured weight is 2.48 kg. Rounded to the nearest tenth, it becomes 2.5 kg.' },
+        ]
+      },
+      { icon: '🧮',
+        title: { ar: 'مفردات التقريب', en: 'مفردات التقريب', fr: 'مفردات التقريب' },
+        phrases: [
+          { fr: 'Valeur exacte.', ar: 'القيمة الدقيقة.', en: 'Exact value.' },
+          { fr: 'Valeur approchée.', ar: 'القيمة التقريبية.', en: 'Approximate value.' },
+          { fr: 'Arrondi à l\'unité.', ar: 'تقريب إلى أقرب عدد صحيح.', en: 'Rounded to the nearest whole number.' },
+          { fr: 'Arrondi au dixième.', ar: 'تقريب إلى أقرب عُشر.', en: 'Rounded to the nearest tenth.' },
+          { fr: 'Arrondi au centième.', ar: 'تقريب إلى أقرب جزء من مئة.', en: 'Rounded to the nearest hundredth.' },
+        ]
+      },
+      { icon: '💯',
+        notes: ["اختبار التقريب", "4", "5", "4,5", "7", "8", "9", "3,4", "3,5", "3,6", "5,23", "5,24", "5,2", "تصحيح الإجابات", "الدرس القادم:", "الدرس العاشر: الكسور – Les fractions، من البداية، مع البسط والمقام وجمع الكسور وطرحها وضربها وقسمتها، وأمثلة من الحياة المهنية في المصنع."],
+        title: { ar: 'تمارين التقريب', en: 'تمارين التقريب', fr: 'تمارين التقريب' },
+        phrases: [
+        ]
+      },
+      { icon: '📊',
+        notes: ["سنتعلم اليوم كيف نقارن بين عددين، وكيف نعرف أيهما أكبر أو أصغر أو هل هما متساويان. هذه المهارة مهمة جداً في تكوين CAP CIP – Conducteur d'Installations de Production، خصوصاً عند مراقبة الإنتاج والوزن والحرارة والسرعة والضغط."],
+        title: { ar: 'Comparing Numbers', en: 'Comparing Numbers', fr: 'Comparing Numbers' },
+        phrases: [
+        ]
+      },
+      { icon: '🔣',
+        notes: ["مثال:", "العدد 8 أكبر من العدد 5.", "مثال:", "العدد 3 أصغر من العدد 7.", "مثال:", "العددان متساويان.", "طريقة سهلة لتذكر العلامات:", "الفتحة الكبيرة في العلامة تكون دائماً باتجاه العدد الأكبر."],
+        title: { ar: 'علامات المقارنة – Les signes de comparaison', en: 'علامات المقارنة – Les signes de comparaison', fr: 'علامات المقارنة – Les signes de comparaison' },
+        phrases: [
+          { fr: 'Supérieur à ( > )', ar: 'أكبر من.', en: 'Greater than.' },
+          { fr: 'Inférieur à ( < )', ar: 'أصغر من.', en: 'Less than.' },
+          { fr: 'Égal à ( = )', ar: 'يساوي.', en: 'Equal to.' },
+        ]
+      },
+      { icon: '📝',
+        notes: ["نبدأ بمقارنة الأعداد الصحيحة."],
+        title: { ar: 'مقارنة الأعداد الصحيحة – Comparer les nombres entiers', en: 'مقارنة الأعداد الصحيحة – Comparer les nombres entiers', fr: 'مقارنة الأعداد الصحيحة – Comparer les nombres entiers' },
+        phrases: [
+          { fr: '25 est supérieur à 18.', ar: '25 أكبر من 18.', en: '25 is greater than 18.' },
+          { fr: '12 est inférieur à 30.', ar: '12 أصغر من 30.', en: '12 is less than 30.' },
+          { fr: '100 est égal à 100.', ar: '100 يساوي 100.', en: '100 is equal to 100.' },
+        ]
+      },
+      { icon: '💬',
+        notes: ["عندما نقارن عددين كبيرين، ننظر أولاً إلى عدد الخانات.", "مثال:", "لأن 850 يحتوي على ثلاث خانات، و75 يحتوي على خانتين.", "مثال آخر:", "العددان يحتويان على خمس خانات، لذلك نقارن من اليسار إلى اليمين:", "1 يساوي 1.", "2 أصغر من 5.", "إذن 12 500 أصغر من 15 000."],
+        title: { ar: 'مقارنة الأعداد الكبيرة – Comparer les grands nombres', en: 'مقارنة الأعداد الكبيرة – Comparer les grands nombres', fr: 'مقارنة الأعداد الكبيرة – Comparer les grands nombres' },
+        phrases: [
+        ]
+      },
+      { icon: '✅',
+        notes: ["هذه نقطة مهمة جداً في المصنع.", "مثال:", "لأن 5 أعشار أكبر من 3 أعشار.", "مثال آخر:", "نكتب العددين بهذا الشكل:", "3,75", "3,80", "الجزء الصحيح متساوٍ، ثم نقارن الجزء العشري: 75 أصغر من 80.", "إذن:", "ملاحظة مهمة: يمكنك إضافة أصفار إلى يمين الجزء العشري دون تغيير قيمة العدد.", "مثلاً:"],
+        title: { ar: 'مقارنة الأعداد العشرية – Comparer les nombres décimaux', en: 'مقارنة الأعداد العشرية – Comparer les nombres décimaux', fr: 'مقارنة الأعداد العشرية – Comparer les nombres décimaux' },
+        phrases: [
+          { fr: 'Comparer les nombres décimaux.', ar: 'مقارنة الأعداد العشرية.', en: 'Comparing decimal numbers.' },
+        ]
+      },
+      { icon: '📓',
+        images: ["https://images.openai.com/static-rsc-4/ulyP0OdcyAt2aTie3TyEJlEFUAjz3NXCbSOCfGmC9ALFNjHXysXGfkGDQMWDWoo699eixZcs8KXw0lRO_bQ_cIRbcAWRvM12lklEtuPC_SUFkLyYjLNBKGZaZDZ37WAs78L9WRCXiFPzmYrJzsnUHTYDtxCNyan-g9FmTGf0K5oR4_jbV94jICjOCEiPucl7?purpose=fullsize", "https://images.openai.com/static-rsc-4/PXi7iwj2DZqMrZlTSPmWJVMX2r6m1LUMbbN8l2U1DCSg1dwopkHQBQRqnGn0OD_uctnIeT1jEz0d89LMCMsj7RW4RPRK-hJl7r4pERVyibeHKl4U3zoOAT2puNreJKTTa6z99PRRrL3YLb65iv5xAajwB6--8gMTDeF1yOFvedwMZEQHvZMg-qT4TAmcsRS7?purpose=fullsize", "https://images.openai.com/static-rsc-4/f_UXJMLnDd08AUQVbRom-XIKAaRsKakRudM-sPoiHaW453g4tRYSl3VT0M5eL09h_Y8YfYfQaTCXnIEmw9oszC4TWggsh44EwQLxLAPVi2PwHBT3gJnUnpIURBnpeEHARGx5ngg1df7Rsba4zJ4DeVuMQZ_et-INtu6pwJgEv9SlFzZwPtor4tj87l39g8VJ?purpose=fullsize"],
+        notes: ["مثال 1: الوزن – Le poids", "مثال 2: درجة الحرارة – La température", "مثال 3: الإنتاج – La production"],
+        title: { ar: 'المقارنة في المصنع – Comparaison dans l\'usine', en: 'المقارنة في المصنع – Comparaison dans l\'usine', fr: 'المقارنة في المصنع – Comparaison dans l\'usine' },
+        phrases: [
+          { fr: 'Le poids mesuré est de 4,5 kg. Le poids demandé est de 5 kg.', ar: 'الوزن المقاس 4.5 كغ، والوزن المطلوب 5 كغ.', en: 'The measured weight is 4.5 kg. The required weight is 5 kg.' },
+          { fr: 'La température est de 85 °C. La limite maximale est de 90 °C.', ar: 'درجة الحرارة 85 درجة، والحد الأقصى 90 درجة.', en: 'The temperature is 85°C. The maximum limit is 90°C.' },
+          { fr: 'La production réelle est de 1 200 pièces. L\'objectif est de 1 000 pièces.', ar: 'الإنتاج الفعلي 1200 قطعة، والهدف 1000 قطعة.', en: 'Actual production is 1,200 pieces. The target is 1,000 pieces.' },
+        ]
+      },
+      { icon: '🖊️',
+        title: { ar: 'مفردات مهمة – Vocabulaire', en: 'مفردات مهمة – Vocabulaire', fr: 'مفردات مهمة – Vocabulaire' },
+        phrases: [
+          { fr: 'Plus grand que —', ar: 'أكبر من —', en: 'Greater than.' },
+          { fr: 'Plus petit que —', ar: 'أصغر من —', en: 'Less than.' },
+          { fr: 'Égal à —', ar: 'يساوي —', en: 'Equal to.' },
+          { fr: 'Comparer —', ar: 'يقارن —', en: 'To compare.' },
+          { fr: 'Supérieur —', ar: 'أعلى / أكبر —', en: 'Greater / higher.' },
+          { fr: 'Inférieur —', ar: 'أدنى / أصغر —', en: 'Lower / less.' },
+          { fr: 'La valeur —', ar: 'القيمة —', en: 'Value.' },
+          { fr: 'La limite maximale —', ar: 'الحد الأقصى —', en: 'Maximum limit.' },
+          { fr: 'La limite minimale —', ar: 'الحد الأدنى —', en: 'Minimum limit.' },
+          { fr: 'Conforme —', ar: 'مطابق —', en: 'Compliant.' },
+          { fr: 'Non conforme —', ar: 'غير مطابق —', en: 'Non-compliant.' },
+        ]
+      },
+      { icon: '🧾',
+        title: { ar: 'عبارات تسمعها في التكوين CAP CIP', en: 'عبارات تسمعها في التكوين CAP CIP', fr: 'عبارات تسمعها في التكوين CAP CIP' },
+        phrases: [
+          { fr: 'Comparez les deux valeurs.', ar: 'قارن بين القيمتين.', en: 'Compare the two values.' },
+          { fr: 'Quelle valeur est la plus élevée ?', ar: 'أي قيمة هي الأعلى؟', en: 'Which value is higher?' },
+          { fr: 'La valeur est inférieure à la limite autorisée.', ar: 'القيمة أقل من الحد المسموح به.', en: 'The value is below the permitted limit.' },
+          { fr: 'La température dépasse la limite maximale.', ar: 'درجة الحرارة تتجاوز الحد الأقصى.', en: 'The temperature exceeds the maximum limit.' },
+          { fr: 'Le poids est conforme.', ar: 'الوزن مطابق للمواصفات.', en: 'The weight is compliant.' },
+        ]
+      },
+      { icon: '📈',
+        notes: ["اختر الإجابة الصحيحة في كل سؤال.", "اختبر فهمك", "0 / 5", "السؤال 1: 15 ___ 20", "\\>", "<", "=", "السؤال 2: 4,8 ___ 4,5", "\\>", "<", "=", "السؤال 3: 1 500 ___ 1 500", "\\>", "<", "=", "السؤال 4: 2,50 ___ 2,5", "\\>", "<", "=", "السؤال 5: الإنتاج 950 قطعة والهدف 1 000 قطعة. الإنتاج ___ الهدف.", "أكبر من", "أصغر من", "يساوي", "تصحيح الإجابات", "الدرس القادم: الدرس الحادي عشر – الكسور (Les fractions).", "سنتعلم البسط والمقام، وكيف نقرأ الكسور بالفرنسية، ثم جمع الكسور وطرحها وضربها وقسمتها، مع أمثلة من الإنتاج والمصنع."],
+        title: { ar: 'اختبار تطبيقي – Exercice pratique', en: 'اختبار تطبيقي – Exercice pratique', fr: 'اختبار تطبيقي – Exercice pratique' },
+        phrases: [
+        ]
+      },
   ] },
   { id: 'formes', icon: '🔷', name: { ar: 'الأشكال الهندسية', en: 'Geometric shapes', fr: 'Formes géométriques' }, desc: { ar: 'الأشكال وأفعال الرياضيات', en: 'Shapes & maths verbs', fr: 'Formes & verbes de maths' }, sections: [
     { icon: '🔷', title: { ar: 'الأشكال الأساسية', en: 'Basic shapes', fr: 'Les formes de base' }, phrases: [
