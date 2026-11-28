@@ -249,7 +249,7 @@ const FLAGS = {
   france:  { stripes:['#0055a4','#ffffff','#ef4135'], stars:0, vertical:true },
   italy:   { stripes:['#009246','#ffffff','#ce2b37'], stars:0, vertical:true },
   germany: { stripes:['#111111','#dd0000','#ffce00'], stars:0, vertical:false },
-  spain:   { stripes:['#aa151b','#f1bf00','#aa151b'], stars:0, vertical:false },
+  spain:   { stripes:['#aa151b','#f1bf00','#aa151b'], weights:[1,2,1], stars:0, vertical:false, emblem:'👑' },
 };
 
 function effectiveFrame(f) {
@@ -416,9 +416,13 @@ function drawRing(ctx, S, R, cx, cy, f) {
     }
     ctx.restore();
     if (!f.customImg && !fd.vertical) {
-      const band = outer / fd.stripes.length;
+      const wts = fd.weights || fd.stripes.map(() => 1);
+      const wsum = wts.reduce((a, b) => a + b, 0);
+      let acc = 0;
       fd.stripes.forEach((col, i) => {
-        strokeShapeRing(ctx, cx, cy, R, sh, outer - (i + 0.5) * band, band, col);
+        const band = outer * wts[i] / wsum;
+        strokeShapeRing(ctx, cx, cy, R, sh, outer - acc - band / 2, band, col);
+        acc += band;
       });
     }
     ctx.save();
@@ -436,6 +440,18 @@ function drawRing(ctx, S, R, cx, cy, f) {
       const sx = cx + dir * bandMid;
       [-1, 0, 1].forEach(dy => drawStar(ctx, sx, cy + dy * lw * 1.55, stS, fd.starColor || '#ce1126'));
     });
+    if (fd.emblem) {
+      const emS = outer * 0.5;
+      ctx.font = `${emS}px serif`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      const wts2 = fd.weights || fd.stripes.map(() => 1);
+      const wsum2 = wts2.reduce((a, b) => a + b, 0);
+      const midOff = outer - outer * wts2[0] / wsum2 - outer * (wts2[1] || 0) / wsum2 / 2;
+      const emR = halfW + midOff;
+      [[cx, cy - emR], [cx, cy + emR], [cx - emR, cy], [cx + emR, cy]].forEach(([ex, ey]) => {
+        ctx.fillText(fd.emblem, ex, ey);
+      });
+    }
     if (fd.bandText) {
       ctx.fillStyle = fd.bandTextColor || '#007a3d';
       ctx.font = `bold ${outer / 3 * 0.88}px Cairo, Tajawal, sans-serif`;
