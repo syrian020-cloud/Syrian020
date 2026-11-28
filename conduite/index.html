@@ -225,7 +225,8 @@ const state = {
   zoom: 1, tx: 0, ty: 0, rot: 0, flipX: false,
   customText: '', textFont: 'Cairo', textColor: '#ffffff', textSize: 52, textPos: 'bottom',
   shape: 'circle',
-  custom: { title:'عنواني', sub:'', bg1:'#0d3b2e', bg2:'#1a7a54', ring1:'#ffffff', ring2:'#c9a227', ring3:'#111111', flag:'none', font:'Cairo', titleColor:'#ffffff' },
+  customImgEl: null,
+  custom: { title:'عنواني', sub:'', bg1:'#0d3b2e', bg2:'#1a7a54', ring1:'#ffffff', ring2:'#c9a227', ring3:'#111111', flag:'none', font:'Cairo', titleColor:'#ffffff', flagImg:null },
   editing: false,
 };
 
@@ -246,6 +247,7 @@ document.getElementById('backBtn').onclick = () => { if (state.step > 1) setStep
 
 const FLAGS = {
   none: null,
+  image: { stripes:[], stars:0, vertical:false },
   syria:   { stripes:['#0a8a4f','#ffffff','#111111'], stars:3, starColor:'#ce1126', vertical:false },
   france:  { stripes:['#0055a4','#ffffff','#ef4135'], stars:0, vertical:true },
   italy:   { stripes:['#009246','#ffffff','#ce2b37'], stars:0, vertical:true },
@@ -262,6 +264,7 @@ function effectiveFrame(f) {
     ring: [c.ring1, c.ring2, c.ring3],
     font: c.font, titleColor: c.titleColor,
     flag: c.flag !== 'none',
+    customImg: c.flag === 'image' ? state.customImgEl : null,
     flagDef: FLAGS[c.flag] || null,
   });
 }
@@ -291,6 +294,35 @@ function shapePath(ctx, cx, cy, R, shape) {
     ctx.moveTo(cx, cy + 42 * s);
     ctx.bezierCurveTo(cx - 70 * s, cy - 12 * s, cx - 38 * s, cy - 62 * s, cx, cy - 22 * s);
     ctx.bezierCurveTo(cx + 38 * s, cy - 62 * s, cx + 70 * s, cy - 12 * s, cx, cy + 42 * s);
+    ctx.closePath();
+  } else if (shape === 'diamond') {
+    const s = R * 1.18;
+    ctx.moveTo(cx, cy - s);
+    ctx.lineTo(cx + s, cy);
+    ctx.lineTo(cx, cy + s);
+    ctx.lineTo(cx - s, cy);
+    ctx.closePath();
+  } else if (shape === 'octagon') {
+    for (let i = 0; i < 8; i++) {
+      const a = -Math.PI / 2 + Math.PI / 8 + i * Math.PI / 4;
+      const x = cx + Math.cos(a) * R * 1.02, y = cy + Math.sin(a) * R * 1.02;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+  } else if (shape === 'star') {
+    for (let i = 0; i < 10; i++) {
+      const a = -Math.PI / 2 + i * Math.PI / 5;
+      const rr = i % 2 === 0 ? R * 1.05 : R * 0.52;
+      const x = cx + Math.cos(a) * rr, y = cy + Math.sin(a) * rr;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+  } else if (shape === 'triangle') {
+    for (let i = 0; i < 3; i++) {
+      const a = -Math.PI / 2 + i * 2 * Math.PI / 3;
+      const x = cx + Math.cos(a) * R * 1.1, y = cy + Math.sin(a) * R * 1.1;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
     ctx.closePath();
   } else {
     ctx.arc(cx, cy, R, 0, Math.PI * 2);
@@ -373,7 +405,12 @@ function drawRing(ctx, S, R, cx, cy, f) {
     const fd = f.flagDef || FLAGS.syria;
     const top = cy - R - outer, bandH = (R + outer) * 2;
     const left = cx - R - outer - 2, bandW = (R + outer) * 2 + 4;
-    fd.stripes.forEach((col, i) => {
+    if (f.customImg) {
+      const iw = f.customImg.naturalWidth || f.customImg.width, ih = f.customImg.naturalHeight || f.customImg.height;
+      const scale = Math.max(bandW / iw, bandH / ih);
+      const dw = iw * scale, dh = ih * scale;
+      ctx.drawImage(f.customImg, left + (bandW - dw) / 2, top - 2 + (bandH + 4 - dh) / 2, dw, dh);
+    } else fd.stripes.forEach((col, i) => {
       ctx.fillStyle = col;
       if (fd.vertical) ctx.fillRect(left + bandW * i / 3, top - 2, bandW / 3 + 1, bandH + 4);
       else ctx.fillRect(left, top + bandH * i / 3, bandW, bandH / 3 + 1);
@@ -382,7 +419,10 @@ function drawRing(ctx, S, R, cx, cy, f) {
     const drawStarBand = fd.stars > 0;
     const halfW = state.shape === 'circle' ? R
       : state.shape === 'rounded' || state.shape === 'square' ? R * 0.86
-      : state.shape === 'hexagon' ? R * 0.9
+      : state.shape === 'hexagon' || state.shape === 'octagon' ? R * 0.9
+      : state.shape === 'diamond' ? R * 0.95
+      : state.shape === 'star' ? R * 0.78
+      : state.shape === 'triangle' ? R * 0.85
       : R * 0.72;
     const bandMid = halfW + outer * 0.5;
     if (drawStarBand) [[-1, 0], [1, 0]].forEach(([dir]) => {
@@ -573,6 +613,7 @@ function viewEditor() {
         <div class="txtrow" style="margin-top:6px">
           <select id="cfFlag">
             <option value="none">بدون علم</option>
+            <option value="image">🖼️ صورة من المعرض</option>
             <option value="syria">علم سوريا</option>
             <option value="france">فرنسا</option>
             <option value="italy">إيطاليا</option>
@@ -581,6 +622,10 @@ function viewEditor() {
           </select>
           <select id="cfFont">${FONTS.map(x=>'<option value="'+x.id+'">'+x.label+'</option>').join('')}</select>
           <input type="color" id="cfTitleColor" value="#ffffff" title="لون العنوان">
+        </div>
+        <div class="txtrow" style="margin-top:6px">
+          <input type="file" id="cfFlagFile" accept="image/*" style="display:none">
+          <button id="cfFlagPick" class="posbtn" style="flex:1">🖼️ اختر صورة للحلقة…</button>
         </div>
         <div class="txtrow" style="margin-top:6px">
           <span style="font-size:11.5px;color:var(--mut)">خلفية</span>
@@ -599,6 +644,10 @@ function viewEditor() {
           <button class="shapebtn ${state.shape==='square'?'on':''}" data-sh="square">⬛ مربع</button>
           <button class="shapebtn ${state.shape==='hexagon'?'on':''}" data-sh="hexagon">⬡ سداسي</button>
           <button class="shapebtn ${state.shape==='heart'?'on':''}" data-sh="heart">❤️ قلب</button>
+          <button class="shapebtn ${state.shape==='diamond'?'on':''}" data-sh="diamond">💎 معيّن</button>
+          <button class="shapebtn ${state.shape==='octagon'?'on':''}" data-sh="octagon">🛑 ثماني</button>
+          <button class="shapebtn ${state.shape==='star'?'on':''}" data-sh="star">⭐ نجمة</button>
+          <button class="shapebtn ${state.shape==='triangle'?'on':''}" data-sh="triangle">🔺 مثلث</button>
         </div>
       </div>
       <div class="txteditor">
@@ -699,6 +748,22 @@ function setupEditor() {
       const h = () => { cf[vals[id]] = el.value; redraw(); };
       el.oninput = h; el.onchange = h;
     });
+    const pickBtn = document.getElementById('cfFlagPick');
+    const pickFile = document.getElementById('cfFlagFile');
+    if (pickBtn && pickFile) {
+      pickBtn.onclick = () => pickFile.click();
+      pickFile.onchange = () => {
+        const fl = pickFile.files && pickFile.files[0];
+        if (!fl) return;
+        const rd = new FileReader();
+        rd.onload = () => {
+          const im = new Image();
+          im.onload = () => { state.customImgEl = im; cf.flag = 'image'; const sel = document.getElementById('cfFlag'); if (sel) sel.value = 'image'; redraw(); };
+          im.src = rd.result;
+        };
+        rd.readAsDataURL(fl);
+      };
+    }
   }
 
   document.querySelectorAll('.shapebtn').forEach(b => {
