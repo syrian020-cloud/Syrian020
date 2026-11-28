@@ -178,9 +178,9 @@ p.sub { color: var(--mut); font-size: 13.5px; margin: 0 0 14px; }
 <script>
 const FRAMES = [
   { id:'liberation', name:'عيد التحرير السوري', title:'اليوم الوطني السوري', sub:'8 Dec · Syrian National Day', sub2:'عيد التحرير',
-    bg:['#0d3b2e','#1a7a54'], ring:['#ffffff','#0a5c3f','#111111'], accent:'#d3382c', stars:true, decor:['⭐'], font:'Cairo', titleColor:'#ffffff' },
+    bg:['#0d3b2e','#1a7a54'], ring:['#ffffff','#0a5c3f','#111111'], accent:'#d3382c', stars:true, flag:true, decor:['⭐'], font:'Cairo', titleColor:'#ffffff' },
   { id:'independence', name:'عيد الجلاء', title:'عيد الجلاء السوري', sub:'17 نيسان · Syrian Independence Day', sub2:'',
-    bg:['#0d3b2e','#123f31'], ring:['#ffffff','#0a5c3f','#111111'], accent:'#d3382c', stars:true, decor:['⭐'], font:'Cairo', titleColor:'#ffffff' },
+    bg:['#0d3b2e','#123f31'], ring:['#ffffff','#0a5c3f','#111111'], accent:'#d3382c', stars:true, flag:true, decor:['⭐'], font:'Cairo', titleColor:'#ffffff' },
   { id:'ramadan', name:'رمضان كريم', title:'رمضان كريم', sub:'Ramadan Kareem', sub2:'',
     bg:['#1c1038','#3c2566'], ring:['#f5e6c8','#c9a227','#2a1650'], accent:'#e8c55a', stars:false, decor:['🌙','🏮'], font:'Amiri', titleColor:'#f5e6c8' },
   { id:'fitr', name:'عيد الفطر', title:'عيد فطر سعيد', sub:'Eid al-Fitr Mubarak', sub2:'',
@@ -236,7 +236,6 @@ document.getElementById('backBtn').onclick = () => { if (state.step > 1) setStep
 
 
 function shapePath(ctx, cx, cy, R, shape) {
-  ctx.beginPath();
   if (shape === 'square') {
     const s = R * 1.72;
     ctx.rect(cx - s/2, cy - s/2, s, s);
@@ -289,7 +288,7 @@ function patternBg(ctx, S, f) {
 function drawPhotoInCircle(ctx, S, R, cx, cy) {
   if (!state.img) {
     ctx.save();
-    shapePath(ctx, cx, cy, R, state.shape); ctx.clip();
+    ctx.beginPath(); shapePath(ctx, cx, cy, R, state.shape); ctx.clip();
     ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fillRect(cx - R, cy - R, R * 2, R * 2);
     if (sampleImg.complete && sampleImg.naturalWidth) {
       const sc = Math.max((R * 2) / sampleImg.naturalWidth, (R * 2) / sampleImg.naturalHeight);
@@ -308,7 +307,7 @@ function drawPhotoInCircle(ctx, S, R, cx, cy) {
   }
   const img = state.img;
   ctx.save();
-  shapePath(ctx, cx, cy, R, state.shape); ctx.clip();
+  ctx.beginPath(); shapePath(ctx, cx, cy, R, state.shape); ctx.clip();
   ctx.fillStyle = '#000'; ctx.fillRect(cx - R, cy - R, R * 2, R * 2);
   const base = Math.max((R * 2) / img.width, (R * 2) / img.height);
   const sc = base * state.zoom;
@@ -323,6 +322,7 @@ function strokeShapeRing(ctx, cx, cy, R, shape, inflate, lw, color) {
   ctx.save();
   ctx.lineWidth = lw;
   ctx.strokeStyle = color;
+  ctx.beginPath();
   shapePath(ctx, cx, cy, R + inflate, shape);
   ctx.stroke();
   ctx.restore();
@@ -332,14 +332,41 @@ function drawRing(ctx, S, R, cx, cy, f) {
   const lw = S * 0.023;
   ctx.save();
   const sh = state.shape;
-  strokeShapeRing(ctx, cx, cy, R, sh, lw * 1.1, lw * 1.6, f.ring[2]);
-  strokeShapeRing(ctx, cx, cy, R, sh, lw * 0.55, lw, f.ring[0]);
-  strokeShapeRing(ctx, cx, cy, R, sh, lw * 0.05, lw * 0.75, f.ring[1]);
+  if (f.flag) {
+    const outer = lw * 2.1;
+    ctx.save();
+    ctx.beginPath();
+    shapePath(ctx, cx, cy, R + outer, sh);
+    shapePath(ctx, cx, cy, R, sh);
+    ctx.clip('evenodd');
+    const top = cy - R - outer, bandH = (R + outer) * 2;
+    ctx.fillStyle = '#0a8a4f';
+    ctx.fillRect(cx - R - outer - 2, top, (R + outer) * 2 + 4, bandH / 3 + 1);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(cx - R - outer - 2, top + bandH / 3, (R + outer) * 2 + 4, bandH / 3 + 1);
+    ctx.fillStyle = '#111111';
+    ctx.fillRect(cx - R - outer - 2, top + bandH * 2 / 3, (R + outer) * 2 + 4, bandH / 3 + 2);
+    const stS = lw * 0.62;
+    const bandMid = R + outer * 0.5;
+    [[-1, 0], [1, 0]].forEach(([dir]) => {
+      const sx = cx + dir * bandMid;
+      [-1.05, 0, 1.05].forEach(dy => drawStar(ctx, sx, cy + dy * lw * 1.9, stS, '#ce1126'));
+    });
+    ctx.restore();
+    strokeShapeRing(ctx, cx, cy, R, sh, outer + lw * 0.35, lw * 0.7, f.ring[2]);
+    strokeShapeRing(ctx, cx, cy, R, sh, -lw * 0.35, lw * 0.7, f.ring[2]);
+  } else {
+    strokeShapeRing(ctx, cx, cy, R, sh, lw * 1.1, lw * 1.6, f.ring[2]);
+    strokeShapeRing(ctx, cx, cy, R, sh, lw * 0.55, lw, f.ring[0]);
+    strokeShapeRing(ctx, cx, cy, R, sh, lw * 0.05, lw * 0.75, f.ring[1]);
+  }
   if (f.stars) {
     ctx.fillStyle = f.accent;
+    if (f.flag) { ctx.restore(); return; }
+    const starR = R + lw * 0.55;
     [Math.PI * 1.5, Math.PI * 0.15, Math.PI * 0.85].forEach(a => {
-      const x = cx + Math.cos(a) * (R + lw * 0.55);
-      const y = cy + Math.sin(a) * (R + lw * 0.55);
+      const x = cx + Math.cos(a) * starR;
+      const y = cy + Math.sin(a) * starR;
       drawStar(ctx, x, y, lw * 0.85, f.accent);
     });
   }
