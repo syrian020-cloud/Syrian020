@@ -397,7 +397,7 @@ function drawRing(ctx, S, R, cx, cy, f) {
   ctx.save();
   const sh = state.shape;
   if (f.flag) {
-    const outer = lw * 2.1;
+    const outer = lw * 2.9;
     ctx.save();
     ctx.beginPath();
     shapePath(ctx, cx, cy, R + outer, sh);
@@ -441,7 +441,7 @@ function drawRing(ctx, S, R, cx, cy, f) {
     });
     if (fd.bandText) {
       ctx.fillStyle = fd.bandTextColor || '#007a3d';
-      ctx.font = `bold ${lw * 0.62}px Cairo, Tajawal, sans-serif`;
+      ctx.font = `bold ${outer / 3 * 0.88}px Cairo, Tajawal, sans-serif`;
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       [[cx, cy - bandMid], [cx, cy + bandMid]].forEach(([tx0, ty0]) => {
         ctx.save();
