@@ -352,7 +352,11 @@ function drawRing(ctx, S, R, cx, cy, f) {
     ctx.fillStyle = '#111111';
     ctx.fillRect(cx - R - outer - 2, top + bandH * 2 / 3, (R + outer) * 2 + 4, bandH / 3 + 2);
     const stS = lw * 0.62;
-    const bandMid = R + outer * 0.5;
+    const halfW = state.shape === 'circle' ? R
+      : state.shape === 'rounded' || state.shape === 'square' ? R * 0.86
+      : state.shape === 'hexagon' ? R * 0.9
+      : R * 0.72;
+    const bandMid = halfW + outer * 0.5;
     [[-1, 0], [1, 0]].forEach(([dir]) => {
       const sx = cx + dir * bandMid;
       [-1.05, 0, 1.05].forEach(dy => drawStar(ctx, sx, cy + dy * lw * 1.9, stS, '#ce1126'));
@@ -687,13 +691,15 @@ async function exportImage(share) {
       const Media = cap.Plugins.Media;
       if (!share && Media && Media.savePhoto) {
         if (!window._piclibAlbum) {
-          try { await Media.createAlbum({ name: 'picLib' }); } catch (e) {}
-          const albums = await Media.getAlbums();
-          const found = (albums.albums || []).find(a => a.name === 'picLib');
-          window._piclibAlbum = found ? found.identifier : null;
+          try {
+            await Media.savePhoto({ path: res.uri, albumIdentifier: '/storage/emulated/0/Pictures/picLib', fileName: 'probe' });
+            window._piclibAlbum = '/storage/emulated/0/Pictures/picLib';
+          } catch (e) {
+            window._piclibAlbum = '/storage/emulated/0/Pictures';
+          }
         }
-        await Media.savePhoto({ path: res.uri, albumIdentifier: window._piclibAlbum || undefined, fileName: fname.replace('.png','') });
-        toast('تم الحفظ في الاستوديو ✓');
+        const saved = await Media.savePhoto({ path: res.uri, albumIdentifier: window._piclibAlbum, fileName: fname.replace('.png','') });
+        toast('تم الحفظ في المعرض ✓');
         return;
       }
       if (Share && Share.share) {
