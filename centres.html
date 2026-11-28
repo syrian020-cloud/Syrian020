@@ -435,7 +435,7 @@
   }
 
   function searchImages(text) {
-    var url = 'https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(text);
+    var url = 'https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(text + ' clipart');
     var B = window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Browser;
     if(B && B.open) B.open({url:url});
     else window.open(url, '_blank');
