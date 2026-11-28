@@ -6132,6 +6132,333 @@ window.CENTRES_DATA = [
         phrases: [
         ]
       },
+      { icon: '💼',
+        notes: ["في هذا الدرس سنتعلم كيف تستخدم اعتراف RQTH عند البحث عن عمل، والتسجيل في France Travail، والتواصل مع Cap emploi، والطبيب المهني، وصاحب العمل، وكيف تطلب تكييف ظروف العمل."],
+        title: { ar: 'الدرس 6: العمل مع RQTH في فرنسا من البداية إلى النهاية', en: 'الدرس 6: العمل مع RQTH في فرنسا من البداية إلى النهاية', fr: 'الدرس 6: العمل مع RQTH في فرنسا من البداية إلى النهاية' },
+        phrases: [
+        ]
+      },
+      { icon: '📋',
+        title: { ar: 'البحث عن عمل مع RQTH', en: 'البحث عن عمل مع RQTH', fr: 'البحث عن عمل مع RQTH' },
+        phrases: [
+          { fr: 'Je bénéficie d\'une reconnaissance de la qualité de travailleur handicapé.', ar: 'لدي اعتراف بصفة العامل ذي الإعاقة.', en: 'I have official recognition as a disabled worker.' },
+          { fr: 'Je suis reconnu travailleur handicapé.', ar: 'أنا معترف بي كعامل من ذوي الإعاقة.', en: 'I am officially recognized as a disabled worker.' },
+          { fr: 'Je recherche un emploi adapté à ma situation.', ar: 'أبحث عن عمل يناسب وضعي.', en: 'I am looking for a job suited to my situation.' },
+          { fr: 'Je souhaite reprendre une activité professionnelle.', ar: 'أريد العودة إلى الحياة المهنية.', en: 'I would like to return to work.' },
+          { fr: 'Je souhaite travailler dans un environnement adapté.', ar: 'أريد العمل في بيئة مناسبة لحالتي.', en: 'I would like to work in a suitable environment.' },
+          { fr: 'Je cherche un emploi compatible avec mes capacités.', ar: 'أبحث عن عمل يتناسب مع قدراتي.', en: 'I am looking for a job compatible with my abilities.' },
+        ]
+      },
+      { icon: '🤝',
+        images: ["https://images.openai.com/static-rsc-4/qqaC7HWzO4NAn0MNrzYOUa58jHuX6AKu-1JmQksthFUMfXm9IoACbBSBvMU4-xdf7m2JB6zzbDYOHxWo3X31SRfn7FLsZQXgOm_1QGs8qTOdDPi3GWk3mI5unvZpW1nqhGrBVLLH18HFe9wx9aPb5kc9xXuxauoZB50oaSlPnzv1VKYJkLD0X5-QwteBkxjR?purpose=fullsize"],
+        notes: ["France Travail هي المؤسسة العامة لخدمات التوظيف في فرنسا."],
+        title: { ar: 'التسجيل في France Travail', en: 'التسجيل في France Travail', fr: 'التسجيل في France Travail' },
+        phrases: [
+          { fr: 'Bonjour, je souhaite m\'inscrire à France Travail.', ar: 'مرحباً، أريد التسجيل في France Travail.', en: 'Hello, I would like to register with France Travail.' },
+          { fr: 'Je suis actuellement à la recherche d\'un emploi.', ar: 'أنا حالياً أبحث عن عمل.', en: 'I am currently looking for a job.' },
+          { fr: 'Je bénéficie d\'une RQTH délivrée par la MDPH.', ar: 'لدي اعتراف RQTH صادر عن MDPH.', en: 'I have RQTH recognition issued by the MDPH.' },
+          { fr: 'Je voudrais être accompagné dans ma recherche d\'emploi.', ar: 'أريد الحصول على مرافقة في البحث عن عمل.', en: 'I would like support with my job search.' },
+          { fr: 'Est-ce qu\'il existe un accompagnement spécifique pour les personnes ayant une RQTH ?', ar: 'هل توجد مرافقة خاصة للأشخاص الحاصلين على RQTH؟', en: 'Is there specific support for people with RQTH?' },
+          { fr: 'Je voudrais rencontrer un conseiller spécialisé dans le handicap.', ar: 'أريد مقابلة مستشار متخصص في مجال الإعاقة.', en: 'I would like to meet an adviser specializing in disability.' },
+        ]
+      },
+      { icon: '🏭',
+        images: ["https://images.openai.com/static-rsc-4/_egr59kOH6f6V2vsIfi7E7XzSwR1sKxFlLeB5k1aVJW6TNV71h571HjXTssbfWDuSgzRxGzyLZUv0LQOUdJJLFra6DXLcSVSPLJ_N34YPkWQCNFzq26Yasa2rowkC1kmz0wQiqa7z4ZImIO55vfJdGZofVFF2UaqSqH2RJzyMZCgPMnwddpxjTOR7u2eVG3w?purpose=fullsize"],
+        notes: ["Cap emploi يقدم خدمات متخصصة لدعم الأشخاص ذوي الإعاقة في الوصول إلى العمل أو الاستمرار فيه."],
+        title: { ar: 'التواصل مع Cap emploi', en: 'التواصل مع Cap emploi', fr: 'التواصل مع Cap emploi' },
+        phrases: [
+          { fr: 'Je voudrais être accompagné par Cap emploi.', ar: 'أريد الحصول على مرافقة من Cap emploi.', en: 'I would like to receive support from Cap emploi.' },
+          { fr: 'Comment puis-je contacter un conseiller Cap emploi ?', ar: 'كيف يمكنني التواصل مع مستشار Cap emploi؟', en: 'How can I contact a Cap emploi adviser?' },
+          { fr: 'Je souhaite faire le point sur mon projet professionnel.', ar: 'أريد تقييم وضعي ومشروعي المهني.', en: 'I would like to review my career plans.' },
+          { fr: 'J\'ai besoin d\'aide pour trouver un emploi adapté.', ar: 'أحتاج إلى مساعدة للعثور على عمل مناسب.', en: 'I need help finding suitable employment.' },
+          { fr: 'Est-ce que vous pouvez m\'aider à préparer un entretien d\'embauche ?', ar: 'هل يمكنكم مساعدتي في التحضير لمقابلة عمل؟', en: 'Can you help me prepare for a job interview?' },
+          { fr: 'Est-ce que je peux bénéficier d\'une formation professionnelle ?', ar: 'هل يمكنني الاستفادة من تدريب مهني؟', en: 'Can I receive vocational training?' },
+        ]
+      },
+      { icon: '📦',
+        title: { ar: 'مقابلة مستشار التوظيف', en: 'مقابلة مستشار التوظيف', fr: 'مقابلة مستشار التوظيف' },
+        phrases: [
+          { fr: 'Quel type de poste recherchez-vous ?', ar: 'ما نوع الوظيفة التي تبحث عنها؟', en: 'What type of position are you looking for?' },
+          { fr: 'Je recherche un poste adapté à mes capacités physiques.', ar: 'أبحث عن وظيفة تناسب قدراتي الجسدية.', en: 'I am looking for a position suited to my physical abilities.' },
+          { fr: 'Je préfère éviter les tâches trop physiques.', ar: 'أفضل تجنب المهام التي تتطلب مجهوداً بدنياً كبيراً.', en: 'I prefer to avoid very physically demanding tasks.' },
+          { fr: 'Je peux travailler, mais j\'ai besoin de certaines adaptations.', ar: 'أستطيع العمل، لكنني أحتاج إلى بعض التعديلات.', en: 'I can work, but I need some adjustments.' },
+          { fr: 'J\'ai besoin d\'un poste avec des tâches bien définies.', ar: 'أحتاج إلى وظيفة ذات مهام محددة وواضحة.', en: 'I need a position with clearly defined tasks.' },
+          { fr: 'Je souhaite éviter le port de charges lourdes.', ar: 'أريد تجنب حمل الأوزان الثقيلة.', en: 'I would like to avoid lifting heavy loads.' },
+        ]
+      },
+      { icon: '🔧',
+        images: ["https://images.openai.com/static-rsc-4/A6qn3q1TexsmWDSv6S7tyI8fFlWLJvzh16XGkTQOc7pF8Zuf7BQxYlFNYOAt7Yn5Au8f4R-6-ayzdf2I1QC-1_tBW3YO1XP56qR4g8JrKwTCccnMjlHRnZ5atkfDhElx3qINp1rB4DSVbsxcDGDzKxqwmYOIH9U3Y-EIO2TTAiz-RJXpR14QtAeqJkuJoOIy?purpose=fullsize"],
+        notes: ["طبيب العمل ليس طبيباً يعالج جميع أمراضك، بل يقيّم ملاءمة ظروف العمل لحالتك الصحية، ويمكنه اقتراح تكييفات مهنية."],
+        title: { ar: 'مقابلة طبيب العمل Médecine du travail', en: 'مقابلة طبيب العمل Médecine du travail', fr: 'مقابلة طبيب العمل Médecine du travail' },
+        phrases: [
+          { fr: 'Je voudrais prendre rendez-vous avec le médecin du travail.', ar: 'أريد حجز موعد مع طبيب العمل.', en: 'I would like to make an appointment with the occupational health doctor.' },
+          { fr: 'Je souhaite faire le point sur mon état de santé au travail.', ar: 'أريد تقييم تأثير حالتي الصحية على العمل.', en: 'I would like to assess how my health affects my work.' },
+          { fr: 'Mon état de santé nécessite certaines précautions.', ar: 'حالتي الصحية تتطلب بعض الاحتياطات.', en: 'My health condition requires certain precautions.' },
+          { fr: 'Je voudrais savoir quelles tâches sont compatibles avec mon état de santé.', ar: 'أريد معرفة المهام المناسبة لحالتي الصحية.', en: 'I would like to know which tasks are compatible with my health condition.' },
+          { fr: 'Est-ce que vous pouvez proposer des aménagements de poste ?', ar: 'هل يمكنكم اقتراح تكييفات لمكان العمل أو مهامه؟', en: 'Can you recommend workplace adjustments?' },
+          { fr: 'Est-ce que mes horaires peuvent être adaptés ?', ar: 'هل يمكن تعديل ساعات عملي؟', en: 'Can my working hours be adjusted?' },
+        ]
+      },
+      { icon: '⚠️',
+        title: { ar: 'طلب تكييف مكان العمل', en: 'طلب تكييف مكان العمل', fr: 'طلب تكييف مكان العمل' },
+        phrases: [
+          { fr: 'J\'ai besoin d\'un poste de travail adapté.', ar: 'أحتاج إلى مكان عمل مناسب لحالتي.', en: 'I need an adapted workstation.' },
+          { fr: 'J\'ai besoin d\'une chaise ergonomique.', ar: 'أحتاج إلى كرسي مريح ومناسب للجسم.', en: 'I need an ergonomic chair.' },
+          { fr: 'J\'ai besoin de pouvoir alterner entre la position assise et debout.', ar: 'أحتاج إلى التناوب بين الجلوس والوقوف.', en: 'I need to alternate between sitting and standing.' },
+          { fr: 'J\'ai besoin de pauses régulières.', ar: 'أحتاج إلى استراحات منتظمة.', en: 'I need regular breaks.' },
+          { fr: 'Je voudrais éviter les mouvements répétitifs.', ar: 'أريد تجنب الحركات المتكررة.', en: 'I would like to avoid repetitive movements.' },
+          { fr: 'Je ne peux pas porter de charges lourdes.', ar: 'لا أستطيع حمل الأوزان الثقيلة.', en: 'I cannot lift heavy loads.' },
+          { fr: 'J\'ai besoin d\'un environnement de travail moins fatigant.', ar: 'أحتاج إلى بيئة عمل أقل إرهاقاً.', en: 'I need a less tiring working environment.' },
+        ]
+      },
+      { icon: '🦺',
+        title: { ar: 'التحدث مع صاحب العمل أو مسؤول الموارد البشرية', en: 'التحدث مع صاحب العمل أو مسؤول الموارد البشرية', fr: 'التحدث مع صاحب العمل أو مسؤول الموارد البشرية' },
+        phrases: [
+          { fr: 'Je souhaiterais discuter de l\'adaptation de mon poste.', ar: 'أود مناقشة تكييف وظيفتي.', en: 'I would like to discuss adjustments to my position.' },
+          { fr: 'J\'ai certaines contraintes médicales à prendre en compte.', ar: 'لدي بعض القيود الطبية التي يجب أخذها بعين الاعتبار.', en: 'I have certain medical restrictions that need to be considered.' },
+          { fr: 'Le médecin du travail peut vous transmettre des recommandations.', ar: 'يمكن لطبيب العمل أن يرسل إليكم توصيات.', en: 'The occupational health doctor can provide you with recommendations.' },
+          { fr: 'Je souhaite continuer à travailler dans de bonnes conditions.', ar: 'أريد الاستمرار في العمل ضمن ظروف جيدة.', en: 'I want to continue working under good conditions.' },
+          { fr: 'Je préfère ne pas communiquer les détails de mon dossier médical.', ar: 'أفضل عدم مشاركة تفاصيل ملفي الطبي.', en: 'I prefer not to disclose the details of my medical records.' },
+          { fr: 'Je peux vous communiquer les recommandations du médecin du travail.', ar: 'يمكنني إبلاغكم بتوصيات طبيب العمل.', en: 'I can share the occupational health doctor\'s recommendations with you.' },
+        ]
+      },
+      { icon: '📟',
+        title: { ar: 'تغيير المهنة أو إعادة التأهيل المهني', en: 'تغيير المهنة أو إعادة التأهيل المهني', fr: 'تغيير المهنة أو إعادة التأهيل المهني' },
+        phrases: [
+          { fr: 'Je souhaite changer de métier.', ar: 'أريد تغيير مهنتي.', en: 'I would like to change careers.' },
+          { fr: 'Mon ancien métier n\'est plus adapté à mon état de santé.', ar: 'مهنتي السابقة لم تعد مناسبة لحالتي الصحية.', en: 'My previous occupation is no longer suitable for my health condition.' },
+          { fr: 'Je souhaite bénéficier d\'un accompagnement pour une reconversion professionnelle.', ar: 'أريد الاستفادة من مرافقة لتغيير مهنتي.', en: 'I would like support with career retraining.' },
+          { fr: 'Quelles formations sont accessibles avec une RQTH ?', ar: 'ما الدورات التدريبية المتاحة لحاملي RQTH؟', en: 'Which training courses are available to people with RQTH?' },
+          { fr: 'Est-ce qu\'une formation peut être financée ?', ar: 'هل يمكن تمويل التدريب؟', en: 'Can the training be funded?' },
+          { fr: 'Je voudrais apprendre un nouveau métier.', ar: 'أريد تعلم مهنة جديدة.', en: 'I would like to learn a new profession.' },
+        ]
+      },
+      { icon: '🖥️',
+        notes: ["ملاحظة: العمل بدوام جزئي علاجي temps partiel thérapeutique له إجراءات طبية وإدارية خاصة، ولا تمنحه RQTH تلقائياً."],
+        title: { ar: 'العمل بدوام جزئي', en: 'العمل بدوام جزئي', fr: 'العمل بدوام جزئي' },
+        phrases: [
+          { fr: 'Je souhaite travailler à temps partiel.', ar: 'أريد العمل بدوام جزئي.', en: 'I would like to work part-time.' },
+          { fr: 'Est-ce qu\'un temps partiel thérapeutique est possible ?', ar: 'هل يمكن العمل بدوام جزئي لأسباب علاجية؟', en: 'Is therapeutic part-time work possible?' },
+          { fr: 'J\'ai besoin de réduire temporairement mes horaires de travail.', ar: 'أحتاج إلى تقليل ساعات عملي مؤقتاً.', en: 'I need to temporarily reduce my working hours.' },
+          { fr: 'Je voudrais reprendre progressivement mon activité professionnelle.', ar: 'أريد العودة تدريجياً إلى نشاطي المهني.', en: 'I would like to gradually return to work.' },
+        ]
+      },
+      { icon: '💬',
+        title: { ar: 'التوقف عن العمل والعودة إليه', en: 'التوقف عن العمل والعودة إليه', fr: 'التوقف عن العمل والعودة إليه' },
+        phrases: [
+          { fr: 'Je suis actuellement en arrêt de travail.', ar: 'أنا حالياً في إجازة مرضية.', en: 'I am currently on sick leave.' },
+          { fr: 'Mon arrêt de travail a été prolongé.', ar: 'تم تمديد إجازتي المرضية.', en: 'My sick leave has been extended.' },
+          { fr: 'Je vais bientôt reprendre le travail.', ar: 'سأعود إلى العمل قريباً.', en: 'I will soon return to work.' },
+          { fr: 'Je souhaite organiser une visite de préreprise.', ar: 'أريد تنظيم زيارة طبية قبل العودة إلى العمل.', en: 'I would like to arrange a pre-return-to-work appointment.' },
+          { fr: 'Je souhaite passer une visite de reprise.', ar: 'أريد إجراء الفحص الطبي عند العودة إلى العمل.', en: 'I would like to have a return-to-work medical examination.' },
+          { fr: 'Est-ce que je peux reprendre mon poste avec des aménagements ?', ar: 'هل يمكنني العودة إلى وظيفتي مع إجراء تعديلات مناسبة؟', en: 'Can I return to my position with adjustments?' },
+        ]
+      },
+      { icon: '📚',
+        title: { ar: 'إذا قال الطبيب إن الوظيفة غير مناسبة', en: 'إذا قال الطبيب إن الوظيفة غير مناسبة', fr: 'إذا قال الطبيب إن الوظيفة غير مناسبة' },
+        phrases: [
+          { fr: 'Ce poste n\'est plus compatible avec mon état de santé.', ar: 'هذه الوظيفة لم تعد متوافقة مع حالتي الصحية.', en: 'This position is no longer compatible with my health condition.' },
+          { fr: 'Quelles sont les possibilités de reclassement ?', ar: 'ما إمكانيات نقلي إلى وظيفة أخرى مناسبة؟', en: 'What are the possibilities for reassignment?' },
+          { fr: 'Est-ce qu\'un autre poste peut m\'être proposé ?', ar: 'هل يمكن اقتراح وظيفة أخرى عليّ؟', en: 'Could I be offered another position?' },
+          { fr: 'Je souhaite connaître mes droits dans cette situation.', ar: 'أريد معرفة حقوقي في هذه الحالة.', en: 'I would like to know my rights in this situation.' },
+          { fr: 'Est-ce que je peux être accompagné par Cap emploi ?', ar: 'هل يمكن أن أحصل على مرافقة من Cap emploi؟', en: 'Can I receive support from Cap emploi?' },
+        ]
+      },
+      { icon: '🧾',
+        notes: ["المستشار:", "أنت:", "المستشار:", "أنت:", "المستشار:", "أنت:", "المستشار:"],
+        title: { ar: 'حوار كامل مع مستشار Cap emploi', en: 'حوار كامل مع مستشار Cap emploi', fr: 'حوار كامل مع مستشار Cap emploi' },
+        phrases: [
+          { fr: 'Bonjour, quelle est votre situation professionnelle actuelle ?', ar: 'مرحباً، ما وضعك المهني الحالي؟', en: 'Hello, what is your current employment situation?' },
+          { fr: 'Je suis à la recherche d\'un emploi et je bénéficie d\'une RQTH.', ar: 'أبحث عن عمل ولدي اعتراف RQTH.', en: 'I am looking for a job and I have RQTH recognition.' },
+          { fr: 'Quel type de travail recherchez-vous ?', ar: 'ما نوع العمل الذي تبحث عنه؟', en: 'What type of work are you looking for?' },
+          { fr: 'Je recherche un emploi adapté à mes capacités et à mon état de santé.', ar: 'أبحث عن عمل يناسب قدراتي وحالتي الصحية.', en: 'I am looking for a job suited to my abilities and health condition.' },
+          { fr: 'Avez-vous besoin d\'une formation ?', ar: 'هل تحتاج إلى تدريب؟', en: 'Do you need training?' },
+          { fr: 'Oui, je voudrais étudier les possibilités de formation et de reconversion.', ar: 'نعم، أريد دراسة إمكانيات التدريب وتغيير المهنة.', en: 'Yes, I would like to explore training and career-change opportunities.' },
+          { fr: 'Nous allons étudier votre situation et votre projet professionnel.', ar: 'سندرس وضعك ومشروعك المهني.', en: 'We will review your situation and career plan.' },
+        ]
+      },
+      { icon: '📈',
+        notes: ["RQTH: الاعتراف بصفة العامل ذي الإعاقة.", "France Travail: مؤسسة خدمات التوظيف.", "Cap emploi: دعم التوظيف للأشخاص ذوي الإعاقة.", "Médecine du travail: طب العمل.", "Médecin du travail: طبيب العمل.", "Aménagement du poste: تكييف الوظيفة.", "Horaires aménagés: ساعات عمل معدلة.", "Temps partiel: دوام جزئي.", "Temps partiel thérapeutique: دوام جزئي علاجي.", "Reconversion professionnelle: تغيير المهنة.", "Reclassement professionnel: إعادة التوجيه إلى وظيفة أخرى.", "Visite de préreprise: فحص طبي قبل العودة.", "Visite de reprise: فحص طبي عند العودة.", "Arrêt de travail: إجازة مرضية.", "Maintien dans l'emploi: الحفاظ على الوظيفة."],
+        title: { ar: 'أهم المصطلحات المهنية', en: 'أهم المصطلحات المهنية', fr: 'أهم المصطلحات المهنية' },
+        phrases: [
+        ]
+      },
+      { icon: '🔑',
+        notes: ["سنتعلم العبارات الواقعية في أماكن العمل، خصوصاً:", "Entrepôt – المستودع.", "Préparateur de commandes – محضر الطلبات.", "Magasinier – أمين المستودع.", "Manutentionnaire – عامل مناولة.", "Port de charges – حمل الأوزان.", "Travail debout – العمل واقفاً.", "Travail répétitif – العمل المتكرر.", "Demande d'aménagement – طلب تكييف العمل.", "حادث أو ألم أثناء العمل.", "الحديث مع Chef d'équipe وResponsable وMédecine du travail."],
+        title: { ar: 'الدرس 7 القادم: RQTH والعمل في المستودعات والمصانع', en: 'الدرس 7 القادم: RQTH والعمل في المستودعات والمصانع', fr: 'الدرس 7 القادم: RQTH والعمل في المستودعات والمصانع' },
+        phrases: [
+        ]
+      },
+      { icon: '♿',
+        notes: ["هذا الدرس مهم للعمل في فرنسا، خصوصاً في المستودعات والمخازن والمصانع، مثل وظائف Magasinier وPréparateur de commandes وManutentionnaire.", "سنتعلم كيف تتحدث مع المسؤول عن مهامك، والتعب، وحمل الأوزان، والوقوف الطويل، وطلب تكييف ظروف العمل."],
+        title: { ar: 'الدرس 7: RQTH والعمل في المستودعات والمصانع', en: 'الدرس 7: RQTH والعمل في المستودعات والمصانع', fr: 'الدرس 7: RQTH والعمل في المستودعات والمصانع' },
+        phrases: [
+        ]
+      },
+      { icon: '🩺',
+        title: { ar: 'الدخول إلى المستودع والتعريف بنفسك', en: 'الدخول إلى المستودع والتعريف بنفسك', fr: 'الدخول إلى المستودع والتعريف بنفسك' },
+        phrases: [
+          { fr: 'Bonjour, je viens pour commencer mon travail.', ar: 'مرحباً، جئت لبدء عملي.', en: 'Hello, I am here to start my work.' },
+          { fr: 'Je suis préparateur de commandes.', ar: 'أنا محضّر طلبات.', en: 'I am an order picker.' },
+          { fr: 'Je travaille comme magasinier.', ar: 'أعمل أمين مستودع.', en: 'I work as a warehouse operative.' },
+          { fr: 'Je travaille dans l\'entrepôt.', ar: 'أعمل في المستودع.', en: 'I work in the warehouse.' },
+          { fr: 'Je suis affecté à la zone de préparation.', ar: 'تم تكليفي بمنطقة تجهيز الطلبات.', en: 'I have been assigned to the order preparation area.' },
+          { fr: 'À qui dois-je m\'adresser ?', ar: 'إلى من يجب أن أتوجه؟', en: 'Who should I speak to?' },
+          { fr: 'Où se trouve le vestiaire ?', ar: 'أين توجد غرفة تبديل الملابس؟', en: 'Where is the changing room?' },
+          { fr: 'Où dois-je récupérer mon matériel ?', ar: 'أين يجب أن أستلم معدات العمل؟', en: 'Where should I collect my equipment?' },
+        ]
+      },
+      { icon: '📅',
+        notes: ["Chef d'équipe = رئيس الفريق أو قائد المجموعة."],
+        title: { ar: 'التواصل مع Chef d\'équipe', en: 'التواصل مع Chef d\'équipe', fr: 'التواصل مع Chef d\'équipe' },
+        phrases: [
+          { fr: 'Bonjour, je voudrais parler au chef d\'équipe.', ar: 'مرحباً، أريد التحدث مع رئيس الفريق.', en: 'Hello, I would like to speak to the team leader.' },
+          { fr: 'Quelles sont les tâches que je dois effectuer aujourd\'hui ?', ar: 'ما المهام التي يجب أن أنفذها اليوم؟', en: 'What tasks do I have to do today?' },
+          { fr: 'Quelle est ma zone de travail ?', ar: 'ما منطقة عملي؟', en: 'What is my work area?' },
+          { fr: 'Pouvez-vous m\'expliquer les consignes ?', ar: 'هل يمكنكم شرح التعليمات لي؟', en: 'Could you explain the instructions to me?' },
+          { fr: 'Je n\'ai pas bien compris la procédure.', ar: 'لم أفهم طريقة العمل جيداً.', en: 'I didn\'t understand the procedure very well.' },
+          { fr: 'Pouvez-vous me montrer comment faire ?', ar: 'هل يمكنكم أن تروني كيفية القيام بذلك؟', en: 'Could you show me how to do it?' },
+        ]
+      },
+      { icon: '🛑',
+        images: ["https://images.openai.com/static-rsc-4/ql9FXZUC8mz13cfKqlHZUqQqg7Q2LS2nsWWVNAI61UnsWO5MCECl2v6znVDfS7VOKkCXtnKsRo0bM62fftvEFSsSRi4mXC0W1eu3d11aeI7CXmFtjd1xppbhvgEQBx5dDjcKgt9k3B5lizCJxzQCQR_SQGyw53lLcD9A_OONQkSoMzuYbH5NYvZOW8qZpxzf?purpose=fullsize", "https://images.openai.com/static-rsc-4/G5lPU6t9_UHmgkr-RRjImxSbF8mjEsfpehzrcq9YFjtRZvmm0KsDuXuuJfavtEdXYg3CwY1SQbPfD0dF1igJBOqo2xZ_Qvb8HxIkDb82iCVq-ZwRmGTJOtRdGMshSfGIZUvsI5aqm8Rmrh5Es6wfmRXRFNJVx4BHN0wzO4yWJHQh8ADbuo1yOZSdKknFttj1?purpose=fullsize", "https://images.openai.com/static-rsc-4/pN_qXnOddH5Vj1llEDp-VaA5H7W3cp5JJgYFyYawLgSNPmcdJHHCbIiGeG1xpccvSmZK3XtfdFnu77pzKZ6oA9zMlG-oFsp5c08_4BfbL_Zwxzx4jVR3lO9wIKshoankvopf_b1kBbI47NjycpOqaDrYVvGsUGKVCFMWGpP8CTT7r9YbK5gkROHjCZsATQaz?purpose=fullsize", "https://images.openai.com/static-rsc-4/4yL7C3nlmx6AezJsZkH-H7mSw3vXEiyJH5eqUnABVwtb7xORsRjIX93XCLA7swJhjAVgitIq3vJJX8OOIHAQCwJ2m1QblG_kqfGTwLytKv8frAmJnZQqaL7ckg6Z-izaeveJYtiCsSZU7QUsL16x4Tm1OxGsupGVopte_NvAfVyDWG_RHbilxvCG-iZHVCmV?purpose=fullsize", "https://images.openai.com/static-rsc-4/G_o_20qU5_eBhauZjjwjNAcTuAhRp2J6267HRzA6360mO4f305teoPo2JeSChey9dDXUOZMe1P-bxy6-nqdExK9DjurfVf-pf9N5wE04WuA01jODUP_WfHb1Og50dCQWz4t4vxuVsUA5eU813hxLMinhZrv_3PdmsreEQFNJSr5T9MkQAKtAZ_q7Dgvu8ndL?purpose=fullsize", "https://images.openai.com/static-rsc-4/g-OT-3KLqQ7epEy4Ug2UX1RN5XbC4ducBcub3R_wiv9rZ658NmWAch4EPUNnzuVpd0hTg8_7GTb1IhGSd-T4AgWrD5hyJxN5Cv6rBRvfFVZn_enwoHlZKXho40r-7RQ4Jrr73spAKwEckKG2VfK7hSqUzp_JkMHDghPile0X1RlxcQhF-98dMj6petbVK2cp?purpose=fullsize", "https://images.openai.com/static-rsc-4/ljlel2KSaAGmhxcw1xTFbZ0KIrt_0hV9PIvbie7uxNpawn_n81s_83fsNZu8YE3EAh2ig-KBZsO75fGacBZrmemF0o6j2OyLCTFh6pHMUIZFVSB-JS2JpDHK6WLKUUB89t-k8IKXRd2i6wkMYXWR78ce-JNWYtG78yz051DPg-G3IbEtfAV2xVjsLmcHY17d?purpose=fullsize", "https://images.openai.com/static-rsc-4/_HBtA2FU9ihqfB7AGjw7arfbfTKTjQO7DeG4fKKjmApBEu78xmcrg92a5YpdZu2WKHb7YqJrtSv6OuZX_fNCFj8N6j1Fw5ygrdE0ViJ5l3_o8lcoA279x-RVFi8YmSnhLgLutK9WaSSza_c3DGvCUWUKf64iT_QcOi8HiPt9ke2Fow28lE3bl0BFPz7nBlQq?purpose=fullsize", "https://images.openai.com/static-rsc-4/IiOxaahBdBcWSet0RRkiF0URYVXTlVFWjTNxBoA1QDmAxJcIBgK2U8TNCJB46JFZxS10sHrx9gFKSLuiMpgQbZP9OT3YkHVy7tgv3XpayAKXaNo-7EsKQLZ7Z0h0k4XYZfFNUzJHwRpM0r9sjKu9n5ZTTcIVYpk_g7PVHn6g0py-k-hbbXjbwRZqFJIC3yfk?purpose=fullsize", "https://images.openai.com/static-rsc-4/eWIEtRGJyiW_uarAPEVWT6lbFX3tiHkoE3fgeKb2nOOTtvDl182fligBbu4cPFeefXNfk33w5Zu6eAfGn_9ptNLr0UWcXX1q2-qqzcrV4xhB7cL9U_Ja64C2vSM8tfEa86P0O12LfbrzKC97FrO-wcys5gg6qf7ktPsZCb9hlbh6zPbg3iaX65kDr6Aj5VoO?purpose=fullsize", "https://images.openai.com/static-rsc-4/_1fTY3So0MfrGOaZv3jlhrsBztc366A6WvybTtamSseLlSwwL9zQDq6Ypt-f2zB-3QZdSSK4eD0klRAPR84NQEmeo7Iv92IohYb4Zq1VnQMmvGqmeTFAS74RbJKC3S_c1KnpveWXaJpGdFRdQLmJxSCX0EG1ZySrLl2aFzIY1ApSJDpJjVS3dbUUzwpm3PfE?purpose=fullsize", "https://images.openai.com/static-rsc-4/HaOZvDwKTntCFxJShmPD1_3gP-G5rG63zPzdTEqxhl98wk18qEnH5oEcO6vgHeB3_cUEK4EhYpKQGA0WGda-belJyuAp70tgIGHVo5QVgOOGFACZfa0u7eE2_NDXRKY4SxjUW2pv77HSTaPt6yqnRdTFXYbV4y7byr0F4NI4TEdunEfB5QRSGvSspe2vs6Et?purpose=fullsize", "https://images.openai.com/static-rsc-4/jUvDHUkr-FbLSaYmmEueILCtnO7BQn-4kSQG5G5l8P4YYv86qarRXopIcObAUg-Q-DiEZCJ10gRAs6KMoi4WDE6GFCjMDxy3aVNK-KGY7108daarv2ybyOZC6RZEXdtRBTobLwlxoLBPxbCqApRptzLLREduFyK-elbdhjyDd5_-OFkUDwlHQwhvsm6ZTAGi?purpose=fullsize", "https://images.openai.com/static-rsc-4/AvcpMnJyudi4T8MGfVuzhZV7PxMWD4Q_VKN8BYs0unIFMSWHfR33B7A7xo2qMPp8B9rVbvp0Tkt8U1qqQj9-wdTcZKghXdkycmNRzE5JjBlJaAtiJK9Zo5KjvdJ1fO_noCA1PJ5cz6Ww25NBLjGyrGPkecx2b4maFyd7XVsC00h0XCdbF_1e_N6DTSJDOTJM?purpose=fullsize"],
+        title: { ar: 'مهام المستودع الشائعة', en: 'مهام المستودع الشائعة', fr: 'مهام المستودع الشائعة' },
+        phrases: [
+          { fr: 'Préparer les commandes.', ar: 'تجهيز الطلبات.', en: 'Prepare orders.' },
+          { fr: 'Scanner les articles.', ar: 'مسح المنتجات بجهاز السكانر.', en: 'Scan the items.' },
+          { fr: 'Vérifier les références.', ar: 'التحقق من أرقام المنتجات أو رموزها.', en: 'Check the product codes.' },
+          { fr: 'Emballer les marchandises.', ar: 'تغليف البضائع.', en: 'Pack the goods.' },
+          { fr: 'Mettre les produits en carton.', ar: 'وضع المنتجات في الكرتون.', en: 'Put the products into boxes.' },
+          { fr: 'Étiqueter les colis.', ar: 'وضع الملصقات على الطرود.', en: 'Label the parcels.' },
+          { fr: 'Ranger les produits dans les rayons.', ar: 'ترتيب المنتجات على الرفوف.', en: 'Put the products on the shelves.' },
+          { fr: 'Déplacer les palettes.', ar: 'نقل المنصات الخشبية للبضائع.', en: 'Move the pallets.' },
+          { fr: 'Charger et décharger les camions.', ar: 'تحميل الشاحنات وتفريغها.', en: 'Load and unload trucks.' },
+        ]
+      },
+      { icon: '🔄',
+        notes: ["Port de charges = حمل الأوزان."],
+        title: { ar: 'حمل الأوزان الثقيلة', en: 'حمل الأوزان الثقيلة', fr: 'حمل الأوزان الثقيلة' },
+        phrases: [
+          { fr: 'Je ne peux pas porter de charges lourdes.', ar: 'لا أستطيع حمل الأوزان الثقيلة.', en: 'I cannot lift heavy loads.' },
+          { fr: 'Cette charge est trop lourde pour moi.', ar: 'هذا الحمل ثقيل جداً بالنسبة لي.', en: 'This load is too heavy for me.' },
+          { fr: 'Est-ce que quelqu\'un peut m\'aider à porter cette charge ?', ar: 'هل يمكن لأحد مساعدتي في حمل هذا الوزن؟', en: 'Can someone help me carry this load?' },
+          { fr: 'J\'ai besoin d\'un transpalette pour déplacer cette palette.', ar: 'أحتاج إلى عربة نقل المنصات لتحريك هذه المنصة.', en: 'I need a pallet truck to move this pallet.' },
+          { fr: 'Je ne dois pas soulever de poids importants.', ar: 'يجب ألا أرفع أوزاناً كبيرة.', en: 'I must not lift heavy weights.' },
+          { fr: 'Est-ce qu\'il existe une limite de poids à respecter ?', ar: 'هل توجد حدود للوزن يجب الالتزام بها؟', en: 'Is there a weight limit that must be respected?' },
+        ]
+      },
+      { icon: '✅',
+        title: { ar: 'الوقوف والمشي طوال ساعات العمل', en: 'الوقوف والمشي طوال ساعات العمل', fr: 'الوقوف والمشي طوال ساعات العمل' },
+        phrases: [
+          { fr: 'Je ne peux pas rester debout pendant plusieurs heures.', ar: 'لا أستطيع الوقوف لعدة ساعات.', en: 'I cannot stand for several hours.' },
+          { fr: 'J\'ai besoin de m\'asseoir de temps en temps.', ar: 'أحتاج إلى الجلوس من وقت إلى آخر.', en: 'I need to sit down from time to time.' },
+          { fr: 'Je ressens des douleurs lorsque je reste debout trop longtemps.', ar: 'أشعر بآلام عندما أقف مدة طويلة.', en: 'I experience pain when I stand for too long.' },
+          { fr: 'Marcher toute la journée est difficile pour moi.', ar: 'المشي طوال اليوم صعب بالنسبة لي.', en: 'Walking all day is difficult for me.' },
+          { fr: 'Est-ce que je peux alterner entre le travail assis et debout ?', ar: 'هل يمكنني التناوب بين العمل جلوساً ووقوفاً؟', en: 'Can I alternate between sitting and standing?' },
+        ]
+      },
+      { icon: '📝',
+        title: { ar: 'الحركات المتكررة والجهد البدني', en: 'الحركات المتكررة والجهد البدني', fr: 'الحركات المتكررة والجهد البدني' },
+        phrases: [
+          { fr: 'Ce travail demande beaucoup d\'efforts physiques.', ar: 'هذا العمل يتطلب مجهوداً بدنياً كبيراً.', en: 'This job requires a lot of physical effort.' },
+          { fr: 'Les gestes répétitifs me fatiguent.', ar: 'الحركات المتكررة تسبب لي التعب.', en: 'Repetitive movements make me tired.' },
+          { fr: 'J\'ai du mal à effectuer ce mouvement plusieurs fois.', ar: 'أجد صعوبة في تكرار هذه الحركة مرات عديدة.', en: 'I have difficulty repeating this movement many times.' },
+          { fr: 'Je voudrais éviter les tâches trop physiques.', ar: 'أريد تجنب المهام التي تتطلب جهداً بدنياً كبيراً.', en: 'I would like to avoid tasks that are too physically demanding.' },
+          { fr: 'Est-ce que je peux être affecté à un poste moins physique ?', ar: 'هل يمكن تكليفي بوظيفة أقل إجهاداً بدنياً؟', en: 'Can I be assigned to a less physically demanding position?' },
+        ]
+      },
+      { icon: '🧰',
+        title: { ar: 'التعب والحاجة إلى الاستراحة', en: 'التعب والحاجة إلى الاستراحة', fr: 'التعب والحاجة إلى الاستراحة' },
+        phrases: [
+          { fr: 'Je commence à ressentir de la fatigue.', ar: 'بدأت أشعر بالتعب.', en: 'I am starting to feel tired.' },
+          { fr: 'Je suis très fatigué aujourd\'hui.', ar: 'أنا متعب جداً اليوم.', en: 'I am very tired today.' },
+          { fr: 'J\'ai besoin de faire une petite pause.', ar: 'أحتاج إلى أخذ استراحة قصيرة.', en: 'I need to take a short break.' },
+          { fr: 'Est-ce que je peux prendre quelques minutes de repos ?', ar: 'هل يمكنني أخذ بضع دقائق للراحة؟', en: 'Can I take a few minutes to rest?' },
+          { fr: 'Je ne me sens pas capable de continuer cette tâche.', ar: 'لا أشعر أنني قادر على مواصلة هذه المهمة.', en: 'I don\'t feel able to continue this task.' },
+          { fr: 'Je préfère vous prévenir avant que mon état ne s\'aggrave.', ar: 'أفضل إبلاغكم قبل أن تتفاقم حالتي.', en: 'I prefer to let you know before my condition gets worse.' },
+        ]
+      },
+      { icon: '🏗️',
+        title: { ar: 'طلب تكييف العمل بسبب RQTH', en: 'طلب تكييف العمل بسبب RQTH', fr: 'طلب تكييف العمل بسبب RQTH' },
+        phrases: [
+          { fr: 'Je bénéficie d\'une RQTH.', ar: 'لدي اعتراف بصفة العامل ذي الإعاقة.', en: 'I have RQTH recognition.' },
+          { fr: 'J\'aimerais discuter de l\'adaptation de mon poste.', ar: 'أود مناقشة تكييف وظيفتي.', en: 'I would like to discuss adjustments to my position.' },
+          { fr: 'Certaines tâches ne sont pas adaptées à ma situation.', ar: 'بعض المهام لا تناسب وضعي.', en: 'Some tasks are not suitable for my situation.' },
+          { fr: 'Je voudrais connaître les possibilités d\'aménagement.', ar: 'أريد معرفة إمكانيات تكييف العمل.', en: 'I would like to know the possibilities for workplace adjustments.' },
+          { fr: 'Je souhaite demander un rendez-vous avec la médecine du travail.', ar: 'أريد طلب موعد مع طب العمل.', en: 'I would like to request an appointment with occupational health.' },
+          { fr: 'Le médecin du travail pourra préciser les restrictions nécessaires.', ar: 'يمكن لطبيب العمل تحديد القيود اللازمة.', en: 'The occupational health doctor can specify the necessary restrictions.' },
+        ]
+      },
+      { icon: '🚚',
+        title: { ar: 'عند حدوث ألم أثناء العمل', en: 'عند حدوث ألم أثناء العمل', fr: 'عند حدوث ألم أثناء العمل' },
+        phrases: [
+          { fr: 'J\'ai commencé à ressentir une douleur.', ar: 'بدأت أشعر بألم.', en: 'I have started to feel pain.' },
+          { fr: 'J\'ai mal au dos.', ar: 'ظهري يؤلمني.', en: 'My back hurts.' },
+          { fr: 'J\'ai mal aux jambes.', ar: 'ساقاي تؤلمانني.', en: 'My legs hurt.' },
+          { fr: 'J\'ai mal à l\'épaule.', ar: 'كتفي يؤلمني.', en: 'My shoulder hurts.' },
+          { fr: 'La douleur augmente lorsque je porte des charges.', ar: 'يزداد الألم عندما أحمل الأوزان.', en: 'The pain increases when I carry heavy loads.' },
+          { fr: 'Je préfère arrêter cette tâche pour le moment.', ar: 'أفضل إيقاف هذه المهمة في الوقت الحالي.', en: 'I would prefer to stop this task for now.' },
+          { fr: 'Je vais signaler ce problème à mon responsable.', ar: 'سأبلغ مسؤولي بهذه المشكلة.', en: 'I will report this problem to my supervisor.' },
+        ]
+      },
+      { icon: '🗂️',
+        title: { ar: 'السلامة والحوادث في المستودع', en: 'السلامة والحوادث في المستودع', fr: 'السلامة والحوادث في المستودع' },
+        phrases: [
+          { fr: 'Attention, il y a un danger !', ar: 'انتبه، هناك خطر!', en: 'Watch out, there is danger!' },
+          { fr: 'Il y a une palette endommagée.', ar: 'توجد منصة بضائع متضررة.', en: 'There is a damaged pallet.' },
+          { fr: 'Le sol est glissant.', ar: 'الأرضية زلقة.', en: 'The floor is slippery.' },
+          { fr: 'Je viens de me blesser.', ar: 'لقد تعرضت لإصابة للتو.', en: 'I have just injured myself.' },
+          { fr: 'J\'ai besoin des premiers secours.', ar: 'أحتاج إلى الإسعافات الأولية.', en: 'I need first aid.' },
+          { fr: 'Je voudrais déclarer un accident du travail.', ar: 'أريد التصريح عن حادث عمل.', en: 'I would like to report a workplace accident.' },
+          { fr: 'Où se trouve la trousse de premiers secours ?', ar: 'أين توجد حقيبة الإسعافات الأولية؟', en: 'Where is the first-aid kit?' },
+        ]
+      },
+      { icon: '💼',
+        title: { ar: 'التواصل مع مسؤول الموارد البشرية RH', en: 'التواصل مع مسؤول الموارد البشرية RH', fr: 'التواصل مع مسؤول الموارد البشرية RH' },
+        phrases: [
+          { fr: 'Je voudrais parler au responsable des ressources humaines.', ar: 'أريد التحدث مع مسؤول الموارد البشرية.', en: 'I would like to speak to the HR manager.' },
+          { fr: 'Je souhaite signaler une difficulté liée à mon poste.', ar: 'أريد الإبلاغ عن صعوبة متعلقة بوظيفتي.', en: 'I would like to report a difficulty related to my position.' },
+          { fr: 'Je voudrais demander un aménagement de mes conditions de travail.', ar: 'أريد طلب تكييف ظروف عملي.', en: 'I would like to request adjustments to my working conditions.' },
+          { fr: 'Est-ce que ma situation peut être étudiée avec la médecine du travail ?', ar: 'هل يمكن دراسة وضعي بالتعاون مع طب العمل؟', en: 'Can my situation be reviewed with occupational health?' },
+          { fr: 'Je souhaite continuer à travailler dans cette entreprise.', ar: 'أريد الاستمرار في العمل في هذه الشركة.', en: 'I would like to continue working for this company.' },
+        ]
+      },
+      { icon: '📋',
+        notes: ["العامل:", "العامل:", "العامل:"],
+        title: { ar: 'حوار واقعي مع رئيس الفريق', en: 'حوار واقعي مع رئيس الفريق', fr: 'حوار واقعي مع رئيس الفريق' },
+        phrases: [
+          { fr: 'Aujourd\'hui, vous allez préparer les commandes et déplacer les palettes.', ar: 'اليوم ستقوم بتجهيز الطلبات ونقل المنصات.', en: 'Today, you will prepare orders and move pallets.' },
+          { fr: 'Je peux préparer les commandes, mais j\'ai des difficultés à porter des charges lourdes.', ar: 'أستطيع تجهيز الطلبات، لكن لدي صعوبة في حمل الأوزان الثقيلة.', en: 'I can prepare orders, but I have difficulty lifting heavy loads.' },
+          { fr: 'Est-ce que vous avez une restriction médicale ?', ar: 'هل لديك قيد طبي؟', en: 'Do you have a medical restriction?' },
+          { fr: 'Oui, je bénéficie d\'une RQTH et je souhaite faire le point avec la médecine du travail.', ar: 'نعم، لدي اعتراف RQTH وأريد مراجعة وضعي مع طب العمل.', en: 'Yes, I have RQTH recognition, and I would like to review my situation with occupational health.' },
+          { fr: 'D\'accord, nous allons en parler avec les ressources humaines.', ar: 'حسناً، سنتحدث عن ذلك مع الموارد البشرية.', en: 'All right, we will discuss this with HR.' },
+          { fr: 'Merci. Je souhaite continuer à travailler, mais dans des conditions adaptées.', ar: 'شكراً. أريد الاستمرار في العمل، ولكن ضمن ظروف مناسبة لحالتي.', en: 'Thank you. I want to continue working, but under conditions suited to my situation.' },
+        ]
+      },
+      { icon: '🤝',
+        title: { ar: 'قاموس المستودع والمصنع', en: 'قاموس المستودع والمصنع', fr: 'قاموس المستودع والمصنع' },
+        phrases: [
+          { fr: 'Entrepôt.', ar: 'مستودع.', en: 'Warehouse.' },
+          { fr: 'Usine.', ar: 'مصنع.', en: 'Factory.' },
+          { fr: 'Magasinier.', ar: 'أمين مستودع.', en: 'Warehouse operative.' },
+          { fr: 'Préparateur de commandes.', ar: 'محضّر طلبات.', en: 'Order picker.' },
+          { fr: 'Manutentionnaire.', ar: 'عامل مناولة.', en: 'Material handler.' },
+          { fr: 'Chef d\'équipe.', ar: 'رئيس الفريق.', en: 'Team leader.' },
+          { fr: 'Responsable d\'entrepôt.', ar: 'مسؤول المستودع.', en: 'Warehouse manager.' },
+          { fr: 'Transpalette.', ar: 'عربة نقل المنصات.', en: 'Pallet truck.' },
+          { fr: 'Chariot élévateur.', ar: 'رافعة شوكية.', en: 'Forklift truck.' },
+          { fr: 'Palette.', ar: 'منصة بضائع.', en: 'Pallet.' },
+          { fr: 'Colis.', ar: 'طرد.', en: 'Parcel.' },
+          { fr: 'Rayonnage.', ar: 'رفوف التخزين.', en: 'Storage shelving.' },
+          { fr: 'Port de charges.', ar: 'حمل الأوزان.', en: 'Lifting loads.' },
+        ]
+      },
+      { icon: '🏭',
+        notes: ["سنتعلم بالتفصيل:", "استلام البضائع Réception des marchandises.", "تفريغ الشاحنات Déchargement.", "مراقبة الكميات Contrôle des quantités.", "فحص البضائع Contrôle de la qualité.", "إدخال المنتجات في النظام Saisie informatique.", "تخزين البضائع Stockage.", "إدارة المخزون Gestion des stocks.", "الجرد Inventaire.", "الطلبات والتسليم Expédition.", "الأعطال والأخطاء والتواصل مع المسؤولين."],
+        title: { ar: 'الدرس 8 القادم: جميع عبارات Magasinier في فرنسا من بداية الدوام حتى نهايته', en: 'الدرس 8 القادم: جميع عبارات Magasinier في فرنسا من بداية الدوام حتى نهايته', fr: 'الدرس 8 القادم: جميع عبارات Magasinier في فرنسا من بداية الدوام حتى نهايته' },
+        phrases: [
+        ]
+      },
     ]
   },
 
@@ -18600,6 +18927,333 @@ window.CENTRES_DATA = [
       { icon: '🤖',
         notes: ["اختبر نفسك", "0 / 5", "1. ما معنى Le picking ؟", "التقاط المنتجات", "تسليم الفاتورة", "قيادة الشاحنة", "2. ما معنى Le packing ؟", "الجرد", "التغليف والتعبئة", "التفريغ", "3. كيف تقول: الصنف غير موجود؟", "4. ما معنى Le convoyeur ؟", "الرافعة الشوكية", "السير الناقل", "ميزان إلكتروني", "5. ما معنى Une commande incomplète ؟", "طلبية مستعجلة", "طلبية مكتملة", "طلبية غير مكتملة", "تصحيح الإجابات"],
         title: { ar: 'اختبار المفردات', en: 'اختبار المفردات', fr: 'اختبار المفردات' },
+        phrases: [
+        ]
+      },
+      { icon: '💼',
+        notes: ["من بداية الدوام حتى نهاية العمل – المستودعات والمخازن والمصانع", "سنتعلم العبارات التي تسمعها من المسؤول، وزملاء العمل، وسائقي الشاحنات، وموظفي الاستلام والشحن.", "كل عبارة بالفرنسية ثم العربية ثم الإنجليزية."],
+        title: { ar: 'الدرس 8: جميع العبارات الشائعة لمهنة Magasinier في فرنسا', en: 'الدرس 8: جميع العبارات الشائعة لمهنة Magasinier في فرنسا', fr: 'الدرس 8: جميع العبارات الشائعة لمهنة Magasinier في فرنسا' },
+        phrases: [
+        ]
+      },
+      { icon: '📋',
+        notes: ["Bonjour, je commence mon poste. صباح الخير، سأبدأ عملي. Good morning, I'm starting my shift.", "À quelle heure je commence aujourd'hui ? في أي ساعة أبدأ اليوم؟ What time do I start today?", "Je suis affecté à quel poste aujourd'hui ? في أي قسم أو مهمة سأعمل اليوم؟ Which position am I assigned to today?", "Je travaille à la réception aujourd'hui ? هل سأعمل اليوم في قسم استلام البضائع؟ Am I working in goods reception today?", "Je dois suivre le planning ? هل يجب أن أتبع جدول العمل؟ Should I follow the schedule?", "Qui est mon responsable aujourd'hui ? من هو المسؤول عني اليوم؟ Who is my supervisor today?", "Je dois travailler avec qui ? مع من يجب أن أعمل؟ Who should I work with?", "Est-ce qu'il y a des consignes particulières ? هل توجد تعليمات خاصة؟ Are there any special instructions?", "Je vais prendre mon matériel. سأحضر معدات العمل الخاصة بي. I'm going to get my equipment.", "J'ai besoin de mon badge. أحتاج إلى بطاقة الدخول الخاصة بي. I need my access badge."],
+        title: { ar: 'بداية الدوام – Début de poste', en: 'بداية الدوام – Début de poste', fr: 'بداية الدوام – Début de poste' },
+        phrases: [
+        ]
+      },
+      { icon: '🤝',
+        images: ["https://images.openai.com/static-rsc-4/WBoCF6ooU1_9sQq8Mi0hqxfigb91L3TtqNYnSEGJdRU9LxET24H60NMYiTd9VtoBJGQVOnFTVAtfC4KzgYUcWubNHPNSOvlB0lRe6aw7ubO4jf3dqLyBmcyssqtcZwy-W7qVRV78GGr2EEMK7EbChbV-kRviBNp4b25dzcggwTDkybIakEQYS51SFhxh9uoA?purpose=fullsize", "https://images.openai.com/static-rsc-4/eIlua9we2jCmi-N7yCovAXbwAB1yoY-8QgdplKvhtjnW5lr_Ug0xVtf8edJT0Uj15HmqFvqGrQ7iU-pRx32FvB29vUd2x26xss5ef64kH9d2xWwfjnAM0xCt8xjVxttEQtmUrs5-pPs3vU8Ga0rmfupsHh_cKUacnSJT05ZpLMkhYTZOjcj6hYBV247ef48S?purpose=fullsize", "https://images.openai.com/static-rsc-4/Cu1N0tUCDgGiXieF5N9JUShYQEGxMDwmDZJxw-W25VxvCGue4zVlqMAGu2Ne4FwJXqRCP6pznmt9yA6qM4MHvOCGcnHy99LumwDJVhY5FJS-TbSua4Owxm26KQmny1HrJxFQUpxjRA-eaWNsnMjZoS6CZBaOYKpv2k_Ni4pyXmRXDrhC6BFZEzJRyuPrts_0?purpose=fullsize", "https://images.openai.com/static-rsc-4/PCs5i45Or2czN0mLLeQr9wApkbdSyQeMjgDgxD-vxhXqM1GVNncXkzz2dbgjKV9Ppr3mUvYJLTewUSlCT0bylA0ZcjRE_3SO1VufIZl6VMAb0f9UcZnZLJFpyjwllNQqG0xHHrAOJk5kaS2175uMhZscnMhUoxYzyqjxSwwxpnfYRlu9Y4esU0y411uBzpBt?purpose=fullsize", "https://images.openai.com/static-rsc-4/Zqq-uoMPMbL4YeqTEKBrBp3l3b_1IJqfPpYbteo24HDGz55xkIcY_GGelfKhseGS2mlxoyRmkb9fgmUyFs4Pz3CXxFCrXG9CRE-KQQxJ2siHWJSr2dLh-_xjQbrKLvaOp_WZPQImMGWz5xoISne3JzmZK2PLzhKa70EDVrsEXIg2tHN0TWSQT6xoiCwvKZoX?purpose=fullsize", "https://images.openai.com/static-rsc-4/KRJ-XFQIEVfVKGScob41dUQPFcK361Z17gUykGJYz5o5dDT71zv8L2lzsbTFmbYkELu9UnC2UKNcpaP0C56CtX7z3L595dvGYDQLNPHNj9vw8nDV4lQlbMz9S06Jsft3u5Az611M04VWCtx7dFRsqDjPGeUXIOb_DjK-Xmt9rOLhYB3mowuhSo14Vama1wM8?purpose=fullsize", "https://images.openai.com/static-rsc-4/HaOZvDwKTntCFxJShmPD1_3gP-G5rG63zPzdTEqxhl98wk18qEnH5oEcO6vgHeB3_cUEK4EhYpKQGA0WGda-belJyuAp70tgIGHVo5QVgOOGFACZfa0u7eE2_NDXRKY4SxjUW2pv77HSTaPt6yqnRdTFXYbV4y7byr0F4NI4TEdunEfB5QRSGvSspe2vs6Et?purpose=fullsize", "https://images.openai.com/static-rsc-4/yxXH9IPKzMBbLNbrM21JvlH_q84XDToMyMcazsF-NdCHZ09vmnB-tOTt4-jikeLxGruLa-T-iM9MSPmepv9M0C8hb67c0fDDpN57XlTaFxjZO9thKTosMrSlVXc10GaUUaYGChpQn96utucmXVUAzqjpIQDfvTiJrLXnhSlc79cdfKeRjL-WH6BTNqP3LTBK?purpose=fullsize", "https://images.openai.com/static-rsc-4/XjreCV1Lvabr6MO8j70z9LMTNvbGpPE2W5dLBySTSOfE4f-Y_44U3dVwbix7i-JyQ13MzpoGQeakKuldhYytAdf0-tioD6v9d5o-N-RipgPBv2svmfopqaPNPCV_2c7fGuMjfgYCuGpnd0i2E24Qq3vFqUpD1J8KHTFMeIWlr2rLXLiAcNF0f7Ql-CASIAO6?purpose=fullsize", "https://images.openai.com/static-rsc-4/_PAwNIln2YZ5Nz3ELwMUTOOq_m19tnZchLn-v8CUT86ILIl-WoLcf-aliEAWYfFjJpQeHaWcGNf7anJ87nI69c8j8hb37nqQgb5wK0BqYgtJFJBtp1mHGHKRrRY0D9mcUcabaP_gU8wo9wnPkcmCTApzAB5UbCdWthVnw0W2GUaXQwzaX_bjd7eO5T2rDMTT?purpose=fullsize", "https://images.openai.com/static-rsc-4/vXjTSeafl-4aL2EEgieqOMJ_EaODXL-_aMYcXzinSRk-Rs0o2sKXgQNRAdoWUrBgG8gamvVX9U9d07o8LrJQ8XlzYDiPHYPVbMya6Ju00XSrzIh-DNjze4Ulq70SjZMzG6lter9n1efgGz36fSIScSq_regTKUzr6a8Fr8MBTEkI0lizDLV9jL3kstifa-Od?purpose=fullsize", "https://images.openai.com/static-rsc-4/5LplG7QeGMMMo4p05nqqitVkL0IiCoyCTDzLrl5U9UsG6OuLRkbL3St-_hziftPpVAQ5CixvULwJSjJ8h-065P8RbRJsFZHPT3ulz_C-iESzSQnPJvgZtXnFKsZcaWFk5wmeJuNtuPsqAqBRf4K5Jz0XGrCX9qTMBXDKlaOvcyPPhKPmPgGAaJTJZTCn0PB4?purpose=fullsize", "https://images.openai.com/static-rsc-4/4yL7C3nlmx6AezJsZkH-H7mSw3vXEiyJH5eqUnABVwtb7xORsRjIX93XCLA7swJhjAVgitIq3vJJX8OOIHAQCwJ2m1QblG_kqfGTwLytKv8frAmJnZQqaL7ckg6Z-izaeveJYtiCsSZU7QUsL16x4Tm1OxGsupGVopte_NvAfVyDWG_RHbilxvCG-iZHVCmV?purpose=fullsize"],
+        notes: ["On a une livraison qui arrive. لدينا شحنة ستصل. We have a delivery arriving.", "Le camion est arrivé. وصلت الشاحنة. The truck has arrived.", "Il faut réceptionner la marchandise. يجب استلام البضاعة. We need to receive the goods.", "Où est le bon de livraison ? أين وصل التسليم؟ Where is the delivery note?", "Vous avez le bon de commande ? هل لديكم طلب الشراء؟ Do you have the purchase order?", "Il faut vérifier la livraison. يجب التحقق من الشحنة. We need to check the delivery.", "La marchandise est destinée à quel emplacement ? إلى أي مكان يجب توجيه هذه البضاعة؟ Where should these goods be placed?", "Il faut contrôler les références. يجب التحقق من أرقام المنتجات. We need to check the item references.", "Cette livraison est pour quel service ? هذه الشحنة لأي قسم؟ Which department is this delivery for?", "Je vais compter les colis. سأعدّ الطرود. I'm going to count the packages."],
+        title: { ar: 'استلام البضائع – Réception des marchandises', en: 'استلام البضائع – Réception des marchandises', fr: 'استلام البضائع – Réception des marchandises' },
+        phrases: [
+        ]
+      },
+      { icon: '🏭',
+        images: ["https://images.openai.com/static-rsc-4/PcS9pu7LG_GHIk7ALyhN6UiQylzM20lH70Fg-vmygS2AVEAgc8ZutFBAJycFSKKOTtYR3yOEH77AzJA9ed4F6fC7mMRauw9RBY2xCZ8MWUXxPjvPmu8MSeeK0QDEqBRB_-HfSuYsZPgJzDOr3DLXo894csYfM-IReuAEO88nZi0l3Rs6UVROL0WSB1iJR3Aa?purpose=fullsize"],
+        notes: ["On va commencer le déchargement. سنبدأ عملية التفريغ. We're going to start unloading.", "Il faut décharger le camion. يجب تفريغ الشاحنة. We need to unload the truck.", "Attention, la palette est lourde ! انتبه، المنصة ثقيلة! Be careful, the pallet is heavy!", "Recule un peu, s'il te plaît. تراجع قليلاً من فضلك. Move back a little, please.", "Fais attention à tes pieds. انتبه لقدميك. Watch your feet.", "Ne passe pas derrière le chariot élévateur. لا تمر خلف الرافعة الشوكية. Don't walk behind the forklift.", "Il faut sécuriser la zone. يجب تأمين المنطقة. We need to secure the area.", "La palette est mal positionnée. المنصة موضوعة بشكل غير صحيح. The pallet is incorrectly positioned.", "Il faut utiliser le transpalette. يجب استخدام عربة نقل المنصات. We need to use the pallet truck.", "Le camion est complètement déchargé. تم تفريغ الشاحنة بالكامل. The truck has been completely unloaded."],
+        title: { ar: 'تفريغ الشاحنات – Déchargement des camions', en: 'تفريغ الشاحنات – Déchargement des camions', fr: 'تفريغ الشاحنات – Déchargement des camions' },
+        phrases: [
+        ]
+      },
+      { icon: '📦',
+        notes: ["Il manque deux cartons. هناك صندوقان ناقصان. Two boxes are missing.", "Il y a un carton en trop. هناك صندوق زائد. There is one extra box.", "La quantité ne correspond pas au bon de livraison. الكمية لا تطابق وصل التسليم. The quantity doesn't match the delivery note.", "Il faut recompter les pièces. يجب إعادة عدّ القطع. We need to count the items again.", "J'ai vérifié la quantité. لقد تحققت من الكمية. I've checked the quantity.", "Tout est conforme. كل شيء مطابق للمطلوب. Everything is compliant.", "Il y a un écart de quantité. هناك اختلاف في الكمية. There is a quantity discrepancy.", "Je dois signaler le manque au responsable. يجب أن أبلغ المسؤول بالنقص. I have to report the shortage to the supervisor.", "La quantité reçue est incorrecte. الكمية المستلمة غير صحيحة. The quantity received is incorrect."],
+        title: { ar: 'مراقبة الكميات – Contrôle des quantités', en: 'مراقبة الكميات – Contrôle des quantités', fr: 'مراقبة الكميات – Contrôle des quantités' },
+        phrases: [
+        ]
+      },
+      { icon: '🔧',
+        images: ["https://images.openai.com/static-rsc-4/50RQl1_XaS3xg3sVftRCZNBFbu6ja9p_-WgUchkWhYw30U8Rzw2W0J-jZ4PdUPlE_SwQDVfLh0jm6PSXaEd49pWoGIf-OoPdoa17quTmFABH-WSAKPZizCHPUCMRIXJAZKI0LZ6oXuESMoZfB6Oe2OTdlP2DePkCQ3rWibbqFTGSdu-jWouIL6l5ummzzhIR?purpose=fullsize"],
+        notes: ["Le carton est abîmé. الصندوق متضرر. The box is damaged.", "La palette est cassée. المنصة مكسورة. The pallet is broken.", "La marchandise est endommagée. البضاعة متضررة. The goods are damaged.", "L'emballage est déchiré. الغلاف ممزق. The packaging is torn.", "Le produit est cassé à l'intérieur. المنتج مكسور من الداخل. The product is broken inside.", "Il y a des traces d'humidité. توجد آثار رطوبة. There are signs of moisture.", "Il faut mettre cette marchandise de côté. يجب وضع هذه البضاعة جانباً. We need to set these goods aside.", "Il ne faut pas utiliser ce produit. يجب عدم استخدام هذا المنتج. This product must not be used.", "Je vais prendre une photo pour signaler le problème. سألتقط صورة للإبلاغ عن المشكلة. I'll take a picture to report the problem.", "Il faut remplir une fiche de non-conformité. يجب تعبئة استمارة عدم المطابقة. We need to fill out a non-conformity report."],
+        title: { ar: 'فحص البضائع – Contrôle de la qualité', en: 'فحص البضائع – Contrôle de la qualité', fr: 'فحص البضائع – Contrôle de la qualité' },
+        phrases: [
+        ]
+      },
+      { icon: '⚠️',
+        notes: ["Il faut enregistrer la réception dans le système. يجب تسجيل عملية الاستلام في النظام. We need to record the receipt in the system.", "Je vais scanner le code-barres. سأمسح الرمز الشريطي. I'm going to scan the barcode.", "Le code-barres ne passe pas. الرمز الشريطي لا يُقرأ. The barcode isn't scanning.", "La référence est introuvable. رقم المنتج غير موجود. The item reference cannot be found.", "Il faut saisir la quantité reçue. يجب إدخال الكمية المستلمة. We need to enter the quantity received.", "La réception est validée. تم تأكيد عملية الاستلام. The receipt has been validated.", "La saisie est terminée. انتهى إدخال البيانات. Data entry is complete.", "Le système affiche une erreur. النظام يعرض خطأً. The system is showing an error.", "Je n'arrive pas à me connecter. لا أستطيع تسجيل الدخول. I can't log in.", "Tu peux vérifier dans le logiciel ? هل يمكنك التحقق في البرنامج؟ Can you check in the software?"],
+        title: { ar: 'إدخال المنتجات في النظام – Saisie informatique', en: 'إدخال المنتجات في النظام – Saisie informatique', fr: 'إدخال المنتجات في النظام – Saisie informatique' },
+        phrases: [
+        ]
+      },
+      { icon: '🦺',
+        images: ["https://images.openai.com/static-rsc-4/6Ku1BZGd_0w4rHqqWiwZ44bMtoG7GvKl0kkSV2XB4DdvG96bdqEMmWH4cM7kZfXyrOX_X9XSkvLEsHbSZ7z_aChqQgCak0BoOXTVQgQjN6Gef5FICRVnHSlbZJX1AIvlTxvZxIwdOLaLOz332jVscOAzibrT2MbF4rmeAT5e5GtMi4VtYELtJzezRrcv_Nko?purpose=fullsize"],
+        notes: ["Il faut ranger la marchandise. يجب ترتيب البضاعة. We need to put the goods away.", "Mets cette palette dans l'allée trois. ضع هذه المنصة في الممر الثالث. Put this pallet in aisle three.", "Cette référence va dans le rayon B. هذا المنتج يوضع في القسم B. This item goes in section B.", "Il faut respecter l'emplacement indiqué. يجب الالتزام بالمكان المحدد. We must follow the assigned location.", "Ne mélange pas les références. لا تخلط بين أرقام المنتجات. Don't mix up the item references.", "Il faut laisser le passage libre. يجب إبقاء الممر مفتوحاً. Keep the passage clear.", "La palette doit être bien filmée. يجب تغليف المنصة جيداً بالنايلون. The pallet must be wrapped properly.", "Il faut étiqueter les cartons. يجب وضع الملصقات على الصناديق. We need to label the boxes.", "Le stock est mal rangé. المخزون غير مرتب جيداً. The stock is poorly organized.", "Cette zone est réservée au stockage. هذه المنطقة مخصصة للتخزين. This area is reserved for storage."],
+        title: { ar: 'تخزين البضائع – Stockage et rangement', en: 'تخزين البضائع – Stockage et rangement', fr: 'تخزين البضائع – Stockage et rangement' },
+        phrases: [
+        ]
+      },
+      { icon: '📟',
+        notes: ["Il faut vérifier le niveau de stock. يجب التحقق من مستوى المخزون. We need to check the stock level.", "Le stock est presque épuisé. المخزون أوشك على النفاد. The stock is almost depleted.", "Nous sommes en rupture de stock. نفد المخزون لدينا. We are out of stock.", "Il reste seulement cinq pièces. لم يتبقَّ سوى خمس قطع. Only five items are left.", "Il faut réapprovisionner le rayon. يجب إعادة تزويد القسم بالبضاعة. We need to replenish the section.", "Le stock physique ne correspond pas au stock informatique. المخزون الفعلي لا يطابق المخزون المسجل في النظام. The physical stock doesn't match the system stock.", "Il y a une erreur de stock. هناك خطأ في المخزون. There is a stock error.", "Il faut faire une mise à jour du stock. يجب تحديث المخزون. We need to update the stock."],
+        title: { ar: 'إدارة المخزون – Gestion des stocks', en: 'إدارة المخزون – Gestion des stocks', fr: 'إدارة المخزون – Gestion des stocks' },
+        phrases: [
+        ]
+      },
+      { icon: '🖥️',
+        images: ["https://images.openai.com/static-rsc-4/ZaD_suiw4VC-AG8Ls1USVn665WOdAGzRMV90Ik-Z47u213ANlpIccssIiKZgr70H24HGUt2fp7qTkaVVxPUHMLRWrciA6_5uefFly6LBALqToLPVAO3fJcL2F2pOLAE581bdEp2-rttLTdWc-461iMKxpdSvMUnrBAn1kxqaBZ3CNnmDhPPoxnSvXqbTKSmg?purpose=fullsize"],
+        notes: ["On va faire l'inventaire aujourd'hui. سنقوم بالجرد اليوم. We're doing the inventory today.", "Il faut compter tous les produits. يجب عدّ جميع المنتجات. We need to count all the products.", "Note la quantité sur la fiche. سجّل الكمية في الاستمارة. Write the quantity on the sheet.", "Il faut vérifier chaque emplacement. يجب التحقق من كل موقع تخزين. We need to check every storage location.", "Le comptage est terminé. انتهى العدّ. The counting is finished.", "Il y a une différence entre le stock réel et le stock théorique. هناك فرق بين المخزون الفعلي والمخزون النظري. There is a difference between actual and theoretical stock.", "Il faut refaire le comptage. يجب إعادة العدّ. We need to count again."],
+        title: { ar: 'الجرد – Inventaire', en: 'الجرد – Inventaire', fr: 'الجرد – Inventaire' },
+        phrases: [
+        ]
+      },
+      { icon: '💬',
+        images: ["https://images.openai.com/static-rsc-4/KRM0SEhvUA2ObDP1w4rk_W_AoI6OFqC_qxwUZtqRHZdXG_YR-S_J8F8Orpp5LLPM4-5vH9as25195xmOGDS2o6a4cIEV8dscY_ssQIofjl9FyKVv3UY2EUTbqwr7OREliHqWRWcnSXITsl9RFfD4T0CVNVznXAeKlhHBsghQ8ofciikKHMf5px4FW39QcAyc?purpose=fullsize"],
+        notes: ["Il faut préparer cette commande. يجب تجهيز هذا الطلب. We need to prepare this order.", "Prends les articles indiqués sur le bon de préparation. خذ المنتجات المحددة في ورقة التجهيز. Take the items listed on the picking sheet.", "Il manque un article dans la commande. هناك منتج ناقص في الطلب. One item is missing from the order.", "Vérifie les références avant l'emballage. تحقق من أرقام المنتجات قبل التغليف. Check the item references before packing.", "Il faut bien emballer la commande. يجب تغليف الطلب جيداً. We need to pack the order properly.", "La commande est prête. الطلب جاهز. The order is ready.", "Il faut coller l'étiquette d'expédition. يجب لصق ملصق الشحن. We need to attach the shipping label.", "Cette commande est urgente. هذا الطلب مستعجل. This order is urgent."],
+        title: { ar: 'تجهيز الطلبات – Préparation des commandes', en: 'تجهيز الطلبات – Préparation des commandes', fr: 'تجهيز الطلبات – Préparation des commandes' },
+        phrases: [
+        ]
+      },
+      { icon: '📚',
+        notes: ["La commande part aujourd'hui. سيتم إرسال الطلب اليوم. The order is being shipped today.", "Il faut charger le camion. يجب تحميل الشاحنة. We need to load the truck.", "Les palettes sont prêtes pour l'expédition. المنصات جاهزة للشحن. The pallets are ready for dispatch.", "Il faut vérifier les documents de transport. يجب التحقق من وثائق النقل. We need to check the transport documents.", "Le chauffeur attend les documents. السائق ينتظر الوثائق. The driver is waiting for the documents.", "La marchandise a été expédiée. تم شحن البضاعة. The goods have been dispatched."],
+        title: { ar: 'الشحن والتسليم – Expédition', en: 'الشحن والتسليم – Expédition', fr: 'الشحن والتسليم – Expédition' },
+        phrases: [
+        ]
+      },
+      { icon: '🧾',
+        notes: ["J'ai terminé ma tâche. أنهيت مهمتي. I've finished my task.", "Qu'est-ce que je dois faire ensuite ? ماذا يجب أن أفعل بعد ذلك؟ What should I do next?", "J'ai rencontré un problème. واجهت مشكلة. I've encountered a problem.", "J'ai besoin de votre aide. أحتاج إلى مساعدتك. I need your help.", "Je préfère vérifier avant de continuer. أفضل أن أتحقق قبل المتابعة. I'd rather check before continuing.", "Je ne suis pas sûr de cette procédure. لست متأكداً من هذا الإجراء. I'm not sure about this procedure.", "Pouvez-vous me montrer comment faire ? هل يمكنك أن تريني كيف أفعل ذلك؟ Could you show me how to do it?", "Je n'ai pas bien compris la consigne. لم أفهم التعليمات جيداً. I didn't understand the instruction properly.", "Est-ce que je peux prendre une pause ? هل يمكنني أخذ استراحة؟ Can I take a break?", "J'ai terminé pour aujourd'hui. انتهيت لهذا اليوم. I'm finished for today."],
+        title: { ar: 'التواصل مع المسؤول – Communication avec le responsable', en: 'التواصل مع المسؤول – Communication avec le responsable', fr: 'التواصل مع المسؤول – Communication avec le responsable' },
+        phrases: [
+        ]
+      },
+      { icon: '📈',
+        notes: ["Responsable : Bonjour, aujourd'hui tu vas travailler à la réception. المسؤول: صباح الخير، اليوم ستعمل في قسم الاستلام. Supervisor: Good morning, today you'll work in goods reception.", "Magasinier : D'accord. Qu'est-ce que je dois faire en premier ? العامل: حسناً، ماذا يجب أن أفعل أولاً؟ Warehouse worker: Okay. What should I do first?", "Responsable : Il faut décharger le camion et vérifier les quantités. المسؤول: يجب تفريغ الشاحنة والتحقق من الكميات. Supervisor: Unload the truck and check the quantities.", "Magasinier : Est-ce que je dois vérifier les références aussi ? العامل: هل يجب أن أتحقق من أرقام المنتجات أيضاً؟ Warehouse worker: Should I check the item references too?", "Responsable : Oui, et signale-moi toute marchandise abîmée. المسؤول: نعم، وأبلغني عن أي بضاعة متضررة. Supervisor: Yes, and report any damaged goods to me.", "Magasinier : D'accord, je vous préviens s'il y a un problème. العامل: حسناً، سأخبرك إذا ظهرت مشكلة. Warehouse worker: Okay, I'll let you know if there's a problem."],
+        title: { ar: 'حوار واقعي داخل المستودع', en: 'حوار واقعي داخل المستودع', fr: 'حوار واقعي داخل المستودع' },
+        phrases: [
+        ]
+      },
+      { icon: '🔑',
+        title: { ar: 'قاموس أساسي لمهنة Magasinier', en: 'قاموس أساسي لمهنة Magasinier', fr: 'قاموس أساسي لمهنة Magasinier' },
+        phrases: [
+          { fr: 'Un magasinier', ar: 'عامل مستودع', en: 'Warehouse worker' },
+          { fr: 'Un entrepôt', ar: 'مستودع', en: 'Warehouse' },
+          { fr: 'Une palette', ar: 'منصة بضائع', en: 'Pallet' },
+          { fr: 'Un transpalette', ar: 'عربة نقل المنصات', en: 'Pallet truck' },
+          { fr: 'Un chariot élévateur', ar: 'رافعة شوكية', en: 'Forklift' },
+          { fr: 'Un quai de chargement', ar: 'رصيف التحميل', en: 'Loading dock' },
+          { fr: 'Une allée', ar: 'ممر', en: 'Aisle' },
+          { fr: 'Un rayonnage', ar: 'رفوف تخزين', en: 'Shelving' },
+          { fr: 'Un carton', ar: 'صندوق كرتوني', en: 'Cardboard box' },
+          { fr: 'Un colis', ar: 'طرد', en: 'Package' },
+          { fr: 'Une référence', ar: 'رقم أو مرجع المنتج', en: 'Item reference' },
+          { fr: 'Un code-barres', ar: 'رمز شريطي', en: 'Barcode' },
+          { fr: 'Un bon de livraison', ar: 'وصل التسليم', en: 'Delivery note' },
+          { fr: 'Un bon de commande', ar: 'طلب شراء', en: 'Purchase order' },
+          { fr: 'Un bon de préparation', ar: 'ورقة تجهيز الطلب', en: 'Picking sheet' },
+          { fr: 'Une rupture de stock', ar: 'نفاد المخزون', en: 'Out of stock' },
+          { fr: 'Un inventaire', ar: 'جرد', en: 'Inventory' },
+          { fr: 'Une expédition', ar: 'شحن', en: 'Dispatch' },
+          { fr: 'Un emballage', ar: 'تغليف', en: 'Packaging' },
+          { fr: 'Une anomalie', ar: 'خلل أو مشكلة', en: 'Anomaly' },
+          { fr: 'Une non-conformité', ar: 'عدم مطابقة', en: 'Non-conformity' },
+          { fr: 'Un emplacement', ar: 'موقع التخزين', en: 'Storage location' },
+        ]
+      },
+      { icon: '♿',
+        notes: ["سنتعلم بالتفصيل:", "جهاز السكانر PDA / Scanner.", "قراءة الباركود ومسح المنتجات.", "برنامج إدارة المستودعات WMS.", "نظام SAP.", "إدخال واستقبال وتحريك المخزون.", "رسائل الخطأ التي تظهر على الشاشة.", "العبارات التي يقولها المسؤول أثناء استخدام الأجهزة.", "حوارات واقعية مع أمثلة من يوم العمل."],
+        title: { ar: 'الدرس 9 القادم: أجهزة Magasinier والبرامج المستخدمة في فرنسا', en: 'الدرس 9 القادم: أجهزة Magasinier والبرامج المستخدمة في فرنسا', fr: 'الدرس 9 القادم: أجهزة Magasinier والبرامج المستخدمة في فرنسا' },
+        phrases: [
+        ]
+      },
+      { icon: '🩺',
+        notes: ["سنتعلم كيف تستخدم الأجهزة والبرامج في العمل، وما العبارات التي تسمعها من المسؤول والزملاء، وكيف تجيب عليهم."],
+        title: { ar: 'الدرس 9: أجهزة Magasinier والبرامج المستخدمة في المستودعات بفرنسا', en: 'الدرس 9: أجهزة Magasinier والبرامج المستخدمة في المستودعات بفرنسا', fr: 'الدرس 9: أجهزة Magasinier والبرامج المستخدمة في المستودعات بفرنسا' },
+        phrases: [
+        ]
+      },
+      { icon: '📅',
+        images: ["https://images.openai.com/static-rsc-4/6-wXVEdF3WfrXuzBGdUi3KI64KY53dCzFvApdFvTcFcWeZwRVZYBkm7vPYxK4OAm-74PwMLFqo7vJeE9C-hdYz7BthPwlZ1FPJfa_Auxm2epdnEP6hjfrkZjhPKRlqqRM4ZP0ua7rlhKBtBH37T5m1Jc8Pr2u6-sQkMH72lNz03GeJbDzSl_kkb9S91RUrrC?purpose=fullsize", "https://images.openai.com/static-rsc-4/5IrPQhbZ9s9wyMeAGzTWN1mNr8MWDnXmq-JArKEWD9MgFx1yIsZ9x9A-D00csrZGqw0GtmalrIp9a9IIFj-AyaNCdlFcw-43qJs9rhF3Bj9gCBkilzrR1XrS59pO79wJicUsuUWM6uCZ_S4uneeapQRW-gMaVfW8UVCZDf-5z4ILIqor4vD7zsvkxwRE-y9H?purpose=fullsize", "https://images.openai.com/static-rsc-4/8QNypu4SZCNug88bBr2GoZkmC4W4G6SI1RK9QLV8dNLXm-84LgoghuUACJgbs-Gw2Pvds6xv5SlCEO4l-QxAwRg8M3jNafGIU71W3F_QhYscSL03RClbbXCyuHRq02EAW9-FZ34t6sGJNxq5skbYOBK8k3wMddFnLnTeTXztOzxibxfSL8mxIfXFqQhikImD?purpose=fullsize", "https://images.openai.com/static-rsc-4/2vOtu_R3nwKljyHeVqO9ONKSiJjrsxb0a-cZPhM8m-hs7_GnznM9EhqUM-lDX-q1S8pqX4W4BJM87sjsY_zVwrar70SnYtRZIX9xoM2Kb59H4Wcs48ezj6kinJ4tPMPc0_UH0NDuC7C9WUSGBegMJcbTj0zK1GdrFoDyF0YLU0_RI2sCHPXui0MMxS0u65J0?purpose=fullsize", "https://images.openai.com/static-rsc-4/RDn6W8RoF6FQh6rja-050QARARD9CtuVV08hak4ZWDKb_5xNV873AOOXM6gyTA32d5lZ12lwWp6TEZ8UWZIofeOMaaM96SsV2MFYWZCv0Hv7iMDe7s_gKCAQQRbD-Ve6_HmtvINNQ4R3-pGpklvFKeAkkcWKSapH1xPhXd8OkWW8pYTbdHJORIx_ElsZWK3-?purpose=fullsize", "https://images.openai.com/static-rsc-4/i1byohdgER0NvBSfXFz5iPNAX0hwba0f0F_pKz0qKv3yYbiOQINhG_wCVRk9sUd0gxxt5msOSRjyEEKNUj6lYzTDvdsRunBrALC04zAqmyJUc37fdKcPhxkMmqCOF7FUfivabbRoKXfyI_UPkoVGeJecX5T5wwe42iMR95FL_zC4avrhx4I0jeUl4xQECCQz?purpose=fullsize", "https://images.openai.com/static-rsc-4/iJkEdEAycqMSAXqHDIL0s1JzVgqoM3JRY-Y3pCwvhhOCEaqe0qNiyVIVkuIQjo8Zx6SApOaHYTm5KWnGJj8RxxLjXYh_LaV3WzcXEWcoKpNv46_WqOqiNIo1A1XThSmVCJD6Yh8bOd-0Gx3lFaIGLyeGlfbgy1zDcQZiSi9ElTe5mYOt6FPbRkQpCZXxkZlc?purpose=fullsize", "https://images.openai.com/static-rsc-4/6KGupKuvu4-3CG93aYHXF8J3yBiNAj8WRI7sWxSJCWgROe9sHlFwbB8AggE3KTMmCzSLvmdQvmpRS8FdoQW9F8vJRXROUuGkshYYIY7HUbhHGBuGKWjQTV929knN20TZ8AQxIux3xd8myVUiWrCXQwsFG2Dbjtm0LszmkdLb9AGZqfMZ6Y_IsnxOSl1RLj3K?purpose=fullsize", "https://images.openai.com/static-rsc-4/Vr_U9kfqajsZ0PjpayYy2ZQpat5TQWh_Ccpi5BVLSE6iU3h-eAI6quEMVgGTskzOj7zEqzju3L8ivO3B60bUk0krtF_PVklTSQSfI-PzZ1um9AIOoZvnrOpgN19rzucJMWZHrzIl3Batm1CRaTyo4CxzxyPHCXGkWnI-mpB2fNWuZ90W3CKsNLRLF5Hd4exa?purpose=fullsize", "https://images.openai.com/static-rsc-4/Aji1szlAttkwhbx0DdZr3QLjMBUoBlBxmCdZ24-aOXfflIUweSpgA-CP7knLx-PpkiJM2DPC0Tek-kt3PQ_QoX-E4L4KWYJfNaN3BsknV54UZ2gmf4X3bcsGYFNOGrJNyRBzaf0guuMZoB71V5dOsdmUgqhWEWYnthPd_H5RkaAZsWO0-3k_SAhZiIzw7jld?purpose=fullsize", "https://images.openai.com/static-rsc-4/lpSRsJuL8AsnwZiZWi4uxXBVs8aHjtEi5JuvnhV-rVySsFjUS5ccTh7zQ_1oN33EimTtUw0109sm5bonW0EjWfQ0LHnnZDujfp2dUuaJVaEGCEywB_6X51rc-5J8DVX0hXpltBGHo2GrF0xoDX__TndMgSsHAM4IIDhWJDowLWEYc84wM27urGFsvIPYb-jJ?purpose=fullsize"],
+        notes: ["Prends ton PDA. خذ جهاز السكانر الخاص بك. Take your handheld scanner.", "Tu as ton scanner ? هل معك جهاز السكانر؟ Do you have your scanner?", "Allume le PDA. شغّل جهاز السكانر. Turn on the handheld scanner.", "Éteins le scanner. أطفئ جهاز السكانر. Turn off the scanner.", "Connecte-toi avec ton identifiant. سجّل الدخول باستخدام اسم المستخدم الخاص بك. Log in with your username.", "Entre ton mot de passe. أدخل كلمة المرور الخاصة بك. Enter your password.", "Scanne le code-barres. امسح الرمز الشريطي. Scan the barcode.", "Pointe le scanner vers l'étiquette. وجّه السكانر نحو الملصق. Point the scanner at the label.", "Appuie sur le bouton pour scanner. اضغط على الزر للمسح. Press the button to scan.", "Le scanner ne fonctionne pas. جهاز السكانر لا يعمل. The scanner isn't working.", "La batterie est presque vide. البطارية أوشكت على النفاد. The battery is almost empty.", "Il faut recharger le PDA. يجب شحن جهاز السكانر. The handheld scanner needs charging.", "Change la batterie. غيّر البطارية. Change the battery.", "Le scanner a perdu la connexion. فقد جهاز السكانر الاتصال. The scanner has lost its connection."],
+        title: { ar: 'جهاز السكانر – Le PDA / Scanner', en: 'جهاز السكانر – Le PDA / Scanner', fr: 'جهاز السكانر – Le PDA / Scanner' },
+        phrases: [
+        ]
+      },
+      { icon: '🛑',
+        images: ["https://images.openai.com/static-rsc-4/dXpbhoPKTl2Mr1-FGQYoVHuKBrtSaDz8PVzC21x_t06MI-A6nyxxAyo1AEcVH-e3OzSAD0tvsTcFY9z_nkthuqgQ2skU6hjZirxk2G7su7UJ75G8-ysuUy93Laav70JgWUyJU8fO0EJennmA8YICV5Ty7S9d4_G_jQmO9eIJEKFx-PR1vKws8MuWUawkWAeN?purpose=fullsize"],
+        notes: ["Scanne l'étiquette du produit. امسح ملصق المنتج. Scan the product label.", "Le code-barres est illisible. الرمز الشريطي غير قابل للقراءة. The barcode is unreadable.", "L'étiquette est abîmée. الملصق متضرر. The label is damaged.", "Il manque une étiquette. هناك ملصق مفقود. A label is missing.", "Il faut imprimer une nouvelle étiquette. يجب طباعة ملصق جديد. We need to print a new label.", "Colle l'étiquette sur le carton. ألصق الملصق على الصندوق. Stick the label on the box.", "Vérifie que la référence est correcte. تحقق من أن رقم المنتج صحيح. Check that the item reference is correct.", "Le scanner ne reconnaît pas le code. السكانر لا يتعرف على الرمز. The scanner doesn't recognize the code.", "Essaie de scanner une deuxième fois. حاول المسح مرة ثانية. Try scanning a second time.", "Il faut scanner chaque colis séparément. يجب مسح كل طرد على حدة. Each package must be scanned separately."],
+        title: { ar: 'الباركود والملصقات – Code-barres et étiquettes', en: 'الباركود والملصقات – Code-barres et étiquettes', fr: 'الباركود والملصقات – Code-barres et étiquettes' },
+        phrases: [
+        ]
+      },
+      { icon: '🔄',
+        images: ["https://images.openai.com/static-rsc-4/y0SSeqLPTghHYOaaT3UtaVpN53WN9d5O-rEMM_0bvSdc6Dsm07b56ub7aZC_oo-RQTilPEAtNbiAG7Bb3Kyl_rjeEPtB36satGS5niZWohMilsQmdwYAG3x3Xn0mLITI0TgBIbSig_xjZSo6yxsQSCp99nvGn3BJ00-LM3oWZdyscK1OeqRKmGVe4boVaell?purpose=fullsize"],
+        notes: ["WMS اختصار لـ Warehouse Management System، أي نظام إدارة المستودعات.", "يُستخدم عادةً من أجل:", "تسجيل البضائع المستلمة.", "معرفة أماكن تخزين المنتجات.", "متابعة المخزون.", "تجهيز الطلبات.", "تسجيل الشحنات.", "متابعة حركة البضائع.", "Ouvre le logiciel WMS. افتح برنامج إدارة المستودع. Open the WMS software.", "Connecte-toi au système. سجّل الدخول إلى النظام. Log in to the system.", "Va dans le menu réception. اذهب إلى قائمة الاستلام. Go to the receiving menu.", "Sélectionne la commande. اختر الطلب. Select the order.", "Valide la réception. أكد عملية الاستلام. Validate the receipt.", "Enregistre les quantités. سجّل الكميات. Record the quantities.", "Consulte l'emplacement du produit. اطّلع على موقع تخزين المنتج. Check the product's storage location.", "Le système indique l'emplacement. النظام يحدد موقع التخزين. The system shows the storage location.", "Il faut confirmer le déplacement. يجب تأكيد عملية النقل. You need to confirm the movement.", "La commande est toujours en attente. الطلب ما زال قيد الانتظار. The order is still pending."],
+        title: { ar: 'برنامج إدارة المستودعات – WMS', en: 'برنامج إدارة المستودعات – WMS', fr: 'برنامج إدارة المستودعات – WMS' },
+        phrases: [
+        ]
+      },
+      { icon: '✅',
+        images: ["https://images.openai.com/static-rsc-4/lnrXlOnJWch9LBvbRI6u8mZsv3bTMtHOzadul70QTBMnB0S6hEm27OJII50GBfru3_s1WMksIkGx2zsxM310nEm2MkrOUZUmu4-GsFz27xYLzoNQfNUQ0bdkUPdevxNZYXXn9nZiWhkzX9HuZUSQQfrTDxSLnOPjP7VunXVEqF8AwHgME21cIh_3HJ8clQH_?purpose=fullsize"],
+        notes: ["SAP برنامج تستخدمه بعض الشركات لإدارة المخزون والمشتريات والطلبات والعمليات اللوجستية.", "Tu connais SAP ? هل تعرف برنامج SAP؟ Do you know SAP?", "Il faut saisir les données dans SAP. يجب إدخال البيانات في SAP. You need to enter the data in SAP.", "Ouvre la commande dans SAP. افتح الطلب في SAP. Open the order in SAP.", "Vérifie le numéro de commande. تحقق من رقم الطلب. Check the order number.", "La réception est enregistrée dans SAP. تم تسجيل الاستلام في SAP. The receipt has been recorded in SAP.", "Il y a une erreur dans SAP. هناك خطأ في SAP. There is an error in SAP.", "Je n'ai pas accès au logiciel. ليس لدي صلاحية الدخول إلى البرنامج. I don't have access to the software.", "Il faut demander les droits d'accès. يجب طلب صلاحيات الدخول. You need to request access rights.", "Je ne connais pas encore bien SAP. لا أعرف استخدام SAP جيداً حتى الآن. I don't know how to use SAP very well yet.", "Est-ce que vous pouvez me montrer la procédure ? هل يمكنكم أن تروني طريقة العمل؟ Could you show me the procedure?"],
+        title: { ar: 'برنامج SAP في المستودعات', en: 'برنامج SAP في المستودعات', fr: 'برنامج SAP في المستودعات' },
+        phrases: [
+        ]
+      },
+      { icon: '📝',
+        notes: ["Il faut déplacer cette palette. يجب نقل هذه المنصة. We need to move this pallet.", "Scanne l'emplacement de départ. امسح موقع التخزين الأصلي. Scan the starting location.", "Scanne le nouvel emplacement. امسح موقع التخزين الجديد. Scan the new location.", "Confirme le transfert. أكد عملية النقل. Confirm the transfer.", "La palette a été déplacée. تم نقل المنصة. The pallet has been moved.", "Le produit est au mauvais emplacement. المنتج في موقع تخزين خاطئ. The product is in the wrong location.", "Il faut corriger l'emplacement dans le système. يجب تصحيح موقع التخزين في النظام. We need to correct the location in the system.", "Le stock a été mis à jour. تم تحديث المخزون. The stock has been updated."],
+        title: { ar: 'نقل المنتجات داخل المستودع – Mouvement de stock', en: 'نقل المنتجات داخل المستودع – Mouvement de stock', fr: 'نقل المنتجات داخل المستودع – Mouvement de stock' },
+        phrases: [
+        ]
+      },
+      { icon: '🧰',
+        notes: ["هذه عبارات قد تظهر على شاشة جهاز السكانر أو الكمبيوتر:", "Erreur de connexion. خطأ في الاتصال. Connection error.", "Identifiant incorrect. اسم المستخدم غير صحيح. Incorrect username.", "Mot de passe incorrect. كلمة المرور غير صحيحة. Incorrect password.", "Code-barres inconnu. رمز شريطي غير معروف. Unknown barcode.", "Référence introuvable. رقم المنتج غير موجود. Reference not found.", "Quantité incorrecte. الكمية غير صحيحة. Incorrect quantity.", "Emplacement invalide. موقع التخزين غير صالح. Invalid location.", "Stock insuffisant. المخزون غير كافٍ. Insufficient stock.", "Opération impossible. العملية غير ممكنة. Operation impossible.", "Veuillez réessayer. يرجى المحاولة مرة أخرى. Please try again.", "Veuillez contacter votre responsable. يرجى الاتصال بالمسؤول. Please contact your supervisor."],
+        title: { ar: 'رسائل الأخطاء على الشاشة – Messages d\'erreur', en: 'رسائل الأخطاء على الشاشة – Messages d\'erreur', fr: 'رسائل الأخطاء على الشاشة – Messages d\'erreur' },
+        phrases: [
+        ]
+      },
+      { icon: '🏗️',
+        notes: ["Tu as scanné la palette ? هل مسحت المنصة بالسكانر؟ Did you scan the pallet?", "Tu as validé la réception ? هل أكدت عملية الاستلام؟ Did you validate the receipt?", "N'oublie pas de confirmer dans le système. لا تنسَ التأكيد في النظام. Don't forget to confirm it in the system.", "Il faut respecter l'ordre des opérations. يجب احترام ترتيب العمليات. You must follow the order of operations.", "Attention, ne valide pas deux fois. انتبه، لا تؤكد العملية مرتين. Be careful, don't validate twice.", "Vérifie avant de confirmer. تحقق قبل التأكيد. Check before confirming.", "Tu as terminé la saisie ? هل انتهيت من إدخال البيانات؟ Have you finished entering the data?", "Il faut signaler le problème au chef d'équipe. يجب إبلاغ رئيس الفريق بالمشكلة. You need to report the problem to the team leader."],
+        title: { ar: 'عبارات يقولها المسؤول أثناء العمل', en: 'عبارات يقولها المسؤول أثناء العمل', fr: 'عبارات يقولها المسؤول أثناء العمل' },
+        phrases: [
+        ]
+      },
+      { icon: '🚚',
+        notes: ["Responsable : Pourquoi tu n'avances pas ? المسؤول: لماذا لا تتابع العمل؟ Supervisor: Why aren't you moving forward?", "Magasinier : Mon scanner ne fonctionne plus. العامل: جهاز السكانر لم يعد يعمل. Warehouse worker: My scanner has stopped working.", "Responsable : Tu as vérifié la batterie ? المسؤول: هل تحققت من البطارية؟ Supervisor: Have you checked the battery?", "Magasinier : Oui, mais il n'arrive pas à se connecter au système. العامل: نعم، لكنه لا يستطيع الاتصال بالنظام. Warehouse worker: Yes, but it can't connect to the system.", "Responsable : Essaie de le redémarrer. المسؤول: حاول إعادة تشغيله. Supervisor: Try restarting it.", "Magasinier : D'accord, je vais essayer. العامل: حسناً، سأحاول. Warehouse worker: Okay, I'll try.", "Magasinier : Ça fonctionne maintenant, merci. العامل: إنه يعمل الآن، شكراً. Warehouse worker: It's working now, thank you."],
+        title: { ar: 'حوار واقعي: مشكلة في السكانر', en: 'حوار واقعي: مشكلة في السكانر', fr: 'حوار واقعي: مشكلة في السكانر' },
+        phrases: [
+        ]
+      },
+      { icon: '🗂️',
+        notes: ["Responsable : Tu as réceptionné la livraison ? المسؤول: هل استلمت الشحنة؟ Supervisor: Have you received the delivery?", "Magasinier : Oui, j'ai contrôlé les quantités. العامل: نعم، تحققت من الكميات. Warehouse worker: Yes, I've checked the quantities.", "Responsable : Tu as enregistré la réception ? المسؤول: هل سجلت عملية الاستلام؟ Supervisor: Have you recorded the receipt?", "Magasinier : Pas encore, je dois scanner les références. العامل: ليس بعد، يجب أن أمسح أرقام المنتجات. Warehouse worker: Not yet, I need to scan the item references.", "Responsable : D'accord, pense à valider à la fin. المسؤول: حسناً، تذكر التأكيد في النهاية. Supervisor: Okay, remember to validate it at the end.", "Magasinier : Oui, je vais vérifier avant de valider. العامل: نعم، سأتحقق قبل التأكيد. Warehouse worker: Yes, I'll check before validating."],
+        title: { ar: 'حوار واقعي: إدخال البضائع في النظام', en: 'حوار واقعي: إدخال البضائع في النظام', fr: 'حوار واقعي: إدخال البضائع في النظام' },
+        phrases: [
+        ]
+      },
+      { icon: '💼',
+        title: { ar: 'كلمات مهمة جداً في هذا المجال', en: 'كلمات مهمة جداً في هذا المجال', fr: 'كلمات مهمة جداً في هذا المجال' },
+        phrases: [
+          { fr: 'Scanner', ar: 'يمسح إلكترونياً', en: 'To scan' },
+          { fr: 'Un PDA', ar: 'جهاز محمول للعمل', en: 'Handheld device' },
+          { fr: 'Un terminal mobile', ar: 'جهاز طرفي محمول', en: 'Mobile terminal' },
+          { fr: 'Un écran', ar: 'شاشة', en: 'Screen' },
+          { fr: 'Un clavier', ar: 'لوحة مفاتيح', en: 'Keyboard' },
+          { fr: 'Une imprimante', ar: 'طابعة', en: 'Printer' },
+          { fr: 'Une batterie', ar: 'بطارية', en: 'Battery' },
+          { fr: 'Un identifiant', ar: 'اسم أو معرف المستخدم', en: 'Username / ID' },
+          { fr: 'Un mot de passe', ar: 'كلمة مرور', en: 'Password' },
+          { fr: 'Se connecter', ar: 'يسجل الدخول', en: 'To log in' },
+          { fr: 'Se déconnecter', ar: 'يسجل الخروج', en: 'To log out' },
+          { fr: 'Valider', ar: 'يؤكد', en: 'To validate' },
+          { fr: 'Annuler', ar: 'يلغي', en: 'To cancel' },
+          { fr: 'Enregistrer', ar: 'يحفظ أو يسجل', en: 'To save / record' },
+          { fr: 'Modifier', ar: 'يعدّل', en: 'To modify' },
+          { fr: 'Supprimer', ar: 'يحذف', en: 'To delete' },
+          { fr: 'Transférer', ar: 'ينقل', en: 'To transfer' },
+          { fr: 'Une mise à jour', ar: 'تحديث', en: 'Update' },
+          { fr: 'Un logiciel', ar: 'برنامج', en: 'Software' },
+          { fr: 'Un réseau', ar: 'شبكة', en: 'Network' },
+          { fr: 'Une connexion', ar: 'اتصال', en: 'Connection' },
+        ]
+      },
+      { icon: '📋',
+        notes: ["سنتعلم العبارات التي تحتاجها عند:", "وقوع حادث أثناء العمل.", "إصابة اليد أو الظهر.", "تعطل الرافعة الشوكية أو الآلة.", "سقوط البضائع أو المنصات.", "إبلاغ Chef d'équipe وResponsable.", "التواصل مع مسؤول السلامة Sécurité.", "طلب الإسعافات الأولية والتصريح بحادث العمل Accident du travail.", "الحديث عن التعب والقيود الجسدية وطلب تكييف العمل."],
+        title: { ar: 'الدرس 10 القادم: العمل في المستودعات والمصانع – الأعطال والحوادث والسلامة المهنية', en: 'الدرس 10 القادم: العمل في المستودعات والمصانع – الأعطال والحوادث والسلامة المهنية', fr: 'الدرس 10 القادم: العمل في المستودعات والمصانع – الأعطال والحوادث والسلامة المهنية' },
+        phrases: [
+        ]
+      },
+      { icon: '🤝',
+        notes: ["هذا الدرس مهم جداً لكل شخص يعمل بوظيفة Magasinier أو Préparateur de commandes أو Agent de production.", "سنتعلم العبارات التي تستخدمها مع المسؤول، ورئيس الفريق، وزملائك، ومسؤول السلامة."],
+        title: { ar: 'الدرس 10: الأعطال والحوادث والسلامة المهنية في المستودعات والمصانع بفرنسا', en: 'الدرس 10: الأعطال والحوادث والسلامة المهنية في المستودعات والمصانع بفرنسا', fr: 'الدرس 10: الأعطال والحوادث والسلامة المهنية في المستودعات والمصانع بفرنسا' },
+        phrases: [
+        ]
+      },
+      { icon: '🏭',
+        images: ["https://images.openai.com/static-rsc-4/mhVVIAAghJcvqVgsPlO_2RhYb9suTAhAg-KmtrOidTVxBSZ2Ia974JKSx246BezH5f8QdAHaL7dIFhvSk3O_g46DpxE_HXCN_WXOiY_RRmLT2p2TDRXIxBX0iusTZyGnOmICOzk2BnfVaObR9QWWU8nWNeAq2hdKsDW2FaIrLbeGTHUNLIdl4CqMYzc-c9ZS?purpose=fullsize", "https://images.openai.com/static-rsc-4/zJKjadegVo5Yt_Y_pRfLdshtl9EdVJsFTYo0w6iFMp8Oj2Ij3zuxGghNggihR7AH2jSxF6WdjFwn5eBRUS-b0rXh7RvjsBAaQoqe_CnT3Dp_0bW-WNP30AcGeRtBJiOyQcagPCbfK5EQf_UuZG0CiqIfVUoY9cA3tyrMnMzicmtad8NTt3NVq_aqe4Sb9Mlv?purpose=fullsize", "https://images.openai.com/static-rsc-4/JAS2qdWysN5tRGxp9d7RA2diiFxrErzyZtCchpaZWxdGpJKB9EOohrUs7F-bV0GGVNcbp0_rebMybGCHq7xec83akSYJfDbhepTjiYrxYDQhrqQaNBUohscWMzSFvA-dyR3DfAArKROjSckGOuSbZEkdqgo9Q-m8aHshj9juNXTgK21ejEsUq9zR6ZfsC8Gr?purpose=fullsize", "https://images.openai.com/static-rsc-4/SFyqKNOoFb6y6pzhd296gcvGQvaCCrCQWeug8_oaHTrbc9jqqsMmTIND_zs8AZY5L0A_53Nc4C3YEwsgdi5XrIIx1WEN8VOfPgIMWeVKzemL4PVNXwT-SnK_OHjyNDQDxJB_yIslTVuz2E_FR-otWeB5wAOrezPKcmiM-iSuBpKtNDZB1tsD65Qp5gYvg7x5?purpose=fullsize", "https://images.openai.com/static-rsc-4/7cXqqptyBa5Qm0hEetiy9eRXXlq02j-DVbRyjxYdhT7u8ZPql0L0psfYb64hrE7bNJRrgQETUDPY1UKZLBq84HNwGi9vzi7D4ksIWQlfNKRvI8iE2sKiqREXnbiZC0WlKbo9MuNV_BbvOgYzHfYvtZj3ktPT5uAzVOoOUobrP5Xw9lO9SBgEgGiY3ukFVvUH?purpose=fullsize", "https://images.openai.com/static-rsc-4/DTzZ_2o2PHLw6tfEYPAarqHk35V2EEHckmhMS_S0xy9B2mY1jfZJCCZnd61LZdvrlYCFrPKEYYJTQKb-qiNafNljKvYmJplvlKwbuI5Q4j5DoI_1cW1DAHcv-8F_AzVzOe8eK5RpSpce2AQmbRUt-oZlWAfVefVcoLMXWexx-gmc4dPgrT3ebTXdEqHcZmbW?purpose=fullsize", "https://images.openai.com/static-rsc-4/Rt-dITzJ3xbjMhgFk-Iu7V-YAFpauTPI40UUUUcFmjwtOXFVBiZV8rDdDtAGgW82aWgU87_5uO8h7UU_QqTN_AEjZxgVul2ymXDWzgwaHx9PyPgHgwiCOdOcF0KAZr8yEvFZXtglaGguk8-CDy4pIGbiHSDsVxIithXDgSaiV20F_0nTPnn7g0QfPzL9No4k?purpose=fullsize", "https://images.openai.com/static-rsc-4/MfQI36o7vB2SWTl11Ofo203GJrV59WcdtCwbOivaErvuwkzpWaqwoVGzF18wYrhvOxV7YnIdNdSdkZX7iMcppUyxzZWc94WQGOtkB9q3fvTN2xPsqimd0OL9uRHRHvLi2heUtzXTO4hpINYj39lmET3ZdmpriTU8gbgj5EavDDdJrfw2lFICr9GoPQuACUO4?purpose=fullsize", "https://images.openai.com/static-rsc-4/EDQURA5I17_zWpagxIDa2JTxv4uqRElOJBqqiBlN8iQIU3nHLPyyK5fC2rhRv93axQSl5YMf2fMRJYlJo65FMcaVyemLFMyMR9OPhzx96Qr1J_c4qnxZ5js9oOM8BPqSKFzBo66emwcQ7fj8e7ReYlrtN_WcV0VMEpHW8g9NuJttJA8tTlOuupWxgIMwrSlh?purpose=fullsize", "https://images.openai.com/static-rsc-4/-y84datlHEyFpCoOqmnaksuMpyT5zaPw6RgpZ0Ww2qGhbJkHQEmP1NFuUe1G32927v1YHeH5NVbPG83twwzpf1zNl_iTtC_uD8Zi7Ms3vVoiJu8o5tlxlc0GUWWS73zPw9Z1VxU5EYPbpEN5hMIsC_JIF1Vmu7S9ufIjs9cY93WRQ53dVYqa4SouL9JL9-uB?purpose=fullsize", "https://images.openai.com/static-rsc-4/MJ6m5BAbTT46R1Dt5OvvjnIPLq5ymeUezcjIfl4bJ1B1NKVybpLjB5qjQX7LNWngXtKQDJy9CPJuFUUohf2XVcWLGr6MQvK6GlBVYrlHmhcJFiff3Pm6w4B9v95sgBewTLLe4X8mWW-fIzrg5x1W2tEtYHDYrJtHzrvQByMx6e6_Ipd9oUmsAEnDAZAyYElB?purpose=fullsize", "https://images.openai.com/static-rsc-4/p0LNLlwxUlqXu0lfoOgr3KTDgs9zSSnu-orKVlRVn82AIbG-e2WcOPAg0BSSqPXU5V-Wmb9z5AE24n_sAbhAOVBuOQPqs2nS17Qmj5cY44XvNmLWd0kN3iAutuqPY8lgHagdOGPPzmuhTf1My55o8kbnkqdHJ14E4eCBqpXm2b_I1mKsrm97yY2Hiq0vCgOw?purpose=fullsize", "https://images.openai.com/static-rsc-4/-3JWxt5Lo-AZ9i21BlDssdHR5DS1bkq8GuJjjGSIocHmtJS1WxxKiChOAQxhtyPRS0Rq56XT_yI-WcMMn0394jMqmksKrcufEz0muP-5_u-gp0zCm6gcozo8DCXU7k55YTu3Hln_Da_AQUx7i0nP2szarczPycLGjPr5yfLqLFKgPChYuYo1ETUVzCsWFkSP?purpose=fullsize"],
+        notes: ["– ToolUSA](https://images.openai.com/static-rsc-4/WRxY3bOL8EtH2rnoJA9r2I79MKaKeCe1b3-DpcscSZV9MJMye4dD2no8aZ0HbZtkgR1mc5u4CCdmfF4G13e1MNN9rcK0kzBmP21oJLWXWRrTNlw1KNa4GkqjQcL5BUCbmhDViGcMB8vJNm0FE0msD7hGoVqnH80JP0LSoHFd899gypEQ-2n1bakct5PDlyZw?purpose=fullsize)", "Il faut respecter les consignes de sécurité. يجب احترام تعليمات السلامة. You must follow the safety instructions.", "Porte toujours tes chaussures de sécurité. ارتدِ دائماً أحذية السلامة. Always wear your safety shoes.", "Il faut porter un gilet de haute visibilité. يجب ارتداء سترة عالية الوضوح. You must wear a high-visibility vest.", "Mets tes gants de protection. ارتدِ قفازات الحماية. Put on your protective gloves.", "Le port du casque est obligatoire. ارتداء الخوذة إلزامي. Wearing a helmet is mandatory.", "Attention, zone dangereuse ! انتبه، منطقة خطرة! Warning, dangerous area!", "Il est interdit de courir dans l'entrepôt. يُمنع الركض داخل المستودع. Running in the warehouse is prohibited.", "Ne laisse rien dans les allées. لا تترك أي شيء في الممرات. Don't leave anything in the aisles.", "Il faut garder les issues de secours dégagées. يجب إبقاء مخارج الطوارئ خالية. Emergency exits must be kept clear.", "Attention aux chariots élévateurs. انتبه إلى الرافعات الشوكية. Watch out for forklifts.", "Respecte les distances de sécurité. احترم مسافات الأمان. Respect safety distances."],
+        title: { ar: 'قواعد السلامة المهنية – Consignes de sécurité', en: 'قواعد السلامة المهنية – Consignes de sécurité', fr: 'قواعد السلامة المهنية – Consignes de sécurité' },
+        phrases: [
+        ]
+      },
+      { icon: '📦',
+        images: ["https://images.openai.com/static-rsc-4/qN7UiRMPt9YFPKoBw3ATY1BwH-_UFX6j9oX73LWjDK5YqDZ4r_gsO-53T8yIJ4676vZexPuUtjC20_Lt0TMj1hqER_bMkpBkx30-msGWYn6MMQLpRZJmnC-nkUJF4C1GnnkcSHArQbPk5VkVzW1dHDQih6y39HkwYWcE2AMVS_ujxYv8CjHgiMk5dOM7t-u4?purpose=fullsize"],
+        notes: ["Il y a eu un accident. وقع حادث. There has been an accident.", "Un collègue s'est blessé. أحد الزملاء أصيب. A colleague has been injured.", "Je me suis fait mal au dos. أصبت ظهري أو شعرت بألم في ظهري. I hurt my back.", "Je me suis blessé à la main. أصبت يدي. I injured my hand.", "Je me suis coupé le doigt. جرحت إصبعي. I cut my finger.", "Je me suis cogné la tête. ارتطم رأسي بشيء. I hit my head.", "Je suis tombé par terre. سقطت على الأرض. I fell to the ground.", "Une palette est tombée. سقطت منصة بضائع. A pallet fell.", "Un carton m'est tombé dessus. سقط صندوق عليّ. A box fell on me.", "J'ai ressenti une douleur soudaine. شعرت بألم مفاجئ. I felt sudden pain.", "Je ne peux plus bouger normalement. لم أعد أستطيع الحركة بشكل طبيعي. I can no longer move normally.", "Il faut prévenir immédiatement le responsable. يجب إبلاغ المسؤول فوراً. The supervisor must be informed immediately."],
+        title: { ar: 'وقوع حادث في العمل – Accident du travail', en: 'وقوع حادث في العمل – Accident du travail', fr: 'وقوع حادث في العمل – Accident du travail' },
+        phrases: [
+        ]
+      },
+      { icon: '🔧',
+        notes: ["Appelez les secours ! اتصلوا بالإسعاف! Call emergency services!", "J'ai besoin d'aide. أحتاج إلى المساعدة. I need help.", "Il faut appeler le 15. يجب الاتصال بالرقم 15. We need to call 15.", "Appelez le 112 en cas d'urgence. اتصلوا بالرقم 112 في حالة الطوارئ. Call 112 in an emergency.", "Il faut prévenir le secouriste du travail. يجب إبلاغ مسعف العمل. The workplace first aider must be informed.", "Où se trouve la trousse de premiers secours ? أين توجد حقيبة الإسعافات الأولية؟ Where is the first-aid kit?", "La personne est consciente. الشخص واعٍ. The person is conscious.", "La personne a perdu connaissance. الشخص فقد الوعي. The person has lost consciousness.", "Il saigne beaucoup. إنه ينزف كثيراً. He is bleeding heavily.", "Ne le déplacez pas. لا تحركوه. Do not move him.", "Restez avec la victime. ابقوا مع المصاب. Stay with the injured person.", "في فرنسا: 15 هو SAMU، و18 هو رجال الإطفاء، و112 رقم الطوارئ الأوروبي. في حالة الخطر الطبي العاجل اتبع تعليمات موظف الطوارئ."],
+        title: { ar: 'طلب الإسعافات الأولية – Premiers secours', en: 'طلب الإسعافات الأولية – Premiers secours', fr: 'طلب الإسعافات الأولية – Premiers secours' },
+        phrases: [
+        ]
+      },
+      { icon: '⚠️',
+        notes: ["Je voudrais signaler un accident du travail. أريد الإبلاغ عن حادث عمل. I would like to report a workplace accident.", "L'accident s'est produit pendant mon service. وقع الحادث أثناء دوامي. The accident happened during my shift.", "L'accident s'est produit à quelle heure ? في أي ساعة وقع الحادث؟ What time did the accident happen?", "C'était vers dix heures du matin. كان ذلك حوالي الساعة العاشرة صباحاً. It was around ten in the morning.", "J'étais en train de déplacer une palette. كنت أنقل منصة بضائع. I was moving a pallet.", "J'ai glissé sur le sol. انزلقت على الأرض. I slipped on the floor.", "Il y avait de l'eau par terre. كان هناك ماء على الأرض. There was water on the floor.", "Un collègue a été témoin de l'accident. أحد الزملاء شاهد الحادث. A colleague witnessed the accident.", "Je souhaite que l'accident soit déclaré. أريد أن يتم التصريح بالحادث. I want the accident to be reported.", "Est-ce que je dois remplir un formulaire ? هل يجب أن أملأ استمارة؟ Do I need to fill out a form?"],
+        title: { ar: 'إبلاغ المسؤول بالحادث – Déclarer un accident', en: 'إبلاغ المسؤول بالحادث – Déclarer un accident', fr: 'إبلاغ المسؤول بالحادث – Déclarer un accident' },
+        phrases: [
+        ]
+      },
+      { icon: '🦺',
+        images: ["https://images.openai.com/static-rsc-4/8ePbvmjwU-9Q2VfgGFj6X4q01Yfcv_8zP3MhXgmrXRJQZQM0tQBhlsvJZobzJfx_S1RfmSam-xRChke_aHtQtmzZn9xZZWVsoKcHvS8Pb4nKdbrkpsW5ot1E7G3HCdwkC2qd0iLofaFyJy23eUDJ0AQ32f9iZz9ksBGXK59V8zjUUh9dfmG5lW_CGRfcaKLn?purpose=fullsize"],
+        notes: ["Je dois consulter un médecin. يجب أن أراجع الطبيب. I need to see a doctor.", "J'ai mal depuis mon accident. أشعر بالألم منذ الحادث. I've been in pain since my accident.", "La douleur s'est aggravée. ازداد الألم سوءاً. The pain has worsened.", "Le médecin m'a prescrit un arrêt de travail. الطبيب منحني إجازة مرضية. The doctor prescribed sick leave.", "Je suis en arrêt de travail. أنا في إجازة مرضية. I'm on sick leave.", "Mon arrêt de travail se termine demain. تنتهي إجازتي المرضية غداً. My sick leave ends tomorrow.", "Je dois transmettre mon arrêt de travail. يجب أن أرسل شهادة التوقف عن العمل. I need to send my sick-leave certificate.", "Je dois passer une visite de reprise. يجب أن أجري فحص العودة إلى العمل. I need to attend a return-to-work medical examination.", "Je ne suis pas encore capable de reprendre mon poste. لست قادراً بعد على العودة إلى منصبي. I'm not yet able to return to my position."],
+        title: { ar: 'الطبيب والتوقف عن العمل – Médecin et arrêt de travail', en: 'الطبيب والتوقف عن العمل – Médecin et arrêt de travail', fr: 'الطبيب والتوقف عن العمل – Médecin et arrêt de travail' },
+        phrases: [
+        ]
+      },
+      { icon: '📟',
+        images: ["https://images.openai.com/static-rsc-4/ZAU5qBYWDNn7E701rzlZ-fVUK0gSVaBNNO8FgSOWd1x7xlBPg2AY63foiRxAZM63WzFM82-Qc4jI9jCPYl2en-6O86A01dHvrv1W-Na9nO90l4VvI7i6Dp1v5Bx0jZMRVJXJsmXvf1LGT6PygZ9GnpFXlqf7D0ZqaisqXbqKcU9D-xkcB71Di6kXarDvoPw_?purpose=fullsize", "https://images.openai.com/static-rsc-4/6np9IvMCNDvgSOQxYwwJnpo4J00qnjBEMDRkt-fLsk1pOrPx7wph4ukM78viPfyGXJuurwWkgROvKdy9CqQ2Pvw4u7EQKbd4x9GGeasi-1mtbgHxnS7jrpqO9jQTQOlMtdN6aoPnxvaPGr8TNiJMmstZMUfXYmzzrVg5zew_hNSR4C3QqXLWb_IQMo0OVCcC?purpose=fullsize", "https://images.openai.com/static-rsc-4/cXQy47rzlKwfaQ1LcwwaA_xui0vO66f7wG_pMKbUR4lc1ZQFWpxl2k-EWY0r1Z5J2R5wfucO-UTP6arqh2xbh2qXPQ8OUefGBaXg4aYKcopQrdo-G_bPYGUzUPlDQzCQq1ckKm1I91gBIcYCtY9cCWbNd9aYP4-zs2gEaMPfAJeWaxNDz-jMT1MktC9OXbtA?purpose=fullsize", "https://images.openai.com/static-rsc-4/p_hpbPApytPFOTxLSBXgyAkY7UGNCGfqO5OT2299X_YaPBeK3JNyzVK8qaG6T7jP31XeKEYdnIs09fNhTXIKpEusvkfRzObdtXrTQXFd-4oK0i88MwQ2IPqD3ILUL3b2FzjBTgOjWVbw2dyjG5nJCHfraS-R0kbhA9yi9MtTGRRHWzNnj04PYKbXug7rbCh0?purpose=fullsize", "https://images.openai.com/static-rsc-4/y6fTWukMTmj7trWB00jQXT0_JU09DeCVHaIhrImczk-BR4Atp9HN8LnRL6vc0fY9BGnmZztOAleD0xzxYjr21WpwbkTJTW0yxzp4o15itbRNolhFjyZQsvOWuKSahvbSPJ9bK9DbiHwOwxmI3ed5J50PXdLtlM_CY0QcQCWqzxMdV7fEfCUYqSHjtWm6X0B4?purpose=fullsize", "https://images.openai.com/static-rsc-4/_Jo_dwEnf4YqicC-Ece5b_aUKrUl7Z7F9lklce_ZFMqzjLrgYVlqXDtdK8qem5Ja_w9q84VZui9Uemwe0OhB_p1tir5bXv9jhwSQSyQS3V3oVX4EM0uYLxB60TG9dc4WlbUZa7occQ2i35udOTNUiEeFlOraB9wzC2EDT3Qkzvw0uoru2bj-4UGTOlX0WgrP?purpose=fullsize", "https://images.openai.com/static-rsc-4/fz69zYDU51psINc5sNmmm6l6pAek0-VL9wMJM2BCYFtAMapzS-Sd8YNN-Jd6F-wwNA5BgOmv5TAebzsR1XGDO6AmiOGqztyX49Vu2cpIrBZwSD7_RM4xl-0pz9fowrN7UwQ0YGxnHLUnZ6AzQ0QQjHQBOOT1isaa8IopJTTl1gzgDGP0TLLxMNQvzwegVlQ4?purpose=fullsize", "https://images.openai.com/static-rsc-4/TiotGQwMU64Svt84wTP3HaAM1XKcADNLbOBUfsftek5zdCt6NMVsThcgjHDOTq5eD5nkhkmY_8eRpMWbgjff3LQJO7vYWMoZgDJOC_BwYZhwqFXQQBZuARi4jTePpZTfrFYZK-DWeOstjsxZ6C_MrKmgu8rfBYIOfB13WrkAJlqB5EnBWRUkLhyVK-UIubGJ?purpose=fullsize", "https://images.openai.com/static-rsc-4/DQhY4mPKXiH0wjkRxLSfT1hHvE0uXlp0GijQ1_dx4NoKvltXGUggEHppSS9EmwDMmFOuOuO36I9s9EB9O_qCnGbcTVH1caikuelqbvx3if6ct_jrLtUAimjG53_lJygJWeTM35yb9pUPT3dpH-9eC8b33oS-n2L033KwbYfEb6JSmzfWjCntQKLLGq3l37-k?purpose=fullsize", "https://images.openai.com/static-rsc-4/Jhcof9ORsKbMmc_Ezoi3MgZ65E6JdG6WeWzhK7kPi_aNXOegHwvEwr2dnqw-24-bhNC9YbVvDeQ6h2CjvuBEioiBwlxCZHYn4Ry3wvSsgVIritQ5EjPErmVVVb-yuc3dCMVEGB0rLSLrh27twMYLzsjoMvCJTm0TP0ChN2iyw1wLwlMzl6vEYrHm5LFfqhOs?purpose=fullsize", "https://images.openai.com/static-rsc-4/lqq5mhLAfJ7JccoNUnF247JwR3euR8tF--mpRVUaocAIJ6aY8KCn5uFXV_RumYvCb__l0Pp0LoPsG727odcLgp4VSf5xOxMH2CrwOVHKmK-QgcHX5QG77-9ERmGEt3h2o5YMA-ldauUhWwYAbGay4ltA3GH78GmW1zacohQdE7nN7lNeXu401vbArjAt_Gko?purpose=fullsize"],
+        notes: ["La machine est en panne. الآلة متعطلة. The machine is broken.", "Le convoyeur ne fonctionne plus. السير الناقل لم يعد يعمل. The conveyor belt has stopped working.", "Le chariot élévateur est en panne. الرافعة الشوكية معطلة. The forklift is out of order.", "Il y a un problème électrique. هناك مشكلة كهربائية. There is an electrical problem.", "La machine fait un bruit bizarre. الآلة تصدر صوتاً غريباً. The machine is making a strange noise.", "Il y a une fuite d'huile. هناك تسرب زيت. There is an oil leak.", "Le voyant rouge est allumé. ضوء التحذير الأحمر مضاء. The red warning light is on.", "Le bouton d'arrêt d'urgence est activé. زر التوقف الطارئ مفعّل. The emergency stop button is activated.", "Il faut arrêter la machine. يجب إيقاف الآلة. The machine must be stopped.", "Il ne faut pas redémarrer sans autorisation. يُمنع إعادة التشغيل دون إذن. Do not restart without authorization.", "Il faut appeler le service maintenance. يجب الاتصال بقسم الصيانة. We need to call the maintenance department."],
+        title: { ar: 'أعطال الآلات والمعدات – Pannes et dysfonctionnements', en: 'أعطال الآلات والمعدات – Pannes et dysfonctionnements', fr: 'أعطال الآلات والمعدات – Pannes et dysfonctionnements' },
+        phrases: [
+        ]
+      },
+      { icon: '🖥️',
+        notes: ["La palette est tombée. سقطت منصة البضائع. The pallet fell.", "Les cartons sont éparpillés par terre. الصناديق مبعثرة على الأرض. The boxes are scattered on the floor.", "La charge est instable. الحمولة غير مستقرة. The load is unstable.", "La palette est mal empilée. المنصة مكدسة بشكل سيئ. The pallet is stacked incorrectly.", "Il y a un risque de chute. هناك خطر السقوط. There is a risk of falling.", "Il faut sécuriser la zone avant d'intervenir. يجب تأمين المنطقة قبل التدخل. The area must be secured before intervening.", "Ne touche pas à cette machine. لا تلمس هذه الآلة. Don't touch this machine.", "Il faut signaler le danger. يجب الإبلاغ عن الخطر. The danger must be reported."],
+        title: { ar: 'سقوط البضائع والمشكلات داخل المستودع', en: 'سقوط البضائع والمشكلات داخل المستودع', fr: 'سقوط البضائع والمشكلات داخل المستودع' },
+        phrases: [
+        ]
+      },
+      { icon: '💬',
+        notes: ["هذا القسم مفيد للتعبير عن صعوبة أداء المهام، وخصوصاً عند حمل الأوزان والوقوف طويلاً.", "Je commence à être fatigué. بدأت أشعر بالتعب. I'm starting to feel tired.", "J'ai mal au dos. ظهري يؤلمني. My back hurts.", "J'ai mal aux épaules. كتفاي يؤلمانني. My shoulders hurt.", "J'ai mal aux genoux. ركبتاي تؤلمانني. My knees hurt.", "J'ai du mal à porter des charges lourdes. أجد صعوبة في حمل الأوزان الثقيلة. I have difficulty carrying heavy loads.", "Je ne peux pas rester debout trop longtemps. لا أستطيع الوقوف مدة طويلة. I can't stand for too long.", "Les gestes répétitifs me fatiguent. الحركات المتكررة ترهقني. Repetitive movements tire me out.", "J'ai besoin d'une pause. أحتاج إلى استراحة. I need a break.", "Cette tâche est trop physique pour moi. هذه المهمة مرهقة جسدياً بالنسبة لي. This task is too physically demanding for me.", "Je préfère éviter le port de charges lourdes. أفضل تجنب حمل الأوزان الثقيلة. I prefer to avoid lifting heavy loads.", "J'aimerais discuter d'un aménagement de mon poste. أود مناقشة تكييف منصب عملي. I would like to discuss workplace adjustments."],
+        title: { ar: 'التعب والألم أثناء العمل', en: 'التعب والألم أثناء العمل', fr: 'التعب والألم أثناء العمل' },
+        phrases: [
+        ]
+      },
+      { icon: '📚',
+        images: ["https://images.openai.com/static-rsc-4/A6qn3q1TexsmWDSv6S7tyI8fFlWLJvzh16XGkTQOc7pF8Zuf7BQxYlFNYOAt7Yn5Au8f4R-6-ayzdf2I1QC-1_tBW3YO1XP56qR4g8JrKwTCccnMjlHRnZ5atkfDhElx3qINp1rB4DSVbsxcDGDzKxqwmYOIH9U3Y-EIO2TTAiz-RJXpR14QtAeqJkuJoOIy?purpose=fullsize"],
+        notes: ["Je voudrais prendre rendez-vous avec la médecine du travail. أريد أخذ موعد مع طب العمل. I would like to make an appointment with occupational health.", "J'ai des difficultés à effectuer certaines tâches. أجد صعوبة في أداء بعض المهام. I have difficulty performing certain tasks.", "Mon travail est physiquement exigeant. عملي يتطلب مجهوداً بدنياً كبيراً. My job is physically demanding.", "Je travaille debout pendant plusieurs heures. أعمل واقفاً عدة ساعات. I work standing for several hours.", "Je dois porter des charges régulièrement. يجب عليّ حمل أوزان بشكل متكرر. I have to carry loads regularly.", "Je voudrais savoir si mon poste peut être adapté. أريد معرفة ما إذا كان يمكن تكييف منصبي. I would like to know whether my position can be adapted.", "Le médecin du travail peut proposer des aménagements. يمكن لطبيب العمل اقتراح تكييفات. The occupational health doctor can recommend adjustments.", "Je souhaite reprendre le travail dans de bonnes conditions. أرغب في العودة إلى العمل في ظروف مناسبة. I want to return to work under suitable conditions."],
+        title: { ar: 'طب العمل – Médecine du travail', en: 'طب العمل – Médecine du travail', fr: 'طب العمل – Médecine du travail' },
+        phrases: [
+        ]
+      },
+      { icon: '🧾',
+        notes: ["Je peux travailler à un poste moins physique ? هل يمكنني العمل في منصب أقل إجهاداً بدنياً؟ Can I work in a less physically demanding position?", "Est-ce qu'il est possible de limiter le port de charges ? هل يمكن الحد من حمل الأوزان؟ Is it possible to limit heavy lifting?", "J'aurais besoin d'alterner les tâches. سأحتاج إلى التناوب بين المهام. I would need to alternate tasks.", "J'aurais besoin de pauses régulières. سأحتاج إلى استراحات منتظمة. I would need regular breaks.", "Je peux travailler sur un poste de contrôle ? هل يمكنني العمل في قسم المراقبة؟ Can I work in an inspection position?", "Est-ce qu'il y a un poste adapté à mes capacités ? هل يوجد منصب يناسب قدراتي؟ Is there a position suited to my abilities?", "Je souhaite conserver mon emploi. أرغب في الاحتفاظ بعملي. I want to keep my job.", "Je suis prêt à apprendre un autre poste. أنا مستعد لتعلم منصب آخر. I'm willing to learn another position."],
+        title: { ar: 'تكييف العمل – Aménagement du poste', en: 'تكييف العمل – Aménagement du poste', fr: 'تكييف العمل – Aménagement du poste' },
+        phrases: [
+        ]
+      },
+      { icon: '📈',
+        notes: ["Magasinier : Excusez-moi, j'ai un problème. عامل المستودع: عذراً، لدي مشكلة. Warehouse worker: Excuse me, I have a problem.", "Chef d'équipe : Qu'est-ce qui se passe ? رئيس الفريق: ماذا حدث؟ Team leader: What's happening?", "Magasinier : Je me suis fait mal au dos en déplaçant une palette. عامل المستودع: شعرت بألم في ظهري أثناء نقل منصة. Warehouse worker: I hurt my back while moving a pallet.", "Chef d'équipe : Tu as très mal ? رئيس الفريق: هل الألم شديد؟ Team leader: Are you in a lot of pain?", "Magasinier : Oui, j'ai du mal à me pencher. عامل المستودع: نعم، أجد صعوبة في الانحناء. Warehouse worker: Yes, I have difficulty bending over.", "Chef d'équipe : Arrête ton activité et viens me voir. رئيس الفريق: أوقف عملك وتعال إليّ. Team leader: Stop working and come see me.", "Magasinier : D'accord, je voudrais consulter un médecin. عامل المستودع: حسناً، أريد مراجعة الطبيب. Warehouse worker: Okay, I'd like to see a doctor."],
+        title: { ar: 'حوار واقعي مع Chef d\'équipe بعد حادث', en: 'حوار واقعي مع Chef d\'équipe بعد حادث', fr: 'حوار واقعي مع Chef d\'équipe بعد حادث' },
+        phrases: [
+        ]
+      },
+      { icon: '🔑',
+        title: { ar: 'قاموس السلامة المهنية', en: 'قاموس السلامة المهنية', fr: 'قاموس السلامة المهنية' },
+        phrases: [
+          { fr: 'La sécurité', ar: 'السلامة', en: 'Safety' },
+          { fr: 'Un accident du travail', ar: 'حادث عمل', en: 'Workplace accident' },
+          { fr: 'Un blessé', ar: 'مصاب', en: 'Injured person' },
+          { fr: 'Une blessure', ar: 'إصابة', en: 'Injury' },
+          { fr: 'Une douleur', ar: 'ألم', en: 'Pain' },
+          { fr: 'Une chute', ar: 'سقوط', en: 'Fall' },
+          { fr: 'Une coupure', ar: 'جرح قطعي', en: 'Cut' },
+          { fr: 'Une brûlure', ar: 'حرق', en: 'Burn' },
+          { fr: 'Un équipement de protection', ar: 'معدات الحماية', en: 'Protective equipment' },
+          { fr: 'Les chaussures de sécurité', ar: 'أحذية السلامة', en: 'Safety shoes' },
+          { fr: 'Les gants', ar: 'القفازات', en: 'Gloves' },
+          { fr: 'Un casque', ar: 'خوذة', en: 'Helmet' },
+          { fr: 'Un arrêt d\'urgence', ar: 'توقف طارئ', en: 'Emergency stop' },
+          { fr: 'Une panne', ar: 'عطل', en: 'Breakdown' },
+          { fr: 'La maintenance', ar: 'الصيانة', en: 'Maintenance' },
+          { fr: 'La prévention', ar: 'الوقاية', en: 'Prevention' },
+          { fr: 'Un secouriste', ar: 'مسعف', en: 'First aider' },
+          { fr: 'La médecine du travail', ar: 'طب العمل', en: 'Occupational health' },
+          { fr: 'Un arrêt de travail', ar: 'إجازة مرضية', en: 'Sick leave' },
+          { fr: 'Un aménagement de poste', ar: 'تكييف منصب العمل', en: 'Workplace adjustment' },
+        ]
+      },
+      { icon: '♿',
+        notes: ["سنتعلم جميع العبارات المتعلقة بـ:", "عقد العمل CDI وCDD وIntérim.", "فترة التجربة Période d'essai.", "الراتب Salaire وSMIC.", "الراتب الصافي والإجمالي Brut / Net.", "قسيمة الراتب Fiche de paie.", "ساعات العمل والعمل الإضافي Heures supplémentaires.", "الإجازات والغياب Congés et absences.", "العمل الليلي والعمل في عطلة نهاية الأسبوع.", "التحدث مع RH والمسؤول عن الراتب.", "إنهاء العقد والاستقالة والبطالة France Travail."],
+        title: { ar: 'الدرس 11 القادم: العمل والعقود والرواتب في فرنسا – Magasinier', en: 'الدرس 11 القادم: العمل والعقود والرواتب في فرنسا – Magasinier', fr: 'الدرس 11 القادم: العمل والعقود والرواتب في فرنسا – Magasinier' },
         phrases: [
         ]
       },
