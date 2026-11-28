@@ -5194,6 +5194,92 @@ window.CENTRES_DATA = [
           { fr: 'Oui, cela peut être utile pour rechercher des calculs biliaires ou une anomalie du foie.', ar: 'نعم، قد يكون ذلك مفيداً للبحث عن حصوات المرارة أو أي تغير في الكبد.', en: 'Yes, it may help detect gallstones or an abnormality of the liver.' },
         ]
       },
+      { icon: '💊',
+        notes: ["التهاب الكبد B يُسمّى بالفرنسية Hépatite B، والدواء المناسب يعتمد على حالة المريض: هل العدوى حادة أم مزمنة؟ وهل يوجد نشاط للفيروس أو التهاب أو تليّف في الكبد؟", "معلومة مهمة: ليس كل شخص لديه التهاب الكبد B يحتاج إلى دواء. بعض الحالات تحتاج إلى متابعة دورية فقط، بينما الحالات التي تستدعي العلاج قد تُعالج بأدوية مضادة للفيروسات لفترة طويلة."],
+        title: { ar: 'أدوية التهاب الكبد B في فرنسا', en: 'أدوية التهاب الكبد B في فرنسا', fr: 'أدوية التهاب الكبد B في فرنسا' },
+        phrases: [
+        ]
+      },
+      { icon: '🧬',
+        images: ["https://images.openai.com/static-rsc-4/6F5H60K-ZaACkKuBlNQ3StocXIIIx0_7-YlFSpH0RCcBsJl6w5evjnN_XzRtBdyMVWimPDpv7gN2HK2e1GYDxiNZSedA19TkT8IjSrk1Cc5nvDCzGSqQT37qxu0Kz6nI0vi80VjXVDScGdSsykFh12E4pxehFRiTLAVyioi-pNHGmmKT_AXRDoxy5PMkTH06?purpose=fullsize"],
+        notes: ["الاسم العلمي: Ténofovir disoproxil fumarate — اسم تجاري معروف: Viread، وتوجد أدوية جنيسة (Génériques)."],
+        title: { ar: 'Ténofovir disoproxil fumarate (TDF)', en: 'Ténofovir disoproxil fumarate (TDF)', fr: 'Ténofovir disoproxil fumarate (TDF)' },
+        phrases: [
+          { fr: 'Le ténofovir est un médicament antiviral utilisé contre l\'hépatite B chronique.', ar: 'التينوفوفير دواء مضاد للفيروسات يُستخدم لعلاج التهاب الكبد B المزمن.', en: 'Tenofovir is an antiviral medicine used to treat chronic hepatitis B.' },
+          { fr: 'Je prends du ténofovir tous les jours.', ar: 'أتناول التينوفوفير يومياً.', en: 'I take tenofovir every day.' },
+          { fr: 'Mon médecin m\'a prescrit du ténofovir.', ar: 'وصف لي الطبيب التينوفوفير.', en: 'My doctor prescribed tenofovir.' },
+        ]
+      },
+      { icon: '💉',
+        images: ["https://images.openai.com/static-rsc-4/MTc7_G10Kdxgx1E6NbaMiS3demp9hnI7TGjkNXXFMM4O7zcz9YHfIjoog4xFgIbOv7juTENfjMxr6JXWGf5jNHWx5nPTZbNlCD_tUagfrkjW386Am3kydTnwoSOIBBpsn483rIosbPTbrEBVwu2NqvaDXMliIaB2D1NqW9LwaE8gGvIXezuM6q_cmppuGyTD?purpose=fullsize"],
+        notes: ["الاسم العلمي: Entécavir — اسم تجاري معروف: Baraclude، وتوجد أدوية جنيسة."],
+        title: { ar: 'Entécavir (ETV)', en: 'Entécavir (ETV)', fr: 'Entécavir (ETV)' },
+        phrases: [
+          { fr: 'L\'entécavir est un antiviral utilisé dans le traitement de l\'hépatite B chronique.', ar: 'الإنتيكافير دواء مضاد للفيروسات يُستخدم لعلاج التهاب الكبد B المزمن.', en: 'Entecavir is an antiviral medicine used to treat chronic hepatitis B.' },
+          { fr: 'Je suis sous traitement par entécavir.', ar: 'أنا أتلقى علاجاً بالإنتيكافير.', en: 'I am receiving treatment with entecavir.' },
+          { fr: 'Est-ce que je dois prendre ce médicament à jeun ?', ar: 'هل يجب أن أتناول هذا الدواء على معدة فارغة؟', en: 'Should I take this medicine on an empty stomach?' },
+        ]
+      },
+      { icon: '🧪',
+        notes: ["الاسم العلمي: Ténofovir alafénamide — الاسم التجاري: Vemlidy.", "ملاحظة: وضع توافر هذا الدواء وتعويض تكلفته في فرنسا قد يختلف عن الأدوية الأخرى، ويحدده الطبيب والصيدلي."],
+        title: { ar: 'Ténofovir alafénamide (TAF)', en: 'Ténofovir alafénamide (TAF)', fr: 'Ténofovir alafénamide (TAF)' },
+        phrases: [
+          { fr: 'Le ténofovir alafénamide est une autre forme de ténofovir.', ar: 'التينوفوفير ألافيناميد شكل آخر من التينوفوفير.', en: 'Tenofovir alafenamide is another form of tenofovir.' },
+          { fr: 'Le choix dépend notamment de la fonction rénale et de l\'état des os.', ar: 'يعتمد الاختيار خصوصاً على وظائف الكلى وحالة العظام.', en: 'The choice depends in particular on kidney function and bone health.' },
+        ]
+      },
+      { icon: '🏥',
+        images: ["https://images.openai.com/static-rsc-4/FPZ-Z3Rnh_U5hDR2zwXR8mWgQX-gkAYvElwsekHD0WHIQ9RL3S_kaHX4HGQJv9Q3aE8tIgGcLk8fio0WTdLEfjwcRXNE13aIMC-gOli9yDPTFL4Akk3ToTxHDaPw3pfrt4wzvknsShqEmz9AjJYg6hqe6kSVTOrgB9G_9_YSZj990HQPuXITrgoUSDYYt9hA?purpose=fullsize"],
+        notes: ["هذا العلاج له مدة محددة غالباً، لكنه ليس مناسباً للجميع، ويحتاج إلى متابعة اختصاصي. تُعدّ الأدوية الأساسية المفضلة في فرنسا عادةً الإنتيكافير والتينوفوفير ديسوبروكسيل، وفق الحالة الطبية."],
+        title: { ar: 'Interféron pégylé alfa-2a', en: 'Interféron pégylé alfa-2a', fr: 'Interféron pégylé alfa-2a' },
+        phrases: [
+          { fr: 'L\'interféron pégylé alfa-2a est administré par injection sous-cutanée.', ar: 'الإنترفيرون طويل المفعول ألفا 2a يُعطى عن طريق الحقن تحت الجلد.', en: 'Pegylated interferon alfa-2a is administered by subcutaneous injection.' },
+          { fr: 'Le traitement est réservé à certains patients.', ar: 'هذا العلاج مخصص لبعض المرضى فقط.', en: 'This treatment is reserved for selected patients.' },
+          { fr: 'Il peut provoquer des effets secondaires importants.', ar: 'قد يسبب آثاراً جانبية مهمة.', en: 'It can cause significant side effects.' },
+        ]
+      },
+      { icon: '📋',
+        notes: ["في الحالات الحادة الشديدة أو الخطيرة قد يحتاج المريض إلى علاج في المستشفى."],
+        title: { ar: 'هل التهاب الكبد B الحاد يحتاج إلى دواء؟', en: 'هل التهاب الكبد B الحاد يحتاج إلى دواء؟', fr: 'هل التهاب الكبد B الحاد يحتاج إلى دواء؟' },
+        phrases: [
+          { fr: 'La plupart des adultes atteints d\'une hépatite B aiguë guérissent spontanément.', ar: 'معظم البالغين المصابين بالتهاب الكبد B الحاد يتعافون تلقائياً.', en: 'Most adults with acute hepatitis B recover spontaneously.' },
+          { fr: 'Il n\'y a généralement pas de traitement antiviral spécifique.', ar: 'لا يوجد عادة علاج مضاد للفيروسات مخصص لهذه الحالة.', en: 'There is generally no specific antiviral treatment.' },
+          { fr: 'Une surveillance médicale et biologique est nécessaire.', ar: 'تلزم متابعة طبية ومخبرية.', en: 'Medical and laboratory monitoring is necessary.' },
+        ]
+      },
+      { icon: '🩺',
+        notes: ["إيقاف الدواء من تلقاء نفسك قد يؤدي إلى عودة نشاط الفيروس وحدوث التهاب في الكبد."],
+        title: { ar: 'هل العلاج مدى الحياة؟', en: 'هل العلاج مدى الحياة؟', fr: 'هل العلاج مدى الحياة؟' },
+        phrases: [
+          { fr: 'Le traitement de l\'hépatite B chronique peut être de très longue durée.', ar: 'قد يستمر علاج التهاب الكبد B المزمن مدة طويلة جداً.', en: 'Treatment for chronic hepatitis B may be very long-term.' },
+          { fr: 'Certains patients doivent prendre leur traitement à vie.', ar: 'بعض المرضى يحتاجون إلى تناول العلاج مدى الحياة.', en: 'Some patients need lifelong treatment.' },
+          { fr: 'N\'arrêtez jamais votre traitement sans l\'avis de votre hépatologue.', ar: 'لا توقف علاجك أبداً دون استشارة طبيب الكبد.', en: 'Never stop your treatment without your hepatologist\'s advice.' },
+        ]
+      },
+      { icon: '🦠',
+        title: { ar: 'التحاليل التي يطلبها الطبيب أثناء العلاج', en: 'التحاليل التي يطلبها الطبيب أثناء العلاج', fr: 'التحاليل التي يطلبها الطبيب أثناء العلاج' },
+        phrases: [
+          { fr: 'Nous allons contrôler la charge virale du virus de l\'hépatite B.', ar: 'سنراقب الحمولة الفيروسية لالتهاب الكبد B.', en: 'We will monitor the hepatitis B viral load.' },
+          { fr: 'Les ALAT permettent d\'évaluer l\'inflammation du foie.', ar: 'تساعد إنزيمات ALAT في تقييم التهاب الكبد.', en: 'ALT helps assess liver inflammation.' },
+          { fr: 'Nous allons vérifier les ASAT.', ar: 'سنفحص إنزيمات ASAT.', en: 'We will check AST levels.' },
+          { fr: 'Nous allons contrôler l\'antigène HBs.', ar: 'سنراقب مستضد سطح فيروس التهاب الكبد B.', en: 'We will check the hepatitis B surface antigen.' },
+          { fr: 'L\'antigène HBe fait partie du bilan virologique.', ar: 'مستضد HBe جزء من الفحوصات الفيروسية.', en: 'HBe antigen is part of the viral assessment.' },
+          { fr: 'Il faut surveiller la fonction rénale pendant le traitement.', ar: 'يجب مراقبة وظائف الكلى أثناء العلاج.', en: 'Kidney function must be monitored during treatment.' },
+          { fr: 'Nous allons évaluer la fibrose du foie avec un FibroScan.', ar: 'سنقيّم تليّف الكبد باستخدام جهاز FibroScan.', en: 'We will assess liver fibrosis using FibroScan.' },
+        ]
+      },
+      { icon: '💊',
+        notes: ["لا تتناول أدوية أو أعشاباً أو مكملات جديدة دون سؤال الطبيب أو الصيدلي، لأن بعضها قد يؤثر على الكبد أو يتداخل مع العلاج."],
+        title: { ar: 'عبارات مهمة في الصيدلية والطبيب', en: 'عبارات مهمة في الصيدلية والطبيب', fr: 'عبارات مهمة في الصيدلية والطبيب' },
+        phrases: [
+          { fr: 'Je viens renouveler mon traitement contre l\'hépatite B.', ar: 'جئت لتجديد علاجي ضد التهاب الكبد B.', en: 'I have come to renew my hepatitis B treatment.' },
+          { fr: 'Il me reste seulement quelques comprimés.', ar: 'لم يتبقَّ لدي سوى بضعة أقراص.', en: 'I only have a few tablets left.' },
+          { fr: 'J\'ai oublié de prendre mon médicament hier.', ar: 'نسيت تناول دوائي أمس.', en: 'I forgot to take my medicine yesterday.' },
+          { fr: 'Est-ce que ce médicament peut affecter les reins ?', ar: 'هل يمكن أن يؤثر هذا الدواء على الكلى؟', en: 'Can this medicine affect the kidneys?' },
+          { fr: 'Est-ce que je peux prendre du paracétamol avec mon traitement ?', ar: 'هل يمكنني تناول الباراسيتامول مع علاجي؟', en: 'Can I take paracetamol with my treatment?' },
+          { fr: 'Est-ce que je peux prendre des compléments alimentaires ?', ar: 'هل يمكنني تناول المكملات الغذائية؟', en: 'Can I take dietary supplements?' },
+        ]
+      },
     ]
   },
 
