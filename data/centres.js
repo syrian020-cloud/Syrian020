@@ -5282,6 +5282,295 @@ window.CENTRES_DATA = [
       },
     ]
   },
+  {
+    id: 'mdph',
+    icon: '♿',
+    name: { ar: 'MDPH والإعاقة', en: 'MDPH & disability', fr: 'MDPH et handicap' },
+    desc: { ar: 'طلبات MDPH وحقوق الأشخاص ذوي الإعاقة في فرنسا: AAH وRQTH وCMI وPCH وتعبئة الملف', en: 'MDPH applications and disability rights in France', fr: "Dossiers MDPH et droits des personnes handicapées en France" },
+    sections: [
+      { icon: '♿',
+        notes: ["MDPH اختصار لـ Maison Départementale des Personnes Handicapées، أي الدار أو الهيئة الإدارية الإقليمية المختصة بشؤون الأشخاص ذوي الإعاقة. هي جهة تساعد الأشخاص الذين لديهم إعاقة أو صعوبات صحية تؤثر بصورة مستمرة على حياتهم اليومية أو قدرتهم على العمل أو الدراسة أو الاستقلالية.", "مهم: ليس ضرورياً أن تكون الإعاقة ظاهرة أو أن تستخدم كرسياً متحركاً حتى تتقدم بطلب. بعض الأمراض المزمنة قد تبرر دراسة الملف إذا كانت آثارها الوظيفية مهمة ومستمرة. لكن وجود مرض أو تشخيص وحده لا يضمن قبول الطلب؛ القرار يعتمد على تأثير الحالة على الحياة اليومية ومعايير كل حق."],
+        title: { ar: 'الدليل الشامل لـ MDPH في فرنسا', en: 'الدليل الشامل لـ MDPH في فرنسا', fr: 'الدليل الشامل لـ MDPH في فرنسا' },
+        phrases: [
+        ]
+      },
+      { icon: '💶',
+        notes: ["مساعدة مالية شهرية. من أهم الشروط الطبية: نسبة عجز 80% أو أكثر، أو نسبة بين 50% و79% مع وجود قيد كبير ومستمر على الوصول إلى العمل. وهناك أيضاً شروط إدارية ومالية، مثل الإقامة والسن والموارد. لا تعني نسبة العجز وحدها أن الإعانة ستُمنح تلقائياً."],
+        title: { ar: 'AAH – Allocation aux adultes handicapés', en: 'AAH – Allocation aux adultes handicapés', fr: 'AAH – Allocation aux adultes handicapés' },
+        phrases: [
+          { fr: 'L\'AAH est une allocation destinée aux adultes en situation de handicap.', ar: 'إعانة مالية مخصصة للبالغين ذوي الإعاقة.', en: 'AAH is a financial allowance for adults with disabilities.' },
+          { fr: 'Elle permet de garantir un revenu minimum sous certaines conditions.', ar: 'تساعد على تأمين حد أدنى من الدخل وفق شروط معينة.', en: 'It helps provide a minimum income under certain conditions.' },
+        ]
+      },
+      { icon: '💼',
+        notes: ["الاعتراف بالإعاقة في العمل. هذه من أهم الحقوق إذا كنت تعمل أو تبحث عن عمل أو تريد الالتحاق بتكوين مهني. قد تساعدك على: تكييف ساعات العمل، تغيير طبيعة بعض المهام، الحصول على تجهيزات مناسبة، الاستفادة من دعم التوظيف، تسهيل الاحتفاظ بالعمل عند وجود صعوبات صحية، والاستفادة من خدمات Cap emploi."],
+        title: { ar: 'RQTH – Reconnaissance de la qualité de travailleur handicapé', en: 'RQTH – Reconnaissance de la qualité de travailleur handicapé', fr: 'RQTH – Reconnaissance de la qualité de travailleur handicapé' },
+        phrases: [
+          { fr: 'Je souhaite obtenir une reconnaissance de la qualité de travailleur handicapé.', ar: 'أريد الحصول على اعتراف بصفتي عاملاً من ذوي الإعاقة.', en: 'I would like to obtain official recognition as a disabled worker.' },
+          { fr: 'J\'ai des problèmes de santé qui rendent certaines tâches professionnelles difficiles.', ar: 'لدي مشاكل صحية تجعل بعض المهام المهنية صعبة.', en: 'I have health problems that make certain work tasks difficult.' },
+        ]
+      },
+      { icon: '🚌',
+        images: ["https://images.openai.com/static-rsc-4/Ki5R1k3jat3UZ3454NjOW10Be0wjcFG-2K6umfqqXHZoR6_VNZnUNAJgZEbpsM_gMEIoFsOhgj-L07XmVNoN8pmvXbkkNiJAnAT6oxszh7DgyGfXNXyXMNeGVD1UBtZT6XZN-un8oI3N6fgLumDuzX4jHeqijOF0EmRju_3242eqzqDEn9cupmF75Tp6ShF-?purpose=fullsize"],
+        notes: ["بطاقة التنقل والإدماج، ولها ثلاثة أنواع: CMI Invalidité تُمنح وفق شروط محددة منها عادة نسبة عجز لا تقل عن 80%، CMI Priorité قد تمنح أولوية في الطوابير وأماكن الجلوس، وCMI Stationnement تسمح باستخدام مواقف السيارات المخصصة."],
+        title: { ar: 'CMI – Carte mobilité inclusion', en: 'CMI – Carte mobilité inclusion', fr: 'CMI – Carte mobilité inclusion' },
+        phrases: [
+          { fr: 'Carte mobilité inclusion – mention invalidité.', ar: 'بطاقة التنقل مع إشارة الإعاقة.', en: 'Mobility inclusion card – disability category.' },
+          { fr: 'Carte mobilité inclusion – mention priorité.', ar: 'بطاقة الأولوية.', en: 'Mobility inclusion card – priority category.' },
+          { fr: 'Carte mobilité inclusion – mention stationnement.', ar: 'بطاقة مواقف السيارات المخصصة للأشخاص ذوي الإعاقة.', en: 'Mobility inclusion card – parking category.' },
+        ]
+      },
+      { icon: '🤝',
+        notes: ["تعويض تكاليف مرتبطة بالإعاقة."],
+        title: { ar: 'PCH – Prestation de compensation du handicap', en: 'PCH – Prestation de compensation du handicap', fr: 'PCH – Prestation de compensation du handicap' },
+        phrases: [
+          { fr: 'La PCH permet de financer certaines dépenses liées au handicap.', ar: 'تساعد PCH على تغطية بعض النفقات المرتبطة بالإعاقة.', en: 'PCH helps cover certain disability-related expenses.' },
+          { fr: 'Aide humaine.', ar: 'المساعدة البشرية، مثل المساعدة المنزلية.', en: 'Personal assistance.' },
+          { fr: 'Aides techniques.', ar: 'الأجهزة والمعدات المساعدة.', en: 'Assistive equipment.' },
+          { fr: 'Aménagement du logement.', ar: 'تهيئة المنزل.', en: 'Home adaptations.' },
+          { fr: 'Aménagement du véhicule.', ar: 'تعديل السيارة.', en: 'Vehicle adaptations.' },
+          { fr: 'Aides spécifiques ou exceptionnelles.', ar: 'مساعدات خاصة أو استثنائية.', en: 'Specific or exceptional assistance.' },
+        ]
+      },
+      { icon: '🏠',
+        notes: ["قد تُمنح لبعض المستفيدين من AAH أو ASI الذين يستوفون شروطاً إضافية، مثل نسبة العجز والسكن المستقل والحصول على مساعدة سكنية وعدم وجود دخل مهني. ليست تلقائية لكل مستفيد من AAH."],
+        title: { ar: 'MVA – Majoration pour la vie autonome', en: 'MVA – Majoration pour la vie autonome', fr: 'MVA – Majoration pour la vie autonome' },
+        phrases: [
+          { fr: 'La majoration pour la vie autonome.', ar: 'زيادة مالية للمساعدة على الاستقلالية في الحياة.', en: 'Supplement for independent living.' },
+        ]
+      },
+      { icon: '👶',
+        title: { ar: 'حقوق أخرى: للأطفال والتوجيه المهني', en: 'حقوق أخرى: للأطفال والتوجيه المهني', fr: 'حقوق أخرى: للأطفال والتوجيه المهني' },
+        phrases: [
+          { fr: 'AEEH – Allocation d\'éducation de l\'enfant handicapé.', ar: 'إعانة تعليم الطفل ذي الإعاقة.', en: 'Allowance for the education of a disabled child.' },
+          { fr: 'PPS – Projet personnalisé de scolarisation.', ar: 'مشروع تعليمي مدرسي مخصص.', en: 'Individualised schooling plan.' },
+          { fr: 'AESH – Accompagnant d\'élève en situation de handicap.', ar: 'مرافق مدرسي للتلميذ ذي الإعاقة.', en: 'Special educational needs assistant.' },
+          { fr: 'Orientation professionnelle.', ar: 'التوجيه المهني.', en: 'Vocational guidance.' },
+          { fr: 'Formation professionnelle adaptée.', ar: 'تدريب مهني ملائم للحالة.', en: 'Adapted vocational training.' },
+          { fr: 'Orientation vers un établissement spécialisé.', ar: 'التوجيه إلى مؤسسة متخصصة.', en: 'Referral to a specialised facility.' },
+        ]
+      },
+      { icon: '📋',
+        notes: ["يمكن أن يتقدم الشخص الذي يعاني من إعاقة أو مرض أو اضطراب يؤثر بصورة مهمة على حياته اليومية. هل المرض وحده يكفي؟ لا. تنظر MDPH إلى تأثير المرض على قدرتك على الحركة والعمل والنظافة الشخصية والتسوق وإعداد الطعام والتنقل والاستقلالية، وليس إلى اسم المرض فقط."],
+        title: { ar: 'من يحق له تقديم طلب MDPH؟', en: 'من يحق له تقديم طلب MDPH؟', fr: 'من يحق له تقديم طلب MDPH؟' },
+        phrases: [
+          { fr: 'Maladie chronique.', ar: 'مرض مزمن.', en: 'Chronic illness.' },
+          { fr: 'Maladie neurologique.', ar: 'مرض عصبي.', en: 'Neurological disease.' },
+          { fr: 'Maladie psychiatrique.', ar: 'مرض نفسي.', en: 'Psychiatric condition.' },
+          { fr: 'Handicap moteur.', ar: 'إعاقة حركية.', en: 'Physical disability.' },
+          { fr: 'Troubles cognitifs.', ar: 'اضطرابات معرفية.', en: 'Cognitive disorders.' },
+          { fr: 'Déficience visuelle ou auditive.', ar: 'ضعف البصر أو السمع.', en: 'Visual or hearing impairment.' },
+          { fr: 'Maladie invalidante.', ar: 'مرض يسبب عجزاً أو قيوداً كبيرة.', en: 'Disabling illness.' },
+        ]
+      },
+      { icon: '📄',
+        title: { ar: 'كيف تقدم طلب MDPH من البداية إلى النهاية؟', en: 'كيف تقدم طلب MDPH من البداية إلى النهاية؟', fr: 'كيف تقدم طلب MDPH من البداية إلى النهاية؟' },
+        phrases: [
+          { fr: 'Je voudrais déposer un dossier à la MDPH.', ar: 'أريد تقديم ملف إلى MDPH.', en: 'I would like to submit an application to the MDPH.' },
+          { fr: 'Je dois remplir le formulaire de demande MDPH.', ar: 'يجب أن أملأ استمارة طلب MDPH.', en: 'I need to fill in the MDPH application form.' },
+          { fr: 'Je dois faire remplir le certificat médical par mon médecin.', ar: 'يجب أن يملأ طبيبي الشهادة الطبية.', en: 'I need my doctor to complete the medical certificate.' },
+          { fr: 'Je dois joindre mes comptes rendus médicaux.', ar: 'يجب أن أرفق تقاريري الطبية.', en: 'I need to attach my medical reports.' },
+          { fr: 'Je souhaite déposer mon dossier complet.', ar: 'أريد إيداع ملفي كاملاً.', en: 'I would like to submit my complete application.' },
+          { fr: 'Je voudrais connaître l\'état d\'avancement de mon dossier.', ar: 'أريد معرفة مراحل تقدم ملفي.', en: 'I would like to know the progress of my application.' },
+          { fr: 'J\'ai reçu la notification de la MDPH.', ar: 'استلمت قرار MDPH.', en: 'I received the MDPH decision letter.' },
+        ]
+      },
+      { icon: '🩺',
+        notes: ["الشهادة الطبية يجب أن تكون عادةً أقل من 12 شهراً، وتُرفق بالاستمارة. وقد تحتاج إلى وثائق طبية إضافية بحسب الحالة. النماذج الرسمية على monparcourshandicap.gouv.fr: استمارة Cerfa 15692*01 والشهادة الطبية Cerfa 15695*01."],
+        title: { ar: 'الأوراق المطلوبة للملف', en: 'الأوراق المطلوبة للملف', fr: 'الأوراق المطلوبة للملف' },
+        phrases: [
+          { fr: 'Le formulaire de demande.', ar: 'استمارة الطلب.', en: 'Application form.' },
+          { fr: 'Le certificat médical doit être rempli par votre médecin.', ar: 'يجب أن يملأ الطبيب الشهادة الطبية.', en: 'The medical certificate must be completed by your doctor.' },
+          { fr: 'Une copie de ma pièce d\'identité recto verso.', ar: 'نسخة من وجهي وثيقة الهوية.', en: 'A copy of both sides of my identity document.' },
+          { fr: 'Un justificatif de domicile récent.', ar: 'إثبات سكن حديث.', en: 'Recent proof of address.' },
+          { fr: 'Mes comptes rendus médicaux et mes examens.', ar: 'تقاريري الطبية ونتائج فحوصاتي.', en: 'My medical reports and test results.' },
+          { fr: 'Une lettre expliquant mes difficultés au quotidien.', ar: 'رسالة تشرح الصعوبات التي أواجهها في حياتي اليومية.', en: 'A letter explaining my daily difficulties.' },
+        ]
+      },
+      { icon: '📞',
+        notes: ["هذا من أهم أجزاء الملف. لا تكتفِ بكتابة اسم المرض، اشرح كيف يؤثر على يومك. اكتب فقط الصعوبات التي تعاني منها فعلاً، واذكر مدى تكرارها ومدتها وما تحتاجه من مساعدة."],
+        title: { ar: 'كيف تشرح حالتك في الملف الطبي؟', en: 'كيف تشرح حالتك في الملف الطبي؟', fr: 'كيف تشرح حالتك في الملف الطبي؟' },
+        phrases: [
+          { fr: 'J\'ai des difficultés à marcher longtemps.', ar: 'أجد صعوبة في المشي لفترة طويلة.', en: 'I have difficulty walking for long periods.' },
+          { fr: 'Je ne peux pas effectuer certaines tâches professionnelles.', ar: 'لا أستطيع القيام ببعض المهام المهنية.', en: 'I cannot perform certain work tasks.' },
+          { fr: 'Je souffre d\'une fatigue importante et persistante.', ar: 'أعاني من تعب شديد ومستمر.', en: 'I suffer from severe and persistent fatigue.' },
+          { fr: 'J\'ai besoin d\'aide pour certaines activités quotidiennes.', ar: 'أحتاج إلى مساعدة في بعض الأنشطة اليومية.', en: 'I need help with certain daily activities.' },
+          { fr: 'Mes problèmes de santé limitent mon autonomie.', ar: 'مشاكلي الصحية تحد من استقلاليتي.', en: 'My health problems limit my independence.' },
+          { fr: 'Je dois consulter régulièrement plusieurs spécialistes.', ar: 'يجب أن أراجع عدة أطباء اختصاصيين بانتظام.', en: 'I have to see several specialists regularly.' },
+        ]
+      },
+      { icon: '⏱️',
+        title: { ar: 'ماذا يحدث بعد تقديم الملف؟', en: 'ماذا يحدث بعد تقديم الملف؟', fr: 'ماذا يحدث بعد تقديم الملف؟' },
+        phrases: [
+          { fr: 'L\'équipe pluridisciplinaire étudie mon dossier.', ar: 'الفريق متعدد التخصصات يدرس ملفي.', en: 'The multidisciplinary team reviews my application.' },
+          { fr: 'L\'équipe évalue mes besoins et mes difficultés.', ar: 'يقيّم الفريق احتياجاتي والصعوبات التي أواجهها.', en: 'The team assesses my needs and difficulties.' },
+          { fr: 'La CDAPH prend les décisions concernant mes droits.', ar: 'لجنة حقوق واستقلالية الأشخاص ذوي الإعاقة تتخذ القرارات المتعلقة بحقوقي.', en: 'The CDAPH makes decisions about my entitlements.' },
+          { fr: 'Je recevrai une notification écrite.', ar: 'سأستلم قراراً مكتوباً.', en: 'I will receive a written decision.' },
+        ]
+      },
+      { icon: '⚖️',
+        notes: ["المدة القانونية المرجعية لمعالجة الطلب هي أربعة أشهر، لكن المدة الفعلية تختلف من قسم إلى آخر ومن ملف إلى آخر. في جيروند نشرت MDPH33 أن متوسط المعالجة كان شهرين وثلاثة أيام — أرقام تاريخية وليست ضماناً لمدة ملفك."],
+        title: { ar: 'كم يستغرق الرد؟', en: 'كم يستغرق الرد؟', fr: 'كم يستغرق الرد؟' },
+        phrases: [
+        ]
+      },
+      { icon: '📍',
+        notes: ["غالباً يجب تقديم RAPO خلال شهرين من استلام القرار، مع اتباع التعليمات الخاصة بالحق الذي تم رفضه. بعد ذلك يمكن، عند استمرار الرفض، اللجوء إلى المحكمة المختصة ضمن المهل المذكورة في القرار. لا تهمل رسالة الرفض لأنها توضح طريقة الاعتراض والجهة المختصة."],
+        title: { ar: 'إذا رُفض طلبك، ماذا تفعل؟', en: 'إذا رُفض طلبك، ماذا تفعل؟', fr: 'إذا رُفض طلبك، ماذا تفعل؟' },
+        phrases: [
+          { fr: 'Je souhaite contester la décision de la MDPH.', ar: 'أريد الاعتراض على قرار MDPH.', en: 'I want to challenge the MDPH decision.' },
+          { fr: 'Je demande un réexamen de mon dossier.', ar: 'أطلب إعادة دراسة ملفي.', en: 'I request a review of my application.' },
+        ]
+      },
+      { icon: '📚',
+        images: ["https://images.openai.com/static-rsc-4/3JO1Cz9ytXMcsr9n3_lLviLYUISFU2YBYdjT6xRKUuXTIUAJB8AV2-V7OVkGP66bRC8ENLP095H6-ih-x_VhQyPFXNbJoAFmbTtV1eVWBcBIs6KRLYUchPN9766f0vaOBQRH5IcR-eWD9GUV_hEorM9OLdCLzTWiu8qgXN356XRs6L7uOutSo48DfdEqt_Rj?purpose=fullsize"],
+        notes: ["MDPH de la Gironde – MDPH33. الموقع الرسمي: mdph33.fr — الهاتف: 05 56 99 66 99. يمكن الحصول على المعلومات والمساعدة في تقديم الملف من نقاط الاستقبال المحلية. في Bordeaux يوجد استقبال قريب عبر Comptoir des aidants – CLIC de Bordeaux، في Cité municipale، 4 rue Claude Bonnier، 33045 Bordeaux، وهو مخصص لسكان مدينة Bordeaux."],
+        title: { ar: 'إذا كنت في Bordeaux أو Gironde', en: 'إذا كنت في Bordeaux أو Gironde', fr: 'إذا كنت في Bordeaux أو Gironde' },
+        phrases: [
+          { fr: 'Bonjour, je voudrais des renseignements concernant une demande MDPH.', ar: 'مرحباً، أريد معلومات بخصوص تقديم طلب إلى MDPH.', en: 'Hello, I would like information about applying to the MDPH.' },
+          { fr: 'Est-ce que je peux être accompagné pour remplir mon dossier ?', ar: 'هل يمكن أن أحصل على مساعدة في تعبئة ملفي؟', en: 'Can I get help completing my application?' },
+          { fr: 'Est-ce que je peux prendre rendez-vous avec un travailleur social ?', ar: 'هل يمكنني حجز موعد مع مساعد اجتماعي؟', en: 'Can I make an appointment with a social worker?' },
+        ]
+      },
+      { icon: '📝',
+        title: { ar: 'أهم المفردات الإدارية التي يجب أن تعرفها', en: 'أهم المفردات الإدارية التي يجب أن تعرفها', fr: 'أهم المفردات الإدارية التي يجب أن تعرفها' },
+        phrases: [
+          { fr: 'Handicap —', ar: 'الإعاقة —', en: 'Disability.' },
+          { fr: 'Personne en situation de handicap —', ar: 'شخص من ذوي الإعاقة —', en: 'Person with a disability.' },
+          { fr: 'Dossier MDPH —', ar: 'ملف MDPH —', en: 'MDPH application.' },
+          { fr: 'Première demande —', ar: 'طلب أول —', en: 'First application.' },
+          { fr: 'Renouvellement —', ar: 'تجديد —', en: 'Renewal.' },
+          { fr: 'Réévaluation —', ar: 'إعادة التقييم —', en: 'Reassessment.' },
+          { fr: 'Taux d\'incapacité —', ar: 'نسبة العجز —', en: 'Disability rate.' },
+          { fr: 'Décision favorable —', ar: 'قرار إيجابي —', en: 'Positive decision.' },
+          { fr: 'Refus —', ar: 'رفض —', en: 'Refusal.' },
+          { fr: 'Recours —', ar: 'اعتراض أو طعن —', en: 'Appeal.' },
+          { fr: 'Droit ouvert —', ar: 'تم فتح الحق والاستحقاق —', en: 'Entitlement granted.' },
+          { fr: 'Durée d\'attribution —', ar: 'مدة منح الاستحقاق —', en: 'Award period.' },
+          { fr: 'Date d\'échéance —', ar: 'تاريخ انتهاء الصلاحية —', en: 'Expiry date.' },
+          { fr: 'Justificatif —', ar: 'وثيقة إثبات —', en: 'Supporting document.' },
+          { fr: 'Accusé de réception —', ar: 'إشعار استلام —', en: 'Acknowledgement of receipt.' },
+          { fr: 'Travailleur social —', ar: 'مساعد اجتماعي —', en: 'Social worker.' },
+        ]
+      },
+      { icon: '🪪',
+        title: { ar: 'تعبئة استمارة MDPH Cerfa 15692*01: عنوان الاستمارة', en: 'تعبئة استمارة MDPH Cerfa 15692*01: عنوان الاستمارة', fr: 'تعبئة استمارة MDPH Cerfa 15692*01: عنوان الاستمارة' },
+        phrases: [
+          { fr: 'Formulaire de demande auprès de la MDPH.', ar: 'استمارة تقديم طلب لدى MDPH.', en: 'Application form for the MDPH.' },
+          { fr: 'Demande relative à un parcours de vie.', ar: 'طلب يتعلق بمسار الحياة والاحتياجات الشخصية.', en: 'Application relating to a person\'s life circumstances.' },
+          { fr: 'Première demande.', ar: 'طلب لأول مرة.', en: 'First application.' },
+          { fr: 'Demande de renouvellement.', ar: 'طلب تجديد.', en: 'Renewal application.' },
+          { fr: 'Demande de révision de mes droits.', ar: 'طلب مراجعة حقوقي.', en: 'Request to review my entitlements.' },
+        ]
+      },
+      { icon: '🏘️',
+        title: { ar: 'القسم A: معلوماتك الشخصية', en: 'القسم A: معلوماتك الشخصية', fr: 'القسم A: معلوماتك الشخصية' },
+        phrases: [
+          { fr: 'Nom de naissance.', ar: 'اسم العائلة عند الولادة.', en: 'Birth surname.' },
+          { fr: 'Nom d\'usage.', ar: 'اسم العائلة المستخدم حالياً.', en: 'Current surname.' },
+          { fr: 'Prénom.', ar: 'الاسم الشخصي.', en: 'First name.' },
+          { fr: 'Date de naissance.', ar: 'تاريخ الميلاد.', en: 'Date of birth.' },
+          { fr: 'Lieu de naissance.', ar: 'مكان الولادة.', en: 'Place of birth.' },
+          { fr: 'Nationalité.', ar: 'الجنسية.', en: 'Nationality.' },
+          { fr: 'Adresse actuelle.', ar: 'عنوان السكن الحالي.', en: 'Current address.' },
+          { fr: 'Je remplis ce formulaire pour moi-même.', ar: 'أملأ هذه الاستمارة لنفسي.', en: 'I am completing this form for myself.' },
+          { fr: 'Je suis la personne concernée par cette demande.', ar: 'أنا الشخص المعني بهذا الطلب.', en: 'I am the person concerned by this application.' },
+        ]
+      },
+      { icon: '🧍',
+        title: { ar: 'القسم الخاص بالسكن', en: 'القسم الخاص بالسكن', fr: 'القسم الخاص بالسكن' },
+        phrases: [
+          { fr: 'Vous vivez seul ?', ar: 'هل تعيش بمفردك؟', en: 'Do you live alone?' },
+          { fr: 'Vous vivez en couple ?', ar: 'هل تعيش مع شريك حياتك؟', en: 'Do you live with a partner?' },
+          { fr: 'Vous vivez chez vos parents ?', ar: 'هل تعيش في منزل والديك؟', en: 'Do you live with your parents?' },
+          { fr: 'Vous êtes hébergé chez un proche ?', ar: 'هل تقيم لدى أحد الأقارب أو المعارف؟', en: 'Are you staying with someone you know?' },
+          { fr: 'Vous êtes locataire ?', ar: 'هل أنت مستأجر؟', en: 'Are you a tenant?' },
+          { fr: 'Vous êtes propriétaire ?', ar: 'هل أنت مالك المنزل؟', en: 'Are you a homeowner?' },
+          { fr: 'Je vis seul dans un appartement.', ar: 'أعيش وحدي في شقة.', en: 'I live alone in an apartment.' },
+          { fr: 'Je suis hébergé temporairement chez un ami.', ar: 'أقيم مؤقتاً لدى صديق.', en: 'I am temporarily staying with a friend.' },
+          { fr: 'Je suis locataire de mon logement.', ar: 'أنا مستأجر منزلي.', en: 'I rent my accommodation.' },
+        ]
+      },
+      { icon: '🍽️',
+        notes: ["هذا القسم مهم لأنه يساعد على فهم تأثير الحالة الصحية على حياتك اليومية."],
+        title: { ar: 'القسم B: حياتك اليومية واحتياجاتك', en: 'القسم B: حياتك اليومية واحتياجاتك', fr: 'القسم B: حياتك اليومية واحتياجاتك' },
+        phrases: [
+          { fr: 'Avez-vous des difficultés à marcher ?', ar: 'هل تواجه صعوبة في المشي؟', en: 'Do you have difficulty walking?' },
+          { fr: 'Avez-vous besoin d\'une aide pour vous déplacer ?', ar: 'هل تحتاج إلى مساعدة للتنقل؟', en: 'Do you need help getting around?' },
+          { fr: 'Pouvez-vous prendre les transports en commun ?', ar: 'هل تستطيع استخدام وسائل النقل العامة؟', en: 'Can you use public transport?' },
+          { fr: 'Avez-vous besoin d\'aide pour vous laver ?', ar: 'هل تحتاج إلى مساعدة للاستحمام؟', en: 'Do you need help washing yourself?' },
+          { fr: 'Avez-vous des difficultés à vous habiller ?', ar: 'هل تواجه صعوبة في ارتداء الملابس؟', en: 'Do you have difficulty getting dressed?' },
+          { fr: 'Pouvez-vous préparer vos repas seul ?', ar: 'هل تستطيع تحضير وجباتك بنفسك؟', en: 'Can you prepare your meals yourself?' },
+          { fr: 'Avez-vous besoin d\'aide pour faire les courses ?', ar: 'هل تحتاج إلى مساعدة في التسوق؟', en: 'Do you need help with shopping?' },
+          { fr: 'Avez-vous des difficultés à faire le ménage ?', ar: 'هل تواجه صعوبة في تنظيف المنزل؟', en: 'Do you have difficulty doing housework?' },
+          { fr: 'Pouvez-vous porter des objets lourds ?', ar: 'هل تستطيع حمل الأشياء الثقيلة؟', en: 'Can you carry heavy objects?' },
+        ]
+      },
+      { icon: '💼',
+        title: { ar: 'القسم C: وضعك المهني', en: 'القسم C: وضعك المهني', fr: 'القسم C: وضعك المهني' },
+        phrases: [
+          { fr: 'Vous travaillez actuellement ?', ar: 'هل تعمل حالياً؟', en: 'Are you currently working?' },
+          { fr: 'Vous êtes demandeur d\'emploi ?', ar: 'هل تبحث عن عمل؟', en: 'Are you a job seeker?' },
+          { fr: 'Vous êtes en arrêt de travail ?', ar: 'هل أنت في إجازة مرضية؟', en: 'Are you on sick leave?' },
+          { fr: 'Vous êtes en formation professionnelle ?', ar: 'هل تتلقى تدريباً مهنياً؟', en: 'Are you in vocational training?' },
+          { fr: 'Vous avez des difficultés à conserver votre emploi à cause de votre état de santé ?', ar: 'هل تواجه صعوبة في الاحتفاظ بعملك بسبب حالتك الصحية؟', en: 'Do you have difficulty keeping your job because of your health condition?' },
+          { fr: 'Mon état de santé limite ma capacité à travailler.', ar: 'حالتي الصحية تحد من قدرتي على العمل.', en: 'My health condition limits my ability to work.' },
+          { fr: 'J\'ai besoin d\'un poste de travail adapté.', ar: 'أحتاج إلى مكان عمل ملائم لحالتي.', en: 'I need an adapted workstation.' },
+          { fr: 'Je souhaite reprendre une activité professionnelle adaptée.', ar: 'أرغب في العودة إلى نشاط مهني مناسب لحالتي.', en: 'I would like to return to suitable employment.' },
+        ]
+      },
+      { icon: '🙋',
+        notes: ["تنبيه: يمكنك طلب أكثر من حق في الملف نفسه، لكن يجب اختيار الحقوق التي تناسب احتياجاتك فعلاً. تقديم الطلب لا يعني ضمان الحصول عليها."],
+        title: { ar: 'القسم D: التعبير عن احتياجاتك', en: 'القسم D: التعبير عن احتياجاتك', fr: 'القسم D: التعبير عن احتياجاتك' },
+        phrases: [
+          { fr: 'Quelles sont vos attentes concernant votre demande ?', ar: 'ما توقعاتك من هذا الطلب؟', en: 'What are your expectations regarding this application?' },
+          { fr: 'Je souhaite obtenir une RQTH.', ar: 'أرغب في الحصول على اعتراف RQTH.', en: 'I would like to obtain RQTH recognition.' },
+          { fr: 'Je souhaite demander l\'AAH.', ar: 'أرغب في طلب إعانة AAH.', en: 'I would like to apply for AAH.' },
+          { fr: 'Je souhaite obtenir une carte mobilité inclusion.', ar: 'أرغب في الحصول على بطاقة التنقل والإدماج.', en: 'I would like to obtain a mobility inclusion card.' },
+          { fr: 'Je souhaite bénéficier d\'une prestation de compensation du handicap.', ar: 'أرغب في الاستفادة من تعويض تكاليف الإعاقة.', en: 'I would like to receive disability compensation support.' },
+        ]
+      },
+      { icon: '✍️',
+        title: { ar: 'القسم E: الحياة اليومية والمشروع الشخصي', en: 'القسم E: الحياة اليومية والمشروع الشخصي', fr: 'القسم E: الحياة اليومية والمشروع الشخصي' },
+        phrases: [
+          { fr: 'Expliquez vos difficultés au quotidien.', ar: 'اشرح الصعوبات التي تواجهها في حياتك اليومية.', en: 'Explain your daily difficulties.' },
+          { fr: 'Décrivez vos besoins et vos attentes.', ar: 'صف احتياجاتك وتوقعاتك.', en: 'Describe your needs and expectations.' },
+          { fr: 'Expliquez les conséquences de votre handicap sur votre vie.', ar: 'اشرح تأثير الإعاقة على حياتك.', en: 'Explain how your disability affects your life.' },
+          { fr: 'Mon état de santé entraîne des difficultés dans ma vie quotidienne et professionnelle. Je souhaite bénéficier d\'une évaluation de mes besoins.', ar: 'حالتي الصحية تسبب لي صعوبات في حياتي اليومية والمهنية. أرغب في تقييم احتياجاتي.', en: 'My health condition causes difficulties in my daily and professional life. I would like my needs to be assessed.' },
+        ]
+      },
+      { icon: '💬',
+        title: { ar: 'القسم الأخير: التوقيع', en: 'القسم الأخير: التوقيع', fr: 'القسم الأخير: التوقيع' },
+        phrases: [
+          { fr: 'Date de la demande.', ar: 'تاريخ تقديم الطلب.', en: 'Application date.' },
+          { fr: 'Signature du demandeur.', ar: 'توقيع مقدم الطلب.', en: 'Applicant\'s signature.' },
+          { fr: 'Je certifie l\'exactitude des informations fournies.', ar: 'أؤكد صحة المعلومات المقدمة.', en: 'I certify that the information provided is accurate.' },
+        ]
+      },
+      { icon: '🆘',
+        title: { ar: 'حوار عند تسليم الملف في MDPH', en: 'حوار عند تسليم الملف في MDPH', fr: 'حوار عند تسليم الملف في MDPH' },
+        phrases: [
+          { fr: 'Bonjour, vous venez pour déposer un dossier ?', ar: 'الموظف: مرحباً، هل جئت لتقديم ملف؟', en: 'Employee: Hello, are you here to submit an application?' },
+          { fr: 'Oui, je viens déposer mon dossier MDPH.', ar: 'أنت: نعم، جئت لتقديم ملف MDPH الخاص بي.', en: 'You: Yes, I am here to submit my MDPH application.' },
+          { fr: 'Est-ce une première demande ou un renouvellement ?', ar: 'الموظف: هل هذا طلب أول أم تجديد؟', en: 'Employee: Is this a first application or a renewal?' },
+          { fr: 'C\'est une première demande.', ar: 'أنت: هذا طلب لأول مرة.', en: 'You: This is a first application.' },
+          { fr: 'Avez-vous joint le certificat médical ?', ar: 'الموظف: هل أرفقت الشهادة الطبية؟', en: 'Employee: Have you attached the medical certificate?' },
+          { fr: 'Oui, voici le certificat médical et mes comptes rendus.', ar: 'أنت: نعم، هذه الشهادة الطبية وتقاريري.', en: 'You: Yes, here are the medical certificate and my reports.' },
+          { fr: 'Est-ce que je peux avoir un accusé de réception ?', ar: 'أنت: هل يمكنني الحصول على إشعار باستلام الملف؟', en: 'You: Can I get an acknowledgement of receipt?' },
+        ]
+      },
+      { icon: '♿',
+        notes: ["يمكنك طلب المساعدة من MDPH33 أو CCAS أو مساعد اجتماعي أو جمعية مختصة."],
+        title: { ar: 'أين تجد المساعدة في تعبئة الملف؟', en: 'أين تجد المساعدة في تعبئة الملف؟', fr: 'أين تجد المساعدة في تعبئة الملف؟' },
+        phrases: [
+          { fr: 'Un travailleur social peut m\'aider à remplir le dossier.', ar: 'يمكن لمساعد اجتماعي مساعدتي في تعبئة الملف.', en: 'A social worker can help me complete the application.' },
+          { fr: 'Je voudrais prendre rendez-vous avec un conseiller.', ar: 'أريد حجز موعد مع مستشار.', en: 'I would like to make an appointment with an adviser.' },
+          { fr: 'Est-ce que vous proposez un accompagnement administratif ?', ar: 'هل تقدمون مساعدة إدارية؟', en: 'Do you offer administrative assistance?' },
+        ]
+      },
+    ]
+  },
+
 
   {
     id: 'croix-rouge',
