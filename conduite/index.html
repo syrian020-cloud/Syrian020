@@ -248,6 +248,7 @@ document.getElementById('backBtn').onclick = () => { if (state.step > 1) setStep
 const FLAGS = {
   none: null,
   image: { stripes:[], stars:0, vertical:false },
+  iraq: { stripes:['#ce1126','#ffffff','#111111'], stars:0, vertical:false, bandText:'الله أكبر', bandTextColor:'#007a3d' },
   syria:   { stripes:['#0a8a4f','#ffffff','#111111'], stars:3, starColor:'#ce1126', vertical:false },
   france:  { stripes:['#0055a4','#ffffff','#ef4135'], stars:0, vertical:true },
   italy:   { stripes:['#009246','#ffffff','#ce2b37'], stars:0, vertical:true },
@@ -438,6 +439,17 @@ function drawRing(ctx, S, R, cx, cy, f) {
       const sx = cx + dir * bandMid;
       [-1, 0, 1].forEach(dy => drawStar(ctx, sx, cy + dy * lw * 1.55, stS, fd.starColor || '#ce1126'));
     });
+    if (fd.bandText) {
+      ctx.fillStyle = fd.bandTextColor || '#007a3d';
+      ctx.font = `bold ${lw * 0.62}px Cairo, Tajawal, sans-serif`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      [[cx, cy - bandMid], [cx, cy + bandMid]].forEach(([tx0, ty0]) => {
+        ctx.save();
+        ctx.translate(tx0, ty0);
+        ctx.fillText(fd.bandText, 0, 0);
+        ctx.restore();
+      });
+    }
     ctx.restore();
     strokeShapeRing(ctx, cx, cy, R, sh, outer + lw * 0.35, lw * 0.7, f.ring[2]);
     strokeShapeRing(ctx, cx, cy, R, sh, -lw * 0.35, lw * 0.7, f.ring[2]);
@@ -628,6 +640,7 @@ function viewEditor() {
             <option value="italy">إيطاليا</option>
             <option value="germany">ألمانيا</option>
             <option value="spain">إسبانيا</option>
+            <option value="iraq">العراق</option>
           </select>
           <select id="cfFont">${FONTS.map(x=>'<option value="'+x.id+'">'+x.label+'</option>').join('')}</select>
           <input type="color" id="cfTitleColor" value="#ffffff" title="لون العنوان">
