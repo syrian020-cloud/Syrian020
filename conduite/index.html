@@ -778,10 +778,10 @@ function setupEditor() {
   document.getElementById('textFont').onchange = e => { state.textFont = e.target.value; redraw(); };
   document.getElementById('textColor').oninput = e => { state.textColor = e.target.value; redraw(); };
   document.getElementById('textSize').oninput = e => { state.textSize = +e.target.value; redraw(); };
-  document.querySelectorAll('.posbtn').forEach(b => {
+  document.querySelectorAll('.posbtn[data-p]').forEach(b => {
     b.onclick = () => {
       state.textPos = b.dataset.p;
-      document.querySelectorAll('.posbtn').forEach(x => x.classList.toggle('on', x === b));
+      document.querySelectorAll('.posbtn[data-p]').forEach(x => x.classList.toggle('on', x === b));
       redraw();
     };
   });
