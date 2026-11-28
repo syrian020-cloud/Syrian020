@@ -170,6 +170,7 @@ p.sub { color: var(--mut); font-size: 13.5px; margin: 0 0 14px; }
     <button class="iconbtn hidden" id="backBtn">→</button>
     <div class="logo"><img src="icon-192.png" alt=""> picLib</div>
     <div class="spacer"></div>
+    <button class="iconbtn" id="mailBtn" title="تواصل معنا">✉️</button>
     <button class="iconbtn" id="themeBtn" title="لون التطبيق">🎨</button>
   </header>
   <div class="steps">
@@ -1110,6 +1111,12 @@ function applyTheme(name) {
   r.setProperty('--mut', th.mut);
   localStorage.setItem('piclib_theme', name);
 }
+document.getElementById('mailBtn').onclick = () => {
+  const a = document.createElement('a');
+  a.href = 'mailto:wesamhaj930@gmail.com?subject=picLib';
+  a.click();
+  toast('تواصل: wesamhaj930@gmail.com ✉️');
+};
 document.getElementById('themeBtn').onclick = () => {
   const names = Object.keys(THEMES);
   const cur = localStorage.getItem('piclib_theme') || 'green';
