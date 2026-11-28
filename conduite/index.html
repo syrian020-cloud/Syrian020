@@ -182,6 +182,8 @@ p.sub { color: var(--mut); font-size: 13.5px; margin: 0 0 14px; }
 <input type="file" id="fileInput" accept="image/*" class="hidden">
 <script>
 const FRAMES = [
+  { id:'custom', name:'صمّم إطارك ✨', title:'', sub:'', sub2:'',
+    bg:['#0d3b2e','#1a7a54'], ring:['#ffffff','#c9a227','#111111'], accent:'#ce1126', stars:false, decor:[], font:'Cairo', titleColor:'#ffffff', custom:true },
   { id:'liberation', name:'عيد التحرير السوري', title:'اليوم الوطني السوري', sub:'8 Dec · Syrian National Day', sub2:'عيد التحرير',
     bg:['#0d3b2e','#1a7a54'], ring:['#ffffff','#0a5c3f','#111111'], accent:'#d3382c', stars:true, flag:true, decor:['⭐'], font:'Cairo', titleColor:'#ffffff' },
   { id:'independence', name:'عيد الجلاء', title:'عيد الجلاء السوري', sub:'17 نيسان · Syrian Independence Day', sub2:'',
@@ -223,6 +225,7 @@ const state = {
   zoom: 1, tx: 0, ty: 0, rot: 0, flipX: false,
   customText: '', textFont: 'Cairo', textColor: '#ffffff', textSize: 52, textPos: 'bottom',
   shape: 'circle',
+  custom: { title:'عنواني', sub:'', bg1:'#0d3b2e', bg2:'#1a7a54', ring1:'#ffffff', ring2:'#c9a227', ring3:'#111111', flag:'none', font:'Cairo', titleColor:'#ffffff' },
   editing: false,
 };
 
@@ -239,6 +242,29 @@ function setStep(n) {
 
 document.getElementById('backBtn').onclick = () => { if (state.step > 1) setStep(state.step - 1); };
 
+
+
+const FLAGS = {
+  none: null,
+  syria:   { stripes:['#0a8a4f','#ffffff','#111111'], stars:3, starColor:'#ce1126', vertical:false },
+  france:  { stripes:['#0055a4','#ffffff','#ef4135'], stars:0, vertical:true },
+  italy:   { stripes:['#009246','#ffffff','#ce2b37'], stars:0, vertical:true },
+  germany: { stripes:['#111111','#dd0000','#ffce00'], stars:0, vertical:false },
+  spain:   { stripes:['#aa151b','#f1bf00','#aa151b'], stars:0, vertical:false },
+};
+
+function effectiveFrame(f) {
+  if (!f || !f.custom) return f;
+  const c = state.custom;
+  return Object.assign({}, f, {
+    title: c.title, sub: c.sub, sub2: '',
+    bg: [c.bg1, c.bg2],
+    ring: [c.ring1, c.ring2, c.ring3],
+    font: c.font, titleColor: c.titleColor,
+    flag: c.flag !== 'none',
+    flagDef: FLAGS[c.flag] || null,
+  });
+}
 
 function shapePath(ctx, cx, cy, R, shape) {
   if (shape === 'square') {
@@ -344,22 +370,24 @@ function drawRing(ctx, S, R, cx, cy, f) {
     shapePath(ctx, cx, cy, R + outer, sh);
     shapePath(ctx, cx, cy, R, sh);
     ctx.clip('evenodd');
+    const fd = f.flagDef || FLAGS.syria;
     const top = cy - R - outer, bandH = (R + outer) * 2;
-    ctx.fillStyle = '#0a8a4f';
-    ctx.fillRect(cx - R - outer - 2, top, (R + outer) * 2 + 4, bandH / 3 + 1);
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(cx - R - outer - 2, top + bandH / 3, (R + outer) * 2 + 4, bandH / 3 + 1);
-    ctx.fillStyle = '#111111';
-    ctx.fillRect(cx - R - outer - 2, top + bandH * 2 / 3, (R + outer) * 2 + 4, bandH / 3 + 2);
+    const left = cx - R - outer - 2, bandW = (R + outer) * 2 + 4;
+    fd.stripes.forEach((col, i) => {
+      ctx.fillStyle = col;
+      if (fd.vertical) ctx.fillRect(left + bandW * i / 3, top - 2, bandW / 3 + 1, bandH + 4);
+      else ctx.fillRect(left, top + bandH * i / 3, bandW, bandH / 3 + 1);
+    });
     const stS = lw * 0.62;
+    const drawStarBand = fd.stars > 0;
     const halfW = state.shape === 'circle' ? R
       : state.shape === 'rounded' || state.shape === 'square' ? R * 0.86
       : state.shape === 'hexagon' ? R * 0.9
       : R * 0.72;
     const bandMid = halfW + outer * 0.5;
-    [[-1, 0], [1, 0]].forEach(([dir]) => {
+    if (drawStarBand) [[-1, 0], [1, 0]].forEach(([dir]) => {
       const sx = cx + dir * bandMid;
-      [-1.05, 0, 1.05].forEach(dy => drawStar(ctx, sx, cy + dy * lw * 1.9, stS, '#ce1126'));
+      [-1.05, 0, 1.05].forEach(dy => drawStar(ctx, sx, cy + dy * lw * 1.9, stS, fd.starColor || '#ce1126'));
     });
     ctx.restore();
     strokeShapeRing(ctx, cx, cy, R, sh, outer + lw * 0.35, lw * 0.7, f.ring[2]);
@@ -453,7 +481,8 @@ function drawCustomText(ctx, S, R, cx, cy) {
   arText(ctx, state.customText, cx, y, size, state.textFont, state.textColor);
 }
 
-function renderScene(ctx, S, f) {
+function renderScene(ctx, S, f0) {
+  const f = effectiveFrame(f0);
   patternBg(ctx, S, f);
   const cx = S / 2, cy = S / 2, R = S * 0.34;
   drawPhotoInCircle(ctx, S, R, cx, cy);
@@ -536,6 +565,32 @@ function viewEditor() {
         <button class="tool" id="resetBtn"><span class="ti">⟲</span>إعادة ضبط</button>
         <button class="tool" id="otherBtn"><span class="ti">🖼️</span>صورة أخرى</button>
       </div>
+      ${state.frame.custom ? `
+      <div class="txteditor">
+        <div style="font-size:13px;font-weight:700;margin-bottom:8px">🎨 تصميم الإطار</div>
+        <input type="text" id="cfTitle" placeholder="عنوان الإطار…" value="">
+        <input type="text" id="cfSub" placeholder="سطر ثانٍ (اختياري)…" value="">
+        <div class="txtrow" style="margin-top:6px">
+          <select id="cfFlag">
+            <option value="none">بدون علم</option>
+            <option value="syria">علم سوريا</option>
+            <option value="france">فرنسا</option>
+            <option value="italy">إيطاليا</option>
+            <option value="germany">ألمانيا</option>
+            <option value="spain">إسبانيا</option>
+          </select>
+          <select id="cfFont">${FONTS.map(x=>'<option value="'+x.id+'">'+x.label+'</option>').join('')}</select>
+          <input type="color" id="cfTitleColor" value="#ffffff" title="لون العنوان">
+        </div>
+        <div class="txtrow" style="margin-top:6px">
+          <span style="font-size:11.5px;color:var(--mut)">خلفية</span>
+          <input type="color" id="cfBg1" value="#0d3b2e">
+          <input type="color" id="cfBg2" value="#1a7a54">
+          <span style="font-size:11.5px;color:var(--mut)">حلقة</span>
+          <input type="color" id="cfRing1" value="#ffffff">
+          <input type="color" id="cfRing2" value="#c9a227">
+        </div>
+      </div>` : ''}
       <div class="txteditor" style="padding-bottom:6px">
         <div style="font-size:12.5px;color:var(--mut);margin-bottom:6px">شكل الإطار</div>
         <div class="posbtns" style="margin-top:0">
@@ -633,6 +688,18 @@ function setupEditor() {
     document.getElementById('zoom').value = 1; redraw();
   };
   document.getElementById('otherBtn').onclick = () => document.getElementById('fileInput').click();
+
+  if (state.frame.custom) {
+    const cf = state.custom;
+    const vals = { cfTitle:'title', cfSub:'sub', cfFlag:'flag', cfFont:'font', cfTitleColor:'titleColor', cfBg1:'bg1', cfBg2:'bg2', cfRing1:'ring1', cfRing2:'ring2' };
+    Object.keys(vals).forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.value = cf[vals[id]];
+      const h = () => { cf[vals[id]] = el.value; redraw(); };
+      el.oninput = h; el.onchange = h;
+    });
+  }
 
   document.querySelectorAll('.shapebtn').forEach(b => {
     b.onclick = () => {
